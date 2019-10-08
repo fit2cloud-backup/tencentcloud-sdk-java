@@ -64,9 +64,12 @@ public class HttpConnection {
             sc.init(null, trustAllCerts, null);
             // HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
             sslSocketFactory = sc.getSocketFactory();
-            hostnameVerifier = (urlHostName, session) -> {
-                System.out.println("Warning: URL Host: " + urlHostName + " vs. " + session.getPeerHost());
-                return true;
+            hostnameVerifier = new HostnameVerifier() {
+                @Override
+                public boolean verify(String urlHostName, SSLSession session) {
+                    System.out.println("Warning: URL Host: " + urlHostName + " vs. " + session.getPeerHost());
+                    return true;
+                }
             };
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
