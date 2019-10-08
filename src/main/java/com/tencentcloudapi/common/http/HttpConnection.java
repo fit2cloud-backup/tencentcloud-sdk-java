@@ -25,22 +25,63 @@ import com.squareup.okhttp.Headers;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.RequestBody;
 
+import javax.net.ssl.*;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.util.concurrent.TimeUnit;
 import java.io.IOException;;
 
 /**
  * http连接类
+ * 已修改，跳过SSL认证
  */
 public class HttpConnection {
 	
 	private OkHttpClient client;
-	
+
+    static HostnameVerifier hostnameVerifier;
+    static SSLSocketFactory sslSocketFactory;
+
+    static {
+        try {
+            TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager() {
+                @Override
+                public void checkClientTrusted(X509Certificate[] x509Certificates, String s) throws CertificateException {
+                    return;
+                }
+                @Override
+                public void checkServerTrusted(X509Certificate[] x509Certificates, String s) throws CertificateException {
+                    return;
+                }
+                @Override
+                public X509Certificate[] getAcceptedIssuers() {
+                    return new X509Certificate[0];
+                }
+            }};
+            SSLContext sc = SSLContext.getInstance("SSL");
+            sc.init(null, trustAllCerts, null);
+            // HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+            sslSocketFactory = sc.getSocketFactory();
+            hostnameVerifier = (urlHostName, session) -> {
+                System.out.println("Warning: URL Host: " + urlHostName + " vs. " + session.getPeerHost());
+                return true;
+            };
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (KeyManagementException e) {
+            e.printStackTrace();
+        }
+    }
+
     public HttpConnection(Integer connTimeout, Integer readTimeout, Integer writeTimeout) {
     	this.client = new OkHttpClient();
     	this.client.setConnectTimeout(connTimeout, TimeUnit.SECONDS);
     	this.client.setReadTimeout(readTimeout, TimeUnit.SECONDS);
     	this.client.setWriteTimeout(writeTimeout, TimeUnit.SECONDS);
-    	
+        this.client.setSslSocketFactory(sslSocketFactory);
+        this.client.setHostnameVerifier(hostnameVerifier);
     }
     
     
