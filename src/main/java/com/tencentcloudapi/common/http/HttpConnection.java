@@ -67,7 +67,7 @@ public class HttpConnection {
             hostnameVerifier = new HostnameVerifier() {
                 @Override
                 public boolean verify(String urlHostName, SSLSession session) {
-                    System.out.println("Warning: URL Host: " + urlHostName + " vs. " + session.getPeerHost());
+                    // System.out.println("Warning: URL Host: " + urlHostName + " vs. " + session.getPeerHost());
                     return true;
                 }
             };
