@@ -65,7 +65,7 @@ public abstract class AbstractClient {
   private ClientProfile profile;
   private String endpoint;
   private String region;
-  protected String path;
+  public String path;
   private String sdkVersion;
   private String apiVersion;
   public Gson gson;

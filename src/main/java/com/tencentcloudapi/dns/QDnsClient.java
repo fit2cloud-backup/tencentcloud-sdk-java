@@ -29,7 +29,7 @@ import com.tencentcloudapi.dns.models.*;
 public class QDnsClient extends AbstractClient{
     private static String endpoint = "cns.api.qcloud.com";
     private static String version = "2020-03-12";
-    private String path;
+
     /**
      * 构造client
      * @param credential 认证信息实例
