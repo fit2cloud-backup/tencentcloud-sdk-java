@@ -65,7 +65,7 @@ public abstract class AbstractClient {
   private ClientProfile profile;
   private String endpoint;
   private String region;
-  private String path;
+  protected String path;
   private String sdkVersion;
   private String apiVersion;
   public Gson gson;
@@ -332,7 +332,7 @@ public abstract class AbstractClient {
     } catch (JsonSyntaxException e) {
       throw new TencentCloudSDKException(e.getClass().getName() + "-" + e.getMessage());
     }
-    if (errResp.response.error != null) {
+    if (errResp !=null  && errResp.response != null && errResp.response.error != null) {
       throw new TencentCloudSDKException(
           errResp.response.error.code + "-" + errResp.response.error.message,
           errResp.response.requestId);
