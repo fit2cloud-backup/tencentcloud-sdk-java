@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class IPSECOptionsSpecification extends AbstractModel{
 
     /**
-    * 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBC-192', 'AES-CBC-256', 'DES-CBC', 'NULL'， 默认为AES-CBC-128
+    * 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBC-192', 'AES-CBC-256', 'DES-CBC', 'SM4', 'NULL'， 默认为AES-CBC-128
     */
     @SerializedName("EncryptAlgorithm")
     @Expose
     private String EncryptAlgorithm;
 
     /**
-    * 认证算法：可选值：'MD5', 'SHA1'，默认为
+    * 认证算法：可选值：'MD5', 'SHA1'，'SHA-256' 默认为
     */
     @SerializedName("IntegrityAlgorith")
     @Expose
@@ -58,32 +58,32 @@ public class IPSECOptionsSpecification extends AbstractModel{
     private Long IPSECSaLifetimeTraffic;
 
     /**
-     * Get 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBC-192', 'AES-CBC-256', 'DES-CBC', 'NULL'， 默认为AES-CBC-128 
-     * @return EncryptAlgorithm 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBC-192', 'AES-CBC-256', 'DES-CBC', 'NULL'， 默认为AES-CBC-128
+     * Get 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBC-192', 'AES-CBC-256', 'DES-CBC', 'SM4', 'NULL'， 默认为AES-CBC-128 
+     * @return EncryptAlgorithm 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBC-192', 'AES-CBC-256', 'DES-CBC', 'SM4', 'NULL'， 默认为AES-CBC-128
      */
     public String getEncryptAlgorithm() {
         return this.EncryptAlgorithm;
     }
 
     /**
-     * Set 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBC-192', 'AES-CBC-256', 'DES-CBC', 'NULL'， 默认为AES-CBC-128
-     * @param EncryptAlgorithm 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBC-192', 'AES-CBC-256', 'DES-CBC', 'NULL'， 默认为AES-CBC-128
+     * Set 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBC-192', 'AES-CBC-256', 'DES-CBC', 'SM4', 'NULL'， 默认为AES-CBC-128
+     * @param EncryptAlgorithm 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBC-192', 'AES-CBC-256', 'DES-CBC', 'SM4', 'NULL'， 默认为AES-CBC-128
      */
     public void setEncryptAlgorithm(String EncryptAlgorithm) {
         this.EncryptAlgorithm = EncryptAlgorithm;
     }
 
     /**
-     * Get 认证算法：可选值：'MD5', 'SHA1'，默认为 
-     * @return IntegrityAlgorith 认证算法：可选值：'MD5', 'SHA1'，默认为
+     * Get 认证算法：可选值：'MD5', 'SHA1'，'SHA-256' 默认为 
+     * @return IntegrityAlgorith 认证算法：可选值：'MD5', 'SHA1'，'SHA-256' 默认为
      */
     public String getIntegrityAlgorith() {
         return this.IntegrityAlgorith;
     }
 
     /**
-     * Set 认证算法：可选值：'MD5', 'SHA1'，默认为
-     * @param IntegrityAlgorith 认证算法：可选值：'MD5', 'SHA1'，默认为
+     * Set 认证算法：可选值：'MD5', 'SHA1'，'SHA-256' 默认为
+     * @param IntegrityAlgorith 认证算法：可选值：'MD5', 'SHA1'，'SHA-256' 默认为
      */
     public void setIntegrityAlgorith(String IntegrityAlgorith) {
         this.IntegrityAlgorith = IntegrityAlgorith;
@@ -136,6 +136,32 @@ public class IPSECOptionsSpecification extends AbstractModel{
     public void setIPSECSaLifetimeTraffic(Long IPSECSaLifetimeTraffic) {
         this.IPSECSaLifetimeTraffic = IPSECSaLifetimeTraffic;
     }
+
+    public IPSECOptionsSpecification() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public IPSECOptionsSpecification(IPSECOptionsSpecification source) {
+        if (source.EncryptAlgorithm != null) {
+            this.EncryptAlgorithm = new String(source.EncryptAlgorithm);
+        }
+        if (source.IntegrityAlgorith != null) {
+            this.IntegrityAlgorith = new String(source.IntegrityAlgorith);
+        }
+        if (source.IPSECSaLifetimeSeconds != null) {
+            this.IPSECSaLifetimeSeconds = new Long(source.IPSECSaLifetimeSeconds);
+        }
+        if (source.PfsDhGroup != null) {
+            this.PfsDhGroup = new String(source.PfsDhGroup);
+        }
+        if (source.IPSECSaLifetimeTraffic != null) {
+            this.IPSECSaLifetimeTraffic = new Long(source.IPSECSaLifetimeTraffic);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -58,11 +58,18 @@ public class AccountInfo extends AbstractModel{
     private String ModifyPasswordTime;
 
     /**
-    * 账号的创建时间
+    * 该值已废弃
     */
     @SerializedName("CreateTime")
     @Expose
     private String CreateTime;
+
+    /**
+    * 用户最大可用实例连接数
+    */
+    @SerializedName("MaxUserConnections")
+    @Expose
+    private Long MaxUserConnections;
 
     /**
      * Get 账号备注信息 
@@ -145,20 +152,68 @@ public class AccountInfo extends AbstractModel{
     }
 
     /**
-     * Get 账号的创建时间 
-     * @return CreateTime 账号的创建时间
+     * Get 该值已废弃 
+     * @return CreateTime 该值已废弃
      */
     public String getCreateTime() {
         return this.CreateTime;
     }
 
     /**
-     * Set 账号的创建时间
-     * @param CreateTime 账号的创建时间
+     * Set 该值已废弃
+     * @param CreateTime 该值已废弃
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
     }
+
+    /**
+     * Get 用户最大可用实例连接数 
+     * @return MaxUserConnections 用户最大可用实例连接数
+     */
+    public Long getMaxUserConnections() {
+        return this.MaxUserConnections;
+    }
+
+    /**
+     * Set 用户最大可用实例连接数
+     * @param MaxUserConnections 用户最大可用实例连接数
+     */
+    public void setMaxUserConnections(Long MaxUserConnections) {
+        this.MaxUserConnections = MaxUserConnections;
+    }
+
+    public AccountInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AccountInfo(AccountInfo source) {
+        if (source.Notes != null) {
+            this.Notes = new String(source.Notes);
+        }
+        if (source.Host != null) {
+            this.Host = new String(source.Host);
+        }
+        if (source.User != null) {
+            this.User = new String(source.User);
+        }
+        if (source.ModifyTime != null) {
+            this.ModifyTime = new String(source.ModifyTime);
+        }
+        if (source.ModifyPasswordTime != null) {
+            this.ModifyPasswordTime = new String(source.ModifyPasswordTime);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.MaxUserConnections != null) {
+            this.MaxUserConnections = new Long(source.MaxUserConnections);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -170,6 +225,7 @@ public class AccountInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "ModifyTime", this.ModifyTime);
         this.setParamSimple(map, prefix + "ModifyPasswordTime", this.ModifyPasswordTime);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
+        this.setParamSimple(map, prefix + "MaxUserConnections", this.MaxUserConnections);
 
     }
 }

@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class OutputDataConfig extends AbstractModel{
 
     /**
-    * cos桶
+    * cos输出桶
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CosOutputBucket")
@@ -31,7 +31,7 @@ public class OutputDataConfig extends AbstractModel{
     private String CosOutputBucket;
 
     /**
-    * cos文件key
+    * cos输出key前缀
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CosOutputKeyPrefix")
@@ -39,9 +39,17 @@ public class OutputDataConfig extends AbstractModel{
     private String CosOutputKeyPrefix;
 
     /**
-     * Get cos桶
+    * 文件系统输出，如果指定了文件系统，那么Cos输出会被忽略
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FileSystemDataSource")
+    @Expose
+    private FileSystemDataSource FileSystemDataSource;
+
+    /**
+     * Get cos输出桶
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CosOutputBucket cos桶
+     * @return CosOutputBucket cos输出桶
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCosOutputBucket() {
@@ -49,9 +57,9 @@ public class OutputDataConfig extends AbstractModel{
     }
 
     /**
-     * Set cos桶
+     * Set cos输出桶
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param CosOutputBucket cos桶
+     * @param CosOutputBucket cos输出桶
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCosOutputBucket(String CosOutputBucket) {
@@ -59,9 +67,9 @@ public class OutputDataConfig extends AbstractModel{
     }
 
     /**
-     * Get cos文件key
+     * Get cos输出key前缀
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CosOutputKeyPrefix cos文件key
+     * @return CosOutputKeyPrefix cos输出key前缀
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCosOutputKeyPrefix() {
@@ -69,9 +77,9 @@ public class OutputDataConfig extends AbstractModel{
     }
 
     /**
-     * Set cos文件key
+     * Set cos输出key前缀
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param CosOutputKeyPrefix cos文件key
+     * @param CosOutputKeyPrefix cos输出key前缀
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCosOutputKeyPrefix(String CosOutputKeyPrefix) {
@@ -79,11 +87,52 @@ public class OutputDataConfig extends AbstractModel{
     }
 
     /**
+     * Get 文件系统输出，如果指定了文件系统，那么Cos输出会被忽略
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FileSystemDataSource 文件系统输出，如果指定了文件系统，那么Cos输出会被忽略
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public FileSystemDataSource getFileSystemDataSource() {
+        return this.FileSystemDataSource;
+    }
+
+    /**
+     * Set 文件系统输出，如果指定了文件系统，那么Cos输出会被忽略
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FileSystemDataSource 文件系统输出，如果指定了文件系统，那么Cos输出会被忽略
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFileSystemDataSource(FileSystemDataSource FileSystemDataSource) {
+        this.FileSystemDataSource = FileSystemDataSource;
+    }
+
+    public OutputDataConfig() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public OutputDataConfig(OutputDataConfig source) {
+        if (source.CosOutputBucket != null) {
+            this.CosOutputBucket = new String(source.CosOutputBucket);
+        }
+        if (source.CosOutputKeyPrefix != null) {
+            this.CosOutputKeyPrefix = new String(source.CosOutputKeyPrefix);
+        }
+        if (source.FileSystemDataSource != null) {
+            this.FileSystemDataSource = new FileSystemDataSource(source.FileSystemDataSource);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "CosOutputBucket", this.CosOutputBucket);
         this.setParamSimple(map, prefix + "CosOutputKeyPrefix", this.CosOutputKeyPrefix);
+        this.setParamObj(map, prefix + "FileSystemDataSource.", this.FileSystemDataSource);
 
     }
 }

@@ -30,6 +30,13 @@ public class RestartDBInstancesRequest extends AbstractModel{
     private String [] InstanceIds;
 
     /**
+    * 重启时间
+    */
+    @SerializedName("RestartTime")
+    @Expose
+    private String RestartTime;
+
+    /**
      * Get 实例ID的数组 
      * @return InstanceIds 实例ID的数组
      */
@@ -46,10 +53,47 @@ public class RestartDBInstancesRequest extends AbstractModel{
     }
 
     /**
+     * Get 重启时间 
+     * @return RestartTime 重启时间
+     */
+    public String getRestartTime() {
+        return this.RestartTime;
+    }
+
+    /**
+     * Set 重启时间
+     * @param RestartTime 重启时间
+     */
+    public void setRestartTime(String RestartTime) {
+        this.RestartTime = RestartTime;
+    }
+
+    public RestartDBInstancesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public RestartDBInstancesRequest(RestartDBInstancesRequest source) {
+        if (source.InstanceIds != null) {
+            this.InstanceIds = new String[source.InstanceIds.length];
+            for (int i = 0; i < source.InstanceIds.length; i++) {
+                this.InstanceIds[i] = new String(source.InstanceIds[i]);
+            }
+        }
+        if (source.RestartTime != null) {
+            this.RestartTime = new String(source.RestartTime);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "InstanceIds.", this.InstanceIds);
+        this.setParamSimple(map, prefix + "RestartTime", this.RestartTime);
 
     }
 }

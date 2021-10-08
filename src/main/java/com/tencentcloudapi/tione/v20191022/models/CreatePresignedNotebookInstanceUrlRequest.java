@@ -24,21 +24,24 @@ public class CreatePresignedNotebookInstanceUrlRequest extends AbstractModel{
 
     /**
     * Notebook实例名称
+规则：“^\[a-zA-Z0-9\](-\*\[a-zA-Z0-9\])\*$”
     */
     @SerializedName("NotebookInstanceName")
     @Expose
     private String NotebookInstanceName;
 
     /**
-    * session有效时间，秒
+    * session有效时间，秒，取值范围[1800, 43200]
     */
     @SerializedName("SessionExpirationDurationInSeconds")
     @Expose
     private Long SessionExpirationDurationInSeconds;
 
     /**
-     * Get Notebook实例名称 
+     * Get Notebook实例名称
+规则：“^\[a-zA-Z0-9\](-\*\[a-zA-Z0-9\])\*$” 
      * @return NotebookInstanceName Notebook实例名称
+规则：“^\[a-zA-Z0-9\](-\*\[a-zA-Z0-9\])\*$”
      */
     public String getNotebookInstanceName() {
         return this.NotebookInstanceName;
@@ -46,27 +49,46 @@ public class CreatePresignedNotebookInstanceUrlRequest extends AbstractModel{
 
     /**
      * Set Notebook实例名称
+规则：“^\[a-zA-Z0-9\](-\*\[a-zA-Z0-9\])\*$”
      * @param NotebookInstanceName Notebook实例名称
+规则：“^\[a-zA-Z0-9\](-\*\[a-zA-Z0-9\])\*$”
      */
     public void setNotebookInstanceName(String NotebookInstanceName) {
         this.NotebookInstanceName = NotebookInstanceName;
     }
 
     /**
-     * Get session有效时间，秒 
-     * @return SessionExpirationDurationInSeconds session有效时间，秒
+     * Get session有效时间，秒，取值范围[1800, 43200] 
+     * @return SessionExpirationDurationInSeconds session有效时间，秒，取值范围[1800, 43200]
      */
     public Long getSessionExpirationDurationInSeconds() {
         return this.SessionExpirationDurationInSeconds;
     }
 
     /**
-     * Set session有效时间，秒
-     * @param SessionExpirationDurationInSeconds session有效时间，秒
+     * Set session有效时间，秒，取值范围[1800, 43200]
+     * @param SessionExpirationDurationInSeconds session有效时间，秒，取值范围[1800, 43200]
      */
     public void setSessionExpirationDurationInSeconds(Long SessionExpirationDurationInSeconds) {
         this.SessionExpirationDurationInSeconds = SessionExpirationDurationInSeconds;
     }
+
+    public CreatePresignedNotebookInstanceUrlRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreatePresignedNotebookInstanceUrlRequest(CreatePresignedNotebookInstanceUrlRequest source) {
+        if (source.NotebookInstanceName != null) {
+            this.NotebookInstanceName = new String(source.NotebookInstanceName);
+        }
+        if (source.SessionExpirationDurationInSeconds != null) {
+            this.SessionExpirationDurationInSeconds = new Long(source.SessionExpirationDurationInSeconds);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

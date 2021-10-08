@@ -58,6 +58,13 @@ public class Outbound extends AbstractModel{
     private String Dir;
 
     /**
+    * 规则描述
+    */
+    @SerializedName("Desc")
+    @Expose
+    private String Desc;
+
+    /**
      * Get 策略，ACCEPT 或者 DROP 
      * @return Action 策略，ACCEPT 或者 DROP
      */
@@ -138,6 +145,51 @@ public class Outbound extends AbstractModel{
     }
 
     /**
+     * Get 规则描述 
+     * @return Desc 规则描述
+     */
+    public String getDesc() {
+        return this.Desc;
+    }
+
+    /**
+     * Set 规则描述
+     * @param Desc 规则描述
+     */
+    public void setDesc(String Desc) {
+        this.Desc = Desc;
+    }
+
+    public Outbound() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Outbound(Outbound source) {
+        if (source.Action != null) {
+            this.Action = new String(source.Action);
+        }
+        if (source.CidrIp != null) {
+            this.CidrIp = new String(source.CidrIp);
+        }
+        if (source.PortRange != null) {
+            this.PortRange = new String(source.PortRange);
+        }
+        if (source.IpProtocol != null) {
+            this.IpProtocol = new String(source.IpProtocol);
+        }
+        if (source.Dir != null) {
+            this.Dir = new String(source.Dir);
+        }
+        if (source.Desc != null) {
+            this.Desc = new String(source.Desc);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -146,6 +198,7 @@ public class Outbound extends AbstractModel{
         this.setParamSimple(map, prefix + "PortRange", this.PortRange);
         this.setParamSimple(map, prefix + "IpProtocol", this.IpProtocol);
         this.setParamSimple(map, prefix + "Dir", this.Dir);
+        this.setParamSimple(map, prefix + "Desc", this.Desc);
 
     }
 }

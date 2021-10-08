@@ -31,7 +31,7 @@ public class DescribeCertDomainsResponse extends AbstractModel{
     private String [] Domains;
 
     /**
-    * CDN已配置证书的域名列表
+    * 已配置证书的CDN域名列表
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CertifiedDomains")
@@ -66,9 +66,9 @@ public class DescribeCertDomainsResponse extends AbstractModel{
     }
 
     /**
-     * Get CDN已配置证书的域名列表
+     * Get 已配置证书的CDN域名列表
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CertifiedDomains CDN已配置证书的域名列表
+     * @return CertifiedDomains 已配置证书的CDN域名列表
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getCertifiedDomains() {
@@ -76,9 +76,9 @@ public class DescribeCertDomainsResponse extends AbstractModel{
     }
 
     /**
-     * Set CDN已配置证书的域名列表
+     * Set 已配置证书的CDN域名列表
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param CertifiedDomains CDN已配置证书的域名列表
+     * @param CertifiedDomains 已配置证书的CDN域名列表
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCertifiedDomains(String [] CertifiedDomains) {
@@ -100,6 +100,32 @@ public class DescribeCertDomainsResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeCertDomainsResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeCertDomainsResponse(DescribeCertDomainsResponse source) {
+        if (source.Domains != null) {
+            this.Domains = new String[source.Domains.length];
+            for (int i = 0; i < source.Domains.length; i++) {
+                this.Domains[i] = new String(source.Domains[i]);
+            }
+        }
+        if (source.CertifiedDomains != null) {
+            this.CertifiedDomains = new String[source.CertifiedDomains.length];
+            for (int i = 0; i < source.CertifiedDomains.length; i++) {
+                this.CertifiedDomains[i] = new String(source.CertifiedDomains[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

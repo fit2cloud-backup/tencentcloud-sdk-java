@@ -30,7 +30,7 @@ public class CreateInstancesResponse extends AbstractModel{
     private String DealId;
 
     /**
-    * 实例ID(该字段灰度中，部分地域不可见)
+    * 实例ID
     */
     @SerializedName("InstanceIds")
     @Expose
@@ -60,16 +60,16 @@ public class CreateInstancesResponse extends AbstractModel{
     }
 
     /**
-     * Get 实例ID(该字段灰度中，部分地域不可见) 
-     * @return InstanceIds 实例ID(该字段灰度中，部分地域不可见)
+     * Get 实例ID 
+     * @return InstanceIds 实例ID
      */
     public String [] getInstanceIds() {
         return this.InstanceIds;
     }
 
     /**
-     * Set 实例ID(该字段灰度中，部分地域不可见)
-     * @param InstanceIds 实例ID(该字段灰度中，部分地域不可见)
+     * Set 实例ID
+     * @param InstanceIds 实例ID
      */
     public void setInstanceIds(String [] InstanceIds) {
         this.InstanceIds = InstanceIds;
@@ -90,6 +90,29 @@ public class CreateInstancesResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public CreateInstancesResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateInstancesResponse(CreateInstancesResponse source) {
+        if (source.DealId != null) {
+            this.DealId = new String(source.DealId);
+        }
+        if (source.InstanceIds != null) {
+            this.InstanceIds = new String[source.InstanceIds.length];
+            for (int i = 0; i < source.InstanceIds.length; i++) {
+                this.InstanceIds[i] = new String(source.InstanceIds[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

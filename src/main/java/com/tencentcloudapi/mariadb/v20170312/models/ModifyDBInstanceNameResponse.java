@@ -23,11 +23,34 @@ import java.util.HashMap;
 public class ModifyDBInstanceNameResponse extends AbstractModel{
 
     /**
+    * 实例ID
+    */
+    @SerializedName("InstanceId")
+    @Expose
+    private String InstanceId;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
+
+    /**
+     * Get 实例ID 
+     * @return InstanceId 实例ID
+     */
+    public String getInstanceId() {
+        return this.InstanceId;
+    }
+
+    /**
+     * Set 实例ID
+     * @param InstanceId 实例ID
+     */
+    public void setInstanceId(String InstanceId) {
+        this.InstanceId = InstanceId;
+    }
 
     /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
@@ -45,10 +68,28 @@ public class ModifyDBInstanceNameResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public ModifyDBInstanceNameResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyDBInstanceNameResponse(ModifyDBInstanceNameResponse source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -87,6 +87,14 @@ public class Https extends AbstractModel{
     private String SslStatus;
 
     /**
+    * Hsts配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Hsts")
+    @Expose
+    private Hsts Hsts;
+
+    /**
      * Get https配置开关，on或off。开启https配置的域名在部署中状态，开关保持off。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return Switch https配置开关，on或off。开启https配置的域名在部署中状态，开关保持off。
@@ -247,6 +255,64 @@ public class Https extends AbstractModel{
     }
 
     /**
+     * Get Hsts配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Hsts Hsts配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Hsts getHsts() {
+        return this.Hsts;
+    }
+
+    /**
+     * Set Hsts配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Hsts Hsts配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setHsts(Hsts Hsts) {
+        this.Hsts = Hsts;
+    }
+
+    public Https() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Https(Https source) {
+        if (source.Switch != null) {
+            this.Switch = new String(source.Switch);
+        }
+        if (source.Http2 != null) {
+            this.Http2 = new String(source.Http2);
+        }
+        if (source.OcspStapling != null) {
+            this.OcspStapling = new String(source.OcspStapling);
+        }
+        if (source.VerifyClient != null) {
+            this.VerifyClient = new String(source.VerifyClient);
+        }
+        if (source.CertInfo != null) {
+            this.CertInfo = new ServerCert(source.CertInfo);
+        }
+        if (source.ClientCertInfo != null) {
+            this.ClientCertInfo = new ClientCert(source.ClientCertInfo);
+        }
+        if (source.Spdy != null) {
+            this.Spdy = new String(source.Spdy);
+        }
+        if (source.SslStatus != null) {
+            this.SslStatus = new String(source.SslStatus);
+        }
+        if (source.Hsts != null) {
+            this.Hsts = new Hsts(source.Hsts);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -258,6 +324,7 @@ public class Https extends AbstractModel{
         this.setParamObj(map, prefix + "ClientCertInfo.", this.ClientCertInfo);
         this.setParamSimple(map, prefix + "Spdy", this.Spdy);
         this.setParamSimple(map, prefix + "SslStatus", this.SslStatus);
+        this.setParamObj(map, prefix + "Hsts.", this.Hsts);
 
     }
 }

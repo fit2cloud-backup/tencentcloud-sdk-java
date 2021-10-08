@@ -30,7 +30,7 @@ public class DeleteLiveSnapshotRuleRequest extends AbstractModel{
     private String DomainName;
 
     /**
-    * 推流路径，与推流和播放地址中的AppName保持一致，默认为 live。
+    * 推流路径，与推流和播放地址中的 AppName 保持一致，默认为 live。
     */
     @SerializedName("AppName")
     @Expose
@@ -60,16 +60,16 @@ public class DeleteLiveSnapshotRuleRequest extends AbstractModel{
     }
 
     /**
-     * Get 推流路径，与推流和播放地址中的AppName保持一致，默认为 live。 
-     * @return AppName 推流路径，与推流和播放地址中的AppName保持一致，默认为 live。
+     * Get 推流路径，与推流和播放地址中的 AppName 保持一致，默认为 live。 
+     * @return AppName 推流路径，与推流和播放地址中的 AppName 保持一致，默认为 live。
      */
     public String getAppName() {
         return this.AppName;
     }
 
     /**
-     * Set 推流路径，与推流和播放地址中的AppName保持一致，默认为 live。
-     * @param AppName 推流路径，与推流和播放地址中的AppName保持一致，默认为 live。
+     * Set 推流路径，与推流和播放地址中的 AppName 保持一致，默认为 live。
+     * @param AppName 推流路径，与推流和播放地址中的 AppName 保持一致，默认为 live。
      */
     public void setAppName(String AppName) {
         this.AppName = AppName;
@@ -90,6 +90,26 @@ public class DeleteLiveSnapshotRuleRequest extends AbstractModel{
     public void setStreamName(String StreamName) {
         this.StreamName = StreamName;
     }
+
+    public DeleteLiveSnapshotRuleRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeleteLiveSnapshotRuleRequest(DeleteLiveSnapshotRuleRequest source) {
+        if (source.DomainName != null) {
+            this.DomainName = new String(source.DomainName);
+        }
+        if (source.AppName != null) {
+            this.AppName = new String(source.AppName);
+        }
+        if (source.StreamName != null) {
+            this.StreamName = new String(source.StreamName);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

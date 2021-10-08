@@ -65,6 +65,13 @@ public class DescribeMigrateJobsRequest extends AbstractModel{
     private Long Limit;
 
     /**
+    * 标签过滤条件
+    */
+    @SerializedName("TagFilters")
+    @Expose
+    private TagFilter [] TagFilters;
+
+    /**
      * Get 数据迁移任务ID 
      * @return JobId 数据迁移任务ID
      */
@@ -161,6 +168,57 @@ public class DescribeMigrateJobsRequest extends AbstractModel{
     }
 
     /**
+     * Get 标签过滤条件 
+     * @return TagFilters 标签过滤条件
+     */
+    public TagFilter [] getTagFilters() {
+        return this.TagFilters;
+    }
+
+    /**
+     * Set 标签过滤条件
+     * @param TagFilters 标签过滤条件
+     */
+    public void setTagFilters(TagFilter [] TagFilters) {
+        this.TagFilters = TagFilters;
+    }
+
+    public DescribeMigrateJobsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeMigrateJobsRequest(DescribeMigrateJobsRequest source) {
+        if (source.JobId != null) {
+            this.JobId = new String(source.JobId);
+        }
+        if (source.JobName != null) {
+            this.JobName = new String(source.JobName);
+        }
+        if (source.Order != null) {
+            this.Order = new String(source.Order);
+        }
+        if (source.OrderSeq != null) {
+            this.OrderSeq = new String(source.OrderSeq);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.TagFilters != null) {
+            this.TagFilters = new TagFilter[source.TagFilters.length];
+            for (int i = 0; i < source.TagFilters.length; i++) {
+                this.TagFilters[i] = new TagFilter(source.TagFilters[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -170,6 +228,7 @@ public class DescribeMigrateJobsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "OrderSeq", this.OrderSeq);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamArrayObj(map, prefix + "TagFilters.", this.TagFilters);
 
     }
 }

@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class InstanceExtraArgs extends AbstractModel{
 
     /**
-    * kubelet自定义参数
+    * kubelet自定义参数，参数格式为["k1=v1", "k1=v2"]， 例如["root-dir=/var/lib/kubelet","feature-gates=PodShareProcessNamespace=true,DynamicKubeletConfig=true"]
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Kubelet")
@@ -31,9 +31,9 @@ public class InstanceExtraArgs extends AbstractModel{
     private String [] Kubelet;
 
     /**
-     * Get kubelet自定义参数
+     * Get kubelet自定义参数，参数格式为["k1=v1", "k1=v2"]， 例如["root-dir=/var/lib/kubelet","feature-gates=PodShareProcessNamespace=true,DynamicKubeletConfig=true"]
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Kubelet kubelet自定义参数
+     * @return Kubelet kubelet自定义参数，参数格式为["k1=v1", "k1=v2"]， 例如["root-dir=/var/lib/kubelet","feature-gates=PodShareProcessNamespace=true,DynamicKubeletConfig=true"]
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getKubelet() {
@@ -41,14 +41,31 @@ public class InstanceExtraArgs extends AbstractModel{
     }
 
     /**
-     * Set kubelet自定义参数
+     * Set kubelet自定义参数，参数格式为["k1=v1", "k1=v2"]， 例如["root-dir=/var/lib/kubelet","feature-gates=PodShareProcessNamespace=true,DynamicKubeletConfig=true"]
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Kubelet kubelet自定义参数
+     * @param Kubelet kubelet自定义参数，参数格式为["k1=v1", "k1=v2"]， 例如["root-dir=/var/lib/kubelet","feature-gates=PodShareProcessNamespace=true,DynamicKubeletConfig=true"]
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKubelet(String [] Kubelet) {
         this.Kubelet = Kubelet;
     }
+
+    public InstanceExtraArgs() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public InstanceExtraArgs(InstanceExtraArgs source) {
+        if (source.Kubelet != null) {
+            this.Kubelet = new String[source.Kubelet.length];
+            for (int i = 0; i < source.Kubelet.length; i++) {
+                this.Kubelet[i] = new String(source.Kubelet[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

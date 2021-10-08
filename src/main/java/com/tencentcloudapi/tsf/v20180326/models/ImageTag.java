@@ -115,6 +115,14 @@ public class ImageTag extends AbstractModel{
     private Long SizeByte;
 
     /**
+    * TcrRepoInfo值
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TcrRepoInfo")
+    @Expose
+    private TcrRepoInfo TcrRepoInfo;
+
+    /**
      * Get 仓库名 
      * @return RepoName 仓库名
      */
@@ -327,6 +335,79 @@ public class ImageTag extends AbstractModel{
     }
 
     /**
+     * Get TcrRepoInfo值
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TcrRepoInfo TcrRepoInfo值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public TcrRepoInfo getTcrRepoInfo() {
+        return this.TcrRepoInfo;
+    }
+
+    /**
+     * Set TcrRepoInfo值
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TcrRepoInfo TcrRepoInfo值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTcrRepoInfo(TcrRepoInfo TcrRepoInfo) {
+        this.TcrRepoInfo = TcrRepoInfo;
+    }
+
+    public ImageTag() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ImageTag(ImageTag source) {
+        if (source.RepoName != null) {
+            this.RepoName = new String(source.RepoName);
+        }
+        if (source.TagName != null) {
+            this.TagName = new String(source.TagName);
+        }
+        if (source.TagId != null) {
+            this.TagId = new String(source.TagId);
+        }
+        if (source.ImageId != null) {
+            this.ImageId = new String(source.ImageId);
+        }
+        if (source.Size != null) {
+            this.Size = new String(source.Size);
+        }
+        if (source.CreationTime != null) {
+            this.CreationTime = new String(source.CreationTime);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+        if (source.Author != null) {
+            this.Author = new String(source.Author);
+        }
+        if (source.Architecture != null) {
+            this.Architecture = new String(source.Architecture);
+        }
+        if (source.DockerVersion != null) {
+            this.DockerVersion = new String(source.DockerVersion);
+        }
+        if (source.Os != null) {
+            this.Os = new String(source.Os);
+        }
+        if (source.PushTime != null) {
+            this.PushTime = new String(source.PushTime);
+        }
+        if (source.SizeByte != null) {
+            this.SizeByte = new Long(source.SizeByte);
+        }
+        if (source.TcrRepoInfo != null) {
+            this.TcrRepoInfo = new TcrRepoInfo(source.TcrRepoInfo);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -343,6 +424,7 @@ public class ImageTag extends AbstractModel{
         this.setParamSimple(map, prefix + "Os", this.Os);
         this.setParamSimple(map, prefix + "PushTime", this.PushTime);
         this.setParamSimple(map, prefix + "SizeByte", this.SizeByte);
+        this.setParamObj(map, prefix + "TcrRepoInfo.", this.TcrRepoInfo);
 
     }
 }

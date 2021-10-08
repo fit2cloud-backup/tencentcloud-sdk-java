@@ -33,7 +33,7 @@ public class AuthenticationTypeC extends AbstractModel{
 
     /**
     * 签名过期时间设置
-单位为秒，最大可设置为 31536000
+单位为秒，最大可设置为 630720000
     */
     @SerializedName("ExpireTime")
     @Expose
@@ -54,6 +54,16 @@ blacklist：黑名单，表示仅对 FileExtensions 中的类型进行鉴权
     @SerializedName("FilterType")
     @Expose
     private String FilterType;
+
+    /**
+    * 时间戳进制设置
+dec：十进制
+hex：十六进制
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TimeFormat")
+    @Expose
+    private String TimeFormat;
 
     /**
      * Get 计算签名的密钥
@@ -81,9 +91,9 @@ blacklist：黑名单，表示仅对 FileExtensions 中的类型进行鉴权
 
     /**
      * Get 签名过期时间设置
-单位为秒，最大可设置为 31536000 
+单位为秒，最大可设置为 630720000 
      * @return ExpireTime 签名过期时间设置
-单位为秒，最大可设置为 31536000
+单位为秒，最大可设置为 630720000
      */
     public Long getExpireTime() {
         return this.ExpireTime;
@@ -91,9 +101,9 @@ blacklist：黑名单，表示仅对 FileExtensions 中的类型进行鉴权
 
     /**
      * Set 签名过期时间设置
-单位为秒，最大可设置为 31536000
+单位为秒，最大可设置为 630720000
      * @param ExpireTime 签名过期时间设置
-单位为秒，最大可设置为 31536000
+单位为秒，最大可设置为 630720000
      */
     public void setExpireTime(Long ExpireTime) {
         this.ExpireTime = ExpireTime;
@@ -140,6 +150,63 @@ blacklist：黑名单，表示仅对 FileExtensions 中的类型进行鉴权
     }
 
     /**
+     * Get 时间戳进制设置
+dec：十进制
+hex：十六进制
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TimeFormat 时间戳进制设置
+dec：十进制
+hex：十六进制
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTimeFormat() {
+        return this.TimeFormat;
+    }
+
+    /**
+     * Set 时间戳进制设置
+dec：十进制
+hex：十六进制
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TimeFormat 时间戳进制设置
+dec：十进制
+hex：十六进制
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTimeFormat(String TimeFormat) {
+        this.TimeFormat = TimeFormat;
+    }
+
+    public AuthenticationTypeC() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AuthenticationTypeC(AuthenticationTypeC source) {
+        if (source.SecretKey != null) {
+            this.SecretKey = new String(source.SecretKey);
+        }
+        if (source.ExpireTime != null) {
+            this.ExpireTime = new Long(source.ExpireTime);
+        }
+        if (source.FileExtensions != null) {
+            this.FileExtensions = new String[source.FileExtensions.length];
+            for (int i = 0; i < source.FileExtensions.length; i++) {
+                this.FileExtensions[i] = new String(source.FileExtensions[i]);
+            }
+        }
+        if (source.FilterType != null) {
+            this.FilterType = new String(source.FilterType);
+        }
+        if (source.TimeFormat != null) {
+            this.TimeFormat = new String(source.TimeFormat);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -147,6 +214,7 @@ blacklist：黑名单，表示仅对 FileExtensions 中的类型进行鉴权
         this.setParamSimple(map, prefix + "ExpireTime", this.ExpireTime);
         this.setParamArraySimple(map, prefix + "FileExtensions.", this.FileExtensions);
         this.setParamSimple(map, prefix + "FilterType", this.FilterType);
+        this.setParamSimple(map, prefix + "TimeFormat", this.TimeFormat);
 
     }
 }

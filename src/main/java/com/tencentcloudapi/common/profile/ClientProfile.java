@@ -42,7 +42,8 @@ public class ClientProfile {
    * valid choices: zh-CN, en-US
    */
   private Language language;
-
+  private boolean debug;
+  
   public ClientProfile(String signMethod, HttpProfile httpProfile) {
     if (signMethod == null || signMethod.isEmpty()) {
       signMethod = SIGN_TC3_256;
@@ -51,6 +52,7 @@ public class ClientProfile {
     this.httpProfile = httpProfile;
     this.unsignedPayload = false;
     this.language = null;
+    this.setDebug(false);
   }
 
   public ClientProfile(String signMethod) {
@@ -88,8 +90,6 @@ public class ClientProfile {
 
   /**
    * Get the flag of whether payload is ignored.
-   *
-   * @return
    */
   public boolean isUnsignedPayload() {
     return this.unsignedPayload;
@@ -101,5 +101,13 @@ public class ClientProfile {
 
   public void setLanguage(Language lang) {
     this.language = lang;
+  }
+
+  public boolean isDebug() {
+    return debug;
+  }
+
+  public void setDebug(boolean debug) {
+    this.debug = debug;
   }
 }

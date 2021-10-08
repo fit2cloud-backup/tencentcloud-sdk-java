@@ -23,8 +23,7 @@ import java.util.HashMap;
 public class DescribeStreamPlayInfoListRequest extends AbstractModel{
 
     /**
-    * 开始时间，北京时间，格式为yyyy-mm-dd HH:MM:SS，
-当前时间 和 开始时间 间隔不超过30天。
+    * 开始时间，北京时间，格式为yyyy-mm-dd HH:MM:SS
     */
     @SerializedName("StartTime")
     @Expose
@@ -32,7 +31,7 @@ public class DescribeStreamPlayInfoListRequest extends AbstractModel{
 
     /**
     * 结束时间，北京时间，格式为yyyy-mm-dd HH:MM:SS，
-结束时间 和 开始时间  必须在同一天内。
+结束时间 和 开始时间跨度不支持超过24小时，支持距当前时间30天内的数据查询。
     */
     @SerializedName("EndTime")
     @Expose
@@ -55,29 +54,32 @@ public class DescribeStreamPlayInfoListRequest extends AbstractModel{
     private String StreamName;
 
     /**
-    * 推流路径，与推流和播放地址中的AppName保持一致，默认为live。精确匹配，不支持。
+    * 推流路径，与播放地址中的AppName保持一致，会精确匹配，在同时传递了StreamName时生效。
 若不填，则为查询总体播放数据。
-注意：按AppName查询，需要联系客服同学提单支持。
+注意：按AppName查询请先联系工单申请，开通后配置生效预计需要5个工作日左右，具体时间以最终回复为准。
     */
     @SerializedName("AppName")
     @Expose
     private String AppName;
 
     /**
-     * Get 开始时间，北京时间，格式为yyyy-mm-dd HH:MM:SS，
-当前时间 和 开始时间 间隔不超过30天。 
-     * @return StartTime 开始时间，北京时间，格式为yyyy-mm-dd HH:MM:SS，
-当前时间 和 开始时间 间隔不超过30天。
+    * 服务名称，可选值包括LVB(标准直播)，LEB(快直播)，不填则查LVB+LEB总值。
+    */
+    @SerializedName("ServiceName")
+    @Expose
+    private String ServiceName;
+
+    /**
+     * Get 开始时间，北京时间，格式为yyyy-mm-dd HH:MM:SS 
+     * @return StartTime 开始时间，北京时间，格式为yyyy-mm-dd HH:MM:SS
      */
     public String getStartTime() {
         return this.StartTime;
     }
 
     /**
-     * Set 开始时间，北京时间，格式为yyyy-mm-dd HH:MM:SS，
-当前时间 和 开始时间 间隔不超过30天。
-     * @param StartTime 开始时间，北京时间，格式为yyyy-mm-dd HH:MM:SS，
-当前时间 和 开始时间 间隔不超过30天。
+     * Set 开始时间，北京时间，格式为yyyy-mm-dd HH:MM:SS
+     * @param StartTime 开始时间，北京时间，格式为yyyy-mm-dd HH:MM:SS
      */
     public void setStartTime(String StartTime) {
         this.StartTime = StartTime;
@@ -85,9 +87,9 @@ public class DescribeStreamPlayInfoListRequest extends AbstractModel{
 
     /**
      * Get 结束时间，北京时间，格式为yyyy-mm-dd HH:MM:SS，
-结束时间 和 开始时间  必须在同一天内。 
+结束时间 和 开始时间跨度不支持超过24小时，支持距当前时间30天内的数据查询。 
      * @return EndTime 结束时间，北京时间，格式为yyyy-mm-dd HH:MM:SS，
-结束时间 和 开始时间  必须在同一天内。
+结束时间 和 开始时间跨度不支持超过24小时，支持距当前时间30天内的数据查询。
      */
     public String getEndTime() {
         return this.EndTime;
@@ -95,9 +97,9 @@ public class DescribeStreamPlayInfoListRequest extends AbstractModel{
 
     /**
      * Set 结束时间，北京时间，格式为yyyy-mm-dd HH:MM:SS，
-结束时间 和 开始时间  必须在同一天内。
+结束时间 和 开始时间跨度不支持超过24小时，支持距当前时间30天内的数据查询。
      * @param EndTime 结束时间，北京时间，格式为yyyy-mm-dd HH:MM:SS，
-结束时间 和 开始时间  必须在同一天内。
+结束时间 和 开始时间跨度不支持超过24小时，支持距当前时间30天内的数据查询。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
@@ -144,28 +146,73 @@ public class DescribeStreamPlayInfoListRequest extends AbstractModel{
     }
 
     /**
-     * Get 推流路径，与推流和播放地址中的AppName保持一致，默认为live。精确匹配，不支持。
+     * Get 推流路径，与播放地址中的AppName保持一致，会精确匹配，在同时传递了StreamName时生效。
 若不填，则为查询总体播放数据。
-注意：按AppName查询，需要联系客服同学提单支持。 
-     * @return AppName 推流路径，与推流和播放地址中的AppName保持一致，默认为live。精确匹配，不支持。
+注意：按AppName查询请先联系工单申请，开通后配置生效预计需要5个工作日左右，具体时间以最终回复为准。 
+     * @return AppName 推流路径，与播放地址中的AppName保持一致，会精确匹配，在同时传递了StreamName时生效。
 若不填，则为查询总体播放数据。
-注意：按AppName查询，需要联系客服同学提单支持。
+注意：按AppName查询请先联系工单申请，开通后配置生效预计需要5个工作日左右，具体时间以最终回复为准。
      */
     public String getAppName() {
         return this.AppName;
     }
 
     /**
-     * Set 推流路径，与推流和播放地址中的AppName保持一致，默认为live。精确匹配，不支持。
+     * Set 推流路径，与播放地址中的AppName保持一致，会精确匹配，在同时传递了StreamName时生效。
 若不填，则为查询总体播放数据。
-注意：按AppName查询，需要联系客服同学提单支持。
-     * @param AppName 推流路径，与推流和播放地址中的AppName保持一致，默认为live。精确匹配，不支持。
+注意：按AppName查询请先联系工单申请，开通后配置生效预计需要5个工作日左右，具体时间以最终回复为准。
+     * @param AppName 推流路径，与播放地址中的AppName保持一致，会精确匹配，在同时传递了StreamName时生效。
 若不填，则为查询总体播放数据。
-注意：按AppName查询，需要联系客服同学提单支持。
+注意：按AppName查询请先联系工单申请，开通后配置生效预计需要5个工作日左右，具体时间以最终回复为准。
      */
     public void setAppName(String AppName) {
         this.AppName = AppName;
     }
+
+    /**
+     * Get 服务名称，可选值包括LVB(标准直播)，LEB(快直播)，不填则查LVB+LEB总值。 
+     * @return ServiceName 服务名称，可选值包括LVB(标准直播)，LEB(快直播)，不填则查LVB+LEB总值。
+     */
+    public String getServiceName() {
+        return this.ServiceName;
+    }
+
+    /**
+     * Set 服务名称，可选值包括LVB(标准直播)，LEB(快直播)，不填则查LVB+LEB总值。
+     * @param ServiceName 服务名称，可选值包括LVB(标准直播)，LEB(快直播)，不填则查LVB+LEB总值。
+     */
+    public void setServiceName(String ServiceName) {
+        this.ServiceName = ServiceName;
+    }
+
+    public DescribeStreamPlayInfoListRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeStreamPlayInfoListRequest(DescribeStreamPlayInfoListRequest source) {
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.PlayDomain != null) {
+            this.PlayDomain = new String(source.PlayDomain);
+        }
+        if (source.StreamName != null) {
+            this.StreamName = new String(source.StreamName);
+        }
+        if (source.AppName != null) {
+            this.AppName = new String(source.AppName);
+        }
+        if (source.ServiceName != null) {
+            this.ServiceName = new String(source.ServiceName);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -176,6 +223,7 @@ public class DescribeStreamPlayInfoListRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "PlayDomain", this.PlayDomain);
         this.setParamSimple(map, prefix + "StreamName", this.StreamName);
         this.setParamSimple(map, prefix + "AppName", this.AppName);
+        this.setParamSimple(map, prefix + "ServiceName", this.ServiceName);
 
     }
 }

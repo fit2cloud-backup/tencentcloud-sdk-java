@@ -58,7 +58,7 @@ public class SubmitCertificateInformationRequest extends AbstractModel{
     private String [] DomainList;
 
     /**
-    * 私钥密码。
+    * 私钥密码（非必填）。
     */
     @SerializedName("KeyPassword")
     @Expose
@@ -128,21 +128,21 @@ public class SubmitCertificateInformationRequest extends AbstractModel{
     private String PhoneNumber;
 
     /**
-    * 证书验证方式。
+    * 证书验证方式。验证类型：DNS_AUTO = 自动DNS验证（仅支持在腾讯云解析且解析状态正常的域名使用该验证类型），DNS = 手动DNS验证，FILE = 文件验证。
     */
     @SerializedName("VerifyType")
     @Expose
     private String VerifyType;
 
     /**
-    * 管理人姓。
+    * 管理人名。
     */
     @SerializedName("AdminFirstName")
     @Expose
     private String AdminFirstName;
 
     /**
-    * 管理人名。
+    * 管理人姓。
     */
     @SerializedName("AdminLastName")
     @Expose
@@ -170,14 +170,14 @@ public class SubmitCertificateInformationRequest extends AbstractModel{
     private String AdminPosition;
 
     /**
-    * 联系人姓。
+    * 联系人名。
     */
     @SerializedName("ContactFirstName")
     @Expose
     private String ContactFirstName;
 
     /**
-    * 联系人名。
+    * 联系人姓。
     */
     @SerializedName("ContactLastName")
     @Expose
@@ -285,16 +285,16 @@ public class SubmitCertificateInformationRequest extends AbstractModel{
     }
 
     /**
-     * Get 私钥密码。 
-     * @return KeyPassword 私钥密码。
+     * Get 私钥密码（非必填）。 
+     * @return KeyPassword 私钥密码（非必填）。
      */
     public String getKeyPassword() {
         return this.KeyPassword;
     }
 
     /**
-     * Set 私钥密码。
-     * @param KeyPassword 私钥密码。
+     * Set 私钥密码（非必填）。
+     * @param KeyPassword 私钥密码（非必填）。
      */
     public void setKeyPassword(String KeyPassword) {
         this.KeyPassword = KeyPassword;
@@ -445,48 +445,48 @@ public class SubmitCertificateInformationRequest extends AbstractModel{
     }
 
     /**
-     * Get 证书验证方式。 
-     * @return VerifyType 证书验证方式。
+     * Get 证书验证方式。验证类型：DNS_AUTO = 自动DNS验证（仅支持在腾讯云解析且解析状态正常的域名使用该验证类型），DNS = 手动DNS验证，FILE = 文件验证。 
+     * @return VerifyType 证书验证方式。验证类型：DNS_AUTO = 自动DNS验证（仅支持在腾讯云解析且解析状态正常的域名使用该验证类型），DNS = 手动DNS验证，FILE = 文件验证。
      */
     public String getVerifyType() {
         return this.VerifyType;
     }
 
     /**
-     * Set 证书验证方式。
-     * @param VerifyType 证书验证方式。
+     * Set 证书验证方式。验证类型：DNS_AUTO = 自动DNS验证（仅支持在腾讯云解析且解析状态正常的域名使用该验证类型），DNS = 手动DNS验证，FILE = 文件验证。
+     * @param VerifyType 证书验证方式。验证类型：DNS_AUTO = 自动DNS验证（仅支持在腾讯云解析且解析状态正常的域名使用该验证类型），DNS = 手动DNS验证，FILE = 文件验证。
      */
     public void setVerifyType(String VerifyType) {
         this.VerifyType = VerifyType;
     }
 
     /**
-     * Get 管理人姓。 
-     * @return AdminFirstName 管理人姓。
+     * Get 管理人名。 
+     * @return AdminFirstName 管理人名。
      */
     public String getAdminFirstName() {
         return this.AdminFirstName;
     }
 
     /**
-     * Set 管理人姓。
-     * @param AdminFirstName 管理人姓。
+     * Set 管理人名。
+     * @param AdminFirstName 管理人名。
      */
     public void setAdminFirstName(String AdminFirstName) {
         this.AdminFirstName = AdminFirstName;
     }
 
     /**
-     * Get 管理人名。 
-     * @return AdminLastName 管理人名。
+     * Get 管理人姓。 
+     * @return AdminLastName 管理人姓。
      */
     public String getAdminLastName() {
         return this.AdminLastName;
     }
 
     /**
-     * Set 管理人名。
-     * @param AdminLastName 管理人名。
+     * Set 管理人姓。
+     * @param AdminLastName 管理人姓。
      */
     public void setAdminLastName(String AdminLastName) {
         this.AdminLastName = AdminLastName;
@@ -541,32 +541,32 @@ public class SubmitCertificateInformationRequest extends AbstractModel{
     }
 
     /**
-     * Get 联系人姓。 
-     * @return ContactFirstName 联系人姓。
+     * Get 联系人名。 
+     * @return ContactFirstName 联系人名。
      */
     public String getContactFirstName() {
         return this.ContactFirstName;
     }
 
     /**
-     * Set 联系人姓。
-     * @param ContactFirstName 联系人姓。
+     * Set 联系人名。
+     * @param ContactFirstName 联系人名。
      */
     public void setContactFirstName(String ContactFirstName) {
         this.ContactFirstName = ContactFirstName;
     }
 
     /**
-     * Get 联系人名。 
-     * @return ContactLastName 联系人名。
+     * Get 联系人姓。 
+     * @return ContactLastName 联系人姓。
      */
     public String getContactLastName() {
         return this.ContactLastName;
     }
 
     /**
-     * Set 联系人名。
-     * @param ContactLastName 联系人名。
+     * Set 联系人姓。
+     * @param ContactLastName 联系人姓。
      */
     public void setContactLastName(String ContactLastName) {
         this.ContactLastName = ContactLastName;
@@ -619,6 +619,98 @@ public class SubmitCertificateInformationRequest extends AbstractModel{
     public void setContactPosition(String ContactPosition) {
         this.ContactPosition = ContactPosition;
     }
+
+    public SubmitCertificateInformationRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SubmitCertificateInformationRequest(SubmitCertificateInformationRequest source) {
+        if (source.CertificateId != null) {
+            this.CertificateId = new String(source.CertificateId);
+        }
+        if (source.CsrType != null) {
+            this.CsrType = new String(source.CsrType);
+        }
+        if (source.CsrContent != null) {
+            this.CsrContent = new String(source.CsrContent);
+        }
+        if (source.CertificateDomain != null) {
+            this.CertificateDomain = new String(source.CertificateDomain);
+        }
+        if (source.DomainList != null) {
+            this.DomainList = new String[source.DomainList.length];
+            for (int i = 0; i < source.DomainList.length; i++) {
+                this.DomainList[i] = new String(source.DomainList[i]);
+            }
+        }
+        if (source.KeyPassword != null) {
+            this.KeyPassword = new String(source.KeyPassword);
+        }
+        if (source.OrganizationName != null) {
+            this.OrganizationName = new String(source.OrganizationName);
+        }
+        if (source.OrganizationDivision != null) {
+            this.OrganizationDivision = new String(source.OrganizationDivision);
+        }
+        if (source.OrganizationAddress != null) {
+            this.OrganizationAddress = new String(source.OrganizationAddress);
+        }
+        if (source.OrganizationCountry != null) {
+            this.OrganizationCountry = new String(source.OrganizationCountry);
+        }
+        if (source.OrganizationCity != null) {
+            this.OrganizationCity = new String(source.OrganizationCity);
+        }
+        if (source.OrganizationRegion != null) {
+            this.OrganizationRegion = new String(source.OrganizationRegion);
+        }
+        if (source.PostalCode != null) {
+            this.PostalCode = new String(source.PostalCode);
+        }
+        if (source.PhoneAreaCode != null) {
+            this.PhoneAreaCode = new String(source.PhoneAreaCode);
+        }
+        if (source.PhoneNumber != null) {
+            this.PhoneNumber = new String(source.PhoneNumber);
+        }
+        if (source.VerifyType != null) {
+            this.VerifyType = new String(source.VerifyType);
+        }
+        if (source.AdminFirstName != null) {
+            this.AdminFirstName = new String(source.AdminFirstName);
+        }
+        if (source.AdminLastName != null) {
+            this.AdminLastName = new String(source.AdminLastName);
+        }
+        if (source.AdminPhoneNum != null) {
+            this.AdminPhoneNum = new String(source.AdminPhoneNum);
+        }
+        if (source.AdminEmail != null) {
+            this.AdminEmail = new String(source.AdminEmail);
+        }
+        if (source.AdminPosition != null) {
+            this.AdminPosition = new String(source.AdminPosition);
+        }
+        if (source.ContactFirstName != null) {
+            this.ContactFirstName = new String(source.ContactFirstName);
+        }
+        if (source.ContactLastName != null) {
+            this.ContactLastName = new String(source.ContactLastName);
+        }
+        if (source.ContactEmail != null) {
+            this.ContactEmail = new String(source.ContactEmail);
+        }
+        if (source.ContactNumber != null) {
+            this.ContactNumber = new String(source.ContactNumber);
+        }
+        if (source.ContactPosition != null) {
+            this.ContactPosition = new String(source.ContactPosition);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

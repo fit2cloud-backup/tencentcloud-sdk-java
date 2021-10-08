@@ -44,6 +44,13 @@ public class CreateUsrTokenRequest extends AbstractModel{
     private Long TtlMinutes;
 
     /**
+    * 旧的AccessToken。续期Token时，此参数为必须。
+    */
+    @SerializedName("OldAccessToken")
+    @Expose
+    private String OldAccessToken;
+
+    /**
      * Get 终端用户在IoT Video上的唯一标识ID 
      * @return AccessId 终端用户在IoT Video上的唯一标识ID
      */
@@ -92,12 +99,52 @@ public class CreateUsrTokenRequest extends AbstractModel{
     }
 
     /**
+     * Get 旧的AccessToken。续期Token时，此参数为必须。 
+     * @return OldAccessToken 旧的AccessToken。续期Token时，此参数为必须。
+     */
+    public String getOldAccessToken() {
+        return this.OldAccessToken;
+    }
+
+    /**
+     * Set 旧的AccessToken。续期Token时，此参数为必须。
+     * @param OldAccessToken 旧的AccessToken。续期Token时，此参数为必须。
+     */
+    public void setOldAccessToken(String OldAccessToken) {
+        this.OldAccessToken = OldAccessToken;
+    }
+
+    public CreateUsrTokenRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateUsrTokenRequest(CreateUsrTokenRequest source) {
+        if (source.AccessId != null) {
+            this.AccessId = new String(source.AccessId);
+        }
+        if (source.UniqueId != null) {
+            this.UniqueId = new String(source.UniqueId);
+        }
+        if (source.TtlMinutes != null) {
+            this.TtlMinutes = new Long(source.TtlMinutes);
+        }
+        if (source.OldAccessToken != null) {
+            this.OldAccessToken = new String(source.OldAccessToken);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "AccessId", this.AccessId);
         this.setParamSimple(map, prefix + "UniqueId", this.UniqueId);
         this.setParamSimple(map, prefix + "TtlMinutes", this.TtlMinutes);
+        this.setParamSimple(map, prefix + "OldAccessToken", this.OldAccessToken);
 
     }
 }

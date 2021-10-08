@@ -121,7 +121,16 @@ public class DescribeTrainingJobResponse extends AbstractModel{
     private ModelArtifacts ModelArtifacts;
 
     /**
-    * 详细状态
+    * 详细状态，取值范围
+Starting：启动中
+Downloading: 准备训练数据
+Training: 正在训练
+Uploading: 上传训练结果
+Completed：已完成
+Failed: 失败
+MaxRuntimeExceeded: 任务超过最大运行时间
+Stopping: 停止中
+Stopped：已停止
     */
     @SerializedName("SecondaryStatus")
     @Expose
@@ -144,11 +153,31 @@ public class DescribeTrainingJobResponse extends AbstractModel{
     private String RoleName;
 
     /**
-    * 任务状态
+    * 训练任务状态，取值范围
+InProgress：运行中
+Completed: 已完成
+Failed: 失败
+Stopping: 停止中
+Stopped：已停止
     */
     @SerializedName("TrainingJobStatus")
     @Expose
     private String TrainingJobStatus;
+
+    /**
+    * 训练任务日志链接
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("LogUrl")
+    @Expose
+    private String LogUrl;
+
+    /**
+    * 训练任务实例ID
+    */
+    @SerializedName("InstanceId")
+    @Expose
+    private String InstanceId;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -394,16 +423,52 @@ public class DescribeTrainingJobResponse extends AbstractModel{
     }
 
     /**
-     * Get 详细状态 
-     * @return SecondaryStatus 详细状态
+     * Get 详细状态，取值范围
+Starting：启动中
+Downloading: 准备训练数据
+Training: 正在训练
+Uploading: 上传训练结果
+Completed：已完成
+Failed: 失败
+MaxRuntimeExceeded: 任务超过最大运行时间
+Stopping: 停止中
+Stopped：已停止 
+     * @return SecondaryStatus 详细状态，取值范围
+Starting：启动中
+Downloading: 准备训练数据
+Training: 正在训练
+Uploading: 上传训练结果
+Completed：已完成
+Failed: 失败
+MaxRuntimeExceeded: 任务超过最大运行时间
+Stopping: 停止中
+Stopped：已停止
      */
     public String getSecondaryStatus() {
         return this.SecondaryStatus;
     }
 
     /**
-     * Set 详细状态
-     * @param SecondaryStatus 详细状态
+     * Set 详细状态，取值范围
+Starting：启动中
+Downloading: 准备训练数据
+Training: 正在训练
+Uploading: 上传训练结果
+Completed：已完成
+Failed: 失败
+MaxRuntimeExceeded: 任务超过最大运行时间
+Stopping: 停止中
+Stopped：已停止
+     * @param SecondaryStatus 详细状态，取值范围
+Starting：启动中
+Downloading: 准备训练数据
+Training: 正在训练
+Uploading: 上传训练结果
+Completed：已完成
+Failed: 失败
+MaxRuntimeExceeded: 任务超过最大运行时间
+Stopping: 停止中
+Stopped：已停止
      */
     public void setSecondaryStatus(String SecondaryStatus) {
         this.SecondaryStatus = SecondaryStatus;
@@ -450,19 +515,75 @@ public class DescribeTrainingJobResponse extends AbstractModel{
     }
 
     /**
-     * Get 任务状态 
-     * @return TrainingJobStatus 任务状态
+     * Get 训练任务状态，取值范围
+InProgress：运行中
+Completed: 已完成
+Failed: 失败
+Stopping: 停止中
+Stopped：已停止 
+     * @return TrainingJobStatus 训练任务状态，取值范围
+InProgress：运行中
+Completed: 已完成
+Failed: 失败
+Stopping: 停止中
+Stopped：已停止
      */
     public String getTrainingJobStatus() {
         return this.TrainingJobStatus;
     }
 
     /**
-     * Set 任务状态
-     * @param TrainingJobStatus 任务状态
+     * Set 训练任务状态，取值范围
+InProgress：运行中
+Completed: 已完成
+Failed: 失败
+Stopping: 停止中
+Stopped：已停止
+     * @param TrainingJobStatus 训练任务状态，取值范围
+InProgress：运行中
+Completed: 已完成
+Failed: 失败
+Stopping: 停止中
+Stopped：已停止
      */
     public void setTrainingJobStatus(String TrainingJobStatus) {
         this.TrainingJobStatus = TrainingJobStatus;
+    }
+
+    /**
+     * Get 训练任务日志链接
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return LogUrl 训练任务日志链接
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getLogUrl() {
+        return this.LogUrl;
+    }
+
+    /**
+     * Set 训练任务日志链接
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param LogUrl 训练任务日志链接
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLogUrl(String LogUrl) {
+        this.LogUrl = LogUrl;
+    }
+
+    /**
+     * Get 训练任务实例ID 
+     * @return InstanceId 训练任务实例ID
+     */
+    public String getInstanceId() {
+        return this.InstanceId;
+    }
+
+    /**
+     * Set 训练任务实例ID
+     * @param InstanceId 训练任务实例ID
+     */
+    public void setInstanceId(String InstanceId) {
+        this.InstanceId = InstanceId;
     }
 
     /**
@@ -480,6 +601,83 @@ public class DescribeTrainingJobResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeTrainingJobResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeTrainingJobResponse(DescribeTrainingJobResponse source) {
+        if (source.AlgorithmSpecification != null) {
+            this.AlgorithmSpecification = new AlgorithmSpecification(source.AlgorithmSpecification);
+        }
+        if (source.TrainingJobName != null) {
+            this.TrainingJobName = new String(source.TrainingJobName);
+        }
+        if (source.HyperParameters != null) {
+            this.HyperParameters = new String(source.HyperParameters);
+        }
+        if (source.InputDataConfig != null) {
+            this.InputDataConfig = new InputDataConfig[source.InputDataConfig.length];
+            for (int i = 0; i < source.InputDataConfig.length; i++) {
+                this.InputDataConfig[i] = new InputDataConfig(source.InputDataConfig[i]);
+            }
+        }
+        if (source.OutputDataConfig != null) {
+            this.OutputDataConfig = new OutputDataConfig(source.OutputDataConfig);
+        }
+        if (source.StoppingCondition != null) {
+            this.StoppingCondition = new StoppingCondition(source.StoppingCondition);
+        }
+        if (source.ResourceConfig != null) {
+            this.ResourceConfig = new ResourceConfig(source.ResourceConfig);
+        }
+        if (source.VpcConfig != null) {
+            this.VpcConfig = new VpcConfig(source.VpcConfig);
+        }
+        if (source.FailureReason != null) {
+            this.FailureReason = new String(source.FailureReason);
+        }
+        if (source.LastModifiedTime != null) {
+            this.LastModifiedTime = new String(source.LastModifiedTime);
+        }
+        if (source.TrainingStartTime != null) {
+            this.TrainingStartTime = new String(source.TrainingStartTime);
+        }
+        if (source.TrainingEndTime != null) {
+            this.TrainingEndTime = new String(source.TrainingEndTime);
+        }
+        if (source.ModelArtifacts != null) {
+            this.ModelArtifacts = new ModelArtifacts(source.ModelArtifacts);
+        }
+        if (source.SecondaryStatus != null) {
+            this.SecondaryStatus = new String(source.SecondaryStatus);
+        }
+        if (source.SecondaryStatusTransitions != null) {
+            this.SecondaryStatusTransitions = new SecondaryStatusTransition[source.SecondaryStatusTransitions.length];
+            for (int i = 0; i < source.SecondaryStatusTransitions.length; i++) {
+                this.SecondaryStatusTransitions[i] = new SecondaryStatusTransition(source.SecondaryStatusTransitions[i]);
+            }
+        }
+        if (source.RoleName != null) {
+            this.RoleName = new String(source.RoleName);
+        }
+        if (source.TrainingJobStatus != null) {
+            this.TrainingJobStatus = new String(source.TrainingJobStatus);
+        }
+        if (source.LogUrl != null) {
+            this.LogUrl = new String(source.LogUrl);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -502,6 +700,8 @@ public class DescribeTrainingJobResponse extends AbstractModel{
         this.setParamArrayObj(map, prefix + "SecondaryStatusTransitions.", this.SecondaryStatusTransitions);
         this.setParamSimple(map, prefix + "RoleName", this.RoleName);
         this.setParamSimple(map, prefix + "TrainingJobStatus", this.TrainingJobStatus);
+        this.setParamSimple(map, prefix + "LogUrl", this.LogUrl);
+        this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

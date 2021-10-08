@@ -25,13 +25,13 @@ public class CreateWordSamplesRequest extends AbstractModel{
     /**
     * <b>关键词应用场景，可选值：</b>
 1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
-2. Recognition.Asr：通过语音识别技术，进行内容识别；
-3. Review.Ocr：通过光学字符识别技术，进行内容审核；
-4. Review.Asr：通过语音识别技术，进行内容审核；
+2. Recognition.Asr：通过音频识别技术，进行内容识别；
+3. Review.Ocr：通过光学字符识别技术，进行不适宜内容识别；
+4. Review.Asr：通过音频识别技术，进行不适宜内容识别；
 <b>可合并简写为：</b>
-5. Recognition：通过光学字符识别技术、语音识别技术，进行内容识别，等价于 1+2；
-6. Review：通过光学字符识别技术、语音识别技术，进行内容审核，等价于 3+4；
-7. All：通过光学字符识别技术、语音识别技术，进行内容识别、内容审核，等价于 1+2+3+4。
+5. Recognition：通过光学字符识别技术、音频识别技术，进行内容识别，等价于 1+2；
+6. Review：通过光学字符识别技术、音频识别技术，进行不适宜内容识别，等价于 3+4；
+7. All：通过光学字符识别技术、音频识别技术，进行内容识别、不适宜内容识别，等价于 1+2+3+4。
     */
     @SerializedName("Usages")
     @Expose
@@ -47,22 +47,22 @@ public class CreateWordSamplesRequest extends AbstractModel{
     /**
      * Get <b>关键词应用场景，可选值：</b>
 1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
-2. Recognition.Asr：通过语音识别技术，进行内容识别；
-3. Review.Ocr：通过光学字符识别技术，进行内容审核；
-4. Review.Asr：通过语音识别技术，进行内容审核；
+2. Recognition.Asr：通过音频识别技术，进行内容识别；
+3. Review.Ocr：通过光学字符识别技术，进行不适宜内容识别；
+4. Review.Asr：通过音频识别技术，进行不适宜内容识别；
 <b>可合并简写为：</b>
-5. Recognition：通过光学字符识别技术、语音识别技术，进行内容识别，等价于 1+2；
-6. Review：通过光学字符识别技术、语音识别技术，进行内容审核，等价于 3+4；
-7. All：通过光学字符识别技术、语音识别技术，进行内容识别、内容审核，等价于 1+2+3+4。 
+5. Recognition：通过光学字符识别技术、音频识别技术，进行内容识别，等价于 1+2；
+6. Review：通过光学字符识别技术、音频识别技术，进行不适宜内容识别，等价于 3+4；
+7. All：通过光学字符识别技术、音频识别技术，进行内容识别、不适宜内容识别，等价于 1+2+3+4。 
      * @return Usages <b>关键词应用场景，可选值：</b>
 1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
-2. Recognition.Asr：通过语音识别技术，进行内容识别；
-3. Review.Ocr：通过光学字符识别技术，进行内容审核；
-4. Review.Asr：通过语音识别技术，进行内容审核；
+2. Recognition.Asr：通过音频识别技术，进行内容识别；
+3. Review.Ocr：通过光学字符识别技术，进行不适宜内容识别；
+4. Review.Asr：通过音频识别技术，进行不适宜内容识别；
 <b>可合并简写为：</b>
-5. Recognition：通过光学字符识别技术、语音识别技术，进行内容识别，等价于 1+2；
-6. Review：通过光学字符识别技术、语音识别技术，进行内容审核，等价于 3+4；
-7. All：通过光学字符识别技术、语音识别技术，进行内容识别、内容审核，等价于 1+2+3+4。
+5. Recognition：通过光学字符识别技术、音频识别技术，进行内容识别，等价于 1+2；
+6. Review：通过光学字符识别技术、音频识别技术，进行不适宜内容识别，等价于 3+4；
+7. All：通过光学字符识别技术、音频识别技术，进行内容识别、不适宜内容识别，等价于 1+2+3+4。
      */
     public String [] getUsages() {
         return this.Usages;
@@ -71,22 +71,22 @@ public class CreateWordSamplesRequest extends AbstractModel{
     /**
      * Set <b>关键词应用场景，可选值：</b>
 1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
-2. Recognition.Asr：通过语音识别技术，进行内容识别；
-3. Review.Ocr：通过光学字符识别技术，进行内容审核；
-4. Review.Asr：通过语音识别技术，进行内容审核；
+2. Recognition.Asr：通过音频识别技术，进行内容识别；
+3. Review.Ocr：通过光学字符识别技术，进行不适宜内容识别；
+4. Review.Asr：通过音频识别技术，进行不适宜内容识别；
 <b>可合并简写为：</b>
-5. Recognition：通过光学字符识别技术、语音识别技术，进行内容识别，等价于 1+2；
-6. Review：通过光学字符识别技术、语音识别技术，进行内容审核，等价于 3+4；
-7. All：通过光学字符识别技术、语音识别技术，进行内容识别、内容审核，等价于 1+2+3+4。
+5. Recognition：通过光学字符识别技术、音频识别技术，进行内容识别，等价于 1+2；
+6. Review：通过光学字符识别技术、音频识别技术，进行不适宜内容识别，等价于 3+4；
+7. All：通过光学字符识别技术、音频识别技术，进行内容识别、不适宜内容识别，等价于 1+2+3+4。
      * @param Usages <b>关键词应用场景，可选值：</b>
 1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
-2. Recognition.Asr：通过语音识别技术，进行内容识别；
-3. Review.Ocr：通过光学字符识别技术，进行内容审核；
-4. Review.Asr：通过语音识别技术，进行内容审核；
+2. Recognition.Asr：通过音频识别技术，进行内容识别；
+3. Review.Ocr：通过光学字符识别技术，进行不适宜内容识别；
+4. Review.Asr：通过音频识别技术，进行不适宜内容识别；
 <b>可合并简写为：</b>
-5. Recognition：通过光学字符识别技术、语音识别技术，进行内容识别，等价于 1+2；
-6. Review：通过光学字符识别技术、语音识别技术，进行内容审核，等价于 3+4；
-7. All：通过光学字符识别技术、语音识别技术，进行内容识别、内容审核，等价于 1+2+3+4。
+5. Recognition：通过光学字符识别技术、音频识别技术，进行内容识别，等价于 1+2；
+6. Review：通过光学字符识别技术、音频识别技术，进行不适宜内容识别，等价于 3+4；
+7. All：通过光学字符识别技术、音频识别技术，进行内容识别、不适宜内容识别，等价于 1+2+3+4。
      */
     public void setUsages(String [] Usages) {
         this.Usages = Usages;
@@ -107,6 +107,29 @@ public class CreateWordSamplesRequest extends AbstractModel{
     public void setWords(AiSampleWordInfo [] Words) {
         this.Words = Words;
     }
+
+    public CreateWordSamplesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateWordSamplesRequest(CreateWordSamplesRequest source) {
+        if (source.Usages != null) {
+            this.Usages = new String[source.Usages.length];
+            for (int i = 0; i < source.Usages.length; i++) {
+                this.Usages[i] = new String(source.Usages[i]);
+            }
+        }
+        if (source.Words != null) {
+            this.Words = new AiSampleWordInfo[source.Words.length];
+            for (int i = 0; i < source.Words.length; i++) {
+                this.Words[i] = new AiSampleWordInfo(source.Words[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

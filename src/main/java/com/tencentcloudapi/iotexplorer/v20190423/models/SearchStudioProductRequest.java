@@ -58,6 +58,13 @@ public class SearchStudioProductRequest extends AbstractModel{
     private String DevStatus;
 
     /**
+    * 产品ID
+    */
+    @SerializedName("ProductId")
+    @Expose
+    private String ProductId;
+
+    /**
      * Get 项目ID 
      * @return ProjectId 项目ID
      */
@@ -138,6 +145,51 @@ public class SearchStudioProductRequest extends AbstractModel{
     }
 
     /**
+     * Get 产品ID 
+     * @return ProductId 产品ID
+     */
+    public String getProductId() {
+        return this.ProductId;
+    }
+
+    /**
+     * Set 产品ID
+     * @param ProductId 产品ID
+     */
+    public void setProductId(String ProductId) {
+        this.ProductId = ProductId;
+    }
+
+    public SearchStudioProductRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SearchStudioProductRequest(SearchStudioProductRequest source) {
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
+        }
+        if (source.ProductName != null) {
+            this.ProductName = new String(source.ProductName);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.DevStatus != null) {
+            this.DevStatus = new String(source.DevStatus);
+        }
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -146,6 +198,7 @@ public class SearchStudioProductRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "DevStatus", this.DevStatus);
+        this.setParamSimple(map, prefix + "ProductId", this.ProductId);
 
     }
 }

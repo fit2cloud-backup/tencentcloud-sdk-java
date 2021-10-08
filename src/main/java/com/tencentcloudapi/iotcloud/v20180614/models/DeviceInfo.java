@@ -79,7 +79,7 @@ public class DeviceInfo extends AbstractModel{
     private Long DeviceType;
 
     /**
-    * IMEI
+    * 国际移动设备识别码 IMEI
     */
     @SerializedName("Imei")
     @Expose
@@ -182,6 +182,22 @@ public class DeviceInfo extends AbstractModel{
     @SerializedName("Labels")
     @Expose
     private DeviceLabel [] Labels;
+
+    /**
+    * MQTT客户端IP地址
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ClientIP")
+    @Expose
+    private String ClientIP;
+
+    /**
+    * ota最后更新时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FirmwareUpdateTime")
+    @Expose
+    private Long FirmwareUpdateTime;
 
     /**
      * Get 设备名 
@@ -312,16 +328,16 @@ public class DeviceInfo extends AbstractModel{
     }
 
     /**
-     * Get IMEI 
-     * @return Imei IMEI
+     * Get 国际移动设备识别码 IMEI 
+     * @return Imei 国际移动设备识别码 IMEI
      */
     public String getImei() {
         return this.Imei;
     }
 
     /**
-     * Set IMEI
-     * @param Imei IMEI
+     * Set 国际移动设备识别码 IMEI
+     * @param Imei 国际移动设备识别码 IMEI
      */
     public void setImei(String Imei) {
         this.Imei = Imei;
@@ -564,6 +580,135 @@ public class DeviceInfo extends AbstractModel{
     }
 
     /**
+     * Get MQTT客户端IP地址
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ClientIP MQTT客户端IP地址
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getClientIP() {
+        return this.ClientIP;
+    }
+
+    /**
+     * Set MQTT客户端IP地址
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ClientIP MQTT客户端IP地址
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setClientIP(String ClientIP) {
+        this.ClientIP = ClientIP;
+    }
+
+    /**
+     * Get ota最后更新时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FirmwareUpdateTime ota最后更新时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getFirmwareUpdateTime() {
+        return this.FirmwareUpdateTime;
+    }
+
+    /**
+     * Set ota最后更新时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FirmwareUpdateTime ota最后更新时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFirmwareUpdateTime(Long FirmwareUpdateTime) {
+        this.FirmwareUpdateTime = FirmwareUpdateTime;
+    }
+
+    public DeviceInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeviceInfo(DeviceInfo source) {
+        if (source.DeviceName != null) {
+            this.DeviceName = new String(source.DeviceName);
+        }
+        if (source.Online != null) {
+            this.Online = new Long(source.Online);
+        }
+        if (source.LoginTime != null) {
+            this.LoginTime = new Long(source.LoginTime);
+        }
+        if (source.Version != null) {
+            this.Version = new String(source.Version);
+        }
+        if (source.DeviceCert != null) {
+            this.DeviceCert = new String(source.DeviceCert);
+        }
+        if (source.DevicePsk != null) {
+            this.DevicePsk = new String(source.DevicePsk);
+        }
+        if (source.Tags != null) {
+            this.Tags = new DeviceTag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new DeviceTag(source.Tags[i]);
+            }
+        }
+        if (source.DeviceType != null) {
+            this.DeviceType = new Long(source.DeviceType);
+        }
+        if (source.Imei != null) {
+            this.Imei = new String(source.Imei);
+        }
+        if (source.Isp != null) {
+            this.Isp = new Long(source.Isp);
+        }
+        if (source.NbiotDeviceID != null) {
+            this.NbiotDeviceID = new String(source.NbiotDeviceID);
+        }
+        if (source.ConnIP != null) {
+            this.ConnIP = new Long(source.ConnIP);
+        }
+        if (source.LastUpdateTime != null) {
+            this.LastUpdateTime = new Long(source.LastUpdateTime);
+        }
+        if (source.LoraDevEui != null) {
+            this.LoraDevEui = new String(source.LoraDevEui);
+        }
+        if (source.LoraMoteType != null) {
+            this.LoraMoteType = new Long(source.LoraMoteType);
+        }
+        if (source.FirstOnlineTime != null) {
+            this.FirstOnlineTime = new Long(source.FirstOnlineTime);
+        }
+        if (source.LastOfflineTime != null) {
+            this.LastOfflineTime = new Long(source.LastOfflineTime);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new Long(source.CreateTime);
+        }
+        if (source.LogLevel != null) {
+            this.LogLevel = new Long(source.LogLevel);
+        }
+        if (source.CertState != null) {
+            this.CertState = new Long(source.CertState);
+        }
+        if (source.EnableState != null) {
+            this.EnableState = new Long(source.EnableState);
+        }
+        if (source.Labels != null) {
+            this.Labels = new DeviceLabel[source.Labels.length];
+            for (int i = 0; i < source.Labels.length; i++) {
+                this.Labels[i] = new DeviceLabel(source.Labels[i]);
+            }
+        }
+        if (source.ClientIP != null) {
+            this.ClientIP = new String(source.ClientIP);
+        }
+        if (source.FirmwareUpdateTime != null) {
+            this.FirmwareUpdateTime = new Long(source.FirmwareUpdateTime);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -589,6 +734,8 @@ public class DeviceInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "CertState", this.CertState);
         this.setParamSimple(map, prefix + "EnableState", this.EnableState);
         this.setParamArrayObj(map, prefix + "Labels.", this.Labels);
+        this.setParamSimple(map, prefix + "ClientIP", this.ClientIP);
+        this.setParamSimple(map, prefix + "FirmwareUpdateTime", this.FirmwareUpdateTime);
 
     }
 }

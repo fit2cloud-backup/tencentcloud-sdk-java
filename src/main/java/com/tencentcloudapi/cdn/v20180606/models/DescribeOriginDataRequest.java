@@ -67,7 +67,8 @@ statusCode：回源状态码，返回 2xx、3xx、4xx、5xx 汇总数据，单�
 
     /**
     * 指定要查询的项目 ID，[前往查看项目 ID](https://console.cloud.tencent.com/project)
-未填充域名情况下，指定项目查询，若填充了具体域名信息，以域名为主
+未填充域名情况下，指定项目查询，最多可一次性查询 30 个加速域名明细
+若填充了具体域名信息，以域名为主
     */
     @SerializedName("Project")
     @Expose
@@ -227,9 +228,11 @@ statusCode：回源状态码，返回 2xx、3xx、4xx、5xx 汇总数据，单�
 
     /**
      * Get 指定要查询的项目 ID，[前往查看项目 ID](https://console.cloud.tencent.com/project)
-未填充域名情况下，指定项目查询，若填充了具体域名信息，以域名为主 
+未填充域名情况下，指定项目查询，最多可一次性查询 30 个加速域名明细
+若填充了具体域名信息，以域名为主 
      * @return Project 指定要查询的项目 ID，[前往查看项目 ID](https://console.cloud.tencent.com/project)
-未填充域名情况下，指定项目查询，若填充了具体域名信息，以域名为主
+未填充域名情况下，指定项目查询，最多可一次性查询 30 个加速域名明细
+若填充了具体域名信息，以域名为主
      */
     public Long getProject() {
         return this.Project;
@@ -237,9 +240,11 @@ statusCode：回源状态码，返回 2xx、3xx、4xx、5xx 汇总数据，单�
 
     /**
      * Set 指定要查询的项目 ID，[前往查看项目 ID](https://console.cloud.tencent.com/project)
-未填充域名情况下，指定项目查询，若填充了具体域名信息，以域名为主
+未填充域名情况下，指定项目查询，最多可一次性查询 30 个加速域名明细
+若填充了具体域名信息，以域名为主
      * @param Project 指定要查询的项目 ID，[前往查看项目 ID](https://console.cloud.tencent.com/project)
-未填充域名情况下，指定项目查询，若填充了具体域名信息，以域名为主
+未填充域名情况下，指定项目查询，最多可一次性查询 30 个加速域名明细
+若填充了具体域名信息，以域名为主
      */
     public void setProject(Long Project) {
         this.Project = Project;
@@ -320,6 +325,44 @@ overseas：指定查询中国境外 CDN 数据
     public void setArea(String Area) {
         this.Area = Area;
     }
+
+    public DescribeOriginDataRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeOriginDataRequest(DescribeOriginDataRequest source) {
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.Metric != null) {
+            this.Metric = new String(source.Metric);
+        }
+        if (source.Domains != null) {
+            this.Domains = new String[source.Domains.length];
+            for (int i = 0; i < source.Domains.length; i++) {
+                this.Domains[i] = new String(source.Domains[i]);
+            }
+        }
+        if (source.Project != null) {
+            this.Project = new Long(source.Project);
+        }
+        if (source.Interval != null) {
+            this.Interval = new String(source.Interval);
+        }
+        if (source.Detail != null) {
+            this.Detail = new Boolean(source.Detail);
+        }
+        if (source.Area != null) {
+            this.Area = new String(source.Area);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

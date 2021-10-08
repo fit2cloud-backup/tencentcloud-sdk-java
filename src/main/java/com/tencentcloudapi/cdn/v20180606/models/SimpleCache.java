@@ -46,7 +46,7 @@ off：关闭
     * 强制缓存
 on：开启
 off：关闭
-默认为关闭状态，开启后，源站发挥的 no-store、no-cache 资源，也将按照 CacheRules 规则进行缓存
+默认为关闭状态，开启后，源站返回的 no-store、no-cache 资源，也将按照 CacheRules 规则进行缓存
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IgnoreCacheControl")
@@ -74,6 +74,14 @@ off：关闭
     @SerializedName("CompareMaxAge")
     @Expose
     private String CompareMaxAge;
+
+    /**
+    * 总是回源站校验
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Revalidate")
+    @Expose
+    private Revalidate Revalidate;
 
     /**
      * Get 缓存过期时间规则
@@ -135,12 +143,12 @@ off：关闭
      * Get 强制缓存
 on：开启
 off：关闭
-默认为关闭状态，开启后，源站发挥的 no-store、no-cache 资源，也将按照 CacheRules 规则进行缓存
+默认为关闭状态，开启后，源站返回的 no-store、no-cache 资源，也将按照 CacheRules 规则进行缓存
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return IgnoreCacheControl 强制缓存
 on：开启
 off：关闭
-默认为关闭状态，开启后，源站发挥的 no-store、no-cache 资源，也将按照 CacheRules 规则进行缓存
+默认为关闭状态，开启后，源站返回的 no-store、no-cache 资源，也将按照 CacheRules 规则进行缓存
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIgnoreCacheControl() {
@@ -151,12 +159,12 @@ off：关闭
      * Set 强制缓存
 on：开启
 off：关闭
-默认为关闭状态，开启后，源站发挥的 no-store、no-cache 资源，也将按照 CacheRules 规则进行缓存
+默认为关闭状态，开启后，源站返回的 no-store、no-cache 资源，也将按照 CacheRules 规则进行缓存
 注意：此字段可能返回 null，表示取不到有效值。
      * @param IgnoreCacheControl 强制缓存
 on：开启
 off：关闭
-默认为关闭状态，开启后，源站发挥的 no-store、no-cache 资源，也将按照 CacheRules 规则进行缓存
+默认为关闭状态，开启后，源站返回的 no-store、no-cache 资源，也将按照 CacheRules 规则进行缓存
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIgnoreCacheControl(String IgnoreCacheControl) {
@@ -228,6 +236,58 @@ off：关闭
     }
 
     /**
+     * Get 总是回源站校验
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Revalidate 总是回源站校验
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Revalidate getRevalidate() {
+        return this.Revalidate;
+    }
+
+    /**
+     * Set 总是回源站校验
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Revalidate 总是回源站校验
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRevalidate(Revalidate Revalidate) {
+        this.Revalidate = Revalidate;
+    }
+
+    public SimpleCache() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SimpleCache(SimpleCache source) {
+        if (source.CacheRules != null) {
+            this.CacheRules = new SimpleCacheRule[source.CacheRules.length];
+            for (int i = 0; i < source.CacheRules.length; i++) {
+                this.CacheRules[i] = new SimpleCacheRule(source.CacheRules[i]);
+            }
+        }
+        if (source.FollowOrigin != null) {
+            this.FollowOrigin = new String(source.FollowOrigin);
+        }
+        if (source.IgnoreCacheControl != null) {
+            this.IgnoreCacheControl = new String(source.IgnoreCacheControl);
+        }
+        if (source.IgnoreSetCookie != null) {
+            this.IgnoreSetCookie = new String(source.IgnoreSetCookie);
+        }
+        if (source.CompareMaxAge != null) {
+            this.CompareMaxAge = new String(source.CompareMaxAge);
+        }
+        if (source.Revalidate != null) {
+            this.Revalidate = new Revalidate(source.Revalidate);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -236,6 +296,7 @@ off：关闭
         this.setParamSimple(map, prefix + "IgnoreCacheControl", this.IgnoreCacheControl);
         this.setParamSimple(map, prefix + "IgnoreSetCookie", this.IgnoreSetCookie);
         this.setParamSimple(map, prefix + "CompareMaxAge", this.CompareMaxAge);
+        this.setParamObj(map, prefix + "Revalidate.", this.Revalidate);
 
     }
 }

@@ -27,6 +27,7 @@ import com.tencentcloudapi.yunsou.v20191115.models.*;
 
 public class YunsouClient extends AbstractClient{
     private static String endpoint = "yunsou.tencentcloudapi.com";
+    private static String service = "yunsou";
     private static String version = "2019-11-15";
 
     public YunsouClient(Credential credential, String region) {
@@ -46,12 +47,14 @@ public class YunsouClient extends AbstractClient{
      */
     public DataManipulationResponse DataManipulation(DataManipulationRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DataManipulationResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DataManipulationResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DataManipulation"), type);
+                rspStr = this.internalRequest(req, "DataManipulation");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -65,12 +68,14 @@ public class YunsouClient extends AbstractClient{
      */
     public DataSearchResponse DataSearch(DataSearchRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DataSearchResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DataSearchResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DataSearch"), type);
+                rspStr = this.internalRequest(req, "DataSearch");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

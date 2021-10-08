@@ -23,21 +23,14 @@ import java.util.HashMap;
 public class DescribeCostSummaryByRegionRequest extends AbstractModel{
 
     /**
-    * 查询账单数据的用户UIN
-    */
-    @SerializedName("PayerUin")
-    @Expose
-    private String PayerUin;
-
-    /**
-    * 目前只支持传当月1号 00:00:00，且必须和EndTime为相同月份，不支持跨月查询，例 2018-09-01 00:00:00
+    * 目前必须和EndTime相同月份，不支持跨月查询，且查询结果是整月数据，例如 BeginTime为2018-09，EndTime 为 2018-09，查询结果是 2018 年 9 月数据。
     */
     @SerializedName("BeginTime")
     @Expose
     private String BeginTime;
 
     /**
-    * 目前只支持传当月最后一天 23:59:59，且必须和BeginTime为相同月份，不支持跨月查询，例 2018-09-30 23:59:59
+    * 目前必须和BeginTime为相同月份，不支持跨月查询，且查询结果是整月数据，例如 BeginTime为2018-09，EndTime 为 2018-09，查询结果是 2018 年 9 月数据。
     */
     @SerializedName("EndTime")
     @Expose
@@ -58,6 +51,13 @@ public class DescribeCostSummaryByRegionRequest extends AbstractModel{
     private Long Offset;
 
     /**
+    * 查询账单数据的用户UIN
+    */
+    @SerializedName("PayerUin")
+    @Expose
+    private String PayerUin;
+
+    /**
     * 是否需要返回记录数量，0不需要，1需要，默认不需要
     */
     @SerializedName("NeedRecordNum")
@@ -65,48 +65,32 @@ public class DescribeCostSummaryByRegionRequest extends AbstractModel{
     private Long NeedRecordNum;
 
     /**
-     * Get 查询账单数据的用户UIN 
-     * @return PayerUin 查询账单数据的用户UIN
-     */
-    public String getPayerUin() {
-        return this.PayerUin;
-    }
-
-    /**
-     * Set 查询账单数据的用户UIN
-     * @param PayerUin 查询账单数据的用户UIN
-     */
-    public void setPayerUin(String PayerUin) {
-        this.PayerUin = PayerUin;
-    }
-
-    /**
-     * Get 目前只支持传当月1号 00:00:00，且必须和EndTime为相同月份，不支持跨月查询，例 2018-09-01 00:00:00 
-     * @return BeginTime 目前只支持传当月1号 00:00:00，且必须和EndTime为相同月份，不支持跨月查询，例 2018-09-01 00:00:00
+     * Get 目前必须和EndTime相同月份，不支持跨月查询，且查询结果是整月数据，例如 BeginTime为2018-09，EndTime 为 2018-09，查询结果是 2018 年 9 月数据。 
+     * @return BeginTime 目前必须和EndTime相同月份，不支持跨月查询，且查询结果是整月数据，例如 BeginTime为2018-09，EndTime 为 2018-09，查询结果是 2018 年 9 月数据。
      */
     public String getBeginTime() {
         return this.BeginTime;
     }
 
     /**
-     * Set 目前只支持传当月1号 00:00:00，且必须和EndTime为相同月份，不支持跨月查询，例 2018-09-01 00:00:00
-     * @param BeginTime 目前只支持传当月1号 00:00:00，且必须和EndTime为相同月份，不支持跨月查询，例 2018-09-01 00:00:00
+     * Set 目前必须和EndTime相同月份，不支持跨月查询，且查询结果是整月数据，例如 BeginTime为2018-09，EndTime 为 2018-09，查询结果是 2018 年 9 月数据。
+     * @param BeginTime 目前必须和EndTime相同月份，不支持跨月查询，且查询结果是整月数据，例如 BeginTime为2018-09，EndTime 为 2018-09，查询结果是 2018 年 9 月数据。
      */
     public void setBeginTime(String BeginTime) {
         this.BeginTime = BeginTime;
     }
 
     /**
-     * Get 目前只支持传当月最后一天 23:59:59，且必须和BeginTime为相同月份，不支持跨月查询，例 2018-09-30 23:59:59 
-     * @return EndTime 目前只支持传当月最后一天 23:59:59，且必须和BeginTime为相同月份，不支持跨月查询，例 2018-09-30 23:59:59
+     * Get 目前必须和BeginTime为相同月份，不支持跨月查询，且查询结果是整月数据，例如 BeginTime为2018-09，EndTime 为 2018-09，查询结果是 2018 年 9 月数据。 
+     * @return EndTime 目前必须和BeginTime为相同月份，不支持跨月查询，且查询结果是整月数据，例如 BeginTime为2018-09，EndTime 为 2018-09，查询结果是 2018 年 9 月数据。
      */
     public String getEndTime() {
         return this.EndTime;
     }
 
     /**
-     * Set 目前只支持传当月最后一天 23:59:59，且必须和BeginTime为相同月份，不支持跨月查询，例 2018-09-30 23:59:59
-     * @param EndTime 目前只支持传当月最后一天 23:59:59，且必须和BeginTime为相同月份，不支持跨月查询，例 2018-09-30 23:59:59
+     * Set 目前必须和BeginTime为相同月份，不支持跨月查询，且查询结果是整月数据，例如 BeginTime为2018-09，EndTime 为 2018-09，查询结果是 2018 年 9 月数据。
+     * @param EndTime 目前必须和BeginTime为相同月份，不支持跨月查询，且查询结果是整月数据，例如 BeginTime为2018-09，EndTime 为 2018-09，查询结果是 2018 年 9 月数据。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
@@ -145,6 +129,22 @@ public class DescribeCostSummaryByRegionRequest extends AbstractModel{
     }
 
     /**
+     * Get 查询账单数据的用户UIN 
+     * @return PayerUin 查询账单数据的用户UIN
+     */
+    public String getPayerUin() {
+        return this.PayerUin;
+    }
+
+    /**
+     * Set 查询账单数据的用户UIN
+     * @param PayerUin 查询账单数据的用户UIN
+     */
+    public void setPayerUin(String PayerUin) {
+        this.PayerUin = PayerUin;
+    }
+
+    /**
      * Get 是否需要返回记录数量，0不需要，1需要，默认不需要 
      * @return NeedRecordNum 是否需要返回记录数量，0不需要，1需要，默认不需要
      */
@@ -160,15 +160,44 @@ public class DescribeCostSummaryByRegionRequest extends AbstractModel{
         this.NeedRecordNum = NeedRecordNum;
     }
 
+    public DescribeCostSummaryByRegionRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeCostSummaryByRegionRequest(DescribeCostSummaryByRegionRequest source) {
+        if (source.BeginTime != null) {
+            this.BeginTime = new String(source.BeginTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.PayerUin != null) {
+            this.PayerUin = new String(source.PayerUin);
+        }
+        if (source.NeedRecordNum != null) {
+            this.NeedRecordNum = new Long(source.NeedRecordNum);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "PayerUin", this.PayerUin);
         this.setParamSimple(map, prefix + "BeginTime", this.BeginTime);
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
+        this.setParamSimple(map, prefix + "PayerUin", this.PayerUin);
         this.setParamSimple(map, prefix + "NeedRecordNum", this.NeedRecordNum);
 
     }

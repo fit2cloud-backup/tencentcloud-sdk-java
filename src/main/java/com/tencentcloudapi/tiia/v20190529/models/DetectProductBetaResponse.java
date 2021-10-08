@@ -40,6 +40,14 @@ public class DetectProductBetaResponse extends AbstractModel{
     private ProductInfo ProductInfo;
 
     /**
+    * 相似商品信息列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ProductInfoList")
+    @Expose
+    private ProductInfo [] ProductInfoList;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -91,6 +99,26 @@ public class DetectProductBetaResponse extends AbstractModel{
     }
 
     /**
+     * Get 相似商品信息列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ProductInfoList 相似商品信息列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ProductInfo [] getProductInfoList() {
+        return this.ProductInfoList;
+    }
+
+    /**
+     * Set 相似商品信息列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ProductInfoList 相似商品信息列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setProductInfoList(ProductInfo [] ProductInfoList) {
+        this.ProductInfoList = ProductInfoList;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -106,12 +134,42 @@ public class DetectProductBetaResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public DetectProductBetaResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DetectProductBetaResponse(DetectProductBetaResponse source) {
+        if (source.RegionDetected != null) {
+            this.RegionDetected = new RegionDetected[source.RegionDetected.length];
+            for (int i = 0; i < source.RegionDetected.length; i++) {
+                this.RegionDetected[i] = new RegionDetected(source.RegionDetected[i]);
+            }
+        }
+        if (source.ProductInfo != null) {
+            this.ProductInfo = new ProductInfo(source.ProductInfo);
+        }
+        if (source.ProductInfoList != null) {
+            this.ProductInfoList = new ProductInfo[source.ProductInfoList.length];
+            for (int i = 0; i < source.ProductInfoList.length; i++) {
+                this.ProductInfoList[i] = new ProductInfo(source.ProductInfoList[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "RegionDetected.", this.RegionDetected);
         this.setParamObj(map, prefix + "ProductInfo.", this.ProductInfo);
+        this.setParamArrayObj(map, prefix + "ProductInfoList.", this.ProductInfoList);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

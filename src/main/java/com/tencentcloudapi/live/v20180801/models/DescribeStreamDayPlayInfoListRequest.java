@@ -24,7 +24,7 @@ public class DescribeStreamDayPlayInfoListRequest extends AbstractModel{
 
     /**
     * 日期，格式：YYYY-mm-dd。
-第二天凌晨3点出昨天的数据，建议在这个时间点之后查询最新数据。
+第二天凌晨3点出昨天的数据，建议在这个时间点之后查询最新数据。支持最近3个月的数据查询。
     */
     @SerializedName("DayTime")
     @Expose
@@ -52,10 +52,27 @@ public class DescribeStreamDayPlayInfoListRequest extends AbstractModel{
     private Long PageSize;
 
     /**
+    * 可选值：
+Mainland：查询国内数据，
+Oversea：则查询国外数据，
+默认：查询国内+国外的数据。
+    */
+    @SerializedName("MainlandOrOversea")
+    @Expose
+    private String MainlandOrOversea;
+
+    /**
+    * 服务名称，可选值包括LVB(标准直播)，LEB(快直播)，不填则查LVB+LEB总值。
+    */
+    @SerializedName("ServiceName")
+    @Expose
+    private String ServiceName;
+
+    /**
      * Get 日期，格式：YYYY-mm-dd。
-第二天凌晨3点出昨天的数据，建议在这个时间点之后查询最新数据。 
+第二天凌晨3点出昨天的数据，建议在这个时间点之后查询最新数据。支持最近3个月的数据查询。 
      * @return DayTime 日期，格式：YYYY-mm-dd。
-第二天凌晨3点出昨天的数据，建议在这个时间点之后查询最新数据。
+第二天凌晨3点出昨天的数据，建议在这个时间点之后查询最新数据。支持最近3个月的数据查询。
      */
     public String getDayTime() {
         return this.DayTime;
@@ -63,9 +80,9 @@ public class DescribeStreamDayPlayInfoListRequest extends AbstractModel{
 
     /**
      * Set 日期，格式：YYYY-mm-dd。
-第二天凌晨3点出昨天的数据，建议在这个时间点之后查询最新数据。
+第二天凌晨3点出昨天的数据，建议在这个时间点之后查询最新数据。支持最近3个月的数据查询。
      * @param DayTime 日期，格式：YYYY-mm-dd。
-第二天凌晨3点出昨天的数据，建议在这个时间点之后查询最新数据。
+第二天凌晨3点出昨天的数据，建议在这个时间点之后查询最新数据。支持最近3个月的数据查询。
      */
     public void setDayTime(String DayTime) {
         this.DayTime = DayTime;
@@ -120,6 +137,79 @@ public class DescribeStreamDayPlayInfoListRequest extends AbstractModel{
     }
 
     /**
+     * Get 可选值：
+Mainland：查询国内数据，
+Oversea：则查询国外数据，
+默认：查询国内+国外的数据。 
+     * @return MainlandOrOversea 可选值：
+Mainland：查询国内数据，
+Oversea：则查询国外数据，
+默认：查询国内+国外的数据。
+     */
+    public String getMainlandOrOversea() {
+        return this.MainlandOrOversea;
+    }
+
+    /**
+     * Set 可选值：
+Mainland：查询国内数据，
+Oversea：则查询国外数据，
+默认：查询国内+国外的数据。
+     * @param MainlandOrOversea 可选值：
+Mainland：查询国内数据，
+Oversea：则查询国外数据，
+默认：查询国内+国外的数据。
+     */
+    public void setMainlandOrOversea(String MainlandOrOversea) {
+        this.MainlandOrOversea = MainlandOrOversea;
+    }
+
+    /**
+     * Get 服务名称，可选值包括LVB(标准直播)，LEB(快直播)，不填则查LVB+LEB总值。 
+     * @return ServiceName 服务名称，可选值包括LVB(标准直播)，LEB(快直播)，不填则查LVB+LEB总值。
+     */
+    public String getServiceName() {
+        return this.ServiceName;
+    }
+
+    /**
+     * Set 服务名称，可选值包括LVB(标准直播)，LEB(快直播)，不填则查LVB+LEB总值。
+     * @param ServiceName 服务名称，可选值包括LVB(标准直播)，LEB(快直播)，不填则查LVB+LEB总值。
+     */
+    public void setServiceName(String ServiceName) {
+        this.ServiceName = ServiceName;
+    }
+
+    public DescribeStreamDayPlayInfoListRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeStreamDayPlayInfoListRequest(DescribeStreamDayPlayInfoListRequest source) {
+        if (source.DayTime != null) {
+            this.DayTime = new String(source.DayTime);
+        }
+        if (source.PlayDomain != null) {
+            this.PlayDomain = new String(source.PlayDomain);
+        }
+        if (source.PageNum != null) {
+            this.PageNum = new Long(source.PageNum);
+        }
+        if (source.PageSize != null) {
+            this.PageSize = new Long(source.PageSize);
+        }
+        if (source.MainlandOrOversea != null) {
+            this.MainlandOrOversea = new String(source.MainlandOrOversea);
+        }
+        if (source.ServiceName != null) {
+            this.ServiceName = new String(source.ServiceName);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -127,6 +217,8 @@ public class DescribeStreamDayPlayInfoListRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "PlayDomain", this.PlayDomain);
         this.setParamSimple(map, prefix + "PageNum", this.PageNum);
         this.setParamSimple(map, prefix + "PageSize", this.PageSize);
+        this.setParamSimple(map, prefix + "MainlandOrOversea", this.MainlandOrOversea);
+        this.setParamSimple(map, prefix + "ServiceName", this.ServiceName);
 
     }
 }

@@ -79,6 +79,34 @@ public class AddClusterInstancesRequest extends AbstractModel{
     private String InstanceImportMode;
 
     /**
+    * 镜像定制类型
+    */
+    @SerializedName("OsCustomizeType")
+    @Expose
+    private String OsCustomizeType;
+
+    /**
+    * 镜像特征ID列表
+    */
+    @SerializedName("FeatureIdList")
+    @Expose
+    private String [] FeatureIdList;
+
+    /**
+    * 实例额外需要设置参数信息
+    */
+    @SerializedName("InstanceAdvancedSettings")
+    @Expose
+    private InstanceAdvancedSettings InstanceAdvancedSettings;
+
+    /**
+    * 安全组 ID 列表
+    */
+    @SerializedName("SecurityGroupIds")
+    @Expose
+    private String [] SecurityGroupIds;
+
+    /**
      * Get 集群ID 
      * @return ClusterId 集群ID
      */
@@ -207,6 +235,126 @@ public class AddClusterInstancesRequest extends AbstractModel{
     }
 
     /**
+     * Get 镜像定制类型 
+     * @return OsCustomizeType 镜像定制类型
+     */
+    public String getOsCustomizeType() {
+        return this.OsCustomizeType;
+    }
+
+    /**
+     * Set 镜像定制类型
+     * @param OsCustomizeType 镜像定制类型
+     */
+    public void setOsCustomizeType(String OsCustomizeType) {
+        this.OsCustomizeType = OsCustomizeType;
+    }
+
+    /**
+     * Get 镜像特征ID列表 
+     * @return FeatureIdList 镜像特征ID列表
+     */
+    public String [] getFeatureIdList() {
+        return this.FeatureIdList;
+    }
+
+    /**
+     * Set 镜像特征ID列表
+     * @param FeatureIdList 镜像特征ID列表
+     */
+    public void setFeatureIdList(String [] FeatureIdList) {
+        this.FeatureIdList = FeatureIdList;
+    }
+
+    /**
+     * Get 实例额外需要设置参数信息 
+     * @return InstanceAdvancedSettings 实例额外需要设置参数信息
+     */
+    public InstanceAdvancedSettings getInstanceAdvancedSettings() {
+        return this.InstanceAdvancedSettings;
+    }
+
+    /**
+     * Set 实例额外需要设置参数信息
+     * @param InstanceAdvancedSettings 实例额外需要设置参数信息
+     */
+    public void setInstanceAdvancedSettings(InstanceAdvancedSettings InstanceAdvancedSettings) {
+        this.InstanceAdvancedSettings = InstanceAdvancedSettings;
+    }
+
+    /**
+     * Get 安全组 ID 列表 
+     * @return SecurityGroupIds 安全组 ID 列表
+     */
+    public String [] getSecurityGroupIds() {
+        return this.SecurityGroupIds;
+    }
+
+    /**
+     * Set 安全组 ID 列表
+     * @param SecurityGroupIds 安全组 ID 列表
+     */
+    public void setSecurityGroupIds(String [] SecurityGroupIds) {
+        this.SecurityGroupIds = SecurityGroupIds;
+    }
+
+    public AddClusterInstancesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AddClusterInstancesRequest(AddClusterInstancesRequest source) {
+        if (source.ClusterId != null) {
+            this.ClusterId = new String(source.ClusterId);
+        }
+        if (source.InstanceIdList != null) {
+            this.InstanceIdList = new String[source.InstanceIdList.length];
+            for (int i = 0; i < source.InstanceIdList.length; i++) {
+                this.InstanceIdList[i] = new String(source.InstanceIdList[i]);
+            }
+        }
+        if (source.OsName != null) {
+            this.OsName = new String(source.OsName);
+        }
+        if (source.ImageId != null) {
+            this.ImageId = new String(source.ImageId);
+        }
+        if (source.Password != null) {
+            this.Password = new String(source.Password);
+        }
+        if (source.KeyId != null) {
+            this.KeyId = new String(source.KeyId);
+        }
+        if (source.SgId != null) {
+            this.SgId = new String(source.SgId);
+        }
+        if (source.InstanceImportMode != null) {
+            this.InstanceImportMode = new String(source.InstanceImportMode);
+        }
+        if (source.OsCustomizeType != null) {
+            this.OsCustomizeType = new String(source.OsCustomizeType);
+        }
+        if (source.FeatureIdList != null) {
+            this.FeatureIdList = new String[source.FeatureIdList.length];
+            for (int i = 0; i < source.FeatureIdList.length; i++) {
+                this.FeatureIdList[i] = new String(source.FeatureIdList[i]);
+            }
+        }
+        if (source.InstanceAdvancedSettings != null) {
+            this.InstanceAdvancedSettings = new InstanceAdvancedSettings(source.InstanceAdvancedSettings);
+        }
+        if (source.SecurityGroupIds != null) {
+            this.SecurityGroupIds = new String[source.SecurityGroupIds.length];
+            for (int i = 0; i < source.SecurityGroupIds.length; i++) {
+                this.SecurityGroupIds[i] = new String(source.SecurityGroupIds[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -218,6 +366,10 @@ public class AddClusterInstancesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "KeyId", this.KeyId);
         this.setParamSimple(map, prefix + "SgId", this.SgId);
         this.setParamSimple(map, prefix + "InstanceImportMode", this.InstanceImportMode);
+        this.setParamSimple(map, prefix + "OsCustomizeType", this.OsCustomizeType);
+        this.setParamArraySimple(map, prefix + "FeatureIdList.", this.FeatureIdList);
+        this.setParamObj(map, prefix + "InstanceAdvancedSettings.", this.InstanceAdvancedSettings);
+        this.setParamArraySimple(map, prefix + "SecurityGroupIds.", this.SecurityGroupIds);
 
     }
 }

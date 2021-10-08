@@ -30,14 +30,14 @@ public class NetworkAclEntry extends AbstractModel{
     private String ModifyTime;
 
     /**
-    * 协议, 取值: TCP,UDP, ICMP。
+    * 协议, 取值: TCP,UDP, ICMP, ALL。
     */
     @SerializedName("Protocol")
     @Expose
     private String Protocol;
 
     /**
-    * 端口(all, 单个port,  range)。
+    * 端口(all, 单个port,  range)。当Protocol为ALL或ICMP时，不能指定Port。
     */
     @SerializedName("Port")
     @Expose
@@ -88,32 +88,32 @@ public class NetworkAclEntry extends AbstractModel{
     }
 
     /**
-     * Get 协议, 取值: TCP,UDP, ICMP。 
-     * @return Protocol 协议, 取值: TCP,UDP, ICMP。
+     * Get 协议, 取值: TCP,UDP, ICMP, ALL。 
+     * @return Protocol 协议, 取值: TCP,UDP, ICMP, ALL。
      */
     public String getProtocol() {
         return this.Protocol;
     }
 
     /**
-     * Set 协议, 取值: TCP,UDP, ICMP。
-     * @param Protocol 协议, 取值: TCP,UDP, ICMP。
+     * Set 协议, 取值: TCP,UDP, ICMP, ALL。
+     * @param Protocol 协议, 取值: TCP,UDP, ICMP, ALL。
      */
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;
     }
 
     /**
-     * Get 端口(all, 单个port,  range)。 
-     * @return Port 端口(all, 单个port,  range)。
+     * Get 端口(all, 单个port,  range)。当Protocol为ALL或ICMP时，不能指定Port。 
+     * @return Port 端口(all, 单个port,  range)。当Protocol为ALL或ICMP时，不能指定Port。
      */
     public String getPort() {
         return this.Port;
     }
 
     /**
-     * Set 端口(all, 单个port,  range)。
-     * @param Port 端口(all, 单个port,  range)。
+     * Set 端口(all, 单个port,  range)。当Protocol为ALL或ICMP时，不能指定Port。
+     * @param Port 端口(all, 单个port,  range)。当Protocol为ALL或ICMP时，不能指定Port。
      */
     public void setPort(String Port) {
         this.Port = Port;
@@ -182,6 +182,38 @@ public class NetworkAclEntry extends AbstractModel{
     public void setDescription(String Description) {
         this.Description = Description;
     }
+
+    public NetworkAclEntry() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public NetworkAclEntry(NetworkAclEntry source) {
+        if (source.ModifyTime != null) {
+            this.ModifyTime = new String(source.ModifyTime);
+        }
+        if (source.Protocol != null) {
+            this.Protocol = new String(source.Protocol);
+        }
+        if (source.Port != null) {
+            this.Port = new String(source.Port);
+        }
+        if (source.CidrBlock != null) {
+            this.CidrBlock = new String(source.CidrBlock);
+        }
+        if (source.Ipv6CidrBlock != null) {
+            this.Ipv6CidrBlock = new String(source.Ipv6CidrBlock);
+        }
+        if (source.Action != null) {
+            this.Action = new String(source.Action);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

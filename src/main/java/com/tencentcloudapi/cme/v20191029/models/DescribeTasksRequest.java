@@ -62,11 +62,18 @@ public class DescribeTasksRequest extends AbstractModel{
     private Long Offset;
 
     /**
-    * 分页返回的记录条数，默认值：10。
+    * 分页返回的记录条数，默认值：10。最大值：20。
     */
     @SerializedName("Limit")
     @Expose
     private Long Limit;
+
+    /**
+    * 操作者。填写用户的 Id，用于标识调用者及校验对任务的访问权限。
+    */
+    @SerializedName("Operator")
+    @Expose
+    private String Operator;
 
     /**
      * Get 平台名称，指定访问的平台。 
@@ -165,20 +172,74 @@ public class DescribeTasksRequest extends AbstractModel{
     }
 
     /**
-     * Get 分页返回的记录条数，默认值：10。 
-     * @return Limit 分页返回的记录条数，默认值：10。
+     * Get 分页返回的记录条数，默认值：10。最大值：20。 
+     * @return Limit 分页返回的记录条数，默认值：10。最大值：20。
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 分页返回的记录条数，默认值：10。
-     * @param Limit 分页返回的记录条数，默认值：10。
+     * Set 分页返回的记录条数，默认值：10。最大值：20。
+     * @param Limit 分页返回的记录条数，默认值：10。最大值：20。
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
     }
+
+    /**
+     * Get 操作者。填写用户的 Id，用于标识调用者及校验对任务的访问权限。 
+     * @return Operator 操作者。填写用户的 Id，用于标识调用者及校验对任务的访问权限。
+     */
+    public String getOperator() {
+        return this.Operator;
+    }
+
+    /**
+     * Set 操作者。填写用户的 Id，用于标识调用者及校验对任务的访问权限。
+     * @param Operator 操作者。填写用户的 Id，用于标识调用者及校验对任务的访问权限。
+     */
+    public void setOperator(String Operator) {
+        this.Operator = Operator;
+    }
+
+    public DescribeTasksRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeTasksRequest(DescribeTasksRequest source) {
+        if (source.Platform != null) {
+            this.Platform = new String(source.Platform);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
+        }
+        if (source.TaskTypeSet != null) {
+            this.TaskTypeSet = new String[source.TaskTypeSet.length];
+            for (int i = 0; i < source.TaskTypeSet.length; i++) {
+                this.TaskTypeSet[i] = new String(source.TaskTypeSet[i]);
+            }
+        }
+        if (source.StatusSet != null) {
+            this.StatusSet = new String[source.StatusSet.length];
+            for (int i = 0; i < source.StatusSet.length; i++) {
+                this.StatusSet[i] = new String(source.StatusSet[i]);
+            }
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Operator != null) {
+            this.Operator = new String(source.Operator);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -190,6 +251,7 @@ public class DescribeTasksRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "StatusSet.", this.StatusSet);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamSimple(map, prefix + "Operator", this.Operator);
 
     }
 }

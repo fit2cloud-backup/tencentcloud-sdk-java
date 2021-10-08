@@ -44,7 +44,7 @@ public class ModifyRoGroupInfoRequest extends AbstractModel{
     private RoWeightValue [] RoWeightValues;
 
     /**
-    * 是否重新均衡 RO 组内的 RO 实例的负载。支持值包括：1 - 重新均衡负载；0 - 不重新均衡负载。默认值为 0。注意，设置为重新均衡负载是，RO 组内 RO 实例会有一次数据库连接瞬断，请确保应用程序能重连数据库。
+    * 是否重新均衡 RO 组内的 RO 实例的负载。支持值包括：1 - 重新均衡负载；0 - 不重新均衡负载。默认值为 0。注意，设置为重新均衡负载时，RO 组内 RO 实例会有一次数据库连接瞬断，请确保应用程序能重连数据库。
     */
     @SerializedName("IsBalanceRoLoad")
     @Expose
@@ -99,20 +99,46 @@ public class ModifyRoGroupInfoRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否重新均衡 RO 组内的 RO 实例的负载。支持值包括：1 - 重新均衡负载；0 - 不重新均衡负载。默认值为 0。注意，设置为重新均衡负载是，RO 组内 RO 实例会有一次数据库连接瞬断，请确保应用程序能重连数据库。 
-     * @return IsBalanceRoLoad 是否重新均衡 RO 组内的 RO 实例的负载。支持值包括：1 - 重新均衡负载；0 - 不重新均衡负载。默认值为 0。注意，设置为重新均衡负载是，RO 组内 RO 实例会有一次数据库连接瞬断，请确保应用程序能重连数据库。
+     * Get 是否重新均衡 RO 组内的 RO 实例的负载。支持值包括：1 - 重新均衡负载；0 - 不重新均衡负载。默认值为 0。注意，设置为重新均衡负载时，RO 组内 RO 实例会有一次数据库连接瞬断，请确保应用程序能重连数据库。 
+     * @return IsBalanceRoLoad 是否重新均衡 RO 组内的 RO 实例的负载。支持值包括：1 - 重新均衡负载；0 - 不重新均衡负载。默认值为 0。注意，设置为重新均衡负载时，RO 组内 RO 实例会有一次数据库连接瞬断，请确保应用程序能重连数据库。
      */
     public Long getIsBalanceRoLoad() {
         return this.IsBalanceRoLoad;
     }
 
     /**
-     * Set 是否重新均衡 RO 组内的 RO 实例的负载。支持值包括：1 - 重新均衡负载；0 - 不重新均衡负载。默认值为 0。注意，设置为重新均衡负载是，RO 组内 RO 实例会有一次数据库连接瞬断，请确保应用程序能重连数据库。
-     * @param IsBalanceRoLoad 是否重新均衡 RO 组内的 RO 实例的负载。支持值包括：1 - 重新均衡负载；0 - 不重新均衡负载。默认值为 0。注意，设置为重新均衡负载是，RO 组内 RO 实例会有一次数据库连接瞬断，请确保应用程序能重连数据库。
+     * Set 是否重新均衡 RO 组内的 RO 实例的负载。支持值包括：1 - 重新均衡负载；0 - 不重新均衡负载。默认值为 0。注意，设置为重新均衡负载时，RO 组内 RO 实例会有一次数据库连接瞬断，请确保应用程序能重连数据库。
+     * @param IsBalanceRoLoad 是否重新均衡 RO 组内的 RO 实例的负载。支持值包括：1 - 重新均衡负载；0 - 不重新均衡负载。默认值为 0。注意，设置为重新均衡负载时，RO 组内 RO 实例会有一次数据库连接瞬断，请确保应用程序能重连数据库。
      */
     public void setIsBalanceRoLoad(Long IsBalanceRoLoad) {
         this.IsBalanceRoLoad = IsBalanceRoLoad;
     }
+
+    public ModifyRoGroupInfoRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyRoGroupInfoRequest(ModifyRoGroupInfoRequest source) {
+        if (source.RoGroupId != null) {
+            this.RoGroupId = new String(source.RoGroupId);
+        }
+        if (source.RoGroupInfo != null) {
+            this.RoGroupInfo = new RoGroupAttr(source.RoGroupInfo);
+        }
+        if (source.RoWeightValues != null) {
+            this.RoWeightValues = new RoWeightValue[source.RoWeightValues.length];
+            for (int i = 0; i < source.RoWeightValues.length; i++) {
+                this.RoWeightValues[i] = new RoWeightValue(source.RoWeightValues[i]);
+            }
+        }
+        if (source.IsBalanceRoLoad != null) {
+            this.IsBalanceRoLoad = new Long(source.IsBalanceRoLoad);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -59,6 +59,14 @@ public class ProductModelDefinition extends AbstractModel{
     private String CategoryModel;
 
     /**
+    * 产品的连接类型的模型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("NetTypeModel")
+    @Expose
+    private String NetTypeModel;
+
+    /**
      * Get 产品ID 
      * @return ProductId 产品ID
      */
@@ -143,6 +151,55 @@ public class ProductModelDefinition extends AbstractModel{
     }
 
     /**
+     * Get 产品的连接类型的模型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return NetTypeModel 产品的连接类型的模型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getNetTypeModel() {
+        return this.NetTypeModel;
+    }
+
+    /**
+     * Set 产品的连接类型的模型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param NetTypeModel 产品的连接类型的模型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setNetTypeModel(String NetTypeModel) {
+        this.NetTypeModel = NetTypeModel;
+    }
+
+    public ProductModelDefinition() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ProductModelDefinition(ProductModelDefinition source) {
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+        if (source.ModelDefine != null) {
+            this.ModelDefine = new String(source.ModelDefine);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new Long(source.UpdateTime);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new Long(source.CreateTime);
+        }
+        if (source.CategoryModel != null) {
+            this.CategoryModel = new String(source.CategoryModel);
+        }
+        if (source.NetTypeModel != null) {
+            this.NetTypeModel = new String(source.NetTypeModel);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -151,6 +208,7 @@ public class ProductModelDefinition extends AbstractModel{
         this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "CategoryModel", this.CategoryModel);
+        this.setParamSimple(map, prefix + "NetTypeModel", this.NetTypeModel);
 
     }
 }

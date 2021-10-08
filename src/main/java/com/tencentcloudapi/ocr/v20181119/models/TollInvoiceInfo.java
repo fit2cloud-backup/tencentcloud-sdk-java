@@ -23,7 +23,8 @@ import java.util.HashMap;
 public class TollInvoiceInfo extends AbstractModel{
 
     /**
-    * 识别出的字段名称（关键字）。
+    * 识别出的字段名称（关键字）。支持以下字段的识别：
+发票代码、发票号码、日期、金额、入口、出口、时间、发票消费类型、高速标志。
     */
     @SerializedName("Name")
     @Expose
@@ -44,16 +45,20 @@ public class TollInvoiceInfo extends AbstractModel{
     private Rect Rect;
 
     /**
-     * Get 识别出的字段名称（关键字）。 
-     * @return Name 识别出的字段名称（关键字）。
+     * Get 识别出的字段名称（关键字）。支持以下字段的识别：
+发票代码、发票号码、日期、金额、入口、出口、时间、发票消费类型、高速标志。 
+     * @return Name 识别出的字段名称（关键字）。支持以下字段的识别：
+发票代码、发票号码、日期、金额、入口、出口、时间、发票消费类型、高速标志。
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 识别出的字段名称（关键字）。
-     * @param Name 识别出的字段名称（关键字）。
+     * Set 识别出的字段名称（关键字）。支持以下字段的识别：
+发票代码、发票号码、日期、金额、入口、出口、时间、发票消费类型、高速标志。
+     * @param Name 识别出的字段名称（关键字）。支持以下字段的识别：
+发票代码、发票号码、日期、金额、入口、出口、时间、发票消费类型、高速标志。
      */
     public void setName(String Name) {
         this.Name = Name;
@@ -90,6 +95,26 @@ public class TollInvoiceInfo extends AbstractModel{
     public void setRect(Rect Rect) {
         this.Rect = Rect;
     }
+
+    public TollInvoiceInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public TollInvoiceInfo(TollInvoiceInfo source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Value != null) {
+            this.Value = new String(source.Value);
+        }
+        if (source.Rect != null) {
+            this.Rect = new Rect(source.Rect);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

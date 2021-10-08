@@ -35,6 +35,9 @@ public class DescribeComputeEnvsRequest extends AbstractModel{
 <li> env-id - String - 是否必填：否 -（过滤条件）按照计算环境ID过滤。</li>
 <li> env-name - String - 是否必填：否 -（过滤条件）按照计算环境名称过滤。</li>
 <li> resource-type - String - 是否必填：否 -（过滤条件）按照计算资源类型过滤，取值CVM或者CPM(黑石)。</li>
+<li> tag-key - String - 是否必填：否 -（过滤条件）按照标签键进行过滤。</li>
+<li>tag-value - String - 是否必填：否 -（过滤条件）按照标签值进行过滤。</li>
+<li>tag:tag-key - String - 是否必填：否 -（过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。</li>
 与EnvIds参数不能同时指定。
     */
     @SerializedName("Filters")
@@ -77,12 +80,18 @@ public class DescribeComputeEnvsRequest extends AbstractModel{
 <li> env-id - String - 是否必填：否 -（过滤条件）按照计算环境ID过滤。</li>
 <li> env-name - String - 是否必填：否 -（过滤条件）按照计算环境名称过滤。</li>
 <li> resource-type - String - 是否必填：否 -（过滤条件）按照计算资源类型过滤，取值CVM或者CPM(黑石)。</li>
+<li> tag-key - String - 是否必填：否 -（过滤条件）按照标签键进行过滤。</li>
+<li>tag-value - String - 是否必填：否 -（过滤条件）按照标签值进行过滤。</li>
+<li>tag:tag-key - String - 是否必填：否 -（过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。</li>
 与EnvIds参数不能同时指定。 
      * @return Filters 过滤条件
 <li> zone - String - 是否必填：否 -（过滤条件）按照可用区过滤。</li>
 <li> env-id - String - 是否必填：否 -（过滤条件）按照计算环境ID过滤。</li>
 <li> env-name - String - 是否必填：否 -（过滤条件）按照计算环境名称过滤。</li>
 <li> resource-type - String - 是否必填：否 -（过滤条件）按照计算资源类型过滤，取值CVM或者CPM(黑石)。</li>
+<li> tag-key - String - 是否必填：否 -（过滤条件）按照标签键进行过滤。</li>
+<li>tag-value - String - 是否必填：否 -（过滤条件）按照标签值进行过滤。</li>
+<li>tag:tag-key - String - 是否必填：否 -（过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。</li>
 与EnvIds参数不能同时指定。
      */
     public Filter [] getFilters() {
@@ -95,12 +104,18 @@ public class DescribeComputeEnvsRequest extends AbstractModel{
 <li> env-id - String - 是否必填：否 -（过滤条件）按照计算环境ID过滤。</li>
 <li> env-name - String - 是否必填：否 -（过滤条件）按照计算环境名称过滤。</li>
 <li> resource-type - String - 是否必填：否 -（过滤条件）按照计算资源类型过滤，取值CVM或者CPM(黑石)。</li>
+<li> tag-key - String - 是否必填：否 -（过滤条件）按照标签键进行过滤。</li>
+<li>tag-value - String - 是否必填：否 -（过滤条件）按照标签值进行过滤。</li>
+<li>tag:tag-key - String - 是否必填：否 -（过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。</li>
 与EnvIds参数不能同时指定。
      * @param Filters 过滤条件
 <li> zone - String - 是否必填：否 -（过滤条件）按照可用区过滤。</li>
 <li> env-id - String - 是否必填：否 -（过滤条件）按照计算环境ID过滤。</li>
 <li> env-name - String - 是否必填：否 -（过滤条件）按照计算环境名称过滤。</li>
 <li> resource-type - String - 是否必填：否 -（过滤条件）按照计算资源类型过滤，取值CVM或者CPM(黑石)。</li>
+<li> tag-key - String - 是否必填：否 -（过滤条件）按照标签键进行过滤。</li>
+<li>tag-value - String - 是否必填：否 -（过滤条件）按照标签值进行过滤。</li>
+<li>tag:tag-key - String - 是否必填：否 -（过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。</li>
 与EnvIds参数不能同时指定。
      */
     public void setFilters(Filter [] Filters) {
@@ -138,6 +153,35 @@ public class DescribeComputeEnvsRequest extends AbstractModel{
     public void setLimit(Long Limit) {
         this.Limit = Limit;
     }
+
+    public DescribeComputeEnvsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeComputeEnvsRequest(DescribeComputeEnvsRequest source) {
+        if (source.EnvIds != null) {
+            this.EnvIds = new String[source.EnvIds.length];
+            for (int i = 0; i < source.EnvIds.length; i++) {
+                this.EnvIds[i] = new String(source.EnvIds[i]);
+            }
+        }
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -55,7 +55,7 @@ public class DescribeCertificateResponse extends AbstractModel{
     private String CertificateType;
 
     /**
-    * 证书套餐类型：1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = Symantec 增强型企业版（EV Pro）， 4 = Symantec 增强型（EV）， 5 = Symantec 企业型专业版（OV Pro）， 6 = Symantec 企业型（OV）， 7 = Symantec 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
+    * 证书套餐类型：1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = SecureSite 增强型企业版（EV Pro）， 4 = SecureSite 增强型（EV）， 5 = SecureSite 企业型专业版（OV Pro）， 6 = SecureSite 企业型（OV）， 7 = SecureSite 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PackageType")
@@ -63,7 +63,7 @@ public class DescribeCertificateResponse extends AbstractModel{
     private String PackageType;
 
     /**
-    * 证书办法者名称。
+    * 证书颁发者名称。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProductZhName")
@@ -271,6 +271,14 @@ public class DescribeCertificateResponse extends AbstractModel{
     private Boolean Deployable;
 
     /**
+    * 标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tags [] Tags;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -358,9 +366,9 @@ public class DescribeCertificateResponse extends AbstractModel{
     }
 
     /**
-     * Get 证书套餐类型：1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = Symantec 增强型企业版（EV Pro）， 4 = Symantec 增强型（EV）， 5 = Symantec 企业型专业版（OV Pro）， 6 = Symantec 企业型（OV）， 7 = Symantec 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
+     * Get 证书套餐类型：1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = SecureSite 增强型企业版（EV Pro）， 4 = SecureSite 增强型（EV）， 5 = SecureSite 企业型专业版（OV Pro）， 6 = SecureSite 企业型（OV）， 7 = SecureSite 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return PackageType 证书套餐类型：1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = Symantec 增强型企业版（EV Pro）， 4 = Symantec 增强型（EV）， 5 = Symantec 企业型专业版（OV Pro）， 6 = Symantec 企业型（OV）， 7 = Symantec 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
+     * @return PackageType 证书套餐类型：1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = SecureSite 增强型企业版（EV Pro）， 4 = SecureSite 增强型（EV）， 5 = SecureSite 企业型专业版（OV Pro）， 6 = SecureSite 企业型（OV）， 7 = SecureSite 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPackageType() {
@@ -368,9 +376,9 @@ public class DescribeCertificateResponse extends AbstractModel{
     }
 
     /**
-     * Set 证书套餐类型：1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = Symantec 增强型企业版（EV Pro）， 4 = Symantec 增强型（EV）， 5 = Symantec 企业型专业版（OV Pro）， 6 = Symantec 企业型（OV）， 7 = Symantec 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
+     * Set 证书套餐类型：1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = SecureSite 增强型企业版（EV Pro）， 4 = SecureSite 增强型（EV）， 5 = SecureSite 企业型专业版（OV Pro）， 6 = SecureSite 企业型（OV）， 7 = SecureSite 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param PackageType 证书套餐类型：1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = Symantec 增强型企业版（EV Pro）， 4 = Symantec 增强型（EV）， 5 = Symantec 企业型专业版（OV Pro）， 6 = Symantec 企业型（OV）， 7 = Symantec 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
+     * @param PackageType 证书套餐类型：1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = SecureSite 增强型企业版（EV Pro）， 4 = SecureSite 增强型（EV）， 5 = SecureSite 企业型专业版（OV Pro）， 6 = SecureSite 企业型（OV）， 7 = SecureSite 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPackageType(String PackageType) {
@@ -378,9 +386,9 @@ public class DescribeCertificateResponse extends AbstractModel{
     }
 
     /**
-     * Get 证书办法者名称。
+     * Get 证书颁发者名称。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ProductZhName 证书办法者名称。
+     * @return ProductZhName 证书颁发者名称。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProductZhName() {
@@ -388,9 +396,9 @@ public class DescribeCertificateResponse extends AbstractModel{
     }
 
     /**
-     * Set 证书办法者名称。
+     * Set 证书颁发者名称。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ProductZhName 证书办法者名称。
+     * @param ProductZhName 证书颁发者名称。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProductZhName(String ProductZhName) {
@@ -898,6 +906,26 @@ public class DescribeCertificateResponse extends AbstractModel{
     }
 
     /**
+     * Get 标签列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Tags 标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Tags [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Tags 标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTags(Tags [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -912,6 +940,122 @@ public class DescribeCertificateResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeCertificateResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeCertificateResponse(DescribeCertificateResponse source) {
+        if (source.OwnerUin != null) {
+            this.OwnerUin = new String(source.OwnerUin);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
+        }
+        if (source.From != null) {
+            this.From = new String(source.From);
+        }
+        if (source.CertificateType != null) {
+            this.CertificateType = new String(source.CertificateType);
+        }
+        if (source.PackageType != null) {
+            this.PackageType = new String(source.PackageType);
+        }
+        if (source.ProductZhName != null) {
+            this.ProductZhName = new String(source.ProductZhName);
+        }
+        if (source.Domain != null) {
+            this.Domain = new String(source.Domain);
+        }
+        if (source.Alias != null) {
+            this.Alias = new String(source.Alias);
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+        if (source.StatusMsg != null) {
+            this.StatusMsg = new String(source.StatusMsg);
+        }
+        if (source.VerifyType != null) {
+            this.VerifyType = new String(source.VerifyType);
+        }
+        if (source.VulnerabilityStatus != null) {
+            this.VulnerabilityStatus = new String(source.VulnerabilityStatus);
+        }
+        if (source.CertBeginTime != null) {
+            this.CertBeginTime = new String(source.CertBeginTime);
+        }
+        if (source.CertEndTime != null) {
+            this.CertEndTime = new String(source.CertEndTime);
+        }
+        if (source.ValidityPeriod != null) {
+            this.ValidityPeriod = new String(source.ValidityPeriod);
+        }
+        if (source.InsertTime != null) {
+            this.InsertTime = new String(source.InsertTime);
+        }
+        if (source.OrderId != null) {
+            this.OrderId = new String(source.OrderId);
+        }
+        if (source.CertificateExtra != null) {
+            this.CertificateExtra = new CertificateExtra(source.CertificateExtra);
+        }
+        if (source.DvAuthDetail != null) {
+            this.DvAuthDetail = new DvAuthDetail(source.DvAuthDetail);
+        }
+        if (source.VulnerabilityReport != null) {
+            this.VulnerabilityReport = new String(source.VulnerabilityReport);
+        }
+        if (source.CertificateId != null) {
+            this.CertificateId = new String(source.CertificateId);
+        }
+        if (source.PackageTypeName != null) {
+            this.PackageTypeName = new String(source.PackageTypeName);
+        }
+        if (source.StatusName != null) {
+            this.StatusName = new String(source.StatusName);
+        }
+        if (source.SubjectAltName != null) {
+            this.SubjectAltName = new String[source.SubjectAltName.length];
+            for (int i = 0; i < source.SubjectAltName.length; i++) {
+                this.SubjectAltName[i] = new String(source.SubjectAltName[i]);
+            }
+        }
+        if (source.IsVip != null) {
+            this.IsVip = new Boolean(source.IsVip);
+        }
+        if (source.IsWildcard != null) {
+            this.IsWildcard = new Boolean(source.IsWildcard);
+        }
+        if (source.IsDv != null) {
+            this.IsDv = new Boolean(source.IsDv);
+        }
+        if (source.IsVulnerability != null) {
+            this.IsVulnerability = new Boolean(source.IsVulnerability);
+        }
+        if (source.RenewAble != null) {
+            this.RenewAble = new Boolean(source.RenewAble);
+        }
+        if (source.SubmittedData != null) {
+            this.SubmittedData = new SubmittedData(source.SubmittedData);
+        }
+        if (source.Deployable != null) {
+            this.Deployable = new Boolean(source.Deployable);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tags[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tags(source.Tags[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -948,6 +1092,7 @@ public class DescribeCertificateResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "RenewAble", this.RenewAble);
         this.setParamObj(map, prefix + "SubmittedData.", this.SubmittedData);
         this.setParamSimple(map, prefix + "Deployable", this.Deployable);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

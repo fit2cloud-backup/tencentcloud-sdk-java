@@ -132,6 +132,38 @@ public class Listener extends AbstractModel{
     private BasicTargetGroupInfo TargetGroup;
 
     /**
+    * 会话保持类型。NORMAL表示默认会话保持类型。QUIC_CID 表示根据Quic Connection ID做会话保持。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SessionType")
+    @Expose
+    private String SessionType;
+
+    /**
+    * 是否开启长连接，1开启，0关闭，（本参数仅对于HTTP/HTTPS监听器有意义）
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("KeepaliveEnable")
+    @Expose
+    private Long KeepaliveEnable;
+
+    /**
+    * 仅支持Nat64 CLB TCP监听器
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Toa")
+    @Expose
+    private Boolean Toa;
+
+    /**
+    * 解绑后端目标时，是否发RST给客户端，（此参数仅对于TCP监听器有意义）。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DeregisterTargetRst")
+    @Expose
+    private Boolean DeregisterTargetRst;
+
+    /**
      * Get 负载均衡监听器 ID 
      * @return ListenerId 负载均衡监听器 ID
      */
@@ -400,6 +432,154 @@ public class Listener extends AbstractModel{
     }
 
     /**
+     * Get 会话保持类型。NORMAL表示默认会话保持类型。QUIC_CID 表示根据Quic Connection ID做会话保持。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SessionType 会话保持类型。NORMAL表示默认会话保持类型。QUIC_CID 表示根据Quic Connection ID做会话保持。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSessionType() {
+        return this.SessionType;
+    }
+
+    /**
+     * Set 会话保持类型。NORMAL表示默认会话保持类型。QUIC_CID 表示根据Quic Connection ID做会话保持。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SessionType 会话保持类型。NORMAL表示默认会话保持类型。QUIC_CID 表示根据Quic Connection ID做会话保持。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSessionType(String SessionType) {
+        this.SessionType = SessionType;
+    }
+
+    /**
+     * Get 是否开启长连接，1开启，0关闭，（本参数仅对于HTTP/HTTPS监听器有意义）
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return KeepaliveEnable 是否开启长连接，1开启，0关闭，（本参数仅对于HTTP/HTTPS监听器有意义）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getKeepaliveEnable() {
+        return this.KeepaliveEnable;
+    }
+
+    /**
+     * Set 是否开启长连接，1开启，0关闭，（本参数仅对于HTTP/HTTPS监听器有意义）
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param KeepaliveEnable 是否开启长连接，1开启，0关闭，（本参数仅对于HTTP/HTTPS监听器有意义）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setKeepaliveEnable(Long KeepaliveEnable) {
+        this.KeepaliveEnable = KeepaliveEnable;
+    }
+
+    /**
+     * Get 仅支持Nat64 CLB TCP监听器
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Toa 仅支持Nat64 CLB TCP监听器
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getToa() {
+        return this.Toa;
+    }
+
+    /**
+     * Set 仅支持Nat64 CLB TCP监听器
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Toa 仅支持Nat64 CLB TCP监听器
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setToa(Boolean Toa) {
+        this.Toa = Toa;
+    }
+
+    /**
+     * Get 解绑后端目标时，是否发RST给客户端，（此参数仅对于TCP监听器有意义）。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DeregisterTargetRst 解绑后端目标时，是否发RST给客户端，（此参数仅对于TCP监听器有意义）。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getDeregisterTargetRst() {
+        return this.DeregisterTargetRst;
+    }
+
+    /**
+     * Set 解绑后端目标时，是否发RST给客户端，（此参数仅对于TCP监听器有意义）。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DeregisterTargetRst 解绑后端目标时，是否发RST给客户端，（此参数仅对于TCP监听器有意义）。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDeregisterTargetRst(Boolean DeregisterTargetRst) {
+        this.DeregisterTargetRst = DeregisterTargetRst;
+    }
+
+    public Listener() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Listener(Listener source) {
+        if (source.ListenerId != null) {
+            this.ListenerId = new String(source.ListenerId);
+        }
+        if (source.Protocol != null) {
+            this.Protocol = new String(source.Protocol);
+        }
+        if (source.Port != null) {
+            this.Port = new Long(source.Port);
+        }
+        if (source.Certificate != null) {
+            this.Certificate = new CertificateOutput(source.Certificate);
+        }
+        if (source.HealthCheck != null) {
+            this.HealthCheck = new HealthCheck(source.HealthCheck);
+        }
+        if (source.Scheduler != null) {
+            this.Scheduler = new String(source.Scheduler);
+        }
+        if (source.SessionExpireTime != null) {
+            this.SessionExpireTime = new Long(source.SessionExpireTime);
+        }
+        if (source.SniSwitch != null) {
+            this.SniSwitch = new Long(source.SniSwitch);
+        }
+        if (source.Rules != null) {
+            this.Rules = new RuleOutput[source.Rules.length];
+            for (int i = 0; i < source.Rules.length; i++) {
+                this.Rules[i] = new RuleOutput(source.Rules[i]);
+            }
+        }
+        if (source.ListenerName != null) {
+            this.ListenerName = new String(source.ListenerName);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.EndPort != null) {
+            this.EndPort = new Long(source.EndPort);
+        }
+        if (source.TargetType != null) {
+            this.TargetType = new String(source.TargetType);
+        }
+        if (source.TargetGroup != null) {
+            this.TargetGroup = new BasicTargetGroupInfo(source.TargetGroup);
+        }
+        if (source.SessionType != null) {
+            this.SessionType = new String(source.SessionType);
+        }
+        if (source.KeepaliveEnable != null) {
+            this.KeepaliveEnable = new Long(source.KeepaliveEnable);
+        }
+        if (source.Toa != null) {
+            this.Toa = new Boolean(source.Toa);
+        }
+        if (source.DeregisterTargetRst != null) {
+            this.DeregisterTargetRst = new Boolean(source.DeregisterTargetRst);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -417,6 +597,10 @@ public class Listener extends AbstractModel{
         this.setParamSimple(map, prefix + "EndPort", this.EndPort);
         this.setParamSimple(map, prefix + "TargetType", this.TargetType);
         this.setParamObj(map, prefix + "TargetGroup.", this.TargetGroup);
+        this.setParamSimple(map, prefix + "SessionType", this.SessionType);
+        this.setParamSimple(map, prefix + "KeepaliveEnable", this.KeepaliveEnable);
+        this.setParamSimple(map, prefix + "Toa", this.Toa);
+        this.setParamSimple(map, prefix + "DeregisterTargetRst", this.DeregisterTargetRst);
 
     }
 }

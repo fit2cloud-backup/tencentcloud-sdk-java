@@ -31,7 +31,7 @@ public class DescribePlayerSessionsResponse extends AbstractModel{
     private PlayerSession [] PlayerSessions;
 
     /**
-    * 页偏移
+    * 页偏移，用于查询下一页，最小长度不小于1个ASCII字符，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NextToken")
@@ -66,9 +66,9 @@ public class DescribePlayerSessionsResponse extends AbstractModel{
     }
 
     /**
-     * Get 页偏移
+     * Get 页偏移，用于查询下一页，最小长度不小于1个ASCII字符，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return NextToken 页偏移
+     * @return NextToken 页偏移，用于查询下一页，最小长度不小于1个ASCII字符，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNextToken() {
@@ -76,9 +76,9 @@ public class DescribePlayerSessionsResponse extends AbstractModel{
     }
 
     /**
-     * Set 页偏移
+     * Set 页偏移，用于查询下一页，最小长度不小于1个ASCII字符，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param NextToken 页偏移
+     * @param NextToken 页偏移，用于查询下一页，最小长度不小于1个ASCII字符，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNextToken(String NextToken) {
@@ -100,6 +100,29 @@ public class DescribePlayerSessionsResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribePlayerSessionsResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribePlayerSessionsResponse(DescribePlayerSessionsResponse source) {
+        if (source.PlayerSessions != null) {
+            this.PlayerSessions = new PlayerSession[source.PlayerSessions.length];
+            for (int i = 0; i < source.PlayerSessions.length; i++) {
+                this.PlayerSessions[i] = new PlayerSession(source.PlayerSessions[i]);
+            }
+        }
+        if (source.NextToken != null) {
+            this.NextToken = new String(source.NextToken);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -109,6 +109,28 @@ public class ModifyMediaInfoRequest extends AbstractModel{
     private Long ClearTags;
 
     /**
+    * 新增一组字幕。单个媒体文件最多 16 个字幕。同一个请求中，AddSubtitles 中指定的字幕 Id 必须与 DeleteSubtitleIds 都不相同。
+    */
+    @SerializedName("AddSubtitles")
+    @Expose
+    private MediaSubtitleInput [] AddSubtitles;
+
+    /**
+    * 待删除字幕的唯一标识。同一个请求中，AddSubtitles 中指定的字幕 Id 必须与 DeleteSubtitleIds 都不相同。
+    */
+    @SerializedName("DeleteSubtitleIds")
+    @Expose
+    private String [] DeleteSubtitleIds;
+
+    /**
+    * 取值 1 表示清空媒体文件所有的字幕信息，其他值无意义。
+同一个请求里，ClearSubtitles 与 AddSubtitles不能同时出现。
+    */
+    @SerializedName("ClearSubtitles")
+    @Expose
+    private Long ClearSubtitles;
+
+    /**
     * 点播[子应用](/document/product/266/14574) ID 。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
     */
     @SerializedName("SubAppId")
@@ -316,6 +338,58 @@ public class ModifyMediaInfoRequest extends AbstractModel{
     }
 
     /**
+     * Get 新增一组字幕。单个媒体文件最多 16 个字幕。同一个请求中，AddSubtitles 中指定的字幕 Id 必须与 DeleteSubtitleIds 都不相同。 
+     * @return AddSubtitles 新增一组字幕。单个媒体文件最多 16 个字幕。同一个请求中，AddSubtitles 中指定的字幕 Id 必须与 DeleteSubtitleIds 都不相同。
+     */
+    public MediaSubtitleInput [] getAddSubtitles() {
+        return this.AddSubtitles;
+    }
+
+    /**
+     * Set 新增一组字幕。单个媒体文件最多 16 个字幕。同一个请求中，AddSubtitles 中指定的字幕 Id 必须与 DeleteSubtitleIds 都不相同。
+     * @param AddSubtitles 新增一组字幕。单个媒体文件最多 16 个字幕。同一个请求中，AddSubtitles 中指定的字幕 Id 必须与 DeleteSubtitleIds 都不相同。
+     */
+    public void setAddSubtitles(MediaSubtitleInput [] AddSubtitles) {
+        this.AddSubtitles = AddSubtitles;
+    }
+
+    /**
+     * Get 待删除字幕的唯一标识。同一个请求中，AddSubtitles 中指定的字幕 Id 必须与 DeleteSubtitleIds 都不相同。 
+     * @return DeleteSubtitleIds 待删除字幕的唯一标识。同一个请求中，AddSubtitles 中指定的字幕 Id 必须与 DeleteSubtitleIds 都不相同。
+     */
+    public String [] getDeleteSubtitleIds() {
+        return this.DeleteSubtitleIds;
+    }
+
+    /**
+     * Set 待删除字幕的唯一标识。同一个请求中，AddSubtitles 中指定的字幕 Id 必须与 DeleteSubtitleIds 都不相同。
+     * @param DeleteSubtitleIds 待删除字幕的唯一标识。同一个请求中，AddSubtitles 中指定的字幕 Id 必须与 DeleteSubtitleIds 都不相同。
+     */
+    public void setDeleteSubtitleIds(String [] DeleteSubtitleIds) {
+        this.DeleteSubtitleIds = DeleteSubtitleIds;
+    }
+
+    /**
+     * Get 取值 1 表示清空媒体文件所有的字幕信息，其他值无意义。
+同一个请求里，ClearSubtitles 与 AddSubtitles不能同时出现。 
+     * @return ClearSubtitles 取值 1 表示清空媒体文件所有的字幕信息，其他值无意义。
+同一个请求里，ClearSubtitles 与 AddSubtitles不能同时出现。
+     */
+    public Long getClearSubtitles() {
+        return this.ClearSubtitles;
+    }
+
+    /**
+     * Set 取值 1 表示清空媒体文件所有的字幕信息，其他值无意义。
+同一个请求里，ClearSubtitles 与 AddSubtitles不能同时出现。
+     * @param ClearSubtitles 取值 1 表示清空媒体文件所有的字幕信息，其他值无意义。
+同一个请求里，ClearSubtitles 与 AddSubtitles不能同时出现。
+     */
+    public void setClearSubtitles(Long ClearSubtitles) {
+        this.ClearSubtitles = ClearSubtitles;
+    }
+
+    /**
      * Get 点播[子应用](/document/product/266/14574) ID 。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。 
      * @return SubAppId 点播[子应用](/document/product/266/14574) ID 。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
      */
@@ -330,6 +404,83 @@ public class ModifyMediaInfoRequest extends AbstractModel{
     public void setSubAppId(Long SubAppId) {
         this.SubAppId = SubAppId;
     }
+
+    public ModifyMediaInfoRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyMediaInfoRequest(ModifyMediaInfoRequest source) {
+        if (source.FileId != null) {
+            this.FileId = new String(source.FileId);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.ClassId != null) {
+            this.ClassId = new Long(source.ClassId);
+        }
+        if (source.ExpireTime != null) {
+            this.ExpireTime = new String(source.ExpireTime);
+        }
+        if (source.CoverData != null) {
+            this.CoverData = new String(source.CoverData);
+        }
+        if (source.AddKeyFrameDescs != null) {
+            this.AddKeyFrameDescs = new MediaKeyFrameDescItem[source.AddKeyFrameDescs.length];
+            for (int i = 0; i < source.AddKeyFrameDescs.length; i++) {
+                this.AddKeyFrameDescs[i] = new MediaKeyFrameDescItem(source.AddKeyFrameDescs[i]);
+            }
+        }
+        if (source.DeleteKeyFrameDescs != null) {
+            this.DeleteKeyFrameDescs = new Float[source.DeleteKeyFrameDescs.length];
+            for (int i = 0; i < source.DeleteKeyFrameDescs.length; i++) {
+                this.DeleteKeyFrameDescs[i] = new Float(source.DeleteKeyFrameDescs[i]);
+            }
+        }
+        if (source.ClearKeyFrameDescs != null) {
+            this.ClearKeyFrameDescs = new Long(source.ClearKeyFrameDescs);
+        }
+        if (source.AddTags != null) {
+            this.AddTags = new String[source.AddTags.length];
+            for (int i = 0; i < source.AddTags.length; i++) {
+                this.AddTags[i] = new String(source.AddTags[i]);
+            }
+        }
+        if (source.DeleteTags != null) {
+            this.DeleteTags = new String[source.DeleteTags.length];
+            for (int i = 0; i < source.DeleteTags.length; i++) {
+                this.DeleteTags[i] = new String(source.DeleteTags[i]);
+            }
+        }
+        if (source.ClearTags != null) {
+            this.ClearTags = new Long(source.ClearTags);
+        }
+        if (source.AddSubtitles != null) {
+            this.AddSubtitles = new MediaSubtitleInput[source.AddSubtitles.length];
+            for (int i = 0; i < source.AddSubtitles.length; i++) {
+                this.AddSubtitles[i] = new MediaSubtitleInput(source.AddSubtitles[i]);
+            }
+        }
+        if (source.DeleteSubtitleIds != null) {
+            this.DeleteSubtitleIds = new String[source.DeleteSubtitleIds.length];
+            for (int i = 0; i < source.DeleteSubtitleIds.length; i++) {
+                this.DeleteSubtitleIds[i] = new String(source.DeleteSubtitleIds[i]);
+            }
+        }
+        if (source.ClearSubtitles != null) {
+            this.ClearSubtitles = new Long(source.ClearSubtitles);
+        }
+        if (source.SubAppId != null) {
+            this.SubAppId = new Long(source.SubAppId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -347,6 +498,9 @@ public class ModifyMediaInfoRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "AddTags.", this.AddTags);
         this.setParamArraySimple(map, prefix + "DeleteTags.", this.DeleteTags);
         this.setParamSimple(map, prefix + "ClearTags", this.ClearTags);
+        this.setParamArrayObj(map, prefix + "AddSubtitles.", this.AddSubtitles);
+        this.setParamArraySimple(map, prefix + "DeleteSubtitleIds.", this.DeleteSubtitleIds);
+        this.setParamSimple(map, prefix + "ClearSubtitles", this.ClearSubtitles);
         this.setParamSimple(map, prefix + "SubAppId", this.SubAppId);
 
     }

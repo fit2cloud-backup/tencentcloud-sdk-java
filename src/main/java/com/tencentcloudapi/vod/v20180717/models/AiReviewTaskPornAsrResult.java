@@ -30,11 +30,14 @@ public class AiReviewTaskPornAsrResult extends AbstractModel{
     private String Status;
 
     /**
-    * 错误码，0 表示成功，其他值表示失败：
-<li>40000：输入参数不合法，请检查输入参数；</li>
-<li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
-<li>70000：内部服务错误，建议重试。</li>
-注意：此字段可能返回 null，表示取不到有效值。
+    * 错误码，空字符串表示成功，其他值表示失败，取值请参考 [视频处理类错误码](https://cloud.tencent.com/document/product/266/50368#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
+    */
+    @SerializedName("ErrCodeExt")
+    @Expose
+    private String ErrCodeExt;
+
+    /**
+    * 错误码，0 表示成功，其他值表示失败（该字段已不推荐使用，建议使用新的错误码字段 ErrCodeExt）。
     */
     @SerializedName("ErrCode")
     @Expose
@@ -42,7 +45,6 @@ public class AiReviewTaskPornAsrResult extends AbstractModel{
 
     /**
     * 错误信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Message")
     @Expose
@@ -80,42 +82,40 @@ public class AiReviewTaskPornAsrResult extends AbstractModel{
     }
 
     /**
-     * Get 错误码，0 表示成功，其他值表示失败：
-<li>40000：输入参数不合法，请检查输入参数；</li>
-<li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
-<li>70000：内部服务错误，建议重试。</li>
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ErrCode 错误码，0 表示成功，其他值表示失败：
-<li>40000：输入参数不合法，请检查输入参数；</li>
-<li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
-<li>70000：内部服务错误，建议重试。</li>
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 错误码，空字符串表示成功，其他值表示失败，取值请参考 [视频处理类错误码](https://cloud.tencent.com/document/product/266/50368#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。 
+     * @return ErrCodeExt 错误码，空字符串表示成功，其他值表示失败，取值请参考 [视频处理类错误码](https://cloud.tencent.com/document/product/266/50368#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
+     */
+    public String getErrCodeExt() {
+        return this.ErrCodeExt;
+    }
+
+    /**
+     * Set 错误码，空字符串表示成功，其他值表示失败，取值请参考 [视频处理类错误码](https://cloud.tencent.com/document/product/266/50368#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
+     * @param ErrCodeExt 错误码，空字符串表示成功，其他值表示失败，取值请参考 [视频处理类错误码](https://cloud.tencent.com/document/product/266/50368#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
+     */
+    public void setErrCodeExt(String ErrCodeExt) {
+        this.ErrCodeExt = ErrCodeExt;
+    }
+
+    /**
+     * Get 错误码，0 表示成功，其他值表示失败（该字段已不推荐使用，建议使用新的错误码字段 ErrCodeExt）。 
+     * @return ErrCode 错误码，0 表示成功，其他值表示失败（该字段已不推荐使用，建议使用新的错误码字段 ErrCodeExt）。
      */
     public Long getErrCode() {
         return this.ErrCode;
     }
 
     /**
-     * Set 错误码，0 表示成功，其他值表示失败：
-<li>40000：输入参数不合法，请检查输入参数；</li>
-<li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
-<li>70000：内部服务错误，建议重试。</li>
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ErrCode 错误码，0 表示成功，其他值表示失败：
-<li>40000：输入参数不合法，请检查输入参数；</li>
-<li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
-<li>70000：内部服务错误，建议重试。</li>
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 错误码，0 表示成功，其他值表示失败（该字段已不推荐使用，建议使用新的错误码字段 ErrCodeExt）。
+     * @param ErrCode 错误码，0 表示成功，其他值表示失败（该字段已不推荐使用，建议使用新的错误码字段 ErrCodeExt）。
      */
     public void setErrCode(Long ErrCode) {
         this.ErrCode = ErrCode;
     }
 
     /**
-     * Get 错误信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 错误信息。 
      * @return Message 错误信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMessage() {
         return this.Message;
@@ -123,9 +123,7 @@ public class AiReviewTaskPornAsrResult extends AbstractModel{
 
     /**
      * Set 错误信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Message 错误信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMessage(String Message) {
         this.Message = Message;
@@ -167,11 +165,41 @@ public class AiReviewTaskPornAsrResult extends AbstractModel{
         this.Output = Output;
     }
 
+    public AiReviewTaskPornAsrResult() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AiReviewTaskPornAsrResult(AiReviewTaskPornAsrResult source) {
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.ErrCodeExt != null) {
+            this.ErrCodeExt = new String(source.ErrCodeExt);
+        }
+        if (source.ErrCode != null) {
+            this.ErrCode = new Long(source.ErrCode);
+        }
+        if (source.Message != null) {
+            this.Message = new String(source.Message);
+        }
+        if (source.Input != null) {
+            this.Input = new AiReviewPornAsrTaskInput(source.Input);
+        }
+        if (source.Output != null) {
+            this.Output = new AiReviewPornAsrTaskOutput(source.Output);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Status", this.Status);
+        this.setParamSimple(map, prefix + "ErrCodeExt", this.ErrCodeExt);
         this.setParamSimple(map, prefix + "ErrCode", this.ErrCode);
         this.setParamSimple(map, prefix + "Message", this.Message);
         this.setParamObj(map, prefix + "Input.", this.Input);

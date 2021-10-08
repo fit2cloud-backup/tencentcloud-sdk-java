@@ -37,7 +37,9 @@ public class BindingPolicyObjectDimension extends AbstractModel{
     private Long RegionId;
 
     /**
-    * 维度信息
+    * 实例的维度信息，格式为
+{"unInstanceId":"ins-00jvv9mo"}。不同云产品的维度信息不同，详见
+[指标维度信息Dimensions列表](https://cloud.tencent.com/document/product/248/50397)
     */
     @SerializedName("Dimensions")
     @Expose
@@ -83,16 +85,24 @@ public class BindingPolicyObjectDimension extends AbstractModel{
     }
 
     /**
-     * Get 维度信息 
-     * @return Dimensions 维度信息
+     * Get 实例的维度信息，格式为
+{"unInstanceId":"ins-00jvv9mo"}。不同云产品的维度信息不同，详见
+[指标维度信息Dimensions列表](https://cloud.tencent.com/document/product/248/50397) 
+     * @return Dimensions 实例的维度信息，格式为
+{"unInstanceId":"ins-00jvv9mo"}。不同云产品的维度信息不同，详见
+[指标维度信息Dimensions列表](https://cloud.tencent.com/document/product/248/50397)
      */
     public String getDimensions() {
         return this.Dimensions;
     }
 
     /**
-     * Set 维度信息
-     * @param Dimensions 维度信息
+     * Set 实例的维度信息，格式为
+{"unInstanceId":"ins-00jvv9mo"}。不同云产品的维度信息不同，详见
+[指标维度信息Dimensions列表](https://cloud.tencent.com/document/product/248/50397)
+     * @param Dimensions 实例的维度信息，格式为
+{"unInstanceId":"ins-00jvv9mo"}。不同云产品的维度信息不同，详见
+[指标维度信息Dimensions列表](https://cloud.tencent.com/document/product/248/50397)
      */
     public void setDimensions(String Dimensions) {
         this.Dimensions = Dimensions;
@@ -113,6 +123,29 @@ public class BindingPolicyObjectDimension extends AbstractModel{
     public void setEventDimensions(String EventDimensions) {
         this.EventDimensions = EventDimensions;
     }
+
+    public BindingPolicyObjectDimension() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public BindingPolicyObjectDimension(BindingPolicyObjectDimension source) {
+        if (source.Region != null) {
+            this.Region = new String(source.Region);
+        }
+        if (source.RegionId != null) {
+            this.RegionId = new Long(source.RegionId);
+        }
+        if (source.Dimensions != null) {
+            this.Dimensions = new String(source.Dimensions);
+        }
+        if (source.EventDimensions != null) {
+            this.EventDimensions = new String(source.EventDimensions);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

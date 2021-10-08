@@ -23,13 +23,11 @@ import java.util.HashMap;
 public class CreateClusterResponse extends AbstractModel{
 
     /**
-    * 创建集群操作是否成功。
-true：操作成功。
-false：操作失败。
+    * 集群ID
     */
     @SerializedName("Result")
     @Expose
-    private Boolean Result;
+    private String Result;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -39,26 +37,18 @@ false：操作失败。
     private String RequestId;
 
     /**
-     * Get 创建集群操作是否成功。
-true：操作成功。
-false：操作失败。 
-     * @return Result 创建集群操作是否成功。
-true：操作成功。
-false：操作失败。
+     * Get 集群ID 
+     * @return Result 集群ID
      */
-    public Boolean getResult() {
+    public String getResult() {
         return this.Result;
     }
 
     /**
-     * Set 创建集群操作是否成功。
-true：操作成功。
-false：操作失败。
-     * @param Result 创建集群操作是否成功。
-true：操作成功。
-false：操作失败。
+     * Set 集群ID
+     * @param Result 集群ID
      */
-    public void setResult(Boolean Result) {
+    public void setResult(String Result) {
         this.Result = Result;
     }
 
@@ -77,6 +67,23 @@ false：操作失败。
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public CreateClusterResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateClusterResponse(CreateClusterResponse source) {
+        if (source.Result != null) {
+            this.Result = new String(source.Result);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

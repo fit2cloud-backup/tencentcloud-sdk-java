@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class PullUploadRequest extends AbstractModel{
 
     /**
-    * 要拉取的媒体 URL，暂不支持拉取 HLS 和 Dash 格式。
+    * 要拉取的媒体 URL，暂不支持拉取 Dash 格式（可以支持 HLS）。
 支持的扩展名详见[媒体类型](https://cloud.tencent.com/document/product/266/9760#.E5.AA.92.E4.BD.93.E7.B1.BB.E5.9E.8B)。
     */
     @SerializedName("MediaUrl")
@@ -59,7 +59,9 @@ public class PullUploadRequest extends AbstractModel{
     private String ExpireTime;
 
     /**
-    * 指定上传园区，仅适用于对上传地域有特殊需求的用户（目前仅支持北京、上海和重庆园区）。
+    * 指定上传园区，仅适用于对上传地域有特殊需求的用户：
+<li>不填默认上传至您的[默认地域](https://cloud.tencent.com/document/product/266/14059?from=11329#.E5.AD.98.E5.82.A8.E5.9C.B0.E5.9F.9F.E6.AD.A5.E9.AA.A4)。</li>
+<li>若指定上传园区，请先确认[上传存储设置](https://cloud.tencent.com/document/product/266/14059?from=11329#.E5.AD.98.E5.82.A8.E5.9C.B0.E5.9F.9F.E6.AD.A5.E9.AA.A4)已经开启相应的存储地域。</li>
     */
     @SerializedName("StorageRegion")
     @Expose
@@ -80,7 +82,7 @@ public class PullUploadRequest extends AbstractModel{
     private String SessionContext;
 
     /**
-    * 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+    * 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
     */
     @SerializedName("SessionId")
     @Expose
@@ -101,9 +103,16 @@ public class PullUploadRequest extends AbstractModel{
     private Long SubAppId;
 
     /**
-     * Get 要拉取的媒体 URL，暂不支持拉取 HLS 和 Dash 格式。
+    * 来源上下文，用于透传用户请求信息，[上传完成回调](/document/product/266/7830) 将返回该字段值，最长 250 个字符。
+    */
+    @SerializedName("SourceContext")
+    @Expose
+    private String SourceContext;
+
+    /**
+     * Get 要拉取的媒体 URL，暂不支持拉取 Dash 格式（可以支持 HLS）。
 支持的扩展名详见[媒体类型](https://cloud.tencent.com/document/product/266/9760#.E5.AA.92.E4.BD.93.E7.B1.BB.E5.9E.8B)。 
-     * @return MediaUrl 要拉取的媒体 URL，暂不支持拉取 HLS 和 Dash 格式。
+     * @return MediaUrl 要拉取的媒体 URL，暂不支持拉取 Dash 格式（可以支持 HLS）。
 支持的扩展名详见[媒体类型](https://cloud.tencent.com/document/product/266/9760#.E5.AA.92.E4.BD.93.E7.B1.BB.E5.9E.8B)。
      */
     public String getMediaUrl() {
@@ -111,9 +120,9 @@ public class PullUploadRequest extends AbstractModel{
     }
 
     /**
-     * Set 要拉取的媒体 URL，暂不支持拉取 HLS 和 Dash 格式。
+     * Set 要拉取的媒体 URL，暂不支持拉取 Dash 格式（可以支持 HLS）。
 支持的扩展名详见[媒体类型](https://cloud.tencent.com/document/product/266/9760#.E5.AA.92.E4.BD.93.E7.B1.BB.E5.9E.8B)。
-     * @param MediaUrl 要拉取的媒体 URL，暂不支持拉取 HLS 和 Dash 格式。
+     * @param MediaUrl 要拉取的媒体 URL，暂不支持拉取 Dash 格式（可以支持 HLS）。
 支持的扩展名详见[媒体类型](https://cloud.tencent.com/document/product/266/9760#.E5.AA.92.E4.BD.93.E7.B1.BB.E5.9E.8B)。
      */
     public void setMediaUrl(String MediaUrl) {
@@ -185,16 +194,24 @@ public class PullUploadRequest extends AbstractModel{
     }
 
     /**
-     * Get 指定上传园区，仅适用于对上传地域有特殊需求的用户（目前仅支持北京、上海和重庆园区）。 
-     * @return StorageRegion 指定上传园区，仅适用于对上传地域有特殊需求的用户（目前仅支持北京、上海和重庆园区）。
+     * Get 指定上传园区，仅适用于对上传地域有特殊需求的用户：
+<li>不填默认上传至您的[默认地域](https://cloud.tencent.com/document/product/266/14059?from=11329#.E5.AD.98.E5.82.A8.E5.9C.B0.E5.9F.9F.E6.AD.A5.E9.AA.A4)。</li>
+<li>若指定上传园区，请先确认[上传存储设置](https://cloud.tencent.com/document/product/266/14059?from=11329#.E5.AD.98.E5.82.A8.E5.9C.B0.E5.9F.9F.E6.AD.A5.E9.AA.A4)已经开启相应的存储地域。</li> 
+     * @return StorageRegion 指定上传园区，仅适用于对上传地域有特殊需求的用户：
+<li>不填默认上传至您的[默认地域](https://cloud.tencent.com/document/product/266/14059?from=11329#.E5.AD.98.E5.82.A8.E5.9C.B0.E5.9F.9F.E6.AD.A5.E9.AA.A4)。</li>
+<li>若指定上传园区，请先确认[上传存储设置](https://cloud.tencent.com/document/product/266/14059?from=11329#.E5.AD.98.E5.82.A8.E5.9C.B0.E5.9F.9F.E6.AD.A5.E9.AA.A4)已经开启相应的存储地域。</li>
      */
     public String getStorageRegion() {
         return this.StorageRegion;
     }
 
     /**
-     * Set 指定上传园区，仅适用于对上传地域有特殊需求的用户（目前仅支持北京、上海和重庆园区）。
-     * @param StorageRegion 指定上传园区，仅适用于对上传地域有特殊需求的用户（目前仅支持北京、上海和重庆园区）。
+     * Set 指定上传园区，仅适用于对上传地域有特殊需求的用户：
+<li>不填默认上传至您的[默认地域](https://cloud.tencent.com/document/product/266/14059?from=11329#.E5.AD.98.E5.82.A8.E5.9C.B0.E5.9F.9F.E6.AD.A5.E9.AA.A4)。</li>
+<li>若指定上传园区，请先确认[上传存储设置](https://cloud.tencent.com/document/product/266/14059?from=11329#.E5.AD.98.E5.82.A8.E5.9C.B0.E5.9F.9F.E6.AD.A5.E9.AA.A4)已经开启相应的存储地域。</li>
+     * @param StorageRegion 指定上传园区，仅适用于对上传地域有特殊需求的用户：
+<li>不填默认上传至您的[默认地域](https://cloud.tencent.com/document/product/266/14059?from=11329#.E5.AD.98.E5.82.A8.E5.9C.B0.E5.9F.9F.E6.AD.A5.E9.AA.A4)。</li>
+<li>若指定上传园区，请先确认[上传存储设置](https://cloud.tencent.com/document/product/266/14059?from=11329#.E5.AD.98.E5.82.A8.E5.9C.B0.E5.9F.9F.E6.AD.A5.E9.AA.A4)已经开启相应的存储地域。</li>
      */
     public void setStorageRegion(String StorageRegion) {
         this.StorageRegion = StorageRegion;
@@ -233,16 +250,16 @@ public class PullUploadRequest extends AbstractModel{
     }
 
     /**
-     * Get 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。 
-     * @return SessionId 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+     * Get 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。 
+     * @return SessionId 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
      */
     public String getSessionId() {
         return this.SessionId;
     }
 
     /**
-     * Set 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
-     * @param SessionId 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+     * Set 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+     * @param SessionId 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
      */
     public void setSessionId(String SessionId) {
         this.SessionId = SessionId;
@@ -281,6 +298,69 @@ public class PullUploadRequest extends AbstractModel{
     }
 
     /**
+     * Get 来源上下文，用于透传用户请求信息，[上传完成回调](/document/product/266/7830) 将返回该字段值，最长 250 个字符。 
+     * @return SourceContext 来源上下文，用于透传用户请求信息，[上传完成回调](/document/product/266/7830) 将返回该字段值，最长 250 个字符。
+     */
+    public String getSourceContext() {
+        return this.SourceContext;
+    }
+
+    /**
+     * Set 来源上下文，用于透传用户请求信息，[上传完成回调](/document/product/266/7830) 将返回该字段值，最长 250 个字符。
+     * @param SourceContext 来源上下文，用于透传用户请求信息，[上传完成回调](/document/product/266/7830) 将返回该字段值，最长 250 个字符。
+     */
+    public void setSourceContext(String SourceContext) {
+        this.SourceContext = SourceContext;
+    }
+
+    public PullUploadRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public PullUploadRequest(PullUploadRequest source) {
+        if (source.MediaUrl != null) {
+            this.MediaUrl = new String(source.MediaUrl);
+        }
+        if (source.MediaName != null) {
+            this.MediaName = new String(source.MediaName);
+        }
+        if (source.CoverUrl != null) {
+            this.CoverUrl = new String(source.CoverUrl);
+        }
+        if (source.Procedure != null) {
+            this.Procedure = new String(source.Procedure);
+        }
+        if (source.ExpireTime != null) {
+            this.ExpireTime = new String(source.ExpireTime);
+        }
+        if (source.StorageRegion != null) {
+            this.StorageRegion = new String(source.StorageRegion);
+        }
+        if (source.ClassId != null) {
+            this.ClassId = new Long(source.ClassId);
+        }
+        if (source.SessionContext != null) {
+            this.SessionContext = new String(source.SessionContext);
+        }
+        if (source.SessionId != null) {
+            this.SessionId = new String(source.SessionId);
+        }
+        if (source.ExtInfo != null) {
+            this.ExtInfo = new String(source.ExtInfo);
+        }
+        if (source.SubAppId != null) {
+            this.SubAppId = new Long(source.SubAppId);
+        }
+        if (source.SourceContext != null) {
+            this.SourceContext = new String(source.SourceContext);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -295,6 +375,7 @@ public class PullUploadRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SessionId", this.SessionId);
         this.setParamSimple(map, prefix + "ExtInfo", this.ExtInfo);
         this.setParamSimple(map, prefix + "SubAppId", this.SubAppId);
+        this.setParamSimple(map, prefix + "SourceContext", this.SourceContext);
 
     }
 }

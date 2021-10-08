@@ -65,6 +65,27 @@ public class ModifyVpnConnectionAttributeRequest extends AbstractModel{
     private IPSECOptionsSpecification IPSECOptionsSpecification;
 
     /**
+    * 是否启用通道健康检查
+    */
+    @SerializedName("EnableHealthCheck")
+    @Expose
+    private Boolean EnableHealthCheck;
+
+    /**
+    * 本端通道探测ip
+    */
+    @SerializedName("HealthCheckLocalIp")
+    @Expose
+    private String HealthCheckLocalIp;
+
+    /**
+    * 对端通道探测ip
+    */
+    @SerializedName("HealthCheckRemoteIp")
+    @Expose
+    private String HealthCheckRemoteIp;
+
+    /**
      * Get VPN通道实例ID。形如：vpnx-f49l6u0z。 
      * @return VpnConnectionId VPN通道实例ID。形如：vpnx-f49l6u0z。
      */
@@ -161,6 +182,95 @@ public class ModifyVpnConnectionAttributeRequest extends AbstractModel{
     }
 
     /**
+     * Get 是否启用通道健康检查 
+     * @return EnableHealthCheck 是否启用通道健康检查
+     */
+    public Boolean getEnableHealthCheck() {
+        return this.EnableHealthCheck;
+    }
+
+    /**
+     * Set 是否启用通道健康检查
+     * @param EnableHealthCheck 是否启用通道健康检查
+     */
+    public void setEnableHealthCheck(Boolean EnableHealthCheck) {
+        this.EnableHealthCheck = EnableHealthCheck;
+    }
+
+    /**
+     * Get 本端通道探测ip 
+     * @return HealthCheckLocalIp 本端通道探测ip
+     */
+    public String getHealthCheckLocalIp() {
+        return this.HealthCheckLocalIp;
+    }
+
+    /**
+     * Set 本端通道探测ip
+     * @param HealthCheckLocalIp 本端通道探测ip
+     */
+    public void setHealthCheckLocalIp(String HealthCheckLocalIp) {
+        this.HealthCheckLocalIp = HealthCheckLocalIp;
+    }
+
+    /**
+     * Get 对端通道探测ip 
+     * @return HealthCheckRemoteIp 对端通道探测ip
+     */
+    public String getHealthCheckRemoteIp() {
+        return this.HealthCheckRemoteIp;
+    }
+
+    /**
+     * Set 对端通道探测ip
+     * @param HealthCheckRemoteIp 对端通道探测ip
+     */
+    public void setHealthCheckRemoteIp(String HealthCheckRemoteIp) {
+        this.HealthCheckRemoteIp = HealthCheckRemoteIp;
+    }
+
+    public ModifyVpnConnectionAttributeRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyVpnConnectionAttributeRequest(ModifyVpnConnectionAttributeRequest source) {
+        if (source.VpnConnectionId != null) {
+            this.VpnConnectionId = new String(source.VpnConnectionId);
+        }
+        if (source.VpnConnectionName != null) {
+            this.VpnConnectionName = new String(source.VpnConnectionName);
+        }
+        if (source.PreShareKey != null) {
+            this.PreShareKey = new String(source.PreShareKey);
+        }
+        if (source.SecurityPolicyDatabases != null) {
+            this.SecurityPolicyDatabases = new SecurityPolicyDatabase[source.SecurityPolicyDatabases.length];
+            for (int i = 0; i < source.SecurityPolicyDatabases.length; i++) {
+                this.SecurityPolicyDatabases[i] = new SecurityPolicyDatabase(source.SecurityPolicyDatabases[i]);
+            }
+        }
+        if (source.IKEOptionsSpecification != null) {
+            this.IKEOptionsSpecification = new IKEOptionsSpecification(source.IKEOptionsSpecification);
+        }
+        if (source.IPSECOptionsSpecification != null) {
+            this.IPSECOptionsSpecification = new IPSECOptionsSpecification(source.IPSECOptionsSpecification);
+        }
+        if (source.EnableHealthCheck != null) {
+            this.EnableHealthCheck = new Boolean(source.EnableHealthCheck);
+        }
+        if (source.HealthCheckLocalIp != null) {
+            this.HealthCheckLocalIp = new String(source.HealthCheckLocalIp);
+        }
+        if (source.HealthCheckRemoteIp != null) {
+            this.HealthCheckRemoteIp = new String(source.HealthCheckRemoteIp);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -170,6 +280,9 @@ public class ModifyVpnConnectionAttributeRequest extends AbstractModel{
         this.setParamArrayObj(map, prefix + "SecurityPolicyDatabases.", this.SecurityPolicyDatabases);
         this.setParamObj(map, prefix + "IKEOptionsSpecification.", this.IKEOptionsSpecification);
         this.setParamObj(map, prefix + "IPSECOptionsSpecification.", this.IPSECOptionsSpecification);
+        this.setParamSimple(map, prefix + "EnableHealthCheck", this.EnableHealthCheck);
+        this.setParamSimple(map, prefix + "HealthCheckLocalIp", this.HealthCheckLocalIp);
+        this.setParamSimple(map, prefix + "HealthCheckRemoteIp", this.HealthCheckRemoteIp);
 
     }
 }

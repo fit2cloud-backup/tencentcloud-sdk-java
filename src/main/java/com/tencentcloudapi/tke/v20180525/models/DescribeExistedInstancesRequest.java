@@ -72,6 +72,13 @@ public class DescribeExistedInstancesRequest extends AbstractModel{
     private Long Limit;
 
     /**
+    * 根据多个实例IP进行过滤
+    */
+    @SerializedName("IpAddresses")
+    @Expose
+    private String [] IpAddresses;
+
+    /**
      * Get 集群 ID，请填写查询集群列表 接口中返回的 ClusterId 字段（仅通过ClusterId获取需要过滤条件中的VPCID。节点状态比较时会使用该地域下所有集群中的节点进行比较。参数不支持同时指定InstanceIds和ClusterId。 
      * @return ClusterId 集群 ID，请填写查询集群列表 接口中返回的 ClusterId 字段（仅通过ClusterId获取需要过滤条件中的VPCID。节点状态比较时会使用该地域下所有集群中的节点进行比较。参数不支持同时指定InstanceIds和ClusterId。
      */
@@ -184,6 +191,66 @@ public class DescribeExistedInstancesRequest extends AbstractModel{
     }
 
     /**
+     * Get 根据多个实例IP进行过滤 
+     * @return IpAddresses 根据多个实例IP进行过滤
+     */
+    public String [] getIpAddresses() {
+        return this.IpAddresses;
+    }
+
+    /**
+     * Set 根据多个实例IP进行过滤
+     * @param IpAddresses 根据多个实例IP进行过滤
+     */
+    public void setIpAddresses(String [] IpAddresses) {
+        this.IpAddresses = IpAddresses;
+    }
+
+    public DescribeExistedInstancesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeExistedInstancesRequest(DescribeExistedInstancesRequest source) {
+        if (source.ClusterId != null) {
+            this.ClusterId = new String(source.ClusterId);
+        }
+        if (source.InstanceIds != null) {
+            this.InstanceIds = new String[source.InstanceIds.length];
+            for (int i = 0; i < source.InstanceIds.length; i++) {
+                this.InstanceIds[i] = new String(source.InstanceIds[i]);
+            }
+        }
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
+        }
+        if (source.VagueIpAddress != null) {
+            this.VagueIpAddress = new String(source.VagueIpAddress);
+        }
+        if (source.VagueInstanceName != null) {
+            this.VagueInstanceName = new String(source.VagueInstanceName);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.IpAddresses != null) {
+            this.IpAddresses = new String[source.IpAddresses.length];
+            for (int i = 0; i < source.IpAddresses.length; i++) {
+                this.IpAddresses[i] = new String(source.IpAddresses[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -194,6 +261,7 @@ public class DescribeExistedInstancesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "VagueInstanceName", this.VagueInstanceName);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamArraySimple(map, prefix + "IpAddresses.", this.IpAddresses);
 
     }
 }

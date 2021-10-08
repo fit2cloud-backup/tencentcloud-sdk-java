@@ -91,6 +91,30 @@ public class PlayerConfig extends AbstractModel{
     private String UpdateTime;
 
     /**
+    * 播放时使用的域名。值为 Default，表示使用[默认分发配置](https://cloud.tencent.com/document/product/266/33373)中的域名。
+    */
+    @SerializedName("Domain")
+    @Expose
+    private String Domain;
+
+    /**
+    * 播放时使用的 Scheme。取值范围：
+<li>Default：使用[默认分发配置](https://cloud.tencent.com/document/product/266/33373)中的 Scheme；</li>
+<li>HTTP；</li>
+<li>HTTPS。</li>
+    */
+    @SerializedName("Scheme")
+    @Expose
+    private String Scheme;
+
+    /**
+    * 模板描述信息。
+    */
+    @SerializedName("Comment")
+    @Expose
+    private String Comment;
+
+    /**
      * Get 播放器配置名字。 
      * @return Name 播放器配置名字。
      */
@@ -255,6 +279,116 @@ public class PlayerConfig extends AbstractModel{
     }
 
     /**
+     * Get 播放时使用的域名。值为 Default，表示使用[默认分发配置](https://cloud.tencent.com/document/product/266/33373)中的域名。 
+     * @return Domain 播放时使用的域名。值为 Default，表示使用[默认分发配置](https://cloud.tencent.com/document/product/266/33373)中的域名。
+     */
+    public String getDomain() {
+        return this.Domain;
+    }
+
+    /**
+     * Set 播放时使用的域名。值为 Default，表示使用[默认分发配置](https://cloud.tencent.com/document/product/266/33373)中的域名。
+     * @param Domain 播放时使用的域名。值为 Default，表示使用[默认分发配置](https://cloud.tencent.com/document/product/266/33373)中的域名。
+     */
+    public void setDomain(String Domain) {
+        this.Domain = Domain;
+    }
+
+    /**
+     * Get 播放时使用的 Scheme。取值范围：
+<li>Default：使用[默认分发配置](https://cloud.tencent.com/document/product/266/33373)中的 Scheme；</li>
+<li>HTTP；</li>
+<li>HTTPS。</li> 
+     * @return Scheme 播放时使用的 Scheme。取值范围：
+<li>Default：使用[默认分发配置](https://cloud.tencent.com/document/product/266/33373)中的 Scheme；</li>
+<li>HTTP；</li>
+<li>HTTPS。</li>
+     */
+    public String getScheme() {
+        return this.Scheme;
+    }
+
+    /**
+     * Set 播放时使用的 Scheme。取值范围：
+<li>Default：使用[默认分发配置](https://cloud.tencent.com/document/product/266/33373)中的 Scheme；</li>
+<li>HTTP；</li>
+<li>HTTPS。</li>
+     * @param Scheme 播放时使用的 Scheme。取值范围：
+<li>Default：使用[默认分发配置](https://cloud.tencent.com/document/product/266/33373)中的 Scheme；</li>
+<li>HTTP；</li>
+<li>HTTPS。</li>
+     */
+    public void setScheme(String Scheme) {
+        this.Scheme = Scheme;
+    }
+
+    /**
+     * Get 模板描述信息。 
+     * @return Comment 模板描述信息。
+     */
+    public String getComment() {
+        return this.Comment;
+    }
+
+    /**
+     * Set 模板描述信息。
+     * @param Comment 模板描述信息。
+     */
+    public void setComment(String Comment) {
+        this.Comment = Comment;
+    }
+
+    public PlayerConfig() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public PlayerConfig(PlayerConfig source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.DrmSwitch != null) {
+            this.DrmSwitch = new String(source.DrmSwitch);
+        }
+        if (source.AdaptiveDynamicStreamingDefinition != null) {
+            this.AdaptiveDynamicStreamingDefinition = new Long(source.AdaptiveDynamicStreamingDefinition);
+        }
+        if (source.DrmStreamingsInfo != null) {
+            this.DrmStreamingsInfo = new DrmStreamingsInfo(source.DrmStreamingsInfo);
+        }
+        if (source.ImageSpriteDefinition != null) {
+            this.ImageSpriteDefinition = new Long(source.ImageSpriteDefinition);
+        }
+        if (source.ResolutionNameSet != null) {
+            this.ResolutionNameSet = new ResolutionNameInfo[source.ResolutionNameSet.length];
+            for (int i = 0; i < source.ResolutionNameSet.length; i++) {
+                this.ResolutionNameSet[i] = new ResolutionNameInfo(source.ResolutionNameSet[i]);
+            }
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+        if (source.Domain != null) {
+            this.Domain = new String(source.Domain);
+        }
+        if (source.Scheme != null) {
+            this.Scheme = new String(source.Scheme);
+        }
+        if (source.Comment != null) {
+            this.Comment = new String(source.Comment);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -267,6 +401,9 @@ public class PlayerConfig extends AbstractModel{
         this.setParamArrayObj(map, prefix + "ResolutionNameSet.", this.ResolutionNameSet);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
+        this.setParamSimple(map, prefix + "Domain", this.Domain);
+        this.setParamSimple(map, prefix + "Scheme", this.Scheme);
+        this.setParamSimple(map, prefix + "Comment", this.Comment);
 
     }
 }

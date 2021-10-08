@@ -37,7 +37,7 @@ public class SpecItem extends AbstractModel{
     private Long Status;
 
     /**
-    * 规格有效标志，取值：0-停止售卖，1-开放售卖
+    * 计算资源规格，单位为CPU核心数
     */
     @SerializedName("Cpu")
     @Expose
@@ -202,16 +202,16 @@ public class SpecItem extends AbstractModel{
     }
 
     /**
-     * Get 规格有效标志，取值：0-停止售卖，1-开放售卖 
-     * @return Cpu 规格有效标志，取值：0-停止售卖，1-开放售卖
+     * Get 计算资源规格，单位为CPU核心数 
+     * @return Cpu 计算资源规格，单位为CPU核心数
      */
     public Long getCpu() {
         return this.Cpu;
     }
 
     /**
-     * Set 规格有效标志，取值：0-停止售卖，1-开放售卖
-     * @param Cpu 规格有效标志，取值：0-停止售卖，1-开放售卖
+     * Set 计算资源规格，单位为CPU核心数
+     * @param Cpu 计算资源规格，单位为CPU核心数
      */
     public void setCpu(Long Cpu) {
         this.Cpu = Cpu;
@@ -504,6 +504,80 @@ public class SpecItem extends AbstractModel{
     public void setMachineType(String MachineType) {
         this.MachineType = MachineType;
     }
+
+    public SpecItem() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SpecItem(SpecItem source) {
+        if (source.SpecCode != null) {
+            this.SpecCode = new String(source.SpecCode);
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+        if (source.Cpu != null) {
+            this.Cpu = new Long(source.Cpu);
+        }
+        if (source.Memory != null) {
+            this.Memory = new Long(source.Memory);
+        }
+        if (source.DefaultStorage != null) {
+            this.DefaultStorage = new Long(source.DefaultStorage);
+        }
+        if (source.MaxStorage != null) {
+            this.MaxStorage = new Long(source.MaxStorage);
+        }
+        if (source.MinStorage != null) {
+            this.MinStorage = new Long(source.MinStorage);
+        }
+        if (source.Qps != null) {
+            this.Qps = new Long(source.Qps);
+        }
+        if (source.Conns != null) {
+            this.Conns = new Long(source.Conns);
+        }
+        if (source.MongoVersionCode != null) {
+            this.MongoVersionCode = new String(source.MongoVersionCode);
+        }
+        if (source.MongoVersionValue != null) {
+            this.MongoVersionValue = new Long(source.MongoVersionValue);
+        }
+        if (source.Version != null) {
+            this.Version = new String(source.Version);
+        }
+        if (source.EngineName != null) {
+            this.EngineName = new String(source.EngineName);
+        }
+        if (source.ClusterType != null) {
+            this.ClusterType = new Long(source.ClusterType);
+        }
+        if (source.MinNodeNum != null) {
+            this.MinNodeNum = new Long(source.MinNodeNum);
+        }
+        if (source.MaxNodeNum != null) {
+            this.MaxNodeNum = new Long(source.MaxNodeNum);
+        }
+        if (source.MinReplicateSetNum != null) {
+            this.MinReplicateSetNum = new Long(source.MinReplicateSetNum);
+        }
+        if (source.MaxReplicateSetNum != null) {
+            this.MaxReplicateSetNum = new Long(source.MaxReplicateSetNum);
+        }
+        if (source.MinReplicateSetNodeNum != null) {
+            this.MinReplicateSetNodeNum = new Long(source.MinReplicateSetNodeNum);
+        }
+        if (source.MaxReplicateSetNodeNum != null) {
+            this.MaxReplicateSetNodeNum = new Long(source.MaxReplicateSetNodeNum);
+        }
+        if (source.MachineType != null) {
+            this.MachineType = new String(source.MachineType);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

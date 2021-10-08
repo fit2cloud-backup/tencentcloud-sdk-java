@@ -30,7 +30,7 @@ public class UpgradeInstanceRequest extends AbstractModel{
     private String InstanceId;
 
     /**
-    * 目标ES版本
+    * 目标ES版本，支持：”6.4.3“, "6.8.2"，"7.5.1"
     */
     @SerializedName("EsVersion")
     @Expose
@@ -58,6 +58,13 @@ public class UpgradeInstanceRequest extends AbstractModel{
     private Long BasicSecurityType;
 
     /**
+    * 升级方式：<li>scale 蓝绿变更</li><li>restart 滚动重启</li>默认值为scale
+    */
+    @SerializedName("UpgradeMode")
+    @Expose
+    private String UpgradeMode;
+
+    /**
      * Get 实例ID 
      * @return InstanceId 实例ID
      */
@@ -74,16 +81,16 @@ public class UpgradeInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 目标ES版本 
-     * @return EsVersion 目标ES版本
+     * Get 目标ES版本，支持：”6.4.3“, "6.8.2"，"7.5.1" 
+     * @return EsVersion 目标ES版本，支持：”6.4.3“, "6.8.2"，"7.5.1"
      */
     public String getEsVersion() {
         return this.EsVersion;
     }
 
     /**
-     * Set 目标ES版本
-     * @param EsVersion 目标ES版本
+     * Set 目标ES版本，支持：”6.4.3“, "6.8.2"，"7.5.1"
+     * @param EsVersion 目标ES版本，支持：”6.4.3“, "6.8.2"，"7.5.1"
      */
     public void setEsVersion(String EsVersion) {
         this.EsVersion = EsVersion;
@@ -138,6 +145,51 @@ public class UpgradeInstanceRequest extends AbstractModel{
     }
 
     /**
+     * Get 升级方式：<li>scale 蓝绿变更</li><li>restart 滚动重启</li>默认值为scale 
+     * @return UpgradeMode 升级方式：<li>scale 蓝绿变更</li><li>restart 滚动重启</li>默认值为scale
+     */
+    public String getUpgradeMode() {
+        return this.UpgradeMode;
+    }
+
+    /**
+     * Set 升级方式：<li>scale 蓝绿变更</li><li>restart 滚动重启</li>默认值为scale
+     * @param UpgradeMode 升级方式：<li>scale 蓝绿变更</li><li>restart 滚动重启</li>默认值为scale
+     */
+    public void setUpgradeMode(String UpgradeMode) {
+        this.UpgradeMode = UpgradeMode;
+    }
+
+    public UpgradeInstanceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public UpgradeInstanceRequest(UpgradeInstanceRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.EsVersion != null) {
+            this.EsVersion = new String(source.EsVersion);
+        }
+        if (source.CheckOnly != null) {
+            this.CheckOnly = new Boolean(source.CheckOnly);
+        }
+        if (source.LicenseType != null) {
+            this.LicenseType = new String(source.LicenseType);
+        }
+        if (source.BasicSecurityType != null) {
+            this.BasicSecurityType = new Long(source.BasicSecurityType);
+        }
+        if (source.UpgradeMode != null) {
+            this.UpgradeMode = new String(source.UpgradeMode);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -146,6 +198,7 @@ public class UpgradeInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "CheckOnly", this.CheckOnly);
         this.setParamSimple(map, prefix + "LicenseType", this.LicenseType);
         this.setParamSimple(map, prefix + "BasicSecurityType", this.BasicSecurityType);
+        this.setParamSimple(map, prefix + "UpgradeMode", this.UpgradeMode);
 
     }
 }

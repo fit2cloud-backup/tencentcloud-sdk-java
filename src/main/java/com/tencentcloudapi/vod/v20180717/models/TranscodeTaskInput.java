@@ -31,7 +31,6 @@ public class TranscodeTaskInput extends AbstractModel{
 
     /**
     * 水印列表，支持多张图片或文字水印，最大可支持 10 张。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WatermarkSet")
     @Expose
@@ -43,6 +42,33 @@ public class TranscodeTaskInput extends AbstractModel{
     @SerializedName("MosaicSet")
     @Expose
     private MosaicInput [] MosaicSet;
+
+    /**
+    * 片头片尾列表，支持多片头片尾，最大可支持 10 个。
+    */
+    @SerializedName("HeadTailSet")
+    @Expose
+    private HeadTailTaskInput [] HeadTailSet;
+
+    /**
+    * 转码后的视频的起始时间偏移，单位：秒。
+<li>不填或填0，表示转码后的视频从原始视频的起始位置开始；</li>
+<li>当数值大于0时（假设为 n），表示转码后的视频从原始视频的第 n 秒位置开始；</li>
+<li>当数值小于0时（假设为 -n），表示转码后的视频从原始视频结束 n 秒前的位置开始。</li>
+    */
+    @SerializedName("StartTimeOffset")
+    @Expose
+    private Float StartTimeOffset;
+
+    /**
+    * 转码后视频的终止时间偏移，单位：秒。
+<li>不填或填0，表示转码后的视频持续到原始视频的末尾终止；</li>
+<li>当数值大于0时（假设为 n），表示转码后的视频持续到原始视频第 n 秒时终止；</li>
+<li>当数值小于0时（假设为 -n），表示转码后的视频持续到原始视频结束 n 秒前终止。</li>
+    */
+    @SerializedName("EndTimeOffset")
+    @Expose
+    private Float EndTimeOffset;
 
     /**
      * Get 视频转码模板 ID。 
@@ -61,10 +87,8 @@ public class TranscodeTaskInput extends AbstractModel{
     }
 
     /**
-     * Get 水印列表，支持多张图片或文字水印，最大可支持 10 张。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 水印列表，支持多张图片或文字水印，最大可支持 10 张。 
      * @return WatermarkSet 水印列表，支持多张图片或文字水印，最大可支持 10 张。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public WatermarkInput [] getWatermarkSet() {
         return this.WatermarkSet;
@@ -72,9 +96,7 @@ public class TranscodeTaskInput extends AbstractModel{
 
     /**
      * Set 水印列表，支持多张图片或文字水印，最大可支持 10 张。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param WatermarkSet 水印列表，支持多张图片或文字水印，最大可支持 10 张。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWatermarkSet(WatermarkInput [] WatermarkSet) {
         this.WatermarkSet = WatermarkSet;
@@ -97,12 +119,125 @@ public class TranscodeTaskInput extends AbstractModel{
     }
 
     /**
+     * Get 片头片尾列表，支持多片头片尾，最大可支持 10 个。 
+     * @return HeadTailSet 片头片尾列表，支持多片头片尾，最大可支持 10 个。
+     */
+    public HeadTailTaskInput [] getHeadTailSet() {
+        return this.HeadTailSet;
+    }
+
+    /**
+     * Set 片头片尾列表，支持多片头片尾，最大可支持 10 个。
+     * @param HeadTailSet 片头片尾列表，支持多片头片尾，最大可支持 10 个。
+     */
+    public void setHeadTailSet(HeadTailTaskInput [] HeadTailSet) {
+        this.HeadTailSet = HeadTailSet;
+    }
+
+    /**
+     * Get 转码后的视频的起始时间偏移，单位：秒。
+<li>不填或填0，表示转码后的视频从原始视频的起始位置开始；</li>
+<li>当数值大于0时（假设为 n），表示转码后的视频从原始视频的第 n 秒位置开始；</li>
+<li>当数值小于0时（假设为 -n），表示转码后的视频从原始视频结束 n 秒前的位置开始。</li> 
+     * @return StartTimeOffset 转码后的视频的起始时间偏移，单位：秒。
+<li>不填或填0，表示转码后的视频从原始视频的起始位置开始；</li>
+<li>当数值大于0时（假设为 n），表示转码后的视频从原始视频的第 n 秒位置开始；</li>
+<li>当数值小于0时（假设为 -n），表示转码后的视频从原始视频结束 n 秒前的位置开始。</li>
+     */
+    public Float getStartTimeOffset() {
+        return this.StartTimeOffset;
+    }
+
+    /**
+     * Set 转码后的视频的起始时间偏移，单位：秒。
+<li>不填或填0，表示转码后的视频从原始视频的起始位置开始；</li>
+<li>当数值大于0时（假设为 n），表示转码后的视频从原始视频的第 n 秒位置开始；</li>
+<li>当数值小于0时（假设为 -n），表示转码后的视频从原始视频结束 n 秒前的位置开始。</li>
+     * @param StartTimeOffset 转码后的视频的起始时间偏移，单位：秒。
+<li>不填或填0，表示转码后的视频从原始视频的起始位置开始；</li>
+<li>当数值大于0时（假设为 n），表示转码后的视频从原始视频的第 n 秒位置开始；</li>
+<li>当数值小于0时（假设为 -n），表示转码后的视频从原始视频结束 n 秒前的位置开始。</li>
+     */
+    public void setStartTimeOffset(Float StartTimeOffset) {
+        this.StartTimeOffset = StartTimeOffset;
+    }
+
+    /**
+     * Get 转码后视频的终止时间偏移，单位：秒。
+<li>不填或填0，表示转码后的视频持续到原始视频的末尾终止；</li>
+<li>当数值大于0时（假设为 n），表示转码后的视频持续到原始视频第 n 秒时终止；</li>
+<li>当数值小于0时（假设为 -n），表示转码后的视频持续到原始视频结束 n 秒前终止。</li> 
+     * @return EndTimeOffset 转码后视频的终止时间偏移，单位：秒。
+<li>不填或填0，表示转码后的视频持续到原始视频的末尾终止；</li>
+<li>当数值大于0时（假设为 n），表示转码后的视频持续到原始视频第 n 秒时终止；</li>
+<li>当数值小于0时（假设为 -n），表示转码后的视频持续到原始视频结束 n 秒前终止。</li>
+     */
+    public Float getEndTimeOffset() {
+        return this.EndTimeOffset;
+    }
+
+    /**
+     * Set 转码后视频的终止时间偏移，单位：秒。
+<li>不填或填0，表示转码后的视频持续到原始视频的末尾终止；</li>
+<li>当数值大于0时（假设为 n），表示转码后的视频持续到原始视频第 n 秒时终止；</li>
+<li>当数值小于0时（假设为 -n），表示转码后的视频持续到原始视频结束 n 秒前终止。</li>
+     * @param EndTimeOffset 转码后视频的终止时间偏移，单位：秒。
+<li>不填或填0，表示转码后的视频持续到原始视频的末尾终止；</li>
+<li>当数值大于0时（假设为 n），表示转码后的视频持续到原始视频第 n 秒时终止；</li>
+<li>当数值小于0时（假设为 -n），表示转码后的视频持续到原始视频结束 n 秒前终止。</li>
+     */
+    public void setEndTimeOffset(Float EndTimeOffset) {
+        this.EndTimeOffset = EndTimeOffset;
+    }
+
+    public TranscodeTaskInput() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public TranscodeTaskInput(TranscodeTaskInput source) {
+        if (source.Definition != null) {
+            this.Definition = new Long(source.Definition);
+        }
+        if (source.WatermarkSet != null) {
+            this.WatermarkSet = new WatermarkInput[source.WatermarkSet.length];
+            for (int i = 0; i < source.WatermarkSet.length; i++) {
+                this.WatermarkSet[i] = new WatermarkInput(source.WatermarkSet[i]);
+            }
+        }
+        if (source.MosaicSet != null) {
+            this.MosaicSet = new MosaicInput[source.MosaicSet.length];
+            for (int i = 0; i < source.MosaicSet.length; i++) {
+                this.MosaicSet[i] = new MosaicInput(source.MosaicSet[i]);
+            }
+        }
+        if (source.HeadTailSet != null) {
+            this.HeadTailSet = new HeadTailTaskInput[source.HeadTailSet.length];
+            for (int i = 0; i < source.HeadTailSet.length; i++) {
+                this.HeadTailSet[i] = new HeadTailTaskInput(source.HeadTailSet[i]);
+            }
+        }
+        if (source.StartTimeOffset != null) {
+            this.StartTimeOffset = new Float(source.StartTimeOffset);
+        }
+        if (source.EndTimeOffset != null) {
+            this.EndTimeOffset = new Float(source.EndTimeOffset);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Definition", this.Definition);
         this.setParamArrayObj(map, prefix + "WatermarkSet.", this.WatermarkSet);
         this.setParamArrayObj(map, prefix + "MosaicSet.", this.MosaicSet);
+        this.setParamArrayObj(map, prefix + "HeadTailSet.", this.HeadTailSet);
+        this.setParamSimple(map, prefix + "StartTimeOffset", this.StartTimeOffset);
+        this.setParamSimple(map, prefix + "EndTimeOffset", this.EndTimeOffset);
 
     }
 }

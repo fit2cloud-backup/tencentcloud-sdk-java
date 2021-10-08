@@ -87,6 +87,30 @@ public class Instance extends AbstractModel{
     private String CreateTime;
 
     /**
+    * 实例权重
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Weight")
+    @Expose
+    private Long Weight;
+
+    /**
+    * 实例是否保留, 1-保留，0-不保留,默认
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ReserveValue")
+    @Expose
+    private Long ReserveValue;
+
+    /**
+    * 实例的私有IP地址
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PrivateIpAddress")
+    @Expose
+    private String PrivateIpAddress;
+
+    /**
      * Get 服务部署ID
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return FleetId 服务部署ID
@@ -247,6 +271,110 @@ public class Instance extends AbstractModel{
     }
 
     /**
+     * Get 实例权重
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Weight 实例权重
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getWeight() {
+        return this.Weight;
+    }
+
+    /**
+     * Set 实例权重
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Weight 实例权重
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setWeight(Long Weight) {
+        this.Weight = Weight;
+    }
+
+    /**
+     * Get 实例是否保留, 1-保留，0-不保留,默认
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ReserveValue 实例是否保留, 1-保留，0-不保留,默认
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getReserveValue() {
+        return this.ReserveValue;
+    }
+
+    /**
+     * Set 实例是否保留, 1-保留，0-不保留,默认
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ReserveValue 实例是否保留, 1-保留，0-不保留,默认
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setReserveValue(Long ReserveValue) {
+        this.ReserveValue = ReserveValue;
+    }
+
+    /**
+     * Get 实例的私有IP地址
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PrivateIpAddress 实例的私有IP地址
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getPrivateIpAddress() {
+        return this.PrivateIpAddress;
+    }
+
+    /**
+     * Set 实例的私有IP地址
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PrivateIpAddress 实例的私有IP地址
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPrivateIpAddress(String PrivateIpAddress) {
+        this.PrivateIpAddress = PrivateIpAddress;
+    }
+
+    public Instance() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Instance(Instance source) {
+        if (source.FleetId != null) {
+            this.FleetId = new String(source.FleetId);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.IpAddress != null) {
+            this.IpAddress = new String(source.IpAddress);
+        }
+        if (source.DnsName != null) {
+            this.DnsName = new String(source.DnsName);
+        }
+        if (source.OperatingSystem != null) {
+            this.OperatingSystem = new String(source.OperatingSystem);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.Weight != null) {
+            this.Weight = new Long(source.Weight);
+        }
+        if (source.ReserveValue != null) {
+            this.ReserveValue = new Long(source.ReserveValue);
+        }
+        if (source.PrivateIpAddress != null) {
+            this.PrivateIpAddress = new String(source.PrivateIpAddress);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -258,6 +386,9 @@ public class Instance extends AbstractModel{
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "Type", this.Type);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
+        this.setParamSimple(map, prefix + "Weight", this.Weight);
+        this.setParamSimple(map, prefix + "ReserveValue", this.ReserveValue);
+        this.setParamSimple(map, prefix + "PrivateIpAddress", this.PrivateIpAddress);
 
     }
 }

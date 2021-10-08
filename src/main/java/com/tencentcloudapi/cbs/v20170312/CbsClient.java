@@ -27,6 +27,7 @@ import com.tencentcloudapi.cbs.v20170312.models.*;
 
 public class CbsClient extends AbstractClient{
     private static String endpoint = "cbs.tencentcloudapi.com";
+    private static String service = "cbs";
     private static String version = "2017-03-12";
 
     public CbsClient(Credential credential, String region) {
@@ -49,12 +50,14 @@ public class CbsClient extends AbstractClient{
      */
     public ApplySnapshotResponse ApplySnapshot(ApplySnapshotRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ApplySnapshotResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ApplySnapshotResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ApplySnapshot"), type);
+                rspStr = this.internalRequest(req, "ApplySnapshot");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -62,7 +65,7 @@ public class CbsClient extends AbstractClient{
     /**
      *本接口（AttachDisks）用于挂载云硬盘。
  
-* 支持批量操作，将多块云盘挂载到同一云主机。如果多个云盘存在不允许挂载的云盘，则操作不执行，以返回特定的错误码返回。
+* 支持批量操作，将多块云盘挂载到同一云主机。如果多个云盘中存在不允许挂载的云盘，则操作不执行，返回特定的错误码。
 * 本接口为异步接口，当挂载云盘的请求成功返回时，表示后台已发起挂载云盘的操作，可通过接口[DescribeDisks](/document/product/362/16315)来查询对应云盘的状态，如果云盘的状态由“ATTACHING”变为“ATTACHED”，则为挂载成功。
      * @param req AttachDisksRequest
      * @return AttachDisksResponse
@@ -70,12 +73,14 @@ public class CbsClient extends AbstractClient{
      */
     public AttachDisksResponse AttachDisks(AttachDisksRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AttachDisksResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<AttachDisksResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "AttachDisks"), type);
+                rspStr = this.internalRequest(req, "AttachDisks");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -91,12 +96,14 @@ public class CbsClient extends AbstractClient{
      */
     public BindAutoSnapshotPolicyResponse BindAutoSnapshotPolicy(BindAutoSnapshotPolicyRequest req) throws TencentCloudSDKException{
         JsonResponseModel<BindAutoSnapshotPolicyResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<BindAutoSnapshotPolicyResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "BindAutoSnapshotPolicy"), type);
+                rspStr = this.internalRequest(req, "BindAutoSnapshotPolicy");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -112,12 +119,14 @@ public class CbsClient extends AbstractClient{
      */
     public CreateAutoSnapshotPolicyResponse CreateAutoSnapshotPolicy(CreateAutoSnapshotPolicyRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateAutoSnapshotPolicyResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateAutoSnapshotPolicyResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "CreateAutoSnapshotPolicy"), type);
+                rspStr = this.internalRequest(req, "CreateAutoSnapshotPolicy");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -134,12 +143,14 @@ public class CbsClient extends AbstractClient{
      */
     public CreateDisksResponse CreateDisks(CreateDisksRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateDisksResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateDisksResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "CreateDisks"), type);
+                rspStr = this.internalRequest(req, "CreateDisks");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -155,12 +166,14 @@ public class CbsClient extends AbstractClient{
      */
     public CreateSnapshotResponse CreateSnapshot(CreateSnapshotRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateSnapshotResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateSnapshotResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "CreateSnapshot"), type);
+                rspStr = this.internalRequest(req, "CreateSnapshot");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -175,12 +188,14 @@ public class CbsClient extends AbstractClient{
      */
     public DeleteAutoSnapshotPoliciesResponse DeleteAutoSnapshotPolicies(DeleteAutoSnapshotPoliciesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteAutoSnapshotPoliciesResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteAutoSnapshotPoliciesResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DeleteAutoSnapshotPolicies"), type);
+                rspStr = this.internalRequest(req, "DeleteAutoSnapshotPolicies");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -189,19 +204,21 @@ public class CbsClient extends AbstractClient{
      *本接口（DeleteSnapshots）用于删除快照。
 
 * 快照必须处于NORMAL状态，快照状态可以通过[DescribeSnapshots](/document/product/362/15647)接口查询，见输出参数中SnapshotState字段解释。
-* 支持批量操作。如果多个快照存在无法删除的快照，则操作不执行，以返回特定的错误码返回。
+* 支持批量操作。如果多个快照存在无法删除的快照，则操作不执行，以特定的错误码返回。
      * @param req DeleteSnapshotsRequest
      * @return DeleteSnapshotsResponse
      * @throws TencentCloudSDKException
      */
     public DeleteSnapshotsResponse DeleteSnapshots(DeleteSnapshotsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteSnapshotsResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteSnapshotsResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DeleteSnapshots"), type);
+                rspStr = this.internalRequest(req, "DeleteSnapshots");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -218,12 +235,14 @@ public class CbsClient extends AbstractClient{
      */
     public DescribeAutoSnapshotPoliciesResponse DescribeAutoSnapshotPolicies(DescribeAutoSnapshotPoliciesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeAutoSnapshotPoliciesResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeAutoSnapshotPoliciesResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeAutoSnapshotPolicies"), type);
+                rspStr = this.internalRequest(req, "DescribeAutoSnapshotPolicies");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -236,12 +255,14 @@ public class CbsClient extends AbstractClient{
      */
     public DescribeDiskAssociatedAutoSnapshotPolicyResponse DescribeDiskAssociatedAutoSnapshotPolicy(DescribeDiskAssociatedAutoSnapshotPolicyRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDiskAssociatedAutoSnapshotPolicyResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDiskAssociatedAutoSnapshotPolicyResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeDiskAssociatedAutoSnapshotPolicy"), type);
+                rspStr = this.internalRequest(req, "DescribeDiskAssociatedAutoSnapshotPolicy");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -254,33 +275,57 @@ public class CbsClient extends AbstractClient{
      */
     public DescribeDiskConfigQuotaResponse DescribeDiskConfigQuota(DescribeDiskConfigQuotaRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDiskConfigQuotaResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDiskConfigQuotaResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeDiskConfigQuota"), type);
+                rspStr = this.internalRequest(req, "DescribeDiskConfigQuota");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
 
     /**
-     *本接口（DescribeDiskOperationLogs）用于查询云盘操作日志列表。
-
-可根据云盘ID过滤。云盘ID形如：disk-a1kmcp13。
-
+     *查询云盘操作日志功能已迁移至LookUpEvents接口（https://cloud.tencent.com/document/product/629/12359），本接口（DescribeDiskOperationLogs）即将下线，后续不再提供调用，请知悉。
      * @param req DescribeDiskOperationLogsRequest
      * @return DescribeDiskOperationLogsResponse
      * @throws TencentCloudSDKException
      */
     public DescribeDiskOperationLogsResponse DescribeDiskOperationLogs(DescribeDiskOperationLogsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDiskOperationLogsResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDiskOperationLogsResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeDiskOperationLogs"), type);
+                rspStr = this.internalRequest(req, "DescribeDiskOperationLogs");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（DescribeDiskStoragePool）查询用户的云硬盘独享集群列表。
+
+* 可以根据独享集群ID(CdcId)、集群区域名(zone)类型等信息来查询和过滤云硬盘独享集群详细信息，不同条件之间为与(AND)的关系，过滤信息详细请见过滤器`Filter`。
+* 如果参数为空，返回当前用户一定数量（`Limit`所指定的数量，默认为20）的云硬盘独享集群列表。
+     * @param req DescribeDiskStoragePoolRequest
+     * @return DescribeDiskStoragePoolResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeDiskStoragePoolResponse DescribeDiskStoragePool(DescribeDiskStoragePoolRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeDiskStoragePoolResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeDiskStoragePoolResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeDiskStoragePool");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -296,12 +341,14 @@ public class CbsClient extends AbstractClient{
      */
     public DescribeDisksResponse DescribeDisks(DescribeDisksRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDisksResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDisksResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeDisks"), type);
+                rspStr = this.internalRequest(req, "DescribeDisks");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -316,12 +363,14 @@ public class CbsClient extends AbstractClient{
      */
     public DescribeInstancesDiskNumResponse DescribeInstancesDiskNum(DescribeInstancesDiskNumRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeInstancesDiskNumResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeInstancesDiskNumResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeInstancesDiskNum"), type);
+                rspStr = this.internalRequest(req, "DescribeInstancesDiskNum");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -337,12 +386,14 @@ public class CbsClient extends AbstractClient{
      */
     public DescribeSnapshotOperationLogsResponse DescribeSnapshotOperationLogs(DescribeSnapshotOperationLogsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSnapshotOperationLogsResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSnapshotOperationLogsResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeSnapshotOperationLogs"), type);
+                rspStr = this.internalRequest(req, "DescribeSnapshotOperationLogs");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -355,12 +406,14 @@ public class CbsClient extends AbstractClient{
      */
     public DescribeSnapshotSharePermissionResponse DescribeSnapshotSharePermission(DescribeSnapshotSharePermissionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSnapshotSharePermissionResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSnapshotSharePermissionResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeSnapshotSharePermission"), type);
+                rspStr = this.internalRequest(req, "DescribeSnapshotSharePermission");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -376,33 +429,37 @@ public class CbsClient extends AbstractClient{
      */
     public DescribeSnapshotsResponse DescribeSnapshots(DescribeSnapshotsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSnapshotsResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSnapshotsResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeSnapshots"), type);
+                rspStr = this.internalRequest(req, "DescribeSnapshots");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
 
     /**
-     *本接口（DetachDisks）用于解挂云硬盘。
+     *本接口（DetachDisks）用于卸载云硬盘。
 
-* 支持批量操作，解挂挂载在同一主机上的多块云盘。如果多块云盘存在不允许解挂载的云盘，则操作不执行，以返回特定的错误码返回。
-* 本接口为异步接口，当请求成功返回时，云盘并未立即从主机解挂载，可通过接口[DescribeDisks](/document/product/362/16315)来查询对应云盘的状态，如果云盘的状态由“ATTACHED”变为“UNATTACHED”，则为解挂载成功。
+* 支持批量操作，卸载挂载在同一主机上的多块云盘。如果多块云盘中存在不允许卸载的云盘，则操作不执行，返回特定的错误码。
+* 本接口为异步接口，当请求成功返回时，云盘并未立即从主机卸载，可通过接口[DescribeDisks](/document/product/362/16315)来查询对应云盘的状态，如果云盘的状态由“ATTACHED”变为“UNATTACHED”，则为卸载成功。
      * @param req DetachDisksRequest
      * @return DetachDisksResponse
      * @throws TencentCloudSDKException
      */
     public DetachDisksResponse DetachDisks(DetachDisksRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DetachDisksResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DetachDisksResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DetachDisks"), type);
+                rspStr = this.internalRequest(req, "DetachDisks");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -415,12 +472,34 @@ public class CbsClient extends AbstractClient{
      */
     public GetSnapOverviewResponse GetSnapOverview(GetSnapOverviewRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetSnapOverviewResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<GetSnapOverviewResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "GetSnapOverview"), type);
+                rspStr = this.internalRequest(req, "GetSnapOverview");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（InquirePriceModifyDiskExtraPerformance）用于调整云硬盘额外性能询价。
+     * @param req InquirePriceModifyDiskExtraPerformanceRequest
+     * @return InquirePriceModifyDiskExtraPerformanceResponse
+     * @throws TencentCloudSDKException
+     */
+    public InquirePriceModifyDiskExtraPerformanceResponse InquirePriceModifyDiskExtraPerformance(InquirePriceModifyDiskExtraPerformanceRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<InquirePriceModifyDiskExtraPerformanceResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<InquirePriceModifyDiskExtraPerformanceResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "InquirePriceModifyDiskExtraPerformance");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -435,12 +514,14 @@ public class CbsClient extends AbstractClient{
      */
     public InquiryPriceCreateDisksResponse InquiryPriceCreateDisks(InquiryPriceCreateDisksRequest req) throws TencentCloudSDKException{
         JsonResponseModel<InquiryPriceCreateDisksResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<InquiryPriceCreateDisksResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "InquiryPriceCreateDisks"), type);
+                rspStr = this.internalRequest(req, "InquiryPriceCreateDisks");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -457,12 +538,14 @@ public class CbsClient extends AbstractClient{
      */
     public InquiryPriceRenewDisksResponse InquiryPriceRenewDisks(InquiryPriceRenewDisksRequest req) throws TencentCloudSDKException{
         JsonResponseModel<InquiryPriceRenewDisksResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<InquiryPriceRenewDisksResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "InquiryPriceRenewDisks"), type);
+                rspStr = this.internalRequest(req, "InquiryPriceRenewDisks");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -477,12 +560,14 @@ public class CbsClient extends AbstractClient{
      */
     public InquiryPriceResizeDiskResponse InquiryPriceResizeDisk(InquiryPriceResizeDiskRequest req) throws TencentCloudSDKException{
         JsonResponseModel<InquiryPriceResizeDiskResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<InquiryPriceResizeDiskResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "InquiryPriceResizeDisk"), type);
+                rspStr = this.internalRequest(req, "InquiryPriceResizeDisk");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -498,12 +583,14 @@ public class CbsClient extends AbstractClient{
      */
     public ModifyAutoSnapshotPolicyAttributeResponse ModifyAutoSnapshotPolicyAttribute(ModifyAutoSnapshotPolicyAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyAutoSnapshotPolicyAttributeResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyAutoSnapshotPolicyAttributeResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ModifyAutoSnapshotPolicyAttribute"), type);
+                rspStr = this.internalRequest(req, "ModifyAutoSnapshotPolicyAttribute");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -518,12 +605,36 @@ public class CbsClient extends AbstractClient{
      */
     public ModifyDiskAttributesResponse ModifyDiskAttributes(ModifyDiskAttributesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyDiskAttributesResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyDiskAttributesResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ModifyDiskAttributes"), type);
+                rspStr = this.internalRequest(req, "ModifyDiskAttributes");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（ModifyDiskExtraPerformance）用于调整云硬盘额外的性能。
+
+* 目前仅支持极速型SSD云硬盘（CLOUD_TSSD）和高性能SSD云硬盘(CLOUD_HSSD)。
+     * @param req ModifyDiskExtraPerformanceRequest
+     * @return ModifyDiskExtraPerformanceResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyDiskExtraPerformanceResponse ModifyDiskExtraPerformance(ModifyDiskExtraPerformanceRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyDiskExtraPerformanceResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyDiskExtraPerformanceResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyDiskExtraPerformance");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -543,12 +654,14 @@ public class CbsClient extends AbstractClient{
      */
     public ModifyDisksChargeTypeResponse ModifyDisksChargeType(ModifyDisksChargeTypeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyDisksChargeTypeResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyDisksChargeTypeResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ModifyDisksChargeType"), type);
+                rspStr = this.internalRequest(req, "ModifyDisksChargeType");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -561,12 +674,14 @@ public class CbsClient extends AbstractClient{
      */
     public ModifyDisksRenewFlagResponse ModifyDisksRenewFlag(ModifyDisksRenewFlagRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyDisksRenewFlagResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyDisksRenewFlagResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ModifyDisksRenewFlag"), type);
+                rspStr = this.internalRequest(req, "ModifyDisksRenewFlag");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -582,12 +697,14 @@ public class CbsClient extends AbstractClient{
      */
     public ModifySnapshotAttributeResponse ModifySnapshotAttribute(ModifySnapshotAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifySnapshotAttributeResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifySnapshotAttributeResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ModifySnapshotAttribute"), type);
+                rspStr = this.internalRequest(req, "ModifySnapshotAttribute");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -606,12 +723,14 @@ public class CbsClient extends AbstractClient{
      */
     public ModifySnapshotsSharePermissionResponse ModifySnapshotsSharePermission(ModifySnapshotsSharePermissionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifySnapshotsSharePermissionResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifySnapshotsSharePermissionResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ModifySnapshotsSharePermission"), type);
+                rspStr = this.internalRequest(req, "ModifySnapshotsSharePermission");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -627,12 +746,14 @@ public class CbsClient extends AbstractClient{
      */
     public RenewDiskResponse RenewDisk(RenewDiskRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RenewDiskResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<RenewDiskResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "RenewDisk"), type);
+                rspStr = this.internalRequest(req, "RenewDisk");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -640,20 +761,22 @@ public class CbsClient extends AbstractClient{
     /**
      *本接口（ResizeDisk）用于扩容云硬盘。
 
-* 只支持扩容弹性云盘。云硬盘类型可以通过[DescribeDisks](/document/product/362/16315)接口查询，见输出参数中Portable字段解释。随云主机创建的云硬盘需通过[ResizeInstanceDisks](/document/product/213/15731)接口扩容。
-* 本接口为异步接口，接口成功返回时，云盘并未立即扩容到指定大小，可通过接口[DescribeDisks](/document/product/362/16315)来查询对应云盘的状态，如果云盘的状态为“EXPANDING”，表示正在扩容中，当状态变为“UNATTACHED”，表示扩容完成。 
+* 只支持扩容弹性云盘。云硬盘类型可以通过[DescribeDisks](/document/product/362/16315)接口查询，见输出参数中Portable字段解释。非弹性云硬盘需通过[ResizeInstanceDisks](/document/product/213/15731)接口扩容。
+* 本接口为异步接口，接口成功返回时，云盘并未立即扩容到指定大小，可通过接口[DescribeDisks](/document/product/362/16315)来查询对应云盘的状态，如果云盘的状态为“EXPANDING”，表示正在扩容中。 
      * @param req ResizeDiskRequest
      * @return ResizeDiskResponse
      * @throws TencentCloudSDKException
      */
     public ResizeDiskResponse ResizeDisk(ResizeDiskRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ResizeDiskResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ResizeDiskResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ResizeDisk"), type);
+                rspStr = this.internalRequest(req, "ResizeDisk");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -670,12 +793,14 @@ public class CbsClient extends AbstractClient{
      */
     public TerminateDisksResponse TerminateDisks(TerminateDisksRequest req) throws TencentCloudSDKException{
         JsonResponseModel<TerminateDisksResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<TerminateDisksResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "TerminateDisks"), type);
+                rspStr = this.internalRequest(req, "TerminateDisks");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -691,12 +816,14 @@ public class CbsClient extends AbstractClient{
      */
     public UnbindAutoSnapshotPolicyResponse UnbindAutoSnapshotPolicy(UnbindAutoSnapshotPolicyRequest req) throws TencentCloudSDKException{
         JsonResponseModel<UnbindAutoSnapshotPolicyResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<UnbindAutoSnapshotPolicyResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "UnbindAutoSnapshotPolicy"), type);
+                rspStr = this.internalRequest(req, "UnbindAutoSnapshotPolicy");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

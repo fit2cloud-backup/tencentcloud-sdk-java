@@ -37,7 +37,7 @@ public class DescribeResourceTagsByResourceIdsRequest extends AbstractModel{
     private String ResourcePrefix;
 
     /**
-    * 资源唯一标记
+    * 资源ID数组，大小不超过50
     */
     @SerializedName("ResourceIds")
     @Expose
@@ -97,16 +97,16 @@ public class DescribeResourceTagsByResourceIdsRequest extends AbstractModel{
     }
 
     /**
-     * Get 资源唯一标记 
-     * @return ResourceIds 资源唯一标记
+     * Get 资源ID数组，大小不超过50 
+     * @return ResourceIds 资源ID数组，大小不超过50
      */
     public String [] getResourceIds() {
         return this.ResourceIds;
     }
 
     /**
-     * Set 资源唯一标记
-     * @param ResourceIds 资源唯一标记
+     * Set 资源ID数组，大小不超过50
+     * @param ResourceIds 资源ID数组，大小不超过50
      */
     public void setResourceIds(String [] ResourceIds) {
         this.ResourceIds = ResourceIds;
@@ -159,6 +159,38 @@ public class DescribeResourceTagsByResourceIdsRequest extends AbstractModel{
     public void setLimit(Long Limit) {
         this.Limit = Limit;
     }
+
+    public DescribeResourceTagsByResourceIdsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeResourceTagsByResourceIdsRequest(DescribeResourceTagsByResourceIdsRequest source) {
+        if (source.ServiceType != null) {
+            this.ServiceType = new String(source.ServiceType);
+        }
+        if (source.ResourcePrefix != null) {
+            this.ResourcePrefix = new String(source.ResourcePrefix);
+        }
+        if (source.ResourceIds != null) {
+            this.ResourceIds = new String[source.ResourceIds.length];
+            for (int i = 0; i < source.ResourceIds.length; i++) {
+                this.ResourceIds[i] = new String(source.ResourceIds[i]);
+            }
+        }
+        if (source.ResourceRegion != null) {
+            this.ResourceRegion = new String(source.ResourceRegion);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

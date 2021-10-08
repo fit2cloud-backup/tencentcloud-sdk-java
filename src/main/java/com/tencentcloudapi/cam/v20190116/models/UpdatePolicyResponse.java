@@ -23,11 +23,39 @@ import java.util.HashMap;
 public class UpdatePolicyResponse extends AbstractModel{
 
     /**
+    * 策略id，入参是PolicyName时，才会返回
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PolicyId")
+    @Expose
+    private Long PolicyId;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
+
+    /**
+     * Get 策略id，入参是PolicyName时，才会返回
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PolicyId 策略id，入参是PolicyName时，才会返回
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getPolicyId() {
+        return this.PolicyId;
+    }
+
+    /**
+     * Set 策略id，入参是PolicyName时，才会返回
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PolicyId 策略id，入参是PolicyName时，才会返回
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPolicyId(Long PolicyId) {
+        this.PolicyId = PolicyId;
+    }
 
     /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
@@ -45,10 +73,28 @@ public class UpdatePolicyResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public UpdatePolicyResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public UpdatePolicyResponse(UpdatePolicyResponse source) {
+        if (source.PolicyId != null) {
+            this.PolicyId = new Long(source.PolicyId);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "PolicyId", this.PolicyId);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

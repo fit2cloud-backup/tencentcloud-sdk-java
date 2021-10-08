@@ -23,35 +23,40 @@ import java.util.HashMap;
 public class CreateBandwidthPackageRequest extends AbstractModel{
 
     /**
-    * 带宽包类型，包括'BGP'，'SINGLEISP'，'ANYCAST'
+    * 带宽包类型, 默认值: BGP, 可选值:
+<li>BGP: 普通BGP共享带宽包</li>
+<li>HIGH_QUALITY_BGP: 精品BGP共享带宽包</li>
     */
     @SerializedName("NetworkType")
     @Expose
     private String NetworkType;
 
     /**
-    * 带宽包计费类型，包括‘TOP5_POSTPAID_BY_MONTH’，‘PERCENT95_POSTPAID_BY_MONTH’
+    * 带宽包计费类型, 默认为: TOP5_POSTPAID_BY_MONTH, 可选值:
+<li>TOP5_POSTPAID_BY_MONTH: 按月后付费TOP5计费</li>
+<li>PERCENT95_POSTPAID_BY_MONTH: 按月后付费月95计费</li>
+<li>FIXED_PREPAID_BY_MONTH: 包月预付费计费</li>
     */
     @SerializedName("ChargeType")
     @Expose
     private String ChargeType;
 
     /**
-    * 带宽包名字
+    * 带宽包名称。
     */
     @SerializedName("BandwidthPackageName")
     @Expose
     private String BandwidthPackageName;
 
     /**
-    * 带宽包数量(非上移账户只能填1)
+    * 带宽包数量(传统账户类型只能填1), 标准账户类型取值范围为1~20。
     */
     @SerializedName("BandwidthPackageCount")
     @Expose
     private Long BandwidthPackageCount;
 
     /**
-    * 带宽包限速大小。单位：Mbps，-1表示不限速。
+    * 带宽包限速大小。单位：Mbps，-1表示不限速。该功能当前内测中，暂不对外开放。
     */
     @SerializedName("InternetMaxBandwidth")
     @Expose
@@ -72,80 +77,100 @@ public class CreateBandwidthPackageRequest extends AbstractModel{
     private String Protocol;
 
     /**
-     * Get 带宽包类型，包括'BGP'，'SINGLEISP'，'ANYCAST' 
-     * @return NetworkType 带宽包类型，包括'BGP'，'SINGLEISP'，'ANYCAST'
+     * Get 带宽包类型, 默认值: BGP, 可选值:
+<li>BGP: 普通BGP共享带宽包</li>
+<li>HIGH_QUALITY_BGP: 精品BGP共享带宽包</li> 
+     * @return NetworkType 带宽包类型, 默认值: BGP, 可选值:
+<li>BGP: 普通BGP共享带宽包</li>
+<li>HIGH_QUALITY_BGP: 精品BGP共享带宽包</li>
      */
     public String getNetworkType() {
         return this.NetworkType;
     }
 
     /**
-     * Set 带宽包类型，包括'BGP'，'SINGLEISP'，'ANYCAST'
-     * @param NetworkType 带宽包类型，包括'BGP'，'SINGLEISP'，'ANYCAST'
+     * Set 带宽包类型, 默认值: BGP, 可选值:
+<li>BGP: 普通BGP共享带宽包</li>
+<li>HIGH_QUALITY_BGP: 精品BGP共享带宽包</li>
+     * @param NetworkType 带宽包类型, 默认值: BGP, 可选值:
+<li>BGP: 普通BGP共享带宽包</li>
+<li>HIGH_QUALITY_BGP: 精品BGP共享带宽包</li>
      */
     public void setNetworkType(String NetworkType) {
         this.NetworkType = NetworkType;
     }
 
     /**
-     * Get 带宽包计费类型，包括‘TOP5_POSTPAID_BY_MONTH’，‘PERCENT95_POSTPAID_BY_MONTH’ 
-     * @return ChargeType 带宽包计费类型，包括‘TOP5_POSTPAID_BY_MONTH’，‘PERCENT95_POSTPAID_BY_MONTH’
+     * Get 带宽包计费类型, 默认为: TOP5_POSTPAID_BY_MONTH, 可选值:
+<li>TOP5_POSTPAID_BY_MONTH: 按月后付费TOP5计费</li>
+<li>PERCENT95_POSTPAID_BY_MONTH: 按月后付费月95计费</li>
+<li>FIXED_PREPAID_BY_MONTH: 包月预付费计费</li> 
+     * @return ChargeType 带宽包计费类型, 默认为: TOP5_POSTPAID_BY_MONTH, 可选值:
+<li>TOP5_POSTPAID_BY_MONTH: 按月后付费TOP5计费</li>
+<li>PERCENT95_POSTPAID_BY_MONTH: 按月后付费月95计费</li>
+<li>FIXED_PREPAID_BY_MONTH: 包月预付费计费</li>
      */
     public String getChargeType() {
         return this.ChargeType;
     }
 
     /**
-     * Set 带宽包计费类型，包括‘TOP5_POSTPAID_BY_MONTH’，‘PERCENT95_POSTPAID_BY_MONTH’
-     * @param ChargeType 带宽包计费类型，包括‘TOP5_POSTPAID_BY_MONTH’，‘PERCENT95_POSTPAID_BY_MONTH’
+     * Set 带宽包计费类型, 默认为: TOP5_POSTPAID_BY_MONTH, 可选值:
+<li>TOP5_POSTPAID_BY_MONTH: 按月后付费TOP5计费</li>
+<li>PERCENT95_POSTPAID_BY_MONTH: 按月后付费月95计费</li>
+<li>FIXED_PREPAID_BY_MONTH: 包月预付费计费</li>
+     * @param ChargeType 带宽包计费类型, 默认为: TOP5_POSTPAID_BY_MONTH, 可选值:
+<li>TOP5_POSTPAID_BY_MONTH: 按月后付费TOP5计费</li>
+<li>PERCENT95_POSTPAID_BY_MONTH: 按月后付费月95计费</li>
+<li>FIXED_PREPAID_BY_MONTH: 包月预付费计费</li>
      */
     public void setChargeType(String ChargeType) {
         this.ChargeType = ChargeType;
     }
 
     /**
-     * Get 带宽包名字 
-     * @return BandwidthPackageName 带宽包名字
+     * Get 带宽包名称。 
+     * @return BandwidthPackageName 带宽包名称。
      */
     public String getBandwidthPackageName() {
         return this.BandwidthPackageName;
     }
 
     /**
-     * Set 带宽包名字
-     * @param BandwidthPackageName 带宽包名字
+     * Set 带宽包名称。
+     * @param BandwidthPackageName 带宽包名称。
      */
     public void setBandwidthPackageName(String BandwidthPackageName) {
         this.BandwidthPackageName = BandwidthPackageName;
     }
 
     /**
-     * Get 带宽包数量(非上移账户只能填1) 
-     * @return BandwidthPackageCount 带宽包数量(非上移账户只能填1)
+     * Get 带宽包数量(传统账户类型只能填1), 标准账户类型取值范围为1~20。 
+     * @return BandwidthPackageCount 带宽包数量(传统账户类型只能填1), 标准账户类型取值范围为1~20。
      */
     public Long getBandwidthPackageCount() {
         return this.BandwidthPackageCount;
     }
 
     /**
-     * Set 带宽包数量(非上移账户只能填1)
-     * @param BandwidthPackageCount 带宽包数量(非上移账户只能填1)
+     * Set 带宽包数量(传统账户类型只能填1), 标准账户类型取值范围为1~20。
+     * @param BandwidthPackageCount 带宽包数量(传统账户类型只能填1), 标准账户类型取值范围为1~20。
      */
     public void setBandwidthPackageCount(Long BandwidthPackageCount) {
         this.BandwidthPackageCount = BandwidthPackageCount;
     }
 
     /**
-     * Get 带宽包限速大小。单位：Mbps，-1表示不限速。 
-     * @return InternetMaxBandwidth 带宽包限速大小。单位：Mbps，-1表示不限速。
+     * Get 带宽包限速大小。单位：Mbps，-1表示不限速。该功能当前内测中，暂不对外开放。 
+     * @return InternetMaxBandwidth 带宽包限速大小。单位：Mbps，-1表示不限速。该功能当前内测中，暂不对外开放。
      */
     public Long getInternetMaxBandwidth() {
         return this.InternetMaxBandwidth;
     }
 
     /**
-     * Set 带宽包限速大小。单位：Mbps，-1表示不限速。
-     * @param InternetMaxBandwidth 带宽包限速大小。单位：Mbps，-1表示不限速。
+     * Set 带宽包限速大小。单位：Mbps，-1表示不限速。该功能当前内测中，暂不对外开放。
+     * @param InternetMaxBandwidth 带宽包限速大小。单位：Mbps，-1表示不限速。该功能当前内测中，暂不对外开放。
      */
     public void setInternetMaxBandwidth(Long InternetMaxBandwidth) {
         this.InternetMaxBandwidth = InternetMaxBandwidth;
@@ -182,6 +207,41 @@ public class CreateBandwidthPackageRequest extends AbstractModel{
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;
     }
+
+    public CreateBandwidthPackageRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateBandwidthPackageRequest(CreateBandwidthPackageRequest source) {
+        if (source.NetworkType != null) {
+            this.NetworkType = new String(source.NetworkType);
+        }
+        if (source.ChargeType != null) {
+            this.ChargeType = new String(source.ChargeType);
+        }
+        if (source.BandwidthPackageName != null) {
+            this.BandwidthPackageName = new String(source.BandwidthPackageName);
+        }
+        if (source.BandwidthPackageCount != null) {
+            this.BandwidthPackageCount = new Long(source.BandwidthPackageCount);
+        }
+        if (source.InternetMaxBandwidth != null) {
+            this.InternetMaxBandwidth = new Long(source.InternetMaxBandwidth);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.Protocol != null) {
+            this.Protocol = new String(source.Protocol);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

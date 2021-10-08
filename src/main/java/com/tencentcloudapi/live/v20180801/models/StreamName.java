@@ -45,8 +45,7 @@ public class StreamName extends AbstractModel{
 
     /**
     * 推流开始时间。
-UTC格式时间，
-例如：2019-01-07T12:00:00Z。
+UTC格式时间，例如：2019-01-07T12:00:00Z。
     */
     @SerializedName("StreamStartTime")
     @Expose
@@ -54,8 +53,7 @@ UTC格式时间，
 
     /**
     * 推流结束时间。
-UTC格式时间，
-例如：2019-01-07T15:00:00Z。
+UTC格式时间，例如：2019-01-07T15:00:00Z。
     */
     @SerializedName("StreamEndTime")
     @Expose
@@ -76,7 +74,7 @@ UTC格式时间，
     private Long Duration;
 
     /**
-    * 主播IP。
+    * 主播 IP。
     */
     @SerializedName("ClientIp")
     @Expose
@@ -139,11 +137,9 @@ UTC格式时间，
 
     /**
      * Get 推流开始时间。
-UTC格式时间，
-例如：2019-01-07T12:00:00Z。 
+UTC格式时间，例如：2019-01-07T12:00:00Z。 
      * @return StreamStartTime 推流开始时间。
-UTC格式时间，
-例如：2019-01-07T12:00:00Z。
+UTC格式时间，例如：2019-01-07T12:00:00Z。
      */
     public String getStreamStartTime() {
         return this.StreamStartTime;
@@ -151,11 +147,9 @@ UTC格式时间，
 
     /**
      * Set 推流开始时间。
-UTC格式时间，
-例如：2019-01-07T12:00:00Z。
+UTC格式时间，例如：2019-01-07T12:00:00Z。
      * @param StreamStartTime 推流开始时间。
-UTC格式时间，
-例如：2019-01-07T12:00:00Z。
+UTC格式时间，例如：2019-01-07T12:00:00Z。
      */
     public void setStreamStartTime(String StreamStartTime) {
         this.StreamStartTime = StreamStartTime;
@@ -163,11 +157,9 @@ UTC格式时间，
 
     /**
      * Get 推流结束时间。
-UTC格式时间，
-例如：2019-01-07T15:00:00Z。 
+UTC格式时间，例如：2019-01-07T15:00:00Z。 
      * @return StreamEndTime 推流结束时间。
-UTC格式时间，
-例如：2019-01-07T15:00:00Z。
+UTC格式时间，例如：2019-01-07T15:00:00Z。
      */
     public String getStreamEndTime() {
         return this.StreamEndTime;
@@ -175,11 +167,9 @@ UTC格式时间，
 
     /**
      * Set 推流结束时间。
-UTC格式时间，
-例如：2019-01-07T15:00:00Z。
+UTC格式时间，例如：2019-01-07T15:00:00Z。
      * @param StreamEndTime 推流结束时间。
-UTC格式时间，
-例如：2019-01-07T15:00:00Z。
+UTC格式时间，例如：2019-01-07T15:00:00Z。
      */
     public void setStreamEndTime(String StreamEndTime) {
         this.StreamEndTime = StreamEndTime;
@@ -218,16 +208,16 @@ UTC格式时间，
     }
 
     /**
-     * Get 主播IP。 
-     * @return ClientIp 主播IP。
+     * Get 主播 IP。 
+     * @return ClientIp 主播 IP。
      */
     public String getClientIp() {
         return this.ClientIp;
     }
 
     /**
-     * Set 主播IP。
-     * @param ClientIp 主播IP。
+     * Set 主播 IP。
+     * @param ClientIp 主播 IP。
      */
     public void setClientIp(String ClientIp) {
         this.ClientIp = ClientIp;
@@ -248,6 +238,44 @@ UTC格式时间，
     public void setResolution(String Resolution) {
         this.Resolution = Resolution;
     }
+
+    public StreamName() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public StreamName(StreamName source) {
+        if (source.StreamName != null) {
+            this.StreamName = new String(source.StreamName);
+        }
+        if (source.AppName != null) {
+            this.AppName = new String(source.AppName);
+        }
+        if (source.DomainName != null) {
+            this.DomainName = new String(source.DomainName);
+        }
+        if (source.StreamStartTime != null) {
+            this.StreamStartTime = new String(source.StreamStartTime);
+        }
+        if (source.StreamEndTime != null) {
+            this.StreamEndTime = new String(source.StreamEndTime);
+        }
+        if (source.StopReason != null) {
+            this.StopReason = new String(source.StopReason);
+        }
+        if (source.Duration != null) {
+            this.Duration = new Long(source.Duration);
+        }
+        if (source.ClientIp != null) {
+            this.ClientIp = new String(source.ClientIp);
+        }
+        if (source.Resolution != null) {
+            this.Resolution = new String(source.Resolution);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

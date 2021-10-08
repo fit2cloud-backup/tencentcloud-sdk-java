@@ -121,6 +121,27 @@ public class Image extends AbstractModel{
     private SrcImage SrcImage;
 
     /**
+    * 镜像来源类型
+    */
+    @SerializedName("ImageSource")
+    @Expose
+    private String ImageSource;
+
+    /**
+    * 中间态和失败时候的任务ID
+    */
+    @SerializedName("TaskId")
+    @Expose
+    private String TaskId;
+
+    /**
+    * 是否支持CloudInit
+    */
+    @SerializedName("IsSupportCloudInit")
+    @Expose
+    private Boolean IsSupportCloudInit;
+
+    /**
      * Get 镜像ID 
      * @return ImageId 镜像ID
      */
@@ -345,6 +366,116 @@ public class Image extends AbstractModel{
     }
 
     /**
+     * Get 镜像来源类型 
+     * @return ImageSource 镜像来源类型
+     */
+    public String getImageSource() {
+        return this.ImageSource;
+    }
+
+    /**
+     * Set 镜像来源类型
+     * @param ImageSource 镜像来源类型
+     */
+    public void setImageSource(String ImageSource) {
+        this.ImageSource = ImageSource;
+    }
+
+    /**
+     * Get 中间态和失败时候的任务ID 
+     * @return TaskId 中间态和失败时候的任务ID
+     */
+    public String getTaskId() {
+        return this.TaskId;
+    }
+
+    /**
+     * Set 中间态和失败时候的任务ID
+     * @param TaskId 中间态和失败时候的任务ID
+     */
+    public void setTaskId(String TaskId) {
+        this.TaskId = TaskId;
+    }
+
+    /**
+     * Get 是否支持CloudInit 
+     * @return IsSupportCloudInit 是否支持CloudInit
+     */
+    public Boolean getIsSupportCloudInit() {
+        return this.IsSupportCloudInit;
+    }
+
+    /**
+     * Set 是否支持CloudInit
+     * @param IsSupportCloudInit 是否支持CloudInit
+     */
+    public void setIsSupportCloudInit(Boolean IsSupportCloudInit) {
+        this.IsSupportCloudInit = IsSupportCloudInit;
+    }
+
+    public Image() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Image(Image source) {
+        if (source.ImageId != null) {
+            this.ImageId = new String(source.ImageId);
+        }
+        if (source.ImageName != null) {
+            this.ImageName = new String(source.ImageName);
+        }
+        if (source.ImageState != null) {
+            this.ImageState = new String(source.ImageState);
+        }
+        if (source.ImageType != null) {
+            this.ImageType = new String(source.ImageType);
+        }
+        if (source.ImageOsName != null) {
+            this.ImageOsName = new String(source.ImageOsName);
+        }
+        if (source.ImageDescription != null) {
+            this.ImageDescription = new String(source.ImageDescription);
+        }
+        if (source.ImageCreateTime != null) {
+            this.ImageCreateTime = new String(source.ImageCreateTime);
+        }
+        if (source.Architecture != null) {
+            this.Architecture = new String(source.Architecture);
+        }
+        if (source.OsType != null) {
+            this.OsType = new String(source.OsType);
+        }
+        if (source.OsVersion != null) {
+            this.OsVersion = new String(source.OsVersion);
+        }
+        if (source.Platform != null) {
+            this.Platform = new String(source.Platform);
+        }
+        if (source.ImageOwner != null) {
+            this.ImageOwner = new Long(source.ImageOwner);
+        }
+        if (source.ImageSize != null) {
+            this.ImageSize = new Long(source.ImageSize);
+        }
+        if (source.SrcImage != null) {
+            this.SrcImage = new SrcImage(source.SrcImage);
+        }
+        if (source.ImageSource != null) {
+            this.ImageSource = new String(source.ImageSource);
+        }
+        if (source.TaskId != null) {
+            this.TaskId = new String(source.TaskId);
+        }
+        if (source.IsSupportCloudInit != null) {
+            this.IsSupportCloudInit = new Boolean(source.IsSupportCloudInit);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -362,6 +493,9 @@ public class Image extends AbstractModel{
         this.setParamSimple(map, prefix + "ImageOwner", this.ImageOwner);
         this.setParamSimple(map, prefix + "ImageSize", this.ImageSize);
         this.setParamObj(map, prefix + "SrcImage.", this.SrcImage);
+        this.setParamSimple(map, prefix + "ImageSource", this.ImageSource);
+        this.setParamSimple(map, prefix + "TaskId", this.TaskId);
+        this.setParamSimple(map, prefix + "IsSupportCloudInit", this.IsSupportCloudInit);
 
     }
 }

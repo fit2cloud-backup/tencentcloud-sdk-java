@@ -163,7 +163,7 @@ public class GetFunctionResponse extends AbstractModel{
     private String InstallDependency;
 
     /**
-    * 函数状态
+    * 函数状态，状态值及流转[参考说明](https://cloud.tencent.com/document/product/583/47175)
     */
     @SerializedName("Status")
     @Expose
@@ -268,6 +268,61 @@ public class GetFunctionResponse extends AbstractModel{
     @SerializedName("OnsEnable")
     @Expose
     private String OnsEnable;
+
+    /**
+    * 文件系统配置参数，用于云函数挂载文件系统
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CfsConfig")
+    @Expose
+    private CfsConfig CfsConfig;
+
+    /**
+    * 函数的计费状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/47175#.E5.87.BD.E6.95.B0.E8.AE.A1.E8.B4.B9.E7.8A.B6.E6.80.81)
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AvailableStatus")
+    @Expose
+    private String AvailableStatus;
+
+    /**
+    * 函数版本
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Qualifier")
+    @Expose
+    private String Qualifier;
+
+    /**
+    * 函数初始化超时时间
+    */
+    @SerializedName("InitTimeout")
+    @Expose
+    private Long InitTimeout;
+
+    /**
+    * 函数状态失败原因
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("StatusReasons")
+    @Expose
+    private StatusReason [] StatusReasons;
+
+    /**
+    * 是否开启异步属性
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AsyncRunEnable")
+    @Expose
+    private String AsyncRunEnable;
+
+    /**
+    * 是否开启事件追踪
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TraceEnable")
+    @Expose
+    private String TraceEnable;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -597,16 +652,16 @@ public class GetFunctionResponse extends AbstractModel{
     }
 
     /**
-     * Get 函数状态 
-     * @return Status 函数状态
+     * Get 函数状态，状态值及流转[参考说明](https://cloud.tencent.com/document/product/583/47175) 
+     * @return Status 函数状态，状态值及流转[参考说明](https://cloud.tencent.com/document/product/583/47175)
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 函数状态
-     * @param Status 函数状态
+     * Set 函数状态，状态值及流转[参考说明](https://cloud.tencent.com/document/product/583/47175)
+     * @param Status 函数状态，状态值及流转[参考说明](https://cloud.tencent.com/document/product/583/47175)
      */
     public void setStatus(String Status) {
         this.Status = Status;
@@ -845,6 +900,142 @@ public class GetFunctionResponse extends AbstractModel{
     }
 
     /**
+     * Get 文件系统配置参数，用于云函数挂载文件系统
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CfsConfig 文件系统配置参数，用于云函数挂载文件系统
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public CfsConfig getCfsConfig() {
+        return this.CfsConfig;
+    }
+
+    /**
+     * Set 文件系统配置参数，用于云函数挂载文件系统
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CfsConfig 文件系统配置参数，用于云函数挂载文件系统
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCfsConfig(CfsConfig CfsConfig) {
+        this.CfsConfig = CfsConfig;
+    }
+
+    /**
+     * Get 函数的计费状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/47175#.E5.87.BD.E6.95.B0.E8.AE.A1.E8.B4.B9.E7.8A.B6.E6.80.81)
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AvailableStatus 函数的计费状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/47175#.E5.87.BD.E6.95.B0.E8.AE.A1.E8.B4.B9.E7.8A.B6.E6.80.81)
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAvailableStatus() {
+        return this.AvailableStatus;
+    }
+
+    /**
+     * Set 函数的计费状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/47175#.E5.87.BD.E6.95.B0.E8.AE.A1.E8.B4.B9.E7.8A.B6.E6.80.81)
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AvailableStatus 函数的计费状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/47175#.E5.87.BD.E6.95.B0.E8.AE.A1.E8.B4.B9.E7.8A.B6.E6.80.81)
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAvailableStatus(String AvailableStatus) {
+        this.AvailableStatus = AvailableStatus;
+    }
+
+    /**
+     * Get 函数版本
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Qualifier 函数版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getQualifier() {
+        return this.Qualifier;
+    }
+
+    /**
+     * Set 函数版本
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Qualifier 函数版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setQualifier(String Qualifier) {
+        this.Qualifier = Qualifier;
+    }
+
+    /**
+     * Get 函数初始化超时时间 
+     * @return InitTimeout 函数初始化超时时间
+     */
+    public Long getInitTimeout() {
+        return this.InitTimeout;
+    }
+
+    /**
+     * Set 函数初始化超时时间
+     * @param InitTimeout 函数初始化超时时间
+     */
+    public void setInitTimeout(Long InitTimeout) {
+        this.InitTimeout = InitTimeout;
+    }
+
+    /**
+     * Get 函数状态失败原因
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return StatusReasons 函数状态失败原因
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public StatusReason [] getStatusReasons() {
+        return this.StatusReasons;
+    }
+
+    /**
+     * Set 函数状态失败原因
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param StatusReasons 函数状态失败原因
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setStatusReasons(StatusReason [] StatusReasons) {
+        this.StatusReasons = StatusReasons;
+    }
+
+    /**
+     * Get 是否开启异步属性
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AsyncRunEnable 是否开启异步属性
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAsyncRunEnable() {
+        return this.AsyncRunEnable;
+    }
+
+    /**
+     * Set 是否开启异步属性
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AsyncRunEnable 是否开启异步属性
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAsyncRunEnable(String AsyncRunEnable) {
+        this.AsyncRunEnable = AsyncRunEnable;
+    }
+
+    /**
+     * Get 是否开启事件追踪
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TraceEnable 是否开启事件追踪
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTraceEnable() {
+        return this.TraceEnable;
+    }
+
+    /**
+     * Set 是否开启事件追踪
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TraceEnable 是否开启事件追踪
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTraceEnable(String TraceEnable) {
+        this.TraceEnable = TraceEnable;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -859,6 +1050,158 @@ public class GetFunctionResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public GetFunctionResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public GetFunctionResponse(GetFunctionResponse source) {
+        if (source.ModTime != null) {
+            this.ModTime = new String(source.ModTime);
+        }
+        if (source.CodeInfo != null) {
+            this.CodeInfo = new String(source.CodeInfo);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.Triggers != null) {
+            this.Triggers = new Trigger[source.Triggers.length];
+            for (int i = 0; i < source.Triggers.length; i++) {
+                this.Triggers[i] = new Trigger(source.Triggers[i]);
+            }
+        }
+        if (source.Handler != null) {
+            this.Handler = new String(source.Handler);
+        }
+        if (source.CodeSize != null) {
+            this.CodeSize = new Long(source.CodeSize);
+        }
+        if (source.Timeout != null) {
+            this.Timeout = new Long(source.Timeout);
+        }
+        if (source.FunctionVersion != null) {
+            this.FunctionVersion = new String(source.FunctionVersion);
+        }
+        if (source.MemorySize != null) {
+            this.MemorySize = new Long(source.MemorySize);
+        }
+        if (source.Runtime != null) {
+            this.Runtime = new String(source.Runtime);
+        }
+        if (source.FunctionName != null) {
+            this.FunctionName = new String(source.FunctionName);
+        }
+        if (source.VpcConfig != null) {
+            this.VpcConfig = new VpcConfig(source.VpcConfig);
+        }
+        if (source.UseGpu != null) {
+            this.UseGpu = new String(source.UseGpu);
+        }
+        if (source.Environment != null) {
+            this.Environment = new Environment(source.Environment);
+        }
+        if (source.CodeResult != null) {
+            this.CodeResult = new String(source.CodeResult);
+        }
+        if (source.CodeError != null) {
+            this.CodeError = new String(source.CodeError);
+        }
+        if (source.ErrNo != null) {
+            this.ErrNo = new Long(source.ErrNo);
+        }
+        if (source.Namespace != null) {
+            this.Namespace = new String(source.Namespace);
+        }
+        if (source.Role != null) {
+            this.Role = new String(source.Role);
+        }
+        if (source.InstallDependency != null) {
+            this.InstallDependency = new String(source.InstallDependency);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.StatusDesc != null) {
+            this.StatusDesc = new String(source.StatusDesc);
+        }
+        if (source.ClsLogsetId != null) {
+            this.ClsLogsetId = new String(source.ClsLogsetId);
+        }
+        if (source.ClsTopicId != null) {
+            this.ClsTopicId = new String(source.ClsTopicId);
+        }
+        if (source.FunctionId != null) {
+            this.FunctionId = new String(source.FunctionId);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.EipConfig != null) {
+            this.EipConfig = new EipOutConfig(source.EipConfig);
+        }
+        if (source.AccessInfo != null) {
+            this.AccessInfo = new AccessInfo(source.AccessInfo);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.L5Enable != null) {
+            this.L5Enable = new String(source.L5Enable);
+        }
+        if (source.Layers != null) {
+            this.Layers = new LayerVersionInfo[source.Layers.length];
+            for (int i = 0; i < source.Layers.length; i++) {
+                this.Layers[i] = new LayerVersionInfo(source.Layers[i]);
+            }
+        }
+        if (source.DeadLetterConfig != null) {
+            this.DeadLetterConfig = new DeadLetterConfig(source.DeadLetterConfig);
+        }
+        if (source.AddTime != null) {
+            this.AddTime = new String(source.AddTime);
+        }
+        if (source.PublicNetConfig != null) {
+            this.PublicNetConfig = new PublicNetConfigOut(source.PublicNetConfig);
+        }
+        if (source.OnsEnable != null) {
+            this.OnsEnable = new String(source.OnsEnable);
+        }
+        if (source.CfsConfig != null) {
+            this.CfsConfig = new CfsConfig(source.CfsConfig);
+        }
+        if (source.AvailableStatus != null) {
+            this.AvailableStatus = new String(source.AvailableStatus);
+        }
+        if (source.Qualifier != null) {
+            this.Qualifier = new String(source.Qualifier);
+        }
+        if (source.InitTimeout != null) {
+            this.InitTimeout = new Long(source.InitTimeout);
+        }
+        if (source.StatusReasons != null) {
+            this.StatusReasons = new StatusReason[source.StatusReasons.length];
+            for (int i = 0; i < source.StatusReasons.length; i++) {
+                this.StatusReasons[i] = new StatusReason(source.StatusReasons[i]);
+            }
+        }
+        if (source.AsyncRunEnable != null) {
+            this.AsyncRunEnable = new String(source.AsyncRunEnable);
+        }
+        if (source.TraceEnable != null) {
+            this.TraceEnable = new String(source.TraceEnable);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -899,6 +1242,13 @@ public class GetFunctionResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "AddTime", this.AddTime);
         this.setParamObj(map, prefix + "PublicNetConfig.", this.PublicNetConfig);
         this.setParamSimple(map, prefix + "OnsEnable", this.OnsEnable);
+        this.setParamObj(map, prefix + "CfsConfig.", this.CfsConfig);
+        this.setParamSimple(map, prefix + "AvailableStatus", this.AvailableStatus);
+        this.setParamSimple(map, prefix + "Qualifier", this.Qualifier);
+        this.setParamSimple(map, prefix + "InitTimeout", this.InitTimeout);
+        this.setParamArrayObj(map, prefix + "StatusReasons.", this.StatusReasons);
+        this.setParamSimple(map, prefix + "AsyncRunEnable", this.AsyncRunEnable);
+        this.setParamSimple(map, prefix + "TraceEnable", this.TraceEnable);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

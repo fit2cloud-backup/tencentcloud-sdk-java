@@ -31,7 +31,7 @@ public class Externals extends AbstractModel{
     private Boolean ReleaseAddress;
 
     /**
-    * 不支持的网络类型
+    * 不支持的网络类型，取值范围：<br><li>BASIC：基础网络<br><li>VPC1.0：私有网络VPC1.0
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UnsupportNetworks")
@@ -67,9 +67,9 @@ public class Externals extends AbstractModel{
     }
 
     /**
-     * Get 不支持的网络类型
+     * Get 不支持的网络类型，取值范围：<br><li>BASIC：基础网络<br><li>VPC1.0：私有网络VPC1.0
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return UnsupportNetworks 不支持的网络类型
+     * @return UnsupportNetworks 不支持的网络类型，取值范围：<br><li>BASIC：基础网络<br><li>VPC1.0：私有网络VPC1.0
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getUnsupportNetworks() {
@@ -77,9 +77,9 @@ public class Externals extends AbstractModel{
     }
 
     /**
-     * Set 不支持的网络类型
+     * Set 不支持的网络类型，取值范围：<br><li>BASIC：基础网络<br><li>VPC1.0：私有网络VPC1.0
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param UnsupportNetworks 不支持的网络类型
+     * @param UnsupportNetworks 不支持的网络类型，取值范围：<br><li>BASIC：基础网络<br><li>VPC1.0：私有网络VPC1.0
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUnsupportNetworks(String [] UnsupportNetworks) {
@@ -105,6 +105,29 @@ public class Externals extends AbstractModel{
     public void setStorageBlockAttr(StorageBlock StorageBlockAttr) {
         this.StorageBlockAttr = StorageBlockAttr;
     }
+
+    public Externals() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Externals(Externals source) {
+        if (source.ReleaseAddress != null) {
+            this.ReleaseAddress = new Boolean(source.ReleaseAddress);
+        }
+        if (source.UnsupportNetworks != null) {
+            this.UnsupportNetworks = new String[source.UnsupportNetworks.length];
+            for (int i = 0; i < source.UnsupportNetworks.length; i++) {
+                this.UnsupportNetworks[i] = new String(source.UnsupportNetworks[i]);
+            }
+        }
+        if (source.StorageBlockAttr != null) {
+            this.StorageBlockAttr = new StorageBlock(source.StorageBlockAttr);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

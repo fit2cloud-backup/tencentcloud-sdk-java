@@ -50,6 +50,13 @@ public class TryLipstickPicRequest extends AbstractModel{
     private String Url;
 
     /**
+    * 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
+    */
+    @SerializedName("RspImgType")
+    @Expose
+    private String RspImgType;
+
+    /**
      * Get 唇色信息。 
 您可以输入最多3个 LipColorInfo 来实现给一张图中的最多3张人脸试唇色。 
      * @return LipColorInfos 唇色信息。 
@@ -122,12 +129,55 @@ public class TryLipstickPicRequest extends AbstractModel{
     }
 
     /**
+     * Get 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。 
+     * @return RspImgType 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
+     */
+    public String getRspImgType() {
+        return this.RspImgType;
+    }
+
+    /**
+     * Set 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
+     * @param RspImgType 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
+     */
+    public void setRspImgType(String RspImgType) {
+        this.RspImgType = RspImgType;
+    }
+
+    public TryLipstickPicRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public TryLipstickPicRequest(TryLipstickPicRequest source) {
+        if (source.LipColorInfos != null) {
+            this.LipColorInfos = new LipColorInfo[source.LipColorInfos.length];
+            for (int i = 0; i < source.LipColorInfos.length; i++) {
+                this.LipColorInfos[i] = new LipColorInfo(source.LipColorInfos[i]);
+            }
+        }
+        if (source.Image != null) {
+            this.Image = new String(source.Image);
+        }
+        if (source.Url != null) {
+            this.Url = new String(source.Url);
+        }
+        if (source.RspImgType != null) {
+            this.RspImgType = new String(source.RspImgType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "LipColorInfos.", this.LipColorInfos);
         this.setParamSimple(map, prefix + "Image", this.Image);
         this.setParamSimple(map, prefix + "Url", this.Url);
+        this.setParamSimple(map, prefix + "RspImgType", this.RspImgType);
 
     }
 }

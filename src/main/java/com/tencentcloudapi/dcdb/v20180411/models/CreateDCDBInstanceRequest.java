@@ -24,6 +24,7 @@ public class CreateDCDBInstanceRequest extends AbstractModel{
 
     /**
     * 分片节点可用区分布，最多可填两个可用区。当分片规格为一主两从时，其中两个节点在第一个可用区。
+注意当前可售卖的可用区需要通过DescribeDCDBSaleInfo接口拉取。
     */
     @SerializedName("Zones")
     @Expose
@@ -96,11 +97,11 @@ public class CreateDCDBInstanceRequest extends AbstractModel{
     private String SubnetId;
 
     /**
-    * 数据库引擎版本，当前可选：10.0.10，10.1.9，5.7.17。
-10.0.10 - Mariadb 10.0.10；
+    * 数据库引擎版本，当前可选：8.0.18，10.1.9，5.7.17。
+8.0.18 - MySQL 8.0.18；
 10.1.9 - Mariadb 10.1.9；
 5.7.17 - Percona 5.7.17。
-如果不填的话，默认为10.1.9，表示Mariadb 10.1.9。
+如果不填的话，默认为5.7.17，表示Percona 5.7.17。
     */
     @SerializedName("DbVersionId")
     @Expose
@@ -135,8 +136,45 @@ public class CreateDCDBInstanceRequest extends AbstractModel{
     private String InstanceName;
 
     /**
-     * Get 分片节点可用区分布，最多可填两个可用区。当分片规格为一主两从时，其中两个节点在第一个可用区。 
+    * 是否支持IPv6
+    */
+    @SerializedName("Ipv6Flag")
+    @Expose
+    private Long Ipv6Flag;
+
+    /**
+    * 标签键值对数组
+    */
+    @SerializedName("ResourceTags")
+    @Expose
+    private ResourceTag [] ResourceTags;
+
+    /**
+    * 参数列表。本接口的可选值为：character_set_server（字符集，必传），lower_case_table_names（表名大小写敏感，必传，0 - 敏感；1-不敏感），innodb_page_size（innodb数据页，默认16K），sync_mode（同步模式：0 - 异步； 1 - 强同步；2 - 强同步可退化。默认为强同步可退化）。
+    */
+    @SerializedName("InitParams")
+    @Expose
+    private DBParamValue [] InitParams;
+
+    /**
+    * DCN源地域
+    */
+    @SerializedName("DcnRegion")
+    @Expose
+    private String DcnRegion;
+
+    /**
+    * DCN源实例ID
+    */
+    @SerializedName("DcnInstanceId")
+    @Expose
+    private String DcnInstanceId;
+
+    /**
+     * Get 分片节点可用区分布，最多可填两个可用区。当分片规格为一主两从时，其中两个节点在第一个可用区。
+注意当前可售卖的可用区需要通过DescribeDCDBSaleInfo接口拉取。 
      * @return Zones 分片节点可用区分布，最多可填两个可用区。当分片规格为一主两从时，其中两个节点在第一个可用区。
+注意当前可售卖的可用区需要通过DescribeDCDBSaleInfo接口拉取。
      */
     public String [] getZones() {
         return this.Zones;
@@ -144,7 +182,9 @@ public class CreateDCDBInstanceRequest extends AbstractModel{
 
     /**
      * Set 分片节点可用区分布，最多可填两个可用区。当分片规格为一主两从时，其中两个节点在第一个可用区。
+注意当前可售卖的可用区需要通过DescribeDCDBSaleInfo接口拉取。
      * @param Zones 分片节点可用区分布，最多可填两个可用区。当分片规格为一主两从时，其中两个节点在第一个可用区。
+注意当前可售卖的可用区需要通过DescribeDCDBSaleInfo接口拉取。
      */
     public void setZones(String [] Zones) {
         this.Zones = Zones;
@@ -307,32 +347,32 @@ public class CreateDCDBInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 数据库引擎版本，当前可选：10.0.10，10.1.9，5.7.17。
-10.0.10 - Mariadb 10.0.10；
+     * Get 数据库引擎版本，当前可选：8.0.18，10.1.9，5.7.17。
+8.0.18 - MySQL 8.0.18；
 10.1.9 - Mariadb 10.1.9；
 5.7.17 - Percona 5.7.17。
-如果不填的话，默认为10.1.9，表示Mariadb 10.1.9。 
-     * @return DbVersionId 数据库引擎版本，当前可选：10.0.10，10.1.9，5.7.17。
-10.0.10 - Mariadb 10.0.10；
+如果不填的话，默认为5.7.17，表示Percona 5.7.17。 
+     * @return DbVersionId 数据库引擎版本，当前可选：8.0.18，10.1.9，5.7.17。
+8.0.18 - MySQL 8.0.18；
 10.1.9 - Mariadb 10.1.9；
 5.7.17 - Percona 5.7.17。
-如果不填的话，默认为10.1.9，表示Mariadb 10.1.9。
+如果不填的话，默认为5.7.17，表示Percona 5.7.17。
      */
     public String getDbVersionId() {
         return this.DbVersionId;
     }
 
     /**
-     * Set 数据库引擎版本，当前可选：10.0.10，10.1.9，5.7.17。
-10.0.10 - Mariadb 10.0.10；
+     * Set 数据库引擎版本，当前可选：8.0.18，10.1.9，5.7.17。
+8.0.18 - MySQL 8.0.18；
 10.1.9 - Mariadb 10.1.9；
 5.7.17 - Percona 5.7.17。
-如果不填的话，默认为10.1.9，表示Mariadb 10.1.9。
-     * @param DbVersionId 数据库引擎版本，当前可选：10.0.10，10.1.9，5.7.17。
-10.0.10 - Mariadb 10.0.10；
+如果不填的话，默认为5.7.17，表示Percona 5.7.17。
+     * @param DbVersionId 数据库引擎版本，当前可选：8.0.18，10.1.9，5.7.17。
+8.0.18 - MySQL 8.0.18；
 10.1.9 - Mariadb 10.1.9；
 5.7.17 - Percona 5.7.17。
-如果不填的话，默认为10.1.9，表示Mariadb 10.1.9。
+如果不填的话，默认为5.7.17，表示Percona 5.7.17。
      */
     public void setDbVersionId(String DbVersionId) {
         this.DbVersionId = DbVersionId;
@@ -403,6 +443,169 @@ public class CreateDCDBInstanceRequest extends AbstractModel{
     }
 
     /**
+     * Get 是否支持IPv6 
+     * @return Ipv6Flag 是否支持IPv6
+     */
+    public Long getIpv6Flag() {
+        return this.Ipv6Flag;
+    }
+
+    /**
+     * Set 是否支持IPv6
+     * @param Ipv6Flag 是否支持IPv6
+     */
+    public void setIpv6Flag(Long Ipv6Flag) {
+        this.Ipv6Flag = Ipv6Flag;
+    }
+
+    /**
+     * Get 标签键值对数组 
+     * @return ResourceTags 标签键值对数组
+     */
+    public ResourceTag [] getResourceTags() {
+        return this.ResourceTags;
+    }
+
+    /**
+     * Set 标签键值对数组
+     * @param ResourceTags 标签键值对数组
+     */
+    public void setResourceTags(ResourceTag [] ResourceTags) {
+        this.ResourceTags = ResourceTags;
+    }
+
+    /**
+     * Get 参数列表。本接口的可选值为：character_set_server（字符集，必传），lower_case_table_names（表名大小写敏感，必传，0 - 敏感；1-不敏感），innodb_page_size（innodb数据页，默认16K），sync_mode（同步模式：0 - 异步； 1 - 强同步；2 - 强同步可退化。默认为强同步可退化）。 
+     * @return InitParams 参数列表。本接口的可选值为：character_set_server（字符集，必传），lower_case_table_names（表名大小写敏感，必传，0 - 敏感；1-不敏感），innodb_page_size（innodb数据页，默认16K），sync_mode（同步模式：0 - 异步； 1 - 强同步；2 - 强同步可退化。默认为强同步可退化）。
+     */
+    public DBParamValue [] getInitParams() {
+        return this.InitParams;
+    }
+
+    /**
+     * Set 参数列表。本接口的可选值为：character_set_server（字符集，必传），lower_case_table_names（表名大小写敏感，必传，0 - 敏感；1-不敏感），innodb_page_size（innodb数据页，默认16K），sync_mode（同步模式：0 - 异步； 1 - 强同步；2 - 强同步可退化。默认为强同步可退化）。
+     * @param InitParams 参数列表。本接口的可选值为：character_set_server（字符集，必传），lower_case_table_names（表名大小写敏感，必传，0 - 敏感；1-不敏感），innodb_page_size（innodb数据页，默认16K），sync_mode（同步模式：0 - 异步； 1 - 强同步；2 - 强同步可退化。默认为强同步可退化）。
+     */
+    public void setInitParams(DBParamValue [] InitParams) {
+        this.InitParams = InitParams;
+    }
+
+    /**
+     * Get DCN源地域 
+     * @return DcnRegion DCN源地域
+     */
+    public String getDcnRegion() {
+        return this.DcnRegion;
+    }
+
+    /**
+     * Set DCN源地域
+     * @param DcnRegion DCN源地域
+     */
+    public void setDcnRegion(String DcnRegion) {
+        this.DcnRegion = DcnRegion;
+    }
+
+    /**
+     * Get DCN源实例ID 
+     * @return DcnInstanceId DCN源实例ID
+     */
+    public String getDcnInstanceId() {
+        return this.DcnInstanceId;
+    }
+
+    /**
+     * Set DCN源实例ID
+     * @param DcnInstanceId DCN源实例ID
+     */
+    public void setDcnInstanceId(String DcnInstanceId) {
+        this.DcnInstanceId = DcnInstanceId;
+    }
+
+    public CreateDCDBInstanceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateDCDBInstanceRequest(CreateDCDBInstanceRequest source) {
+        if (source.Zones != null) {
+            this.Zones = new String[source.Zones.length];
+            for (int i = 0; i < source.Zones.length; i++) {
+                this.Zones[i] = new String(source.Zones[i]);
+            }
+        }
+        if (source.Period != null) {
+            this.Period = new Long(source.Period);
+        }
+        if (source.ShardMemory != null) {
+            this.ShardMemory = new Long(source.ShardMemory);
+        }
+        if (source.ShardStorage != null) {
+            this.ShardStorage = new Long(source.ShardStorage);
+        }
+        if (source.ShardNodeCount != null) {
+            this.ShardNodeCount = new Long(source.ShardNodeCount);
+        }
+        if (source.ShardCount != null) {
+            this.ShardCount = new Long(source.ShardCount);
+        }
+        if (source.Count != null) {
+            this.Count = new Long(source.Count);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.DbVersionId != null) {
+            this.DbVersionId = new String(source.DbVersionId);
+        }
+        if (source.AutoVoucher != null) {
+            this.AutoVoucher = new Boolean(source.AutoVoucher);
+        }
+        if (source.VoucherIds != null) {
+            this.VoucherIds = new String[source.VoucherIds.length];
+            for (int i = 0; i < source.VoucherIds.length; i++) {
+                this.VoucherIds[i] = new String(source.VoucherIds[i]);
+            }
+        }
+        if (source.SecurityGroupId != null) {
+            this.SecurityGroupId = new String(source.SecurityGroupId);
+        }
+        if (source.InstanceName != null) {
+            this.InstanceName = new String(source.InstanceName);
+        }
+        if (source.Ipv6Flag != null) {
+            this.Ipv6Flag = new Long(source.Ipv6Flag);
+        }
+        if (source.ResourceTags != null) {
+            this.ResourceTags = new ResourceTag[source.ResourceTags.length];
+            for (int i = 0; i < source.ResourceTags.length; i++) {
+                this.ResourceTags[i] = new ResourceTag(source.ResourceTags[i]);
+            }
+        }
+        if (source.InitParams != null) {
+            this.InitParams = new DBParamValue[source.InitParams.length];
+            for (int i = 0; i < source.InitParams.length; i++) {
+                this.InitParams[i] = new DBParamValue(source.InitParams[i]);
+            }
+        }
+        if (source.DcnRegion != null) {
+            this.DcnRegion = new String(source.DcnRegion);
+        }
+        if (source.DcnInstanceId != null) {
+            this.DcnInstanceId = new String(source.DcnInstanceId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -421,6 +624,11 @@ public class CreateDCDBInstanceRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "VoucherIds.", this.VoucherIds);
         this.setParamSimple(map, prefix + "SecurityGroupId", this.SecurityGroupId);
         this.setParamSimple(map, prefix + "InstanceName", this.InstanceName);
+        this.setParamSimple(map, prefix + "Ipv6Flag", this.Ipv6Flag);
+        this.setParamArrayObj(map, prefix + "ResourceTags.", this.ResourceTags);
+        this.setParamArrayObj(map, prefix + "InitParams.", this.InitParams);
+        this.setParamSimple(map, prefix + "DcnRegion", this.DcnRegion);
+        this.setParamSimple(map, prefix + "DcnInstanceId", this.DcnInstanceId);
 
     }
 }

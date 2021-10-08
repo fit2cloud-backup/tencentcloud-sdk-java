@@ -27,6 +27,7 @@ import com.tencentcloudapi.taf.v20200210.models.*;
 
 public class TafClient extends AbstractClient{
     private static String endpoint = "taf.tencentcloudapi.com";
+    private static String service = "taf";
     private static String version = "2020-02-10";
 
     public TafClient(Credential credential, String region) {
@@ -45,30 +46,34 @@ public class TafClient extends AbstractClient{
      */
     public DetectFraudKOLResponse DetectFraudKOL(DetectFraudKOLRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DetectFraudKOLResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DetectFraudKOLResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DetectFraudKOL"), type);
+                rspStr = this.internalRequest(req, "DetectFraudKOL");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
 
     /**
-     *EnhanceTaDegree
+     *流量反欺诈-虚假TA识别
      * @param req EnhanceTaDegreeRequest
      * @return EnhanceTaDegreeResponse
      * @throws TencentCloudSDKException
      */
     public EnhanceTaDegreeResponse EnhanceTaDegree(EnhanceTaDegreeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<EnhanceTaDegreeResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<EnhanceTaDegreeResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "EnhanceTaDegree"), type);
+                rspStr = this.internalRequest(req, "EnhanceTaDegree");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -81,30 +86,56 @@ public class TafClient extends AbstractClient{
      */
     public RecognizeCustomizedAudienceResponse RecognizeCustomizedAudience(RecognizeCustomizedAudienceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RecognizeCustomizedAudienceResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<RecognizeCustomizedAudienceResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "RecognizeCustomizedAudience"), type);
+                rspStr = this.internalRequest(req, "RecognizeCustomizedAudience");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
 
     /**
-     *RecognizePreciseTargetAudience
+     *该服务已不再对外提供能力
+
+筛选敏感易骚扰人群
+     * @param req RecognizeEffectiveFlowRequest
+     * @return RecognizeEffectiveFlowResponse
+     * @throws TencentCloudSDKException
+     */
+    public RecognizeEffectiveFlowResponse RecognizeEffectiveFlow(RecognizeEffectiveFlowRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<RecognizeEffectiveFlowResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<RecognizeEffectiveFlowResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "RecognizeEffectiveFlow");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *流量反欺诈-流量验准高级版
      * @param req RecognizePreciseTargetAudienceRequest
      * @return RecognizePreciseTargetAudienceResponse
      * @throws TencentCloudSDKException
      */
     public RecognizePreciseTargetAudienceResponse RecognizePreciseTargetAudience(RecognizePreciseTargetAudienceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RecognizePreciseTargetAudienceResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<RecognizePreciseTargetAudienceResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "RecognizePreciseTargetAudience"), type);
+                rspStr = this.internalRequest(req, "RecognizePreciseTargetAudience");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -117,12 +148,14 @@ public class TafClient extends AbstractClient{
      */
     public RecognizeTargetAudienceResponse RecognizeTargetAudience(RecognizeTargetAudienceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RecognizeTargetAudienceResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<RecognizeTargetAudienceResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "RecognizeTargetAudience"), type);
+                rspStr = this.internalRequest(req, "RecognizeTargetAudience");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -135,12 +168,14 @@ public class TafClient extends AbstractClient{
      */
     public SendTrafficSecuritySmsMessageResponse SendTrafficSecuritySmsMessage(SendTrafficSecuritySmsMessageRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SendTrafficSecuritySmsMessageResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<SendTrafficSecuritySmsMessageResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "SendTrafficSecuritySmsMessage"), type);
+                rspStr = this.internalRequest(req, "SendTrafficSecuritySmsMessage");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

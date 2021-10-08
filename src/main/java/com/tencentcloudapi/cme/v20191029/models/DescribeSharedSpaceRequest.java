@@ -30,7 +30,7 @@ public class DescribeSharedSpaceRequest extends AbstractModel{
     private String Platform;
 
     /**
-    * 被授权目标实体。
+    * 被授权目标,，个人或团队。
     */
     @SerializedName("Authorizee")
     @Expose
@@ -60,16 +60,16 @@ public class DescribeSharedSpaceRequest extends AbstractModel{
     }
 
     /**
-     * Get 被授权目标实体。 
-     * @return Authorizee 被授权目标实体。
+     * Get 被授权目标,，个人或团队。 
+     * @return Authorizee 被授权目标,，个人或团队。
      */
     public Entity getAuthorizee() {
         return this.Authorizee;
     }
 
     /**
-     * Set 被授权目标实体。
-     * @param Authorizee 被授权目标实体。
+     * Set 被授权目标,，个人或团队。
+     * @param Authorizee 被授权目标,，个人或团队。
      */
     public void setAuthorizee(Entity Authorizee) {
         this.Authorizee = Authorizee;
@@ -90,6 +90,26 @@ public class DescribeSharedSpaceRequest extends AbstractModel{
     public void setOperator(String Operator) {
         this.Operator = Operator;
     }
+
+    public DescribeSharedSpaceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeSharedSpaceRequest(DescribeSharedSpaceRequest source) {
+        if (source.Platform != null) {
+            this.Platform = new String(source.Platform);
+        }
+        if (source.Authorizee != null) {
+            this.Authorizee = new Entity(source.Authorizee);
+        }
+        if (source.Operator != null) {
+            this.Operator = new String(source.Operator);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

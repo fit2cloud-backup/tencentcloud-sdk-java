@@ -37,6 +37,13 @@ public class RepairTaskControlRequest extends AbstractModel{
     private String Operate;
 
     /**
+    * 需要重新维修操作的备注信息，可提供返场维修原因，以便驻场快速针对问题定位解决。
+    */
+    @SerializedName("OperateRemark")
+    @Expose
+    private String OperateRemark;
+
+    /**
      * Get 维修任务ID 
      * @return TaskId 维修任务ID
      */
@@ -69,11 +76,48 @@ public class RepairTaskControlRequest extends AbstractModel{
     }
 
     /**
+     * Get 需要重新维修操作的备注信息，可提供返场维修原因，以便驻场快速针对问题定位解决。 
+     * @return OperateRemark 需要重新维修操作的备注信息，可提供返场维修原因，以便驻场快速针对问题定位解决。
+     */
+    public String getOperateRemark() {
+        return this.OperateRemark;
+    }
+
+    /**
+     * Set 需要重新维修操作的备注信息，可提供返场维修原因，以便驻场快速针对问题定位解决。
+     * @param OperateRemark 需要重新维修操作的备注信息，可提供返场维修原因，以便驻场快速针对问题定位解决。
+     */
+    public void setOperateRemark(String OperateRemark) {
+        this.OperateRemark = OperateRemark;
+    }
+
+    public RepairTaskControlRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public RepairTaskControlRequest(RepairTaskControlRequest source) {
+        if (source.TaskId != null) {
+            this.TaskId = new String(source.TaskId);
+        }
+        if (source.Operate != null) {
+            this.Operate = new String(source.Operate);
+        }
+        if (source.OperateRemark != null) {
+            this.OperateRemark = new String(source.OperateRemark);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TaskId", this.TaskId);
         this.setParamSimple(map, prefix + "Operate", this.Operate);
+        this.setParamSimple(map, prefix + "OperateRemark", this.OperateRemark);
 
     }
 }

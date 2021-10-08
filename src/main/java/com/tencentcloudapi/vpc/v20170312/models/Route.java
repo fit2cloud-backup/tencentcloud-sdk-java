@@ -35,11 +35,11 @@ CVM：公网网关类型的云服务器；
 VPN：VPN网关；
 DIRECTCONNECT：专线网关；
 PEERCONNECTION：对等连接；
-SSLVPN：sslvpn网关；
+HAVIP：高可用虚拟IP；
 NAT：NAT网关; 
 NORMAL_CVM：普通云服务器；
 EIP：云服务器的公网IP；
-CCN：云联网。
+LOCAL_GATEWAY：本地网关。
     */
     @SerializedName("GatewayType")
     @Expose
@@ -54,7 +54,8 @@ CCN：云联网。
     private String GatewayId;
 
     /**
-    * 路由策略ID。
+    * 路由策略ID。IPv4路由策略ID是有意义的值，IPv6路由策略是无意义的值0。后续建议完全使用字符串唯一ID `RouteItemId`操作路由策略。
+该字段在删除时必填，其他字段无需填写。
     */
     @SerializedName("RouteId")
     @Expose
@@ -93,6 +94,35 @@ CCN：云联网路由，系统默认下发，不可编辑与删除。
     private String RouteTableId;
 
     /**
+    * 目的IPv6网段，取值不能在私有网络网段内，例如：2402:4e00:1000:810b::/64。
+    */
+    @SerializedName("DestinationIpv6CidrBlock")
+    @Expose
+    private String DestinationIpv6CidrBlock;
+
+    /**
+    * 路由唯一策略ID。
+    */
+    @SerializedName("RouteItemId")
+    @Expose
+    private String RouteItemId;
+
+    /**
+    * 路由策略是否发布到云联网。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PublishedToVbc")
+    @Expose
+    private Boolean PublishedToVbc;
+
+    /**
+    * 路由策略创建时间
+    */
+    @SerializedName("CreatedTime")
+    @Expose
+    private String CreatedTime;
+
+    /**
      * Get 目的网段，取值不能在私有网络网段内，例如：112.20.51.0/24。 
      * @return DestinationCidrBlock 目的网段，取值不能在私有网络网段内，例如：112.20.51.0/24。
      */
@@ -114,21 +144,21 @@ CVM：公网网关类型的云服务器；
 VPN：VPN网关；
 DIRECTCONNECT：专线网关；
 PEERCONNECTION：对等连接；
-SSLVPN：sslvpn网关；
+HAVIP：高可用虚拟IP；
 NAT：NAT网关; 
 NORMAL_CVM：普通云服务器；
 EIP：云服务器的公网IP；
-CCN：云联网。 
+LOCAL_GATEWAY：本地网关。 
      * @return GatewayType 下一跳类型，目前我们支持的类型有：
 CVM：公网网关类型的云服务器；
 VPN：VPN网关；
 DIRECTCONNECT：专线网关；
 PEERCONNECTION：对等连接；
-SSLVPN：sslvpn网关；
+HAVIP：高可用虚拟IP；
 NAT：NAT网关; 
 NORMAL_CVM：普通云服务器；
 EIP：云服务器的公网IP；
-CCN：云联网。
+LOCAL_GATEWAY：本地网关。
      */
     public String getGatewayType() {
         return this.GatewayType;
@@ -140,21 +170,21 @@ CVM：公网网关类型的云服务器；
 VPN：VPN网关；
 DIRECTCONNECT：专线网关；
 PEERCONNECTION：对等连接；
-SSLVPN：sslvpn网关；
+HAVIP：高可用虚拟IP；
 NAT：NAT网关; 
 NORMAL_CVM：普通云服务器；
 EIP：云服务器的公网IP；
-CCN：云联网。
+LOCAL_GATEWAY：本地网关。
      * @param GatewayType 下一跳类型，目前我们支持的类型有：
 CVM：公网网关类型的云服务器；
 VPN：VPN网关；
 DIRECTCONNECT：专线网关；
 PEERCONNECTION：对等连接；
-SSLVPN：sslvpn网关；
+HAVIP：高可用虚拟IP；
 NAT：NAT网关; 
 NORMAL_CVM：普通云服务器；
 EIP：云服务器的公网IP；
-CCN：云联网。
+LOCAL_GATEWAY：本地网关。
      */
     public void setGatewayType(String GatewayType) {
         this.GatewayType = GatewayType;
@@ -181,16 +211,20 @@ CCN：云联网。
     }
 
     /**
-     * Get 路由策略ID。 
-     * @return RouteId 路由策略ID。
+     * Get 路由策略ID。IPv4路由策略ID是有意义的值，IPv6路由策略是无意义的值0。后续建议完全使用字符串唯一ID `RouteItemId`操作路由策略。
+该字段在删除时必填，其他字段无需填写。 
+     * @return RouteId 路由策略ID。IPv4路由策略ID是有意义的值，IPv6路由策略是无意义的值0。后续建议完全使用字符串唯一ID `RouteItemId`操作路由策略。
+该字段在删除时必填，其他字段无需填写。
      */
     public Long getRouteId() {
         return this.RouteId;
     }
 
     /**
-     * Set 路由策略ID。
-     * @param RouteId 路由策略ID。
+     * Set 路由策略ID。IPv4路由策略ID是有意义的值，IPv6路由策略是无意义的值0。后续建议完全使用字符串唯一ID `RouteItemId`操作路由策略。
+该字段在删除时必填，其他字段无需填写。
+     * @param RouteId 路由策略ID。IPv4路由策略ID是有意义的值，IPv6路由策略是无意义的值0。后续建议完全使用字符串唯一ID `RouteItemId`操作路由策略。
+该字段在删除时必填，其他字段无需填写。
      */
     public void setRouteId(Long RouteId) {
         this.RouteId = RouteId;
@@ -277,6 +311,121 @@ CCN：云联网路由，系统默认下发，不可编辑与删除。
     }
 
     /**
+     * Get 目的IPv6网段，取值不能在私有网络网段内，例如：2402:4e00:1000:810b::/64。 
+     * @return DestinationIpv6CidrBlock 目的IPv6网段，取值不能在私有网络网段内，例如：2402:4e00:1000:810b::/64。
+     */
+    public String getDestinationIpv6CidrBlock() {
+        return this.DestinationIpv6CidrBlock;
+    }
+
+    /**
+     * Set 目的IPv6网段，取值不能在私有网络网段内，例如：2402:4e00:1000:810b::/64。
+     * @param DestinationIpv6CidrBlock 目的IPv6网段，取值不能在私有网络网段内，例如：2402:4e00:1000:810b::/64。
+     */
+    public void setDestinationIpv6CidrBlock(String DestinationIpv6CidrBlock) {
+        this.DestinationIpv6CidrBlock = DestinationIpv6CidrBlock;
+    }
+
+    /**
+     * Get 路由唯一策略ID。 
+     * @return RouteItemId 路由唯一策略ID。
+     */
+    public String getRouteItemId() {
+        return this.RouteItemId;
+    }
+
+    /**
+     * Set 路由唯一策略ID。
+     * @param RouteItemId 路由唯一策略ID。
+     */
+    public void setRouteItemId(String RouteItemId) {
+        this.RouteItemId = RouteItemId;
+    }
+
+    /**
+     * Get 路由策略是否发布到云联网。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PublishedToVbc 路由策略是否发布到云联网。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getPublishedToVbc() {
+        return this.PublishedToVbc;
+    }
+
+    /**
+     * Set 路由策略是否发布到云联网。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PublishedToVbc 路由策略是否发布到云联网。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPublishedToVbc(Boolean PublishedToVbc) {
+        this.PublishedToVbc = PublishedToVbc;
+    }
+
+    /**
+     * Get 路由策略创建时间 
+     * @return CreatedTime 路由策略创建时间
+     */
+    public String getCreatedTime() {
+        return this.CreatedTime;
+    }
+
+    /**
+     * Set 路由策略创建时间
+     * @param CreatedTime 路由策略创建时间
+     */
+    public void setCreatedTime(String CreatedTime) {
+        this.CreatedTime = CreatedTime;
+    }
+
+    public Route() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Route(Route source) {
+        if (source.DestinationCidrBlock != null) {
+            this.DestinationCidrBlock = new String(source.DestinationCidrBlock);
+        }
+        if (source.GatewayType != null) {
+            this.GatewayType = new String(source.GatewayType);
+        }
+        if (source.GatewayId != null) {
+            this.GatewayId = new String(source.GatewayId);
+        }
+        if (source.RouteId != null) {
+            this.RouteId = new Long(source.RouteId);
+        }
+        if (source.RouteDescription != null) {
+            this.RouteDescription = new String(source.RouteDescription);
+        }
+        if (source.Enabled != null) {
+            this.Enabled = new Boolean(source.Enabled);
+        }
+        if (source.RouteType != null) {
+            this.RouteType = new String(source.RouteType);
+        }
+        if (source.RouteTableId != null) {
+            this.RouteTableId = new String(source.RouteTableId);
+        }
+        if (source.DestinationIpv6CidrBlock != null) {
+            this.DestinationIpv6CidrBlock = new String(source.DestinationIpv6CidrBlock);
+        }
+        if (source.RouteItemId != null) {
+            this.RouteItemId = new String(source.RouteItemId);
+        }
+        if (source.PublishedToVbc != null) {
+            this.PublishedToVbc = new Boolean(source.PublishedToVbc);
+        }
+        if (source.CreatedTime != null) {
+            this.CreatedTime = new String(source.CreatedTime);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -288,6 +437,10 @@ CCN：云联网路由，系统默认下发，不可编辑与删除。
         this.setParamSimple(map, prefix + "Enabled", this.Enabled);
         this.setParamSimple(map, prefix + "RouteType", this.RouteType);
         this.setParamSimple(map, prefix + "RouteTableId", this.RouteTableId);
+        this.setParamSimple(map, prefix + "DestinationIpv6CidrBlock", this.DestinationIpv6CidrBlock);
+        this.setParamSimple(map, prefix + "RouteItemId", this.RouteItemId);
+        this.setParamSimple(map, prefix + "PublishedToVbc", this.PublishedToVbc);
+        this.setParamSimple(map, prefix + "CreatedTime", this.CreatedTime);
 
     }
 }

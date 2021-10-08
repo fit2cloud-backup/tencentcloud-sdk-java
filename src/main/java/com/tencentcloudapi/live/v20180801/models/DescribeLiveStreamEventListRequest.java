@@ -74,7 +74,7 @@ UTC 格式，例如：2018-12-29T20:00:00Z。
     /**
     * 分页大小。
 最大值：100。
-取值范围：1~100 之前的任意整数。
+取值范围：1~100 之间的任意整数。
 默认值：10。
 注： 目前只支持10000条内的查询。
     */
@@ -237,12 +237,12 @@ UTC 格式，例如：2018-12-29T20:00:00Z。
     /**
      * Get 分页大小。
 最大值：100。
-取值范围：1~100 之前的任意整数。
+取值范围：1~100 之间的任意整数。
 默认值：10。
 注： 目前只支持10000条内的查询。 
      * @return PageSize 分页大小。
 最大值：100。
-取值范围：1~100 之前的任意整数。
+取值范围：1~100 之间的任意整数。
 默认值：10。
 注： 目前只支持10000条内的查询。
      */
@@ -253,12 +253,12 @@ UTC 格式，例如：2018-12-29T20:00:00Z。
     /**
      * Set 分页大小。
 最大值：100。
-取值范围：1~100 之前的任意整数。
+取值范围：1~100 之间的任意整数。
 默认值：10。
 注： 目前只支持10000条内的查询。
      * @param PageSize 分页大小。
 最大值：100。
-取值范围：1~100 之前的任意整数。
+取值范围：1~100 之间的任意整数。
 默认值：10。
 注： 目前只支持10000条内的查询。
      */
@@ -341,6 +341,47 @@ UTC 格式，例如：2018-12-29T20:00:00Z。
     public void setIsAsc(Long IsAsc) {
         this.IsAsc = IsAsc;
     }
+
+    public DescribeLiveStreamEventListRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeLiveStreamEventListRequest(DescribeLiveStreamEventListRequest source) {
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.AppName != null) {
+            this.AppName = new String(source.AppName);
+        }
+        if (source.DomainName != null) {
+            this.DomainName = new String(source.DomainName);
+        }
+        if (source.StreamName != null) {
+            this.StreamName = new String(source.StreamName);
+        }
+        if (source.PageNum != null) {
+            this.PageNum = new Long(source.PageNum);
+        }
+        if (source.PageSize != null) {
+            this.PageSize = new Long(source.PageSize);
+        }
+        if (source.IsFilter != null) {
+            this.IsFilter = new Long(source.IsFilter);
+        }
+        if (source.IsStrict != null) {
+            this.IsStrict = new Long(source.IsStrict);
+        }
+        if (source.IsAsc != null) {
+            this.IsAsc = new Long(source.IsAsc);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

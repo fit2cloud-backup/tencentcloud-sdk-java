@@ -30,7 +30,7 @@ public class SearchMaterialResponse extends AbstractModel{
     private Long TotalCount;
 
     /**
-    * 素材信息，仅返回基础信息。
+    * 媒体信息，仅返回基础信息。
     */
     @SerializedName("MaterialInfoSet")
     @Expose
@@ -60,16 +60,16 @@ public class SearchMaterialResponse extends AbstractModel{
     }
 
     /**
-     * Get 素材信息，仅返回基础信息。 
-     * @return MaterialInfoSet 素材信息，仅返回基础信息。
+     * Get 媒体信息，仅返回基础信息。 
+     * @return MaterialInfoSet 媒体信息，仅返回基础信息。
      */
     public MaterialInfo [] getMaterialInfoSet() {
         return this.MaterialInfoSet;
     }
 
     /**
-     * Set 素材信息，仅返回基础信息。
-     * @param MaterialInfoSet 素材信息，仅返回基础信息。
+     * Set 媒体信息，仅返回基础信息。
+     * @param MaterialInfoSet 媒体信息，仅返回基础信息。
      */
     public void setMaterialInfoSet(MaterialInfo [] MaterialInfoSet) {
         this.MaterialInfoSet = MaterialInfoSet;
@@ -90,6 +90,29 @@ public class SearchMaterialResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public SearchMaterialResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SearchMaterialResponse(SearchMaterialResponse source) {
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
+        if (source.MaterialInfoSet != null) {
+            this.MaterialInfoSet = new MaterialInfo[source.MaterialInfoSet.length];
+            for (int i = 0; i < source.MaterialInfoSet.length; i++) {
+                this.MaterialInfoSet[i] = new MaterialInfo(source.MaterialInfoSet[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

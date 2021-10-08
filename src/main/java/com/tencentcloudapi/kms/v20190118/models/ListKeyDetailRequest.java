@@ -51,7 +51,7 @@ public class ListKeyDetailRequest extends AbstractModel{
     private Long OrderType;
 
     /**
-    * 根据CMK状态筛选， 0表示全部CMK， 1 表示仅查询Enabled CMK， 2 表示仅查询Disabled CMK，3 表示查询PendingDelete 状态的CMK(处于计划删除状态的Key)，4 表示查询 PendingImport 状态的CMK
+    * 根据CMK状态筛选， 0表示全部CMK， 1 表示仅查询Enabled CMK， 2 表示仅查询Disabled CMK，3 表示查询PendingDelete 状态的CMK(处于计划删除状态的Key)，4 表示查询 PendingImport 状态的CMK，5 表示查询 Archived 状态的 CMK
     */
     @SerializedName("KeyState")
     @Expose
@@ -72,11 +72,18 @@ public class ListKeyDetailRequest extends AbstractModel{
     private String Origin;
 
     /**
-    * 根据CMK的KeyUsage筛选，ALL表示筛选全部，可使用的参数为：ALL 或 ENCRYPT_DECRYPT 或 ASYMMETRIC_DECRYPT_RSA_2048 或 ASYMMETRIC_DECRYPT_SM2，为空则默认筛选ENCRYPT_DECRYPT类型
+    * 根据CMK的KeyUsage筛选，ALL表示筛选全部，可使用的参数为：ALL 或 ENCRYPT_DECRYPT 或 ASYMMETRIC_DECRYPT_RSA_2048 或 ASYMMETRIC_DECRYPT_SM2 或 ASYMMETRIC_SIGN_VERIFY_SM2 或 ASYMMETRIC_SIGN_VERIFY_RSA_2048 或 ASYMMETRIC_SIGN_VERIFY_ECC，为空则默认筛选ENCRYPT_DECRYPT类型
     */
     @SerializedName("KeyUsage")
     @Expose
     private String KeyUsage;
+
+    /**
+    * 标签过滤条件
+    */
+    @SerializedName("TagFilters")
+    @Expose
+    private TagFilter [] TagFilters;
 
     /**
      * Get 含义跟 SQL 查询的 Offset 一致，表示本次获取从按一定顺序排列数组的第 Offset 个元素开始，缺省为0 
@@ -143,16 +150,16 @@ public class ListKeyDetailRequest extends AbstractModel{
     }
 
     /**
-     * Get 根据CMK状态筛选， 0表示全部CMK， 1 表示仅查询Enabled CMK， 2 表示仅查询Disabled CMK，3 表示查询PendingDelete 状态的CMK(处于计划删除状态的Key)，4 表示查询 PendingImport 状态的CMK 
-     * @return KeyState 根据CMK状态筛选， 0表示全部CMK， 1 表示仅查询Enabled CMK， 2 表示仅查询Disabled CMK，3 表示查询PendingDelete 状态的CMK(处于计划删除状态的Key)，4 表示查询 PendingImport 状态的CMK
+     * Get 根据CMK状态筛选， 0表示全部CMK， 1 表示仅查询Enabled CMK， 2 表示仅查询Disabled CMK，3 表示查询PendingDelete 状态的CMK(处于计划删除状态的Key)，4 表示查询 PendingImport 状态的CMK，5 表示查询 Archived 状态的 CMK 
+     * @return KeyState 根据CMK状态筛选， 0表示全部CMK， 1 表示仅查询Enabled CMK， 2 表示仅查询Disabled CMK，3 表示查询PendingDelete 状态的CMK(处于计划删除状态的Key)，4 表示查询 PendingImport 状态的CMK，5 表示查询 Archived 状态的 CMK
      */
     public Long getKeyState() {
         return this.KeyState;
     }
 
     /**
-     * Set 根据CMK状态筛选， 0表示全部CMK， 1 表示仅查询Enabled CMK， 2 表示仅查询Disabled CMK，3 表示查询PendingDelete 状态的CMK(处于计划删除状态的Key)，4 表示查询 PendingImport 状态的CMK
-     * @param KeyState 根据CMK状态筛选， 0表示全部CMK， 1 表示仅查询Enabled CMK， 2 表示仅查询Disabled CMK，3 表示查询PendingDelete 状态的CMK(处于计划删除状态的Key)，4 表示查询 PendingImport 状态的CMK
+     * Set 根据CMK状态筛选， 0表示全部CMK， 1 表示仅查询Enabled CMK， 2 表示仅查询Disabled CMK，3 表示查询PendingDelete 状态的CMK(处于计划删除状态的Key)，4 表示查询 PendingImport 状态的CMK，5 表示查询 Archived 状态的 CMK
+     * @param KeyState 根据CMK状态筛选， 0表示全部CMK， 1 表示仅查询Enabled CMK， 2 表示仅查询Disabled CMK，3 表示查询PendingDelete 状态的CMK(处于计划删除状态的Key)，4 表示查询 PendingImport 状态的CMK，5 表示查询 Archived 状态的 CMK
      */
     public void setKeyState(Long KeyState) {
         this.KeyState = KeyState;
@@ -191,20 +198,77 @@ public class ListKeyDetailRequest extends AbstractModel{
     }
 
     /**
-     * Get 根据CMK的KeyUsage筛选，ALL表示筛选全部，可使用的参数为：ALL 或 ENCRYPT_DECRYPT 或 ASYMMETRIC_DECRYPT_RSA_2048 或 ASYMMETRIC_DECRYPT_SM2，为空则默认筛选ENCRYPT_DECRYPT类型 
-     * @return KeyUsage 根据CMK的KeyUsage筛选，ALL表示筛选全部，可使用的参数为：ALL 或 ENCRYPT_DECRYPT 或 ASYMMETRIC_DECRYPT_RSA_2048 或 ASYMMETRIC_DECRYPT_SM2，为空则默认筛选ENCRYPT_DECRYPT类型
+     * Get 根据CMK的KeyUsage筛选，ALL表示筛选全部，可使用的参数为：ALL 或 ENCRYPT_DECRYPT 或 ASYMMETRIC_DECRYPT_RSA_2048 或 ASYMMETRIC_DECRYPT_SM2 或 ASYMMETRIC_SIGN_VERIFY_SM2 或 ASYMMETRIC_SIGN_VERIFY_RSA_2048 或 ASYMMETRIC_SIGN_VERIFY_ECC，为空则默认筛选ENCRYPT_DECRYPT类型 
+     * @return KeyUsage 根据CMK的KeyUsage筛选，ALL表示筛选全部，可使用的参数为：ALL 或 ENCRYPT_DECRYPT 或 ASYMMETRIC_DECRYPT_RSA_2048 或 ASYMMETRIC_DECRYPT_SM2 或 ASYMMETRIC_SIGN_VERIFY_SM2 或 ASYMMETRIC_SIGN_VERIFY_RSA_2048 或 ASYMMETRIC_SIGN_VERIFY_ECC，为空则默认筛选ENCRYPT_DECRYPT类型
      */
     public String getKeyUsage() {
         return this.KeyUsage;
     }
 
     /**
-     * Set 根据CMK的KeyUsage筛选，ALL表示筛选全部，可使用的参数为：ALL 或 ENCRYPT_DECRYPT 或 ASYMMETRIC_DECRYPT_RSA_2048 或 ASYMMETRIC_DECRYPT_SM2，为空则默认筛选ENCRYPT_DECRYPT类型
-     * @param KeyUsage 根据CMK的KeyUsage筛选，ALL表示筛选全部，可使用的参数为：ALL 或 ENCRYPT_DECRYPT 或 ASYMMETRIC_DECRYPT_RSA_2048 或 ASYMMETRIC_DECRYPT_SM2，为空则默认筛选ENCRYPT_DECRYPT类型
+     * Set 根据CMK的KeyUsage筛选，ALL表示筛选全部，可使用的参数为：ALL 或 ENCRYPT_DECRYPT 或 ASYMMETRIC_DECRYPT_RSA_2048 或 ASYMMETRIC_DECRYPT_SM2 或 ASYMMETRIC_SIGN_VERIFY_SM2 或 ASYMMETRIC_SIGN_VERIFY_RSA_2048 或 ASYMMETRIC_SIGN_VERIFY_ECC，为空则默认筛选ENCRYPT_DECRYPT类型
+     * @param KeyUsage 根据CMK的KeyUsage筛选，ALL表示筛选全部，可使用的参数为：ALL 或 ENCRYPT_DECRYPT 或 ASYMMETRIC_DECRYPT_RSA_2048 或 ASYMMETRIC_DECRYPT_SM2 或 ASYMMETRIC_SIGN_VERIFY_SM2 或 ASYMMETRIC_SIGN_VERIFY_RSA_2048 或 ASYMMETRIC_SIGN_VERIFY_ECC，为空则默认筛选ENCRYPT_DECRYPT类型
      */
     public void setKeyUsage(String KeyUsage) {
         this.KeyUsage = KeyUsage;
     }
+
+    /**
+     * Get 标签过滤条件 
+     * @return TagFilters 标签过滤条件
+     */
+    public TagFilter [] getTagFilters() {
+        return this.TagFilters;
+    }
+
+    /**
+     * Set 标签过滤条件
+     * @param TagFilters 标签过滤条件
+     */
+    public void setTagFilters(TagFilter [] TagFilters) {
+        this.TagFilters = TagFilters;
+    }
+
+    public ListKeyDetailRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ListKeyDetailRequest(ListKeyDetailRequest source) {
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Role != null) {
+            this.Role = new Long(source.Role);
+        }
+        if (source.OrderType != null) {
+            this.OrderType = new Long(source.OrderType);
+        }
+        if (source.KeyState != null) {
+            this.KeyState = new Long(source.KeyState);
+        }
+        if (source.SearchKeyAlias != null) {
+            this.SearchKeyAlias = new String(source.SearchKeyAlias);
+        }
+        if (source.Origin != null) {
+            this.Origin = new String(source.Origin);
+        }
+        if (source.KeyUsage != null) {
+            this.KeyUsage = new String(source.KeyUsage);
+        }
+        if (source.TagFilters != null) {
+            this.TagFilters = new TagFilter[source.TagFilters.length];
+            for (int i = 0; i < source.TagFilters.length; i++) {
+                this.TagFilters[i] = new TagFilter(source.TagFilters[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -218,6 +282,7 @@ public class ListKeyDetailRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SearchKeyAlias", this.SearchKeyAlias);
         this.setParamSimple(map, prefix + "Origin", this.Origin);
         this.setParamSimple(map, prefix + "KeyUsage", this.KeyUsage);
+        this.setParamArrayObj(map, prefix + "TagFilters.", this.TagFilters);
 
     }
 }

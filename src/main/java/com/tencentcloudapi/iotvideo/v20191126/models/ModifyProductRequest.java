@@ -44,6 +44,20 @@ public class ModifyProductRequest extends AbstractModel{
     private String ProductDescription;
 
     /**
+    * 主芯片产商ID
+    */
+    @SerializedName("ChipManufactureId")
+    @Expose
+    private String ChipManufactureId;
+
+    /**
+    * 主芯片ID
+    */
+    @SerializedName("ChipId")
+    @Expose
+    private String ChipId;
+
+    /**
      * Get 产品ID 
      * @return ProductId 产品ID
      */
@@ -92,12 +106,72 @@ public class ModifyProductRequest extends AbstractModel{
     }
 
     /**
+     * Get 主芯片产商ID 
+     * @return ChipManufactureId 主芯片产商ID
+     */
+    public String getChipManufactureId() {
+        return this.ChipManufactureId;
+    }
+
+    /**
+     * Set 主芯片产商ID
+     * @param ChipManufactureId 主芯片产商ID
+     */
+    public void setChipManufactureId(String ChipManufactureId) {
+        this.ChipManufactureId = ChipManufactureId;
+    }
+
+    /**
+     * Get 主芯片ID 
+     * @return ChipId 主芯片ID
+     */
+    public String getChipId() {
+        return this.ChipId;
+    }
+
+    /**
+     * Set 主芯片ID
+     * @param ChipId 主芯片ID
+     */
+    public void setChipId(String ChipId) {
+        this.ChipId = ChipId;
+    }
+
+    public ModifyProductRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyProductRequest(ModifyProductRequest source) {
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+        if (source.ProductName != null) {
+            this.ProductName = new String(source.ProductName);
+        }
+        if (source.ProductDescription != null) {
+            this.ProductDescription = new String(source.ProductDescription);
+        }
+        if (source.ChipManufactureId != null) {
+            this.ChipManufactureId = new String(source.ChipManufactureId);
+        }
+        if (source.ChipId != null) {
+            this.ChipId = new String(source.ChipId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ProductId", this.ProductId);
         this.setParamSimple(map, prefix + "ProductName", this.ProductName);
         this.setParamSimple(map, prefix + "ProductDescription", this.ProductDescription);
+        this.setParamSimple(map, prefix + "ChipManufactureId", this.ChipManufactureId);
+        this.setParamSimple(map, prefix + "ChipId", this.ChipId);
 
     }
 }

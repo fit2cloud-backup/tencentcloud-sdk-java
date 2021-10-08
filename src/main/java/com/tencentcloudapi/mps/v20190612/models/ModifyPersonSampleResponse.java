@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class ModifyPersonSampleResponse extends AbstractModel{
 
     /**
-    * 人物信息。
+    * 素材信息。
     */
     @SerializedName("Person")
     @Expose
     private AiSamplePerson Person;
 
     /**
-    * 处理失败的人脸信息。
+    * 处理失败的五官信息。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FailFaceInfoSet")
@@ -45,25 +45,25 @@ public class ModifyPersonSampleResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 人物信息。 
-     * @return Person 人物信息。
+     * Get 素材信息。 
+     * @return Person 素材信息。
      */
     public AiSamplePerson getPerson() {
         return this.Person;
     }
 
     /**
-     * Set 人物信息。
-     * @param Person 人物信息。
+     * Set 素材信息。
+     * @param Person 素材信息。
      */
     public void setPerson(AiSamplePerson Person) {
         this.Person = Person;
     }
 
     /**
-     * Get 处理失败的人脸信息。
+     * Get 处理失败的五官信息。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return FailFaceInfoSet 处理失败的人脸信息。
+     * @return FailFaceInfoSet 处理失败的五官信息。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public AiSampleFailFaceInfo [] getFailFaceInfoSet() {
@@ -71,9 +71,9 @@ public class ModifyPersonSampleResponse extends AbstractModel{
     }
 
     /**
-     * Set 处理失败的人脸信息。
+     * Set 处理失败的五官信息。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param FailFaceInfoSet 处理失败的人脸信息。
+     * @param FailFaceInfoSet 处理失败的五官信息。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFailFaceInfoSet(AiSampleFailFaceInfo [] FailFaceInfoSet) {
@@ -95,6 +95,29 @@ public class ModifyPersonSampleResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public ModifyPersonSampleResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyPersonSampleResponse(ModifyPersonSampleResponse source) {
+        if (source.Person != null) {
+            this.Person = new AiSamplePerson(source.Person);
+        }
+        if (source.FailFaceInfoSet != null) {
+            this.FailFaceInfoSet = new AiSampleFailFaceInfo[source.FailFaceInfoSet.length];
+            for (int i = 0; i < source.FailFaceInfoSet.length; i++) {
+                this.FailFaceInfoSet[i] = new AiSampleFailFaceInfo(source.FailFaceInfoSet[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -44,6 +44,27 @@ public class GetDeviceListRequest extends AbstractModel{
     private Long Limit;
 
     /**
+    * 设备固件版本号，若不带此参数会返回所有固件版本的设备。传"None-FirmwareVersion"查询无版本号的设备
+    */
+    @SerializedName("FirmwareVersion")
+    @Expose
+    private String FirmwareVersion;
+
+    /**
+    * 需要过滤的设备名称
+    */
+    @SerializedName("DeviceName")
+    @Expose
+    private String DeviceName;
+
+    /**
+    * 项目ID。产品 ID 为 -1 时，该参数必填
+    */
+    @SerializedName("ProjectId")
+    @Expose
+    private String ProjectId;
+
+    /**
      * Get 需要查看设备列表的产品 ID 
      * @return ProductId 需要查看设备列表的产品 ID
      */
@@ -92,12 +113,92 @@ public class GetDeviceListRequest extends AbstractModel{
     }
 
     /**
+     * Get 设备固件版本号，若不带此参数会返回所有固件版本的设备。传"None-FirmwareVersion"查询无版本号的设备 
+     * @return FirmwareVersion 设备固件版本号，若不带此参数会返回所有固件版本的设备。传"None-FirmwareVersion"查询无版本号的设备
+     */
+    public String getFirmwareVersion() {
+        return this.FirmwareVersion;
+    }
+
+    /**
+     * Set 设备固件版本号，若不带此参数会返回所有固件版本的设备。传"None-FirmwareVersion"查询无版本号的设备
+     * @param FirmwareVersion 设备固件版本号，若不带此参数会返回所有固件版本的设备。传"None-FirmwareVersion"查询无版本号的设备
+     */
+    public void setFirmwareVersion(String FirmwareVersion) {
+        this.FirmwareVersion = FirmwareVersion;
+    }
+
+    /**
+     * Get 需要过滤的设备名称 
+     * @return DeviceName 需要过滤的设备名称
+     */
+    public String getDeviceName() {
+        return this.DeviceName;
+    }
+
+    /**
+     * Set 需要过滤的设备名称
+     * @param DeviceName 需要过滤的设备名称
+     */
+    public void setDeviceName(String DeviceName) {
+        this.DeviceName = DeviceName;
+    }
+
+    /**
+     * Get 项目ID。产品 ID 为 -1 时，该参数必填 
+     * @return ProjectId 项目ID。产品 ID 为 -1 时，该参数必填
+     */
+    public String getProjectId() {
+        return this.ProjectId;
+    }
+
+    /**
+     * Set 项目ID。产品 ID 为 -1 时，该参数必填
+     * @param ProjectId 项目ID。产品 ID 为 -1 时，该参数必填
+     */
+    public void setProjectId(String ProjectId) {
+        this.ProjectId = ProjectId;
+    }
+
+    public GetDeviceListRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public GetDeviceListRequest(GetDeviceListRequest source) {
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.FirmwareVersion != null) {
+            this.FirmwareVersion = new String(source.FirmwareVersion);
+        }
+        if (source.DeviceName != null) {
+            this.DeviceName = new String(source.DeviceName);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ProductId", this.ProductId);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamSimple(map, prefix + "FirmwareVersion", this.FirmwareVersion);
+        this.setParamSimple(map, prefix + "DeviceName", this.DeviceName);
+        this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
 
     }
 }

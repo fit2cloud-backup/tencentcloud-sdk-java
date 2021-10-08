@@ -23,42 +23,42 @@ import java.util.HashMap;
 public class ModifyContentReviewTemplateRequest extends AbstractModel{
 
     /**
-    * 内容审核模板唯一标识。
+    * 内容智能识别模板唯一标识。
     */
     @SerializedName("Definition")
     @Expose
     private Long Definition;
 
     /**
-    * 内容审核模板名称，长度限制：64 个字符。
+    * 内容智能识别模板名称，长度限制：64 个字符。
     */
     @SerializedName("Name")
     @Expose
     private String Name;
 
     /**
-    * 内容审核模板描述信息，长度限制：256 个字符。
+    * 内容智能识别模板描述信息，长度限制：256 个字符。
     */
     @SerializedName("Comment")
     @Expose
     private String Comment;
 
     /**
-    * 鉴黄控制参数。
-    */
-    @SerializedName("PornConfigure")
-    @Expose
-    private PornConfigureInfoForUpdate PornConfigure;
-
-    /**
-    * 鉴恐控制参数。
+    * 令人不安全的信息的控制参数。
     */
     @SerializedName("TerrorismConfigure")
     @Expose
     private TerrorismConfigureInfoForUpdate TerrorismConfigure;
 
     /**
-    * 鉴政控制参数。
+    * 令人反感的信息的控制参数。
+    */
+    @SerializedName("PornConfigure")
+    @Expose
+    private PornConfigureInfoForUpdate PornConfigure;
+
+    /**
+    * 令人不适宜的信息控制参数。
     */
     @SerializedName("PoliticalConfigure")
     @Expose
@@ -68,14 +68,13 @@ public class ModifyContentReviewTemplateRequest extends AbstractModel{
     * 违禁控制参数。违禁内容包括：
 <li>谩骂；</li>
 <li>涉毒违法。</li>
-注意：此参数尚未支持。
     */
     @SerializedName("ProhibitedConfigure")
     @Expose
     private ProhibitedConfigureInfoForUpdate ProhibitedConfigure;
 
     /**
-    * 用户自定义内容审核控制参数。
+    * 用户自定义内容智能识别控制参数。
     */
     @SerializedName("UserDefineConfigure")
     @Expose
@@ -89,7 +88,7 @@ public class ModifyContentReviewTemplateRequest extends AbstractModel{
     private Float ScreenshotInterval;
 
     /**
-    * 审核结果是否进入审核墙（对审核结果进行人工复核）的开关。
+    * 智能识别结果是否进入智能识别墙（对智能识别结果进行人工识别）的开关。
 <li>ON：是；</li>
 <li>OFF：否。</li>
     */
@@ -105,96 +104,96 @@ public class ModifyContentReviewTemplateRequest extends AbstractModel{
     private Long SubAppId;
 
     /**
-     * Get 内容审核模板唯一标识。 
-     * @return Definition 内容审核模板唯一标识。
+     * Get 内容智能识别模板唯一标识。 
+     * @return Definition 内容智能识别模板唯一标识。
      */
     public Long getDefinition() {
         return this.Definition;
     }
 
     /**
-     * Set 内容审核模板唯一标识。
-     * @param Definition 内容审核模板唯一标识。
+     * Set 内容智能识别模板唯一标识。
+     * @param Definition 内容智能识别模板唯一标识。
      */
     public void setDefinition(Long Definition) {
         this.Definition = Definition;
     }
 
     /**
-     * Get 内容审核模板名称，长度限制：64 个字符。 
-     * @return Name 内容审核模板名称，长度限制：64 个字符。
+     * Get 内容智能识别模板名称，长度限制：64 个字符。 
+     * @return Name 内容智能识别模板名称，长度限制：64 个字符。
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 内容审核模板名称，长度限制：64 个字符。
-     * @param Name 内容审核模板名称，长度限制：64 个字符。
+     * Set 内容智能识别模板名称，长度限制：64 个字符。
+     * @param Name 内容智能识别模板名称，长度限制：64 个字符。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 内容审核模板描述信息，长度限制：256 个字符。 
-     * @return Comment 内容审核模板描述信息，长度限制：256 个字符。
+     * Get 内容智能识别模板描述信息，长度限制：256 个字符。 
+     * @return Comment 内容智能识别模板描述信息，长度限制：256 个字符。
      */
     public String getComment() {
         return this.Comment;
     }
 
     /**
-     * Set 内容审核模板描述信息，长度限制：256 个字符。
-     * @param Comment 内容审核模板描述信息，长度限制：256 个字符。
+     * Set 内容智能识别模板描述信息，长度限制：256 个字符。
+     * @param Comment 内容智能识别模板描述信息，长度限制：256 个字符。
      */
     public void setComment(String Comment) {
         this.Comment = Comment;
     }
 
     /**
-     * Get 鉴黄控制参数。 
-     * @return PornConfigure 鉴黄控制参数。
-     */
-    public PornConfigureInfoForUpdate getPornConfigure() {
-        return this.PornConfigure;
-    }
-
-    /**
-     * Set 鉴黄控制参数。
-     * @param PornConfigure 鉴黄控制参数。
-     */
-    public void setPornConfigure(PornConfigureInfoForUpdate PornConfigure) {
-        this.PornConfigure = PornConfigure;
-    }
-
-    /**
-     * Get 鉴恐控制参数。 
-     * @return TerrorismConfigure 鉴恐控制参数。
+     * Get 令人不安全的信息的控制参数。 
+     * @return TerrorismConfigure 令人不安全的信息的控制参数。
      */
     public TerrorismConfigureInfoForUpdate getTerrorismConfigure() {
         return this.TerrorismConfigure;
     }
 
     /**
-     * Set 鉴恐控制参数。
-     * @param TerrorismConfigure 鉴恐控制参数。
+     * Set 令人不安全的信息的控制参数。
+     * @param TerrorismConfigure 令人不安全的信息的控制参数。
      */
     public void setTerrorismConfigure(TerrorismConfigureInfoForUpdate TerrorismConfigure) {
         this.TerrorismConfigure = TerrorismConfigure;
     }
 
     /**
-     * Get 鉴政控制参数。 
-     * @return PoliticalConfigure 鉴政控制参数。
+     * Get 令人反感的信息的控制参数。 
+     * @return PornConfigure 令人反感的信息的控制参数。
+     */
+    public PornConfigureInfoForUpdate getPornConfigure() {
+        return this.PornConfigure;
+    }
+
+    /**
+     * Set 令人反感的信息的控制参数。
+     * @param PornConfigure 令人反感的信息的控制参数。
+     */
+    public void setPornConfigure(PornConfigureInfoForUpdate PornConfigure) {
+        this.PornConfigure = PornConfigure;
+    }
+
+    /**
+     * Get 令人不适宜的信息控制参数。 
+     * @return PoliticalConfigure 令人不适宜的信息控制参数。
      */
     public PoliticalConfigureInfoForUpdate getPoliticalConfigure() {
         return this.PoliticalConfigure;
     }
 
     /**
-     * Set 鉴政控制参数。
-     * @param PoliticalConfigure 鉴政控制参数。
+     * Set 令人不适宜的信息控制参数。
+     * @param PoliticalConfigure 令人不适宜的信息控制参数。
      */
     public void setPoliticalConfigure(PoliticalConfigureInfoForUpdate PoliticalConfigure) {
         this.PoliticalConfigure = PoliticalConfigure;
@@ -203,12 +202,10 @@ public class ModifyContentReviewTemplateRequest extends AbstractModel{
     /**
      * Get 违禁控制参数。违禁内容包括：
 <li>谩骂；</li>
-<li>涉毒违法。</li>
-注意：此参数尚未支持。 
+<li>涉毒违法。</li> 
      * @return ProhibitedConfigure 违禁控制参数。违禁内容包括：
 <li>谩骂；</li>
 <li>涉毒违法。</li>
-注意：此参数尚未支持。
      */
     public ProhibitedConfigureInfoForUpdate getProhibitedConfigure() {
         return this.ProhibitedConfigure;
@@ -218,27 +215,25 @@ public class ModifyContentReviewTemplateRequest extends AbstractModel{
      * Set 违禁控制参数。违禁内容包括：
 <li>谩骂；</li>
 <li>涉毒违法。</li>
-注意：此参数尚未支持。
      * @param ProhibitedConfigure 违禁控制参数。违禁内容包括：
 <li>谩骂；</li>
 <li>涉毒违法。</li>
-注意：此参数尚未支持。
      */
     public void setProhibitedConfigure(ProhibitedConfigureInfoForUpdate ProhibitedConfigure) {
         this.ProhibitedConfigure = ProhibitedConfigure;
     }
 
     /**
-     * Get 用户自定义内容审核控制参数。 
-     * @return UserDefineConfigure 用户自定义内容审核控制参数。
+     * Get 用户自定义内容智能识别控制参数。 
+     * @return UserDefineConfigure 用户自定义内容智能识别控制参数。
      */
     public UserDefineConfigureInfoForUpdate getUserDefineConfigure() {
         return this.UserDefineConfigure;
     }
 
     /**
-     * Set 用户自定义内容审核控制参数。
-     * @param UserDefineConfigure 用户自定义内容审核控制参数。
+     * Set 用户自定义内容智能识别控制参数。
+     * @param UserDefineConfigure 用户自定义内容智能识别控制参数。
      */
     public void setUserDefineConfigure(UserDefineConfigureInfoForUpdate UserDefineConfigure) {
         this.UserDefineConfigure = UserDefineConfigure;
@@ -261,10 +256,10 @@ public class ModifyContentReviewTemplateRequest extends AbstractModel{
     }
 
     /**
-     * Get 审核结果是否进入审核墙（对审核结果进行人工复核）的开关。
+     * Get 智能识别结果是否进入智能识别墙（对智能识别结果进行人工识别）的开关。
 <li>ON：是；</li>
 <li>OFF：否。</li> 
-     * @return ReviewWallSwitch 审核结果是否进入审核墙（对审核结果进行人工复核）的开关。
+     * @return ReviewWallSwitch 智能识别结果是否进入智能识别墙（对智能识别结果进行人工识别）的开关。
 <li>ON：是；</li>
 <li>OFF：否。</li>
      */
@@ -273,10 +268,10 @@ public class ModifyContentReviewTemplateRequest extends AbstractModel{
     }
 
     /**
-     * Set 审核结果是否进入审核墙（对审核结果进行人工复核）的开关。
+     * Set 智能识别结果是否进入智能识别墙（对智能识别结果进行人工识别）的开关。
 <li>ON：是；</li>
 <li>OFF：否。</li>
-     * @param ReviewWallSwitch 审核结果是否进入审核墙（对审核结果进行人工复核）的开关。
+     * @param ReviewWallSwitch 智能识别结果是否进入智能识别墙（对智能识别结果进行人工识别）的开关。
 <li>ON：是；</li>
 <li>OFF：否。</li>
      */
@@ -300,6 +295,50 @@ public class ModifyContentReviewTemplateRequest extends AbstractModel{
         this.SubAppId = SubAppId;
     }
 
+    public ModifyContentReviewTemplateRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyContentReviewTemplateRequest(ModifyContentReviewTemplateRequest source) {
+        if (source.Definition != null) {
+            this.Definition = new Long(source.Definition);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Comment != null) {
+            this.Comment = new String(source.Comment);
+        }
+        if (source.TerrorismConfigure != null) {
+            this.TerrorismConfigure = new TerrorismConfigureInfoForUpdate(source.TerrorismConfigure);
+        }
+        if (source.PornConfigure != null) {
+            this.PornConfigure = new PornConfigureInfoForUpdate(source.PornConfigure);
+        }
+        if (source.PoliticalConfigure != null) {
+            this.PoliticalConfigure = new PoliticalConfigureInfoForUpdate(source.PoliticalConfigure);
+        }
+        if (source.ProhibitedConfigure != null) {
+            this.ProhibitedConfigure = new ProhibitedConfigureInfoForUpdate(source.ProhibitedConfigure);
+        }
+        if (source.UserDefineConfigure != null) {
+            this.UserDefineConfigure = new UserDefineConfigureInfoForUpdate(source.UserDefineConfigure);
+        }
+        if (source.ScreenshotInterval != null) {
+            this.ScreenshotInterval = new Float(source.ScreenshotInterval);
+        }
+        if (source.ReviewWallSwitch != null) {
+            this.ReviewWallSwitch = new String(source.ReviewWallSwitch);
+        }
+        if (source.SubAppId != null) {
+            this.SubAppId = new Long(source.SubAppId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
@@ -307,8 +346,8 @@ public class ModifyContentReviewTemplateRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Definition", this.Definition);
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Comment", this.Comment);
-        this.setParamObj(map, prefix + "PornConfigure.", this.PornConfigure);
         this.setParamObj(map, prefix + "TerrorismConfigure.", this.TerrorismConfigure);
+        this.setParamObj(map, prefix + "PornConfigure.", this.PornConfigure);
         this.setParamObj(map, prefix + "PoliticalConfigure.", this.PoliticalConfigure);
         this.setParamObj(map, prefix + "ProhibitedConfigure.", this.ProhibitedConfigure);
         this.setParamObj(map, prefix + "UserDefineConfigure.", this.UserDefineConfigure);

@@ -23,27 +23,41 @@ import java.util.HashMap;
 public class GetGameServerSessionLogUrlRequest extends AbstractModel{
 
     /**
-    * 游戏服务器会话ID
+    * 游戏服务器会话ID，最小长度不小于1个ASCII字符，最大长度不超过48个ASCII字符
     */
     @SerializedName("GameServerSessionId")
     @Expose
     private String GameServerSessionId;
 
     /**
-     * Get 游戏服务器会话ID 
-     * @return GameServerSessionId 游戏服务器会话ID
+     * Get 游戏服务器会话ID，最小长度不小于1个ASCII字符，最大长度不超过48个ASCII字符 
+     * @return GameServerSessionId 游戏服务器会话ID，最小长度不小于1个ASCII字符，最大长度不超过48个ASCII字符
      */
     public String getGameServerSessionId() {
         return this.GameServerSessionId;
     }
 
     /**
-     * Set 游戏服务器会话ID
-     * @param GameServerSessionId 游戏服务器会话ID
+     * Set 游戏服务器会话ID，最小长度不小于1个ASCII字符，最大长度不超过48个ASCII字符
+     * @param GameServerSessionId 游戏服务器会话ID，最小长度不小于1个ASCII字符，最大长度不超过48个ASCII字符
      */
     public void setGameServerSessionId(String GameServerSessionId) {
         this.GameServerSessionId = GameServerSessionId;
     }
+
+    public GetGameServerSessionLogUrlRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public GetGameServerSessionLogUrlRequest(GetGameServerSessionLogUrlRequest source) {
+        if (source.GameServerSessionId != null) {
+            this.GameServerSessionId = new String(source.GameServerSessionId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

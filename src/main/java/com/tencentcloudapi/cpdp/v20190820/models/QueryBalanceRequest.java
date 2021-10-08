@@ -66,6 +66,17 @@ public class QueryBalanceRequest extends AbstractModel{
     private String MidasSignature;
 
     /**
+    * 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+    */
+    @SerializedName("MidasEnvironment")
+    @Expose
+    private String MidasEnvironment;
+
+    /**
      * Get 聚鑫分配的支付主MidasAppId 
      * @return MidasAppId 聚鑫分配的支付主MidasAppId
      */
@@ -166,6 +177,70 @@ public class QueryBalanceRequest extends AbstractModel{
     }
 
     /**
+     * Get 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release 
+     * @return MidasEnvironment 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+     */
+    public String getMidasEnvironment() {
+        return this.MidasEnvironment;
+    }
+
+    /**
+     * Set 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+     * @param MidasEnvironment 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+     */
+    public void setMidasEnvironment(String MidasEnvironment) {
+        this.MidasEnvironment = MidasEnvironment;
+    }
+
+    public QueryBalanceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public QueryBalanceRequest(QueryBalanceRequest source) {
+        if (source.MidasAppId != null) {
+            this.MidasAppId = new String(source.MidasAppId);
+        }
+        if (source.SubAppId != null) {
+            this.SubAppId = new String(source.SubAppId);
+        }
+        if (source.QueryFlag != null) {
+            this.QueryFlag = new String(source.QueryFlag);
+        }
+        if (source.PageOffset != null) {
+            this.PageOffset = new String(source.PageOffset);
+        }
+        if (source.MidasSecretId != null) {
+            this.MidasSecretId = new String(source.MidasSecretId);
+        }
+        if (source.MidasSignature != null) {
+            this.MidasSignature = new String(source.MidasSignature);
+        }
+        if (source.MidasEnvironment != null) {
+            this.MidasEnvironment = new String(source.MidasEnvironment);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -175,6 +250,7 @@ public class QueryBalanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "PageOffset", this.PageOffset);
         this.setParamSimple(map, prefix + "MidasSecretId", this.MidasSecretId);
         this.setParamSimple(map, prefix + "MidasSignature", this.MidasSignature);
+        this.setParamSimple(map, prefix + "MidasEnvironment", this.MidasEnvironment);
 
     }
 }

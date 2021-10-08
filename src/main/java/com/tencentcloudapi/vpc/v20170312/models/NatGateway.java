@@ -102,6 +102,61 @@ public class NatGateway extends AbstractModel{
     private String Zone;
 
     /**
+    * 绑定的专线网关ID。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DirectConnectGatewayIds")
+    @Expose
+    private String [] DirectConnectGatewayIds;
+
+    /**
+    * 所属子网ID。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SubnetId")
+    @Expose
+    private String SubnetId;
+
+    /**
+    * 标签键值对。
+    */
+    @SerializedName("TagSet")
+    @Expose
+    private Tag [] TagSet;
+
+    /**
+    * NAT网关绑定的安全组列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SecurityGroupSet")
+    @Expose
+    private String [] SecurityGroupSet;
+
+    /**
+    * NAT网关的SNAT转发规则。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SourceIpTranslationNatRuleSet")
+    @Expose
+    private SourceIpTranslationNatRule [] SourceIpTranslationNatRuleSet;
+
+    /**
+    * 是否独享型NAT。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IsExclusive")
+    @Expose
+    private Boolean IsExclusive;
+
+    /**
+    * 独享型NAT所在的网关集群的带宽(单位:Mbps)，当IsExclusive为false时无此字段。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ExclusiveGatewayBandwidth")
+    @Expose
+    private Long ExclusiveGatewayBandwidth;
+
+    /**
      * Get NAT网关的ID。 
      * @return NatGatewayId NAT网关的ID。
      */
@@ -286,6 +341,225 @@ public class NatGateway extends AbstractModel{
     }
 
     /**
+     * Get 绑定的专线网关ID。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DirectConnectGatewayIds 绑定的专线网关ID。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getDirectConnectGatewayIds() {
+        return this.DirectConnectGatewayIds;
+    }
+
+    /**
+     * Set 绑定的专线网关ID。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DirectConnectGatewayIds 绑定的专线网关ID。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDirectConnectGatewayIds(String [] DirectConnectGatewayIds) {
+        this.DirectConnectGatewayIds = DirectConnectGatewayIds;
+    }
+
+    /**
+     * Get 所属子网ID。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SubnetId 所属子网ID。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSubnetId() {
+        return this.SubnetId;
+    }
+
+    /**
+     * Set 所属子网ID。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SubnetId 所属子网ID。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSubnetId(String SubnetId) {
+        this.SubnetId = SubnetId;
+    }
+
+    /**
+     * Get 标签键值对。 
+     * @return TagSet 标签键值对。
+     */
+    public Tag [] getTagSet() {
+        return this.TagSet;
+    }
+
+    /**
+     * Set 标签键值对。
+     * @param TagSet 标签键值对。
+     */
+    public void setTagSet(Tag [] TagSet) {
+        this.TagSet = TagSet;
+    }
+
+    /**
+     * Get NAT网关绑定的安全组列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SecurityGroupSet NAT网关绑定的安全组列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getSecurityGroupSet() {
+        return this.SecurityGroupSet;
+    }
+
+    /**
+     * Set NAT网关绑定的安全组列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SecurityGroupSet NAT网关绑定的安全组列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSecurityGroupSet(String [] SecurityGroupSet) {
+        this.SecurityGroupSet = SecurityGroupSet;
+    }
+
+    /**
+     * Get NAT网关的SNAT转发规则。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SourceIpTranslationNatRuleSet NAT网关的SNAT转发规则。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public SourceIpTranslationNatRule [] getSourceIpTranslationNatRuleSet() {
+        return this.SourceIpTranslationNatRuleSet;
+    }
+
+    /**
+     * Set NAT网关的SNAT转发规则。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SourceIpTranslationNatRuleSet NAT网关的SNAT转发规则。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSourceIpTranslationNatRuleSet(SourceIpTranslationNatRule [] SourceIpTranslationNatRuleSet) {
+        this.SourceIpTranslationNatRuleSet = SourceIpTranslationNatRuleSet;
+    }
+
+    /**
+     * Get 是否独享型NAT。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IsExclusive 是否独享型NAT。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getIsExclusive() {
+        return this.IsExclusive;
+    }
+
+    /**
+     * Set 是否独享型NAT。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IsExclusive 是否独享型NAT。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIsExclusive(Boolean IsExclusive) {
+        this.IsExclusive = IsExclusive;
+    }
+
+    /**
+     * Get 独享型NAT所在的网关集群的带宽(单位:Mbps)，当IsExclusive为false时无此字段。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ExclusiveGatewayBandwidth 独享型NAT所在的网关集群的带宽(单位:Mbps)，当IsExclusive为false时无此字段。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getExclusiveGatewayBandwidth() {
+        return this.ExclusiveGatewayBandwidth;
+    }
+
+    /**
+     * Set 独享型NAT所在的网关集群的带宽(单位:Mbps)，当IsExclusive为false时无此字段。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ExclusiveGatewayBandwidth 独享型NAT所在的网关集群的带宽(单位:Mbps)，当IsExclusive为false时无此字段。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setExclusiveGatewayBandwidth(Long ExclusiveGatewayBandwidth) {
+        this.ExclusiveGatewayBandwidth = ExclusiveGatewayBandwidth;
+    }
+
+    public NatGateway() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public NatGateway(NatGateway source) {
+        if (source.NatGatewayId != null) {
+            this.NatGatewayId = new String(source.NatGatewayId);
+        }
+        if (source.NatGatewayName != null) {
+            this.NatGatewayName = new String(source.NatGatewayName);
+        }
+        if (source.CreatedTime != null) {
+            this.CreatedTime = new String(source.CreatedTime);
+        }
+        if (source.State != null) {
+            this.State = new String(source.State);
+        }
+        if (source.InternetMaxBandwidthOut != null) {
+            this.InternetMaxBandwidthOut = new Long(source.InternetMaxBandwidthOut);
+        }
+        if (source.MaxConcurrentConnection != null) {
+            this.MaxConcurrentConnection = new Long(source.MaxConcurrentConnection);
+        }
+        if (source.PublicIpAddressSet != null) {
+            this.PublicIpAddressSet = new NatGatewayAddress[source.PublicIpAddressSet.length];
+            for (int i = 0; i < source.PublicIpAddressSet.length; i++) {
+                this.PublicIpAddressSet[i] = new NatGatewayAddress(source.PublicIpAddressSet[i]);
+            }
+        }
+        if (source.NetworkState != null) {
+            this.NetworkState = new String(source.NetworkState);
+        }
+        if (source.DestinationIpPortTranslationNatRuleSet != null) {
+            this.DestinationIpPortTranslationNatRuleSet = new DestinationIpPortTranslationNatRule[source.DestinationIpPortTranslationNatRuleSet.length];
+            for (int i = 0; i < source.DestinationIpPortTranslationNatRuleSet.length; i++) {
+                this.DestinationIpPortTranslationNatRuleSet[i] = new DestinationIpPortTranslationNatRule(source.DestinationIpPortTranslationNatRuleSet[i]);
+            }
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.DirectConnectGatewayIds != null) {
+            this.DirectConnectGatewayIds = new String[source.DirectConnectGatewayIds.length];
+            for (int i = 0; i < source.DirectConnectGatewayIds.length; i++) {
+                this.DirectConnectGatewayIds[i] = new String(source.DirectConnectGatewayIds[i]);
+            }
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.TagSet != null) {
+            this.TagSet = new Tag[source.TagSet.length];
+            for (int i = 0; i < source.TagSet.length; i++) {
+                this.TagSet[i] = new Tag(source.TagSet[i]);
+            }
+        }
+        if (source.SecurityGroupSet != null) {
+            this.SecurityGroupSet = new String[source.SecurityGroupSet.length];
+            for (int i = 0; i < source.SecurityGroupSet.length; i++) {
+                this.SecurityGroupSet[i] = new String(source.SecurityGroupSet[i]);
+            }
+        }
+        if (source.SourceIpTranslationNatRuleSet != null) {
+            this.SourceIpTranslationNatRuleSet = new SourceIpTranslationNatRule[source.SourceIpTranslationNatRuleSet.length];
+            for (int i = 0; i < source.SourceIpTranslationNatRuleSet.length; i++) {
+                this.SourceIpTranslationNatRuleSet[i] = new SourceIpTranslationNatRule(source.SourceIpTranslationNatRuleSet[i]);
+            }
+        }
+        if (source.IsExclusive != null) {
+            this.IsExclusive = new Boolean(source.IsExclusive);
+        }
+        if (source.ExclusiveGatewayBandwidth != null) {
+            this.ExclusiveGatewayBandwidth = new Long(source.ExclusiveGatewayBandwidth);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -300,6 +574,13 @@ public class NatGateway extends AbstractModel{
         this.setParamArrayObj(map, prefix + "DestinationIpPortTranslationNatRuleSet.", this.DestinationIpPortTranslationNatRuleSet);
         this.setParamSimple(map, prefix + "VpcId", this.VpcId);
         this.setParamSimple(map, prefix + "Zone", this.Zone);
+        this.setParamArraySimple(map, prefix + "DirectConnectGatewayIds.", this.DirectConnectGatewayIds);
+        this.setParamSimple(map, prefix + "SubnetId", this.SubnetId);
+        this.setParamArrayObj(map, prefix + "TagSet.", this.TagSet);
+        this.setParamArraySimple(map, prefix + "SecurityGroupSet.", this.SecurityGroupSet);
+        this.setParamArrayObj(map, prefix + "SourceIpTranslationNatRuleSet.", this.SourceIpTranslationNatRuleSet);
+        this.setParamSimple(map, prefix + "IsExclusive", this.IsExclusive);
+        this.setParamSimple(map, prefix + "ExclusiveGatewayBandwidth", this.ExclusiveGatewayBandwidth);
 
     }
 }

@@ -23,18 +23,18 @@ import java.util.HashMap;
 public class UpdateFunctionCodeRequest extends AbstractModel{
 
     /**
-    * 函数处理方法名称。名称格式支持“文件名称.函数名称”形式，文件名称和函数名称之间以"."隔开，文件名称和函数名称要求以字母开始和结尾，中间允许插入字母、数字、下划线和连接符，文件名称和函数名字的长度要求 2-60 个字符
-    */
-    @SerializedName("Handler")
-    @Expose
-    private String Handler;
-
-    /**
     * 要修改的函数名称
     */
     @SerializedName("FunctionName")
     @Expose
     private String FunctionName;
+
+    /**
+    * 函数处理方法名称。名称格式支持“文件名称.函数名称”形式（java 名称格式 包名.类名::方法名），文件名称和函数名称之间以"."隔开，文件名称和函数名称要求以字母开始和结尾，中间允许插入字母、数字、下划线和连接符，文件名称和函数名字的长度要求 2-60 个字符
+    */
+    @SerializedName("Handler")
+    @Expose
+    private String Handler;
 
     /**
     * 对象存储桶名称
@@ -93,27 +93,11 @@ public class UpdateFunctionCodeRequest extends AbstractModel{
     private Code Code;
 
     /**
-    * 代码来源方式，支持以下'ZipFile', 'Cos', 'Inline', 'TempCos', 'Git' 之一，使用Git来源必须指定此字段
+    * 代码来源方式，支持 ZipFile, Cos, Inline 之一
     */
     @SerializedName("CodeSource")
     @Expose
     private String CodeSource;
-
-    /**
-     * Get 函数处理方法名称。名称格式支持“文件名称.函数名称”形式，文件名称和函数名称之间以"."隔开，文件名称和函数名称要求以字母开始和结尾，中间允许插入字母、数字、下划线和连接符，文件名称和函数名字的长度要求 2-60 个字符 
-     * @return Handler 函数处理方法名称。名称格式支持“文件名称.函数名称”形式，文件名称和函数名称之间以"."隔开，文件名称和函数名称要求以字母开始和结尾，中间允许插入字母、数字、下划线和连接符，文件名称和函数名字的长度要求 2-60 个字符
-     */
-    public String getHandler() {
-        return this.Handler;
-    }
-
-    /**
-     * Set 函数处理方法名称。名称格式支持“文件名称.函数名称”形式，文件名称和函数名称之间以"."隔开，文件名称和函数名称要求以字母开始和结尾，中间允许插入字母、数字、下划线和连接符，文件名称和函数名字的长度要求 2-60 个字符
-     * @param Handler 函数处理方法名称。名称格式支持“文件名称.函数名称”形式，文件名称和函数名称之间以"."隔开，文件名称和函数名称要求以字母开始和结尾，中间允许插入字母、数字、下划线和连接符，文件名称和函数名字的长度要求 2-60 个字符
-     */
-    public void setHandler(String Handler) {
-        this.Handler = Handler;
-    }
 
     /**
      * Get 要修改的函数名称 
@@ -129,6 +113,22 @@ public class UpdateFunctionCodeRequest extends AbstractModel{
      */
     public void setFunctionName(String FunctionName) {
         this.FunctionName = FunctionName;
+    }
+
+    /**
+     * Get 函数处理方法名称。名称格式支持“文件名称.函数名称”形式（java 名称格式 包名.类名::方法名），文件名称和函数名称之间以"."隔开，文件名称和函数名称要求以字母开始和结尾，中间允许插入字母、数字、下划线和连接符，文件名称和函数名字的长度要求 2-60 个字符 
+     * @return Handler 函数处理方法名称。名称格式支持“文件名称.函数名称”形式（java 名称格式 包名.类名::方法名），文件名称和函数名称之间以"."隔开，文件名称和函数名称要求以字母开始和结尾，中间允许插入字母、数字、下划线和连接符，文件名称和函数名字的长度要求 2-60 个字符
+     */
+    public String getHandler() {
+        return this.Handler;
+    }
+
+    /**
+     * Set 函数处理方法名称。名称格式支持“文件名称.函数名称”形式（java 名称格式 包名.类名::方法名），文件名称和函数名称之间以"."隔开，文件名称和函数名称要求以字母开始和结尾，中间允许插入字母、数字、下划线和连接符，文件名称和函数名字的长度要求 2-60 个字符
+     * @param Handler 函数处理方法名称。名称格式支持“文件名称.函数名称”形式（java 名称格式 包名.类名::方法名），文件名称和函数名称之间以"."隔开，文件名称和函数名称要求以字母开始和结尾，中间允许插入字母、数字、下划线和连接符，文件名称和函数名字的长度要求 2-60 个字符
+     */
+    public void setHandler(String Handler) {
+        this.Handler = Handler;
     }
 
     /**
@@ -260,27 +260,71 @@ public class UpdateFunctionCodeRequest extends AbstractModel{
     }
 
     /**
-     * Get 代码来源方式，支持以下'ZipFile', 'Cos', 'Inline', 'TempCos', 'Git' 之一，使用Git来源必须指定此字段 
-     * @return CodeSource 代码来源方式，支持以下'ZipFile', 'Cos', 'Inline', 'TempCos', 'Git' 之一，使用Git来源必须指定此字段
+     * Get 代码来源方式，支持 ZipFile, Cos, Inline 之一 
+     * @return CodeSource 代码来源方式，支持 ZipFile, Cos, Inline 之一
      */
     public String getCodeSource() {
         return this.CodeSource;
     }
 
     /**
-     * Set 代码来源方式，支持以下'ZipFile', 'Cos', 'Inline', 'TempCos', 'Git' 之一，使用Git来源必须指定此字段
-     * @param CodeSource 代码来源方式，支持以下'ZipFile', 'Cos', 'Inline', 'TempCos', 'Git' 之一，使用Git来源必须指定此字段
+     * Set 代码来源方式，支持 ZipFile, Cos, Inline 之一
+     * @param CodeSource 代码来源方式，支持 ZipFile, Cos, Inline 之一
      */
     public void setCodeSource(String CodeSource) {
         this.CodeSource = CodeSource;
     }
 
+    public UpdateFunctionCodeRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public UpdateFunctionCodeRequest(UpdateFunctionCodeRequest source) {
+        if (source.FunctionName != null) {
+            this.FunctionName = new String(source.FunctionName);
+        }
+        if (source.Handler != null) {
+            this.Handler = new String(source.Handler);
+        }
+        if (source.CosBucketName != null) {
+            this.CosBucketName = new String(source.CosBucketName);
+        }
+        if (source.CosObjectName != null) {
+            this.CosObjectName = new String(source.CosObjectName);
+        }
+        if (source.ZipFile != null) {
+            this.ZipFile = new String(source.ZipFile);
+        }
+        if (source.Namespace != null) {
+            this.Namespace = new String(source.Namespace);
+        }
+        if (source.CosBucketRegion != null) {
+            this.CosBucketRegion = new String(source.CosBucketRegion);
+        }
+        if (source.EnvId != null) {
+            this.EnvId = new String(source.EnvId);
+        }
+        if (source.Publish != null) {
+            this.Publish = new String(source.Publish);
+        }
+        if (source.Code != null) {
+            this.Code = new Code(source.Code);
+        }
+        if (source.CodeSource != null) {
+            this.CodeSource = new String(source.CodeSource);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "Handler", this.Handler);
         this.setParamSimple(map, prefix + "FunctionName", this.FunctionName);
+        this.setParamSimple(map, prefix + "Handler", this.Handler);
         this.setParamSimple(map, prefix + "CosBucketName", this.CosBucketName);
         this.setParamSimple(map, prefix + "CosObjectName", this.CosObjectName);
         this.setParamSimple(map, prefix + "ZipFile", this.ZipFile);

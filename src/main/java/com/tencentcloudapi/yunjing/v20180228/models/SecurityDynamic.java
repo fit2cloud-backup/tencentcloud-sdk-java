@@ -56,6 +56,17 @@ public class SecurityDynamic extends AbstractModel{
     private String Message;
 
     /**
+    * 安全事件等级。
+<li>RISK: 严重</li>
+<li>HIGH: 高危</li>
+<li>NORMAL: 中危</li>
+<li>LOW: 低危</li>
+    */
+    @SerializedName("SecurityLevel")
+    @Expose
+    private String SecurityLevel;
+
+    /**
      * Get 云镜客户端UUID。 
      * @return Uuid 云镜客户端UUID。
      */
@@ -140,6 +151,64 @@ public class SecurityDynamic extends AbstractModel{
     }
 
     /**
+     * Get 安全事件等级。
+<li>RISK: 严重</li>
+<li>HIGH: 高危</li>
+<li>NORMAL: 中危</li>
+<li>LOW: 低危</li> 
+     * @return SecurityLevel 安全事件等级。
+<li>RISK: 严重</li>
+<li>HIGH: 高危</li>
+<li>NORMAL: 中危</li>
+<li>LOW: 低危</li>
+     */
+    public String getSecurityLevel() {
+        return this.SecurityLevel;
+    }
+
+    /**
+     * Set 安全事件等级。
+<li>RISK: 严重</li>
+<li>HIGH: 高危</li>
+<li>NORMAL: 中危</li>
+<li>LOW: 低危</li>
+     * @param SecurityLevel 安全事件等级。
+<li>RISK: 严重</li>
+<li>HIGH: 高危</li>
+<li>NORMAL: 中危</li>
+<li>LOW: 低危</li>
+     */
+    public void setSecurityLevel(String SecurityLevel) {
+        this.SecurityLevel = SecurityLevel;
+    }
+
+    public SecurityDynamic() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SecurityDynamic(SecurityDynamic source) {
+        if (source.Uuid != null) {
+            this.Uuid = new String(source.Uuid);
+        }
+        if (source.EventTime != null) {
+            this.EventTime = new String(source.EventTime);
+        }
+        if (source.EventType != null) {
+            this.EventType = new String(source.EventType);
+        }
+        if (source.Message != null) {
+            this.Message = new String(source.Message);
+        }
+        if (source.SecurityLevel != null) {
+            this.SecurityLevel = new String(source.SecurityLevel);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -147,6 +216,7 @@ public class SecurityDynamic extends AbstractModel{
         this.setParamSimple(map, prefix + "EventTime", this.EventTime);
         this.setParamSimple(map, prefix + "EventType", this.EventType);
         this.setParamSimple(map, prefix + "Message", this.Message);
+        this.setParamSimple(map, prefix + "SecurityLevel", this.SecurityLevel);
 
     }
 }

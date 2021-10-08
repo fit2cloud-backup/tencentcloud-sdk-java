@@ -37,14 +37,14 @@ public class PushAuthKeyInfo extends AbstractModel{
     private Long Enable;
 
     /**
-    * 主鉴权key。
+    * 主鉴权 Key。
     */
     @SerializedName("MasterAuthKey")
     @Expose
     private String MasterAuthKey;
 
     /**
-    * 备鉴权key。
+    * 备鉴权 Key。
     */
     @SerializedName("BackupAuthKey")
     @Expose
@@ -90,32 +90,32 @@ public class PushAuthKeyInfo extends AbstractModel{
     }
 
     /**
-     * Get 主鉴权key。 
-     * @return MasterAuthKey 主鉴权key。
+     * Get 主鉴权 Key。 
+     * @return MasterAuthKey 主鉴权 Key。
      */
     public String getMasterAuthKey() {
         return this.MasterAuthKey;
     }
 
     /**
-     * Set 主鉴权key。
-     * @param MasterAuthKey 主鉴权key。
+     * Set 主鉴权 Key。
+     * @param MasterAuthKey 主鉴权 Key。
      */
     public void setMasterAuthKey(String MasterAuthKey) {
         this.MasterAuthKey = MasterAuthKey;
     }
 
     /**
-     * Get 备鉴权key。 
-     * @return BackupAuthKey 备鉴权key。
+     * Get 备鉴权 Key。 
+     * @return BackupAuthKey 备鉴权 Key。
      */
     public String getBackupAuthKey() {
         return this.BackupAuthKey;
     }
 
     /**
-     * Set 备鉴权key。
-     * @param BackupAuthKey 备鉴权key。
+     * Set 备鉴权 Key。
+     * @param BackupAuthKey 备鉴权 Key。
      */
     public void setBackupAuthKey(String BackupAuthKey) {
         this.BackupAuthKey = BackupAuthKey;
@@ -136,6 +136,32 @@ public class PushAuthKeyInfo extends AbstractModel{
     public void setAuthDelta(Long AuthDelta) {
         this.AuthDelta = AuthDelta;
     }
+
+    public PushAuthKeyInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public PushAuthKeyInfo(PushAuthKeyInfo source) {
+        if (source.DomainName != null) {
+            this.DomainName = new String(source.DomainName);
+        }
+        if (source.Enable != null) {
+            this.Enable = new Long(source.Enable);
+        }
+        if (source.MasterAuthKey != null) {
+            this.MasterAuthKey = new String(source.MasterAuthKey);
+        }
+        if (source.BackupAuthKey != null) {
+            this.BackupAuthKey = new String(source.BackupAuthKey);
+        }
+        if (source.AuthDelta != null) {
+            this.AuthDelta = new Long(source.AuthDelta);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

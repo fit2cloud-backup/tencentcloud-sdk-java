@@ -143,6 +143,30 @@ public class VersionData extends AbstractModel{
     private Long ModifyTimes;
 
     /**
+    * 备注信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Remark")
+    @Expose
+    private String Remark;
+
+    /**
+    * 版本发布的描述信息，需要国际化，可以为空
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Contents")
+    @Expose
+    private Contents Contents;
+
+    /**
+    * 月活设备数，当月第一天开始有上线的设备数量。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AliveInMonthCnt")
+    @Expose
+    private Long AliveInMonthCnt;
+
+    /**
      * Get 产品ID
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return ProductId 产品ID
@@ -443,6 +467,131 @@ public class VersionData extends AbstractModel{
     }
 
     /**
+     * Get 备注信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Remark 备注信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getRemark() {
+        return this.Remark;
+    }
+
+    /**
+     * Set 备注信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Remark 备注信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRemark(String Remark) {
+        this.Remark = Remark;
+    }
+
+    /**
+     * Get 版本发布的描述信息，需要国际化，可以为空
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Contents 版本发布的描述信息，需要国际化，可以为空
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Contents getContents() {
+        return this.Contents;
+    }
+
+    /**
+     * Set 版本发布的描述信息，需要国际化，可以为空
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Contents 版本发布的描述信息，需要国际化，可以为空
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setContents(Contents Contents) {
+        this.Contents = Contents;
+    }
+
+    /**
+     * Get 月活设备数，当月第一天开始有上线的设备数量。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AliveInMonthCnt 月活设备数，当月第一天开始有上线的设备数量。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getAliveInMonthCnt() {
+        return this.AliveInMonthCnt;
+    }
+
+    /**
+     * Set 月活设备数，当月第一天开始有上线的设备数量。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AliveInMonthCnt 月活设备数，当月第一天开始有上线的设备数量。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAliveInMonthCnt(Long AliveInMonthCnt) {
+        this.AliveInMonthCnt = AliveInMonthCnt;
+    }
+
+    public VersionData() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public VersionData(VersionData source) {
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+        if (source.OtaVersion != null) {
+            this.OtaVersion = new String(source.OtaVersion);
+        }
+        if (source.PubStatus != null) {
+            this.PubStatus = new Long(source.PubStatus);
+        }
+        if (source.VersionUrl != null) {
+            this.VersionUrl = new String(source.VersionUrl);
+        }
+        if (source.FileSize != null) {
+            this.FileSize = new Long(source.FileSize);
+        }
+        if (source.Md5 != null) {
+            this.Md5 = new String(source.Md5);
+        }
+        if (source.OldVersions != null) {
+            this.OldVersions = new String(source.OldVersions);
+        }
+        if (source.Tids != null) {
+            this.Tids = new String(source.Tids);
+        }
+        if (source.GrayValue != null) {
+            this.GrayValue = new Long(source.GrayValue);
+        }
+        if (source.PublishTime != null) {
+            this.PublishTime = new Long(source.PublishTime);
+        }
+        if (source.ActiveCount != null) {
+            this.ActiveCount = new Long(source.ActiveCount);
+        }
+        if (source.OnlineCount != null) {
+            this.OnlineCount = new Long(source.OnlineCount);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new Long(source.UpdateTime);
+        }
+        if (source.UploadTime != null) {
+            this.UploadTime = new Long(source.UploadTime);
+        }
+        if (source.ModifyTimes != null) {
+            this.ModifyTimes = new Long(source.ModifyTimes);
+        }
+        if (source.Remark != null) {
+            this.Remark = new String(source.Remark);
+        }
+        if (source.Contents != null) {
+            this.Contents = new Contents(source.Contents);
+        }
+        if (source.AliveInMonthCnt != null) {
+            this.AliveInMonthCnt = new Long(source.AliveInMonthCnt);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -461,6 +610,9 @@ public class VersionData extends AbstractModel{
         this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
         this.setParamSimple(map, prefix + "UploadTime", this.UploadTime);
         this.setParamSimple(map, prefix + "ModifyTimes", this.ModifyTimes);
+        this.setParamSimple(map, prefix + "Remark", this.Remark);
+        this.setParamObj(map, prefix + "Contents.", this.Contents);
+        this.setParamSimple(map, prefix + "AliveInMonthCnt", this.AliveInMonthCnt);
 
     }
 }

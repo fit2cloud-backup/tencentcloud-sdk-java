@@ -30,6 +30,13 @@ public class StopGameRequest extends AbstractModel{
     private String UserId;
 
     /**
+    * 【多人游戏】游戏主机用户ID
+    */
+    @SerializedName("HostUserId")
+    @Expose
+    private String HostUserId;
+
+    /**
      * Get 游戏用户ID 
      * @return UserId 游戏用户ID
      */
@@ -46,10 +53,44 @@ public class StopGameRequest extends AbstractModel{
     }
 
     /**
+     * Get 【多人游戏】游戏主机用户ID 
+     * @return HostUserId 【多人游戏】游戏主机用户ID
+     */
+    public String getHostUserId() {
+        return this.HostUserId;
+    }
+
+    /**
+     * Set 【多人游戏】游戏主机用户ID
+     * @param HostUserId 【多人游戏】游戏主机用户ID
+     */
+    public void setHostUserId(String HostUserId) {
+        this.HostUserId = HostUserId;
+    }
+
+    public StopGameRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public StopGameRequest(StopGameRequest source) {
+        if (source.UserId != null) {
+            this.UserId = new String(source.UserId);
+        }
+        if (source.HostUserId != null) {
+            this.HostUserId = new String(source.HostUserId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "UserId", this.UserId);
+        this.setParamSimple(map, prefix + "HostUserId", this.HostUserId);
 
     }
 }

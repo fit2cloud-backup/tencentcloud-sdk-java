@@ -37,14 +37,14 @@ public class MigrateDetailInfo extends AbstractModel{
     private Long StepNow;
 
     /**
-    * 总进度,如：
+    * 总进度,如："10"
     */
     @SerializedName("Progress")
     @Expose
     private String Progress;
 
     /**
-    * 当前步骤进度,如:
+    * 当前步骤进度,如:"1"
     */
     @SerializedName("CurrentStepProgress")
     @Expose
@@ -104,32 +104,32 @@ public class MigrateDetailInfo extends AbstractModel{
     }
 
     /**
-     * Get 总进度,如： 
-     * @return Progress 总进度,如：
+     * Get 总进度,如："10" 
+     * @return Progress 总进度,如："10"
      */
     public String getProgress() {
         return this.Progress;
     }
 
     /**
-     * Set 总进度,如：
-     * @param Progress 总进度,如：
+     * Set 总进度,如："10"
+     * @param Progress 总进度,如："10"
      */
     public void setProgress(String Progress) {
         this.Progress = Progress;
     }
 
     /**
-     * Get 当前步骤进度,如: 
-     * @return CurrentStepProgress 当前步骤进度,如:
+     * Get 当前步骤进度,如:"1" 
+     * @return CurrentStepProgress 当前步骤进度,如:"1"
      */
     public String getCurrentStepProgress() {
         return this.CurrentStepProgress;
     }
 
     /**
-     * Set 当前步骤进度,如:
-     * @param CurrentStepProgress 当前步骤进度,如:
+     * Set 当前步骤进度,如:"1"
+     * @param CurrentStepProgress 当前步骤进度,如:"1"
      */
     public void setCurrentStepProgress(String CurrentStepProgress) {
         this.CurrentStepProgress = CurrentStepProgress;
@@ -182,6 +182,41 @@ public class MigrateDetailInfo extends AbstractModel{
     public void setStepInfo(MigrateStepDetailInfo [] StepInfo) {
         this.StepInfo = StepInfo;
     }
+
+    public MigrateDetailInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MigrateDetailInfo(MigrateDetailInfo source) {
+        if (source.StepAll != null) {
+            this.StepAll = new Long(source.StepAll);
+        }
+        if (source.StepNow != null) {
+            this.StepNow = new Long(source.StepNow);
+        }
+        if (source.Progress != null) {
+            this.Progress = new String(source.Progress);
+        }
+        if (source.CurrentStepProgress != null) {
+            this.CurrentStepProgress = new String(source.CurrentStepProgress);
+        }
+        if (source.MasterSlaveDistance != null) {
+            this.MasterSlaveDistance = new Long(source.MasterSlaveDistance);
+        }
+        if (source.SecondsBehindMaster != null) {
+            this.SecondsBehindMaster = new Long(source.SecondsBehindMaster);
+        }
+        if (source.StepInfo != null) {
+            this.StepInfo = new MigrateStepDetailInfo[source.StepInfo.length];
+            for (int i = 0; i < source.StepInfo.length; i++) {
+                this.StepInfo[i] = new MigrateStepDetailInfo(source.StepInfo[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

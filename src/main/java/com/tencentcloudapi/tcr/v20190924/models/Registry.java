@@ -93,6 +93,45 @@ public class Registry extends AbstractModel{
     private Long TokenValidTime;
 
     /**
+    * 实例内部访问地址
+    */
+    @SerializedName("InternalEndpoint")
+    @Expose
+    private String InternalEndpoint;
+
+    /**
+    * 实例云标签
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TagSpecification")
+    @Expose
+    private TagSpecification TagSpecification;
+
+    /**
+    * 实例过期时间（预付费）
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ExpiredAt")
+    @Expose
+    private String ExpiredAt;
+
+    /**
+    * 实例付费类型，0表示后付费，1表示预付费
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PayMod")
+    @Expose
+    private Long PayMod;
+
+    /**
+    * 预付费续费标识，0表示手动续费，1表示自动续费，2不续费并且不通知
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RenewFlag")
+    @Expose
+    private Long RenewFlag;
+
+    /**
      * Get 实例ID 
      * @return RegistryId 实例ID
      */
@@ -253,6 +292,158 @@ public class Registry extends AbstractModel{
     }
 
     /**
+     * Get 实例内部访问地址 
+     * @return InternalEndpoint 实例内部访问地址
+     */
+    public String getInternalEndpoint() {
+        return this.InternalEndpoint;
+    }
+
+    /**
+     * Set 实例内部访问地址
+     * @param InternalEndpoint 实例内部访问地址
+     */
+    public void setInternalEndpoint(String InternalEndpoint) {
+        this.InternalEndpoint = InternalEndpoint;
+    }
+
+    /**
+     * Get 实例云标签
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TagSpecification 实例云标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public TagSpecification getTagSpecification() {
+        return this.TagSpecification;
+    }
+
+    /**
+     * Set 实例云标签
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TagSpecification 实例云标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTagSpecification(TagSpecification TagSpecification) {
+        this.TagSpecification = TagSpecification;
+    }
+
+    /**
+     * Get 实例过期时间（预付费）
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ExpiredAt 实例过期时间（预付费）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getExpiredAt() {
+        return this.ExpiredAt;
+    }
+
+    /**
+     * Set 实例过期时间（预付费）
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ExpiredAt 实例过期时间（预付费）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setExpiredAt(String ExpiredAt) {
+        this.ExpiredAt = ExpiredAt;
+    }
+
+    /**
+     * Get 实例付费类型，0表示后付费，1表示预付费
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PayMod 实例付费类型，0表示后付费，1表示预付费
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getPayMod() {
+        return this.PayMod;
+    }
+
+    /**
+     * Set 实例付费类型，0表示后付费，1表示预付费
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PayMod 实例付费类型，0表示后付费，1表示预付费
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPayMod(Long PayMod) {
+        this.PayMod = PayMod;
+    }
+
+    /**
+     * Get 预付费续费标识，0表示手动续费，1表示自动续费，2不续费并且不通知
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RenewFlag 预付费续费标识，0表示手动续费，1表示自动续费，2不续费并且不通知
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getRenewFlag() {
+        return this.RenewFlag;
+    }
+
+    /**
+     * Set 预付费续费标识，0表示手动续费，1表示自动续费，2不续费并且不通知
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RenewFlag 预付费续费标识，0表示手动续费，1表示自动续费，2不续费并且不通知
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRenewFlag(Long RenewFlag) {
+        this.RenewFlag = RenewFlag;
+    }
+
+    public Registry() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Registry(Registry source) {
+        if (source.RegistryId != null) {
+            this.RegistryId = new String(source.RegistryId);
+        }
+        if (source.RegistryName != null) {
+            this.RegistryName = new String(source.RegistryName);
+        }
+        if (source.RegistryType != null) {
+            this.RegistryType = new String(source.RegistryType);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.PublicDomain != null) {
+            this.PublicDomain = new String(source.PublicDomain);
+        }
+        if (source.CreatedAt != null) {
+            this.CreatedAt = new String(source.CreatedAt);
+        }
+        if (source.RegionName != null) {
+            this.RegionName = new String(source.RegionName);
+        }
+        if (source.RegionId != null) {
+            this.RegionId = new Long(source.RegionId);
+        }
+        if (source.EnableAnonymous != null) {
+            this.EnableAnonymous = new Boolean(source.EnableAnonymous);
+        }
+        if (source.TokenValidTime != null) {
+            this.TokenValidTime = new Long(source.TokenValidTime);
+        }
+        if (source.InternalEndpoint != null) {
+            this.InternalEndpoint = new String(source.InternalEndpoint);
+        }
+        if (source.TagSpecification != null) {
+            this.TagSpecification = new TagSpecification(source.TagSpecification);
+        }
+        if (source.ExpiredAt != null) {
+            this.ExpiredAt = new String(source.ExpiredAt);
+        }
+        if (source.PayMod != null) {
+            this.PayMod = new Long(source.PayMod);
+        }
+        if (source.RenewFlag != null) {
+            this.RenewFlag = new Long(source.RenewFlag);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -266,6 +457,11 @@ public class Registry extends AbstractModel{
         this.setParamSimple(map, prefix + "RegionId", this.RegionId);
         this.setParamSimple(map, prefix + "EnableAnonymous", this.EnableAnonymous);
         this.setParamSimple(map, prefix + "TokenValidTime", this.TokenValidTime);
+        this.setParamSimple(map, prefix + "InternalEndpoint", this.InternalEndpoint);
+        this.setParamObj(map, prefix + "TagSpecification.", this.TagSpecification);
+        this.setParamSimple(map, prefix + "ExpiredAt", this.ExpiredAt);
+        this.setParamSimple(map, prefix + "PayMod", this.PayMod);
+        this.setParamSimple(map, prefix + "RenewFlag", this.RenewFlag);
 
     }
 }

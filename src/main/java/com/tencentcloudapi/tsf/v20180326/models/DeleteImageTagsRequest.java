@@ -30,6 +30,13 @@ public class DeleteImageTagsRequest extends AbstractModel{
     private DeleteImageTag [] ImageTags;
 
     /**
+    * 企业: tcr ；个人: personal或者不填
+    */
+    @SerializedName("RepoType")
+    @Expose
+    private String RepoType;
+
+    /**
      * Get 镜像版本数组 
      * @return ImageTags 镜像版本数组
      */
@@ -46,10 +53,47 @@ public class DeleteImageTagsRequest extends AbstractModel{
     }
 
     /**
+     * Get 企业: tcr ；个人: personal或者不填 
+     * @return RepoType 企业: tcr ；个人: personal或者不填
+     */
+    public String getRepoType() {
+        return this.RepoType;
+    }
+
+    /**
+     * Set 企业: tcr ；个人: personal或者不填
+     * @param RepoType 企业: tcr ；个人: personal或者不填
+     */
+    public void setRepoType(String RepoType) {
+        this.RepoType = RepoType;
+    }
+
+    public DeleteImageTagsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeleteImageTagsRequest(DeleteImageTagsRequest source) {
+        if (source.ImageTags != null) {
+            this.ImageTags = new DeleteImageTag[source.ImageTags.length];
+            for (int i = 0; i < source.ImageTags.length; i++) {
+                this.ImageTags[i] = new DeleteImageTag(source.ImageTags[i]);
+            }
+        }
+        if (source.RepoType != null) {
+            this.RepoType = new String(source.RepoType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "ImageTags.", this.ImageTags);
+        this.setParamSimple(map, prefix + "RepoType", this.RepoType);
 
     }
 }

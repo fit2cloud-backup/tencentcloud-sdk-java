@@ -51,7 +51,7 @@ public class DescribeInstancesRequest extends AbstractModel{
     private Long Offset;
 
     /**
-    * 返回数量，不填则默认10，最大值20
+    * 返回数量，不填则默认10，最大值100
     */
     @SerializedName("Limit")
     @Expose
@@ -129,16 +129,16 @@ public class DescribeInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 返回数量，不填则默认10，最大值20 
-     * @return Limit 返回数量，不填则默认10，最大值20
+     * Get 返回数量，不填则默认10，最大值100 
+     * @return Limit 返回数量，不填则默认10，最大值100
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 返回数量，不填则默认10，最大值20
-     * @param Limit 返回数量，不填则默认10，最大值20
+     * Set 返回数量，不填则默认10，最大值100
+     * @param Limit 返回数量，不填则默认10，最大值100
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
@@ -159,6 +159,38 @@ public class DescribeInstancesRequest extends AbstractModel{
     public void setTagKey(String TagKey) {
         this.TagKey = TagKey;
     }
+
+    public DescribeInstancesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeInstancesRequest(DescribeInstancesRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.SearchWord != null) {
+            this.SearchWord = new String(source.SearchWord);
+        }
+        if (source.Status != null) {
+            this.Status = new Long[source.Status.length];
+            for (int i = 0; i < source.Status.length; i++) {
+                this.Status[i] = new Long(source.Status[i]);
+            }
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.TagKey != null) {
+            this.TagKey = new String(source.TagKey);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

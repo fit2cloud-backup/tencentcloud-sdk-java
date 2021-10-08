@@ -23,27 +23,41 @@ import java.util.HashMap;
 public class DescribeClassicalLBTargetsRequest extends AbstractModel{
 
     /**
-    * 负载均衡实例 ID
+    * 负载均衡实例 ID。
     */
     @SerializedName("LoadBalancerId")
     @Expose
     private String LoadBalancerId;
 
     /**
-     * Get 负载均衡实例 ID 
-     * @return LoadBalancerId 负载均衡实例 ID
+     * Get 负载均衡实例 ID。 
+     * @return LoadBalancerId 负载均衡实例 ID。
      */
     public String getLoadBalancerId() {
         return this.LoadBalancerId;
     }
 
     /**
-     * Set 负载均衡实例 ID
-     * @param LoadBalancerId 负载均衡实例 ID
+     * Set 负载均衡实例 ID。
+     * @param LoadBalancerId 负载均衡实例 ID。
      */
     public void setLoadBalancerId(String LoadBalancerId) {
         this.LoadBalancerId = LoadBalancerId;
     }
+
+    public DescribeClassicalLBTargetsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeClassicalLBTargetsRequest(DescribeClassicalLBTargetsRequest source) {
+        if (source.LoadBalancerId != null) {
+            this.LoadBalancerId = new String(source.LoadBalancerId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

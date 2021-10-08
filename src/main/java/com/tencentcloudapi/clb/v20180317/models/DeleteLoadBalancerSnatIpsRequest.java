@@ -23,50 +23,70 @@ import java.util.HashMap;
 public class DeleteLoadBalancerSnatIpsRequest extends AbstractModel{
 
     /**
-    * 负载均衡唯一Id，如lb-12345678
+    * 负载均衡唯一ID，例如：lb-12345678。
     */
     @SerializedName("LoadBalancerId")
     @Expose
     private String LoadBalancerId;
 
     /**
-    * 删除SnatIp地址数组
+    * 删除SnatIp地址数组。
     */
     @SerializedName("Ips")
     @Expose
     private String [] Ips;
 
     /**
-     * Get 负载均衡唯一Id，如lb-12345678 
-     * @return LoadBalancerId 负载均衡唯一Id，如lb-12345678
+     * Get 负载均衡唯一ID，例如：lb-12345678。 
+     * @return LoadBalancerId 负载均衡唯一ID，例如：lb-12345678。
      */
     public String getLoadBalancerId() {
         return this.LoadBalancerId;
     }
 
     /**
-     * Set 负载均衡唯一Id，如lb-12345678
-     * @param LoadBalancerId 负载均衡唯一Id，如lb-12345678
+     * Set 负载均衡唯一ID，例如：lb-12345678。
+     * @param LoadBalancerId 负载均衡唯一ID，例如：lb-12345678。
      */
     public void setLoadBalancerId(String LoadBalancerId) {
         this.LoadBalancerId = LoadBalancerId;
     }
 
     /**
-     * Get 删除SnatIp地址数组 
-     * @return Ips 删除SnatIp地址数组
+     * Get 删除SnatIp地址数组。 
+     * @return Ips 删除SnatIp地址数组。
      */
     public String [] getIps() {
         return this.Ips;
     }
 
     /**
-     * Set 删除SnatIp地址数组
-     * @param Ips 删除SnatIp地址数组
+     * Set 删除SnatIp地址数组。
+     * @param Ips 删除SnatIp地址数组。
      */
     public void setIps(String [] Ips) {
         this.Ips = Ips;
     }
+
+    public DeleteLoadBalancerSnatIpsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeleteLoadBalancerSnatIpsRequest(DeleteLoadBalancerSnatIpsRequest source) {
+        if (source.LoadBalancerId != null) {
+            this.LoadBalancerId = new String(source.LoadBalancerId);
+        }
+        if (source.Ips != null) {
+            this.Ips = new String[source.Ips.length];
+            for (int i = 0; i < source.Ips.length; i++) {
+                this.Ips[i] = new String(source.Ips[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

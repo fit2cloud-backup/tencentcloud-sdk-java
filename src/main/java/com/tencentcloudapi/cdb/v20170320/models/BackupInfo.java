@@ -44,14 +44,14 @@ public class BackupInfo extends AbstractModel{
     private String Date;
 
     /**
-    * 内网下载地址
+    * 下载地址
     */
     @SerializedName("IntranetUrl")
     @Expose
     private String IntranetUrl;
 
     /**
-    * 外网下载地址
+    * 下载地址
     */
     @SerializedName("InternetUrl")
     @Expose
@@ -162,32 +162,32 @@ public class BackupInfo extends AbstractModel{
     }
 
     /**
-     * Get 内网下载地址 
-     * @return IntranetUrl 内网下载地址
+     * Get 下载地址 
+     * @return IntranetUrl 下载地址
      */
     public String getIntranetUrl() {
         return this.IntranetUrl;
     }
 
     /**
-     * Set 内网下载地址
-     * @param IntranetUrl 内网下载地址
+     * Set 下载地址
+     * @param IntranetUrl 下载地址
      */
     public void setIntranetUrl(String IntranetUrl) {
         this.IntranetUrl = IntranetUrl;
     }
 
     /**
-     * Get 外网下载地址 
-     * @return InternetUrl 外网下载地址
+     * Get 下载地址 
+     * @return InternetUrl 下载地址
      */
     public String getInternetUrl() {
         return this.InternetUrl;
     }
 
     /**
-     * Set 外网下载地址
-     * @param InternetUrl 外网下载地址
+     * Set 下载地址
+     * @param InternetUrl 下载地址
      */
     public void setInternetUrl(String InternetUrl) {
         this.InternetUrl = InternetUrl;
@@ -320,6 +320,56 @@ public class BackupInfo extends AbstractModel{
     public void setWay(String Way) {
         this.Way = Way;
     }
+
+    public BackupInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public BackupInfo(BackupInfo source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Size != null) {
+            this.Size = new Long(source.Size);
+        }
+        if (source.Date != null) {
+            this.Date = new String(source.Date);
+        }
+        if (source.IntranetUrl != null) {
+            this.IntranetUrl = new String(source.IntranetUrl);
+        }
+        if (source.InternetUrl != null) {
+            this.InternetUrl = new String(source.InternetUrl);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.BackupId != null) {
+            this.BackupId = new Long(source.BackupId);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.FinishTime != null) {
+            this.FinishTime = new String(source.FinishTime);
+        }
+        if (source.Creator != null) {
+            this.Creator = new String(source.Creator);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.Method != null) {
+            this.Method = new String(source.Method);
+        }
+        if (source.Way != null) {
+            this.Way = new String(source.Way);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

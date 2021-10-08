@@ -37,6 +37,13 @@ public class VODExportInfo extends AbstractModel{
     private Long ClassId;
 
     /**
+    * 第三方平台发布信息列表。暂未正式对外，请勿使用。
+    */
+    @SerializedName("ThirdPartyPublishInfos")
+    @Expose
+    private ThirdPartyPublishInfo [] ThirdPartyPublishInfos;
+
+    /**
      * Get 导出的媒资名称。 
      * @return Name 导出的媒资名称。
      */
@@ -69,11 +76,51 @@ public class VODExportInfo extends AbstractModel{
     }
 
     /**
+     * Get 第三方平台发布信息列表。暂未正式对外，请勿使用。 
+     * @return ThirdPartyPublishInfos 第三方平台发布信息列表。暂未正式对外，请勿使用。
+     */
+    public ThirdPartyPublishInfo [] getThirdPartyPublishInfos() {
+        return this.ThirdPartyPublishInfos;
+    }
+
+    /**
+     * Set 第三方平台发布信息列表。暂未正式对外，请勿使用。
+     * @param ThirdPartyPublishInfos 第三方平台发布信息列表。暂未正式对外，请勿使用。
+     */
+    public void setThirdPartyPublishInfos(ThirdPartyPublishInfo [] ThirdPartyPublishInfos) {
+        this.ThirdPartyPublishInfos = ThirdPartyPublishInfos;
+    }
+
+    public VODExportInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public VODExportInfo(VODExportInfo source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.ClassId != null) {
+            this.ClassId = new Long(source.ClassId);
+        }
+        if (source.ThirdPartyPublishInfos != null) {
+            this.ThirdPartyPublishInfos = new ThirdPartyPublishInfo[source.ThirdPartyPublishInfos.length];
+            for (int i = 0; i < source.ThirdPartyPublishInfos.length; i++) {
+                this.ThirdPartyPublishInfos[i] = new ThirdPartyPublishInfo(source.ThirdPartyPublishInfos[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "ClassId", this.ClassId);
+        this.setParamArrayObj(map, prefix + "ThirdPartyPublishInfos.", this.ThirdPartyPublishInfos);
 
     }
 }

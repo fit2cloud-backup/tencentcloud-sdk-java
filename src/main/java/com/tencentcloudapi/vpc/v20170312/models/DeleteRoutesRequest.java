@@ -30,7 +30,7 @@ public class DeleteRoutesRequest extends AbstractModel{
     private String RouteTableId;
 
     /**
-    * 路由策略对象。
+    * 路由策略对象，删除路由策略时，仅需使用Route的RouteId字段。
     */
     @SerializedName("Routes")
     @Expose
@@ -53,20 +53,40 @@ public class DeleteRoutesRequest extends AbstractModel{
     }
 
     /**
-     * Get 路由策略对象。 
-     * @return Routes 路由策略对象。
+     * Get 路由策略对象，删除路由策略时，仅需使用Route的RouteId字段。 
+     * @return Routes 路由策略对象，删除路由策略时，仅需使用Route的RouteId字段。
      */
     public Route [] getRoutes() {
         return this.Routes;
     }
 
     /**
-     * Set 路由策略对象。
-     * @param Routes 路由策略对象。
+     * Set 路由策略对象，删除路由策略时，仅需使用Route的RouteId字段。
+     * @param Routes 路由策略对象，删除路由策略时，仅需使用Route的RouteId字段。
      */
     public void setRoutes(Route [] Routes) {
         this.Routes = Routes;
     }
+
+    public DeleteRoutesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeleteRoutesRequest(DeleteRoutesRequest source) {
+        if (source.RouteTableId != null) {
+            this.RouteTableId = new String(source.RouteTableId);
+        }
+        if (source.Routes != null) {
+            this.Routes = new Route[source.Routes.length];
+            for (int i = 0; i < source.Routes.length; i++) {
+                this.Routes[i] = new Route(source.Routes[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -31,7 +31,7 @@ public class DescribeGameServerSessionDetailsResponse extends AbstractModel{
     private GameServerSessionDetail [] GameServerSessionDetails;
 
     /**
-    * 页偏移，用于查询下一页
+    * 页偏移，用于查询下一页，最小长度不小于1个ASCII字符，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NextToken")
@@ -66,9 +66,9 @@ public class DescribeGameServerSessionDetailsResponse extends AbstractModel{
     }
 
     /**
-     * Get 页偏移，用于查询下一页
+     * Get 页偏移，用于查询下一页，最小长度不小于1个ASCII字符，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return NextToken 页偏移，用于查询下一页
+     * @return NextToken 页偏移，用于查询下一页，最小长度不小于1个ASCII字符，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNextToken() {
@@ -76,9 +76,9 @@ public class DescribeGameServerSessionDetailsResponse extends AbstractModel{
     }
 
     /**
-     * Set 页偏移，用于查询下一页
+     * Set 页偏移，用于查询下一页，最小长度不小于1个ASCII字符，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param NextToken 页偏移，用于查询下一页
+     * @param NextToken 页偏移，用于查询下一页，最小长度不小于1个ASCII字符，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNextToken(String NextToken) {
@@ -100,6 +100,29 @@ public class DescribeGameServerSessionDetailsResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeGameServerSessionDetailsResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeGameServerSessionDetailsResponse(DescribeGameServerSessionDetailsResponse source) {
+        if (source.GameServerSessionDetails != null) {
+            this.GameServerSessionDetails = new GameServerSessionDetail[source.GameServerSessionDetails.length];
+            for (int i = 0; i < source.GameServerSessionDetails.length; i++) {
+                this.GameServerSessionDetails[i] = new GameServerSessionDetail(source.GameServerSessionDetails[i]);
+            }
+        }
+        if (source.NextToken != null) {
+            this.NextToken = new String(source.NextToken);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

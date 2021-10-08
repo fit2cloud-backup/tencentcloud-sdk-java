@@ -51,6 +51,13 @@ public class RunTestOtaVersionRequest extends AbstractModel{
     private String Operator;
 
     /**
+    * 备注信息
+    */
+    @SerializedName("Remark")
+    @Expose
+    private String Remark;
+
+    /**
      * Get 产品ID 
      * @return ProductId 产品ID
      */
@@ -115,6 +122,51 @@ public class RunTestOtaVersionRequest extends AbstractModel{
     }
 
     /**
+     * Get 备注信息 
+     * @return Remark 备注信息
+     */
+    public String getRemark() {
+        return this.Remark;
+    }
+
+    /**
+     * Set 备注信息
+     * @param Remark 备注信息
+     */
+    public void setRemark(String Remark) {
+        this.Remark = Remark;
+    }
+
+    public RunTestOtaVersionRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public RunTestOtaVersionRequest(RunTestOtaVersionRequest source) {
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+        if (source.OtaVersion != null) {
+            this.OtaVersion = new String(source.OtaVersion);
+        }
+        if (source.Tids != null) {
+            this.Tids = new String[source.Tids.length];
+            for (int i = 0; i < source.Tids.length; i++) {
+                this.Tids[i] = new String(source.Tids[i]);
+            }
+        }
+        if (source.Operator != null) {
+            this.Operator = new String(source.Operator);
+        }
+        if (source.Remark != null) {
+            this.Remark = new String(source.Remark);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -122,6 +174,7 @@ public class RunTestOtaVersionRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "OtaVersion", this.OtaVersion);
         this.setParamArraySimple(map, prefix + "Tids.", this.Tids);
         this.setParamSimple(map, prefix + "Operator", this.Operator);
+        this.setParamSimple(map, prefix + "Remark", this.Remark);
 
     }
 }

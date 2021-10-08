@@ -37,7 +37,7 @@ public class VirtualPrivateCloud extends AbstractModel{
     private String SubnetId;
 
     /**
-    * 是否用作公网网关。公网网关只有在实例拥有公网IP以及处于私有网络下时才能正常使用。取值范围：<br><li>TRUE：表示用作公网网关<br><li>FALSE：表示不用作公网网关<br><br>默认取值：FALSE。
+    * 是否用作公网网关。公网网关只有在实例拥有公网IP以及处于私有网络下时才能正常使用。取值范围：<br><li>TRUE：表示用作公网网关<br><li>FALSE：表示不作为公网网关<br><br>默认取值：FALSE。
     */
     @SerializedName("AsVpcGateway")
     @Expose
@@ -90,16 +90,16 @@ public class VirtualPrivateCloud extends AbstractModel{
     }
 
     /**
-     * Get 是否用作公网网关。公网网关只有在实例拥有公网IP以及处于私有网络下时才能正常使用。取值范围：<br><li>TRUE：表示用作公网网关<br><li>FALSE：表示不用作公网网关<br><br>默认取值：FALSE。 
-     * @return AsVpcGateway 是否用作公网网关。公网网关只有在实例拥有公网IP以及处于私有网络下时才能正常使用。取值范围：<br><li>TRUE：表示用作公网网关<br><li>FALSE：表示不用作公网网关<br><br>默认取值：FALSE。
+     * Get 是否用作公网网关。公网网关只有在实例拥有公网IP以及处于私有网络下时才能正常使用。取值范围：<br><li>TRUE：表示用作公网网关<br><li>FALSE：表示不作为公网网关<br><br>默认取值：FALSE。 
+     * @return AsVpcGateway 是否用作公网网关。公网网关只有在实例拥有公网IP以及处于私有网络下时才能正常使用。取值范围：<br><li>TRUE：表示用作公网网关<br><li>FALSE：表示不作为公网网关<br><br>默认取值：FALSE。
      */
     public Boolean getAsVpcGateway() {
         return this.AsVpcGateway;
     }
 
     /**
-     * Set 是否用作公网网关。公网网关只有在实例拥有公网IP以及处于私有网络下时才能正常使用。取值范围：<br><li>TRUE：表示用作公网网关<br><li>FALSE：表示不用作公网网关<br><br>默认取值：FALSE。
-     * @param AsVpcGateway 是否用作公网网关。公网网关只有在实例拥有公网IP以及处于私有网络下时才能正常使用。取值范围：<br><li>TRUE：表示用作公网网关<br><li>FALSE：表示不用作公网网关<br><br>默认取值：FALSE。
+     * Set 是否用作公网网关。公网网关只有在实例拥有公网IP以及处于私有网络下时才能正常使用。取值范围：<br><li>TRUE：表示用作公网网关<br><li>FALSE：表示不作为公网网关<br><br>默认取值：FALSE。
+     * @param AsVpcGateway 是否用作公网网关。公网网关只有在实例拥有公网IP以及处于私有网络下时才能正常使用。取值范围：<br><li>TRUE：表示用作公网网关<br><li>FALSE：表示不作为公网网关<br><br>默认取值：FALSE。
      */
     public void setAsVpcGateway(Boolean AsVpcGateway) {
         this.AsVpcGateway = AsVpcGateway;
@@ -136,6 +136,35 @@ public class VirtualPrivateCloud extends AbstractModel{
     public void setIpv6AddressCount(Long Ipv6AddressCount) {
         this.Ipv6AddressCount = Ipv6AddressCount;
     }
+
+    public VirtualPrivateCloud() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public VirtualPrivateCloud(VirtualPrivateCloud source) {
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.AsVpcGateway != null) {
+            this.AsVpcGateway = new Boolean(source.AsVpcGateway);
+        }
+        if (source.PrivateIpAddresses != null) {
+            this.PrivateIpAddresses = new String[source.PrivateIpAddresses.length];
+            for (int i = 0; i < source.PrivateIpAddresses.length; i++) {
+                this.PrivateIpAddresses[i] = new String(source.PrivateIpAddresses[i]);
+            }
+        }
+        if (source.Ipv6AddressCount != null) {
+            this.Ipv6AddressCount = new Long(source.Ipv6AddressCount);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

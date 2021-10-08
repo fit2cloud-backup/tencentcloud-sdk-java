@@ -121,6 +121,13 @@ public class CreateCustAcctIdRequest extends AbstractModel{
     private String ReservedMsg;
 
     /**
+    * STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+    */
+    @SerializedName("Profile")
+    @Expose
+    private String Profile;
+
+    /**
      * Get STRING(2)，功能标志（1: 开户; 3: 销户） 
      * @return FunctionFlag STRING(2)，功能标志（1: 开户; 3: 销户）
      */
@@ -345,6 +352,78 @@ public class CreateCustAcctIdRequest extends AbstractModel{
     }
 
     /**
+     * Get STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod" 
+     * @return Profile STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     */
+    public String getProfile() {
+        return this.Profile;
+    }
+
+    /**
+     * Set STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     * @param Profile STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     */
+    public void setProfile(String Profile) {
+        this.Profile = Profile;
+    }
+
+    public CreateCustAcctIdRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateCustAcctIdRequest(CreateCustAcctIdRequest source) {
+        if (source.FunctionFlag != null) {
+            this.FunctionFlag = new String(source.FunctionFlag);
+        }
+        if (source.FundSummaryAcctNo != null) {
+            this.FundSummaryAcctNo = new String(source.FundSummaryAcctNo);
+        }
+        if (source.TranNetMemberCode != null) {
+            this.TranNetMemberCode = new String(source.TranNetMemberCode);
+        }
+        if (source.MemberProperty != null) {
+            this.MemberProperty = new String(source.MemberProperty);
+        }
+        if (source.Mobile != null) {
+            this.Mobile = new String(source.Mobile);
+        }
+        if (source.MrchCode != null) {
+            this.MrchCode = new String(source.MrchCode);
+        }
+        if (source.SelfBusiness != null) {
+            this.SelfBusiness = new Boolean(source.SelfBusiness);
+        }
+        if (source.ContactName != null) {
+            this.ContactName = new String(source.ContactName);
+        }
+        if (source.SubAcctName != null) {
+            this.SubAcctName = new String(source.SubAcctName);
+        }
+        if (source.SubAcctShortName != null) {
+            this.SubAcctShortName = new String(source.SubAcctShortName);
+        }
+        if (source.SubAcctType != null) {
+            this.SubAcctType = new Long(source.SubAcctType);
+        }
+        if (source.UserNickname != null) {
+            this.UserNickname = new String(source.UserNickname);
+        }
+        if (source.Email != null) {
+            this.Email = new String(source.Email);
+        }
+        if (source.ReservedMsg != null) {
+            this.ReservedMsg = new String(source.ReservedMsg);
+        }
+        if (source.Profile != null) {
+            this.Profile = new String(source.Profile);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -362,6 +441,7 @@ public class CreateCustAcctIdRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "UserNickname", this.UserNickname);
         this.setParamSimple(map, prefix + "Email", this.Email);
         this.setParamSimple(map, prefix + "ReservedMsg", this.ReservedMsg);
+        this.setParamSimple(map, prefix + "Profile", this.Profile);
 
     }
 }

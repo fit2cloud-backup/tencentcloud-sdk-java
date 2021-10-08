@@ -86,7 +86,7 @@ public class Subnet extends AbstractModel{
     private String CreatedTime;
 
     /**
-    * 可用`IP`数。
+    * 可用`IPv4`数。
     */
     @SerializedName("AvailableIpAddressCount")
     @Expose
@@ -114,7 +114,7 @@ public class Subnet extends AbstractModel{
     private Boolean IsRemoteVpcSnat;
 
     /**
-    * 子网`IP`总数。
+    * 子网`IPv4`总数。
     */
     @SerializedName("TotalIpAddressCount")
     @Expose
@@ -126,6 +126,22 @@ public class Subnet extends AbstractModel{
     @SerializedName("TagSet")
     @Expose
     private Tag [] TagSet;
+
+    /**
+    * CDC实例ID。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CdcId")
+    @Expose
+    private String CdcId;
+
+    /**
+    * 是否是CDC所属子网。0:否 1:是
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IsCdcSubnet")
+    @Expose
+    private Long IsCdcSubnet;
 
     /**
      * Get `VPC`实例`ID`。 
@@ -272,16 +288,16 @@ public class Subnet extends AbstractModel{
     }
 
     /**
-     * Get 可用`IP`数。 
-     * @return AvailableIpAddressCount 可用`IP`数。
+     * Get 可用`IPv4`数。 
+     * @return AvailableIpAddressCount 可用`IPv4`数。
      */
     public Long getAvailableIpAddressCount() {
         return this.AvailableIpAddressCount;
     }
 
     /**
-     * Set 可用`IP`数。
-     * @param AvailableIpAddressCount 可用`IP`数。
+     * Set 可用`IPv4`数。
+     * @param AvailableIpAddressCount 可用`IPv4`数。
      */
     public void setAvailableIpAddressCount(Long AvailableIpAddressCount) {
         this.AvailableIpAddressCount = AvailableIpAddressCount;
@@ -336,16 +352,16 @@ public class Subnet extends AbstractModel{
     }
 
     /**
-     * Get 子网`IP`总数。 
-     * @return TotalIpAddressCount 子网`IP`总数。
+     * Get 子网`IPv4`总数。 
+     * @return TotalIpAddressCount 子网`IPv4`总数。
      */
     public Long getTotalIpAddressCount() {
         return this.TotalIpAddressCount;
     }
 
     /**
-     * Set 子网`IP`总数。
-     * @param TotalIpAddressCount 子网`IP`总数。
+     * Set 子网`IPv4`总数。
+     * @param TotalIpAddressCount 子网`IPv4`总数。
      */
     public void setTotalIpAddressCount(Long TotalIpAddressCount) {
         this.TotalIpAddressCount = TotalIpAddressCount;
@@ -368,6 +384,111 @@ public class Subnet extends AbstractModel{
     }
 
     /**
+     * Get CDC实例ID。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CdcId CDC实例ID。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCdcId() {
+        return this.CdcId;
+    }
+
+    /**
+     * Set CDC实例ID。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CdcId CDC实例ID。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCdcId(String CdcId) {
+        this.CdcId = CdcId;
+    }
+
+    /**
+     * Get 是否是CDC所属子网。0:否 1:是
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IsCdcSubnet 是否是CDC所属子网。0:否 1:是
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getIsCdcSubnet() {
+        return this.IsCdcSubnet;
+    }
+
+    /**
+     * Set 是否是CDC所属子网。0:否 1:是
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IsCdcSubnet 是否是CDC所属子网。0:否 1:是
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIsCdcSubnet(Long IsCdcSubnet) {
+        this.IsCdcSubnet = IsCdcSubnet;
+    }
+
+    public Subnet() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Subnet(Subnet source) {
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.SubnetName != null) {
+            this.SubnetName = new String(source.SubnetName);
+        }
+        if (source.CidrBlock != null) {
+            this.CidrBlock = new String(source.CidrBlock);
+        }
+        if (source.IsDefault != null) {
+            this.IsDefault = new Boolean(source.IsDefault);
+        }
+        if (source.EnableBroadcast != null) {
+            this.EnableBroadcast = new Boolean(source.EnableBroadcast);
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.RouteTableId != null) {
+            this.RouteTableId = new String(source.RouteTableId);
+        }
+        if (source.CreatedTime != null) {
+            this.CreatedTime = new String(source.CreatedTime);
+        }
+        if (source.AvailableIpAddressCount != null) {
+            this.AvailableIpAddressCount = new Long(source.AvailableIpAddressCount);
+        }
+        if (source.Ipv6CidrBlock != null) {
+            this.Ipv6CidrBlock = new String(source.Ipv6CidrBlock);
+        }
+        if (source.NetworkAclId != null) {
+            this.NetworkAclId = new String(source.NetworkAclId);
+        }
+        if (source.IsRemoteVpcSnat != null) {
+            this.IsRemoteVpcSnat = new Boolean(source.IsRemoteVpcSnat);
+        }
+        if (source.TotalIpAddressCount != null) {
+            this.TotalIpAddressCount = new Long(source.TotalIpAddressCount);
+        }
+        if (source.TagSet != null) {
+            this.TagSet = new Tag[source.TagSet.length];
+            for (int i = 0; i < source.TagSet.length; i++) {
+                this.TagSet[i] = new Tag(source.TagSet[i]);
+            }
+        }
+        if (source.CdcId != null) {
+            this.CdcId = new String(source.CdcId);
+        }
+        if (source.IsCdcSubnet != null) {
+            this.IsCdcSubnet = new Long(source.IsCdcSubnet);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -386,6 +507,8 @@ public class Subnet extends AbstractModel{
         this.setParamSimple(map, prefix + "IsRemoteVpcSnat", this.IsRemoteVpcSnat);
         this.setParamSimple(map, prefix + "TotalIpAddressCount", this.TotalIpAddressCount);
         this.setParamArrayObj(map, prefix + "TagSet.", this.TagSet);
+        this.setParamSimple(map, prefix + "CdcId", this.CdcId);
+        this.setParamSimple(map, prefix + "IsCdcSubnet", this.IsCdcSubnet);
 
     }
 }

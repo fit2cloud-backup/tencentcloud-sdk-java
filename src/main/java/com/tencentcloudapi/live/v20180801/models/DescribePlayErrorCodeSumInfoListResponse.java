@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribePlayErrorCodeSumInfoListResponse extends AbstractModel{
 
     /**
-    * 分省份分运营商错误码为4或5开头的状态码数据信息。
+    * 分省份分运营商错误码为2或3或4或5开头的状态码数据信息。
     */
     @SerializedName("ProIspInfoList")
     @Expose
@@ -107,16 +107,16 @@ public class DescribePlayErrorCodeSumInfoListResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 分省份分运营商错误码为4或5开头的状态码数据信息。 
-     * @return ProIspInfoList 分省份分运营商错误码为4或5开头的状态码数据信息。
+     * Get 分省份分运营商错误码为2或3或4或5开头的状态码数据信息。 
+     * @return ProIspInfoList 分省份分运营商错误码为2或3或4或5开头的状态码数据信息。
      */
     public ProIspPlayCodeDataInfo [] getProIspInfoList() {
         return this.ProIspInfoList;
     }
 
     /**
-     * Set 分省份分运营商错误码为4或5开头的状态码数据信息。
-     * @param ProIspInfoList 分省份分运营商错误码为4或5开头的状态码数据信息。
+     * Set 分省份分运营商错误码为2或3或4或5开头的状态码数据信息。
+     * @param ProIspInfoList 分省份分运营商错误码为2或3或4或5开头的状态码数据信息。
      */
     public void setProIspInfoList(ProIspPlayCodeDataInfo [] ProIspInfoList) {
         this.ProIspInfoList = ProIspInfoList;
@@ -297,6 +297,59 @@ public class DescribePlayErrorCodeSumInfoListResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribePlayErrorCodeSumInfoListResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribePlayErrorCodeSumInfoListResponse(DescribePlayErrorCodeSumInfoListResponse source) {
+        if (source.ProIspInfoList != null) {
+            this.ProIspInfoList = new ProIspPlayCodeDataInfo[source.ProIspInfoList.length];
+            for (int i = 0; i < source.ProIspInfoList.length; i++) {
+                this.ProIspInfoList[i] = new ProIspPlayCodeDataInfo(source.ProIspInfoList[i]);
+            }
+        }
+        if (source.TotalCodeAll != null) {
+            this.TotalCodeAll = new Long(source.TotalCodeAll);
+        }
+        if (source.TotalCode4xx != null) {
+            this.TotalCode4xx = new Long(source.TotalCode4xx);
+        }
+        if (source.TotalCode5xx != null) {
+            this.TotalCode5xx = new Long(source.TotalCode5xx);
+        }
+        if (source.TotalCodeList != null) {
+            this.TotalCodeList = new PlayCodeTotalInfo[source.TotalCodeList.length];
+            for (int i = 0; i < source.TotalCodeList.length; i++) {
+                this.TotalCodeList[i] = new PlayCodeTotalInfo(source.TotalCodeList[i]);
+            }
+        }
+        if (source.PageNum != null) {
+            this.PageNum = new Long(source.PageNum);
+        }
+        if (source.PageSize != null) {
+            this.PageSize = new Long(source.PageSize);
+        }
+        if (source.TotalPage != null) {
+            this.TotalPage = new Long(source.TotalPage);
+        }
+        if (source.TotalNum != null) {
+            this.TotalNum = new Long(source.TotalNum);
+        }
+        if (source.TotalCode2xx != null) {
+            this.TotalCode2xx = new Long(source.TotalCode2xx);
+        }
+        if (source.TotalCode3xx != null) {
+            this.TotalCode3xx = new Long(source.TotalCode3xx);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

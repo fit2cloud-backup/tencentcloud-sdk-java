@@ -45,6 +45,14 @@ public class QueryInvoiceResult extends AbstractModel{
     private QueryInvoiceResultData Data;
 
     /**
+    * 订单数据
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Order")
+    @Expose
+    private Order Order;
+
+    /**
      * Get 错误消息 
      * @return Message 错误消息
      */
@@ -97,12 +105,56 @@ public class QueryInvoiceResult extends AbstractModel{
     }
 
     /**
+     * Get 订单数据
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Order 订单数据
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Order getOrder() {
+        return this.Order;
+    }
+
+    /**
+     * Set 订单数据
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Order 订单数据
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOrder(Order Order) {
+        this.Order = Order;
+    }
+
+    public QueryInvoiceResult() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public QueryInvoiceResult(QueryInvoiceResult source) {
+        if (source.Message != null) {
+            this.Message = new String(source.Message);
+        }
+        if (source.Code != null) {
+            this.Code = new Long(source.Code);
+        }
+        if (source.Data != null) {
+            this.Data = new QueryInvoiceResultData(source.Data);
+        }
+        if (source.Order != null) {
+            this.Order = new Order(source.Order);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Message", this.Message);
         this.setParamSimple(map, prefix + "Code", this.Code);
         this.setParamObj(map, prefix + "Data.", this.Data);
+        this.setParamObj(map, prefix + "Order.", this.Order);
 
     }
 }

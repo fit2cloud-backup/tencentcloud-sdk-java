@@ -37,6 +37,14 @@ public class DescribeDCDBShardsResponse extends AbstractModel{
     private DCDBShardInfo [] Shards;
 
     /**
+    * 灾备标志，0-无，1-主实例，2-灾备实例
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DcnFlag")
+    @Expose
+    private Long DcnFlag;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -76,6 +84,26 @@ public class DescribeDCDBShardsResponse extends AbstractModel{
     }
 
     /**
+     * Get 灾备标志，0-无，1-主实例，2-灾备实例
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DcnFlag 灾备标志，0-无，1-主实例，2-灾备实例
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getDcnFlag() {
+        return this.DcnFlag;
+    }
+
+    /**
+     * Set 灾备标志，0-无，1-主实例，2-灾备实例
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DcnFlag 灾备标志，0-无，1-主实例，2-灾备实例
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDcnFlag(Long DcnFlag) {
+        this.DcnFlag = DcnFlag;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -91,12 +119,39 @@ public class DescribeDCDBShardsResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public DescribeDCDBShardsResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeDCDBShardsResponse(DescribeDCDBShardsResponse source) {
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
+        if (source.Shards != null) {
+            this.Shards = new DCDBShardInfo[source.Shards.length];
+            for (int i = 0; i < source.Shards.length; i++) {
+                this.Shards[i] = new DCDBShardInfo(source.Shards[i]);
+            }
+        }
+        if (source.DcnFlag != null) {
+            this.DcnFlag = new Long(source.DcnFlag);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
         this.setParamArrayObj(map, prefix + "Shards.", this.Shards);
+        this.setParamSimple(map, prefix + "DcnFlag", this.DcnFlag);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

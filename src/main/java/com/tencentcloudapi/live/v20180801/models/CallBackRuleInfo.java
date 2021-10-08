@@ -37,7 +37,7 @@ public class CallBackRuleInfo extends AbstractModel{
     private String UpdateTime;
 
     /**
-    * 模板Id。
+    * 模板 ID。
     */
     @SerializedName("TemplateId")
     @Expose
@@ -90,16 +90,16 @@ public class CallBackRuleInfo extends AbstractModel{
     }
 
     /**
-     * Get 模板Id。 
-     * @return TemplateId 模板Id。
+     * Get 模板 ID。 
+     * @return TemplateId 模板 ID。
      */
     public Long getTemplateId() {
         return this.TemplateId;
     }
 
     /**
-     * Set 模板Id。
-     * @param TemplateId 模板Id。
+     * Set 模板 ID。
+     * @param TemplateId 模板 ID。
      */
     public void setTemplateId(Long TemplateId) {
         this.TemplateId = TemplateId;
@@ -136,6 +136,32 @@ public class CallBackRuleInfo extends AbstractModel{
     public void setAppName(String AppName) {
         this.AppName = AppName;
     }
+
+    public CallBackRuleInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CallBackRuleInfo(CallBackRuleInfo source) {
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+        if (source.TemplateId != null) {
+            this.TemplateId = new Long(source.TemplateId);
+        }
+        if (source.DomainName != null) {
+            this.DomainName = new String(source.DomainName);
+        }
+        if (source.AppName != null) {
+            this.AppName = new String(source.AppName);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

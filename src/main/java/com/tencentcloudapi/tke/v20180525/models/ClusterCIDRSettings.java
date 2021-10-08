@@ -44,7 +44,7 @@ public class ClusterCIDRSettings extends AbstractModel{
     private Long MaxNodePodNum;
 
     /**
-    * 集群最大的service数量。取值范围32～32768，不为2的幂值时会向上取最接近的2的幂值。
+    * 集群最大的service数量。取值范围32～32768，不为2的幂值时会向上取最接近的2的幂值。默认值256
     */
     @SerializedName("MaxClusterServiceNum")
     @Expose
@@ -120,16 +120,16 @@ public class ClusterCIDRSettings extends AbstractModel{
     }
 
     /**
-     * Get 集群最大的service数量。取值范围32～32768，不为2的幂值时会向上取最接近的2的幂值。 
-     * @return MaxClusterServiceNum 集群最大的service数量。取值范围32～32768，不为2的幂值时会向上取最接近的2的幂值。
+     * Get 集群最大的service数量。取值范围32～32768，不为2的幂值时会向上取最接近的2的幂值。默认值256 
+     * @return MaxClusterServiceNum 集群最大的service数量。取值范围32～32768，不为2的幂值时会向上取最接近的2的幂值。默认值256
      */
     public Long getMaxClusterServiceNum() {
         return this.MaxClusterServiceNum;
     }
 
     /**
-     * Set 集群最大的service数量。取值范围32～32768，不为2的幂值时会向上取最接近的2的幂值。
-     * @param MaxClusterServiceNum 集群最大的service数量。取值范围32～32768，不为2的幂值时会向上取最接近的2的幂值。
+     * Set 集群最大的service数量。取值范围32～32768，不为2的幂值时会向上取最接近的2的幂值。默认值256
+     * @param MaxClusterServiceNum 集群最大的service数量。取值范围32～32768，不为2的幂值时会向上取最接近的2的幂值。默认值256
      */
     public void setMaxClusterServiceNum(Long MaxClusterServiceNum) {
         this.MaxClusterServiceNum = MaxClusterServiceNum;
@@ -182,6 +182,41 @@ public class ClusterCIDRSettings extends AbstractModel{
     public void setClaimExpiredSeconds(Long ClaimExpiredSeconds) {
         this.ClaimExpiredSeconds = ClaimExpiredSeconds;
     }
+
+    public ClusterCIDRSettings() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ClusterCIDRSettings(ClusterCIDRSettings source) {
+        if (source.ClusterCIDR != null) {
+            this.ClusterCIDR = new String(source.ClusterCIDR);
+        }
+        if (source.IgnoreClusterCIDRConflict != null) {
+            this.IgnoreClusterCIDRConflict = new Boolean(source.IgnoreClusterCIDRConflict);
+        }
+        if (source.MaxNodePodNum != null) {
+            this.MaxNodePodNum = new Long(source.MaxNodePodNum);
+        }
+        if (source.MaxClusterServiceNum != null) {
+            this.MaxClusterServiceNum = new Long(source.MaxClusterServiceNum);
+        }
+        if (source.ServiceCIDR != null) {
+            this.ServiceCIDR = new String(source.ServiceCIDR);
+        }
+        if (source.EniSubnetIds != null) {
+            this.EniSubnetIds = new String[source.EniSubnetIds.length];
+            for (int i = 0; i < source.EniSubnetIds.length; i++) {
+                this.EniSubnetIds[i] = new String(source.EniSubnetIds[i]);
+            }
+        }
+        if (source.ClaimExpiredSeconds != null) {
+            this.ClaimExpiredSeconds = new Long(source.ClaimExpiredSeconds);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -23,9 +23,50 @@ import java.util.HashMap;
 public class DescribeNodeRequest extends AbstractModel{
 
     /**
+    * 过滤条件，name取值为： InstanceFamily-实例系列
+    */
+    @SerializedName("Filters")
+    @Expose
+    private Filter [] Filters;
+
+    /**
+     * Get 过滤条件，name取值为： InstanceFamily-实例系列 
+     * @return Filters 过滤条件，name取值为： InstanceFamily-实例系列
+     */
+    public Filter [] getFilters() {
+        return this.Filters;
+    }
+
+    /**
+     * Set 过滤条件，name取值为： InstanceFamily-实例系列
+     * @param Filters 过滤条件，name取值为： InstanceFamily-实例系列
+     */
+    public void setFilters(Filter [] Filters) {
+        this.Filters = Filters;
+    }
+
+    public DescribeNodeRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeNodeRequest(DescribeNodeRequest source) {
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
 
     }
 }

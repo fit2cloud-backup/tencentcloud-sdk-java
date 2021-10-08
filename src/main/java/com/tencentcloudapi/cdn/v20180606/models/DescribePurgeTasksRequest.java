@@ -54,7 +54,7 @@ path：目录刷新记录
     private String TaskId;
 
     /**
-    * 分页查询偏移量，默认为 0 （第一页）
+    * 分页查询偏移量，默认为 0
     */
     @SerializedName("Offset")
     @Expose
@@ -171,16 +171,16 @@ path：目录刷新记录
     }
 
     /**
-     * Get 分页查询偏移量，默认为 0 （第一页） 
-     * @return Offset 分页查询偏移量，默认为 0 （第一页）
+     * Get 分页查询偏移量，默认为 0 
+     * @return Offset 分页查询偏移量，默认为 0
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 分页查询偏移量，默认为 0 （第一页）
-     * @param Offset 分页查询偏移量，默认为 0 （第一页）
+     * Set 分页查询偏移量，默认为 0
+     * @param Offset 分页查询偏移量，默认为 0
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
@@ -273,6 +273,44 @@ global：全球
     public void setArea(String Area) {
         this.Area = Area;
     }
+
+    public DescribePurgeTasksRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribePurgeTasksRequest(DescribePurgeTasksRequest source) {
+        if (source.PurgeType != null) {
+            this.PurgeType = new String(source.PurgeType);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.TaskId != null) {
+            this.TaskId = new String(source.TaskId);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Keyword != null) {
+            this.Keyword = new String(source.Keyword);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.Area != null) {
+            this.Area = new String(source.Area);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -52,6 +52,14 @@ https：强制 https 跳转
     private Long RedirectStatusCode;
 
     /**
+    * 强制跳转时是否返回增加的头部。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CarryHeaders")
+    @Expose
+    private String CarryHeaders;
+
+    /**
      * Get 访问强制跳转配置开关
 on：开启
 off：关闭
@@ -132,12 +140,56 @@ https：强制 https 跳转
     }
 
     /**
+     * Get 强制跳转时是否返回增加的头部。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CarryHeaders 强制跳转时是否返回增加的头部。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCarryHeaders() {
+        return this.CarryHeaders;
+    }
+
+    /**
+     * Set 强制跳转时是否返回增加的头部。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CarryHeaders 强制跳转时是否返回增加的头部。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCarryHeaders(String CarryHeaders) {
+        this.CarryHeaders = CarryHeaders;
+    }
+
+    public ForceRedirect() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ForceRedirect(ForceRedirect source) {
+        if (source.Switch != null) {
+            this.Switch = new String(source.Switch);
+        }
+        if (source.RedirectType != null) {
+            this.RedirectType = new String(source.RedirectType);
+        }
+        if (source.RedirectStatusCode != null) {
+            this.RedirectStatusCode = new Long(source.RedirectStatusCode);
+        }
+        if (source.CarryHeaders != null) {
+            this.CarryHeaders = new String(source.CarryHeaders);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Switch", this.Switch);
         this.setParamSimple(map, prefix + "RedirectType", this.RedirectType);
         this.setParamSimple(map, prefix + "RedirectStatusCode", this.RedirectStatusCode);
+        this.setParamSimple(map, prefix + "CarryHeaders", this.CarryHeaders);
 
     }
 }

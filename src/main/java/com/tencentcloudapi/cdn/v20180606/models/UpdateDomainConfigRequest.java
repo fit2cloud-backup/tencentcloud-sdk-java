@@ -30,7 +30,7 @@ public class UpdateDomainConfigRequest extends AbstractModel{
     private String Domain;
 
     /**
-    * 项目 ID
+    * 项目 ID
     */
     @SerializedName("ProjectId")
     @Expose
@@ -240,6 +240,90 @@ global：全球加速
     private AwsPrivateAccess AwsPrivateAccess;
 
     /**
+    * UA黑白名单配置
+    */
+    @SerializedName("UserAgentFilter")
+    @Expose
+    private UserAgentFilter UserAgentFilter;
+
+    /**
+    * 访问控制
+    */
+    @SerializedName("AccessControl")
+    @Expose
+    private AccessControl AccessControl;
+
+    /**
+    * URL重定向配置
+    */
+    @SerializedName("UrlRedirect")
+    @Expose
+    private UrlRedirect UrlRedirect;
+
+    /**
+    * 访问端口配置
+    */
+    @SerializedName("AccessPort")
+    @Expose
+    private Long [] AccessPort;
+
+    /**
+    * 时间戳防盗链高级版配置，白名单功能
+    */
+    @SerializedName("AdvancedAuthentication")
+    @Expose
+    private AdvancedAuthentication AdvancedAuthentication;
+
+    /**
+    * 回源鉴权高级版配置，白名单功能
+    */
+    @SerializedName("OriginAuthentication")
+    @Expose
+    private OriginAuthentication OriginAuthentication;
+
+    /**
+    * Ipv6 访问配置
+    */
+    @SerializedName("Ipv6Access")
+    @Expose
+    private Ipv6Access Ipv6Access;
+
+    /**
+    * 离线缓存
+    */
+    @SerializedName("OfflineCache")
+    @Expose
+    private OfflineCache OfflineCache;
+
+    /**
+    * 合并回源
+    */
+    @SerializedName("OriginCombine")
+    @Expose
+    private OriginCombine OriginCombine;
+
+    /**
+    * QUIC正在内测中，请先提交内测申请，详情请前往QUIC产品文档。
+    */
+    @SerializedName("Quic")
+    @Expose
+    private Quic Quic;
+
+    /**
+    * 回源OSS私有鉴权
+    */
+    @SerializedName("OssPrivateAccess")
+    @Expose
+    private OssPrivateAccess OssPrivateAccess;
+
+    /**
+    * WebSocket配置
+    */
+    @SerializedName("WebSocket")
+    @Expose
+    private WebSocket WebSocket;
+
+    /**
      * Get 域名 
      * @return Domain 域名
      */
@@ -256,16 +340,16 @@ global：全球加速
     }
 
     /**
-     * Get 项目 ID 
-     * @return ProjectId 项目 ID
+     * Get 项目 ID 
+     * @return ProjectId 项目 ID
      */
     public Long getProjectId() {
         return this.ProjectId;
     }
 
     /**
-     * Set 项目 ID
-     * @param ProjectId 项目 ID
+     * Set 项目 ID
+     * @param ProjectId 项目 ID
      */
     public void setProjectId(Long ProjectId) {
         this.ProjectId = ProjectId;
@@ -748,6 +832,338 @@ global：全球加速
     }
 
     /**
+     * Get UA黑白名单配置 
+     * @return UserAgentFilter UA黑白名单配置
+     */
+    public UserAgentFilter getUserAgentFilter() {
+        return this.UserAgentFilter;
+    }
+
+    /**
+     * Set UA黑白名单配置
+     * @param UserAgentFilter UA黑白名单配置
+     */
+    public void setUserAgentFilter(UserAgentFilter UserAgentFilter) {
+        this.UserAgentFilter = UserAgentFilter;
+    }
+
+    /**
+     * Get 访问控制 
+     * @return AccessControl 访问控制
+     */
+    public AccessControl getAccessControl() {
+        return this.AccessControl;
+    }
+
+    /**
+     * Set 访问控制
+     * @param AccessControl 访问控制
+     */
+    public void setAccessControl(AccessControl AccessControl) {
+        this.AccessControl = AccessControl;
+    }
+
+    /**
+     * Get URL重定向配置 
+     * @return UrlRedirect URL重定向配置
+     */
+    public UrlRedirect getUrlRedirect() {
+        return this.UrlRedirect;
+    }
+
+    /**
+     * Set URL重定向配置
+     * @param UrlRedirect URL重定向配置
+     */
+    public void setUrlRedirect(UrlRedirect UrlRedirect) {
+        this.UrlRedirect = UrlRedirect;
+    }
+
+    /**
+     * Get 访问端口配置 
+     * @return AccessPort 访问端口配置
+     */
+    public Long [] getAccessPort() {
+        return this.AccessPort;
+    }
+
+    /**
+     * Set 访问端口配置
+     * @param AccessPort 访问端口配置
+     */
+    public void setAccessPort(Long [] AccessPort) {
+        this.AccessPort = AccessPort;
+    }
+
+    /**
+     * Get 时间戳防盗链高级版配置，白名单功能 
+     * @return AdvancedAuthentication 时间戳防盗链高级版配置，白名单功能
+     */
+    public AdvancedAuthentication getAdvancedAuthentication() {
+        return this.AdvancedAuthentication;
+    }
+
+    /**
+     * Set 时间戳防盗链高级版配置，白名单功能
+     * @param AdvancedAuthentication 时间戳防盗链高级版配置，白名单功能
+     */
+    public void setAdvancedAuthentication(AdvancedAuthentication AdvancedAuthentication) {
+        this.AdvancedAuthentication = AdvancedAuthentication;
+    }
+
+    /**
+     * Get 回源鉴权高级版配置，白名单功能 
+     * @return OriginAuthentication 回源鉴权高级版配置，白名单功能
+     */
+    public OriginAuthentication getOriginAuthentication() {
+        return this.OriginAuthentication;
+    }
+
+    /**
+     * Set 回源鉴权高级版配置，白名单功能
+     * @param OriginAuthentication 回源鉴权高级版配置，白名单功能
+     */
+    public void setOriginAuthentication(OriginAuthentication OriginAuthentication) {
+        this.OriginAuthentication = OriginAuthentication;
+    }
+
+    /**
+     * Get Ipv6 访问配置 
+     * @return Ipv6Access Ipv6 访问配置
+     */
+    public Ipv6Access getIpv6Access() {
+        return this.Ipv6Access;
+    }
+
+    /**
+     * Set Ipv6 访问配置
+     * @param Ipv6Access Ipv6 访问配置
+     */
+    public void setIpv6Access(Ipv6Access Ipv6Access) {
+        this.Ipv6Access = Ipv6Access;
+    }
+
+    /**
+     * Get 离线缓存 
+     * @return OfflineCache 离线缓存
+     */
+    public OfflineCache getOfflineCache() {
+        return this.OfflineCache;
+    }
+
+    /**
+     * Set 离线缓存
+     * @param OfflineCache 离线缓存
+     */
+    public void setOfflineCache(OfflineCache OfflineCache) {
+        this.OfflineCache = OfflineCache;
+    }
+
+    /**
+     * Get 合并回源 
+     * @return OriginCombine 合并回源
+     */
+    public OriginCombine getOriginCombine() {
+        return this.OriginCombine;
+    }
+
+    /**
+     * Set 合并回源
+     * @param OriginCombine 合并回源
+     */
+    public void setOriginCombine(OriginCombine OriginCombine) {
+        this.OriginCombine = OriginCombine;
+    }
+
+    /**
+     * Get QUIC正在内测中，请先提交内测申请，详情请前往QUIC产品文档。 
+     * @return Quic QUIC正在内测中，请先提交内测申请，详情请前往QUIC产品文档。
+     */
+    public Quic getQuic() {
+        return this.Quic;
+    }
+
+    /**
+     * Set QUIC正在内测中，请先提交内测申请，详情请前往QUIC产品文档。
+     * @param Quic QUIC正在内测中，请先提交内测申请，详情请前往QUIC产品文档。
+     */
+    public void setQuic(Quic Quic) {
+        this.Quic = Quic;
+    }
+
+    /**
+     * Get 回源OSS私有鉴权 
+     * @return OssPrivateAccess 回源OSS私有鉴权
+     */
+    public OssPrivateAccess getOssPrivateAccess() {
+        return this.OssPrivateAccess;
+    }
+
+    /**
+     * Set 回源OSS私有鉴权
+     * @param OssPrivateAccess 回源OSS私有鉴权
+     */
+    public void setOssPrivateAccess(OssPrivateAccess OssPrivateAccess) {
+        this.OssPrivateAccess = OssPrivateAccess;
+    }
+
+    /**
+     * Get WebSocket配置 
+     * @return WebSocket WebSocket配置
+     */
+    public WebSocket getWebSocket() {
+        return this.WebSocket;
+    }
+
+    /**
+     * Set WebSocket配置
+     * @param WebSocket WebSocket配置
+     */
+    public void setWebSocket(WebSocket WebSocket) {
+        this.WebSocket = WebSocket;
+    }
+
+    public UpdateDomainConfigRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public UpdateDomainConfigRequest(UpdateDomainConfigRequest source) {
+        if (source.Domain != null) {
+            this.Domain = new String(source.Domain);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.Origin != null) {
+            this.Origin = new Origin(source.Origin);
+        }
+        if (source.IpFilter != null) {
+            this.IpFilter = new IpFilter(source.IpFilter);
+        }
+        if (source.IpFreqLimit != null) {
+            this.IpFreqLimit = new IpFreqLimit(source.IpFreqLimit);
+        }
+        if (source.StatusCodeCache != null) {
+            this.StatusCodeCache = new StatusCodeCache(source.StatusCodeCache);
+        }
+        if (source.Compression != null) {
+            this.Compression = new Compression(source.Compression);
+        }
+        if (source.BandwidthAlert != null) {
+            this.BandwidthAlert = new BandwidthAlert(source.BandwidthAlert);
+        }
+        if (source.RangeOriginPull != null) {
+            this.RangeOriginPull = new RangeOriginPull(source.RangeOriginPull);
+        }
+        if (source.FollowRedirect != null) {
+            this.FollowRedirect = new FollowRedirect(source.FollowRedirect);
+        }
+        if (source.ErrorPage != null) {
+            this.ErrorPage = new ErrorPage(source.ErrorPage);
+        }
+        if (source.RequestHeader != null) {
+            this.RequestHeader = new RequestHeader(source.RequestHeader);
+        }
+        if (source.ResponseHeader != null) {
+            this.ResponseHeader = new ResponseHeader(source.ResponseHeader);
+        }
+        if (source.DownstreamCapping != null) {
+            this.DownstreamCapping = new DownstreamCapping(source.DownstreamCapping);
+        }
+        if (source.CacheKey != null) {
+            this.CacheKey = new CacheKey(source.CacheKey);
+        }
+        if (source.ResponseHeaderCache != null) {
+            this.ResponseHeaderCache = new ResponseHeaderCache(source.ResponseHeaderCache);
+        }
+        if (source.VideoSeek != null) {
+            this.VideoSeek = new VideoSeek(source.VideoSeek);
+        }
+        if (source.Cache != null) {
+            this.Cache = new Cache(source.Cache);
+        }
+        if (source.OriginPullOptimization != null) {
+            this.OriginPullOptimization = new OriginPullOptimization(source.OriginPullOptimization);
+        }
+        if (source.Https != null) {
+            this.Https = new Https(source.Https);
+        }
+        if (source.Authentication != null) {
+            this.Authentication = new Authentication(source.Authentication);
+        }
+        if (source.Seo != null) {
+            this.Seo = new Seo(source.Seo);
+        }
+        if (source.ForceRedirect != null) {
+            this.ForceRedirect = new ForceRedirect(source.ForceRedirect);
+        }
+        if (source.Referer != null) {
+            this.Referer = new Referer(source.Referer);
+        }
+        if (source.MaxAge != null) {
+            this.MaxAge = new MaxAge(source.MaxAge);
+        }
+        if (source.ServiceType != null) {
+            this.ServiceType = new String(source.ServiceType);
+        }
+        if (source.SpecificConfig != null) {
+            this.SpecificConfig = new SpecificConfig(source.SpecificConfig);
+        }
+        if (source.Area != null) {
+            this.Area = new String(source.Area);
+        }
+        if (source.OriginPullTimeout != null) {
+            this.OriginPullTimeout = new OriginPullTimeout(source.OriginPullTimeout);
+        }
+        if (source.AwsPrivateAccess != null) {
+            this.AwsPrivateAccess = new AwsPrivateAccess(source.AwsPrivateAccess);
+        }
+        if (source.UserAgentFilter != null) {
+            this.UserAgentFilter = new UserAgentFilter(source.UserAgentFilter);
+        }
+        if (source.AccessControl != null) {
+            this.AccessControl = new AccessControl(source.AccessControl);
+        }
+        if (source.UrlRedirect != null) {
+            this.UrlRedirect = new UrlRedirect(source.UrlRedirect);
+        }
+        if (source.AccessPort != null) {
+            this.AccessPort = new Long[source.AccessPort.length];
+            for (int i = 0; i < source.AccessPort.length; i++) {
+                this.AccessPort[i] = new Long(source.AccessPort[i]);
+            }
+        }
+        if (source.AdvancedAuthentication != null) {
+            this.AdvancedAuthentication = new AdvancedAuthentication(source.AdvancedAuthentication);
+        }
+        if (source.OriginAuthentication != null) {
+            this.OriginAuthentication = new OriginAuthentication(source.OriginAuthentication);
+        }
+        if (source.Ipv6Access != null) {
+            this.Ipv6Access = new Ipv6Access(source.Ipv6Access);
+        }
+        if (source.OfflineCache != null) {
+            this.OfflineCache = new OfflineCache(source.OfflineCache);
+        }
+        if (source.OriginCombine != null) {
+            this.OriginCombine = new OriginCombine(source.OriginCombine);
+        }
+        if (source.Quic != null) {
+            this.Quic = new Quic(source.Quic);
+        }
+        if (source.OssPrivateAccess != null) {
+            this.OssPrivateAccess = new OssPrivateAccess(source.OssPrivateAccess);
+        }
+        if (source.WebSocket != null) {
+            this.WebSocket = new WebSocket(source.WebSocket);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -781,6 +1197,18 @@ global：全球加速
         this.setParamSimple(map, prefix + "Area", this.Area);
         this.setParamObj(map, prefix + "OriginPullTimeout.", this.OriginPullTimeout);
         this.setParamObj(map, prefix + "AwsPrivateAccess.", this.AwsPrivateAccess);
+        this.setParamObj(map, prefix + "UserAgentFilter.", this.UserAgentFilter);
+        this.setParamObj(map, prefix + "AccessControl.", this.AccessControl);
+        this.setParamObj(map, prefix + "UrlRedirect.", this.UrlRedirect);
+        this.setParamArraySimple(map, prefix + "AccessPort.", this.AccessPort);
+        this.setParamObj(map, prefix + "AdvancedAuthentication.", this.AdvancedAuthentication);
+        this.setParamObj(map, prefix + "OriginAuthentication.", this.OriginAuthentication);
+        this.setParamObj(map, prefix + "Ipv6Access.", this.Ipv6Access);
+        this.setParamObj(map, prefix + "OfflineCache.", this.OfflineCache);
+        this.setParamObj(map, prefix + "OriginCombine.", this.OriginCombine);
+        this.setParamObj(map, prefix + "Quic.", this.Quic);
+        this.setParamObj(map, prefix + "OssPrivateAccess.", this.OssPrivateAccess);
+        this.setParamObj(map, prefix + "WebSocket.", this.WebSocket);
 
     }
 }

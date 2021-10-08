@@ -23,96 +23,122 @@ import java.util.HashMap;
 public class DescribeTargetsRequest extends AbstractModel{
 
     /**
-    * 负载均衡实例 ID
+    * 负载均衡实例 ID。
     */
     @SerializedName("LoadBalancerId")
     @Expose
     private String LoadBalancerId;
 
     /**
-    * 监听器 ID列表
+    * 监听器 ID 列表。ID 数量上限为20个。
     */
     @SerializedName("ListenerIds")
     @Expose
     private String [] ListenerIds;
 
     /**
-    * 监听器协议类型
+    * 监听器协议类型。
     */
     @SerializedName("Protocol")
     @Expose
     private String Protocol;
 
     /**
-    * 监听器端口
+    * 监听器端口。
     */
     @SerializedName("Port")
     @Expose
     private Long Port;
 
     /**
-     * Get 负载均衡实例 ID 
-     * @return LoadBalancerId 负载均衡实例 ID
+     * Get 负载均衡实例 ID。 
+     * @return LoadBalancerId 负载均衡实例 ID。
      */
     public String getLoadBalancerId() {
         return this.LoadBalancerId;
     }
 
     /**
-     * Set 负载均衡实例 ID
-     * @param LoadBalancerId 负载均衡实例 ID
+     * Set 负载均衡实例 ID。
+     * @param LoadBalancerId 负载均衡实例 ID。
      */
     public void setLoadBalancerId(String LoadBalancerId) {
         this.LoadBalancerId = LoadBalancerId;
     }
 
     /**
-     * Get 监听器 ID列表 
-     * @return ListenerIds 监听器 ID列表
+     * Get 监听器 ID 列表。ID 数量上限为20个。 
+     * @return ListenerIds 监听器 ID 列表。ID 数量上限为20个。
      */
     public String [] getListenerIds() {
         return this.ListenerIds;
     }
 
     /**
-     * Set 监听器 ID列表
-     * @param ListenerIds 监听器 ID列表
+     * Set 监听器 ID 列表。ID 数量上限为20个。
+     * @param ListenerIds 监听器 ID 列表。ID 数量上限为20个。
      */
     public void setListenerIds(String [] ListenerIds) {
         this.ListenerIds = ListenerIds;
     }
 
     /**
-     * Get 监听器协议类型 
-     * @return Protocol 监听器协议类型
+     * Get 监听器协议类型。 
+     * @return Protocol 监听器协议类型。
      */
     public String getProtocol() {
         return this.Protocol;
     }
 
     /**
-     * Set 监听器协议类型
-     * @param Protocol 监听器协议类型
+     * Set 监听器协议类型。
+     * @param Protocol 监听器协议类型。
      */
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;
     }
 
     /**
-     * Get 监听器端口 
-     * @return Port 监听器端口
+     * Get 监听器端口。 
+     * @return Port 监听器端口。
      */
     public Long getPort() {
         return this.Port;
     }
 
     /**
-     * Set 监听器端口
-     * @param Port 监听器端口
+     * Set 监听器端口。
+     * @param Port 监听器端口。
      */
     public void setPort(Long Port) {
         this.Port = Port;
     }
+
+    public DescribeTargetsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeTargetsRequest(DescribeTargetsRequest source) {
+        if (source.LoadBalancerId != null) {
+            this.LoadBalancerId = new String(source.LoadBalancerId);
+        }
+        if (source.ListenerIds != null) {
+            this.ListenerIds = new String[source.ListenerIds.length];
+            for (int i = 0; i < source.ListenerIds.length; i++) {
+                this.ListenerIds[i] = new String(source.ListenerIds[i]);
+            }
+        }
+        if (source.Protocol != null) {
+            this.Protocol = new String(source.Protocol);
+        }
+        if (source.Port != null) {
+            this.Port = new Long(source.Port);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

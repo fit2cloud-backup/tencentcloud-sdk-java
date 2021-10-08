@@ -31,7 +31,6 @@ public class MediaTransitionItem extends AbstractModel{
 
     /**
     * 转场操作列表。图像转场操作和音频转场操作各自最多支持一个。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Transitions")
     @Expose
@@ -54,10 +53,8 @@ public class MediaTransitionItem extends AbstractModel{
     }
 
     /**
-     * Get 转场操作列表。图像转场操作和音频转场操作各自最多支持一个。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 转场操作列表。图像转场操作和音频转场操作各自最多支持一个。 
      * @return Transitions 转场操作列表。图像转场操作和音频转场操作各自最多支持一个。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TransitionOpertion [] getTransitions() {
         return this.Transitions;
@@ -65,13 +62,31 @@ public class MediaTransitionItem extends AbstractModel{
 
     /**
      * Set 转场操作列表。图像转场操作和音频转场操作各自最多支持一个。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Transitions 转场操作列表。图像转场操作和音频转场操作各自最多支持一个。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTransitions(TransitionOpertion [] Transitions) {
         this.Transitions = Transitions;
     }
+
+    public MediaTransitionItem() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MediaTransitionItem(MediaTransitionItem source) {
+        if (source.Duration != null) {
+            this.Duration = new Float(source.Duration);
+        }
+        if (source.Transitions != null) {
+            this.Transitions = new TransitionOpertion[source.Transitions.length];
+            for (int i = 0; i < source.Transitions.length; i++) {
+                this.Transitions[i] = new TransitionOpertion(source.Transitions[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

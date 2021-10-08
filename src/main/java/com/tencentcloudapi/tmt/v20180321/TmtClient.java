@@ -27,6 +27,7 @@ import com.tencentcloudapi.tmt.v20180321.models.*;
 
 public class TmtClient extends AbstractClient{
     private static String endpoint = "tmt.tencentcloudapi.com";
+    private static String service = "tmt";
     private static String version = "2018-03-21";
 
     public TmtClient(Credential credential, String region) {
@@ -38,7 +39,7 @@ public class TmtClient extends AbstractClient{
     }
 
     /**
-     *提供中文到英文、英文到中文两种语言的图片翻译服务，可自动识别图片中的文本内容并翻译成目标语言，识别后的文本按行翻译，后续会提供可按段落翻译的版本。<br />
+     *提供13种语言的图片翻译服务，可自动识别图片中的文本内容并翻译成目标语言，识别后的文本按行翻译，后续会提供可按段落翻译的版本。<br />
 提示：对于一般开发者，我们建议优先使用SDK接入简化开发。SDK使用介绍请直接查看 5. 开发者资源 部分。
      * @param req ImageTranslateRequest
      * @return ImageTranslateResponse
@@ -46,12 +47,14 @@ public class TmtClient extends AbstractClient{
      */
     public ImageTranslateResponse ImageTranslate(ImageTranslateRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ImageTranslateResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ImageTranslateResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ImageTranslate"), type);
+                rspStr = this.internalRequest(req, "ImageTranslate");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -65,19 +68,21 @@ public class TmtClient extends AbstractClient{
      */
     public LanguageDetectResponse LanguageDetect(LanguageDetectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<LanguageDetectResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<LanguageDetectResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "LanguageDetect"), type);
+                rspStr = this.internalRequest(req, "LanguageDetect");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
 
     /**
-     *本接口提供音频内文字识别 + 翻译功能，目前开放中英互译的语音翻译服务。
-待识别和翻译的音频文件可以是 pcm、mp3、amr和speex 格式，采样率要求16kHz、位深16bit、单声道，音频内语音清晰。<br/>
+     *本接口提供上传音频，将音频进行语音识别并翻译成文本的服务，目前开放中英互译的语音翻译服务。
+待识别和翻译的音频文件可以是 pcm、mp3和speex 格式，pcm采样率要求16kHz、位深16bit、单声道，音频内语音清晰。<br/>
 如果采用流式传输的方式，要求每个分片时长200ms~500ms；如果采用非流式的传输方式，要求音频时长不超过8s。注意最后一个分片的IsEnd参数设置为1。<br />
 提示：对于一般开发者，我们建议优先使用SDK接入简化开发。SDK使用介绍请直接查看 5. 开发者资源部分。
 
@@ -87,12 +92,14 @@ public class TmtClient extends AbstractClient{
      */
     public SpeechTranslateResponse SpeechTranslate(SpeechTranslateRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SpeechTranslateResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<SpeechTranslateResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "SpeechTranslate"), type);
+                rspStr = this.internalRequest(req, "SpeechTranslate");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -107,12 +114,14 @@ public class TmtClient extends AbstractClient{
      */
     public TextTranslateResponse TextTranslate(TextTranslateRequest req) throws TencentCloudSDKException{
         JsonResponseModel<TextTranslateResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<TextTranslateResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "TextTranslate"), type);
+                rspStr = this.internalRequest(req, "TextTranslate");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -125,12 +134,14 @@ public class TmtClient extends AbstractClient{
      */
     public TextTranslateBatchResponse TextTranslateBatch(TextTranslateBatchRequest req) throws TencentCloudSDKException{
         JsonResponseModel<TextTranslateBatchResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<TextTranslateBatchResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "TextTranslateBatch"), type);
+                rspStr = this.internalRequest(req, "TextTranslateBatch");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

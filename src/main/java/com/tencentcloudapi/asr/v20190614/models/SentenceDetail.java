@@ -71,6 +71,14 @@ public class SentenceDetail extends AbstractModel{
     private SentenceWords [] Words;
 
     /**
+    * 单句语速，单位：字数/秒
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SpeechSpeed")
+    @Expose
+    private Float SpeechSpeed;
+
+    /**
      * Get 单句最终识别结果
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return FinalSentence 单句最终识别结果
@@ -191,6 +199,61 @@ public class SentenceDetail extends AbstractModel{
     }
 
     /**
+     * Get 单句语速，单位：字数/秒
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SpeechSpeed 单句语速，单位：字数/秒
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Float getSpeechSpeed() {
+        return this.SpeechSpeed;
+    }
+
+    /**
+     * Set 单句语速，单位：字数/秒
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SpeechSpeed 单句语速，单位：字数/秒
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSpeechSpeed(Float SpeechSpeed) {
+        this.SpeechSpeed = SpeechSpeed;
+    }
+
+    public SentenceDetail() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SentenceDetail(SentenceDetail source) {
+        if (source.FinalSentence != null) {
+            this.FinalSentence = new String(source.FinalSentence);
+        }
+        if (source.SliceSentence != null) {
+            this.SliceSentence = new String(source.SliceSentence);
+        }
+        if (source.StartMs != null) {
+            this.StartMs = new Long(source.StartMs);
+        }
+        if (source.EndMs != null) {
+            this.EndMs = new Long(source.EndMs);
+        }
+        if (source.WordsNum != null) {
+            this.WordsNum = new Long(source.WordsNum);
+        }
+        if (source.Words != null) {
+            this.Words = new SentenceWords[source.Words.length];
+            for (int i = 0; i < source.Words.length; i++) {
+                this.Words[i] = new SentenceWords(source.Words[i]);
+            }
+        }
+        if (source.SpeechSpeed != null) {
+            this.SpeechSpeed = new Float(source.SpeechSpeed);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -200,6 +263,7 @@ public class SentenceDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "EndMs", this.EndMs);
         this.setParamSimple(map, prefix + "WordsNum", this.WordsNum);
         this.setParamArrayObj(map, prefix + "Words.", this.Words);
+        this.setParamSimple(map, prefix + "SpeechSpeed", this.SpeechSpeed);
 
     }
 }

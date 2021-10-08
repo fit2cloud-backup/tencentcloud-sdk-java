@@ -32,7 +32,7 @@ public class ImageWatermarkInputForUpdate extends AbstractModel{
     /**
     * 水印的宽度。支持 %、px 两种格式：
 <li>当字符串以 % 结尾，表示水印 Width 为视频宽度的百分比大小，如 10% 表示 Width 为视频宽度的 10%；</li>
-<li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。</li>
+<li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。取值范围为[8, 4096]。</li>
     */
     @SerializedName("Width")
     @Expose
@@ -41,12 +41,22 @@ public class ImageWatermarkInputForUpdate extends AbstractModel{
     /**
     * 水印的高度。支持 %、px 两种格式：
 <li>当字符串以 % 结尾，表示水印 Height 为视频高度的百分比大小，如 10% 表示 Height 为视频高度的 10%；</li>
-<li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。</li>
-0px 表示 Height 按照 Width 对视频宽度的比例缩放。
+<li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素。取值范围为0或[8, 4096]。</li>
+默认值：0px，表示 Height 按照原始水印图片的宽高比缩放。
     */
     @SerializedName("Height")
     @Expose
     private String Height;
+
+    /**
+    * 水印重复类型。使用场景：水印为动态图像。取值范围：
+<li>once：动态水印播放完后，不再出现；</li>
+<li>repeat_last_frame：水印播放完后，停留在最后一帧；</li>
+<li>repeat：水印循环播放，直到视频结束。</li>
+    */
+    @SerializedName("RepeatType")
+    @Expose
+    private String RepeatType;
 
     /**
      * Get 水印图片 [Base64](https://tools.ietf.org/html/rfc4648) 编码后的字符串。支持 jpeg、png 图片格式。 
@@ -67,10 +77,10 @@ public class ImageWatermarkInputForUpdate extends AbstractModel{
     /**
      * Get 水印的宽度。支持 %、px 两种格式：
 <li>当字符串以 % 结尾，表示水印 Width 为视频宽度的百分比大小，如 10% 表示 Width 为视频宽度的 10%；</li>
-<li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。</li> 
+<li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。取值范围为[8, 4096]。</li> 
      * @return Width 水印的宽度。支持 %、px 两种格式：
 <li>当字符串以 % 结尾，表示水印 Width 为视频宽度的百分比大小，如 10% 表示 Width 为视频宽度的 10%；</li>
-<li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。</li>
+<li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。取值范围为[8, 4096]。</li>
      */
     public String getWidth() {
         return this.Width;
@@ -79,10 +89,10 @@ public class ImageWatermarkInputForUpdate extends AbstractModel{
     /**
      * Set 水印的宽度。支持 %、px 两种格式：
 <li>当字符串以 % 结尾，表示水印 Width 为视频宽度的百分比大小，如 10% 表示 Width 为视频宽度的 10%；</li>
-<li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。</li>
+<li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。取值范围为[8, 4096]。</li>
      * @param Width 水印的宽度。支持 %、px 两种格式：
 <li>当字符串以 % 结尾，表示水印 Width 为视频宽度的百分比大小，如 10% 表示 Width 为视频宽度的 10%；</li>
-<li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。</li>
+<li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。取值范围为[8, 4096]。</li>
      */
     public void setWidth(String Width) {
         this.Width = Width;
@@ -91,12 +101,12 @@ public class ImageWatermarkInputForUpdate extends AbstractModel{
     /**
      * Get 水印的高度。支持 %、px 两种格式：
 <li>当字符串以 % 结尾，表示水印 Height 为视频高度的百分比大小，如 10% 表示 Height 为视频高度的 10%；</li>
-<li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。</li>
-0px 表示 Height 按照 Width 对视频宽度的比例缩放。 
+<li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素。取值范围为0或[8, 4096]。</li>
+默认值：0px，表示 Height 按照原始水印图片的宽高比缩放。 
      * @return Height 水印的高度。支持 %、px 两种格式：
 <li>当字符串以 % 结尾，表示水印 Height 为视频高度的百分比大小，如 10% 表示 Height 为视频高度的 10%；</li>
-<li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。</li>
-0px 表示 Height 按照 Width 对视频宽度的比例缩放。
+<li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素。取值范围为0或[8, 4096]。</li>
+默认值：0px，表示 Height 按照原始水印图片的宽高比缩放。
      */
     public String getHeight() {
         return this.Height;
@@ -105,16 +115,67 @@ public class ImageWatermarkInputForUpdate extends AbstractModel{
     /**
      * Set 水印的高度。支持 %、px 两种格式：
 <li>当字符串以 % 结尾，表示水印 Height 为视频高度的百分比大小，如 10% 表示 Height 为视频高度的 10%；</li>
-<li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。</li>
-0px 表示 Height 按照 Width 对视频宽度的比例缩放。
+<li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素。取值范围为0或[8, 4096]。</li>
+默认值：0px，表示 Height 按照原始水印图片的宽高比缩放。
      * @param Height 水印的高度。支持 %、px 两种格式：
 <li>当字符串以 % 结尾，表示水印 Height 为视频高度的百分比大小，如 10% 表示 Height 为视频高度的 10%；</li>
-<li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。</li>
-0px 表示 Height 按照 Width 对视频宽度的比例缩放。
+<li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素。取值范围为0或[8, 4096]。</li>
+默认值：0px，表示 Height 按照原始水印图片的宽高比缩放。
      */
     public void setHeight(String Height) {
         this.Height = Height;
     }
+
+    /**
+     * Get 水印重复类型。使用场景：水印为动态图像。取值范围：
+<li>once：动态水印播放完后，不再出现；</li>
+<li>repeat_last_frame：水印播放完后，停留在最后一帧；</li>
+<li>repeat：水印循环播放，直到视频结束。</li> 
+     * @return RepeatType 水印重复类型。使用场景：水印为动态图像。取值范围：
+<li>once：动态水印播放完后，不再出现；</li>
+<li>repeat_last_frame：水印播放完后，停留在最后一帧；</li>
+<li>repeat：水印循环播放，直到视频结束。</li>
+     */
+    public String getRepeatType() {
+        return this.RepeatType;
+    }
+
+    /**
+     * Set 水印重复类型。使用场景：水印为动态图像。取值范围：
+<li>once：动态水印播放完后，不再出现；</li>
+<li>repeat_last_frame：水印播放完后，停留在最后一帧；</li>
+<li>repeat：水印循环播放，直到视频结束。</li>
+     * @param RepeatType 水印重复类型。使用场景：水印为动态图像。取值范围：
+<li>once：动态水印播放完后，不再出现；</li>
+<li>repeat_last_frame：水印播放完后，停留在最后一帧；</li>
+<li>repeat：水印循环播放，直到视频结束。</li>
+     */
+    public void setRepeatType(String RepeatType) {
+        this.RepeatType = RepeatType;
+    }
+
+    public ImageWatermarkInputForUpdate() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ImageWatermarkInputForUpdate(ImageWatermarkInputForUpdate source) {
+        if (source.ImageContent != null) {
+            this.ImageContent = new String(source.ImageContent);
+        }
+        if (source.Width != null) {
+            this.Width = new String(source.Width);
+        }
+        if (source.Height != null) {
+            this.Height = new String(source.Height);
+        }
+        if (source.RepeatType != null) {
+            this.RepeatType = new String(source.RepeatType);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -123,6 +184,7 @@ public class ImageWatermarkInputForUpdate extends AbstractModel{
         this.setParamSimple(map, prefix + "ImageContent", this.ImageContent);
         this.setParamSimple(map, prefix + "Width", this.Width);
         this.setParamSimple(map, prefix + "Height", this.Height);
+        this.setParamSimple(map, prefix + "RepeatType", this.RepeatType);
 
     }
 }

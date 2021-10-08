@@ -51,6 +51,13 @@ public class CreateRedInvoiceItem extends AbstractModel{
     private String RedSerialNo;
 
     /**
+    * 门店编号
+    */
+    @SerializedName("StoreNo")
+    @Expose
+    private String StoreNo;
+
+    /**
      * Get 订单号 
      * @return OrderId 订单号
      */
@@ -115,6 +122,48 @@ public class CreateRedInvoiceItem extends AbstractModel{
     }
 
     /**
+     * Get 门店编号 
+     * @return StoreNo 门店编号
+     */
+    public String getStoreNo() {
+        return this.StoreNo;
+    }
+
+    /**
+     * Set 门店编号
+     * @param StoreNo 门店编号
+     */
+    public void setStoreNo(String StoreNo) {
+        this.StoreNo = StoreNo;
+    }
+
+    public CreateRedInvoiceItem() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateRedInvoiceItem(CreateRedInvoiceItem source) {
+        if (source.OrderId != null) {
+            this.OrderId = new String(source.OrderId);
+        }
+        if (source.CallbackUrl != null) {
+            this.CallbackUrl = new String(source.CallbackUrl);
+        }
+        if (source.OrderSn != null) {
+            this.OrderSn = new String(source.OrderSn);
+        }
+        if (source.RedSerialNo != null) {
+            this.RedSerialNo = new String(source.RedSerialNo);
+        }
+        if (source.StoreNo != null) {
+            this.StoreNo = new String(source.StoreNo);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -122,6 +171,7 @@ public class CreateRedInvoiceItem extends AbstractModel{
         this.setParamSimple(map, prefix + "CallbackUrl", this.CallbackUrl);
         this.setParamSimple(map, prefix + "OrderSn", this.OrderSn);
         this.setParamSimple(map, prefix + "RedSerialNo", this.RedSerialNo);
+        this.setParamSimple(map, prefix + "StoreNo", this.StoreNo);
 
     }
 }

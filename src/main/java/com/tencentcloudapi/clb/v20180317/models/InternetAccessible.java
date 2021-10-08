@@ -24,7 +24,7 @@ public class InternetAccessible extends AbstractModel{
 
     /**
     * TRAFFIC_POSTPAID_BY_HOUR 按流量按小时后计费 ; BANDWIDTH_POSTPAID_BY_HOUR 按带宽按小时后计费;
-BANDWIDTH_PACKAGE 按带宽包计费（当前，只有指定运营商时才支持此种计费模式）
+BANDWIDTH_PACKAGE 按带宽包计费;
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InternetChargeType")
@@ -49,10 +49,10 @@ BANDWIDTH_PACKAGE 按带宽包计费（当前，只有指定运营商时才支�
 
     /**
      * Get TRAFFIC_POSTPAID_BY_HOUR 按流量按小时后计费 ; BANDWIDTH_POSTPAID_BY_HOUR 按带宽按小时后计费;
-BANDWIDTH_PACKAGE 按带宽包计费（当前，只有指定运营商时才支持此种计费模式）
+BANDWIDTH_PACKAGE 按带宽包计费;
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return InternetChargeType TRAFFIC_POSTPAID_BY_HOUR 按流量按小时后计费 ; BANDWIDTH_POSTPAID_BY_HOUR 按带宽按小时后计费;
-BANDWIDTH_PACKAGE 按带宽包计费（当前，只有指定运营商时才支持此种计费模式）
+BANDWIDTH_PACKAGE 按带宽包计费;
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInternetChargeType() {
@@ -61,10 +61,10 @@ BANDWIDTH_PACKAGE 按带宽包计费（当前，只有指定运营商时才支�
 
     /**
      * Set TRAFFIC_POSTPAID_BY_HOUR 按流量按小时后计费 ; BANDWIDTH_POSTPAID_BY_HOUR 按带宽按小时后计费;
-BANDWIDTH_PACKAGE 按带宽包计费（当前，只有指定运营商时才支持此种计费模式）
+BANDWIDTH_PACKAGE 按带宽包计费;
 注意：此字段可能返回 null，表示取不到有效值。
      * @param InternetChargeType TRAFFIC_POSTPAID_BY_HOUR 按流量按小时后计费 ; BANDWIDTH_POSTPAID_BY_HOUR 按带宽按小时后计费;
-BANDWIDTH_PACKAGE 按带宽包计费（当前，只有指定运营商时才支持此种计费模式）
+BANDWIDTH_PACKAGE 按带宽包计费;
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInternetChargeType(String InternetChargeType) {
@@ -110,6 +110,26 @@ BANDWIDTH_PACKAGE 按带宽包计费（当前，只有指定运营商时才支�
     public void setBandwidthpkgSubType(String BandwidthpkgSubType) {
         this.BandwidthpkgSubType = BandwidthpkgSubType;
     }
+
+    public InternetAccessible() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public InternetAccessible(InternetAccessible source) {
+        if (source.InternetChargeType != null) {
+            this.InternetChargeType = new String(source.InternetChargeType);
+        }
+        if (source.InternetMaxBandwidthOut != null) {
+            this.InternetMaxBandwidthOut = new Long(source.InternetMaxBandwidthOut);
+        }
+        if (source.BandwidthpkgSubType != null) {
+            this.BandwidthpkgSubType = new String(source.BandwidthpkgSubType);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

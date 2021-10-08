@@ -23,13 +23,6 @@ import java.util.HashMap;
 public class CmqRegionInfo extends AbstractModel{
 
     /**
-    * cmq地域
-    */
-    @SerializedName("CmqRegion")
-    @Expose
-    private String CmqRegion;
-
-    /**
     * 地域描述
     */
     @SerializedName("CmqRegionName")
@@ -37,20 +30,11 @@ public class CmqRegionInfo extends AbstractModel{
     private String CmqRegionName;
 
     /**
-     * Get cmq地域 
-     * @return CmqRegion cmq地域
-     */
-    public String getCmqRegion() {
-        return this.CmqRegion;
-    }
-
-    /**
-     * Set cmq地域
-     * @param CmqRegion cmq地域
-     */
-    public void setCmqRegion(String CmqRegion) {
-        this.CmqRegion = CmqRegion;
-    }
+    * cmq地域
+    */
+    @SerializedName("CmqRegion")
+    @Expose
+    private String CmqRegion;
 
     /**
      * Get 地域描述 
@@ -69,11 +53,44 @@ public class CmqRegionInfo extends AbstractModel{
     }
 
     /**
+     * Get cmq地域 
+     * @return CmqRegion cmq地域
+     */
+    public String getCmqRegion() {
+        return this.CmqRegion;
+    }
+
+    /**
+     * Set cmq地域
+     * @param CmqRegion cmq地域
+     */
+    public void setCmqRegion(String CmqRegion) {
+        this.CmqRegion = CmqRegion;
+    }
+
+    public CmqRegionInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CmqRegionInfo(CmqRegionInfo source) {
+        if (source.CmqRegionName != null) {
+            this.CmqRegionName = new String(source.CmqRegionName);
+        }
+        if (source.CmqRegion != null) {
+            this.CmqRegion = new String(source.CmqRegion);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "CmqRegion", this.CmqRegion);
         this.setParamSimple(map, prefix + "CmqRegionName", this.CmqRegionName);
+        this.setParamSimple(map, prefix + "CmqRegion", this.CmqRegion);
 
     }
 }

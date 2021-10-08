@@ -37,6 +37,13 @@ public class ModifyDisksChargeTypeRequest extends AbstractModel{
     private DiskChargePrepaid DiskChargePrepaid;
 
     /**
+    * 后付费模式
+    */
+    @SerializedName("DiskChargePostpaid")
+    @Expose
+    private Boolean DiskChargePostpaid;
+
+    /**
      * Get 一个或多个待操作的云硬盘ID。每次请求批量云盘上限为100。 
      * @return DiskIds 一个或多个待操作的云硬盘ID。每次请求批量云盘上限为100。
      */
@@ -69,11 +76,51 @@ public class ModifyDisksChargeTypeRequest extends AbstractModel{
     }
 
     /**
+     * Get 后付费模式 
+     * @return DiskChargePostpaid 后付费模式
+     */
+    public Boolean getDiskChargePostpaid() {
+        return this.DiskChargePostpaid;
+    }
+
+    /**
+     * Set 后付费模式
+     * @param DiskChargePostpaid 后付费模式
+     */
+    public void setDiskChargePostpaid(Boolean DiskChargePostpaid) {
+        this.DiskChargePostpaid = DiskChargePostpaid;
+    }
+
+    public ModifyDisksChargeTypeRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyDisksChargeTypeRequest(ModifyDisksChargeTypeRequest source) {
+        if (source.DiskIds != null) {
+            this.DiskIds = new String[source.DiskIds.length];
+            for (int i = 0; i < source.DiskIds.length; i++) {
+                this.DiskIds[i] = new String(source.DiskIds[i]);
+            }
+        }
+        if (source.DiskChargePrepaid != null) {
+            this.DiskChargePrepaid = new DiskChargePrepaid(source.DiskChargePrepaid);
+        }
+        if (source.DiskChargePostpaid != null) {
+            this.DiskChargePostpaid = new Boolean(source.DiskChargePostpaid);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "DiskIds.", this.DiskIds);
         this.setParamObj(map, prefix + "DiskChargePrepaid.", this.DiskChargePrepaid);
+        this.setParamSimple(map, prefix + "DiskChargePostpaid", this.DiskChargePostpaid);
 
     }
 }

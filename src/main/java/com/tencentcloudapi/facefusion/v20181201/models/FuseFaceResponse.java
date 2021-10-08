@@ -30,7 +30,7 @@ public class FuseFaceResponse extends AbstractModel{
     private String FusedImage;
 
     /**
-    * 鉴政结果。该数组的顺序和请求中mergeinfo的顺序一致，一一对应
+    * 不适宜内容识别结果。该数组的顺序和请求中mergeinfo的顺序一致，一一对应
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReviewResultSet")
@@ -61,9 +61,9 @@ public class FuseFaceResponse extends AbstractModel{
     }
 
     /**
-     * Get 鉴政结果。该数组的顺序和请求中mergeinfo的顺序一致，一一对应
+     * Get 不适宜内容识别结果。该数组的顺序和请求中mergeinfo的顺序一致，一一对应
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ReviewResultSet 鉴政结果。该数组的顺序和请求中mergeinfo的顺序一致，一一对应
+     * @return ReviewResultSet 不适宜内容识别结果。该数组的顺序和请求中mergeinfo的顺序一致，一一对应
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public FuseFaceReviewResult [] getReviewResultSet() {
@@ -71,9 +71,9 @@ public class FuseFaceResponse extends AbstractModel{
     }
 
     /**
-     * Set 鉴政结果。该数组的顺序和请求中mergeinfo的顺序一致，一一对应
+     * Set 不适宜内容识别结果。该数组的顺序和请求中mergeinfo的顺序一致，一一对应
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ReviewResultSet 鉴政结果。该数组的顺序和请求中mergeinfo的顺序一致，一一对应
+     * @param ReviewResultSet 不适宜内容识别结果。该数组的顺序和请求中mergeinfo的顺序一致，一一对应
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReviewResultSet(FuseFaceReviewResult [] ReviewResultSet) {
@@ -95,6 +95,29 @@ public class FuseFaceResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public FuseFaceResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public FuseFaceResponse(FuseFaceResponse source) {
+        if (source.FusedImage != null) {
+            this.FusedImage = new String(source.FusedImage);
+        }
+        if (source.ReviewResultSet != null) {
+            this.ReviewResultSet = new FuseFaceReviewResult[source.ReviewResultSet.length];
+            for (int i = 0; i < source.ReviewResultSet.length; i++) {
+                this.ReviewResultSet[i] = new FuseFaceReviewResult(source.ReviewResultSet[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

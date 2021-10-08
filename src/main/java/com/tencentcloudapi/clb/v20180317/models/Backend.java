@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class Backend extends AbstractModel{
 
     /**
-    * 后端服务的类型，可取：CVM、ENI（即将支持）
+    * 后端服务的类型，可取：CVM、ENI
     */
     @SerializedName("Type")
     @Expose
@@ -91,16 +91,16 @@ public class Backend extends AbstractModel{
     private String EniId;
 
     /**
-     * Get 后端服务的类型，可取：CVM、ENI（即将支持） 
-     * @return Type 后端服务的类型，可取：CVM、ENI（即将支持）
+     * Get 后端服务的类型，可取：CVM、ENI 
+     * @return Type 后端服务的类型，可取：CVM、ENI
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set 后端服务的类型，可取：CVM、ENI（即将支持）
-     * @param Type 后端服务的类型，可取：CVM、ENI（即将支持）
+     * Set 后端服务的类型，可取：CVM、ENI
+     * @param Type 后端服务的类型，可取：CVM、ENI
      */
     public void setType(String Type) {
         this.Type = Type;
@@ -253,6 +253,50 @@ public class Backend extends AbstractModel{
     public void setEniId(String EniId) {
         this.EniId = EniId;
     }
+
+    public Backend() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Backend(Backend source) {
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.Port != null) {
+            this.Port = new Long(source.Port);
+        }
+        if (source.Weight != null) {
+            this.Weight = new Long(source.Weight);
+        }
+        if (source.PublicIpAddresses != null) {
+            this.PublicIpAddresses = new String[source.PublicIpAddresses.length];
+            for (int i = 0; i < source.PublicIpAddresses.length; i++) {
+                this.PublicIpAddresses[i] = new String(source.PublicIpAddresses[i]);
+            }
+        }
+        if (source.PrivateIpAddresses != null) {
+            this.PrivateIpAddresses = new String[source.PrivateIpAddresses.length];
+            for (int i = 0; i < source.PrivateIpAddresses.length; i++) {
+                this.PrivateIpAddresses[i] = new String(source.PrivateIpAddresses[i]);
+            }
+        }
+        if (source.InstanceName != null) {
+            this.InstanceName = new String(source.InstanceName);
+        }
+        if (source.RegisteredTime != null) {
+            this.RegisteredTime = new String(source.RegisteredTime);
+        }
+        if (source.EniId != null) {
+            this.EniId = new String(source.EniId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

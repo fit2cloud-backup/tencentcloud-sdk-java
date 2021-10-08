@@ -31,7 +31,6 @@ public class MediaSnapshotByTimeOffsetItem extends AbstractModel{
 
     /**
     * 同一规格的截图信息集合，每个元素代表一张截图。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PicInfoSet")
     @Expose
@@ -54,10 +53,8 @@ public class MediaSnapshotByTimeOffsetItem extends AbstractModel{
     }
 
     /**
-     * Get 同一规格的截图信息集合，每个元素代表一张截图。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 同一规格的截图信息集合，每个元素代表一张截图。 
      * @return PicInfoSet 同一规格的截图信息集合，每个元素代表一张截图。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MediaSnapshotByTimePicInfoItem [] getPicInfoSet() {
         return this.PicInfoSet;
@@ -65,13 +62,31 @@ public class MediaSnapshotByTimeOffsetItem extends AbstractModel{
 
     /**
      * Set 同一规格的截图信息集合，每个元素代表一张截图。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PicInfoSet 同一规格的截图信息集合，每个元素代表一张截图。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPicInfoSet(MediaSnapshotByTimePicInfoItem [] PicInfoSet) {
         this.PicInfoSet = PicInfoSet;
     }
+
+    public MediaSnapshotByTimeOffsetItem() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MediaSnapshotByTimeOffsetItem(MediaSnapshotByTimeOffsetItem source) {
+        if (source.Definition != null) {
+            this.Definition = new Long(source.Definition);
+        }
+        if (source.PicInfoSet != null) {
+            this.PicInfoSet = new MediaSnapshotByTimePicInfoItem[source.PicInfoSet.length];
+            for (int i = 0; i < source.PicInfoSet.length; i++) {
+                this.PicInfoSet[i] = new MediaSnapshotByTimePicInfoItem(source.PicInfoSet[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

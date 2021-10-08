@@ -30,7 +30,7 @@ public class DeleteLiveCallbackRuleRequest extends AbstractModel{
     private String DomainName;
 
     /**
-    * 推流路径，与推流和播放地址中的AppName保持一致，默认为live。
+    * 推流路径，与推流和播放地址中的 AppName 保持一致，默认为 live。
     */
     @SerializedName("AppName")
     @Expose
@@ -53,20 +53,37 @@ public class DeleteLiveCallbackRuleRequest extends AbstractModel{
     }
 
     /**
-     * Get 推流路径，与推流和播放地址中的AppName保持一致，默认为live。 
-     * @return AppName 推流路径，与推流和播放地址中的AppName保持一致，默认为live。
+     * Get 推流路径，与推流和播放地址中的 AppName 保持一致，默认为 live。 
+     * @return AppName 推流路径，与推流和播放地址中的 AppName 保持一致，默认为 live。
      */
     public String getAppName() {
         return this.AppName;
     }
 
     /**
-     * Set 推流路径，与推流和播放地址中的AppName保持一致，默认为live。
-     * @param AppName 推流路径，与推流和播放地址中的AppName保持一致，默认为live。
+     * Set 推流路径，与推流和播放地址中的 AppName 保持一致，默认为 live。
+     * @param AppName 推流路径，与推流和播放地址中的 AppName 保持一致，默认为 live。
      */
     public void setAppName(String AppName) {
         this.AppName = AppName;
     }
+
+    public DeleteLiveCallbackRuleRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeleteLiveCallbackRuleRequest(DeleteLiveCallbackRuleRequest source) {
+        if (source.DomainName != null) {
+            this.DomainName = new String(source.DomainName);
+        }
+        if (source.AppName != null) {
+            this.AppName = new String(source.AppName);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

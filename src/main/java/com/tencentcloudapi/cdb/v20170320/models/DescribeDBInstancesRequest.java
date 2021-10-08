@@ -86,7 +86,7 @@ public class DescribeDBInstancesRequest extends AbstractModel{
     private String [] InstanceNames;
 
     /**
-    * 实例任务状态，可能取值：<br>0 - 没有任务<br>1 - 升级中<br>2 - 数据导入中<br>3 - 开放Slave中<br>4 - 外网访问开通中<br>5 - 批量操作执行中<br>6 - 回档中<br>7 - 外网访问关闭中<br>8 - 密码修改中<br>9 - 实例名修改中<br>10 - 重启中<br>12 - 自建迁移中<br>13 - 删除库表中<br>14 - 灾备实例创建同步中<br>15 - 升级待切换<br>16 - 升级切换中<br>17 - 升级切换完成
+    * 实例任务状态，可能取值：<br>0 - 没有任务<br>1 - 升级中<br>2 - 数据导入中<br>3 - 开放Slave中<br>4 - 外网访问开通中<br>5 - 批量操作执行中<br>6 - 回档中<br>7 - 外网访问关闭中<br>8 - 密码修改中<br>9 - 实例名修改中<br>10 - 重启中<br>12 - 自建迁移中<br>13 - 删除库表中<br>14 - 灾备实例创建同步中<br>15 - 升级待切换<br>16 - 升级切换中<br>17 - 升级切换完成<br>19 - 参数设置待执行
     */
     @SerializedName("TaskStatus")
     @Expose
@@ -203,6 +203,20 @@ public class DescribeDBInstancesRequest extends AbstractModel{
     @SerializedName("DeployGroupIds")
     @Expose
     private String [] DeployGroupIds;
+
+    /**
+    * 是否以标签键为过滤条件。
+    */
+    @SerializedName("TagKeysForSearch")
+    @Expose
+    private String [] TagKeysForSearch;
+
+    /**
+    * 金融围拢 ID 。
+    */
+    @SerializedName("CageIds")
+    @Expose
+    private String [] CageIds;
 
     /**
      * Get 项目 ID，可使用 [查询项目列表](https://cloud.tencent.com/document/product/378/4400) 接口查询项目 ID。 
@@ -349,16 +363,16 @@ public class DescribeDBInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 实例任务状态，可能取值：<br>0 - 没有任务<br>1 - 升级中<br>2 - 数据导入中<br>3 - 开放Slave中<br>4 - 外网访问开通中<br>5 - 批量操作执行中<br>6 - 回档中<br>7 - 外网访问关闭中<br>8 - 密码修改中<br>9 - 实例名修改中<br>10 - 重启中<br>12 - 自建迁移中<br>13 - 删除库表中<br>14 - 灾备实例创建同步中<br>15 - 升级待切换<br>16 - 升级切换中<br>17 - 升级切换完成 
-     * @return TaskStatus 实例任务状态，可能取值：<br>0 - 没有任务<br>1 - 升级中<br>2 - 数据导入中<br>3 - 开放Slave中<br>4 - 外网访问开通中<br>5 - 批量操作执行中<br>6 - 回档中<br>7 - 外网访问关闭中<br>8 - 密码修改中<br>9 - 实例名修改中<br>10 - 重启中<br>12 - 自建迁移中<br>13 - 删除库表中<br>14 - 灾备实例创建同步中<br>15 - 升级待切换<br>16 - 升级切换中<br>17 - 升级切换完成
+     * Get 实例任务状态，可能取值：<br>0 - 没有任务<br>1 - 升级中<br>2 - 数据导入中<br>3 - 开放Slave中<br>4 - 外网访问开通中<br>5 - 批量操作执行中<br>6 - 回档中<br>7 - 外网访问关闭中<br>8 - 密码修改中<br>9 - 实例名修改中<br>10 - 重启中<br>12 - 自建迁移中<br>13 - 删除库表中<br>14 - 灾备实例创建同步中<br>15 - 升级待切换<br>16 - 升级切换中<br>17 - 升级切换完成<br>19 - 参数设置待执行 
+     * @return TaskStatus 实例任务状态，可能取值：<br>0 - 没有任务<br>1 - 升级中<br>2 - 数据导入中<br>3 - 开放Slave中<br>4 - 外网访问开通中<br>5 - 批量操作执行中<br>6 - 回档中<br>7 - 外网访问关闭中<br>8 - 密码修改中<br>9 - 实例名修改中<br>10 - 重启中<br>12 - 自建迁移中<br>13 - 删除库表中<br>14 - 灾备实例创建同步中<br>15 - 升级待切换<br>16 - 升级切换中<br>17 - 升级切换完成<br>19 - 参数设置待执行
      */
     public Long [] getTaskStatus() {
         return this.TaskStatus;
     }
 
     /**
-     * Set 实例任务状态，可能取值：<br>0 - 没有任务<br>1 - 升级中<br>2 - 数据导入中<br>3 - 开放Slave中<br>4 - 外网访问开通中<br>5 - 批量操作执行中<br>6 - 回档中<br>7 - 外网访问关闭中<br>8 - 密码修改中<br>9 - 实例名修改中<br>10 - 重启中<br>12 - 自建迁移中<br>13 - 删除库表中<br>14 - 灾备实例创建同步中<br>15 - 升级待切换<br>16 - 升级切换中<br>17 - 升级切换完成
-     * @param TaskStatus 实例任务状态，可能取值：<br>0 - 没有任务<br>1 - 升级中<br>2 - 数据导入中<br>3 - 开放Slave中<br>4 - 外网访问开通中<br>5 - 批量操作执行中<br>6 - 回档中<br>7 - 外网访问关闭中<br>8 - 密码修改中<br>9 - 实例名修改中<br>10 - 重启中<br>12 - 自建迁移中<br>13 - 删除库表中<br>14 - 灾备实例创建同步中<br>15 - 升级待切换<br>16 - 升级切换中<br>17 - 升级切换完成
+     * Set 实例任务状态，可能取值：<br>0 - 没有任务<br>1 - 升级中<br>2 - 数据导入中<br>3 - 开放Slave中<br>4 - 外网访问开通中<br>5 - 批量操作执行中<br>6 - 回档中<br>7 - 外网访问关闭中<br>8 - 密码修改中<br>9 - 实例名修改中<br>10 - 重启中<br>12 - 自建迁移中<br>13 - 删除库表中<br>14 - 灾备实例创建同步中<br>15 - 升级待切换<br>16 - 升级切换中<br>17 - 升级切换完成<br>19 - 参数设置待执行
+     * @param TaskStatus 实例任务状态，可能取值：<br>0 - 没有任务<br>1 - 升级中<br>2 - 数据导入中<br>3 - 开放Slave中<br>4 - 外网访问开通中<br>5 - 批量操作执行中<br>6 - 回档中<br>7 - 外网访问关闭中<br>8 - 密码修改中<br>9 - 实例名修改中<br>10 - 重启中<br>12 - 自建迁移中<br>13 - 删除库表中<br>14 - 灾备实例创建同步中<br>15 - 升级待切换<br>16 - 升级切换中<br>17 - 升级切换完成<br>19 - 参数设置待执行
      */
     public void setTaskStatus(Long [] TaskStatus) {
         this.TaskStatus = TaskStatus;
@@ -621,6 +635,178 @@ public class DescribeDBInstancesRequest extends AbstractModel{
     }
 
     /**
+     * Get 是否以标签键为过滤条件。 
+     * @return TagKeysForSearch 是否以标签键为过滤条件。
+     */
+    public String [] getTagKeysForSearch() {
+        return this.TagKeysForSearch;
+    }
+
+    /**
+     * Set 是否以标签键为过滤条件。
+     * @param TagKeysForSearch 是否以标签键为过滤条件。
+     */
+    public void setTagKeysForSearch(String [] TagKeysForSearch) {
+        this.TagKeysForSearch = TagKeysForSearch;
+    }
+
+    /**
+     * Get 金融围拢 ID 。 
+     * @return CageIds 金融围拢 ID 。
+     */
+    public String [] getCageIds() {
+        return this.CageIds;
+    }
+
+    /**
+     * Set 金融围拢 ID 。
+     * @param CageIds 金融围拢 ID 。
+     */
+    public void setCageIds(String [] CageIds) {
+        this.CageIds = CageIds;
+    }
+
+    public DescribeDBInstancesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeDBInstancesRequest(DescribeDBInstancesRequest source) {
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.InstanceTypes != null) {
+            this.InstanceTypes = new Long[source.InstanceTypes.length];
+            for (int i = 0; i < source.InstanceTypes.length; i++) {
+                this.InstanceTypes[i] = new Long(source.InstanceTypes[i]);
+            }
+        }
+        if (source.Vips != null) {
+            this.Vips = new String[source.Vips.length];
+            for (int i = 0; i < source.Vips.length; i++) {
+                this.Vips[i] = new String(source.Vips[i]);
+            }
+        }
+        if (source.Status != null) {
+            this.Status = new Long[source.Status.length];
+            for (int i = 0; i < source.Status.length; i++) {
+                this.Status[i] = new Long(source.Status[i]);
+            }
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.SecurityGroupId != null) {
+            this.SecurityGroupId = new String(source.SecurityGroupId);
+        }
+        if (source.PayTypes != null) {
+            this.PayTypes = new Long[source.PayTypes.length];
+            for (int i = 0; i < source.PayTypes.length; i++) {
+                this.PayTypes[i] = new Long(source.PayTypes[i]);
+            }
+        }
+        if (source.InstanceNames != null) {
+            this.InstanceNames = new String[source.InstanceNames.length];
+            for (int i = 0; i < source.InstanceNames.length; i++) {
+                this.InstanceNames[i] = new String(source.InstanceNames[i]);
+            }
+        }
+        if (source.TaskStatus != null) {
+            this.TaskStatus = new Long[source.TaskStatus.length];
+            for (int i = 0; i < source.TaskStatus.length; i++) {
+                this.TaskStatus[i] = new Long(source.TaskStatus[i]);
+            }
+        }
+        if (source.EngineVersions != null) {
+            this.EngineVersions = new String[source.EngineVersions.length];
+            for (int i = 0; i < source.EngineVersions.length; i++) {
+                this.EngineVersions[i] = new String(source.EngineVersions[i]);
+            }
+        }
+        if (source.VpcIds != null) {
+            this.VpcIds = new Long[source.VpcIds.length];
+            for (int i = 0; i < source.VpcIds.length; i++) {
+                this.VpcIds[i] = new Long(source.VpcIds[i]);
+            }
+        }
+        if (source.ZoneIds != null) {
+            this.ZoneIds = new Long[source.ZoneIds.length];
+            for (int i = 0; i < source.ZoneIds.length; i++) {
+                this.ZoneIds[i] = new Long(source.ZoneIds[i]);
+            }
+        }
+        if (source.SubnetIds != null) {
+            this.SubnetIds = new Long[source.SubnetIds.length];
+            for (int i = 0; i < source.SubnetIds.length; i++) {
+                this.SubnetIds[i] = new Long(source.SubnetIds[i]);
+            }
+        }
+        if (source.CdbErrors != null) {
+            this.CdbErrors = new Long[source.CdbErrors.length];
+            for (int i = 0; i < source.CdbErrors.length; i++) {
+                this.CdbErrors[i] = new Long(source.CdbErrors[i]);
+            }
+        }
+        if (source.OrderBy != null) {
+            this.OrderBy = new String(source.OrderBy);
+        }
+        if (source.OrderDirection != null) {
+            this.OrderDirection = new String(source.OrderDirection);
+        }
+        if (source.WithSecurityGroup != null) {
+            this.WithSecurityGroup = new Long(source.WithSecurityGroup);
+        }
+        if (source.WithExCluster != null) {
+            this.WithExCluster = new Long(source.WithExCluster);
+        }
+        if (source.ExClusterId != null) {
+            this.ExClusterId = new String(source.ExClusterId);
+        }
+        if (source.InstanceIds != null) {
+            this.InstanceIds = new String[source.InstanceIds.length];
+            for (int i = 0; i < source.InstanceIds.length; i++) {
+                this.InstanceIds[i] = new String(source.InstanceIds[i]);
+            }
+        }
+        if (source.InitFlag != null) {
+            this.InitFlag = new Long(source.InitFlag);
+        }
+        if (source.WithDr != null) {
+            this.WithDr = new Long(source.WithDr);
+        }
+        if (source.WithRo != null) {
+            this.WithRo = new Long(source.WithRo);
+        }
+        if (source.WithMaster != null) {
+            this.WithMaster = new Long(source.WithMaster);
+        }
+        if (source.DeployGroupIds != null) {
+            this.DeployGroupIds = new String[source.DeployGroupIds.length];
+            for (int i = 0; i < source.DeployGroupIds.length; i++) {
+                this.DeployGroupIds[i] = new String(source.DeployGroupIds[i]);
+            }
+        }
+        if (source.TagKeysForSearch != null) {
+            this.TagKeysForSearch = new String[source.TagKeysForSearch.length];
+            for (int i = 0; i < source.TagKeysForSearch.length; i++) {
+                this.TagKeysForSearch[i] = new String(source.TagKeysForSearch[i]);
+            }
+        }
+        if (source.CageIds != null) {
+            this.CageIds = new String[source.CageIds.length];
+            for (int i = 0; i < source.CageIds.length; i++) {
+                this.CageIds[i] = new String(source.CageIds[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -650,6 +836,8 @@ public class DescribeDBInstancesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "WithRo", this.WithRo);
         this.setParamSimple(map, prefix + "WithMaster", this.WithMaster);
         this.setParamArraySimple(map, prefix + "DeployGroupIds.", this.DeployGroupIds);
+        this.setParamArraySimple(map, prefix + "TagKeysForSearch.", this.TagKeysForSearch);
+        this.setParamArraySimple(map, prefix + "CageIds.", this.CageIds);
 
     }
 }

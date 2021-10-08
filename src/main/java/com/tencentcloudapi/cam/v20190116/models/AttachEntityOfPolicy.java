@@ -53,6 +53,14 @@ public class AttachEntityOfPolicy extends AbstractModel{
     private Long RelatedType;
 
     /**
+    * 策略关联时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AttachmentTime")
+    @Expose
+    private String AttachmentTime;
+
+    /**
      * Get 实体ID 
      * @return Id 实体ID
      */
@@ -125,6 +133,52 @@ public class AttachEntityOfPolicy extends AbstractModel{
     }
 
     /**
+     * Get 策略关联时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AttachmentTime 策略关联时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAttachmentTime() {
+        return this.AttachmentTime;
+    }
+
+    /**
+     * Set 策略关联时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AttachmentTime 策略关联时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAttachmentTime(String AttachmentTime) {
+        this.AttachmentTime = AttachmentTime;
+    }
+
+    public AttachEntityOfPolicy() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AttachEntityOfPolicy(AttachEntityOfPolicy source) {
+        if (source.Id != null) {
+            this.Id = new String(source.Id);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Uin != null) {
+            this.Uin = new Long(source.Uin);
+        }
+        if (source.RelatedType != null) {
+            this.RelatedType = new Long(source.RelatedType);
+        }
+        if (source.AttachmentTime != null) {
+            this.AttachmentTime = new String(source.AttachmentTime);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -132,6 +186,7 @@ public class AttachEntityOfPolicy extends AbstractModel{
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Uin", this.Uin);
         this.setParamSimple(map, prefix + "RelatedType", this.RelatedType);
+        this.setParamSimple(map, prefix + "AttachmentTime", this.AttachmentTime);
 
     }
 }

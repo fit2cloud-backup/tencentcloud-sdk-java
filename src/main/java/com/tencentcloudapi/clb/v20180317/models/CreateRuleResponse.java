@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class CreateRuleResponse extends AbstractModel{
 
     /**
-    * 创建的转发规则的唯一标识数组
+    * 创建的转发规则的唯一标识数组。
     */
     @SerializedName("LocationIds")
     @Expose
@@ -37,16 +37,16 @@ public class CreateRuleResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 创建的转发规则的唯一标识数组 
-     * @return LocationIds 创建的转发规则的唯一标识数组
+     * Get 创建的转发规则的唯一标识数组。 
+     * @return LocationIds 创建的转发规则的唯一标识数组。
      */
     public String [] getLocationIds() {
         return this.LocationIds;
     }
 
     /**
-     * Set 创建的转发规则的唯一标识数组
-     * @param LocationIds 创建的转发规则的唯一标识数组
+     * Set 创建的转发规则的唯一标识数组。
+     * @param LocationIds 创建的转发规则的唯一标识数组。
      */
     public void setLocationIds(String [] LocationIds) {
         this.LocationIds = LocationIds;
@@ -67,6 +67,26 @@ public class CreateRuleResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public CreateRuleResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateRuleResponse(CreateRuleResponse source) {
+        if (source.LocationIds != null) {
+            this.LocationIds = new String[source.LocationIds.length];
+            for (int i = 0; i < source.LocationIds.length; i++) {
+                this.LocationIds[i] = new String(source.LocationIds[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

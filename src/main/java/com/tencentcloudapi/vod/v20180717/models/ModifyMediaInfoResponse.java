@@ -25,11 +25,17 @@ public class ModifyMediaInfoResponse extends AbstractModel{
     /**
     * 新的视频封面 URL。
 * 注意：仅当请求携带 CoverData 时此返回值有效。 *
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CoverUrl")
     @Expose
     private String CoverUrl;
+
+    /**
+    * 新增的字幕信息。
+    */
+    @SerializedName("AddedSubtitleSet")
+    @Expose
+    private MediaSubtitleItem [] AddedSubtitleSet;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -40,11 +46,9 @@ public class ModifyMediaInfoResponse extends AbstractModel{
 
     /**
      * Get 新的视频封面 URL。
-* 注意：仅当请求携带 CoverData 时此返回值有效。 *
-注意：此字段可能返回 null，表示取不到有效值。 
+* 注意：仅当请求携带 CoverData 时此返回值有效。 * 
      * @return CoverUrl 新的视频封面 URL。
 * 注意：仅当请求携带 CoverData 时此返回值有效。 *
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCoverUrl() {
         return this.CoverUrl;
@@ -53,13 +57,27 @@ public class ModifyMediaInfoResponse extends AbstractModel{
     /**
      * Set 新的视频封面 URL。
 * 注意：仅当请求携带 CoverData 时此返回值有效。 *
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CoverUrl 新的视频封面 URL。
 * 注意：仅当请求携带 CoverData 时此返回值有效。 *
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCoverUrl(String CoverUrl) {
         this.CoverUrl = CoverUrl;
+    }
+
+    /**
+     * Get 新增的字幕信息。 
+     * @return AddedSubtitleSet 新增的字幕信息。
+     */
+    public MediaSubtitleItem [] getAddedSubtitleSet() {
+        return this.AddedSubtitleSet;
+    }
+
+    /**
+     * Set 新增的字幕信息。
+     * @param AddedSubtitleSet 新增的字幕信息。
+     */
+    public void setAddedSubtitleSet(MediaSubtitleItem [] AddedSubtitleSet) {
+        this.AddedSubtitleSet = AddedSubtitleSet;
     }
 
     /**
@@ -78,11 +96,35 @@ public class ModifyMediaInfoResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public ModifyMediaInfoResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyMediaInfoResponse(ModifyMediaInfoResponse source) {
+        if (source.CoverUrl != null) {
+            this.CoverUrl = new String(source.CoverUrl);
+        }
+        if (source.AddedSubtitleSet != null) {
+            this.AddedSubtitleSet = new MediaSubtitleItem[source.AddedSubtitleSet.length];
+            for (int i = 0; i < source.AddedSubtitleSet.length; i++) {
+                this.AddedSubtitleSet[i] = new MediaSubtitleItem(source.AddedSubtitleSet[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "CoverUrl", this.CoverUrl);
+        this.setParamArrayObj(map, prefix + "AddedSubtitleSet.", this.AddedSubtitleSet);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

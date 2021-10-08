@@ -24,21 +24,25 @@ public class LookupAttribute extends AbstractModel{
 
     /**
     * AttributeKey的有效取值范围是:RequestId、EventName、ReadOnly、Username、ResourceType、ResourceName和AccessKeyId，EventId
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AttributeKey")
     @Expose
     private String AttributeKey;
 
     /**
-    * AttributeValue
+    * AttributeValue的值
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AttributeValue")
     @Expose
     private String AttributeValue;
 
     /**
-     * Get AttributeKey的有效取值范围是:RequestId、EventName、ReadOnly、Username、ResourceType、ResourceName和AccessKeyId，EventId 
+     * Get AttributeKey的有效取值范围是:RequestId、EventName、ReadOnly、Username、ResourceType、ResourceName和AccessKeyId，EventId
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return AttributeKey AttributeKey的有效取值范围是:RequestId、EventName、ReadOnly、Username、ResourceType、ResourceName和AccessKeyId，EventId
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAttributeKey() {
         return this.AttributeKey;
@@ -46,27 +50,50 @@ public class LookupAttribute extends AbstractModel{
 
     /**
      * Set AttributeKey的有效取值范围是:RequestId、EventName、ReadOnly、Username、ResourceType、ResourceName和AccessKeyId，EventId
+注意：此字段可能返回 null，表示取不到有效值。
      * @param AttributeKey AttributeKey的有效取值范围是:RequestId、EventName、ReadOnly、Username、ResourceType、ResourceName和AccessKeyId，EventId
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAttributeKey(String AttributeKey) {
         this.AttributeKey = AttributeKey;
     }
 
     /**
-     * Get AttributeValue 
-     * @return AttributeValue AttributeValue
+     * Get AttributeValue的值
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AttributeValue AttributeValue的值
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAttributeValue() {
         return this.AttributeValue;
     }
 
     /**
-     * Set AttributeValue
-     * @param AttributeValue AttributeValue
+     * Set AttributeValue的值
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AttributeValue AttributeValue的值
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAttributeValue(String AttributeValue) {
         this.AttributeValue = AttributeValue;
     }
+
+    public LookupAttribute() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public LookupAttribute(LookupAttribute source) {
+        if (source.AttributeKey != null) {
+            this.AttributeKey = new String(source.AttributeKey);
+        }
+        if (source.AttributeValue != null) {
+            this.AttributeValue = new String(source.AttributeValue);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

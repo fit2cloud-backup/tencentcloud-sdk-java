@@ -105,6 +105,36 @@ public class CcnAttachedInstance extends AbstractModel{
     private String CcnUin;
 
     /**
+    * 关联实例所属的大地域，如: CHINA_MAINLAND
+    */
+    @SerializedName("InstanceArea")
+    @Expose
+    private String InstanceArea;
+
+    /**
+    * 备注
+    */
+    @SerializedName("Description")
+    @Expose
+    private String Description;
+
+    /**
+    * 路由表ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RouteTableId")
+    @Expose
+    private String RouteTableId;
+
+    /**
+    * 路由表名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RouteTableName")
+    @Expose
+    private String RouteTableName;
+
+    /**
      * Get 云联网实例ID。 
      * @return CcnId 云联网实例ID。
      */
@@ -313,6 +343,134 @@ public class CcnAttachedInstance extends AbstractModel{
     }
 
     /**
+     * Get 关联实例所属的大地域，如: CHINA_MAINLAND 
+     * @return InstanceArea 关联实例所属的大地域，如: CHINA_MAINLAND
+     */
+    public String getInstanceArea() {
+        return this.InstanceArea;
+    }
+
+    /**
+     * Set 关联实例所属的大地域，如: CHINA_MAINLAND
+     * @param InstanceArea 关联实例所属的大地域，如: CHINA_MAINLAND
+     */
+    public void setInstanceArea(String InstanceArea) {
+        this.InstanceArea = InstanceArea;
+    }
+
+    /**
+     * Get 备注 
+     * @return Description 备注
+     */
+    public String getDescription() {
+        return this.Description;
+    }
+
+    /**
+     * Set 备注
+     * @param Description 备注
+     */
+    public void setDescription(String Description) {
+        this.Description = Description;
+    }
+
+    /**
+     * Get 路由表ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RouteTableId 路由表ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getRouteTableId() {
+        return this.RouteTableId;
+    }
+
+    /**
+     * Set 路由表ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RouteTableId 路由表ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRouteTableId(String RouteTableId) {
+        this.RouteTableId = RouteTableId;
+    }
+
+    /**
+     * Get 路由表名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RouteTableName 路由表名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getRouteTableName() {
+        return this.RouteTableName;
+    }
+
+    /**
+     * Set 路由表名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RouteTableName 路由表名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRouteTableName(String RouteTableName) {
+        this.RouteTableName = RouteTableName;
+    }
+
+    public CcnAttachedInstance() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CcnAttachedInstance(CcnAttachedInstance source) {
+        if (source.CcnId != null) {
+            this.CcnId = new String(source.CcnId);
+        }
+        if (source.InstanceType != null) {
+            this.InstanceType = new String(source.InstanceType);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.InstanceName != null) {
+            this.InstanceName = new String(source.InstanceName);
+        }
+        if (source.InstanceRegion != null) {
+            this.InstanceRegion = new String(source.InstanceRegion);
+        }
+        if (source.InstanceUin != null) {
+            this.InstanceUin = new String(source.InstanceUin);
+        }
+        if (source.CidrBlock != null) {
+            this.CidrBlock = new String[source.CidrBlock.length];
+            for (int i = 0; i < source.CidrBlock.length; i++) {
+                this.CidrBlock[i] = new String(source.CidrBlock[i]);
+            }
+        }
+        if (source.State != null) {
+            this.State = new String(source.State);
+        }
+        if (source.AttachedTime != null) {
+            this.AttachedTime = new String(source.AttachedTime);
+        }
+        if (source.CcnUin != null) {
+            this.CcnUin = new String(source.CcnUin);
+        }
+        if (source.InstanceArea != null) {
+            this.InstanceArea = new String(source.InstanceArea);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.RouteTableId != null) {
+            this.RouteTableId = new String(source.RouteTableId);
+        }
+        if (source.RouteTableName != null) {
+            this.RouteTableName = new String(source.RouteTableName);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -326,6 +484,10 @@ public class CcnAttachedInstance extends AbstractModel{
         this.setParamSimple(map, prefix + "State", this.State);
         this.setParamSimple(map, prefix + "AttachedTime", this.AttachedTime);
         this.setParamSimple(map, prefix + "CcnUin", this.CcnUin);
+        this.setParamSimple(map, prefix + "InstanceArea", this.InstanceArea);
+        this.setParamSimple(map, prefix + "Description", this.Description);
+        this.setParamSimple(map, prefix + "RouteTableId", this.RouteTableId);
+        this.setParamSimple(map, prefix + "RouteTableName", this.RouteTableName);
 
     }
 }

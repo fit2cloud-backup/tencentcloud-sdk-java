@@ -30,7 +30,7 @@ public class SplitShardConfig extends AbstractModel{
     private String [] ShardInstanceIds;
 
     /**
-    * 数据切分比例
+    * 数据切分比例，固定50%
     */
     @SerializedName("SplitRate")
     @Expose
@@ -67,16 +67,16 @@ public class SplitShardConfig extends AbstractModel{
     }
 
     /**
-     * Get 数据切分比例 
-     * @return SplitRate 数据切分比例
+     * Get 数据切分比例，固定50% 
+     * @return SplitRate 数据切分比例，固定50%
      */
     public Long getSplitRate() {
         return this.SplitRate;
     }
 
     /**
-     * Set 数据切分比例
-     * @param SplitRate 数据切分比例
+     * Set 数据切分比例，固定50%
+     * @param SplitRate 数据切分比例，固定50%
      */
     public void setSplitRate(Long SplitRate) {
         this.SplitRate = SplitRate;
@@ -113,6 +113,32 @@ public class SplitShardConfig extends AbstractModel{
     public void setShardStorage(Long ShardStorage) {
         this.ShardStorage = ShardStorage;
     }
+
+    public SplitShardConfig() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SplitShardConfig(SplitShardConfig source) {
+        if (source.ShardInstanceIds != null) {
+            this.ShardInstanceIds = new String[source.ShardInstanceIds.length];
+            for (int i = 0; i < source.ShardInstanceIds.length; i++) {
+                this.ShardInstanceIds[i] = new String(source.ShardInstanceIds[i]);
+            }
+        }
+        if (source.SplitRate != null) {
+            this.SplitRate = new Long(source.SplitRate);
+        }
+        if (source.ShardMemory != null) {
+            this.ShardMemory = new Long(source.ShardMemory);
+        }
+        if (source.ShardStorage != null) {
+            this.ShardStorage = new Long(source.ShardStorage);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

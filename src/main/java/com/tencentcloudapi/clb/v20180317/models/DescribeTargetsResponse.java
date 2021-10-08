@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeTargetsResponse extends AbstractModel{
 
     /**
-    * 监听器后端绑定的机器信息
+    * 监听器后端绑定的机器信息。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Listeners")
@@ -38,9 +38,9 @@ public class DescribeTargetsResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 监听器后端绑定的机器信息
+     * Get 监听器后端绑定的机器信息。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Listeners 监听器后端绑定的机器信息
+     * @return Listeners 监听器后端绑定的机器信息。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public ListenerBackend [] getListeners() {
@@ -48,9 +48,9 @@ public class DescribeTargetsResponse extends AbstractModel{
     }
 
     /**
-     * Set 监听器后端绑定的机器信息
+     * Set 监听器后端绑定的机器信息。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Listeners 监听器后端绑定的机器信息
+     * @param Listeners 监听器后端绑定的机器信息。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setListeners(ListenerBackend [] Listeners) {
@@ -72,6 +72,26 @@ public class DescribeTargetsResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeTargetsResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeTargetsResponse(DescribeTargetsResponse source) {
+        if (source.Listeners != null) {
+            this.Listeners = new ListenerBackend[source.Listeners.length];
+            for (int i = 0; i < source.Listeners.length; i++) {
+                this.Listeners[i] = new ListenerBackend(source.Listeners[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

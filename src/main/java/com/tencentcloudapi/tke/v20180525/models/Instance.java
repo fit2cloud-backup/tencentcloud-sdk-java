@@ -74,6 +74,30 @@ public class Instance extends AbstractModel{
     private String CreatedTime;
 
     /**
+    * 节点内网IP
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("LanIP")
+    @Expose
+    private String LanIP;
+
+    /**
+    * 资源池ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("NodePoolId")
+    @Expose
+    private String NodePoolId;
+
+    /**
+    * 自动伸缩组ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AutoscalingGroupId")
+    @Expose
+    private String AutoscalingGroupId;
+
+    /**
      * Get 实例ID 
      * @return InstanceId 实例ID
      */
@@ -194,6 +218,107 @@ public class Instance extends AbstractModel{
     }
 
     /**
+     * Get 节点内网IP
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return LanIP 节点内网IP
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getLanIP() {
+        return this.LanIP;
+    }
+
+    /**
+     * Set 节点内网IP
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param LanIP 节点内网IP
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLanIP(String LanIP) {
+        this.LanIP = LanIP;
+    }
+
+    /**
+     * Get 资源池ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return NodePoolId 资源池ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getNodePoolId() {
+        return this.NodePoolId;
+    }
+
+    /**
+     * Set 资源池ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param NodePoolId 资源池ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setNodePoolId(String NodePoolId) {
+        this.NodePoolId = NodePoolId;
+    }
+
+    /**
+     * Get 自动伸缩组ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AutoscalingGroupId 自动伸缩组ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAutoscalingGroupId() {
+        return this.AutoscalingGroupId;
+    }
+
+    /**
+     * Set 自动伸缩组ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AutoscalingGroupId 自动伸缩组ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAutoscalingGroupId(String AutoscalingGroupId) {
+        this.AutoscalingGroupId = AutoscalingGroupId;
+    }
+
+    public Instance() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Instance(Instance source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.InstanceRole != null) {
+            this.InstanceRole = new String(source.InstanceRole);
+        }
+        if (source.FailedReason != null) {
+            this.FailedReason = new String(source.FailedReason);
+        }
+        if (source.InstanceState != null) {
+            this.InstanceState = new String(source.InstanceState);
+        }
+        if (source.DrainStatus != null) {
+            this.DrainStatus = new String(source.DrainStatus);
+        }
+        if (source.InstanceAdvancedSettings != null) {
+            this.InstanceAdvancedSettings = new InstanceAdvancedSettings(source.InstanceAdvancedSettings);
+        }
+        if (source.CreatedTime != null) {
+            this.CreatedTime = new String(source.CreatedTime);
+        }
+        if (source.LanIP != null) {
+            this.LanIP = new String(source.LanIP);
+        }
+        if (source.NodePoolId != null) {
+            this.NodePoolId = new String(source.NodePoolId);
+        }
+        if (source.AutoscalingGroupId != null) {
+            this.AutoscalingGroupId = new String(source.AutoscalingGroupId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -204,6 +329,9 @@ public class Instance extends AbstractModel{
         this.setParamSimple(map, prefix + "DrainStatus", this.DrainStatus);
         this.setParamObj(map, prefix + "InstanceAdvancedSettings.", this.InstanceAdvancedSettings);
         this.setParamSimple(map, prefix + "CreatedTime", this.CreatedTime);
+        this.setParamSimple(map, prefix + "LanIP", this.LanIP);
+        this.setParamSimple(map, prefix + "NodePoolId", this.NodePoolId);
+        this.setParamSimple(map, prefix + "AutoscalingGroupId", this.AutoscalingGroupId);
 
     }
 }

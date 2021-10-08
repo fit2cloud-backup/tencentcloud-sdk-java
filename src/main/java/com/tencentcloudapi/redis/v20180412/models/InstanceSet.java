@@ -121,7 +121,7 @@ public class InstanceSet extends AbstractModel{
     private Float SizeUsed;
 
     /**
-    * 实例类型，1：Redis2.8集群版；2：Redis2.8主从版；3：CKV主从版（Redis3.2）；4：CKV集群版（Redis3.2）；5：Redis2.8单机版；6：Redis4.0主从版；7：Redis4.0集群版；
+    * 实例类型：1 – Redis2.8内存版（集群架构），2 – Redis2.8内存版（标准架构），3 – CKV 3.2内存版(标准架构)，4 – CKV 3.2内存版(集群架构)，5 – Redis2.8内存版（单机），6 – Redis4.0内存版（标准架构），7 – Redis4.0内存版（集群架构），8 – Redis5.0内存版（标准架构），9 – Redis5.0内存版（集群架构）
     */
     @SerializedName("Type")
     @Expose
@@ -149,7 +149,7 @@ public class InstanceSet extends AbstractModel{
     private String Engine;
 
     /**
-    * 产品类型：Redis2.8集群版、Redis2.8主从版、Redis3.2主从版（CKV主从版）、Redis3.2集群版（CKV集群版）、Redis2.8单机版、Redis4.0集群版
+    * 产品类型：standalone – 标准版，cluster – 集群版
     */
     @SerializedName("ProductType")
     @Expose
@@ -332,6 +332,54 @@ public class InstanceSet extends AbstractModel{
     @SerializedName("RemainBandwidthDuration")
     @Expose
     private String RemainBandwidthDuration;
+
+    /**
+    * Tendis实例的磁盘大小
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DiskSize")
+    @Expose
+    private Long DiskSize;
+
+    /**
+    * 监控版本: 1m-分钟粒度监控，5s-5秒粒度监控
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MonitorVersion")
+    @Expose
+    private String MonitorVersion;
+
+    /**
+    * 客户端最大连接数可设置的最小值
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ClientLimitMin")
+    @Expose
+    private Long ClientLimitMin;
+
+    /**
+    * 客户端最大连接数可设置的最大值
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ClientLimitMax")
+    @Expose
+    private Long ClientLimitMax;
+
+    /**
+    * 实例的节点详细信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("NodeSet")
+    @Expose
+    private RedisNodeInfo [] NodeSet;
+
+    /**
+    * 实例所在的地域信息，比如ap-guangzhou
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Region")
+    @Expose
+    private String Region;
 
     /**
      * Get 实例名称 
@@ -558,16 +606,16 @@ public class InstanceSet extends AbstractModel{
     }
 
     /**
-     * Get 实例类型，1：Redis2.8集群版；2：Redis2.8主从版；3：CKV主从版（Redis3.2）；4：CKV集群版（Redis3.2）；5：Redis2.8单机版；6：Redis4.0主从版；7：Redis4.0集群版； 
-     * @return Type 实例类型，1：Redis2.8集群版；2：Redis2.8主从版；3：CKV主从版（Redis3.2）；4：CKV集群版（Redis3.2）；5：Redis2.8单机版；6：Redis4.0主从版；7：Redis4.0集群版；
+     * Get 实例类型：1 – Redis2.8内存版（集群架构），2 – Redis2.8内存版（标准架构），3 – CKV 3.2内存版(标准架构)，4 – CKV 3.2内存版(集群架构)，5 – Redis2.8内存版（单机），6 – Redis4.0内存版（标准架构），7 – Redis4.0内存版（集群架构），8 – Redis5.0内存版（标准架构），9 – Redis5.0内存版（集群架构） 
+     * @return Type 实例类型：1 – Redis2.8内存版（集群架构），2 – Redis2.8内存版（标准架构），3 – CKV 3.2内存版(标准架构)，4 – CKV 3.2内存版(集群架构)，5 – Redis2.8内存版（单机），6 – Redis4.0内存版（标准架构），7 – Redis4.0内存版（集群架构），8 – Redis5.0内存版（标准架构），9 – Redis5.0内存版（集群架构）
      */
     public Long getType() {
         return this.Type;
     }
 
     /**
-     * Set 实例类型，1：Redis2.8集群版；2：Redis2.8主从版；3：CKV主从版（Redis3.2）；4：CKV集群版（Redis3.2）；5：Redis2.8单机版；6：Redis4.0主从版；7：Redis4.0集群版；
-     * @param Type 实例类型，1：Redis2.8集群版；2：Redis2.8主从版；3：CKV主从版（Redis3.2）；4：CKV集群版（Redis3.2）；5：Redis2.8单机版；6：Redis4.0主从版；7：Redis4.0集群版；
+     * Set 实例类型：1 – Redis2.8内存版（集群架构），2 – Redis2.8内存版（标准架构），3 – CKV 3.2内存版(标准架构)，4 – CKV 3.2内存版(集群架构)，5 – Redis2.8内存版（单机），6 – Redis4.0内存版（标准架构），7 – Redis4.0内存版（集群架构），8 – Redis5.0内存版（标准架构），9 – Redis5.0内存版（集群架构）
+     * @param Type 实例类型：1 – Redis2.8内存版（集群架构），2 – Redis2.8内存版（标准架构），3 – CKV 3.2内存版(标准架构)，4 – CKV 3.2内存版(集群架构)，5 – Redis2.8内存版（单机），6 – Redis4.0内存版（标准架构），7 – Redis4.0内存版（集群架构），8 – Redis5.0内存版（标准架构），9 – Redis5.0内存版（集群架构）
      */
     public void setType(Long Type) {
         this.Type = Type;
@@ -622,16 +670,16 @@ public class InstanceSet extends AbstractModel{
     }
 
     /**
-     * Get 产品类型：Redis2.8集群版、Redis2.8主从版、Redis3.2主从版（CKV主从版）、Redis3.2集群版（CKV集群版）、Redis2.8单机版、Redis4.0集群版 
-     * @return ProductType 产品类型：Redis2.8集群版、Redis2.8主从版、Redis3.2主从版（CKV主从版）、Redis3.2集群版（CKV集群版）、Redis2.8单机版、Redis4.0集群版
+     * Get 产品类型：standalone – 标准版，cluster – 集群版 
+     * @return ProductType 产品类型：standalone – 标准版，cluster – 集群版
      */
     public String getProductType() {
         return this.ProductType;
     }
 
     /**
-     * Set 产品类型：Redis2.8集群版、Redis2.8主从版、Redis3.2主从版（CKV主从版）、Redis3.2集群版（CKV集群版）、Redis2.8单机版、Redis4.0集群版
-     * @param ProductType 产品类型：Redis2.8集群版、Redis2.8主从版、Redis3.2主从版（CKV主从版）、Redis3.2集群版（CKV集群版）、Redis2.8单机版、Redis4.0集群版
+     * Set 产品类型：standalone – 标准版，cluster – 集群版
+     * @param ProductType 产品类型：standalone – 标准版，cluster – 集群版
      */
     public void setProductType(String ProductType) {
         this.ProductType = ProductType;
@@ -1062,6 +1110,296 @@ public class InstanceSet extends AbstractModel{
     }
 
     /**
+     * Get Tendis实例的磁盘大小
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DiskSize Tendis实例的磁盘大小
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getDiskSize() {
+        return this.DiskSize;
+    }
+
+    /**
+     * Set Tendis实例的磁盘大小
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DiskSize Tendis实例的磁盘大小
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDiskSize(Long DiskSize) {
+        this.DiskSize = DiskSize;
+    }
+
+    /**
+     * Get 监控版本: 1m-分钟粒度监控，5s-5秒粒度监控
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MonitorVersion 监控版本: 1m-分钟粒度监控，5s-5秒粒度监控
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getMonitorVersion() {
+        return this.MonitorVersion;
+    }
+
+    /**
+     * Set 监控版本: 1m-分钟粒度监控，5s-5秒粒度监控
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MonitorVersion 监控版本: 1m-分钟粒度监控，5s-5秒粒度监控
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMonitorVersion(String MonitorVersion) {
+        this.MonitorVersion = MonitorVersion;
+    }
+
+    /**
+     * Get 客户端最大连接数可设置的最小值
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ClientLimitMin 客户端最大连接数可设置的最小值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getClientLimitMin() {
+        return this.ClientLimitMin;
+    }
+
+    /**
+     * Set 客户端最大连接数可设置的最小值
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ClientLimitMin 客户端最大连接数可设置的最小值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setClientLimitMin(Long ClientLimitMin) {
+        this.ClientLimitMin = ClientLimitMin;
+    }
+
+    /**
+     * Get 客户端最大连接数可设置的最大值
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ClientLimitMax 客户端最大连接数可设置的最大值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getClientLimitMax() {
+        return this.ClientLimitMax;
+    }
+
+    /**
+     * Set 客户端最大连接数可设置的最大值
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ClientLimitMax 客户端最大连接数可设置的最大值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setClientLimitMax(Long ClientLimitMax) {
+        this.ClientLimitMax = ClientLimitMax;
+    }
+
+    /**
+     * Get 实例的节点详细信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return NodeSet 实例的节点详细信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public RedisNodeInfo [] getNodeSet() {
+        return this.NodeSet;
+    }
+
+    /**
+     * Set 实例的节点详细信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param NodeSet 实例的节点详细信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setNodeSet(RedisNodeInfo [] NodeSet) {
+        this.NodeSet = NodeSet;
+    }
+
+    /**
+     * Get 实例所在的地域信息，比如ap-guangzhou
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Region 实例所在的地域信息，比如ap-guangzhou
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getRegion() {
+        return this.Region;
+    }
+
+    /**
+     * Set 实例所在的地域信息，比如ap-guangzhou
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Region 实例所在的地域信息，比如ap-guangzhou
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRegion(String Region) {
+        this.Region = Region;
+    }
+
+    public InstanceSet() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public InstanceSet(InstanceSet source) {
+        if (source.InstanceName != null) {
+            this.InstanceName = new String(source.InstanceName);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.Appid != null) {
+            this.Appid = new Long(source.Appid);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.RegionId != null) {
+            this.RegionId = new Long(source.RegionId);
+        }
+        if (source.ZoneId != null) {
+            this.ZoneId = new Long(source.ZoneId);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new Long(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new Long(source.SubnetId);
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+        if (source.WanIp != null) {
+            this.WanIp = new String(source.WanIp);
+        }
+        if (source.Port != null) {
+            this.Port = new Long(source.Port);
+        }
+        if (source.Createtime != null) {
+            this.Createtime = new String(source.Createtime);
+        }
+        if (source.Size != null) {
+            this.Size = new Float(source.Size);
+        }
+        if (source.SizeUsed != null) {
+            this.SizeUsed = new Float(source.SizeUsed);
+        }
+        if (source.Type != null) {
+            this.Type = new Long(source.Type);
+        }
+        if (source.AutoRenewFlag != null) {
+            this.AutoRenewFlag = new Long(source.AutoRenewFlag);
+        }
+        if (source.DeadlineTime != null) {
+            this.DeadlineTime = new String(source.DeadlineTime);
+        }
+        if (source.Engine != null) {
+            this.Engine = new String(source.Engine);
+        }
+        if (source.ProductType != null) {
+            this.ProductType = new String(source.ProductType);
+        }
+        if (source.UniqVpcId != null) {
+            this.UniqVpcId = new String(source.UniqVpcId);
+        }
+        if (source.UniqSubnetId != null) {
+            this.UniqSubnetId = new String(source.UniqSubnetId);
+        }
+        if (source.BillingMode != null) {
+            this.BillingMode = new Long(source.BillingMode);
+        }
+        if (source.InstanceTitle != null) {
+            this.InstanceTitle = new String(source.InstanceTitle);
+        }
+        if (source.OfflineTime != null) {
+            this.OfflineTime = new String(source.OfflineTime);
+        }
+        if (source.SubStatus != null) {
+            this.SubStatus = new Long(source.SubStatus);
+        }
+        if (source.Tags != null) {
+            this.Tags = new String[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new String(source.Tags[i]);
+            }
+        }
+        if (source.InstanceNode != null) {
+            this.InstanceNode = new InstanceNode[source.InstanceNode.length];
+            for (int i = 0; i < source.InstanceNode.length; i++) {
+                this.InstanceNode[i] = new InstanceNode(source.InstanceNode[i]);
+            }
+        }
+        if (source.RedisShardSize != null) {
+            this.RedisShardSize = new Long(source.RedisShardSize);
+        }
+        if (source.RedisShardNum != null) {
+            this.RedisShardNum = new Long(source.RedisShardNum);
+        }
+        if (source.RedisReplicasNum != null) {
+            this.RedisReplicasNum = new Long(source.RedisReplicasNum);
+        }
+        if (source.PriceId != null) {
+            this.PriceId = new Long(source.PriceId);
+        }
+        if (source.CloseTime != null) {
+            this.CloseTime = new String(source.CloseTime);
+        }
+        if (source.SlaveReadWeight != null) {
+            this.SlaveReadWeight = new Long(source.SlaveReadWeight);
+        }
+        if (source.InstanceTags != null) {
+            this.InstanceTags = new InstanceTagInfo[source.InstanceTags.length];
+            for (int i = 0; i < source.InstanceTags.length; i++) {
+                this.InstanceTags[i] = new InstanceTagInfo(source.InstanceTags[i]);
+            }
+        }
+        if (source.ProjectName != null) {
+            this.ProjectName = new String(source.ProjectName);
+        }
+        if (source.NoAuth != null) {
+            this.NoAuth = new Boolean(source.NoAuth);
+        }
+        if (source.ClientLimit != null) {
+            this.ClientLimit = new Long(source.ClientLimit);
+        }
+        if (source.DtsStatus != null) {
+            this.DtsStatus = new Long(source.DtsStatus);
+        }
+        if (source.NetLimit != null) {
+            this.NetLimit = new Long(source.NetLimit);
+        }
+        if (source.PasswordFree != null) {
+            this.PasswordFree = new Long(source.PasswordFree);
+        }
+        if (source.ReadOnly != null) {
+            this.ReadOnly = new Long(source.ReadOnly);
+        }
+        if (source.Vip6 != null) {
+            this.Vip6 = new String(source.Vip6);
+        }
+        if (source.RemainBandwidthDuration != null) {
+            this.RemainBandwidthDuration = new String(source.RemainBandwidthDuration);
+        }
+        if (source.DiskSize != null) {
+            this.DiskSize = new Long(source.DiskSize);
+        }
+        if (source.MonitorVersion != null) {
+            this.MonitorVersion = new String(source.MonitorVersion);
+        }
+        if (source.ClientLimitMin != null) {
+            this.ClientLimitMin = new Long(source.ClientLimitMin);
+        }
+        if (source.ClientLimitMax != null) {
+            this.ClientLimitMax = new Long(source.ClientLimitMax);
+        }
+        if (source.NodeSet != null) {
+            this.NodeSet = new RedisNodeInfo[source.NodeSet.length];
+            for (int i = 0; i < source.NodeSet.length; i++) {
+                this.NodeSet[i] = new RedisNodeInfo(source.NodeSet[i]);
+            }
+        }
+        if (source.Region != null) {
+            this.Region = new String(source.Region);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -1108,6 +1446,12 @@ public class InstanceSet extends AbstractModel{
         this.setParamSimple(map, prefix + "ReadOnly", this.ReadOnly);
         this.setParamSimple(map, prefix + "Vip6", this.Vip6);
         this.setParamSimple(map, prefix + "RemainBandwidthDuration", this.RemainBandwidthDuration);
+        this.setParamSimple(map, prefix + "DiskSize", this.DiskSize);
+        this.setParamSimple(map, prefix + "MonitorVersion", this.MonitorVersion);
+        this.setParamSimple(map, prefix + "ClientLimitMin", this.ClientLimitMin);
+        this.setParamSimple(map, prefix + "ClientLimitMax", this.ClientLimitMax);
+        this.setParamArrayObj(map, prefix + "NodeSet.", this.NodeSet);
+        this.setParamSimple(map, prefix + "Region", this.Region);
 
     }
 }

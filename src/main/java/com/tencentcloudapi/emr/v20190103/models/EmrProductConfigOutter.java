@@ -151,6 +151,22 @@ public class EmrProductConfigOutter extends AbstractModel{
     private Long CbsEncrypt;
 
     /**
+    * 自定义应用角色。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ApplicationRole")
+    @Expose
+    private String ApplicationRole;
+
+    /**
+    * 安全组
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SecurityGroups")
+    @Expose
+    private String [] SecurityGroups;
+
+    /**
      * Get 软件信息
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return SoftInfo 软件信息
@@ -471,6 +487,117 @@ public class EmrProductConfigOutter extends AbstractModel{
     }
 
     /**
+     * Get 自定义应用角色。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ApplicationRole 自定义应用角色。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getApplicationRole() {
+        return this.ApplicationRole;
+    }
+
+    /**
+     * Set 自定义应用角色。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ApplicationRole 自定义应用角色。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setApplicationRole(String ApplicationRole) {
+        this.ApplicationRole = ApplicationRole;
+    }
+
+    /**
+     * Get 安全组
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SecurityGroups 安全组
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getSecurityGroups() {
+        return this.SecurityGroups;
+    }
+
+    /**
+     * Set 安全组
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SecurityGroups 安全组
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSecurityGroups(String [] SecurityGroups) {
+        this.SecurityGroups = SecurityGroups;
+    }
+
+    public EmrProductConfigOutter() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public EmrProductConfigOutter(EmrProductConfigOutter source) {
+        if (source.SoftInfo != null) {
+            this.SoftInfo = new String[source.SoftInfo.length];
+            for (int i = 0; i < source.SoftInfo.length; i++) {
+                this.SoftInfo[i] = new String(source.SoftInfo[i]);
+            }
+        }
+        if (source.MasterNodeSize != null) {
+            this.MasterNodeSize = new Long(source.MasterNodeSize);
+        }
+        if (source.CoreNodeSize != null) {
+            this.CoreNodeSize = new Long(source.CoreNodeSize);
+        }
+        if (source.TaskNodeSize != null) {
+            this.TaskNodeSize = new Long(source.TaskNodeSize);
+        }
+        if (source.ComNodeSize != null) {
+            this.ComNodeSize = new Long(source.ComNodeSize);
+        }
+        if (source.MasterResource != null) {
+            this.MasterResource = new OutterResource(source.MasterResource);
+        }
+        if (source.CoreResource != null) {
+            this.CoreResource = new OutterResource(source.CoreResource);
+        }
+        if (source.TaskResource != null) {
+            this.TaskResource = new OutterResource(source.TaskResource);
+        }
+        if (source.ComResource != null) {
+            this.ComResource = new OutterResource(source.ComResource);
+        }
+        if (source.OnCos != null) {
+            this.OnCos = new Boolean(source.OnCos);
+        }
+        if (source.ChargeType != null) {
+            this.ChargeType = new Long(source.ChargeType);
+        }
+        if (source.RouterNodeSize != null) {
+            this.RouterNodeSize = new Long(source.RouterNodeSize);
+        }
+        if (source.SupportHA != null) {
+            this.SupportHA = new Boolean(source.SupportHA);
+        }
+        if (source.SecurityOn != null) {
+            this.SecurityOn = new Boolean(source.SecurityOn);
+        }
+        if (source.SecurityGroup != null) {
+            this.SecurityGroup = new String(source.SecurityGroup);
+        }
+        if (source.CbsEncrypt != null) {
+            this.CbsEncrypt = new Long(source.CbsEncrypt);
+        }
+        if (source.ApplicationRole != null) {
+            this.ApplicationRole = new String(source.ApplicationRole);
+        }
+        if (source.SecurityGroups != null) {
+            this.SecurityGroups = new String[source.SecurityGroups.length];
+            for (int i = 0; i < source.SecurityGroups.length; i++) {
+                this.SecurityGroups[i] = new String(source.SecurityGroups[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -490,6 +617,8 @@ public class EmrProductConfigOutter extends AbstractModel{
         this.setParamSimple(map, prefix + "SecurityOn", this.SecurityOn);
         this.setParamSimple(map, prefix + "SecurityGroup", this.SecurityGroup);
         this.setParamSimple(map, prefix + "CbsEncrypt", this.CbsEncrypt);
+        this.setParamSimple(map, prefix + "ApplicationRole", this.ApplicationRole);
+        this.setParamArraySimple(map, prefix + "SecurityGroups.", this.SecurityGroups);
 
     }
 }

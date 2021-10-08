@@ -37,6 +37,13 @@ public class ListAlgorithmsResponse extends AbstractModel{
     private AlgorithmInfo [] AsymmetricAlgorithms;
 
     /**
+    * 本地区支持的非对称签名验签算法
+    */
+    @SerializedName("AsymmetricSignVerifyAlgorithms")
+    @Expose
+    private AlgorithmInfo [] AsymmetricSignVerifyAlgorithms;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -76,6 +83,22 @@ public class ListAlgorithmsResponse extends AbstractModel{
     }
 
     /**
+     * Get 本地区支持的非对称签名验签算法 
+     * @return AsymmetricSignVerifyAlgorithms 本地区支持的非对称签名验签算法
+     */
+    public AlgorithmInfo [] getAsymmetricSignVerifyAlgorithms() {
+        return this.AsymmetricSignVerifyAlgorithms;
+    }
+
+    /**
+     * Set 本地区支持的非对称签名验签算法
+     * @param AsymmetricSignVerifyAlgorithms 本地区支持的非对称签名验签算法
+     */
+    public void setAsymmetricSignVerifyAlgorithms(AlgorithmInfo [] AsymmetricSignVerifyAlgorithms) {
+        this.AsymmetricSignVerifyAlgorithms = AsymmetricSignVerifyAlgorithms;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -91,12 +114,45 @@ public class ListAlgorithmsResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public ListAlgorithmsResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ListAlgorithmsResponse(ListAlgorithmsResponse source) {
+        if (source.SymmetricAlgorithms != null) {
+            this.SymmetricAlgorithms = new AlgorithmInfo[source.SymmetricAlgorithms.length];
+            for (int i = 0; i < source.SymmetricAlgorithms.length; i++) {
+                this.SymmetricAlgorithms[i] = new AlgorithmInfo(source.SymmetricAlgorithms[i]);
+            }
+        }
+        if (source.AsymmetricAlgorithms != null) {
+            this.AsymmetricAlgorithms = new AlgorithmInfo[source.AsymmetricAlgorithms.length];
+            for (int i = 0; i < source.AsymmetricAlgorithms.length; i++) {
+                this.AsymmetricAlgorithms[i] = new AlgorithmInfo(source.AsymmetricAlgorithms[i]);
+            }
+        }
+        if (source.AsymmetricSignVerifyAlgorithms != null) {
+            this.AsymmetricSignVerifyAlgorithms = new AlgorithmInfo[source.AsymmetricSignVerifyAlgorithms.length];
+            for (int i = 0; i < source.AsymmetricSignVerifyAlgorithms.length; i++) {
+                this.AsymmetricSignVerifyAlgorithms[i] = new AlgorithmInfo(source.AsymmetricSignVerifyAlgorithms[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "SymmetricAlgorithms.", this.SymmetricAlgorithms);
         this.setParamArrayObj(map, prefix + "AsymmetricAlgorithms.", this.AsymmetricAlgorithms);
+        this.setParamArrayObj(map, prefix + "AsymmetricSignVerifyAlgorithms.", this.AsymmetricSignVerifyAlgorithms);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

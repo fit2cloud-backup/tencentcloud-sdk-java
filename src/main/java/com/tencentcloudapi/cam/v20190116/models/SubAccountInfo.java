@@ -79,6 +79,14 @@ public class SubAccountInfo extends AbstractModel{
     private String Email;
 
     /**
+    * 创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CreateTime")
+    @Expose
+    private String CreateTime;
+
+    /**
      * Get 子用户用户 ID 
      * @return Uin 子用户用户 ID
      */
@@ -207,6 +215,64 @@ public class SubAccountInfo extends AbstractModel{
     }
 
     /**
+     * Get 创建时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CreateTime 创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCreateTime() {
+        return this.CreateTime;
+    }
+
+    /**
+     * Set 创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CreateTime 创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCreateTime(String CreateTime) {
+        this.CreateTime = CreateTime;
+    }
+
+    public SubAccountInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SubAccountInfo(SubAccountInfo source) {
+        if (source.Uin != null) {
+            this.Uin = new Long(source.Uin);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Uid != null) {
+            this.Uid = new Long(source.Uid);
+        }
+        if (source.Remark != null) {
+            this.Remark = new String(source.Remark);
+        }
+        if (source.ConsoleLogin != null) {
+            this.ConsoleLogin = new Long(source.ConsoleLogin);
+        }
+        if (source.PhoneNum != null) {
+            this.PhoneNum = new String(source.PhoneNum);
+        }
+        if (source.CountryCode != null) {
+            this.CountryCode = new String(source.CountryCode);
+        }
+        if (source.Email != null) {
+            this.Email = new String(source.Email);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -218,6 +284,7 @@ public class SubAccountInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "PhoneNum", this.PhoneNum);
         this.setParamSimple(map, prefix + "CountryCode", this.CountryCode);
         this.setParamSimple(map, prefix + "Email", this.Email);
+        this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
 
     }
 }

@@ -67,7 +67,7 @@ public class VideoInfo extends AbstractModel{
     /**
     * 视频流类型 
 - 0：摄像头视频 
-- 1：屏幕分享视频（仅课后录制支持）
+- 1：屏幕分享视频
 - 2：白板视频 
 - 3：混流视频
 - 4：纯音频（mp3)
@@ -77,11 +77,25 @@ public class VideoInfo extends AbstractModel{
     private Long VideoType;
 
     /**
-    * 摄像头/屏幕分享视频所属用户的 Id（白板视频为空、混流视频tic_mixstream_房间号_混流布局类型）
+    * 摄像头/屏幕分享视频所属用户的 Id（白板视频为空、混流视频tic_mixstream_房间号_混流布局类型、辅路视频tic_substream_用户Id）
     */
     @SerializedName("UserId")
     @Expose
     private String UserId;
+
+    /**
+    * 视频分辨率的宽
+    */
+    @SerializedName("Width")
+    @Expose
+    private Long Width;
+
+    /**
+    * 视频分辨率的高
+    */
+    @SerializedName("Height")
+    @Expose
+    private Long Height;
 
     /**
      * Get 视频开始播放的时间（单位：毫秒） 
@@ -182,13 +196,13 @@ public class VideoInfo extends AbstractModel{
     /**
      * Get 视频流类型 
 - 0：摄像头视频 
-- 1：屏幕分享视频（仅课后录制支持）
+- 1：屏幕分享视频
 - 2：白板视频 
 - 3：混流视频
 - 4：纯音频（mp3) 
      * @return VideoType 视频流类型 
 - 0：摄像头视频 
-- 1：屏幕分享视频（仅课后录制支持）
+- 1：屏幕分享视频
 - 2：白板视频 
 - 3：混流视频
 - 4：纯音频（mp3)
@@ -200,13 +214,13 @@ public class VideoInfo extends AbstractModel{
     /**
      * Set 视频流类型 
 - 0：摄像头视频 
-- 1：屏幕分享视频（仅课后录制支持）
+- 1：屏幕分享视频
 - 2：白板视频 
 - 3：混流视频
 - 4：纯音频（mp3)
      * @param VideoType 视频流类型 
 - 0：摄像头视频 
-- 1：屏幕分享视频（仅课后录制支持）
+- 1：屏幕分享视频
 - 2：白板视频 
 - 3：混流视频
 - 4：纯音频（mp3)
@@ -216,20 +230,93 @@ public class VideoInfo extends AbstractModel{
     }
 
     /**
-     * Get 摄像头/屏幕分享视频所属用户的 Id（白板视频为空、混流视频tic_mixstream_房间号_混流布局类型） 
-     * @return UserId 摄像头/屏幕分享视频所属用户的 Id（白板视频为空、混流视频tic_mixstream_房间号_混流布局类型）
+     * Get 摄像头/屏幕分享视频所属用户的 Id（白板视频为空、混流视频tic_mixstream_房间号_混流布局类型、辅路视频tic_substream_用户Id） 
+     * @return UserId 摄像头/屏幕分享视频所属用户的 Id（白板视频为空、混流视频tic_mixstream_房间号_混流布局类型、辅路视频tic_substream_用户Id）
      */
     public String getUserId() {
         return this.UserId;
     }
 
     /**
-     * Set 摄像头/屏幕分享视频所属用户的 Id（白板视频为空、混流视频tic_mixstream_房间号_混流布局类型）
-     * @param UserId 摄像头/屏幕分享视频所属用户的 Id（白板视频为空、混流视频tic_mixstream_房间号_混流布局类型）
+     * Set 摄像头/屏幕分享视频所属用户的 Id（白板视频为空、混流视频tic_mixstream_房间号_混流布局类型、辅路视频tic_substream_用户Id）
+     * @param UserId 摄像头/屏幕分享视频所属用户的 Id（白板视频为空、混流视频tic_mixstream_房间号_混流布局类型、辅路视频tic_substream_用户Id）
      */
     public void setUserId(String UserId) {
         this.UserId = UserId;
     }
+
+    /**
+     * Get 视频分辨率的宽 
+     * @return Width 视频分辨率的宽
+     */
+    public Long getWidth() {
+        return this.Width;
+    }
+
+    /**
+     * Set 视频分辨率的宽
+     * @param Width 视频分辨率的宽
+     */
+    public void setWidth(Long Width) {
+        this.Width = Width;
+    }
+
+    /**
+     * Get 视频分辨率的高 
+     * @return Height 视频分辨率的高
+     */
+    public Long getHeight() {
+        return this.Height;
+    }
+
+    /**
+     * Set 视频分辨率的高
+     * @param Height 视频分辨率的高
+     */
+    public void setHeight(Long Height) {
+        this.Height = Height;
+    }
+
+    public VideoInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public VideoInfo(VideoInfo source) {
+        if (source.VideoPlayTime != null) {
+            this.VideoPlayTime = new Long(source.VideoPlayTime);
+        }
+        if (source.VideoSize != null) {
+            this.VideoSize = new Long(source.VideoSize);
+        }
+        if (source.VideoFormat != null) {
+            this.VideoFormat = new String(source.VideoFormat);
+        }
+        if (source.VideoDuration != null) {
+            this.VideoDuration = new Long(source.VideoDuration);
+        }
+        if (source.VideoUrl != null) {
+            this.VideoUrl = new String(source.VideoUrl);
+        }
+        if (source.VideoId != null) {
+            this.VideoId = new String(source.VideoId);
+        }
+        if (source.VideoType != null) {
+            this.VideoType = new Long(source.VideoType);
+        }
+        if (source.UserId != null) {
+            this.UserId = new String(source.UserId);
+        }
+        if (source.Width != null) {
+            this.Width = new Long(source.Width);
+        }
+        if (source.Height != null) {
+            this.Height = new Long(source.Height);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -243,6 +330,8 @@ public class VideoInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "VideoId", this.VideoId);
         this.setParamSimple(map, prefix + "VideoType", this.VideoType);
         this.setParamSimple(map, prefix + "UserId", this.UserId);
+        this.setParamSimple(map, prefix + "Width", this.Width);
+        this.setParamSimple(map, prefix + "Height", this.Height);
 
     }
 }

@@ -110,6 +110,22 @@ public class TopicDetail extends AbstractModel{
     private Config Config;
 
     /**
+    * 消息保留时间配置(用于动态配置变更记录)
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RetentionTimeConfig")
+    @Expose
+    private TopicRetentionTimeConfigRsp RetentionTimeConfig;
+
+    /**
+    * 0:正常，1：已删除，2：删除中
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Status")
+    @Expose
+    private Long Status;
+
+    /**
      * Get 主题名称 
      * @return TopicName 主题名称
      */
@@ -314,6 +330,99 @@ public class TopicDetail extends AbstractModel{
     }
 
     /**
+     * Get 消息保留时间配置(用于动态配置变更记录)
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RetentionTimeConfig 消息保留时间配置(用于动态配置变更记录)
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public TopicRetentionTimeConfigRsp getRetentionTimeConfig() {
+        return this.RetentionTimeConfig;
+    }
+
+    /**
+     * Set 消息保留时间配置(用于动态配置变更记录)
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RetentionTimeConfig 消息保留时间配置(用于动态配置变更记录)
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRetentionTimeConfig(TopicRetentionTimeConfigRsp RetentionTimeConfig) {
+        this.RetentionTimeConfig = RetentionTimeConfig;
+    }
+
+    /**
+     * Get 0:正常，1：已删除，2：删除中
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Status 0:正常，1：已删除，2：删除中
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getStatus() {
+        return this.Status;
+    }
+
+    /**
+     * Set 0:正常，1：已删除，2：删除中
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Status 0:正常，1：已删除，2：删除中
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setStatus(Long Status) {
+        this.Status = Status;
+    }
+
+    public TopicDetail() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public TopicDetail(TopicDetail source) {
+        if (source.TopicName != null) {
+            this.TopicName = new String(source.TopicName);
+        }
+        if (source.TopicId != null) {
+            this.TopicId = new String(source.TopicId);
+        }
+        if (source.PartitionNum != null) {
+            this.PartitionNum = new Long(source.PartitionNum);
+        }
+        if (source.ReplicaNum != null) {
+            this.ReplicaNum = new Long(source.ReplicaNum);
+        }
+        if (source.Note != null) {
+            this.Note = new String(source.Note);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new Long(source.CreateTime);
+        }
+        if (source.EnableWhiteList != null) {
+            this.EnableWhiteList = new Boolean(source.EnableWhiteList);
+        }
+        if (source.IpWhiteListCount != null) {
+            this.IpWhiteListCount = new Long(source.IpWhiteListCount);
+        }
+        if (source.ForwardCosBucket != null) {
+            this.ForwardCosBucket = new String(source.ForwardCosBucket);
+        }
+        if (source.ForwardStatus != null) {
+            this.ForwardStatus = new Long(source.ForwardStatus);
+        }
+        if (source.ForwardInterval != null) {
+            this.ForwardInterval = new Long(source.ForwardInterval);
+        }
+        if (source.Config != null) {
+            this.Config = new Config(source.Config);
+        }
+        if (source.RetentionTimeConfig != null) {
+            this.RetentionTimeConfig = new TopicRetentionTimeConfigRsp(source.RetentionTimeConfig);
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -329,6 +438,8 @@ public class TopicDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "ForwardStatus", this.ForwardStatus);
         this.setParamSimple(map, prefix + "ForwardInterval", this.ForwardInterval);
         this.setParamObj(map, prefix + "Config.", this.Config);
+        this.setParamObj(map, prefix + "RetentionTimeConfig.", this.RetentionTimeConfig);
+        this.setParamSimple(map, prefix + "Status", this.Status);
 
     }
 }

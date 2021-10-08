@@ -107,6 +107,13 @@ Url、Image必须提供一个，如果都提供，只使用 Url。
     private Long QualityControl;
 
     /**
+    * 是否开启图片旋转识别支持。0为不开启，1为开启。默认为0。本参数的作用为，当图片中的人脸被旋转且图片没有exif信息时，如果不开启图片旋转识别支持则无法正确检测、识别图片中的人脸。若您确认图片包含exif信息或者您确认输入图中人脸不会出现被旋转情况，请不要开启本参数。开启后，整体耗时将可能增加数百毫秒。
+    */
+    @SerializedName("NeedRotateDetection")
+    @Expose
+    private Long NeedRotateDetection;
+
+    /**
      * Get 待加入的人员库ID。 
      * @return GroupId 待加入的人员库ID。
      */
@@ -335,6 +342,66 @@ Url、Image必须提供一个，如果都提供，只使用 Url。
     }
 
     /**
+     * Get 是否开启图片旋转识别支持。0为不开启，1为开启。默认为0。本参数的作用为，当图片中的人脸被旋转且图片没有exif信息时，如果不开启图片旋转识别支持则无法正确检测、识别图片中的人脸。若您确认图片包含exif信息或者您确认输入图中人脸不会出现被旋转情况，请不要开启本参数。开启后，整体耗时将可能增加数百毫秒。 
+     * @return NeedRotateDetection 是否开启图片旋转识别支持。0为不开启，1为开启。默认为0。本参数的作用为，当图片中的人脸被旋转且图片没有exif信息时，如果不开启图片旋转识别支持则无法正确检测、识别图片中的人脸。若您确认图片包含exif信息或者您确认输入图中人脸不会出现被旋转情况，请不要开启本参数。开启后，整体耗时将可能增加数百毫秒。
+     */
+    public Long getNeedRotateDetection() {
+        return this.NeedRotateDetection;
+    }
+
+    /**
+     * Set 是否开启图片旋转识别支持。0为不开启，1为开启。默认为0。本参数的作用为，当图片中的人脸被旋转且图片没有exif信息时，如果不开启图片旋转识别支持则无法正确检测、识别图片中的人脸。若您确认图片包含exif信息或者您确认输入图中人脸不会出现被旋转情况，请不要开启本参数。开启后，整体耗时将可能增加数百毫秒。
+     * @param NeedRotateDetection 是否开启图片旋转识别支持。0为不开启，1为开启。默认为0。本参数的作用为，当图片中的人脸被旋转且图片没有exif信息时，如果不开启图片旋转识别支持则无法正确检测、识别图片中的人脸。若您确认图片包含exif信息或者您确认输入图中人脸不会出现被旋转情况，请不要开启本参数。开启后，整体耗时将可能增加数百毫秒。
+     */
+    public void setNeedRotateDetection(Long NeedRotateDetection) {
+        this.NeedRotateDetection = NeedRotateDetection;
+    }
+
+    public CreatePersonRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreatePersonRequest(CreatePersonRequest source) {
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
+        if (source.PersonName != null) {
+            this.PersonName = new String(source.PersonName);
+        }
+        if (source.PersonId != null) {
+            this.PersonId = new String(source.PersonId);
+        }
+        if (source.Gender != null) {
+            this.Gender = new Long(source.Gender);
+        }
+        if (source.PersonExDescriptionInfos != null) {
+            this.PersonExDescriptionInfos = new PersonExDescriptionInfo[source.PersonExDescriptionInfos.length];
+            for (int i = 0; i < source.PersonExDescriptionInfos.length; i++) {
+                this.PersonExDescriptionInfos[i] = new PersonExDescriptionInfo(source.PersonExDescriptionInfos[i]);
+            }
+        }
+        if (source.Image != null) {
+            this.Image = new String(source.Image);
+        }
+        if (source.Url != null) {
+            this.Url = new String(source.Url);
+        }
+        if (source.UniquePersonControl != null) {
+            this.UniquePersonControl = new Long(source.UniquePersonControl);
+        }
+        if (source.QualityControl != null) {
+            this.QualityControl = new Long(source.QualityControl);
+        }
+        if (source.NeedRotateDetection != null) {
+            this.NeedRotateDetection = new Long(source.NeedRotateDetection);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -347,6 +414,7 @@ Url、Image必须提供一个，如果都提供，只使用 Url。
         this.setParamSimple(map, prefix + "Url", this.Url);
         this.setParamSimple(map, prefix + "UniquePersonControl", this.UniquePersonControl);
         this.setParamSimple(map, prefix + "QualityControl", this.QualityControl);
+        this.setParamSimple(map, prefix + "NeedRotateDetection", this.NeedRotateDetection);
 
     }
 }

@@ -37,7 +37,13 @@ public class CreateInstanceAccountRequest extends AbstractModel{
     private String AccountName;
 
     /**
-    * 子账号密码
+    * 1.长度8-30位,推荐使用12位以上的密码
+2.不能以"/"开头
+3.至少包含两项
+    a.小写字母a-z
+    b.大写字母A-Z
+    c.数字0-9
+    d.()`~!@#$%^&*-+=_|{}[]:;<>,.?/
     */
     @SerializedName("AccountPassword")
     @Expose
@@ -51,7 +57,7 @@ public class CreateInstanceAccountRequest extends AbstractModel{
     private String [] ReadonlyPolicy;
 
     /**
-    * 读写策略：填写r、w、rw，表示只读、只写、读写
+    * 读写策略：填写r、rw，表示只读、读写
     */
     @SerializedName("Privilege")
     @Expose
@@ -97,16 +103,40 @@ public class CreateInstanceAccountRequest extends AbstractModel{
     }
 
     /**
-     * Get 子账号密码 
-     * @return AccountPassword 子账号密码
+     * Get 1.长度8-30位,推荐使用12位以上的密码
+2.不能以"/"开头
+3.至少包含两项
+    a.小写字母a-z
+    b.大写字母A-Z
+    c.数字0-9
+    d.()`~!@#$%^&*-+=_|{}[]:;<>,.?/ 
+     * @return AccountPassword 1.长度8-30位,推荐使用12位以上的密码
+2.不能以"/"开头
+3.至少包含两项
+    a.小写字母a-z
+    b.大写字母A-Z
+    c.数字0-9
+    d.()`~!@#$%^&*-+=_|{}[]:;<>,.?/
      */
     public String getAccountPassword() {
         return this.AccountPassword;
     }
 
     /**
-     * Set 子账号密码
-     * @param AccountPassword 子账号密码
+     * Set 1.长度8-30位,推荐使用12位以上的密码
+2.不能以"/"开头
+3.至少包含两项
+    a.小写字母a-z
+    b.大写字母A-Z
+    c.数字0-9
+    d.()`~!@#$%^&*-+=_|{}[]:;<>,.?/
+     * @param AccountPassword 1.长度8-30位,推荐使用12位以上的密码
+2.不能以"/"开头
+3.至少包含两项
+    a.小写字母a-z
+    b.大写字母A-Z
+    c.数字0-9
+    d.()`~!@#$%^&*-+=_|{}[]:;<>,.?/
      */
     public void setAccountPassword(String AccountPassword) {
         this.AccountPassword = AccountPassword;
@@ -129,16 +159,16 @@ public class CreateInstanceAccountRequest extends AbstractModel{
     }
 
     /**
-     * Get 读写策略：填写r、w、rw，表示只读、只写、读写 
-     * @return Privilege 读写策略：填写r、w、rw，表示只读、只写、读写
+     * Get 读写策略：填写r、rw，表示只读、读写 
+     * @return Privilege 读写策略：填写r、rw，表示只读、读写
      */
     public String getPrivilege() {
         return this.Privilege;
     }
 
     /**
-     * Set 读写策略：填写r、w、rw，表示只读、只写、读写
-     * @param Privilege 读写策略：填写r、w、rw，表示只读、只写、读写
+     * Set 读写策略：填写r、rw，表示只读、读写
+     * @param Privilege 读写策略：填写r、rw，表示只读、读写
      */
     public void setPrivilege(String Privilege) {
         this.Privilege = Privilege;
@@ -159,6 +189,38 @@ public class CreateInstanceAccountRequest extends AbstractModel{
     public void setRemark(String Remark) {
         this.Remark = Remark;
     }
+
+    public CreateInstanceAccountRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateInstanceAccountRequest(CreateInstanceAccountRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.AccountName != null) {
+            this.AccountName = new String(source.AccountName);
+        }
+        if (source.AccountPassword != null) {
+            this.AccountPassword = new String(source.AccountPassword);
+        }
+        if (source.ReadonlyPolicy != null) {
+            this.ReadonlyPolicy = new String[source.ReadonlyPolicy.length];
+            for (int i = 0; i < source.ReadonlyPolicy.length; i++) {
+                this.ReadonlyPolicy[i] = new String(source.ReadonlyPolicy[i]);
+            }
+        }
+        if (source.Privilege != null) {
+            this.Privilege = new String(source.Privilege);
+        }
+        if (source.Remark != null) {
+            this.Remark = new String(source.Remark);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

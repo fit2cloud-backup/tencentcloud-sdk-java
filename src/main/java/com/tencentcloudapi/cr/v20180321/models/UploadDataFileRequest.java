@@ -44,7 +44,7 @@ public class UploadDataFileRequest extends AbstractModel{
     private String FileName;
 
     /**
-    * <p>上传类型，不填默认到期/逾期提醒文件，取值范围：</p><ul style="margin-bottom:0px;"><li>data：到期/逾期提醒文件</li><li>repay：到期/逾期提醒停拨文件</li><li>callback：回访文件</li><li>callstop：回访停拨文件</li></ul>
+    * <p>上传类型，不填默认到期/逾期提醒文件，取值范围：</p><ul style="margin-bottom:0px;"><li>data：到期/逾期提醒文件</li><li>repay：到期/逾期提醒停拨文件</li><li>callback：回访文件</li><li>callstop：回访停拨文件</li><li>blacklist：黑名单文件</li></ul>
     */
     @SerializedName("UploadModel")
     @Expose
@@ -120,16 +120,16 @@ public class UploadDataFileRequest extends AbstractModel{
     }
 
     /**
-     * Get <p>上传类型，不填默认到期/逾期提醒文件，取值范围：</p><ul style="margin-bottom:0px;"><li>data：到期/逾期提醒文件</li><li>repay：到期/逾期提醒停拨文件</li><li>callback：回访文件</li><li>callstop：回访停拨文件</li></ul> 
-     * @return UploadModel <p>上传类型，不填默认到期/逾期提醒文件，取值范围：</p><ul style="margin-bottom:0px;"><li>data：到期/逾期提醒文件</li><li>repay：到期/逾期提醒停拨文件</li><li>callback：回访文件</li><li>callstop：回访停拨文件</li></ul>
+     * Get <p>上传类型，不填默认到期/逾期提醒文件，取值范围：</p><ul style="margin-bottom:0px;"><li>data：到期/逾期提醒文件</li><li>repay：到期/逾期提醒停拨文件</li><li>callback：回访文件</li><li>callstop：回访停拨文件</li><li>blacklist：黑名单文件</li></ul> 
+     * @return UploadModel <p>上传类型，不填默认到期/逾期提醒文件，取值范围：</p><ul style="margin-bottom:0px;"><li>data：到期/逾期提醒文件</li><li>repay：到期/逾期提醒停拨文件</li><li>callback：回访文件</li><li>callstop：回访停拨文件</li><li>blacklist：黑名单文件</li></ul>
      */
     public String getUploadModel() {
         return this.UploadModel;
     }
 
     /**
-     * Set <p>上传类型，不填默认到期/逾期提醒文件，取值范围：</p><ul style="margin-bottom:0px;"><li>data：到期/逾期提醒文件</li><li>repay：到期/逾期提醒停拨文件</li><li>callback：回访文件</li><li>callstop：回访停拨文件</li></ul>
-     * @param UploadModel <p>上传类型，不填默认到期/逾期提醒文件，取值范围：</p><ul style="margin-bottom:0px;"><li>data：到期/逾期提醒文件</li><li>repay：到期/逾期提醒停拨文件</li><li>callback：回访文件</li><li>callstop：回访停拨文件</li></ul>
+     * Set <p>上传类型，不填默认到期/逾期提醒文件，取值范围：</p><ul style="margin-bottom:0px;"><li>data：到期/逾期提醒文件</li><li>repay：到期/逾期提醒停拨文件</li><li>callback：回访文件</li><li>callstop：回访停拨文件</li><li>blacklist：黑名单文件</li></ul>
+     * @param UploadModel <p>上传类型，不填默认到期/逾期提醒文件，取值范围：</p><ul style="margin-bottom:0px;"><li>data：到期/逾期提醒文件</li><li>repay：到期/逾期提醒停拨文件</li><li>callback：回访文件</li><li>callstop：回访停拨文件</li><li>blacklist：黑名单文件</li></ul>
      */
     public void setUploadModel(String UploadModel) {
         this.UploadModel = UploadModel;
@@ -182,6 +182,38 @@ public class UploadDataFileRequest extends AbstractModel{
     public void setInstId(String InstId) {
         this.InstId = InstId;
     }
+
+    public UploadDataFileRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public UploadDataFileRequest(UploadDataFileRequest source) {
+        if (source.Module != null) {
+            this.Module = new String(source.Module);
+        }
+        if (source.Operation != null) {
+            this.Operation = new String(source.Operation);
+        }
+        if (source.FileName != null) {
+            this.FileName = new String(source.FileName);
+        }
+        if (source.UploadModel != null) {
+            this.UploadModel = new String(source.UploadModel);
+        }
+        if (source.File != null) {
+            this.File = source.File;
+        }
+        if (source.FileUrl != null) {
+            this.FileUrl = new String(source.FileUrl);
+        }
+        if (source.InstId != null) {
+            this.InstId = new String(source.InstId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

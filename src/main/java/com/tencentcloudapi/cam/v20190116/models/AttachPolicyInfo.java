@@ -70,7 +70,7 @@ public class AttachPolicyInfo extends AbstractModel{
     private String Remark;
 
     /**
-    * 策略关联操作者主张号
+    * 策略关联操作者主帐号
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OperateOwnerUin")
@@ -226,9 +226,9 @@ public class AttachPolicyInfo extends AbstractModel{
     }
 
     /**
-     * Get 策略关联操作者主张号
+     * Get 策略关联操作者主帐号
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return OperateOwnerUin 策略关联操作者主张号
+     * @return OperateOwnerUin 策略关联操作者主帐号
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOperateOwnerUin() {
@@ -236,9 +236,9 @@ public class AttachPolicyInfo extends AbstractModel{
     }
 
     /**
-     * Set 策略关联操作者主张号
+     * Set 策略关联操作者主帐号
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param OperateOwnerUin 策略关联操作者主张号
+     * @param OperateOwnerUin 策略关联操作者主帐号
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOperateOwnerUin(String OperateOwnerUin) {
@@ -324,6 +324,53 @@ public class AttachPolicyInfo extends AbstractModel{
     public void setDeactivedDetail(String [] DeactivedDetail) {
         this.DeactivedDetail = DeactivedDetail;
     }
+
+    public AttachPolicyInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AttachPolicyInfo(AttachPolicyInfo source) {
+        if (source.PolicyId != null) {
+            this.PolicyId = new Long(source.PolicyId);
+        }
+        if (source.PolicyName != null) {
+            this.PolicyName = new String(source.PolicyName);
+        }
+        if (source.AddTime != null) {
+            this.AddTime = new String(source.AddTime);
+        }
+        if (source.CreateMode != null) {
+            this.CreateMode = new Long(source.CreateMode);
+        }
+        if (source.PolicyType != null) {
+            this.PolicyType = new String(source.PolicyType);
+        }
+        if (source.Remark != null) {
+            this.Remark = new String(source.Remark);
+        }
+        if (source.OperateOwnerUin != null) {
+            this.OperateOwnerUin = new String(source.OperateOwnerUin);
+        }
+        if (source.OperateUin != null) {
+            this.OperateUin = new String(source.OperateUin);
+        }
+        if (source.OperateUinType != null) {
+            this.OperateUinType = new Long(source.OperateUinType);
+        }
+        if (source.Deactived != null) {
+            this.Deactived = new Long(source.Deactived);
+        }
+        if (source.DeactivedDetail != null) {
+            this.DeactivedDetail = new String[source.DeactivedDetail.length];
+            for (int i = 0; i < source.DeactivedDetail.length; i++) {
+                this.DeactivedDetail[i] = new String(source.DeactivedDetail[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

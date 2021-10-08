@@ -23,16 +23,18 @@ import java.util.HashMap;
 public class LivenessCompareRequest extends AbstractModel{
 
     /**
-    * 用于人脸比对的照片，图片的BASE64值；
-BASE64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
+    * 用于人脸比对的照片，图片的Base64值；
+Base64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
+请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。
     */
     @SerializedName("ImageBase64")
     @Expose
     private String ImageBase64;
 
     /**
-    * 用于活体检测的视频，视频的BASE64值；
-BASE64编码后的大小不超过5M，支持mp4、avi、flv格式。
+    * 用于活体检测的视频，视频的Base64值；
+Base64编码后的大小不超过8M，支持mp4、avi、flv格式。
+请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。
     */
     @SerializedName("VideoBase64")
     @Expose
@@ -47,8 +49,8 @@ LIP为数字模式，ACTION为动作模式，SILENT为静默模式，三种模�
     private String LivenessType;
 
     /**
-    * 数字模式传参：数字验证码(1234)，需先调用接口获取数字验证码；
-动作模式传参：传动作顺序(2,1 or 1,2)，需先调用接口获取动作顺序；
+    * 数字模式传参：传数字验证码，验证码需先调用<a href="https://cloud.tencent.com/document/product/1007/31821">获取数字验证码接口</a>得到；
+动作模式传参：传动作顺序，动作顺序需先调用<a href="https://cloud.tencent.com/document/product/1007/31822">获取动作顺序接口</a>得到；
 静默模式传参：空。
     */
     @SerializedName("ValidateData")
@@ -56,47 +58,58 @@ LIP为数字模式，ACTION为动作模式，SILENT为静默模式，三种模�
     private String ValidateData;
 
     /**
-    * 本接口不需要传递此参数。
+    * 额外配置，传入JSON字符串。
+{
+"BestFrameNum": 2  //需要返回多张最佳截图，取值范围2-10
+}
     */
     @SerializedName("Optional")
     @Expose
     private String Optional;
 
     /**
-     * Get 用于人脸比对的照片，图片的BASE64值；
-BASE64编码后的图片数据大小不超过3M，仅支持jpg、png格式。 
-     * @return ImageBase64 用于人脸比对的照片，图片的BASE64值；
-BASE64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
+     * Get 用于人脸比对的照片，图片的Base64值；
+Base64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
+请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。 
+     * @return ImageBase64 用于人脸比对的照片，图片的Base64值；
+Base64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
+请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。
      */
     public String getImageBase64() {
         return this.ImageBase64;
     }
 
     /**
-     * Set 用于人脸比对的照片，图片的BASE64值；
-BASE64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
-     * @param ImageBase64 用于人脸比对的照片，图片的BASE64值；
-BASE64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
+     * Set 用于人脸比对的照片，图片的Base64值；
+Base64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
+请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。
+     * @param ImageBase64 用于人脸比对的照片，图片的Base64值；
+Base64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
+请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。
      */
     public void setImageBase64(String ImageBase64) {
         this.ImageBase64 = ImageBase64;
     }
 
     /**
-     * Get 用于活体检测的视频，视频的BASE64值；
-BASE64编码后的大小不超过5M，支持mp4、avi、flv格式。 
-     * @return VideoBase64 用于活体检测的视频，视频的BASE64值；
-BASE64编码后的大小不超过5M，支持mp4、avi、flv格式。
+     * Get 用于活体检测的视频，视频的Base64值；
+Base64编码后的大小不超过8M，支持mp4、avi、flv格式。
+请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。 
+     * @return VideoBase64 用于活体检测的视频，视频的Base64值；
+Base64编码后的大小不超过8M，支持mp4、avi、flv格式。
+请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。
      */
     public String getVideoBase64() {
         return this.VideoBase64;
     }
 
     /**
-     * Set 用于活体检测的视频，视频的BASE64值；
-BASE64编码后的大小不超过5M，支持mp4、avi、flv格式。
-     * @param VideoBase64 用于活体检测的视频，视频的BASE64值；
-BASE64编码后的大小不超过5M，支持mp4、avi、flv格式。
+     * Set 用于活体检测的视频，视频的Base64值；
+Base64编码后的大小不超过8M，支持mp4、avi、flv格式。
+请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。
+     * @param VideoBase64 用于活体检测的视频，视频的Base64值；
+Base64编码后的大小不超过8M，支持mp4、avi、flv格式。
+请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。
      */
     public void setVideoBase64(String VideoBase64) {
         this.VideoBase64 = VideoBase64;
@@ -123,11 +136,11 @@ LIP为数字模式，ACTION为动作模式，SILENT为静默模式，三种模�
     }
 
     /**
-     * Get 数字模式传参：数字验证码(1234)，需先调用接口获取数字验证码；
-动作模式传参：传动作顺序(2,1 or 1,2)，需先调用接口获取动作顺序；
+     * Get 数字模式传参：传数字验证码，验证码需先调用<a href="https://cloud.tencent.com/document/product/1007/31821">获取数字验证码接口</a>得到；
+动作模式传参：传动作顺序，动作顺序需先调用<a href="https://cloud.tencent.com/document/product/1007/31822">获取动作顺序接口</a>得到；
 静默模式传参：空。 
-     * @return ValidateData 数字模式传参：数字验证码(1234)，需先调用接口获取数字验证码；
-动作模式传参：传动作顺序(2,1 or 1,2)，需先调用接口获取动作顺序；
+     * @return ValidateData 数字模式传参：传数字验证码，验证码需先调用<a href="https://cloud.tencent.com/document/product/1007/31821">获取数字验证码接口</a>得到；
+动作模式传参：传动作顺序，动作顺序需先调用<a href="https://cloud.tencent.com/document/product/1007/31822">获取动作顺序接口</a>得到；
 静默模式传参：空。
      */
     public String getValidateData() {
@@ -135,11 +148,11 @@ LIP为数字模式，ACTION为动作模式，SILENT为静默模式，三种模�
     }
 
     /**
-     * Set 数字模式传参：数字验证码(1234)，需先调用接口获取数字验证码；
-动作模式传参：传动作顺序(2,1 or 1,2)，需先调用接口获取动作顺序；
+     * Set 数字模式传参：传数字验证码，验证码需先调用<a href="https://cloud.tencent.com/document/product/1007/31821">获取数字验证码接口</a>得到；
+动作模式传参：传动作顺序，动作顺序需先调用<a href="https://cloud.tencent.com/document/product/1007/31822">获取动作顺序接口</a>得到；
 静默模式传参：空。
-     * @param ValidateData 数字模式传参：数字验证码(1234)，需先调用接口获取数字验证码；
-动作模式传参：传动作顺序(2,1 or 1,2)，需先调用接口获取动作顺序；
+     * @param ValidateData 数字模式传参：传数字验证码，验证码需先调用<a href="https://cloud.tencent.com/document/product/1007/31821">获取数字验证码接口</a>得到；
+动作模式传参：传动作顺序，动作顺序需先调用<a href="https://cloud.tencent.com/document/product/1007/31822">获取动作顺序接口</a>得到；
 静默模式传参：空。
      */
     public void setValidateData(String ValidateData) {
@@ -147,20 +160,58 @@ LIP为数字模式，ACTION为动作模式，SILENT为静默模式，三种模�
     }
 
     /**
-     * Get 本接口不需要传递此参数。 
-     * @return Optional 本接口不需要传递此参数。
+     * Get 额外配置，传入JSON字符串。
+{
+"BestFrameNum": 2  //需要返回多张最佳截图，取值范围2-10
+} 
+     * @return Optional 额外配置，传入JSON字符串。
+{
+"BestFrameNum": 2  //需要返回多张最佳截图，取值范围2-10
+}
      */
     public String getOptional() {
         return this.Optional;
     }
 
     /**
-     * Set 本接口不需要传递此参数。
-     * @param Optional 本接口不需要传递此参数。
+     * Set 额外配置，传入JSON字符串。
+{
+"BestFrameNum": 2  //需要返回多张最佳截图，取值范围2-10
+}
+     * @param Optional 额外配置，传入JSON字符串。
+{
+"BestFrameNum": 2  //需要返回多张最佳截图，取值范围2-10
+}
      */
     public void setOptional(String Optional) {
         this.Optional = Optional;
     }
+
+    public LivenessCompareRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public LivenessCompareRequest(LivenessCompareRequest source) {
+        if (source.ImageBase64 != null) {
+            this.ImageBase64 = new String(source.ImageBase64);
+        }
+        if (source.VideoBase64 != null) {
+            this.VideoBase64 = new String(source.VideoBase64);
+        }
+        if (source.LivenessType != null) {
+            this.LivenessType = new String(source.LivenessType);
+        }
+        if (source.ValidateData != null) {
+            this.ValidateData = new String(source.ValidateData);
+        }
+        if (source.Optional != null) {
+            this.Optional = new String(source.Optional);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class CreateBandwidthPackageResponse extends AbstractModel{
 
     /**
-    * 带宽包唯一ID
+    * 带宽包唯一ID。
     */
     @SerializedName("BandwidthPackageId")
     @Expose
     private String BandwidthPackageId;
 
     /**
-    * 带宽包唯一ID列表(申请数量大于1时有效)
+    * 带宽包唯一ID列表(申请数量大于1时有效)。
     */
     @SerializedName("BandwidthPackageIds")
     @Expose
@@ -44,32 +44,32 @@ public class CreateBandwidthPackageResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 带宽包唯一ID 
-     * @return BandwidthPackageId 带宽包唯一ID
+     * Get 带宽包唯一ID。 
+     * @return BandwidthPackageId 带宽包唯一ID。
      */
     public String getBandwidthPackageId() {
         return this.BandwidthPackageId;
     }
 
     /**
-     * Set 带宽包唯一ID
-     * @param BandwidthPackageId 带宽包唯一ID
+     * Set 带宽包唯一ID。
+     * @param BandwidthPackageId 带宽包唯一ID。
      */
     public void setBandwidthPackageId(String BandwidthPackageId) {
         this.BandwidthPackageId = BandwidthPackageId;
     }
 
     /**
-     * Get 带宽包唯一ID列表(申请数量大于1时有效) 
-     * @return BandwidthPackageIds 带宽包唯一ID列表(申请数量大于1时有效)
+     * Get 带宽包唯一ID列表(申请数量大于1时有效)。 
+     * @return BandwidthPackageIds 带宽包唯一ID列表(申请数量大于1时有效)。
      */
     public String [] getBandwidthPackageIds() {
         return this.BandwidthPackageIds;
     }
 
     /**
-     * Set 带宽包唯一ID列表(申请数量大于1时有效)
-     * @param BandwidthPackageIds 带宽包唯一ID列表(申请数量大于1时有效)
+     * Set 带宽包唯一ID列表(申请数量大于1时有效)。
+     * @param BandwidthPackageIds 带宽包唯一ID列表(申请数量大于1时有效)。
      */
     public void setBandwidthPackageIds(String [] BandwidthPackageIds) {
         this.BandwidthPackageIds = BandwidthPackageIds;
@@ -90,6 +90,29 @@ public class CreateBandwidthPackageResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public CreateBandwidthPackageResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateBandwidthPackageResponse(CreateBandwidthPackageResponse source) {
+        if (source.BandwidthPackageId != null) {
+            this.BandwidthPackageId = new String(source.BandwidthPackageId);
+        }
+        if (source.BandwidthPackageIds != null) {
+            this.BandwidthPackageIds = new String[source.BandwidthPackageIds.length];
+            for (int i = 0; i < source.BandwidthPackageIds.length; i++) {
+                this.BandwidthPackageIds[i] = new String(source.BandwidthPackageIds[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

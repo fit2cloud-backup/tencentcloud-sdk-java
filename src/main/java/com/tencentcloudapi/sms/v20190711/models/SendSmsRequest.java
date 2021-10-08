@@ -31,21 +31,21 @@ public class SendSmsRequest extends AbstractModel{
     private String [] PhoneNumberSet;
 
     /**
-    * 模板 ID，必须填写已审核通过的模板 ID。模板ID可登录 [短信控制台](https://console.cloud.tencent.com/sms/smslist) 查看。
+    * 模板 ID，必须填写已审核通过的模板 ID。模板ID可登录 [短信控制台](https://console.cloud.tencent.com/smsv2) 查看，若向境外手机号发送短信，仅支持使用国际/港澳台短信模板。
     */
     @SerializedName("TemplateID")
     @Expose
     private String TemplateID;
 
     /**
-    * 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/sms/smslist)  添加应用后生成的实际SdkAppid，示例如1400006666。
+    * 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/smsv2)  添加应用后生成的实际SdkAppid，示例如1400006666。
     */
     @SerializedName("SmsSdkAppid")
     @Expose
     private String SmsSdkAppid;
 
     /**
-    * 短信签名内容，使用 UTF-8 编码，必须填写已审核通过的签名，签名信息可登录 [短信控制台](https://console.cloud.tencent.com/sms/smslist)  查看。注：国内短信为必填参数。
+    * 短信签名内容，使用 UTF-8 编码，必须填写已审核通过的签名，签名信息可登录 [短信控制台](https://console.cloud.tencent.com/smsv2)  查看。注：国内短信为必填参数。
     */
     @SerializedName("Sign")
     @Expose
@@ -73,7 +73,7 @@ public class SendSmsRequest extends AbstractModel{
     private String SessionContext;
 
     /**
-    * 国际/港澳台短信 senderid，国内短信填空，默认未开通，如需开通请联系 [sms helper](https://cloud.tencent.com/document/product/382/3773)。
+    * 国内短信无senderid，无需填写该项；若需开通国际/港澳台短信senderid，请联系smshelper。
     */
     @SerializedName("SenderId")
     @Expose
@@ -100,48 +100,48 @@ public class SendSmsRequest extends AbstractModel{
     }
 
     /**
-     * Get 模板 ID，必须填写已审核通过的模板 ID。模板ID可登录 [短信控制台](https://console.cloud.tencent.com/sms/smslist) 查看。 
-     * @return TemplateID 模板 ID，必须填写已审核通过的模板 ID。模板ID可登录 [短信控制台](https://console.cloud.tencent.com/sms/smslist) 查看。
+     * Get 模板 ID，必须填写已审核通过的模板 ID。模板ID可登录 [短信控制台](https://console.cloud.tencent.com/smsv2) 查看，若向境外手机号发送短信，仅支持使用国际/港澳台短信模板。 
+     * @return TemplateID 模板 ID，必须填写已审核通过的模板 ID。模板ID可登录 [短信控制台](https://console.cloud.tencent.com/smsv2) 查看，若向境外手机号发送短信，仅支持使用国际/港澳台短信模板。
      */
     public String getTemplateID() {
         return this.TemplateID;
     }
 
     /**
-     * Set 模板 ID，必须填写已审核通过的模板 ID。模板ID可登录 [短信控制台](https://console.cloud.tencent.com/sms/smslist) 查看。
-     * @param TemplateID 模板 ID，必须填写已审核通过的模板 ID。模板ID可登录 [短信控制台](https://console.cloud.tencent.com/sms/smslist) 查看。
+     * Set 模板 ID，必须填写已审核通过的模板 ID。模板ID可登录 [短信控制台](https://console.cloud.tencent.com/smsv2) 查看，若向境外手机号发送短信，仅支持使用国际/港澳台短信模板。
+     * @param TemplateID 模板 ID，必须填写已审核通过的模板 ID。模板ID可登录 [短信控制台](https://console.cloud.tencent.com/smsv2) 查看，若向境外手机号发送短信，仅支持使用国际/港澳台短信模板。
      */
     public void setTemplateID(String TemplateID) {
         this.TemplateID = TemplateID;
     }
 
     /**
-     * Get 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/sms/smslist)  添加应用后生成的实际SdkAppid，示例如1400006666。 
-     * @return SmsSdkAppid 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/sms/smslist)  添加应用后生成的实际SdkAppid，示例如1400006666。
+     * Get 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/smsv2)  添加应用后生成的实际SdkAppid，示例如1400006666。 
+     * @return SmsSdkAppid 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/smsv2)  添加应用后生成的实际SdkAppid，示例如1400006666。
      */
     public String getSmsSdkAppid() {
         return this.SmsSdkAppid;
     }
 
     /**
-     * Set 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/sms/smslist)  添加应用后生成的实际SdkAppid，示例如1400006666。
-     * @param SmsSdkAppid 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/sms/smslist)  添加应用后生成的实际SdkAppid，示例如1400006666。
+     * Set 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/smsv2)  添加应用后生成的实际SdkAppid，示例如1400006666。
+     * @param SmsSdkAppid 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/smsv2)  添加应用后生成的实际SdkAppid，示例如1400006666。
      */
     public void setSmsSdkAppid(String SmsSdkAppid) {
         this.SmsSdkAppid = SmsSdkAppid;
     }
 
     /**
-     * Get 短信签名内容，使用 UTF-8 编码，必须填写已审核通过的签名，签名信息可登录 [短信控制台](https://console.cloud.tencent.com/sms/smslist)  查看。注：国内短信为必填参数。 
-     * @return Sign 短信签名内容，使用 UTF-8 编码，必须填写已审核通过的签名，签名信息可登录 [短信控制台](https://console.cloud.tencent.com/sms/smslist)  查看。注：国内短信为必填参数。
+     * Get 短信签名内容，使用 UTF-8 编码，必须填写已审核通过的签名，签名信息可登录 [短信控制台](https://console.cloud.tencent.com/smsv2)  查看。注：国内短信为必填参数。 
+     * @return Sign 短信签名内容，使用 UTF-8 编码，必须填写已审核通过的签名，签名信息可登录 [短信控制台](https://console.cloud.tencent.com/smsv2)  查看。注：国内短信为必填参数。
      */
     public String getSign() {
         return this.Sign;
     }
 
     /**
-     * Set 短信签名内容，使用 UTF-8 编码，必须填写已审核通过的签名，签名信息可登录 [短信控制台](https://console.cloud.tencent.com/sms/smslist)  查看。注：国内短信为必填参数。
-     * @param Sign 短信签名内容，使用 UTF-8 编码，必须填写已审核通过的签名，签名信息可登录 [短信控制台](https://console.cloud.tencent.com/sms/smslist)  查看。注：国内短信为必填参数。
+     * Set 短信签名内容，使用 UTF-8 编码，必须填写已审核通过的签名，签名信息可登录 [短信控制台](https://console.cloud.tencent.com/smsv2)  查看。注：国内短信为必填参数。
+     * @param Sign 短信签名内容，使用 UTF-8 编码，必须填写已审核通过的签名，签名信息可登录 [短信控制台](https://console.cloud.tencent.com/smsv2)  查看。注：国内短信为必填参数。
      */
     public void setSign(String Sign) {
         this.Sign = Sign;
@@ -196,20 +196,61 @@ public class SendSmsRequest extends AbstractModel{
     }
 
     /**
-     * Get 国际/港澳台短信 senderid，国内短信填空，默认未开通，如需开通请联系 [sms helper](https://cloud.tencent.com/document/product/382/3773)。 
-     * @return SenderId 国际/港澳台短信 senderid，国内短信填空，默认未开通，如需开通请联系 [sms helper](https://cloud.tencent.com/document/product/382/3773)。
+     * Get 国内短信无senderid，无需填写该项；若需开通国际/港澳台短信senderid，请联系smshelper。 
+     * @return SenderId 国内短信无senderid，无需填写该项；若需开通国际/港澳台短信senderid，请联系smshelper。
      */
     public String getSenderId() {
         return this.SenderId;
     }
 
     /**
-     * Set 国际/港澳台短信 senderid，国内短信填空，默认未开通，如需开通请联系 [sms helper](https://cloud.tencent.com/document/product/382/3773)。
-     * @param SenderId 国际/港澳台短信 senderid，国内短信填空，默认未开通，如需开通请联系 [sms helper](https://cloud.tencent.com/document/product/382/3773)。
+     * Set 国内短信无senderid，无需填写该项；若需开通国际/港澳台短信senderid，请联系smshelper。
+     * @param SenderId 国内短信无senderid，无需填写该项；若需开通国际/港澳台短信senderid，请联系smshelper。
      */
     public void setSenderId(String SenderId) {
         this.SenderId = SenderId;
     }
+
+    public SendSmsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SendSmsRequest(SendSmsRequest source) {
+        if (source.PhoneNumberSet != null) {
+            this.PhoneNumberSet = new String[source.PhoneNumberSet.length];
+            for (int i = 0; i < source.PhoneNumberSet.length; i++) {
+                this.PhoneNumberSet[i] = new String(source.PhoneNumberSet[i]);
+            }
+        }
+        if (source.TemplateID != null) {
+            this.TemplateID = new String(source.TemplateID);
+        }
+        if (source.SmsSdkAppid != null) {
+            this.SmsSdkAppid = new String(source.SmsSdkAppid);
+        }
+        if (source.Sign != null) {
+            this.Sign = new String(source.Sign);
+        }
+        if (source.TemplateParamSet != null) {
+            this.TemplateParamSet = new String[source.TemplateParamSet.length];
+            for (int i = 0; i < source.TemplateParamSet.length; i++) {
+                this.TemplateParamSet[i] = new String(source.TemplateParamSet[i]);
+            }
+        }
+        if (source.ExtendCode != null) {
+            this.ExtendCode = new String(source.ExtendCode);
+        }
+        if (source.SessionContext != null) {
+            this.SessionContext = new String(source.SessionContext);
+        }
+        if (source.SenderId != null) {
+            this.SenderId = new String(source.SenderId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

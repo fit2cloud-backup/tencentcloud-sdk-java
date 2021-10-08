@@ -34,8 +34,7 @@ public class AudioTemplateInfo extends AbstractModel{
 <li>ac3。</li>
 当外层参数 Container 为 mp4 或 flv 时，可选值为：
 <li>libfdk_aac：更适合 mp4；</li>
-<li>libmp3lame：更适合 flv；</li>
-<li>mp2。</li>
+<li>libmp3lame：更适合 flv。</li>
 当外层参数 Container 为 hls 时，可选值为：
 <li>libfdk_aac；</li>
 <li>libmp3lame。</li>
@@ -68,6 +67,7 @@ public class AudioTemplateInfo extends AbstractModel{
 <li>1：单通道</li>
 <li>2：双通道</li>
 <li>6：立体声</li>
+当媒体的封装格式是音频格式时（flac，ogg，mp3，m4a）时，声道数不允许设为立体声。
 默认值：2。
     */
     @SerializedName("AudioChannel")
@@ -86,8 +86,7 @@ public class AudioTemplateInfo extends AbstractModel{
 <li>ac3。</li>
 当外层参数 Container 为 mp4 或 flv 时，可选值为：
 <li>libfdk_aac：更适合 mp4；</li>
-<li>libmp3lame：更适合 flv；</li>
-<li>mp2。</li>
+<li>libmp3lame：更适合 flv。</li>
 当外层参数 Container 为 hls 时，可选值为：
 <li>libfdk_aac；</li>
 <li>libmp3lame。</li> 
@@ -102,8 +101,7 @@ public class AudioTemplateInfo extends AbstractModel{
 <li>ac3。</li>
 当外层参数 Container 为 mp4 或 flv 时，可选值为：
 <li>libfdk_aac：更适合 mp4；</li>
-<li>libmp3lame：更适合 flv；</li>
-<li>mp2。</li>
+<li>libmp3lame：更适合 flv。</li>
 当外层参数 Container 为 hls 时，可选值为：
 <li>libfdk_aac；</li>
 <li>libmp3lame。</li>
@@ -124,8 +122,7 @@ public class AudioTemplateInfo extends AbstractModel{
 <li>ac3。</li>
 当外层参数 Container 为 mp4 或 flv 时，可选值为：
 <li>libfdk_aac：更适合 mp4；</li>
-<li>libmp3lame：更适合 flv；</li>
-<li>mp2。</li>
+<li>libmp3lame：更适合 flv。</li>
 当外层参数 Container 为 hls 时，可选值为：
 <li>libfdk_aac；</li>
 <li>libmp3lame。</li>
@@ -140,8 +137,7 @@ public class AudioTemplateInfo extends AbstractModel{
 <li>ac3。</li>
 当外层参数 Container 为 mp4 或 flv 时，可选值为：
 <li>libfdk_aac：更适合 mp4；</li>
-<li>libmp3lame：更适合 flv；</li>
-<li>mp2。</li>
+<li>libmp3lame：更适合 flv。</li>
 当外层参数 Container 为 hls 时，可选值为：
 <li>libfdk_aac；</li>
 <li>libmp3lame。</li>
@@ -207,11 +203,13 @@ public class AudioTemplateInfo extends AbstractModel{
 <li>1：单通道</li>
 <li>2：双通道</li>
 <li>6：立体声</li>
+当媒体的封装格式是音频格式时（flac，ogg，mp3，m4a）时，声道数不允许设为立体声。
 默认值：2。 
      * @return AudioChannel 音频通道方式，可选值：
 <li>1：单通道</li>
 <li>2：双通道</li>
 <li>6：立体声</li>
+当媒体的封装格式是音频格式时（flac，ogg，mp3，m4a）时，声道数不允许设为立体声。
 默认值：2。
      */
     public Long getAudioChannel() {
@@ -223,16 +221,41 @@ public class AudioTemplateInfo extends AbstractModel{
 <li>1：单通道</li>
 <li>2：双通道</li>
 <li>6：立体声</li>
+当媒体的封装格式是音频格式时（flac，ogg，mp3，m4a）时，声道数不允许设为立体声。
 默认值：2。
      * @param AudioChannel 音频通道方式，可选值：
 <li>1：单通道</li>
 <li>2：双通道</li>
 <li>6：立体声</li>
+当媒体的封装格式是音频格式时（flac，ogg，mp3，m4a）时，声道数不允许设为立体声。
 默认值：2。
      */
     public void setAudioChannel(Long AudioChannel) {
         this.AudioChannel = AudioChannel;
     }
+
+    public AudioTemplateInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AudioTemplateInfo(AudioTemplateInfo source) {
+        if (source.Codec != null) {
+            this.Codec = new String(source.Codec);
+        }
+        if (source.Bitrate != null) {
+            this.Bitrate = new Long(source.Bitrate);
+        }
+        if (source.SampleRate != null) {
+            this.SampleRate = new Long(source.SampleRate);
+        }
+        if (source.AudioChannel != null) {
+            this.AudioChannel = new Long(source.AudioChannel);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

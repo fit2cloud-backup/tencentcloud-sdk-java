@@ -24,9 +24,9 @@ public class HttpHeaderPathRule extends AbstractModel{
 
     /**
     * http 头部设置方式
-add：添加头部，若已存在头部，则会存在重复头部
-set：仅回源头部配置支持，若头部已存在则会覆盖原有头部值，若不存在，则会增加该头部及值
-del：删除头部
+set：设置。变更指定头部参数的取值为设置后的值；若设置的头部不存在，则会增加该头部；若存在多个重复的头部参数，则会全部变更，同时合并为一个头部。
+del：删除。删除指定的头部参数
+add：增加。增加指定的头部参数，默认允许重复添加，即重复添加相同的头部（注：重复添加可能会影响浏览器响应，请优先使用set操作）
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HeaderMode")
@@ -77,14 +77,14 @@ path 时填充绝对路径，如 /xxx/test.html
 
     /**
      * Get http 头部设置方式
-add：添加头部，若已存在头部，则会存在重复头部
-set：仅回源头部配置支持，若头部已存在则会覆盖原有头部值，若不存在，则会增加该头部及值
-del：删除头部
+set：设置。变更指定头部参数的取值为设置后的值；若设置的头部不存在，则会增加该头部；若存在多个重复的头部参数，则会全部变更，同时合并为一个头部。
+del：删除。删除指定的头部参数
+add：增加。增加指定的头部参数，默认允许重复添加，即重复添加相同的头部（注：重复添加可能会影响浏览器响应，请优先使用set操作）
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return HeaderMode http 头部设置方式
-add：添加头部，若已存在头部，则会存在重复头部
-set：仅回源头部配置支持，若头部已存在则会覆盖原有头部值，若不存在，则会增加该头部及值
-del：删除头部
+set：设置。变更指定头部参数的取值为设置后的值；若设置的头部不存在，则会增加该头部；若存在多个重复的头部参数，则会全部变更，同时合并为一个头部。
+del：删除。删除指定的头部参数
+add：增加。增加指定的头部参数，默认允许重复添加，即重复添加相同的头部（注：重复添加可能会影响浏览器响应，请优先使用set操作）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHeaderMode() {
@@ -93,14 +93,14 @@ del：删除头部
 
     /**
      * Set http 头部设置方式
-add：添加头部，若已存在头部，则会存在重复头部
-set：仅回源头部配置支持，若头部已存在则会覆盖原有头部值，若不存在，则会增加该头部及值
-del：删除头部
+set：设置。变更指定头部参数的取值为设置后的值；若设置的头部不存在，则会增加该头部；若存在多个重复的头部参数，则会全部变更，同时合并为一个头部。
+del：删除。删除指定的头部参数
+add：增加。增加指定的头部参数，默认允许重复添加，即重复添加相同的头部（注：重复添加可能会影响浏览器响应，请优先使用set操作）
 注意：此字段可能返回 null，表示取不到有效值。
      * @param HeaderMode http 头部设置方式
-add：添加头部，若已存在头部，则会存在重复头部
-set：仅回源头部配置支持，若头部已存在则会覆盖原有头部值，若不存在，则会增加该头部及值
-del：删除头部
+set：设置。变更指定头部参数的取值为设置后的值；若设置的头部不存在，则会增加该头部；若存在多个重复的头部参数，则会全部变更，同时合并为一个头部。
+del：删除。删除指定的头部参数
+add：增加。增加指定的头部参数，默认允许重复添加，即重复添加相同的头部（注：重复添加可能会影响浏览器响应，请优先使用set操作）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHeaderMode(String HeaderMode) {
@@ -226,6 +226,35 @@ path 时填充绝对路径，如 /xxx/test.html
     public void setRulePaths(String [] RulePaths) {
         this.RulePaths = RulePaths;
     }
+
+    public HttpHeaderPathRule() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public HttpHeaderPathRule(HttpHeaderPathRule source) {
+        if (source.HeaderMode != null) {
+            this.HeaderMode = new String(source.HeaderMode);
+        }
+        if (source.HeaderName != null) {
+            this.HeaderName = new String(source.HeaderName);
+        }
+        if (source.HeaderValue != null) {
+            this.HeaderValue = new String(source.HeaderValue);
+        }
+        if (source.RuleType != null) {
+            this.RuleType = new String(source.RuleType);
+        }
+        if (source.RulePaths != null) {
+            this.RulePaths = new String[source.RulePaths.length];
+            for (int i = 0; i < source.RulePaths.length; i++) {
+                this.RulePaths[i] = new String(source.RulePaths[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

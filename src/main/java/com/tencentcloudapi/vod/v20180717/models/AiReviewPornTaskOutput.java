@@ -24,7 +24,6 @@ public class AiReviewPornTaskOutput extends AbstractModel{
 
     /**
     * 视频鉴黄评分，分值为0到100。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Confidence")
     @Expose
@@ -35,7 +34,6 @@ public class AiReviewPornTaskOutput extends AbstractModel{
 <li>pass。</li>
 <li>review。</li>
 <li>block。</li>
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Suggestion")
     @Expose
@@ -47,7 +45,6 @@ public class AiReviewPornTaskOutput extends AbstractModel{
 <li>sexy：性感。</li>
 <li>vulgar：低俗。</li>
 <li>intimacy：亲密行为。</li>
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Label")
     @Expose
@@ -55,17 +52,14 @@ public class AiReviewPornTaskOutput extends AbstractModel{
 
     /**
     * 有涉黄嫌疑的视频片段列表。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SegmentSet")
     @Expose
     private MediaContentReviewSegmentItem [] SegmentSet;
 
     /**
-     * Get 视频鉴黄评分，分值为0到100。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 视频鉴黄评分，分值为0到100。 
      * @return Confidence 视频鉴黄评分，分值为0到100。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getConfidence() {
         return this.Confidence;
@@ -73,9 +67,7 @@ public class AiReviewPornTaskOutput extends AbstractModel{
 
     /**
      * Set 视频鉴黄评分，分值为0到100。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Confidence 视频鉴黄评分，分值为0到100。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setConfidence(Float Confidence) {
         this.Confidence = Confidence;
@@ -85,13 +77,11 @@ public class AiReviewPornTaskOutput extends AbstractModel{
      * Get 鉴黄结果建议，取值范围：
 <li>pass。</li>
 <li>review。</li>
-<li>block。</li>
-注意：此字段可能返回 null，表示取不到有效值。 
+<li>block。</li> 
      * @return Suggestion 鉴黄结果建议，取值范围：
 <li>pass。</li>
 <li>review。</li>
 <li>block。</li>
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSuggestion() {
         return this.Suggestion;
@@ -102,12 +92,10 @@ public class AiReviewPornTaskOutput extends AbstractModel{
 <li>pass。</li>
 <li>review。</li>
 <li>block。</li>
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Suggestion 鉴黄结果建议，取值范围：
 <li>pass。</li>
 <li>review。</li>
 <li>block。</li>
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSuggestion(String Suggestion) {
         this.Suggestion = Suggestion;
@@ -118,14 +106,12 @@ public class AiReviewPornTaskOutput extends AbstractModel{
 <li>porn：色情。</li>
 <li>sexy：性感。</li>
 <li>vulgar：低俗。</li>
-<li>intimacy：亲密行为。</li>
-注意：此字段可能返回 null，表示取不到有效值。 
+<li>intimacy：亲密行为。</li> 
      * @return Label 视频鉴黄结果标签，取值范围：
 <li>porn：色情。</li>
 <li>sexy：性感。</li>
 <li>vulgar：低俗。</li>
 <li>intimacy：亲密行为。</li>
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLabel() {
         return this.Label;
@@ -137,23 +123,19 @@ public class AiReviewPornTaskOutput extends AbstractModel{
 <li>sexy：性感。</li>
 <li>vulgar：低俗。</li>
 <li>intimacy：亲密行为。</li>
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Label 视频鉴黄结果标签，取值范围：
 <li>porn：色情。</li>
 <li>sexy：性感。</li>
 <li>vulgar：低俗。</li>
 <li>intimacy：亲密行为。</li>
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLabel(String Label) {
         this.Label = Label;
     }
 
     /**
-     * Get 有涉黄嫌疑的视频片段列表。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 有涉黄嫌疑的视频片段列表。 
      * @return SegmentSet 有涉黄嫌疑的视频片段列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MediaContentReviewSegmentItem [] getSegmentSet() {
         return this.SegmentSet;
@@ -161,13 +143,37 @@ public class AiReviewPornTaskOutput extends AbstractModel{
 
     /**
      * Set 有涉黄嫌疑的视频片段列表。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SegmentSet 有涉黄嫌疑的视频片段列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSegmentSet(MediaContentReviewSegmentItem [] SegmentSet) {
         this.SegmentSet = SegmentSet;
     }
+
+    public AiReviewPornTaskOutput() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AiReviewPornTaskOutput(AiReviewPornTaskOutput source) {
+        if (source.Confidence != null) {
+            this.Confidence = new Float(source.Confidence);
+        }
+        if (source.Suggestion != null) {
+            this.Suggestion = new String(source.Suggestion);
+        }
+        if (source.Label != null) {
+            this.Label = new String(source.Label);
+        }
+        if (source.SegmentSet != null) {
+            this.SegmentSet = new MediaContentReviewSegmentItem[source.SegmentSet.length];
+            for (int i = 0; i < source.SegmentSet.length; i++) {
+                this.SegmentSet[i] = new MediaContentReviewSegmentItem(source.SegmentSet[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

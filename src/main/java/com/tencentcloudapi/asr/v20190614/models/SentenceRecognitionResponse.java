@@ -30,6 +30,29 @@ public class SentenceRecognitionResponse extends AbstractModel{
     private String Result;
 
     /**
+    * 请求的音频时长，单位为ms
+    */
+    @SerializedName("AudioDuration")
+    @Expose
+    private Long AudioDuration;
+
+    /**
+    * 词时间戳列表的长度
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("WordSize")
+    @Expose
+    private Long WordSize;
+
+    /**
+    * 词时间戳列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("WordList")
+    @Expose
+    private SentenceWord [] WordList;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -53,6 +76,62 @@ public class SentenceRecognitionResponse extends AbstractModel{
     }
 
     /**
+     * Get 请求的音频时长，单位为ms 
+     * @return AudioDuration 请求的音频时长，单位为ms
+     */
+    public Long getAudioDuration() {
+        return this.AudioDuration;
+    }
+
+    /**
+     * Set 请求的音频时长，单位为ms
+     * @param AudioDuration 请求的音频时长，单位为ms
+     */
+    public void setAudioDuration(Long AudioDuration) {
+        this.AudioDuration = AudioDuration;
+    }
+
+    /**
+     * Get 词时间戳列表的长度
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return WordSize 词时间戳列表的长度
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getWordSize() {
+        return this.WordSize;
+    }
+
+    /**
+     * Set 词时间戳列表的长度
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param WordSize 词时间戳列表的长度
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setWordSize(Long WordSize) {
+        this.WordSize = WordSize;
+    }
+
+    /**
+     * Get 词时间戳列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return WordList 词时间戳列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public SentenceWord [] getWordList() {
+        return this.WordList;
+    }
+
+    /**
+     * Set 词时间戳列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param WordList 词时间戳列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setWordList(SentenceWord [] WordList) {
+        this.WordList = WordList;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -68,11 +147,43 @@ public class SentenceRecognitionResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public SentenceRecognitionResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SentenceRecognitionResponse(SentenceRecognitionResponse source) {
+        if (source.Result != null) {
+            this.Result = new String(source.Result);
+        }
+        if (source.AudioDuration != null) {
+            this.AudioDuration = new Long(source.AudioDuration);
+        }
+        if (source.WordSize != null) {
+            this.WordSize = new Long(source.WordSize);
+        }
+        if (source.WordList != null) {
+            this.WordList = new SentenceWord[source.WordList.length];
+            for (int i = 0; i < source.WordList.length; i++) {
+                this.WordList[i] = new SentenceWord(source.WordList[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Result", this.Result);
+        this.setParamSimple(map, prefix + "AudioDuration", this.AudioDuration);
+        this.setParamSimple(map, prefix + "WordSize", this.WordSize);
+        this.setParamArrayObj(map, prefix + "WordList.", this.WordList);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -39,6 +39,13 @@ delete：刷新全部资源
     private String FlushType;
 
     /**
+    * 是否对中文字符进行编码后刷新
+    */
+    @SerializedName("UrlEncode")
+    @Expose
+    private Boolean UrlEncode;
+
+    /**
      * Get 目录列表，需要包含协议头部 http:// 或 https:// 
      * @return Paths 目录列表，需要包含协议头部 http:// 或 https://
      */
@@ -79,11 +86,51 @@ delete：刷新全部资源
     }
 
     /**
+     * Get 是否对中文字符进行编码后刷新 
+     * @return UrlEncode 是否对中文字符进行编码后刷新
+     */
+    public Boolean getUrlEncode() {
+        return this.UrlEncode;
+    }
+
+    /**
+     * Set 是否对中文字符进行编码后刷新
+     * @param UrlEncode 是否对中文字符进行编码后刷新
+     */
+    public void setUrlEncode(Boolean UrlEncode) {
+        this.UrlEncode = UrlEncode;
+    }
+
+    public PurgePathCacheRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public PurgePathCacheRequest(PurgePathCacheRequest source) {
+        if (source.Paths != null) {
+            this.Paths = new String[source.Paths.length];
+            for (int i = 0; i < source.Paths.length; i++) {
+                this.Paths[i] = new String(source.Paths[i]);
+            }
+        }
+        if (source.FlushType != null) {
+            this.FlushType = new String(source.FlushType);
+        }
+        if (source.UrlEncode != null) {
+            this.UrlEncode = new Boolean(source.UrlEncode);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "Paths.", this.Paths);
         this.setParamSimple(map, prefix + "FlushType", this.FlushType);
+        this.setParamSimple(map, prefix + "UrlEncode", this.UrlEncode);
 
     }
 }

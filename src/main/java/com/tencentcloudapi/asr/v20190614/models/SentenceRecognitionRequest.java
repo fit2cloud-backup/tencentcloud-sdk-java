@@ -38,10 +38,16 @@ public class SentenceRecognitionRequest extends AbstractModel{
 
     /**
     * 引擎模型类型。
-8k_zh：电话 8k 中文普通话通用；
-16k_zh：16k 中文普通话通用；
-16k_en：16k 英语；
-16k_ca：16k 粤语。
+电话场景：
+• 8k_en：电话 8k 英语；
+• 8k_zh：电话 8k 中文普通话通用；
+非电话场景：
+• 16k_zh：16k 中文普通话通用；
+• 16k_en：16k 英语；
+• 16k_ca：16k 粤语；
+• 16k_ja：16k 日语；
+•16k_wuu-SH：16k 上海话方言；
+•16k_zh_medical：16k 医疗。
     */
     @SerializedName("EngSerViceType")
     @Expose
@@ -69,14 +75,14 @@ public class SentenceRecognitionRequest extends AbstractModel{
     private String UsrAudioKey;
 
     /**
-    * 语音 URL，公网可下载。当 SourceType 值为 0（语音 URL上传） 时须填写该字段，为 1 时不填；URL 的长度大于 0，小于 2048，需进行urlencode编码。音频时间长度要小于60s。
+    * 语音 URL，公网可下载。当 SourceType 值为 0（语音 URL上传） 时须填写该字段，为 1 时不填；URL 的长度大于 0，小于 2048，需进行urlencode编码。音频时长不能超过60s，音频文件大小不能超过3MB。
     */
     @SerializedName("Url")
     @Expose
     private String Url;
 
     /**
-    * 语音数据，当SourceType 值为1（本地语音数据上传）时必须填写，当SourceType 值为0（语音 URL上传）可不写。要使用base64编码(采用python语言时注意读取文件应该为string而不是byte，以byte格式读取后要decode()。编码后的数据不可带有回车换行符)。音频数据要小于600KB。
+    * 语音数据，当SourceType 值为1（本地语音数据上传）时必须填写，当SourceType 值为0（语音 URL上传）可不写。要使用base64编码(采用python语言时注意读取文件应该为string而不是byte，以byte格式读取后要decode()。编码后的数据不可带有回车换行符)。音频时长不能超过60s，音频文件大小不能超过3MB（Base64后）。
     */
     @SerializedName("Data")
     @Expose
@@ -97,25 +103,39 @@ public class SentenceRecognitionRequest extends AbstractModel{
     private String HotwordId;
 
     /**
-    * 是否过滤脏词（目前支持中文普通话引擎）。0：不过滤脏词；1：过滤脏词；2：将脏词替换为 * 。
+    * 是否过滤脏词（目前支持中文普通话引擎）。0：不过滤脏词；1：过滤脏词；2：将脏词替换为 * 。默认值为 0。
     */
     @SerializedName("FilterDirty")
     @Expose
     private Long FilterDirty;
 
     /**
-    * 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。
+    * 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0。
     */
     @SerializedName("FilterModal")
     @Expose
     private Long FilterModal;
 
     /**
-    * 是否过滤句末的句号（目前支持中文普通话引擎）。0：不过滤句末的句号；1：过滤句末的句号。
+    * 是否过滤标点符号（目前支持中文普通话引擎）。 0：不过滤，1：过滤句末标点，2：过滤所有标点。默认值为 0。
     */
     @SerializedName("FilterPunc")
     @Expose
     private Long FilterPunc;
+
+    /**
+    * 是否进行阿拉伯数字智能转换。0：不转换，直接输出中文数字，1：根据场景智能转换为阿拉伯数字。默认值为1。
+    */
+    @SerializedName("ConvertNumMode")
+    @Expose
+    private Long ConvertNumMode;
+
+    /**
+    * 是否显示词级别时间戳。0：不显示；1：显示，不包含标点时间戳，2：显示，包含标点时间戳。支持引擎8k_zh，16k_zh，16k_en，16k_ca，16k_ja，16k_wuu-SH。默认值为 0。
+    */
+    @SerializedName("WordInfo")
+    @Expose
+    private Long WordInfo;
 
     /**
      * Get 腾讯云项目 ID，可填 0，总长度不超过 1024 字节。 
@@ -151,15 +171,27 @@ public class SentenceRecognitionRequest extends AbstractModel{
 
     /**
      * Get 引擎模型类型。
-8k_zh：电话 8k 中文普通话通用；
-16k_zh：16k 中文普通话通用；
-16k_en：16k 英语；
-16k_ca：16k 粤语。 
+电话场景：
+• 8k_en：电话 8k 英语；
+• 8k_zh：电话 8k 中文普通话通用；
+非电话场景：
+• 16k_zh：16k 中文普通话通用；
+• 16k_en：16k 英语；
+• 16k_ca：16k 粤语；
+• 16k_ja：16k 日语；
+•16k_wuu-SH：16k 上海话方言；
+•16k_zh_medical：16k 医疗。 
      * @return EngSerViceType 引擎模型类型。
-8k_zh：电话 8k 中文普通话通用；
-16k_zh：16k 中文普通话通用；
-16k_en：16k 英语；
-16k_ca：16k 粤语。
+电话场景：
+• 8k_en：电话 8k 英语；
+• 8k_zh：电话 8k 中文普通话通用；
+非电话场景：
+• 16k_zh：16k 中文普通话通用；
+• 16k_en：16k 英语；
+• 16k_ca：16k 粤语；
+• 16k_ja：16k 日语；
+•16k_wuu-SH：16k 上海话方言；
+•16k_zh_medical：16k 医疗。
      */
     public String getEngSerViceType() {
         return this.EngSerViceType;
@@ -167,15 +199,27 @@ public class SentenceRecognitionRequest extends AbstractModel{
 
     /**
      * Set 引擎模型类型。
-8k_zh：电话 8k 中文普通话通用；
-16k_zh：16k 中文普通话通用；
-16k_en：16k 英语；
-16k_ca：16k 粤语。
+电话场景：
+• 8k_en：电话 8k 英语；
+• 8k_zh：电话 8k 中文普通话通用；
+非电话场景：
+• 16k_zh：16k 中文普通话通用；
+• 16k_en：16k 英语；
+• 16k_ca：16k 粤语；
+• 16k_ja：16k 日语；
+•16k_wuu-SH：16k 上海话方言；
+•16k_zh_medical：16k 医疗。
      * @param EngSerViceType 引擎模型类型。
-8k_zh：电话 8k 中文普通话通用；
-16k_zh：16k 中文普通话通用；
-16k_en：16k 英语；
-16k_ca：16k 粤语。
+电话场景：
+• 8k_en：电话 8k 英语；
+• 8k_zh：电话 8k 中文普通话通用；
+非电话场景：
+• 16k_zh：16k 中文普通话通用；
+• 16k_en：16k 英语；
+• 16k_ca：16k 粤语；
+• 16k_ja：16k 日语；
+•16k_wuu-SH：16k 上海话方言；
+•16k_zh_medical：16k 医疗。
      */
     public void setEngSerViceType(String EngSerViceType) {
         this.EngSerViceType = EngSerViceType;
@@ -230,32 +274,32 @@ public class SentenceRecognitionRequest extends AbstractModel{
     }
 
     /**
-     * Get 语音 URL，公网可下载。当 SourceType 值为 0（语音 URL上传） 时须填写该字段，为 1 时不填；URL 的长度大于 0，小于 2048，需进行urlencode编码。音频时间长度要小于60s。 
-     * @return Url 语音 URL，公网可下载。当 SourceType 值为 0（语音 URL上传） 时须填写该字段，为 1 时不填；URL 的长度大于 0，小于 2048，需进行urlencode编码。音频时间长度要小于60s。
+     * Get 语音 URL，公网可下载。当 SourceType 值为 0（语音 URL上传） 时须填写该字段，为 1 时不填；URL 的长度大于 0，小于 2048，需进行urlencode编码。音频时长不能超过60s，音频文件大小不能超过3MB。 
+     * @return Url 语音 URL，公网可下载。当 SourceType 值为 0（语音 URL上传） 时须填写该字段，为 1 时不填；URL 的长度大于 0，小于 2048，需进行urlencode编码。音频时长不能超过60s，音频文件大小不能超过3MB。
      */
     public String getUrl() {
         return this.Url;
     }
 
     /**
-     * Set 语音 URL，公网可下载。当 SourceType 值为 0（语音 URL上传） 时须填写该字段，为 1 时不填；URL 的长度大于 0，小于 2048，需进行urlencode编码。音频时间长度要小于60s。
-     * @param Url 语音 URL，公网可下载。当 SourceType 值为 0（语音 URL上传） 时须填写该字段，为 1 时不填；URL 的长度大于 0，小于 2048，需进行urlencode编码。音频时间长度要小于60s。
+     * Set 语音 URL，公网可下载。当 SourceType 值为 0（语音 URL上传） 时须填写该字段，为 1 时不填；URL 的长度大于 0，小于 2048，需进行urlencode编码。音频时长不能超过60s，音频文件大小不能超过3MB。
+     * @param Url 语音 URL，公网可下载。当 SourceType 值为 0（语音 URL上传） 时须填写该字段，为 1 时不填；URL 的长度大于 0，小于 2048，需进行urlencode编码。音频时长不能超过60s，音频文件大小不能超过3MB。
      */
     public void setUrl(String Url) {
         this.Url = Url;
     }
 
     /**
-     * Get 语音数据，当SourceType 值为1（本地语音数据上传）时必须填写，当SourceType 值为0（语音 URL上传）可不写。要使用base64编码(采用python语言时注意读取文件应该为string而不是byte，以byte格式读取后要decode()。编码后的数据不可带有回车换行符)。音频数据要小于600KB。 
-     * @return Data 语音数据，当SourceType 值为1（本地语音数据上传）时必须填写，当SourceType 值为0（语音 URL上传）可不写。要使用base64编码(采用python语言时注意读取文件应该为string而不是byte，以byte格式读取后要decode()。编码后的数据不可带有回车换行符)。音频数据要小于600KB。
+     * Get 语音数据，当SourceType 值为1（本地语音数据上传）时必须填写，当SourceType 值为0（语音 URL上传）可不写。要使用base64编码(采用python语言时注意读取文件应该为string而不是byte，以byte格式读取后要decode()。编码后的数据不可带有回车换行符)。音频时长不能超过60s，音频文件大小不能超过3MB（Base64后）。 
+     * @return Data 语音数据，当SourceType 值为1（本地语音数据上传）时必须填写，当SourceType 值为0（语音 URL上传）可不写。要使用base64编码(采用python语言时注意读取文件应该为string而不是byte，以byte格式读取后要decode()。编码后的数据不可带有回车换行符)。音频时长不能超过60s，音频文件大小不能超过3MB（Base64后）。
      */
     public String getData() {
         return this.Data;
     }
 
     /**
-     * Set 语音数据，当SourceType 值为1（本地语音数据上传）时必须填写，当SourceType 值为0（语音 URL上传）可不写。要使用base64编码(采用python语言时注意读取文件应该为string而不是byte，以byte格式读取后要decode()。编码后的数据不可带有回车换行符)。音频数据要小于600KB。
-     * @param Data 语音数据，当SourceType 值为1（本地语音数据上传）时必须填写，当SourceType 值为0（语音 URL上传）可不写。要使用base64编码(采用python语言时注意读取文件应该为string而不是byte，以byte格式读取后要decode()。编码后的数据不可带有回车换行符)。音频数据要小于600KB。
+     * Set 语音数据，当SourceType 值为1（本地语音数据上传）时必须填写，当SourceType 值为0（语音 URL上传）可不写。要使用base64编码(采用python语言时注意读取文件应该为string而不是byte，以byte格式读取后要decode()。编码后的数据不可带有回车换行符)。音频时长不能超过60s，音频文件大小不能超过3MB（Base64后）。
+     * @param Data 语音数据，当SourceType 值为1（本地语音数据上传）时必须填写，当SourceType 值为0（语音 URL上传）可不写。要使用base64编码(采用python语言时注意读取文件应该为string而不是byte，以byte格式读取后要decode()。编码后的数据不可带有回车换行符)。音频时长不能超过60s，音频文件大小不能超过3MB（Base64后）。
      */
     public void setData(String Data) {
         this.Data = Data;
@@ -294,52 +338,140 @@ public class SentenceRecognitionRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否过滤脏词（目前支持中文普通话引擎）。0：不过滤脏词；1：过滤脏词；2：将脏词替换为 * 。 
-     * @return FilterDirty 是否过滤脏词（目前支持中文普通话引擎）。0：不过滤脏词；1：过滤脏词；2：将脏词替换为 * 。
+     * Get 是否过滤脏词（目前支持中文普通话引擎）。0：不过滤脏词；1：过滤脏词；2：将脏词替换为 * 。默认值为 0。 
+     * @return FilterDirty 是否过滤脏词（目前支持中文普通话引擎）。0：不过滤脏词；1：过滤脏词；2：将脏词替换为 * 。默认值为 0。
      */
     public Long getFilterDirty() {
         return this.FilterDirty;
     }
 
     /**
-     * Set 是否过滤脏词（目前支持中文普通话引擎）。0：不过滤脏词；1：过滤脏词；2：将脏词替换为 * 。
-     * @param FilterDirty 是否过滤脏词（目前支持中文普通话引擎）。0：不过滤脏词；1：过滤脏词；2：将脏词替换为 * 。
+     * Set 是否过滤脏词（目前支持中文普通话引擎）。0：不过滤脏词；1：过滤脏词；2：将脏词替换为 * 。默认值为 0。
+     * @param FilterDirty 是否过滤脏词（目前支持中文普通话引擎）。0：不过滤脏词；1：过滤脏词；2：将脏词替换为 * 。默认值为 0。
      */
     public void setFilterDirty(Long FilterDirty) {
         this.FilterDirty = FilterDirty;
     }
 
     /**
-     * Get 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。 
-     * @return FilterModal 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。
+     * Get 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0。 
+     * @return FilterModal 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0。
      */
     public Long getFilterModal() {
         return this.FilterModal;
     }
 
     /**
-     * Set 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。
-     * @param FilterModal 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。
+     * Set 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0。
+     * @param FilterModal 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0。
      */
     public void setFilterModal(Long FilterModal) {
         this.FilterModal = FilterModal;
     }
 
     /**
-     * Get 是否过滤句末的句号（目前支持中文普通话引擎）。0：不过滤句末的句号；1：过滤句末的句号。 
-     * @return FilterPunc 是否过滤句末的句号（目前支持中文普通话引擎）。0：不过滤句末的句号；1：过滤句末的句号。
+     * Get 是否过滤标点符号（目前支持中文普通话引擎）。 0：不过滤，1：过滤句末标点，2：过滤所有标点。默认值为 0。 
+     * @return FilterPunc 是否过滤标点符号（目前支持中文普通话引擎）。 0：不过滤，1：过滤句末标点，2：过滤所有标点。默认值为 0。
      */
     public Long getFilterPunc() {
         return this.FilterPunc;
     }
 
     /**
-     * Set 是否过滤句末的句号（目前支持中文普通话引擎）。0：不过滤句末的句号；1：过滤句末的句号。
-     * @param FilterPunc 是否过滤句末的句号（目前支持中文普通话引擎）。0：不过滤句末的句号；1：过滤句末的句号。
+     * Set 是否过滤标点符号（目前支持中文普通话引擎）。 0：不过滤，1：过滤句末标点，2：过滤所有标点。默认值为 0。
+     * @param FilterPunc 是否过滤标点符号（目前支持中文普通话引擎）。 0：不过滤，1：过滤句末标点，2：过滤所有标点。默认值为 0。
      */
     public void setFilterPunc(Long FilterPunc) {
         this.FilterPunc = FilterPunc;
     }
+
+    /**
+     * Get 是否进行阿拉伯数字智能转换。0：不转换，直接输出中文数字，1：根据场景智能转换为阿拉伯数字。默认值为1。 
+     * @return ConvertNumMode 是否进行阿拉伯数字智能转换。0：不转换，直接输出中文数字，1：根据场景智能转换为阿拉伯数字。默认值为1。
+     */
+    public Long getConvertNumMode() {
+        return this.ConvertNumMode;
+    }
+
+    /**
+     * Set 是否进行阿拉伯数字智能转换。0：不转换，直接输出中文数字，1：根据场景智能转换为阿拉伯数字。默认值为1。
+     * @param ConvertNumMode 是否进行阿拉伯数字智能转换。0：不转换，直接输出中文数字，1：根据场景智能转换为阿拉伯数字。默认值为1。
+     */
+    public void setConvertNumMode(Long ConvertNumMode) {
+        this.ConvertNumMode = ConvertNumMode;
+    }
+
+    /**
+     * Get 是否显示词级别时间戳。0：不显示；1：显示，不包含标点时间戳，2：显示，包含标点时间戳。支持引擎8k_zh，16k_zh，16k_en，16k_ca，16k_ja，16k_wuu-SH。默认值为 0。 
+     * @return WordInfo 是否显示词级别时间戳。0：不显示；1：显示，不包含标点时间戳，2：显示，包含标点时间戳。支持引擎8k_zh，16k_zh，16k_en，16k_ca，16k_ja，16k_wuu-SH。默认值为 0。
+     */
+    public Long getWordInfo() {
+        return this.WordInfo;
+    }
+
+    /**
+     * Set 是否显示词级别时间戳。0：不显示；1：显示，不包含标点时间戳，2：显示，包含标点时间戳。支持引擎8k_zh，16k_zh，16k_en，16k_ca，16k_ja，16k_wuu-SH。默认值为 0。
+     * @param WordInfo 是否显示词级别时间戳。0：不显示；1：显示，不包含标点时间戳，2：显示，包含标点时间戳。支持引擎8k_zh，16k_zh，16k_en，16k_ca，16k_ja，16k_wuu-SH。默认值为 0。
+     */
+    public void setWordInfo(Long WordInfo) {
+        this.WordInfo = WordInfo;
+    }
+
+    public SentenceRecognitionRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SentenceRecognitionRequest(SentenceRecognitionRequest source) {
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.SubServiceType != null) {
+            this.SubServiceType = new Long(source.SubServiceType);
+        }
+        if (source.EngSerViceType != null) {
+            this.EngSerViceType = new String(source.EngSerViceType);
+        }
+        if (source.SourceType != null) {
+            this.SourceType = new Long(source.SourceType);
+        }
+        if (source.VoiceFormat != null) {
+            this.VoiceFormat = new String(source.VoiceFormat);
+        }
+        if (source.UsrAudioKey != null) {
+            this.UsrAudioKey = new String(source.UsrAudioKey);
+        }
+        if (source.Url != null) {
+            this.Url = new String(source.Url);
+        }
+        if (source.Data != null) {
+            this.Data = new String(source.Data);
+        }
+        if (source.DataLen != null) {
+            this.DataLen = new Long(source.DataLen);
+        }
+        if (source.HotwordId != null) {
+            this.HotwordId = new String(source.HotwordId);
+        }
+        if (source.FilterDirty != null) {
+            this.FilterDirty = new Long(source.FilterDirty);
+        }
+        if (source.FilterModal != null) {
+            this.FilterModal = new Long(source.FilterModal);
+        }
+        if (source.FilterPunc != null) {
+            this.FilterPunc = new Long(source.FilterPunc);
+        }
+        if (source.ConvertNumMode != null) {
+            this.ConvertNumMode = new Long(source.ConvertNumMode);
+        }
+        if (source.WordInfo != null) {
+            this.WordInfo = new Long(source.WordInfo);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -358,6 +490,8 @@ public class SentenceRecognitionRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "FilterDirty", this.FilterDirty);
         this.setParamSimple(map, prefix + "FilterModal", this.FilterModal);
         this.setParamSimple(map, prefix + "FilterPunc", this.FilterPunc);
+        this.setParamSimple(map, prefix + "ConvertNumMode", this.ConvertNumMode);
+        this.setParamSimple(map, prefix + "WordInfo", this.WordInfo);
 
     }
 }

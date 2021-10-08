@@ -44,6 +44,13 @@ public class ListAttachedGroupPoliciesRequest extends AbstractModel{
     private Long Rp;
 
     /**
+    * 搜索关键字
+    */
+    @SerializedName("Keyword")
+    @Expose
+    private String Keyword;
+
+    /**
      * Get 用户组ID 
      * @return TargetGroupId 用户组ID
      */
@@ -92,12 +99,52 @@ public class ListAttachedGroupPoliciesRequest extends AbstractModel{
     }
 
     /**
+     * Get 搜索关键字 
+     * @return Keyword 搜索关键字
+     */
+    public String getKeyword() {
+        return this.Keyword;
+    }
+
+    /**
+     * Set 搜索关键字
+     * @param Keyword 搜索关键字
+     */
+    public void setKeyword(String Keyword) {
+        this.Keyword = Keyword;
+    }
+
+    public ListAttachedGroupPoliciesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ListAttachedGroupPoliciesRequest(ListAttachedGroupPoliciesRequest source) {
+        if (source.TargetGroupId != null) {
+            this.TargetGroupId = new Long(source.TargetGroupId);
+        }
+        if (source.Page != null) {
+            this.Page = new Long(source.Page);
+        }
+        if (source.Rp != null) {
+            this.Rp = new Long(source.Rp);
+        }
+        if (source.Keyword != null) {
+            this.Keyword = new String(source.Keyword);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TargetGroupId", this.TargetGroupId);
         this.setParamSimple(map, prefix + "Page", this.Page);
         this.setParamSimple(map, prefix + "Rp", this.Rp);
+        this.setParamSimple(map, prefix + "Keyword", this.Keyword);
 
     }
 }

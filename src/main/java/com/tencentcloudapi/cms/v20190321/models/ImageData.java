@@ -79,6 +79,13 @@ public class ImageData extends AbstractModel{
     private OCRDetect OCRDetect;
 
     /**
+    * 手机检测详情
+    */
+    @SerializedName("PhoneDetect")
+    @Expose
+    private PhoneDetect PhoneDetect;
+
+    /**
     * 图片涉政详情
     */
     @SerializedName("PolityDetect")
@@ -247,6 +254,22 @@ public class ImageData extends AbstractModel{
     }
 
     /**
+     * Get 手机检测详情 
+     * @return PhoneDetect 手机检测详情
+     */
+    public PhoneDetect getPhoneDetect() {
+        return this.PhoneDetect;
+    }
+
+    /**
+     * Set 手机检测详情
+     * @param PhoneDetect 手机检测详情
+     */
+    public void setPhoneDetect(PhoneDetect PhoneDetect) {
+        this.PhoneDetect = PhoneDetect;
+    }
+
+    /**
      * Get 图片涉政详情 
      * @return PolityDetect 图片涉政详情
      */
@@ -310,6 +333,53 @@ public class ImageData extends AbstractModel{
         this.TerrorDetect = TerrorDetect;
     }
 
+    public ImageData() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ImageData(ImageData source) {
+        if (source.EvilFlag != null) {
+            this.EvilFlag = new Long(source.EvilFlag);
+        }
+        if (source.EvilType != null) {
+            this.EvilType = new Long(source.EvilType);
+        }
+        if (source.CodeDetect != null) {
+            this.CodeDetect = new CodeDetect(source.CodeDetect);
+        }
+        if (source.HotDetect != null) {
+            this.HotDetect = new ImageHotDetect(source.HotDetect);
+        }
+        if (source.IllegalDetect != null) {
+            this.IllegalDetect = new ImageIllegalDetect(source.IllegalDetect);
+        }
+        if (source.LogoDetect != null) {
+            this.LogoDetect = new LogoDetail(source.LogoDetect);
+        }
+        if (source.OCRDetect != null) {
+            this.OCRDetect = new OCRDetect(source.OCRDetect);
+        }
+        if (source.PhoneDetect != null) {
+            this.PhoneDetect = new PhoneDetect(source.PhoneDetect);
+        }
+        if (source.PolityDetect != null) {
+            this.PolityDetect = new ImagePolityDetect(source.PolityDetect);
+        }
+        if (source.PornDetect != null) {
+            this.PornDetect = new ImagePornDetect(source.PornDetect);
+        }
+        if (source.Similar != null) {
+            this.Similar = new Similar(source.Similar);
+        }
+        if (source.TerrorDetect != null) {
+            this.TerrorDetect = new ImageTerrorDetect(source.TerrorDetect);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
@@ -321,6 +391,7 @@ public class ImageData extends AbstractModel{
         this.setParamObj(map, prefix + "IllegalDetect.", this.IllegalDetect);
         this.setParamObj(map, prefix + "LogoDetect.", this.LogoDetect);
         this.setParamObj(map, prefix + "OCRDetect.", this.OCRDetect);
+        this.setParamObj(map, prefix + "PhoneDetect.", this.PhoneDetect);
         this.setParamObj(map, prefix + "PolityDetect.", this.PolityDetect);
         this.setParamObj(map, prefix + "PornDetect.", this.PornDetect);
         this.setParamObj(map, prefix + "Similar.", this.Similar);

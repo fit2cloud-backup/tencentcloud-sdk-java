@@ -43,9 +43,9 @@ off：关闭
     private String IgnoreCacheControl;
 
     /**
-    * 忽略源站的 Set-Cookie 头部
-on：开启
-off：关闭
+    * 当源站返回Set-Cookie头部时，节点是否缓存该头部及body
+on：开启，不缓存该头部及body
+off：关闭，遵循用户自定义的节点缓存规则
 默认为关闭状态
 注意：此字段可能返回 null，表示取不到有效值。
     */
@@ -110,14 +110,14 @@ off：关闭
     }
 
     /**
-     * Get 忽略源站的 Set-Cookie 头部
-on：开启
-off：关闭
+     * Get 当源站返回Set-Cookie头部时，节点是否缓存该头部及body
+on：开启，不缓存该头部及body
+off：关闭，遵循用户自定义的节点缓存规则
 默认为关闭状态
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return IgnoreSetCookie 忽略源站的 Set-Cookie 头部
-on：开启
-off：关闭
+     * @return IgnoreSetCookie 当源站返回Set-Cookie头部时，节点是否缓存该头部及body
+on：开启，不缓存该头部及body
+off：关闭，遵循用户自定义的节点缓存规则
 默认为关闭状态
 注意：此字段可能返回 null，表示取不到有效值。
      */
@@ -126,20 +126,43 @@ off：关闭
     }
 
     /**
-     * Set 忽略源站的 Set-Cookie 头部
-on：开启
-off：关闭
+     * Set 当源站返回Set-Cookie头部时，节点是否缓存该头部及body
+on：开启，不缓存该头部及body
+off：关闭，遵循用户自定义的节点缓存规则
 默认为关闭状态
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param IgnoreSetCookie 忽略源站的 Set-Cookie 头部
-on：开启
-off：关闭
+     * @param IgnoreSetCookie 当源站返回Set-Cookie头部时，节点是否缓存该头部及body
+on：开启，不缓存该头部及body
+off：关闭，遵循用户自定义的节点缓存规则
 默认为关闭状态
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIgnoreSetCookie(String IgnoreSetCookie) {
         this.IgnoreSetCookie = IgnoreSetCookie;
     }
+
+    public AdvancedCache() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AdvancedCache(AdvancedCache source) {
+        if (source.CacheRules != null) {
+            this.CacheRules = new AdvanceCacheRule[source.CacheRules.length];
+            for (int i = 0; i < source.CacheRules.length; i++) {
+                this.CacheRules[i] = new AdvanceCacheRule(source.CacheRules[i]);
+            }
+        }
+        if (source.IgnoreCacheControl != null) {
+            this.IgnoreCacheControl = new String(source.IgnoreCacheControl);
+        }
+        if (source.IgnoreSetCookie != null) {
+            this.IgnoreSetCookie = new String(source.IgnoreSetCookie);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

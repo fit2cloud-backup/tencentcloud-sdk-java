@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class OperateResponseData extends AbstractModel{
 
     /**
-    * FlowId
+    * FlowId11
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FlowId")
@@ -31,9 +31,9 @@ public class OperateResponseData extends AbstractModel{
     private Long FlowId;
 
     /**
-     * Get FlowId
+     * Get FlowId11
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return FlowId FlowId
+     * @return FlowId FlowId11
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getFlowId() {
@@ -41,14 +41,28 @@ public class OperateResponseData extends AbstractModel{
     }
 
     /**
-     * Set FlowId
+     * Set FlowId11
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param FlowId FlowId
+     * @param FlowId FlowId11
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFlowId(Long FlowId) {
         this.FlowId = FlowId;
     }
+
+    public OperateResponseData() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public OperateResponseData(OperateResponseData source) {
+        if (source.FlowId != null) {
+            this.FlowId = new Long(source.FlowId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -44,6 +44,13 @@ public class DescribePodInstancesRequest extends AbstractModel{
     private Long Limit;
 
     /**
+    * 过滤字段
+    */
+    @SerializedName("PodNameList")
+    @Expose
+    private String [] PodNameList;
+
+    /**
      * Get 实例所属groupId 
      * @return GroupId 实例所属groupId
      */
@@ -92,12 +99,55 @@ public class DescribePodInstancesRequest extends AbstractModel{
     }
 
     /**
+     * Get 过滤字段 
+     * @return PodNameList 过滤字段
+     */
+    public String [] getPodNameList() {
+        return this.PodNameList;
+    }
+
+    /**
+     * Set 过滤字段
+     * @param PodNameList 过滤字段
+     */
+    public void setPodNameList(String [] PodNameList) {
+        this.PodNameList = PodNameList;
+    }
+
+    public DescribePodInstancesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribePodInstancesRequest(DescribePodInstancesRequest source) {
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.PodNameList != null) {
+            this.PodNameList = new String[source.PodNameList.length];
+            for (int i = 0; i < source.PodNameList.length; i++) {
+                this.PodNameList[i] = new String(source.PodNameList[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "GroupId", this.GroupId);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamArraySimple(map, prefix + "PodNameList.", this.PodNameList);
 
     }
 }

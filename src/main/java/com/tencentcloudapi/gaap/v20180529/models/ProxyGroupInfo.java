@@ -62,10 +62,10 @@ public class ProxyGroupInfo extends AbstractModel{
     /**
     * 通道组状态。
 其中，
-0，运行中；
-1，创建中；
-4，销毁中；
-11，通道迁移中。
+RUNNING表示运行中；
+CREATING表示创建中；
+DESTROYING表示销毁中；
+MOVING表示通道迁移中。
     */
     @SerializedName("Status")
     @Expose
@@ -77,6 +77,30 @@ public class ProxyGroupInfo extends AbstractModel{
     @SerializedName("TagSet")
     @Expose
     private TagPair [] TagSet;
+
+    /**
+    * 通道组版本
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Version")
+    @Expose
+    private String Version;
+
+    /**
+    * 创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CreateTime")
+    @Expose
+    private Long CreateTime;
+
+    /**
+    * 通道组是否包含微软通道
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ProxyType")
+    @Expose
+    private Long ProxyType;
 
     /**
      * Get 通道组id 
@@ -169,16 +193,16 @@ public class ProxyGroupInfo extends AbstractModel{
     /**
      * Get 通道组状态。
 其中，
-0，运行中；
-1，创建中；
-4，销毁中；
-11，通道迁移中。 
+RUNNING表示运行中；
+CREATING表示创建中；
+DESTROYING表示销毁中；
+MOVING表示通道迁移中。 
      * @return Status 通道组状态。
 其中，
-0，运行中；
-1，创建中；
-4，销毁中；
-11，通道迁移中。
+RUNNING表示运行中；
+CREATING表示创建中；
+DESTROYING表示销毁中；
+MOVING表示通道迁移中。
      */
     public String getStatus() {
         return this.Status;
@@ -187,16 +211,16 @@ public class ProxyGroupInfo extends AbstractModel{
     /**
      * Set 通道组状态。
 其中，
-0，运行中；
-1，创建中；
-4，销毁中；
-11，通道迁移中。
+RUNNING表示运行中；
+CREATING表示创建中；
+DESTROYING表示销毁中；
+MOVING表示通道迁移中。
      * @param Status 通道组状态。
 其中，
-0，运行中；
-1，创建中；
-4，销毁中；
-11，通道迁移中。
+RUNNING表示运行中；
+CREATING表示创建中；
+DESTROYING表示销毁中；
+MOVING表示通道迁移中。
      */
     public void setStatus(String Status) {
         this.Status = Status;
@@ -219,6 +243,110 @@ public class ProxyGroupInfo extends AbstractModel{
     }
 
     /**
+     * Get 通道组版本
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Version 通道组版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getVersion() {
+        return this.Version;
+    }
+
+    /**
+     * Set 通道组版本
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Version 通道组版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setVersion(String Version) {
+        this.Version = Version;
+    }
+
+    /**
+     * Get 创建时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CreateTime 创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getCreateTime() {
+        return this.CreateTime;
+    }
+
+    /**
+     * Set 创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CreateTime 创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCreateTime(Long CreateTime) {
+        this.CreateTime = CreateTime;
+    }
+
+    /**
+     * Get 通道组是否包含微软通道
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ProxyType 通道组是否包含微软通道
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getProxyType() {
+        return this.ProxyType;
+    }
+
+    /**
+     * Set 通道组是否包含微软通道
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ProxyType 通道组是否包含微软通道
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setProxyType(Long ProxyType) {
+        this.ProxyType = ProxyType;
+    }
+
+    public ProxyGroupInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ProxyGroupInfo(ProxyGroupInfo source) {
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
+        if (source.Domain != null) {
+            this.Domain = new String(source.Domain);
+        }
+        if (source.GroupName != null) {
+            this.GroupName = new String(source.GroupName);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.RealServerRegionInfo != null) {
+            this.RealServerRegionInfo = new RegionDetail(source.RealServerRegionInfo);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.TagSet != null) {
+            this.TagSet = new TagPair[source.TagSet.length];
+            for (int i = 0; i < source.TagSet.length; i++) {
+                this.TagSet[i] = new TagPair(source.TagSet[i]);
+            }
+        }
+        if (source.Version != null) {
+            this.Version = new String(source.Version);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new Long(source.CreateTime);
+        }
+        if (source.ProxyType != null) {
+            this.ProxyType = new Long(source.ProxyType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -229,6 +357,9 @@ public class ProxyGroupInfo extends AbstractModel{
         this.setParamObj(map, prefix + "RealServerRegionInfo.", this.RealServerRegionInfo);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamArrayObj(map, prefix + "TagSet.", this.TagSet);
+        this.setParamSimple(map, prefix + "Version", this.Version);
+        this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
+        this.setParamSimple(map, prefix + "ProxyType", this.ProxyType);
 
     }
 }

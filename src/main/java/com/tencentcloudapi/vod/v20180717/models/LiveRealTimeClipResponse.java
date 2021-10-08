@@ -31,7 +31,6 @@ public class LiveRealTimeClipResponse extends AbstractModel{
 
     /**
     * 剪辑固化后的视频的媒体文件的唯一标识。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FileId")
     @Expose
@@ -39,7 +38,6 @@ public class LiveRealTimeClipResponse extends AbstractModel{
 
     /**
     * 剪辑固化后的视频任务流 ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VodTaskId")
     @Expose
@@ -52,6 +50,13 @@ public class LiveRealTimeClipResponse extends AbstractModel{
     @SerializedName("MetaData")
     @Expose
     private MediaMetaData MetaData;
+
+    /**
+    * <span id="p_segmentset">剪辑后的视频片段信息。</span>
+    */
+    @SerializedName("SegmentSet")
+    @Expose
+    private LiveRealTimeClipMediaSegmentInfo [] SegmentSet;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -77,10 +82,8 @@ public class LiveRealTimeClipResponse extends AbstractModel{
     }
 
     /**
-     * Get 剪辑固化后的视频的媒体文件的唯一标识。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 剪辑固化后的视频的媒体文件的唯一标识。 
      * @return FileId 剪辑固化后的视频的媒体文件的唯一标识。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFileId() {
         return this.FileId;
@@ -88,19 +91,15 @@ public class LiveRealTimeClipResponse extends AbstractModel{
 
     /**
      * Set 剪辑固化后的视频的媒体文件的唯一标识。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FileId 剪辑固化后的视频的媒体文件的唯一标识。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFileId(String FileId) {
         this.FileId = FileId;
     }
 
     /**
-     * Get 剪辑固化后的视频任务流 ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 剪辑固化后的视频任务流 ID。 
      * @return VodTaskId 剪辑固化后的视频任务流 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVodTaskId() {
         return this.VodTaskId;
@@ -108,9 +107,7 @@ public class LiveRealTimeClipResponse extends AbstractModel{
 
     /**
      * Set 剪辑固化后的视频任务流 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VodTaskId 剪辑固化后的视频任务流 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVodTaskId(String VodTaskId) {
         this.VodTaskId = VodTaskId;
@@ -137,6 +134,22 @@ public class LiveRealTimeClipResponse extends AbstractModel{
     }
 
     /**
+     * Get <span id="p_segmentset">剪辑后的视频片段信息。</span> 
+     * @return SegmentSet <span id="p_segmentset">剪辑后的视频片段信息。</span>
+     */
+    public LiveRealTimeClipMediaSegmentInfo [] getSegmentSet() {
+        return this.SegmentSet;
+    }
+
+    /**
+     * Set <span id="p_segmentset">剪辑后的视频片段信息。</span>
+     * @param SegmentSet <span id="p_segmentset">剪辑后的视频片段信息。</span>
+     */
+    public void setSegmentSet(LiveRealTimeClipMediaSegmentInfo [] SegmentSet) {
+        this.SegmentSet = SegmentSet;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -152,6 +165,38 @@ public class LiveRealTimeClipResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public LiveRealTimeClipResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public LiveRealTimeClipResponse(LiveRealTimeClipResponse source) {
+        if (source.Url != null) {
+            this.Url = new String(source.Url);
+        }
+        if (source.FileId != null) {
+            this.FileId = new String(source.FileId);
+        }
+        if (source.VodTaskId != null) {
+            this.VodTaskId = new String(source.VodTaskId);
+        }
+        if (source.MetaData != null) {
+            this.MetaData = new MediaMetaData(source.MetaData);
+        }
+        if (source.SegmentSet != null) {
+            this.SegmentSet = new LiveRealTimeClipMediaSegmentInfo[source.SegmentSet.length];
+            for (int i = 0; i < source.SegmentSet.length; i++) {
+                this.SegmentSet[i] = new LiveRealTimeClipMediaSegmentInfo(source.SegmentSet[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
@@ -160,6 +205,7 @@ public class LiveRealTimeClipResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "FileId", this.FileId);
         this.setParamSimple(map, prefix + "VodTaskId", this.VodTaskId);
         this.setParamObj(map, prefix + "MetaData.", this.MetaData);
+        this.setParamArrayObj(map, prefix + "SegmentSet.", this.SegmentSet);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

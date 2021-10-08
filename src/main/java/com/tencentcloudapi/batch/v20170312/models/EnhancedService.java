@@ -37,6 +37,13 @@ public class EnhancedService extends AbstractModel{
     private RunMonitorServiceEnabled MonitorService;
 
     /**
+    * 开启云自动化助手服务。若不指定该参数，则默认不开启云自动化助手服务。
+    */
+    @SerializedName("AutomationService")
+    @Expose
+    private RunAutomationServiceEnabled AutomationService;
+
+    /**
      * Get 开启云安全服务。若不指定该参数，则默认开启云安全服务。 
      * @return SecurityService 开启云安全服务。若不指定该参数，则默认开启云安全服务。
      */
@@ -69,11 +76,48 @@ public class EnhancedService extends AbstractModel{
     }
 
     /**
+     * Get 开启云自动化助手服务。若不指定该参数，则默认不开启云自动化助手服务。 
+     * @return AutomationService 开启云自动化助手服务。若不指定该参数，则默认不开启云自动化助手服务。
+     */
+    public RunAutomationServiceEnabled getAutomationService() {
+        return this.AutomationService;
+    }
+
+    /**
+     * Set 开启云自动化助手服务。若不指定该参数，则默认不开启云自动化助手服务。
+     * @param AutomationService 开启云自动化助手服务。若不指定该参数，则默认不开启云自动化助手服务。
+     */
+    public void setAutomationService(RunAutomationServiceEnabled AutomationService) {
+        this.AutomationService = AutomationService;
+    }
+
+    public EnhancedService() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public EnhancedService(EnhancedService source) {
+        if (source.SecurityService != null) {
+            this.SecurityService = new RunSecurityServiceEnabled(source.SecurityService);
+        }
+        if (source.MonitorService != null) {
+            this.MonitorService = new RunMonitorServiceEnabled(source.MonitorService);
+        }
+        if (source.AutomationService != null) {
+            this.AutomationService = new RunAutomationServiceEnabled(source.AutomationService);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "SecurityService.", this.SecurityService);
         this.setParamObj(map, prefix + "MonitorService.", this.MonitorService);
+        this.setParamObj(map, prefix + "AutomationService.", this.AutomationService);
 
     }
 }

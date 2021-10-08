@@ -128,6 +128,34 @@ public class VpnConnection extends AbstractModel{
     private IPSECOptionsSpecification IPSECOptionsSpecification;
 
     /**
+    * 是否支持健康状态探测
+    */
+    @SerializedName("EnableHealthCheck")
+    @Expose
+    private Boolean EnableHealthCheck;
+
+    /**
+    * 本端探测ip
+    */
+    @SerializedName("HealthCheckLocalIp")
+    @Expose
+    private String HealthCheckLocalIp;
+
+    /**
+    * 对端探测ip
+    */
+    @SerializedName("HealthCheckRemoteIp")
+    @Expose
+    private String HealthCheckRemoteIp;
+
+    /**
+    * 通道健康检查状态，AVAILABLE：正常，UNAVAILABLE：不正常。 未配置健康检查不返回该对象
+    */
+    @SerializedName("HealthCheckStatus")
+    @Expose
+    private String HealthCheckStatus;
+
+    /**
      * Get 通道实例ID。 
      * @return VpnConnectionId 通道实例ID。
      */
@@ -368,6 +396,141 @@ public class VpnConnection extends AbstractModel{
     }
 
     /**
+     * Get 是否支持健康状态探测 
+     * @return EnableHealthCheck 是否支持健康状态探测
+     */
+    public Boolean getEnableHealthCheck() {
+        return this.EnableHealthCheck;
+    }
+
+    /**
+     * Set 是否支持健康状态探测
+     * @param EnableHealthCheck 是否支持健康状态探测
+     */
+    public void setEnableHealthCheck(Boolean EnableHealthCheck) {
+        this.EnableHealthCheck = EnableHealthCheck;
+    }
+
+    /**
+     * Get 本端探测ip 
+     * @return HealthCheckLocalIp 本端探测ip
+     */
+    public String getHealthCheckLocalIp() {
+        return this.HealthCheckLocalIp;
+    }
+
+    /**
+     * Set 本端探测ip
+     * @param HealthCheckLocalIp 本端探测ip
+     */
+    public void setHealthCheckLocalIp(String HealthCheckLocalIp) {
+        this.HealthCheckLocalIp = HealthCheckLocalIp;
+    }
+
+    /**
+     * Get 对端探测ip 
+     * @return HealthCheckRemoteIp 对端探测ip
+     */
+    public String getHealthCheckRemoteIp() {
+        return this.HealthCheckRemoteIp;
+    }
+
+    /**
+     * Set 对端探测ip
+     * @param HealthCheckRemoteIp 对端探测ip
+     */
+    public void setHealthCheckRemoteIp(String HealthCheckRemoteIp) {
+        this.HealthCheckRemoteIp = HealthCheckRemoteIp;
+    }
+
+    /**
+     * Get 通道健康检查状态，AVAILABLE：正常，UNAVAILABLE：不正常。 未配置健康检查不返回该对象 
+     * @return HealthCheckStatus 通道健康检查状态，AVAILABLE：正常，UNAVAILABLE：不正常。 未配置健康检查不返回该对象
+     */
+    public String getHealthCheckStatus() {
+        return this.HealthCheckStatus;
+    }
+
+    /**
+     * Set 通道健康检查状态，AVAILABLE：正常，UNAVAILABLE：不正常。 未配置健康检查不返回该对象
+     * @param HealthCheckStatus 通道健康检查状态，AVAILABLE：正常，UNAVAILABLE：不正常。 未配置健康检查不返回该对象
+     */
+    public void setHealthCheckStatus(String HealthCheckStatus) {
+        this.HealthCheckStatus = HealthCheckStatus;
+    }
+
+    public VpnConnection() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public VpnConnection(VpnConnection source) {
+        if (source.VpnConnectionId != null) {
+            this.VpnConnectionId = new String(source.VpnConnectionId);
+        }
+        if (source.VpnConnectionName != null) {
+            this.VpnConnectionName = new String(source.VpnConnectionName);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.VpnGatewayId != null) {
+            this.VpnGatewayId = new String(source.VpnGatewayId);
+        }
+        if (source.CustomerGatewayId != null) {
+            this.CustomerGatewayId = new String(source.CustomerGatewayId);
+        }
+        if (source.PreShareKey != null) {
+            this.PreShareKey = new String(source.PreShareKey);
+        }
+        if (source.VpnProto != null) {
+            this.VpnProto = new String(source.VpnProto);
+        }
+        if (source.EncryptProto != null) {
+            this.EncryptProto = new String(source.EncryptProto);
+        }
+        if (source.RouteType != null) {
+            this.RouteType = new String(source.RouteType);
+        }
+        if (source.CreatedTime != null) {
+            this.CreatedTime = new String(source.CreatedTime);
+        }
+        if (source.State != null) {
+            this.State = new String(source.State);
+        }
+        if (source.NetStatus != null) {
+            this.NetStatus = new String(source.NetStatus);
+        }
+        if (source.SecurityPolicyDatabaseSet != null) {
+            this.SecurityPolicyDatabaseSet = new SecurityPolicyDatabase[source.SecurityPolicyDatabaseSet.length];
+            for (int i = 0; i < source.SecurityPolicyDatabaseSet.length; i++) {
+                this.SecurityPolicyDatabaseSet[i] = new SecurityPolicyDatabase(source.SecurityPolicyDatabaseSet[i]);
+            }
+        }
+        if (source.IKEOptionsSpecification != null) {
+            this.IKEOptionsSpecification = new IKEOptionsSpecification(source.IKEOptionsSpecification);
+        }
+        if (source.IPSECOptionsSpecification != null) {
+            this.IPSECOptionsSpecification = new IPSECOptionsSpecification(source.IPSECOptionsSpecification);
+        }
+        if (source.EnableHealthCheck != null) {
+            this.EnableHealthCheck = new Boolean(source.EnableHealthCheck);
+        }
+        if (source.HealthCheckLocalIp != null) {
+            this.HealthCheckLocalIp = new String(source.HealthCheckLocalIp);
+        }
+        if (source.HealthCheckRemoteIp != null) {
+            this.HealthCheckRemoteIp = new String(source.HealthCheckRemoteIp);
+        }
+        if (source.HealthCheckStatus != null) {
+            this.HealthCheckStatus = new String(source.HealthCheckStatus);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -386,6 +549,10 @@ public class VpnConnection extends AbstractModel{
         this.setParamArrayObj(map, prefix + "SecurityPolicyDatabaseSet.", this.SecurityPolicyDatabaseSet);
         this.setParamObj(map, prefix + "IKEOptionsSpecification.", this.IKEOptionsSpecification);
         this.setParamObj(map, prefix + "IPSECOptionsSpecification.", this.IPSECOptionsSpecification);
+        this.setParamSimple(map, prefix + "EnableHealthCheck", this.EnableHealthCheck);
+        this.setParamSimple(map, prefix + "HealthCheckLocalIp", this.HealthCheckLocalIp);
+        this.setParamSimple(map, prefix + "HealthCheckRemoteIp", this.HealthCheckRemoteIp);
+        this.setParamSimple(map, prefix + "HealthCheckStatus", this.HealthCheckStatus);
 
     }
 }

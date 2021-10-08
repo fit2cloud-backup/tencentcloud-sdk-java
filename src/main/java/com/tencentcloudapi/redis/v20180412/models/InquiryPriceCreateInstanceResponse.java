@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class InquiryPriceCreateInstanceResponse extends AbstractModel{
 
     /**
-    * 价格，单位：分
+    * 价格，单位：元
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Price")
@@ -38,9 +38,9 @@ public class InquiryPriceCreateInstanceResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 价格，单位：分
+     * Get 价格，单位：元
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Price 价格，单位：分
+     * @return Price 价格，单位：元
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getPrice() {
@@ -48,9 +48,9 @@ public class InquiryPriceCreateInstanceResponse extends AbstractModel{
     }
 
     /**
-     * Set 价格，单位：分
+     * Set 价格，单位：元
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Price 价格，单位：分
+     * @param Price 价格，单位：元
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPrice(Float Price) {
@@ -72,6 +72,23 @@ public class InquiryPriceCreateInstanceResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public InquiryPriceCreateInstanceResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public InquiryPriceCreateInstanceResponse(InquiryPriceCreateInstanceResponse source) {
+        if (source.Price != null) {
+            this.Price = new Float(source.Price);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

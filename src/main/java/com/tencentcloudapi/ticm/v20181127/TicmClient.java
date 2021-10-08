@@ -27,6 +27,7 @@ import com.tencentcloudapi.ticm.v20181127.models.*;
 
 public class TicmClient extends AbstractClient{
     private static String endpoint = "ticm.tencentcloudapi.com";
+    private static String service = "ticm";
     private static String version = "2018-11-27";
 
     public TicmClient(Credential credential, String region) {
@@ -45,12 +46,14 @@ public class TicmClient extends AbstractClient{
      */
     public DescribeVideoTaskResponse DescribeVideoTask(DescribeVideoTaskRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeVideoTaskResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeVideoTaskResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeVideoTask"), type);
+                rspStr = this.internalRequest(req, "DescribeVideoTask");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -63,12 +66,14 @@ public class TicmClient extends AbstractClient{
      */
     public ImageModerationResponse ImageModeration(ImageModerationRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ImageModerationResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ImageModerationResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ImageModeration"), type);
+                rspStr = this.internalRequest(req, "ImageModeration");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -81,12 +86,14 @@ public class TicmClient extends AbstractClient{
      */
     public VideoModerationResponse VideoModeration(VideoModerationRequest req) throws TencentCloudSDKException{
         JsonResponseModel<VideoModerationResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<VideoModerationResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "VideoModeration"), type);
+                rspStr = this.internalRequest(req, "VideoModeration");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

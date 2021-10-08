@@ -30,28 +30,28 @@ public class InvokeRequest extends AbstractModel{
     private String FunctionName;
 
     /**
-    * RequestResponse(同步) 和 Event(异步)，默认为同步
+    * 同步调用请使用[同步 Invoke 调用接口](https://cloud.tencent.com/document/product/583/58400) 或填写同步调用参数 RequestResponse ，建议使用同步调用接口以获取最佳性能；异步调用填写 Event；默认为同步。接口超时时间为 300s，更长超时时间请使用异步调用。
     */
     @SerializedName("InvocationType")
     @Expose
     private String InvocationType;
 
     /**
-    * 触发函数的版本号
+    * 触发函数的版本号或别名
     */
     @SerializedName("Qualifier")
     @Expose
     private String Qualifier;
 
     /**
-    * 运行函数时的参数，以json格式传入，最大支持的参数长度是 1M
+    * 运行函数时的参数，以json格式传入，同步调用最大支持 6MB，异步调用最大支持 128 KB。该字段信息对应函数 [event 入参](https://cloud.tencent.com/document/product/583/9210#.E5.87.BD.E6.95.B0.E5.85.A5.E5.8F.82.3Ca-id.3D.22input.22.3E.3C.2Fa.3E)。
     */
     @SerializedName("ClientContext")
     @Expose
     private String ClientContext;
 
     /**
-    * 同步调用时指定该字段，返回值会包含4K的日志，可选值为None和Tail，默认值为None。当该值为Tail时，返回参数中的logMsg字段会包含对应的函数执行日志
+    * 异步调用该字段返回为空。
     */
     @SerializedName("LogType")
     @Expose
@@ -63,6 +63,13 @@ public class InvokeRequest extends AbstractModel{
     @SerializedName("Namespace")
     @Expose
     private String Namespace;
+
+    /**
+    * 函数灰度流量控制调用，以json格式传入，例如{"k":"v"}，注意kv都需要是字符串类型，最大支持的参数长度是1024字节
+    */
+    @SerializedName("RoutingKey")
+    @Expose
+    private String RoutingKey;
 
     /**
      * Get 函数名称 
@@ -81,64 +88,64 @@ public class InvokeRequest extends AbstractModel{
     }
 
     /**
-     * Get RequestResponse(同步) 和 Event(异步)，默认为同步 
-     * @return InvocationType RequestResponse(同步) 和 Event(异步)，默认为同步
+     * Get 同步调用请使用[同步 Invoke 调用接口](https://cloud.tencent.com/document/product/583/58400) 或填写同步调用参数 RequestResponse ，建议使用同步调用接口以获取最佳性能；异步调用填写 Event；默认为同步。接口超时时间为 300s，更长超时时间请使用异步调用。 
+     * @return InvocationType 同步调用请使用[同步 Invoke 调用接口](https://cloud.tencent.com/document/product/583/58400) 或填写同步调用参数 RequestResponse ，建议使用同步调用接口以获取最佳性能；异步调用填写 Event；默认为同步。接口超时时间为 300s，更长超时时间请使用异步调用。
      */
     public String getInvocationType() {
         return this.InvocationType;
     }
 
     /**
-     * Set RequestResponse(同步) 和 Event(异步)，默认为同步
-     * @param InvocationType RequestResponse(同步) 和 Event(异步)，默认为同步
+     * Set 同步调用请使用[同步 Invoke 调用接口](https://cloud.tencent.com/document/product/583/58400) 或填写同步调用参数 RequestResponse ，建议使用同步调用接口以获取最佳性能；异步调用填写 Event；默认为同步。接口超时时间为 300s，更长超时时间请使用异步调用。
+     * @param InvocationType 同步调用请使用[同步 Invoke 调用接口](https://cloud.tencent.com/document/product/583/58400) 或填写同步调用参数 RequestResponse ，建议使用同步调用接口以获取最佳性能；异步调用填写 Event；默认为同步。接口超时时间为 300s，更长超时时间请使用异步调用。
      */
     public void setInvocationType(String InvocationType) {
         this.InvocationType = InvocationType;
     }
 
     /**
-     * Get 触发函数的版本号 
-     * @return Qualifier 触发函数的版本号
+     * Get 触发函数的版本号或别名 
+     * @return Qualifier 触发函数的版本号或别名
      */
     public String getQualifier() {
         return this.Qualifier;
     }
 
     /**
-     * Set 触发函数的版本号
-     * @param Qualifier 触发函数的版本号
+     * Set 触发函数的版本号或别名
+     * @param Qualifier 触发函数的版本号或别名
      */
     public void setQualifier(String Qualifier) {
         this.Qualifier = Qualifier;
     }
 
     /**
-     * Get 运行函数时的参数，以json格式传入，最大支持的参数长度是 1M 
-     * @return ClientContext 运行函数时的参数，以json格式传入，最大支持的参数长度是 1M
+     * Get 运行函数时的参数，以json格式传入，同步调用最大支持 6MB，异步调用最大支持 128 KB。该字段信息对应函数 [event 入参](https://cloud.tencent.com/document/product/583/9210#.E5.87.BD.E6.95.B0.E5.85.A5.E5.8F.82.3Ca-id.3D.22input.22.3E.3C.2Fa.3E)。 
+     * @return ClientContext 运行函数时的参数，以json格式传入，同步调用最大支持 6MB，异步调用最大支持 128 KB。该字段信息对应函数 [event 入参](https://cloud.tencent.com/document/product/583/9210#.E5.87.BD.E6.95.B0.E5.85.A5.E5.8F.82.3Ca-id.3D.22input.22.3E.3C.2Fa.3E)。
      */
     public String getClientContext() {
         return this.ClientContext;
     }
 
     /**
-     * Set 运行函数时的参数，以json格式传入，最大支持的参数长度是 1M
-     * @param ClientContext 运行函数时的参数，以json格式传入，最大支持的参数长度是 1M
+     * Set 运行函数时的参数，以json格式传入，同步调用最大支持 6MB，异步调用最大支持 128 KB。该字段信息对应函数 [event 入参](https://cloud.tencent.com/document/product/583/9210#.E5.87.BD.E6.95.B0.E5.85.A5.E5.8F.82.3Ca-id.3D.22input.22.3E.3C.2Fa.3E)。
+     * @param ClientContext 运行函数时的参数，以json格式传入，同步调用最大支持 6MB，异步调用最大支持 128 KB。该字段信息对应函数 [event 入参](https://cloud.tencent.com/document/product/583/9210#.E5.87.BD.E6.95.B0.E5.85.A5.E5.8F.82.3Ca-id.3D.22input.22.3E.3C.2Fa.3E)。
      */
     public void setClientContext(String ClientContext) {
         this.ClientContext = ClientContext;
     }
 
     /**
-     * Get 同步调用时指定该字段，返回值会包含4K的日志，可选值为None和Tail，默认值为None。当该值为Tail时，返回参数中的logMsg字段会包含对应的函数执行日志 
-     * @return LogType 同步调用时指定该字段，返回值会包含4K的日志，可选值为None和Tail，默认值为None。当该值为Tail时，返回参数中的logMsg字段会包含对应的函数执行日志
+     * Get 异步调用该字段返回为空。 
+     * @return LogType 异步调用该字段返回为空。
      */
     public String getLogType() {
         return this.LogType;
     }
 
     /**
-     * Set 同步调用时指定该字段，返回值会包含4K的日志，可选值为None和Tail，默认值为None。当该值为Tail时，返回参数中的logMsg字段会包含对应的函数执行日志
-     * @param LogType 同步调用时指定该字段，返回值会包含4K的日志，可选值为None和Tail，默认值为None。当该值为Tail时，返回参数中的logMsg字段会包含对应的函数执行日志
+     * Set 异步调用该字段返回为空。
+     * @param LogType 异步调用该字段返回为空。
      */
     public void setLogType(String LogType) {
         this.LogType = LogType;
@@ -161,6 +168,54 @@ public class InvokeRequest extends AbstractModel{
     }
 
     /**
+     * Get 函数灰度流量控制调用，以json格式传入，例如{"k":"v"}，注意kv都需要是字符串类型，最大支持的参数长度是1024字节 
+     * @return RoutingKey 函数灰度流量控制调用，以json格式传入，例如{"k":"v"}，注意kv都需要是字符串类型，最大支持的参数长度是1024字节
+     */
+    public String getRoutingKey() {
+        return this.RoutingKey;
+    }
+
+    /**
+     * Set 函数灰度流量控制调用，以json格式传入，例如{"k":"v"}，注意kv都需要是字符串类型，最大支持的参数长度是1024字节
+     * @param RoutingKey 函数灰度流量控制调用，以json格式传入，例如{"k":"v"}，注意kv都需要是字符串类型，最大支持的参数长度是1024字节
+     */
+    public void setRoutingKey(String RoutingKey) {
+        this.RoutingKey = RoutingKey;
+    }
+
+    public InvokeRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public InvokeRequest(InvokeRequest source) {
+        if (source.FunctionName != null) {
+            this.FunctionName = new String(source.FunctionName);
+        }
+        if (source.InvocationType != null) {
+            this.InvocationType = new String(source.InvocationType);
+        }
+        if (source.Qualifier != null) {
+            this.Qualifier = new String(source.Qualifier);
+        }
+        if (source.ClientContext != null) {
+            this.ClientContext = new String(source.ClientContext);
+        }
+        if (source.LogType != null) {
+            this.LogType = new String(source.LogType);
+        }
+        if (source.Namespace != null) {
+            this.Namespace = new String(source.Namespace);
+        }
+        if (source.RoutingKey != null) {
+            this.RoutingKey = new String(source.RoutingKey);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -170,6 +225,7 @@ public class InvokeRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ClientContext", this.ClientContext);
         this.setParamSimple(map, prefix + "LogType", this.LogType);
         this.setParamSimple(map, prefix + "Namespace", this.Namespace);
+        this.setParamSimple(map, prefix + "RoutingKey", this.RoutingKey);
 
     }
 }

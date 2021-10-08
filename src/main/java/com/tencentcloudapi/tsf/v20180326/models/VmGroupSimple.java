@@ -135,12 +135,36 @@ public class VmGroupSimple extends AbstractModel{
     private String MicroserviceType;
 
     /**
-    * GroupResourceType
+    * 部署组资源类型
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupResourceType")
     @Expose
     private String GroupResourceType;
+
+    /**
+    * 部署组更新时间戳
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UpdatedTime")
+    @Expose
+    private Long UpdatedTime;
+
+    /**
+    * 部署应用描述信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DeployDesc")
+    @Expose
+    private String DeployDesc;
+
+    /**
+    * 部署组备注
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Alias")
+    @Expose
+    private String Alias;
 
     /**
      * Get 部署组ID
@@ -423,9 +447,9 @@ public class VmGroupSimple extends AbstractModel{
     }
 
     /**
-     * Get GroupResourceType
+     * Get 部署组资源类型
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return GroupResourceType GroupResourceType
+     * @return GroupResourceType 部署组资源类型
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGroupResourceType() {
@@ -433,14 +457,139 @@ public class VmGroupSimple extends AbstractModel{
     }
 
     /**
-     * Set GroupResourceType
+     * Set 部署组资源类型
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param GroupResourceType GroupResourceType
+     * @param GroupResourceType 部署组资源类型
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupResourceType(String GroupResourceType) {
         this.GroupResourceType = GroupResourceType;
     }
+
+    /**
+     * Get 部署组更新时间戳
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UpdatedTime 部署组更新时间戳
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getUpdatedTime() {
+        return this.UpdatedTime;
+    }
+
+    /**
+     * Set 部署组更新时间戳
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UpdatedTime 部署组更新时间戳
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUpdatedTime(Long UpdatedTime) {
+        this.UpdatedTime = UpdatedTime;
+    }
+
+    /**
+     * Get 部署应用描述信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DeployDesc 部署应用描述信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDeployDesc() {
+        return this.DeployDesc;
+    }
+
+    /**
+     * Set 部署应用描述信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DeployDesc 部署应用描述信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDeployDesc(String DeployDesc) {
+        this.DeployDesc = DeployDesc;
+    }
+
+    /**
+     * Get 部署组备注
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Alias 部署组备注
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAlias() {
+        return this.Alias;
+    }
+
+    /**
+     * Set 部署组备注
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Alias 部署组备注
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAlias(String Alias) {
+        this.Alias = Alias;
+    }
+
+    public VmGroupSimple() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public VmGroupSimple(VmGroupSimple source) {
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
+        if (source.GroupName != null) {
+            this.GroupName = new String(source.GroupName);
+        }
+        if (source.ApplicationType != null) {
+            this.ApplicationType = new String(source.ApplicationType);
+        }
+        if (source.GroupDesc != null) {
+            this.GroupDesc = new String(source.GroupDesc);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+        if (source.ClusterId != null) {
+            this.ClusterId = new String(source.ClusterId);
+        }
+        if (source.StartupParameters != null) {
+            this.StartupParameters = new String(source.StartupParameters);
+        }
+        if (source.NamespaceId != null) {
+            this.NamespaceId = new String(source.NamespaceId);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.ClusterName != null) {
+            this.ClusterName = new String(source.ClusterName);
+        }
+        if (source.ApplicationId != null) {
+            this.ApplicationId = new String(source.ApplicationId);
+        }
+        if (source.ApplicationName != null) {
+            this.ApplicationName = new String(source.ApplicationName);
+        }
+        if (source.NamespaceName != null) {
+            this.NamespaceName = new String(source.NamespaceName);
+        }
+        if (source.MicroserviceType != null) {
+            this.MicroserviceType = new String(source.MicroserviceType);
+        }
+        if (source.GroupResourceType != null) {
+            this.GroupResourceType = new String(source.GroupResourceType);
+        }
+        if (source.UpdatedTime != null) {
+            this.UpdatedTime = new Long(source.UpdatedTime);
+        }
+        if (source.DeployDesc != null) {
+            this.DeployDesc = new String(source.DeployDesc);
+        }
+        if (source.Alias != null) {
+            this.Alias = new String(source.Alias);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -461,6 +610,9 @@ public class VmGroupSimple extends AbstractModel{
         this.setParamSimple(map, prefix + "NamespaceName", this.NamespaceName);
         this.setParamSimple(map, prefix + "MicroserviceType", this.MicroserviceType);
         this.setParamSimple(map, prefix + "GroupResourceType", this.GroupResourceType);
+        this.setParamSimple(map, prefix + "UpdatedTime", this.UpdatedTime);
+        this.setParamSimple(map, prefix + "DeployDesc", this.DeployDesc);
+        this.setParamSimple(map, prefix + "Alias", this.Alias);
 
     }
 }

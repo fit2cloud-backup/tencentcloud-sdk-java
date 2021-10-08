@@ -40,20 +40,22 @@ public class DescribeSubnetsRequest extends AbstractModel{
 <li>zone - String - （过滤条件）可用区。</li>
 <li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。</li>
 <li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例2。</li>
+<li>cdc-id - String - 是否必填：否 - （过滤条件）按照cdc信息进行过滤。过滤出来制定cdc下的子网。</li>
+<li>is-cdc-subnet - String - 是否必填：否 - （过滤条件）按照是否是cdc子网进行过滤。取值：“0”-非cdc子网，“1”--cdc子网</li>
     */
     @SerializedName("Filters")
     @Expose
     private Filter [] Filters;
 
     /**
-    * 偏移量
+    * 偏移量，默认为0。
     */
     @SerializedName("Offset")
     @Expose
     private String Offset;
 
     /**
-    * 返回数量
+    * 返回数量，默认为20，最大值为100。
     */
     @SerializedName("Limit")
     @Expose
@@ -85,7 +87,9 @@ public class DescribeSubnetsRequest extends AbstractModel{
 <li>subnet-name - String - （过滤条件）子网名称。</li>
 <li>zone - String - （过滤条件）可用区。</li>
 <li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。</li>
-<li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例2。</li> 
+<li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例2。</li>
+<li>cdc-id - String - 是否必填：否 - （过滤条件）按照cdc信息进行过滤。过滤出来制定cdc下的子网。</li>
+<li>is-cdc-subnet - String - 是否必填：否 - （过滤条件）按照是否是cdc子网进行过滤。取值：“0”-非cdc子网，“1”--cdc子网</li> 
      * @return Filters 过滤条件，参数不支持同时指定SubnetIds和Filters。
 <li>subnet-id - String - （过滤条件）Subnet实例名称。</li>
 <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
@@ -96,6 +100,8 @@ public class DescribeSubnetsRequest extends AbstractModel{
 <li>zone - String - （过滤条件）可用区。</li>
 <li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。</li>
 <li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例2。</li>
+<li>cdc-id - String - 是否必填：否 - （过滤条件）按照cdc信息进行过滤。过滤出来制定cdc下的子网。</li>
+<li>is-cdc-subnet - String - 是否必填：否 - （过滤条件）按照是否是cdc子网进行过滤。取值：“0”-非cdc子网，“1”--cdc子网</li>
      */
     public Filter [] getFilters() {
         return this.Filters;
@@ -112,6 +118,8 @@ public class DescribeSubnetsRequest extends AbstractModel{
 <li>zone - String - （过滤条件）可用区。</li>
 <li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。</li>
 <li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例2。</li>
+<li>cdc-id - String - 是否必填：否 - （过滤条件）按照cdc信息进行过滤。过滤出来制定cdc下的子网。</li>
+<li>is-cdc-subnet - String - 是否必填：否 - （过滤条件）按照是否是cdc子网进行过滤。取值：“0”-非cdc子网，“1”--cdc子网</li>
      * @param Filters 过滤条件，参数不支持同时指定SubnetIds和Filters。
 <li>subnet-id - String - （过滤条件）Subnet实例名称。</li>
 <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
@@ -122,42 +130,73 @@ public class DescribeSubnetsRequest extends AbstractModel{
 <li>zone - String - （过滤条件）可用区。</li>
 <li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。</li>
 <li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例2。</li>
+<li>cdc-id - String - 是否必填：否 - （过滤条件）按照cdc信息进行过滤。过滤出来制定cdc下的子网。</li>
+<li>is-cdc-subnet - String - 是否必填：否 - （过滤条件）按照是否是cdc子网进行过滤。取值：“0”-非cdc子网，“1”--cdc子网</li>
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;
     }
 
     /**
-     * Get 偏移量 
-     * @return Offset 偏移量
+     * Get 偏移量，默认为0。 
+     * @return Offset 偏移量，默认为0。
      */
     public String getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 偏移量
-     * @param Offset 偏移量
+     * Set 偏移量，默认为0。
+     * @param Offset 偏移量，默认为0。
      */
     public void setOffset(String Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get 返回数量 
-     * @return Limit 返回数量
+     * Get 返回数量，默认为20，最大值为100。 
+     * @return Limit 返回数量，默认为20，最大值为100。
      */
     public String getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 返回数量
-     * @param Limit 返回数量
+     * Set 返回数量，默认为20，最大值为100。
+     * @param Limit 返回数量，默认为20，最大值为100。
      */
     public void setLimit(String Limit) {
         this.Limit = Limit;
     }
+
+    public DescribeSubnetsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeSubnetsRequest(DescribeSubnetsRequest source) {
+        if (source.SubnetIds != null) {
+            this.SubnetIds = new String[source.SubnetIds.length];
+            for (int i = 0; i < source.SubnetIds.length; i++) {
+                this.SubnetIds[i] = new String(source.SubnetIds[i]);
+            }
+        }
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
+        }
+        if (source.Offset != null) {
+            this.Offset = new String(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new String(source.Limit);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

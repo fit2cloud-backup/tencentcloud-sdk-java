@@ -100,6 +100,20 @@ public class ModifyDirectConnectAttributeRequest extends AbstractModel{
     private String FaultReportContactNumber;
 
     /**
+    * 物理专线申请者补签用户使用协议
+    */
+    @SerializedName("SignLaw")
+    @Expose
+    private Boolean SignLaw;
+
+    /**
+    * 物理专线带宽
+    */
+    @SerializedName("Bandwidth")
+    @Expose
+    private Long Bandwidth;
+
+    /**
      * Get 物理专线的ID。 
      * @return DirectConnectId 物理专线的ID。
      */
@@ -276,6 +290,88 @@ public class ModifyDirectConnectAttributeRequest extends AbstractModel{
     }
 
     /**
+     * Get 物理专线申请者补签用户使用协议 
+     * @return SignLaw 物理专线申请者补签用户使用协议
+     */
+    public Boolean getSignLaw() {
+        return this.SignLaw;
+    }
+
+    /**
+     * Set 物理专线申请者补签用户使用协议
+     * @param SignLaw 物理专线申请者补签用户使用协议
+     */
+    public void setSignLaw(Boolean SignLaw) {
+        this.SignLaw = SignLaw;
+    }
+
+    /**
+     * Get 物理专线带宽 
+     * @return Bandwidth 物理专线带宽
+     */
+    public Long getBandwidth() {
+        return this.Bandwidth;
+    }
+
+    /**
+     * Set 物理专线带宽
+     * @param Bandwidth 物理专线带宽
+     */
+    public void setBandwidth(Long Bandwidth) {
+        this.Bandwidth = Bandwidth;
+    }
+
+    public ModifyDirectConnectAttributeRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyDirectConnectAttributeRequest(ModifyDirectConnectAttributeRequest source) {
+        if (source.DirectConnectId != null) {
+            this.DirectConnectId = new String(source.DirectConnectId);
+        }
+        if (source.DirectConnectName != null) {
+            this.DirectConnectName = new String(source.DirectConnectName);
+        }
+        if (source.CircuitCode != null) {
+            this.CircuitCode = new String(source.CircuitCode);
+        }
+        if (source.Vlan != null) {
+            this.Vlan = new Long(source.Vlan);
+        }
+        if (source.TencentAddress != null) {
+            this.TencentAddress = new String(source.TencentAddress);
+        }
+        if (source.CustomerAddress != null) {
+            this.CustomerAddress = new String(source.CustomerAddress);
+        }
+        if (source.CustomerName != null) {
+            this.CustomerName = new String(source.CustomerName);
+        }
+        if (source.CustomerContactMail != null) {
+            this.CustomerContactMail = new String(source.CustomerContactMail);
+        }
+        if (source.CustomerContactNumber != null) {
+            this.CustomerContactNumber = new String(source.CustomerContactNumber);
+        }
+        if (source.FaultReportContactPerson != null) {
+            this.FaultReportContactPerson = new String(source.FaultReportContactPerson);
+        }
+        if (source.FaultReportContactNumber != null) {
+            this.FaultReportContactNumber = new String(source.FaultReportContactNumber);
+        }
+        if (source.SignLaw != null) {
+            this.SignLaw = new Boolean(source.SignLaw);
+        }
+        if (source.Bandwidth != null) {
+            this.Bandwidth = new Long(source.Bandwidth);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -290,6 +386,8 @@ public class ModifyDirectConnectAttributeRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "CustomerContactNumber", this.CustomerContactNumber);
         this.setParamSimple(map, prefix + "FaultReportContactPerson", this.FaultReportContactPerson);
         this.setParamSimple(map, prefix + "FaultReportContactNumber", this.FaultReportContactNumber);
+        this.setParamSimple(map, prefix + "SignLaw", this.SignLaw);
+        this.setParamSimple(map, prefix + "Bandwidth", this.Bandwidth);
 
     }
 }

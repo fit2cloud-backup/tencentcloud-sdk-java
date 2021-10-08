@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class BatchDeregisterTargetsResponse extends AbstractModel{
 
     /**
-    * 解绑失败的监听器ID
+    * 解绑失败的监听器ID。
     */
     @SerializedName("FailListenerIdSet")
     @Expose
@@ -37,16 +37,16 @@ public class BatchDeregisterTargetsResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 解绑失败的监听器ID 
-     * @return FailListenerIdSet 解绑失败的监听器ID
+     * Get 解绑失败的监听器ID。 
+     * @return FailListenerIdSet 解绑失败的监听器ID。
      */
     public String [] getFailListenerIdSet() {
         return this.FailListenerIdSet;
     }
 
     /**
-     * Set 解绑失败的监听器ID
-     * @param FailListenerIdSet 解绑失败的监听器ID
+     * Set 解绑失败的监听器ID。
+     * @param FailListenerIdSet 解绑失败的监听器ID。
      */
     public void setFailListenerIdSet(String [] FailListenerIdSet) {
         this.FailListenerIdSet = FailListenerIdSet;
@@ -67,6 +67,26 @@ public class BatchDeregisterTargetsResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public BatchDeregisterTargetsResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public BatchDeregisterTargetsResponse(BatchDeregisterTargetsResponse source) {
+        if (source.FailListenerIdSet != null) {
+            this.FailListenerIdSet = new String[source.FailListenerIdSet.length];
+            for (int i = 0; i < source.FailListenerIdSet.length; i++) {
+                this.FailListenerIdSet[i] = new String(source.FailListenerIdSet[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

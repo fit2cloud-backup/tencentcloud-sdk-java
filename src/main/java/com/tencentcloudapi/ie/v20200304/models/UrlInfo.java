@@ -23,8 +23,8 @@ import java.util.HashMap;
 public class UrlInfo extends AbstractModel{
 
     /**
-    * 视频 URL。音视频支持mp4、ts等格式；直播流支持flv、rtmp格式。
-注意：目前智能编辑还不支持直播流场景。
+    * 视频 URL。
+注意：编辑理解仅支持mp4、flv等格式的点播文件，不支持hls；
     */
     @SerializedName("Url")
     @Expose
@@ -34,7 +34,7 @@ public class UrlInfo extends AbstractModel{
     * 视频地址格式，可选值： 
 0：音视频 ;
 1：直播流。 
-默认为0。其他非0非1值默认为0。
+默认为0。其他非0非1值默认为0。画质重生任务只支持0。
     */
     @SerializedName("Format")
     @Expose
@@ -48,20 +48,20 @@ public class UrlInfo extends AbstractModel{
     private String Host;
 
     /**
-     * Get 视频 URL。音视频支持mp4、ts等格式；直播流支持flv、rtmp格式。
-注意：目前智能编辑还不支持直播流场景。 
-     * @return Url 视频 URL。音视频支持mp4、ts等格式；直播流支持flv、rtmp格式。
-注意：目前智能编辑还不支持直播流场景。
+     * Get 视频 URL。
+注意：编辑理解仅支持mp4、flv等格式的点播文件，不支持hls； 
+     * @return Url 视频 URL。
+注意：编辑理解仅支持mp4、flv等格式的点播文件，不支持hls；
      */
     public String getUrl() {
         return this.Url;
     }
 
     /**
-     * Set 视频 URL。音视频支持mp4、ts等格式；直播流支持flv、rtmp格式。
-注意：目前智能编辑还不支持直播流场景。
-     * @param Url 视频 URL。音视频支持mp4、ts等格式；直播流支持flv、rtmp格式。
-注意：目前智能编辑还不支持直播流场景。
+     * Set 视频 URL。
+注意：编辑理解仅支持mp4、flv等格式的点播文件，不支持hls；
+     * @param Url 视频 URL。
+注意：编辑理解仅支持mp4、flv等格式的点播文件，不支持hls；
      */
     public void setUrl(String Url) {
         this.Url = Url;
@@ -71,11 +71,11 @@ public class UrlInfo extends AbstractModel{
      * Get 视频地址格式，可选值： 
 0：音视频 ;
 1：直播流。 
-默认为0。其他非0非1值默认为0。 
+默认为0。其他非0非1值默认为0。画质重生任务只支持0。 
      * @return Format 视频地址格式，可选值： 
 0：音视频 ;
 1：直播流。 
-默认为0。其他非0非1值默认为0。
+默认为0。其他非0非1值默认为0。画质重生任务只支持0。
      */
     public Long getFormat() {
         return this.Format;
@@ -85,11 +85,11 @@ public class UrlInfo extends AbstractModel{
      * Set 视频地址格式，可选值： 
 0：音视频 ;
 1：直播流。 
-默认为0。其他非0非1值默认为0。
+默认为0。其他非0非1值默认为0。画质重生任务只支持0。
      * @param Format 视频地址格式，可选值： 
 0：音视频 ;
 1：直播流。 
-默认为0。其他非0非1值默认为0。
+默认为0。其他非0非1值默认为0。画质重生任务只支持0。
      */
     public void setFormat(Long Format) {
         this.Format = Format;
@@ -110,6 +110,26 @@ public class UrlInfo extends AbstractModel{
     public void setHost(String Host) {
         this.Host = Host;
     }
+
+    public UrlInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public UrlInfo(UrlInfo source) {
+        if (source.Url != null) {
+            this.Url = new String(source.Url);
+        }
+        if (source.Format != null) {
+            this.Format = new Long(source.Format);
+        }
+        if (source.Host != null) {
+            this.Host = new String(source.Host);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

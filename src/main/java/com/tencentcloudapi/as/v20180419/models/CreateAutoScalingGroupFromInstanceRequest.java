@@ -37,14 +37,14 @@ public class CreateAutoScalingGroupFromInstanceRequest extends AbstractModel{
     private String InstanceId;
 
     /**
-    * 最大实例数，取值范围为0-2000。
+    * 最小实例数，取值范围为0-2000。
     */
     @SerializedName("MinSize")
     @Expose
     private Long MinSize;
 
     /**
-    * 最小实例数，取值范围为0-2000。
+    * 最大实例数，取值范围为0-2000。
     */
     @SerializedName("MaxSize")
     @Expose
@@ -97,32 +97,32 @@ public class CreateAutoScalingGroupFromInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 最大实例数，取值范围为0-2000。 
-     * @return MinSize 最大实例数，取值范围为0-2000。
+     * Get 最小实例数，取值范围为0-2000。 
+     * @return MinSize 最小实例数，取值范围为0-2000。
      */
     public Long getMinSize() {
         return this.MinSize;
     }
 
     /**
-     * Set 最大实例数，取值范围为0-2000。
-     * @param MinSize 最大实例数，取值范围为0-2000。
+     * Set 最小实例数，取值范围为0-2000。
+     * @param MinSize 最小实例数，取值范围为0-2000。
      */
     public void setMinSize(Long MinSize) {
         this.MinSize = MinSize;
     }
 
     /**
-     * Get 最小实例数，取值范围为0-2000。 
-     * @return MaxSize 最小实例数，取值范围为0-2000。
+     * Get 最大实例数，取值范围为0-2000。 
+     * @return MaxSize 最大实例数，取值范围为0-2000。
      */
     public Long getMaxSize() {
         return this.MaxSize;
     }
 
     /**
-     * Set 最小实例数，取值范围为0-2000。
-     * @param MaxSize 最小实例数，取值范围为0-2000。
+     * Set 最大实例数，取值范围为0-2000。
+     * @param MaxSize 最大实例数，取值范围为0-2000。
      */
     public void setMaxSize(Long MaxSize) {
         this.MaxSize = MaxSize;
@@ -159,6 +159,35 @@ public class CreateAutoScalingGroupFromInstanceRequest extends AbstractModel{
     public void setInheritInstanceTag(Boolean InheritInstanceTag) {
         this.InheritInstanceTag = InheritInstanceTag;
     }
+
+    public CreateAutoScalingGroupFromInstanceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateAutoScalingGroupFromInstanceRequest(CreateAutoScalingGroupFromInstanceRequest source) {
+        if (source.AutoScalingGroupName != null) {
+            this.AutoScalingGroupName = new String(source.AutoScalingGroupName);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.MinSize != null) {
+            this.MinSize = new Long(source.MinSize);
+        }
+        if (source.MaxSize != null) {
+            this.MaxSize = new Long(source.MaxSize);
+        }
+        if (source.DesiredCapacity != null) {
+            this.DesiredCapacity = new Long(source.DesiredCapacity);
+        }
+        if (source.InheritInstanceTag != null) {
+            this.InheritInstanceTag = new Boolean(source.InheritInstanceTag);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

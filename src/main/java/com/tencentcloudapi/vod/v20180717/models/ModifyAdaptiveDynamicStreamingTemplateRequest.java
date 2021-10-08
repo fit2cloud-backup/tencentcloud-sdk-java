@@ -78,6 +78,13 @@ public class ModifyAdaptiveDynamicStreamingTemplateRequest extends AbstractModel
     private String Comment;
 
     /**
+    * 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+    */
+    @SerializedName("SubAppId")
+    @Expose
+    private Long SubAppId;
+
+    /**
      * Get 自适应转码模板唯一标识。 
      * @return Definition 自适应转码模板唯一标识。
      */
@@ -214,6 +221,60 @@ public class ModifyAdaptiveDynamicStreamingTemplateRequest extends AbstractModel
     }
 
     /**
+     * Get 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。 
+     * @return SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+     */
+    public Long getSubAppId() {
+        return this.SubAppId;
+    }
+
+    /**
+     * Set 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+     * @param SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+     */
+    public void setSubAppId(Long SubAppId) {
+        this.SubAppId = SubAppId;
+    }
+
+    public ModifyAdaptiveDynamicStreamingTemplateRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyAdaptiveDynamicStreamingTemplateRequest(ModifyAdaptiveDynamicStreamingTemplateRequest source) {
+        if (source.Definition != null) {
+            this.Definition = new Long(source.Definition);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Format != null) {
+            this.Format = new String(source.Format);
+        }
+        if (source.DisableHigherVideoBitrate != null) {
+            this.DisableHigherVideoBitrate = new Long(source.DisableHigherVideoBitrate);
+        }
+        if (source.DisableHigherVideoResolution != null) {
+            this.DisableHigherVideoResolution = new Long(source.DisableHigherVideoResolution);
+        }
+        if (source.StreamInfos != null) {
+            this.StreamInfos = new AdaptiveStreamTemplate[source.StreamInfos.length];
+            for (int i = 0; i < source.StreamInfos.length; i++) {
+                this.StreamInfos[i] = new AdaptiveStreamTemplate(source.StreamInfos[i]);
+            }
+        }
+        if (source.Comment != null) {
+            this.Comment = new String(source.Comment);
+        }
+        if (source.SubAppId != null) {
+            this.SubAppId = new Long(source.SubAppId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -224,6 +285,7 @@ public class ModifyAdaptiveDynamicStreamingTemplateRequest extends AbstractModel
         this.setParamSimple(map, prefix + "DisableHigherVideoResolution", this.DisableHigherVideoResolution);
         this.setParamArrayObj(map, prefix + "StreamInfos.", this.StreamInfos);
         this.setParamSimple(map, prefix + "Comment", this.Comment);
+        this.setParamSimple(map, prefix + "SubAppId", this.SubAppId);
 
     }
 }

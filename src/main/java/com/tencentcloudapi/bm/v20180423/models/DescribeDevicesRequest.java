@@ -30,7 +30,7 @@ public class DescribeDevicesRequest extends AbstractModel{
     private Long Offset;
 
     /**
-    * 返回数量
+    * 返回数量，默认为20，最大值为100。
     */
     @SerializedName("Limit")
     @Expose
@@ -149,6 +149,13 @@ public class DescribeDevicesRequest extends AbstractModel{
     private Long Order;
 
     /**
+    * 按照维保方式过滤。可取值为 Maintain: 在保;  WillExpire: 即将过保; Expire: 已过保
+    */
+    @SerializedName("MaintainStatus")
+    @Expose
+    private String MaintainStatus;
+
+    /**
      * Get 偏移量 
      * @return Offset 偏移量
      */
@@ -165,16 +172,16 @@ public class DescribeDevicesRequest extends AbstractModel{
     }
 
     /**
-     * Get 返回数量 
-     * @return Limit 返回数量
+     * Get 返回数量，默认为20，最大值为100。 
+     * @return Limit 返回数量，默认为20，最大值为100。
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 返回数量
-     * @param Limit 返回数量
+     * Set 返回数量，默认为20，最大值为100。
+     * @param Limit 返回数量，默认为20，最大值为100。
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
@@ -437,6 +444,102 @@ public class DescribeDevicesRequest extends AbstractModel{
     }
 
     /**
+     * Get 按照维保方式过滤。可取值为 Maintain: 在保;  WillExpire: 即将过保; Expire: 已过保 
+     * @return MaintainStatus 按照维保方式过滤。可取值为 Maintain: 在保;  WillExpire: 即将过保; Expire: 已过保
+     */
+    public String getMaintainStatus() {
+        return this.MaintainStatus;
+    }
+
+    /**
+     * Set 按照维保方式过滤。可取值为 Maintain: 在保;  WillExpire: 即将过保; Expire: 已过保
+     * @param MaintainStatus 按照维保方式过滤。可取值为 Maintain: 在保;  WillExpire: 即将过保; Expire: 已过保
+     */
+    public void setMaintainStatus(String MaintainStatus) {
+        this.MaintainStatus = MaintainStatus;
+    }
+
+    public DescribeDevicesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeDevicesRequest(DescribeDevicesRequest source) {
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.DeviceClassCode != null) {
+            this.DeviceClassCode = new String(source.DeviceClassCode);
+        }
+        if (source.InstanceIds != null) {
+            this.InstanceIds = new String[source.InstanceIds.length];
+            for (int i = 0; i < source.InstanceIds.length; i++) {
+                this.InstanceIds[i] = new String(source.InstanceIds[i]);
+            }
+        }
+        if (source.WanIps != null) {
+            this.WanIps = new String[source.WanIps.length];
+            for (int i = 0; i < source.WanIps.length; i++) {
+                this.WanIps[i] = new String(source.WanIps[i]);
+            }
+        }
+        if (source.LanIps != null) {
+            this.LanIps = new String[source.LanIps.length];
+            for (int i = 0; i < source.LanIps.length; i++) {
+                this.LanIps[i] = new String(source.LanIps[i]);
+            }
+        }
+        if (source.Alias != null) {
+            this.Alias = new String(source.Alias);
+        }
+        if (source.VagueIp != null) {
+            this.VagueIp = new String(source.VagueIp);
+        }
+        if (source.DeadlineStartTime != null) {
+            this.DeadlineStartTime = new String(source.DeadlineStartTime);
+        }
+        if (source.DeadlineEndTime != null) {
+            this.DeadlineEndTime = new String(source.DeadlineEndTime);
+        }
+        if (source.AutoRenewFlag != null) {
+            this.AutoRenewFlag = new Long(source.AutoRenewFlag);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.DeviceType != null) {
+            this.DeviceType = new String(source.DeviceType);
+        }
+        if (source.IsLuckyDevice != null) {
+            this.IsLuckyDevice = new Long(source.IsLuckyDevice);
+        }
+        if (source.OrderField != null) {
+            this.OrderField = new String(source.OrderField);
+        }
+        if (source.Order != null) {
+            this.Order = new Long(source.Order);
+        }
+        if (source.MaintainStatus != null) {
+            this.MaintainStatus = new String(source.MaintainStatus);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -458,6 +561,7 @@ public class DescribeDevicesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "IsLuckyDevice", this.IsLuckyDevice);
         this.setParamSimple(map, prefix + "OrderField", this.OrderField);
         this.setParamSimple(map, prefix + "Order", this.Order);
+        this.setParamSimple(map, prefix + "MaintainStatus", this.MaintainStatus);
 
     }
 }

@@ -24,14 +24,31 @@ public class AiRecognitionTaskSegmentResultOutput extends AbstractModel{
 
     /**
     * 视频拆条片段列表。
+<font color=red>注意</font> ：该列表最多仅展示前 100 个元素。如希望获得完整结果，请从 SegmentSetFileUrl 对应的文件中获取。
     */
     @SerializedName("SegmentSet")
     @Expose
     private AiRecognitionTaskSegmentSegmentItem [] SegmentSet;
 
     /**
-     * Get 视频拆条片段列表。 
+    * 视频拆条片段列表文件 URL。文件的内容为 JSON，数据结构与 SegmentSet 字段一致。 （文件不会永久存储，到达SegmentSetFileUrlExpireTime 时间点后文件将被删除）。
+    */
+    @SerializedName("SegmentSetFileUrl")
+    @Expose
+    private String SegmentSetFileUrl;
+
+    /**
+    * 视频拆条片段列表文件 URL 失效时间，使用  [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+    */
+    @SerializedName("SegmentSetFileUrlExpireTime")
+    @Expose
+    private String SegmentSetFileUrlExpireTime;
+
+    /**
+     * Get 视频拆条片段列表。
+<font color=red>注意</font> ：该列表最多仅展示前 100 个元素。如希望获得完整结果，请从 SegmentSetFileUrl 对应的文件中获取。 
      * @return SegmentSet 视频拆条片段列表。
+<font color=red>注意</font> ：该列表最多仅展示前 100 个元素。如希望获得完整结果，请从 SegmentSetFileUrl 对应的文件中获取。
      */
     public AiRecognitionTaskSegmentSegmentItem [] getSegmentSet() {
         return this.SegmentSet;
@@ -39,17 +56,76 @@ public class AiRecognitionTaskSegmentResultOutput extends AbstractModel{
 
     /**
      * Set 视频拆条片段列表。
+<font color=red>注意</font> ：该列表最多仅展示前 100 个元素。如希望获得完整结果，请从 SegmentSetFileUrl 对应的文件中获取。
      * @param SegmentSet 视频拆条片段列表。
+<font color=red>注意</font> ：该列表最多仅展示前 100 个元素。如希望获得完整结果，请从 SegmentSetFileUrl 对应的文件中获取。
      */
     public void setSegmentSet(AiRecognitionTaskSegmentSegmentItem [] SegmentSet) {
         this.SegmentSet = SegmentSet;
     }
 
     /**
+     * Get 视频拆条片段列表文件 URL。文件的内容为 JSON，数据结构与 SegmentSet 字段一致。 （文件不会永久存储，到达SegmentSetFileUrlExpireTime 时间点后文件将被删除）。 
+     * @return SegmentSetFileUrl 视频拆条片段列表文件 URL。文件的内容为 JSON，数据结构与 SegmentSet 字段一致。 （文件不会永久存储，到达SegmentSetFileUrlExpireTime 时间点后文件将被删除）。
+     */
+    public String getSegmentSetFileUrl() {
+        return this.SegmentSetFileUrl;
+    }
+
+    /**
+     * Set 视频拆条片段列表文件 URL。文件的内容为 JSON，数据结构与 SegmentSet 字段一致。 （文件不会永久存储，到达SegmentSetFileUrlExpireTime 时间点后文件将被删除）。
+     * @param SegmentSetFileUrl 视频拆条片段列表文件 URL。文件的内容为 JSON，数据结构与 SegmentSet 字段一致。 （文件不会永久存储，到达SegmentSetFileUrlExpireTime 时间点后文件将被删除）。
+     */
+    public void setSegmentSetFileUrl(String SegmentSetFileUrl) {
+        this.SegmentSetFileUrl = SegmentSetFileUrl;
+    }
+
+    /**
+     * Get 视频拆条片段列表文件 URL 失效时间，使用  [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。 
+     * @return SegmentSetFileUrlExpireTime 视频拆条片段列表文件 URL 失效时间，使用  [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+     */
+    public String getSegmentSetFileUrlExpireTime() {
+        return this.SegmentSetFileUrlExpireTime;
+    }
+
+    /**
+     * Set 视频拆条片段列表文件 URL 失效时间，使用  [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+     * @param SegmentSetFileUrlExpireTime 视频拆条片段列表文件 URL 失效时间，使用  [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+     */
+    public void setSegmentSetFileUrlExpireTime(String SegmentSetFileUrlExpireTime) {
+        this.SegmentSetFileUrlExpireTime = SegmentSetFileUrlExpireTime;
+    }
+
+    public AiRecognitionTaskSegmentResultOutput() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AiRecognitionTaskSegmentResultOutput(AiRecognitionTaskSegmentResultOutput source) {
+        if (source.SegmentSet != null) {
+            this.SegmentSet = new AiRecognitionTaskSegmentSegmentItem[source.SegmentSet.length];
+            for (int i = 0; i < source.SegmentSet.length; i++) {
+                this.SegmentSet[i] = new AiRecognitionTaskSegmentSegmentItem(source.SegmentSet[i]);
+            }
+        }
+        if (source.SegmentSetFileUrl != null) {
+            this.SegmentSetFileUrl = new String(source.SegmentSetFileUrl);
+        }
+        if (source.SegmentSetFileUrlExpireTime != null) {
+            this.SegmentSetFileUrlExpireTime = new String(source.SegmentSetFileUrlExpireTime);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "SegmentSet.", this.SegmentSet);
+        this.setParamSimple(map, prefix + "SegmentSetFileUrl", this.SegmentSetFileUrl);
+        this.setParamSimple(map, prefix + "SegmentSetFileUrlExpireTime", this.SegmentSetFileUrlExpireTime);
 
     }
 }

@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class CertInfo extends AbstractModel{
 
     /**
-    * 证书Id。
+    * 证书 ID。
     */
     @SerializedName("CertId")
     @Expose
@@ -44,7 +44,7 @@ public class CertInfo extends AbstractModel{
     private String Description;
 
     /**
-    * 创建时间，UTC格式。
+    * 创建时间，UTC 格式。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -59,15 +59,15 @@ public class CertInfo extends AbstractModel{
 
     /**
     * 证书类型。
-0：腾讯云托管证书
-1：用户添加证书。
+0：用户添加证书，
+1：腾讯云托管证书。
     */
     @SerializedName("CertType")
     @Expose
     private Long CertType;
 
     /**
-    * 证书过期时间，UTC格式。
+    * 证书过期时间，UTC 格式。
     */
     @SerializedName("CertExpireTime")
     @Expose
@@ -81,16 +81,16 @@ public class CertInfo extends AbstractModel{
     private String [] DomainList;
 
     /**
-     * Get 证书Id。 
-     * @return CertId 证书Id。
+     * Get 证书 ID。 
+     * @return CertId 证书 ID。
      */
     public Long getCertId() {
         return this.CertId;
     }
 
     /**
-     * Set 证书Id。
-     * @param CertId 证书Id。
+     * Set 证书 ID。
+     * @param CertId 证书 ID。
      */
     public void setCertId(Long CertId) {
         this.CertId = CertId;
@@ -129,16 +129,16 @@ public class CertInfo extends AbstractModel{
     }
 
     /**
-     * Get 创建时间，UTC格式。 
-     * @return CreateTime 创建时间，UTC格式。
+     * Get 创建时间，UTC 格式。 
+     * @return CreateTime 创建时间，UTC 格式。
      */
     public String getCreateTime() {
         return this.CreateTime;
     }
 
     /**
-     * Set 创建时间，UTC格式。
-     * @param CreateTime 创建时间，UTC格式。
+     * Set 创建时间，UTC 格式。
+     * @param CreateTime 创建时间，UTC 格式。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
@@ -162,11 +162,11 @@ public class CertInfo extends AbstractModel{
 
     /**
      * Get 证书类型。
-0：腾讯云托管证书
-1：用户添加证书。 
+0：用户添加证书，
+1：腾讯云托管证书。 
      * @return CertType 证书类型。
-0：腾讯云托管证书
-1：用户添加证书。
+0：用户添加证书，
+1：腾讯云托管证书。
      */
     public Long getCertType() {
         return this.CertType;
@@ -174,27 +174,27 @@ public class CertInfo extends AbstractModel{
 
     /**
      * Set 证书类型。
-0：腾讯云托管证书
-1：用户添加证书。
+0：用户添加证书，
+1：腾讯云托管证书。
      * @param CertType 证书类型。
-0：腾讯云托管证书
-1：用户添加证书。
+0：用户添加证书，
+1：腾讯云托管证书。
      */
     public void setCertType(Long CertType) {
         this.CertType = CertType;
     }
 
     /**
-     * Get 证书过期时间，UTC格式。 
-     * @return CertExpireTime 证书过期时间，UTC格式。
+     * Get 证书过期时间，UTC 格式。 
+     * @return CertExpireTime 证书过期时间，UTC 格式。
      */
     public String getCertExpireTime() {
         return this.CertExpireTime;
     }
 
     /**
-     * Set 证书过期时间，UTC格式。
-     * @param CertExpireTime 证书过期时间，UTC格式。
+     * Set 证书过期时间，UTC 格式。
+     * @param CertExpireTime 证书过期时间，UTC 格式。
      */
     public void setCertExpireTime(String CertExpireTime) {
         this.CertExpireTime = CertExpireTime;
@@ -215,6 +215,44 @@ public class CertInfo extends AbstractModel{
     public void setDomainList(String [] DomainList) {
         this.DomainList = DomainList;
     }
+
+    public CertInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CertInfo(CertInfo source) {
+        if (source.CertId != null) {
+            this.CertId = new Long(source.CertId);
+        }
+        if (source.CertName != null) {
+            this.CertName = new String(source.CertName);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.HttpsCrt != null) {
+            this.HttpsCrt = new String(source.HttpsCrt);
+        }
+        if (source.CertType != null) {
+            this.CertType = new Long(source.CertType);
+        }
+        if (source.CertExpireTime != null) {
+            this.CertExpireTime = new String(source.CertExpireTime);
+        }
+        if (source.DomainList != null) {
+            this.DomainList = new String[source.DomainList.length];
+            for (int i = 0; i < source.DomainList.length; i++) {
+                this.DomainList[i] = new String(source.DomainList[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

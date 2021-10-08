@@ -58,6 +58,13 @@ public class InstanceSlowlogDetail extends AbstractModel{
     private String ExecuteTime;
 
     /**
+    * 节点ID
+    */
+    @SerializedName("Node")
+    @Expose
+    private String Node;
+
+    /**
      * Get 慢查询耗时 
      * @return Duration 慢查询耗时
      */
@@ -138,6 +145,51 @@ public class InstanceSlowlogDetail extends AbstractModel{
     }
 
     /**
+     * Get 节点ID 
+     * @return Node 节点ID
+     */
+    public String getNode() {
+        return this.Node;
+    }
+
+    /**
+     * Set 节点ID
+     * @param Node 节点ID
+     */
+    public void setNode(String Node) {
+        this.Node = Node;
+    }
+
+    public InstanceSlowlogDetail() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public InstanceSlowlogDetail(InstanceSlowlogDetail source) {
+        if (source.Duration != null) {
+            this.Duration = new Long(source.Duration);
+        }
+        if (source.Client != null) {
+            this.Client = new String(source.Client);
+        }
+        if (source.Command != null) {
+            this.Command = new String(source.Command);
+        }
+        if (source.CommandLine != null) {
+            this.CommandLine = new String(source.CommandLine);
+        }
+        if (source.ExecuteTime != null) {
+            this.ExecuteTime = new String(source.ExecuteTime);
+        }
+        if (source.Node != null) {
+            this.Node = new String(source.Node);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -146,6 +198,7 @@ public class InstanceSlowlogDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "Command", this.Command);
         this.setParamSimple(map, prefix + "CommandLine", this.CommandLine);
         this.setParamSimple(map, prefix + "ExecuteTime", this.ExecuteTime);
+        this.setParamSimple(map, prefix + "Node", this.Node);
 
     }
 }

@@ -58,6 +58,20 @@ public class InquiryPriceUpgradeInstancesRequest extends AbstractModel{
     private Long ProtectMode;
 
     /**
+    * 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC" - 基础版实例。 不指定则默认为通用型实例。
+    */
+    @SerializedName("DeviceType")
+    @Expose
+    private String DeviceType;
+
+    /**
+    * 实例节点数。对于 RO 和 基础版实例， 该值默认为1。 如果需要询价三节点实例， 请将该值设置为3。其余主实例该值默认为2。
+    */
+    @SerializedName("InstanceNodes")
+    @Expose
+    private Long InstanceNodes;
+
+    /**
      * Get 实例 ID，格式如：cdb-c1nl9rpv 或者 cdbro-c1nl9rpv。与云数据库控制台页面中显示的实例 ID 相同，可使用 [查询实例列表](https://cloud.tencent.com/document/api/236/15872) 接口获取，其值为输出参数中字段 InstanceId 的值。 
      * @return InstanceId 实例 ID，格式如：cdb-c1nl9rpv 或者 cdbro-c1nl9rpv。与云数据库控制台页面中显示的实例 ID 相同，可使用 [查询实例列表](https://cloud.tencent.com/document/api/236/15872) 接口获取，其值为输出参数中字段 InstanceId 的值。
      */
@@ -138,6 +152,70 @@ public class InquiryPriceUpgradeInstancesRequest extends AbstractModel{
     }
 
     /**
+     * Get 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC" - 基础版实例。 不指定则默认为通用型实例。 
+     * @return DeviceType 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC" - 基础版实例。 不指定则默认为通用型实例。
+     */
+    public String getDeviceType() {
+        return this.DeviceType;
+    }
+
+    /**
+     * Set 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC" - 基础版实例。 不指定则默认为通用型实例。
+     * @param DeviceType 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC" - 基础版实例。 不指定则默认为通用型实例。
+     */
+    public void setDeviceType(String DeviceType) {
+        this.DeviceType = DeviceType;
+    }
+
+    /**
+     * Get 实例节点数。对于 RO 和 基础版实例， 该值默认为1。 如果需要询价三节点实例， 请将该值设置为3。其余主实例该值默认为2。 
+     * @return InstanceNodes 实例节点数。对于 RO 和 基础版实例， 该值默认为1。 如果需要询价三节点实例， 请将该值设置为3。其余主实例该值默认为2。
+     */
+    public Long getInstanceNodes() {
+        return this.InstanceNodes;
+    }
+
+    /**
+     * Set 实例节点数。对于 RO 和 基础版实例， 该值默认为1。 如果需要询价三节点实例， 请将该值设置为3。其余主实例该值默认为2。
+     * @param InstanceNodes 实例节点数。对于 RO 和 基础版实例， 该值默认为1。 如果需要询价三节点实例， 请将该值设置为3。其余主实例该值默认为2。
+     */
+    public void setInstanceNodes(Long InstanceNodes) {
+        this.InstanceNodes = InstanceNodes;
+    }
+
+    public InquiryPriceUpgradeInstancesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public InquiryPriceUpgradeInstancesRequest(InquiryPriceUpgradeInstancesRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.Memory != null) {
+            this.Memory = new Long(source.Memory);
+        }
+        if (source.Volume != null) {
+            this.Volume = new Long(source.Volume);
+        }
+        if (source.Cpu != null) {
+            this.Cpu = new Long(source.Cpu);
+        }
+        if (source.ProtectMode != null) {
+            this.ProtectMode = new Long(source.ProtectMode);
+        }
+        if (source.DeviceType != null) {
+            this.DeviceType = new String(source.DeviceType);
+        }
+        if (source.InstanceNodes != null) {
+            this.InstanceNodes = new Long(source.InstanceNodes);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -146,6 +224,8 @@ public class InquiryPriceUpgradeInstancesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Volume", this.Volume);
         this.setParamSimple(map, prefix + "Cpu", this.Cpu);
         this.setParamSimple(map, prefix + "ProtectMode", this.ProtectMode);
+        this.setParamSimple(map, prefix + "DeviceType", this.DeviceType);
+        this.setParamSimple(map, prefix + "InstanceNodes", this.InstanceNodes);
 
     }
 }

@@ -30,8 +30,8 @@ public class ReservedInstances extends AbstractModel{
     private String ReservedInstancesId;
 
     /**
-    * 预留实例计费的类型。形如：S3.MEDIUM4。
-返回项：<a href="https://cloud.tencent.com/document/product/213/11518">预留实例计费类型列表</a>
+    * 预留实例计费的规格。形如：S3.MEDIUM4。
+返回项：<a href="https://cloud.tencent.com/document/product/213/11518">预留实例计费规格列表</a>
     */
     @SerializedName("InstanceType")
     @Expose
@@ -107,6 +107,14 @@ public class ReservedInstances extends AbstractModel{
     private String OfferingType;
 
     /**
+    * 预留实例计费的类型。形如：S3。
+返回项：<a href="https://cloud.tencent.com/document/product/213/11518">预留实例计费类型列表</a>
+    */
+    @SerializedName("InstanceFamily")
+    @Expose
+    private String InstanceFamily;
+
+    /**
      * Get 已购买的预留实例计费ID。形如：650c138f-ae7e-4750-952a-96841d6e9fc1。 
      * @return ReservedInstancesId 已购买的预留实例计费ID。形如：650c138f-ae7e-4750-952a-96841d6e9fc1。
      */
@@ -123,20 +131,20 @@ public class ReservedInstances extends AbstractModel{
     }
 
     /**
-     * Get 预留实例计费的类型。形如：S3.MEDIUM4。
-返回项：<a href="https://cloud.tencent.com/document/product/213/11518">预留实例计费类型列表</a> 
-     * @return InstanceType 预留实例计费的类型。形如：S3.MEDIUM4。
-返回项：<a href="https://cloud.tencent.com/document/product/213/11518">预留实例计费类型列表</a>
+     * Get 预留实例计费的规格。形如：S3.MEDIUM4。
+返回项：<a href="https://cloud.tencent.com/document/product/213/11518">预留实例计费规格列表</a> 
+     * @return InstanceType 预留实例计费的规格。形如：S3.MEDIUM4。
+返回项：<a href="https://cloud.tencent.com/document/product/213/11518">预留实例计费规格列表</a>
      */
     public String getInstanceType() {
         return this.InstanceType;
     }
 
     /**
-     * Set 预留实例计费的类型。形如：S3.MEDIUM4。
-返回项：<a href="https://cloud.tencent.com/document/product/213/11518">预留实例计费类型列表</a>
-     * @param InstanceType 预留实例计费的类型。形如：S3.MEDIUM4。
-返回项：<a href="https://cloud.tencent.com/document/product/213/11518">预留实例计费类型列表</a>
+     * Set 预留实例计费的规格。形如：S3.MEDIUM4。
+返回项：<a href="https://cloud.tencent.com/document/product/213/11518">预留实例计费规格列表</a>
+     * @param InstanceType 预留实例计费的规格。形如：S3.MEDIUM4。
+返回项：<a href="https://cloud.tencent.com/document/product/213/11518">预留实例计费规格列表</a>
      */
     public void setInstanceType(String InstanceType) {
         this.InstanceType = InstanceType;
@@ -311,6 +319,73 @@ public class ReservedInstances extends AbstractModel{
     }
 
     /**
+     * Get 预留实例计费的类型。形如：S3。
+返回项：<a href="https://cloud.tencent.com/document/product/213/11518">预留实例计费类型列表</a> 
+     * @return InstanceFamily 预留实例计费的类型。形如：S3。
+返回项：<a href="https://cloud.tencent.com/document/product/213/11518">预留实例计费类型列表</a>
+     */
+    public String getInstanceFamily() {
+        return this.InstanceFamily;
+    }
+
+    /**
+     * Set 预留实例计费的类型。形如：S3。
+返回项：<a href="https://cloud.tencent.com/document/product/213/11518">预留实例计费类型列表</a>
+     * @param InstanceFamily 预留实例计费的类型。形如：S3。
+返回项：<a href="https://cloud.tencent.com/document/product/213/11518">预留实例计费类型列表</a>
+     */
+    public void setInstanceFamily(String InstanceFamily) {
+        this.InstanceFamily = InstanceFamily;
+    }
+
+    public ReservedInstances() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ReservedInstances(ReservedInstances source) {
+        if (source.ReservedInstancesId != null) {
+            this.ReservedInstancesId = new String(source.ReservedInstancesId);
+        }
+        if (source.InstanceType != null) {
+            this.InstanceType = new String(source.InstanceType);
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.Duration != null) {
+            this.Duration = new Long(source.Duration);
+        }
+        if (source.InstanceCount != null) {
+            this.InstanceCount = new Long(source.InstanceCount);
+        }
+        if (source.ProductDescription != null) {
+            this.ProductDescription = new String(source.ProductDescription);
+        }
+        if (source.State != null) {
+            this.State = new String(source.State);
+        }
+        if (source.CurrencyCode != null) {
+            this.CurrencyCode = new String(source.CurrencyCode);
+        }
+        if (source.OfferingType != null) {
+            this.OfferingType = new String(source.OfferingType);
+        }
+        if (source.InstanceFamily != null) {
+            this.InstanceFamily = new String(source.InstanceFamily);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -325,6 +400,7 @@ public class ReservedInstances extends AbstractModel{
         this.setParamSimple(map, prefix + "State", this.State);
         this.setParamSimple(map, prefix + "CurrencyCode", this.CurrencyCode);
         this.setParamSimple(map, prefix + "OfferingType", this.OfferingType);
+        this.setParamSimple(map, prefix + "InstanceFamily", this.InstanceFamily);
 
     }
 }

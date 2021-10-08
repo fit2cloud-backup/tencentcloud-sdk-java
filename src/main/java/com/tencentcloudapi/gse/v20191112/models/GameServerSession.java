@@ -30,7 +30,7 @@ public class GameServerSession extends AbstractModel{
     private String CreationTime;
 
     /**
-    * 创建者ID
+    * 创建者ID，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreatorId")
@@ -38,7 +38,7 @@ public class GameServerSession extends AbstractModel{
     private String CreatorId;
 
     /**
-    * 当前玩家数量
+    * 当前玩家数量，最小值不小于0
     */
     @SerializedName("CurrentPlayerSessionCount")
     @Expose
@@ -60,7 +60,7 @@ public class GameServerSession extends AbstractModel{
     private String FleetId;
 
     /**
-    * 游戏属性
+    * 游戏属性，最大长度不超过16组
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GameProperties")
@@ -68,7 +68,7 @@ public class GameServerSession extends AbstractModel{
     private GameProperty [] GameProperties;
 
     /**
-    * 游戏服务器会话属性详情
+    * 游戏服务器会话属性详情，最大长度不超过4096个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GameServerSessionData")
@@ -76,7 +76,7 @@ public class GameServerSession extends AbstractModel{
     private String GameServerSessionData;
 
     /**
-    * 游戏服务器会话ID
+    * 游戏服务器会话ID，最小长度不小于1个ASCII字符，最大长度不超过48个ASCII字符
     */
     @SerializedName("GameServerSessionId")
     @Expose
@@ -90,7 +90,7 @@ public class GameServerSession extends AbstractModel{
     private String IpAddress;
 
     /**
-    * 对战进程详情
+    * 对战进程详情，最大长度不超过400000个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MatchmakerData")
@@ -98,14 +98,14 @@ public class GameServerSession extends AbstractModel{
     private String MatchmakerData;
 
     /**
-    * 最大玩家数量
+    * 最大玩家数量，最小值不小于0
     */
     @SerializedName("MaximumPlayerSessionCount")
     @Expose
     private Long MaximumPlayerSessionCount;
 
     /**
-    * 游戏服务器会话名称
+    * 游戏服务器会话名称，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
@@ -113,7 +113,7 @@ public class GameServerSession extends AbstractModel{
     private String Name;
 
     /**
-    * 玩家会话创建策略
+    * 玩家会话创建策略（ACCEPT_ALL,DENY_ALL）
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PlayerSessionCreationPolicy")
@@ -121,14 +121,14 @@ public class GameServerSession extends AbstractModel{
     private String PlayerSessionCreationPolicy;
 
     /**
-    * 端口号
+    * 端口号，最小值不小于1，最大值不超过60000
     */
     @SerializedName("Port")
     @Expose
     private Long Port;
 
     /**
-    * 游戏服务器会话状态
+    * 游戏服务器会话状态（ACTIVE,ACTIVATING,TERMINATED,TERMINATING,ERROR）
     */
     @SerializedName("Status")
     @Expose
@@ -151,12 +151,44 @@ public class GameServerSession extends AbstractModel{
     private String TerminationTime;
 
     /**
-    * 实例类型
+    * 实例类型，最大长度不超过128个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceType")
     @Expose
     private String InstanceType;
+
+    /**
+    * 当前自定义数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CurrentCustomCount")
+    @Expose
+    private Long CurrentCustomCount;
+
+    /**
+    * 最大自定义数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MaxCustomCount")
+    @Expose
+    private Long MaxCustomCount;
+
+    /**
+    * 权重
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Weight")
+    @Expose
+    private Long Weight;
+
+    /**
+    * 会话可用性状态，是否被屏蔽（Enable,Disable）
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AvailabilityStatus")
+    @Expose
+    private String AvailabilityStatus;
 
     /**
      * Get 游戏服务器会话创建时间 
@@ -175,9 +207,9 @@ public class GameServerSession extends AbstractModel{
     }
 
     /**
-     * Get 创建者ID
+     * Get 创建者ID，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CreatorId 创建者ID
+     * @return CreatorId 创建者ID，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreatorId() {
@@ -185,9 +217,9 @@ public class GameServerSession extends AbstractModel{
     }
 
     /**
-     * Set 创建者ID
+     * Set 创建者ID，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param CreatorId 创建者ID
+     * @param CreatorId 创建者ID，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreatorId(String CreatorId) {
@@ -195,16 +227,16 @@ public class GameServerSession extends AbstractModel{
     }
 
     /**
-     * Get 当前玩家数量 
-     * @return CurrentPlayerSessionCount 当前玩家数量
+     * Get 当前玩家数量，最小值不小于0 
+     * @return CurrentPlayerSessionCount 当前玩家数量，最小值不小于0
      */
     public Long getCurrentPlayerSessionCount() {
         return this.CurrentPlayerSessionCount;
     }
 
     /**
-     * Set 当前玩家数量
-     * @param CurrentPlayerSessionCount 当前玩家数量
+     * Set 当前玩家数量，最小值不小于0
+     * @param CurrentPlayerSessionCount 当前玩家数量，最小值不小于0
      */
     public void setCurrentPlayerSessionCount(Long CurrentPlayerSessionCount) {
         this.CurrentPlayerSessionCount = CurrentPlayerSessionCount;
@@ -247,9 +279,9 @@ public class GameServerSession extends AbstractModel{
     }
 
     /**
-     * Get 游戏属性
+     * Get 游戏属性，最大长度不超过16组
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return GameProperties 游戏属性
+     * @return GameProperties 游戏属性，最大长度不超过16组
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public GameProperty [] getGameProperties() {
@@ -257,9 +289,9 @@ public class GameServerSession extends AbstractModel{
     }
 
     /**
-     * Set 游戏属性
+     * Set 游戏属性，最大长度不超过16组
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param GameProperties 游戏属性
+     * @param GameProperties 游戏属性，最大长度不超过16组
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGameProperties(GameProperty [] GameProperties) {
@@ -267,9 +299,9 @@ public class GameServerSession extends AbstractModel{
     }
 
     /**
-     * Get 游戏服务器会话属性详情
+     * Get 游戏服务器会话属性详情，最大长度不超过4096个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return GameServerSessionData 游戏服务器会话属性详情
+     * @return GameServerSessionData 游戏服务器会话属性详情，最大长度不超过4096个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGameServerSessionData() {
@@ -277,9 +309,9 @@ public class GameServerSession extends AbstractModel{
     }
 
     /**
-     * Set 游戏服务器会话属性详情
+     * Set 游戏服务器会话属性详情，最大长度不超过4096个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param GameServerSessionData 游戏服务器会话属性详情
+     * @param GameServerSessionData 游戏服务器会话属性详情，最大长度不超过4096个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGameServerSessionData(String GameServerSessionData) {
@@ -287,16 +319,16 @@ public class GameServerSession extends AbstractModel{
     }
 
     /**
-     * Get 游戏服务器会话ID 
-     * @return GameServerSessionId 游戏服务器会话ID
+     * Get 游戏服务器会话ID，最小长度不小于1个ASCII字符，最大长度不超过48个ASCII字符 
+     * @return GameServerSessionId 游戏服务器会话ID，最小长度不小于1个ASCII字符，最大长度不超过48个ASCII字符
      */
     public String getGameServerSessionId() {
         return this.GameServerSessionId;
     }
 
     /**
-     * Set 游戏服务器会话ID
-     * @param GameServerSessionId 游戏服务器会话ID
+     * Set 游戏服务器会话ID，最小长度不小于1个ASCII字符，最大长度不超过48个ASCII字符
+     * @param GameServerSessionId 游戏服务器会话ID，最小长度不小于1个ASCII字符，最大长度不超过48个ASCII字符
      */
     public void setGameServerSessionId(String GameServerSessionId) {
         this.GameServerSessionId = GameServerSessionId;
@@ -319,9 +351,9 @@ public class GameServerSession extends AbstractModel{
     }
 
     /**
-     * Get 对战进程详情
+     * Get 对战进程详情，最大长度不超过400000个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return MatchmakerData 对战进程详情
+     * @return MatchmakerData 对战进程详情，最大长度不超过400000个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMatchmakerData() {
@@ -329,9 +361,9 @@ public class GameServerSession extends AbstractModel{
     }
 
     /**
-     * Set 对战进程详情
+     * Set 对战进程详情，最大长度不超过400000个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param MatchmakerData 对战进程详情
+     * @param MatchmakerData 对战进程详情，最大长度不超过400000个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMatchmakerData(String MatchmakerData) {
@@ -339,25 +371,25 @@ public class GameServerSession extends AbstractModel{
     }
 
     /**
-     * Get 最大玩家数量 
-     * @return MaximumPlayerSessionCount 最大玩家数量
+     * Get 最大玩家数量，最小值不小于0 
+     * @return MaximumPlayerSessionCount 最大玩家数量，最小值不小于0
      */
     public Long getMaximumPlayerSessionCount() {
         return this.MaximumPlayerSessionCount;
     }
 
     /**
-     * Set 最大玩家数量
-     * @param MaximumPlayerSessionCount 最大玩家数量
+     * Set 最大玩家数量，最小值不小于0
+     * @param MaximumPlayerSessionCount 最大玩家数量，最小值不小于0
      */
     public void setMaximumPlayerSessionCount(Long MaximumPlayerSessionCount) {
         this.MaximumPlayerSessionCount = MaximumPlayerSessionCount;
     }
 
     /**
-     * Get 游戏服务器会话名称
+     * Get 游戏服务器会话名称，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Name 游戏服务器会话名称
+     * @return Name 游戏服务器会话名称，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
@@ -365,9 +397,9 @@ public class GameServerSession extends AbstractModel{
     }
 
     /**
-     * Set 游戏服务器会话名称
+     * Set 游戏服务器会话名称，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Name 游戏服务器会话名称
+     * @param Name 游戏服务器会话名称，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
@@ -375,9 +407,9 @@ public class GameServerSession extends AbstractModel{
     }
 
     /**
-     * Get 玩家会话创建策略
+     * Get 玩家会话创建策略（ACCEPT_ALL,DENY_ALL）
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return PlayerSessionCreationPolicy 玩家会话创建策略
+     * @return PlayerSessionCreationPolicy 玩家会话创建策略（ACCEPT_ALL,DENY_ALL）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPlayerSessionCreationPolicy() {
@@ -385,9 +417,9 @@ public class GameServerSession extends AbstractModel{
     }
 
     /**
-     * Set 玩家会话创建策略
+     * Set 玩家会话创建策略（ACCEPT_ALL,DENY_ALL）
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param PlayerSessionCreationPolicy 玩家会话创建策略
+     * @param PlayerSessionCreationPolicy 玩家会话创建策略（ACCEPT_ALL,DENY_ALL）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPlayerSessionCreationPolicy(String PlayerSessionCreationPolicy) {
@@ -395,32 +427,32 @@ public class GameServerSession extends AbstractModel{
     }
 
     /**
-     * Get 端口号 
-     * @return Port 端口号
+     * Get 端口号，最小值不小于1，最大值不超过60000 
+     * @return Port 端口号，最小值不小于1，最大值不超过60000
      */
     public Long getPort() {
         return this.Port;
     }
 
     /**
-     * Set 端口号
-     * @param Port 端口号
+     * Set 端口号，最小值不小于1，最大值不超过60000
+     * @param Port 端口号，最小值不小于1，最大值不超过60000
      */
     public void setPort(Long Port) {
         this.Port = Port;
     }
 
     /**
-     * Get 游戏服务器会话状态 
-     * @return Status 游戏服务器会话状态
+     * Get 游戏服务器会话状态（ACTIVE,ACTIVATING,TERMINATED,TERMINATING,ERROR） 
+     * @return Status 游戏服务器会话状态（ACTIVE,ACTIVATING,TERMINATED,TERMINATING,ERROR）
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 游戏服务器会话状态
-     * @param Status 游戏服务器会话状态
+     * Set 游戏服务器会话状态（ACTIVE,ACTIVATING,TERMINATED,TERMINATING,ERROR）
+     * @param Status 游戏服务器会话状态（ACTIVE,ACTIVATING,TERMINATED,TERMINATING,ERROR）
      */
     public void setStatus(String Status) {
         this.Status = Status;
@@ -467,9 +499,9 @@ public class GameServerSession extends AbstractModel{
     }
 
     /**
-     * Get 实例类型
+     * Get 实例类型，最大长度不超过128个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return InstanceType 实例类型
+     * @return InstanceType 实例类型，最大长度不超过128个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceType() {
@@ -477,14 +509,174 @@ public class GameServerSession extends AbstractModel{
     }
 
     /**
-     * Set 实例类型
+     * Set 实例类型，最大长度不超过128个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param InstanceType 实例类型
+     * @param InstanceType 实例类型，最大长度不超过128个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceType(String InstanceType) {
         this.InstanceType = InstanceType;
     }
+
+    /**
+     * Get 当前自定义数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CurrentCustomCount 当前自定义数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getCurrentCustomCount() {
+        return this.CurrentCustomCount;
+    }
+
+    /**
+     * Set 当前自定义数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CurrentCustomCount 当前自定义数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCurrentCustomCount(Long CurrentCustomCount) {
+        this.CurrentCustomCount = CurrentCustomCount;
+    }
+
+    /**
+     * Get 最大自定义数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MaxCustomCount 最大自定义数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getMaxCustomCount() {
+        return this.MaxCustomCount;
+    }
+
+    /**
+     * Set 最大自定义数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MaxCustomCount 最大自定义数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMaxCustomCount(Long MaxCustomCount) {
+        this.MaxCustomCount = MaxCustomCount;
+    }
+
+    /**
+     * Get 权重
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Weight 权重
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getWeight() {
+        return this.Weight;
+    }
+
+    /**
+     * Set 权重
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Weight 权重
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setWeight(Long Weight) {
+        this.Weight = Weight;
+    }
+
+    /**
+     * Get 会话可用性状态，是否被屏蔽（Enable,Disable）
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AvailabilityStatus 会话可用性状态，是否被屏蔽（Enable,Disable）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAvailabilityStatus() {
+        return this.AvailabilityStatus;
+    }
+
+    /**
+     * Set 会话可用性状态，是否被屏蔽（Enable,Disable）
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AvailabilityStatus 会话可用性状态，是否被屏蔽（Enable,Disable）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAvailabilityStatus(String AvailabilityStatus) {
+        this.AvailabilityStatus = AvailabilityStatus;
+    }
+
+    public GameServerSession() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public GameServerSession(GameServerSession source) {
+        if (source.CreationTime != null) {
+            this.CreationTime = new String(source.CreationTime);
+        }
+        if (source.CreatorId != null) {
+            this.CreatorId = new String(source.CreatorId);
+        }
+        if (source.CurrentPlayerSessionCount != null) {
+            this.CurrentPlayerSessionCount = new Long(source.CurrentPlayerSessionCount);
+        }
+        if (source.DnsName != null) {
+            this.DnsName = new String(source.DnsName);
+        }
+        if (source.FleetId != null) {
+            this.FleetId = new String(source.FleetId);
+        }
+        if (source.GameProperties != null) {
+            this.GameProperties = new GameProperty[source.GameProperties.length];
+            for (int i = 0; i < source.GameProperties.length; i++) {
+                this.GameProperties[i] = new GameProperty(source.GameProperties[i]);
+            }
+        }
+        if (source.GameServerSessionData != null) {
+            this.GameServerSessionData = new String(source.GameServerSessionData);
+        }
+        if (source.GameServerSessionId != null) {
+            this.GameServerSessionId = new String(source.GameServerSessionId);
+        }
+        if (source.IpAddress != null) {
+            this.IpAddress = new String(source.IpAddress);
+        }
+        if (source.MatchmakerData != null) {
+            this.MatchmakerData = new String(source.MatchmakerData);
+        }
+        if (source.MaximumPlayerSessionCount != null) {
+            this.MaximumPlayerSessionCount = new Long(source.MaximumPlayerSessionCount);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.PlayerSessionCreationPolicy != null) {
+            this.PlayerSessionCreationPolicy = new String(source.PlayerSessionCreationPolicy);
+        }
+        if (source.Port != null) {
+            this.Port = new Long(source.Port);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.StatusReason != null) {
+            this.StatusReason = new String(source.StatusReason);
+        }
+        if (source.TerminationTime != null) {
+            this.TerminationTime = new String(source.TerminationTime);
+        }
+        if (source.InstanceType != null) {
+            this.InstanceType = new String(source.InstanceType);
+        }
+        if (source.CurrentCustomCount != null) {
+            this.CurrentCustomCount = new Long(source.CurrentCustomCount);
+        }
+        if (source.MaxCustomCount != null) {
+            this.MaxCustomCount = new Long(source.MaxCustomCount);
+        }
+        if (source.Weight != null) {
+            this.Weight = new Long(source.Weight);
+        }
+        if (source.AvailabilityStatus != null) {
+            this.AvailabilityStatus = new String(source.AvailabilityStatus);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -508,6 +700,10 @@ public class GameServerSession extends AbstractModel{
         this.setParamSimple(map, prefix + "StatusReason", this.StatusReason);
         this.setParamSimple(map, prefix + "TerminationTime", this.TerminationTime);
         this.setParamSimple(map, prefix + "InstanceType", this.InstanceType);
+        this.setParamSimple(map, prefix + "CurrentCustomCount", this.CurrentCustomCount);
+        this.setParamSimple(map, prefix + "MaxCustomCount", this.MaxCustomCount);
+        this.setParamSimple(map, prefix + "Weight", this.Weight);
+        this.setParamSimple(map, prefix + "AvailabilityStatus", this.AvailabilityStatus);
 
     }
 }

@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class IKEOptionsSpecification extends AbstractModel{
 
     /**
-    * 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBS-192', 'AES-CBC-256', 'DES-CBC'，默认为3DES-CBC
+    * 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBS-192', 'AES-CBC-256', 'DES-CBC'，'SM4', 默认为3DES-CBC
     */
     @SerializedName("PropoEncryAlgorithm")
     @Expose
     private String PropoEncryAlgorithm;
 
     /**
-    * 认证算法：可选值：'MD5', 'SHA1'，默认为MD5
+    * 认证算法：可选值：'MD5', 'SHA1'，'SHA-256' 默认为MD5
     */
     @SerializedName("PropoAuthenAlgorithm")
     @Expose
@@ -107,32 +107,32 @@ public class IKEOptionsSpecification extends AbstractModel{
     private String IKEVersion;
 
     /**
-     * Get 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBS-192', 'AES-CBC-256', 'DES-CBC'，默认为3DES-CBC 
-     * @return PropoEncryAlgorithm 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBS-192', 'AES-CBC-256', 'DES-CBC'，默认为3DES-CBC
+     * Get 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBS-192', 'AES-CBC-256', 'DES-CBC'，'SM4', 默认为3DES-CBC 
+     * @return PropoEncryAlgorithm 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBS-192', 'AES-CBC-256', 'DES-CBC'，'SM4', 默认为3DES-CBC
      */
     public String getPropoEncryAlgorithm() {
         return this.PropoEncryAlgorithm;
     }
 
     /**
-     * Set 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBS-192', 'AES-CBC-256', 'DES-CBC'，默认为3DES-CBC
-     * @param PropoEncryAlgorithm 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBS-192', 'AES-CBC-256', 'DES-CBC'，默认为3DES-CBC
+     * Set 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBS-192', 'AES-CBC-256', 'DES-CBC'，'SM4', 默认为3DES-CBC
+     * @param PropoEncryAlgorithm 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBS-192', 'AES-CBC-256', 'DES-CBC'，'SM4', 默认为3DES-CBC
      */
     public void setPropoEncryAlgorithm(String PropoEncryAlgorithm) {
         this.PropoEncryAlgorithm = PropoEncryAlgorithm;
     }
 
     /**
-     * Get 认证算法：可选值：'MD5', 'SHA1'，默认为MD5 
-     * @return PropoAuthenAlgorithm 认证算法：可选值：'MD5', 'SHA1'，默认为MD5
+     * Get 认证算法：可选值：'MD5', 'SHA1'，'SHA-256' 默认为MD5 
+     * @return PropoAuthenAlgorithm 认证算法：可选值：'MD5', 'SHA1'，'SHA-256' 默认为MD5
      */
     public String getPropoAuthenAlgorithm() {
         return this.PropoAuthenAlgorithm;
     }
 
     /**
-     * Set 认证算法：可选值：'MD5', 'SHA1'，默认为MD5
-     * @param PropoAuthenAlgorithm 认证算法：可选值：'MD5', 'SHA1'，默认为MD5
+     * Set 认证算法：可选值：'MD5', 'SHA1'，'SHA-256' 默认为MD5
+     * @param PropoAuthenAlgorithm 认证算法：可选值：'MD5', 'SHA1'，'SHA-256' 默认为MD5
      */
     public void setPropoAuthenAlgorithm(String PropoAuthenAlgorithm) {
         this.PropoAuthenAlgorithm = PropoAuthenAlgorithm;
@@ -297,6 +297,53 @@ public class IKEOptionsSpecification extends AbstractModel{
     public void setIKEVersion(String IKEVersion) {
         this.IKEVersion = IKEVersion;
     }
+
+    public IKEOptionsSpecification() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public IKEOptionsSpecification(IKEOptionsSpecification source) {
+        if (source.PropoEncryAlgorithm != null) {
+            this.PropoEncryAlgorithm = new String(source.PropoEncryAlgorithm);
+        }
+        if (source.PropoAuthenAlgorithm != null) {
+            this.PropoAuthenAlgorithm = new String(source.PropoAuthenAlgorithm);
+        }
+        if (source.ExchangeMode != null) {
+            this.ExchangeMode = new String(source.ExchangeMode);
+        }
+        if (source.LocalIdentity != null) {
+            this.LocalIdentity = new String(source.LocalIdentity);
+        }
+        if (source.RemoteIdentity != null) {
+            this.RemoteIdentity = new String(source.RemoteIdentity);
+        }
+        if (source.LocalAddress != null) {
+            this.LocalAddress = new String(source.LocalAddress);
+        }
+        if (source.RemoteAddress != null) {
+            this.RemoteAddress = new String(source.RemoteAddress);
+        }
+        if (source.LocalFqdnName != null) {
+            this.LocalFqdnName = new String(source.LocalFqdnName);
+        }
+        if (source.RemoteFqdnName != null) {
+            this.RemoteFqdnName = new String(source.RemoteFqdnName);
+        }
+        if (source.DhGroupName != null) {
+            this.DhGroupName = new String(source.DhGroupName);
+        }
+        if (source.IKESaLifetimeSeconds != null) {
+            this.IKESaLifetimeSeconds = new Long(source.IKESaLifetimeSeconds);
+        }
+        if (source.IKEVersion != null) {
+            this.IKEVersion = new String(source.IKEVersion);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

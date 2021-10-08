@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class PushQualityData extends AbstractModel{
 
     /**
-    * 数据时间，格式是%Y-%m-%d %H:%M:%S.%ms，精确到毫秒级。
+    * 数据时间，格式: %Y-%m-%d %H:%M:%S.%ms，精确到毫秒级。
     */
     @SerializedName("Time")
     @Expose
@@ -44,14 +44,14 @@ public class PushQualityData extends AbstractModel{
     private String AppName;
 
     /**
-    * 推流客户端ip。
+    * 推流客户端 IP。
     */
     @SerializedName("ClientIp")
     @Expose
     private String ClientIp;
 
     /**
-    * 开始推流时间，格式是%Y-%m-%d %H:%M:%S.%ms，精确到毫秒级。
+    * 开始推流时间，格式: %Y-%m-%d %H:%M:%S.%ms，精确到毫秒级。
     */
     @SerializedName("BeginPushTime")
     @Expose
@@ -93,7 +93,7 @@ public class PushQualityData extends AbstractModel{
     private Long VideoFps;
 
     /**
-    * 视频码率，单位是bps。
+    * 视频码率，单位: bps。
     */
     @SerializedName("VideoRate")
     @Expose
@@ -107,65 +107,72 @@ public class PushQualityData extends AbstractModel{
     private Long AudioFps;
 
     /**
-    * 音频码率，单位是bps。
+    * 音频码率，单位: bps。
     */
     @SerializedName("AudioRate")
     @Expose
     private Long AudioRate;
 
     /**
-    * 本地流逝时间，单位是ms，音视频流逝时间与本地流逝时间的差距越大表示推流质量越差，上行卡顿越严重。
+    * 本地流逝时间，单位: ms，音视频流逝时间与本地流逝时间的差距越大表示推流质量越差，上行卡顿越严重。
     */
     @SerializedName("LocalTs")
     @Expose
     private Long LocalTs;
 
     /**
-    * 视频流逝时间，单位是ms。
+    * 视频流逝时间，单位: ms。
     */
     @SerializedName("VideoTs")
     @Expose
     private Long VideoTs;
 
     /**
-    * 音频流逝时间，单位是ms。
+    * 音频流逝时间，单位: ms。
     */
     @SerializedName("AudioTs")
     @Expose
     private Long AudioTs;
 
     /**
-    * metadata中的视频码率，单位是kbps。
+    * metadata 中的视频码率，单位: kbps。
     */
     @SerializedName("MetaVideoRate")
     @Expose
     private Long MetaVideoRate;
 
     /**
-    * metadata中的音频码率，单位是kbps。
+    * metadata 中的音频码率，单位: kbps。
     */
     @SerializedName("MetaAudioRate")
     @Expose
     private Long MetaAudioRate;
 
     /**
-    * metadata中的帧率。
+    * metadata 中的帧率。
     */
     @SerializedName("MateFps")
     @Expose
     private Long MateFps;
 
     /**
-     * Get 数据时间，格式是%Y-%m-%d %H:%M:%S.%ms，精确到毫秒级。 
-     * @return Time 数据时间，格式是%Y-%m-%d %H:%M:%S.%ms，精确到毫秒级。
+    * 推流参数
+    */
+    @SerializedName("StreamParam")
+    @Expose
+    private String StreamParam;
+
+    /**
+     * Get 数据时间，格式: %Y-%m-%d %H:%M:%S.%ms，精确到毫秒级。 
+     * @return Time 数据时间，格式: %Y-%m-%d %H:%M:%S.%ms，精确到毫秒级。
      */
     public String getTime() {
         return this.Time;
     }
 
     /**
-     * Set 数据时间，格式是%Y-%m-%d %H:%M:%S.%ms，精确到毫秒级。
-     * @param Time 数据时间，格式是%Y-%m-%d %H:%M:%S.%ms，精确到毫秒级。
+     * Set 数据时间，格式: %Y-%m-%d %H:%M:%S.%ms，精确到毫秒级。
+     * @param Time 数据时间，格式: %Y-%m-%d %H:%M:%S.%ms，精确到毫秒级。
      */
     public void setTime(String Time) {
         this.Time = Time;
@@ -204,32 +211,32 @@ public class PushQualityData extends AbstractModel{
     }
 
     /**
-     * Get 推流客户端ip。 
-     * @return ClientIp 推流客户端ip。
+     * Get 推流客户端 IP。 
+     * @return ClientIp 推流客户端 IP。
      */
     public String getClientIp() {
         return this.ClientIp;
     }
 
     /**
-     * Set 推流客户端ip。
-     * @param ClientIp 推流客户端ip。
+     * Set 推流客户端 IP。
+     * @param ClientIp 推流客户端 IP。
      */
     public void setClientIp(String ClientIp) {
         this.ClientIp = ClientIp;
     }
 
     /**
-     * Get 开始推流时间，格式是%Y-%m-%d %H:%M:%S.%ms，精确到毫秒级。 
-     * @return BeginPushTime 开始推流时间，格式是%Y-%m-%d %H:%M:%S.%ms，精确到毫秒级。
+     * Get 开始推流时间，格式: %Y-%m-%d %H:%M:%S.%ms，精确到毫秒级。 
+     * @return BeginPushTime 开始推流时间，格式: %Y-%m-%d %H:%M:%S.%ms，精确到毫秒级。
      */
     public String getBeginPushTime() {
         return this.BeginPushTime;
     }
 
     /**
-     * Set 开始推流时间，格式是%Y-%m-%d %H:%M:%S.%ms，精确到毫秒级。
-     * @param BeginPushTime 开始推流时间，格式是%Y-%m-%d %H:%M:%S.%ms，精确到毫秒级。
+     * Set 开始推流时间，格式: %Y-%m-%d %H:%M:%S.%ms，精确到毫秒级。
+     * @param BeginPushTime 开始推流时间，格式: %Y-%m-%d %H:%M:%S.%ms，精确到毫秒级。
      */
     public void setBeginPushTime(String BeginPushTime) {
         this.BeginPushTime = BeginPushTime;
@@ -316,16 +323,16 @@ public class PushQualityData extends AbstractModel{
     }
 
     /**
-     * Get 视频码率，单位是bps。 
-     * @return VideoRate 视频码率，单位是bps。
+     * Get 视频码率，单位: bps。 
+     * @return VideoRate 视频码率，单位: bps。
      */
     public Long getVideoRate() {
         return this.VideoRate;
     }
 
     /**
-     * Set 视频码率，单位是bps。
-     * @param VideoRate 视频码率，单位是bps。
+     * Set 视频码率，单位: bps。
+     * @param VideoRate 视频码率，单位: bps。
      */
     public void setVideoRate(Long VideoRate) {
         this.VideoRate = VideoRate;
@@ -348,116 +355,203 @@ public class PushQualityData extends AbstractModel{
     }
 
     /**
-     * Get 音频码率，单位是bps。 
-     * @return AudioRate 音频码率，单位是bps。
+     * Get 音频码率，单位: bps。 
+     * @return AudioRate 音频码率，单位: bps。
      */
     public Long getAudioRate() {
         return this.AudioRate;
     }
 
     /**
-     * Set 音频码率，单位是bps。
-     * @param AudioRate 音频码率，单位是bps。
+     * Set 音频码率，单位: bps。
+     * @param AudioRate 音频码率，单位: bps。
      */
     public void setAudioRate(Long AudioRate) {
         this.AudioRate = AudioRate;
     }
 
     /**
-     * Get 本地流逝时间，单位是ms，音视频流逝时间与本地流逝时间的差距越大表示推流质量越差，上行卡顿越严重。 
-     * @return LocalTs 本地流逝时间，单位是ms，音视频流逝时间与本地流逝时间的差距越大表示推流质量越差，上行卡顿越严重。
+     * Get 本地流逝时间，单位: ms，音视频流逝时间与本地流逝时间的差距越大表示推流质量越差，上行卡顿越严重。 
+     * @return LocalTs 本地流逝时间，单位: ms，音视频流逝时间与本地流逝时间的差距越大表示推流质量越差，上行卡顿越严重。
      */
     public Long getLocalTs() {
         return this.LocalTs;
     }
 
     /**
-     * Set 本地流逝时间，单位是ms，音视频流逝时间与本地流逝时间的差距越大表示推流质量越差，上行卡顿越严重。
-     * @param LocalTs 本地流逝时间，单位是ms，音视频流逝时间与本地流逝时间的差距越大表示推流质量越差，上行卡顿越严重。
+     * Set 本地流逝时间，单位: ms，音视频流逝时间与本地流逝时间的差距越大表示推流质量越差，上行卡顿越严重。
+     * @param LocalTs 本地流逝时间，单位: ms，音视频流逝时间与本地流逝时间的差距越大表示推流质量越差，上行卡顿越严重。
      */
     public void setLocalTs(Long LocalTs) {
         this.LocalTs = LocalTs;
     }
 
     /**
-     * Get 视频流逝时间，单位是ms。 
-     * @return VideoTs 视频流逝时间，单位是ms。
+     * Get 视频流逝时间，单位: ms。 
+     * @return VideoTs 视频流逝时间，单位: ms。
      */
     public Long getVideoTs() {
         return this.VideoTs;
     }
 
     /**
-     * Set 视频流逝时间，单位是ms。
-     * @param VideoTs 视频流逝时间，单位是ms。
+     * Set 视频流逝时间，单位: ms。
+     * @param VideoTs 视频流逝时间，单位: ms。
      */
     public void setVideoTs(Long VideoTs) {
         this.VideoTs = VideoTs;
     }
 
     /**
-     * Get 音频流逝时间，单位是ms。 
-     * @return AudioTs 音频流逝时间，单位是ms。
+     * Get 音频流逝时间，单位: ms。 
+     * @return AudioTs 音频流逝时间，单位: ms。
      */
     public Long getAudioTs() {
         return this.AudioTs;
     }
 
     /**
-     * Set 音频流逝时间，单位是ms。
-     * @param AudioTs 音频流逝时间，单位是ms。
+     * Set 音频流逝时间，单位: ms。
+     * @param AudioTs 音频流逝时间，单位: ms。
      */
     public void setAudioTs(Long AudioTs) {
         this.AudioTs = AudioTs;
     }
 
     /**
-     * Get metadata中的视频码率，单位是kbps。 
-     * @return MetaVideoRate metadata中的视频码率，单位是kbps。
+     * Get metadata 中的视频码率，单位: kbps。 
+     * @return MetaVideoRate metadata 中的视频码率，单位: kbps。
      */
     public Long getMetaVideoRate() {
         return this.MetaVideoRate;
     }
 
     /**
-     * Set metadata中的视频码率，单位是kbps。
-     * @param MetaVideoRate metadata中的视频码率，单位是kbps。
+     * Set metadata 中的视频码率，单位: kbps。
+     * @param MetaVideoRate metadata 中的视频码率，单位: kbps。
      */
     public void setMetaVideoRate(Long MetaVideoRate) {
         this.MetaVideoRate = MetaVideoRate;
     }
 
     /**
-     * Get metadata中的音频码率，单位是kbps。 
-     * @return MetaAudioRate metadata中的音频码率，单位是kbps。
+     * Get metadata 中的音频码率，单位: kbps。 
+     * @return MetaAudioRate metadata 中的音频码率，单位: kbps。
      */
     public Long getMetaAudioRate() {
         return this.MetaAudioRate;
     }
 
     /**
-     * Set metadata中的音频码率，单位是kbps。
-     * @param MetaAudioRate metadata中的音频码率，单位是kbps。
+     * Set metadata 中的音频码率，单位: kbps。
+     * @param MetaAudioRate metadata 中的音频码率，单位: kbps。
      */
     public void setMetaAudioRate(Long MetaAudioRate) {
         this.MetaAudioRate = MetaAudioRate;
     }
 
     /**
-     * Get metadata中的帧率。 
-     * @return MateFps metadata中的帧率。
+     * Get metadata 中的帧率。 
+     * @return MateFps metadata 中的帧率。
      */
     public Long getMateFps() {
         return this.MateFps;
     }
 
     /**
-     * Set metadata中的帧率。
-     * @param MateFps metadata中的帧率。
+     * Set metadata 中的帧率。
+     * @param MateFps metadata 中的帧率。
      */
     public void setMateFps(Long MateFps) {
         this.MateFps = MateFps;
     }
+
+    /**
+     * Get 推流参数 
+     * @return StreamParam 推流参数
+     */
+    public String getStreamParam() {
+        return this.StreamParam;
+    }
+
+    /**
+     * Set 推流参数
+     * @param StreamParam 推流参数
+     */
+    public void setStreamParam(String StreamParam) {
+        this.StreamParam = StreamParam;
+    }
+
+    public PushQualityData() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public PushQualityData(PushQualityData source) {
+        if (source.Time != null) {
+            this.Time = new String(source.Time);
+        }
+        if (source.PushDomain != null) {
+            this.PushDomain = new String(source.PushDomain);
+        }
+        if (source.AppName != null) {
+            this.AppName = new String(source.AppName);
+        }
+        if (source.ClientIp != null) {
+            this.ClientIp = new String(source.ClientIp);
+        }
+        if (source.BeginPushTime != null) {
+            this.BeginPushTime = new String(source.BeginPushTime);
+        }
+        if (source.Resolution != null) {
+            this.Resolution = new String(source.Resolution);
+        }
+        if (source.VCodec != null) {
+            this.VCodec = new String(source.VCodec);
+        }
+        if (source.ACodec != null) {
+            this.ACodec = new String(source.ACodec);
+        }
+        if (source.Sequence != null) {
+            this.Sequence = new String(source.Sequence);
+        }
+        if (source.VideoFps != null) {
+            this.VideoFps = new Long(source.VideoFps);
+        }
+        if (source.VideoRate != null) {
+            this.VideoRate = new Long(source.VideoRate);
+        }
+        if (source.AudioFps != null) {
+            this.AudioFps = new Long(source.AudioFps);
+        }
+        if (source.AudioRate != null) {
+            this.AudioRate = new Long(source.AudioRate);
+        }
+        if (source.LocalTs != null) {
+            this.LocalTs = new Long(source.LocalTs);
+        }
+        if (source.VideoTs != null) {
+            this.VideoTs = new Long(source.VideoTs);
+        }
+        if (source.AudioTs != null) {
+            this.AudioTs = new Long(source.AudioTs);
+        }
+        if (source.MetaVideoRate != null) {
+            this.MetaVideoRate = new Long(source.MetaVideoRate);
+        }
+        if (source.MetaAudioRate != null) {
+            this.MetaAudioRate = new Long(source.MetaAudioRate);
+        }
+        if (source.MateFps != null) {
+            this.MateFps = new Long(source.MateFps);
+        }
+        if (source.StreamParam != null) {
+            this.StreamParam = new String(source.StreamParam);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -482,6 +576,7 @@ public class PushQualityData extends AbstractModel{
         this.setParamSimple(map, prefix + "MetaVideoRate", this.MetaVideoRate);
         this.setParamSimple(map, prefix + "MetaAudioRate", this.MetaAudioRate);
         this.setParamSimple(map, prefix + "MateFps", this.MateFps);
+        this.setParamSimple(map, prefix + "StreamParam", this.StreamParam);
 
     }
 }

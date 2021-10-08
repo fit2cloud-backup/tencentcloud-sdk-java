@@ -30,7 +30,16 @@ public class SnapshotByTimeOffsetTaskInput extends AbstractModel{
     private Long Definition;
 
     /**
-    * 截图时间点列表，单位为<font color=red>毫秒</font>。
+    * 截图时间点列表，时间点支持 s、% 两种格式：
+<li>当字符串以 s 结尾，表示时间点单位为秒，如 3.5s 表示时间点为第3.5秒；</li>
+<li>当字符串以 % 结尾，表示时间点为视频时长的百分比大小，如10%表示时间点为视频前第10%的时间。</li>
+    */
+    @SerializedName("ExtTimeOffsetSet")
+    @Expose
+    private String [] ExtTimeOffsetSet;
+
+    /**
+    * 截图时间点列表，单位为<font color=red>毫秒</font>。此参数已不再建议使用，建议您使用 ExtTimeOffsetSet 参数。
     */
     @SerializedName("TimeOffsetSet")
     @Expose
@@ -38,7 +47,6 @@ public class SnapshotByTimeOffsetTaskInput extends AbstractModel{
 
     /**
     * 水印列表，支持多张图片或文字水印，最大可支持 10 张。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WatermarkSet")
     @Expose
@@ -61,26 +69,48 @@ public class SnapshotByTimeOffsetTaskInput extends AbstractModel{
     }
 
     /**
-     * Get 截图时间点列表，单位为<font color=red>毫秒</font>。 
-     * @return TimeOffsetSet 截图时间点列表，单位为<font color=red>毫秒</font>。
+     * Get 截图时间点列表，时间点支持 s、% 两种格式：
+<li>当字符串以 s 结尾，表示时间点单位为秒，如 3.5s 表示时间点为第3.5秒；</li>
+<li>当字符串以 % 结尾，表示时间点为视频时长的百分比大小，如10%表示时间点为视频前第10%的时间。</li> 
+     * @return ExtTimeOffsetSet 截图时间点列表，时间点支持 s、% 两种格式：
+<li>当字符串以 s 结尾，表示时间点单位为秒，如 3.5s 表示时间点为第3.5秒；</li>
+<li>当字符串以 % 结尾，表示时间点为视频时长的百分比大小，如10%表示时间点为视频前第10%的时间。</li>
+     */
+    public String [] getExtTimeOffsetSet() {
+        return this.ExtTimeOffsetSet;
+    }
+
+    /**
+     * Set 截图时间点列表，时间点支持 s、% 两种格式：
+<li>当字符串以 s 结尾，表示时间点单位为秒，如 3.5s 表示时间点为第3.5秒；</li>
+<li>当字符串以 % 结尾，表示时间点为视频时长的百分比大小，如10%表示时间点为视频前第10%的时间。</li>
+     * @param ExtTimeOffsetSet 截图时间点列表，时间点支持 s、% 两种格式：
+<li>当字符串以 s 结尾，表示时间点单位为秒，如 3.5s 表示时间点为第3.5秒；</li>
+<li>当字符串以 % 结尾，表示时间点为视频时长的百分比大小，如10%表示时间点为视频前第10%的时间。</li>
+     */
+    public void setExtTimeOffsetSet(String [] ExtTimeOffsetSet) {
+        this.ExtTimeOffsetSet = ExtTimeOffsetSet;
+    }
+
+    /**
+     * Get 截图时间点列表，单位为<font color=red>毫秒</font>。此参数已不再建议使用，建议您使用 ExtTimeOffsetSet 参数。 
+     * @return TimeOffsetSet 截图时间点列表，单位为<font color=red>毫秒</font>。此参数已不再建议使用，建议您使用 ExtTimeOffsetSet 参数。
      */
     public Float [] getTimeOffsetSet() {
         return this.TimeOffsetSet;
     }
 
     /**
-     * Set 截图时间点列表，单位为<font color=red>毫秒</font>。
-     * @param TimeOffsetSet 截图时间点列表，单位为<font color=red>毫秒</font>。
+     * Set 截图时间点列表，单位为<font color=red>毫秒</font>。此参数已不再建议使用，建议您使用 ExtTimeOffsetSet 参数。
+     * @param TimeOffsetSet 截图时间点列表，单位为<font color=red>毫秒</font>。此参数已不再建议使用，建议您使用 ExtTimeOffsetSet 参数。
      */
     public void setTimeOffsetSet(Float [] TimeOffsetSet) {
         this.TimeOffsetSet = TimeOffsetSet;
     }
 
     /**
-     * Get 水印列表，支持多张图片或文字水印，最大可支持 10 张。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 水印列表，支持多张图片或文字水印，最大可支持 10 张。 
      * @return WatermarkSet 水印列表，支持多张图片或文字水印，最大可支持 10 张。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public WatermarkInput [] getWatermarkSet() {
         return this.WatermarkSet;
@@ -88,19 +118,50 @@ public class SnapshotByTimeOffsetTaskInput extends AbstractModel{
 
     /**
      * Set 水印列表，支持多张图片或文字水印，最大可支持 10 张。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param WatermarkSet 水印列表，支持多张图片或文字水印，最大可支持 10 张。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWatermarkSet(WatermarkInput [] WatermarkSet) {
         this.WatermarkSet = WatermarkSet;
     }
+
+    public SnapshotByTimeOffsetTaskInput() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SnapshotByTimeOffsetTaskInput(SnapshotByTimeOffsetTaskInput source) {
+        if (source.Definition != null) {
+            this.Definition = new Long(source.Definition);
+        }
+        if (source.ExtTimeOffsetSet != null) {
+            this.ExtTimeOffsetSet = new String[source.ExtTimeOffsetSet.length];
+            for (int i = 0; i < source.ExtTimeOffsetSet.length; i++) {
+                this.ExtTimeOffsetSet[i] = new String(source.ExtTimeOffsetSet[i]);
+            }
+        }
+        if (source.TimeOffsetSet != null) {
+            this.TimeOffsetSet = new Float[source.TimeOffsetSet.length];
+            for (int i = 0; i < source.TimeOffsetSet.length; i++) {
+                this.TimeOffsetSet[i] = new Float(source.TimeOffsetSet[i]);
+            }
+        }
+        if (source.WatermarkSet != null) {
+            this.WatermarkSet = new WatermarkInput[source.WatermarkSet.length];
+            for (int i = 0; i < source.WatermarkSet.length; i++) {
+                this.WatermarkSet[i] = new WatermarkInput(source.WatermarkSet[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Definition", this.Definition);
+        this.setParamArraySimple(map, prefix + "ExtTimeOffsetSet.", this.ExtTimeOffsetSet);
         this.setParamArraySimple(map, prefix + "TimeOffsetSet.", this.TimeOffsetSet);
         this.setParamArrayObj(map, prefix + "WatermarkSet.", this.WatermarkSet);
 

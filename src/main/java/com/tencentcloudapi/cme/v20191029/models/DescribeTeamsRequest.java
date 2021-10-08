@@ -30,11 +30,25 @@ public class DescribeTeamsRequest extends AbstractModel{
     private String Platform;
 
     /**
-    * 团队 ID 列表，限30个。
+    * 团队 ID 列表，限30个。若不填，则默认获取平台下所有团队。
     */
     @SerializedName("TeamIds")
     @Expose
     private String [] TeamIds;
+
+    /**
+    * 分页偏移量，默认值：0。
+    */
+    @SerializedName("Offset")
+    @Expose
+    private Long Offset;
+
+    /**
+    * 返回记录条数，默认值：20，最大值：30。
+    */
+    @SerializedName("Limit")
+    @Expose
+    private Long Limit;
 
     /**
      * Get 平台名称，指定访问的平台。 
@@ -53,20 +67,78 @@ public class DescribeTeamsRequest extends AbstractModel{
     }
 
     /**
-     * Get 团队 ID 列表，限30个。 
-     * @return TeamIds 团队 ID 列表，限30个。
+     * Get 团队 ID 列表，限30个。若不填，则默认获取平台下所有团队。 
+     * @return TeamIds 团队 ID 列表，限30个。若不填，则默认获取平台下所有团队。
      */
     public String [] getTeamIds() {
         return this.TeamIds;
     }
 
     /**
-     * Set 团队 ID 列表，限30个。
-     * @param TeamIds 团队 ID 列表，限30个。
+     * Set 团队 ID 列表，限30个。若不填，则默认获取平台下所有团队。
+     * @param TeamIds 团队 ID 列表，限30个。若不填，则默认获取平台下所有团队。
      */
     public void setTeamIds(String [] TeamIds) {
         this.TeamIds = TeamIds;
     }
+
+    /**
+     * Get 分页偏移量，默认值：0。 
+     * @return Offset 分页偏移量，默认值：0。
+     */
+    public Long getOffset() {
+        return this.Offset;
+    }
+
+    /**
+     * Set 分页偏移量，默认值：0。
+     * @param Offset 分页偏移量，默认值：0。
+     */
+    public void setOffset(Long Offset) {
+        this.Offset = Offset;
+    }
+
+    /**
+     * Get 返回记录条数，默认值：20，最大值：30。 
+     * @return Limit 返回记录条数，默认值：20，最大值：30。
+     */
+    public Long getLimit() {
+        return this.Limit;
+    }
+
+    /**
+     * Set 返回记录条数，默认值：20，最大值：30。
+     * @param Limit 返回记录条数，默认值：20，最大值：30。
+     */
+    public void setLimit(Long Limit) {
+        this.Limit = Limit;
+    }
+
+    public DescribeTeamsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeTeamsRequest(DescribeTeamsRequest source) {
+        if (source.Platform != null) {
+            this.Platform = new String(source.Platform);
+        }
+        if (source.TeamIds != null) {
+            this.TeamIds = new String[source.TeamIds.length];
+            for (int i = 0; i < source.TeamIds.length; i++) {
+                this.TeamIds[i] = new String(source.TeamIds[i]);
+            }
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -74,6 +146,8 @@ public class DescribeTeamsRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Platform", this.Platform);
         this.setParamArraySimple(map, prefix + "TeamIds.", this.TeamIds);
+        this.setParamSimple(map, prefix + "Offset", this.Offset);
+        this.setParamSimple(map, prefix + "Limit", this.Limit);
 
     }
 }

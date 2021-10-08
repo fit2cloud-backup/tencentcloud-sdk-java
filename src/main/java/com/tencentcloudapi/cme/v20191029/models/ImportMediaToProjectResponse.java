@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class ImportMediaToProjectResponse extends AbstractModel{
 
     /**
-    * 素材 Id。
+    * 媒体 Id。
     */
     @SerializedName("MaterialId")
     @Expose
     private String MaterialId;
 
     /**
-    * 素材预处理任务 ID，如果未指定发起预处理任务则为空。
+    * 媒体预处理任务 ID，如果未指定发起预处理任务则为空。
     */
     @SerializedName("TaskId")
     @Expose
@@ -44,32 +44,32 @@ public class ImportMediaToProjectResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 素材 Id。 
-     * @return MaterialId 素材 Id。
+     * Get 媒体 Id。 
+     * @return MaterialId 媒体 Id。
      */
     public String getMaterialId() {
         return this.MaterialId;
     }
 
     /**
-     * Set 素材 Id。
-     * @param MaterialId 素材 Id。
+     * Set 媒体 Id。
+     * @param MaterialId 媒体 Id。
      */
     public void setMaterialId(String MaterialId) {
         this.MaterialId = MaterialId;
     }
 
     /**
-     * Get 素材预处理任务 ID，如果未指定发起预处理任务则为空。 
-     * @return TaskId 素材预处理任务 ID，如果未指定发起预处理任务则为空。
+     * Get 媒体预处理任务 ID，如果未指定发起预处理任务则为空。 
+     * @return TaskId 媒体预处理任务 ID，如果未指定发起预处理任务则为空。
      */
     public String getTaskId() {
         return this.TaskId;
     }
 
     /**
-     * Set 素材预处理任务 ID，如果未指定发起预处理任务则为空。
-     * @param TaskId 素材预处理任务 ID，如果未指定发起预处理任务则为空。
+     * Set 媒体预处理任务 ID，如果未指定发起预处理任务则为空。
+     * @param TaskId 媒体预处理任务 ID，如果未指定发起预处理任务则为空。
      */
     public void setTaskId(String TaskId) {
         this.TaskId = TaskId;
@@ -90,6 +90,26 @@ public class ImportMediaToProjectResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public ImportMediaToProjectResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ImportMediaToProjectResponse(ImportMediaToProjectResponse source) {
+        if (source.MaterialId != null) {
+            this.MaterialId = new String(source.MaterialId);
+        }
+        if (source.TaskId != null) {
+            this.TaskId = new String(source.TaskId);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

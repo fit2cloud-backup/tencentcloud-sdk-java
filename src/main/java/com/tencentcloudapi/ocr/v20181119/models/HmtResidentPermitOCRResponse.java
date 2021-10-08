@@ -80,6 +80,20 @@ public class HmtResidentPermitOCRResponse extends AbstractModel{
     private String Authority;
 
     /**
+    * 签发次数
+    */
+    @SerializedName("VisaNum")
+    @Expose
+    private String VisaNum;
+
+    /**
+    * 通行证号码
+    */
+    @SerializedName("PassNo")
+    @Expose
+    private String PassNo;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -219,6 +233,38 @@ public class HmtResidentPermitOCRResponse extends AbstractModel{
     }
 
     /**
+     * Get 签发次数 
+     * @return VisaNum 签发次数
+     */
+    public String getVisaNum() {
+        return this.VisaNum;
+    }
+
+    /**
+     * Set 签发次数
+     * @param VisaNum 签发次数
+     */
+    public void setVisaNum(String VisaNum) {
+        this.VisaNum = VisaNum;
+    }
+
+    /**
+     * Get 通行证号码 
+     * @return PassNo 通行证号码
+     */
+    public String getPassNo() {
+        return this.PassNo;
+    }
+
+    /**
+     * Set 通行证号码
+     * @param PassNo 通行证号码
+     */
+    public void setPassNo(String PassNo) {
+        this.PassNo = PassNo;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -234,6 +280,50 @@ public class HmtResidentPermitOCRResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public HmtResidentPermitOCRResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public HmtResidentPermitOCRResponse(HmtResidentPermitOCRResponse source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Sex != null) {
+            this.Sex = new String(source.Sex);
+        }
+        if (source.Birth != null) {
+            this.Birth = new String(source.Birth);
+        }
+        if (source.Address != null) {
+            this.Address = new String(source.Address);
+        }
+        if (source.IdCardNo != null) {
+            this.IdCardNo = new String(source.IdCardNo);
+        }
+        if (source.CardType != null) {
+            this.CardType = new Long(source.CardType);
+        }
+        if (source.ValidDate != null) {
+            this.ValidDate = new String(source.ValidDate);
+        }
+        if (source.Authority != null) {
+            this.Authority = new String(source.Authority);
+        }
+        if (source.VisaNum != null) {
+            this.VisaNum = new String(source.VisaNum);
+        }
+        if (source.PassNo != null) {
+            this.PassNo = new String(source.PassNo);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
@@ -246,6 +336,8 @@ public class HmtResidentPermitOCRResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "CardType", this.CardType);
         this.setParamSimple(map, prefix + "ValidDate", this.ValidDate);
         this.setParamSimple(map, prefix + "Authority", this.Authority);
+        this.setParamSimple(map, prefix + "VisaNum", this.VisaNum);
+        this.setParamSimple(map, prefix + "PassNo", this.PassNo);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

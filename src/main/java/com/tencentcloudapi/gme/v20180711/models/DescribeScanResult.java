@@ -112,6 +112,13 @@ public class DescribeScanResult extends AbstractModel{
     private String Status;
 
     /**
+    * 提交检测的应用 ID
+    */
+    @SerializedName("BizId")
+    @Expose
+    private Long BizId;
+
+    /**
      * Get 业务返回码 
      * @return Code 业务返回码
      */
@@ -324,6 +331,78 @@ public class DescribeScanResult extends AbstractModel{
     }
 
     /**
+     * Get 提交检测的应用 ID 
+     * @return BizId 提交检测的应用 ID
+     */
+    public Long getBizId() {
+        return this.BizId;
+    }
+
+    /**
+     * Set 提交检测的应用 ID
+     * @param BizId 提交检测的应用 ID
+     */
+    public void setBizId(Long BizId) {
+        this.BizId = BizId;
+    }
+
+    public DescribeScanResult() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeScanResult(DescribeScanResult source) {
+        if (source.Code != null) {
+            this.Code = new Long(source.Code);
+        }
+        if (source.DataId != null) {
+            this.DataId = new String(source.DataId);
+        }
+        if (source.ScanFinishTime != null) {
+            this.ScanFinishTime = new Long(source.ScanFinishTime);
+        }
+        if (source.HitFlag != null) {
+            this.HitFlag = new Boolean(source.HitFlag);
+        }
+        if (source.Live != null) {
+            this.Live = new Boolean(source.Live);
+        }
+        if (source.Msg != null) {
+            this.Msg = new String(source.Msg);
+        }
+        if (source.ScanPiece != null) {
+            this.ScanPiece = new ScanPiece[source.ScanPiece.length];
+            for (int i = 0; i < source.ScanPiece.length; i++) {
+                this.ScanPiece[i] = new ScanPiece(source.ScanPiece[i]);
+            }
+        }
+        if (source.ScanStartTime != null) {
+            this.ScanStartTime = new Long(source.ScanStartTime);
+        }
+        if (source.Scenes != null) {
+            this.Scenes = new String[source.Scenes.length];
+            for (int i = 0; i < source.Scenes.length; i++) {
+                this.Scenes[i] = new String(source.Scenes[i]);
+            }
+        }
+        if (source.TaskId != null) {
+            this.TaskId = new String(source.TaskId);
+        }
+        if (source.Url != null) {
+            this.Url = new String(source.Url);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.BizId != null) {
+            this.BizId = new Long(source.BizId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -339,6 +418,7 @@ public class DescribeScanResult extends AbstractModel{
         this.setParamSimple(map, prefix + "TaskId", this.TaskId);
         this.setParamSimple(map, prefix + "Url", this.Url);
         this.setParamSimple(map, prefix + "Status", this.Status);
+        this.setParamSimple(map, prefix + "BizId", this.BizId);
 
     }
 }

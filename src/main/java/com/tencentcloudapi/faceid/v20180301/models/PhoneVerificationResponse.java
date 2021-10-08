@@ -24,12 +24,11 @@ public class PhoneVerificationResponse extends AbstractModel{
 
     /**
     * 认证结果码:
+收费结果码
 0: 认证通过
--1: 手机号已实名，但是身份证和姓名均与实名信息不一致 
--2: 手机号已实名，手机号和证件号一致，姓名不一致
--3: 手机号已实名，手机号和姓名一致，身份证不一致
--4: 信息不一致
+-4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）
 -5: 手机号未实名
+不收费结果码
 -6: 手机号码不合法
 -7: 身份证号码有误
 -8: 姓名校验不通过
@@ -57,12 +56,11 @@ public class PhoneVerificationResponse extends AbstractModel{
 
     /**
      * Get 认证结果码:
+收费结果码
 0: 认证通过
--1: 手机号已实名，但是身份证和姓名均与实名信息不一致 
--2: 手机号已实名，手机号和证件号一致，姓名不一致
--3: 手机号已实名，手机号和姓名一致，身份证不一致
--4: 信息不一致
+-4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）
 -5: 手机号未实名
+不收费结果码
 -6: 手机号码不合法
 -7: 身份证号码有误
 -8: 姓名校验不通过
@@ -70,12 +68,11 @@ public class PhoneVerificationResponse extends AbstractModel{
 -10: 认证未通过
 -11: 验证中心服务繁忙 
      * @return Result 认证结果码:
+收费结果码
 0: 认证通过
--1: 手机号已实名，但是身份证和姓名均与实名信息不一致 
--2: 手机号已实名，手机号和证件号一致，姓名不一致
--3: 手机号已实名，手机号和姓名一致，身份证不一致
--4: 信息不一致
+-4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）
 -5: 手机号未实名
+不收费结果码
 -6: 手机号码不合法
 -7: 身份证号码有误
 -8: 姓名校验不通过
@@ -89,12 +86,11 @@ public class PhoneVerificationResponse extends AbstractModel{
 
     /**
      * Set 认证结果码:
+收费结果码
 0: 认证通过
--1: 手机号已实名，但是身份证和姓名均与实名信息不一致 
--2: 手机号已实名，手机号和证件号一致，姓名不一致
--3: 手机号已实名，手机号和姓名一致，身份证不一致
--4: 信息不一致
+-4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）
 -5: 手机号未实名
+不收费结果码
 -6: 手机号码不合法
 -7: 身份证号码有误
 -8: 姓名校验不通过
@@ -102,12 +98,11 @@ public class PhoneVerificationResponse extends AbstractModel{
 -10: 认证未通过
 -11: 验证中心服务繁忙
      * @param Result 认证结果码:
+收费结果码
 0: 认证通过
--1: 手机号已实名，但是身份证和姓名均与实名信息不一致 
--2: 手机号已实名，手机号和证件号一致，姓名不一致
--3: 手机号已实名，手机号和姓名一致，身份证不一致
--4: 信息不一致
+-4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）
 -5: 手机号未实名
+不收费结果码
 -6: 手机号码不合法
 -7: 身份证号码有误
 -8: 姓名校验不通过
@@ -150,6 +145,26 @@ public class PhoneVerificationResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public PhoneVerificationResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public PhoneVerificationResponse(PhoneVerificationResponse source) {
+        if (source.Result != null) {
+            this.Result = new String(source.Result);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

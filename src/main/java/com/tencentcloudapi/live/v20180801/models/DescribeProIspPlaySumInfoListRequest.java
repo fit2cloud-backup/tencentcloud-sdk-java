@@ -40,14 +40,14 @@ public class DescribeProIspPlaySumInfoListRequest extends AbstractModel{
     private String EndTime;
 
     /**
-    * 统计的类型，可选值：”Province”，”Isp”，“CountryOrArea”。
+    * 统计的类型，可选值：”Province”(省份)，”Isp”(运营商)，“CountryOrArea”(国家或地区)。
     */
     @SerializedName("StatType")
     @Expose
     private String StatType;
 
     /**
-    * 不填则为总体数据。
+    * 播放域名列表，不填则为全部。
     */
     @SerializedName("PlayDomains")
     @Expose
@@ -126,32 +126,32 @@ public class DescribeProIspPlaySumInfoListRequest extends AbstractModel{
     }
 
     /**
-     * Get 统计的类型，可选值：”Province”，”Isp”，“CountryOrArea”。 
-     * @return StatType 统计的类型，可选值：”Province”，”Isp”，“CountryOrArea”。
+     * Get 统计的类型，可选值：”Province”(省份)，”Isp”(运营商)，“CountryOrArea”(国家或地区)。 
+     * @return StatType 统计的类型，可选值：”Province”(省份)，”Isp”(运营商)，“CountryOrArea”(国家或地区)。
      */
     public String getStatType() {
         return this.StatType;
     }
 
     /**
-     * Set 统计的类型，可选值：”Province”，”Isp”，“CountryOrArea”。
-     * @param StatType 统计的类型，可选值：”Province”，”Isp”，“CountryOrArea”。
+     * Set 统计的类型，可选值：”Province”(省份)，”Isp”(运营商)，“CountryOrArea”(国家或地区)。
+     * @param StatType 统计的类型，可选值：”Province”(省份)，”Isp”(运营商)，“CountryOrArea”(国家或地区)。
      */
     public void setStatType(String StatType) {
         this.StatType = StatType;
     }
 
     /**
-     * Get 不填则为总体数据。 
-     * @return PlayDomains 不填则为总体数据。
+     * Get 播放域名列表，不填则为全部。 
+     * @return PlayDomains 播放域名列表，不填则为全部。
      */
     public String [] getPlayDomains() {
         return this.PlayDomains;
     }
 
     /**
-     * Set 不填则为总体数据。
-     * @param PlayDomains 不填则为总体数据。
+     * Set 播放域名列表，不填则为全部。
+     * @param PlayDomains 播放域名列表，不填则为全部。
      */
     public void setPlayDomains(String [] PlayDomains) {
         this.PlayDomains = PlayDomains;
@@ -220,6 +220,44 @@ public class DescribeProIspPlaySumInfoListRequest extends AbstractModel{
     public void setOutLanguage(String OutLanguage) {
         this.OutLanguage = OutLanguage;
     }
+
+    public DescribeProIspPlaySumInfoListRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeProIspPlaySumInfoListRequest(DescribeProIspPlaySumInfoListRequest source) {
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.StatType != null) {
+            this.StatType = new String(source.StatType);
+        }
+        if (source.PlayDomains != null) {
+            this.PlayDomains = new String[source.PlayDomains.length];
+            for (int i = 0; i < source.PlayDomains.length; i++) {
+                this.PlayDomains[i] = new String(source.PlayDomains[i]);
+            }
+        }
+        if (source.PageNum != null) {
+            this.PageNum = new Long(source.PageNum);
+        }
+        if (source.PageSize != null) {
+            this.PageSize = new Long(source.PageSize);
+        }
+        if (source.MainlandOrOversea != null) {
+            this.MainlandOrOversea = new String(source.MainlandOrOversea);
+        }
+        if (source.OutLanguage != null) {
+            this.OutLanguage = new String(source.OutLanguage);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

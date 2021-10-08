@@ -58,6 +58,17 @@ public class QueryRefundRequest extends AbstractModel{
     private String MidasSignature;
 
     /**
+    * 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+    */
+    @SerializedName("MidasEnvironment")
+    @Expose
+    private String MidasEnvironment;
+
+    /**
      * Get 用户ID，长度不小于5位，仅支持字母和数字的组合。 
      * @return UserId 用户ID，长度不小于5位，仅支持字母和数字的组合。
      */
@@ -138,6 +149,67 @@ public class QueryRefundRequest extends AbstractModel{
     }
 
     /**
+     * Get 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release 
+     * @return MidasEnvironment 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+     */
+    public String getMidasEnvironment() {
+        return this.MidasEnvironment;
+    }
+
+    /**
+     * Set 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+     * @param MidasEnvironment 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+     */
+    public void setMidasEnvironment(String MidasEnvironment) {
+        this.MidasEnvironment = MidasEnvironment;
+    }
+
+    public QueryRefundRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public QueryRefundRequest(QueryRefundRequest source) {
+        if (source.UserId != null) {
+            this.UserId = new String(source.UserId);
+        }
+        if (source.RefundId != null) {
+            this.RefundId = new String(source.RefundId);
+        }
+        if (source.MidasAppId != null) {
+            this.MidasAppId = new String(source.MidasAppId);
+        }
+        if (source.MidasSecretId != null) {
+            this.MidasSecretId = new String(source.MidasSecretId);
+        }
+        if (source.MidasSignature != null) {
+            this.MidasSignature = new String(source.MidasSignature);
+        }
+        if (source.MidasEnvironment != null) {
+            this.MidasEnvironment = new String(source.MidasEnvironment);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -146,6 +218,7 @@ public class QueryRefundRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "MidasAppId", this.MidasAppId);
         this.setParamSimple(map, prefix + "MidasSecretId", this.MidasSecretId);
         this.setParamSimple(map, prefix + "MidasSignature", this.MidasSignature);
+        this.setParamSimple(map, prefix + "MidasEnvironment", this.MidasEnvironment);
 
     }
 }

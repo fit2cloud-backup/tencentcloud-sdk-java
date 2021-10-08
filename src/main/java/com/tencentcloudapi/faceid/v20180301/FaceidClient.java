@@ -27,6 +27,7 @@ import com.tencentcloudapi.faceid.v20180301.models.*;
 
 public class FaceidClient extends AbstractClient{
     private static String endpoint = "faceid.tencentcloudapi.com";
+    private static String service = "faceid";
     private static String version = "2018-03-01";
 
     public FaceidClient(Credential credential, String region) {
@@ -45,12 +46,14 @@ public class FaceidClient extends AbstractClient{
      */
     public BankCard2EVerificationResponse BankCard2EVerification(BankCard2EVerificationRequest req) throws TencentCloudSDKException{
         JsonResponseModel<BankCard2EVerificationResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<BankCard2EVerificationResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "BankCard2EVerification"), type);
+                rspStr = this.internalRequest(req, "BankCard2EVerification");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -63,12 +66,14 @@ public class FaceidClient extends AbstractClient{
      */
     public BankCard4EVerificationResponse BankCard4EVerification(BankCard4EVerificationRequest req) throws TencentCloudSDKException{
         JsonResponseModel<BankCard4EVerificationResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<BankCard4EVerificationResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "BankCard4EVerification"), type);
+                rspStr = this.internalRequest(req, "BankCard4EVerification");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -81,12 +86,115 @@ public class FaceidClient extends AbstractClient{
      */
     public BankCardVerificationResponse BankCardVerification(BankCardVerificationRequest req) throws TencentCloudSDKException{
         JsonResponseModel<BankCardVerificationResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<BankCardVerificationResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "BankCardVerification"), type);
+                rspStr = this.internalRequest(req, "BankCardVerification");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *银行卡基础信息查询
+     * @param req CheckBankCardInformationRequest
+     * @return CheckBankCardInformationResponse
+     * @throws TencentCloudSDKException
+     */
+    public CheckBankCardInformationResponse CheckBankCardInformation(CheckBankCardInformationRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CheckBankCardInformationResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CheckBankCardInformationResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CheckBankCardInformation");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *用于轮询E证通H5场景EidToken验证状态。
+     * @param req CheckEidTokenStatusRequest
+     * @return CheckEidTokenStatusResponse
+     * @throws TencentCloudSDKException
+     */
+    public CheckEidTokenStatusResponse CheckEidTokenStatus(CheckEidTokenStatusRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CheckEidTokenStatusResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CheckEidTokenStatusResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CheckEidTokenStatus");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *传入身份证人像面照片，识别身份证照片上的信息，并将姓名、身份证号、身份证人像照片与公安权威库的证件照进行比对，是否属于同一个人，从而验证身份证信息的真实性。
+     * @param req CheckIdCardInformationRequest
+     * @return CheckIdCardInformationResponse
+     * @throws TencentCloudSDKException
+     */
+    public CheckIdCardInformationResponse CheckIdCardInformation(CheckIdCardInformationRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CheckIdCardInformationResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CheckIdCardInformationResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CheckIdCardInformation");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口用于校验姓名、身份证号、身份证有效期的真实性和一致性。
+     * @param req CheckIdNameDateRequest
+     * @return CheckIdNameDateResponse
+     * @throws TencentCloudSDKException
+     */
+    public CheckIdNameDateResponse CheckIdNameDate(CheckIdNameDateRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CheckIdNameDateResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CheckIdNameDateResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CheckIdNameDate");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *手机号二要素核验接口用于校验手机号和姓名的真实性和一致性，支持的手机号段详情请查阅<a href="https://cloud.tencent.com/document/product/1007/46063">运营商类</a>文档。
+
+     * @param req CheckPhoneAndNameRequest
+     * @return CheckPhoneAndNameResponse
+     * @throws TencentCloudSDKException
+     */
+    public CheckPhoneAndNameResponse CheckPhoneAndName(CheckPhoneAndNameRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CheckPhoneAndNameResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CheckPhoneAndNameResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CheckPhoneAndName");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -99,12 +207,34 @@ public class FaceidClient extends AbstractClient{
      */
     public DetectAuthResponse DetectAuth(DetectAuthRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DetectAuthResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DetectAuthResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DetectAuth"), type);
+                rspStr = this.internalRequest(req, "DetectAuth");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口用于校验手机号、姓名和身份证号的真实性和一致性，入参支持MD5加密传输。
+     * @param req EncryptedPhoneVerificationRequest
+     * @return EncryptedPhoneVerificationResponse
+     * @throws TencentCloudSDKException
+     */
+    public EncryptedPhoneVerificationResponse EncryptedPhoneVerification(EncryptedPhoneVerificationRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<EncryptedPhoneVerificationResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<EncryptedPhoneVerificationResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "EncryptedPhoneVerification");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -117,12 +247,14 @@ public class FaceidClient extends AbstractClient{
      */
     public GetActionSequenceResponse GetActionSequence(GetActionSequenceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetActionSequenceResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<GetActionSequenceResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "GetActionSequence"), type);
+                rspStr = this.internalRequest(req, "GetActionSequence");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -135,12 +267,14 @@ public class FaceidClient extends AbstractClient{
      */
     public GetDetectInfoResponse GetDetectInfo(GetDetectInfoRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetDetectInfoResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<GetDetectInfoResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "GetDetectInfo"), type);
+                rspStr = this.internalRequest(req, "GetDetectInfo");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -153,12 +287,94 @@ public class FaceidClient extends AbstractClient{
      */
     public GetDetectInfoEnhancedResponse GetDetectInfoEnhanced(GetDetectInfoEnhancedRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetDetectInfoEnhancedResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<GetDetectInfoEnhancedResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "GetDetectInfoEnhanced"), type);
+                rspStr = this.internalRequest(req, "GetDetectInfoEnhanced");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *完成验证后，用EidToken调用本接口获取结果信息，EidToken生成后三天内（3\*24\*3,600秒）可多次拉取。
+     * @param req GetEidResultRequest
+     * @return GetEidResultResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetEidResultResponse GetEidResult(GetEidResultRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetEidResultResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetEidResultResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetEidResult");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *每次调用E证通服务前，需先调用本接口获取EidToken，用来串联E证通流程，在验证完成后，用于获取E证通结果信息。
+     * @param req GetEidTokenRequest
+     * @return GetEidTokenResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetEidTokenResponse GetEidToken(GetEidTokenRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetEidTokenResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetEidTokenResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetEidToken");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *完成验证后，用FaceIdToken调用本接口获取结果信息，FaceIdToken生成后三天内（3\*24\*3,600秒）可多次拉取。
+     * @param req GetFaceIdResultRequest
+     * @return GetFaceIdResultResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetFaceIdResultResponse GetFaceIdResult(GetFaceIdResultRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetFaceIdResultResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetFaceIdResultResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetFaceIdResult");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *每次调用人脸核身SDK服务前，需先调用本接口获取SDKToken，用来串联核身流程，在验证完成后，用于获取验证结果信息，该token仅能核身一次。
+     * @param req GetFaceIdTokenRequest
+     * @return GetFaceIdTokenResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetFaceIdTokenResponse GetFaceIdToken(GetFaceIdTokenRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetFaceIdTokenResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetFaceIdTokenResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetFaceIdToken");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -171,12 +387,55 @@ public class FaceidClient extends AbstractClient{
      */
     public GetLiveCodeResponse GetLiveCode(GetLiveCodeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetLiveCodeResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<GetLiveCodeResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "GetLiveCode"), type);
+                rspStr = this.internalRequest(req, "GetLiveCode");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取微信实名认证结果
+     * @param req GetRealNameAuthResultRequest
+     * @return GetRealNameAuthResultResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetRealNameAuthResultResponse GetRealNameAuthResult(GetRealNameAuthResultRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetRealNameAuthResultResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetRealNameAuthResultResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetRealNameAuthResult");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *该接口仅限微信公众号中使用，传入姓名和身份证号获取回调URL，在微信公众号中打开验证姓名和身份证号与微信实名的信息是否一致。
+
+     * @param req GetRealNameAuthTokenRequest
+     * @return GetRealNameAuthTokenResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetRealNameAuthTokenResponse GetRealNameAuthToken(GetRealNameAuthTokenRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetRealNameAuthTokenResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetRealNameAuthTokenResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetRealNameAuthToken");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -189,12 +448,14 @@ public class FaceidClient extends AbstractClient{
      */
     public IdCardOCRVerificationResponse IdCardOCRVerification(IdCardOCRVerificationRequest req) throws TencentCloudSDKException{
         JsonResponseModel<IdCardOCRVerificationResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<IdCardOCRVerificationResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "IdCardOCRVerification"), type);
+                rspStr = this.internalRequest(req, "IdCardOCRVerification");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -207,12 +468,14 @@ public class FaceidClient extends AbstractClient{
      */
     public IdCardVerificationResponse IdCardVerification(IdCardVerificationRequest req) throws TencentCloudSDKException{
         JsonResponseModel<IdCardVerificationResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<IdCardVerificationResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "IdCardVerification"), type);
+                rspStr = this.internalRequest(req, "IdCardVerification");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -225,12 +488,14 @@ public class FaceidClient extends AbstractClient{
      */
     public ImageRecognitionResponse ImageRecognition(ImageRecognitionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ImageRecognitionResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ImageRecognitionResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ImageRecognition"), type);
+                rspStr = this.internalRequest(req, "ImageRecognition");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -243,12 +508,14 @@ public class FaceidClient extends AbstractClient{
      */
     public LivenessResponse Liveness(LivenessRequest req) throws TencentCloudSDKException{
         JsonResponseModel<LivenessResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<LivenessResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "Liveness"), type);
+                rspStr = this.internalRequest(req, "Liveness");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -261,12 +528,14 @@ public class FaceidClient extends AbstractClient{
      */
     public LivenessCompareResponse LivenessCompare(LivenessCompareRequest req) throws TencentCloudSDKException{
         JsonResponseModel<LivenessCompareResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<LivenessCompareResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "LivenessCompare"), type);
+                rspStr = this.internalRequest(req, "LivenessCompare");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -279,30 +548,34 @@ public class FaceidClient extends AbstractClient{
      */
     public LivenessRecognitionResponse LivenessRecognition(LivenessRecognitionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<LivenessRecognitionResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<LivenessRecognitionResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "LivenessRecognition"), type);
+                rspStr = this.internalRequest(req, "LivenessRecognition");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
 
     /**
-     *未成年人守护接口是通过传入手机号或姓名和身份证号，结合权威数据源和腾讯健康守护可信模型，判断该信息是否真实且年满18周岁。腾讯健康守护可信模型覆盖了上十亿手机库源，覆盖率高、准确率高，如果不在库中的手机号，还可以通过姓名+身份证进行兜底验证。
+     *通过传入手机号或姓名和身份证号，结合权威数据源和腾讯健康守护可信模型，判断该信息是否真实且年满18周岁。腾讯健康守护可信模型覆盖了上十亿手机库源，覆盖率高、准确率高，如果不在库中的手机号，还可以通过姓名+身份证进行兜底验证。
      * @param req MinorsVerificationRequest
      * @return MinorsVerificationResponse
      * @throws TencentCloudSDKException
      */
     public MinorsVerificationResponse MinorsVerification(MinorsVerificationRequest req) throws TencentCloudSDKException{
         JsonResponseModel<MinorsVerificationResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<MinorsVerificationResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "MinorsVerification"), type);
+                rspStr = this.internalRequest(req, "MinorsVerification");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -315,12 +588,14 @@ public class FaceidClient extends AbstractClient{
      */
     public MobileNetworkTimeVerificationResponse MobileNetworkTimeVerification(MobileNetworkTimeVerificationRequest req) throws TencentCloudSDKException{
         JsonResponseModel<MobileNetworkTimeVerificationResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<MobileNetworkTimeVerificationResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "MobileNetworkTimeVerification"), type);
+                rspStr = this.internalRequest(req, "MobileNetworkTimeVerification");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -333,30 +608,34 @@ public class FaceidClient extends AbstractClient{
      */
     public MobileStatusResponse MobileStatus(MobileStatusRequest req) throws TencentCloudSDKException{
         JsonResponseModel<MobileStatusResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<MobileStatusResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "MobileStatus"), type);
+                rspStr = this.internalRequest(req, "MobileStatus");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
 
     /**
-     *本接口用于校验手机号、姓名和身份证号的真实性和一致性。
+     *本接口用于校验手机号、姓名和身份证号的真实性和一致性。支持的手机号段详情请查阅<a href="https://cloud.tencent.com/document/product/1007/46063">运营商类</a>文档。
      * @param req PhoneVerificationRequest
      * @return PhoneVerificationResponse
      * @throws TencentCloudSDKException
      */
     public PhoneVerificationResponse PhoneVerification(PhoneVerificationRequest req) throws TencentCloudSDKException{
         JsonResponseModel<PhoneVerificationResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<PhoneVerificationResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "PhoneVerification"), type);
+                rspStr = this.internalRequest(req, "PhoneVerification");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

@@ -72,6 +72,27 @@ public class CreateApplicationRequest extends AbstractModel{
     private String ApplicationRuntimeType;
 
     /**
+    * 需要绑定的数据集ID
+    */
+    @SerializedName("ProgramId")
+    @Expose
+    private String ProgramId;
+
+    /**
+    * 服务配置信息列表
+    */
+    @SerializedName("ServiceConfigList")
+    @Expose
+    private ServiceConfig [] ServiceConfigList;
+
+    /**
+    * 忽略创建镜像仓库
+    */
+    @SerializedName("IgnoreCreateImageRepository")
+    @Expose
+    private Boolean IgnoreCreateImageRepository;
+
+    /**
      * Get 应用名称 
      * @return ApplicationName 应用名称
      */
@@ -184,6 +205,98 @@ public class CreateApplicationRequest extends AbstractModel{
     }
 
     /**
+     * Get 需要绑定的数据集ID 
+     * @return ProgramId 需要绑定的数据集ID
+     */
+    public String getProgramId() {
+        return this.ProgramId;
+    }
+
+    /**
+     * Set 需要绑定的数据集ID
+     * @param ProgramId 需要绑定的数据集ID
+     */
+    public void setProgramId(String ProgramId) {
+        this.ProgramId = ProgramId;
+    }
+
+    /**
+     * Get 服务配置信息列表 
+     * @return ServiceConfigList 服务配置信息列表
+     */
+    public ServiceConfig [] getServiceConfigList() {
+        return this.ServiceConfigList;
+    }
+
+    /**
+     * Set 服务配置信息列表
+     * @param ServiceConfigList 服务配置信息列表
+     */
+    public void setServiceConfigList(ServiceConfig [] ServiceConfigList) {
+        this.ServiceConfigList = ServiceConfigList;
+    }
+
+    /**
+     * Get 忽略创建镜像仓库 
+     * @return IgnoreCreateImageRepository 忽略创建镜像仓库
+     */
+    public Boolean getIgnoreCreateImageRepository() {
+        return this.IgnoreCreateImageRepository;
+    }
+
+    /**
+     * Set 忽略创建镜像仓库
+     * @param IgnoreCreateImageRepository 忽略创建镜像仓库
+     */
+    public void setIgnoreCreateImageRepository(Boolean IgnoreCreateImageRepository) {
+        this.IgnoreCreateImageRepository = IgnoreCreateImageRepository;
+    }
+
+    public CreateApplicationRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateApplicationRequest(CreateApplicationRequest source) {
+        if (source.ApplicationName != null) {
+            this.ApplicationName = new String(source.ApplicationName);
+        }
+        if (source.ApplicationType != null) {
+            this.ApplicationType = new String(source.ApplicationType);
+        }
+        if (source.MicroserviceType != null) {
+            this.MicroserviceType = new String(source.MicroserviceType);
+        }
+        if (source.ApplicationDesc != null) {
+            this.ApplicationDesc = new String(source.ApplicationDesc);
+        }
+        if (source.ApplicationLogConfig != null) {
+            this.ApplicationLogConfig = new String(source.ApplicationLogConfig);
+        }
+        if (source.ApplicationResourceType != null) {
+            this.ApplicationResourceType = new String(source.ApplicationResourceType);
+        }
+        if (source.ApplicationRuntimeType != null) {
+            this.ApplicationRuntimeType = new String(source.ApplicationRuntimeType);
+        }
+        if (source.ProgramId != null) {
+            this.ProgramId = new String(source.ProgramId);
+        }
+        if (source.ServiceConfigList != null) {
+            this.ServiceConfigList = new ServiceConfig[source.ServiceConfigList.length];
+            for (int i = 0; i < source.ServiceConfigList.length; i++) {
+                this.ServiceConfigList[i] = new ServiceConfig(source.ServiceConfigList[i]);
+            }
+        }
+        if (source.IgnoreCreateImageRepository != null) {
+            this.IgnoreCreateImageRepository = new Boolean(source.IgnoreCreateImageRepository);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -194,6 +307,9 @@ public class CreateApplicationRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ApplicationLogConfig", this.ApplicationLogConfig);
         this.setParamSimple(map, prefix + "ApplicationResourceType", this.ApplicationResourceType);
         this.setParamSimple(map, prefix + "ApplicationRuntimeType", this.ApplicationRuntimeType);
+        this.setParamSimple(map, prefix + "ProgramId", this.ProgramId);
+        this.setParamArrayObj(map, prefix + "ServiceConfigList.", this.ServiceConfigList);
+        this.setParamSimple(map, prefix + "IgnoreCreateImageRepository", this.IgnoreCreateImageRepository);
 
     }
 }

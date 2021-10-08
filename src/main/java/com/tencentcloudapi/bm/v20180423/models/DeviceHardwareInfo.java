@@ -135,6 +135,13 @@ public class DeviceHardwareInfo extends AbstractModel{
     private Long Cpu;
 
     /**
+    * 机型外部代号
+    */
+    @SerializedName("DeviceClassCode")
+    @Expose
+    private String DeviceClassCode;
+
+    /**
      * Get 设备实例 ID 
      * @return InstanceId 设备实例 ID
      */
@@ -391,6 +398,84 @@ public class DeviceHardwareInfo extends AbstractModel{
     }
 
     /**
+     * Get 机型外部代号 
+     * @return DeviceClassCode 机型外部代号
+     */
+    public String getDeviceClassCode() {
+        return this.DeviceClassCode;
+    }
+
+    /**
+     * Set 机型外部代号
+     * @param DeviceClassCode 机型外部代号
+     */
+    public void setDeviceClassCode(String DeviceClassCode) {
+        this.DeviceClassCode = DeviceClassCode;
+    }
+
+    public DeviceHardwareInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeviceHardwareInfo(DeviceHardwareInfo source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.IsElastic != null) {
+            this.IsElastic = new Long(source.IsElastic);
+        }
+        if (source.CpmPayMode != null) {
+            this.CpmPayMode = new Long(source.CpmPayMode);
+        }
+        if (source.CpuId != null) {
+            this.CpuId = new Long(source.CpuId);
+        }
+        if (source.Mem != null) {
+            this.Mem = new Long(source.Mem);
+        }
+        if (source.ContainRaidCard != null) {
+            this.ContainRaidCard = new Long(source.ContainRaidCard);
+        }
+        if (source.SystemDiskTypeId != null) {
+            this.SystemDiskTypeId = new Long(source.SystemDiskTypeId);
+        }
+        if (source.SystemDiskCount != null) {
+            this.SystemDiskCount = new Long(source.SystemDiskCount);
+        }
+        if (source.DataDiskTypeId != null) {
+            this.DataDiskTypeId = new Long(source.DataDiskTypeId);
+        }
+        if (source.DataDiskCount != null) {
+            this.DataDiskCount = new Long(source.DataDiskCount);
+        }
+        if (source.CpuDescription != null) {
+            this.CpuDescription = new String(source.CpuDescription);
+        }
+        if (source.MemDescription != null) {
+            this.MemDescription = new String(source.MemDescription);
+        }
+        if (source.DiskDescription != null) {
+            this.DiskDescription = new String(source.DiskDescription);
+        }
+        if (source.NicDescription != null) {
+            this.NicDescription = new String(source.NicDescription);
+        }
+        if (source.RaidDescription != null) {
+            this.RaidDescription = new String(source.RaidDescription);
+        }
+        if (source.Cpu != null) {
+            this.Cpu = new Long(source.Cpu);
+        }
+        if (source.DeviceClassCode != null) {
+            this.DeviceClassCode = new String(source.DeviceClassCode);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -410,6 +495,7 @@ public class DeviceHardwareInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "NicDescription", this.NicDescription);
         this.setParamSimple(map, prefix + "RaidDescription", this.RaidDescription);
         this.setParamSimple(map, prefix + "Cpu", this.Cpu);
+        this.setParamSimple(map, prefix + "DeviceClassCode", this.DeviceClassCode);
 
     }
 }

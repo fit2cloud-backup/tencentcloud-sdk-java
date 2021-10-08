@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeClassicalLBByInstanceIdResponse extends AbstractModel{
 
     /**
-    * 负载均衡相关信息列表
+    * 负载均衡相关信息列表。
     */
     @SerializedName("LoadBalancerInfoList")
     @Expose
@@ -37,16 +37,16 @@ public class DescribeClassicalLBByInstanceIdResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 负载均衡相关信息列表 
-     * @return LoadBalancerInfoList 负载均衡相关信息列表
+     * Get 负载均衡相关信息列表。 
+     * @return LoadBalancerInfoList 负载均衡相关信息列表。
      */
     public ClassicalLoadBalancerInfo [] getLoadBalancerInfoList() {
         return this.LoadBalancerInfoList;
     }
 
     /**
-     * Set 负载均衡相关信息列表
-     * @param LoadBalancerInfoList 负载均衡相关信息列表
+     * Set 负载均衡相关信息列表。
+     * @param LoadBalancerInfoList 负载均衡相关信息列表。
      */
     public void setLoadBalancerInfoList(ClassicalLoadBalancerInfo [] LoadBalancerInfoList) {
         this.LoadBalancerInfoList = LoadBalancerInfoList;
@@ -67,6 +67,26 @@ public class DescribeClassicalLBByInstanceIdResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeClassicalLBByInstanceIdResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeClassicalLBByInstanceIdResponse(DescribeClassicalLBByInstanceIdResponse source) {
+        if (source.LoadBalancerInfoList != null) {
+            this.LoadBalancerInfoList = new ClassicalLoadBalancerInfo[source.LoadBalancerInfoList.length];
+            for (int i = 0; i < source.LoadBalancerInfoList.length; i++) {
+                this.LoadBalancerInfoList[i] = new ClassicalLoadBalancerInfo(source.LoadBalancerInfoList[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

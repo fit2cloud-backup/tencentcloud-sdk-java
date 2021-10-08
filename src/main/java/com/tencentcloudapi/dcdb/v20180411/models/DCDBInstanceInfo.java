@@ -37,7 +37,7 @@ public class DCDBInstanceInfo extends AbstractModel{
     private String InstanceName;
 
     /**
-    * AppID
+    * 应用ID
     */
     @SerializedName("AppId")
     @Expose
@@ -86,7 +86,7 @@ public class DCDBInstanceInfo extends AbstractModel{
     private String StatusDesc;
 
     /**
-    * 状态
+    * 实例状态：0 创建中，1 流程处理中， 2 运行中，3 实例未初始化，-1 实例已隔离，4 实例初始化中，5 实例删除中，6 实例重启中，7 数据迁移中
     */
     @SerializedName("Status")
     @Expose
@@ -156,7 +156,7 @@ public class DCDBInstanceInfo extends AbstractModel{
     private String IsolatedTimestamp;
 
     /**
-    * UIN
+    * 账号ID
     */
     @SerializedName("Uin")
     @Expose
@@ -297,6 +297,78 @@ public class DCDBInstanceInfo extends AbstractModel{
     private Long Cpu;
 
     /**
+    * 实例IPv6标志
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Ipv6Flag")
+    @Expose
+    private Long Ipv6Flag;
+
+    /**
+    * 内网IPv6
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Vipv6")
+    @Expose
+    private String Vipv6;
+
+    /**
+    * 外网IPv6
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("WanVipv6")
+    @Expose
+    private String WanVipv6;
+
+    /**
+    * 外网IPv6端口
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("WanPortIpv6")
+    @Expose
+    private Long WanPortIpv6;
+
+    /**
+    * 外网IPv6状态
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("WanStatusIpv6")
+    @Expose
+    private Long WanStatusIpv6;
+
+    /**
+    * DCN标志，0-无，1-主实例，2-灾备实例
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DcnFlag")
+    @Expose
+    private Long DcnFlag;
+
+    /**
+    * DCN状态，0-无，1-创建中，2-同步中，3-已断开
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DcnStatus")
+    @Expose
+    private Long DcnStatus;
+
+    /**
+    * DCN灾备实例数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DcnDstNum")
+    @Expose
+    private Long DcnDstNum;
+
+    /**
+    * 1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("InstanceType")
+    @Expose
+    private Long InstanceType;
+
+    /**
      * Get 实例ID 
      * @return InstanceId 实例ID
      */
@@ -329,16 +401,16 @@ public class DCDBInstanceInfo extends AbstractModel{
     }
 
     /**
-     * Get AppID 
-     * @return AppId AppID
+     * Get 应用ID 
+     * @return AppId 应用ID
      */
     public Long getAppId() {
         return this.AppId;
     }
 
     /**
-     * Set AppID
-     * @param AppId AppID
+     * Set 应用ID
+     * @param AppId 应用ID
      */
     public void setAppId(Long AppId) {
         this.AppId = AppId;
@@ -441,16 +513,16 @@ public class DCDBInstanceInfo extends AbstractModel{
     }
 
     /**
-     * Get 状态 
-     * @return Status 状态
+     * Get 实例状态：0 创建中，1 流程处理中， 2 运行中，3 实例未初始化，-1 实例已隔离，4 实例初始化中，5 实例删除中，6 实例重启中，7 数据迁移中 
+     * @return Status 实例状态：0 创建中，1 流程处理中， 2 运行中，3 实例未初始化，-1 实例已隔离，4 实例初始化中，5 实例删除中，6 实例重启中，7 数据迁移中
      */
     public Long getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 状态
-     * @param Status 状态
+     * Set 实例状态：0 创建中，1 流程处理中， 2 运行中，3 实例未初始化，-1 实例已隔离，4 实例初始化中，5 实例删除中，6 实例重启中，7 数据迁移中
+     * @param Status 实例状态：0 创建中，1 流程处理中， 2 运行中，3 实例未初始化，-1 实例已隔离，4 实例初始化中，5 实例删除中，6 实例重启中，7 数据迁移中
      */
     public void setStatus(Long Status) {
         this.Status = Status;
@@ -601,16 +673,16 @@ public class DCDBInstanceInfo extends AbstractModel{
     }
 
     /**
-     * Get UIN 
-     * @return Uin UIN
+     * Get 账号ID 
+     * @return Uin 账号ID
      */
     public String getUin() {
         return this.Uin;
     }
 
     /**
-     * Set UIN
-     * @param Uin UIN
+     * Set 账号ID
+     * @param Uin 账号ID
      */
     public void setUin(String Uin) {
         this.Uin = Uin;
@@ -925,6 +997,344 @@ public class DCDBInstanceInfo extends AbstractModel{
     }
 
     /**
+     * Get 实例IPv6标志
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Ipv6Flag 实例IPv6标志
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getIpv6Flag() {
+        return this.Ipv6Flag;
+    }
+
+    /**
+     * Set 实例IPv6标志
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Ipv6Flag 实例IPv6标志
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIpv6Flag(Long Ipv6Flag) {
+        this.Ipv6Flag = Ipv6Flag;
+    }
+
+    /**
+     * Get 内网IPv6
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Vipv6 内网IPv6
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getVipv6() {
+        return this.Vipv6;
+    }
+
+    /**
+     * Set 内网IPv6
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Vipv6 内网IPv6
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setVipv6(String Vipv6) {
+        this.Vipv6 = Vipv6;
+    }
+
+    /**
+     * Get 外网IPv6
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return WanVipv6 外网IPv6
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getWanVipv6() {
+        return this.WanVipv6;
+    }
+
+    /**
+     * Set 外网IPv6
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param WanVipv6 外网IPv6
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setWanVipv6(String WanVipv6) {
+        this.WanVipv6 = WanVipv6;
+    }
+
+    /**
+     * Get 外网IPv6端口
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return WanPortIpv6 外网IPv6端口
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getWanPortIpv6() {
+        return this.WanPortIpv6;
+    }
+
+    /**
+     * Set 外网IPv6端口
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param WanPortIpv6 外网IPv6端口
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setWanPortIpv6(Long WanPortIpv6) {
+        this.WanPortIpv6 = WanPortIpv6;
+    }
+
+    /**
+     * Get 外网IPv6状态
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return WanStatusIpv6 外网IPv6状态
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getWanStatusIpv6() {
+        return this.WanStatusIpv6;
+    }
+
+    /**
+     * Set 外网IPv6状态
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param WanStatusIpv6 外网IPv6状态
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setWanStatusIpv6(Long WanStatusIpv6) {
+        this.WanStatusIpv6 = WanStatusIpv6;
+    }
+
+    /**
+     * Get DCN标志，0-无，1-主实例，2-灾备实例
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DcnFlag DCN标志，0-无，1-主实例，2-灾备实例
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getDcnFlag() {
+        return this.DcnFlag;
+    }
+
+    /**
+     * Set DCN标志，0-无，1-主实例，2-灾备实例
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DcnFlag DCN标志，0-无，1-主实例，2-灾备实例
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDcnFlag(Long DcnFlag) {
+        this.DcnFlag = DcnFlag;
+    }
+
+    /**
+     * Get DCN状态，0-无，1-创建中，2-同步中，3-已断开
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DcnStatus DCN状态，0-无，1-创建中，2-同步中，3-已断开
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getDcnStatus() {
+        return this.DcnStatus;
+    }
+
+    /**
+     * Set DCN状态，0-无，1-创建中，2-同步中，3-已断开
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DcnStatus DCN状态，0-无，1-创建中，2-同步中，3-已断开
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDcnStatus(Long DcnStatus) {
+        this.DcnStatus = DcnStatus;
+    }
+
+    /**
+     * Get DCN灾备实例数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DcnDstNum DCN灾备实例数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getDcnDstNum() {
+        return this.DcnDstNum;
+    }
+
+    /**
+     * Set DCN灾备实例数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DcnDstNum DCN灾备实例数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDcnDstNum(Long DcnDstNum) {
+        this.DcnDstNum = DcnDstNum;
+    }
+
+    /**
+     * Get 1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return InstanceType 1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getInstanceType() {
+        return this.InstanceType;
+    }
+
+    /**
+     * Set 1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param InstanceType 1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setInstanceType(Long InstanceType) {
+        this.InstanceType = InstanceType;
+    }
+
+    public DCDBInstanceInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DCDBInstanceInfo(DCDBInstanceInfo source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.InstanceName != null) {
+            this.InstanceName = new String(source.InstanceName);
+        }
+        if (source.AppId != null) {
+            this.AppId = new Long(source.AppId);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.Region != null) {
+            this.Region = new String(source.Region);
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new Long(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new Long(source.SubnetId);
+        }
+        if (source.StatusDesc != null) {
+            this.StatusDesc = new String(source.StatusDesc);
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+        if (source.Vip != null) {
+            this.Vip = new String(source.Vip);
+        }
+        if (source.Vport != null) {
+            this.Vport = new Long(source.Vport);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.AutoRenewFlag != null) {
+            this.AutoRenewFlag = new Long(source.AutoRenewFlag);
+        }
+        if (source.Memory != null) {
+            this.Memory = new Long(source.Memory);
+        }
+        if (source.Storage != null) {
+            this.Storage = new Long(source.Storage);
+        }
+        if (source.ShardCount != null) {
+            this.ShardCount = new Long(source.ShardCount);
+        }
+        if (source.PeriodEndTime != null) {
+            this.PeriodEndTime = new String(source.PeriodEndTime);
+        }
+        if (source.IsolatedTimestamp != null) {
+            this.IsolatedTimestamp = new String(source.IsolatedTimestamp);
+        }
+        if (source.Uin != null) {
+            this.Uin = new String(source.Uin);
+        }
+        if (source.ShardDetail != null) {
+            this.ShardDetail = new ShardInfo[source.ShardDetail.length];
+            for (int i = 0; i < source.ShardDetail.length; i++) {
+                this.ShardDetail[i] = new ShardInfo(source.ShardDetail[i]);
+            }
+        }
+        if (source.NodeCount != null) {
+            this.NodeCount = new Long(source.NodeCount);
+        }
+        if (source.IsTmp != null) {
+            this.IsTmp = new Long(source.IsTmp);
+        }
+        if (source.ExclusterId != null) {
+            this.ExclusterId = new String(source.ExclusterId);
+        }
+        if (source.UniqueVpcId != null) {
+            this.UniqueVpcId = new String(source.UniqueVpcId);
+        }
+        if (source.UniqueSubnetId != null) {
+            this.UniqueSubnetId = new String(source.UniqueSubnetId);
+        }
+        if (source.Id != null) {
+            this.Id = new Long(source.Id);
+        }
+        if (source.WanDomain != null) {
+            this.WanDomain = new String(source.WanDomain);
+        }
+        if (source.WanVip != null) {
+            this.WanVip = new String(source.WanVip);
+        }
+        if (source.WanPort != null) {
+            this.WanPort = new Long(source.WanPort);
+        }
+        if (source.Pid != null) {
+            this.Pid = new Long(source.Pid);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+        if (source.DbEngine != null) {
+            this.DbEngine = new String(source.DbEngine);
+        }
+        if (source.DbVersion != null) {
+            this.DbVersion = new String(source.DbVersion);
+        }
+        if (source.Paymode != null) {
+            this.Paymode = new String(source.Paymode);
+        }
+        if (source.Locker != null) {
+            this.Locker = new Long(source.Locker);
+        }
+        if (source.WanStatus != null) {
+            this.WanStatus = new Long(source.WanStatus);
+        }
+        if (source.IsAuditSupported != null) {
+            this.IsAuditSupported = new Long(source.IsAuditSupported);
+        }
+        if (source.Cpu != null) {
+            this.Cpu = new Long(source.Cpu);
+        }
+        if (source.Ipv6Flag != null) {
+            this.Ipv6Flag = new Long(source.Ipv6Flag);
+        }
+        if (source.Vipv6 != null) {
+            this.Vipv6 = new String(source.Vipv6);
+        }
+        if (source.WanVipv6 != null) {
+            this.WanVipv6 = new String(source.WanVipv6);
+        }
+        if (source.WanPortIpv6 != null) {
+            this.WanPortIpv6 = new Long(source.WanPortIpv6);
+        }
+        if (source.WanStatusIpv6 != null) {
+            this.WanStatusIpv6 = new Long(source.WanStatusIpv6);
+        }
+        if (source.DcnFlag != null) {
+            this.DcnFlag = new Long(source.DcnFlag);
+        }
+        if (source.DcnStatus != null) {
+            this.DcnStatus = new Long(source.DcnStatus);
+        }
+        if (source.DcnDstNum != null) {
+            this.DcnDstNum = new Long(source.DcnDstNum);
+        }
+        if (source.InstanceType != null) {
+            this.InstanceType = new Long(source.InstanceType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -967,6 +1377,15 @@ public class DCDBInstanceInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "WanStatus", this.WanStatus);
         this.setParamSimple(map, prefix + "IsAuditSupported", this.IsAuditSupported);
         this.setParamSimple(map, prefix + "Cpu", this.Cpu);
+        this.setParamSimple(map, prefix + "Ipv6Flag", this.Ipv6Flag);
+        this.setParamSimple(map, prefix + "Vipv6", this.Vipv6);
+        this.setParamSimple(map, prefix + "WanVipv6", this.WanVipv6);
+        this.setParamSimple(map, prefix + "WanPortIpv6", this.WanPortIpv6);
+        this.setParamSimple(map, prefix + "WanStatusIpv6", this.WanStatusIpv6);
+        this.setParamSimple(map, prefix + "DcnFlag", this.DcnFlag);
+        this.setParamSimple(map, prefix + "DcnStatus", this.DcnStatus);
+        this.setParamSimple(map, prefix + "DcnDstNum", this.DcnDstNum);
+        this.setParamSimple(map, prefix + "InstanceType", this.InstanceType);
 
     }
 }

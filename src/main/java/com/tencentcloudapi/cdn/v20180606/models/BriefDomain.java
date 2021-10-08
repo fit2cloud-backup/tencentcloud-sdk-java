@@ -136,6 +136,13 @@ global：全球锁定
     private String Readonly;
 
     /**
+    * 域名所属产品，cdn/ecdn
+    */
+    @SerializedName("Product")
+    @Expose
+    private String Product;
+
+    /**
      * Get 域名 ID 
      * @return ResourceId 域名 ID
      */
@@ -432,6 +439,75 @@ global：全球锁定
     }
 
     /**
+     * Get 域名所属产品，cdn/ecdn 
+     * @return Product 域名所属产品，cdn/ecdn
+     */
+    public String getProduct() {
+        return this.Product;
+    }
+
+    /**
+     * Set 域名所属产品，cdn/ecdn
+     * @param Product 域名所属产品，cdn/ecdn
+     */
+    public void setProduct(String Product) {
+        this.Product = Product;
+    }
+
+    public BriefDomain() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public BriefDomain(BriefDomain source) {
+        if (source.ResourceId != null) {
+            this.ResourceId = new String(source.ResourceId);
+        }
+        if (source.AppId != null) {
+            this.AppId = new Long(source.AppId);
+        }
+        if (source.Domain != null) {
+            this.Domain = new String(source.Domain);
+        }
+        if (source.Cname != null) {
+            this.Cname = new String(source.Cname);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.ServiceType != null) {
+            this.ServiceType = new String(source.ServiceType);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+        if (source.Origin != null) {
+            this.Origin = new Origin(source.Origin);
+        }
+        if (source.Disable != null) {
+            this.Disable = new String(source.Disable);
+        }
+        if (source.Area != null) {
+            this.Area = new String(source.Area);
+        }
+        if (source.Readonly != null) {
+            this.Readonly = new String(source.Readonly);
+        }
+        if (source.Product != null) {
+            this.Product = new String(source.Product);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -448,6 +524,7 @@ global：全球锁定
         this.setParamSimple(map, prefix + "Disable", this.Disable);
         this.setParamSimple(map, prefix + "Area", this.Area);
         this.setParamSimple(map, prefix + "Readonly", this.Readonly);
+        this.setParamSimple(map, prefix + "Product", this.Product);
 
     }
 }

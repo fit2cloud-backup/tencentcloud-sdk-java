@@ -23,7 +23,15 @@ import java.util.HashMap;
 public class InsuranceBillInfo extends AbstractModel{
 
     /**
-    * 识别出的字段名称（关键字）。
+    * 识别出的字段名称(关键字)，支持以下字段：
+【病案首页】
+姓名、性别、出生日期、出院诊断、疾病编码、入院病情等。
+【费用清单】
+医疗参保人员类别、身份证号、入院方式、结账日期、项目、金额等。
+【结算单】
+名称、单价、数量、金额、医保内、医保外等。
+【医疗发票】
+姓名、性别、住院时间、收费项目、金额、合计等。
     */
     @SerializedName("Name")
     @Expose
@@ -37,16 +45,48 @@ public class InsuranceBillInfo extends AbstractModel{
     private String Value;
 
     /**
-     * Get 识别出的字段名称（关键字）。 
-     * @return Name 识别出的字段名称（关键字）。
+     * Get 识别出的字段名称(关键字)，支持以下字段：
+【病案首页】
+姓名、性别、出生日期、出院诊断、疾病编码、入院病情等。
+【费用清单】
+医疗参保人员类别、身份证号、入院方式、结账日期、项目、金额等。
+【结算单】
+名称、单价、数量、金额、医保内、医保外等。
+【医疗发票】
+姓名、性别、住院时间、收费项目、金额、合计等。 
+     * @return Name 识别出的字段名称(关键字)，支持以下字段：
+【病案首页】
+姓名、性别、出生日期、出院诊断、疾病编码、入院病情等。
+【费用清单】
+医疗参保人员类别、身份证号、入院方式、结账日期、项目、金额等。
+【结算单】
+名称、单价、数量、金额、医保内、医保外等。
+【医疗发票】
+姓名、性别、住院时间、收费项目、金额、合计等。
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 识别出的字段名称（关键字）。
-     * @param Name 识别出的字段名称（关键字）。
+     * Set 识别出的字段名称(关键字)，支持以下字段：
+【病案首页】
+姓名、性别、出生日期、出院诊断、疾病编码、入院病情等。
+【费用清单】
+医疗参保人员类别、身份证号、入院方式、结账日期、项目、金额等。
+【结算单】
+名称、单价、数量、金额、医保内、医保外等。
+【医疗发票】
+姓名、性别、住院时间、收费项目、金额、合计等。
+     * @param Name 识别出的字段名称(关键字)，支持以下字段：
+【病案首页】
+姓名、性别、出生日期、出院诊断、疾病编码、入院病情等。
+【费用清单】
+医疗参保人员类别、身份证号、入院方式、结账日期、项目、金额等。
+【结算单】
+名称、单价、数量、金额、医保内、医保外等。
+【医疗发票】
+姓名、性别、住院时间、收费项目、金额、合计等。
      */
     public void setName(String Name) {
         this.Name = Name;
@@ -67,6 +107,23 @@ public class InsuranceBillInfo extends AbstractModel{
     public void setValue(String Value) {
         this.Value = Value;
     }
+
+    public InsuranceBillInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public InsuranceBillInfo(InsuranceBillInfo source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Value != null) {
+            this.Value = new String(source.Value);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

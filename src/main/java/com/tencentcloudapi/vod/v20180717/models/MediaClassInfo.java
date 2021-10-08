@@ -52,7 +52,6 @@ public class MediaClassInfo extends AbstractModel{
 
     /**
     * 当前分类的第一级子类 ID 集合
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubClassIdSet")
     @Expose
@@ -123,10 +122,8 @@ public class MediaClassInfo extends AbstractModel{
     }
 
     /**
-     * Get 当前分类的第一级子类 ID 集合
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 当前分类的第一级子类 ID 集合 
      * @return SubClassIdSet 当前分类的第一级子类 ID 集合
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long [] getSubClassIdSet() {
         return this.SubClassIdSet;
@@ -134,13 +131,40 @@ public class MediaClassInfo extends AbstractModel{
 
     /**
      * Set 当前分类的第一级子类 ID 集合
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubClassIdSet 当前分类的第一级子类 ID 集合
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubClassIdSet(Long [] SubClassIdSet) {
         this.SubClassIdSet = SubClassIdSet;
     }
+
+    public MediaClassInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MediaClassInfo(MediaClassInfo source) {
+        if (source.ClassId != null) {
+            this.ClassId = new Long(source.ClassId);
+        }
+        if (source.ParentId != null) {
+            this.ParentId = new Long(source.ParentId);
+        }
+        if (source.ClassName != null) {
+            this.ClassName = new String(source.ClassName);
+        }
+        if (source.Level != null) {
+            this.Level = new Long(source.Level);
+        }
+        if (source.SubClassIdSet != null) {
+            this.SubClassIdSet = new Long[source.SubClassIdSet.length];
+            for (int i = 0; i < source.SubClassIdSet.length; i++) {
+                this.SubClassIdSet[i] = new Long(source.SubClassIdSet[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

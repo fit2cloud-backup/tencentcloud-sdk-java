@@ -38,6 +38,30 @@ public class PkgList extends AbstractModel{
     private PkgInfo [] Content;
 
     /**
+    * 程序包仓库id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RepositoryId")
+    @Expose
+    private String RepositoryId;
+
+    /**
+    * 程序包仓库类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RepositoryType")
+    @Expose
+    private String RepositoryType;
+
+    /**
+    * 程序包仓库名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RepositoryName")
+    @Expose
+    private String RepositoryName;
+
+    /**
      * Get 程序包总量 
      * @return TotalCount 程序包总量
      */
@@ -74,11 +98,103 @@ public class PkgList extends AbstractModel{
     }
 
     /**
+     * Get 程序包仓库id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RepositoryId 程序包仓库id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getRepositoryId() {
+        return this.RepositoryId;
+    }
+
+    /**
+     * Set 程序包仓库id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RepositoryId 程序包仓库id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRepositoryId(String RepositoryId) {
+        this.RepositoryId = RepositoryId;
+    }
+
+    /**
+     * Get 程序包仓库类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RepositoryType 程序包仓库类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getRepositoryType() {
+        return this.RepositoryType;
+    }
+
+    /**
+     * Set 程序包仓库类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RepositoryType 程序包仓库类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRepositoryType(String RepositoryType) {
+        this.RepositoryType = RepositoryType;
+    }
+
+    /**
+     * Get 程序包仓库名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RepositoryName 程序包仓库名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getRepositoryName() {
+        return this.RepositoryName;
+    }
+
+    /**
+     * Set 程序包仓库名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RepositoryName 程序包仓库名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRepositoryName(String RepositoryName) {
+        this.RepositoryName = RepositoryName;
+    }
+
+    public PkgList() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public PkgList(PkgList source) {
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
+        if (source.Content != null) {
+            this.Content = new PkgInfo[source.Content.length];
+            for (int i = 0; i < source.Content.length; i++) {
+                this.Content[i] = new PkgInfo(source.Content[i]);
+            }
+        }
+        if (source.RepositoryId != null) {
+            this.RepositoryId = new String(source.RepositoryId);
+        }
+        if (source.RepositoryType != null) {
+            this.RepositoryType = new String(source.RepositoryType);
+        }
+        if (source.RepositoryName != null) {
+            this.RepositoryName = new String(source.RepositoryName);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
         this.setParamArrayObj(map, prefix + "Content.", this.Content);
+        this.setParamSimple(map, prefix + "RepositoryId", this.RepositoryId);
+        this.setParamSimple(map, prefix + "RepositoryType", this.RepositoryType);
+        this.setParamSimple(map, prefix + "RepositoryName", this.RepositoryName);
 
     }
 }

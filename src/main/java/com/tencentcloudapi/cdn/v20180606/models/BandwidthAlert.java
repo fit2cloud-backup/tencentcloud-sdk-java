@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class BandwidthAlert extends AbstractModel{
 
     /**
-    * 带宽封顶配置开关
+    * 用量封顶配置开关
 on：开启
 off：关闭
     */
@@ -32,7 +32,7 @@ off：关闭
     private String Switch;
 
     /**
-    * 带宽封顶阈值，单位为bps
+    * 用量封顶阈值，带宽单位为bps，流量单位byte
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BpsThreshold")
@@ -50,7 +50,7 @@ RETURN_404：全部请求返回 404
     private String CounterMeasure;
 
     /**
-    * 上次触发带宽封顶阈值的时间
+    * 境内区域上次触发用量封顶阈值的时间
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LastTriggerTime")
@@ -58,10 +58,46 @@ RETURN_404：全部请求返回 404
     private String LastTriggerTime;
 
     /**
-     * Get 带宽封顶配置开关
+    * 用量封顶提醒开关
+on：开启
+off：关闭
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AlertSwitch")
+    @Expose
+    private String AlertSwitch;
+
+    /**
+    * 用量封顶阈值提醒百分比
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AlertPercentage")
+    @Expose
+    private Long AlertPercentage;
+
+    /**
+    * 海外区域上次触发用量封顶阈值的时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("LastTriggerTimeOverseas")
+    @Expose
+    private String LastTriggerTimeOverseas;
+
+    /**
+    * 用量阈值触发的维度
+带宽：bandwidth
+流量：flux
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Metric")
+    @Expose
+    private String Metric;
+
+    /**
+     * Get 用量封顶配置开关
 on：开启
 off：关闭 
-     * @return Switch 带宽封顶配置开关
+     * @return Switch 用量封顶配置开关
 on：开启
 off：关闭
      */
@@ -70,10 +106,10 @@ off：关闭
     }
 
     /**
-     * Set 带宽封顶配置开关
+     * Set 用量封顶配置开关
 on：开启
 off：关闭
-     * @param Switch 带宽封顶配置开关
+     * @param Switch 用量封顶配置开关
 on：开启
 off：关闭
      */
@@ -82,9 +118,9 @@ off：关闭
     }
 
     /**
-     * Get 带宽封顶阈值，单位为bps
+     * Get 用量封顶阈值，带宽单位为bps，流量单位byte
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return BpsThreshold 带宽封顶阈值，单位为bps
+     * @return BpsThreshold 用量封顶阈值，带宽单位为bps，流量单位byte
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getBpsThreshold() {
@@ -92,9 +128,9 @@ off：关闭
     }
 
     /**
-     * Set 带宽封顶阈值，单位为bps
+     * Set 用量封顶阈值，带宽单位为bps，流量单位byte
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param BpsThreshold 带宽封顶阈值，单位为bps
+     * @param BpsThreshold 用量封顶阈值，带宽单位为bps，流量单位byte
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBpsThreshold(Long BpsThreshold) {
@@ -130,9 +166,9 @@ RETURN_404：全部请求返回 404
     }
 
     /**
-     * Get 上次触发带宽封顶阈值的时间
+     * Get 境内区域上次触发用量封顶阈值的时间
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return LastTriggerTime 上次触发带宽封顶阈值的时间
+     * @return LastTriggerTime 境内区域上次触发用量封顶阈值的时间
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLastTriggerTime() {
@@ -140,14 +176,145 @@ RETURN_404：全部请求返回 404
     }
 
     /**
-     * Set 上次触发带宽封顶阈值的时间
+     * Set 境内区域上次触发用量封顶阈值的时间
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param LastTriggerTime 上次触发带宽封顶阈值的时间
+     * @param LastTriggerTime 境内区域上次触发用量封顶阈值的时间
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLastTriggerTime(String LastTriggerTime) {
         this.LastTriggerTime = LastTriggerTime;
     }
+
+    /**
+     * Get 用量封顶提醒开关
+on：开启
+off：关闭
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AlertSwitch 用量封顶提醒开关
+on：开启
+off：关闭
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAlertSwitch() {
+        return this.AlertSwitch;
+    }
+
+    /**
+     * Set 用量封顶提醒开关
+on：开启
+off：关闭
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AlertSwitch 用量封顶提醒开关
+on：开启
+off：关闭
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAlertSwitch(String AlertSwitch) {
+        this.AlertSwitch = AlertSwitch;
+    }
+
+    /**
+     * Get 用量封顶阈值提醒百分比
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AlertPercentage 用量封顶阈值提醒百分比
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getAlertPercentage() {
+        return this.AlertPercentage;
+    }
+
+    /**
+     * Set 用量封顶阈值提醒百分比
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AlertPercentage 用量封顶阈值提醒百分比
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAlertPercentage(Long AlertPercentage) {
+        this.AlertPercentage = AlertPercentage;
+    }
+
+    /**
+     * Get 海外区域上次触发用量封顶阈值的时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return LastTriggerTimeOverseas 海外区域上次触发用量封顶阈值的时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getLastTriggerTimeOverseas() {
+        return this.LastTriggerTimeOverseas;
+    }
+
+    /**
+     * Set 海外区域上次触发用量封顶阈值的时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param LastTriggerTimeOverseas 海外区域上次触发用量封顶阈值的时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLastTriggerTimeOverseas(String LastTriggerTimeOverseas) {
+        this.LastTriggerTimeOverseas = LastTriggerTimeOverseas;
+    }
+
+    /**
+     * Get 用量阈值触发的维度
+带宽：bandwidth
+流量：flux
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Metric 用量阈值触发的维度
+带宽：bandwidth
+流量：flux
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getMetric() {
+        return this.Metric;
+    }
+
+    /**
+     * Set 用量阈值触发的维度
+带宽：bandwidth
+流量：flux
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Metric 用量阈值触发的维度
+带宽：bandwidth
+流量：flux
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMetric(String Metric) {
+        this.Metric = Metric;
+    }
+
+    public BandwidthAlert() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public BandwidthAlert(BandwidthAlert source) {
+        if (source.Switch != null) {
+            this.Switch = new String(source.Switch);
+        }
+        if (source.BpsThreshold != null) {
+            this.BpsThreshold = new Long(source.BpsThreshold);
+        }
+        if (source.CounterMeasure != null) {
+            this.CounterMeasure = new String(source.CounterMeasure);
+        }
+        if (source.LastTriggerTime != null) {
+            this.LastTriggerTime = new String(source.LastTriggerTime);
+        }
+        if (source.AlertSwitch != null) {
+            this.AlertSwitch = new String(source.AlertSwitch);
+        }
+        if (source.AlertPercentage != null) {
+            this.AlertPercentage = new Long(source.AlertPercentage);
+        }
+        if (source.LastTriggerTimeOverseas != null) {
+            this.LastTriggerTimeOverseas = new String(source.LastTriggerTimeOverseas);
+        }
+        if (source.Metric != null) {
+            this.Metric = new String(source.Metric);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -157,6 +324,10 @@ RETURN_404：全部请求返回 404
         this.setParamSimple(map, prefix + "BpsThreshold", this.BpsThreshold);
         this.setParamSimple(map, prefix + "CounterMeasure", this.CounterMeasure);
         this.setParamSimple(map, prefix + "LastTriggerTime", this.LastTriggerTime);
+        this.setParamSimple(map, prefix + "AlertSwitch", this.AlertSwitch);
+        this.setParamSimple(map, prefix + "AlertPercentage", this.AlertPercentage);
+        this.setParamSimple(map, prefix + "LastTriggerTimeOverseas", this.LastTriggerTimeOverseas);
+        this.setParamSimple(map, prefix + "Metric", this.Metric);
 
     }
 }

@@ -58,6 +58,13 @@ public class CreateSubscribeRequest extends AbstractModel{
     private Long AutoRenew;
 
     /**
+    * 实例资源标签
+    */
+    @SerializedName("Tags")
+    @Expose
+    private TagItem [] Tags;
+
+    /**
      * Get 订阅的数据库类型，目前支持的有 mysql 
      * @return Product 订阅的数据库类型，目前支持的有 mysql
      */
@@ -138,6 +145,54 @@ public class CreateSubscribeRequest extends AbstractModel{
     }
 
     /**
+     * Get 实例资源标签 
+     * @return Tags 实例资源标签
+     */
+    public TagItem [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 实例资源标签
+     * @param Tags 实例资源标签
+     */
+    public void setTags(TagItem [] Tags) {
+        this.Tags = Tags;
+    }
+
+    public CreateSubscribeRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateSubscribeRequest(CreateSubscribeRequest source) {
+        if (source.Product != null) {
+            this.Product = new String(source.Product);
+        }
+        if (source.PayType != null) {
+            this.PayType = new Long(source.PayType);
+        }
+        if (source.Duration != null) {
+            this.Duration = new Long(source.Duration);
+        }
+        if (source.Count != null) {
+            this.Count = new Long(source.Count);
+        }
+        if (source.AutoRenew != null) {
+            this.AutoRenew = new Long(source.AutoRenew);
+        }
+        if (source.Tags != null) {
+            this.Tags = new TagItem[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new TagItem(source.Tags[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -146,6 +201,7 @@ public class CreateSubscribeRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Duration", this.Duration);
         this.setParamSimple(map, prefix + "Count", this.Count);
         this.setParamSimple(map, prefix + "AutoRenew", this.AutoRenew);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

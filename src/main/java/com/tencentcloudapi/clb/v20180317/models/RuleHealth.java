@@ -46,7 +46,7 @@ public class RuleHealth extends AbstractModel{
     private String Url;
 
     /**
-    * 本规则上绑定的后端的健康检查状态
+    * 本规则上绑定的后端服务的健康检查状态
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Targets")
@@ -110,9 +110,9 @@ public class RuleHealth extends AbstractModel{
     }
 
     /**
-     * Get 本规则上绑定的后端的健康检查状态
+     * Get 本规则上绑定的后端服务的健康检查状态
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Targets 本规则上绑定的后端的健康检查状态
+     * @return Targets 本规则上绑定的后端服务的健康检查状态
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public TargetHealth [] getTargets() {
@@ -120,14 +120,40 @@ public class RuleHealth extends AbstractModel{
     }
 
     /**
-     * Set 本规则上绑定的后端的健康检查状态
+     * Set 本规则上绑定的后端服务的健康检查状态
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Targets 本规则上绑定的后端的健康检查状态
+     * @param Targets 本规则上绑定的后端服务的健康检查状态
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTargets(TargetHealth [] Targets) {
         this.Targets = Targets;
     }
+
+    public RuleHealth() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public RuleHealth(RuleHealth source) {
+        if (source.LocationId != null) {
+            this.LocationId = new String(source.LocationId);
+        }
+        if (source.Domain != null) {
+            this.Domain = new String(source.Domain);
+        }
+        if (source.Url != null) {
+            this.Url = new String(source.Url);
+        }
+        if (source.Targets != null) {
+            this.Targets = new TargetHealth[source.Targets.length];
+            for (int i = 0; i < source.Targets.length; i++) {
+                this.Targets[i] = new TargetHealth(source.Targets[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

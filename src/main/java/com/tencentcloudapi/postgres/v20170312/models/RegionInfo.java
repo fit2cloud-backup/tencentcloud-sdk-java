@@ -51,6 +51,14 @@ public class RegionInfo extends AbstractModel{
     private String RegionState;
 
     /**
+    * 该地域是否支持国际站售卖，0：不支持，1：支持
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SupportInternational")
+    @Expose
+    private Long SupportInternational;
+
+    /**
      * Get 该地域对应的英文名称 
      * @return Region 该地域对应的英文名称
      */
@@ -115,6 +123,52 @@ public class RegionInfo extends AbstractModel{
     }
 
     /**
+     * Get 该地域是否支持国际站售卖，0：不支持，1：支持
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SupportInternational 该地域是否支持国际站售卖，0：不支持，1：支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getSupportInternational() {
+        return this.SupportInternational;
+    }
+
+    /**
+     * Set 该地域是否支持国际站售卖，0：不支持，1：支持
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SupportInternational 该地域是否支持国际站售卖，0：不支持，1：支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSupportInternational(Long SupportInternational) {
+        this.SupportInternational = SupportInternational;
+    }
+
+    public RegionInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public RegionInfo(RegionInfo source) {
+        if (source.Region != null) {
+            this.Region = new String(source.Region);
+        }
+        if (source.RegionName != null) {
+            this.RegionName = new String(source.RegionName);
+        }
+        if (source.RegionId != null) {
+            this.RegionId = new Long(source.RegionId);
+        }
+        if (source.RegionState != null) {
+            this.RegionState = new String(source.RegionState);
+        }
+        if (source.SupportInternational != null) {
+            this.SupportInternational = new Long(source.SupportInternational);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -122,6 +176,7 @@ public class RegionInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "RegionName", this.RegionName);
         this.setParamSimple(map, prefix + "RegionId", this.RegionId);
         this.setParamSimple(map, prefix + "RegionState", this.RegionState);
+        this.setParamSimple(map, prefix + "SupportInternational", this.SupportInternational);
 
     }
 }

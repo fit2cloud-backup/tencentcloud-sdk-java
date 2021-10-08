@@ -27,15 +27,15 @@ public class MinorsVerificationResponse extends AbstractModel{
 收费结果码：
 0: 成年
 -1: 未成年
--2: 手机号未实名
 -3: 姓名和身份证号不一致
 
 不收费结果码：
+-2: 未查询到手机号信息
 -4: 非法身份证号（长度、校验位等不正确）
 -5: 非法姓名（长度、格式等不正确）
--6: 数据源服务异常
--7: 数据源中无此身份证记录
--8: 公安比对系统升级中，请稍后再试
+-6: 权威数据源服务异常
+-7: 未查询到身份信息
+-8: 权威数据源升级中，请稍后再试
     */
     @SerializedName("Result")
     @Expose
@@ -49,8 +49,11 @@ public class MinorsVerificationResponse extends AbstractModel{
     private String Description;
 
     /**
-    * 当结果码为0或者-1时，该字段的值为年龄区间。
-格式为[a,b)，表示年龄在a岁以上（包括a岁），b岁以下（不包括b岁）。若b为+时表示没有上限。
+    * 该字段的值为年龄区间。格式为[a,b)，
+[0,8)表示年龄小于8周岁区间，不包括8岁；
+[8,16)表示年龄8-16周岁区间，不包括16岁；
+[16,18)表示年龄16-18周岁区间，不包括18岁；
+[18,+)表示年龄大于18周岁。
     */
     @SerializedName("AgeRange")
     @Expose
@@ -68,28 +71,28 @@ public class MinorsVerificationResponse extends AbstractModel{
 收费结果码：
 0: 成年
 -1: 未成年
--2: 手机号未实名
 -3: 姓名和身份证号不一致
 
 不收费结果码：
+-2: 未查询到手机号信息
 -4: 非法身份证号（长度、校验位等不正确）
 -5: 非法姓名（长度、格式等不正确）
--6: 数据源服务异常
--7: 数据源中无此身份证记录
--8: 公安比对系统升级中，请稍后再试 
+-6: 权威数据源服务异常
+-7: 未查询到身份信息
+-8: 权威数据源升级中，请稍后再试 
      * @return Result 结果码，收费情况如下。
 收费结果码：
 0: 成年
 -1: 未成年
--2: 手机号未实名
 -3: 姓名和身份证号不一致
 
 不收费结果码：
+-2: 未查询到手机号信息
 -4: 非法身份证号（长度、校验位等不正确）
 -5: 非法姓名（长度、格式等不正确）
--6: 数据源服务异常
--7: 数据源中无此身份证记录
--8: 公安比对系统升级中，请稍后再试
+-6: 权威数据源服务异常
+-7: 未查询到身份信息
+-8: 权威数据源升级中，请稍后再试
      */
     public String getResult() {
         return this.Result;
@@ -100,28 +103,28 @@ public class MinorsVerificationResponse extends AbstractModel{
 收费结果码：
 0: 成年
 -1: 未成年
--2: 手机号未实名
 -3: 姓名和身份证号不一致
 
 不收费结果码：
+-2: 未查询到手机号信息
 -4: 非法身份证号（长度、校验位等不正确）
 -5: 非法姓名（长度、格式等不正确）
--6: 数据源服务异常
--7: 数据源中无此身份证记录
--8: 公安比对系统升级中，请稍后再试
+-6: 权威数据源服务异常
+-7: 未查询到身份信息
+-8: 权威数据源升级中，请稍后再试
      * @param Result 结果码，收费情况如下。
 收费结果码：
 0: 成年
 -1: 未成年
--2: 手机号未实名
 -3: 姓名和身份证号不一致
 
 不收费结果码：
+-2: 未查询到手机号信息
 -4: 非法身份证号（长度、校验位等不正确）
 -5: 非法姓名（长度、格式等不正确）
--6: 数据源服务异常
--7: 数据源中无此身份证记录
--8: 公安比对系统升级中，请稍后再试
+-6: 权威数据源服务异常
+-7: 未查询到身份信息
+-8: 权威数据源升级中，请稍后再试
      */
     public void setResult(String Result) {
         this.Result = Result;
@@ -144,20 +147,32 @@ public class MinorsVerificationResponse extends AbstractModel{
     }
 
     /**
-     * Get 当结果码为0或者-1时，该字段的值为年龄区间。
-格式为[a,b)，表示年龄在a岁以上（包括a岁），b岁以下（不包括b岁）。若b为+时表示没有上限。 
-     * @return AgeRange 当结果码为0或者-1时，该字段的值为年龄区间。
-格式为[a,b)，表示年龄在a岁以上（包括a岁），b岁以下（不包括b岁）。若b为+时表示没有上限。
+     * Get 该字段的值为年龄区间。格式为[a,b)，
+[0,8)表示年龄小于8周岁区间，不包括8岁；
+[8,16)表示年龄8-16周岁区间，不包括16岁；
+[16,18)表示年龄16-18周岁区间，不包括18岁；
+[18,+)表示年龄大于18周岁。 
+     * @return AgeRange 该字段的值为年龄区间。格式为[a,b)，
+[0,8)表示年龄小于8周岁区间，不包括8岁；
+[8,16)表示年龄8-16周岁区间，不包括16岁；
+[16,18)表示年龄16-18周岁区间，不包括18岁；
+[18,+)表示年龄大于18周岁。
      */
     public String getAgeRange() {
         return this.AgeRange;
     }
 
     /**
-     * Set 当结果码为0或者-1时，该字段的值为年龄区间。
-格式为[a,b)，表示年龄在a岁以上（包括a岁），b岁以下（不包括b岁）。若b为+时表示没有上限。
-     * @param AgeRange 当结果码为0或者-1时，该字段的值为年龄区间。
-格式为[a,b)，表示年龄在a岁以上（包括a岁），b岁以下（不包括b岁）。若b为+时表示没有上限。
+     * Set 该字段的值为年龄区间。格式为[a,b)，
+[0,8)表示年龄小于8周岁区间，不包括8岁；
+[8,16)表示年龄8-16周岁区间，不包括16岁；
+[16,18)表示年龄16-18周岁区间，不包括18岁；
+[18,+)表示年龄大于18周岁。
+     * @param AgeRange 该字段的值为年龄区间。格式为[a,b)，
+[0,8)表示年龄小于8周岁区间，不包括8岁；
+[8,16)表示年龄8-16周岁区间，不包括16岁；
+[16,18)表示年龄16-18周岁区间，不包括18岁；
+[18,+)表示年龄大于18周岁。
      */
     public void setAgeRange(String AgeRange) {
         this.AgeRange = AgeRange;
@@ -178,6 +193,29 @@ public class MinorsVerificationResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public MinorsVerificationResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MinorsVerificationResponse(MinorsVerificationResponse source) {
+        if (source.Result != null) {
+            this.Result = new String(source.Result);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.AgeRange != null) {
+            this.AgeRange = new String(source.AgeRange);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

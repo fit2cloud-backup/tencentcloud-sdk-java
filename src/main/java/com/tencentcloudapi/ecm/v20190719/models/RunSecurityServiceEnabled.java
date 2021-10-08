@@ -30,7 +30,7 @@ public class RunSecurityServiceEnabled extends AbstractModel{
     private Boolean Enabled;
 
     /**
-    * 云镜版本：0 基础版，1 专业版
+    * 云镜版本：0 基础版，1 专业版。目前仅支持基础版
     */
     @SerializedName("Version")
     @Expose
@@ -53,20 +53,37 @@ public class RunSecurityServiceEnabled extends AbstractModel{
     }
 
     /**
-     * Get 云镜版本：0 基础版，1 专业版 
-     * @return Version 云镜版本：0 基础版，1 专业版
+     * Get 云镜版本：0 基础版，1 专业版。目前仅支持基础版 
+     * @return Version 云镜版本：0 基础版，1 专业版。目前仅支持基础版
      */
     public Long getVersion() {
         return this.Version;
     }
 
     /**
-     * Set 云镜版本：0 基础版，1 专业版
-     * @param Version 云镜版本：0 基础版，1 专业版
+     * Set 云镜版本：0 基础版，1 专业版。目前仅支持基础版
+     * @param Version 云镜版本：0 基础版，1 专业版。目前仅支持基础版
      */
     public void setVersion(Long Version) {
         this.Version = Version;
     }
+
+    public RunSecurityServiceEnabled() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public RunSecurityServiceEnabled(RunSecurityServiceEnabled source) {
+        if (source.Enabled != null) {
+            this.Enabled = new Boolean(source.Enabled);
+        }
+        if (source.Version != null) {
+            this.Version = new Long(source.Version);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

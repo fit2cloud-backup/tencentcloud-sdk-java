@@ -37,7 +37,7 @@ public class SpeechTranslateResponse extends AbstractModel{
     private Long RecognizeStatus;
 
     /**
-    * 识别出的源文
+    * 识别出的原文
     */
     @SerializedName("SourceText")
     @Expose
@@ -58,7 +58,7 @@ public class SpeechTranslateResponse extends AbstractModel{
     private Long Seq;
 
     /**
-    * 源语言
+    * 原语言
     */
     @SerializedName("Source")
     @Expose
@@ -118,16 +118,16 @@ public class SpeechTranslateResponse extends AbstractModel{
     }
 
     /**
-     * Get 识别出的源文 
-     * @return SourceText 识别出的源文
+     * Get 识别出的原文 
+     * @return SourceText 识别出的原文
      */
     public String getSourceText() {
         return this.SourceText;
     }
 
     /**
-     * Set 识别出的源文
-     * @param SourceText 识别出的源文
+     * Set 识别出的原文
+     * @param SourceText 识别出的原文
      */
     public void setSourceText(String SourceText) {
         this.SourceText = SourceText;
@@ -166,16 +166,16 @@ public class SpeechTranslateResponse extends AbstractModel{
     }
 
     /**
-     * Get 源语言 
-     * @return Source 源语言
+     * Get 原语言 
+     * @return Source 原语言
      */
     public String getSource() {
         return this.Source;
     }
 
     /**
-     * Set 源语言
-     * @param Source 源语言
+     * Set 原语言
+     * @param Source 原语言
      */
     public void setSource(String Source) {
         this.Source = Source;
@@ -228,6 +228,44 @@ public class SpeechTranslateResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public SpeechTranslateResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SpeechTranslateResponse(SpeechTranslateResponse source) {
+        if (source.SessionUuid != null) {
+            this.SessionUuid = new String(source.SessionUuid);
+        }
+        if (source.RecognizeStatus != null) {
+            this.RecognizeStatus = new Long(source.RecognizeStatus);
+        }
+        if (source.SourceText != null) {
+            this.SourceText = new String(source.SourceText);
+        }
+        if (source.TargetText != null) {
+            this.TargetText = new String(source.TargetText);
+        }
+        if (source.Seq != null) {
+            this.Seq = new Long(source.Seq);
+        }
+        if (source.Source != null) {
+            this.Source = new String(source.Source);
+        }
+        if (source.Target != null) {
+            this.Target = new String(source.Target);
+        }
+        if (source.VadSeq != null) {
+            this.VadSeq = new Long(source.VadSeq);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

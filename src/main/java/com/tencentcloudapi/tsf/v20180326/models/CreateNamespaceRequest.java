@@ -65,6 +65,20 @@ public class CreateNamespaceRequest extends AbstractModel{
     private String NamespaceId;
 
     /**
+    * 是否开启高可用
+    */
+    @SerializedName("IsHaEnable")
+    @Expose
+    private String IsHaEnable;
+
+    /**
+    * 需要绑定的数据集ID
+    */
+    @SerializedName("ProgramId")
+    @Expose
+    private String ProgramId;
+
+    /**
      * Get 命名空间名称 
      * @return NamespaceName 命名空间名称
      */
@@ -161,6 +175,73 @@ public class CreateNamespaceRequest extends AbstractModel{
     }
 
     /**
+     * Get 是否开启高可用 
+     * @return IsHaEnable 是否开启高可用
+     */
+    public String getIsHaEnable() {
+        return this.IsHaEnable;
+    }
+
+    /**
+     * Set 是否开启高可用
+     * @param IsHaEnable 是否开启高可用
+     */
+    public void setIsHaEnable(String IsHaEnable) {
+        this.IsHaEnable = IsHaEnable;
+    }
+
+    /**
+     * Get 需要绑定的数据集ID 
+     * @return ProgramId 需要绑定的数据集ID
+     */
+    public String getProgramId() {
+        return this.ProgramId;
+    }
+
+    /**
+     * Set 需要绑定的数据集ID
+     * @param ProgramId 需要绑定的数据集ID
+     */
+    public void setProgramId(String ProgramId) {
+        this.ProgramId = ProgramId;
+    }
+
+    public CreateNamespaceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateNamespaceRequest(CreateNamespaceRequest source) {
+        if (source.NamespaceName != null) {
+            this.NamespaceName = new String(source.NamespaceName);
+        }
+        if (source.ClusterId != null) {
+            this.ClusterId = new String(source.ClusterId);
+        }
+        if (source.NamespaceDesc != null) {
+            this.NamespaceDesc = new String(source.NamespaceDesc);
+        }
+        if (source.NamespaceResourceType != null) {
+            this.NamespaceResourceType = new String(source.NamespaceResourceType);
+        }
+        if (source.NamespaceType != null) {
+            this.NamespaceType = new String(source.NamespaceType);
+        }
+        if (source.NamespaceId != null) {
+            this.NamespaceId = new String(source.NamespaceId);
+        }
+        if (source.IsHaEnable != null) {
+            this.IsHaEnable = new String(source.IsHaEnable);
+        }
+        if (source.ProgramId != null) {
+            this.ProgramId = new String(source.ProgramId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -170,6 +251,8 @@ public class CreateNamespaceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "NamespaceResourceType", this.NamespaceResourceType);
         this.setParamSimple(map, prefix + "NamespaceType", this.NamespaceType);
         this.setParamSimple(map, prefix + "NamespaceId", this.NamespaceId);
+        this.setParamSimple(map, prefix + "IsHaEnable", this.IsHaEnable);
+        this.setParamSimple(map, prefix + "ProgramId", this.ProgramId);
 
     }
 }

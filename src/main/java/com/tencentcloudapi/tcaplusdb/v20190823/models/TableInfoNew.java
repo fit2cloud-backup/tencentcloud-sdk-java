@@ -143,7 +143,7 @@ public class TableInfoNew extends AbstractModel{
     private Long ReservedVolume;
 
     /**
-    * 表格预留读QPS
+    * 表格预留读CU
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReservedReadQps")
@@ -151,7 +151,7 @@ public class TableInfoNew extends AbstractModel{
     private Long ReservedReadQps;
 
     /**
-    * 表格预留写QPS
+    * 表格预留写CU
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReservedWriteQps")
@@ -229,6 +229,14 @@ public class TableInfoNew extends AbstractModel{
     @SerializedName("SortRule")
     @Expose
     private Long SortRule;
+
+    /**
+    * 表格分布式索引/缓写、kafka数据订阅信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DbClusterInfoStruct")
+    @Expose
+    private String DbClusterInfoStruct;
 
     /**
      * Get 表格名称
@@ -531,9 +539,9 @@ public class TableInfoNew extends AbstractModel{
     }
 
     /**
-     * Get 表格预留读QPS
+     * Get 表格预留读CU
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ReservedReadQps 表格预留读QPS
+     * @return ReservedReadQps 表格预留读CU
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getReservedReadQps() {
@@ -541,9 +549,9 @@ public class TableInfoNew extends AbstractModel{
     }
 
     /**
-     * Set 表格预留读QPS
+     * Set 表格预留读CU
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ReservedReadQps 表格预留读QPS
+     * @param ReservedReadQps 表格预留读CU
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReservedReadQps(Long ReservedReadQps) {
@@ -551,9 +559,9 @@ public class TableInfoNew extends AbstractModel{
     }
 
     /**
-     * Get 表格预留写QPS
+     * Get 表格预留写CU
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ReservedWriteQps 表格预留写QPS
+     * @return ReservedWriteQps 表格预留写CU
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getReservedWriteQps() {
@@ -561,9 +569,9 @@ public class TableInfoNew extends AbstractModel{
     }
 
     /**
-     * Set 表格预留写QPS
+     * Set 表格预留写CU
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ReservedWriteQps 表格预留写QPS
+     * @param ReservedWriteQps 表格预留写CU
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReservedWriteQps(Long ReservedWriteQps) {
@@ -751,6 +759,121 @@ public class TableInfoNew extends AbstractModel{
     }
 
     /**
+     * Get 表格分布式索引/缓写、kafka数据订阅信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DbClusterInfoStruct 表格分布式索引/缓写、kafka数据订阅信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDbClusterInfoStruct() {
+        return this.DbClusterInfoStruct;
+    }
+
+    /**
+     * Set 表格分布式索引/缓写、kafka数据订阅信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DbClusterInfoStruct 表格分布式索引/缓写、kafka数据订阅信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDbClusterInfoStruct(String DbClusterInfoStruct) {
+        this.DbClusterInfoStruct = DbClusterInfoStruct;
+    }
+
+    public TableInfoNew() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public TableInfoNew(TableInfoNew source) {
+        if (source.TableName != null) {
+            this.TableName = new String(source.TableName);
+        }
+        if (source.TableInstanceId != null) {
+            this.TableInstanceId = new String(source.TableInstanceId);
+        }
+        if (source.TableType != null) {
+            this.TableType = new String(source.TableType);
+        }
+        if (source.TableIdlType != null) {
+            this.TableIdlType = new String(source.TableIdlType);
+        }
+        if (source.ClusterId != null) {
+            this.ClusterId = new String(source.ClusterId);
+        }
+        if (source.ClusterName != null) {
+            this.ClusterName = new String(source.ClusterName);
+        }
+        if (source.TableGroupId != null) {
+            this.TableGroupId = new String(source.TableGroupId);
+        }
+        if (source.TableGroupName != null) {
+            this.TableGroupName = new String(source.TableGroupName);
+        }
+        if (source.KeyStruct != null) {
+            this.KeyStruct = new String(source.KeyStruct);
+        }
+        if (source.ValueStruct != null) {
+            this.ValueStruct = new String(source.ValueStruct);
+        }
+        if (source.ShardingKeySet != null) {
+            this.ShardingKeySet = new String(source.ShardingKeySet);
+        }
+        if (source.IndexStruct != null) {
+            this.IndexStruct = new String(source.IndexStruct);
+        }
+        if (source.ListElementNum != null) {
+            this.ListElementNum = new Long(source.ListElementNum);
+        }
+        if (source.IdlFiles != null) {
+            this.IdlFiles = new IdlFileInfo[source.IdlFiles.length];
+            for (int i = 0; i < source.IdlFiles.length; i++) {
+                this.IdlFiles[i] = new IdlFileInfo(source.IdlFiles[i]);
+            }
+        }
+        if (source.ReservedVolume != null) {
+            this.ReservedVolume = new Long(source.ReservedVolume);
+        }
+        if (source.ReservedReadQps != null) {
+            this.ReservedReadQps = new Long(source.ReservedReadQps);
+        }
+        if (source.ReservedWriteQps != null) {
+            this.ReservedWriteQps = new Long(source.ReservedWriteQps);
+        }
+        if (source.TableSize != null) {
+            this.TableSize = new Long(source.TableSize);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.CreatedTime != null) {
+            this.CreatedTime = new String(source.CreatedTime);
+        }
+        if (source.UpdatedTime != null) {
+            this.UpdatedTime = new String(source.UpdatedTime);
+        }
+        if (source.Memo != null) {
+            this.Memo = new String(source.Memo);
+        }
+        if (source.Error != null) {
+            this.Error = new ErrorInfo(source.Error);
+        }
+        if (source.ApiAccessId != null) {
+            this.ApiAccessId = new String(source.ApiAccessId);
+        }
+        if (source.SortFieldNum != null) {
+            this.SortFieldNum = new Long(source.SortFieldNum);
+        }
+        if (source.SortRule != null) {
+            this.SortRule = new Long(source.SortRule);
+        }
+        if (source.DbClusterInfoStruct != null) {
+            this.DbClusterInfoStruct = new String(source.DbClusterInfoStruct);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -780,6 +903,7 @@ public class TableInfoNew extends AbstractModel{
         this.setParamSimple(map, prefix + "ApiAccessId", this.ApiAccessId);
         this.setParamSimple(map, prefix + "SortFieldNum", this.SortFieldNum);
         this.setParamSimple(map, prefix + "SortRule", this.SortRule);
+        this.setParamSimple(map, prefix + "DbClusterInfoStruct", this.DbClusterInfoStruct);
 
     }
 }

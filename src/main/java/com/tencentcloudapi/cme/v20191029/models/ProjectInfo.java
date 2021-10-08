@@ -44,7 +44,12 @@ public class ProjectInfo extends AbstractModel{
     private String AspectRatio;
 
     /**
-    * 项目类别。
+    * 项目类别，取值有：
+<li>VIDEO_EDIT：视频编辑。</li>
+<li>SWITCHER：导播台。</li>
+<li>VIDEO_SEGMENTATION：视频拆条。</li>
+<li>STREAM_CONNECT：云转推。</li>
+<li>RECORD_REPLAY：录制回放。</li>
     */
     @SerializedName("Category")
     @Expose
@@ -63,6 +68,14 @@ public class ProjectInfo extends AbstractModel{
     @SerializedName("CoverUrl")
     @Expose
     private String CoverUrl;
+
+    /**
+    * 云转推项目信息，仅当项目类别取值 STREAM_CONNECT 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("StreamConnectProjectInfo")
+    @Expose
+    private StreamConnectProjectInfo StreamConnectProjectInfo;
 
     /**
     * 项目创建时间，格式按照 ISO 8601 标准表示。
@@ -127,16 +140,36 @@ public class ProjectInfo extends AbstractModel{
     }
 
     /**
-     * Get 项目类别。 
-     * @return Category 项目类别。
+     * Get 项目类别，取值有：
+<li>VIDEO_EDIT：视频编辑。</li>
+<li>SWITCHER：导播台。</li>
+<li>VIDEO_SEGMENTATION：视频拆条。</li>
+<li>STREAM_CONNECT：云转推。</li>
+<li>RECORD_REPLAY：录制回放。</li> 
+     * @return Category 项目类别，取值有：
+<li>VIDEO_EDIT：视频编辑。</li>
+<li>SWITCHER：导播台。</li>
+<li>VIDEO_SEGMENTATION：视频拆条。</li>
+<li>STREAM_CONNECT：云转推。</li>
+<li>RECORD_REPLAY：录制回放。</li>
      */
     public String getCategory() {
         return this.Category;
     }
 
     /**
-     * Set 项目类别。
-     * @param Category 项目类别。
+     * Set 项目类别，取值有：
+<li>VIDEO_EDIT：视频编辑。</li>
+<li>SWITCHER：导播台。</li>
+<li>VIDEO_SEGMENTATION：视频拆条。</li>
+<li>STREAM_CONNECT：云转推。</li>
+<li>RECORD_REPLAY：录制回放。</li>
+     * @param Category 项目类别，取值有：
+<li>VIDEO_EDIT：视频编辑。</li>
+<li>SWITCHER：导播台。</li>
+<li>VIDEO_SEGMENTATION：视频拆条。</li>
+<li>STREAM_CONNECT：云转推。</li>
+<li>RECORD_REPLAY：录制回放。</li>
      */
     public void setCategory(String Category) {
         this.Category = Category;
@@ -175,6 +208,26 @@ public class ProjectInfo extends AbstractModel{
     }
 
     /**
+     * Get 云转推项目信息，仅当项目类别取值 STREAM_CONNECT 时有效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return StreamConnectProjectInfo 云转推项目信息，仅当项目类别取值 STREAM_CONNECT 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public StreamConnectProjectInfo getStreamConnectProjectInfo() {
+        return this.StreamConnectProjectInfo;
+    }
+
+    /**
+     * Set 云转推项目信息，仅当项目类别取值 STREAM_CONNECT 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param StreamConnectProjectInfo 云转推项目信息，仅当项目类别取值 STREAM_CONNECT 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setStreamConnectProjectInfo(StreamConnectProjectInfo StreamConnectProjectInfo) {
+        this.StreamConnectProjectInfo = StreamConnectProjectInfo;
+    }
+
+    /**
      * Get 项目创建时间，格式按照 ISO 8601 标准表示。 
      * @return CreateTime 项目创建时间，格式按照 ISO 8601 标准表示。
      */
@@ -206,6 +259,44 @@ public class ProjectInfo extends AbstractModel{
         this.UpdateTime = UpdateTime;
     }
 
+    public ProjectInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ProjectInfo(ProjectInfo source) {
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.AspectRatio != null) {
+            this.AspectRatio = new String(source.AspectRatio);
+        }
+        if (source.Category != null) {
+            this.Category = new String(source.Category);
+        }
+        if (source.Owner != null) {
+            this.Owner = new Entity(source.Owner);
+        }
+        if (source.CoverUrl != null) {
+            this.CoverUrl = new String(source.CoverUrl);
+        }
+        if (source.StreamConnectProjectInfo != null) {
+            this.StreamConnectProjectInfo = new StreamConnectProjectInfo(source.StreamConnectProjectInfo);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
@@ -216,6 +307,7 @@ public class ProjectInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Category", this.Category);
         this.setParamObj(map, prefix + "Owner.", this.Owner);
         this.setParamSimple(map, prefix + "CoverUrl", this.CoverUrl);
+        this.setParamObj(map, prefix + "StreamConnectProjectInfo.", this.StreamConnectProjectInfo);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
 

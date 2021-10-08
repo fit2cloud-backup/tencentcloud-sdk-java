@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeImageFilterPersonalResponse extends AbstractModel{
 
     /**
-    * payload
+    * 返回tag镜像内容相同的tag列表
     */
     @SerializedName("Data")
     @Expose
@@ -37,16 +37,16 @@ public class DescribeImageFilterPersonalResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get payload 
-     * @return Data payload
+     * Get 返回tag镜像内容相同的tag列表 
+     * @return Data 返回tag镜像内容相同的tag列表
      */
     public SameImagesResp getData() {
         return this.Data;
     }
 
     /**
-     * Set payload
-     * @param Data payload
+     * Set 返回tag镜像内容相同的tag列表
+     * @param Data 返回tag镜像内容相同的tag列表
      */
     public void setData(SameImagesResp Data) {
         this.Data = Data;
@@ -67,6 +67,23 @@ public class DescribeImageFilterPersonalResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeImageFilterPersonalResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeImageFilterPersonalResponse(DescribeImageFilterPersonalResponse source) {
+        if (source.Data != null) {
+            this.Data = new SameImagesResp(source.Data);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

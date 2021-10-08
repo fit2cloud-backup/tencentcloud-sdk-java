@@ -86,7 +86,7 @@ public class DescribeAgentAuditedClientsRequest extends AbstractModel{
     private Long Limit;
 
     /**
-    * 客户类型：可以为new(新拓)/assign(指定)/old(存量)/空
+    * 客户类型：可以为new(新拓)/assign(指定)/old(存量已关联)/old_newchecking(存量-新关联考核中)/old_newnotpass(存量-新关联未达标)/direct(直销)/direct_newopp(直销(新商机))/空
     */
     @SerializedName("ClientType")
     @Expose
@@ -258,16 +258,16 @@ public class DescribeAgentAuditedClientsRequest extends AbstractModel{
     }
 
     /**
-     * Get 客户类型：可以为new(新拓)/assign(指定)/old(存量)/空 
-     * @return ClientType 客户类型：可以为new(新拓)/assign(指定)/old(存量)/空
+     * Get 客户类型：可以为new(新拓)/assign(指定)/old(存量已关联)/old_newchecking(存量-新关联考核中)/old_newnotpass(存量-新关联未达标)/direct(直销)/direct_newopp(直销(新商机))/空 
+     * @return ClientType 客户类型：可以为new(新拓)/assign(指定)/old(存量已关联)/old_newchecking(存量-新关联考核中)/old_newnotpass(存量-新关联未达标)/direct(直销)/direct_newopp(直销(新商机))/空
      */
     public String getClientType() {
         return this.ClientType;
     }
 
     /**
-     * Set 客户类型：可以为new(新拓)/assign(指定)/old(存量)/空
-     * @param ClientType 客户类型：可以为new(新拓)/assign(指定)/old(存量)/空
+     * Set 客户类型：可以为new(新拓)/assign(指定)/old(存量已关联)/old_newchecking(存量-新关联考核中)/old_newnotpass(存量-新关联未达标)/direct(直销)/direct_newopp(直销(新商机))/空
+     * @param ClientType 客户类型：可以为new(新拓)/assign(指定)/old(存量已关联)/old_newchecking(存量-新关联考核中)/old_newnotpass(存量-新关联未达标)/direct(直销)/direct_newopp(直销(新商机))/空
      */
     public void setClientType(String ClientType) {
         this.ClientType = ClientType;
@@ -320,6 +320,59 @@ public class DescribeAgentAuditedClientsRequest extends AbstractModel{
     public void setSalesName(String SalesName) {
         this.SalesName = SalesName;
     }
+
+    public DescribeAgentAuditedClientsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeAgentAuditedClientsRequest(DescribeAgentAuditedClientsRequest source) {
+        if (source.ClientUin != null) {
+            this.ClientUin = new String(source.ClientUin);
+        }
+        if (source.ClientName != null) {
+            this.ClientName = new String(source.ClientName);
+        }
+        if (source.ClientFlag != null) {
+            this.ClientFlag = new String(source.ClientFlag);
+        }
+        if (source.OrderDirection != null) {
+            this.OrderDirection = new String(source.OrderDirection);
+        }
+        if (source.ClientUins != null) {
+            this.ClientUins = new String[source.ClientUins.length];
+            for (int i = 0; i < source.ClientUins.length; i++) {
+                this.ClientUins[i] = new String(source.ClientUins[i]);
+            }
+        }
+        if (source.HasOverdueBill != null) {
+            this.HasOverdueBill = new Long(source.HasOverdueBill);
+        }
+        if (source.ClientRemark != null) {
+            this.ClientRemark = new String(source.ClientRemark);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.ClientType != null) {
+            this.ClientType = new String(source.ClientType);
+        }
+        if (source.ProjectType != null) {
+            this.ProjectType = new String(source.ProjectType);
+        }
+        if (source.SalesUin != null) {
+            this.SalesUin = new String(source.SalesUin);
+        }
+        if (source.SalesName != null) {
+            this.SalesName = new String(source.SalesName);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

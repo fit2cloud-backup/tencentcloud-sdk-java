@@ -44,14 +44,14 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
     private Long ReplicateSetNum;
 
     /**
-    * 每个副本集内节点个数，当前副本集节点数固定为3，分片从节点数可选，具体参照查询云数据库的售卖规格返回参数
+    * 每个副本集内节点个数，具体参照查询云数据库的售卖规格返回参数
     */
     @SerializedName("NodeNum")
     @Expose
     private Long NodeNum;
 
     /**
-    * 版本号，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果。参数与版本对应关系是MONGO_3_WT：MongoDB 3.2 WiredTiger存储引擎版本，MONGO_3_ROCKS：MongoDB 3.2 RocksDB存储引擎版本，MONGO_36_WT：MongoDB 3.6 WiredTiger存储引擎版本
+    * 版本号，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果。参数与版本对应关系是MONGO_3_WT：MongoDB 3.2 WiredTiger存储引擎版本，MONGO_3_ROCKS：MongoDB 3.2 RocksDB存储引擎版本，MONGO_36_WT：MongoDB 3.6 WiredTiger存储引擎版本，MONGO_40_WT：MongoDB 4.0 WiredTiger存储引擎版本，MONGO_42_WT：MongoDB 4.2 WiredTiger存储引擎版本
     */
     @SerializedName("MongoVersion")
     @Expose
@@ -72,7 +72,7 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
     private Long GoodsNum;
 
     /**
-    * 可用区信息，格式如：ap-guangzhou-2
+    * 可用区信息，格式如：ap-guangzhou-2。注：此参数填写的是主可用区，如果选择多可用区部署，Zone必须是AvailabilityZoneList中的一个
     */
     @SerializedName("Zone")
     @Expose
@@ -100,7 +100,7 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
     private String SubnetId;
 
     /**
-    * 实例密码，不设置该参数则需要在创建完成后通过设置密码接口初始化实例密码。密码必须是8-16位字符，且至少包含字母、数字和字符 !@#%^*() 中的两种
+    * 实例密码，不设置该参数则默认密码规则为 实例ID+"@"+主账户uin。举例实例id为cmgo-higv73ed，uin为100000001，则默认密码为"cmgo-higv73ed@100000001"。密码必须是8-16位字符，且至少包含字母、数字和字符 !@#%^*() 中的两种
     */
     @SerializedName("Password")
     @Expose
@@ -119,6 +119,69 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
     @SerializedName("Tags")
     @Expose
     private TagInfo [] Tags;
+
+    /**
+    * 1:正式实例,2:临时实例,3:只读实例,4:灾备实例,5:克隆实例
+    */
+    @SerializedName("Clone")
+    @Expose
+    private Long Clone;
+
+    /**
+    * 父实例Id，当Clone为3或者4时，这个必须填
+    */
+    @SerializedName("Father")
+    @Expose
+    private String Father;
+
+    /**
+    * 安全组
+    */
+    @SerializedName("SecurityGroup")
+    @Expose
+    private String [] SecurityGroup;
+
+    /**
+    * 克隆实例回档时间。若是克隆实例，则必须填写，示例：2021-08-13 16:30:00。注：只能回档7天内的时间点
+    */
+    @SerializedName("RestoreTime")
+    @Expose
+    private String RestoreTime;
+
+    /**
+    * 实例名称。注：名称只支持长度为60个字符的中文、英文、数字、下划线_、分隔符-
+    */
+    @SerializedName("InstanceName")
+    @Expose
+    private String InstanceName;
+
+    /**
+    * 多可用区部署的节点列表，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果。注：1、多可用区部署节点只能部署在3个不同可用区；2、为了保障跨可用区切换，不支持将集群的大多数节点部署在同一个可用区（如3节点集群不支持2个节点部署在同一个区）；3、不支持4.2及以上版本；4、不支持只读灾备实例；5、不能选择基础网络
+    */
+    @SerializedName("AvailabilityZoneList")
+    @Expose
+    private String [] AvailabilityZoneList;
+
+    /**
+    * mongos cpu数量，购买MongoDB 4.2 WiredTiger存储引擎版本的分片集群时必须填写，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果
+    */
+    @SerializedName("MongosCpu")
+    @Expose
+    private Long MongosCpu;
+
+    /**
+    * mongos 内存大小，购买MongoDB 4.2 WiredTiger存储引擎版本的分片集群时必须填写，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果
+    */
+    @SerializedName("MongosMemory")
+    @Expose
+    private Long MongosMemory;
+
+    /**
+    * mongos 数量，购买MongoDB 4.2 WiredTiger存储引擎版本的分片集群时必须填写，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果。注：为了保障高可用，最低需要购买3个mongos，上限为32个
+    */
+    @SerializedName("MongosNodeNum")
+    @Expose
+    private Long MongosNodeNum;
 
     /**
      * Get 实例内存大小，单位：GB 
@@ -169,32 +232,32 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
     }
 
     /**
-     * Get 每个副本集内节点个数，当前副本集节点数固定为3，分片从节点数可选，具体参照查询云数据库的售卖规格返回参数 
-     * @return NodeNum 每个副本集内节点个数，当前副本集节点数固定为3，分片从节点数可选，具体参照查询云数据库的售卖规格返回参数
+     * Get 每个副本集内节点个数，具体参照查询云数据库的售卖规格返回参数 
+     * @return NodeNum 每个副本集内节点个数，具体参照查询云数据库的售卖规格返回参数
      */
     public Long getNodeNum() {
         return this.NodeNum;
     }
 
     /**
-     * Set 每个副本集内节点个数，当前副本集节点数固定为3，分片从节点数可选，具体参照查询云数据库的售卖规格返回参数
-     * @param NodeNum 每个副本集内节点个数，当前副本集节点数固定为3，分片从节点数可选，具体参照查询云数据库的售卖规格返回参数
+     * Set 每个副本集内节点个数，具体参照查询云数据库的售卖规格返回参数
+     * @param NodeNum 每个副本集内节点个数，具体参照查询云数据库的售卖规格返回参数
      */
     public void setNodeNum(Long NodeNum) {
         this.NodeNum = NodeNum;
     }
 
     /**
-     * Get 版本号，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果。参数与版本对应关系是MONGO_3_WT：MongoDB 3.2 WiredTiger存储引擎版本，MONGO_3_ROCKS：MongoDB 3.2 RocksDB存储引擎版本，MONGO_36_WT：MongoDB 3.6 WiredTiger存储引擎版本 
-     * @return MongoVersion 版本号，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果。参数与版本对应关系是MONGO_3_WT：MongoDB 3.2 WiredTiger存储引擎版本，MONGO_3_ROCKS：MongoDB 3.2 RocksDB存储引擎版本，MONGO_36_WT：MongoDB 3.6 WiredTiger存储引擎版本
+     * Get 版本号，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果。参数与版本对应关系是MONGO_3_WT：MongoDB 3.2 WiredTiger存储引擎版本，MONGO_3_ROCKS：MongoDB 3.2 RocksDB存储引擎版本，MONGO_36_WT：MongoDB 3.6 WiredTiger存储引擎版本，MONGO_40_WT：MongoDB 4.0 WiredTiger存储引擎版本，MONGO_42_WT：MongoDB 4.2 WiredTiger存储引擎版本 
+     * @return MongoVersion 版本号，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果。参数与版本对应关系是MONGO_3_WT：MongoDB 3.2 WiredTiger存储引擎版本，MONGO_3_ROCKS：MongoDB 3.2 RocksDB存储引擎版本，MONGO_36_WT：MongoDB 3.6 WiredTiger存储引擎版本，MONGO_40_WT：MongoDB 4.0 WiredTiger存储引擎版本，MONGO_42_WT：MongoDB 4.2 WiredTiger存储引擎版本
      */
     public String getMongoVersion() {
         return this.MongoVersion;
     }
 
     /**
-     * Set 版本号，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果。参数与版本对应关系是MONGO_3_WT：MongoDB 3.2 WiredTiger存储引擎版本，MONGO_3_ROCKS：MongoDB 3.2 RocksDB存储引擎版本，MONGO_36_WT：MongoDB 3.6 WiredTiger存储引擎版本
-     * @param MongoVersion 版本号，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果。参数与版本对应关系是MONGO_3_WT：MongoDB 3.2 WiredTiger存储引擎版本，MONGO_3_ROCKS：MongoDB 3.2 RocksDB存储引擎版本，MONGO_36_WT：MongoDB 3.6 WiredTiger存储引擎版本
+     * Set 版本号，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果。参数与版本对应关系是MONGO_3_WT：MongoDB 3.2 WiredTiger存储引擎版本，MONGO_3_ROCKS：MongoDB 3.2 RocksDB存储引擎版本，MONGO_36_WT：MongoDB 3.6 WiredTiger存储引擎版本，MONGO_40_WT：MongoDB 4.0 WiredTiger存储引擎版本，MONGO_42_WT：MongoDB 4.2 WiredTiger存储引擎版本
+     * @param MongoVersion 版本号，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果。参数与版本对应关系是MONGO_3_WT：MongoDB 3.2 WiredTiger存储引擎版本，MONGO_3_ROCKS：MongoDB 3.2 RocksDB存储引擎版本，MONGO_36_WT：MongoDB 3.6 WiredTiger存储引擎版本，MONGO_40_WT：MongoDB 4.0 WiredTiger存储引擎版本，MONGO_42_WT：MongoDB 4.2 WiredTiger存储引擎版本
      */
     public void setMongoVersion(String MongoVersion) {
         this.MongoVersion = MongoVersion;
@@ -233,16 +296,16 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
     }
 
     /**
-     * Get 可用区信息，格式如：ap-guangzhou-2 
-     * @return Zone 可用区信息，格式如：ap-guangzhou-2
+     * Get 可用区信息，格式如：ap-guangzhou-2。注：此参数填写的是主可用区，如果选择多可用区部署，Zone必须是AvailabilityZoneList中的一个 
+     * @return Zone 可用区信息，格式如：ap-guangzhou-2。注：此参数填写的是主可用区，如果选择多可用区部署，Zone必须是AvailabilityZoneList中的一个
      */
     public String getZone() {
         return this.Zone;
     }
 
     /**
-     * Set 可用区信息，格式如：ap-guangzhou-2
-     * @param Zone 可用区信息，格式如：ap-guangzhou-2
+     * Set 可用区信息，格式如：ap-guangzhou-2。注：此参数填写的是主可用区，如果选择多可用区部署，Zone必须是AvailabilityZoneList中的一个
+     * @param Zone 可用区信息，格式如：ap-guangzhou-2。注：此参数填写的是主可用区，如果选择多可用区部署，Zone必须是AvailabilityZoneList中的一个
      */
     public void setZone(String Zone) {
         this.Zone = Zone;
@@ -297,16 +360,16 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
     }
 
     /**
-     * Get 实例密码，不设置该参数则需要在创建完成后通过设置密码接口初始化实例密码。密码必须是8-16位字符，且至少包含字母、数字和字符 !@#%^*() 中的两种 
-     * @return Password 实例密码，不设置该参数则需要在创建完成后通过设置密码接口初始化实例密码。密码必须是8-16位字符，且至少包含字母、数字和字符 !@#%^*() 中的两种
+     * Get 实例密码，不设置该参数则默认密码规则为 实例ID+"@"+主账户uin。举例实例id为cmgo-higv73ed，uin为100000001，则默认密码为"cmgo-higv73ed@100000001"。密码必须是8-16位字符，且至少包含字母、数字和字符 !@#%^*() 中的两种 
+     * @return Password 实例密码，不设置该参数则默认密码规则为 实例ID+"@"+主账户uin。举例实例id为cmgo-higv73ed，uin为100000001，则默认密码为"cmgo-higv73ed@100000001"。密码必须是8-16位字符，且至少包含字母、数字和字符 !@#%^*() 中的两种
      */
     public String getPassword() {
         return this.Password;
     }
 
     /**
-     * Set 实例密码，不设置该参数则需要在创建完成后通过设置密码接口初始化实例密码。密码必须是8-16位字符，且至少包含字母、数字和字符 !@#%^*() 中的两种
-     * @param Password 实例密码，不设置该参数则需要在创建完成后通过设置密码接口初始化实例密码。密码必须是8-16位字符，且至少包含字母、数字和字符 !@#%^*() 中的两种
+     * Set 实例密码，不设置该参数则默认密码规则为 实例ID+"@"+主账户uin。举例实例id为cmgo-higv73ed，uin为100000001，则默认密码为"cmgo-higv73ed@100000001"。密码必须是8-16位字符，且至少包含字母、数字和字符 !@#%^*() 中的两种
+     * @param Password 实例密码，不设置该参数则默认密码规则为 实例ID+"@"+主账户uin。举例实例id为cmgo-higv73ed，uin为100000001，则默认密码为"cmgo-higv73ed@100000001"。密码必须是8-16位字符，且至少包含字母、数字和字符 !@#%^*() 中的两种
      */
     public void setPassword(String Password) {
         this.Password = Password;
@@ -345,6 +408,239 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
     }
 
     /**
+     * Get 1:正式实例,2:临时实例,3:只读实例,4:灾备实例,5:克隆实例 
+     * @return Clone 1:正式实例,2:临时实例,3:只读实例,4:灾备实例,5:克隆实例
+     */
+    public Long getClone() {
+        return this.Clone;
+    }
+
+    /**
+     * Set 1:正式实例,2:临时实例,3:只读实例,4:灾备实例,5:克隆实例
+     * @param Clone 1:正式实例,2:临时实例,3:只读实例,4:灾备实例,5:克隆实例
+     */
+    public void setClone(Long Clone) {
+        this.Clone = Clone;
+    }
+
+    /**
+     * Get 父实例Id，当Clone为3或者4时，这个必须填 
+     * @return Father 父实例Id，当Clone为3或者4时，这个必须填
+     */
+    public String getFather() {
+        return this.Father;
+    }
+
+    /**
+     * Set 父实例Id，当Clone为3或者4时，这个必须填
+     * @param Father 父实例Id，当Clone为3或者4时，这个必须填
+     */
+    public void setFather(String Father) {
+        this.Father = Father;
+    }
+
+    /**
+     * Get 安全组 
+     * @return SecurityGroup 安全组
+     */
+    public String [] getSecurityGroup() {
+        return this.SecurityGroup;
+    }
+
+    /**
+     * Set 安全组
+     * @param SecurityGroup 安全组
+     */
+    public void setSecurityGroup(String [] SecurityGroup) {
+        this.SecurityGroup = SecurityGroup;
+    }
+
+    /**
+     * Get 克隆实例回档时间。若是克隆实例，则必须填写，示例：2021-08-13 16:30:00。注：只能回档7天内的时间点 
+     * @return RestoreTime 克隆实例回档时间。若是克隆实例，则必须填写，示例：2021-08-13 16:30:00。注：只能回档7天内的时间点
+     */
+    public String getRestoreTime() {
+        return this.RestoreTime;
+    }
+
+    /**
+     * Set 克隆实例回档时间。若是克隆实例，则必须填写，示例：2021-08-13 16:30:00。注：只能回档7天内的时间点
+     * @param RestoreTime 克隆实例回档时间。若是克隆实例，则必须填写，示例：2021-08-13 16:30:00。注：只能回档7天内的时间点
+     */
+    public void setRestoreTime(String RestoreTime) {
+        this.RestoreTime = RestoreTime;
+    }
+
+    /**
+     * Get 实例名称。注：名称只支持长度为60个字符的中文、英文、数字、下划线_、分隔符- 
+     * @return InstanceName 实例名称。注：名称只支持长度为60个字符的中文、英文、数字、下划线_、分隔符-
+     */
+    public String getInstanceName() {
+        return this.InstanceName;
+    }
+
+    /**
+     * Set 实例名称。注：名称只支持长度为60个字符的中文、英文、数字、下划线_、分隔符-
+     * @param InstanceName 实例名称。注：名称只支持长度为60个字符的中文、英文、数字、下划线_、分隔符-
+     */
+    public void setInstanceName(String InstanceName) {
+        this.InstanceName = InstanceName;
+    }
+
+    /**
+     * Get 多可用区部署的节点列表，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果。注：1、多可用区部署节点只能部署在3个不同可用区；2、为了保障跨可用区切换，不支持将集群的大多数节点部署在同一个可用区（如3节点集群不支持2个节点部署在同一个区）；3、不支持4.2及以上版本；4、不支持只读灾备实例；5、不能选择基础网络 
+     * @return AvailabilityZoneList 多可用区部署的节点列表，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果。注：1、多可用区部署节点只能部署在3个不同可用区；2、为了保障跨可用区切换，不支持将集群的大多数节点部署在同一个可用区（如3节点集群不支持2个节点部署在同一个区）；3、不支持4.2及以上版本；4、不支持只读灾备实例；5、不能选择基础网络
+     */
+    public String [] getAvailabilityZoneList() {
+        return this.AvailabilityZoneList;
+    }
+
+    /**
+     * Set 多可用区部署的节点列表，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果。注：1、多可用区部署节点只能部署在3个不同可用区；2、为了保障跨可用区切换，不支持将集群的大多数节点部署在同一个可用区（如3节点集群不支持2个节点部署在同一个区）；3、不支持4.2及以上版本；4、不支持只读灾备实例；5、不能选择基础网络
+     * @param AvailabilityZoneList 多可用区部署的节点列表，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果。注：1、多可用区部署节点只能部署在3个不同可用区；2、为了保障跨可用区切换，不支持将集群的大多数节点部署在同一个可用区（如3节点集群不支持2个节点部署在同一个区）；3、不支持4.2及以上版本；4、不支持只读灾备实例；5、不能选择基础网络
+     */
+    public void setAvailabilityZoneList(String [] AvailabilityZoneList) {
+        this.AvailabilityZoneList = AvailabilityZoneList;
+    }
+
+    /**
+     * Get mongos cpu数量，购买MongoDB 4.2 WiredTiger存储引擎版本的分片集群时必须填写，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果 
+     * @return MongosCpu mongos cpu数量，购买MongoDB 4.2 WiredTiger存储引擎版本的分片集群时必须填写，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果
+     */
+    public Long getMongosCpu() {
+        return this.MongosCpu;
+    }
+
+    /**
+     * Set mongos cpu数量，购买MongoDB 4.2 WiredTiger存储引擎版本的分片集群时必须填写，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果
+     * @param MongosCpu mongos cpu数量，购买MongoDB 4.2 WiredTiger存储引擎版本的分片集群时必须填写，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果
+     */
+    public void setMongosCpu(Long MongosCpu) {
+        this.MongosCpu = MongosCpu;
+    }
+
+    /**
+     * Get mongos 内存大小，购买MongoDB 4.2 WiredTiger存储引擎版本的分片集群时必须填写，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果 
+     * @return MongosMemory mongos 内存大小，购买MongoDB 4.2 WiredTiger存储引擎版本的分片集群时必须填写，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果
+     */
+    public Long getMongosMemory() {
+        return this.MongosMemory;
+    }
+
+    /**
+     * Set mongos 内存大小，购买MongoDB 4.2 WiredTiger存储引擎版本的分片集群时必须填写，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果
+     * @param MongosMemory mongos 内存大小，购买MongoDB 4.2 WiredTiger存储引擎版本的分片集群时必须填写，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果
+     */
+    public void setMongosMemory(Long MongosMemory) {
+        this.MongosMemory = MongosMemory;
+    }
+
+    /**
+     * Get mongos 数量，购买MongoDB 4.2 WiredTiger存储引擎版本的分片集群时必须填写，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果。注：为了保障高可用，最低需要购买3个mongos，上限为32个 
+     * @return MongosNodeNum mongos 数量，购买MongoDB 4.2 WiredTiger存储引擎版本的分片集群时必须填写，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果。注：为了保障高可用，最低需要购买3个mongos，上限为32个
+     */
+    public Long getMongosNodeNum() {
+        return this.MongosNodeNum;
+    }
+
+    /**
+     * Set mongos 数量，购买MongoDB 4.2 WiredTiger存储引擎版本的分片集群时必须填写，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果。注：为了保障高可用，最低需要购买3个mongos，上限为32个
+     * @param MongosNodeNum mongos 数量，购买MongoDB 4.2 WiredTiger存储引擎版本的分片集群时必须填写，具体支持的售卖版本请参照查询云数据库的售卖规格（DescribeSpecInfo）返回结果。注：为了保障高可用，最低需要购买3个mongos，上限为32个
+     */
+    public void setMongosNodeNum(Long MongosNodeNum) {
+        this.MongosNodeNum = MongosNodeNum;
+    }
+
+    public CreateDBInstanceHourRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateDBInstanceHourRequest(CreateDBInstanceHourRequest source) {
+        if (source.Memory != null) {
+            this.Memory = new Long(source.Memory);
+        }
+        if (source.Volume != null) {
+            this.Volume = new Long(source.Volume);
+        }
+        if (source.ReplicateSetNum != null) {
+            this.ReplicateSetNum = new Long(source.ReplicateSetNum);
+        }
+        if (source.NodeNum != null) {
+            this.NodeNum = new Long(source.NodeNum);
+        }
+        if (source.MongoVersion != null) {
+            this.MongoVersion = new String(source.MongoVersion);
+        }
+        if (source.MachineCode != null) {
+            this.MachineCode = new String(source.MachineCode);
+        }
+        if (source.GoodsNum != null) {
+            this.GoodsNum = new Long(source.GoodsNum);
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.ClusterType != null) {
+            this.ClusterType = new String(source.ClusterType);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.Password != null) {
+            this.Password = new String(source.Password);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.Tags != null) {
+            this.Tags = new TagInfo[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new TagInfo(source.Tags[i]);
+            }
+        }
+        if (source.Clone != null) {
+            this.Clone = new Long(source.Clone);
+        }
+        if (source.Father != null) {
+            this.Father = new String(source.Father);
+        }
+        if (source.SecurityGroup != null) {
+            this.SecurityGroup = new String[source.SecurityGroup.length];
+            for (int i = 0; i < source.SecurityGroup.length; i++) {
+                this.SecurityGroup[i] = new String(source.SecurityGroup[i]);
+            }
+        }
+        if (source.RestoreTime != null) {
+            this.RestoreTime = new String(source.RestoreTime);
+        }
+        if (source.InstanceName != null) {
+            this.InstanceName = new String(source.InstanceName);
+        }
+        if (source.AvailabilityZoneList != null) {
+            this.AvailabilityZoneList = new String[source.AvailabilityZoneList.length];
+            for (int i = 0; i < source.AvailabilityZoneList.length; i++) {
+                this.AvailabilityZoneList[i] = new String(source.AvailabilityZoneList[i]);
+            }
+        }
+        if (source.MongosCpu != null) {
+            this.MongosCpu = new Long(source.MongosCpu);
+        }
+        if (source.MongosMemory != null) {
+            this.MongosMemory = new Long(source.MongosMemory);
+        }
+        if (source.MongosNodeNum != null) {
+            this.MongosNodeNum = new Long(source.MongosNodeNum);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -362,6 +658,15 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Password", this.Password);
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "Clone", this.Clone);
+        this.setParamSimple(map, prefix + "Father", this.Father);
+        this.setParamArraySimple(map, prefix + "SecurityGroup.", this.SecurityGroup);
+        this.setParamSimple(map, prefix + "RestoreTime", this.RestoreTime);
+        this.setParamSimple(map, prefix + "InstanceName", this.InstanceName);
+        this.setParamArraySimple(map, prefix + "AvailabilityZoneList.", this.AvailabilityZoneList);
+        this.setParamSimple(map, prefix + "MongosCpu", this.MongosCpu);
+        this.setParamSimple(map, prefix + "MongosMemory", this.MongosMemory);
+        this.setParamSimple(map, prefix + "MongosNodeNum", this.MongosNodeNum);
 
     }
 }

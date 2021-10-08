@@ -54,7 +54,7 @@ public class BRIResponse extends AbstractModel{
 1) 安全   说明: APK为正规应用
 2) 一般   说明: APK为未发现问题的正常应用
 3) 风险   说明: APK为外挂或色情等风险应用
-4) 病毒   说明: APK为包含恶意代码的恶意软件吗,可能破坏系统或者其他app正常使用
+4) 病毒   说明: APK为包含恶意代码的恶意软件,可能破坏系统或者其他app正常使用
     */
     @SerializedName("Tags")
     @Expose
@@ -101,7 +101,7 @@ public class BRIResponse extends AbstractModel{
 1) 安全   说明: APK为正规应用
 2) 一般   说明: APK为未发现问题的正常应用
 3) 风险   说明: APK为外挂或色情等风险应用
-4) 病毒   说明: APK为包含恶意代码的恶意软件吗,可能破坏系统或者其他app正常使用 
+4) 病毒   说明: APK为包含恶意代码的恶意软件,可能破坏系统或者其他app正常使用 
      * @return Tags 当Service为bri_num时,返回的风险标签有:
 1) 疑似垃圾流量     说明: 结合号码的历史数据表现，判断该号码历史用互联网业务作恶行为，其产生的互联网行为对于其他业务来说属于作弊或垃圾流量。 
 2) 疑似新客户       说明: 通过号码互联网行为（社交，浏览等）是否异常判断为小号或接码平台帐号。 
@@ -126,7 +126,7 @@ public class BRIResponse extends AbstractModel{
 1) 安全   说明: APK为正规应用
 2) 一般   说明: APK为未发现问题的正常应用
 3) 风险   说明: APK为外挂或色情等风险应用
-4) 病毒   说明: APK为包含恶意代码的恶意软件吗,可能破坏系统或者其他app正常使用
+4) 病毒   说明: APK为包含恶意代码的恶意软件,可能破坏系统或者其他app正常使用
      */
     public String [] getTags() {
         return this.Tags;
@@ -157,7 +157,7 @@ public class BRIResponse extends AbstractModel{
 1) 安全   说明: APK为正规应用
 2) 一般   说明: APK为未发现问题的正常应用
 3) 风险   说明: APK为外挂或色情等风险应用
-4) 病毒   说明: APK为包含恶意代码的恶意软件吗,可能破坏系统或者其他app正常使用
+4) 病毒   说明: APK为包含恶意代码的恶意软件,可能破坏系统或者其他app正常使用
      * @param Tags 当Service为bri_num时,返回的风险标签有:
 1) 疑似垃圾流量     说明: 结合号码的历史数据表现，判断该号码历史用互联网业务作恶行为，其产生的互联网行为对于其他业务来说属于作弊或垃圾流量。 
 2) 疑似新客户       说明: 通过号码互联网行为（社交，浏览等）是否异常判断为小号或接码平台帐号。 
@@ -182,11 +182,31 @@ public class BRIResponse extends AbstractModel{
 1) 安全   说明: APK为正规应用
 2) 一般   说明: APK为未发现问题的正常应用
 3) 风险   说明: APK为外挂或色情等风险应用
-4) 病毒   说明: APK为包含恶意代码的恶意软件吗,可能破坏系统或者其他app正常使用
+4) 病毒   说明: APK为包含恶意代码的恶意软件,可能破坏系统或者其他app正常使用
      */
     public void setTags(String [] Tags) {
         this.Tags = Tags;
     }
+
+    public BRIResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public BRIResponse(BRIResponse source) {
+        if (source.Score != null) {
+            this.Score = new Float(source.Score);
+        }
+        if (source.Tags != null) {
+            this.Tags = new String[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new String(source.Tags[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -30,7 +30,7 @@ public class TaskInstanceLog extends AbstractModel{
     private Long TaskInstanceIndex;
 
     /**
-    * 标准输出日志（Base64编码）
+    * 标准输出日志（Base64编码，解码后最大日志长度2048字节）
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StdoutLog")
@@ -38,7 +38,7 @@ public class TaskInstanceLog extends AbstractModel{
     private String StdoutLog;
 
     /**
-    * 标准错误日志（Base64编码）
+    * 标准错误日志（Base64编码，解码后最大日志长度2048字节）
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StderrLog")
@@ -94,9 +94,9 @@ public class TaskInstanceLog extends AbstractModel{
     }
 
     /**
-     * Get 标准输出日志（Base64编码）
+     * Get 标准输出日志（Base64编码，解码后最大日志长度2048字节）
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return StdoutLog 标准输出日志（Base64编码）
+     * @return StdoutLog 标准输出日志（Base64编码，解码后最大日志长度2048字节）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStdoutLog() {
@@ -104,9 +104,9 @@ public class TaskInstanceLog extends AbstractModel{
     }
 
     /**
-     * Set 标准输出日志（Base64编码）
+     * Set 标准输出日志（Base64编码，解码后最大日志长度2048字节）
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param StdoutLog 标准输出日志（Base64编码）
+     * @param StdoutLog 标准输出日志（Base64编码，解码后最大日志长度2048字节）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStdoutLog(String StdoutLog) {
@@ -114,9 +114,9 @@ public class TaskInstanceLog extends AbstractModel{
     }
 
     /**
-     * Get 标准错误日志（Base64编码）
+     * Get 标准错误日志（Base64编码，解码后最大日志长度2048字节）
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return StderrLog 标准错误日志（Base64编码）
+     * @return StderrLog 标准错误日志（Base64编码，解码后最大日志长度2048字节）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStderrLog() {
@@ -124,9 +124,9 @@ public class TaskInstanceLog extends AbstractModel{
     }
 
     /**
-     * Set 标准错误日志（Base64编码）
+     * Set 标准错误日志（Base64编码，解码后最大日志长度2048字节）
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param StderrLog 标准错误日志（Base64编码）
+     * @param StderrLog 标准错误日志（Base64编码，解码后最大日志长度2048字节）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStderrLog(String StderrLog) {
@@ -212,6 +212,38 @@ public class TaskInstanceLog extends AbstractModel{
     public void setStderrRedirectFileName(String StderrRedirectFileName) {
         this.StderrRedirectFileName = StderrRedirectFileName;
     }
+
+    public TaskInstanceLog() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public TaskInstanceLog(TaskInstanceLog source) {
+        if (source.TaskInstanceIndex != null) {
+            this.TaskInstanceIndex = new Long(source.TaskInstanceIndex);
+        }
+        if (source.StdoutLog != null) {
+            this.StdoutLog = new String(source.StdoutLog);
+        }
+        if (source.StderrLog != null) {
+            this.StderrLog = new String(source.StderrLog);
+        }
+        if (source.StdoutRedirectPath != null) {
+            this.StdoutRedirectPath = new String(source.StdoutRedirectPath);
+        }
+        if (source.StderrRedirectPath != null) {
+            this.StderrRedirectPath = new String(source.StderrRedirectPath);
+        }
+        if (source.StdoutRedirectFileName != null) {
+            this.StdoutRedirectFileName = new String(source.StdoutRedirectFileName);
+        }
+        if (source.StderrRedirectFileName != null) {
+            this.StderrRedirectFileName = new String(source.StderrRedirectFileName);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

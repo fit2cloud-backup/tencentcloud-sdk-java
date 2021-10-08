@@ -45,8 +45,8 @@ public class BindRealServer extends AbstractModel{
 
     /**
     * 源站健康检查状态，其中：
-0，正常；
-1，异常。
+0表示正常；
+1表示异常。
 未开启健康检查状态时，该状态始终为正常。
 注意：此字段可能返回 null，表示取不到有效值。
     */
@@ -119,13 +119,13 @@ public class BindRealServer extends AbstractModel{
 
     /**
      * Get 源站健康检查状态，其中：
-0，正常；
-1，异常。
+0表示正常；
+1表示异常。
 未开启健康检查状态时，该状态始终为正常。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return RealServerStatus 源站健康检查状态，其中：
-0，正常；
-1，异常。
+0表示正常；
+1表示异常。
 未开启健康检查状态时，该状态始终为正常。
 注意：此字段可能返回 null，表示取不到有效值。
      */
@@ -135,13 +135,13 @@ public class BindRealServer extends AbstractModel{
 
     /**
      * Set 源站健康检查状态，其中：
-0，正常；
-1，异常。
+0表示正常；
+1表示异常。
 未开启健康检查状态时，该状态始终为正常。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param RealServerStatus 源站健康检查状态，其中：
-0，正常；
-1，异常。
+0表示正常；
+1表示异常。
 未开启健康检查状态时，该状态始终为正常。
 注意：此字段可能返回 null，表示取不到有效值。
      */
@@ -184,6 +184,38 @@ public class BindRealServer extends AbstractModel{
     public void setDownIPList(String [] DownIPList) {
         this.DownIPList = DownIPList;
     }
+
+    public BindRealServer() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public BindRealServer(BindRealServer source) {
+        if (source.RealServerId != null) {
+            this.RealServerId = new String(source.RealServerId);
+        }
+        if (source.RealServerIP != null) {
+            this.RealServerIP = new String(source.RealServerIP);
+        }
+        if (source.RealServerWeight != null) {
+            this.RealServerWeight = new Long(source.RealServerWeight);
+        }
+        if (source.RealServerStatus != null) {
+            this.RealServerStatus = new Long(source.RealServerStatus);
+        }
+        if (source.RealServerPort != null) {
+            this.RealServerPort = new Long(source.RealServerPort);
+        }
+        if (source.DownIPList != null) {
+            this.DownIPList = new String[source.DownIPList.length];
+            for (int i = 0; i < source.DownIPList.length; i++) {
+                this.DownIPList[i] = new String(source.DownIPList[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

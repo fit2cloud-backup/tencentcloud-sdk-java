@@ -79,7 +79,7 @@ public class MigrateTask extends AbstractModel{
     private String EndTime;
 
     /**
-    * 迁移任务的状态（1:初始化,4:迁移中,5.迁移失败,6.迁移成功）
+    * 迁移任务的状态（1:初始化,4:迁移中,5.迁移失败,6.迁移成功,7已中止,8已删除,9中止中,10完成中,11中止失败,12完成失败）
     */
     @SerializedName("Status")
     @Expose
@@ -242,16 +242,16 @@ public class MigrateTask extends AbstractModel{
     }
 
     /**
-     * Get 迁移任务的状态（1:初始化,4:迁移中,5.迁移失败,6.迁移成功） 
-     * @return Status 迁移任务的状态（1:初始化,4:迁移中,5.迁移失败,6.迁移成功）
+     * Get 迁移任务的状态（1:初始化,4:迁移中,5.迁移失败,6.迁移成功,7已中止,8已删除,9中止中,10完成中,11中止失败,12完成失败） 
+     * @return Status 迁移任务的状态（1:初始化,4:迁移中,5.迁移失败,6.迁移成功,7已中止,8已删除,9中止中,10完成中,11中止失败,12完成失败）
      */
     public Long getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 迁移任务的状态（1:初始化,4:迁移中,5.迁移失败,6.迁移成功）
-     * @param Status 迁移任务的状态（1:初始化,4:迁移中,5.迁移失败,6.迁移成功）
+     * Set 迁移任务的状态（1:初始化,4:迁移中,5.迁移失败,6.迁移成功,7已中止,8已删除,9中止中,10完成中,11中止失败,12完成失败）
+     * @param Status 迁移任务的状态（1:初始化,4:迁移中,5.迁移失败,6.迁移成功,7已中止,8已删除,9中止中,10完成中,11中止失败,12完成失败）
      */
     public void setStatus(Long Status) {
         this.Status = Status;
@@ -320,6 +320,56 @@ public class MigrateTask extends AbstractModel{
     public void setMigrateDetail(MigrateDetail MigrateDetail) {
         this.MigrateDetail = MigrateDetail;
     }
+
+    public MigrateTask() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MigrateTask(MigrateTask source) {
+        if (source.MigrateId != null) {
+            this.MigrateId = new Long(source.MigrateId);
+        }
+        if (source.MigrateName != null) {
+            this.MigrateName = new String(source.MigrateName);
+        }
+        if (source.AppId != null) {
+            this.AppId = new Long(source.AppId);
+        }
+        if (source.Region != null) {
+            this.Region = new String(source.Region);
+        }
+        if (source.SourceType != null) {
+            this.SourceType = new Long(source.SourceType);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+        if (source.Message != null) {
+            this.Message = new String(source.Message);
+        }
+        if (source.CheckFlag != null) {
+            this.CheckFlag = new Long(source.CheckFlag);
+        }
+        if (source.Progress != null) {
+            this.Progress = new Long(source.Progress);
+        }
+        if (source.MigrateDetail != null) {
+            this.MigrateDetail = new MigrateDetail(source.MigrateDetail);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

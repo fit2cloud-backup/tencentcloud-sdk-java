@@ -53,6 +53,13 @@ public class ClusterAsGroup extends AbstractModel{
     private Label [] Labels;
 
     /**
+    * 创建时间
+    */
+    @SerializedName("CreatedTime")
+    @Expose
+    private String CreatedTime;
+
+    /**
      * Get 伸缩组ID 
      * @return AutoScalingGroupId 伸缩组ID
      */
@@ -125,6 +132,51 @@ public class ClusterAsGroup extends AbstractModel{
     }
 
     /**
+     * Get 创建时间 
+     * @return CreatedTime 创建时间
+     */
+    public String getCreatedTime() {
+        return this.CreatedTime;
+    }
+
+    /**
+     * Set 创建时间
+     * @param CreatedTime 创建时间
+     */
+    public void setCreatedTime(String CreatedTime) {
+        this.CreatedTime = CreatedTime;
+    }
+
+    public ClusterAsGroup() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ClusterAsGroup(ClusterAsGroup source) {
+        if (source.AutoScalingGroupId != null) {
+            this.AutoScalingGroupId = new String(source.AutoScalingGroupId);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.IsUnschedulable != null) {
+            this.IsUnschedulable = new Boolean(source.IsUnschedulable);
+        }
+        if (source.Labels != null) {
+            this.Labels = new Label[source.Labels.length];
+            for (int i = 0; i < source.Labels.length; i++) {
+                this.Labels[i] = new Label(source.Labels[i]);
+            }
+        }
+        if (source.CreatedTime != null) {
+            this.CreatedTime = new String(source.CreatedTime);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -132,6 +184,7 @@ public class ClusterAsGroup extends AbstractModel{
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "IsUnschedulable", this.IsUnschedulable);
         this.setParamArrayObj(map, prefix + "Labels.", this.Labels);
+        this.setParamSimple(map, prefix + "CreatedTime", this.CreatedTime);
 
     }
 }

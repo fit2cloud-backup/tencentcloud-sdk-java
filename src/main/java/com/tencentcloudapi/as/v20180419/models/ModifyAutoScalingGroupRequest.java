@@ -160,6 +160,46 @@ public class ModifyAutoScalingGroupRequest extends AbstractModel{
     private String MultiZoneSubnetPolicy;
 
     /**
+    * 伸缩组实例健康检查类型，取值如下：<br><li>CVM：根据实例网络状态判断实例是否处于不健康状态，不健康的网络状态即发生实例 PING 不可达事件，详细判断标准可参考[实例健康检查](https://cloud.tencent.com/document/product/377/8553)<br><li>CLB：根据 CLB 的健康检查状态判断实例是否处于不健康状态，CLB健康检查原理可参考[健康检查](https://cloud.tencent.com/document/product/214/6097)
+    */
+    @SerializedName("HealthCheckType")
+    @Expose
+    private String HealthCheckType;
+
+    /**
+    * CLB健康检查宽限期。
+    */
+    @SerializedName("LoadBalancerHealthCheckGracePeriod")
+    @Expose
+    private Long LoadBalancerHealthCheckGracePeriod;
+
+    /**
+    * 实例分配策略，取值包括 LAUNCH_CONFIGURATION 和 SPOT_MIXED。
+<br><li> LAUNCH_CONFIGURATION，代表传统的按照启动配置模式。
+<br><li> SPOT_MIXED，代表竞价混合模式。目前仅支持启动配置为按量计费模式时使用混合模式，混合模式下，伸缩组将根据设定扩容按量或竞价机型。使用混合模式时，关联的启动配置的计费类型不可被修改。
+    */
+    @SerializedName("InstanceAllocationPolicy")
+    @Expose
+    private String InstanceAllocationPolicy;
+
+    /**
+    * 竞价混合模式下，各计费类型实例的分配策略。
+仅当 InstanceAllocationPolicy 取 SPOT_MIXED 时可用。
+    */
+    @SerializedName("SpotMixedAllocationPolicy")
+    @Expose
+    private SpotMixedAllocationPolicy SpotMixedAllocationPolicy;
+
+    /**
+    * 容量重平衡功能，仅对伸缩组内的竞价实例有效。取值范围：
+<br><li> TRUE，开启该功能，当伸缩组内的竞价实例即将被竞价实例服务自动回收前，AS 主动发起竞价实例销毁流程，如果有配置过缩容 hook，则销毁前 hook 会生效。销毁流程启动后，AS 会异步开启一个扩容活动，用于补齐期望实例数。
+<br><li> FALSE，不开启该功能，则 AS 等待竞价实例被销毁后才会去扩容补齐伸缩组期望实例数。
+    */
+    @SerializedName("CapacityRebalance")
+    @Expose
+    private Boolean CapacityRebalance;
+
+    /**
      * Get 伸缩组ID 
      * @return AutoScalingGroupId 伸缩组ID
      */
@@ -504,6 +544,192 @@ public class ModifyAutoScalingGroupRequest extends AbstractModel{
     }
 
     /**
+     * Get 伸缩组实例健康检查类型，取值如下：<br><li>CVM：根据实例网络状态判断实例是否处于不健康状态，不健康的网络状态即发生实例 PING 不可达事件，详细判断标准可参考[实例健康检查](https://cloud.tencent.com/document/product/377/8553)<br><li>CLB：根据 CLB 的健康检查状态判断实例是否处于不健康状态，CLB健康检查原理可参考[健康检查](https://cloud.tencent.com/document/product/214/6097) 
+     * @return HealthCheckType 伸缩组实例健康检查类型，取值如下：<br><li>CVM：根据实例网络状态判断实例是否处于不健康状态，不健康的网络状态即发生实例 PING 不可达事件，详细判断标准可参考[实例健康检查](https://cloud.tencent.com/document/product/377/8553)<br><li>CLB：根据 CLB 的健康检查状态判断实例是否处于不健康状态，CLB健康检查原理可参考[健康检查](https://cloud.tencent.com/document/product/214/6097)
+     */
+    public String getHealthCheckType() {
+        return this.HealthCheckType;
+    }
+
+    /**
+     * Set 伸缩组实例健康检查类型，取值如下：<br><li>CVM：根据实例网络状态判断实例是否处于不健康状态，不健康的网络状态即发生实例 PING 不可达事件，详细判断标准可参考[实例健康检查](https://cloud.tencent.com/document/product/377/8553)<br><li>CLB：根据 CLB 的健康检查状态判断实例是否处于不健康状态，CLB健康检查原理可参考[健康检查](https://cloud.tencent.com/document/product/214/6097)
+     * @param HealthCheckType 伸缩组实例健康检查类型，取值如下：<br><li>CVM：根据实例网络状态判断实例是否处于不健康状态，不健康的网络状态即发生实例 PING 不可达事件，详细判断标准可参考[实例健康检查](https://cloud.tencent.com/document/product/377/8553)<br><li>CLB：根据 CLB 的健康检查状态判断实例是否处于不健康状态，CLB健康检查原理可参考[健康检查](https://cloud.tencent.com/document/product/214/6097)
+     */
+    public void setHealthCheckType(String HealthCheckType) {
+        this.HealthCheckType = HealthCheckType;
+    }
+
+    /**
+     * Get CLB健康检查宽限期。 
+     * @return LoadBalancerHealthCheckGracePeriod CLB健康检查宽限期。
+     */
+    public Long getLoadBalancerHealthCheckGracePeriod() {
+        return this.LoadBalancerHealthCheckGracePeriod;
+    }
+
+    /**
+     * Set CLB健康检查宽限期。
+     * @param LoadBalancerHealthCheckGracePeriod CLB健康检查宽限期。
+     */
+    public void setLoadBalancerHealthCheckGracePeriod(Long LoadBalancerHealthCheckGracePeriod) {
+        this.LoadBalancerHealthCheckGracePeriod = LoadBalancerHealthCheckGracePeriod;
+    }
+
+    /**
+     * Get 实例分配策略，取值包括 LAUNCH_CONFIGURATION 和 SPOT_MIXED。
+<br><li> LAUNCH_CONFIGURATION，代表传统的按照启动配置模式。
+<br><li> SPOT_MIXED，代表竞价混合模式。目前仅支持启动配置为按量计费模式时使用混合模式，混合模式下，伸缩组将根据设定扩容按量或竞价机型。使用混合模式时，关联的启动配置的计费类型不可被修改。 
+     * @return InstanceAllocationPolicy 实例分配策略，取值包括 LAUNCH_CONFIGURATION 和 SPOT_MIXED。
+<br><li> LAUNCH_CONFIGURATION，代表传统的按照启动配置模式。
+<br><li> SPOT_MIXED，代表竞价混合模式。目前仅支持启动配置为按量计费模式时使用混合模式，混合模式下，伸缩组将根据设定扩容按量或竞价机型。使用混合模式时，关联的启动配置的计费类型不可被修改。
+     */
+    public String getInstanceAllocationPolicy() {
+        return this.InstanceAllocationPolicy;
+    }
+
+    /**
+     * Set 实例分配策略，取值包括 LAUNCH_CONFIGURATION 和 SPOT_MIXED。
+<br><li> LAUNCH_CONFIGURATION，代表传统的按照启动配置模式。
+<br><li> SPOT_MIXED，代表竞价混合模式。目前仅支持启动配置为按量计费模式时使用混合模式，混合模式下，伸缩组将根据设定扩容按量或竞价机型。使用混合模式时，关联的启动配置的计费类型不可被修改。
+     * @param InstanceAllocationPolicy 实例分配策略，取值包括 LAUNCH_CONFIGURATION 和 SPOT_MIXED。
+<br><li> LAUNCH_CONFIGURATION，代表传统的按照启动配置模式。
+<br><li> SPOT_MIXED，代表竞价混合模式。目前仅支持启动配置为按量计费模式时使用混合模式，混合模式下，伸缩组将根据设定扩容按量或竞价机型。使用混合模式时，关联的启动配置的计费类型不可被修改。
+     */
+    public void setInstanceAllocationPolicy(String InstanceAllocationPolicy) {
+        this.InstanceAllocationPolicy = InstanceAllocationPolicy;
+    }
+
+    /**
+     * Get 竞价混合模式下，各计费类型实例的分配策略。
+仅当 InstanceAllocationPolicy 取 SPOT_MIXED 时可用。 
+     * @return SpotMixedAllocationPolicy 竞价混合模式下，各计费类型实例的分配策略。
+仅当 InstanceAllocationPolicy 取 SPOT_MIXED 时可用。
+     */
+    public SpotMixedAllocationPolicy getSpotMixedAllocationPolicy() {
+        return this.SpotMixedAllocationPolicy;
+    }
+
+    /**
+     * Set 竞价混合模式下，各计费类型实例的分配策略。
+仅当 InstanceAllocationPolicy 取 SPOT_MIXED 时可用。
+     * @param SpotMixedAllocationPolicy 竞价混合模式下，各计费类型实例的分配策略。
+仅当 InstanceAllocationPolicy 取 SPOT_MIXED 时可用。
+     */
+    public void setSpotMixedAllocationPolicy(SpotMixedAllocationPolicy SpotMixedAllocationPolicy) {
+        this.SpotMixedAllocationPolicy = SpotMixedAllocationPolicy;
+    }
+
+    /**
+     * Get 容量重平衡功能，仅对伸缩组内的竞价实例有效。取值范围：
+<br><li> TRUE，开启该功能，当伸缩组内的竞价实例即将被竞价实例服务自动回收前，AS 主动发起竞价实例销毁流程，如果有配置过缩容 hook，则销毁前 hook 会生效。销毁流程启动后，AS 会异步开启一个扩容活动，用于补齐期望实例数。
+<br><li> FALSE，不开启该功能，则 AS 等待竞价实例被销毁后才会去扩容补齐伸缩组期望实例数。 
+     * @return CapacityRebalance 容量重平衡功能，仅对伸缩组内的竞价实例有效。取值范围：
+<br><li> TRUE，开启该功能，当伸缩组内的竞价实例即将被竞价实例服务自动回收前，AS 主动发起竞价实例销毁流程，如果有配置过缩容 hook，则销毁前 hook 会生效。销毁流程启动后，AS 会异步开启一个扩容活动，用于补齐期望实例数。
+<br><li> FALSE，不开启该功能，则 AS 等待竞价实例被销毁后才会去扩容补齐伸缩组期望实例数。
+     */
+    public Boolean getCapacityRebalance() {
+        return this.CapacityRebalance;
+    }
+
+    /**
+     * Set 容量重平衡功能，仅对伸缩组内的竞价实例有效。取值范围：
+<br><li> TRUE，开启该功能，当伸缩组内的竞价实例即将被竞价实例服务自动回收前，AS 主动发起竞价实例销毁流程，如果有配置过缩容 hook，则销毁前 hook 会生效。销毁流程启动后，AS 会异步开启一个扩容活动，用于补齐期望实例数。
+<br><li> FALSE，不开启该功能，则 AS 等待竞价实例被销毁后才会去扩容补齐伸缩组期望实例数。
+     * @param CapacityRebalance 容量重平衡功能，仅对伸缩组内的竞价实例有效。取值范围：
+<br><li> TRUE，开启该功能，当伸缩组内的竞价实例即将被竞价实例服务自动回收前，AS 主动发起竞价实例销毁流程，如果有配置过缩容 hook，则销毁前 hook 会生效。销毁流程启动后，AS 会异步开启一个扩容活动，用于补齐期望实例数。
+<br><li> FALSE，不开启该功能，则 AS 等待竞价实例被销毁后才会去扩容补齐伸缩组期望实例数。
+     */
+    public void setCapacityRebalance(Boolean CapacityRebalance) {
+        this.CapacityRebalance = CapacityRebalance;
+    }
+
+    public ModifyAutoScalingGroupRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyAutoScalingGroupRequest(ModifyAutoScalingGroupRequest source) {
+        if (source.AutoScalingGroupId != null) {
+            this.AutoScalingGroupId = new String(source.AutoScalingGroupId);
+        }
+        if (source.AutoScalingGroupName != null) {
+            this.AutoScalingGroupName = new String(source.AutoScalingGroupName);
+        }
+        if (source.DefaultCooldown != null) {
+            this.DefaultCooldown = new Long(source.DefaultCooldown);
+        }
+        if (source.DesiredCapacity != null) {
+            this.DesiredCapacity = new Long(source.DesiredCapacity);
+        }
+        if (source.LaunchConfigurationId != null) {
+            this.LaunchConfigurationId = new String(source.LaunchConfigurationId);
+        }
+        if (source.MaxSize != null) {
+            this.MaxSize = new Long(source.MaxSize);
+        }
+        if (source.MinSize != null) {
+            this.MinSize = new Long(source.MinSize);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.SubnetIds != null) {
+            this.SubnetIds = new String[source.SubnetIds.length];
+            for (int i = 0; i < source.SubnetIds.length; i++) {
+                this.SubnetIds[i] = new String(source.SubnetIds[i]);
+            }
+        }
+        if (source.TerminationPolicies != null) {
+            this.TerminationPolicies = new String[source.TerminationPolicies.length];
+            for (int i = 0; i < source.TerminationPolicies.length; i++) {
+                this.TerminationPolicies[i] = new String(source.TerminationPolicies[i]);
+            }
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.Zones != null) {
+            this.Zones = new String[source.Zones.length];
+            for (int i = 0; i < source.Zones.length; i++) {
+                this.Zones[i] = new String(source.Zones[i]);
+            }
+        }
+        if (source.RetryPolicy != null) {
+            this.RetryPolicy = new String(source.RetryPolicy);
+        }
+        if (source.ZonesCheckPolicy != null) {
+            this.ZonesCheckPolicy = new String(source.ZonesCheckPolicy);
+        }
+        if (source.ServiceSettings != null) {
+            this.ServiceSettings = new ServiceSettings(source.ServiceSettings);
+        }
+        if (source.Ipv6AddressCount != null) {
+            this.Ipv6AddressCount = new Long(source.Ipv6AddressCount);
+        }
+        if (source.MultiZoneSubnetPolicy != null) {
+            this.MultiZoneSubnetPolicy = new String(source.MultiZoneSubnetPolicy);
+        }
+        if (source.HealthCheckType != null) {
+            this.HealthCheckType = new String(source.HealthCheckType);
+        }
+        if (source.LoadBalancerHealthCheckGracePeriod != null) {
+            this.LoadBalancerHealthCheckGracePeriod = new Long(source.LoadBalancerHealthCheckGracePeriod);
+        }
+        if (source.InstanceAllocationPolicy != null) {
+            this.InstanceAllocationPolicy = new String(source.InstanceAllocationPolicy);
+        }
+        if (source.SpotMixedAllocationPolicy != null) {
+            this.SpotMixedAllocationPolicy = new SpotMixedAllocationPolicy(source.SpotMixedAllocationPolicy);
+        }
+        if (source.CapacityRebalance != null) {
+            this.CapacityRebalance = new Boolean(source.CapacityRebalance);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -524,6 +750,11 @@ public class ModifyAutoScalingGroupRequest extends AbstractModel{
         this.setParamObj(map, prefix + "ServiceSettings.", this.ServiceSettings);
         this.setParamSimple(map, prefix + "Ipv6AddressCount", this.Ipv6AddressCount);
         this.setParamSimple(map, prefix + "MultiZoneSubnetPolicy", this.MultiZoneSubnetPolicy);
+        this.setParamSimple(map, prefix + "HealthCheckType", this.HealthCheckType);
+        this.setParamSimple(map, prefix + "LoadBalancerHealthCheckGracePeriod", this.LoadBalancerHealthCheckGracePeriod);
+        this.setParamSimple(map, prefix + "InstanceAllocationPolicy", this.InstanceAllocationPolicy);
+        this.setParamObj(map, prefix + "SpotMixedAllocationPolicy.", this.SpotMixedAllocationPolicy);
+        this.setParamSimple(map, prefix + "CapacityRebalance", this.CapacityRebalance);
 
     }
 }

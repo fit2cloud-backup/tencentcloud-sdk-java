@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class CreateVpnGatewayRequest extends AbstractModel{
 
     /**
-    * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
+    * VPC实例ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/215/15778)接口返回值中的VpcId获取。
     */
     @SerializedName("VpcId")
     @Expose
@@ -65,16 +65,30 @@ public class CreateVpnGatewayRequest extends AbstractModel{
     private String Zone;
 
     /**
-     * Get VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。 
-     * @return VpcId VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
+    * VPN网关类型。值“CCN”云联网类型VPN网关
+    */
+    @SerializedName("Type")
+    @Expose
+    private String Type;
+
+    /**
+    * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
+     * Get VPC实例ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/215/15778)接口返回值中的VpcId获取。 
+     * @return VpcId VPC实例ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/215/15778)接口返回值中的VpcId获取。
      */
     public String getVpcId() {
         return this.VpcId;
     }
 
     /**
-     * Set VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
-     * @param VpcId VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
+     * Set VPC实例ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/215/15778)接口返回值中的VpcId获取。
+     * @param VpcId VPC实例ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/215/15778)接口返回值中的VpcId获取。
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;
@@ -161,6 +175,76 @@ public class CreateVpnGatewayRequest extends AbstractModel{
     }
 
     /**
+     * Get VPN网关类型。值“CCN”云联网类型VPN网关 
+     * @return Type VPN网关类型。值“CCN”云联网类型VPN网关
+     */
+    public String getType() {
+        return this.Type;
+    }
+
+    /**
+     * Set VPN网关类型。值“CCN”云联网类型VPN网关
+     * @param Type VPN网关类型。值“CCN”云联网类型VPN网关
+     */
+    public void setType(String Type) {
+        this.Type = Type;
+    }
+
+    /**
+     * Get 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}] 
+     * @return Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+     * @param Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    public CreateVpnGatewayRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateVpnGatewayRequest(CreateVpnGatewayRequest source) {
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.VpnGatewayName != null) {
+            this.VpnGatewayName = new String(source.VpnGatewayName);
+        }
+        if (source.InternetMaxBandwidthOut != null) {
+            this.InternetMaxBandwidthOut = new Long(source.InternetMaxBandwidthOut);
+        }
+        if (source.InstanceChargeType != null) {
+            this.InstanceChargeType = new String(source.InstanceChargeType);
+        }
+        if (source.InstanceChargePrepaid != null) {
+            this.InstanceChargePrepaid = new InstanceChargePrepaid(source.InstanceChargePrepaid);
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -170,6 +254,8 @@ public class CreateVpnGatewayRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "InstanceChargeType", this.InstanceChargeType);
         this.setParamObj(map, prefix + "InstanceChargePrepaid.", this.InstanceChargePrepaid);
         this.setParamSimple(map, prefix + "Zone", this.Zone);
+        this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

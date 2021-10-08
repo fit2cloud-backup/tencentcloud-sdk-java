@@ -30,7 +30,7 @@ public class CreateInstanceRequest extends AbstractModel{
     private String Zone;
 
     /**
-    * 实例版本（支持"5.6.4"、"6.4.3"、"6.8.2"、"7.5.1"）
+    * 实例版本（支持"5.6.4"、"6.4.3"、"6.8.2"、"7.5.1"、"7.10.1"）
     */
     @SerializedName("EsVersion")
     @Expose
@@ -220,6 +220,20 @@ public class CreateInstanceRequest extends AbstractModel{
     private Long BasicSecurityType;
 
     /**
+    * 场景化模板类型 0：不启用 1：通用 2：日志 3：搜索
+    */
+    @SerializedName("SceneType")
+    @Expose
+    private Long SceneType;
+
+    /**
+    * 可视化节点配置
+    */
+    @SerializedName("WebNodeTypeInfo")
+    @Expose
+    private WebNodeTypeInfo WebNodeTypeInfo;
+
+    /**
      * Get 可用区 
      * @return Zone 可用区
      */
@@ -236,16 +250,16 @@ public class CreateInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 实例版本（支持"5.6.4"、"6.4.3"、"6.8.2"、"7.5.1"） 
-     * @return EsVersion 实例版本（支持"5.6.4"、"6.4.3"、"6.8.2"、"7.5.1"）
+     * Get 实例版本（支持"5.6.4"、"6.4.3"、"6.8.2"、"7.5.1"、"7.10.1"） 
+     * @return EsVersion 实例版本（支持"5.6.4"、"6.4.3"、"6.8.2"、"7.5.1"、"7.10.1"）
      */
     public String getEsVersion() {
         return this.EsVersion;
     }
 
     /**
-     * Set 实例版本（支持"5.6.4"、"6.4.3"、"6.8.2"、"7.5.1"）
-     * @param EsVersion 实例版本（支持"5.6.4"、"6.4.3"、"6.8.2"、"7.5.1"）
+     * Set 实例版本（支持"5.6.4"、"6.4.3"、"6.8.2"、"7.5.1"、"7.10.1"）
+     * @param EsVersion 实例版本（支持"5.6.4"、"6.4.3"、"6.8.2"、"7.5.1"、"7.10.1"）
      */
     public void setEsVersion(String EsVersion) {
         this.EsVersion = EsVersion;
@@ -684,6 +698,148 @@ public class CreateInstanceRequest extends AbstractModel{
     }
 
     /**
+     * Get 场景化模板类型 0：不启用 1：通用 2：日志 3：搜索 
+     * @return SceneType 场景化模板类型 0：不启用 1：通用 2：日志 3：搜索
+     */
+    public Long getSceneType() {
+        return this.SceneType;
+    }
+
+    /**
+     * Set 场景化模板类型 0：不启用 1：通用 2：日志 3：搜索
+     * @param SceneType 场景化模板类型 0：不启用 1：通用 2：日志 3：搜索
+     */
+    public void setSceneType(Long SceneType) {
+        this.SceneType = SceneType;
+    }
+
+    /**
+     * Get 可视化节点配置 
+     * @return WebNodeTypeInfo 可视化节点配置
+     */
+    public WebNodeTypeInfo getWebNodeTypeInfo() {
+        return this.WebNodeTypeInfo;
+    }
+
+    /**
+     * Set 可视化节点配置
+     * @param WebNodeTypeInfo 可视化节点配置
+     */
+    public void setWebNodeTypeInfo(WebNodeTypeInfo WebNodeTypeInfo) {
+        this.WebNodeTypeInfo = WebNodeTypeInfo;
+    }
+
+    public CreateInstanceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateInstanceRequest(CreateInstanceRequest source) {
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.EsVersion != null) {
+            this.EsVersion = new String(source.EsVersion);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.Password != null) {
+            this.Password = new String(source.Password);
+        }
+        if (source.InstanceName != null) {
+            this.InstanceName = new String(source.InstanceName);
+        }
+        if (source.NodeNum != null) {
+            this.NodeNum = new Long(source.NodeNum);
+        }
+        if (source.ChargeType != null) {
+            this.ChargeType = new String(source.ChargeType);
+        }
+        if (source.ChargePeriod != null) {
+            this.ChargePeriod = new Long(source.ChargePeriod);
+        }
+        if (source.RenewFlag != null) {
+            this.RenewFlag = new String(source.RenewFlag);
+        }
+        if (source.NodeType != null) {
+            this.NodeType = new String(source.NodeType);
+        }
+        if (source.DiskType != null) {
+            this.DiskType = new String(source.DiskType);
+        }
+        if (source.DiskSize != null) {
+            this.DiskSize = new Long(source.DiskSize);
+        }
+        if (source.TimeUnit != null) {
+            this.TimeUnit = new String(source.TimeUnit);
+        }
+        if (source.AutoVoucher != null) {
+            this.AutoVoucher = new Long(source.AutoVoucher);
+        }
+        if (source.VoucherIds != null) {
+            this.VoucherIds = new String[source.VoucherIds.length];
+            for (int i = 0; i < source.VoucherIds.length; i++) {
+                this.VoucherIds[i] = new String(source.VoucherIds[i]);
+            }
+        }
+        if (source.EnableDedicatedMaster != null) {
+            this.EnableDedicatedMaster = new Boolean(source.EnableDedicatedMaster);
+        }
+        if (source.MasterNodeNum != null) {
+            this.MasterNodeNum = new Long(source.MasterNodeNum);
+        }
+        if (source.MasterNodeType != null) {
+            this.MasterNodeType = new String(source.MasterNodeType);
+        }
+        if (source.MasterNodeDiskSize != null) {
+            this.MasterNodeDiskSize = new Long(source.MasterNodeDiskSize);
+        }
+        if (source.ClusterNameInConf != null) {
+            this.ClusterNameInConf = new String(source.ClusterNameInConf);
+        }
+        if (source.DeployMode != null) {
+            this.DeployMode = new Long(source.DeployMode);
+        }
+        if (source.MultiZoneInfo != null) {
+            this.MultiZoneInfo = new ZoneDetail[source.MultiZoneInfo.length];
+            for (int i = 0; i < source.MultiZoneInfo.length; i++) {
+                this.MultiZoneInfo[i] = new ZoneDetail(source.MultiZoneInfo[i]);
+            }
+        }
+        if (source.LicenseType != null) {
+            this.LicenseType = new String(source.LicenseType);
+        }
+        if (source.NodeInfoList != null) {
+            this.NodeInfoList = new NodeInfo[source.NodeInfoList.length];
+            for (int i = 0; i < source.NodeInfoList.length; i++) {
+                this.NodeInfoList[i] = new NodeInfo(source.NodeInfoList[i]);
+            }
+        }
+        if (source.TagList != null) {
+            this.TagList = new TagInfo[source.TagList.length];
+            for (int i = 0; i < source.TagList.length; i++) {
+                this.TagList[i] = new TagInfo(source.TagList[i]);
+            }
+        }
+        if (source.BasicSecurityType != null) {
+            this.BasicSecurityType = new Long(source.BasicSecurityType);
+        }
+        if (source.SceneType != null) {
+            this.SceneType = new Long(source.SceneType);
+        }
+        if (source.WebNodeTypeInfo != null) {
+            this.WebNodeTypeInfo = new WebNodeTypeInfo(source.WebNodeTypeInfo);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -714,6 +870,8 @@ public class CreateInstanceRequest extends AbstractModel{
         this.setParamArrayObj(map, prefix + "NodeInfoList.", this.NodeInfoList);
         this.setParamArrayObj(map, prefix + "TagList.", this.TagList);
         this.setParamSimple(map, prefix + "BasicSecurityType", this.BasicSecurityType);
+        this.setParamSimple(map, prefix + "SceneType", this.SceneType);
+        this.setParamObj(map, prefix + "WebNodeTypeInfo.", this.WebNodeTypeInfo);
 
     }
 }

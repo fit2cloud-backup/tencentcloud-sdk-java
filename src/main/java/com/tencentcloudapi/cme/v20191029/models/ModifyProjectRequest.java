@@ -53,11 +53,21 @@ public class ModifyProjectRequest extends AbstractModel{
     private String AspectRatio;
 
     /**
-    * 归属者。
+    * 项目归属者。
     */
     @SerializedName("Owner")
     @Expose
     private Entity Owner;
+
+    /**
+    * 项目模式，一个项目可以有多种模式并相互切换。
+当 Category 为 VIDEO_EDIT 时，可选模式有：
+<li>Defualt：默认模式。</li>
+<li>VideoEditTemplate：视频编辑模板制作模式。</li>
+    */
+    @SerializedName("Mode")
+    @Expose
+    private String Mode;
 
     /**
      * Get 平台名称，指定访问的平台。 
@@ -132,20 +142,77 @@ public class ModifyProjectRequest extends AbstractModel{
     }
 
     /**
-     * Get 归属者。 
-     * @return Owner 归属者。
+     * Get 项目归属者。 
+     * @return Owner 项目归属者。
      */
     public Entity getOwner() {
         return this.Owner;
     }
 
     /**
-     * Set 归属者。
-     * @param Owner 归属者。
+     * Set 项目归属者。
+     * @param Owner 项目归属者。
      */
     public void setOwner(Entity Owner) {
         this.Owner = Owner;
     }
+
+    /**
+     * Get 项目模式，一个项目可以有多种模式并相互切换。
+当 Category 为 VIDEO_EDIT 时，可选模式有：
+<li>Defualt：默认模式。</li>
+<li>VideoEditTemplate：视频编辑模板制作模式。</li> 
+     * @return Mode 项目模式，一个项目可以有多种模式并相互切换。
+当 Category 为 VIDEO_EDIT 时，可选模式有：
+<li>Defualt：默认模式。</li>
+<li>VideoEditTemplate：视频编辑模板制作模式。</li>
+     */
+    public String getMode() {
+        return this.Mode;
+    }
+
+    /**
+     * Set 项目模式，一个项目可以有多种模式并相互切换。
+当 Category 为 VIDEO_EDIT 时，可选模式有：
+<li>Defualt：默认模式。</li>
+<li>VideoEditTemplate：视频编辑模板制作模式。</li>
+     * @param Mode 项目模式，一个项目可以有多种模式并相互切换。
+当 Category 为 VIDEO_EDIT 时，可选模式有：
+<li>Defualt：默认模式。</li>
+<li>VideoEditTemplate：视频编辑模板制作模式。</li>
+     */
+    public void setMode(String Mode) {
+        this.Mode = Mode;
+    }
+
+    public ModifyProjectRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyProjectRequest(ModifyProjectRequest source) {
+        if (source.Platform != null) {
+            this.Platform = new String(source.Platform);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.AspectRatio != null) {
+            this.AspectRatio = new String(source.AspectRatio);
+        }
+        if (source.Owner != null) {
+            this.Owner = new Entity(source.Owner);
+        }
+        if (source.Mode != null) {
+            this.Mode = new String(source.Mode);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -156,6 +223,7 @@ public class ModifyProjectRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "AspectRatio", this.AspectRatio);
         this.setParamObj(map, prefix + "Owner.", this.Owner);
+        this.setParamSimple(map, prefix + "Mode", this.Mode);
 
     }
 }

@@ -47,9 +47,7 @@ public class CreateAdaptiveDynamicStreamingTemplateRequest extends AbstractModel
 
     /**
     * DRM方案类型，取值范围：
-<li>FairPlay；</li>
-<li>SimpleAES；</li>
-<li>Widevine。</li>
+<li>SimpleAES。</li>
 如果取值为空字符串，代表不对视频做 DRM 保护。
     */
     @SerializedName("DrmType")
@@ -82,6 +80,13 @@ public class CreateAdaptiveDynamicStreamingTemplateRequest extends AbstractModel
     @SerializedName("Comment")
     @Expose
     private String Comment;
+
+    /**
+    * 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+    */
+    @SerializedName("SubAppId")
+    @Expose
+    private Long SubAppId;
 
     /**
      * Get 自适应转码格式，取值范围：
@@ -141,14 +146,10 @@ public class CreateAdaptiveDynamicStreamingTemplateRequest extends AbstractModel
 
     /**
      * Get DRM方案类型，取值范围：
-<li>FairPlay；</li>
-<li>SimpleAES；</li>
-<li>Widevine。</li>
+<li>SimpleAES。</li>
 如果取值为空字符串，代表不对视频做 DRM 保护。 
      * @return DrmType DRM方案类型，取值范围：
-<li>FairPlay；</li>
-<li>SimpleAES；</li>
-<li>Widevine。</li>
+<li>SimpleAES。</li>
 如果取值为空字符串，代表不对视频做 DRM 保护。
      */
     public String getDrmType() {
@@ -157,14 +158,10 @@ public class CreateAdaptiveDynamicStreamingTemplateRequest extends AbstractModel
 
     /**
      * Set DRM方案类型，取值范围：
-<li>FairPlay；</li>
-<li>SimpleAES；</li>
-<li>Widevine。</li>
+<li>SimpleAES。</li>
 如果取值为空字符串，代表不对视频做 DRM 保护。
      * @param DrmType DRM方案类型，取值范围：
-<li>FairPlay；</li>
-<li>SimpleAES；</li>
-<li>Widevine。</li>
+<li>SimpleAES。</li>
 如果取值为空字符串，代表不对视频做 DRM 保护。
      */
     public void setDrmType(String DrmType) {
@@ -244,6 +241,60 @@ public class CreateAdaptiveDynamicStreamingTemplateRequest extends AbstractModel
     }
 
     /**
+     * Get 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。 
+     * @return SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+     */
+    public Long getSubAppId() {
+        return this.SubAppId;
+    }
+
+    /**
+     * Set 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+     * @param SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+     */
+    public void setSubAppId(Long SubAppId) {
+        this.SubAppId = SubAppId;
+    }
+
+    public CreateAdaptiveDynamicStreamingTemplateRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateAdaptiveDynamicStreamingTemplateRequest(CreateAdaptiveDynamicStreamingTemplateRequest source) {
+        if (source.Format != null) {
+            this.Format = new String(source.Format);
+        }
+        if (source.StreamInfos != null) {
+            this.StreamInfos = new AdaptiveStreamTemplate[source.StreamInfos.length];
+            for (int i = 0; i < source.StreamInfos.length; i++) {
+                this.StreamInfos[i] = new AdaptiveStreamTemplate(source.StreamInfos[i]);
+            }
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.DrmType != null) {
+            this.DrmType = new String(source.DrmType);
+        }
+        if (source.DisableHigherVideoBitrate != null) {
+            this.DisableHigherVideoBitrate = new Long(source.DisableHigherVideoBitrate);
+        }
+        if (source.DisableHigherVideoResolution != null) {
+            this.DisableHigherVideoResolution = new Long(source.DisableHigherVideoResolution);
+        }
+        if (source.Comment != null) {
+            this.Comment = new String(source.Comment);
+        }
+        if (source.SubAppId != null) {
+            this.SubAppId = new Long(source.SubAppId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -254,6 +305,7 @@ public class CreateAdaptiveDynamicStreamingTemplateRequest extends AbstractModel
         this.setParamSimple(map, prefix + "DisableHigherVideoBitrate", this.DisableHigherVideoBitrate);
         this.setParamSimple(map, prefix + "DisableHigherVideoResolution", this.DisableHigherVideoResolution);
         this.setParamSimple(map, prefix + "Comment", this.Comment);
+        this.setParamSimple(map, prefix + "SubAppId", this.SubAppId);
 
     }
 }

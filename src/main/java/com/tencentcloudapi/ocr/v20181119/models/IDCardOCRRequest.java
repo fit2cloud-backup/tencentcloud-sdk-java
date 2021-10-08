@@ -58,6 +58,8 @@ DetectPsWarn，PS检测告警
 TempIdWarn，临时身份证告警
 InvalidDateWarn，身份证有效日期不合法告警
 Quality，图片质量分数（评价图片的模糊程度）
+MultiCardDetect，是否开启多卡证检测
+ReflectWarn，是否开启反光检测
 
 SDK 设置方式参考：
 Config = Json.stringify({"CropIdCard":true,"CropPortrait":true})
@@ -143,6 +145,8 @@ DetectPsWarn，PS检测告警
 TempIdWarn，临时身份证告警
 InvalidDateWarn，身份证有效日期不合法告警
 Quality，图片质量分数（评价图片的模糊程度）
+MultiCardDetect，是否开启多卡证检测
+ReflectWarn，是否开启反光检测
 
 SDK 设置方式参考：
 Config = Json.stringify({"CropIdCard":true,"CropPortrait":true})
@@ -158,6 +162,8 @@ DetectPsWarn，PS检测告警
 TempIdWarn，临时身份证告警
 InvalidDateWarn，身份证有效日期不合法告警
 Quality，图片质量分数（评价图片的模糊程度）
+MultiCardDetect，是否开启多卡证检测
+ReflectWarn，是否开启反光检测
 
 SDK 设置方式参考：
 Config = Json.stringify({"CropIdCard":true,"CropPortrait":true})
@@ -179,6 +185,8 @@ DetectPsWarn，PS检测告警
 TempIdWarn，临时身份证告警
 InvalidDateWarn，身份证有效日期不合法告警
 Quality，图片质量分数（评价图片的模糊程度）
+MultiCardDetect，是否开启多卡证检测
+ReflectWarn，是否开启反光检测
 
 SDK 设置方式参考：
 Config = Json.stringify({"CropIdCard":true,"CropPortrait":true})
@@ -194,6 +202,8 @@ DetectPsWarn，PS检测告警
 TempIdWarn，临时身份证告警
 InvalidDateWarn，身份证有效日期不合法告警
 Quality，图片质量分数（评价图片的模糊程度）
+MultiCardDetect，是否开启多卡证检测
+ReflectWarn，是否开启反光检测
 
 SDK 设置方式参考：
 Config = Json.stringify({"CropIdCard":true,"CropPortrait":true})
@@ -203,6 +213,29 @@ Config = {"CropIdCard":true,"CropPortrait":true}
     public void setConfig(String Config) {
         this.Config = Config;
     }
+
+    public IDCardOCRRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public IDCardOCRRequest(IDCardOCRRequest source) {
+        if (source.ImageBase64 != null) {
+            this.ImageBase64 = new String(source.ImageBase64);
+        }
+        if (source.ImageUrl != null) {
+            this.ImageUrl = new String(source.ImageUrl);
+        }
+        if (source.CardSide != null) {
+            this.CardSide = new String(source.CardSide);
+        }
+        if (source.Config != null) {
+            this.Config = new String(source.Config);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

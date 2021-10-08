@@ -43,9 +43,16 @@ public class DescribeCdnDataRequest extends AbstractModel{
     /**
     * 指定查询指标，支持的类型有：
 flux：流量，单位为 byte
+fluxIn：上行流量，单位为 byte，该指标仅ecdn支持查询
+fluxOut：下行流量，单位为 byte，该指标仅ecdn支持查询
 bandwidth：带宽，单位为 bps
+bandwidthIn：上行带宽，单位为 bps，该指标仅ecdn支持查询
+bandwidthOut：下行带宽，单位为 bps，该指标仅ecdn支持查询
 request：请求数，单位为 次
-fluxHitRate：流量命中率，单位为 %
+hitRequest：命中请求数，单位为 次
+requestHitRate：请求命中率，单位为 %，保留小数点后两位
+hitFlux：命中流量，单位为byte
+fluxHitRate：流量命中率，单位为 %，保留小数点后两位
 statusCode：状态码，返回 2xx、3xx、4xx、5xx 汇总数据，单位为 个
 2xx：返回 2xx 状态码汇总及各 2 开头状态码数据，单位为 个
 3xx：返回 3xx 状态码汇总及各 3 开头状态码数据，单位为 个
@@ -59,7 +66,9 @@ statusCode：状态码，返回 2xx、3xx、4xx、5xx 汇总数据，单位为 �
 
     /**
     * 指定查询域名列表
-最多可一次性查询 30 个加速域名明细
+查询单域名：指定单个域名
+查询多个域名：指定多个域名，最多可一次性查询 30 个
+查询账号下所有域名：不传参，默认查询账号维度
     */
     @SerializedName("Domains")
     @Expose
@@ -134,6 +143,7 @@ all：所有协议
 ipv4：指定查询 ipv4 对应指标
 ipv6：指定查询 ipv6 对应指标
 指定IP协议查询时，不可同时指定省份、运营商查询
+注意：非IPv6白名单用户不可指定ipv4、ipv6进行查询
     */
     @SerializedName("IpProtocol")
     @Expose
@@ -156,6 +166,13 @@ client：指定查询客户端地区（用户请求终端所在地区）数据
     @SerializedName("AreaType")
     @Expose
     private String AreaType;
+
+    /**
+    * 指定查询的产品数据，可选为cdn或者ecdn，默认为cdn
+    */
+    @SerializedName("Product")
+    @Expose
+    private String Product;
 
     /**
      * Get 查询起始时间，如：2018-09-04 10:40:00，返回结果大于等于指定时间
@@ -208,9 +225,16 @@ client：指定查询客户端地区（用户请求终端所在地区）数据
     /**
      * Get 指定查询指标，支持的类型有：
 flux：流量，单位为 byte
+fluxIn：上行流量，单位为 byte，该指标仅ecdn支持查询
+fluxOut：下行流量，单位为 byte，该指标仅ecdn支持查询
 bandwidth：带宽，单位为 bps
+bandwidthIn：上行带宽，单位为 bps，该指标仅ecdn支持查询
+bandwidthOut：下行带宽，单位为 bps，该指标仅ecdn支持查询
 request：请求数，单位为 次
-fluxHitRate：流量命中率，单位为 %
+hitRequest：命中请求数，单位为 次
+requestHitRate：请求命中率，单位为 %，保留小数点后两位
+hitFlux：命中流量，单位为byte
+fluxHitRate：流量命中率，单位为 %，保留小数点后两位
 statusCode：状态码，返回 2xx、3xx、4xx、5xx 汇总数据，单位为 个
 2xx：返回 2xx 状态码汇总及各 2 开头状态码数据，单位为 个
 3xx：返回 3xx 状态码汇总及各 3 开头状态码数据，单位为 个
@@ -219,9 +243,16 @@ statusCode：状态码，返回 2xx、3xx、4xx、5xx 汇总数据，单位为 �
 支持指定具体状态码查询，若未产生过，则返回为空 
      * @return Metric 指定查询指标，支持的类型有：
 flux：流量，单位为 byte
+fluxIn：上行流量，单位为 byte，该指标仅ecdn支持查询
+fluxOut：下行流量，单位为 byte，该指标仅ecdn支持查询
 bandwidth：带宽，单位为 bps
+bandwidthIn：上行带宽，单位为 bps，该指标仅ecdn支持查询
+bandwidthOut：下行带宽，单位为 bps，该指标仅ecdn支持查询
 request：请求数，单位为 次
-fluxHitRate：流量命中率，单位为 %
+hitRequest：命中请求数，单位为 次
+requestHitRate：请求命中率，单位为 %，保留小数点后两位
+hitFlux：命中流量，单位为byte
+fluxHitRate：流量命中率，单位为 %，保留小数点后两位
 statusCode：状态码，返回 2xx、3xx、4xx、5xx 汇总数据，单位为 个
 2xx：返回 2xx 状态码汇总及各 2 开头状态码数据，单位为 个
 3xx：返回 3xx 状态码汇总及各 3 开头状态码数据，单位为 个
@@ -236,9 +267,16 @@ statusCode：状态码，返回 2xx、3xx、4xx、5xx 汇总数据，单位为 �
     /**
      * Set 指定查询指标，支持的类型有：
 flux：流量，单位为 byte
+fluxIn：上行流量，单位为 byte，该指标仅ecdn支持查询
+fluxOut：下行流量，单位为 byte，该指标仅ecdn支持查询
 bandwidth：带宽，单位为 bps
+bandwidthIn：上行带宽，单位为 bps，该指标仅ecdn支持查询
+bandwidthOut：下行带宽，单位为 bps，该指标仅ecdn支持查询
 request：请求数，单位为 次
-fluxHitRate：流量命中率，单位为 %
+hitRequest：命中请求数，单位为 次
+requestHitRate：请求命中率，单位为 %，保留小数点后两位
+hitFlux：命中流量，单位为byte
+fluxHitRate：流量命中率，单位为 %，保留小数点后两位
 statusCode：状态码，返回 2xx、3xx、4xx、5xx 汇总数据，单位为 个
 2xx：返回 2xx 状态码汇总及各 2 开头状态码数据，单位为 个
 3xx：返回 3xx 状态码汇总及各 3 开头状态码数据，单位为 个
@@ -247,9 +285,16 @@ statusCode：状态码，返回 2xx、3xx、4xx、5xx 汇总数据，单位为 �
 支持指定具体状态码查询，若未产生过，则返回为空
      * @param Metric 指定查询指标，支持的类型有：
 flux：流量，单位为 byte
+fluxIn：上行流量，单位为 byte，该指标仅ecdn支持查询
+fluxOut：下行流量，单位为 byte，该指标仅ecdn支持查询
 bandwidth：带宽，单位为 bps
+bandwidthIn：上行带宽，单位为 bps，该指标仅ecdn支持查询
+bandwidthOut：下行带宽，单位为 bps，该指标仅ecdn支持查询
 request：请求数，单位为 次
-fluxHitRate：流量命中率，单位为 %
+hitRequest：命中请求数，单位为 次
+requestHitRate：请求命中率，单位为 %，保留小数点后两位
+hitFlux：命中流量，单位为byte
+fluxHitRate：流量命中率，单位为 %，保留小数点后两位
 statusCode：状态码，返回 2xx、3xx、4xx、5xx 汇总数据，单位为 个
 2xx：返回 2xx 状态码汇总及各 2 开头状态码数据，单位为 个
 3xx：返回 3xx 状态码汇总及各 3 开头状态码数据，单位为 个
@@ -263,9 +308,13 @@ statusCode：状态码，返回 2xx、3xx、4xx、5xx 汇总数据，单位为 �
 
     /**
      * Get 指定查询域名列表
-最多可一次性查询 30 个加速域名明细 
+查询单域名：指定单个域名
+查询多个域名：指定多个域名，最多可一次性查询 30 个
+查询账号下所有域名：不传参，默认查询账号维度 
      * @return Domains 指定查询域名列表
-最多可一次性查询 30 个加速域名明细
+查询单域名：指定单个域名
+查询多个域名：指定多个域名，最多可一次性查询 30 个
+查询账号下所有域名：不传参，默认查询账号维度
      */
     public String [] getDomains() {
         return this.Domains;
@@ -273,9 +322,13 @@ statusCode：状态码，返回 2xx、3xx、4xx、5xx 汇总数据，单位为 �
 
     /**
      * Set 指定查询域名列表
-最多可一次性查询 30 个加速域名明细
+查询单域名：指定单个域名
+查询多个域名：指定多个域名，最多可一次性查询 30 个
+查询账号下所有域名：不传参，默认查询账号维度
      * @param Domains 指定查询域名列表
-最多可一次性查询 30 个加速域名明细
+查询单域名：指定单个域名
+查询多个域名：指定多个域名，最多可一次性查询 30 个
+查询账号下所有域名：不传参，默认查询账号维度
      */
     public void setDomains(String [] Domains) {
         this.Domains = Domains;
@@ -454,12 +507,14 @@ https：指定查询 HTTPS 对应指标
 all：所有协议
 ipv4：指定查询 ipv4 对应指标
 ipv6：指定查询 ipv6 对应指标
-指定IP协议查询时，不可同时指定省份、运营商查询 
+指定IP协议查询时，不可同时指定省份、运营商查询
+注意：非IPv6白名单用户不可指定ipv4、ipv6进行查询 
      * @return IpProtocol 指定IP协议查询，不填充表示查询所有协议
 all：所有协议
 ipv4：指定查询 ipv4 对应指标
 ipv6：指定查询 ipv6 对应指标
 指定IP协议查询时，不可同时指定省份、运营商查询
+注意：非IPv6白名单用户不可指定ipv4、ipv6进行查询
      */
     public String getIpProtocol() {
         return this.IpProtocol;
@@ -471,11 +526,13 @@ all：所有协议
 ipv4：指定查询 ipv4 对应指标
 ipv6：指定查询 ipv6 对应指标
 指定IP协议查询时，不可同时指定省份、运营商查询
+注意：非IPv6白名单用户不可指定ipv4、ipv6进行查询
      * @param IpProtocol 指定IP协议查询，不填充表示查询所有协议
 all：所有协议
 ipv4：指定查询 ipv4 对应指标
 ipv6：指定查询 ipv6 对应指标
 指定IP协议查询时，不可同时指定省份、运营商查询
+注意：非IPv6白名单用户不可指定ipv4、ipv6进行查询
      */
     public void setIpProtocol(String IpProtocol) {
         this.IpProtocol = IpProtocol;
@@ -530,6 +587,81 @@ client：指定查询客户端地区（用户请求终端所在地区）数据
     }
 
     /**
+     * Get 指定查询的产品数据，可选为cdn或者ecdn，默认为cdn 
+     * @return Product 指定查询的产品数据，可选为cdn或者ecdn，默认为cdn
+     */
+    public String getProduct() {
+        return this.Product;
+    }
+
+    /**
+     * Set 指定查询的产品数据，可选为cdn或者ecdn，默认为cdn
+     * @param Product 指定查询的产品数据，可选为cdn或者ecdn，默认为cdn
+     */
+    public void setProduct(String Product) {
+        this.Product = Product;
+    }
+
+    public DescribeCdnDataRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeCdnDataRequest(DescribeCdnDataRequest source) {
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.Metric != null) {
+            this.Metric = new String(source.Metric);
+        }
+        if (source.Domains != null) {
+            this.Domains = new String[source.Domains.length];
+            for (int i = 0; i < source.Domains.length; i++) {
+                this.Domains[i] = new String(source.Domains[i]);
+            }
+        }
+        if (source.Project != null) {
+            this.Project = new Long(source.Project);
+        }
+        if (source.Interval != null) {
+            this.Interval = new String(source.Interval);
+        }
+        if (source.Detail != null) {
+            this.Detail = new Boolean(source.Detail);
+        }
+        if (source.Isp != null) {
+            this.Isp = new Long(source.Isp);
+        }
+        if (source.District != null) {
+            this.District = new Long(source.District);
+        }
+        if (source.Protocol != null) {
+            this.Protocol = new String(source.Protocol);
+        }
+        if (source.DataSource != null) {
+            this.DataSource = new String(source.DataSource);
+        }
+        if (source.IpProtocol != null) {
+            this.IpProtocol = new String(source.IpProtocol);
+        }
+        if (source.Area != null) {
+            this.Area = new String(source.Area);
+        }
+        if (source.AreaType != null) {
+            this.AreaType = new String(source.AreaType);
+        }
+        if (source.Product != null) {
+            this.Product = new String(source.Product);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -547,6 +679,7 @@ client：指定查询客户端地区（用户请求终端所在地区）数据
         this.setParamSimple(map, prefix + "IpProtocol", this.IpProtocol);
         this.setParamSimple(map, prefix + "Area", this.Area);
         this.setParamSimple(map, prefix + "AreaType", this.AreaType);
+        this.setParamSimple(map, prefix + "Product", this.Product);
 
     }
 }

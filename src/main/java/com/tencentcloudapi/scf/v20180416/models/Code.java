@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class Code extends AbstractModel{
 
     /**
-    * 对象存储桶名称
+    * 对象存储桶名称（填写存储桶名称自定义部分，不包含-appid）
     */
     @SerializedName("CosBucketName")
     @Expose
@@ -37,7 +37,7 @@ public class Code extends AbstractModel{
     private String CosObjectName;
 
     /**
-    * 包含函数代码文件及其依赖项的 zip 格式文件，使用该接口时要求将 zip 文件的内容转成 base64 编码，最大支持20M
+    * 包含函数代码文件及其依赖项的 zip 格式文件，zip包大小上限为 50MB，使用该接口时要求将 zip 文件的内容转成 base64 编码
     */
     @SerializedName("ZipFile")
     @Expose
@@ -121,16 +121,23 @@ public class Code extends AbstractModel{
     private String GitUserNameSecret;
 
     /**
-     * Get 对象存储桶名称 
-     * @return CosBucketName 对象存储桶名称
+    * 镜像部署时配置TCR镜像信息
+    */
+    @SerializedName("ImageConfig")
+    @Expose
+    private ImageConfig ImageConfig;
+
+    /**
+     * Get 对象存储桶名称（填写存储桶名称自定义部分，不包含-appid） 
+     * @return CosBucketName 对象存储桶名称（填写存储桶名称自定义部分，不包含-appid）
      */
     public String getCosBucketName() {
         return this.CosBucketName;
     }
 
     /**
-     * Set 对象存储桶名称
-     * @param CosBucketName 对象存储桶名称
+     * Set 对象存储桶名称（填写存储桶名称自定义部分，不包含-appid）
+     * @param CosBucketName 对象存储桶名称（填写存储桶名称自定义部分，不包含-appid）
      */
     public void setCosBucketName(String CosBucketName) {
         this.CosBucketName = CosBucketName;
@@ -153,16 +160,16 @@ public class Code extends AbstractModel{
     }
 
     /**
-     * Get 包含函数代码文件及其依赖项的 zip 格式文件，使用该接口时要求将 zip 文件的内容转成 base64 编码，最大支持20M 
-     * @return ZipFile 包含函数代码文件及其依赖项的 zip 格式文件，使用该接口时要求将 zip 文件的内容转成 base64 编码，最大支持20M
+     * Get 包含函数代码文件及其依赖项的 zip 格式文件，zip包大小上限为 50MB，使用该接口时要求将 zip 文件的内容转成 base64 编码 
+     * @return ZipFile 包含函数代码文件及其依赖项的 zip 格式文件，zip包大小上限为 50MB，使用该接口时要求将 zip 文件的内容转成 base64 编码
      */
     public String getZipFile() {
         return this.ZipFile;
     }
 
     /**
-     * Set 包含函数代码文件及其依赖项的 zip 格式文件，使用该接口时要求将 zip 文件的内容转成 base64 编码，最大支持20M
-     * @param ZipFile 包含函数代码文件及其依赖项的 zip 格式文件，使用该接口时要求将 zip 文件的内容转成 base64 编码，最大支持20M
+     * Set 包含函数代码文件及其依赖项的 zip 格式文件，zip包大小上限为 50MB，使用该接口时要求将 zip 文件的内容转成 base64 编码
+     * @param ZipFile 包含函数代码文件及其依赖项的 zip 格式文件，zip包大小上限为 50MB，使用该接口时要求将 zip 文件的内容转成 base64 编码
      */
     public void setZipFile(String ZipFile) {
         this.ZipFile = ZipFile;
@@ -345,6 +352,78 @@ public class Code extends AbstractModel{
     }
 
     /**
+     * Get 镜像部署时配置TCR镜像信息 
+     * @return ImageConfig 镜像部署时配置TCR镜像信息
+     */
+    public ImageConfig getImageConfig() {
+        return this.ImageConfig;
+    }
+
+    /**
+     * Set 镜像部署时配置TCR镜像信息
+     * @param ImageConfig 镜像部署时配置TCR镜像信息
+     */
+    public void setImageConfig(ImageConfig ImageConfig) {
+        this.ImageConfig = ImageConfig;
+    }
+
+    public Code() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Code(Code source) {
+        if (source.CosBucketName != null) {
+            this.CosBucketName = new String(source.CosBucketName);
+        }
+        if (source.CosObjectName != null) {
+            this.CosObjectName = new String(source.CosObjectName);
+        }
+        if (source.ZipFile != null) {
+            this.ZipFile = new String(source.ZipFile);
+        }
+        if (source.CosBucketRegion != null) {
+            this.CosBucketRegion = new String(source.CosBucketRegion);
+        }
+        if (source.DemoId != null) {
+            this.DemoId = new String(source.DemoId);
+        }
+        if (source.TempCosObjectName != null) {
+            this.TempCosObjectName = new String(source.TempCosObjectName);
+        }
+        if (source.GitUrl != null) {
+            this.GitUrl = new String(source.GitUrl);
+        }
+        if (source.GitUserName != null) {
+            this.GitUserName = new String(source.GitUserName);
+        }
+        if (source.GitPassword != null) {
+            this.GitPassword = new String(source.GitPassword);
+        }
+        if (source.GitPasswordSecret != null) {
+            this.GitPasswordSecret = new String(source.GitPasswordSecret);
+        }
+        if (source.GitBranch != null) {
+            this.GitBranch = new String(source.GitBranch);
+        }
+        if (source.GitDirectory != null) {
+            this.GitDirectory = new String(source.GitDirectory);
+        }
+        if (source.GitCommitId != null) {
+            this.GitCommitId = new String(source.GitCommitId);
+        }
+        if (source.GitUserNameSecret != null) {
+            this.GitUserNameSecret = new String(source.GitUserNameSecret);
+        }
+        if (source.ImageConfig != null) {
+            this.ImageConfig = new ImageConfig(source.ImageConfig);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -362,6 +441,7 @@ public class Code extends AbstractModel{
         this.setParamSimple(map, prefix + "GitDirectory", this.GitDirectory);
         this.setParamSimple(map, prefix + "GitCommitId", this.GitCommitId);
         this.setParamSimple(map, prefix + "GitUserNameSecret", this.GitUserNameSecret);
+        this.setParamObj(map, prefix + "ImageConfig.", this.ImageConfig);
 
     }
 }

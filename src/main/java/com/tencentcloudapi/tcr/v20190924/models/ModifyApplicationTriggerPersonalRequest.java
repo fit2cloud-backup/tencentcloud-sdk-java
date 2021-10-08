@@ -30,7 +30,7 @@ public class ModifyApplicationTriggerPersonalRequest extends AbstractModel{
     private String RepoName;
 
     /**
-    * 触发器名称
+    * 触发器名称，必填参数
     */
     @SerializedName("TriggerName")
     @Expose
@@ -116,16 +116,16 @@ public class ModifyApplicationTriggerPersonalRequest extends AbstractModel{
     }
 
     /**
-     * Get 触发器名称 
-     * @return TriggerName 触发器名称
+     * Get 触发器名称，必填参数 
+     * @return TriggerName 触发器名称，必填参数
      */
     public String getTriggerName() {
         return this.TriggerName;
     }
 
     /**
-     * Set 触发器名称
-     * @param TriggerName 触发器名称
+     * Set 触发器名称，必填参数
+     * @param TriggerName 触发器名称，必填参数
      */
     public void setTriggerName(String TriggerName) {
         this.TriggerName = TriggerName;
@@ -274,6 +274,50 @@ public class ModifyApplicationTriggerPersonalRequest extends AbstractModel{
     public void setNewTriggerName(String NewTriggerName) {
         this.NewTriggerName = NewTriggerName;
     }
+
+    public ModifyApplicationTriggerPersonalRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyApplicationTriggerPersonalRequest(ModifyApplicationTriggerPersonalRequest source) {
+        if (source.RepoName != null) {
+            this.RepoName = new String(source.RepoName);
+        }
+        if (source.TriggerName != null) {
+            this.TriggerName = new String(source.TriggerName);
+        }
+        if (source.InvokeMethod != null) {
+            this.InvokeMethod = new String(source.InvokeMethod);
+        }
+        if (source.InvokeExpr != null) {
+            this.InvokeExpr = new String(source.InvokeExpr);
+        }
+        if (source.ClusterId != null) {
+            this.ClusterId = new String(source.ClusterId);
+        }
+        if (source.Namespace != null) {
+            this.Namespace = new String(source.Namespace);
+        }
+        if (source.WorkloadType != null) {
+            this.WorkloadType = new String(source.WorkloadType);
+        }
+        if (source.WorkloadName != null) {
+            this.WorkloadName = new String(source.WorkloadName);
+        }
+        if (source.ContainerName != null) {
+            this.ContainerName = new String(source.ContainerName);
+        }
+        if (source.ClusterRegion != null) {
+            this.ClusterRegion = new Long(source.ClusterRegion);
+        }
+        if (source.NewTriggerName != null) {
+            this.NewTriggerName = new String(source.NewTriggerName);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

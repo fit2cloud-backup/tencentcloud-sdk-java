@@ -49,6 +49,25 @@ global：预热全球节点
     private String Area;
 
     /**
+    * 填写"middle"或不填充时预热至中间层节点。
+注意：中国境外区域预热，资源默认加载至中国境外边缘节点，所产生的边缘层流量会计入计费流量。
+    */
+    @SerializedName("Layer")
+    @Expose
+    private String Layer;
+
+    /**
+    * 是否递归解析m3u8文件中的ts分片预热
+注意事项：
+1. 该功能要求m3u8索引文件能直接请求获取
+2. 当前只支持递归解析一级索引和子索引中的ts分片，递归深度不超过3层
+3. 解析获取的ts分片会正常累加每日预热用量，当用量超出配额时，会静默处理，不再执行预热
+    */
+    @SerializedName("ParseM3U8")
+    @Expose
+    private Boolean ParseM3U8;
+
+    /**
      * Get URL 列表，需要包含协议头部 http:// 或 https:// 
      * @return Urls URL 列表，需要包含协议头部 http:// 或 https://
      */
@@ -117,12 +136,95 @@ global：预热全球节点
     }
 
     /**
+     * Get 填写"middle"或不填充时预热至中间层节点。
+注意：中国境外区域预热，资源默认加载至中国境外边缘节点，所产生的边缘层流量会计入计费流量。 
+     * @return Layer 填写"middle"或不填充时预热至中间层节点。
+注意：中国境外区域预热，资源默认加载至中国境外边缘节点，所产生的边缘层流量会计入计费流量。
+     */
+    public String getLayer() {
+        return this.Layer;
+    }
+
+    /**
+     * Set 填写"middle"或不填充时预热至中间层节点。
+注意：中国境外区域预热，资源默认加载至中国境外边缘节点，所产生的边缘层流量会计入计费流量。
+     * @param Layer 填写"middle"或不填充时预热至中间层节点。
+注意：中国境外区域预热，资源默认加载至中国境外边缘节点，所产生的边缘层流量会计入计费流量。
+     */
+    public void setLayer(String Layer) {
+        this.Layer = Layer;
+    }
+
+    /**
+     * Get 是否递归解析m3u8文件中的ts分片预热
+注意事项：
+1. 该功能要求m3u8索引文件能直接请求获取
+2. 当前只支持递归解析一级索引和子索引中的ts分片，递归深度不超过3层
+3. 解析获取的ts分片会正常累加每日预热用量，当用量超出配额时，会静默处理，不再执行预热 
+     * @return ParseM3U8 是否递归解析m3u8文件中的ts分片预热
+注意事项：
+1. 该功能要求m3u8索引文件能直接请求获取
+2. 当前只支持递归解析一级索引和子索引中的ts分片，递归深度不超过3层
+3. 解析获取的ts分片会正常累加每日预热用量，当用量超出配额时，会静默处理，不再执行预热
+     */
+    public Boolean getParseM3U8() {
+        return this.ParseM3U8;
+    }
+
+    /**
+     * Set 是否递归解析m3u8文件中的ts分片预热
+注意事项：
+1. 该功能要求m3u8索引文件能直接请求获取
+2. 当前只支持递归解析一级索引和子索引中的ts分片，递归深度不超过3层
+3. 解析获取的ts分片会正常累加每日预热用量，当用量超出配额时，会静默处理，不再执行预热
+     * @param ParseM3U8 是否递归解析m3u8文件中的ts分片预热
+注意事项：
+1. 该功能要求m3u8索引文件能直接请求获取
+2. 当前只支持递归解析一级索引和子索引中的ts分片，递归深度不超过3层
+3. 解析获取的ts分片会正常累加每日预热用量，当用量超出配额时，会静默处理，不再执行预热
+     */
+    public void setParseM3U8(Boolean ParseM3U8) {
+        this.ParseM3U8 = ParseM3U8;
+    }
+
+    public PushUrlsCacheRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public PushUrlsCacheRequest(PushUrlsCacheRequest source) {
+        if (source.Urls != null) {
+            this.Urls = new String[source.Urls.length];
+            for (int i = 0; i < source.Urls.length; i++) {
+                this.Urls[i] = new String(source.Urls[i]);
+            }
+        }
+        if (source.UserAgent != null) {
+            this.UserAgent = new String(source.UserAgent);
+        }
+        if (source.Area != null) {
+            this.Area = new String(source.Area);
+        }
+        if (source.Layer != null) {
+            this.Layer = new String(source.Layer);
+        }
+        if (source.ParseM3U8 != null) {
+            this.ParseM3U8 = new Boolean(source.ParseM3U8);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "Urls.", this.Urls);
         this.setParamSimple(map, prefix + "UserAgent", this.UserAgent);
         this.setParamSimple(map, prefix + "Area", this.Area);
+        this.setParamSimple(map, prefix + "Layer", this.Layer);
+        this.setParamSimple(map, prefix + "ParseM3U8", this.ParseM3U8);
 
     }
 }

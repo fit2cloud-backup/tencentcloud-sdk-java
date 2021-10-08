@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeAddressesRequest extends AbstractModel{
 
     /**
-    * 标识 EIP 的唯一 ID 列表。EIP 唯一 ID 形如：`eip-11112222`。参数不支持同时指定`AddressIds`和`Filters`。
+    * 标识 EIP 的唯一 ID 列表。EIP 唯一 ID 形如：`eip-11112222`。参数不支持同时指定`AddressIds`和`Filters.address-id`。
     */
     @SerializedName("AddressIds")
     @Expose
@@ -39,6 +39,12 @@ public class DescribeAddressesRequest extends AbstractModel{
 <li> private-ip-address - String - 是否必填：否 - （过滤条件）按照 EIP 绑定的内网 IP 过滤。</li>
 <li> network-interface-id - String - 是否必填：否 - （过滤条件）按照 EIP 绑定的弹性网卡 ID 过滤。弹性网卡 ID 形如：eni-11112222。</li>
 <li> is-arrears - String - 是否必填：否 - （过滤条件）按照 EIP 是否欠费进行过滤。（TRUE：EIP 处于欠费状态|FALSE：EIP 费用状态正常）</li>
+<li> address-type - String - 是否必填：否 - （过滤条件）按照 IP类型 进行过滤。可选值：'EIP'，'AnycastEIP'，'HighQualityEIP'</li>
+<li> address-isp - String - 是否必填：否 - （过滤条件）按照 运营商类型 进行过滤。可选值：'BGP'，'CMCC'，'CUCC', 'CTCC'</li>
+<li> dedicated-cluster-id - String - 是否必填：否 - （过滤条件）按照 CDC 的唯一 ID 过滤。CDC 唯一 ID 形如：cluster-11112222。</li>
+<li> tag-key - String - 是否必填：否 - （过滤条件）按照标签键进行过滤。</li>
+<li> tag-value - String - 是否必填：否 - （过滤条件）按照标签值进行过滤。</li>
+<li> tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。tag-key使用具体的标签键进行替换。</li>
     */
     @SerializedName("Filters")
     @Expose
@@ -59,16 +65,16 @@ public class DescribeAddressesRequest extends AbstractModel{
     private Long Limit;
 
     /**
-     * Get 标识 EIP 的唯一 ID 列表。EIP 唯一 ID 形如：`eip-11112222`。参数不支持同时指定`AddressIds`和`Filters`。 
-     * @return AddressIds 标识 EIP 的唯一 ID 列表。EIP 唯一 ID 形如：`eip-11112222`。参数不支持同时指定`AddressIds`和`Filters`。
+     * Get 标识 EIP 的唯一 ID 列表。EIP 唯一 ID 形如：`eip-11112222`。参数不支持同时指定`AddressIds`和`Filters.address-id`。 
+     * @return AddressIds 标识 EIP 的唯一 ID 列表。EIP 唯一 ID 形如：`eip-11112222`。参数不支持同时指定`AddressIds`和`Filters.address-id`。
      */
     public String [] getAddressIds() {
         return this.AddressIds;
     }
 
     /**
-     * Set 标识 EIP 的唯一 ID 列表。EIP 唯一 ID 形如：`eip-11112222`。参数不支持同时指定`AddressIds`和`Filters`。
-     * @param AddressIds 标识 EIP 的唯一 ID 列表。EIP 唯一 ID 形如：`eip-11112222`。参数不支持同时指定`AddressIds`和`Filters`。
+     * Set 标识 EIP 的唯一 ID 列表。EIP 唯一 ID 形如：`eip-11112222`。参数不支持同时指定`AddressIds`和`Filters.address-id`。
+     * @param AddressIds 标识 EIP 的唯一 ID 列表。EIP 唯一 ID 形如：`eip-11112222`。参数不支持同时指定`AddressIds`和`Filters.address-id`。
      */
     public void setAddressIds(String [] AddressIds) {
         this.AddressIds = AddressIds;
@@ -83,7 +89,13 @@ public class DescribeAddressesRequest extends AbstractModel{
 <li> instance-id - String - 是否必填：否 - （过滤条件）按照 EIP 绑定的实例 ID 过滤。实例 ID 形如：ins-11112222。</li>
 <li> private-ip-address - String - 是否必填：否 - （过滤条件）按照 EIP 绑定的内网 IP 过滤。</li>
 <li> network-interface-id - String - 是否必填：否 - （过滤条件）按照 EIP 绑定的弹性网卡 ID 过滤。弹性网卡 ID 形如：eni-11112222。</li>
-<li> is-arrears - String - 是否必填：否 - （过滤条件）按照 EIP 是否欠费进行过滤。（TRUE：EIP 处于欠费状态|FALSE：EIP 费用状态正常）</li> 
+<li> is-arrears - String - 是否必填：否 - （过滤条件）按照 EIP 是否欠费进行过滤。（TRUE：EIP 处于欠费状态|FALSE：EIP 费用状态正常）</li>
+<li> address-type - String - 是否必填：否 - （过滤条件）按照 IP类型 进行过滤。可选值：'EIP'，'AnycastEIP'，'HighQualityEIP'</li>
+<li> address-isp - String - 是否必填：否 - （过滤条件）按照 运营商类型 进行过滤。可选值：'BGP'，'CMCC'，'CUCC', 'CTCC'</li>
+<li> dedicated-cluster-id - String - 是否必填：否 - （过滤条件）按照 CDC 的唯一 ID 过滤。CDC 唯一 ID 形如：cluster-11112222。</li>
+<li> tag-key - String - 是否必填：否 - （过滤条件）按照标签键进行过滤。</li>
+<li> tag-value - String - 是否必填：否 - （过滤条件）按照标签值进行过滤。</li>
+<li> tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。tag-key使用具体的标签键进行替换。</li> 
      * @return Filters 每次请求的`Filters`的上限为10，`Filter.Values`的上限为5。参数不支持同时指定`AddressIds`和`Filters`。详细的过滤条件如下：
 <li> address-id - String - 是否必填：否 - （过滤条件）按照 EIP 的唯一 ID 过滤。EIP 唯一 ID 形如：eip-11112222。</li>
 <li> address-name - String - 是否必填：否 - （过滤条件）按照 EIP 名称过滤。不支持模糊过滤。</li>
@@ -93,6 +105,12 @@ public class DescribeAddressesRequest extends AbstractModel{
 <li> private-ip-address - String - 是否必填：否 - （过滤条件）按照 EIP 绑定的内网 IP 过滤。</li>
 <li> network-interface-id - String - 是否必填：否 - （过滤条件）按照 EIP 绑定的弹性网卡 ID 过滤。弹性网卡 ID 形如：eni-11112222。</li>
 <li> is-arrears - String - 是否必填：否 - （过滤条件）按照 EIP 是否欠费进行过滤。（TRUE：EIP 处于欠费状态|FALSE：EIP 费用状态正常）</li>
+<li> address-type - String - 是否必填：否 - （过滤条件）按照 IP类型 进行过滤。可选值：'EIP'，'AnycastEIP'，'HighQualityEIP'</li>
+<li> address-isp - String - 是否必填：否 - （过滤条件）按照 运营商类型 进行过滤。可选值：'BGP'，'CMCC'，'CUCC', 'CTCC'</li>
+<li> dedicated-cluster-id - String - 是否必填：否 - （过滤条件）按照 CDC 的唯一 ID 过滤。CDC 唯一 ID 形如：cluster-11112222。</li>
+<li> tag-key - String - 是否必填：否 - （过滤条件）按照标签键进行过滤。</li>
+<li> tag-value - String - 是否必填：否 - （过滤条件）按照标签值进行过滤。</li>
+<li> tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。tag-key使用具体的标签键进行替换。</li>
      */
     public Filter [] getFilters() {
         return this.Filters;
@@ -108,6 +126,12 @@ public class DescribeAddressesRequest extends AbstractModel{
 <li> private-ip-address - String - 是否必填：否 - （过滤条件）按照 EIP 绑定的内网 IP 过滤。</li>
 <li> network-interface-id - String - 是否必填：否 - （过滤条件）按照 EIP 绑定的弹性网卡 ID 过滤。弹性网卡 ID 形如：eni-11112222。</li>
 <li> is-arrears - String - 是否必填：否 - （过滤条件）按照 EIP 是否欠费进行过滤。（TRUE：EIP 处于欠费状态|FALSE：EIP 费用状态正常）</li>
+<li> address-type - String - 是否必填：否 - （过滤条件）按照 IP类型 进行过滤。可选值：'EIP'，'AnycastEIP'，'HighQualityEIP'</li>
+<li> address-isp - String - 是否必填：否 - （过滤条件）按照 运营商类型 进行过滤。可选值：'BGP'，'CMCC'，'CUCC', 'CTCC'</li>
+<li> dedicated-cluster-id - String - 是否必填：否 - （过滤条件）按照 CDC 的唯一 ID 过滤。CDC 唯一 ID 形如：cluster-11112222。</li>
+<li> tag-key - String - 是否必填：否 - （过滤条件）按照标签键进行过滤。</li>
+<li> tag-value - String - 是否必填：否 - （过滤条件）按照标签值进行过滤。</li>
+<li> tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。tag-key使用具体的标签键进行替换。</li>
      * @param Filters 每次请求的`Filters`的上限为10，`Filter.Values`的上限为5。参数不支持同时指定`AddressIds`和`Filters`。详细的过滤条件如下：
 <li> address-id - String - 是否必填：否 - （过滤条件）按照 EIP 的唯一 ID 过滤。EIP 唯一 ID 形如：eip-11112222。</li>
 <li> address-name - String - 是否必填：否 - （过滤条件）按照 EIP 名称过滤。不支持模糊过滤。</li>
@@ -117,6 +141,12 @@ public class DescribeAddressesRequest extends AbstractModel{
 <li> private-ip-address - String - 是否必填：否 - （过滤条件）按照 EIP 绑定的内网 IP 过滤。</li>
 <li> network-interface-id - String - 是否必填：否 - （过滤条件）按照 EIP 绑定的弹性网卡 ID 过滤。弹性网卡 ID 形如：eni-11112222。</li>
 <li> is-arrears - String - 是否必填：否 - （过滤条件）按照 EIP 是否欠费进行过滤。（TRUE：EIP 处于欠费状态|FALSE：EIP 费用状态正常）</li>
+<li> address-type - String - 是否必填：否 - （过滤条件）按照 IP类型 进行过滤。可选值：'EIP'，'AnycastEIP'，'HighQualityEIP'</li>
+<li> address-isp - String - 是否必填：否 - （过滤条件）按照 运营商类型 进行过滤。可选值：'BGP'，'CMCC'，'CUCC', 'CTCC'</li>
+<li> dedicated-cluster-id - String - 是否必填：否 - （过滤条件）按照 CDC 的唯一 ID 过滤。CDC 唯一 ID 形如：cluster-11112222。</li>
+<li> tag-key - String - 是否必填：否 - （过滤条件）按照标签键进行过滤。</li>
+<li> tag-value - String - 是否必填：否 - （过滤条件）按照标签值进行过滤。</li>
+<li> tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。tag-key使用具体的标签键进行替换。</li>
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;
@@ -153,6 +183,35 @@ public class DescribeAddressesRequest extends AbstractModel{
     public void setLimit(Long Limit) {
         this.Limit = Limit;
     }
+
+    public DescribeAddressesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeAddressesRequest(DescribeAddressesRequest source) {
+        if (source.AddressIds != null) {
+            this.AddressIds = new String[source.AddressIds.length];
+            for (int i = 0; i < source.AddressIds.length; i++) {
+                this.AddressIds[i] = new String(source.AddressIds[i]);
+            }
+        }
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

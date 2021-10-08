@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class UpdatePolicyRequest extends AbstractModel{
 
     /**
-    * 策略ID
+    * 策略ID，与PolicyName二选一必填
     */
     @SerializedName("PolicyId")
     @Expose
     private Long PolicyId;
 
     /**
-    * 策略名
+    * 策略名，与PolicyId二选一必填
     */
     @SerializedName("PolicyName")
     @Expose
@@ -51,32 +51,39 @@ public class UpdatePolicyRequest extends AbstractModel{
     private String PolicyDocument;
 
     /**
-     * Get 策略ID 
-     * @return PolicyId 策略ID
+    * 预设策略备注
+    */
+    @SerializedName("Alias")
+    @Expose
+    private String Alias;
+
+    /**
+     * Get 策略ID，与PolicyName二选一必填 
+     * @return PolicyId 策略ID，与PolicyName二选一必填
      */
     public Long getPolicyId() {
         return this.PolicyId;
     }
 
     /**
-     * Set 策略ID
-     * @param PolicyId 策略ID
+     * Set 策略ID，与PolicyName二选一必填
+     * @param PolicyId 策略ID，与PolicyName二选一必填
      */
     public void setPolicyId(Long PolicyId) {
         this.PolicyId = PolicyId;
     }
 
     /**
-     * Get 策略名 
-     * @return PolicyName 策略名
+     * Get 策略名，与PolicyId二选一必填 
+     * @return PolicyName 策略名，与PolicyId二选一必填
      */
     public String getPolicyName() {
         return this.PolicyName;
     }
 
     /**
-     * Set 策略名
-     * @param PolicyName 策略名
+     * Set 策略名，与PolicyId二选一必填
+     * @param PolicyName 策略名，与PolicyId二选一必填
      */
     public void setPolicyName(String PolicyName) {
         this.PolicyName = PolicyName;
@@ -115,6 +122,48 @@ public class UpdatePolicyRequest extends AbstractModel{
     }
 
     /**
+     * Get 预设策略备注 
+     * @return Alias 预设策略备注
+     */
+    public String getAlias() {
+        return this.Alias;
+    }
+
+    /**
+     * Set 预设策略备注
+     * @param Alias 预设策略备注
+     */
+    public void setAlias(String Alias) {
+        this.Alias = Alias;
+    }
+
+    public UpdatePolicyRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public UpdatePolicyRequest(UpdatePolicyRequest source) {
+        if (source.PolicyId != null) {
+            this.PolicyId = new Long(source.PolicyId);
+        }
+        if (source.PolicyName != null) {
+            this.PolicyName = new String(source.PolicyName);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.PolicyDocument != null) {
+            this.PolicyDocument = new String(source.PolicyDocument);
+        }
+        if (source.Alias != null) {
+            this.Alias = new String(source.Alias);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -122,6 +171,7 @@ public class UpdatePolicyRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "PolicyName", this.PolicyName);
         this.setParamSimple(map, prefix + "Description", this.Description);
         this.setParamSimple(map, prefix + "PolicyDocument", this.PolicyDocument);
+        this.setParamSimple(map, prefix + "Alias", this.Alias);
 
     }
 }

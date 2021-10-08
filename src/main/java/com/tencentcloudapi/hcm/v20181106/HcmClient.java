@@ -27,6 +27,7 @@ import com.tencentcloudapi.hcm.v20181106.models.*;
 
 public class HcmClient extends AbstractClient{
     private static String endpoint = "hcm.tencentcloudapi.com";
+    private static String service = "hcm";
     private static String version = "2018-11-06";
 
     public HcmClient(Credential credential, String region) {
@@ -45,12 +46,14 @@ public class HcmClient extends AbstractClient{
      */
     public EvaluationResponse Evaluation(EvaluationRequest req) throws TencentCloudSDKException{
         JsonResponseModel<EvaluationResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<EvaluationResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "Evaluation"), type);
+                rspStr = this.internalRequest(req, "Evaluation");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

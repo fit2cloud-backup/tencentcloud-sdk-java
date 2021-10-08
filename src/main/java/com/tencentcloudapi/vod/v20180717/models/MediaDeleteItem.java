@@ -24,6 +24,7 @@ public class MediaDeleteItem extends AbstractModel{
 
     /**
     * 所指定的删除部分。如果未填写该字段则参数无效。可选值有：
+<li>OriginalFiles（删除原文件，删除后无法发起转码、微信发布等任何视频处理操作）。</li>
 <li>TranscodeFiles（删除转码文件）。</li>
 <li>WechatPublishFiles（删除微信发布文件）。</li>
     */
@@ -41,9 +42,11 @@ public class MediaDeleteItem extends AbstractModel{
 
     /**
      * Get 所指定的删除部分。如果未填写该字段则参数无效。可选值有：
+<li>OriginalFiles（删除原文件，删除后无法发起转码、微信发布等任何视频处理操作）。</li>
 <li>TranscodeFiles（删除转码文件）。</li>
 <li>WechatPublishFiles（删除微信发布文件）。</li> 
      * @return Type 所指定的删除部分。如果未填写该字段则参数无效。可选值有：
+<li>OriginalFiles（删除原文件，删除后无法发起转码、微信发布等任何视频处理操作）。</li>
 <li>TranscodeFiles（删除转码文件）。</li>
 <li>WechatPublishFiles（删除微信发布文件）。</li>
      */
@@ -53,9 +56,11 @@ public class MediaDeleteItem extends AbstractModel{
 
     /**
      * Set 所指定的删除部分。如果未填写该字段则参数无效。可选值有：
+<li>OriginalFiles（删除原文件，删除后无法发起转码、微信发布等任何视频处理操作）。</li>
 <li>TranscodeFiles（删除转码文件）。</li>
 <li>WechatPublishFiles（删除微信发布文件）。</li>
      * @param Type 所指定的删除部分。如果未填写该字段则参数无效。可选值有：
+<li>OriginalFiles（删除原文件，删除后无法发起转码、微信发布等任何视频处理操作）。</li>
 <li>TranscodeFiles（删除转码文件）。</li>
 <li>WechatPublishFiles（删除微信发布文件）。</li>
      */
@@ -82,6 +87,23 @@ public class MediaDeleteItem extends AbstractModel{
     public void setDefinition(Long Definition) {
         this.Definition = Definition;
     }
+
+    public MediaDeleteItem() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MediaDeleteItem(MediaDeleteItem source) {
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.Definition != null) {
+            this.Definition = new Long(source.Definition);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class DescribeListenersResponse extends AbstractModel{
 
     /**
-    * 监听器列表
+    * 监听器列表。
     */
     @SerializedName("Listeners")
     @Expose
     private Listener [] Listeners;
 
     /**
-    * 总的监听器个数
+    * 总的监听器个数（根据端口、协议、监听器ID过滤后）。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TotalCount")
@@ -45,25 +45,25 @@ public class DescribeListenersResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 监听器列表 
-     * @return Listeners 监听器列表
+     * Get 监听器列表。 
+     * @return Listeners 监听器列表。
      */
     public Listener [] getListeners() {
         return this.Listeners;
     }
 
     /**
-     * Set 监听器列表
-     * @param Listeners 监听器列表
+     * Set 监听器列表。
+     * @param Listeners 监听器列表。
      */
     public void setListeners(Listener [] Listeners) {
         this.Listeners = Listeners;
     }
 
     /**
-     * Get 总的监听器个数
+     * Get 总的监听器个数（根据端口、协议、监听器ID过滤后）。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TotalCount 总的监听器个数
+     * @return TotalCount 总的监听器个数（根据端口、协议、监听器ID过滤后）。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotalCount() {
@@ -71,9 +71,9 @@ public class DescribeListenersResponse extends AbstractModel{
     }
 
     /**
-     * Set 总的监听器个数
+     * Set 总的监听器个数（根据端口、协议、监听器ID过滤后）。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param TotalCount 总的监听器个数
+     * @param TotalCount 总的监听器个数（根据端口、协议、监听器ID过滤后）。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotalCount(Long TotalCount) {
@@ -95,6 +95,29 @@ public class DescribeListenersResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeListenersResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeListenersResponse(DescribeListenersResponse source) {
+        if (source.Listeners != null) {
+            this.Listeners = new Listener[source.Listeners.length];
+            for (int i = 0; i < source.Listeners.length; i++) {
+                this.Listeners[i] = new Listener(source.Listeners[i]);
+            }
+        }
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

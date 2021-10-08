@@ -51,7 +51,7 @@ public class DescribeErrorLogDataRequest extends AbstractModel{
     private String [] KeyWords;
 
     /**
-    * 分页的返回数量，最大为400。
+    * 分页的返回数量，默认为100，最大为400。
     */
     @SerializedName("Limit")
     @Expose
@@ -63,6 +63,13 @@ public class DescribeErrorLogDataRequest extends AbstractModel{
     @SerializedName("Offset")
     @Expose
     private Long Offset;
+
+    /**
+    * 仅在实例为主实例或者灾备实例时生效，可选值：slave，代表拉取从机的日志。
+    */
+    @SerializedName("InstType")
+    @Expose
+    private String InstType;
 
     /**
      * Get 实例 ID 。 
@@ -129,16 +136,16 @@ public class DescribeErrorLogDataRequest extends AbstractModel{
     }
 
     /**
-     * Get 分页的返回数量，最大为400。 
-     * @return Limit 分页的返回数量，最大为400。
+     * Get 分页的返回数量，默认为100，最大为400。 
+     * @return Limit 分页的返回数量，默认为100，最大为400。
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 分页的返回数量，最大为400。
-     * @param Limit 分页的返回数量，最大为400。
+     * Set 分页的返回数量，默认为100，最大为400。
+     * @param Limit 分页的返回数量，默认为100，最大为400。
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
@@ -161,6 +168,57 @@ public class DescribeErrorLogDataRequest extends AbstractModel{
     }
 
     /**
+     * Get 仅在实例为主实例或者灾备实例时生效，可选值：slave，代表拉取从机的日志。 
+     * @return InstType 仅在实例为主实例或者灾备实例时生效，可选值：slave，代表拉取从机的日志。
+     */
+    public String getInstType() {
+        return this.InstType;
+    }
+
+    /**
+     * Set 仅在实例为主实例或者灾备实例时生效，可选值：slave，代表拉取从机的日志。
+     * @param InstType 仅在实例为主实例或者灾备实例时生效，可选值：slave，代表拉取从机的日志。
+     */
+    public void setInstType(String InstType) {
+        this.InstType = InstType;
+    }
+
+    public DescribeErrorLogDataRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeErrorLogDataRequest(DescribeErrorLogDataRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new Long(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new Long(source.EndTime);
+        }
+        if (source.KeyWords != null) {
+            this.KeyWords = new String[source.KeyWords.length];
+            for (int i = 0; i < source.KeyWords.length; i++) {
+                this.KeyWords[i] = new String(source.KeyWords[i]);
+            }
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.InstType != null) {
+            this.InstType = new String(source.InstType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -170,6 +228,7 @@ public class DescribeErrorLogDataRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "KeyWords.", this.KeyWords);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
+        this.setParamSimple(map, prefix + "InstType", this.InstType);
 
     }
 }

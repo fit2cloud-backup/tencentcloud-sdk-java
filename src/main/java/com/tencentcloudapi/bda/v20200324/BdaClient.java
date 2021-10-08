@@ -27,6 +27,7 @@ import com.tencentcloudapi.bda.v20200324.models.*;
 
 public class BdaClient extends AbstractClient{
     private static String endpoint = "bda.tencentcloudapi.com";
+    private static String service = "bda";
     private static String version = "2020-03-24";
 
     public BdaClient(Credential credential, String region) {
@@ -51,12 +52,14 @@ public class BdaClient extends AbstractClient{
      */
     public CreateGroupResponse CreateGroup(CreateGroupRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateGroupResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateGroupResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "CreateGroup"), type);
+                rspStr = this.internalRequest(req, "CreateGroup");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -76,12 +79,34 @@ public class BdaClient extends AbstractClient{
      */
     public CreatePersonResponse CreatePerson(CreatePersonRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreatePersonResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<CreatePersonResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "CreatePerson"), type);
+                rspStr = this.internalRequest(req, "CreatePerson");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口为离线人像分割处理接口组中的提交任务接口，可以对提交的资源进行处理视频流/图片流识别视频作品中的人像区域，进行一键抠像、背景替换、人像虚化等后期处理。
+     * @param req CreateSegmentationTaskRequest
+     * @return CreateSegmentationTaskResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateSegmentationTaskResponse CreateSegmentationTask(CreateSegmentationTaskRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateSegmentationTaskResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateSegmentationTaskResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateSegmentationTask");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -101,12 +126,14 @@ public class BdaClient extends AbstractClient{
      */
     public CreateTraceResponse CreateTrace(CreateTraceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateTraceResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateTraceResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "CreateTrace"), type);
+                rspStr = this.internalRequest(req, "CreateTrace");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -119,12 +146,14 @@ public class BdaClient extends AbstractClient{
      */
     public DeleteGroupResponse DeleteGroup(DeleteGroupRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteGroupResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteGroupResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DeleteGroup"), type);
+                rspStr = this.internalRequest(req, "DeleteGroup");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -137,18 +166,40 @@ public class BdaClient extends AbstractClient{
      */
     public DeletePersonResponse DeletePerson(DeletePersonRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeletePersonResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DeletePersonResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DeletePerson"), type);
+                rspStr = this.internalRequest(req, "DeletePerson");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
 
     /**
-     *检测给定图片中的人体（Body）的位置信息（属性信息将在后续开放）。
+     *可以查看单条任务的处理情况，包括处理状态，处理结果。
+     * @param req DescribeSegmentationTaskRequest
+     * @return DescribeSegmentationTaskResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeSegmentationTaskResponse DescribeSegmentationTask(DescribeSegmentationTaskRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeSegmentationTaskResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeSegmentationTaskResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeSegmentationTask");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *检测给定图片中的人体（Body）的位置信息及属性信息。
 
      * @param req DetectBodyRequest
      * @return DetectBodyResponse
@@ -156,12 +207,35 @@ public class BdaClient extends AbstractClient{
      */
     public DetectBodyResponse DetectBody(DetectBodyRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DetectBodyResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DetectBodyResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DetectBody"), type);
+                rspStr = this.internalRequest(req, "DetectBody");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *检测图片中人体的14个关键点。建议用于人体图像清晰、无遮挡的场景。支持一张图片中存在多个人体的识别。
+
+     * @param req DetectBodyJointsRequest
+     * @return DetectBodyJointsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DetectBodyJointsResponse DetectBodyJoints(DetectBodyJointsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DetectBodyJointsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DetectBodyJointsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DetectBodyJoints");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -174,12 +248,14 @@ public class BdaClient extends AbstractClient{
      */
     public GetGroupListResponse GetGroupList(GetGroupListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetGroupListResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<GetGroupListResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "GetGroupList"), type);
+                rspStr = this.internalRequest(req, "GetGroupList");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -192,12 +268,34 @@ public class BdaClient extends AbstractClient{
      */
     public GetPersonListResponse GetPersonList(GetPersonListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetPersonListResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<GetPersonListResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "GetPersonList"), type);
+                rspStr = this.internalRequest(req, "GetPersonList");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取人体库汇总信息。
+     * @param req GetSummaryInfoRequest
+     * @return GetSummaryInfoResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetSummaryInfoResponse GetSummaryInfo(GetSummaryInfoRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetSummaryInfoResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetSummaryInfoResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetSummaryInfo");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -210,12 +308,14 @@ public class BdaClient extends AbstractClient{
      */
     public ModifyGroupResponse ModifyGroup(ModifyGroupRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyGroupResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyGroupResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ModifyGroup"), type);
+                rspStr = this.internalRequest(req, "ModifyGroup");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -228,12 +328,14 @@ public class BdaClient extends AbstractClient{
      */
     public ModifyPersonInfoResponse ModifyPersonInfo(ModifyPersonInfoRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyPersonInfoResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyPersonInfoResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ModifyPersonInfo"), type);
+                rspStr = this.internalRequest(req, "ModifyPersonInfo");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -253,18 +355,40 @@ public class BdaClient extends AbstractClient{
      */
     public SearchTraceResponse SearchTrace(SearchTraceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SearchTraceResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<SearchTraceResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "SearchTrace"), type);
+                rspStr = this.internalRequest(req, "SearchTrace");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
 
     /**
-     *识别传入图片中人体的完整轮廓，进行抠像。
+     *在前后景分割的基础上优化多分类分割，支持对头发、五官等的分割，既作为换发型、挂件等底层技术，也可用于抠人头、抠人脸等玩法
+     * @param req SegmentCustomizedPortraitPicRequest
+     * @return SegmentCustomizedPortraitPicResponse
+     * @throws TencentCloudSDKException
+     */
+    public SegmentCustomizedPortraitPicResponse SegmentCustomizedPortraitPic(SegmentCustomizedPortraitPicRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<SegmentCustomizedPortraitPicResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<SegmentCustomizedPortraitPicResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "SegmentCustomizedPortraitPic");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *即二分类人像分割，识别传入图片中人体的完整轮廓，进行抠像。
 
      * @param req SegmentPortraitPicRequest
      * @return SegmentPortraitPicResponse
@@ -272,12 +396,34 @@ public class BdaClient extends AbstractClient{
      */
     public SegmentPortraitPicResponse SegmentPortraitPic(SegmentPortraitPicRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SegmentPortraitPicResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<SegmentPortraitPicResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "SegmentPortraitPic"), type);
+                rspStr = this.internalRequest(req, "SegmentPortraitPic");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *终止指定视频人像分割处理任务
+     * @param req TerminateSegmentationTaskRequest
+     * @return TerminateSegmentationTaskResponse
+     * @throws TencentCloudSDKException
+     */
+    public TerminateSegmentationTaskResponse TerminateSegmentationTask(TerminateSegmentationTaskRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<TerminateSegmentationTaskResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<TerminateSegmentationTaskResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "TerminateSegmentationTask");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

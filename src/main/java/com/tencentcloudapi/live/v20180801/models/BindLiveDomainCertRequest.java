@@ -37,7 +37,7 @@ public class BindLiveDomainCertRequest extends AbstractModel{
     private String DomainName;
 
     /**
-    * 状态，0： 关闭  1：打开。
+    * HTTPS开启状态，0： 关闭  1：打开。
     */
     @SerializedName("Status")
     @Expose
@@ -76,20 +76,40 @@ public class BindLiveDomainCertRequest extends AbstractModel{
     }
 
     /**
-     * Get 状态，0： 关闭  1：打开。 
-     * @return Status 状态，0： 关闭  1：打开。
+     * Get HTTPS开启状态，0： 关闭  1：打开。 
+     * @return Status HTTPS开启状态，0： 关闭  1：打开。
      */
     public Long getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 状态，0： 关闭  1：打开。
-     * @param Status 状态，0： 关闭  1：打开。
+     * Set HTTPS开启状态，0： 关闭  1：打开。
+     * @param Status HTTPS开启状态，0： 关闭  1：打开。
      */
     public void setStatus(Long Status) {
         this.Status = Status;
     }
+
+    public BindLiveDomainCertRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public BindLiveDomainCertRequest(BindLiveDomainCertRequest source) {
+        if (source.CertId != null) {
+            this.CertId = new Long(source.CertId);
+        }
+        if (source.DomainName != null) {
+            this.DomainName = new String(source.DomainName);
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -72,6 +72,42 @@ public class ProductBase extends AbstractModel{
     private String SecretKey;
 
     /**
+    * 设备功能码
+ypsxth : 音频双向通话;	
+spdxth : 视频单向通话(监控);
+NVR0824 : NVR设备,大于8路，小于等于24路;
+WifiKeepalive : Wifi保活(低功耗产品);
+Alexa : Alexa接入;
+Google : Google接入;
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FuncCode")
+    @Expose
+    private String [] FuncCode;
+
+    /**
+    * 产品类别，0 : 普通视频设备；1 : NVR设备
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ProductCate")
+    @Expose
+    private Long ProductCate;
+
+    /**
+    * 产品地域
+China-Mainland（中国大陆）
+China-Hong Kong, Macao and Taiwan（港澳台地区）
+America（美国）
+Europe（欧洲）
+India（印度）
+Other-Overseas（其他境外地区）
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ProductRegion")
+    @Expose
+    private String ProductRegion;
+
+    /**
      * Get 产品ID 
      * @return ProductId 产品ID
      */
@@ -184,6 +220,158 @@ public class ProductBase extends AbstractModel{
     }
 
     /**
+     * Get 设备功能码
+ypsxth : 音频双向通话;	
+spdxth : 视频单向通话(监控);
+NVR0824 : NVR设备,大于8路，小于等于24路;
+WifiKeepalive : Wifi保活(低功耗产品);
+Alexa : Alexa接入;
+Google : Google接入;
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FuncCode 设备功能码
+ypsxth : 音频双向通话;	
+spdxth : 视频单向通话(监控);
+NVR0824 : NVR设备,大于8路，小于等于24路;
+WifiKeepalive : Wifi保活(低功耗产品);
+Alexa : Alexa接入;
+Google : Google接入;
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getFuncCode() {
+        return this.FuncCode;
+    }
+
+    /**
+     * Set 设备功能码
+ypsxth : 音频双向通话;	
+spdxth : 视频单向通话(监控);
+NVR0824 : NVR设备,大于8路，小于等于24路;
+WifiKeepalive : Wifi保活(低功耗产品);
+Alexa : Alexa接入;
+Google : Google接入;
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FuncCode 设备功能码
+ypsxth : 音频双向通话;	
+spdxth : 视频单向通话(监控);
+NVR0824 : NVR设备,大于8路，小于等于24路;
+WifiKeepalive : Wifi保活(低功耗产品);
+Alexa : Alexa接入;
+Google : Google接入;
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFuncCode(String [] FuncCode) {
+        this.FuncCode = FuncCode;
+    }
+
+    /**
+     * Get 产品类别，0 : 普通视频设备；1 : NVR设备
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ProductCate 产品类别，0 : 普通视频设备；1 : NVR设备
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getProductCate() {
+        return this.ProductCate;
+    }
+
+    /**
+     * Set 产品类别，0 : 普通视频设备；1 : NVR设备
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ProductCate 产品类别，0 : 普通视频设备；1 : NVR设备
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setProductCate(Long ProductCate) {
+        this.ProductCate = ProductCate;
+    }
+
+    /**
+     * Get 产品地域
+China-Mainland（中国大陆）
+China-Hong Kong, Macao and Taiwan（港澳台地区）
+America（美国）
+Europe（欧洲）
+India（印度）
+Other-Overseas（其他境外地区）
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ProductRegion 产品地域
+China-Mainland（中国大陆）
+China-Hong Kong, Macao and Taiwan（港澳台地区）
+America（美国）
+Europe（欧洲）
+India（印度）
+Other-Overseas（其他境外地区）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getProductRegion() {
+        return this.ProductRegion;
+    }
+
+    /**
+     * Set 产品地域
+China-Mainland（中国大陆）
+China-Hong Kong, Macao and Taiwan（港澳台地区）
+America（美国）
+Europe（欧洲）
+India（印度）
+Other-Overseas（其他境外地区）
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ProductRegion 产品地域
+China-Mainland（中国大陆）
+China-Hong Kong, Macao and Taiwan（港澳台地区）
+America（美国）
+Europe（欧洲）
+India（印度）
+Other-Overseas（其他境外地区）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setProductRegion(String ProductRegion) {
+        this.ProductRegion = ProductRegion;
+    }
+
+    public ProductBase() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ProductBase(ProductBase source) {
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+        if (source.ProductModel != null) {
+            this.ProductModel = new String(source.ProductModel);
+        }
+        if (source.ProductName != null) {
+            this.ProductName = new String(source.ProductName);
+        }
+        if (source.ProductDescription != null) {
+            this.ProductDescription = new String(source.ProductDescription);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new Long(source.CreateTime);
+        }
+        if (source.IotModelRevision != null) {
+            this.IotModelRevision = new Long(source.IotModelRevision);
+        }
+        if (source.SecretKey != null) {
+            this.SecretKey = new String(source.SecretKey);
+        }
+        if (source.FuncCode != null) {
+            this.FuncCode = new String[source.FuncCode.length];
+            for (int i = 0; i < source.FuncCode.length; i++) {
+                this.FuncCode[i] = new String(source.FuncCode[i]);
+            }
+        }
+        if (source.ProductCate != null) {
+            this.ProductCate = new Long(source.ProductCate);
+        }
+        if (source.ProductRegion != null) {
+            this.ProductRegion = new String(source.ProductRegion);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -194,6 +382,9 @@ public class ProductBase extends AbstractModel{
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "IotModelRevision", this.IotModelRevision);
         this.setParamSimple(map, prefix + "SecretKey", this.SecretKey);
+        this.setParamArraySimple(map, prefix + "FuncCode.", this.FuncCode);
+        this.setParamSimple(map, prefix + "ProductCate", this.ProductCate);
+        this.setParamSimple(map, prefix + "ProductRegion", this.ProductRegion);
 
     }
 }

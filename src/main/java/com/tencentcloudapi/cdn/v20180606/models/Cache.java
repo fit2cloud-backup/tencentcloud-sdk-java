@@ -31,12 +31,20 @@ public class Cache extends AbstractModel{
     private SimpleCache SimpleCache;
 
     /**
-    * 高级缓存过期时间配置（功能灰度中，尚未全量）
+    * 高级缓存过期时间配置（已弃用）
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AdvancedCache")
     @Expose
     private AdvancedCache AdvancedCache;
+
+    /**
+    * 高级路径缓存配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RuleCache")
+    @Expose
+    private RuleCache [] RuleCache;
 
     /**
      * Get 基础缓存过期时间配置
@@ -59,9 +67,9 @@ public class Cache extends AbstractModel{
     }
 
     /**
-     * Get 高级缓存过期时间配置（功能灰度中，尚未全量）
+     * Get 高级缓存过期时间配置（已弃用）
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AdvancedCache 高级缓存过期时间配置（功能灰度中，尚未全量）
+     * @return AdvancedCache 高级缓存过期时间配置（已弃用）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public AdvancedCache getAdvancedCache() {
@@ -69,9 +77,9 @@ public class Cache extends AbstractModel{
     }
 
     /**
-     * Set 高级缓存过期时间配置（功能灰度中，尚未全量）
+     * Set 高级缓存过期时间配置（已弃用）
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param AdvancedCache 高级缓存过期时间配置（功能灰度中，尚未全量）
+     * @param AdvancedCache 高级缓存过期时间配置（已弃用）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAdvancedCache(AdvancedCache AdvancedCache) {
@@ -79,11 +87,55 @@ public class Cache extends AbstractModel{
     }
 
     /**
+     * Get 高级路径缓存配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RuleCache 高级路径缓存配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public RuleCache [] getRuleCache() {
+        return this.RuleCache;
+    }
+
+    /**
+     * Set 高级路径缓存配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RuleCache 高级路径缓存配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRuleCache(RuleCache [] RuleCache) {
+        this.RuleCache = RuleCache;
+    }
+
+    public Cache() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Cache(Cache source) {
+        if (source.SimpleCache != null) {
+            this.SimpleCache = new SimpleCache(source.SimpleCache);
+        }
+        if (source.AdvancedCache != null) {
+            this.AdvancedCache = new AdvancedCache(source.AdvancedCache);
+        }
+        if (source.RuleCache != null) {
+            this.RuleCache = new RuleCache[source.RuleCache.length];
+            for (int i = 0; i < source.RuleCache.length; i++) {
+                this.RuleCache[i] = new RuleCache(source.RuleCache[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "SimpleCache.", this.SimpleCache);
         this.setParamObj(map, prefix + "AdvancedCache.", this.AdvancedCache);
+        this.setParamArrayObj(map, prefix + "RuleCache.", this.RuleCache);
 
     }
 }

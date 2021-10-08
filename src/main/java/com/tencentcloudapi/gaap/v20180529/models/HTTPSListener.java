@@ -44,7 +44,7 @@ public class HTTPSListener extends AbstractModel{
     private Long Port;
 
     /**
-    * 监听器协议， 值为：HTTP
+    * 监听器协议， HTTP表示HTTP，HTTPS表示HTTPS，此结构取值HTTPS
     */
     @SerializedName("Protocol")
     @Expose
@@ -52,11 +52,11 @@ public class HTTPSListener extends AbstractModel{
 
     /**
     * 监听器状态，其中：
-0， 运行中；
-1， 创建中；
-2，销毁中；
-3，源站调整中；
-4，配置变更中。
+0表示运行中；
+1表示创建中；
+2表示销毁中；
+3表示源站调整中；
+4表示配置变更中。
     */
     @SerializedName("ListenerStatus")
     @Expose
@@ -101,8 +101,8 @@ public class HTTPSListener extends AbstractModel{
 
     /**
     * 监听器认证方式。其中，
-0，单向认证；
-1，双向认证。
+0表示单向认证；
+1表示双向认证。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AuthType")
@@ -174,16 +174,16 @@ public class HTTPSListener extends AbstractModel{
     }
 
     /**
-     * Get 监听器协议， 值为：HTTP 
-     * @return Protocol 监听器协议， 值为：HTTP
+     * Get 监听器协议， HTTP表示HTTP，HTTPS表示HTTPS，此结构取值HTTPS 
+     * @return Protocol 监听器协议， HTTP表示HTTP，HTTPS表示HTTPS，此结构取值HTTPS
      */
     public String getProtocol() {
         return this.Protocol;
     }
 
     /**
-     * Set 监听器协议， 值为：HTTP
-     * @param Protocol 监听器协议， 值为：HTTP
+     * Set 监听器协议， HTTP表示HTTP，HTTPS表示HTTPS，此结构取值HTTPS
+     * @param Protocol 监听器协议， HTTP表示HTTP，HTTPS表示HTTPS，此结构取值HTTPS
      */
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;
@@ -191,17 +191,17 @@ public class HTTPSListener extends AbstractModel{
 
     /**
      * Get 监听器状态，其中：
-0， 运行中；
-1， 创建中；
-2，销毁中；
-3，源站调整中；
-4，配置变更中。 
+0表示运行中；
+1表示创建中；
+2表示销毁中；
+3表示源站调整中；
+4表示配置变更中。 
      * @return ListenerStatus 监听器状态，其中：
-0， 运行中；
-1， 创建中；
-2，销毁中；
-3，源站调整中；
-4，配置变更中。
+0表示运行中；
+1表示创建中；
+2表示销毁中；
+3表示源站调整中；
+4表示配置变更中。
      */
     public Long getListenerStatus() {
         return this.ListenerStatus;
@@ -209,17 +209,17 @@ public class HTTPSListener extends AbstractModel{
 
     /**
      * Set 监听器状态，其中：
-0， 运行中；
-1， 创建中；
-2，销毁中；
-3，源站调整中；
-4，配置变更中。
+0表示运行中；
+1表示创建中；
+2表示销毁中；
+3表示源站调整中；
+4表示配置变更中。
      * @param ListenerStatus 监听器状态，其中：
-0， 运行中；
-1， 创建中；
-2，销毁中；
-3，源站调整中；
-4，配置变更中。
+0表示运行中；
+1表示创建中；
+2表示销毁中；
+3表示源站调整中；
+4表示配置变更中。
      */
     public void setListenerStatus(Long ListenerStatus) {
         this.ListenerStatus = ListenerStatus;
@@ -315,12 +315,12 @@ public class HTTPSListener extends AbstractModel{
 
     /**
      * Get 监听器认证方式。其中，
-0，单向认证；
-1，双向认证。
+0表示单向认证；
+1表示双向认证。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return AuthType 监听器认证方式。其中，
-0，单向认证；
-1，双向认证。
+0表示单向认证；
+1表示双向认证。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAuthType() {
@@ -329,12 +329,12 @@ public class HTTPSListener extends AbstractModel{
 
     /**
      * Set 监听器认证方式。其中，
-0，单向认证；
-1，双向认证。
+0表示单向认证；
+1表示双向认证。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param AuthType 监听器认证方式。其中，
-0，单向认证；
-1，双向认证。
+0表示单向认证；
+1表示双向认证。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAuthType(Long AuthType) {
@@ -380,6 +380,59 @@ public class HTTPSListener extends AbstractModel{
     public void setPolyClientCertificateAliasInfo(CertificateAliasInfo [] PolyClientCertificateAliasInfo) {
         this.PolyClientCertificateAliasInfo = PolyClientCertificateAliasInfo;
     }
+
+    public HTTPSListener() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public HTTPSListener(HTTPSListener source) {
+        if (source.ListenerId != null) {
+            this.ListenerId = new String(source.ListenerId);
+        }
+        if (source.ListenerName != null) {
+            this.ListenerName = new String(source.ListenerName);
+        }
+        if (source.Port != null) {
+            this.Port = new Long(source.Port);
+        }
+        if (source.Protocol != null) {
+            this.Protocol = new String(source.Protocol);
+        }
+        if (source.ListenerStatus != null) {
+            this.ListenerStatus = new Long(source.ListenerStatus);
+        }
+        if (source.CertificateId != null) {
+            this.CertificateId = new String(source.CertificateId);
+        }
+        if (source.ForwardProtocol != null) {
+            this.ForwardProtocol = new String(source.ForwardProtocol);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new Long(source.CreateTime);
+        }
+        if (source.CertificateAlias != null) {
+            this.CertificateAlias = new String(source.CertificateAlias);
+        }
+        if (source.ClientCertificateId != null) {
+            this.ClientCertificateId = new String(source.ClientCertificateId);
+        }
+        if (source.AuthType != null) {
+            this.AuthType = new Long(source.AuthType);
+        }
+        if (source.ClientCertificateAlias != null) {
+            this.ClientCertificateAlias = new String(source.ClientCertificateAlias);
+        }
+        if (source.PolyClientCertificateAliasInfo != null) {
+            this.PolyClientCertificateAliasInfo = new CertificateAliasInfo[source.PolyClientCertificateAliasInfo.length];
+            for (int i = 0; i < source.PolyClientCertificateAliasInfo.length; i++) {
+                this.PolyClientCertificateAliasInfo[i] = new CertificateAliasInfo(source.PolyClientCertificateAliasInfo[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DeletePersonSampleRequest extends AbstractModel{
 
     /**
-    * 人物 ID。
+    * 素材 ID。
     */
     @SerializedName("PersonId")
     @Expose
@@ -37,16 +37,16 @@ public class DeletePersonSampleRequest extends AbstractModel{
     private Long SubAppId;
 
     /**
-     * Get 人物 ID。 
-     * @return PersonId 人物 ID。
+     * Get 素材 ID。 
+     * @return PersonId 素材 ID。
      */
     public String getPersonId() {
         return this.PersonId;
     }
 
     /**
-     * Set 人物 ID。
-     * @param PersonId 人物 ID。
+     * Set 素材 ID。
+     * @param PersonId 素材 ID。
      */
     public void setPersonId(String PersonId) {
         this.PersonId = PersonId;
@@ -67,6 +67,23 @@ public class DeletePersonSampleRequest extends AbstractModel{
     public void setSubAppId(Long SubAppId) {
         this.SubAppId = SubAppId;
     }
+
+    public DeletePersonSampleRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeletePersonSampleRequest(DeletePersonSampleRequest source) {
+        if (source.PersonId != null) {
+            this.PersonId = new String(source.PersonId);
+        }
+        if (source.SubAppId != null) {
+            this.SubAppId = new Long(source.SubAppId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

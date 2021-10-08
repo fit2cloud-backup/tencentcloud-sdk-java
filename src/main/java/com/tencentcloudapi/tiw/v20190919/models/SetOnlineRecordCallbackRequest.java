@@ -30,7 +30,7 @@ public class SetOnlineRecordCallbackRequest extends AbstractModel{
     private Long SdkAppId;
 
     /**
-    * 实时录制任务结果回调地址，如果传空字符串会删除原来的回调地址配置，回调地址仅支持 http或https协议，即回调地址以http://或https://开头
+    * 实时录制任务结果回调地址，如果传空字符串会删除原来的回调地址配置，回调地址仅支持 http或https协议，即回调地址以http://或https://开头。回调数据格式请参考文档：https://cloud.tencent.com/document/product/1137/40258
     */
     @SerializedName("Callback")
     @Expose
@@ -53,20 +53,37 @@ public class SetOnlineRecordCallbackRequest extends AbstractModel{
     }
 
     /**
-     * Get 实时录制任务结果回调地址，如果传空字符串会删除原来的回调地址配置，回调地址仅支持 http或https协议，即回调地址以http://或https://开头 
-     * @return Callback 实时录制任务结果回调地址，如果传空字符串会删除原来的回调地址配置，回调地址仅支持 http或https协议，即回调地址以http://或https://开头
+     * Get 实时录制任务结果回调地址，如果传空字符串会删除原来的回调地址配置，回调地址仅支持 http或https协议，即回调地址以http://或https://开头。回调数据格式请参考文档：https://cloud.tencent.com/document/product/1137/40258 
+     * @return Callback 实时录制任务结果回调地址，如果传空字符串会删除原来的回调地址配置，回调地址仅支持 http或https协议，即回调地址以http://或https://开头。回调数据格式请参考文档：https://cloud.tencent.com/document/product/1137/40258
      */
     public String getCallback() {
         return this.Callback;
     }
 
     /**
-     * Set 实时录制任务结果回调地址，如果传空字符串会删除原来的回调地址配置，回调地址仅支持 http或https协议，即回调地址以http://或https://开头
-     * @param Callback 实时录制任务结果回调地址，如果传空字符串会删除原来的回调地址配置，回调地址仅支持 http或https协议，即回调地址以http://或https://开头
+     * Set 实时录制任务结果回调地址，如果传空字符串会删除原来的回调地址配置，回调地址仅支持 http或https协议，即回调地址以http://或https://开头。回调数据格式请参考文档：https://cloud.tencent.com/document/product/1137/40258
+     * @param Callback 实时录制任务结果回调地址，如果传空字符串会删除原来的回调地址配置，回调地址仅支持 http或https协议，即回调地址以http://或https://开头。回调数据格式请参考文档：https://cloud.tencent.com/document/product/1137/40258
      */
     public void setCallback(String Callback) {
         this.Callback = Callback;
     }
+
+    public SetOnlineRecordCallbackRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SetOnlineRecordCallbackRequest(SetOnlineRecordCallbackRequest source) {
+        if (source.SdkAppId != null) {
+            this.SdkAppId = new Long(source.SdkAppId);
+        }
+        if (source.Callback != null) {
+            this.Callback = new String(source.Callback);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

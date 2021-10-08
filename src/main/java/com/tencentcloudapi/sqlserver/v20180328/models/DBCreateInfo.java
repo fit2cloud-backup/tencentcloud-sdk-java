@@ -30,7 +30,7 @@ public class DBCreateInfo extends AbstractModel{
     private String DBName;
 
     /**
-    * 字符集。可选值包括：Chinese_PRC_CI_AS, Chinese_PRC_CS_AS, Chinese_PRC_BIN, Chinese_Taiwan_Stroke_CI_AS, SQL_Latin1_General_CP1_CI_AS, SQL_Latin1_General_CP1_CS_AS。不填默认为Chinese_PRC_CI_AS
+    * 字符集。可通过接口DescribeDBCharsets查到支持的字符集，不填默认为Chinese_PRC_CI_AS。
     */
     @SerializedName("Charset")
     @Expose
@@ -67,16 +67,16 @@ public class DBCreateInfo extends AbstractModel{
     }
 
     /**
-     * Get 字符集。可选值包括：Chinese_PRC_CI_AS, Chinese_PRC_CS_AS, Chinese_PRC_BIN, Chinese_Taiwan_Stroke_CI_AS, SQL_Latin1_General_CP1_CI_AS, SQL_Latin1_General_CP1_CS_AS。不填默认为Chinese_PRC_CI_AS 
-     * @return Charset 字符集。可选值包括：Chinese_PRC_CI_AS, Chinese_PRC_CS_AS, Chinese_PRC_BIN, Chinese_Taiwan_Stroke_CI_AS, SQL_Latin1_General_CP1_CI_AS, SQL_Latin1_General_CP1_CS_AS。不填默认为Chinese_PRC_CI_AS
+     * Get 字符集。可通过接口DescribeDBCharsets查到支持的字符集，不填默认为Chinese_PRC_CI_AS。 
+     * @return Charset 字符集。可通过接口DescribeDBCharsets查到支持的字符集，不填默认为Chinese_PRC_CI_AS。
      */
     public String getCharset() {
         return this.Charset;
     }
 
     /**
-     * Set 字符集。可选值包括：Chinese_PRC_CI_AS, Chinese_PRC_CS_AS, Chinese_PRC_BIN, Chinese_Taiwan_Stroke_CI_AS, SQL_Latin1_General_CP1_CI_AS, SQL_Latin1_General_CP1_CS_AS。不填默认为Chinese_PRC_CI_AS
-     * @param Charset 字符集。可选值包括：Chinese_PRC_CI_AS, Chinese_PRC_CS_AS, Chinese_PRC_BIN, Chinese_Taiwan_Stroke_CI_AS, SQL_Latin1_General_CP1_CI_AS, SQL_Latin1_General_CP1_CS_AS。不填默认为Chinese_PRC_CI_AS
+     * Set 字符集。可通过接口DescribeDBCharsets查到支持的字符集，不填默认为Chinese_PRC_CI_AS。
+     * @param Charset 字符集。可通过接口DescribeDBCharsets查到支持的字符集，不填默认为Chinese_PRC_CI_AS。
      */
     public void setCharset(String Charset) {
         this.Charset = Charset;
@@ -113,6 +113,32 @@ public class DBCreateInfo extends AbstractModel{
     public void setRemark(String Remark) {
         this.Remark = Remark;
     }
+
+    public DBCreateInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DBCreateInfo(DBCreateInfo source) {
+        if (source.DBName != null) {
+            this.DBName = new String(source.DBName);
+        }
+        if (source.Charset != null) {
+            this.Charset = new String(source.Charset);
+        }
+        if (source.Accounts != null) {
+            this.Accounts = new AccountPrivilege[source.Accounts.length];
+            for (int i = 0; i < source.Accounts.length; i++) {
+                this.Accounts[i] = new AccountPrivilege(source.Accounts[i]);
+            }
+        }
+        if (source.Remark != null) {
+            this.Remark = new String(source.Remark);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -24,14 +24,17 @@ public class DescribeNotebookInstanceRequest extends AbstractModel{
 
     /**
     * Notebook实例名称
+规则：“^\[a-zA-Z0-9\](-\*\[a-zA-Z0-9\])\*$”
     */
     @SerializedName("NotebookInstanceName")
     @Expose
     private String NotebookInstanceName;
 
     /**
-     * Get Notebook实例名称 
+     * Get Notebook实例名称
+规则：“^\[a-zA-Z0-9\](-\*\[a-zA-Z0-9\])\*$” 
      * @return NotebookInstanceName Notebook实例名称
+规则：“^\[a-zA-Z0-9\](-\*\[a-zA-Z0-9\])\*$”
      */
     public String getNotebookInstanceName() {
         return this.NotebookInstanceName;
@@ -39,11 +42,27 @@ public class DescribeNotebookInstanceRequest extends AbstractModel{
 
     /**
      * Set Notebook实例名称
+规则：“^\[a-zA-Z0-9\](-\*\[a-zA-Z0-9\])\*$”
      * @param NotebookInstanceName Notebook实例名称
+规则：“^\[a-zA-Z0-9\](-\*\[a-zA-Z0-9\])\*$”
      */
     public void setNotebookInstanceName(String NotebookInstanceName) {
         this.NotebookInstanceName = NotebookInstanceName;
     }
+
+    public DescribeNotebookInstanceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeNotebookInstanceRequest(DescribeNotebookInstanceRequest source) {
+        if (source.NotebookInstanceName != null) {
+            this.NotebookInstanceName = new String(source.NotebookInstanceName);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

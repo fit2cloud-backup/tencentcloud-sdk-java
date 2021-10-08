@@ -64,6 +64,14 @@ unknown：服务地域无法获取
     private String Area;
 
     /**
+    * 节点的所在城市
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("City")
+    @Expose
+    private String City;
+
+    /**
      * Get 指定查询的 IP 
      * @return Ip 指定查询的 IP
      */
@@ -168,6 +176,58 @@ unknown：服务地域无法获取
     }
 
     /**
+     * Get 节点的所在城市
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return City 节点的所在城市
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCity() {
+        return this.City;
+    }
+
+    /**
+     * Set 节点的所在城市
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param City 节点的所在城市
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCity(String City) {
+        this.City = City;
+    }
+
+    public CdnIp() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CdnIp(CdnIp source) {
+        if (source.Ip != null) {
+            this.Ip = new String(source.Ip);
+        }
+        if (source.Platform != null) {
+            this.Platform = new String(source.Platform);
+        }
+        if (source.Location != null) {
+            this.Location = new String(source.Location);
+        }
+        if (source.History != null) {
+            this.History = new CdnIpHistory[source.History.length];
+            for (int i = 0; i < source.History.length; i++) {
+                this.History[i] = new CdnIpHistory(source.History[i]);
+            }
+        }
+        if (source.Area != null) {
+            this.Area = new String(source.Area);
+        }
+        if (source.City != null) {
+            this.City = new String(source.City);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -176,6 +236,7 @@ unknown：服务地域无法获取
         this.setParamSimple(map, prefix + "Location", this.Location);
         this.setParamArrayObj(map, prefix + "History.", this.History);
         this.setParamSimple(map, prefix + "Area", this.Area);
+        this.setParamSimple(map, prefix + "City", this.City);
 
     }
 }

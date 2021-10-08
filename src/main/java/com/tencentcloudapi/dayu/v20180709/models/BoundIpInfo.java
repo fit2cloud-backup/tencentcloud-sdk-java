@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class BoundIpInfo extends AbstractModel{
 
     /**
-    * IP
+    * IP地址
     */
     @SerializedName("Ip")
     @Expose
     private String Ip;
 
     /**
-    * 绑定的产品分类，取值[public（CVM产品），bm（黑石产品），eni（弹性网卡），vpngw（VPN网关）， natgw（NAT网关），waf（Web应用安全产品），fpc（金融产品），gaap（GAAP产品）, other(托管IP)]
+    * 绑定的产品分类，取值[public（CVM、CLB产品），bm（黑石产品），eni（弹性网卡），vpngw（VPN网关）， natgw（NAT网关），waf（Web应用安全产品），fpc（金融产品），gaap（GAAP产品）, other(托管IP)]
     */
     @SerializedName("BizType")
     @Expose
@@ -51,32 +51,39 @@ public class BoundIpInfo extends AbstractModel{
     private String InstanceId;
 
     /**
-     * Get IP 
-     * @return Ip IP
+    * 运营商，0：电信；1：联通；2：移动；5：BGP
+    */
+    @SerializedName("IspCode")
+    @Expose
+    private Long IspCode;
+
+    /**
+     * Get IP地址 
+     * @return Ip IP地址
      */
     public String getIp() {
         return this.Ip;
     }
 
     /**
-     * Set IP
-     * @param Ip IP
+     * Set IP地址
+     * @param Ip IP地址
      */
     public void setIp(String Ip) {
         this.Ip = Ip;
     }
 
     /**
-     * Get 绑定的产品分类，取值[public（CVM产品），bm（黑石产品），eni（弹性网卡），vpngw（VPN网关）， natgw（NAT网关），waf（Web应用安全产品），fpc（金融产品），gaap（GAAP产品）, other(托管IP)] 
-     * @return BizType 绑定的产品分类，取值[public（CVM产品），bm（黑石产品），eni（弹性网卡），vpngw（VPN网关）， natgw（NAT网关），waf（Web应用安全产品），fpc（金融产品），gaap（GAAP产品）, other(托管IP)]
+     * Get 绑定的产品分类，取值[public（CVM、CLB产品），bm（黑石产品），eni（弹性网卡），vpngw（VPN网关）， natgw（NAT网关），waf（Web应用安全产品），fpc（金融产品），gaap（GAAP产品）, other(托管IP)] 
+     * @return BizType 绑定的产品分类，取值[public（CVM、CLB产品），bm（黑石产品），eni（弹性网卡），vpngw（VPN网关）， natgw（NAT网关），waf（Web应用安全产品），fpc（金融产品），gaap（GAAP产品）, other(托管IP)]
      */
     public String getBizType() {
         return this.BizType;
     }
 
     /**
-     * Set 绑定的产品分类，取值[public（CVM产品），bm（黑石产品），eni（弹性网卡），vpngw（VPN网关）， natgw（NAT网关），waf（Web应用安全产品），fpc（金融产品），gaap（GAAP产品）, other(托管IP)]
-     * @param BizType 绑定的产品分类，取值[public（CVM产品），bm（黑石产品），eni（弹性网卡），vpngw（VPN网关）， natgw（NAT网关），waf（Web应用安全产品），fpc（金融产品），gaap（GAAP产品）, other(托管IP)]
+     * Set 绑定的产品分类，取值[public（CVM、CLB产品），bm（黑石产品），eni（弹性网卡），vpngw（VPN网关）， natgw（NAT网关），waf（Web应用安全产品），fpc（金融产品），gaap（GAAP产品）, other(托管IP)]
+     * @param BizType 绑定的产品分类，取值[public（CVM、CLB产品），bm（黑石产品），eni（弹性网卡），vpngw（VPN网关）， natgw（NAT网关），waf（Web应用安全产品），fpc（金融产品），gaap（GAAP产品）, other(托管IP)]
      */
     public void setBizType(String BizType) {
         this.BizType = BizType;
@@ -115,6 +122,48 @@ public class BoundIpInfo extends AbstractModel{
     }
 
     /**
+     * Get 运营商，0：电信；1：联通；2：移动；5：BGP 
+     * @return IspCode 运营商，0：电信；1：联通；2：移动；5：BGP
+     */
+    public Long getIspCode() {
+        return this.IspCode;
+    }
+
+    /**
+     * Set 运营商，0：电信；1：联通；2：移动；5：BGP
+     * @param IspCode 运营商，0：电信；1：联通；2：移动；5：BGP
+     */
+    public void setIspCode(Long IspCode) {
+        this.IspCode = IspCode;
+    }
+
+    public BoundIpInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public BoundIpInfo(BoundIpInfo source) {
+        if (source.Ip != null) {
+            this.Ip = new String(source.Ip);
+        }
+        if (source.BizType != null) {
+            this.BizType = new String(source.BizType);
+        }
+        if (source.DeviceType != null) {
+            this.DeviceType = new String(source.DeviceType);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.IspCode != null) {
+            this.IspCode = new Long(source.IspCode);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -122,6 +171,7 @@ public class BoundIpInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "BizType", this.BizType);
         this.setParamSimple(map, prefix + "DeviceType", this.DeviceType);
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
+        this.setParamSimple(map, prefix + "IspCode", this.IspCode);
 
     }
 }

@@ -30,6 +30,22 @@ public class StartNotebookInstanceRequest extends AbstractModel{
     private String NotebookInstanceName;
 
     /**
+    * 自动停止，可取值Enabled/Disabled
+取值为Disabled的时候StoppingCondition将被忽略
+取值为Enabled的时候读取StoppingCondition作为自动停止的配置
+    */
+    @SerializedName("AutoStopping")
+    @Expose
+    private String AutoStopping;
+
+    /**
+    * 自动停止配置，只在AutoStopping为Enabled的时候生效
+    */
+    @SerializedName("StoppingCondition")
+    @Expose
+    private StoppingCondition StoppingCondition;
+
+    /**
      * Get Notebook实例名称 
      * @return NotebookInstanceName Notebook实例名称
      */
@@ -46,10 +62,72 @@ public class StartNotebookInstanceRequest extends AbstractModel{
     }
 
     /**
+     * Get 自动停止，可取值Enabled/Disabled
+取值为Disabled的时候StoppingCondition将被忽略
+取值为Enabled的时候读取StoppingCondition作为自动停止的配置 
+     * @return AutoStopping 自动停止，可取值Enabled/Disabled
+取值为Disabled的时候StoppingCondition将被忽略
+取值为Enabled的时候读取StoppingCondition作为自动停止的配置
+     */
+    public String getAutoStopping() {
+        return this.AutoStopping;
+    }
+
+    /**
+     * Set 自动停止，可取值Enabled/Disabled
+取值为Disabled的时候StoppingCondition将被忽略
+取值为Enabled的时候读取StoppingCondition作为自动停止的配置
+     * @param AutoStopping 自动停止，可取值Enabled/Disabled
+取值为Disabled的时候StoppingCondition将被忽略
+取值为Enabled的时候读取StoppingCondition作为自动停止的配置
+     */
+    public void setAutoStopping(String AutoStopping) {
+        this.AutoStopping = AutoStopping;
+    }
+
+    /**
+     * Get 自动停止配置，只在AutoStopping为Enabled的时候生效 
+     * @return StoppingCondition 自动停止配置，只在AutoStopping为Enabled的时候生效
+     */
+    public StoppingCondition getStoppingCondition() {
+        return this.StoppingCondition;
+    }
+
+    /**
+     * Set 自动停止配置，只在AutoStopping为Enabled的时候生效
+     * @param StoppingCondition 自动停止配置，只在AutoStopping为Enabled的时候生效
+     */
+    public void setStoppingCondition(StoppingCondition StoppingCondition) {
+        this.StoppingCondition = StoppingCondition;
+    }
+
+    public StartNotebookInstanceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public StartNotebookInstanceRequest(StartNotebookInstanceRequest source) {
+        if (source.NotebookInstanceName != null) {
+            this.NotebookInstanceName = new String(source.NotebookInstanceName);
+        }
+        if (source.AutoStopping != null) {
+            this.AutoStopping = new String(source.AutoStopping);
+        }
+        if (source.StoppingCondition != null) {
+            this.StoppingCondition = new StoppingCondition(source.StoppingCondition);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "NotebookInstanceName", this.NotebookInstanceName);
+        this.setParamSimple(map, prefix + "AutoStopping", this.AutoStopping);
+        this.setParamObj(map, prefix + "StoppingCondition.", this.StoppingCondition);
 
     }
 }

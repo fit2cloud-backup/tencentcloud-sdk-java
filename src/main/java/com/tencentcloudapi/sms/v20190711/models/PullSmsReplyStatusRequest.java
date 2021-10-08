@@ -30,7 +30,7 @@ public class PullSmsReplyStatusRequest extends AbstractModel{
     private Long Limit;
 
     /**
-    * 短信 SdkAppid 在 [短信控制台](https://console.cloud.tencent.com/sms/smslist) 添加应用后生成的实际 SdkAppid，例如1400006666。
+    * 短信 SdkAppid 在 [短信控制台](https://console.cloud.tencent.com/smsv2) 添加应用后生成的实际 SdkAppid，例如1400006666。
     */
     @SerializedName("SmsSdkAppid")
     @Expose
@@ -53,20 +53,37 @@ public class PullSmsReplyStatusRequest extends AbstractModel{
     }
 
     /**
-     * Get 短信 SdkAppid 在 [短信控制台](https://console.cloud.tencent.com/sms/smslist) 添加应用后生成的实际 SdkAppid，例如1400006666。 
-     * @return SmsSdkAppid 短信 SdkAppid 在 [短信控制台](https://console.cloud.tencent.com/sms/smslist) 添加应用后生成的实际 SdkAppid，例如1400006666。
+     * Get 短信 SdkAppid 在 [短信控制台](https://console.cloud.tencent.com/smsv2) 添加应用后生成的实际 SdkAppid，例如1400006666。 
+     * @return SmsSdkAppid 短信 SdkAppid 在 [短信控制台](https://console.cloud.tencent.com/smsv2) 添加应用后生成的实际 SdkAppid，例如1400006666。
      */
     public String getSmsSdkAppid() {
         return this.SmsSdkAppid;
     }
 
     /**
-     * Set 短信 SdkAppid 在 [短信控制台](https://console.cloud.tencent.com/sms/smslist) 添加应用后生成的实际 SdkAppid，例如1400006666。
-     * @param SmsSdkAppid 短信 SdkAppid 在 [短信控制台](https://console.cloud.tencent.com/sms/smslist) 添加应用后生成的实际 SdkAppid，例如1400006666。
+     * Set 短信 SdkAppid 在 [短信控制台](https://console.cloud.tencent.com/smsv2) 添加应用后生成的实际 SdkAppid，例如1400006666。
+     * @param SmsSdkAppid 短信 SdkAppid 在 [短信控制台](https://console.cloud.tencent.com/smsv2) 添加应用后生成的实际 SdkAppid，例如1400006666。
      */
     public void setSmsSdkAppid(String SmsSdkAppid) {
         this.SmsSdkAppid = SmsSdkAppid;
     }
+
+    public PullSmsReplyStatusRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public PullSmsReplyStatusRequest(PullSmsReplyStatusRequest source) {
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.SmsSdkAppid != null) {
+            this.SmsSdkAppid = new String(source.SmsSdkAppid);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

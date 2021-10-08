@@ -51,7 +51,7 @@ public class DescribeDBBackupsRequest extends AbstractModel{
     private String EndTime;
 
     /**
-    * 备份列表分页返回，每页返回数量，默认为 20，最小为1，最大值为 100。
+    * 备份列表分页返回，每页返回数量，默认为 20，最小为1，最大值为 100。（当该参数不传或者传0时按默认值处理）
     */
     @SerializedName("Limit")
     @Expose
@@ -129,16 +129,16 @@ public class DescribeDBBackupsRequest extends AbstractModel{
     }
 
     /**
-     * Get 备份列表分页返回，每页返回数量，默认为 20，最小为1，最大值为 100。 
-     * @return Limit 备份列表分页返回，每页返回数量，默认为 20，最小为1，最大值为 100。
+     * Get 备份列表分页返回，每页返回数量，默认为 20，最小为1，最大值为 100。（当该参数不传或者传0时按默认值处理） 
+     * @return Limit 备份列表分页返回，每页返回数量，默认为 20，最小为1，最大值为 100。（当该参数不传或者传0时按默认值处理）
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 备份列表分页返回，每页返回数量，默认为 20，最小为1，最大值为 100。
-     * @param Limit 备份列表分页返回，每页返回数量，默认为 20，最小为1，最大值为 100。
+     * Set 备份列表分页返回，每页返回数量，默认为 20，最小为1，最大值为 100。（当该参数不传或者传0时按默认值处理）
+     * @param Limit 备份列表分页返回，每页返回数量，默认为 20，最小为1，最大值为 100。（当该参数不传或者传0时按默认值处理）
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
@@ -159,6 +159,35 @@ public class DescribeDBBackupsRequest extends AbstractModel{
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
+
+    public DescribeDBBackupsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeDBBackupsRequest(DescribeDBBackupsRequest source) {
+        if (source.DBInstanceId != null) {
+            this.DBInstanceId = new String(source.DBInstanceId);
+        }
+        if (source.Type != null) {
+            this.Type = new Long(source.Type);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

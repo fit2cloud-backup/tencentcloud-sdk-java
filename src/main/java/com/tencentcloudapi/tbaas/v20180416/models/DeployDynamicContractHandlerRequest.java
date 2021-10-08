@@ -30,7 +30,7 @@ public class DeployDynamicContractHandlerRequest extends AbstractModel{
     private String Module;
 
     /**
-    * 操作名，固定字段：deploy_by_dynamic_contract
+    * 操作名，固定字段：deploy_dynamic_contract
     */
     @SerializedName("Operation")
     @Expose
@@ -88,16 +88,16 @@ public class DeployDynamicContractHandlerRequest extends AbstractModel{
     }
 
     /**
-     * Get 操作名，固定字段：deploy_by_dynamic_contract 
-     * @return Operation 操作名，固定字段：deploy_by_dynamic_contract
+     * Get 操作名，固定字段：deploy_dynamic_contract 
+     * @return Operation 操作名，固定字段：deploy_dynamic_contract
      */
     public String getOperation() {
         return this.Operation;
     }
 
     /**
-     * Set 操作名，固定字段：deploy_by_dynamic_contract
-     * @param Operation 操作名，固定字段：deploy_by_dynamic_contract
+     * Set 操作名，固定字段：deploy_dynamic_contract
+     * @param Operation 操作名，固定字段：deploy_dynamic_contract
      */
     public void setOperation(String Operation) {
         this.Operation = Operation;
@@ -182,6 +182,41 @@ public class DeployDynamicContractHandlerRequest extends AbstractModel{
     public void setConstructorParams(String [] ConstructorParams) {
         this.ConstructorParams = ConstructorParams;
     }
+
+    public DeployDynamicContractHandlerRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeployDynamicContractHandlerRequest(DeployDynamicContractHandlerRequest source) {
+        if (source.Module != null) {
+            this.Module = new String(source.Module);
+        }
+        if (source.Operation != null) {
+            this.Operation = new String(source.Operation);
+        }
+        if (source.GroupPk != null) {
+            this.GroupPk = new String(source.GroupPk);
+        }
+        if (source.ContractName != null) {
+            this.ContractName = new String(source.ContractName);
+        }
+        if (source.AbiInfo != null) {
+            this.AbiInfo = new String(source.AbiInfo);
+        }
+        if (source.ByteCodeBin != null) {
+            this.ByteCodeBin = new String(source.ByteCodeBin);
+        }
+        if (source.ConstructorParams != null) {
+            this.ConstructorParams = new String[source.ConstructorParams.length];
+            for (int i = 0; i < source.ConstructorParams.length; i++) {
+                this.ConstructorParams[i] = new String(source.ConstructorParams[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

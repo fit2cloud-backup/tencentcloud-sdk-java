@@ -45,10 +45,10 @@ public class ProxyGroupDetail extends AbstractModel{
 
     /**
     * 通道组状态：
-0 正常运行
-1 创建中
-4 销毁中
-11 迁移中
+0表示正常运行；
+1表示创建中；
+4表示销毁中；
+11表示迁移中；
     */
     @SerializedName("Status")
     @Expose
@@ -120,6 +120,46 @@ public class ProxyGroupDetail extends AbstractModel{
     private TagPair [] TagSet;
 
     /**
+    * 安全策略ID，当设置了安全策略时，存在该字段。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PolicyId")
+    @Expose
+    private String PolicyId;
+
+    /**
+    * 通道组版本
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Version")
+    @Expose
+    private String Version;
+
+    /**
+    * 通道获取客户端IP的方式，0表示TOA，1表示Proxy Protocol
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ClientIPMethod")
+    @Expose
+    private Long [] ClientIPMethod;
+
+    /**
+    * IP版本，可取值：IPv4、IPv6，默认值IPv4
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IPAddressVersion")
+    @Expose
+    private String IPAddressVersion;
+
+    /**
+    * 通道组套餐类型：Thunder表示标准通道组，Accelerator表示游戏加速器通道组。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PackageType")
+    @Expose
+    private String PackageType;
+
+    /**
      * Get 创建时间 
      * @return CreateTime 创建时间
      */
@@ -169,15 +209,15 @@ public class ProxyGroupDetail extends AbstractModel{
 
     /**
      * Get 通道组状态：
-0 正常运行
-1 创建中
-4 销毁中
-11 迁移中 
+0表示正常运行；
+1表示创建中；
+4表示销毁中；
+11表示迁移中； 
      * @return Status 通道组状态：
-0 正常运行
-1 创建中
-4 销毁中
-11 迁移中
+0表示正常运行；
+1表示创建中；
+4表示销毁中；
+11表示迁移中；
      */
     public Long getStatus() {
         return this.Status;
@@ -185,15 +225,15 @@ public class ProxyGroupDetail extends AbstractModel{
 
     /**
      * Set 通道组状态：
-0 正常运行
-1 创建中
-4 销毁中
-11 迁移中
+0表示正常运行；
+1表示创建中；
+4表示销毁中；
+11表示迁移中；
      * @param Status 通道组状态：
-0 正常运行
-1 创建中
-4 销毁中
-11 迁移中
+0表示正常运行；
+1表示创建中；
+4表示销毁中；
+11表示迁移中；
      */
     public void setStatus(Long Status) {
         this.Status = Status;
@@ -352,6 +392,177 @@ public class ProxyGroupDetail extends AbstractModel{
     }
 
     /**
+     * Get 安全策略ID，当设置了安全策略时，存在该字段。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PolicyId 安全策略ID，当设置了安全策略时，存在该字段。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getPolicyId() {
+        return this.PolicyId;
+    }
+
+    /**
+     * Set 安全策略ID，当设置了安全策略时，存在该字段。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PolicyId 安全策略ID，当设置了安全策略时，存在该字段。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPolicyId(String PolicyId) {
+        this.PolicyId = PolicyId;
+    }
+
+    /**
+     * Get 通道组版本
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Version 通道组版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getVersion() {
+        return this.Version;
+    }
+
+    /**
+     * Set 通道组版本
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Version 通道组版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setVersion(String Version) {
+        this.Version = Version;
+    }
+
+    /**
+     * Get 通道获取客户端IP的方式，0表示TOA，1表示Proxy Protocol
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ClientIPMethod 通道获取客户端IP的方式，0表示TOA，1表示Proxy Protocol
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long [] getClientIPMethod() {
+        return this.ClientIPMethod;
+    }
+
+    /**
+     * Set 通道获取客户端IP的方式，0表示TOA，1表示Proxy Protocol
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ClientIPMethod 通道获取客户端IP的方式，0表示TOA，1表示Proxy Protocol
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setClientIPMethod(Long [] ClientIPMethod) {
+        this.ClientIPMethod = ClientIPMethod;
+    }
+
+    /**
+     * Get IP版本，可取值：IPv4、IPv6，默认值IPv4
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IPAddressVersion IP版本，可取值：IPv4、IPv6，默认值IPv4
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getIPAddressVersion() {
+        return this.IPAddressVersion;
+    }
+
+    /**
+     * Set IP版本，可取值：IPv4、IPv6，默认值IPv4
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IPAddressVersion IP版本，可取值：IPv4、IPv6，默认值IPv4
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIPAddressVersion(String IPAddressVersion) {
+        this.IPAddressVersion = IPAddressVersion;
+    }
+
+    /**
+     * Get 通道组套餐类型：Thunder表示标准通道组，Accelerator表示游戏加速器通道组。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PackageType 通道组套餐类型：Thunder表示标准通道组，Accelerator表示游戏加速器通道组。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getPackageType() {
+        return this.PackageType;
+    }
+
+    /**
+     * Set 通道组套餐类型：Thunder表示标准通道组，Accelerator表示游戏加速器通道组。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PackageType 通道组套餐类型：Thunder表示标准通道组，Accelerator表示游戏加速器通道组。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPackageType(String PackageType) {
+        this.PackageType = PackageType;
+    }
+
+    public ProxyGroupDetail() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ProxyGroupDetail(ProxyGroupDetail source) {
+        if (source.CreateTime != null) {
+            this.CreateTime = new Long(source.CreateTime);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.ProxyNum != null) {
+            this.ProxyNum = new Long(source.ProxyNum);
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+        if (source.OwnerUin != null) {
+            this.OwnerUin = new String(source.OwnerUin);
+        }
+        if (source.CreateUin != null) {
+            this.CreateUin = new String(source.CreateUin);
+        }
+        if (source.GroupName != null) {
+            this.GroupName = new String(source.GroupName);
+        }
+        if (source.DnsDefaultIp != null) {
+            this.DnsDefaultIp = new String(source.DnsDefaultIp);
+        }
+        if (source.Domain != null) {
+            this.Domain = new String(source.Domain);
+        }
+        if (source.RealServerRegionInfo != null) {
+            this.RealServerRegionInfo = new RegionDetail(source.RealServerRegionInfo);
+        }
+        if (source.IsOldGroup != null) {
+            this.IsOldGroup = new Boolean(source.IsOldGroup);
+        }
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
+        if (source.TagSet != null) {
+            this.TagSet = new TagPair[source.TagSet.length];
+            for (int i = 0; i < source.TagSet.length; i++) {
+                this.TagSet[i] = new TagPair(source.TagSet[i]);
+            }
+        }
+        if (source.PolicyId != null) {
+            this.PolicyId = new String(source.PolicyId);
+        }
+        if (source.Version != null) {
+            this.Version = new String(source.Version);
+        }
+        if (source.ClientIPMethod != null) {
+            this.ClientIPMethod = new Long[source.ClientIPMethod.length];
+            for (int i = 0; i < source.ClientIPMethod.length; i++) {
+                this.ClientIPMethod[i] = new Long(source.ClientIPMethod[i]);
+            }
+        }
+        if (source.IPAddressVersion != null) {
+            this.IPAddressVersion = new String(source.IPAddressVersion);
+        }
+        if (source.PackageType != null) {
+            this.PackageType = new String(source.PackageType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -368,6 +579,11 @@ public class ProxyGroupDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "IsOldGroup", this.IsOldGroup);
         this.setParamSimple(map, prefix + "GroupId", this.GroupId);
         this.setParamArrayObj(map, prefix + "TagSet.", this.TagSet);
+        this.setParamSimple(map, prefix + "PolicyId", this.PolicyId);
+        this.setParamSimple(map, prefix + "Version", this.Version);
+        this.setParamArraySimple(map, prefix + "ClientIPMethod.", this.ClientIPMethod);
+        this.setParamSimple(map, prefix + "IPAddressVersion", this.IPAddressVersion);
+        this.setParamSimple(map, prefix + "PackageType", this.PackageType);
 
     }
 }

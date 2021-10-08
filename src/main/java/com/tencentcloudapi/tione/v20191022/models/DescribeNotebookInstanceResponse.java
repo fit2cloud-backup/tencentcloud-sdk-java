@@ -111,6 +111,12 @@ public class DescribeNotebookInstanceResponse extends AbstractModel{
 
     /**
     * Notebook实例状态
+
+Pending: 创建中
+Inservice: 运行中
+Stopping: 停止中
+Stopped: 已停止
+Failed: 失败
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NotebookInstanceStatus")
@@ -150,6 +156,46 @@ public class DescribeNotebookInstanceResponse extends AbstractModel{
     @SerializedName("AdditionalCodeRepositories")
     @Expose
     private String [] AdditionalCodeRepositories;
+
+    /**
+    * 是否开启CLS日志服务
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ClsAccess")
+    @Expose
+    private String ClsAccess;
+
+    /**
+    * 是否预付费实例
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Prepay")
+    @Expose
+    private Boolean Prepay;
+
+    /**
+    * 实例运行截止时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Deadline")
+    @Expose
+    private String Deadline;
+
+    /**
+    * 自动停止配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("StoppingCondition")
+    @Expose
+    private StoppingCondition StoppingCondition;
+
+    /**
+    * Cls配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ClsConfig")
+    @Expose
+    private ClsConfig ClsConfig;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -376,8 +422,20 @@ public class DescribeNotebookInstanceResponse extends AbstractModel{
 
     /**
      * Get Notebook实例状态
+
+Pending: 创建中
+Inservice: 运行中
+Stopping: 停止中
+Stopped: 已停止
+Failed: 失败
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return NotebookInstanceStatus Notebook实例状态
+
+Pending: 创建中
+Inservice: 运行中
+Stopping: 停止中
+Stopped: 已停止
+Failed: 失败
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNotebookInstanceStatus() {
@@ -386,8 +444,20 @@ public class DescribeNotebookInstanceResponse extends AbstractModel{
 
     /**
      * Set Notebook实例状态
+
+Pending: 创建中
+Inservice: 运行中
+Stopping: 停止中
+Stopped: 已停止
+Failed: 失败
 注意：此字段可能返回 null，表示取不到有效值。
      * @param NotebookInstanceStatus Notebook实例状态
+
+Pending: 创建中
+Inservice: 运行中
+Stopping: 停止中
+Stopped: 已停止
+Failed: 失败
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNotebookInstanceStatus(String NotebookInstanceStatus) {
@@ -483,6 +553,106 @@ public class DescribeNotebookInstanceResponse extends AbstractModel{
     }
 
     /**
+     * Get 是否开启CLS日志服务
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ClsAccess 是否开启CLS日志服务
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getClsAccess() {
+        return this.ClsAccess;
+    }
+
+    /**
+     * Set 是否开启CLS日志服务
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ClsAccess 是否开启CLS日志服务
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setClsAccess(String ClsAccess) {
+        this.ClsAccess = ClsAccess;
+    }
+
+    /**
+     * Get 是否预付费实例
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Prepay 是否预付费实例
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getPrepay() {
+        return this.Prepay;
+    }
+
+    /**
+     * Set 是否预付费实例
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Prepay 是否预付费实例
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPrepay(Boolean Prepay) {
+        this.Prepay = Prepay;
+    }
+
+    /**
+     * Get 实例运行截止时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Deadline 实例运行截止时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDeadline() {
+        return this.Deadline;
+    }
+
+    /**
+     * Set 实例运行截止时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Deadline 实例运行截止时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDeadline(String Deadline) {
+        this.Deadline = Deadline;
+    }
+
+    /**
+     * Get 自动停止配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return StoppingCondition 自动停止配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public StoppingCondition getStoppingCondition() {
+        return this.StoppingCondition;
+    }
+
+    /**
+     * Set 自动停止配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param StoppingCondition 自动停止配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setStoppingCondition(StoppingCondition StoppingCondition) {
+        this.StoppingCondition = StoppingCondition;
+    }
+
+    /**
+     * Get Cls配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ClsConfig Cls配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ClsConfig getClsConfig() {
+        return this.ClsConfig;
+    }
+
+    /**
+     * Set Cls配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ClsConfig Cls配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setClsConfig(ClsConfig ClsConfig) {
+        this.ClsConfig = ClsConfig;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -497,6 +667,86 @@ public class DescribeNotebookInstanceResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeNotebookInstanceResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeNotebookInstanceResponse(DescribeNotebookInstanceResponse source) {
+        if (source.NotebookInstanceName != null) {
+            this.NotebookInstanceName = new String(source.NotebookInstanceName);
+        }
+        if (source.InstanceType != null) {
+            this.InstanceType = new String(source.InstanceType);
+        }
+        if (source.RoleArn != null) {
+            this.RoleArn = new String(source.RoleArn);
+        }
+        if (source.DirectInternetAccess != null) {
+            this.DirectInternetAccess = new String(source.DirectInternetAccess);
+        }
+        if (source.RootAccess != null) {
+            this.RootAccess = new String(source.RootAccess);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.VolumeSizeInGB != null) {
+            this.VolumeSizeInGB = new Long(source.VolumeSizeInGB);
+        }
+        if (source.FailureReason != null) {
+            this.FailureReason = new String(source.FailureReason);
+        }
+        if (source.CreationTime != null) {
+            this.CreationTime = new String(source.CreationTime);
+        }
+        if (source.LastModifiedTime != null) {
+            this.LastModifiedTime = new String(source.LastModifiedTime);
+        }
+        if (source.LogUrl != null) {
+            this.LogUrl = new String(source.LogUrl);
+        }
+        if (source.NotebookInstanceStatus != null) {
+            this.NotebookInstanceStatus = new String(source.NotebookInstanceStatus);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.LifecycleScriptsName != null) {
+            this.LifecycleScriptsName = new String(source.LifecycleScriptsName);
+        }
+        if (source.DefaultCodeRepository != null) {
+            this.DefaultCodeRepository = new String(source.DefaultCodeRepository);
+        }
+        if (source.AdditionalCodeRepositories != null) {
+            this.AdditionalCodeRepositories = new String[source.AdditionalCodeRepositories.length];
+            for (int i = 0; i < source.AdditionalCodeRepositories.length; i++) {
+                this.AdditionalCodeRepositories[i] = new String(source.AdditionalCodeRepositories[i]);
+            }
+        }
+        if (source.ClsAccess != null) {
+            this.ClsAccess = new String(source.ClsAccess);
+        }
+        if (source.Prepay != null) {
+            this.Prepay = new Boolean(source.Prepay);
+        }
+        if (source.Deadline != null) {
+            this.Deadline = new String(source.Deadline);
+        }
+        if (source.StoppingCondition != null) {
+            this.StoppingCondition = new StoppingCondition(source.StoppingCondition);
+        }
+        if (source.ClsConfig != null) {
+            this.ClsConfig = new ClsConfig(source.ClsConfig);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -518,6 +768,11 @@ public class DescribeNotebookInstanceResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "LifecycleScriptsName", this.LifecycleScriptsName);
         this.setParamSimple(map, prefix + "DefaultCodeRepository", this.DefaultCodeRepository);
         this.setParamArraySimple(map, prefix + "AdditionalCodeRepositories.", this.AdditionalCodeRepositories);
+        this.setParamSimple(map, prefix + "ClsAccess", this.ClsAccess);
+        this.setParamSimple(map, prefix + "Prepay", this.Prepay);
+        this.setParamSimple(map, prefix + "Deadline", this.Deadline);
+        this.setParamObj(map, prefix + "StoppingCondition.", this.StoppingCondition);
+        this.setParamObj(map, prefix + "ClsConfig.", this.ClsConfig);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

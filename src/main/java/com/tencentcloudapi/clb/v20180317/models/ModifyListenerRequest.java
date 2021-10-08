@@ -23,21 +23,21 @@ import java.util.HashMap;
 public class ModifyListenerRequest extends AbstractModel{
 
     /**
-    * 负载均衡实例 ID
+    * 负载均衡实例ID。
     */
     @SerializedName("LoadBalancerId")
     @Expose
     private String LoadBalancerId;
 
     /**
-    * 负载均衡监听器 ID
+    * 负载均衡监听器ID。
     */
     @SerializedName("ListenerId")
     @Expose
     private String ListenerId;
 
     /**
-    * 新的监听器名称
+    * 新的监听器名称。
     */
     @SerializedName("ListenerName")
     @Expose
@@ -51,14 +51,14 @@ public class ModifyListenerRequest extends AbstractModel{
     private Long SessionExpireTime;
 
     /**
-    * 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL监听器
+    * 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL监听器。
     */
     @SerializedName("HealthCheck")
     @Expose
     private HealthCheck HealthCheck;
 
     /**
-    * 证书相关信息，此参数仅适用于HTTPS/TCP_SSL监听器
+    * 证书相关信息，此参数仅适用于HTTPS/TCP_SSL监听器。
     */
     @SerializedName("Certificate")
     @Expose
@@ -73,55 +73,69 @@ public class ModifyListenerRequest extends AbstractModel{
     private String Scheduler;
 
     /**
-    * 是否开启SNI特性，此参数仅适用于HTTPS监听器。注意：未开启SNI的监听器可以开启SNI；已开启SNI的监听器不能关闭SNI
+    * 是否开启SNI特性，此参数仅适用于HTTPS监听器。注意：未开启SNI的监听器可以开启SNI；已开启SNI的监听器不能关闭SNI。
     */
     @SerializedName("SniSwitch")
     @Expose
     private Long SniSwitch;
 
     /**
-     * Get 负载均衡实例 ID 
-     * @return LoadBalancerId 负载均衡实例 ID
+    * 是否开启长连接，此参数仅适用于HTTP/HTTPS监听器。
+    */
+    @SerializedName("KeepaliveEnable")
+    @Expose
+    private Long KeepaliveEnable;
+
+    /**
+    * 解绑后端目标时，是否发RST给客户端，此参数仅适用于TCP监听器。
+    */
+    @SerializedName("DeregisterTargetRst")
+    @Expose
+    private Boolean DeregisterTargetRst;
+
+    /**
+     * Get 负载均衡实例ID。 
+     * @return LoadBalancerId 负载均衡实例ID。
      */
     public String getLoadBalancerId() {
         return this.LoadBalancerId;
     }
 
     /**
-     * Set 负载均衡实例 ID
-     * @param LoadBalancerId 负载均衡实例 ID
+     * Set 负载均衡实例ID。
+     * @param LoadBalancerId 负载均衡实例ID。
      */
     public void setLoadBalancerId(String LoadBalancerId) {
         this.LoadBalancerId = LoadBalancerId;
     }
 
     /**
-     * Get 负载均衡监听器 ID 
-     * @return ListenerId 负载均衡监听器 ID
+     * Get 负载均衡监听器ID。 
+     * @return ListenerId 负载均衡监听器ID。
      */
     public String getListenerId() {
         return this.ListenerId;
     }
 
     /**
-     * Set 负载均衡监听器 ID
-     * @param ListenerId 负载均衡监听器 ID
+     * Set 负载均衡监听器ID。
+     * @param ListenerId 负载均衡监听器ID。
      */
     public void setListenerId(String ListenerId) {
         this.ListenerId = ListenerId;
     }
 
     /**
-     * Get 新的监听器名称 
-     * @return ListenerName 新的监听器名称
+     * Get 新的监听器名称。 
+     * @return ListenerName 新的监听器名称。
      */
     public String getListenerName() {
         return this.ListenerName;
     }
 
     /**
-     * Set 新的监听器名称
-     * @param ListenerName 新的监听器名称
+     * Set 新的监听器名称。
+     * @param ListenerName 新的监听器名称。
      */
     public void setListenerName(String ListenerName) {
         this.ListenerName = ListenerName;
@@ -144,32 +158,32 @@ public class ModifyListenerRequest extends AbstractModel{
     }
 
     /**
-     * Get 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL监听器 
-     * @return HealthCheck 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL监听器
+     * Get 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL监听器。 
+     * @return HealthCheck 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL监听器。
      */
     public HealthCheck getHealthCheck() {
         return this.HealthCheck;
     }
 
     /**
-     * Set 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL监听器
-     * @param HealthCheck 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL监听器
+     * Set 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL监听器。
+     * @param HealthCheck 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL监听器。
      */
     public void setHealthCheck(HealthCheck HealthCheck) {
         this.HealthCheck = HealthCheck;
     }
 
     /**
-     * Get 证书相关信息，此参数仅适用于HTTPS/TCP_SSL监听器 
-     * @return Certificate 证书相关信息，此参数仅适用于HTTPS/TCP_SSL监听器
+     * Get 证书相关信息，此参数仅适用于HTTPS/TCP_SSL监听器。 
+     * @return Certificate 证书相关信息，此参数仅适用于HTTPS/TCP_SSL监听器。
      */
     public CertificateInput getCertificate() {
         return this.Certificate;
     }
 
     /**
-     * Set 证书相关信息，此参数仅适用于HTTPS/TCP_SSL监听器
-     * @param Certificate 证书相关信息，此参数仅适用于HTTPS/TCP_SSL监听器
+     * Set 证书相关信息，此参数仅适用于HTTPS/TCP_SSL监听器。
+     * @param Certificate 证书相关信息，此参数仅适用于HTTPS/TCP_SSL监听器。
      */
     public void setCertificate(CertificateInput Certificate) {
         this.Certificate = Certificate;
@@ -196,20 +210,93 @@ public class ModifyListenerRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否开启SNI特性，此参数仅适用于HTTPS监听器。注意：未开启SNI的监听器可以开启SNI；已开启SNI的监听器不能关闭SNI 
-     * @return SniSwitch 是否开启SNI特性，此参数仅适用于HTTPS监听器。注意：未开启SNI的监听器可以开启SNI；已开启SNI的监听器不能关闭SNI
+     * Get 是否开启SNI特性，此参数仅适用于HTTPS监听器。注意：未开启SNI的监听器可以开启SNI；已开启SNI的监听器不能关闭SNI。 
+     * @return SniSwitch 是否开启SNI特性，此参数仅适用于HTTPS监听器。注意：未开启SNI的监听器可以开启SNI；已开启SNI的监听器不能关闭SNI。
      */
     public Long getSniSwitch() {
         return this.SniSwitch;
     }
 
     /**
-     * Set 是否开启SNI特性，此参数仅适用于HTTPS监听器。注意：未开启SNI的监听器可以开启SNI；已开启SNI的监听器不能关闭SNI
-     * @param SniSwitch 是否开启SNI特性，此参数仅适用于HTTPS监听器。注意：未开启SNI的监听器可以开启SNI；已开启SNI的监听器不能关闭SNI
+     * Set 是否开启SNI特性，此参数仅适用于HTTPS监听器。注意：未开启SNI的监听器可以开启SNI；已开启SNI的监听器不能关闭SNI。
+     * @param SniSwitch 是否开启SNI特性，此参数仅适用于HTTPS监听器。注意：未开启SNI的监听器可以开启SNI；已开启SNI的监听器不能关闭SNI。
      */
     public void setSniSwitch(Long SniSwitch) {
         this.SniSwitch = SniSwitch;
     }
+
+    /**
+     * Get 是否开启长连接，此参数仅适用于HTTP/HTTPS监听器。 
+     * @return KeepaliveEnable 是否开启长连接，此参数仅适用于HTTP/HTTPS监听器。
+     */
+    public Long getKeepaliveEnable() {
+        return this.KeepaliveEnable;
+    }
+
+    /**
+     * Set 是否开启长连接，此参数仅适用于HTTP/HTTPS监听器。
+     * @param KeepaliveEnable 是否开启长连接，此参数仅适用于HTTP/HTTPS监听器。
+     */
+    public void setKeepaliveEnable(Long KeepaliveEnable) {
+        this.KeepaliveEnable = KeepaliveEnable;
+    }
+
+    /**
+     * Get 解绑后端目标时，是否发RST给客户端，此参数仅适用于TCP监听器。 
+     * @return DeregisterTargetRst 解绑后端目标时，是否发RST给客户端，此参数仅适用于TCP监听器。
+     */
+    public Boolean getDeregisterTargetRst() {
+        return this.DeregisterTargetRst;
+    }
+
+    /**
+     * Set 解绑后端目标时，是否发RST给客户端，此参数仅适用于TCP监听器。
+     * @param DeregisterTargetRst 解绑后端目标时，是否发RST给客户端，此参数仅适用于TCP监听器。
+     */
+    public void setDeregisterTargetRst(Boolean DeregisterTargetRst) {
+        this.DeregisterTargetRst = DeregisterTargetRst;
+    }
+
+    public ModifyListenerRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyListenerRequest(ModifyListenerRequest source) {
+        if (source.LoadBalancerId != null) {
+            this.LoadBalancerId = new String(source.LoadBalancerId);
+        }
+        if (source.ListenerId != null) {
+            this.ListenerId = new String(source.ListenerId);
+        }
+        if (source.ListenerName != null) {
+            this.ListenerName = new String(source.ListenerName);
+        }
+        if (source.SessionExpireTime != null) {
+            this.SessionExpireTime = new Long(source.SessionExpireTime);
+        }
+        if (source.HealthCheck != null) {
+            this.HealthCheck = new HealthCheck(source.HealthCheck);
+        }
+        if (source.Certificate != null) {
+            this.Certificate = new CertificateInput(source.Certificate);
+        }
+        if (source.Scheduler != null) {
+            this.Scheduler = new String(source.Scheduler);
+        }
+        if (source.SniSwitch != null) {
+            this.SniSwitch = new Long(source.SniSwitch);
+        }
+        if (source.KeepaliveEnable != null) {
+            this.KeepaliveEnable = new Long(source.KeepaliveEnable);
+        }
+        if (source.DeregisterTargetRst != null) {
+            this.DeregisterTargetRst = new Boolean(source.DeregisterTargetRst);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -223,6 +310,8 @@ public class ModifyListenerRequest extends AbstractModel{
         this.setParamObj(map, prefix + "Certificate.", this.Certificate);
         this.setParamSimple(map, prefix + "Scheduler", this.Scheduler);
         this.setParamSimple(map, prefix + "SniSwitch", this.SniSwitch);
+        this.setParamSimple(map, prefix + "KeepaliveEnable", this.KeepaliveEnable);
+        this.setParamSimple(map, prefix + "DeregisterTargetRst", this.DeregisterTargetRst);
 
     }
 }

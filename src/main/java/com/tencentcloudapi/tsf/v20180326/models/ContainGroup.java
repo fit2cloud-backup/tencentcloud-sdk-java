@@ -135,6 +135,14 @@ public class ContainGroup extends AbstractModel{
     private String MemLimit;
 
     /**
+    * 部署组备注
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Alias")
+    @Expose
+    private String Alias;
+
+    /**
      * Get 部署组ID
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return GroupId 部署组ID
@@ -415,6 +423,82 @@ public class ContainGroup extends AbstractModel{
     }
 
     /**
+     * Get 部署组备注
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Alias 部署组备注
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAlias() {
+        return this.Alias;
+    }
+
+    /**
+     * Set 部署组备注
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Alias 部署组备注
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAlias(String Alias) {
+        this.Alias = Alias;
+    }
+
+    public ContainGroup() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ContainGroup(ContainGroup source) {
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
+        if (source.GroupName != null) {
+            this.GroupName = new String(source.GroupName);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.Server != null) {
+            this.Server = new String(source.Server);
+        }
+        if (source.RepoName != null) {
+            this.RepoName = new String(source.RepoName);
+        }
+        if (source.TagName != null) {
+            this.TagName = new String(source.TagName);
+        }
+        if (source.ClusterId != null) {
+            this.ClusterId = new String(source.ClusterId);
+        }
+        if (source.ClusterName != null) {
+            this.ClusterName = new String(source.ClusterName);
+        }
+        if (source.NamespaceId != null) {
+            this.NamespaceId = new String(source.NamespaceId);
+        }
+        if (source.NamespaceName != null) {
+            this.NamespaceName = new String(source.NamespaceName);
+        }
+        if (source.CpuRequest != null) {
+            this.CpuRequest = new String(source.CpuRequest);
+        }
+        if (source.CpuLimit != null) {
+            this.CpuLimit = new String(source.CpuLimit);
+        }
+        if (source.MemRequest != null) {
+            this.MemRequest = new String(source.MemRequest);
+        }
+        if (source.MemLimit != null) {
+            this.MemLimit = new String(source.MemLimit);
+        }
+        if (source.Alias != null) {
+            this.Alias = new String(source.Alias);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -432,6 +516,7 @@ public class ContainGroup extends AbstractModel{
         this.setParamSimple(map, prefix + "CpuLimit", this.CpuLimit);
         this.setParamSimple(map, prefix + "MemRequest", this.MemRequest);
         this.setParamSimple(map, prefix + "MemLimit", this.MemLimit);
+        this.setParamSimple(map, prefix + "Alias", this.Alias);
 
     }
 }

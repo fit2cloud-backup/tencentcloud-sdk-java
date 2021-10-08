@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeClassicalLBTargetsResponse extends AbstractModel{
 
     /**
-    * 后端服务列表
+    * 后端服务列表。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Targets")
@@ -38,9 +38,9 @@ public class DescribeClassicalLBTargetsResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 后端服务列表
+     * Get 后端服务列表。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Targets 后端服务列表
+     * @return Targets 后端服务列表。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public ClassicalTarget [] getTargets() {
@@ -48,9 +48,9 @@ public class DescribeClassicalLBTargetsResponse extends AbstractModel{
     }
 
     /**
-     * Set 后端服务列表
+     * Set 后端服务列表。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Targets 后端服务列表
+     * @param Targets 后端服务列表。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTargets(ClassicalTarget [] Targets) {
@@ -72,6 +72,26 @@ public class DescribeClassicalLBTargetsResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeClassicalLBTargetsResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeClassicalLBTargetsResponse(DescribeClassicalLBTargetsResponse source) {
+        if (source.Targets != null) {
+            this.Targets = new ClassicalTarget[source.Targets.length];
+            for (int i = 0; i < source.Targets.length; i++) {
+                this.Targets[i] = new ClassicalTarget(source.Targets[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

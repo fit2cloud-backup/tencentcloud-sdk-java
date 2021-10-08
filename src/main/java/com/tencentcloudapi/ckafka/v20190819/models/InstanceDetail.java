@@ -180,6 +180,46 @@ public class InstanceDetail extends AbstractModel{
     private Long Cvm;
 
     /**
+    * ckafka实例类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("InstanceType")
+    @Expose
+    private String InstanceType;
+
+    /**
+    * 磁盘类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DiskType")
+    @Expose
+    private String DiskType;
+
+    /**
+    * 当前规格最大Topic数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MaxTopicNumber")
+    @Expose
+    private Long MaxTopicNumber;
+
+    /**
+    * 当前规格最大Partition数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MaxPartitionNumber")
+    @Expose
+    private Long MaxPartitionNumber;
+
+    /**
+    * 计划升级配置时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RebalanceTime")
+    @Expose
+    private String RebalanceTime;
+
+    /**
      * Get 实例id 
      * @return InstanceId 实例id
      */
@@ -544,6 +584,207 @@ public class InstanceDetail extends AbstractModel{
     }
 
     /**
+     * Get ckafka实例类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return InstanceType ckafka实例类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getInstanceType() {
+        return this.InstanceType;
+    }
+
+    /**
+     * Set ckafka实例类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param InstanceType ckafka实例类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setInstanceType(String InstanceType) {
+        this.InstanceType = InstanceType;
+    }
+
+    /**
+     * Get 磁盘类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DiskType 磁盘类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDiskType() {
+        return this.DiskType;
+    }
+
+    /**
+     * Set 磁盘类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DiskType 磁盘类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDiskType(String DiskType) {
+        this.DiskType = DiskType;
+    }
+
+    /**
+     * Get 当前规格最大Topic数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MaxTopicNumber 当前规格最大Topic数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getMaxTopicNumber() {
+        return this.MaxTopicNumber;
+    }
+
+    /**
+     * Set 当前规格最大Topic数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MaxTopicNumber 当前规格最大Topic数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMaxTopicNumber(Long MaxTopicNumber) {
+        this.MaxTopicNumber = MaxTopicNumber;
+    }
+
+    /**
+     * Get 当前规格最大Partition数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MaxPartitionNumber 当前规格最大Partition数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getMaxPartitionNumber() {
+        return this.MaxPartitionNumber;
+    }
+
+    /**
+     * Set 当前规格最大Partition数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MaxPartitionNumber 当前规格最大Partition数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMaxPartitionNumber(Long MaxPartitionNumber) {
+        this.MaxPartitionNumber = MaxPartitionNumber;
+    }
+
+    /**
+     * Get 计划升级配置时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RebalanceTime 计划升级配置时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getRebalanceTime() {
+        return this.RebalanceTime;
+    }
+
+    /**
+     * Set 计划升级配置时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RebalanceTime 计划升级配置时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRebalanceTime(String RebalanceTime) {
+        this.RebalanceTime = RebalanceTime;
+    }
+
+    public InstanceDetail() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public InstanceDetail(InstanceDetail source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.InstanceName != null) {
+            this.InstanceName = new String(source.InstanceName);
+        }
+        if (source.Vip != null) {
+            this.Vip = new String(source.Vip);
+        }
+        if (source.Vport != null) {
+            this.Vport = new String(source.Vport);
+        }
+        if (source.VipList != null) {
+            this.VipList = new VipEntity[source.VipList.length];
+            for (int i = 0; i < source.VipList.length; i++) {
+                this.VipList[i] = new VipEntity(source.VipList[i]);
+            }
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+        if (source.Bandwidth != null) {
+            this.Bandwidth = new Long(source.Bandwidth);
+        }
+        if (source.DiskSize != null) {
+            this.DiskSize = new Long(source.DiskSize);
+        }
+        if (source.ZoneId != null) {
+            this.ZoneId = new Long(source.ZoneId);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.RenewFlag != null) {
+            this.RenewFlag = new Long(source.RenewFlag);
+        }
+        if (source.Healthy != null) {
+            this.Healthy = new Long(source.Healthy);
+        }
+        if (source.HealthyMessage != null) {
+            this.HealthyMessage = new String(source.HealthyMessage);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new Long(source.CreateTime);
+        }
+        if (source.ExpireTime != null) {
+            this.ExpireTime = new Long(source.ExpireTime);
+        }
+        if (source.IsInternal != null) {
+            this.IsInternal = new Long(source.IsInternal);
+        }
+        if (source.TopicNum != null) {
+            this.TopicNum = new Long(source.TopicNum);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.Version != null) {
+            this.Version = new String(source.Version);
+        }
+        if (source.ZoneIds != null) {
+            this.ZoneIds = new Long[source.ZoneIds.length];
+            for (int i = 0; i < source.ZoneIds.length; i++) {
+                this.ZoneIds[i] = new Long(source.ZoneIds[i]);
+            }
+        }
+        if (source.Cvm != null) {
+            this.Cvm = new Long(source.Cvm);
+        }
+        if (source.InstanceType != null) {
+            this.InstanceType = new String(source.InstanceType);
+        }
+        if (source.DiskType != null) {
+            this.DiskType = new String(source.DiskType);
+        }
+        if (source.MaxTopicNumber != null) {
+            this.MaxTopicNumber = new Long(source.MaxTopicNumber);
+        }
+        if (source.MaxPartitionNumber != null) {
+            this.MaxPartitionNumber = new Long(source.MaxPartitionNumber);
+        }
+        if (source.RebalanceTime != null) {
+            this.RebalanceTime = new String(source.RebalanceTime);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -569,6 +810,11 @@ public class InstanceDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "Version", this.Version);
         this.setParamArraySimple(map, prefix + "ZoneIds.", this.ZoneIds);
         this.setParamSimple(map, prefix + "Cvm", this.Cvm);
+        this.setParamSimple(map, prefix + "InstanceType", this.InstanceType);
+        this.setParamSimple(map, prefix + "DiskType", this.DiskType);
+        this.setParamSimple(map, prefix + "MaxTopicNumber", this.MaxTopicNumber);
+        this.setParamSimple(map, prefix + "MaxPartitionNumber", this.MaxPartitionNumber);
+        this.setParamSimple(map, prefix + "RebalanceTime", this.RebalanceTime);
 
     }
 }

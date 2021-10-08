@@ -45,7 +45,7 @@ public class UpdateInstanceRequest extends AbstractModel{
     private Long NodeNum;
 
     /**
-    * 配置项（JSON格式字符串）。当前仅支持以下配置项：<li>action.destructive_requires_name</li><li>indices.fielddata.cache.size</li><li>indices.query.bool.max_clause_count</li>
+    * ES配置项（JSON格式字符串）
     */
     @SerializedName("EsConfig")
     @Expose
@@ -162,6 +162,48 @@ public class UpdateInstanceRequest extends AbstractModel{
     private Long BasicSecurityType;
 
     /**
+    * Kibana内网端口
+    */
+    @SerializedName("KibanaPrivatePort")
+    @Expose
+    private Long KibanaPrivatePort;
+
+    /**
+    * 0: 蓝绿变更方式扩容，集群不重启 （默认） 1: 磁盘解挂载扩容，集群滚动重启
+    */
+    @SerializedName("ScaleType")
+    @Expose
+    private Long ScaleType;
+
+    /**
+    * 多可用区部署
+    */
+    @SerializedName("MultiZoneInfo")
+    @Expose
+    private ZoneDetail [] MultiZoneInfo;
+
+    /**
+    * 场景化模板类型 -1：不启用 1：通用 2：日志 3：搜索
+    */
+    @SerializedName("SceneType")
+    @Expose
+    private Long SceneType;
+
+    /**
+    * Kibana配置项（JSON格式字符串）
+    */
+    @SerializedName("KibanaConfig")
+    @Expose
+    private String KibanaConfig;
+
+    /**
+    * 可视化节点配置
+    */
+    @SerializedName("WebNodeTypeInfo")
+    @Expose
+    private WebNodeTypeInfo WebNodeTypeInfo;
+
+    /**
      * Get 实例ID 
      * @return InstanceId 实例ID
      */
@@ -214,16 +256,16 @@ public class UpdateInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 配置项（JSON格式字符串）。当前仅支持以下配置项：<li>action.destructive_requires_name</li><li>indices.fielddata.cache.size</li><li>indices.query.bool.max_clause_count</li> 
-     * @return EsConfig 配置项（JSON格式字符串）。当前仅支持以下配置项：<li>action.destructive_requires_name</li><li>indices.fielddata.cache.size</li><li>indices.query.bool.max_clause_count</li>
+     * Get ES配置项（JSON格式字符串） 
+     * @return EsConfig ES配置项（JSON格式字符串）
      */
     public String getEsConfig() {
         return this.EsConfig;
     }
 
     /**
-     * Set 配置项（JSON格式字符串）。当前仅支持以下配置项：<li>action.destructive_requires_name</li><li>indices.fielddata.cache.size</li><li>indices.query.bool.max_clause_count</li>
-     * @param EsConfig 配置项（JSON格式字符串）。当前仅支持以下配置项：<li>action.destructive_requires_name</li><li>indices.fielddata.cache.size</li><li>indices.query.bool.max_clause_count</li>
+     * Set ES配置项（JSON格式字符串）
+     * @param EsConfig ES配置项（JSON格式字符串）
      */
     public void setEsConfig(String EsConfig) {
         this.EsConfig = EsConfig;
@@ -490,6 +532,194 @@ public class UpdateInstanceRequest extends AbstractModel{
     }
 
     /**
+     * Get Kibana内网端口 
+     * @return KibanaPrivatePort Kibana内网端口
+     */
+    public Long getKibanaPrivatePort() {
+        return this.KibanaPrivatePort;
+    }
+
+    /**
+     * Set Kibana内网端口
+     * @param KibanaPrivatePort Kibana内网端口
+     */
+    public void setKibanaPrivatePort(Long KibanaPrivatePort) {
+        this.KibanaPrivatePort = KibanaPrivatePort;
+    }
+
+    /**
+     * Get 0: 蓝绿变更方式扩容，集群不重启 （默认） 1: 磁盘解挂载扩容，集群滚动重启 
+     * @return ScaleType 0: 蓝绿变更方式扩容，集群不重启 （默认） 1: 磁盘解挂载扩容，集群滚动重启
+     */
+    public Long getScaleType() {
+        return this.ScaleType;
+    }
+
+    /**
+     * Set 0: 蓝绿变更方式扩容，集群不重启 （默认） 1: 磁盘解挂载扩容，集群滚动重启
+     * @param ScaleType 0: 蓝绿变更方式扩容，集群不重启 （默认） 1: 磁盘解挂载扩容，集群滚动重启
+     */
+    public void setScaleType(Long ScaleType) {
+        this.ScaleType = ScaleType;
+    }
+
+    /**
+     * Get 多可用区部署 
+     * @return MultiZoneInfo 多可用区部署
+     */
+    public ZoneDetail [] getMultiZoneInfo() {
+        return this.MultiZoneInfo;
+    }
+
+    /**
+     * Set 多可用区部署
+     * @param MultiZoneInfo 多可用区部署
+     */
+    public void setMultiZoneInfo(ZoneDetail [] MultiZoneInfo) {
+        this.MultiZoneInfo = MultiZoneInfo;
+    }
+
+    /**
+     * Get 场景化模板类型 -1：不启用 1：通用 2：日志 3：搜索 
+     * @return SceneType 场景化模板类型 -1：不启用 1：通用 2：日志 3：搜索
+     */
+    public Long getSceneType() {
+        return this.SceneType;
+    }
+
+    /**
+     * Set 场景化模板类型 -1：不启用 1：通用 2：日志 3：搜索
+     * @param SceneType 场景化模板类型 -1：不启用 1：通用 2：日志 3：搜索
+     */
+    public void setSceneType(Long SceneType) {
+        this.SceneType = SceneType;
+    }
+
+    /**
+     * Get Kibana配置项（JSON格式字符串） 
+     * @return KibanaConfig Kibana配置项（JSON格式字符串）
+     */
+    public String getKibanaConfig() {
+        return this.KibanaConfig;
+    }
+
+    /**
+     * Set Kibana配置项（JSON格式字符串）
+     * @param KibanaConfig Kibana配置项（JSON格式字符串）
+     */
+    public void setKibanaConfig(String KibanaConfig) {
+        this.KibanaConfig = KibanaConfig;
+    }
+
+    /**
+     * Get 可视化节点配置 
+     * @return WebNodeTypeInfo 可视化节点配置
+     */
+    public WebNodeTypeInfo getWebNodeTypeInfo() {
+        return this.WebNodeTypeInfo;
+    }
+
+    /**
+     * Set 可视化节点配置
+     * @param WebNodeTypeInfo 可视化节点配置
+     */
+    public void setWebNodeTypeInfo(WebNodeTypeInfo WebNodeTypeInfo) {
+        this.WebNodeTypeInfo = WebNodeTypeInfo;
+    }
+
+    public UpdateInstanceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public UpdateInstanceRequest(UpdateInstanceRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.InstanceName != null) {
+            this.InstanceName = new String(source.InstanceName);
+        }
+        if (source.NodeNum != null) {
+            this.NodeNum = new Long(source.NodeNum);
+        }
+        if (source.EsConfig != null) {
+            this.EsConfig = new String(source.EsConfig);
+        }
+        if (source.Password != null) {
+            this.Password = new String(source.Password);
+        }
+        if (source.EsAcl != null) {
+            this.EsAcl = new EsAcl(source.EsAcl);
+        }
+        if (source.DiskSize != null) {
+            this.DiskSize = new Long(source.DiskSize);
+        }
+        if (source.NodeType != null) {
+            this.NodeType = new String(source.NodeType);
+        }
+        if (source.MasterNodeNum != null) {
+            this.MasterNodeNum = new Long(source.MasterNodeNum);
+        }
+        if (source.MasterNodeType != null) {
+            this.MasterNodeType = new String(source.MasterNodeType);
+        }
+        if (source.MasterNodeDiskSize != null) {
+            this.MasterNodeDiskSize = new Long(source.MasterNodeDiskSize);
+        }
+        if (source.ForceRestart != null) {
+            this.ForceRestart = new Boolean(source.ForceRestart);
+        }
+        if (source.CosBackup != null) {
+            this.CosBackup = new CosBackup(source.CosBackup);
+        }
+        if (source.NodeInfoList != null) {
+            this.NodeInfoList = new NodeInfo[source.NodeInfoList.length];
+            for (int i = 0; i < source.NodeInfoList.length; i++) {
+                this.NodeInfoList[i] = new NodeInfo(source.NodeInfoList[i]);
+            }
+        }
+        if (source.PublicAccess != null) {
+            this.PublicAccess = new String(source.PublicAccess);
+        }
+        if (source.EsPublicAcl != null) {
+            this.EsPublicAcl = new EsPublicAcl(source.EsPublicAcl);
+        }
+        if (source.KibanaPublicAccess != null) {
+            this.KibanaPublicAccess = new String(source.KibanaPublicAccess);
+        }
+        if (source.KibanaPrivateAccess != null) {
+            this.KibanaPrivateAccess = new String(source.KibanaPrivateAccess);
+        }
+        if (source.BasicSecurityType != null) {
+            this.BasicSecurityType = new Long(source.BasicSecurityType);
+        }
+        if (source.KibanaPrivatePort != null) {
+            this.KibanaPrivatePort = new Long(source.KibanaPrivatePort);
+        }
+        if (source.ScaleType != null) {
+            this.ScaleType = new Long(source.ScaleType);
+        }
+        if (source.MultiZoneInfo != null) {
+            this.MultiZoneInfo = new ZoneDetail[source.MultiZoneInfo.length];
+            for (int i = 0; i < source.MultiZoneInfo.length; i++) {
+                this.MultiZoneInfo[i] = new ZoneDetail(source.MultiZoneInfo[i]);
+            }
+        }
+        if (source.SceneType != null) {
+            this.SceneType = new Long(source.SceneType);
+        }
+        if (source.KibanaConfig != null) {
+            this.KibanaConfig = new String(source.KibanaConfig);
+        }
+        if (source.WebNodeTypeInfo != null) {
+            this.WebNodeTypeInfo = new WebNodeTypeInfo(source.WebNodeTypeInfo);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -512,6 +742,12 @@ public class UpdateInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "KibanaPublicAccess", this.KibanaPublicAccess);
         this.setParamSimple(map, prefix + "KibanaPrivateAccess", this.KibanaPrivateAccess);
         this.setParamSimple(map, prefix + "BasicSecurityType", this.BasicSecurityType);
+        this.setParamSimple(map, prefix + "KibanaPrivatePort", this.KibanaPrivatePort);
+        this.setParamSimple(map, prefix + "ScaleType", this.ScaleType);
+        this.setParamArrayObj(map, prefix + "MultiZoneInfo.", this.MultiZoneInfo);
+        this.setParamSimple(map, prefix + "SceneType", this.SceneType);
+        this.setParamSimple(map, prefix + "KibanaConfig", this.KibanaConfig);
+        this.setParamObj(map, prefix + "WebNodeTypeInfo.", this.WebNodeTypeInfo);
 
     }
 }

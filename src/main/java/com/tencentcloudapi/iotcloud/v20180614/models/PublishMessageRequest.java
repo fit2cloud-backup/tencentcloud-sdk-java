@@ -58,6 +58,13 @@ public class PublishMessageRequest extends AbstractModel{
     private Long Qos;
 
     /**
+    * Payload内容的编码格式，取值为base64或空。base64表示云端将收到的请求数据进行base64解码后下发到设备，空则直接将原始内容下发到设备
+    */
+    @SerializedName("PayloadEncoding")
+    @Expose
+    private String PayloadEncoding;
+
+    /**
      * Get 消息发往的主题。命名规则：${ProductId}/${DeviceName}/[a-zA-Z0-9:_-]{1,128} 
      * @return Topic 消息发往的主题。命名规则：${ProductId}/${DeviceName}/[a-zA-Z0-9:_-]{1,128}
      */
@@ -138,6 +145,51 @@ public class PublishMessageRequest extends AbstractModel{
     }
 
     /**
+     * Get Payload内容的编码格式，取值为base64或空。base64表示云端将收到的请求数据进行base64解码后下发到设备，空则直接将原始内容下发到设备 
+     * @return PayloadEncoding Payload内容的编码格式，取值为base64或空。base64表示云端将收到的请求数据进行base64解码后下发到设备，空则直接将原始内容下发到设备
+     */
+    public String getPayloadEncoding() {
+        return this.PayloadEncoding;
+    }
+
+    /**
+     * Set Payload内容的编码格式，取值为base64或空。base64表示云端将收到的请求数据进行base64解码后下发到设备，空则直接将原始内容下发到设备
+     * @param PayloadEncoding Payload内容的编码格式，取值为base64或空。base64表示云端将收到的请求数据进行base64解码后下发到设备，空则直接将原始内容下发到设备
+     */
+    public void setPayloadEncoding(String PayloadEncoding) {
+        this.PayloadEncoding = PayloadEncoding;
+    }
+
+    public PublishMessageRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public PublishMessageRequest(PublishMessageRequest source) {
+        if (source.Topic != null) {
+            this.Topic = new String(source.Topic);
+        }
+        if (source.Payload != null) {
+            this.Payload = new String(source.Payload);
+        }
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+        if (source.DeviceName != null) {
+            this.DeviceName = new String(source.DeviceName);
+        }
+        if (source.Qos != null) {
+            this.Qos = new Long(source.Qos);
+        }
+        if (source.PayloadEncoding != null) {
+            this.PayloadEncoding = new String(source.PayloadEncoding);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -146,6 +198,7 @@ public class PublishMessageRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ProductId", this.ProductId);
         this.setParamSimple(map, prefix + "DeviceName", this.DeviceName);
         this.setParamSimple(map, prefix + "Qos", this.Qos);
+        this.setParamSimple(map, prefix + "PayloadEncoding", this.PayloadEncoding);
 
     }
 }

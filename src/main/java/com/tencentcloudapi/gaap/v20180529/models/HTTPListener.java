@@ -51,7 +51,7 @@ public class HTTPListener extends AbstractModel{
     private Long CreateTime;
 
     /**
-    * 监听器协议
+    * 监听器协议， HTTP表示HTTP，HTTPS表示HTTPS，此结构取值HTTP
     */
     @SerializedName("Protocol")
     @Expose
@@ -59,11 +59,11 @@ public class HTTPListener extends AbstractModel{
 
     /**
     * 监听器状态，其中：
-0， 运行中；
-1， 创建中；
-2，销毁中；
-3，源站调整中；
-4，配置变更中。
+0表示运行中；
+1表示创建中；
+2表示销毁中；
+3表示源站调整中；
+4表示配置变更中。
     */
     @SerializedName("ListenerStatus")
     @Expose
@@ -134,16 +134,16 @@ public class HTTPListener extends AbstractModel{
     }
 
     /**
-     * Get 监听器协议 
-     * @return Protocol 监听器协议
+     * Get 监听器协议， HTTP表示HTTP，HTTPS表示HTTPS，此结构取值HTTP 
+     * @return Protocol 监听器协议， HTTP表示HTTP，HTTPS表示HTTPS，此结构取值HTTP
      */
     public String getProtocol() {
         return this.Protocol;
     }
 
     /**
-     * Set 监听器协议
-     * @param Protocol 监听器协议
+     * Set 监听器协议， HTTP表示HTTP，HTTPS表示HTTPS，此结构取值HTTP
+     * @param Protocol 监听器协议， HTTP表示HTTP，HTTPS表示HTTPS，此结构取值HTTP
      */
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;
@@ -151,17 +151,17 @@ public class HTTPListener extends AbstractModel{
 
     /**
      * Get 监听器状态，其中：
-0， 运行中；
-1， 创建中；
-2，销毁中；
-3，源站调整中；
-4，配置变更中。 
+0表示运行中；
+1表示创建中；
+2表示销毁中；
+3表示源站调整中；
+4表示配置变更中。 
      * @return ListenerStatus 监听器状态，其中：
-0， 运行中；
-1， 创建中；
-2，销毁中；
-3，源站调整中；
-4，配置变更中。
+0表示运行中；
+1表示创建中；
+2表示销毁中；
+3表示源站调整中；
+4表示配置变更中。
      */
     public Long getListenerStatus() {
         return this.ListenerStatus;
@@ -169,21 +169,50 @@ public class HTTPListener extends AbstractModel{
 
     /**
      * Set 监听器状态，其中：
-0， 运行中；
-1， 创建中；
-2，销毁中；
-3，源站调整中；
-4，配置变更中。
+0表示运行中；
+1表示创建中；
+2表示销毁中；
+3表示源站调整中；
+4表示配置变更中。
      * @param ListenerStatus 监听器状态，其中：
-0， 运行中；
-1， 创建中；
-2，销毁中；
-3，源站调整中；
-4，配置变更中。
+0表示运行中；
+1表示创建中；
+2表示销毁中；
+3表示源站调整中；
+4表示配置变更中。
      */
     public void setListenerStatus(Long ListenerStatus) {
         this.ListenerStatus = ListenerStatus;
     }
+
+    public HTTPListener() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public HTTPListener(HTTPListener source) {
+        if (source.ListenerId != null) {
+            this.ListenerId = new String(source.ListenerId);
+        }
+        if (source.ListenerName != null) {
+            this.ListenerName = new String(source.ListenerName);
+        }
+        if (source.Port != null) {
+            this.Port = new Long(source.Port);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new Long(source.CreateTime);
+        }
+        if (source.Protocol != null) {
+            this.Protocol = new String(source.Protocol);
+        }
+        if (source.ListenerStatus != null) {
+            this.ListenerStatus = new Long(source.ListenerStatus);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

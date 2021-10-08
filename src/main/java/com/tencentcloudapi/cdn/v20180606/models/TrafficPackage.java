@@ -103,6 +103,34 @@ disabled：未启用
     private String Channel;
 
     /**
+    * 流量包生效区域，目前仅支持mainland
+    */
+    @SerializedName("Area")
+    @Expose
+    private String Area;
+
+    /**
+    * 流量包生命周期月数
+    */
+    @SerializedName("LifeTimeMonth")
+    @Expose
+    private Long LifeTimeMonth;
+
+    /**
+    * 流量包是否支持续订
+    */
+    @SerializedName("ExtensionAvailable")
+    @Expose
+    private Boolean ExtensionAvailable;
+
+    /**
+    * 流量包是否支持退费
+    */
+    @SerializedName("RefundAvailable")
+    @Expose
+    private Boolean RefundAvailable;
+
+    /**
      * Get 流量包 Id 
      * @return Id 流量包 Id
      */
@@ -291,6 +319,126 @@ disabled：未启用
     }
 
     /**
+     * Get 流量包生效区域，目前仅支持mainland 
+     * @return Area 流量包生效区域，目前仅支持mainland
+     */
+    public String getArea() {
+        return this.Area;
+    }
+
+    /**
+     * Set 流量包生效区域，目前仅支持mainland
+     * @param Area 流量包生效区域，目前仅支持mainland
+     */
+    public void setArea(String Area) {
+        this.Area = Area;
+    }
+
+    /**
+     * Get 流量包生命周期月数 
+     * @return LifeTimeMonth 流量包生命周期月数
+     */
+    public Long getLifeTimeMonth() {
+        return this.LifeTimeMonth;
+    }
+
+    /**
+     * Set 流量包生命周期月数
+     * @param LifeTimeMonth 流量包生命周期月数
+     */
+    public void setLifeTimeMonth(Long LifeTimeMonth) {
+        this.LifeTimeMonth = LifeTimeMonth;
+    }
+
+    /**
+     * Get 流量包是否支持续订 
+     * @return ExtensionAvailable 流量包是否支持续订
+     */
+    public Boolean getExtensionAvailable() {
+        return this.ExtensionAvailable;
+    }
+
+    /**
+     * Set 流量包是否支持续订
+     * @param ExtensionAvailable 流量包是否支持续订
+     */
+    public void setExtensionAvailable(Boolean ExtensionAvailable) {
+        this.ExtensionAvailable = ExtensionAvailable;
+    }
+
+    /**
+     * Get 流量包是否支持退费 
+     * @return RefundAvailable 流量包是否支持退费
+     */
+    public Boolean getRefundAvailable() {
+        return this.RefundAvailable;
+    }
+
+    /**
+     * Set 流量包是否支持退费
+     * @param RefundAvailable 流量包是否支持退费
+     */
+    public void setRefundAvailable(Boolean RefundAvailable) {
+        this.RefundAvailable = RefundAvailable;
+    }
+
+    public TrafficPackage() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public TrafficPackage(TrafficPackage source) {
+        if (source.Id != null) {
+            this.Id = new Long(source.Id);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.Bytes != null) {
+            this.Bytes = new Long(source.Bytes);
+        }
+        if (source.BytesUsed != null) {
+            this.BytesUsed = new Long(source.BytesUsed);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.EnableTime != null) {
+            this.EnableTime = new String(source.EnableTime);
+        }
+        if (source.ExpireTime != null) {
+            this.ExpireTime = new String(source.ExpireTime);
+        }
+        if (source.ContractExtension != null) {
+            this.ContractExtension = new Boolean(source.ContractExtension);
+        }
+        if (source.AutoExtension != null) {
+            this.AutoExtension = new Boolean(source.AutoExtension);
+        }
+        if (source.Channel != null) {
+            this.Channel = new String(source.Channel);
+        }
+        if (source.Area != null) {
+            this.Area = new String(source.Area);
+        }
+        if (source.LifeTimeMonth != null) {
+            this.LifeTimeMonth = new Long(source.LifeTimeMonth);
+        }
+        if (source.ExtensionAvailable != null) {
+            this.ExtensionAvailable = new Boolean(source.ExtensionAvailable);
+        }
+        if (source.RefundAvailable != null) {
+            this.RefundAvailable = new Boolean(source.RefundAvailable);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -305,6 +453,10 @@ disabled：未启用
         this.setParamSimple(map, prefix + "ContractExtension", this.ContractExtension);
         this.setParamSimple(map, prefix + "AutoExtension", this.AutoExtension);
         this.setParamSimple(map, prefix + "Channel", this.Channel);
+        this.setParamSimple(map, prefix + "Area", this.Area);
+        this.setParamSimple(map, prefix + "LifeTimeMonth", this.LifeTimeMonth);
+        this.setParamSimple(map, prefix + "ExtensionAvailable", this.ExtensionAvailable);
+        this.setParamSimple(map, prefix + "RefundAvailable", this.RefundAvailable);
 
     }
 }

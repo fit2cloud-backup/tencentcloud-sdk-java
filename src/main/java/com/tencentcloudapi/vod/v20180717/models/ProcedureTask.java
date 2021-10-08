@@ -89,7 +89,6 @@ public class ProcedureTask extends AbstractModel{
 
     /**
     * 视频处理任务的执行状态与结果。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MediaProcessResultSet")
     @Expose
@@ -97,7 +96,6 @@ public class ProcedureTask extends AbstractModel{
 
     /**
     * 视频内容审核任务的执行状态与结果。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AiContentReviewResultSet")
     @Expose
@@ -105,7 +103,6 @@ public class ProcedureTask extends AbstractModel{
 
     /**
     * 视频内容分析任务的执行状态与结果。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AiAnalysisResultSet")
     @Expose
@@ -113,7 +110,6 @@ public class ProcedureTask extends AbstractModel{
 
     /**
     * 视频内容识别任务的执行状态与结果。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AiRecognitionResultSet")
     @Expose
@@ -315,10 +311,8 @@ public class ProcedureTask extends AbstractModel{
     }
 
     /**
-     * Get 视频处理任务的执行状态与结果。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 视频处理任务的执行状态与结果。 
      * @return MediaProcessResultSet 视频处理任务的执行状态与结果。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MediaProcessTaskResult [] getMediaProcessResultSet() {
         return this.MediaProcessResultSet;
@@ -326,19 +320,15 @@ public class ProcedureTask extends AbstractModel{
 
     /**
      * Set 视频处理任务的执行状态与结果。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MediaProcessResultSet 视频处理任务的执行状态与结果。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMediaProcessResultSet(MediaProcessTaskResult [] MediaProcessResultSet) {
         this.MediaProcessResultSet = MediaProcessResultSet;
     }
 
     /**
-     * Get 视频内容审核任务的执行状态与结果。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 视频内容审核任务的执行状态与结果。 
      * @return AiContentReviewResultSet 视频内容审核任务的执行状态与结果。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AiContentReviewResult [] getAiContentReviewResultSet() {
         return this.AiContentReviewResultSet;
@@ -346,19 +336,15 @@ public class ProcedureTask extends AbstractModel{
 
     /**
      * Set 视频内容审核任务的执行状态与结果。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AiContentReviewResultSet 视频内容审核任务的执行状态与结果。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAiContentReviewResultSet(AiContentReviewResult [] AiContentReviewResultSet) {
         this.AiContentReviewResultSet = AiContentReviewResultSet;
     }
 
     /**
-     * Get 视频内容分析任务的执行状态与结果。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 视频内容分析任务的执行状态与结果。 
      * @return AiAnalysisResultSet 视频内容分析任务的执行状态与结果。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AiAnalysisResult [] getAiAnalysisResultSet() {
         return this.AiAnalysisResultSet;
@@ -366,19 +352,15 @@ public class ProcedureTask extends AbstractModel{
 
     /**
      * Set 视频内容分析任务的执行状态与结果。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AiAnalysisResultSet 视频内容分析任务的执行状态与结果。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAiAnalysisResultSet(AiAnalysisResult [] AiAnalysisResultSet) {
         this.AiAnalysisResultSet = AiAnalysisResultSet;
     }
 
     /**
-     * Get 视频内容识别任务的执行状态与结果。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 视频内容识别任务的执行状态与结果。 
      * @return AiRecognitionResultSet 视频内容识别任务的执行状态与结果。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AiRecognitionResult [] getAiRecognitionResultSet() {
         return this.AiRecognitionResultSet;
@@ -386,9 +368,7 @@ public class ProcedureTask extends AbstractModel{
 
     /**
      * Set 视频内容识别任务的执行状态与结果。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AiRecognitionResultSet 视频内容识别任务的执行状态与结果。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAiRecognitionResultSet(AiRecognitionResult [] AiRecognitionResultSet) {
         this.AiRecognitionResultSet = AiRecognitionResultSet;
@@ -469,6 +449,77 @@ public class ProcedureTask extends AbstractModel{
     public void setSessionId(String SessionId) {
         this.SessionId = SessionId;
     }
+
+    public ProcedureTask() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ProcedureTask(ProcedureTask source) {
+        if (source.TaskId != null) {
+            this.TaskId = new String(source.TaskId);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.ErrCode != null) {
+            this.ErrCode = new Long(source.ErrCode);
+        }
+        if (source.Message != null) {
+            this.Message = new String(source.Message);
+        }
+        if (source.FileId != null) {
+            this.FileId = new String(source.FileId);
+        }
+        if (source.FileName != null) {
+            this.FileName = new String(source.FileName);
+        }
+        if (source.FileUrl != null) {
+            this.FileUrl = new String(source.FileUrl);
+        }
+        if (source.MetaData != null) {
+            this.MetaData = new MediaMetaData(source.MetaData);
+        }
+        if (source.MediaProcessResultSet != null) {
+            this.MediaProcessResultSet = new MediaProcessTaskResult[source.MediaProcessResultSet.length];
+            for (int i = 0; i < source.MediaProcessResultSet.length; i++) {
+                this.MediaProcessResultSet[i] = new MediaProcessTaskResult(source.MediaProcessResultSet[i]);
+            }
+        }
+        if (source.AiContentReviewResultSet != null) {
+            this.AiContentReviewResultSet = new AiContentReviewResult[source.AiContentReviewResultSet.length];
+            for (int i = 0; i < source.AiContentReviewResultSet.length; i++) {
+                this.AiContentReviewResultSet[i] = new AiContentReviewResult(source.AiContentReviewResultSet[i]);
+            }
+        }
+        if (source.AiAnalysisResultSet != null) {
+            this.AiAnalysisResultSet = new AiAnalysisResult[source.AiAnalysisResultSet.length];
+            for (int i = 0; i < source.AiAnalysisResultSet.length; i++) {
+                this.AiAnalysisResultSet[i] = new AiAnalysisResult(source.AiAnalysisResultSet[i]);
+            }
+        }
+        if (source.AiRecognitionResultSet != null) {
+            this.AiRecognitionResultSet = new AiRecognitionResult[source.AiRecognitionResultSet.length];
+            for (int i = 0; i < source.AiRecognitionResultSet.length; i++) {
+                this.AiRecognitionResultSet[i] = new AiRecognitionResult(source.AiRecognitionResultSet[i]);
+            }
+        }
+        if (source.TasksPriority != null) {
+            this.TasksPriority = new Long(source.TasksPriority);
+        }
+        if (source.TasksNotifyMode != null) {
+            this.TasksNotifyMode = new String(source.TasksNotifyMode);
+        }
+        if (source.SessionContext != null) {
+            this.SessionContext = new String(source.SessionContext);
+        }
+        if (source.SessionId != null) {
+            this.SessionId = new String(source.SessionId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

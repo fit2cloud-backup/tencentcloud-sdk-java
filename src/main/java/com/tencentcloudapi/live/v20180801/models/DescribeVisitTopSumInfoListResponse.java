@@ -47,7 +47,7 @@ public class DescribeVisitTopSumInfoListResponse extends AbstractModel{
     private String TopIndex;
 
     /**
-    * 排序指标，可选值包括” AvgFluxPerSecond”，”TotalRequest”（默认）,“TotalFlux”。
+    * 排序指标，可选值包括” AvgFluxPerSecond”(按每秒平均流量排序)，”TotalRequest”（默认，按总请求数排序）,“TotalFlux”（按总流量排序）。
     */
     @SerializedName("OrderParam")
     @Expose
@@ -142,16 +142,16 @@ public class DescribeVisitTopSumInfoListResponse extends AbstractModel{
     }
 
     /**
-     * Get 排序指标，可选值包括” AvgFluxPerSecond”，”TotalRequest”（默认）,“TotalFlux”。 
-     * @return OrderParam 排序指标，可选值包括” AvgFluxPerSecond”，”TotalRequest”（默认）,“TotalFlux”。
+     * Get 排序指标，可选值包括” AvgFluxPerSecond”(按每秒平均流量排序)，”TotalRequest”（默认，按总请求数排序）,“TotalFlux”（按总流量排序）。 
+     * @return OrderParam 排序指标，可选值包括” AvgFluxPerSecond”(按每秒平均流量排序)，”TotalRequest”（默认，按总请求数排序）,“TotalFlux”（按总流量排序）。
      */
     public String getOrderParam() {
         return this.OrderParam;
     }
 
     /**
-     * Set 排序指标，可选值包括” AvgFluxPerSecond”，”TotalRequest”（默认）,“TotalFlux”。
-     * @param OrderParam 排序指标，可选值包括” AvgFluxPerSecond”，”TotalRequest”（默认）,“TotalFlux”。
+     * Set 排序指标，可选值包括” AvgFluxPerSecond”(按每秒平均流量排序)，”TotalRequest”（默认，按总请求数排序）,“TotalFlux”（按总流量排序）。
+     * @param OrderParam 排序指标，可选值包括” AvgFluxPerSecond”(按每秒平均流量排序)，”TotalRequest”（默认，按总请求数排序）,“TotalFlux”（按总流量排序）。
      */
     public void setOrderParam(String OrderParam) {
         this.OrderParam = OrderParam;
@@ -220,6 +220,44 @@ public class DescribeVisitTopSumInfoListResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeVisitTopSumInfoListResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeVisitTopSumInfoListResponse(DescribeVisitTopSumInfoListResponse source) {
+        if (source.PageNum != null) {
+            this.PageNum = new Long(source.PageNum);
+        }
+        if (source.PageSize != null) {
+            this.PageSize = new Long(source.PageSize);
+        }
+        if (source.TopIndex != null) {
+            this.TopIndex = new String(source.TopIndex);
+        }
+        if (source.OrderParam != null) {
+            this.OrderParam = new String(source.OrderParam);
+        }
+        if (source.TotalNum != null) {
+            this.TotalNum = new Long(source.TotalNum);
+        }
+        if (source.TotalPage != null) {
+            this.TotalPage = new Long(source.TotalPage);
+        }
+        if (source.DataInfoList != null) {
+            this.DataInfoList = new PlaySumStatInfo[source.DataInfoList.length];
+            for (int i = 0; i < source.DataInfoList.length; i++) {
+                this.DataInfoList[i] = new PlaySumStatInfo(source.DataInfoList[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

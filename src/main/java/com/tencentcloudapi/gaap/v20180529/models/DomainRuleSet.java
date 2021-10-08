@@ -171,6 +171,25 @@ public class DomainRuleSet extends AbstractModel{
     private CertificateAliasInfo [] PolyRealServerCertificateAliasInfo;
 
     /**
+    * 域名的状态。
+0表示运行中，
+1表示变更中，
+2表示删除中。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DomainStatus")
+    @Expose
+    private Long DomainStatus;
+
+    /**
+    * 封禁解封状态：BANNED表示已封禁，RECOVER表示已解封或未封禁，BANNING表示封禁中，RECOVERING表示解封中，BAN_FAILED表示封禁失败，RECOVER_FAILED表示解封失败。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("BanStatus")
+    @Expose
+    private String BanStatus;
+
+    /**
      * Get 转发规则域名。 
      * @return Domain 转发规则域名。
      */
@@ -547,6 +566,138 @@ public class DomainRuleSet extends AbstractModel{
     }
 
     /**
+     * Get 域名的状态。
+0表示运行中，
+1表示变更中，
+2表示删除中。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DomainStatus 域名的状态。
+0表示运行中，
+1表示变更中，
+2表示删除中。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getDomainStatus() {
+        return this.DomainStatus;
+    }
+
+    /**
+     * Set 域名的状态。
+0表示运行中，
+1表示变更中，
+2表示删除中。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DomainStatus 域名的状态。
+0表示运行中，
+1表示变更中，
+2表示删除中。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDomainStatus(Long DomainStatus) {
+        this.DomainStatus = DomainStatus;
+    }
+
+    /**
+     * Get 封禁解封状态：BANNED表示已封禁，RECOVER表示已解封或未封禁，BANNING表示封禁中，RECOVERING表示解封中，BAN_FAILED表示封禁失败，RECOVER_FAILED表示解封失败。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return BanStatus 封禁解封状态：BANNED表示已封禁，RECOVER表示已解封或未封禁，BANNING表示封禁中，RECOVERING表示解封中，BAN_FAILED表示封禁失败，RECOVER_FAILED表示解封失败。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getBanStatus() {
+        return this.BanStatus;
+    }
+
+    /**
+     * Set 封禁解封状态：BANNED表示已封禁，RECOVER表示已解封或未封禁，BANNING表示封禁中，RECOVERING表示解封中，BAN_FAILED表示封禁失败，RECOVER_FAILED表示解封失败。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param BanStatus 封禁解封状态：BANNED表示已封禁，RECOVER表示已解封或未封禁，BANNING表示封禁中，RECOVERING表示解封中，BAN_FAILED表示封禁失败，RECOVER_FAILED表示解封失败。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBanStatus(String BanStatus) {
+        this.BanStatus = BanStatus;
+    }
+
+    public DomainRuleSet() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DomainRuleSet(DomainRuleSet source) {
+        if (source.Domain != null) {
+            this.Domain = new String(source.Domain);
+        }
+        if (source.RuleSet != null) {
+            this.RuleSet = new RuleInfo[source.RuleSet.length];
+            for (int i = 0; i < source.RuleSet.length; i++) {
+                this.RuleSet[i] = new RuleInfo(source.RuleSet[i]);
+            }
+        }
+        if (source.CertificateId != null) {
+            this.CertificateId = new String(source.CertificateId);
+        }
+        if (source.CertificateAlias != null) {
+            this.CertificateAlias = new String(source.CertificateAlias);
+        }
+        if (source.ClientCertificateId != null) {
+            this.ClientCertificateId = new String(source.ClientCertificateId);
+        }
+        if (source.ClientCertificateAlias != null) {
+            this.ClientCertificateAlias = new String(source.ClientCertificateAlias);
+        }
+        if (source.BasicAuthConfId != null) {
+            this.BasicAuthConfId = new String(source.BasicAuthConfId);
+        }
+        if (source.BasicAuth != null) {
+            this.BasicAuth = new Long(source.BasicAuth);
+        }
+        if (source.BasicAuthConfAlias != null) {
+            this.BasicAuthConfAlias = new String(source.BasicAuthConfAlias);
+        }
+        if (source.RealServerCertificateId != null) {
+            this.RealServerCertificateId = new String(source.RealServerCertificateId);
+        }
+        if (source.RealServerAuth != null) {
+            this.RealServerAuth = new Long(source.RealServerAuth);
+        }
+        if (source.RealServerCertificateAlias != null) {
+            this.RealServerCertificateAlias = new String(source.RealServerCertificateAlias);
+        }
+        if (source.GaapCertificateId != null) {
+            this.GaapCertificateId = new String(source.GaapCertificateId);
+        }
+        if (source.GaapAuth != null) {
+            this.GaapAuth = new Long(source.GaapAuth);
+        }
+        if (source.GaapCertificateAlias != null) {
+            this.GaapCertificateAlias = new String(source.GaapCertificateAlias);
+        }
+        if (source.RealServerCertificateDomain != null) {
+            this.RealServerCertificateDomain = new String(source.RealServerCertificateDomain);
+        }
+        if (source.PolyClientCertificateAliasInfo != null) {
+            this.PolyClientCertificateAliasInfo = new CertificateAliasInfo[source.PolyClientCertificateAliasInfo.length];
+            for (int i = 0; i < source.PolyClientCertificateAliasInfo.length; i++) {
+                this.PolyClientCertificateAliasInfo[i] = new CertificateAliasInfo(source.PolyClientCertificateAliasInfo[i]);
+            }
+        }
+        if (source.PolyRealServerCertificateAliasInfo != null) {
+            this.PolyRealServerCertificateAliasInfo = new CertificateAliasInfo[source.PolyRealServerCertificateAliasInfo.length];
+            for (int i = 0; i < source.PolyRealServerCertificateAliasInfo.length; i++) {
+                this.PolyRealServerCertificateAliasInfo[i] = new CertificateAliasInfo(source.PolyRealServerCertificateAliasInfo[i]);
+            }
+        }
+        if (source.DomainStatus != null) {
+            this.DomainStatus = new Long(source.DomainStatus);
+        }
+        if (source.BanStatus != null) {
+            this.BanStatus = new String(source.BanStatus);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -568,6 +719,8 @@ public class DomainRuleSet extends AbstractModel{
         this.setParamSimple(map, prefix + "RealServerCertificateDomain", this.RealServerCertificateDomain);
         this.setParamArrayObj(map, prefix + "PolyClientCertificateAliasInfo.", this.PolyClientCertificateAliasInfo);
         this.setParamArrayObj(map, prefix + "PolyRealServerCertificateAliasInfo.", this.PolyRealServerCertificateAliasInfo);
+        this.setParamSimple(map, prefix + "DomainStatus", this.DomainStatus);
+        this.setParamSimple(map, prefix + "BanStatus", this.BanStatus);
 
     }
 }

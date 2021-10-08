@@ -23,50 +23,70 @@ import java.util.HashMap;
 public class BatchRegisterTargetsRequest extends AbstractModel{
 
     /**
-    * 负载均衡ID
+    * 负载均衡ID。
     */
     @SerializedName("LoadBalancerId")
     @Expose
     private String LoadBalancerId;
 
     /**
-    * 绑定目标
+    * 绑定目标。
     */
     @SerializedName("Targets")
     @Expose
     private BatchTarget [] Targets;
 
     /**
-     * Get 负载均衡ID 
-     * @return LoadBalancerId 负载均衡ID
+     * Get 负载均衡ID。 
+     * @return LoadBalancerId 负载均衡ID。
      */
     public String getLoadBalancerId() {
         return this.LoadBalancerId;
     }
 
     /**
-     * Set 负载均衡ID
-     * @param LoadBalancerId 负载均衡ID
+     * Set 负载均衡ID。
+     * @param LoadBalancerId 负载均衡ID。
      */
     public void setLoadBalancerId(String LoadBalancerId) {
         this.LoadBalancerId = LoadBalancerId;
     }
 
     /**
-     * Get 绑定目标 
-     * @return Targets 绑定目标
+     * Get 绑定目标。 
+     * @return Targets 绑定目标。
      */
     public BatchTarget [] getTargets() {
         return this.Targets;
     }
 
     /**
-     * Set 绑定目标
-     * @param Targets 绑定目标
+     * Set 绑定目标。
+     * @param Targets 绑定目标。
      */
     public void setTargets(BatchTarget [] Targets) {
         this.Targets = Targets;
     }
+
+    public BatchRegisterTargetsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public BatchRegisterTargetsRequest(BatchRegisterTargetsRequest source) {
+        if (source.LoadBalancerId != null) {
+            this.LoadBalancerId = new String(source.LoadBalancerId);
+        }
+        if (source.Targets != null) {
+            this.Targets = new BatchTarget[source.Targets.length];
+            for (int i = 0; i < source.Targets.length; i++) {
+                this.Targets[i] = new BatchTarget(source.Targets[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

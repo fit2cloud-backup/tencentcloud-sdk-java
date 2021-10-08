@@ -58,6 +58,20 @@ public class DescribeUploadInfoRequest extends AbstractModel{
     private String PkgDesc;
 
     /**
+    * 程序包仓库类型
+    */
+    @SerializedName("RepositoryType")
+    @Expose
+    private String RepositoryType;
+
+    /**
+    * 程序包仓库id
+    */
+    @SerializedName("RepositoryId")
+    @Expose
+    private String RepositoryId;
+
+    /**
      * Get 应用ID 
      * @return ApplicationId 应用ID
      */
@@ -138,6 +152,70 @@ public class DescribeUploadInfoRequest extends AbstractModel{
     }
 
     /**
+     * Get 程序包仓库类型 
+     * @return RepositoryType 程序包仓库类型
+     */
+    public String getRepositoryType() {
+        return this.RepositoryType;
+    }
+
+    /**
+     * Set 程序包仓库类型
+     * @param RepositoryType 程序包仓库类型
+     */
+    public void setRepositoryType(String RepositoryType) {
+        this.RepositoryType = RepositoryType;
+    }
+
+    /**
+     * Get 程序包仓库id 
+     * @return RepositoryId 程序包仓库id
+     */
+    public String getRepositoryId() {
+        return this.RepositoryId;
+    }
+
+    /**
+     * Set 程序包仓库id
+     * @param RepositoryId 程序包仓库id
+     */
+    public void setRepositoryId(String RepositoryId) {
+        this.RepositoryId = RepositoryId;
+    }
+
+    public DescribeUploadInfoRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeUploadInfoRequest(DescribeUploadInfoRequest source) {
+        if (source.ApplicationId != null) {
+            this.ApplicationId = new String(source.ApplicationId);
+        }
+        if (source.PkgName != null) {
+            this.PkgName = new String(source.PkgName);
+        }
+        if (source.PkgVersion != null) {
+            this.PkgVersion = new String(source.PkgVersion);
+        }
+        if (source.PkgType != null) {
+            this.PkgType = new String(source.PkgType);
+        }
+        if (source.PkgDesc != null) {
+            this.PkgDesc = new String(source.PkgDesc);
+        }
+        if (source.RepositoryType != null) {
+            this.RepositoryType = new String(source.RepositoryType);
+        }
+        if (source.RepositoryId != null) {
+            this.RepositoryId = new String(source.RepositoryId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -146,6 +224,8 @@ public class DescribeUploadInfoRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "PkgVersion", this.PkgVersion);
         this.setParamSimple(map, prefix + "PkgType", this.PkgType);
         this.setParamSimple(map, prefix + "PkgDesc", this.PkgDesc);
+        this.setParamSimple(map, prefix + "RepositoryType", this.RepositoryType);
+        this.setParamSimple(map, prefix + "RepositoryId", this.RepositoryId);
 
     }
 }

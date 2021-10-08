@@ -133,6 +133,22 @@ public class DeviceInfo extends AbstractModel{
     private String NwkSKey;
 
     /**
+    * 创建人Id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CreateUserId")
+    @Expose
+    private Long CreateUserId;
+
+    /**
+    * 创建人昵称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CreatorNickName")
+    @Expose
+    private String CreatorNickName;
+
+    /**
      * Get 设备名 
      * @return DeviceName 设备名
      */
@@ -405,6 +421,105 @@ public class DeviceInfo extends AbstractModel{
     }
 
     /**
+     * Get 创建人Id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CreateUserId 创建人Id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getCreateUserId() {
+        return this.CreateUserId;
+    }
+
+    /**
+     * Set 创建人Id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CreateUserId 创建人Id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCreateUserId(Long CreateUserId) {
+        this.CreateUserId = CreateUserId;
+    }
+
+    /**
+     * Get 创建人昵称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CreatorNickName 创建人昵称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCreatorNickName() {
+        return this.CreatorNickName;
+    }
+
+    /**
+     * Set 创建人昵称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CreatorNickName 创建人昵称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCreatorNickName(String CreatorNickName) {
+        this.CreatorNickName = CreatorNickName;
+    }
+
+    public DeviceInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeviceInfo(DeviceInfo source) {
+        if (source.DeviceName != null) {
+            this.DeviceName = new String(source.DeviceName);
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+        if (source.DevicePsk != null) {
+            this.DevicePsk = new String(source.DevicePsk);
+        }
+        if (source.FirstOnlineTime != null) {
+            this.FirstOnlineTime = new Long(source.FirstOnlineTime);
+        }
+        if (source.LoginTime != null) {
+            this.LoginTime = new Long(source.LoginTime);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new Long(source.CreateTime);
+        }
+        if (source.Version != null) {
+            this.Version = new String(source.Version);
+        }
+        if (source.DeviceCert != null) {
+            this.DeviceCert = new String(source.DeviceCert);
+        }
+        if (source.LogLevel != null) {
+            this.LogLevel = new Long(source.LogLevel);
+        }
+        if (source.DevAddr != null) {
+            this.DevAddr = new String(source.DevAddr);
+        }
+        if (source.AppKey != null) {
+            this.AppKey = new String(source.AppKey);
+        }
+        if (source.DevEUI != null) {
+            this.DevEUI = new String(source.DevEUI);
+        }
+        if (source.AppSKey != null) {
+            this.AppSKey = new String(source.AppSKey);
+        }
+        if (source.NwkSKey != null) {
+            this.NwkSKey = new String(source.NwkSKey);
+        }
+        if (source.CreateUserId != null) {
+            this.CreateUserId = new Long(source.CreateUserId);
+        }
+        if (source.CreatorNickName != null) {
+            this.CreatorNickName = new String(source.CreatorNickName);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -422,6 +537,8 @@ public class DeviceInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "DevEUI", this.DevEUI);
         this.setParamSimple(map, prefix + "AppSKey", this.AppSKey);
         this.setParamSimple(map, prefix + "NwkSKey", this.NwkSKey);
+        this.setParamSimple(map, prefix + "CreateUserId", this.CreateUserId);
+        this.setParamSimple(map, prefix + "CreatorNickName", this.CreatorNickName);
 
     }
 }

@@ -54,7 +54,7 @@ Default-默认不修改
     private String [] SgIds;
 
     /**
-    * VpcId
+    * 虚拟专网Id
     */
     @SerializedName("VpcId")
     @Expose
@@ -144,16 +144,16 @@ Default-默认不修改
     }
 
     /**
-     * Get VpcId 
-     * @return VpcId VpcId
+     * Get 虚拟专网Id 
+     * @return VpcId 虚拟专网Id
      */
     public String getVpcId() {
         return this.VpcId;
     }
 
     /**
-     * Set VpcId
-     * @param VpcId VpcId
+     * Set 虚拟专网Id
+     * @param VpcId 虚拟专网Id
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;
@@ -174,6 +174,41 @@ Default-默认不修改
     public void setSubnetId(String SubnetId) {
         this.SubnetId = SubnetId;
     }
+
+    public ModifyVsmAttributesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyVsmAttributesRequest(ModifyVsmAttributesRequest source) {
+        if (source.ResourceId != null) {
+            this.ResourceId = new String(source.ResourceId);
+        }
+        if (source.Type != null) {
+            this.Type = new String[source.Type.length];
+            for (int i = 0; i < source.Type.length; i++) {
+                this.Type[i] = new String(source.Type[i]);
+            }
+        }
+        if (source.ResourceName != null) {
+            this.ResourceName = new String(source.ResourceName);
+        }
+        if (source.SgIds != null) {
+            this.SgIds = new String[source.SgIds.length];
+            for (int i = 0; i < source.SgIds.length; i++) {
+                this.SgIds[i] = new String(source.SgIds[i]);
+            }
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

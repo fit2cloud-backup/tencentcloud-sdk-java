@@ -24,6 +24,7 @@ public class UpdateNotebookInstanceRequest extends AbstractModel{
 
     /**
     * Notebook实例名称
+规则：“^\[a-zA-Z0-9\](-\*\[a-zA-Z0-9\])\*$”
     */
     @SerializedName("NotebookInstanceName")
     @Expose
@@ -66,9 +67,7 @@ public class UpdateNotebookInstanceRequest extends AbstractModel{
 
     /**
     * 是否解绑生命周期脚本，默认 false。
-如果本来就没有绑定脚本，则忽略此参数；
-如果本来有绑定脚本，此参数为 true 则解绑；
-如果本来有绑定脚本，此参数为 false，则需要额外填入 LifecycleScriptsName
+该值为true时，LifecycleScriptsName将被忽略
     */
     @SerializedName("DisassociateLifecycleScript")
     @Expose
@@ -107,8 +106,40 @@ public class UpdateNotebookInstanceRequest extends AbstractModel{
     private Boolean DisassociateAdditionalCodeRepositories;
 
     /**
-     * Get Notebook实例名称 
+    * 已弃用，请使用ClsConfig配置。是否开启CLS日志服务，可取值Enabled/Disabled
+    */
+    @SerializedName("ClsAccess")
+    @Expose
+    private String ClsAccess;
+
+    /**
+    * 自动停止，可取值Enabled/Disabled
+取值为Disabled的时候StoppingCondition将被忽略
+取值为Enabled的时候读取StoppingCondition作为自动停止的配置
+    */
+    @SerializedName("AutoStopping")
+    @Expose
+    private String AutoStopping;
+
+    /**
+    * 自动停止配置，只在AutoStopping为Enabled的时候生效
+    */
+    @SerializedName("StoppingCondition")
+    @Expose
+    private StoppingCondition StoppingCondition;
+
+    /**
+    * 接入日志的配置，默认使用免费日志服务。
+    */
+    @SerializedName("ClsConfig")
+    @Expose
+    private ClsConfig ClsConfig;
+
+    /**
+     * Get Notebook实例名称
+规则：“^\[a-zA-Z0-9\](-\*\[a-zA-Z0-9\])\*$” 
      * @return NotebookInstanceName Notebook实例名称
+规则：“^\[a-zA-Z0-9\](-\*\[a-zA-Z0-9\])\*$”
      */
     public String getNotebookInstanceName() {
         return this.NotebookInstanceName;
@@ -116,7 +147,9 @@ public class UpdateNotebookInstanceRequest extends AbstractModel{
 
     /**
      * Set Notebook实例名称
+规则：“^\[a-zA-Z0-9\](-\*\[a-zA-Z0-9\])\*$”
      * @param NotebookInstanceName Notebook实例名称
+规则：“^\[a-zA-Z0-9\](-\*\[a-zA-Z0-9\])\*$”
      */
     public void setNotebookInstanceName(String NotebookInstanceName) {
         this.NotebookInstanceName = NotebookInstanceName;
@@ -204,13 +237,9 @@ public class UpdateNotebookInstanceRequest extends AbstractModel{
 
     /**
      * Get 是否解绑生命周期脚本，默认 false。
-如果本来就没有绑定脚本，则忽略此参数；
-如果本来有绑定脚本，此参数为 true 则解绑；
-如果本来有绑定脚本，此参数为 false，则需要额外填入 LifecycleScriptsName 
+该值为true时，LifecycleScriptsName将被忽略 
      * @return DisassociateLifecycleScript 是否解绑生命周期脚本，默认 false。
-如果本来就没有绑定脚本，则忽略此参数；
-如果本来有绑定脚本，此参数为 true 则解绑；
-如果本来有绑定脚本，此参数为 false，则需要额外填入 LifecycleScriptsName
+该值为true时，LifecycleScriptsName将被忽略
      */
     public Boolean getDisassociateLifecycleScript() {
         return this.DisassociateLifecycleScript;
@@ -218,13 +247,9 @@ public class UpdateNotebookInstanceRequest extends AbstractModel{
 
     /**
      * Set 是否解绑生命周期脚本，默认 false。
-如果本来就没有绑定脚本，则忽略此参数；
-如果本来有绑定脚本，此参数为 true 则解绑；
-如果本来有绑定脚本，此参数为 false，则需要额外填入 LifecycleScriptsName
+该值为true时，LifecycleScriptsName将被忽略
      * @param DisassociateLifecycleScript 是否解绑生命周期脚本，默认 false。
-如果本来就没有绑定脚本，则忽略此参数；
-如果本来有绑定脚本，此参数为 true 则解绑；
-如果本来有绑定脚本，此参数为 false，则需要额外填入 LifecycleScriptsName
+该值为true时，LifecycleScriptsName将被忽略
      */
     public void setDisassociateLifecycleScript(Boolean DisassociateLifecycleScript) {
         this.DisassociateLifecycleScript = DisassociateLifecycleScript;
@@ -311,6 +336,137 @@ public class UpdateNotebookInstanceRequest extends AbstractModel{
     }
 
     /**
+     * Get 已弃用，请使用ClsConfig配置。是否开启CLS日志服务，可取值Enabled/Disabled 
+     * @return ClsAccess 已弃用，请使用ClsConfig配置。是否开启CLS日志服务，可取值Enabled/Disabled
+     */
+    public String getClsAccess() {
+        return this.ClsAccess;
+    }
+
+    /**
+     * Set 已弃用，请使用ClsConfig配置。是否开启CLS日志服务，可取值Enabled/Disabled
+     * @param ClsAccess 已弃用，请使用ClsConfig配置。是否开启CLS日志服务，可取值Enabled/Disabled
+     */
+    public void setClsAccess(String ClsAccess) {
+        this.ClsAccess = ClsAccess;
+    }
+
+    /**
+     * Get 自动停止，可取值Enabled/Disabled
+取值为Disabled的时候StoppingCondition将被忽略
+取值为Enabled的时候读取StoppingCondition作为自动停止的配置 
+     * @return AutoStopping 自动停止，可取值Enabled/Disabled
+取值为Disabled的时候StoppingCondition将被忽略
+取值为Enabled的时候读取StoppingCondition作为自动停止的配置
+     */
+    public String getAutoStopping() {
+        return this.AutoStopping;
+    }
+
+    /**
+     * Set 自动停止，可取值Enabled/Disabled
+取值为Disabled的时候StoppingCondition将被忽略
+取值为Enabled的时候读取StoppingCondition作为自动停止的配置
+     * @param AutoStopping 自动停止，可取值Enabled/Disabled
+取值为Disabled的时候StoppingCondition将被忽略
+取值为Enabled的时候读取StoppingCondition作为自动停止的配置
+     */
+    public void setAutoStopping(String AutoStopping) {
+        this.AutoStopping = AutoStopping;
+    }
+
+    /**
+     * Get 自动停止配置，只在AutoStopping为Enabled的时候生效 
+     * @return StoppingCondition 自动停止配置，只在AutoStopping为Enabled的时候生效
+     */
+    public StoppingCondition getStoppingCondition() {
+        return this.StoppingCondition;
+    }
+
+    /**
+     * Set 自动停止配置，只在AutoStopping为Enabled的时候生效
+     * @param StoppingCondition 自动停止配置，只在AutoStopping为Enabled的时候生效
+     */
+    public void setStoppingCondition(StoppingCondition StoppingCondition) {
+        this.StoppingCondition = StoppingCondition;
+    }
+
+    /**
+     * Get 接入日志的配置，默认使用免费日志服务。 
+     * @return ClsConfig 接入日志的配置，默认使用免费日志服务。
+     */
+    public ClsConfig getClsConfig() {
+        return this.ClsConfig;
+    }
+
+    /**
+     * Set 接入日志的配置，默认使用免费日志服务。
+     * @param ClsConfig 接入日志的配置，默认使用免费日志服务。
+     */
+    public void setClsConfig(ClsConfig ClsConfig) {
+        this.ClsConfig = ClsConfig;
+    }
+
+    public UpdateNotebookInstanceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public UpdateNotebookInstanceRequest(UpdateNotebookInstanceRequest source) {
+        if (source.NotebookInstanceName != null) {
+            this.NotebookInstanceName = new String(source.NotebookInstanceName);
+        }
+        if (source.RoleArn != null) {
+            this.RoleArn = new String(source.RoleArn);
+        }
+        if (source.RootAccess != null) {
+            this.RootAccess = new String(source.RootAccess);
+        }
+        if (source.VolumeSizeInGB != null) {
+            this.VolumeSizeInGB = new Long(source.VolumeSizeInGB);
+        }
+        if (source.InstanceType != null) {
+            this.InstanceType = new String(source.InstanceType);
+        }
+        if (source.LifecycleScriptsName != null) {
+            this.LifecycleScriptsName = new String(source.LifecycleScriptsName);
+        }
+        if (source.DisassociateLifecycleScript != null) {
+            this.DisassociateLifecycleScript = new Boolean(source.DisassociateLifecycleScript);
+        }
+        if (source.DefaultCodeRepository != null) {
+            this.DefaultCodeRepository = new String(source.DefaultCodeRepository);
+        }
+        if (source.AdditionalCodeRepositories != null) {
+            this.AdditionalCodeRepositories = new String[source.AdditionalCodeRepositories.length];
+            for (int i = 0; i < source.AdditionalCodeRepositories.length; i++) {
+                this.AdditionalCodeRepositories[i] = new String(source.AdditionalCodeRepositories[i]);
+            }
+        }
+        if (source.DisassociateDefaultCodeRepository != null) {
+            this.DisassociateDefaultCodeRepository = new Boolean(source.DisassociateDefaultCodeRepository);
+        }
+        if (source.DisassociateAdditionalCodeRepositories != null) {
+            this.DisassociateAdditionalCodeRepositories = new Boolean(source.DisassociateAdditionalCodeRepositories);
+        }
+        if (source.ClsAccess != null) {
+            this.ClsAccess = new String(source.ClsAccess);
+        }
+        if (source.AutoStopping != null) {
+            this.AutoStopping = new String(source.AutoStopping);
+        }
+        if (source.StoppingCondition != null) {
+            this.StoppingCondition = new StoppingCondition(source.StoppingCondition);
+        }
+        if (source.ClsConfig != null) {
+            this.ClsConfig = new ClsConfig(source.ClsConfig);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -325,6 +481,10 @@ public class UpdateNotebookInstanceRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "AdditionalCodeRepositories.", this.AdditionalCodeRepositories);
         this.setParamSimple(map, prefix + "DisassociateDefaultCodeRepository", this.DisassociateDefaultCodeRepository);
         this.setParamSimple(map, prefix + "DisassociateAdditionalCodeRepositories", this.DisassociateAdditionalCodeRepositories);
+        this.setParamSimple(map, prefix + "ClsAccess", this.ClsAccess);
+        this.setParamSimple(map, prefix + "AutoStopping", this.AutoStopping);
+        this.setParamObj(map, prefix + "StoppingCondition.", this.StoppingCondition);
+        this.setParamObj(map, prefix + "ClsConfig.", this.ClsConfig);
 
     }
 }

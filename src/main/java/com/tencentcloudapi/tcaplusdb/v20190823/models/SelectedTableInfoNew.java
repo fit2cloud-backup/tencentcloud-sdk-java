@@ -72,14 +72,14 @@ public class SelectedTableInfoNew extends AbstractModel{
     private Long ReservedVolume;
 
     /**
-    * 表格预留读QPS
+    * 表格预留读CU
     */
     @SerializedName("ReservedReadQps")
     @Expose
     private Long ReservedReadQps;
 
     /**
-    * 表格预留写QPS
+    * 表格预留写CU
     */
     @SerializedName("ReservedWriteQps")
     @Expose
@@ -233,32 +233,32 @@ public class SelectedTableInfoNew extends AbstractModel{
     }
 
     /**
-     * Get 表格预留读QPS 
-     * @return ReservedReadQps 表格预留读QPS
+     * Get 表格预留读CU 
+     * @return ReservedReadQps 表格预留读CU
      */
     public Long getReservedReadQps() {
         return this.ReservedReadQps;
     }
 
     /**
-     * Set 表格预留读QPS
-     * @param ReservedReadQps 表格预留读QPS
+     * Set 表格预留读CU
+     * @param ReservedReadQps 表格预留读CU
      */
     public void setReservedReadQps(Long ReservedReadQps) {
         this.ReservedReadQps = ReservedReadQps;
     }
 
     /**
-     * Get 表格预留写QPS 
-     * @return ReservedWriteQps 表格预留写QPS
+     * Get 表格预留写CU 
+     * @return ReservedWriteQps 表格预留写CU
      */
     public Long getReservedWriteQps() {
         return this.ReservedWriteQps;
     }
 
     /**
-     * Set 表格预留写QPS
-     * @param ReservedWriteQps 表格预留写QPS
+     * Set 表格预留写CU
+     * @param ReservedWriteQps 表格预留写CU
      */
     public void setReservedWriteQps(Long ReservedWriteQps) {
         this.ReservedWriteQps = ReservedWriteQps;
@@ -343,6 +343,59 @@ public class SelectedTableInfoNew extends AbstractModel{
     public void setFileContent(String FileContent) {
         this.FileContent = FileContent;
     }
+
+    public SelectedTableInfoNew() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SelectedTableInfoNew(SelectedTableInfoNew source) {
+        if (source.TableGroupId != null) {
+            this.TableGroupId = new String(source.TableGroupId);
+        }
+        if (source.TableName != null) {
+            this.TableName = new String(source.TableName);
+        }
+        if (source.TableInstanceId != null) {
+            this.TableInstanceId = new String(source.TableInstanceId);
+        }
+        if (source.TableIdlType != null) {
+            this.TableIdlType = new String(source.TableIdlType);
+        }
+        if (source.TableType != null) {
+            this.TableType = new String(source.TableType);
+        }
+        if (source.ListElementNum != null) {
+            this.ListElementNum = new Long(source.ListElementNum);
+        }
+        if (source.ReservedVolume != null) {
+            this.ReservedVolume = new Long(source.ReservedVolume);
+        }
+        if (source.ReservedReadQps != null) {
+            this.ReservedReadQps = new Long(source.ReservedReadQps);
+        }
+        if (source.ReservedWriteQps != null) {
+            this.ReservedWriteQps = new Long(source.ReservedWriteQps);
+        }
+        if (source.Memo != null) {
+            this.Memo = new String(source.Memo);
+        }
+        if (source.FileName != null) {
+            this.FileName = new String(source.FileName);
+        }
+        if (source.FileExtType != null) {
+            this.FileExtType = new String(source.FileExtType);
+        }
+        if (source.FileSize != null) {
+            this.FileSize = new Long(source.FileSize);
+        }
+        if (source.FileContent != null) {
+            this.FileContent = new String(source.FileContent);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -37,6 +37,13 @@ public class DescribeDatabasesResponse extends AbstractModel{
     private String [] Items;
 
     /**
+    * 数据库名以及字符集
+    */
+    @SerializedName("DatabaseList")
+    @Expose
+    private DatabasesWithCharacterLists [] DatabaseList;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -76,6 +83,22 @@ public class DescribeDatabasesResponse extends AbstractModel{
     }
 
     /**
+     * Get 数据库名以及字符集 
+     * @return DatabaseList 数据库名以及字符集
+     */
+    public DatabasesWithCharacterLists [] getDatabaseList() {
+        return this.DatabaseList;
+    }
+
+    /**
+     * Set 数据库名以及字符集
+     * @param DatabaseList 数据库名以及字符集
+     */
+    public void setDatabaseList(DatabasesWithCharacterLists [] DatabaseList) {
+        this.DatabaseList = DatabaseList;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -91,12 +114,42 @@ public class DescribeDatabasesResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public DescribeDatabasesResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeDatabasesResponse(DescribeDatabasesResponse source) {
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
+        if (source.Items != null) {
+            this.Items = new String[source.Items.length];
+            for (int i = 0; i < source.Items.length; i++) {
+                this.Items[i] = new String(source.Items[i]);
+            }
+        }
+        if (source.DatabaseList != null) {
+            this.DatabaseList = new DatabasesWithCharacterLists[source.DatabaseList.length];
+            for (int i = 0; i < source.DatabaseList.length; i++) {
+                this.DatabaseList[i] = new DatabasesWithCharacterLists(source.DatabaseList[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
         this.setParamArraySimple(map, prefix + "Items.", this.Items);
+        this.setParamArrayObj(map, prefix + "DatabaseList.", this.DatabaseList);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

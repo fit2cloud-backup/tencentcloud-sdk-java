@@ -94,6 +94,14 @@ public class DescribeComputeEnvCreateInfoResponse extends AbstractModel{
     private Long DesiredComputeNodeCount;
 
     /**
+    * 计算环境绑定的标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -265,6 +273,26 @@ public class DescribeComputeEnvCreateInfoResponse extends AbstractModel{
     }
 
     /**
+     * Get 计算环境绑定的标签列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Tags 计算环境绑定的标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 计算环境绑定的标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Tags 计算环境绑定的标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -280,6 +308,68 @@ public class DescribeComputeEnvCreateInfoResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public DescribeComputeEnvCreateInfoResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeComputeEnvCreateInfoResponse(DescribeComputeEnvCreateInfoResponse source) {
+        if (source.EnvId != null) {
+            this.EnvId = new String(source.EnvId);
+        }
+        if (source.EnvName != null) {
+            this.EnvName = new String(source.EnvName);
+        }
+        if (source.EnvDescription != null) {
+            this.EnvDescription = new String(source.EnvDescription);
+        }
+        if (source.EnvType != null) {
+            this.EnvType = new String(source.EnvType);
+        }
+        if (source.EnvData != null) {
+            this.EnvData = new EnvData(source.EnvData);
+        }
+        if (source.MountDataDisks != null) {
+            this.MountDataDisks = new MountDataDisk[source.MountDataDisks.length];
+            for (int i = 0; i < source.MountDataDisks.length; i++) {
+                this.MountDataDisks[i] = new MountDataDisk(source.MountDataDisks[i]);
+            }
+        }
+        if (source.InputMappings != null) {
+            this.InputMappings = new InputMapping[source.InputMappings.length];
+            for (int i = 0; i < source.InputMappings.length; i++) {
+                this.InputMappings[i] = new InputMapping(source.InputMappings[i]);
+            }
+        }
+        if (source.Authentications != null) {
+            this.Authentications = new Authentication[source.Authentications.length];
+            for (int i = 0; i < source.Authentications.length; i++) {
+                this.Authentications[i] = new Authentication(source.Authentications[i]);
+            }
+        }
+        if (source.Notifications != null) {
+            this.Notifications = new Notification[source.Notifications.length];
+            for (int i = 0; i < source.Notifications.length; i++) {
+                this.Notifications[i] = new Notification(source.Notifications[i]);
+            }
+        }
+        if (source.DesiredComputeNodeCount != null) {
+            this.DesiredComputeNodeCount = new Long(source.DesiredComputeNodeCount);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
@@ -294,6 +384,7 @@ public class DescribeComputeEnvCreateInfoResponse extends AbstractModel{
         this.setParamArrayObj(map, prefix + "Authentications.", this.Authentications);
         this.setParamArrayObj(map, prefix + "Notifications.", this.Notifications);
         this.setParamSimple(map, prefix + "DesiredComputeNodeCount", this.DesiredComputeNodeCount);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

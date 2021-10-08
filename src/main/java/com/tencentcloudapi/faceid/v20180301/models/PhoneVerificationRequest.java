@@ -44,6 +44,27 @@ public class PhoneVerificationRequest extends AbstractModel{
     private String Phone;
 
     /**
+    * 有加密需求的用户，接入传入kms的CiphertextBlob，关于数据加密可查阅 <a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。
+    */
+    @SerializedName("CiphertextBlob")
+    @Expose
+    private String CiphertextBlob;
+
+    /**
+    * 在使用加密服务时，填入要被加密的字段。本接口中可填入加密后的IdCard，Name，Phone中的一个或多个
+    */
+    @SerializedName("EncryptList")
+    @Expose
+    private String [] EncryptList;
+
+    /**
+    * 有加密需求的用户，传入CBC加密的初试向量
+    */
+    @SerializedName("Iv")
+    @Expose
+    private String Iv;
+
+    /**
      * Get 身份证号 
      * @return IdCard 身份证号
      */
@@ -92,12 +113,95 @@ public class PhoneVerificationRequest extends AbstractModel{
     }
 
     /**
+     * Get 有加密需求的用户，接入传入kms的CiphertextBlob，关于数据加密可查阅 <a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。 
+     * @return CiphertextBlob 有加密需求的用户，接入传入kms的CiphertextBlob，关于数据加密可查阅 <a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。
+     */
+    public String getCiphertextBlob() {
+        return this.CiphertextBlob;
+    }
+
+    /**
+     * Set 有加密需求的用户，接入传入kms的CiphertextBlob，关于数据加密可查阅 <a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。
+     * @param CiphertextBlob 有加密需求的用户，接入传入kms的CiphertextBlob，关于数据加密可查阅 <a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。
+     */
+    public void setCiphertextBlob(String CiphertextBlob) {
+        this.CiphertextBlob = CiphertextBlob;
+    }
+
+    /**
+     * Get 在使用加密服务时，填入要被加密的字段。本接口中可填入加密后的IdCard，Name，Phone中的一个或多个 
+     * @return EncryptList 在使用加密服务时，填入要被加密的字段。本接口中可填入加密后的IdCard，Name，Phone中的一个或多个
+     */
+    public String [] getEncryptList() {
+        return this.EncryptList;
+    }
+
+    /**
+     * Set 在使用加密服务时，填入要被加密的字段。本接口中可填入加密后的IdCard，Name，Phone中的一个或多个
+     * @param EncryptList 在使用加密服务时，填入要被加密的字段。本接口中可填入加密后的IdCard，Name，Phone中的一个或多个
+     */
+    public void setEncryptList(String [] EncryptList) {
+        this.EncryptList = EncryptList;
+    }
+
+    /**
+     * Get 有加密需求的用户，传入CBC加密的初试向量 
+     * @return Iv 有加密需求的用户，传入CBC加密的初试向量
+     */
+    public String getIv() {
+        return this.Iv;
+    }
+
+    /**
+     * Set 有加密需求的用户，传入CBC加密的初试向量
+     * @param Iv 有加密需求的用户，传入CBC加密的初试向量
+     */
+    public void setIv(String Iv) {
+        this.Iv = Iv;
+    }
+
+    public PhoneVerificationRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public PhoneVerificationRequest(PhoneVerificationRequest source) {
+        if (source.IdCard != null) {
+            this.IdCard = new String(source.IdCard);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Phone != null) {
+            this.Phone = new String(source.Phone);
+        }
+        if (source.CiphertextBlob != null) {
+            this.CiphertextBlob = new String(source.CiphertextBlob);
+        }
+        if (source.EncryptList != null) {
+            this.EncryptList = new String[source.EncryptList.length];
+            for (int i = 0; i < source.EncryptList.length; i++) {
+                this.EncryptList[i] = new String(source.EncryptList[i]);
+            }
+        }
+        if (source.Iv != null) {
+            this.Iv = new String(source.Iv);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "IdCard", this.IdCard);
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Phone", this.Phone);
+        this.setParamSimple(map, prefix + "CiphertextBlob", this.CiphertextBlob);
+        this.setParamArraySimple(map, prefix + "EncryptList.", this.EncryptList);
+        this.setParamSimple(map, prefix + "Iv", this.Iv);
 
     }
 }

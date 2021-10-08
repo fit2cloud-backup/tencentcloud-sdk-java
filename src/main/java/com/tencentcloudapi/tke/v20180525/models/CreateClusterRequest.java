@@ -79,6 +79,13 @@ public class CreateClusterRequest extends AbstractModel{
     private InstanceDataDiskMountSetting [] InstanceDataDiskMountSettings;
 
     /**
+    * 需要安装的扩展组件信息
+    */
+    @SerializedName("ExtensionAddons")
+    @Expose
+    private ExtensionAddon [] ExtensionAddons;
+
+    /**
      * Get 集群容器网络配置信息 
      * @return ClusterCIDRSettings 集群容器网络配置信息
      */
@@ -207,6 +214,72 @@ public class CreateClusterRequest extends AbstractModel{
     }
 
     /**
+     * Get 需要安装的扩展组件信息 
+     * @return ExtensionAddons 需要安装的扩展组件信息
+     */
+    public ExtensionAddon [] getExtensionAddons() {
+        return this.ExtensionAddons;
+    }
+
+    /**
+     * Set 需要安装的扩展组件信息
+     * @param ExtensionAddons 需要安装的扩展组件信息
+     */
+    public void setExtensionAddons(ExtensionAddon [] ExtensionAddons) {
+        this.ExtensionAddons = ExtensionAddons;
+    }
+
+    public CreateClusterRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateClusterRequest(CreateClusterRequest source) {
+        if (source.ClusterCIDRSettings != null) {
+            this.ClusterCIDRSettings = new ClusterCIDRSettings(source.ClusterCIDRSettings);
+        }
+        if (source.ClusterType != null) {
+            this.ClusterType = new String(source.ClusterType);
+        }
+        if (source.RunInstancesForNode != null) {
+            this.RunInstancesForNode = new RunInstancesForNode[source.RunInstancesForNode.length];
+            for (int i = 0; i < source.RunInstancesForNode.length; i++) {
+                this.RunInstancesForNode[i] = new RunInstancesForNode(source.RunInstancesForNode[i]);
+            }
+        }
+        if (source.ClusterBasicSettings != null) {
+            this.ClusterBasicSettings = new ClusterBasicSettings(source.ClusterBasicSettings);
+        }
+        if (source.ClusterAdvancedSettings != null) {
+            this.ClusterAdvancedSettings = new ClusterAdvancedSettings(source.ClusterAdvancedSettings);
+        }
+        if (source.InstanceAdvancedSettings != null) {
+            this.InstanceAdvancedSettings = new InstanceAdvancedSettings(source.InstanceAdvancedSettings);
+        }
+        if (source.ExistedInstancesForNode != null) {
+            this.ExistedInstancesForNode = new ExistedInstancesForNode[source.ExistedInstancesForNode.length];
+            for (int i = 0; i < source.ExistedInstancesForNode.length; i++) {
+                this.ExistedInstancesForNode[i] = new ExistedInstancesForNode(source.ExistedInstancesForNode[i]);
+            }
+        }
+        if (source.InstanceDataDiskMountSettings != null) {
+            this.InstanceDataDiskMountSettings = new InstanceDataDiskMountSetting[source.InstanceDataDiskMountSettings.length];
+            for (int i = 0; i < source.InstanceDataDiskMountSettings.length; i++) {
+                this.InstanceDataDiskMountSettings[i] = new InstanceDataDiskMountSetting(source.InstanceDataDiskMountSettings[i]);
+            }
+        }
+        if (source.ExtensionAddons != null) {
+            this.ExtensionAddons = new ExtensionAddon[source.ExtensionAddons.length];
+            for (int i = 0; i < source.ExtensionAddons.length; i++) {
+                this.ExtensionAddons[i] = new ExtensionAddon(source.ExtensionAddons[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -218,6 +291,7 @@ public class CreateClusterRequest extends AbstractModel{
         this.setParamObj(map, prefix + "InstanceAdvancedSettings.", this.InstanceAdvancedSettings);
         this.setParamArrayObj(map, prefix + "ExistedInstancesForNode.", this.ExistedInstancesForNode);
         this.setParamArrayObj(map, prefix + "InstanceDataDiskMountSettings.", this.InstanceDataDiskMountSettings);
+        this.setParamArrayObj(map, prefix + "ExtensionAddons.", this.ExtensionAddons);
 
     }
 }

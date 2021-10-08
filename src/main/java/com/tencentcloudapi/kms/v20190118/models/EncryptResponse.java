@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class EncryptResponse extends AbstractModel{
 
     /**
-    * 加密后经过base64编码的密文
+    * 加密后的密文，base64编码。注意：本字段中打包了密文和密钥的相关信息，不是对明文的直接加密结果，只有将该字段作为Decrypt接口的输入参数，才可以解密出原文。
     */
     @SerializedName("CiphertextBlob")
     @Expose
@@ -44,16 +44,16 @@ public class EncryptResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 加密后经过base64编码的密文 
-     * @return CiphertextBlob 加密后经过base64编码的密文
+     * Get 加密后的密文，base64编码。注意：本字段中打包了密文和密钥的相关信息，不是对明文的直接加密结果，只有将该字段作为Decrypt接口的输入参数，才可以解密出原文。 
+     * @return CiphertextBlob 加密后的密文，base64编码。注意：本字段中打包了密文和密钥的相关信息，不是对明文的直接加密结果，只有将该字段作为Decrypt接口的输入参数，才可以解密出原文。
      */
     public String getCiphertextBlob() {
         return this.CiphertextBlob;
     }
 
     /**
-     * Set 加密后经过base64编码的密文
-     * @param CiphertextBlob 加密后经过base64编码的密文
+     * Set 加密后的密文，base64编码。注意：本字段中打包了密文和密钥的相关信息，不是对明文的直接加密结果，只有将该字段作为Decrypt接口的输入参数，才可以解密出原文。
+     * @param CiphertextBlob 加密后的密文，base64编码。注意：本字段中打包了密文和密钥的相关信息，不是对明文的直接加密结果，只有将该字段作为Decrypt接口的输入参数，才可以解密出原文。
      */
     public void setCiphertextBlob(String CiphertextBlob) {
         this.CiphertextBlob = CiphertextBlob;
@@ -90,6 +90,26 @@ public class EncryptResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public EncryptResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public EncryptResponse(EncryptResponse source) {
+        if (source.CiphertextBlob != null) {
+            this.CiphertextBlob = new String(source.CiphertextBlob);
+        }
+        if (source.KeyId != null) {
+            this.KeyId = new String(source.KeyId);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

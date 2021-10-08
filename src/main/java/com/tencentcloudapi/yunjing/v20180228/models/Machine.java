@@ -114,6 +114,44 @@ public class Machine extends AbstractModel{
     private MachineTag [] Tag;
 
     /**
+    * 基线风险数。
+    */
+    @SerializedName("BaselineNum")
+    @Expose
+    private Long BaselineNum;
+
+    /**
+    * 网络风险数。
+    */
+    @SerializedName("CyberAttackNum")
+    @Expose
+    private Long CyberAttackNum;
+
+    /**
+    * 风险状态。
+<li>SAFE：安全</li>
+<li>RISK：风险</li>
+<li>UNKNOWN：未知</li>
+    */
+    @SerializedName("SecurityStatus")
+    @Expose
+    private String SecurityStatus;
+
+    /**
+    * 入侵事件数
+    */
+    @SerializedName("InvasionNum")
+    @Expose
+    private Long InvasionNum;
+
+    /**
+    * 地域信息
+    */
+    @SerializedName("RegionInfo")
+    @Expose
+    private RegionInfo RegionInfo;
+
+    /**
      * Get 主机名称。 
      * @return MachineName 主机名称。
      */
@@ -334,6 +372,163 @@ public class Machine extends AbstractModel{
     }
 
     /**
+     * Get 基线风险数。 
+     * @return BaselineNum 基线风险数。
+     */
+    public Long getBaselineNum() {
+        return this.BaselineNum;
+    }
+
+    /**
+     * Set 基线风险数。
+     * @param BaselineNum 基线风险数。
+     */
+    public void setBaselineNum(Long BaselineNum) {
+        this.BaselineNum = BaselineNum;
+    }
+
+    /**
+     * Get 网络风险数。 
+     * @return CyberAttackNum 网络风险数。
+     */
+    public Long getCyberAttackNum() {
+        return this.CyberAttackNum;
+    }
+
+    /**
+     * Set 网络风险数。
+     * @param CyberAttackNum 网络风险数。
+     */
+    public void setCyberAttackNum(Long CyberAttackNum) {
+        this.CyberAttackNum = CyberAttackNum;
+    }
+
+    /**
+     * Get 风险状态。
+<li>SAFE：安全</li>
+<li>RISK：风险</li>
+<li>UNKNOWN：未知</li> 
+     * @return SecurityStatus 风险状态。
+<li>SAFE：安全</li>
+<li>RISK：风险</li>
+<li>UNKNOWN：未知</li>
+     */
+    public String getSecurityStatus() {
+        return this.SecurityStatus;
+    }
+
+    /**
+     * Set 风险状态。
+<li>SAFE：安全</li>
+<li>RISK：风险</li>
+<li>UNKNOWN：未知</li>
+     * @param SecurityStatus 风险状态。
+<li>SAFE：安全</li>
+<li>RISK：风险</li>
+<li>UNKNOWN：未知</li>
+     */
+    public void setSecurityStatus(String SecurityStatus) {
+        this.SecurityStatus = SecurityStatus;
+    }
+
+    /**
+     * Get 入侵事件数 
+     * @return InvasionNum 入侵事件数
+     */
+    public Long getInvasionNum() {
+        return this.InvasionNum;
+    }
+
+    /**
+     * Set 入侵事件数
+     * @param InvasionNum 入侵事件数
+     */
+    public void setInvasionNum(Long InvasionNum) {
+        this.InvasionNum = InvasionNum;
+    }
+
+    /**
+     * Get 地域信息 
+     * @return RegionInfo 地域信息
+     */
+    public RegionInfo getRegionInfo() {
+        return this.RegionInfo;
+    }
+
+    /**
+     * Set 地域信息
+     * @param RegionInfo 地域信息
+     */
+    public void setRegionInfo(RegionInfo RegionInfo) {
+        this.RegionInfo = RegionInfo;
+    }
+
+    public Machine() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Machine(Machine source) {
+        if (source.MachineName != null) {
+            this.MachineName = new String(source.MachineName);
+        }
+        if (source.MachineOs != null) {
+            this.MachineOs = new String(source.MachineOs);
+        }
+        if (source.MachineStatus != null) {
+            this.MachineStatus = new String(source.MachineStatus);
+        }
+        if (source.Uuid != null) {
+            this.Uuid = new String(source.Uuid);
+        }
+        if (source.Quuid != null) {
+            this.Quuid = new String(source.Quuid);
+        }
+        if (source.VulNum != null) {
+            this.VulNum = new Long(source.VulNum);
+        }
+        if (source.MachineIp != null) {
+            this.MachineIp = new String(source.MachineIp);
+        }
+        if (source.IsProVersion != null) {
+            this.IsProVersion = new Boolean(source.IsProVersion);
+        }
+        if (source.MachineWanIp != null) {
+            this.MachineWanIp = new String(source.MachineWanIp);
+        }
+        if (source.PayMode != null) {
+            this.PayMode = new String(source.PayMode);
+        }
+        if (source.MalwareNum != null) {
+            this.MalwareNum = new Long(source.MalwareNum);
+        }
+        if (source.Tag != null) {
+            this.Tag = new MachineTag[source.Tag.length];
+            for (int i = 0; i < source.Tag.length; i++) {
+                this.Tag[i] = new MachineTag(source.Tag[i]);
+            }
+        }
+        if (source.BaselineNum != null) {
+            this.BaselineNum = new Long(source.BaselineNum);
+        }
+        if (source.CyberAttackNum != null) {
+            this.CyberAttackNum = new Long(source.CyberAttackNum);
+        }
+        if (source.SecurityStatus != null) {
+            this.SecurityStatus = new String(source.SecurityStatus);
+        }
+        if (source.InvasionNum != null) {
+            this.InvasionNum = new Long(source.InvasionNum);
+        }
+        if (source.RegionInfo != null) {
+            this.RegionInfo = new RegionInfo(source.RegionInfo);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -349,6 +544,11 @@ public class Machine extends AbstractModel{
         this.setParamSimple(map, prefix + "PayMode", this.PayMode);
         this.setParamSimple(map, prefix + "MalwareNum", this.MalwareNum);
         this.setParamArrayObj(map, prefix + "Tag.", this.Tag);
+        this.setParamSimple(map, prefix + "BaselineNum", this.BaselineNum);
+        this.setParamSimple(map, prefix + "CyberAttackNum", this.CyberAttackNum);
+        this.setParamSimple(map, prefix + "SecurityStatus", this.SecurityStatus);
+        this.setParamSimple(map, prefix + "InvasionNum", this.InvasionNum);
+        this.setParamObj(map, prefix + "RegionInfo.", this.RegionInfo);
 
     }
 }

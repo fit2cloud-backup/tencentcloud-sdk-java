@@ -65,7 +65,7 @@ public class Function extends AbstractModel{
     private String Namespace;
 
     /**
-    * 函数状态
+    * 函数状态，状态值及流转[参考此处](https://cloud.tencent.com/document/product/583/47175)
     */
     @SerializedName("Status")
     @Expose
@@ -98,6 +98,43 @@ public class Function extends AbstractModel{
     @SerializedName("Type")
     @Expose
     private String Type;
+
+    /**
+    * 函数状态失败原因
+    */
+    @SerializedName("StatusReasons")
+    @Expose
+    private StatusReason [] StatusReasons;
+
+    /**
+    * 函数所有版本预置并发内存总和
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TotalProvisionedConcurrencyMem")
+    @Expose
+    private Long TotalProvisionedConcurrencyMem;
+
+    /**
+    * 函数并发保留内存
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ReservedConcurrencyMem")
+    @Expose
+    private Long ReservedConcurrencyMem;
+
+    /**
+    * 函数异步属性，取值 TRUE 或者 FALSE
+    */
+    @SerializedName("AsyncRunEnable")
+    @Expose
+    private String AsyncRunEnable;
+
+    /**
+    * 异步函数是否开启调用追踪，取值 TRUE 或者 FALSE
+    */
+    @SerializedName("TraceEnable")
+    @Expose
+    private String TraceEnable;
 
     /**
      * Get 修改时间 
@@ -196,16 +233,16 @@ public class Function extends AbstractModel{
     }
 
     /**
-     * Get 函数状态 
-     * @return Status 函数状态
+     * Get 函数状态，状态值及流转[参考此处](https://cloud.tencent.com/document/product/583/47175) 
+     * @return Status 函数状态，状态值及流转[参考此处](https://cloud.tencent.com/document/product/583/47175)
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 函数状态
-     * @param Status 函数状态
+     * Set 函数状态，状态值及流转[参考此处](https://cloud.tencent.com/document/product/583/47175)
+     * @param Status 函数状态，状态值及流转[参考此处](https://cloud.tencent.com/document/product/583/47175)
      */
     public void setStatus(String Status) {
         this.Status = Status;
@@ -276,6 +313,159 @@ public class Function extends AbstractModel{
     }
 
     /**
+     * Get 函数状态失败原因 
+     * @return StatusReasons 函数状态失败原因
+     */
+    public StatusReason [] getStatusReasons() {
+        return this.StatusReasons;
+    }
+
+    /**
+     * Set 函数状态失败原因
+     * @param StatusReasons 函数状态失败原因
+     */
+    public void setStatusReasons(StatusReason [] StatusReasons) {
+        this.StatusReasons = StatusReasons;
+    }
+
+    /**
+     * Get 函数所有版本预置并发内存总和
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TotalProvisionedConcurrencyMem 函数所有版本预置并发内存总和
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getTotalProvisionedConcurrencyMem() {
+        return this.TotalProvisionedConcurrencyMem;
+    }
+
+    /**
+     * Set 函数所有版本预置并发内存总和
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TotalProvisionedConcurrencyMem 函数所有版本预置并发内存总和
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTotalProvisionedConcurrencyMem(Long TotalProvisionedConcurrencyMem) {
+        this.TotalProvisionedConcurrencyMem = TotalProvisionedConcurrencyMem;
+    }
+
+    /**
+     * Get 函数并发保留内存
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ReservedConcurrencyMem 函数并发保留内存
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getReservedConcurrencyMem() {
+        return this.ReservedConcurrencyMem;
+    }
+
+    /**
+     * Set 函数并发保留内存
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ReservedConcurrencyMem 函数并发保留内存
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setReservedConcurrencyMem(Long ReservedConcurrencyMem) {
+        this.ReservedConcurrencyMem = ReservedConcurrencyMem;
+    }
+
+    /**
+     * Get 函数异步属性，取值 TRUE 或者 FALSE 
+     * @return AsyncRunEnable 函数异步属性，取值 TRUE 或者 FALSE
+     */
+    public String getAsyncRunEnable() {
+        return this.AsyncRunEnable;
+    }
+
+    /**
+     * Set 函数异步属性，取值 TRUE 或者 FALSE
+     * @param AsyncRunEnable 函数异步属性，取值 TRUE 或者 FALSE
+     */
+    public void setAsyncRunEnable(String AsyncRunEnable) {
+        this.AsyncRunEnable = AsyncRunEnable;
+    }
+
+    /**
+     * Get 异步函数是否开启调用追踪，取值 TRUE 或者 FALSE 
+     * @return TraceEnable 异步函数是否开启调用追踪，取值 TRUE 或者 FALSE
+     */
+    public String getTraceEnable() {
+        return this.TraceEnable;
+    }
+
+    /**
+     * Set 异步函数是否开启调用追踪，取值 TRUE 或者 FALSE
+     * @param TraceEnable 异步函数是否开启调用追踪，取值 TRUE 或者 FALSE
+     */
+    public void setTraceEnable(String TraceEnable) {
+        this.TraceEnable = TraceEnable;
+    }
+
+    public Function() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Function(Function source) {
+        if (source.ModTime != null) {
+            this.ModTime = new String(source.ModTime);
+        }
+        if (source.AddTime != null) {
+            this.AddTime = new String(source.AddTime);
+        }
+        if (source.Runtime != null) {
+            this.Runtime = new String(source.Runtime);
+        }
+        if (source.FunctionName != null) {
+            this.FunctionName = new String(source.FunctionName);
+        }
+        if (source.FunctionId != null) {
+            this.FunctionId = new String(source.FunctionId);
+        }
+        if (source.Namespace != null) {
+            this.Namespace = new String(source.Namespace);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.StatusDesc != null) {
+            this.StatusDesc = new String(source.StatusDesc);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.StatusReasons != null) {
+            this.StatusReasons = new StatusReason[source.StatusReasons.length];
+            for (int i = 0; i < source.StatusReasons.length; i++) {
+                this.StatusReasons[i] = new StatusReason(source.StatusReasons[i]);
+            }
+        }
+        if (source.TotalProvisionedConcurrencyMem != null) {
+            this.TotalProvisionedConcurrencyMem = new Long(source.TotalProvisionedConcurrencyMem);
+        }
+        if (source.ReservedConcurrencyMem != null) {
+            this.ReservedConcurrencyMem = new Long(source.ReservedConcurrencyMem);
+        }
+        if (source.AsyncRunEnable != null) {
+            this.AsyncRunEnable = new String(source.AsyncRunEnable);
+        }
+        if (source.TraceEnable != null) {
+            this.TraceEnable = new String(source.TraceEnable);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -290,6 +480,11 @@ public class Function extends AbstractModel{
         this.setParamSimple(map, prefix + "Description", this.Description);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamArrayObj(map, prefix + "StatusReasons.", this.StatusReasons);
+        this.setParamSimple(map, prefix + "TotalProvisionedConcurrencyMem", this.TotalProvisionedConcurrencyMem);
+        this.setParamSimple(map, prefix + "ReservedConcurrencyMem", this.ReservedConcurrencyMem);
+        this.setParamSimple(map, prefix + "AsyncRunEnable", this.AsyncRunEnable);
+        this.setParamSimple(map, prefix + "TraceEnable", this.TraceEnable);
 
     }
 }

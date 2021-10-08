@@ -30,13 +30,6 @@ public class CreateTrainingJobRequest extends AbstractModel{
     private AlgorithmSpecification AlgorithmSpecification;
 
     /**
-    * 输入数据配置
-    */
-    @SerializedName("InputDataConfig")
-    @Expose
-    private InputDataConfig [] InputDataConfig;
-
-    /**
     * 输出数据配置
     */
     @SerializedName("OutputDataConfig")
@@ -56,6 +49,13 @@ public class CreateTrainingJobRequest extends AbstractModel{
     @SerializedName("TrainingJobName")
     @Expose
     private String TrainingJobName;
+
+    /**
+    * 输入数据配置
+    */
+    @SerializedName("InputDataConfig")
+    @Expose
+    private InputDataConfig [] InputDataConfig;
 
     /**
     * 中止条件
@@ -93,6 +93,14 @@ public class CreateTrainingJobRequest extends AbstractModel{
     private String RoleName;
 
     /**
+    * 在资源不足（ResourceInsufficient）时后台不定时尝试重新创建训练任务。可取值Enabled/Disabled
+默认值为Disabled即不重新尝试。设为Enabled时重新尝试有一定的时间期限，定义在 StoppingCondition 中 MaxWaitTimeInSecond中 ，默认值为1天，超过该期限创建失败。
+    */
+    @SerializedName("RetryWhenResourceInsufficient")
+    @Expose
+    private String RetryWhenResourceInsufficient;
+
+    /**
      * Get 算法镜像配置 
      * @return AlgorithmSpecification 算法镜像配置
      */
@@ -106,22 +114,6 @@ public class CreateTrainingJobRequest extends AbstractModel{
      */
     public void setAlgorithmSpecification(AlgorithmSpecification AlgorithmSpecification) {
         this.AlgorithmSpecification = AlgorithmSpecification;
-    }
-
-    /**
-     * Get 输入数据配置 
-     * @return InputDataConfig 输入数据配置
-     */
-    public InputDataConfig [] getInputDataConfig() {
-        return this.InputDataConfig;
-    }
-
-    /**
-     * Set 输入数据配置
-     * @param InputDataConfig 输入数据配置
-     */
-    public void setInputDataConfig(InputDataConfig [] InputDataConfig) {
-        this.InputDataConfig = InputDataConfig;
     }
 
     /**
@@ -170,6 +162,22 @@ public class CreateTrainingJobRequest extends AbstractModel{
      */
     public void setTrainingJobName(String TrainingJobName) {
         this.TrainingJobName = TrainingJobName;
+    }
+
+    /**
+     * Get 输入数据配置 
+     * @return InputDataConfig 输入数据配置
+     */
+    public InputDataConfig [] getInputDataConfig() {
+        return this.InputDataConfig;
+    }
+
+    /**
+     * Set 输入数据配置
+     * @param InputDataConfig 输入数据配置
+     */
+    public void setInputDataConfig(InputDataConfig [] InputDataConfig) {
+        this.InputDataConfig = InputDataConfig;
     }
 
     /**
@@ -253,19 +261,90 @@ public class CreateTrainingJobRequest extends AbstractModel{
     }
 
     /**
+     * Get 在资源不足（ResourceInsufficient）时后台不定时尝试重新创建训练任务。可取值Enabled/Disabled
+默认值为Disabled即不重新尝试。设为Enabled时重新尝试有一定的时间期限，定义在 StoppingCondition 中 MaxWaitTimeInSecond中 ，默认值为1天，超过该期限创建失败。 
+     * @return RetryWhenResourceInsufficient 在资源不足（ResourceInsufficient）时后台不定时尝试重新创建训练任务。可取值Enabled/Disabled
+默认值为Disabled即不重新尝试。设为Enabled时重新尝试有一定的时间期限，定义在 StoppingCondition 中 MaxWaitTimeInSecond中 ，默认值为1天，超过该期限创建失败。
+     */
+    public String getRetryWhenResourceInsufficient() {
+        return this.RetryWhenResourceInsufficient;
+    }
+
+    /**
+     * Set 在资源不足（ResourceInsufficient）时后台不定时尝试重新创建训练任务。可取值Enabled/Disabled
+默认值为Disabled即不重新尝试。设为Enabled时重新尝试有一定的时间期限，定义在 StoppingCondition 中 MaxWaitTimeInSecond中 ，默认值为1天，超过该期限创建失败。
+     * @param RetryWhenResourceInsufficient 在资源不足（ResourceInsufficient）时后台不定时尝试重新创建训练任务。可取值Enabled/Disabled
+默认值为Disabled即不重新尝试。设为Enabled时重新尝试有一定的时间期限，定义在 StoppingCondition 中 MaxWaitTimeInSecond中 ，默认值为1天，超过该期限创建失败。
+     */
+    public void setRetryWhenResourceInsufficient(String RetryWhenResourceInsufficient) {
+        this.RetryWhenResourceInsufficient = RetryWhenResourceInsufficient;
+    }
+
+    public CreateTrainingJobRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateTrainingJobRequest(CreateTrainingJobRequest source) {
+        if (source.AlgorithmSpecification != null) {
+            this.AlgorithmSpecification = new AlgorithmSpecification(source.AlgorithmSpecification);
+        }
+        if (source.OutputDataConfig != null) {
+            this.OutputDataConfig = new OutputDataConfig(source.OutputDataConfig);
+        }
+        if (source.ResourceConfig != null) {
+            this.ResourceConfig = new ResourceConfig(source.ResourceConfig);
+        }
+        if (source.TrainingJobName != null) {
+            this.TrainingJobName = new String(source.TrainingJobName);
+        }
+        if (source.InputDataConfig != null) {
+            this.InputDataConfig = new InputDataConfig[source.InputDataConfig.length];
+            for (int i = 0; i < source.InputDataConfig.length; i++) {
+                this.InputDataConfig[i] = new InputDataConfig(source.InputDataConfig[i]);
+            }
+        }
+        if (source.StoppingCondition != null) {
+            this.StoppingCondition = new StoppingCondition(source.StoppingCondition);
+        }
+        if (source.VpcConfig != null) {
+            this.VpcConfig = new VpcConfig(source.VpcConfig);
+        }
+        if (source.HyperParameters != null) {
+            this.HyperParameters = new String(source.HyperParameters);
+        }
+        if (source.EnvConfig != null) {
+            this.EnvConfig = new EnvConfig[source.EnvConfig.length];
+            for (int i = 0; i < source.EnvConfig.length; i++) {
+                this.EnvConfig[i] = new EnvConfig(source.EnvConfig[i]);
+            }
+        }
+        if (source.RoleName != null) {
+            this.RoleName = new String(source.RoleName);
+        }
+        if (source.RetryWhenResourceInsufficient != null) {
+            this.RetryWhenResourceInsufficient = new String(source.RetryWhenResourceInsufficient);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "AlgorithmSpecification.", this.AlgorithmSpecification);
-        this.setParamArrayObj(map, prefix + "InputDataConfig.", this.InputDataConfig);
         this.setParamObj(map, prefix + "OutputDataConfig.", this.OutputDataConfig);
         this.setParamObj(map, prefix + "ResourceConfig.", this.ResourceConfig);
         this.setParamSimple(map, prefix + "TrainingJobName", this.TrainingJobName);
+        this.setParamArrayObj(map, prefix + "InputDataConfig.", this.InputDataConfig);
         this.setParamObj(map, prefix + "StoppingCondition.", this.StoppingCondition);
         this.setParamObj(map, prefix + "VpcConfig.", this.VpcConfig);
         this.setParamSimple(map, prefix + "HyperParameters", this.HyperParameters);
         this.setParamArrayObj(map, prefix + "EnvConfig.", this.EnvConfig);
         this.setParamSimple(map, prefix + "RoleName", this.RoleName);
+        this.setParamSimple(map, prefix + "RetryWhenResourceInsufficient", this.RetryWhenResourceInsufficient);
 
     }
 }

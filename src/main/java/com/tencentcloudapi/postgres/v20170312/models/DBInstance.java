@@ -51,7 +51,7 @@ public class DBInstance extends AbstractModel{
     private String VpcId;
 
     /**
-    * SubnetId
+    * 子网ID
     */
     @SerializedName("SubnetId")
     @Expose
@@ -72,7 +72,7 @@ public class DBInstance extends AbstractModel{
     private String DBInstanceName;
 
     /**
-    * 实例状态
+    * 实例状态，分别为：applying（申请中）、init(待初始化)、initing(初始化中)、running(运行中)、limited run（受限运行）、isolated（已隔离）、recycling（回收中）、recycled（已回收）、job running（任务执行中）、offline（下线）、migrating（迁移中）、expanding（扩容中）、waitSwitch（等待切换）、switching（切换中）、readonly（只读）、restarting（重启中）、
     */
     @SerializedName("DBInstanceStatus")
     @Expose
@@ -205,6 +205,53 @@ public class DBInstance extends AbstractModel{
     private Long Uid;
 
     /**
+    * 实例是否支持Ipv6，1：支持，0：不支持
+    */
+    @SerializedName("SupportIpv6")
+    @Expose
+    private Long SupportIpv6;
+
+    /**
+    * 实例绑定的标签信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TagList")
+    @Expose
+    private Tag [] TagList;
+
+    /**
+    * 主实例信息，仅在实例为只读实例时返回
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MasterDBInstanceId")
+    @Expose
+    private String MasterDBInstanceId;
+
+    /**
+    * 只读实例数量
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ReadOnlyInstanceNum")
+    @Expose
+    private Long ReadOnlyInstanceNum;
+
+    /**
+    * 只读实例在只读组中的状态
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("StatusInReadonlyGroup")
+    @Expose
+    private String StatusInReadonlyGroup;
+
+    /**
+    * 下线时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OfflineTime")
+    @Expose
+    private String OfflineTime;
+
+    /**
      * Get 实例所属地域，如: ap-guangzhou，对应RegionSet的Region字段 
      * @return Region 实例所属地域，如: ap-guangzhou，对应RegionSet的Region字段
      */
@@ -269,16 +316,16 @@ public class DBInstance extends AbstractModel{
     }
 
     /**
-     * Get SubnetId 
-     * @return SubnetId SubnetId
+     * Get 子网ID 
+     * @return SubnetId 子网ID
      */
     public String getSubnetId() {
         return this.SubnetId;
     }
 
     /**
-     * Set SubnetId
-     * @param SubnetId SubnetId
+     * Set 子网ID
+     * @param SubnetId 子网ID
      */
     public void setSubnetId(String SubnetId) {
         this.SubnetId = SubnetId;
@@ -317,16 +364,16 @@ public class DBInstance extends AbstractModel{
     }
 
     /**
-     * Get 实例状态 
-     * @return DBInstanceStatus 实例状态
+     * Get 实例状态，分别为：applying（申请中）、init(待初始化)、initing(初始化中)、running(运行中)、limited run（受限运行）、isolated（已隔离）、recycling（回收中）、recycled（已回收）、job running（任务执行中）、offline（下线）、migrating（迁移中）、expanding（扩容中）、waitSwitch（等待切换）、switching（切换中）、readonly（只读）、restarting（重启中）、 
+     * @return DBInstanceStatus 实例状态，分别为：applying（申请中）、init(待初始化)、initing(初始化中)、running(运行中)、limited run（受限运行）、isolated（已隔离）、recycling（回收中）、recycled（已回收）、job running（任务执行中）、offline（下线）、migrating（迁移中）、expanding（扩容中）、waitSwitch（等待切换）、switching（切换中）、readonly（只读）、restarting（重启中）、
      */
     public String getDBInstanceStatus() {
         return this.DBInstanceStatus;
     }
 
     /**
-     * Set 实例状态
-     * @param DBInstanceStatus 实例状态
+     * Set 实例状态，分别为：applying（申请中）、init(待初始化)、initing(初始化中)、running(运行中)、limited run（受限运行）、isolated（已隔离）、recycling（回收中）、recycled（已回收）、job running（任务执行中）、offline（下线）、migrating（迁移中）、expanding（扩容中）、waitSwitch（等待切换）、switching（切换中）、readonly（只读）、restarting（重启中）、
+     * @param DBInstanceStatus 实例状态，分别为：applying（申请中）、init(待初始化)、initing(初始化中)、running(运行中)、limited run（受限运行）、isolated（已隔离）、recycling（回收中）、recycled（已回收）、job running（任务执行中）、offline（下线）、migrating（迁移中）、expanding（扩容中）、waitSwitch（等待切换）、switching（切换中）、readonly（只读）、restarting（重启中）、
      */
     public void setDBInstanceStatus(String DBInstanceStatus) {
         this.DBInstanceStatus = DBInstanceStatus;
@@ -621,6 +668,235 @@ public class DBInstance extends AbstractModel{
     }
 
     /**
+     * Get 实例是否支持Ipv6，1：支持，0：不支持 
+     * @return SupportIpv6 实例是否支持Ipv6，1：支持，0：不支持
+     */
+    public Long getSupportIpv6() {
+        return this.SupportIpv6;
+    }
+
+    /**
+     * Set 实例是否支持Ipv6，1：支持，0：不支持
+     * @param SupportIpv6 实例是否支持Ipv6，1：支持，0：不支持
+     */
+    public void setSupportIpv6(Long SupportIpv6) {
+        this.SupportIpv6 = SupportIpv6;
+    }
+
+    /**
+     * Get 实例绑定的标签信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TagList 实例绑定的标签信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Tag [] getTagList() {
+        return this.TagList;
+    }
+
+    /**
+     * Set 实例绑定的标签信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TagList 实例绑定的标签信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTagList(Tag [] TagList) {
+        this.TagList = TagList;
+    }
+
+    /**
+     * Get 主实例信息，仅在实例为只读实例时返回
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MasterDBInstanceId 主实例信息，仅在实例为只读实例时返回
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getMasterDBInstanceId() {
+        return this.MasterDBInstanceId;
+    }
+
+    /**
+     * Set 主实例信息，仅在实例为只读实例时返回
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MasterDBInstanceId 主实例信息，仅在实例为只读实例时返回
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMasterDBInstanceId(String MasterDBInstanceId) {
+        this.MasterDBInstanceId = MasterDBInstanceId;
+    }
+
+    /**
+     * Get 只读实例数量
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ReadOnlyInstanceNum 只读实例数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getReadOnlyInstanceNum() {
+        return this.ReadOnlyInstanceNum;
+    }
+
+    /**
+     * Set 只读实例数量
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ReadOnlyInstanceNum 只读实例数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setReadOnlyInstanceNum(Long ReadOnlyInstanceNum) {
+        this.ReadOnlyInstanceNum = ReadOnlyInstanceNum;
+    }
+
+    /**
+     * Get 只读实例在只读组中的状态
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return StatusInReadonlyGroup 只读实例在只读组中的状态
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getStatusInReadonlyGroup() {
+        return this.StatusInReadonlyGroup;
+    }
+
+    /**
+     * Set 只读实例在只读组中的状态
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param StatusInReadonlyGroup 只读实例在只读组中的状态
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setStatusInReadonlyGroup(String StatusInReadonlyGroup) {
+        this.StatusInReadonlyGroup = StatusInReadonlyGroup;
+    }
+
+    /**
+     * Get 下线时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OfflineTime 下线时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getOfflineTime() {
+        return this.OfflineTime;
+    }
+
+    /**
+     * Set 下线时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OfflineTime 下线时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOfflineTime(String OfflineTime) {
+        this.OfflineTime = OfflineTime;
+    }
+
+    public DBInstance() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DBInstance(DBInstance source) {
+        if (source.Region != null) {
+            this.Region = new String(source.Region);
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.DBInstanceId != null) {
+            this.DBInstanceId = new String(source.DBInstanceId);
+        }
+        if (source.DBInstanceName != null) {
+            this.DBInstanceName = new String(source.DBInstanceName);
+        }
+        if (source.DBInstanceStatus != null) {
+            this.DBInstanceStatus = new String(source.DBInstanceStatus);
+        }
+        if (source.DBInstanceMemory != null) {
+            this.DBInstanceMemory = new Long(source.DBInstanceMemory);
+        }
+        if (source.DBInstanceStorage != null) {
+            this.DBInstanceStorage = new Long(source.DBInstanceStorage);
+        }
+        if (source.DBInstanceCpu != null) {
+            this.DBInstanceCpu = new Long(source.DBInstanceCpu);
+        }
+        if (source.DBInstanceClass != null) {
+            this.DBInstanceClass = new String(source.DBInstanceClass);
+        }
+        if (source.DBInstanceType != null) {
+            this.DBInstanceType = new String(source.DBInstanceType);
+        }
+        if (source.DBInstanceVersion != null) {
+            this.DBInstanceVersion = new String(source.DBInstanceVersion);
+        }
+        if (source.DBCharset != null) {
+            this.DBCharset = new String(source.DBCharset);
+        }
+        if (source.DBVersion != null) {
+            this.DBVersion = new String(source.DBVersion);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+        if (source.ExpireTime != null) {
+            this.ExpireTime = new String(source.ExpireTime);
+        }
+        if (source.IsolatedTime != null) {
+            this.IsolatedTime = new String(source.IsolatedTime);
+        }
+        if (source.PayType != null) {
+            this.PayType = new String(source.PayType);
+        }
+        if (source.AutoRenew != null) {
+            this.AutoRenew = new Long(source.AutoRenew);
+        }
+        if (source.DBInstanceNetInfo != null) {
+            this.DBInstanceNetInfo = new DBInstanceNetInfo[source.DBInstanceNetInfo.length];
+            for (int i = 0; i < source.DBInstanceNetInfo.length; i++) {
+                this.DBInstanceNetInfo[i] = new DBInstanceNetInfo(source.DBInstanceNetInfo[i]);
+            }
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.AppId != null) {
+            this.AppId = new Long(source.AppId);
+        }
+        if (source.Uid != null) {
+            this.Uid = new Long(source.Uid);
+        }
+        if (source.SupportIpv6 != null) {
+            this.SupportIpv6 = new Long(source.SupportIpv6);
+        }
+        if (source.TagList != null) {
+            this.TagList = new Tag[source.TagList.length];
+            for (int i = 0; i < source.TagList.length; i++) {
+                this.TagList[i] = new Tag(source.TagList[i]);
+            }
+        }
+        if (source.MasterDBInstanceId != null) {
+            this.MasterDBInstanceId = new String(source.MasterDBInstanceId);
+        }
+        if (source.ReadOnlyInstanceNum != null) {
+            this.ReadOnlyInstanceNum = new Long(source.ReadOnlyInstanceNum);
+        }
+        if (source.StatusInReadonlyGroup != null) {
+            this.StatusInReadonlyGroup = new String(source.StatusInReadonlyGroup);
+        }
+        if (source.OfflineTime != null) {
+            this.OfflineTime = new String(source.OfflineTime);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -650,6 +926,12 @@ public class DBInstance extends AbstractModel{
         this.setParamSimple(map, prefix + "Type", this.Type);
         this.setParamSimple(map, prefix + "AppId", this.AppId);
         this.setParamSimple(map, prefix + "Uid", this.Uid);
+        this.setParamSimple(map, prefix + "SupportIpv6", this.SupportIpv6);
+        this.setParamArrayObj(map, prefix + "TagList.", this.TagList);
+        this.setParamSimple(map, prefix + "MasterDBInstanceId", this.MasterDBInstanceId);
+        this.setParamSimple(map, prefix + "ReadOnlyInstanceNum", this.ReadOnlyInstanceNum);
+        this.setParamSimple(map, prefix + "StatusInReadonlyGroup", this.StatusInReadonlyGroup);
+        this.setParamSimple(map, prefix + "OfflineTime", this.OfflineTime);
 
     }
 }

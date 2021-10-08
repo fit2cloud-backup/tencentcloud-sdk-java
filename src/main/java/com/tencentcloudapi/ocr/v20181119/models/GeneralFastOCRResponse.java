@@ -38,6 +38,20 @@ public class GeneralFastOCRResponse extends AbstractModel{
     private String Language;
 
     /**
+    * 图片旋转角度（角度制），文本的水平方向为0°；顺时针为正，逆时针为负
+    */
+    @SerializedName("Angel")
+    @Expose
+    private Float Angel;
+
+    /**
+    * 图片为PDF时，返回PDF的总页数，默认为0
+    */
+    @SerializedName("PdfPageSize")
+    @Expose
+    private Long PdfPageSize;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -81,6 +95,38 @@ public class GeneralFastOCRResponse extends AbstractModel{
     }
 
     /**
+     * Get 图片旋转角度（角度制），文本的水平方向为0°；顺时针为正，逆时针为负 
+     * @return Angel 图片旋转角度（角度制），文本的水平方向为0°；顺时针为正，逆时针为负
+     */
+    public Float getAngel() {
+        return this.Angel;
+    }
+
+    /**
+     * Set 图片旋转角度（角度制），文本的水平方向为0°；顺时针为正，逆时针为负
+     * @param Angel 图片旋转角度（角度制），文本的水平方向为0°；顺时针为正，逆时针为负
+     */
+    public void setAngel(Float Angel) {
+        this.Angel = Angel;
+    }
+
+    /**
+     * Get 图片为PDF时，返回PDF的总页数，默认为0 
+     * @return PdfPageSize 图片为PDF时，返回PDF的总页数，默认为0
+     */
+    public Long getPdfPageSize() {
+        return this.PdfPageSize;
+    }
+
+    /**
+     * Set 图片为PDF时，返回PDF的总页数，默认为0
+     * @param PdfPageSize 图片为PDF时，返回PDF的总页数，默认为0
+     */
+    public void setPdfPageSize(Long PdfPageSize) {
+        this.PdfPageSize = PdfPageSize;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -96,12 +142,43 @@ public class GeneralFastOCRResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public GeneralFastOCRResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public GeneralFastOCRResponse(GeneralFastOCRResponse source) {
+        if (source.TextDetections != null) {
+            this.TextDetections = new TextDetection[source.TextDetections.length];
+            for (int i = 0; i < source.TextDetections.length; i++) {
+                this.TextDetections[i] = new TextDetection(source.TextDetections[i]);
+            }
+        }
+        if (source.Language != null) {
+            this.Language = new String(source.Language);
+        }
+        if (source.Angel != null) {
+            this.Angel = new Float(source.Angel);
+        }
+        if (source.PdfPageSize != null) {
+            this.PdfPageSize = new Long(source.PdfPageSize);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "TextDetections.", this.TextDetections);
         this.setParamSimple(map, prefix + "Language", this.Language);
+        this.setParamSimple(map, prefix + "Angel", this.Angel);
+        this.setParamSimple(map, prefix + "PdfPageSize", this.PdfPageSize);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

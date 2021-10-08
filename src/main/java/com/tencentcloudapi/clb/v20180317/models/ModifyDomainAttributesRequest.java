@@ -23,28 +23,28 @@ import java.util.HashMap;
 public class ModifyDomainAttributesRequest extends AbstractModel{
 
     /**
-    * 负载均衡实例 ID
+    * 负载均衡实例ID。
     */
     @SerializedName("LoadBalancerId")
     @Expose
     private String LoadBalancerId;
 
     /**
-    * 负载均衡监听器 ID
+    * 负载均衡监听器ID。
     */
     @SerializedName("ListenerId")
     @Expose
     private String ListenerId;
 
     /**
-    * 域名（必须是已经创建的转发规则下的域名）
+    * 域名（必须是已经创建的转发规则下的域名）。
     */
     @SerializedName("Domain")
     @Expose
     private String Domain;
 
     /**
-    * 要修改的新域名
+    * 要修改的新域名。
     */
     @SerializedName("NewDomain")
     @Expose
@@ -72,64 +72,71 @@ public class ModifyDomainAttributesRequest extends AbstractModel{
     private Boolean DefaultServer;
 
     /**
-     * Get 负载均衡实例 ID 
-     * @return LoadBalancerId 负载均衡实例 ID
+    * 监听器下必须配置一个默认域名，若要关闭原默认域名，必须同时指定另一个域名作为新的默认域名。
+    */
+    @SerializedName("NewDefaultServerDomain")
+    @Expose
+    private String NewDefaultServerDomain;
+
+    /**
+     * Get 负载均衡实例ID。 
+     * @return LoadBalancerId 负载均衡实例ID。
      */
     public String getLoadBalancerId() {
         return this.LoadBalancerId;
     }
 
     /**
-     * Set 负载均衡实例 ID
-     * @param LoadBalancerId 负载均衡实例 ID
+     * Set 负载均衡实例ID。
+     * @param LoadBalancerId 负载均衡实例ID。
      */
     public void setLoadBalancerId(String LoadBalancerId) {
         this.LoadBalancerId = LoadBalancerId;
     }
 
     /**
-     * Get 负载均衡监听器 ID 
-     * @return ListenerId 负载均衡监听器 ID
+     * Get 负载均衡监听器ID。 
+     * @return ListenerId 负载均衡监听器ID。
      */
     public String getListenerId() {
         return this.ListenerId;
     }
 
     /**
-     * Set 负载均衡监听器 ID
-     * @param ListenerId 负载均衡监听器 ID
+     * Set 负载均衡监听器ID。
+     * @param ListenerId 负载均衡监听器ID。
      */
     public void setListenerId(String ListenerId) {
         this.ListenerId = ListenerId;
     }
 
     /**
-     * Get 域名（必须是已经创建的转发规则下的域名） 
-     * @return Domain 域名（必须是已经创建的转发规则下的域名）
+     * Get 域名（必须是已经创建的转发规则下的域名）。 
+     * @return Domain 域名（必须是已经创建的转发规则下的域名）。
      */
     public String getDomain() {
         return this.Domain;
     }
 
     /**
-     * Set 域名（必须是已经创建的转发规则下的域名）
-     * @param Domain 域名（必须是已经创建的转发规则下的域名）
+     * Set 域名（必须是已经创建的转发规则下的域名）。
+     * @param Domain 域名（必须是已经创建的转发规则下的域名）。
      */
     public void setDomain(String Domain) {
         this.Domain = Domain;
     }
 
     /**
-     * Get 要修改的新域名 
-     * @return NewDomain 要修改的新域名
+     * Get 要修改的新域名。 
+     * @return NewDomain 要修改的新域名。
      */
     public String getNewDomain() {
         return this.NewDomain;
     }
 
     /**
-     * Set 要修改的新域名
-     * @param NewDomain 要修改的新域名
+     * Set 要修改的新域名。
+     * @param NewDomain 要修改的新域名。
      */
     public void setNewDomain(String NewDomain) {
         this.NewDomain = NewDomain;
@@ -184,6 +191,57 @@ public class ModifyDomainAttributesRequest extends AbstractModel{
     }
 
     /**
+     * Get 监听器下必须配置一个默认域名，若要关闭原默认域名，必须同时指定另一个域名作为新的默认域名。 
+     * @return NewDefaultServerDomain 监听器下必须配置一个默认域名，若要关闭原默认域名，必须同时指定另一个域名作为新的默认域名。
+     */
+    public String getNewDefaultServerDomain() {
+        return this.NewDefaultServerDomain;
+    }
+
+    /**
+     * Set 监听器下必须配置一个默认域名，若要关闭原默认域名，必须同时指定另一个域名作为新的默认域名。
+     * @param NewDefaultServerDomain 监听器下必须配置一个默认域名，若要关闭原默认域名，必须同时指定另一个域名作为新的默认域名。
+     */
+    public void setNewDefaultServerDomain(String NewDefaultServerDomain) {
+        this.NewDefaultServerDomain = NewDefaultServerDomain;
+    }
+
+    public ModifyDomainAttributesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyDomainAttributesRequest(ModifyDomainAttributesRequest source) {
+        if (source.LoadBalancerId != null) {
+            this.LoadBalancerId = new String(source.LoadBalancerId);
+        }
+        if (source.ListenerId != null) {
+            this.ListenerId = new String(source.ListenerId);
+        }
+        if (source.Domain != null) {
+            this.Domain = new String(source.Domain);
+        }
+        if (source.NewDomain != null) {
+            this.NewDomain = new String(source.NewDomain);
+        }
+        if (source.Certificate != null) {
+            this.Certificate = new CertificateInput(source.Certificate);
+        }
+        if (source.Http2 != null) {
+            this.Http2 = new Boolean(source.Http2);
+        }
+        if (source.DefaultServer != null) {
+            this.DefaultServer = new Boolean(source.DefaultServer);
+        }
+        if (source.NewDefaultServerDomain != null) {
+            this.NewDefaultServerDomain = new String(source.NewDefaultServerDomain);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -194,6 +252,7 @@ public class ModifyDomainAttributesRequest extends AbstractModel{
         this.setParamObj(map, prefix + "Certificate.", this.Certificate);
         this.setParamSimple(map, prefix + "Http2", this.Http2);
         this.setParamSimple(map, prefix + "DefaultServer", this.DefaultServer);
+        this.setParamSimple(map, prefix + "NewDefaultServerDomain", this.NewDefaultServerDomain);
 
     }
 }

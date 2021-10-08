@@ -30,6 +30,20 @@ public class DescribeAccessRegionsByDestRegionRequest extends AbstractModel{
     private String DestRegion;
 
     /**
+    * IP版本，可取值：IPv4、IPv6，默认值IPv4
+    */
+    @SerializedName("IPAddressVersion")
+    @Expose
+    private String IPAddressVersion;
+
+    /**
+    * 通道组类型，Thunder表示标准通道组，Accelerator表示游戏加速器通道。
+    */
+    @SerializedName("PackageType")
+    @Expose
+    private String PackageType;
+
+    /**
      * Get 源站区域：接口DescribeDestRegions返回DestRegionSet中的RegionId字段值 
      * @return DestRegion 源站区域：接口DescribeDestRegions返回DestRegionSet中的RegionId字段值
      */
@@ -46,10 +60,64 @@ public class DescribeAccessRegionsByDestRegionRequest extends AbstractModel{
     }
 
     /**
+     * Get IP版本，可取值：IPv4、IPv6，默认值IPv4 
+     * @return IPAddressVersion IP版本，可取值：IPv4、IPv6，默认值IPv4
+     */
+    public String getIPAddressVersion() {
+        return this.IPAddressVersion;
+    }
+
+    /**
+     * Set IP版本，可取值：IPv4、IPv6，默认值IPv4
+     * @param IPAddressVersion IP版本，可取值：IPv4、IPv6，默认值IPv4
+     */
+    public void setIPAddressVersion(String IPAddressVersion) {
+        this.IPAddressVersion = IPAddressVersion;
+    }
+
+    /**
+     * Get 通道组类型，Thunder表示标准通道组，Accelerator表示游戏加速器通道。 
+     * @return PackageType 通道组类型，Thunder表示标准通道组，Accelerator表示游戏加速器通道。
+     */
+    public String getPackageType() {
+        return this.PackageType;
+    }
+
+    /**
+     * Set 通道组类型，Thunder表示标准通道组，Accelerator表示游戏加速器通道。
+     * @param PackageType 通道组类型，Thunder表示标准通道组，Accelerator表示游戏加速器通道。
+     */
+    public void setPackageType(String PackageType) {
+        this.PackageType = PackageType;
+    }
+
+    public DescribeAccessRegionsByDestRegionRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeAccessRegionsByDestRegionRequest(DescribeAccessRegionsByDestRegionRequest source) {
+        if (source.DestRegion != null) {
+            this.DestRegion = new String(source.DestRegion);
+        }
+        if (source.IPAddressVersion != null) {
+            this.IPAddressVersion = new String(source.IPAddressVersion);
+        }
+        if (source.PackageType != null) {
+            this.PackageType = new String(source.PackageType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "DestRegion", this.DestRegion);
+        this.setParamSimple(map, prefix + "IPAddressVersion", this.IPAddressVersion);
+        this.setParamSimple(map, prefix + "PackageType", this.PackageType);
 
     }
 }

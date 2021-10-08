@@ -61,6 +61,13 @@ public class QuestionObj extends AbstractModel{
     private String QuestionSubquestion;
 
     /**
+    * 示意图检测框在的图片中的像素坐标
+    */
+    @SerializedName("QuestionImageCoords")
+    @Expose
+    private Rect [] QuestionImageCoords;
+
+    /**
      * Get 题号 
      * @return QuestionTextNo 题号
      */
@@ -153,6 +160,54 @@ public class QuestionObj extends AbstractModel{
     }
 
     /**
+     * Get 示意图检测框在的图片中的像素坐标 
+     * @return QuestionImageCoords 示意图检测框在的图片中的像素坐标
+     */
+    public Rect [] getQuestionImageCoords() {
+        return this.QuestionImageCoords;
+    }
+
+    /**
+     * Set 示意图检测框在的图片中的像素坐标
+     * @param QuestionImageCoords 示意图检测框在的图片中的像素坐标
+     */
+    public void setQuestionImageCoords(Rect [] QuestionImageCoords) {
+        this.QuestionImageCoords = QuestionImageCoords;
+    }
+
+    public QuestionObj() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public QuestionObj(QuestionObj source) {
+        if (source.QuestionTextNo != null) {
+            this.QuestionTextNo = new String(source.QuestionTextNo);
+        }
+        if (source.QuestionTextType != null) {
+            this.QuestionTextType = new Long(source.QuestionTextType);
+        }
+        if (source.QuestionText != null) {
+            this.QuestionText = new String(source.QuestionText);
+        }
+        if (source.QuestionOptions != null) {
+            this.QuestionOptions = new String(source.QuestionOptions);
+        }
+        if (source.QuestionSubquestion != null) {
+            this.QuestionSubquestion = new String(source.QuestionSubquestion);
+        }
+        if (source.QuestionImageCoords != null) {
+            this.QuestionImageCoords = new Rect[source.QuestionImageCoords.length];
+            for (int i = 0; i < source.QuestionImageCoords.length; i++) {
+                this.QuestionImageCoords[i] = new Rect(source.QuestionImageCoords[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -161,6 +216,7 @@ public class QuestionObj extends AbstractModel{
         this.setParamSimple(map, prefix + "QuestionText", this.QuestionText);
         this.setParamSimple(map, prefix + "QuestionOptions", this.QuestionOptions);
         this.setParamSimple(map, prefix + "QuestionSubquestion", this.QuestionSubquestion);
+        this.setParamArrayObj(map, prefix + "QuestionImageCoords.", this.QuestionImageCoords);
 
     }
 }

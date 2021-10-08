@@ -27,6 +27,7 @@ import com.tencentcloudapi.memcached.v20190318.models.*;
 
 public class MemcachedClient extends AbstractClient{
     private static String endpoint = "memcached.tencentcloudapi.com";
+    private static String service = "memcached";
     private static String version = "2019-03-18";
 
     public MemcachedClient(Credential credential, String region) {
@@ -45,12 +46,14 @@ public class MemcachedClient extends AbstractClient{
      */
     public DescribeInstancesResponse DescribeInstances(DescribeInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeInstancesResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeInstancesResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeInstances"), type);
+                rspStr = this.internalRequest(req, "DescribeInstances");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

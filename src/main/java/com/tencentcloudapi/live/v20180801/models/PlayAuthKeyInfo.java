@@ -30,14 +30,16 @@ public class PlayAuthKeyInfo extends AbstractModel{
     private String DomainName;
 
     /**
-    * 是否启用，0：关闭，1：启用。
+    * 是否启用:
+0: 关闭。
+1: 启用。
     */
     @SerializedName("Enable")
     @Expose
     private Long Enable;
 
     /**
-    * 鉴权key。
+    * 鉴权 Key。
     */
     @SerializedName("AuthKey")
     @Expose
@@ -51,7 +53,7 @@ public class PlayAuthKeyInfo extends AbstractModel{
     private Long AuthDelta;
 
     /**
-    * 鉴权BackKey。
+    * 鉴权 BackKey。
     */
     @SerializedName("AuthBackKey")
     @Expose
@@ -74,32 +76,40 @@ public class PlayAuthKeyInfo extends AbstractModel{
     }
 
     /**
-     * Get 是否启用，0：关闭，1：启用。 
-     * @return Enable 是否启用，0：关闭，1：启用。
+     * Get 是否启用:
+0: 关闭。
+1: 启用。 
+     * @return Enable 是否启用:
+0: 关闭。
+1: 启用。
      */
     public Long getEnable() {
         return this.Enable;
     }
 
     /**
-     * Set 是否启用，0：关闭，1：启用。
-     * @param Enable 是否启用，0：关闭，1：启用。
+     * Set 是否启用:
+0: 关闭。
+1: 启用。
+     * @param Enable 是否启用:
+0: 关闭。
+1: 启用。
      */
     public void setEnable(Long Enable) {
         this.Enable = Enable;
     }
 
     /**
-     * Get 鉴权key。 
-     * @return AuthKey 鉴权key。
+     * Get 鉴权 Key。 
+     * @return AuthKey 鉴权 Key。
      */
     public String getAuthKey() {
         return this.AuthKey;
     }
 
     /**
-     * Set 鉴权key。
-     * @param AuthKey 鉴权key。
+     * Set 鉴权 Key。
+     * @param AuthKey 鉴权 Key。
      */
     public void setAuthKey(String AuthKey) {
         this.AuthKey = AuthKey;
@@ -122,20 +132,46 @@ public class PlayAuthKeyInfo extends AbstractModel{
     }
 
     /**
-     * Get 鉴权BackKey。 
-     * @return AuthBackKey 鉴权BackKey。
+     * Get 鉴权 BackKey。 
+     * @return AuthBackKey 鉴权 BackKey。
      */
     public String getAuthBackKey() {
         return this.AuthBackKey;
     }
 
     /**
-     * Set 鉴权BackKey。
-     * @param AuthBackKey 鉴权BackKey。
+     * Set 鉴权 BackKey。
+     * @param AuthBackKey 鉴权 BackKey。
      */
     public void setAuthBackKey(String AuthBackKey) {
         this.AuthBackKey = AuthBackKey;
     }
+
+    public PlayAuthKeyInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public PlayAuthKeyInfo(PlayAuthKeyInfo source) {
+        if (source.DomainName != null) {
+            this.DomainName = new String(source.DomainName);
+        }
+        if (source.Enable != null) {
+            this.Enable = new Long(source.Enable);
+        }
+        if (source.AuthKey != null) {
+            this.AuthKey = new String(source.AuthKey);
+        }
+        if (source.AuthDelta != null) {
+            this.AuthDelta = new Long(source.AuthDelta);
+        }
+        if (source.AuthBackKey != null) {
+            this.AuthBackKey = new String(source.AuthBackKey);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

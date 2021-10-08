@@ -72,6 +72,13 @@ public class CreateDeviceRequest extends AbstractModel{
     private String NwkSKey;
 
     /**
+    * 手动指定设备的PSK密钥
+    */
+    @SerializedName("DefinedPsk")
+    @Expose
+    private String DefinedPsk;
+
+    /**
      * Get 产品ID。 
      * @return ProductId 产品ID。
      */
@@ -184,6 +191,57 @@ public class CreateDeviceRequest extends AbstractModel{
     }
 
     /**
+     * Get 手动指定设备的PSK密钥 
+     * @return DefinedPsk 手动指定设备的PSK密钥
+     */
+    public String getDefinedPsk() {
+        return this.DefinedPsk;
+    }
+
+    /**
+     * Set 手动指定设备的PSK密钥
+     * @param DefinedPsk 手动指定设备的PSK密钥
+     */
+    public void setDefinedPsk(String DefinedPsk) {
+        this.DefinedPsk = DefinedPsk;
+    }
+
+    public CreateDeviceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateDeviceRequest(CreateDeviceRequest source) {
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+        if (source.DeviceName != null) {
+            this.DeviceName = new String(source.DeviceName);
+        }
+        if (source.DevAddr != null) {
+            this.DevAddr = new String(source.DevAddr);
+        }
+        if (source.AppKey != null) {
+            this.AppKey = new String(source.AppKey);
+        }
+        if (source.DevEUI != null) {
+            this.DevEUI = new String(source.DevEUI);
+        }
+        if (source.AppSKey != null) {
+            this.AppSKey = new String(source.AppSKey);
+        }
+        if (source.NwkSKey != null) {
+            this.NwkSKey = new String(source.NwkSKey);
+        }
+        if (source.DefinedPsk != null) {
+            this.DefinedPsk = new String(source.DefinedPsk);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -194,6 +252,7 @@ public class CreateDeviceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "DevEUI", this.DevEUI);
         this.setParamSimple(map, prefix + "AppSKey", this.AppSKey);
         this.setParamSimple(map, prefix + "NwkSKey", this.NwkSKey);
+        this.setParamSimple(map, prefix + "DefinedPsk", this.DefinedPsk);
 
     }
 }

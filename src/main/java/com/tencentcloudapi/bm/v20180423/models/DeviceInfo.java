@@ -52,7 +52,7 @@ public class DeviceInfo extends AbstractModel{
 
     /**
     * 设备操作状态ID，取值：
-<li>1：运行中</li><li>2：正在关机</li><li>3：已关机</li><li>5：正在开机</li><li>7：重启中</li><li>9：重装中</li><li>12：绑定EIP</li><li>13：解绑EIP</li><li>14：绑定LB</li><li>15：解绑LB</li><li>19：更换IP中</li><li>20：制作镜像中</li><li>21：制作镜像失败</li>
+<li>1：运行中</li><li>2：正在关机</li><li>3：已关机</li><li>5：正在开机</li><li>7：重启中</li><li>9：重装中</li><li>12：绑定EIP</li><li>13：解绑EIP</li><li>14：绑定LB</li><li>15：解绑LB</li><li>19：更换IP中</li><li>20：制作镜像中</li><li>21：制作镜像失败</li><li>23：故障待重装</li><li>24：无备件待退回</li>
     */
     @SerializedName("OperateStatus")
     @Expose
@@ -80,7 +80,7 @@ public class DeviceInfo extends AbstractModel{
     private String Alias;
 
     /**
-    * AppId
+    * 用户AppId
     */
     @SerializedName("AppId")
     @Expose
@@ -192,6 +192,22 @@ public class DeviceInfo extends AbstractModel{
     private Long IsLuckyDevice;
 
     /**
+    * 标识机器维保状态。Maintain: 在保;  WillExpire: 即将过保; Expire: 已过保
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MaintainStatus")
+    @Expose
+    private String MaintainStatus;
+
+    /**
+    * 维保信息描述
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MaintainMessage")
+    @Expose
+    private String MaintainMessage;
+
+    /**
      * Get 设备唯一ID 
      * @return InstanceId 设备唯一ID
      */
@@ -257,9 +273,9 @@ public class DeviceInfo extends AbstractModel{
 
     /**
      * Get 设备操作状态ID，取值：
-<li>1：运行中</li><li>2：正在关机</li><li>3：已关机</li><li>5：正在开机</li><li>7：重启中</li><li>9：重装中</li><li>12：绑定EIP</li><li>13：解绑EIP</li><li>14：绑定LB</li><li>15：解绑LB</li><li>19：更换IP中</li><li>20：制作镜像中</li><li>21：制作镜像失败</li> 
+<li>1：运行中</li><li>2：正在关机</li><li>3：已关机</li><li>5：正在开机</li><li>7：重启中</li><li>9：重装中</li><li>12：绑定EIP</li><li>13：解绑EIP</li><li>14：绑定LB</li><li>15：解绑LB</li><li>19：更换IP中</li><li>20：制作镜像中</li><li>21：制作镜像失败</li><li>23：故障待重装</li><li>24：无备件待退回</li> 
      * @return OperateStatus 设备操作状态ID，取值：
-<li>1：运行中</li><li>2：正在关机</li><li>3：已关机</li><li>5：正在开机</li><li>7：重启中</li><li>9：重装中</li><li>12：绑定EIP</li><li>13：解绑EIP</li><li>14：绑定LB</li><li>15：解绑LB</li><li>19：更换IP中</li><li>20：制作镜像中</li><li>21：制作镜像失败</li>
+<li>1：运行中</li><li>2：正在关机</li><li>3：已关机</li><li>5：正在开机</li><li>7：重启中</li><li>9：重装中</li><li>12：绑定EIP</li><li>13：解绑EIP</li><li>14：绑定LB</li><li>15：解绑LB</li><li>19：更换IP中</li><li>20：制作镜像中</li><li>21：制作镜像失败</li><li>23：故障待重装</li><li>24：无备件待退回</li>
      */
     public Long getOperateStatus() {
         return this.OperateStatus;
@@ -267,9 +283,9 @@ public class DeviceInfo extends AbstractModel{
 
     /**
      * Set 设备操作状态ID，取值：
-<li>1：运行中</li><li>2：正在关机</li><li>3：已关机</li><li>5：正在开机</li><li>7：重启中</li><li>9：重装中</li><li>12：绑定EIP</li><li>13：解绑EIP</li><li>14：绑定LB</li><li>15：解绑LB</li><li>19：更换IP中</li><li>20：制作镜像中</li><li>21：制作镜像失败</li>
+<li>1：运行中</li><li>2：正在关机</li><li>3：已关机</li><li>5：正在开机</li><li>7：重启中</li><li>9：重装中</li><li>12：绑定EIP</li><li>13：解绑EIP</li><li>14：绑定LB</li><li>15：解绑LB</li><li>19：更换IP中</li><li>20：制作镜像中</li><li>21：制作镜像失败</li><li>23：故障待重装</li><li>24：无备件待退回</li>
      * @param OperateStatus 设备操作状态ID，取值：
-<li>1：运行中</li><li>2：正在关机</li><li>3：已关机</li><li>5：正在开机</li><li>7：重启中</li><li>9：重装中</li><li>12：绑定EIP</li><li>13：解绑EIP</li><li>14：绑定LB</li><li>15：解绑LB</li><li>19：更换IP中</li><li>20：制作镜像中</li><li>21：制作镜像失败</li>
+<li>1：运行中</li><li>2：正在关机</li><li>3：已关机</li><li>5：正在开机</li><li>7：重启中</li><li>9：重装中</li><li>12：绑定EIP</li><li>13：解绑EIP</li><li>14：绑定LB</li><li>15：解绑LB</li><li>19：更换IP中</li><li>20：制作镜像中</li><li>21：制作镜像失败</li><li>23：故障待重装</li><li>24：无备件待退回</li>
      */
     public void setOperateStatus(Long OperateStatus) {
         this.OperateStatus = OperateStatus;
@@ -324,16 +340,16 @@ public class DeviceInfo extends AbstractModel{
     }
 
     /**
-     * Get AppId 
-     * @return AppId AppId
+     * Get 用户AppId 
+     * @return AppId 用户AppId
      */
     public Long getAppId() {
         return this.AppId;
     }
 
     /**
-     * Set AppId
-     * @param AppId AppId
+     * Set 用户AppId
+     * @param AppId 用户AppId
      */
     public void setAppId(Long AppId) {
         this.AppId = AppId;
@@ -580,6 +596,138 @@ public class DeviceInfo extends AbstractModel{
     }
 
     /**
+     * Get 标识机器维保状态。Maintain: 在保;  WillExpire: 即将过保; Expire: 已过保
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MaintainStatus 标识机器维保状态。Maintain: 在保;  WillExpire: 即将过保; Expire: 已过保
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getMaintainStatus() {
+        return this.MaintainStatus;
+    }
+
+    /**
+     * Set 标识机器维保状态。Maintain: 在保;  WillExpire: 即将过保; Expire: 已过保
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MaintainStatus 标识机器维保状态。Maintain: 在保;  WillExpire: 即将过保; Expire: 已过保
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMaintainStatus(String MaintainStatus) {
+        this.MaintainStatus = MaintainStatus;
+    }
+
+    /**
+     * Get 维保信息描述
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MaintainMessage 维保信息描述
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getMaintainMessage() {
+        return this.MaintainMessage;
+    }
+
+    /**
+     * Set 维保信息描述
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MaintainMessage 维保信息描述
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMaintainMessage(String MaintainMessage) {
+        this.MaintainMessage = MaintainMessage;
+    }
+
+    public DeviceInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeviceInfo(DeviceInfo source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.DeviceStatus != null) {
+            this.DeviceStatus = new Long(source.DeviceStatus);
+        }
+        if (source.OperateStatus != null) {
+            this.OperateStatus = new Long(source.OperateStatus);
+        }
+        if (source.OsTypeId != null) {
+            this.OsTypeId = new Long(source.OsTypeId);
+        }
+        if (source.RaidId != null) {
+            this.RaidId = new Long(source.RaidId);
+        }
+        if (source.Alias != null) {
+            this.Alias = new String(source.Alias);
+        }
+        if (source.AppId != null) {
+            this.AppId = new Long(source.AppId);
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.WanIp != null) {
+            this.WanIp = new String(source.WanIp);
+        }
+        if (source.LanIp != null) {
+            this.LanIp = new String(source.LanIp);
+        }
+        if (source.DeliverTime != null) {
+            this.DeliverTime = new String(source.DeliverTime);
+        }
+        if (source.Deadline != null) {
+            this.Deadline = new String(source.Deadline);
+        }
+        if (source.AutoRenewFlag != null) {
+            this.AutoRenewFlag = new Long(source.AutoRenewFlag);
+        }
+        if (source.DeviceClassCode != null) {
+            this.DeviceClassCode = new String(source.DeviceClassCode);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.CpmPayMode != null) {
+            this.CpmPayMode = new Long(source.CpmPayMode);
+        }
+        if (source.DhcpIp != null) {
+            this.DhcpIp = new String(source.DhcpIp);
+        }
+        if (source.VpcName != null) {
+            this.VpcName = new String(source.VpcName);
+        }
+        if (source.SubnetName != null) {
+            this.SubnetName = new String(source.SubnetName);
+        }
+        if (source.VpcCidrBlock != null) {
+            this.VpcCidrBlock = new String(source.VpcCidrBlock);
+        }
+        if (source.SubnetCidrBlock != null) {
+            this.SubnetCidrBlock = new String(source.SubnetCidrBlock);
+        }
+        if (source.IsLuckyDevice != null) {
+            this.IsLuckyDevice = new Long(source.IsLuckyDevice);
+        }
+        if (source.MaintainStatus != null) {
+            this.MaintainStatus = new String(source.MaintainStatus);
+        }
+        if (source.MaintainMessage != null) {
+            this.MaintainMessage = new String(source.MaintainMessage);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -607,6 +755,8 @@ public class DeviceInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "VpcCidrBlock", this.VpcCidrBlock);
         this.setParamSimple(map, prefix + "SubnetCidrBlock", this.SubnetCidrBlock);
         this.setParamSimple(map, prefix + "IsLuckyDevice", this.IsLuckyDevice);
+        this.setParamSimple(map, prefix + "MaintainStatus", this.MaintainStatus);
+        this.setParamSimple(map, prefix + "MaintainMessage", this.MaintainMessage);
 
     }
 }

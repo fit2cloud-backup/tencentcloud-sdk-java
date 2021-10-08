@@ -52,7 +52,7 @@ TaskId 和起始时间必须指定一项
     private String Keyword;
 
     /**
-    * 分页查询偏移量，默认为 0 （第一页）
+    * 分页查询偏移量，默认为 0
     */
     @SerializedName("Offset")
     @Expose
@@ -80,6 +80,7 @@ global：全球
 fail：预热失败
 done：预热成功
 process：预热中
+invalid: 预热无效(源站返回4xx或5xx状态码)
     */
     @SerializedName("Status")
     @Expose
@@ -154,16 +155,16 @@ TaskId 和起始时间必须指定一项
     }
 
     /**
-     * Get 分页查询偏移量，默认为 0 （第一页） 
-     * @return Offset 分页查询偏移量，默认为 0 （第一页）
+     * Get 分页查询偏移量，默认为 0 
+     * @return Offset 分页查询偏移量，默认为 0
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 分页查询偏移量，默认为 0 （第一页）
-     * @param Offset 分页查询偏移量，默认为 0 （第一页）
+     * Set 分页查询偏移量，默认为 0
+     * @param Offset 分页查询偏移量，默认为 0
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
@@ -217,11 +218,13 @@ global：全球
      * Get 指定任务状态查询
 fail：预热失败
 done：预热成功
-process：预热中 
+process：预热中
+invalid: 预热无效(源站返回4xx或5xx状态码) 
      * @return Status 指定任务状态查询
 fail：预热失败
 done：预热成功
 process：预热中
+invalid: 预热无效(源站返回4xx或5xx状态码)
      */
     public String getStatus() {
         return this.Status;
@@ -232,14 +235,51 @@ process：预热中
 fail：预热失败
 done：预热成功
 process：预热中
+invalid: 预热无效(源站返回4xx或5xx状态码)
      * @param Status 指定任务状态查询
 fail：预热失败
 done：预热成功
 process：预热中
+invalid: 预热无效(源站返回4xx或5xx状态码)
      */
     public void setStatus(String Status) {
         this.Status = Status;
     }
+
+    public DescribePushTasksRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribePushTasksRequest(DescribePushTasksRequest source) {
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.TaskId != null) {
+            this.TaskId = new String(source.TaskId);
+        }
+        if (source.Keyword != null) {
+            this.Keyword = new String(source.Keyword);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Area != null) {
+            this.Area = new String(source.Area);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

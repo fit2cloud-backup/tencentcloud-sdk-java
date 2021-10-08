@@ -128,6 +128,34 @@ public class DescribeDBInstancesRequest extends AbstractModel{
     private String [] ExclusterIds;
 
     /**
+    * 按标签key查询
+    */
+    @SerializedName("TagKeys")
+    @Expose
+    private String [] TagKeys;
+
+    /**
+    * 实例类型过滤，1-独享实例，2-主实例，3-灾备实例，多个按逗号分隔
+    */
+    @SerializedName("FilterInstanceType")
+    @Expose
+    private String FilterInstanceType;
+
+    /**
+    * 按照实例状态进行筛选
+    */
+    @SerializedName("Status")
+    @Expose
+    private Long [] Status;
+
+    /**
+    * 排除实例状态
+    */
+    @SerializedName("ExcludeStatus")
+    @Expose
+    private Long [] ExcludeStatus;
+
+    /**
      * Get 按照一个或者多个实例 ID 查询。实例 ID 形如：tdsql-ow728lmc。每次请求的实例的上限为100。 
      * @return InstanceIds 按照一个或者多个实例 ID 查询。实例 ID 形如：tdsql-ow728lmc。每次请求的实例的上限为100。
      */
@@ -368,6 +396,159 @@ public class DescribeDBInstancesRequest extends AbstractModel{
     }
 
     /**
+     * Get 按标签key查询 
+     * @return TagKeys 按标签key查询
+     */
+    public String [] getTagKeys() {
+        return this.TagKeys;
+    }
+
+    /**
+     * Set 按标签key查询
+     * @param TagKeys 按标签key查询
+     */
+    public void setTagKeys(String [] TagKeys) {
+        this.TagKeys = TagKeys;
+    }
+
+    /**
+     * Get 实例类型过滤，1-独享实例，2-主实例，3-灾备实例，多个按逗号分隔 
+     * @return FilterInstanceType 实例类型过滤，1-独享实例，2-主实例，3-灾备实例，多个按逗号分隔
+     */
+    public String getFilterInstanceType() {
+        return this.FilterInstanceType;
+    }
+
+    /**
+     * Set 实例类型过滤，1-独享实例，2-主实例，3-灾备实例，多个按逗号分隔
+     * @param FilterInstanceType 实例类型过滤，1-独享实例，2-主实例，3-灾备实例，多个按逗号分隔
+     */
+    public void setFilterInstanceType(String FilterInstanceType) {
+        this.FilterInstanceType = FilterInstanceType;
+    }
+
+    /**
+     * Get 按照实例状态进行筛选 
+     * @return Status 按照实例状态进行筛选
+     */
+    public Long [] getStatus() {
+        return this.Status;
+    }
+
+    /**
+     * Set 按照实例状态进行筛选
+     * @param Status 按照实例状态进行筛选
+     */
+    public void setStatus(Long [] Status) {
+        this.Status = Status;
+    }
+
+    /**
+     * Get 排除实例状态 
+     * @return ExcludeStatus 排除实例状态
+     */
+    public Long [] getExcludeStatus() {
+        return this.ExcludeStatus;
+    }
+
+    /**
+     * Set 排除实例状态
+     * @param ExcludeStatus 排除实例状态
+     */
+    public void setExcludeStatus(Long [] ExcludeStatus) {
+        this.ExcludeStatus = ExcludeStatus;
+    }
+
+    public DescribeDBInstancesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeDBInstancesRequest(DescribeDBInstancesRequest source) {
+        if (source.InstanceIds != null) {
+            this.InstanceIds = new String[source.InstanceIds.length];
+            for (int i = 0; i < source.InstanceIds.length; i++) {
+                this.InstanceIds[i] = new String(source.InstanceIds[i]);
+            }
+        }
+        if (source.SearchName != null) {
+            this.SearchName = new String(source.SearchName);
+        }
+        if (source.SearchKey != null) {
+            this.SearchKey = new String(source.SearchKey);
+        }
+        if (source.ProjectIds != null) {
+            this.ProjectIds = new Long[source.ProjectIds.length];
+            for (int i = 0; i < source.ProjectIds.length; i++) {
+                this.ProjectIds[i] = new Long(source.ProjectIds[i]);
+            }
+        }
+        if (source.IsFilterVpc != null) {
+            this.IsFilterVpc = new Boolean(source.IsFilterVpc);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.OrderBy != null) {
+            this.OrderBy = new String(source.OrderBy);
+        }
+        if (source.OrderByType != null) {
+            this.OrderByType = new String(source.OrderByType);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.OriginSerialIds != null) {
+            this.OriginSerialIds = new String[source.OriginSerialIds.length];
+            for (int i = 0; i < source.OriginSerialIds.length; i++) {
+                this.OriginSerialIds[i] = new String(source.OriginSerialIds[i]);
+            }
+        }
+        if (source.IsFilterExcluster != null) {
+            this.IsFilterExcluster = new Boolean(source.IsFilterExcluster);
+        }
+        if (source.ExclusterType != null) {
+            this.ExclusterType = new Long(source.ExclusterType);
+        }
+        if (source.ExclusterIds != null) {
+            this.ExclusterIds = new String[source.ExclusterIds.length];
+            for (int i = 0; i < source.ExclusterIds.length; i++) {
+                this.ExclusterIds[i] = new String(source.ExclusterIds[i]);
+            }
+        }
+        if (source.TagKeys != null) {
+            this.TagKeys = new String[source.TagKeys.length];
+            for (int i = 0; i < source.TagKeys.length; i++) {
+                this.TagKeys[i] = new String(source.TagKeys[i]);
+            }
+        }
+        if (source.FilterInstanceType != null) {
+            this.FilterInstanceType = new String(source.FilterInstanceType);
+        }
+        if (source.Status != null) {
+            this.Status = new Long[source.Status.length];
+            for (int i = 0; i < source.Status.length; i++) {
+                this.Status[i] = new Long(source.Status[i]);
+            }
+        }
+        if (source.ExcludeStatus != null) {
+            this.ExcludeStatus = new Long[source.ExcludeStatus.length];
+            for (int i = 0; i < source.ExcludeStatus.length; i++) {
+                this.ExcludeStatus[i] = new Long(source.ExcludeStatus[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -386,6 +567,10 @@ public class DescribeDBInstancesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "IsFilterExcluster", this.IsFilterExcluster);
         this.setParamSimple(map, prefix + "ExclusterType", this.ExclusterType);
         this.setParamArraySimple(map, prefix + "ExclusterIds.", this.ExclusterIds);
+        this.setParamArraySimple(map, prefix + "TagKeys.", this.TagKeys);
+        this.setParamSimple(map, prefix + "FilterInstanceType", this.FilterInstanceType);
+        this.setParamArraySimple(map, prefix + "Status.", this.Status);
+        this.setParamArraySimple(map, prefix + "ExcludeStatus.", this.ExcludeStatus);
 
     }
 }

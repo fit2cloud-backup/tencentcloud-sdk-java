@@ -111,6 +111,22 @@ public class ApplicationForPage extends AbstractModel{
     private String ApigatewayServiceId;
 
     /**
+    * 应用备注名
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ApplicationRemarkName")
+    @Expose
+    private String ApplicationRemarkName;
+
+    /**
+    * 服务配置信息列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ServiceConfigList")
+    @Expose
+    private ServiceConfig [] ServiceConfigList;
+
+    /**
      * Get 应用ID
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return ApplicationId 应用ID
@@ -331,6 +347,99 @@ public class ApplicationForPage extends AbstractModel{
     }
 
     /**
+     * Get 应用备注名
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ApplicationRemarkName 应用备注名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getApplicationRemarkName() {
+        return this.ApplicationRemarkName;
+    }
+
+    /**
+     * Set 应用备注名
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ApplicationRemarkName 应用备注名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setApplicationRemarkName(String ApplicationRemarkName) {
+        this.ApplicationRemarkName = ApplicationRemarkName;
+    }
+
+    /**
+     * Get 服务配置信息列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ServiceConfigList 服务配置信息列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ServiceConfig [] getServiceConfigList() {
+        return this.ServiceConfigList;
+    }
+
+    /**
+     * Set 服务配置信息列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ServiceConfigList 服务配置信息列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setServiceConfigList(ServiceConfig [] ServiceConfigList) {
+        this.ServiceConfigList = ServiceConfigList;
+    }
+
+    public ApplicationForPage() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ApplicationForPage(ApplicationForPage source) {
+        if (source.ApplicationId != null) {
+            this.ApplicationId = new String(source.ApplicationId);
+        }
+        if (source.ApplicationName != null) {
+            this.ApplicationName = new String(source.ApplicationName);
+        }
+        if (source.ApplicationDesc != null) {
+            this.ApplicationDesc = new String(source.ApplicationDesc);
+        }
+        if (source.ApplicationType != null) {
+            this.ApplicationType = new String(source.ApplicationType);
+        }
+        if (source.MicroserviceType != null) {
+            this.MicroserviceType = new String(source.MicroserviceType);
+        }
+        if (source.ProgLang != null) {
+            this.ProgLang = new String(source.ProgLang);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+        if (source.ApplicationResourceType != null) {
+            this.ApplicationResourceType = new String(source.ApplicationResourceType);
+        }
+        if (source.ApplicationRuntimeType != null) {
+            this.ApplicationRuntimeType = new String(source.ApplicationRuntimeType);
+        }
+        if (source.ApigatewayServiceId != null) {
+            this.ApigatewayServiceId = new String(source.ApigatewayServiceId);
+        }
+        if (source.ApplicationRemarkName != null) {
+            this.ApplicationRemarkName = new String(source.ApplicationRemarkName);
+        }
+        if (source.ServiceConfigList != null) {
+            this.ServiceConfigList = new ServiceConfig[source.ServiceConfigList.length];
+            for (int i = 0; i < source.ServiceConfigList.length; i++) {
+                this.ServiceConfigList[i] = new ServiceConfig(source.ServiceConfigList[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -345,6 +454,8 @@ public class ApplicationForPage extends AbstractModel{
         this.setParamSimple(map, prefix + "ApplicationResourceType", this.ApplicationResourceType);
         this.setParamSimple(map, prefix + "ApplicationRuntimeType", this.ApplicationRuntimeType);
         this.setParamSimple(map, prefix + "ApigatewayServiceId", this.ApigatewayServiceId);
+        this.setParamSimple(map, prefix + "ApplicationRemarkName", this.ApplicationRemarkName);
+        this.setParamArrayObj(map, prefix + "ServiceConfigList.", this.ServiceConfigList);
 
     }
 }

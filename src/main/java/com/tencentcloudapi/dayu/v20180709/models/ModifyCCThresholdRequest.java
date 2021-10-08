@@ -111,6 +111,13 @@ public class ModifyCCThresholdRequest extends AbstractModel{
     private Long BasicIspCode;
 
     /**
+    * 可选字段，当协议取值HTTPS时，必填
+    */
+    @SerializedName("Domain")
+    @Expose
+    private String Domain;
+
+    /**
      * Get 大禹子产品代号（bgpip表示高防IP；bgp表示独享包；bgp-multip表示共享包；net表示高防IP专业版；basic表示基础防护） 
      * @return Business 大禹子产品代号（bgpip表示高防IP；bgp表示独享包；bgp-multip表示共享包；net表示高防IP专业版；basic表示基础防护）
      */
@@ -331,6 +338,69 @@ public class ModifyCCThresholdRequest extends AbstractModel{
     }
 
     /**
+     * Get 可选字段，当协议取值HTTPS时，必填 
+     * @return Domain 可选字段，当协议取值HTTPS时，必填
+     */
+    public String getDomain() {
+        return this.Domain;
+    }
+
+    /**
+     * Set 可选字段，当协议取值HTTPS时，必填
+     * @param Domain 可选字段，当协议取值HTTPS时，必填
+     */
+    public void setDomain(String Domain) {
+        this.Domain = Domain;
+    }
+
+    public ModifyCCThresholdRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyCCThresholdRequest(ModifyCCThresholdRequest source) {
+        if (source.Business != null) {
+            this.Business = new String(source.Business);
+        }
+        if (source.Threshold != null) {
+            this.Threshold = new Long(source.Threshold);
+        }
+        if (source.Id != null) {
+            this.Id = new String(source.Id);
+        }
+        if (source.Protocol != null) {
+            this.Protocol = new String(source.Protocol);
+        }
+        if (source.RuleId != null) {
+            this.RuleId = new String(source.RuleId);
+        }
+        if (source.BasicIp != null) {
+            this.BasicIp = new String(source.BasicIp);
+        }
+        if (source.BasicRegion != null) {
+            this.BasicRegion = new String(source.BasicRegion);
+        }
+        if (source.BasicBizType != null) {
+            this.BasicBizType = new String(source.BasicBizType);
+        }
+        if (source.BasicDeviceType != null) {
+            this.BasicDeviceType = new String(source.BasicDeviceType);
+        }
+        if (source.BasicIpInstance != null) {
+            this.BasicIpInstance = new String(source.BasicIpInstance);
+        }
+        if (source.BasicIspCode != null) {
+            this.BasicIspCode = new Long(source.BasicIspCode);
+        }
+        if (source.Domain != null) {
+            this.Domain = new String(source.Domain);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -345,6 +415,7 @@ public class ModifyCCThresholdRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "BasicDeviceType", this.BasicDeviceType);
         this.setParamSimple(map, prefix + "BasicIpInstance", this.BasicIpInstance);
         this.setParamSimple(map, prefix + "BasicIspCode", this.BasicIspCode);
+        this.setParamSimple(map, prefix + "Domain", this.Domain);
 
     }
 }

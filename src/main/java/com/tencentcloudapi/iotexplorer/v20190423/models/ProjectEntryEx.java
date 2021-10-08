@@ -79,6 +79,30 @@ public class ProjectEntryEx extends AbstractModel{
     private Long WebAppCount;
 
     /**
+    * 实例ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("InstanceId")
+    @Expose
+    private String InstanceId;
+
+    /**
+    * 应用数量
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ApplicationCount")
+    @Expose
+    private Long ApplicationCount;
+
+    /**
+    * 设备注册总数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DeviceCount")
+    @Expose
+    private Long DeviceCount;
+
+    /**
      * Get 项目ID 
      * @return ProjectId 项目ID
      */
@@ -207,6 +231,110 @@ public class ProjectEntryEx extends AbstractModel{
     }
 
     /**
+     * Get 实例ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return InstanceId 实例ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getInstanceId() {
+        return this.InstanceId;
+    }
+
+    /**
+     * Set 实例ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param InstanceId 实例ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setInstanceId(String InstanceId) {
+        this.InstanceId = InstanceId;
+    }
+
+    /**
+     * Get 应用数量
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ApplicationCount 应用数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getApplicationCount() {
+        return this.ApplicationCount;
+    }
+
+    /**
+     * Set 应用数量
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ApplicationCount 应用数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setApplicationCount(Long ApplicationCount) {
+        this.ApplicationCount = ApplicationCount;
+    }
+
+    /**
+     * Get 设备注册总数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DeviceCount 设备注册总数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getDeviceCount() {
+        return this.DeviceCount;
+    }
+
+    /**
+     * Set 设备注册总数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DeviceCount 设备注册总数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDeviceCount(Long DeviceCount) {
+        this.DeviceCount = DeviceCount;
+    }
+
+    public ProjectEntryEx() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ProjectEntryEx(ProjectEntryEx source) {
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
+        }
+        if (source.ProjectName != null) {
+            this.ProjectName = new String(source.ProjectName);
+        }
+        if (source.ProjectDesc != null) {
+            this.ProjectDesc = new String(source.ProjectDesc);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new Long(source.CreateTime);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new Long(source.UpdateTime);
+        }
+        if (source.ProductCount != null) {
+            this.ProductCount = new Long(source.ProductCount);
+        }
+        if (source.NativeAppCount != null) {
+            this.NativeAppCount = new Long(source.NativeAppCount);
+        }
+        if (source.WebAppCount != null) {
+            this.WebAppCount = new Long(source.WebAppCount);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.ApplicationCount != null) {
+            this.ApplicationCount = new Long(source.ApplicationCount);
+        }
+        if (source.DeviceCount != null) {
+            this.DeviceCount = new Long(source.DeviceCount);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -218,6 +346,9 @@ public class ProjectEntryEx extends AbstractModel{
         this.setParamSimple(map, prefix + "ProductCount", this.ProductCount);
         this.setParamSimple(map, prefix + "NativeAppCount", this.NativeAppCount);
         this.setParamSimple(map, prefix + "WebAppCount", this.WebAppCount);
+        this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
+        this.setParamSimple(map, prefix + "ApplicationCount", this.ApplicationCount);
+        this.setParamSimple(map, prefix + "DeviceCount", this.DeviceCount);
 
     }
 }

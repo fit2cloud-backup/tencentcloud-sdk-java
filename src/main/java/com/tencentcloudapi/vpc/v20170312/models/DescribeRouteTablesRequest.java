@@ -23,13 +23,6 @@ import java.util.HashMap;
 public class DescribeRouteTablesRequest extends AbstractModel{
 
     /**
-    * 路由表实例ID，例如：rtb-azd4dt1c。
-    */
-    @SerializedName("RouteTableIds")
-    @Expose
-    private String [] RouteTableIds;
-
-    /**
     * 过滤条件，参数不支持同时指定RouteTableIds和Filters。
 <li>route-table-id - String - （过滤条件）路由表实例ID。</li>
 <li>route-table-name - String - （过滤条件）路由表名称。</li>
@@ -41,6 +34,13 @@ public class DescribeRouteTablesRequest extends AbstractModel{
     @SerializedName("Filters")
     @Expose
     private Filter [] Filters;
+
+    /**
+    * 路由表实例ID，例如：rtb-azd4dt1c。
+    */
+    @SerializedName("RouteTableIds")
+    @Expose
+    private String [] RouteTableIds;
 
     /**
     * 偏移量。
@@ -55,22 +55,6 @@ public class DescribeRouteTablesRequest extends AbstractModel{
     @SerializedName("Limit")
     @Expose
     private String Limit;
-
-    /**
-     * Get 路由表实例ID，例如：rtb-azd4dt1c。 
-     * @return RouteTableIds 路由表实例ID，例如：rtb-azd4dt1c。
-     */
-    public String [] getRouteTableIds() {
-        return this.RouteTableIds;
-    }
-
-    /**
-     * Set 路由表实例ID，例如：rtb-azd4dt1c。
-     * @param RouteTableIds 路由表实例ID，例如：rtb-azd4dt1c。
-     */
-    public void setRouteTableIds(String [] RouteTableIds) {
-        this.RouteTableIds = RouteTableIds;
-    }
 
     /**
      * Get 过滤条件，参数不支持同时指定RouteTableIds和Filters。
@@ -113,6 +97,22 @@ public class DescribeRouteTablesRequest extends AbstractModel{
     }
 
     /**
+     * Get 路由表实例ID，例如：rtb-azd4dt1c。 
+     * @return RouteTableIds 路由表实例ID，例如：rtb-azd4dt1c。
+     */
+    public String [] getRouteTableIds() {
+        return this.RouteTableIds;
+    }
+
+    /**
+     * Set 路由表实例ID，例如：rtb-azd4dt1c。
+     * @param RouteTableIds 路由表实例ID，例如：rtb-azd4dt1c。
+     */
+    public void setRouteTableIds(String [] RouteTableIds) {
+        this.RouteTableIds = RouteTableIds;
+    }
+
+    /**
      * Get 偏移量。 
      * @return Offset 偏移量。
      */
@@ -144,12 +144,41 @@ public class DescribeRouteTablesRequest extends AbstractModel{
         this.Limit = Limit;
     }
 
+    public DescribeRouteTablesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeRouteTablesRequest(DescribeRouteTablesRequest source) {
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
+        }
+        if (source.RouteTableIds != null) {
+            this.RouteTableIds = new String[source.RouteTableIds.length];
+            for (int i = 0; i < source.RouteTableIds.length; i++) {
+                this.RouteTableIds[i] = new String(source.RouteTableIds[i]);
+            }
+        }
+        if (source.Offset != null) {
+            this.Offset = new String(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new String(source.Limit);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamArraySimple(map, prefix + "RouteTableIds.", this.RouteTableIds);
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
+        this.setParamArraySimple(map, prefix + "RouteTableIds.", this.RouteTableIds);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
 

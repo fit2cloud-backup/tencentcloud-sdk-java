@@ -100,6 +100,13 @@ public class DescribeBasicAlarmListRequest extends AbstractModel{
     private Long [] InstanceGroupIds;
 
     /**
+    * 根据指标名过滤
+    */
+    @SerializedName("MetricNames")
+    @Expose
+    private String [] MetricNames;
+
+    /**
      * Get 接口模块名，当前取值monitor 
      * @return Module 接口模块名，当前取值monitor
      */
@@ -276,6 +283,84 @@ public class DescribeBasicAlarmListRequest extends AbstractModel{
     }
 
     /**
+     * Get 根据指标名过滤 
+     * @return MetricNames 根据指标名过滤
+     */
+    public String [] getMetricNames() {
+        return this.MetricNames;
+    }
+
+    /**
+     * Set 根据指标名过滤
+     * @param MetricNames 根据指标名过滤
+     */
+    public void setMetricNames(String [] MetricNames) {
+        this.MetricNames = MetricNames;
+    }
+
+    public DescribeBasicAlarmListRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeBasicAlarmListRequest(DescribeBasicAlarmListRequest source) {
+        if (source.Module != null) {
+            this.Module = new String(source.Module);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new Long(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new Long(source.EndTime);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.OccurTimeOrder != null) {
+            this.OccurTimeOrder = new String(source.OccurTimeOrder);
+        }
+        if (source.ProjectIds != null) {
+            this.ProjectIds = new Long[source.ProjectIds.length];
+            for (int i = 0; i < source.ProjectIds.length; i++) {
+                this.ProjectIds[i] = new Long(source.ProjectIds[i]);
+            }
+        }
+        if (source.ViewNames != null) {
+            this.ViewNames = new String[source.ViewNames.length];
+            for (int i = 0; i < source.ViewNames.length; i++) {
+                this.ViewNames[i] = new String(source.ViewNames[i]);
+            }
+        }
+        if (source.AlarmStatus != null) {
+            this.AlarmStatus = new Long[source.AlarmStatus.length];
+            for (int i = 0; i < source.AlarmStatus.length; i++) {
+                this.AlarmStatus[i] = new Long(source.AlarmStatus[i]);
+            }
+        }
+        if (source.ObjLike != null) {
+            this.ObjLike = new String(source.ObjLike);
+        }
+        if (source.InstanceGroupIds != null) {
+            this.InstanceGroupIds = new Long[source.InstanceGroupIds.length];
+            for (int i = 0; i < source.InstanceGroupIds.length; i++) {
+                this.InstanceGroupIds[i] = new Long(source.InstanceGroupIds[i]);
+            }
+        }
+        if (source.MetricNames != null) {
+            this.MetricNames = new String[source.MetricNames.length];
+            for (int i = 0; i < source.MetricNames.length; i++) {
+                this.MetricNames[i] = new String(source.MetricNames[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -290,6 +375,7 @@ public class DescribeBasicAlarmListRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "AlarmStatus.", this.AlarmStatus);
         this.setParamSimple(map, prefix + "ObjLike", this.ObjLike);
         this.setParamArraySimple(map, prefix + "InstanceGroupIds.", this.InstanceGroupIds);
+        this.setParamArraySimple(map, prefix + "MetricNames.", this.MetricNames);
 
     }
 }

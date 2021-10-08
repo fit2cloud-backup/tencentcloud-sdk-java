@@ -103,6 +103,44 @@ public class ProductData extends AbstractModel{
     private String ChipId;
 
     /**
+    * 产品类别，0：普通视频设备；1：NVR设备
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ProductCate")
+    @Expose
+    private Long ProductCate;
+
+    /**
+    * 产品地区
+China-Mainland（中国大陆）
+China-Hong Kong, Macao and Taiwan（港澳台地区）
+America（美国）
+Europe（欧洲）
+India（印度）
+Other-Overseas（其他境外地区）
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ProductRegion")
+    @Expose
+    private String ProductRegion;
+
+    /**
+    * 接入模型，bit0是0：公版小程序未接入，bit0是1：公版小程序已接入
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AccessMode")
+    @Expose
+    private Long AccessMode;
+
+    /**
+    * linux,android,liteos
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Os")
+    @Expose
+    private String Os;
+
+    /**
      * Get 产品ID
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return ProductId 产品ID
@@ -303,6 +341,166 @@ public class ProductData extends AbstractModel{
     }
 
     /**
+     * Get 产品类别，0：普通视频设备；1：NVR设备
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ProductCate 产品类别，0：普通视频设备；1：NVR设备
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getProductCate() {
+        return this.ProductCate;
+    }
+
+    /**
+     * Set 产品类别，0：普通视频设备；1：NVR设备
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ProductCate 产品类别，0：普通视频设备；1：NVR设备
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setProductCate(Long ProductCate) {
+        this.ProductCate = ProductCate;
+    }
+
+    /**
+     * Get 产品地区
+China-Mainland（中国大陆）
+China-Hong Kong, Macao and Taiwan（港澳台地区）
+America（美国）
+Europe（欧洲）
+India（印度）
+Other-Overseas（其他境外地区）
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ProductRegion 产品地区
+China-Mainland（中国大陆）
+China-Hong Kong, Macao and Taiwan（港澳台地区）
+America（美国）
+Europe（欧洲）
+India（印度）
+Other-Overseas（其他境外地区）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getProductRegion() {
+        return this.ProductRegion;
+    }
+
+    /**
+     * Set 产品地区
+China-Mainland（中国大陆）
+China-Hong Kong, Macao and Taiwan（港澳台地区）
+America（美国）
+Europe（欧洲）
+India（印度）
+Other-Overseas（其他境外地区）
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ProductRegion 产品地区
+China-Mainland（中国大陆）
+China-Hong Kong, Macao and Taiwan（港澳台地区）
+America（美国）
+Europe（欧洲）
+India（印度）
+Other-Overseas（其他境外地区）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setProductRegion(String ProductRegion) {
+        this.ProductRegion = ProductRegion;
+    }
+
+    /**
+     * Get 接入模型，bit0是0：公版小程序未接入，bit0是1：公版小程序已接入
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AccessMode 接入模型，bit0是0：公版小程序未接入，bit0是1：公版小程序已接入
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getAccessMode() {
+        return this.AccessMode;
+    }
+
+    /**
+     * Set 接入模型，bit0是0：公版小程序未接入，bit0是1：公版小程序已接入
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AccessMode 接入模型，bit0是0：公版小程序未接入，bit0是1：公版小程序已接入
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAccessMode(Long AccessMode) {
+        this.AccessMode = AccessMode;
+    }
+
+    /**
+     * Get linux,android,liteos
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Os linux,android,liteos
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getOs() {
+        return this.Os;
+    }
+
+    /**
+     * Set linux,android,liteos
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Os linux,android,liteos
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOs(String Os) {
+        this.Os = Os;
+    }
+
+    public ProductData() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ProductData(ProductData source) {
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+        if (source.ProductName != null) {
+            this.ProductName = new String(source.ProductName);
+        }
+        if (source.ProductDescription != null) {
+            this.ProductDescription = new String(source.ProductDescription);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new Long(source.CreateTime);
+        }
+        if (source.IotModelRevision != null) {
+            this.IotModelRevision = new Long(source.IotModelRevision);
+        }
+        if (source.SecretKey != null) {
+            this.SecretKey = new String(source.SecretKey);
+        }
+        if (source.Features != null) {
+            this.Features = new String[source.Features.length];
+            for (int i = 0; i < source.Features.length; i++) {
+                this.Features[i] = new String(source.Features[i]);
+            }
+        }
+        if (source.ProductModel != null) {
+            this.ProductModel = new String(source.ProductModel);
+        }
+        if (source.ChipManufactureId != null) {
+            this.ChipManufactureId = new String(source.ChipManufactureId);
+        }
+        if (source.ChipId != null) {
+            this.ChipId = new String(source.ChipId);
+        }
+        if (source.ProductCate != null) {
+            this.ProductCate = new Long(source.ProductCate);
+        }
+        if (source.ProductRegion != null) {
+            this.ProductRegion = new String(source.ProductRegion);
+        }
+        if (source.AccessMode != null) {
+            this.AccessMode = new Long(source.AccessMode);
+        }
+        if (source.Os != null) {
+            this.Os = new String(source.Os);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -316,6 +514,10 @@ public class ProductData extends AbstractModel{
         this.setParamSimple(map, prefix + "ProductModel", this.ProductModel);
         this.setParamSimple(map, prefix + "ChipManufactureId", this.ChipManufactureId);
         this.setParamSimple(map, prefix + "ChipId", this.ChipId);
+        this.setParamSimple(map, prefix + "ProductCate", this.ProductCate);
+        this.setParamSimple(map, prefix + "ProductRegion", this.ProductRegion);
+        this.setParamSimple(map, prefix + "AccessMode", this.AccessMode);
+        this.setParamSimple(map, prefix + "Os", this.Os);
 
     }
 }

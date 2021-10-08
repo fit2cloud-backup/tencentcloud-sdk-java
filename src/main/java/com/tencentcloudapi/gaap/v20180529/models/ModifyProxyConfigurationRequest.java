@@ -61,6 +61,13 @@ Bandwidth与Concurrent必须至少设置一个。取值范围根据DescribeAcces
     private String ProxyId;
 
     /**
+    * 计费方式 (0:按带宽计费，1:按流量计费 默认按带宽计费）
+    */
+    @SerializedName("BillingType")
+    @Expose
+    private Long BillingType;
+
+    /**
      * Get （旧参数，请切换到ProxyId）通道的实例ID。 
      * @return InstanceId （旧参数，请切换到ProxyId）通道的实例ID。
      */
@@ -153,6 +160,51 @@ Bandwidth与Concurrent必须至少设置一个。取值范围根据DescribeAcces
     }
 
     /**
+     * Get 计费方式 (0:按带宽计费，1:按流量计费 默认按带宽计费） 
+     * @return BillingType 计费方式 (0:按带宽计费，1:按流量计费 默认按带宽计费）
+     */
+    public Long getBillingType() {
+        return this.BillingType;
+    }
+
+    /**
+     * Set 计费方式 (0:按带宽计费，1:按流量计费 默认按带宽计费）
+     * @param BillingType 计费方式 (0:按带宽计费，1:按流量计费 默认按带宽计费）
+     */
+    public void setBillingType(Long BillingType) {
+        this.BillingType = BillingType;
+    }
+
+    public ModifyProxyConfigurationRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyProxyConfigurationRequest(ModifyProxyConfigurationRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.Bandwidth != null) {
+            this.Bandwidth = new Long(source.Bandwidth);
+        }
+        if (source.Concurrent != null) {
+            this.Concurrent = new Long(source.Concurrent);
+        }
+        if (source.ClientToken != null) {
+            this.ClientToken = new String(source.ClientToken);
+        }
+        if (source.ProxyId != null) {
+            this.ProxyId = new String(source.ProxyId);
+        }
+        if (source.BillingType != null) {
+            this.BillingType = new Long(source.BillingType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -161,6 +213,7 @@ Bandwidth与Concurrent必须至少设置一个。取值范围根据DescribeAcces
         this.setParamSimple(map, prefix + "Concurrent", this.Concurrent);
         this.setParamSimple(map, prefix + "ClientToken", this.ClientToken);
         this.setParamSimple(map, prefix + "ProxyId", this.ProxyId);
+        this.setParamSimple(map, prefix + "BillingType", this.BillingType);
 
     }
 }

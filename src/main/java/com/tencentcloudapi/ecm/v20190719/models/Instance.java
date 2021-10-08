@@ -153,7 +153,7 @@ PROTECTIVELY_ISOLATED：表示被安全隔离的实例。
     private Long DataDiskSize;
 
     /**
-    * UUID
+    * 实例UUID
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UUID")
@@ -222,6 +222,46 @@ PROTECTIVELY_ISOLATED：表示被安全隔离的实例。
     @SerializedName("DataDisks")
     @Expose
     private DiskInfo [] DataDisks;
+
+    /**
+    * 新实例标志
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("NewFlag")
+    @Expose
+    private Long NewFlag;
+
+    /**
+    * 实例所属安全组。该参数可以通过调用 DescribeSecurityGroups 的返回值中的sgId字段来获取。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SecurityGroupIds")
+    @Expose
+    private String [] SecurityGroupIds;
+
+    /**
+    * VPC属性
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("VirtualPrivateCloud")
+    @Expose
+    private VirtualPrivateCloud VirtualPrivateCloud;
+
+    /**
+    * 实例运营商字段。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ISP")
+    @Expose
+    private String ISP;
+
+    /**
+    * 物理位置信息。注意该字段目前为保留字段，均为空值。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PhysicalPosition")
+    @Expose
+    private PhysicalPosition PhysicalPosition;
 
     /**
      * Get 实例ID。 
@@ -564,9 +604,9 @@ PROTECTIVELY_ISOLATED：表示被安全隔离的实例。
     }
 
     /**
-     * Get UUID
+     * Get 实例UUID
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return UUID UUID
+     * @return UUID 实例UUID
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUUID() {
@@ -574,9 +614,9 @@ PROTECTIVELY_ISOLATED：表示被安全隔离的实例。
     }
 
     /**
-     * Set UUID
+     * Set 实例UUID
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param UUID UUID
+     * @param UUID 实例UUID
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUUID(String UUID) {
@@ -752,6 +792,210 @@ PROTECTIVELY_ISOLATED：表示被安全隔离的实例。
     }
 
     /**
+     * Get 新实例标志
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return NewFlag 新实例标志
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getNewFlag() {
+        return this.NewFlag;
+    }
+
+    /**
+     * Set 新实例标志
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param NewFlag 新实例标志
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setNewFlag(Long NewFlag) {
+        this.NewFlag = NewFlag;
+    }
+
+    /**
+     * Get 实例所属安全组。该参数可以通过调用 DescribeSecurityGroups 的返回值中的sgId字段来获取。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SecurityGroupIds 实例所属安全组。该参数可以通过调用 DescribeSecurityGroups 的返回值中的sgId字段来获取。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getSecurityGroupIds() {
+        return this.SecurityGroupIds;
+    }
+
+    /**
+     * Set 实例所属安全组。该参数可以通过调用 DescribeSecurityGroups 的返回值中的sgId字段来获取。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SecurityGroupIds 实例所属安全组。该参数可以通过调用 DescribeSecurityGroups 的返回值中的sgId字段来获取。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSecurityGroupIds(String [] SecurityGroupIds) {
+        this.SecurityGroupIds = SecurityGroupIds;
+    }
+
+    /**
+     * Get VPC属性
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return VirtualPrivateCloud VPC属性
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public VirtualPrivateCloud getVirtualPrivateCloud() {
+        return this.VirtualPrivateCloud;
+    }
+
+    /**
+     * Set VPC属性
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param VirtualPrivateCloud VPC属性
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setVirtualPrivateCloud(VirtualPrivateCloud VirtualPrivateCloud) {
+        this.VirtualPrivateCloud = VirtualPrivateCloud;
+    }
+
+    /**
+     * Get 实例运营商字段。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ISP 实例运营商字段。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getISP() {
+        return this.ISP;
+    }
+
+    /**
+     * Set 实例运营商字段。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ISP 实例运营商字段。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setISP(String ISP) {
+        this.ISP = ISP;
+    }
+
+    /**
+     * Get 物理位置信息。注意该字段目前为保留字段，均为空值。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PhysicalPosition 物理位置信息。注意该字段目前为保留字段，均为空值。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public PhysicalPosition getPhysicalPosition() {
+        return this.PhysicalPosition;
+    }
+
+    /**
+     * Set 物理位置信息。注意该字段目前为保留字段，均为空值。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PhysicalPosition 物理位置信息。注意该字段目前为保留字段，均为空值。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPhysicalPosition(PhysicalPosition PhysicalPosition) {
+        this.PhysicalPosition = PhysicalPosition;
+    }
+
+    public Instance() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Instance(Instance source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.InstanceName != null) {
+            this.InstanceName = new String(source.InstanceName);
+        }
+        if (source.InstanceState != null) {
+            this.InstanceState = new String(source.InstanceState);
+        }
+        if (source.Image != null) {
+            this.Image = new Image(source.Image);
+        }
+        if (source.SimpleModule != null) {
+            this.SimpleModule = new SimpleModule(source.SimpleModule);
+        }
+        if (source.Position != null) {
+            this.Position = new Position(source.Position);
+        }
+        if (source.Internet != null) {
+            this.Internet = new Internet(source.Internet);
+        }
+        if (source.InstanceTypeConfig != null) {
+            this.InstanceTypeConfig = new InstanceTypeConfig(source.InstanceTypeConfig);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.TagSet != null) {
+            this.TagSet = new Tag[source.TagSet.length];
+            for (int i = 0; i < source.TagSet.length; i++) {
+                this.TagSet[i] = new Tag(source.TagSet[i]);
+            }
+        }
+        if (source.LatestOperation != null) {
+            this.LatestOperation = new String(source.LatestOperation);
+        }
+        if (source.LatestOperationState != null) {
+            this.LatestOperationState = new String(source.LatestOperationState);
+        }
+        if (source.RestrictState != null) {
+            this.RestrictState = new String(source.RestrictState);
+        }
+        if (source.SystemDiskSize != null) {
+            this.SystemDiskSize = new Long(source.SystemDiskSize);
+        }
+        if (source.DataDiskSize != null) {
+            this.DataDiskSize = new Long(source.DataDiskSize);
+        }
+        if (source.UUID != null) {
+            this.UUID = new String(source.UUID);
+        }
+        if (source.PayMode != null) {
+            this.PayMode = new Long(source.PayMode);
+        }
+        if (source.ExpireTime != null) {
+            this.ExpireTime = new String(source.ExpireTime);
+        }
+        if (source.IsolatedTime != null) {
+            this.IsolatedTime = new String(source.IsolatedTime);
+        }
+        if (source.RenewFlag != null) {
+            this.RenewFlag = new Long(source.RenewFlag);
+        }
+        if (source.ExpireState != null) {
+            this.ExpireState = new String(source.ExpireState);
+        }
+        if (source.SystemDisk != null) {
+            this.SystemDisk = new DiskInfo(source.SystemDisk);
+        }
+        if (source.DataDisks != null) {
+            this.DataDisks = new DiskInfo[source.DataDisks.length];
+            for (int i = 0; i < source.DataDisks.length; i++) {
+                this.DataDisks[i] = new DiskInfo(source.DataDisks[i]);
+            }
+        }
+        if (source.NewFlag != null) {
+            this.NewFlag = new Long(source.NewFlag);
+        }
+        if (source.SecurityGroupIds != null) {
+            this.SecurityGroupIds = new String[source.SecurityGroupIds.length];
+            for (int i = 0; i < source.SecurityGroupIds.length; i++) {
+                this.SecurityGroupIds[i] = new String(source.SecurityGroupIds[i]);
+            }
+        }
+        if (source.VirtualPrivateCloud != null) {
+            this.VirtualPrivateCloud = new VirtualPrivateCloud(source.VirtualPrivateCloud);
+        }
+        if (source.ISP != null) {
+            this.ISP = new String(source.ISP);
+        }
+        if (source.PhysicalPosition != null) {
+            this.PhysicalPosition = new PhysicalPosition(source.PhysicalPosition);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -778,6 +1022,11 @@ PROTECTIVELY_ISOLATED：表示被安全隔离的实例。
         this.setParamSimple(map, prefix + "ExpireState", this.ExpireState);
         this.setParamObj(map, prefix + "SystemDisk.", this.SystemDisk);
         this.setParamArrayObj(map, prefix + "DataDisks.", this.DataDisks);
+        this.setParamSimple(map, prefix + "NewFlag", this.NewFlag);
+        this.setParamArraySimple(map, prefix + "SecurityGroupIds.", this.SecurityGroupIds);
+        this.setParamObj(map, prefix + "VirtualPrivateCloud.", this.VirtualPrivateCloud);
+        this.setParamSimple(map, prefix + "ISP", this.ISP);
+        this.setParamObj(map, prefix + "PhysicalPosition.", this.PhysicalPosition);
 
     }
 }

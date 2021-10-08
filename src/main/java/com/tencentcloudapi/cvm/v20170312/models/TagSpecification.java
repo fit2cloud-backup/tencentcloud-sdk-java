@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class TagSpecification extends AbstractModel{
 
     /**
-    * 标签绑定的资源类型，当前支持类型："instance"和"host"
+    * 标签绑定的资源类型，云服务器为“instance”，专用宿主机为“host”
     */
     @SerializedName("ResourceType")
     @Expose
@@ -37,16 +37,16 @@ public class TagSpecification extends AbstractModel{
     private Tag [] Tags;
 
     /**
-     * Get 标签绑定的资源类型，当前支持类型："instance"和"host" 
-     * @return ResourceType 标签绑定的资源类型，当前支持类型："instance"和"host"
+     * Get 标签绑定的资源类型，云服务器为“instance”，专用宿主机为“host” 
+     * @return ResourceType 标签绑定的资源类型，云服务器为“instance”，专用宿主机为“host”
      */
     public String getResourceType() {
         return this.ResourceType;
     }
 
     /**
-     * Set 标签绑定的资源类型，当前支持类型："instance"和"host"
-     * @param ResourceType 标签绑定的资源类型，当前支持类型："instance"和"host"
+     * Set 标签绑定的资源类型，云服务器为“instance”，专用宿主机为“host”
+     * @param ResourceType 标签绑定的资源类型，云服务器为“instance”，专用宿主机为“host”
      */
     public void setResourceType(String ResourceType) {
         this.ResourceType = ResourceType;
@@ -67,6 +67,26 @@ public class TagSpecification extends AbstractModel{
     public void setTags(Tag [] Tags) {
         this.Tags = Tags;
     }
+
+    public TagSpecification() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public TagSpecification(TagSpecification source) {
+        if (source.ResourceType != null) {
+            this.ResourceType = new String(source.ResourceType);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

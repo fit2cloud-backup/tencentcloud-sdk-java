@@ -24,7 +24,6 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
     * 媒体文件名称。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -32,7 +31,6 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
     * 媒体文件描述。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Description")
     @Expose
@@ -40,7 +38,6 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
     * 媒体文件的创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -48,7 +45,6 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
     * 媒体文件的最近更新时间（如修改视频属性、发起视频处理等会触发更新媒体文件信息的操作），使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateTime")
     @Expose
@@ -56,7 +52,6 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
     * 媒体文件的过期时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。过期后该媒体文件及其相关资源（转码结果、雪碧图等）将被永久删除。“9999-12-31T23:59:59Z”表示永不过期。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExpireTime")
     @Expose
@@ -64,7 +59,6 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
     * 媒体文件的分类 ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClassId")
     @Expose
@@ -72,7 +66,6 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
     * 媒体文件的分类名称。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClassName")
     @Expose
@@ -80,7 +73,6 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
     * 媒体文件的分类路径，分类间以“-”分隔，如“新的一级分类 - 新的二级分类”。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClassPath")
     @Expose
@@ -88,7 +80,6 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
     * 媒体文件的封面图片地址。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CoverUrl")
     @Expose
@@ -96,7 +87,6 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
     * 媒体文件的封装格式，例如 mp4、flv 等。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Type")
     @Expose
@@ -104,7 +94,6 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
     * 原始媒体文件的 URL 地址。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MediaUrl")
     @Expose
@@ -119,8 +108,7 @@ public class MediaBasicInfo extends AbstractModel{
     private MediaSourceData SourceInfo;
 
     /**
-    * 媒体文件存储地区，如 ap-guangzhou，参见[地域列表](https://cloud.tencent.com/document/api/213/15692#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
-注意：此字段可能返回 null，表示取不到有效值。
+    * 媒体文件存储地区，如 ap-chongqing，参见[地域列表](https://cloud.tencent.com/document/product/266/9760#.E5.B7.B2.E6.94.AF.E6.8C.81.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
     */
     @SerializedName("StorageRegion")
     @Expose
@@ -128,25 +116,51 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
     * 媒体文件的标签信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TagSet")
     @Expose
     private String [] TagSet;
 
     /**
-    * 直播录制文件的唯一标识
-注意：此字段可能返回 null，表示取不到有效值。
+    * 直播录制文件的唯一标识。
     */
     @SerializedName("Vid")
     @Expose
     private String Vid;
 
     /**
-     * Get 媒体文件名称。
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 文件类型：
+<li>Video: 视频文件</li>
+<li>Audio: 音频文件</li>
+<li>Image: 图片文件</li>
+    */
+    @SerializedName("Category")
+    @Expose
+    private String Category;
+
+    /**
+    * 文件状态：Normal：正常，Forbidden：封禁。
+
+*注意：此字段暂不支持。
+    */
+    @SerializedName("Status")
+    @Expose
+    private String Status;
+
+    /**
+    * 媒体文件的存储类别：
+<li> STANDARD：标准存储。</li>
+<li> STANDARD_IA：低频存储。</li>
+<li> ARCHIVE：归档存储。</li>
+<li> DEEP_ARCHIVE：深度归档存储。</li>
+    */
+    @SerializedName("StorageClass")
+    @Expose
+    private String StorageClass;
+
+    /**
+     * Get 媒体文件名称。 
      * @return Name 媒体文件名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -154,19 +168,15 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
      * Set 媒体文件名称。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 媒体文件名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 媒体文件描述。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 媒体文件描述。 
      * @return Description 媒体文件描述。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescription() {
         return this.Description;
@@ -174,19 +184,15 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
      * Set 媒体文件描述。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Description 媒体文件描述。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescription(String Description) {
         this.Description = Description;
     }
 
     /**
-     * Get 媒体文件的创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 媒体文件的创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。 
      * @return CreateTime 媒体文件的创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -194,19 +200,15 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
      * Set 媒体文件的创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 媒体文件的创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
     }
 
     /**
-     * Get 媒体文件的最近更新时间（如修改视频属性、发起视频处理等会触发更新媒体文件信息的操作），使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 媒体文件的最近更新时间（如修改视频属性、发起视频处理等会触发更新媒体文件信息的操作），使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。 
      * @return UpdateTime 媒体文件的最近更新时间（如修改视频属性、发起视频处理等会触发更新媒体文件信息的操作），使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUpdateTime() {
         return this.UpdateTime;
@@ -214,19 +216,15 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
      * Set 媒体文件的最近更新时间（如修改视频属性、发起视频处理等会触发更新媒体文件信息的操作），使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateTime 媒体文件的最近更新时间（如修改视频属性、发起视频处理等会触发更新媒体文件信息的操作），使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateTime(String UpdateTime) {
         this.UpdateTime = UpdateTime;
     }
 
     /**
-     * Get 媒体文件的过期时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。过期后该媒体文件及其相关资源（转码结果、雪碧图等）将被永久删除。“9999-12-31T23:59:59Z”表示永不过期。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 媒体文件的过期时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。过期后该媒体文件及其相关资源（转码结果、雪碧图等）将被永久删除。“9999-12-31T23:59:59Z”表示永不过期。 
      * @return ExpireTime 媒体文件的过期时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。过期后该媒体文件及其相关资源（转码结果、雪碧图等）将被永久删除。“9999-12-31T23:59:59Z”表示永不过期。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getExpireTime() {
         return this.ExpireTime;
@@ -234,19 +232,15 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
      * Set 媒体文件的过期时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。过期后该媒体文件及其相关资源（转码结果、雪碧图等）将被永久删除。“9999-12-31T23:59:59Z”表示永不过期。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ExpireTime 媒体文件的过期时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。过期后该媒体文件及其相关资源（转码结果、雪碧图等）将被永久删除。“9999-12-31T23:59:59Z”表示永不过期。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExpireTime(String ExpireTime) {
         this.ExpireTime = ExpireTime;
     }
 
     /**
-     * Get 媒体文件的分类 ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 媒体文件的分类 ID。 
      * @return ClassId 媒体文件的分类 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getClassId() {
         return this.ClassId;
@@ -254,19 +248,15 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
      * Set 媒体文件的分类 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClassId 媒体文件的分类 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClassId(Long ClassId) {
         this.ClassId = ClassId;
     }
 
     /**
-     * Get 媒体文件的分类名称。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 媒体文件的分类名称。 
      * @return ClassName 媒体文件的分类名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClassName() {
         return this.ClassName;
@@ -274,19 +264,15 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
      * Set 媒体文件的分类名称。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClassName 媒体文件的分类名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClassName(String ClassName) {
         this.ClassName = ClassName;
     }
 
     /**
-     * Get 媒体文件的分类路径，分类间以“-”分隔，如“新的一级分类 - 新的二级分类”。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 媒体文件的分类路径，分类间以“-”分隔，如“新的一级分类 - 新的二级分类”。 
      * @return ClassPath 媒体文件的分类路径，分类间以“-”分隔，如“新的一级分类 - 新的二级分类”。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClassPath() {
         return this.ClassPath;
@@ -294,19 +280,15 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
      * Set 媒体文件的分类路径，分类间以“-”分隔，如“新的一级分类 - 新的二级分类”。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClassPath 媒体文件的分类路径，分类间以“-”分隔，如“新的一级分类 - 新的二级分类”。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClassPath(String ClassPath) {
         this.ClassPath = ClassPath;
     }
 
     /**
-     * Get 媒体文件的封面图片地址。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 媒体文件的封面图片地址。 
      * @return CoverUrl 媒体文件的封面图片地址。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCoverUrl() {
         return this.CoverUrl;
@@ -314,19 +296,15 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
      * Set 媒体文件的封面图片地址。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CoverUrl 媒体文件的封面图片地址。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCoverUrl(String CoverUrl) {
         this.CoverUrl = CoverUrl;
     }
 
     /**
-     * Get 媒体文件的封装格式，例如 mp4、flv 等。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 媒体文件的封装格式，例如 mp4、flv 等。 
      * @return Type 媒体文件的封装格式，例如 mp4、flv 等。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getType() {
         return this.Type;
@@ -334,19 +312,15 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
      * Set 媒体文件的封装格式，例如 mp4、flv 等。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Type 媒体文件的封装格式，例如 mp4、flv 等。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setType(String Type) {
         this.Type = Type;
     }
 
     /**
-     * Get 原始媒体文件的 URL 地址。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 原始媒体文件的 URL 地址。 
      * @return MediaUrl 原始媒体文件的 URL 地址。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMediaUrl() {
         return this.MediaUrl;
@@ -354,9 +328,7 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
      * Set 原始媒体文件的 URL 地址。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MediaUrl 原始媒体文件的 URL 地址。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMediaUrl(String MediaUrl) {
         this.MediaUrl = MediaUrl;
@@ -383,30 +355,24 @@ public class MediaBasicInfo extends AbstractModel{
     }
 
     /**
-     * Get 媒体文件存储地区，如 ap-guangzhou，参见[地域列表](https://cloud.tencent.com/document/api/213/15692#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return StorageRegion 媒体文件存储地区，如 ap-guangzhou，参见[地域列表](https://cloud.tencent.com/document/api/213/15692#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 媒体文件存储地区，如 ap-chongqing，参见[地域列表](https://cloud.tencent.com/document/product/266/9760#.E5.B7.B2.E6.94.AF.E6.8C.81.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。 
+     * @return StorageRegion 媒体文件存储地区，如 ap-chongqing，参见[地域列表](https://cloud.tencent.com/document/product/266/9760#.E5.B7.B2.E6.94.AF.E6.8C.81.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
      */
     public String getStorageRegion() {
         return this.StorageRegion;
     }
 
     /**
-     * Set 媒体文件存储地区，如 ap-guangzhou，参见[地域列表](https://cloud.tencent.com/document/api/213/15692#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param StorageRegion 媒体文件存储地区，如 ap-guangzhou，参见[地域列表](https://cloud.tencent.com/document/api/213/15692#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 媒体文件存储地区，如 ap-chongqing，参见[地域列表](https://cloud.tencent.com/document/product/266/9760#.E5.B7.B2.E6.94.AF.E6.8C.81.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
+     * @param StorageRegion 媒体文件存储地区，如 ap-chongqing，参见[地域列表](https://cloud.tencent.com/document/product/266/9760#.E5.B7.B2.E6.94.AF.E6.8C.81.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
      */
     public void setStorageRegion(String StorageRegion) {
         this.StorageRegion = StorageRegion;
     }
 
     /**
-     * Get 媒体文件的标签信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 媒体文件的标签信息。 
      * @return TagSet 媒体文件的标签信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getTagSet() {
         return this.TagSet;
@@ -414,33 +380,179 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
      * Set 媒体文件的标签信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TagSet 媒体文件的标签信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTagSet(String [] TagSet) {
         this.TagSet = TagSet;
     }
 
     /**
-     * Get 直播录制文件的唯一标识
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Vid 直播录制文件的唯一标识
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 直播录制文件的唯一标识。 
+     * @return Vid 直播录制文件的唯一标识。
      */
     public String getVid() {
         return this.Vid;
     }
 
     /**
-     * Set 直播录制文件的唯一标识
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Vid 直播录制文件的唯一标识
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 直播录制文件的唯一标识。
+     * @param Vid 直播录制文件的唯一标识。
      */
     public void setVid(String Vid) {
         this.Vid = Vid;
     }
+
+    /**
+     * Get 文件类型：
+<li>Video: 视频文件</li>
+<li>Audio: 音频文件</li>
+<li>Image: 图片文件</li> 
+     * @return Category 文件类型：
+<li>Video: 视频文件</li>
+<li>Audio: 音频文件</li>
+<li>Image: 图片文件</li>
+     */
+    public String getCategory() {
+        return this.Category;
+    }
+
+    /**
+     * Set 文件类型：
+<li>Video: 视频文件</li>
+<li>Audio: 音频文件</li>
+<li>Image: 图片文件</li>
+     * @param Category 文件类型：
+<li>Video: 视频文件</li>
+<li>Audio: 音频文件</li>
+<li>Image: 图片文件</li>
+     */
+    public void setCategory(String Category) {
+        this.Category = Category;
+    }
+
+    /**
+     * Get 文件状态：Normal：正常，Forbidden：封禁。
+
+*注意：此字段暂不支持。 
+     * @return Status 文件状态：Normal：正常，Forbidden：封禁。
+
+*注意：此字段暂不支持。
+     */
+    public String getStatus() {
+        return this.Status;
+    }
+
+    /**
+     * Set 文件状态：Normal：正常，Forbidden：封禁。
+
+*注意：此字段暂不支持。
+     * @param Status 文件状态：Normal：正常，Forbidden：封禁。
+
+*注意：此字段暂不支持。
+     */
+    public void setStatus(String Status) {
+        this.Status = Status;
+    }
+
+    /**
+     * Get 媒体文件的存储类别：
+<li> STANDARD：标准存储。</li>
+<li> STANDARD_IA：低频存储。</li>
+<li> ARCHIVE：归档存储。</li>
+<li> DEEP_ARCHIVE：深度归档存储。</li> 
+     * @return StorageClass 媒体文件的存储类别：
+<li> STANDARD：标准存储。</li>
+<li> STANDARD_IA：低频存储。</li>
+<li> ARCHIVE：归档存储。</li>
+<li> DEEP_ARCHIVE：深度归档存储。</li>
+     */
+    public String getStorageClass() {
+        return this.StorageClass;
+    }
+
+    /**
+     * Set 媒体文件的存储类别：
+<li> STANDARD：标准存储。</li>
+<li> STANDARD_IA：低频存储。</li>
+<li> ARCHIVE：归档存储。</li>
+<li> DEEP_ARCHIVE：深度归档存储。</li>
+     * @param StorageClass 媒体文件的存储类别：
+<li> STANDARD：标准存储。</li>
+<li> STANDARD_IA：低频存储。</li>
+<li> ARCHIVE：归档存储。</li>
+<li> DEEP_ARCHIVE：深度归档存储。</li>
+     */
+    public void setStorageClass(String StorageClass) {
+        this.StorageClass = StorageClass;
+    }
+
+    public MediaBasicInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MediaBasicInfo(MediaBasicInfo source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+        if (source.ExpireTime != null) {
+            this.ExpireTime = new String(source.ExpireTime);
+        }
+        if (source.ClassId != null) {
+            this.ClassId = new Long(source.ClassId);
+        }
+        if (source.ClassName != null) {
+            this.ClassName = new String(source.ClassName);
+        }
+        if (source.ClassPath != null) {
+            this.ClassPath = new String(source.ClassPath);
+        }
+        if (source.CoverUrl != null) {
+            this.CoverUrl = new String(source.CoverUrl);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.MediaUrl != null) {
+            this.MediaUrl = new String(source.MediaUrl);
+        }
+        if (source.SourceInfo != null) {
+            this.SourceInfo = new MediaSourceData(source.SourceInfo);
+        }
+        if (source.StorageRegion != null) {
+            this.StorageRegion = new String(source.StorageRegion);
+        }
+        if (source.TagSet != null) {
+            this.TagSet = new String[source.TagSet.length];
+            for (int i = 0; i < source.TagSet.length; i++) {
+                this.TagSet[i] = new String(source.TagSet[i]);
+            }
+        }
+        if (source.Vid != null) {
+            this.Vid = new String(source.Vid);
+        }
+        if (source.Category != null) {
+            this.Category = new String(source.Category);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.StorageClass != null) {
+            this.StorageClass = new String(source.StorageClass);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -461,6 +573,9 @@ public class MediaBasicInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "StorageRegion", this.StorageRegion);
         this.setParamArraySimple(map, prefix + "TagSet.", this.TagSet);
         this.setParamSimple(map, prefix + "Vid", this.Vid);
+        this.setParamSimple(map, prefix + "Category", this.Category);
+        this.setParamSimple(map, prefix + "Status", this.Status);
+        this.setParamSimple(map, prefix + "StorageClass", this.StorageClass);
 
     }
 }

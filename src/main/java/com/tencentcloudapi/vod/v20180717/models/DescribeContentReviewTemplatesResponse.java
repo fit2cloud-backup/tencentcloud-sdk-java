@@ -30,7 +30,7 @@ public class DescribeContentReviewTemplatesResponse extends AbstractModel{
     private Long TotalCount;
 
     /**
-    * 内容审核模板详情列表。
+    * 内容智能识别模板详情列表。
     */
     @SerializedName("ContentReviewTemplateSet")
     @Expose
@@ -60,16 +60,16 @@ public class DescribeContentReviewTemplatesResponse extends AbstractModel{
     }
 
     /**
-     * Get 内容审核模板详情列表。 
-     * @return ContentReviewTemplateSet 内容审核模板详情列表。
+     * Get 内容智能识别模板详情列表。 
+     * @return ContentReviewTemplateSet 内容智能识别模板详情列表。
      */
     public ContentReviewTemplateItem [] getContentReviewTemplateSet() {
         return this.ContentReviewTemplateSet;
     }
 
     /**
-     * Set 内容审核模板详情列表。
-     * @param ContentReviewTemplateSet 内容审核模板详情列表。
+     * Set 内容智能识别模板详情列表。
+     * @param ContentReviewTemplateSet 内容智能识别模板详情列表。
      */
     public void setContentReviewTemplateSet(ContentReviewTemplateItem [] ContentReviewTemplateSet) {
         this.ContentReviewTemplateSet = ContentReviewTemplateSet;
@@ -90,6 +90,29 @@ public class DescribeContentReviewTemplatesResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeContentReviewTemplatesResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeContentReviewTemplatesResponse(DescribeContentReviewTemplatesResponse source) {
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
+        if (source.ContentReviewTemplateSet != null) {
+            this.ContentReviewTemplateSet = new ContentReviewTemplateItem[source.ContentReviewTemplateSet.length];
+            for (int i = 0; i < source.ContentReviewTemplateSet.length; i++) {
+                this.ContentReviewTemplateSet[i] = new ContentReviewTemplateItem(source.ContentReviewTemplateSet[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

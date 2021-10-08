@@ -23,27 +23,51 @@ import java.util.HashMap;
 public class DeleteLiveWatermarkRequest extends AbstractModel{
 
     /**
-    * 水印ID。
+    * 水印 ID。
+在添加水印接口 [AddLiveWatermark](/document/product/267/30154) 调用返回值中获取水印 ID。
+或DescribeLiveWatermarks接口返回的水印ID。
     */
     @SerializedName("WatermarkId")
     @Expose
     private Long WatermarkId;
 
     /**
-     * Get 水印ID。 
-     * @return WatermarkId 水印ID。
+     * Get 水印 ID。
+在添加水印接口 [AddLiveWatermark](/document/product/267/30154) 调用返回值中获取水印 ID。
+或DescribeLiveWatermarks接口返回的水印ID。 
+     * @return WatermarkId 水印 ID。
+在添加水印接口 [AddLiveWatermark](/document/product/267/30154) 调用返回值中获取水印 ID。
+或DescribeLiveWatermarks接口返回的水印ID。
      */
     public Long getWatermarkId() {
         return this.WatermarkId;
     }
 
     /**
-     * Set 水印ID。
-     * @param WatermarkId 水印ID。
+     * Set 水印 ID。
+在添加水印接口 [AddLiveWatermark](/document/product/267/30154) 调用返回值中获取水印 ID。
+或DescribeLiveWatermarks接口返回的水印ID。
+     * @param WatermarkId 水印 ID。
+在添加水印接口 [AddLiveWatermark](/document/product/267/30154) 调用返回值中获取水印 ID。
+或DescribeLiveWatermarks接口返回的水印ID。
      */
     public void setWatermarkId(Long WatermarkId) {
         this.WatermarkId = WatermarkId;
     }
+
+    public DeleteLiveWatermarkRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeleteLiveWatermarkRequest(DeleteLiveWatermarkRequest source) {
+        if (source.WatermarkId != null) {
+            this.WatermarkId = new Long(source.WatermarkId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

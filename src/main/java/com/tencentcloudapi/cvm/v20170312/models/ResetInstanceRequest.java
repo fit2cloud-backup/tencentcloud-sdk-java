@@ -38,7 +38,7 @@ public class ResetInstanceRequest extends AbstractModel{
     private String ImageId;
 
     /**
-    * 实例系统盘配置信息。系统盘为云盘的实例可以通过该参数指定重装后的系统盘大小来实现对系统盘的扩容操作，若不指定大小且原系统盘大小小于镜像大小，则会自动扩容，产生多余的磁盘费用。系统盘大小只支持扩容不支持缩容；重装只支持修改系统盘的大小，不能修改系统盘的类型。
+    * 实例系统盘配置信息。系统盘为云盘的实例可以通过该参数指定重装后的系统盘大小来实现对系统盘的扩容操作。系统盘大小只支持扩容不支持缩容；重装只支持修改系统盘的大小，不能修改系统盘的类型。
     */
     @SerializedName("SystemDisk")
     @Expose
@@ -102,16 +102,16 @@ public class ResetInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 实例系统盘配置信息。系统盘为云盘的实例可以通过该参数指定重装后的系统盘大小来实现对系统盘的扩容操作，若不指定大小且原系统盘大小小于镜像大小，则会自动扩容，产生多余的磁盘费用。系统盘大小只支持扩容不支持缩容；重装只支持修改系统盘的大小，不能修改系统盘的类型。 
-     * @return SystemDisk 实例系统盘配置信息。系统盘为云盘的实例可以通过该参数指定重装后的系统盘大小来实现对系统盘的扩容操作，若不指定大小且原系统盘大小小于镜像大小，则会自动扩容，产生多余的磁盘费用。系统盘大小只支持扩容不支持缩容；重装只支持修改系统盘的大小，不能修改系统盘的类型。
+     * Get 实例系统盘配置信息。系统盘为云盘的实例可以通过该参数指定重装后的系统盘大小来实现对系统盘的扩容操作。系统盘大小只支持扩容不支持缩容；重装只支持修改系统盘的大小，不能修改系统盘的类型。 
+     * @return SystemDisk 实例系统盘配置信息。系统盘为云盘的实例可以通过该参数指定重装后的系统盘大小来实现对系统盘的扩容操作。系统盘大小只支持扩容不支持缩容；重装只支持修改系统盘的大小，不能修改系统盘的类型。
      */
     public SystemDisk getSystemDisk() {
         return this.SystemDisk;
     }
 
     /**
-     * Set 实例系统盘配置信息。系统盘为云盘的实例可以通过该参数指定重装后的系统盘大小来实现对系统盘的扩容操作，若不指定大小且原系统盘大小小于镜像大小，则会自动扩容，产生多余的磁盘费用。系统盘大小只支持扩容不支持缩容；重装只支持修改系统盘的大小，不能修改系统盘的类型。
-     * @param SystemDisk 实例系统盘配置信息。系统盘为云盘的实例可以通过该参数指定重装后的系统盘大小来实现对系统盘的扩容操作，若不指定大小且原系统盘大小小于镜像大小，则会自动扩容，产生多余的磁盘费用。系统盘大小只支持扩容不支持缩容；重装只支持修改系统盘的大小，不能修改系统盘的类型。
+     * Set 实例系统盘配置信息。系统盘为云盘的实例可以通过该参数指定重装后的系统盘大小来实现对系统盘的扩容操作。系统盘大小只支持扩容不支持缩容；重装只支持修改系统盘的大小，不能修改系统盘的类型。
+     * @param SystemDisk 实例系统盘配置信息。系统盘为云盘的实例可以通过该参数指定重装后的系统盘大小来实现对系统盘的扩容操作。系统盘大小只支持扩容不支持缩容；重装只支持修改系统盘的大小，不能修改系统盘的类型。
      */
     public void setSystemDisk(SystemDisk SystemDisk) {
         this.SystemDisk = SystemDisk;
@@ -164,6 +164,35 @@ public class ResetInstanceRequest extends AbstractModel{
     public void setHostName(String HostName) {
         this.HostName = HostName;
     }
+
+    public ResetInstanceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ResetInstanceRequest(ResetInstanceRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.ImageId != null) {
+            this.ImageId = new String(source.ImageId);
+        }
+        if (source.SystemDisk != null) {
+            this.SystemDisk = new SystemDisk(source.SystemDisk);
+        }
+        if (source.LoginSettings != null) {
+            this.LoginSettings = new LoginSettings(source.LoginSettings);
+        }
+        if (source.EnhancedService != null) {
+            this.EnhancedService = new EnhancedService(source.EnhancedService);
+        }
+        if (source.HostName != null) {
+            this.HostName = new String(source.HostName);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

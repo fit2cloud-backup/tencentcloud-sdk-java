@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeInstanceMonitorTopNCmdTookRequest extends AbstractModel{
 
     /**
-    * 实例Id
+    * 实例ID
     */
     @SerializedName("InstanceId")
     @Expose
@@ -37,16 +37,16 @@ public class DescribeInstanceMonitorTopNCmdTookRequest extends AbstractModel{
     private Long SpanType;
 
     /**
-     * Get 实例Id 
-     * @return InstanceId 实例Id
+     * Get 实例ID 
+     * @return InstanceId 实例ID
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例Id
-     * @param InstanceId 实例Id
+     * Set 实例ID
+     * @param InstanceId 实例ID
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
@@ -67,6 +67,23 @@ public class DescribeInstanceMonitorTopNCmdTookRequest extends AbstractModel{
     public void setSpanType(Long SpanType) {
         this.SpanType = SpanType;
     }
+
+    public DescribeInstanceMonitorTopNCmdTookRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeInstanceMonitorTopNCmdTookRequest(DescribeInstanceMonitorTopNCmdTookRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.SpanType != null) {
+            this.SpanType = new Long(source.SpanType);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

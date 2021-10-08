@@ -88,8 +88,12 @@ public class FileSampleInfo extends AbstractModel{
 
     /**
     * 任务状态
-1：已完成
-2：处理中
+1：添加完成
+2：添加处理中
+3：下载中
+4：下载完成
+5：上传完成
+6：步骤完成
     */
     @SerializedName("Status")
     @Expose
@@ -271,11 +275,19 @@ public class FileSampleInfo extends AbstractModel{
 
     /**
      * Get 任务状态
-1：已完成
-2：处理中 
+1：添加完成
+2：添加处理中
+3：下载中
+4：下载完成
+5：上传完成
+6：步骤完成 
      * @return Status 任务状态
-1：已完成
-2：处理中
+1：添加完成
+2：添加处理中
+3：下载中
+4：下载完成
+5：上传完成
+6：步骤完成
      */
     public Long getStatus() {
         return this.Status;
@@ -283,11 +295,19 @@ public class FileSampleInfo extends AbstractModel{
 
     /**
      * Set 任务状态
-1：已完成
-2：处理中
+1：添加完成
+2：添加处理中
+3：下载中
+4：下载完成
+5：上传完成
+6：步骤完成
      * @param Status 任务状态
-1：已完成
-2：处理中
+1：添加完成
+2：添加处理中
+3：下载中
+4：下载完成
+5：上传完成
+6：步骤完成
      */
     public void setStatus(Long Status) {
         this.Status = Status;
@@ -324,6 +344,50 @@ public class FileSampleInfo extends AbstractModel{
     public void setFileUrl(String FileUrl) {
         this.FileUrl = FileUrl;
     }
+
+    public FileSampleInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public FileSampleInfo(FileSampleInfo source) {
+        if (source.Code != null) {
+            this.Code = new Long(source.Code);
+        }
+        if (source.CreatedAt != null) {
+            this.CreatedAt = new Long(source.CreatedAt);
+        }
+        if (source.EvilType != null) {
+            this.EvilType = new Long(source.EvilType);
+        }
+        if (source.FileMd5 != null) {
+            this.FileMd5 = new String(source.FileMd5);
+        }
+        if (source.FileName != null) {
+            this.FileName = new String(source.FileName);
+        }
+        if (source.FileType != null) {
+            this.FileType = new String(source.FileType);
+        }
+        if (source.Id != null) {
+            this.Id = new String(source.Id);
+        }
+        if (source.Label != null) {
+            this.Label = new Long(source.Label);
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+        if (source.CompressFileUrl != null) {
+            this.CompressFileUrl = new String(source.CompressFileUrl);
+        }
+        if (source.FileUrl != null) {
+            this.FileUrl = new String(source.FileUrl);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

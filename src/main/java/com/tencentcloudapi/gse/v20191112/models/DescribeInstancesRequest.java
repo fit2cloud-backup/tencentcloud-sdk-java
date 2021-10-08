@@ -23,96 +23,145 @@ import java.util.HashMap;
 public class DescribeInstancesRequest extends AbstractModel{
 
     /**
-    * 服务部署ID
+    * 服务器舰队ID
     */
     @SerializedName("FleetId")
     @Expose
     private String FleetId;
 
     /**
-    * 实例ID
+    * CVM实例ID
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
 
     /**
-    * 结果返回最大数量
+    * 结果返回最大数量，最小值0，最大值100
     */
     @SerializedName("Offset")
     @Expose
     private Long Offset;
 
     /**
-    * 返回结果偏移
+    * 返回结果偏移，最小值0
     */
     @SerializedName("Limit")
     @Expose
     private Long Limit;
 
     /**
-     * Get 服务部署ID 
-     * @return FleetId 服务部署ID
+    * CVM实例公网IP
+    */
+    @SerializedName("IpAddress")
+    @Expose
+    private String IpAddress;
+
+    /**
+     * Get 服务器舰队ID 
+     * @return FleetId 服务器舰队ID
      */
     public String getFleetId() {
         return this.FleetId;
     }
 
     /**
-     * Set 服务部署ID
-     * @param FleetId 服务部署ID
+     * Set 服务器舰队ID
+     * @param FleetId 服务器舰队ID
      */
     public void setFleetId(String FleetId) {
         this.FleetId = FleetId;
     }
 
     /**
-     * Get 实例ID 
-     * @return InstanceId 实例ID
+     * Get CVM实例ID 
+     * @return InstanceId CVM实例ID
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例ID
-     * @param InstanceId 实例ID
+     * Set CVM实例ID
+     * @param InstanceId CVM实例ID
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 结果返回最大数量 
-     * @return Offset 结果返回最大数量
+     * Get 结果返回最大数量，最小值0，最大值100 
+     * @return Offset 结果返回最大数量，最小值0，最大值100
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 结果返回最大数量
-     * @param Offset 结果返回最大数量
+     * Set 结果返回最大数量，最小值0，最大值100
+     * @param Offset 结果返回最大数量，最小值0，最大值100
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get 返回结果偏移 
-     * @return Limit 返回结果偏移
+     * Get 返回结果偏移，最小值0 
+     * @return Limit 返回结果偏移，最小值0
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 返回结果偏移
-     * @param Limit 返回结果偏移
+     * Set 返回结果偏移，最小值0
+     * @param Limit 返回结果偏移，最小值0
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
     }
+
+    /**
+     * Get CVM实例公网IP 
+     * @return IpAddress CVM实例公网IP
+     */
+    public String getIpAddress() {
+        return this.IpAddress;
+    }
+
+    /**
+     * Set CVM实例公网IP
+     * @param IpAddress CVM实例公网IP
+     */
+    public void setIpAddress(String IpAddress) {
+        this.IpAddress = IpAddress;
+    }
+
+    public DescribeInstancesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeInstancesRequest(DescribeInstancesRequest source) {
+        if (source.FleetId != null) {
+            this.FleetId = new String(source.FleetId);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.IpAddress != null) {
+            this.IpAddress = new String(source.IpAddress);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -122,6 +171,7 @@ public class DescribeInstancesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamSimple(map, prefix + "IpAddress", this.IpAddress);
 
     }
 }

@@ -27,6 +27,7 @@ import com.tencentcloudapi.smpn.v20190822.models.*;
 
 public class SmpnClient extends AbstractClient{
     private static String endpoint = "smpn.tencentcloudapi.com";
+    private static String service = "smpn";
     private static String version = "2019-08-22";
 
     public SmpnClient(Credential credential, String region) {
@@ -45,12 +46,14 @@ public class SmpnClient extends AbstractClient{
      */
     public CreateSmpnEpaResponse CreateSmpnEpa(CreateSmpnEpaRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateSmpnEpaResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateSmpnEpaResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "CreateSmpnEpa"), type);
+                rspStr = this.internalRequest(req, "CreateSmpnEpa");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -63,12 +66,14 @@ public class SmpnClient extends AbstractClient{
      */
     public DescribeSmpnChpResponse DescribeSmpnChp(DescribeSmpnChpRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSmpnChpResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSmpnChpResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeSmpnChp"), type);
+                rspStr = this.internalRequest(req, "DescribeSmpnChp");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -81,12 +86,14 @@ public class SmpnClient extends AbstractClient{
      */
     public DescribeSmpnFnrResponse DescribeSmpnFnr(DescribeSmpnFnrRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSmpnFnrResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSmpnFnrResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeSmpnFnr"), type);
+                rspStr = this.internalRequest(req, "DescribeSmpnFnr");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -99,12 +106,14 @@ public class SmpnClient extends AbstractClient{
      */
     public DescribeSmpnMhmResponse DescribeSmpnMhm(DescribeSmpnMhmRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSmpnMhmResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSmpnMhmResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeSmpnMhm"), type);
+                rspStr = this.internalRequest(req, "DescribeSmpnMhm");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -117,12 +126,14 @@ public class SmpnClient extends AbstractClient{
      */
     public DescribeSmpnMrlResponse DescribeSmpnMrl(DescribeSmpnMrlRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSmpnMrlResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSmpnMrlResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeSmpnMrl"), type);
+                rspStr = this.internalRequest(req, "DescribeSmpnMrl");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

@@ -37,7 +37,8 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
     private String ImageId;
 
     /**
-    * 实例所属项目ID。该参数可以通过调用 [DescribeProject](https://cloud.tencent.com/document/api/378/4400) 的返回值中的`projectId`字段来获取。不填为默认项目。
+    * 启动配置所属项目ID。该参数可以通过调用 [DescribeProject](https://cloud.tencent.com/document/api/378/4400) 的返回值中的`projectId`字段来获取。不填为默认项目。
+注意：伸缩组内实例所属项目ID取伸缩组项目ID，与这里取值无关。
     */
     @SerializedName("ProjectId")
     @Expose
@@ -104,6 +105,7 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
     * 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。
 <br><li>POSTPAID_BY_HOUR：按小时后付费
 <br><li>SPOTPAID：竞价付费
+<br><li>PREPAID：预付费，即包年包月
     */
     @SerializedName("InstanceChargeType")
     @Expose
@@ -159,6 +161,7 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
 
     /**
     * 云服务器实例名（InstanceName）的相关设置。
+如果用户在启动配置中设置此字段，则伸缩组创建出的实例 InstanceName 参照此字段进行设置，并传递给 CVM；如果用户未在启动配置中设置此字段，则伸缩组创建出的实例 InstanceName 按照“as-{{ 伸缩组AutoScalingGroupName }}”进行设置，并传递给 CVM。
     */
     @SerializedName("InstanceNameSettings")
     @Expose
@@ -170,6 +173,15 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
     @SerializedName("InstanceChargePrepaid")
     @Expose
     private InstanceChargePrepaid InstanceChargePrepaid;
+
+    /**
+    * 云盘类型选择策略，默认取值 ORIGINAL，取值范围：
+<br><li>ORIGINAL：使用设置的云盘类型
+<br><li>AUTOMATIC：自动选择当前可用的云盘类型
+    */
+    @SerializedName("DiskTypePolicy")
+    @Expose
+    private String DiskTypePolicy;
 
     /**
      * Get 启动配置显示名称。名称仅支持中文、英文、数字、下划线、分隔符"-"、小数点，最大长度不能超60个字节。 
@@ -204,16 +216,20 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
     }
 
     /**
-     * Get 实例所属项目ID。该参数可以通过调用 [DescribeProject](https://cloud.tencent.com/document/api/378/4400) 的返回值中的`projectId`字段来获取。不填为默认项目。 
-     * @return ProjectId 实例所属项目ID。该参数可以通过调用 [DescribeProject](https://cloud.tencent.com/document/api/378/4400) 的返回值中的`projectId`字段来获取。不填为默认项目。
+     * Get 启动配置所属项目ID。该参数可以通过调用 [DescribeProject](https://cloud.tencent.com/document/api/378/4400) 的返回值中的`projectId`字段来获取。不填为默认项目。
+注意：伸缩组内实例所属项目ID取伸缩组项目ID，与这里取值无关。 
+     * @return ProjectId 启动配置所属项目ID。该参数可以通过调用 [DescribeProject](https://cloud.tencent.com/document/api/378/4400) 的返回值中的`projectId`字段来获取。不填为默认项目。
+注意：伸缩组内实例所属项目ID取伸缩组项目ID，与这里取值无关。
      */
     public Long getProjectId() {
         return this.ProjectId;
     }
 
     /**
-     * Set 实例所属项目ID。该参数可以通过调用 [DescribeProject](https://cloud.tencent.com/document/api/378/4400) 的返回值中的`projectId`字段来获取。不填为默认项目。
-     * @param ProjectId 实例所属项目ID。该参数可以通过调用 [DescribeProject](https://cloud.tencent.com/document/api/378/4400) 的返回值中的`projectId`字段来获取。不填为默认项目。
+     * Set 启动配置所属项目ID。该参数可以通过调用 [DescribeProject](https://cloud.tencent.com/document/api/378/4400) 的返回值中的`projectId`字段来获取。不填为默认项目。
+注意：伸缩组内实例所属项目ID取伸缩组项目ID，与这里取值无关。
+     * @param ProjectId 启动配置所属项目ID。该参数可以通过调用 [DescribeProject](https://cloud.tencent.com/document/api/378/4400) 的返回值中的`projectId`字段来获取。不填为默认项目。
+注意：伸缩组内实例所属项目ID取伸缩组项目ID，与这里取值无关。
      */
     public void setProjectId(Long ProjectId) {
         this.ProjectId = ProjectId;
@@ -354,10 +370,12 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
     /**
      * Get 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。
 <br><li>POSTPAID_BY_HOUR：按小时后付费
-<br><li>SPOTPAID：竞价付费 
+<br><li>SPOTPAID：竞价付费
+<br><li>PREPAID：预付费，即包年包月 
      * @return InstanceChargeType 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。
 <br><li>POSTPAID_BY_HOUR：按小时后付费
 <br><li>SPOTPAID：竞价付费
+<br><li>PREPAID：预付费，即包年包月
      */
     public String getInstanceChargeType() {
         return this.InstanceChargeType;
@@ -367,9 +385,11 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
      * Set 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。
 <br><li>POSTPAID_BY_HOUR：按小时后付费
 <br><li>SPOTPAID：竞价付费
+<br><li>PREPAID：预付费，即包年包月
      * @param InstanceChargeType 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。
 <br><li>POSTPAID_BY_HOUR：按小时后付费
 <br><li>SPOTPAID：竞价付费
+<br><li>PREPAID：预付费，即包年包月
      */
     public void setInstanceChargeType(String InstanceChargeType) {
         this.InstanceChargeType = InstanceChargeType;
@@ -496,8 +516,10 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
     }
 
     /**
-     * Get 云服务器实例名（InstanceName）的相关设置。 
+     * Get 云服务器实例名（InstanceName）的相关设置。
+如果用户在启动配置中设置此字段，则伸缩组创建出的实例 InstanceName 参照此字段进行设置，并传递给 CVM；如果用户未在启动配置中设置此字段，则伸缩组创建出的实例 InstanceName 按照“as-{{ 伸缩组AutoScalingGroupName }}”进行设置，并传递给 CVM。 
      * @return InstanceNameSettings 云服务器实例名（InstanceName）的相关设置。
+如果用户在启动配置中设置此字段，则伸缩组创建出的实例 InstanceName 参照此字段进行设置，并传递给 CVM；如果用户未在启动配置中设置此字段，则伸缩组创建出的实例 InstanceName 按照“as-{{ 伸缩组AutoScalingGroupName }}”进行设置，并传递给 CVM。
      */
     public InstanceNameSettings getInstanceNameSettings() {
         return this.InstanceNameSettings;
@@ -505,7 +527,9 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
 
     /**
      * Set 云服务器实例名（InstanceName）的相关设置。
+如果用户在启动配置中设置此字段，则伸缩组创建出的实例 InstanceName 参照此字段进行设置，并传递给 CVM；如果用户未在启动配置中设置此字段，则伸缩组创建出的实例 InstanceName 按照“as-{{ 伸缩组AutoScalingGroupName }}”进行设置，并传递给 CVM。
      * @param InstanceNameSettings 云服务器实例名（InstanceName）的相关设置。
+如果用户在启动配置中设置此字段，则伸缩组创建出的实例 InstanceName 参照此字段进行设置，并传递给 CVM；如果用户未在启动配置中设置此字段，则伸缩组创建出的实例 InstanceName 按照“as-{{ 伸缩组AutoScalingGroupName }}”进行设置，并传递给 CVM。
      */
     public void setInstanceNameSettings(InstanceNameSettings InstanceNameSettings) {
         this.InstanceNameSettings = InstanceNameSettings;
@@ -526,6 +550,116 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
     public void setInstanceChargePrepaid(InstanceChargePrepaid InstanceChargePrepaid) {
         this.InstanceChargePrepaid = InstanceChargePrepaid;
     }
+
+    /**
+     * Get 云盘类型选择策略，默认取值 ORIGINAL，取值范围：
+<br><li>ORIGINAL：使用设置的云盘类型
+<br><li>AUTOMATIC：自动选择当前可用的云盘类型 
+     * @return DiskTypePolicy 云盘类型选择策略，默认取值 ORIGINAL，取值范围：
+<br><li>ORIGINAL：使用设置的云盘类型
+<br><li>AUTOMATIC：自动选择当前可用的云盘类型
+     */
+    public String getDiskTypePolicy() {
+        return this.DiskTypePolicy;
+    }
+
+    /**
+     * Set 云盘类型选择策略，默认取值 ORIGINAL，取值范围：
+<br><li>ORIGINAL：使用设置的云盘类型
+<br><li>AUTOMATIC：自动选择当前可用的云盘类型
+     * @param DiskTypePolicy 云盘类型选择策略，默认取值 ORIGINAL，取值范围：
+<br><li>ORIGINAL：使用设置的云盘类型
+<br><li>AUTOMATIC：自动选择当前可用的云盘类型
+     */
+    public void setDiskTypePolicy(String DiskTypePolicy) {
+        this.DiskTypePolicy = DiskTypePolicy;
+    }
+
+    public CreateLaunchConfigurationRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateLaunchConfigurationRequest(CreateLaunchConfigurationRequest source) {
+        if (source.LaunchConfigurationName != null) {
+            this.LaunchConfigurationName = new String(source.LaunchConfigurationName);
+        }
+        if (source.ImageId != null) {
+            this.ImageId = new String(source.ImageId);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.InstanceType != null) {
+            this.InstanceType = new String(source.InstanceType);
+        }
+        if (source.SystemDisk != null) {
+            this.SystemDisk = new SystemDisk(source.SystemDisk);
+        }
+        if (source.DataDisks != null) {
+            this.DataDisks = new DataDisk[source.DataDisks.length];
+            for (int i = 0; i < source.DataDisks.length; i++) {
+                this.DataDisks[i] = new DataDisk(source.DataDisks[i]);
+            }
+        }
+        if (source.InternetAccessible != null) {
+            this.InternetAccessible = new InternetAccessible(source.InternetAccessible);
+        }
+        if (source.LoginSettings != null) {
+            this.LoginSettings = new LoginSettings(source.LoginSettings);
+        }
+        if (source.SecurityGroupIds != null) {
+            this.SecurityGroupIds = new String[source.SecurityGroupIds.length];
+            for (int i = 0; i < source.SecurityGroupIds.length; i++) {
+                this.SecurityGroupIds[i] = new String(source.SecurityGroupIds[i]);
+            }
+        }
+        if (source.EnhancedService != null) {
+            this.EnhancedService = new EnhancedService(source.EnhancedService);
+        }
+        if (source.UserData != null) {
+            this.UserData = new String(source.UserData);
+        }
+        if (source.InstanceChargeType != null) {
+            this.InstanceChargeType = new String(source.InstanceChargeType);
+        }
+        if (source.InstanceMarketOptions != null) {
+            this.InstanceMarketOptions = new InstanceMarketOptionsRequest(source.InstanceMarketOptions);
+        }
+        if (source.InstanceTypes != null) {
+            this.InstanceTypes = new String[source.InstanceTypes.length];
+            for (int i = 0; i < source.InstanceTypes.length; i++) {
+                this.InstanceTypes[i] = new String(source.InstanceTypes[i]);
+            }
+        }
+        if (source.InstanceTypesCheckPolicy != null) {
+            this.InstanceTypesCheckPolicy = new String(source.InstanceTypesCheckPolicy);
+        }
+        if (source.InstanceTags != null) {
+            this.InstanceTags = new InstanceTag[source.InstanceTags.length];
+            for (int i = 0; i < source.InstanceTags.length; i++) {
+                this.InstanceTags[i] = new InstanceTag(source.InstanceTags[i]);
+            }
+        }
+        if (source.CamRoleName != null) {
+            this.CamRoleName = new String(source.CamRoleName);
+        }
+        if (source.HostNameSettings != null) {
+            this.HostNameSettings = new HostNameSettings(source.HostNameSettings);
+        }
+        if (source.InstanceNameSettings != null) {
+            this.InstanceNameSettings = new InstanceNameSettings(source.InstanceNameSettings);
+        }
+        if (source.InstanceChargePrepaid != null) {
+            this.InstanceChargePrepaid = new InstanceChargePrepaid(source.InstanceChargePrepaid);
+        }
+        if (source.DiskTypePolicy != null) {
+            this.DiskTypePolicy = new String(source.DiskTypePolicy);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -551,6 +685,7 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
         this.setParamObj(map, prefix + "HostNameSettings.", this.HostNameSettings);
         this.setParamObj(map, prefix + "InstanceNameSettings.", this.InstanceNameSettings);
         this.setParamObj(map, prefix + "InstanceChargePrepaid.", this.InstanceChargePrepaid);
+        this.setParamSimple(map, prefix + "DiskTypePolicy", this.DiskTypePolicy);
 
     }
 }

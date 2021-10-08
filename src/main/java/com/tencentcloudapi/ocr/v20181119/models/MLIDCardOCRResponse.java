@@ -54,6 +54,7 @@ public class MLIDCardOCRResponse extends AbstractModel{
     * 告警码
 -9103	证照翻拍告警
 -9102	证照复印件告警
+-9106       证件遮挡告警
     */
     @SerializedName("Warn")
     @Expose
@@ -67,7 +68,7 @@ public class MLIDCardOCRResponse extends AbstractModel{
     private String Image;
 
     /**
-    * 扩展字段:
+    * 扩展字段：
 {
     ID:{
         Confidence:0.9999
@@ -80,6 +81,27 @@ public class MLIDCardOCRResponse extends AbstractModel{
     @SerializedName("AdvancedInfo")
     @Expose
     private String AdvancedInfo;
+
+    /**
+    * 证件类型
+MyKad  身份证
+MyPR    永居证
+MyTentera   军官证
+MyKAS    临时身份证
+POLIS  警察证
+IKAD   劳工证
+MyKid 儿童卡
+    */
+    @SerializedName("Type")
+    @Expose
+    private String Type;
+
+    /**
+    * 出生日期（目前该字段仅支持IKAD劳工证）
+    */
+    @SerializedName("Birthday")
+    @Expose
+    private String Birthday;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -155,10 +177,12 @@ public class MLIDCardOCRResponse extends AbstractModel{
     /**
      * Get 告警码
 -9103	证照翻拍告警
--9102	证照复印件告警 
+-9102	证照复印件告警
+-9106       证件遮挡告警 
      * @return Warn 告警码
 -9103	证照翻拍告警
 -9102	证照复印件告警
+-9106       证件遮挡告警
      */
     public Long [] getWarn() {
         return this.Warn;
@@ -168,9 +192,11 @@ public class MLIDCardOCRResponse extends AbstractModel{
      * Set 告警码
 -9103	证照翻拍告警
 -9102	证照复印件告警
+-9106       证件遮挡告警
      * @param Warn 告警码
 -9103	证照翻拍告警
 -9102	证照复印件告警
+-9106       证件遮挡告警
      */
     public void setWarn(Long [] Warn) {
         this.Warn = Warn;
@@ -193,7 +219,7 @@ public class MLIDCardOCRResponse extends AbstractModel{
     }
 
     /**
-     * Get 扩展字段:
+     * Get 扩展字段：
 {
     ID:{
         Confidence:0.9999
@@ -202,7 +228,7 @@ public class MLIDCardOCRResponse extends AbstractModel{
         Confidence:0.9996
     }
 } 
-     * @return AdvancedInfo 扩展字段:
+     * @return AdvancedInfo 扩展字段：
 {
     ID:{
         Confidence:0.9999
@@ -217,7 +243,7 @@ public class MLIDCardOCRResponse extends AbstractModel{
     }
 
     /**
-     * Set 扩展字段:
+     * Set 扩展字段：
 {
     ID:{
         Confidence:0.9999
@@ -226,7 +252,7 @@ public class MLIDCardOCRResponse extends AbstractModel{
         Confidence:0.9996
     }
 }
-     * @param AdvancedInfo 扩展字段:
+     * @param AdvancedInfo 扩展字段：
 {
     ID:{
         Confidence:0.9999
@@ -238,6 +264,66 @@ public class MLIDCardOCRResponse extends AbstractModel{
      */
     public void setAdvancedInfo(String AdvancedInfo) {
         this.AdvancedInfo = AdvancedInfo;
+    }
+
+    /**
+     * Get 证件类型
+MyKad  身份证
+MyPR    永居证
+MyTentera   军官证
+MyKAS    临时身份证
+POLIS  警察证
+IKAD   劳工证
+MyKid 儿童卡 
+     * @return Type 证件类型
+MyKad  身份证
+MyPR    永居证
+MyTentera   军官证
+MyKAS    临时身份证
+POLIS  警察证
+IKAD   劳工证
+MyKid 儿童卡
+     */
+    public String getType() {
+        return this.Type;
+    }
+
+    /**
+     * Set 证件类型
+MyKad  身份证
+MyPR    永居证
+MyTentera   军官证
+MyKAS    临时身份证
+POLIS  警察证
+IKAD   劳工证
+MyKid 儿童卡
+     * @param Type 证件类型
+MyKad  身份证
+MyPR    永居证
+MyTentera   军官证
+MyKAS    临时身份证
+POLIS  警察证
+IKAD   劳工证
+MyKid 儿童卡
+     */
+    public void setType(String Type) {
+        this.Type = Type;
+    }
+
+    /**
+     * Get 出生日期（目前该字段仅支持IKAD劳工证） 
+     * @return Birthday 出生日期（目前该字段仅支持IKAD劳工证）
+     */
+    public String getBirthday() {
+        return this.Birthday;
+    }
+
+    /**
+     * Set 出生日期（目前该字段仅支持IKAD劳工证）
+     * @param Birthday 出生日期（目前该字段仅支持IKAD劳工证）
+     */
+    public void setBirthday(String Birthday) {
+        this.Birthday = Birthday;
     }
 
     /**
@@ -256,6 +342,50 @@ public class MLIDCardOCRResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public MLIDCardOCRResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MLIDCardOCRResponse(MLIDCardOCRResponse source) {
+        if (source.ID != null) {
+            this.ID = new String(source.ID);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Address != null) {
+            this.Address = new String(source.Address);
+        }
+        if (source.Sex != null) {
+            this.Sex = new String(source.Sex);
+        }
+        if (source.Warn != null) {
+            this.Warn = new Long[source.Warn.length];
+            for (int i = 0; i < source.Warn.length; i++) {
+                this.Warn[i] = new Long(source.Warn[i]);
+            }
+        }
+        if (source.Image != null) {
+            this.Image = new String(source.Image);
+        }
+        if (source.AdvancedInfo != null) {
+            this.AdvancedInfo = new String(source.AdvancedInfo);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.Birthday != null) {
+            this.Birthday = new String(source.Birthday);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
@@ -267,6 +397,8 @@ public class MLIDCardOCRResponse extends AbstractModel{
         this.setParamArraySimple(map, prefix + "Warn.", this.Warn);
         this.setParamSimple(map, prefix + "Image", this.Image);
         this.setParamSimple(map, prefix + "AdvancedInfo", this.AdvancedInfo);
+        this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamSimple(map, prefix + "Birthday", this.Birthday);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

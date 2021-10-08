@@ -23,13 +23,6 @@ import java.util.HashMap;
 public class CreateVpnConnectionRequest extends AbstractModel{
 
     /**
-    * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
-    */
-    @SerializedName("VpcId")
-    @Expose
-    private String VpcId;
-
-    /**
     * VPN网关实例ID。
     */
     @SerializedName("VpnGatewayId")
@@ -58,6 +51,14 @@ public class CreateVpnConnectionRequest extends AbstractModel{
     private String PreShareKey;
 
     /**
+    * VPC实例ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/215/15778)接口返回值中的VpcId获取。
+CCN VPN 形的通道 可以不传VPCID
+    */
+    @SerializedName("VpcId")
+    @Expose
+    private String VpcId;
+
+    /**
     * SPD策略组，例如：{"10.0.0.5/24":["172.123.10.5/16"]}，10.0.0.5/24是vpc内网段172.123.10.5/16是IDC网段。用户指定VPC内哪些网段可以和您IDC中哪些网段通信。
     */
     @SerializedName("SecurityPolicyDatabases")
@@ -79,20 +80,39 @@ public class CreateVpnConnectionRequest extends AbstractModel{
     private IPSECOptionsSpecification IPSECOptionsSpecification;
 
     /**
-     * Get VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。 
-     * @return VpcId VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
-     */
-    public String getVpcId() {
-        return this.VpcId;
-    }
+    * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
 
     /**
-     * Set VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
-     * @param VpcId VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
-     */
-    public void setVpcId(String VpcId) {
-        this.VpcId = VpcId;
-    }
+    * 是否支持隧道内健康检查
+    */
+    @SerializedName("EnableHealthCheck")
+    @Expose
+    private Boolean EnableHealthCheck;
+
+    /**
+    * 健康检查本端地址
+    */
+    @SerializedName("HealthCheckLocalIp")
+    @Expose
+    private String HealthCheckLocalIp;
+
+    /**
+    * 健康检查对端地址
+    */
+    @SerializedName("HealthCheckRemoteIp")
+    @Expose
+    private String HealthCheckRemoteIp;
+
+    /**
+    * 通道类型, 例如:["STATIC", "StaticRoute", "Policy"]
+    */
+    @SerializedName("RouteType")
+    @Expose
+    private String RouteType;
 
     /**
      * Get VPN网关实例ID。 
@@ -159,6 +179,26 @@ public class CreateVpnConnectionRequest extends AbstractModel{
     }
 
     /**
+     * Get VPC实例ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/215/15778)接口返回值中的VpcId获取。
+CCN VPN 形的通道 可以不传VPCID 
+     * @return VpcId VPC实例ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/215/15778)接口返回值中的VpcId获取。
+CCN VPN 形的通道 可以不传VPCID
+     */
+    public String getVpcId() {
+        return this.VpcId;
+    }
+
+    /**
+     * Set VPC实例ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/215/15778)接口返回值中的VpcId获取。
+CCN VPN 形的通道 可以不传VPCID
+     * @param VpcId VPC实例ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/215/15778)接口返回值中的VpcId获取。
+CCN VPN 形的通道 可以不传VPCID
+     */
+    public void setVpcId(String VpcId) {
+        this.VpcId = VpcId;
+    }
+
+    /**
      * Get SPD策略组，例如：{"10.0.0.5/24":["172.123.10.5/16"]}，10.0.0.5/24是vpc内网段172.123.10.5/16是IDC网段。用户指定VPC内哪些网段可以和您IDC中哪些网段通信。 
      * @return SecurityPolicyDatabases SPD策略组，例如：{"10.0.0.5/24":["172.123.10.5/16"]}，10.0.0.5/24是vpc内网段172.123.10.5/16是IDC网段。用户指定VPC内哪些网段可以和您IDC中哪些网段通信。
      */
@@ -207,17 +247,158 @@ public class CreateVpnConnectionRequest extends AbstractModel{
     }
 
     /**
+     * Get 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}] 
+     * @return Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+     * @param Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
+     * Get 是否支持隧道内健康检查 
+     * @return EnableHealthCheck 是否支持隧道内健康检查
+     */
+    public Boolean getEnableHealthCheck() {
+        return this.EnableHealthCheck;
+    }
+
+    /**
+     * Set 是否支持隧道内健康检查
+     * @param EnableHealthCheck 是否支持隧道内健康检查
+     */
+    public void setEnableHealthCheck(Boolean EnableHealthCheck) {
+        this.EnableHealthCheck = EnableHealthCheck;
+    }
+
+    /**
+     * Get 健康检查本端地址 
+     * @return HealthCheckLocalIp 健康检查本端地址
+     */
+    public String getHealthCheckLocalIp() {
+        return this.HealthCheckLocalIp;
+    }
+
+    /**
+     * Set 健康检查本端地址
+     * @param HealthCheckLocalIp 健康检查本端地址
+     */
+    public void setHealthCheckLocalIp(String HealthCheckLocalIp) {
+        this.HealthCheckLocalIp = HealthCheckLocalIp;
+    }
+
+    /**
+     * Get 健康检查对端地址 
+     * @return HealthCheckRemoteIp 健康检查对端地址
+     */
+    public String getHealthCheckRemoteIp() {
+        return this.HealthCheckRemoteIp;
+    }
+
+    /**
+     * Set 健康检查对端地址
+     * @param HealthCheckRemoteIp 健康检查对端地址
+     */
+    public void setHealthCheckRemoteIp(String HealthCheckRemoteIp) {
+        this.HealthCheckRemoteIp = HealthCheckRemoteIp;
+    }
+
+    /**
+     * Get 通道类型, 例如:["STATIC", "StaticRoute", "Policy"] 
+     * @return RouteType 通道类型, 例如:["STATIC", "StaticRoute", "Policy"]
+     */
+    public String getRouteType() {
+        return this.RouteType;
+    }
+
+    /**
+     * Set 通道类型, 例如:["STATIC", "StaticRoute", "Policy"]
+     * @param RouteType 通道类型, 例如:["STATIC", "StaticRoute", "Policy"]
+     */
+    public void setRouteType(String RouteType) {
+        this.RouteType = RouteType;
+    }
+
+    public CreateVpnConnectionRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateVpnConnectionRequest(CreateVpnConnectionRequest source) {
+        if (source.VpnGatewayId != null) {
+            this.VpnGatewayId = new String(source.VpnGatewayId);
+        }
+        if (source.CustomerGatewayId != null) {
+            this.CustomerGatewayId = new String(source.CustomerGatewayId);
+        }
+        if (source.VpnConnectionName != null) {
+            this.VpnConnectionName = new String(source.VpnConnectionName);
+        }
+        if (source.PreShareKey != null) {
+            this.PreShareKey = new String(source.PreShareKey);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.SecurityPolicyDatabases != null) {
+            this.SecurityPolicyDatabases = new SecurityPolicyDatabase[source.SecurityPolicyDatabases.length];
+            for (int i = 0; i < source.SecurityPolicyDatabases.length; i++) {
+                this.SecurityPolicyDatabases[i] = new SecurityPolicyDatabase(source.SecurityPolicyDatabases[i]);
+            }
+        }
+        if (source.IKEOptionsSpecification != null) {
+            this.IKEOptionsSpecification = new IKEOptionsSpecification(source.IKEOptionsSpecification);
+        }
+        if (source.IPSECOptionsSpecification != null) {
+            this.IPSECOptionsSpecification = new IPSECOptionsSpecification(source.IPSECOptionsSpecification);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.EnableHealthCheck != null) {
+            this.EnableHealthCheck = new Boolean(source.EnableHealthCheck);
+        }
+        if (source.HealthCheckLocalIp != null) {
+            this.HealthCheckLocalIp = new String(source.HealthCheckLocalIp);
+        }
+        if (source.HealthCheckRemoteIp != null) {
+            this.HealthCheckRemoteIp = new String(source.HealthCheckRemoteIp);
+        }
+        if (source.RouteType != null) {
+            this.RouteType = new String(source.RouteType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "VpcId", this.VpcId);
         this.setParamSimple(map, prefix + "VpnGatewayId", this.VpnGatewayId);
         this.setParamSimple(map, prefix + "CustomerGatewayId", this.CustomerGatewayId);
         this.setParamSimple(map, prefix + "VpnConnectionName", this.VpnConnectionName);
         this.setParamSimple(map, prefix + "PreShareKey", this.PreShareKey);
+        this.setParamSimple(map, prefix + "VpcId", this.VpcId);
         this.setParamArrayObj(map, prefix + "SecurityPolicyDatabases.", this.SecurityPolicyDatabases);
         this.setParamObj(map, prefix + "IKEOptionsSpecification.", this.IKEOptionsSpecification);
         this.setParamObj(map, prefix + "IPSECOptionsSpecification.", this.IPSECOptionsSpecification);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "EnableHealthCheck", this.EnableHealthCheck);
+        this.setParamSimple(map, prefix + "HealthCheckLocalIp", this.HealthCheckLocalIp);
+        this.setParamSimple(map, prefix + "HealthCheckRemoteIp", this.HealthCheckRemoteIp);
+        this.setParamSimple(map, prefix + "RouteType", this.RouteType);
 
     }
 }

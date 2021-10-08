@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class ModifyAddressesBandwidthRequest extends AbstractModel{
 
     /**
-    * EIP唯一标识ID，形如'eip-xxxx'
+    * EIP唯一标识ID列表，形如'eip-xxxx'
     */
     @SerializedName("AddressIds")
     @Expose
@@ -37,30 +37,30 @@ public class ModifyAddressesBandwidthRequest extends AbstractModel{
     private Long InternetMaxBandwidthOut;
 
     /**
-    * 包月带宽起始时间
+    * 包月带宽起始时间(已废弃，输入无效)
     */
     @SerializedName("StartTime")
     @Expose
     private String StartTime;
 
     /**
-    * 包月带宽结束时间
+    * 包月带宽结束时间(已废弃，输入无效)
     */
     @SerializedName("EndTime")
     @Expose
     private String EndTime;
 
     /**
-     * Get EIP唯一标识ID，形如'eip-xxxx' 
-     * @return AddressIds EIP唯一标识ID，形如'eip-xxxx'
+     * Get EIP唯一标识ID列表，形如'eip-xxxx' 
+     * @return AddressIds EIP唯一标识ID列表，形如'eip-xxxx'
      */
     public String [] getAddressIds() {
         return this.AddressIds;
     }
 
     /**
-     * Set EIP唯一标识ID，形如'eip-xxxx'
-     * @param AddressIds EIP唯一标识ID，形如'eip-xxxx'
+     * Set EIP唯一标识ID列表，形如'eip-xxxx'
+     * @param AddressIds EIP唯一标识ID列表，形如'eip-xxxx'
      */
     public void setAddressIds(String [] AddressIds) {
         this.AddressIds = AddressIds;
@@ -83,36 +83,62 @@ public class ModifyAddressesBandwidthRequest extends AbstractModel{
     }
 
     /**
-     * Get 包月带宽起始时间 
-     * @return StartTime 包月带宽起始时间
+     * Get 包月带宽起始时间(已废弃，输入无效) 
+     * @return StartTime 包月带宽起始时间(已废弃，输入无效)
      */
     public String getStartTime() {
         return this.StartTime;
     }
 
     /**
-     * Set 包月带宽起始时间
-     * @param StartTime 包月带宽起始时间
+     * Set 包月带宽起始时间(已废弃，输入无效)
+     * @param StartTime 包月带宽起始时间(已废弃，输入无效)
      */
     public void setStartTime(String StartTime) {
         this.StartTime = StartTime;
     }
 
     /**
-     * Get 包月带宽结束时间 
-     * @return EndTime 包月带宽结束时间
+     * Get 包月带宽结束时间(已废弃，输入无效) 
+     * @return EndTime 包月带宽结束时间(已废弃，输入无效)
      */
     public String getEndTime() {
         return this.EndTime;
     }
 
     /**
-     * Set 包月带宽结束时间
-     * @param EndTime 包月带宽结束时间
+     * Set 包月带宽结束时间(已废弃，输入无效)
+     * @param EndTime 包月带宽结束时间(已废弃，输入无效)
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
     }
+
+    public ModifyAddressesBandwidthRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyAddressesBandwidthRequest(ModifyAddressesBandwidthRequest source) {
+        if (source.AddressIds != null) {
+            this.AddressIds = new String[source.AddressIds.length];
+            for (int i = 0; i < source.AddressIds.length; i++) {
+                this.AddressIds[i] = new String(source.AddressIds[i]);
+            }
+        }
+        if (source.InternetMaxBandwidthOut != null) {
+            this.InternetMaxBandwidthOut = new Long(source.InternetMaxBandwidthOut);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

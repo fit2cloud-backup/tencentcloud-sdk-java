@@ -23,50 +23,72 @@ import java.util.HashMap;
 public class PlayCodeTotalInfo extends AbstractModel{
 
     /**
-    * HTTP code，可选值包括400,403,404,500,502,503,504
+    * HTTP code，可选值包括:
+400，403，404，500，502，503，504。
     */
     @SerializedName("Code")
     @Expose
     private String Code;
 
     /**
-    * 总次数
+    * 总次数。
     */
     @SerializedName("Num")
     @Expose
     private Long Num;
 
     /**
-     * Get HTTP code，可选值包括400,403,404,500,502,503,504 
-     * @return Code HTTP code，可选值包括400,403,404,500,502,503,504
+     * Get HTTP code，可选值包括:
+400，403，404，500，502，503，504。 
+     * @return Code HTTP code，可选值包括:
+400，403，404，500，502，503，504。
      */
     public String getCode() {
         return this.Code;
     }
 
     /**
-     * Set HTTP code，可选值包括400,403,404,500,502,503,504
-     * @param Code HTTP code，可选值包括400,403,404,500,502,503,504
+     * Set HTTP code，可选值包括:
+400，403，404，500，502，503，504。
+     * @param Code HTTP code，可选值包括:
+400，403，404，500，502，503，504。
      */
     public void setCode(String Code) {
         this.Code = Code;
     }
 
     /**
-     * Get 总次数 
-     * @return Num 总次数
+     * Get 总次数。 
+     * @return Num 总次数。
      */
     public Long getNum() {
         return this.Num;
     }
 
     /**
-     * Set 总次数
-     * @param Num 总次数
+     * Set 总次数。
+     * @param Num 总次数。
      */
     public void setNum(Long Num) {
         this.Num = Num;
     }
+
+    public PlayCodeTotalInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public PlayCodeTotalInfo(PlayCodeTotalInfo source) {
+        if (source.Code != null) {
+            this.Code = new String(source.Code);
+        }
+        if (source.Num != null) {
+            this.Num = new Long(source.Num);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

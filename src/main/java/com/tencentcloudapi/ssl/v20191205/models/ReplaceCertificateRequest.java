@@ -30,7 +30,7 @@ public class ReplaceCertificateRequest extends AbstractModel{
     private String CertificateId;
 
     /**
-    * 验证类型：DNS_AUTO = 自动DNS验证，DNS = 手动DNS验证，FILE = 文件验证。
+    * 验证类型：DNS_AUTO = 自动DNS验证（仅支持在腾讯云解析且解析状态正常的域名使用该验证类型），DNS = 手动DNS验证，FILE = 文件验证。
     */
     @SerializedName("ValidType")
     @Expose
@@ -58,6 +58,13 @@ public class ReplaceCertificateRequest extends AbstractModel{
     private String CsrkeyPassword;
 
     /**
+    * 重颁发原因。
+    */
+    @SerializedName("Reason")
+    @Expose
+    private String Reason;
+
+    /**
      * Get 证书 ID。 
      * @return CertificateId 证书 ID。
      */
@@ -74,16 +81,16 @@ public class ReplaceCertificateRequest extends AbstractModel{
     }
 
     /**
-     * Get 验证类型：DNS_AUTO = 自动DNS验证，DNS = 手动DNS验证，FILE = 文件验证。 
-     * @return ValidType 验证类型：DNS_AUTO = 自动DNS验证，DNS = 手动DNS验证，FILE = 文件验证。
+     * Get 验证类型：DNS_AUTO = 自动DNS验证（仅支持在腾讯云解析且解析状态正常的域名使用该验证类型），DNS = 手动DNS验证，FILE = 文件验证。 
+     * @return ValidType 验证类型：DNS_AUTO = 自动DNS验证（仅支持在腾讯云解析且解析状态正常的域名使用该验证类型），DNS = 手动DNS验证，FILE = 文件验证。
      */
     public String getValidType() {
         return this.ValidType;
     }
 
     /**
-     * Set 验证类型：DNS_AUTO = 自动DNS验证，DNS = 手动DNS验证，FILE = 文件验证。
-     * @param ValidType 验证类型：DNS_AUTO = 自动DNS验证，DNS = 手动DNS验证，FILE = 文件验证。
+     * Set 验证类型：DNS_AUTO = 自动DNS验证（仅支持在腾讯云解析且解析状态正常的域名使用该验证类型），DNS = 手动DNS验证，FILE = 文件验证。
+     * @param ValidType 验证类型：DNS_AUTO = 自动DNS验证（仅支持在腾讯云解析且解析状态正常的域名使用该验证类型），DNS = 手动DNS验证，FILE = 文件验证。
      */
     public void setValidType(String ValidType) {
         this.ValidType = ValidType;
@@ -138,6 +145,51 @@ public class ReplaceCertificateRequest extends AbstractModel{
     }
 
     /**
+     * Get 重颁发原因。 
+     * @return Reason 重颁发原因。
+     */
+    public String getReason() {
+        return this.Reason;
+    }
+
+    /**
+     * Set 重颁发原因。
+     * @param Reason 重颁发原因。
+     */
+    public void setReason(String Reason) {
+        this.Reason = Reason;
+    }
+
+    public ReplaceCertificateRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ReplaceCertificateRequest(ReplaceCertificateRequest source) {
+        if (source.CertificateId != null) {
+            this.CertificateId = new String(source.CertificateId);
+        }
+        if (source.ValidType != null) {
+            this.ValidType = new String(source.ValidType);
+        }
+        if (source.CsrType != null) {
+            this.CsrType = new String(source.CsrType);
+        }
+        if (source.CsrContent != null) {
+            this.CsrContent = new String(source.CsrContent);
+        }
+        if (source.CsrkeyPassword != null) {
+            this.CsrkeyPassword = new String(source.CsrkeyPassword);
+        }
+        if (source.Reason != null) {
+            this.Reason = new String(source.Reason);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -146,6 +198,7 @@ public class ReplaceCertificateRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "CsrType", this.CsrType);
         this.setParamSimple(map, prefix + "CsrContent", this.CsrContent);
         this.setParamSimple(map, prefix + "CsrkeyPassword", this.CsrkeyPassword);
+        this.setParamSimple(map, prefix + "Reason", this.Reason);
 
     }
 }

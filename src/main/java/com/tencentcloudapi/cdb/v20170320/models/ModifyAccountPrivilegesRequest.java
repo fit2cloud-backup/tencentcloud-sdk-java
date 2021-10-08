@@ -69,6 +69,13 @@ public class ModifyAccountPrivilegesRequest extends AbstractModel{
     private ColumnPrivilege [] ColumnPrivileges;
 
     /**
+    * 该参数不为空时，为批量修改权限。可选值为：grant，revoke。
+    */
+    @SerializedName("ModifyAction")
+    @Expose
+    private String ModifyAction;
+
+    /**
      * Get 实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。 
      * @return InstanceId 实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
      */
@@ -181,6 +188,69 @@ public class ModifyAccountPrivilegesRequest extends AbstractModel{
     }
 
     /**
+     * Get 该参数不为空时，为批量修改权限。可选值为：grant，revoke。 
+     * @return ModifyAction 该参数不为空时，为批量修改权限。可选值为：grant，revoke。
+     */
+    public String getModifyAction() {
+        return this.ModifyAction;
+    }
+
+    /**
+     * Set 该参数不为空时，为批量修改权限。可选值为：grant，revoke。
+     * @param ModifyAction 该参数不为空时，为批量修改权限。可选值为：grant，revoke。
+     */
+    public void setModifyAction(String ModifyAction) {
+        this.ModifyAction = ModifyAction;
+    }
+
+    public ModifyAccountPrivilegesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyAccountPrivilegesRequest(ModifyAccountPrivilegesRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.Accounts != null) {
+            this.Accounts = new Account[source.Accounts.length];
+            for (int i = 0; i < source.Accounts.length; i++) {
+                this.Accounts[i] = new Account(source.Accounts[i]);
+            }
+        }
+        if (source.GlobalPrivileges != null) {
+            this.GlobalPrivileges = new String[source.GlobalPrivileges.length];
+            for (int i = 0; i < source.GlobalPrivileges.length; i++) {
+                this.GlobalPrivileges[i] = new String(source.GlobalPrivileges[i]);
+            }
+        }
+        if (source.DatabasePrivileges != null) {
+            this.DatabasePrivileges = new DatabasePrivilege[source.DatabasePrivileges.length];
+            for (int i = 0; i < source.DatabasePrivileges.length; i++) {
+                this.DatabasePrivileges[i] = new DatabasePrivilege(source.DatabasePrivileges[i]);
+            }
+        }
+        if (source.TablePrivileges != null) {
+            this.TablePrivileges = new TablePrivilege[source.TablePrivileges.length];
+            for (int i = 0; i < source.TablePrivileges.length; i++) {
+                this.TablePrivileges[i] = new TablePrivilege(source.TablePrivileges[i]);
+            }
+        }
+        if (source.ColumnPrivileges != null) {
+            this.ColumnPrivileges = new ColumnPrivilege[source.ColumnPrivileges.length];
+            for (int i = 0; i < source.ColumnPrivileges.length; i++) {
+                this.ColumnPrivileges[i] = new ColumnPrivilege(source.ColumnPrivileges[i]);
+            }
+        }
+        if (source.ModifyAction != null) {
+            this.ModifyAction = new String(source.ModifyAction);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -190,6 +260,7 @@ public class ModifyAccountPrivilegesRequest extends AbstractModel{
         this.setParamArrayObj(map, prefix + "DatabasePrivileges.", this.DatabasePrivileges);
         this.setParamArrayObj(map, prefix + "TablePrivileges.", this.TablePrivileges);
         this.setParamArrayObj(map, prefix + "ColumnPrivileges.", this.ColumnPrivileges);
+        this.setParamSimple(map, prefix + "ModifyAction", this.ModifyAction);
 
     }
 }

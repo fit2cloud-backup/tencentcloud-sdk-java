@@ -34,7 +34,7 @@ public class VideoTemplateInfo extends AbstractModel{
     private String Codec;
 
     /**
-    * 视频帧率，取值范围：[0, 60]，单位：Hz。
+    * 视频帧率，取值范围：[0, 100]，单位：Hz。
 当取值为 0，表示帧率和原始视频保持一致。
     */
     @SerializedName("Fps")
@@ -95,11 +95,22 @@ public class VideoTemplateInfo extends AbstractModel{
     * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
 <li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
 <li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+<li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li>
+<li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊填充。</li>
 默认值：black 。
     */
     @SerializedName("FillType")
     @Expose
     private String FillType;
+
+    /**
+    * 视频恒定码率控制因子，取值范围为[1, 51]。
+如果指定该参数，将使用 CRF 的码率控制方式做转码（视频码率将不再生效）。
+如果没有特殊需求，不建议指定该参数。
+    */
+    @SerializedName("Vcrf")
+    @Expose
+    private Long Vcrf;
 
     /**
      * Get 视频流的编码格式，可选值：
@@ -134,9 +145,9 @@ public class VideoTemplateInfo extends AbstractModel{
     }
 
     /**
-     * Get 视频帧率，取值范围：[0, 60]，单位：Hz。
+     * Get 视频帧率，取值范围：[0, 100]，单位：Hz。
 当取值为 0，表示帧率和原始视频保持一致。 
-     * @return Fps 视频帧率，取值范围：[0, 60]，单位：Hz。
+     * @return Fps 视频帧率，取值范围：[0, 100]，单位：Hz。
 当取值为 0，表示帧率和原始视频保持一致。
      */
     public Long getFps() {
@@ -144,9 +155,9 @@ public class VideoTemplateInfo extends AbstractModel{
     }
 
     /**
-     * Set 视频帧率，取值范围：[0, 60]，单位：Hz。
+     * Set 视频帧率，取值范围：[0, 100]，单位：Hz。
 当取值为 0，表示帧率和原始视频保持一致。
-     * @param Fps 视频帧率，取值范围：[0, 60]，单位：Hz。
+     * @param Fps 视频帧率，取值范围：[0, 100]，单位：Hz。
 当取值为 0，表示帧率和原始视频保持一致。
      */
     public void setFps(Long Fps) {
@@ -297,10 +308,14 @@ public class VideoTemplateInfo extends AbstractModel{
      * Get 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
 <li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
 <li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+<li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li>
+<li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊填充。</li>
 默认值：black 。 
      * @return FillType 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
 <li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
 <li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+<li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li>
+<li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊填充。</li>
 默认值：black 。
      */
     public String getFillType() {
@@ -311,15 +326,81 @@ public class VideoTemplateInfo extends AbstractModel{
      * Set 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
 <li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
 <li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+<li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li>
+<li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊填充。</li>
 默认值：black 。
      * @param FillType 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
 <li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
 <li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+<li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li>
+<li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊填充。</li>
 默认值：black 。
      */
     public void setFillType(String FillType) {
         this.FillType = FillType;
     }
+
+    /**
+     * Get 视频恒定码率控制因子，取值范围为[1, 51]。
+如果指定该参数，将使用 CRF 的码率控制方式做转码（视频码率将不再生效）。
+如果没有特殊需求，不建议指定该参数。 
+     * @return Vcrf 视频恒定码率控制因子，取值范围为[1, 51]。
+如果指定该参数，将使用 CRF 的码率控制方式做转码（视频码率将不再生效）。
+如果没有特殊需求，不建议指定该参数。
+     */
+    public Long getVcrf() {
+        return this.Vcrf;
+    }
+
+    /**
+     * Set 视频恒定码率控制因子，取值范围为[1, 51]。
+如果指定该参数，将使用 CRF 的码率控制方式做转码（视频码率将不再生效）。
+如果没有特殊需求，不建议指定该参数。
+     * @param Vcrf 视频恒定码率控制因子，取值范围为[1, 51]。
+如果指定该参数，将使用 CRF 的码率控制方式做转码（视频码率将不再生效）。
+如果没有特殊需求，不建议指定该参数。
+     */
+    public void setVcrf(Long Vcrf) {
+        this.Vcrf = Vcrf;
+    }
+
+    public VideoTemplateInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public VideoTemplateInfo(VideoTemplateInfo source) {
+        if (source.Codec != null) {
+            this.Codec = new String(source.Codec);
+        }
+        if (source.Fps != null) {
+            this.Fps = new Long(source.Fps);
+        }
+        if (source.Bitrate != null) {
+            this.Bitrate = new Long(source.Bitrate);
+        }
+        if (source.ResolutionAdaptive != null) {
+            this.ResolutionAdaptive = new String(source.ResolutionAdaptive);
+        }
+        if (source.Width != null) {
+            this.Width = new Long(source.Width);
+        }
+        if (source.Height != null) {
+            this.Height = new Long(source.Height);
+        }
+        if (source.Gop != null) {
+            this.Gop = new Long(source.Gop);
+        }
+        if (source.FillType != null) {
+            this.FillType = new String(source.FillType);
+        }
+        if (source.Vcrf != null) {
+            this.Vcrf = new Long(source.Vcrf);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -333,6 +414,7 @@ public class VideoTemplateInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Height", this.Height);
         this.setParamSimple(map, prefix + "Gop", this.Gop);
         this.setParamSimple(map, prefix + "FillType", this.FillType);
+        this.setParamSimple(map, prefix + "Vcrf", this.Vcrf);
 
     }
 }

@@ -27,6 +27,7 @@ import com.tencentcloudapi.habo.v20181203.models.*;
 
 public class HaboClient extends AbstractClient{
     private static String endpoint = "habo.tencentcloudapi.com";
+    private static String service = "habo";
     private static String version = "2018-12-03";
 
     public HaboClient(Credential credential, String region) {
@@ -45,12 +46,14 @@ public class HaboClient extends AbstractClient{
      */
     public DescribeStatusResponse DescribeStatus(DescribeStatusRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeStatusResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeStatusResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeStatus"), type);
+                rspStr = this.internalRequest(req, "DescribeStatus");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -63,12 +66,14 @@ public class HaboClient extends AbstractClient{
      */
     public StartAnalyseResponse StartAnalyse(StartAnalyseRequest req) throws TencentCloudSDKException{
         JsonResponseModel<StartAnalyseResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<StartAnalyseResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "StartAnalyse"), type);
+                rspStr = this.internalRequest(req, "StartAnalyse");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

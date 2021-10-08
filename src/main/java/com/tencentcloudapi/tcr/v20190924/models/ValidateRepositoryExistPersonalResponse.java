@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class ValidateRepositoryExistPersonalResponse extends AbstractModel{
 
     /**
-    * 仓库是否存在
+    * 验证个人版仓库是否存在返回信息
     */
     @SerializedName("Data")
     @Expose
@@ -37,16 +37,16 @@ public class ValidateRepositoryExistPersonalResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 仓库是否存在 
-     * @return Data 仓库是否存在
+     * Get 验证个人版仓库是否存在返回信息 
+     * @return Data 验证个人版仓库是否存在返回信息
      */
     public RepoIsExistResp getData() {
         return this.Data;
     }
 
     /**
-     * Set 仓库是否存在
-     * @param Data 仓库是否存在
+     * Set 验证个人版仓库是否存在返回信息
+     * @param Data 验证个人版仓库是否存在返回信息
      */
     public void setData(RepoIsExistResp Data) {
         this.Data = Data;
@@ -67,6 +67,23 @@ public class ValidateRepositoryExistPersonalResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public ValidateRepositoryExistPersonalResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ValidateRepositoryExistPersonalResponse(ValidateRepositoryExistPersonalResponse source) {
+        if (source.Data != null) {
+            this.Data = new RepoIsExistResp(source.Data);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

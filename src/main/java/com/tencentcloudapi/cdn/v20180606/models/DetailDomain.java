@@ -293,7 +293,7 @@ readonly：域名存在特殊配置，被锁定
     private MaxAge MaxAge;
 
     /**
-    * Ipv6 配置（功能灰度中，敬请期待）
+    * Ipv6 回源配置（功能灰度中，敬请期待）
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Ipv6")
@@ -354,6 +354,152 @@ global：全球锁定
     @SerializedName("AwsPrivateAccess")
     @Expose
     private AwsPrivateAccess AwsPrivateAccess;
+
+    /**
+    * Scdn配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SecurityConfig")
+    @Expose
+    private SecurityConfig SecurityConfig;
+
+    /**
+    * ImageOptimization配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ImageOptimization")
+    @Expose
+    private ImageOptimization ImageOptimization;
+
+    /**
+    * UA黑白名单配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UserAgentFilter")
+    @Expose
+    private UserAgentFilter UserAgentFilter;
+
+    /**
+    * 访问控制
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AccessControl")
+    @Expose
+    private AccessControl AccessControl;
+
+    /**
+    * 是否支持高级配置项
+on：支持
+off：不支持
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Advance")
+    @Expose
+    private String Advance;
+
+    /**
+    * URL重定向配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UrlRedirect")
+    @Expose
+    private UrlRedirect UrlRedirect;
+
+    /**
+    * 访问端口配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AccessPort")
+    @Expose
+    private Long [] AccessPort;
+
+    /**
+    * 标签配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Tag")
+    @Expose
+    private Tag [] Tag;
+
+    /**
+    * 时间戳防盗链高级配置，白名单功能
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AdvancedAuthentication")
+    @Expose
+    private AdvancedAuthentication AdvancedAuthentication;
+
+    /**
+    * 回源鉴权高级配置，白名单功能
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OriginAuthentication")
+    @Expose
+    private OriginAuthentication OriginAuthentication;
+
+    /**
+    * Ipv6访问配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Ipv6Access")
+    @Expose
+    private Ipv6Access Ipv6Access;
+
+    /**
+    * 高级配置集合。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AdvanceSet")
+    @Expose
+    private AdvanceConfig [] AdvanceSet;
+
+    /**
+    * 离线缓存
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OfflineCache")
+    @Expose
+    private OfflineCache OfflineCache;
+
+    /**
+    * 合并回源
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OriginCombine")
+    @Expose
+    private OriginCombine OriginCombine;
+
+    /**
+    * POST上传配置项
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PostMaxSize")
+    @Expose
+    private PostSize PostMaxSize;
+
+    /**
+    * Quic配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Quic")
+    @Expose
+    private Quic Quic;
+
+    /**
+    * 回源OSS私有鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OssPrivateAccess")
+    @Expose
+    private OssPrivateAccess OssPrivateAccess;
+
+    /**
+    * WebSocket配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("WebSocket")
+    @Expose
+    private WebSocket WebSocket;
 
     /**
      * Get 域名 ID 
@@ -1040,9 +1186,9 @@ readonly：域名存在特殊配置，被锁定
     }
 
     /**
-     * Get Ipv6 配置（功能灰度中，敬请期待）
+     * Get Ipv6 回源配置（功能灰度中，敬请期待）
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Ipv6 Ipv6 配置（功能灰度中，敬请期待）
+     * @return Ipv6 Ipv6 回源配置（功能灰度中，敬请期待）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Ipv6 getIpv6() {
@@ -1050,9 +1196,9 @@ readonly：域名存在特殊配置，被锁定
     }
 
     /**
-     * Set Ipv6 配置（功能灰度中，敬请期待）
+     * Set Ipv6 回源配置（功能灰度中，敬请期待）
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Ipv6 Ipv6 配置（功能灰度中，敬请期待）
+     * @param Ipv6 Ipv6 回源配置（功能灰度中，敬请期待）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIpv6(Ipv6 Ipv6) {
@@ -1208,6 +1354,568 @@ global：全球锁定
     }
 
     /**
+     * Get Scdn配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SecurityConfig Scdn配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public SecurityConfig getSecurityConfig() {
+        return this.SecurityConfig;
+    }
+
+    /**
+     * Set Scdn配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SecurityConfig Scdn配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSecurityConfig(SecurityConfig SecurityConfig) {
+        this.SecurityConfig = SecurityConfig;
+    }
+
+    /**
+     * Get ImageOptimization配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ImageOptimization ImageOptimization配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ImageOptimization getImageOptimization() {
+        return this.ImageOptimization;
+    }
+
+    /**
+     * Set ImageOptimization配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ImageOptimization ImageOptimization配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setImageOptimization(ImageOptimization ImageOptimization) {
+        this.ImageOptimization = ImageOptimization;
+    }
+
+    /**
+     * Get UA黑白名单配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UserAgentFilter UA黑白名单配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public UserAgentFilter getUserAgentFilter() {
+        return this.UserAgentFilter;
+    }
+
+    /**
+     * Set UA黑白名单配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UserAgentFilter UA黑白名单配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUserAgentFilter(UserAgentFilter UserAgentFilter) {
+        this.UserAgentFilter = UserAgentFilter;
+    }
+
+    /**
+     * Get 访问控制
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AccessControl 访问控制
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AccessControl getAccessControl() {
+        return this.AccessControl;
+    }
+
+    /**
+     * Set 访问控制
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AccessControl 访问控制
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAccessControl(AccessControl AccessControl) {
+        this.AccessControl = AccessControl;
+    }
+
+    /**
+     * Get 是否支持高级配置项
+on：支持
+off：不支持
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Advance 是否支持高级配置项
+on：支持
+off：不支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAdvance() {
+        return this.Advance;
+    }
+
+    /**
+     * Set 是否支持高级配置项
+on：支持
+off：不支持
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Advance 是否支持高级配置项
+on：支持
+off：不支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAdvance(String Advance) {
+        this.Advance = Advance;
+    }
+
+    /**
+     * Get URL重定向配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UrlRedirect URL重定向配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public UrlRedirect getUrlRedirect() {
+        return this.UrlRedirect;
+    }
+
+    /**
+     * Set URL重定向配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UrlRedirect URL重定向配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUrlRedirect(UrlRedirect UrlRedirect) {
+        this.UrlRedirect = UrlRedirect;
+    }
+
+    /**
+     * Get 访问端口配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AccessPort 访问端口配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long [] getAccessPort() {
+        return this.AccessPort;
+    }
+
+    /**
+     * Set 访问端口配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AccessPort 访问端口配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAccessPort(Long [] AccessPort) {
+        this.AccessPort = AccessPort;
+    }
+
+    /**
+     * Get 标签配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Tag 标签配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Tag [] getTag() {
+        return this.Tag;
+    }
+
+    /**
+     * Set 标签配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Tag 标签配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTag(Tag [] Tag) {
+        this.Tag = Tag;
+    }
+
+    /**
+     * Get 时间戳防盗链高级配置，白名单功能
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AdvancedAuthentication 时间戳防盗链高级配置，白名单功能
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AdvancedAuthentication getAdvancedAuthentication() {
+        return this.AdvancedAuthentication;
+    }
+
+    /**
+     * Set 时间戳防盗链高级配置，白名单功能
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AdvancedAuthentication 时间戳防盗链高级配置，白名单功能
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAdvancedAuthentication(AdvancedAuthentication AdvancedAuthentication) {
+        this.AdvancedAuthentication = AdvancedAuthentication;
+    }
+
+    /**
+     * Get 回源鉴权高级配置，白名单功能
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OriginAuthentication 回源鉴权高级配置，白名单功能
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public OriginAuthentication getOriginAuthentication() {
+        return this.OriginAuthentication;
+    }
+
+    /**
+     * Set 回源鉴权高级配置，白名单功能
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OriginAuthentication 回源鉴权高级配置，白名单功能
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOriginAuthentication(OriginAuthentication OriginAuthentication) {
+        this.OriginAuthentication = OriginAuthentication;
+    }
+
+    /**
+     * Get Ipv6访问配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Ipv6Access Ipv6访问配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Ipv6Access getIpv6Access() {
+        return this.Ipv6Access;
+    }
+
+    /**
+     * Set Ipv6访问配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Ipv6Access Ipv6访问配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIpv6Access(Ipv6Access Ipv6Access) {
+        this.Ipv6Access = Ipv6Access;
+    }
+
+    /**
+     * Get 高级配置集合。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AdvanceSet 高级配置集合。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AdvanceConfig [] getAdvanceSet() {
+        return this.AdvanceSet;
+    }
+
+    /**
+     * Set 高级配置集合。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AdvanceSet 高级配置集合。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAdvanceSet(AdvanceConfig [] AdvanceSet) {
+        this.AdvanceSet = AdvanceSet;
+    }
+
+    /**
+     * Get 离线缓存
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OfflineCache 离线缓存
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public OfflineCache getOfflineCache() {
+        return this.OfflineCache;
+    }
+
+    /**
+     * Set 离线缓存
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OfflineCache 离线缓存
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOfflineCache(OfflineCache OfflineCache) {
+        this.OfflineCache = OfflineCache;
+    }
+
+    /**
+     * Get 合并回源
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OriginCombine 合并回源
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public OriginCombine getOriginCombine() {
+        return this.OriginCombine;
+    }
+
+    /**
+     * Set 合并回源
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OriginCombine 合并回源
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOriginCombine(OriginCombine OriginCombine) {
+        this.OriginCombine = OriginCombine;
+    }
+
+    /**
+     * Get POST上传配置项
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PostMaxSize POST上传配置项
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public PostSize getPostMaxSize() {
+        return this.PostMaxSize;
+    }
+
+    /**
+     * Set POST上传配置项
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PostMaxSize POST上传配置项
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPostMaxSize(PostSize PostMaxSize) {
+        this.PostMaxSize = PostMaxSize;
+    }
+
+    /**
+     * Get Quic配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Quic Quic配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Quic getQuic() {
+        return this.Quic;
+    }
+
+    /**
+     * Set Quic配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Quic Quic配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setQuic(Quic Quic) {
+        this.Quic = Quic;
+    }
+
+    /**
+     * Get 回源OSS私有鉴权
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OssPrivateAccess 回源OSS私有鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public OssPrivateAccess getOssPrivateAccess() {
+        return this.OssPrivateAccess;
+    }
+
+    /**
+     * Set 回源OSS私有鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OssPrivateAccess 回源OSS私有鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOssPrivateAccess(OssPrivateAccess OssPrivateAccess) {
+        this.OssPrivateAccess = OssPrivateAccess;
+    }
+
+    /**
+     * Get WebSocket配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return WebSocket WebSocket配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public WebSocket getWebSocket() {
+        return this.WebSocket;
+    }
+
+    /**
+     * Set WebSocket配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param WebSocket WebSocket配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setWebSocket(WebSocket WebSocket) {
+        this.WebSocket = WebSocket;
+    }
+
+    public DetailDomain() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DetailDomain(DetailDomain source) {
+        if (source.ResourceId != null) {
+            this.ResourceId = new String(source.ResourceId);
+        }
+        if (source.AppId != null) {
+            this.AppId = new Long(source.AppId);
+        }
+        if (source.Domain != null) {
+            this.Domain = new String(source.Domain);
+        }
+        if (source.Cname != null) {
+            this.Cname = new String(source.Cname);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.ServiceType != null) {
+            this.ServiceType = new String(source.ServiceType);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+        if (source.Origin != null) {
+            this.Origin = new Origin(source.Origin);
+        }
+        if (source.IpFilter != null) {
+            this.IpFilter = new IpFilter(source.IpFilter);
+        }
+        if (source.IpFreqLimit != null) {
+            this.IpFreqLimit = new IpFreqLimit(source.IpFreqLimit);
+        }
+        if (source.StatusCodeCache != null) {
+            this.StatusCodeCache = new StatusCodeCache(source.StatusCodeCache);
+        }
+        if (source.Compression != null) {
+            this.Compression = new Compression(source.Compression);
+        }
+        if (source.BandwidthAlert != null) {
+            this.BandwidthAlert = new BandwidthAlert(source.BandwidthAlert);
+        }
+        if (source.RangeOriginPull != null) {
+            this.RangeOriginPull = new RangeOriginPull(source.RangeOriginPull);
+        }
+        if (source.FollowRedirect != null) {
+            this.FollowRedirect = new FollowRedirect(source.FollowRedirect);
+        }
+        if (source.ErrorPage != null) {
+            this.ErrorPage = new ErrorPage(source.ErrorPage);
+        }
+        if (source.RequestHeader != null) {
+            this.RequestHeader = new RequestHeader(source.RequestHeader);
+        }
+        if (source.ResponseHeader != null) {
+            this.ResponseHeader = new ResponseHeader(source.ResponseHeader);
+        }
+        if (source.DownstreamCapping != null) {
+            this.DownstreamCapping = new DownstreamCapping(source.DownstreamCapping);
+        }
+        if (source.CacheKey != null) {
+            this.CacheKey = new CacheKey(source.CacheKey);
+        }
+        if (source.ResponseHeaderCache != null) {
+            this.ResponseHeaderCache = new ResponseHeaderCache(source.ResponseHeaderCache);
+        }
+        if (source.VideoSeek != null) {
+            this.VideoSeek = new VideoSeek(source.VideoSeek);
+        }
+        if (source.Cache != null) {
+            this.Cache = new Cache(source.Cache);
+        }
+        if (source.OriginPullOptimization != null) {
+            this.OriginPullOptimization = new OriginPullOptimization(source.OriginPullOptimization);
+        }
+        if (source.Https != null) {
+            this.Https = new Https(source.Https);
+        }
+        if (source.Authentication != null) {
+            this.Authentication = new Authentication(source.Authentication);
+        }
+        if (source.Seo != null) {
+            this.Seo = new Seo(source.Seo);
+        }
+        if (source.Disable != null) {
+            this.Disable = new String(source.Disable);
+        }
+        if (source.ForceRedirect != null) {
+            this.ForceRedirect = new ForceRedirect(source.ForceRedirect);
+        }
+        if (source.Referer != null) {
+            this.Referer = new Referer(source.Referer);
+        }
+        if (source.MaxAge != null) {
+            this.MaxAge = new MaxAge(source.MaxAge);
+        }
+        if (source.Ipv6 != null) {
+            this.Ipv6 = new Ipv6(source.Ipv6);
+        }
+        if (source.Compatibility != null) {
+            this.Compatibility = new Compatibility(source.Compatibility);
+        }
+        if (source.SpecificConfig != null) {
+            this.SpecificConfig = new SpecificConfig(source.SpecificConfig);
+        }
+        if (source.Area != null) {
+            this.Area = new String(source.Area);
+        }
+        if (source.Readonly != null) {
+            this.Readonly = new String(source.Readonly);
+        }
+        if (source.OriginPullTimeout != null) {
+            this.OriginPullTimeout = new OriginPullTimeout(source.OriginPullTimeout);
+        }
+        if (source.AwsPrivateAccess != null) {
+            this.AwsPrivateAccess = new AwsPrivateAccess(source.AwsPrivateAccess);
+        }
+        if (source.SecurityConfig != null) {
+            this.SecurityConfig = new SecurityConfig(source.SecurityConfig);
+        }
+        if (source.ImageOptimization != null) {
+            this.ImageOptimization = new ImageOptimization(source.ImageOptimization);
+        }
+        if (source.UserAgentFilter != null) {
+            this.UserAgentFilter = new UserAgentFilter(source.UserAgentFilter);
+        }
+        if (source.AccessControl != null) {
+            this.AccessControl = new AccessControl(source.AccessControl);
+        }
+        if (source.Advance != null) {
+            this.Advance = new String(source.Advance);
+        }
+        if (source.UrlRedirect != null) {
+            this.UrlRedirect = new UrlRedirect(source.UrlRedirect);
+        }
+        if (source.AccessPort != null) {
+            this.AccessPort = new Long[source.AccessPort.length];
+            for (int i = 0; i < source.AccessPort.length; i++) {
+                this.AccessPort[i] = new Long(source.AccessPort[i]);
+            }
+        }
+        if (source.Tag != null) {
+            this.Tag = new Tag[source.Tag.length];
+            for (int i = 0; i < source.Tag.length; i++) {
+                this.Tag[i] = new Tag(source.Tag[i]);
+            }
+        }
+        if (source.AdvancedAuthentication != null) {
+            this.AdvancedAuthentication = new AdvancedAuthentication(source.AdvancedAuthentication);
+        }
+        if (source.OriginAuthentication != null) {
+            this.OriginAuthentication = new OriginAuthentication(source.OriginAuthentication);
+        }
+        if (source.Ipv6Access != null) {
+            this.Ipv6Access = new Ipv6Access(source.Ipv6Access);
+        }
+        if (source.AdvanceSet != null) {
+            this.AdvanceSet = new AdvanceConfig[source.AdvanceSet.length];
+            for (int i = 0; i < source.AdvanceSet.length; i++) {
+                this.AdvanceSet[i] = new AdvanceConfig(source.AdvanceSet[i]);
+            }
+        }
+        if (source.OfflineCache != null) {
+            this.OfflineCache = new OfflineCache(source.OfflineCache);
+        }
+        if (source.OriginCombine != null) {
+            this.OriginCombine = new OriginCombine(source.OriginCombine);
+        }
+        if (source.PostMaxSize != null) {
+            this.PostMaxSize = new PostSize(source.PostMaxSize);
+        }
+        if (source.Quic != null) {
+            this.Quic = new Quic(source.Quic);
+        }
+        if (source.OssPrivateAccess != null) {
+            this.OssPrivateAccess = new OssPrivateAccess(source.OssPrivateAccess);
+        }
+        if (source.WebSocket != null) {
+            this.WebSocket = new WebSocket(source.WebSocket);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -1251,6 +1959,24 @@ global：全球锁定
         this.setParamSimple(map, prefix + "Readonly", this.Readonly);
         this.setParamObj(map, prefix + "OriginPullTimeout.", this.OriginPullTimeout);
         this.setParamObj(map, prefix + "AwsPrivateAccess.", this.AwsPrivateAccess);
+        this.setParamObj(map, prefix + "SecurityConfig.", this.SecurityConfig);
+        this.setParamObj(map, prefix + "ImageOptimization.", this.ImageOptimization);
+        this.setParamObj(map, prefix + "UserAgentFilter.", this.UserAgentFilter);
+        this.setParamObj(map, prefix + "AccessControl.", this.AccessControl);
+        this.setParamSimple(map, prefix + "Advance", this.Advance);
+        this.setParamObj(map, prefix + "UrlRedirect.", this.UrlRedirect);
+        this.setParamArraySimple(map, prefix + "AccessPort.", this.AccessPort);
+        this.setParamArrayObj(map, prefix + "Tag.", this.Tag);
+        this.setParamObj(map, prefix + "AdvancedAuthentication.", this.AdvancedAuthentication);
+        this.setParamObj(map, prefix + "OriginAuthentication.", this.OriginAuthentication);
+        this.setParamObj(map, prefix + "Ipv6Access.", this.Ipv6Access);
+        this.setParamArrayObj(map, prefix + "AdvanceSet.", this.AdvanceSet);
+        this.setParamObj(map, prefix + "OfflineCache.", this.OfflineCache);
+        this.setParamObj(map, prefix + "OriginCombine.", this.OriginCombine);
+        this.setParamObj(map, prefix + "PostMaxSize.", this.PostMaxSize);
+        this.setParamObj(map, prefix + "Quic.", this.Quic);
+        this.setParamObj(map, prefix + "OssPrivateAccess.", this.OssPrivateAccess);
+        this.setParamObj(map, prefix + "WebSocket.", this.WebSocket);
 
     }
 }

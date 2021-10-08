@@ -77,6 +77,14 @@ public class MediaProcessTaskResult extends AbstractModel{
     private MediaProcessTaskImageSpriteResult ImageSpriteTask;
 
     /**
+    * 转自适应码流任务查询结果，当任务类型为 AdaptiveDynamicStreaming 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AdaptiveDynamicStreamingTask")
+    @Expose
+    private MediaProcessTaskAdaptiveDynamicStreamingResult AdaptiveDynamicStreamingTask;
+
+    /**
      * Get 任务的类型，可以取的值有：
 <li>Transcode：转码</li>
 <li>AnimatedGraphics：转动图</li>
@@ -221,6 +229,58 @@ public class MediaProcessTaskResult extends AbstractModel{
     }
 
     /**
+     * Get 转自适应码流任务查询结果，当任务类型为 AdaptiveDynamicStreaming 时有效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AdaptiveDynamicStreamingTask 转自适应码流任务查询结果，当任务类型为 AdaptiveDynamicStreaming 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public MediaProcessTaskAdaptiveDynamicStreamingResult getAdaptiveDynamicStreamingTask() {
+        return this.AdaptiveDynamicStreamingTask;
+    }
+
+    /**
+     * Set 转自适应码流任务查询结果，当任务类型为 AdaptiveDynamicStreaming 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AdaptiveDynamicStreamingTask 转自适应码流任务查询结果，当任务类型为 AdaptiveDynamicStreaming 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAdaptiveDynamicStreamingTask(MediaProcessTaskAdaptiveDynamicStreamingResult AdaptiveDynamicStreamingTask) {
+        this.AdaptiveDynamicStreamingTask = AdaptiveDynamicStreamingTask;
+    }
+
+    public MediaProcessTaskResult() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MediaProcessTaskResult(MediaProcessTaskResult source) {
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.TranscodeTask != null) {
+            this.TranscodeTask = new MediaProcessTaskTranscodeResult(source.TranscodeTask);
+        }
+        if (source.AnimatedGraphicTask != null) {
+            this.AnimatedGraphicTask = new MediaProcessTaskAnimatedGraphicResult(source.AnimatedGraphicTask);
+        }
+        if (source.SnapshotByTimeOffsetTask != null) {
+            this.SnapshotByTimeOffsetTask = new MediaProcessTaskSnapshotByTimeOffsetResult(source.SnapshotByTimeOffsetTask);
+        }
+        if (source.SampleSnapshotTask != null) {
+            this.SampleSnapshotTask = new MediaProcessTaskSampleSnapshotResult(source.SampleSnapshotTask);
+        }
+        if (source.ImageSpriteTask != null) {
+            this.ImageSpriteTask = new MediaProcessTaskImageSpriteResult(source.ImageSpriteTask);
+        }
+        if (source.AdaptiveDynamicStreamingTask != null) {
+            this.AdaptiveDynamicStreamingTask = new MediaProcessTaskAdaptiveDynamicStreamingResult(source.AdaptiveDynamicStreamingTask);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -230,6 +290,7 @@ public class MediaProcessTaskResult extends AbstractModel{
         this.setParamObj(map, prefix + "SnapshotByTimeOffsetTask.", this.SnapshotByTimeOffsetTask);
         this.setParamObj(map, prefix + "SampleSnapshotTask.", this.SampleSnapshotTask);
         this.setParamObj(map, prefix + "ImageSpriteTask.", this.ImageSpriteTask);
+        this.setParamObj(map, prefix + "AdaptiveDynamicStreamingTask.", this.AdaptiveDynamicStreamingTask);
 
     }
 }

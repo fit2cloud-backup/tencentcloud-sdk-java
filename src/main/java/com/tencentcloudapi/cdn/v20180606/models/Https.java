@@ -105,6 +105,22 @@ failed：部署失败
     private String SslStatus;
 
     /**
+    * Hsts配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Hsts")
+    @Expose
+    private Hsts Hsts;
+
+    /**
+    * Tls版本设置，仅支持部分Advance域名，支持设置 TLSv1, TLSV1.1, TLSV1.2, TLSv1.3，修改时必须开启连续的版本
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TlsVersion")
+    @Expose
+    private String [] TlsVersion;
+
+    /**
      * Get https 配置开关
 on：开启
 off：关闭
@@ -337,6 +353,90 @@ failed：部署失败
     }
 
     /**
+     * Get Hsts配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Hsts Hsts配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Hsts getHsts() {
+        return this.Hsts;
+    }
+
+    /**
+     * Set Hsts配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Hsts Hsts配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setHsts(Hsts Hsts) {
+        this.Hsts = Hsts;
+    }
+
+    /**
+     * Get Tls版本设置，仅支持部分Advance域名，支持设置 TLSv1, TLSV1.1, TLSV1.2, TLSv1.3，修改时必须开启连续的版本
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TlsVersion Tls版本设置，仅支持部分Advance域名，支持设置 TLSv1, TLSV1.1, TLSV1.2, TLSv1.3，修改时必须开启连续的版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getTlsVersion() {
+        return this.TlsVersion;
+    }
+
+    /**
+     * Set Tls版本设置，仅支持部分Advance域名，支持设置 TLSv1, TLSV1.1, TLSV1.2, TLSv1.3，修改时必须开启连续的版本
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TlsVersion Tls版本设置，仅支持部分Advance域名，支持设置 TLSv1, TLSV1.1, TLSV1.2, TLSv1.3，修改时必须开启连续的版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTlsVersion(String [] TlsVersion) {
+        this.TlsVersion = TlsVersion;
+    }
+
+    public Https() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Https(Https source) {
+        if (source.Switch != null) {
+            this.Switch = new String(source.Switch);
+        }
+        if (source.Http2 != null) {
+            this.Http2 = new String(source.Http2);
+        }
+        if (source.OcspStapling != null) {
+            this.OcspStapling = new String(source.OcspStapling);
+        }
+        if (source.VerifyClient != null) {
+            this.VerifyClient = new String(source.VerifyClient);
+        }
+        if (source.CertInfo != null) {
+            this.CertInfo = new ServerCert(source.CertInfo);
+        }
+        if (source.ClientCertInfo != null) {
+            this.ClientCertInfo = new ClientCert(source.ClientCertInfo);
+        }
+        if (source.Spdy != null) {
+            this.Spdy = new String(source.Spdy);
+        }
+        if (source.SslStatus != null) {
+            this.SslStatus = new String(source.SslStatus);
+        }
+        if (source.Hsts != null) {
+            this.Hsts = new Hsts(source.Hsts);
+        }
+        if (source.TlsVersion != null) {
+            this.TlsVersion = new String[source.TlsVersion.length];
+            for (int i = 0; i < source.TlsVersion.length; i++) {
+                this.TlsVersion[i] = new String(source.TlsVersion[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -348,6 +448,8 @@ failed：部署失败
         this.setParamObj(map, prefix + "ClientCertInfo.", this.ClientCertInfo);
         this.setParamSimple(map, prefix + "Spdy", this.Spdy);
         this.setParamSimple(map, prefix + "SslStatus", this.SslStatus);
+        this.setParamObj(map, prefix + "Hsts.", this.Hsts);
+        this.setParamArraySimple(map, prefix + "TlsVersion.", this.TlsVersion);
 
     }
 }

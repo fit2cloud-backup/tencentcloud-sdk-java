@@ -30,7 +30,7 @@ public class CreateLiveRecordRuleRequest extends AbstractModel{
     private String DomainName;
 
     /**
-    * 模板Id。
+    * 模板 ID。
     */
     @SerializedName("TemplateId")
     @Expose
@@ -68,16 +68,16 @@ public class CreateLiveRecordRuleRequest extends AbstractModel{
     }
 
     /**
-     * Get 模板Id。 
-     * @return TemplateId 模板Id。
+     * Get 模板 ID。 
+     * @return TemplateId 模板 ID。
      */
     public Long getTemplateId() {
         return this.TemplateId;
     }
 
     /**
-     * Set 模板Id。
-     * @param TemplateId 模板Id。
+     * Set 模板 ID。
+     * @param TemplateId 模板 ID。
      */
     public void setTemplateId(Long TemplateId) {
         this.TemplateId = TemplateId;
@@ -118,6 +118,29 @@ public class CreateLiveRecordRuleRequest extends AbstractModel{
     public void setStreamName(String StreamName) {
         this.StreamName = StreamName;
     }
+
+    public CreateLiveRecordRuleRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateLiveRecordRuleRequest(CreateLiveRecordRuleRequest source) {
+        if (source.DomainName != null) {
+            this.DomainName = new String(source.DomainName);
+        }
+        if (source.TemplateId != null) {
+            this.TemplateId = new Long(source.TemplateId);
+        }
+        if (source.AppName != null) {
+            this.AppName = new String(source.AppName);
+        }
+        if (source.StreamName != null) {
+            this.StreamName = new String(source.StreamName);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

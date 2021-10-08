@@ -103,6 +103,14 @@ public class MediaInfo extends AbstractModel{
     private MediaMiniProgramReviewInfo MiniProgramReviewInfo;
 
     /**
+    * 字幕信息。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SubtitleInfo")
+    @Expose
+    private MediaSubtitleInfo SubtitleInfo;
+
+    /**
     * 媒体文件唯一标识 ID。
     */
     @SerializedName("FileId")
@@ -310,6 +318,26 @@ public class MediaInfo extends AbstractModel{
     }
 
     /**
+     * Get 字幕信息。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SubtitleInfo 字幕信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public MediaSubtitleInfo getSubtitleInfo() {
+        return this.SubtitleInfo;
+    }
+
+    /**
+     * Set 字幕信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SubtitleInfo 字幕信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSubtitleInfo(MediaSubtitleInfo SubtitleInfo) {
+        this.SubtitleInfo = SubtitleInfo;
+    }
+
+    /**
      * Get 媒体文件唯一标识 ID。 
      * @return FileId 媒体文件唯一标识 ID。
      */
@@ -325,6 +353,53 @@ public class MediaInfo extends AbstractModel{
         this.FileId = FileId;
     }
 
+    public MediaInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MediaInfo(MediaInfo source) {
+        if (source.BasicInfo != null) {
+            this.BasicInfo = new MediaBasicInfo(source.BasicInfo);
+        }
+        if (source.MetaData != null) {
+            this.MetaData = new MediaMetaData(source.MetaData);
+        }
+        if (source.TranscodeInfo != null) {
+            this.TranscodeInfo = new MediaTranscodeInfo(source.TranscodeInfo);
+        }
+        if (source.AnimatedGraphicsInfo != null) {
+            this.AnimatedGraphicsInfo = new MediaAnimatedGraphicsInfo(source.AnimatedGraphicsInfo);
+        }
+        if (source.SampleSnapshotInfo != null) {
+            this.SampleSnapshotInfo = new MediaSampleSnapshotInfo(source.SampleSnapshotInfo);
+        }
+        if (source.ImageSpriteInfo != null) {
+            this.ImageSpriteInfo = new MediaImageSpriteInfo(source.ImageSpriteInfo);
+        }
+        if (source.SnapshotByTimeOffsetInfo != null) {
+            this.SnapshotByTimeOffsetInfo = new MediaSnapshotByTimeOffsetInfo(source.SnapshotByTimeOffsetInfo);
+        }
+        if (source.KeyFrameDescInfo != null) {
+            this.KeyFrameDescInfo = new MediaKeyFrameDescInfo(source.KeyFrameDescInfo);
+        }
+        if (source.AdaptiveDynamicStreamingInfo != null) {
+            this.AdaptiveDynamicStreamingInfo = new MediaAdaptiveDynamicStreamingInfo(source.AdaptiveDynamicStreamingInfo);
+        }
+        if (source.MiniProgramReviewInfo != null) {
+            this.MiniProgramReviewInfo = new MediaMiniProgramReviewInfo(source.MiniProgramReviewInfo);
+        }
+        if (source.SubtitleInfo != null) {
+            this.SubtitleInfo = new MediaSubtitleInfo(source.SubtitleInfo);
+        }
+        if (source.FileId != null) {
+            this.FileId = new String(source.FileId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
@@ -339,6 +414,7 @@ public class MediaInfo extends AbstractModel{
         this.setParamObj(map, prefix + "KeyFrameDescInfo.", this.KeyFrameDescInfo);
         this.setParamObj(map, prefix + "AdaptiveDynamicStreamingInfo.", this.AdaptiveDynamicStreamingInfo);
         this.setParamObj(map, prefix + "MiniProgramReviewInfo.", this.MiniProgramReviewInfo);
+        this.setParamObj(map, prefix + "SubtitleInfo.", this.SubtitleInfo);
         this.setParamSimple(map, prefix + "FileId", this.FileId);
 
     }

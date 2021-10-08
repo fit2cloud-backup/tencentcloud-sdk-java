@@ -44,6 +44,20 @@ public class DescribePublicConfigSummaryRequest extends AbstractModel{
     private Long Limit;
 
     /**
+    * 按时间排序：creation_time；按名称排序：config_name
+    */
+    @SerializedName("OrderBy")
+    @Expose
+    private String OrderBy;
+
+    /**
+    * 升序传 0，降序传 1
+    */
+    @SerializedName("OrderType")
+    @Expose
+    private Long OrderType;
+
+    /**
      * Get 查询关键字，模糊查询：配置项名称，不传入时查询全量 
      * @return SearchWord 查询关键字，模糊查询：配置项名称，不传入时查询全量
      */
@@ -92,12 +106,72 @@ public class DescribePublicConfigSummaryRequest extends AbstractModel{
     }
 
     /**
+     * Get 按时间排序：creation_time；按名称排序：config_name 
+     * @return OrderBy 按时间排序：creation_time；按名称排序：config_name
+     */
+    public String getOrderBy() {
+        return this.OrderBy;
+    }
+
+    /**
+     * Set 按时间排序：creation_time；按名称排序：config_name
+     * @param OrderBy 按时间排序：creation_time；按名称排序：config_name
+     */
+    public void setOrderBy(String OrderBy) {
+        this.OrderBy = OrderBy;
+    }
+
+    /**
+     * Get 升序传 0，降序传 1 
+     * @return OrderType 升序传 0，降序传 1
+     */
+    public Long getOrderType() {
+        return this.OrderType;
+    }
+
+    /**
+     * Set 升序传 0，降序传 1
+     * @param OrderType 升序传 0，降序传 1
+     */
+    public void setOrderType(Long OrderType) {
+        this.OrderType = OrderType;
+    }
+
+    public DescribePublicConfigSummaryRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribePublicConfigSummaryRequest(DescribePublicConfigSummaryRequest source) {
+        if (source.SearchWord != null) {
+            this.SearchWord = new String(source.SearchWord);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.OrderBy != null) {
+            this.OrderBy = new String(source.OrderBy);
+        }
+        if (source.OrderType != null) {
+            this.OrderType = new Long(source.OrderType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "SearchWord", this.SearchWord);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamSimple(map, prefix + "OrderBy", this.OrderBy);
+        this.setParamSimple(map, prefix + "OrderType", this.OrderType);
 
     }
 }

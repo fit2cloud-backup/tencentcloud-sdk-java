@@ -30,7 +30,7 @@ public class ModifyRepositoryAccessPersonalRequest extends AbstractModel{
     private String RepoName;
 
     /**
-    * 默认值为0
+    * 默认值为0, 1公共，0私有
     */
     @SerializedName("Public")
     @Expose
@@ -53,20 +53,37 @@ public class ModifyRepositoryAccessPersonalRequest extends AbstractModel{
     }
 
     /**
-     * Get 默认值为0 
-     * @return Public 默认值为0
+     * Get 默认值为0, 1公共，0私有 
+     * @return Public 默认值为0, 1公共，0私有
      */
     public Long getPublic() {
         return this.Public;
     }
 
     /**
-     * Set 默认值为0
-     * @param Public 默认值为0
+     * Set 默认值为0, 1公共，0私有
+     * @param Public 默认值为0, 1公共，0私有
      */
     public void setPublic(Long Public) {
         this.Public = Public;
     }
+
+    public ModifyRepositoryAccessPersonalRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyRepositoryAccessPersonalRequest(ModifyRepositoryAccessPersonalRequest source) {
+        if (source.RepoName != null) {
+            this.RepoName = new String(source.RepoName);
+        }
+        if (source.Public != null) {
+            this.Public = new Long(source.Public);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

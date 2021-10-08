@@ -71,7 +71,6 @@ public class ContentReviewTemplateItem extends AbstractModel{
     * 违禁控制参数。违禁内容包括：
 <li>谩骂；</li>
 <li>涉毒违法。</li>
-注意：此参数尚未支持。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProhibitedConfigure")
@@ -228,12 +227,10 @@ public class ContentReviewTemplateItem extends AbstractModel{
      * Get 违禁控制参数。违禁内容包括：
 <li>谩骂；</li>
 <li>涉毒违法。</li>
-注意：此参数尚未支持。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return ProhibitedConfigure 违禁控制参数。违禁内容包括：
 <li>谩骂；</li>
 <li>涉毒违法。</li>
-注意：此参数尚未支持。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public ProhibitedConfigureInfo getProhibitedConfigure() {
@@ -244,12 +241,10 @@ public class ContentReviewTemplateItem extends AbstractModel{
      * Set 违禁控制参数。违禁内容包括：
 <li>谩骂；</li>
 <li>涉毒违法。</li>
-注意：此参数尚未支持。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param ProhibitedConfigure 违禁控制参数。违禁内容包括：
 <li>谩骂；</li>
 <li>涉毒违法。</li>
-注意：此参数尚未支持。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProhibitedConfigure(ProhibitedConfigureInfo ProhibitedConfigure) {
@@ -347,6 +342,53 @@ public class ContentReviewTemplateItem extends AbstractModel{
     public void setUpdateTime(String UpdateTime) {
         this.UpdateTime = UpdateTime;
     }
+
+    public ContentReviewTemplateItem() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ContentReviewTemplateItem(ContentReviewTemplateItem source) {
+        if (source.Definition != null) {
+            this.Definition = new Long(source.Definition);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Comment != null) {
+            this.Comment = new String(source.Comment);
+        }
+        if (source.PornConfigure != null) {
+            this.PornConfigure = new PornConfigureInfo(source.PornConfigure);
+        }
+        if (source.TerrorismConfigure != null) {
+            this.TerrorismConfigure = new TerrorismConfigureInfo(source.TerrorismConfigure);
+        }
+        if (source.PoliticalConfigure != null) {
+            this.PoliticalConfigure = new PoliticalConfigureInfo(source.PoliticalConfigure);
+        }
+        if (source.ProhibitedConfigure != null) {
+            this.ProhibitedConfigure = new ProhibitedConfigureInfo(source.ProhibitedConfigure);
+        }
+        if (source.UserDefineConfigure != null) {
+            this.UserDefineConfigure = new UserDefineConfigureInfo(source.UserDefineConfigure);
+        }
+        if (source.ReviewWallSwitch != null) {
+            this.ReviewWallSwitch = new String(source.ReviewWallSwitch);
+        }
+        if (source.ScreenshotInterval != null) {
+            this.ScreenshotInterval = new Float(source.ScreenshotInterval);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

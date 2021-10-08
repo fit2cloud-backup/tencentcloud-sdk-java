@@ -23,27 +23,46 @@ import java.util.HashMap;
 public class DescribePullStreamConfigsRequest extends AbstractModel{
 
     /**
-    * 配置id。
+    * 配置 ID。
+获取途径：从 CreatePullStreamConfig 接口返回值获取。
     */
     @SerializedName("ConfigId")
     @Expose
     private String ConfigId;
 
     /**
-     * Get 配置id。 
-     * @return ConfigId 配置id。
+     * Get 配置 ID。
+获取途径：从 CreatePullStreamConfig 接口返回值获取。 
+     * @return ConfigId 配置 ID。
+获取途径：从 CreatePullStreamConfig 接口返回值获取。
      */
     public String getConfigId() {
         return this.ConfigId;
     }
 
     /**
-     * Set 配置id。
-     * @param ConfigId 配置id。
+     * Set 配置 ID。
+获取途径：从 CreatePullStreamConfig 接口返回值获取。
+     * @param ConfigId 配置 ID。
+获取途径：从 CreatePullStreamConfig 接口返回值获取。
      */
     public void setConfigId(String ConfigId) {
         this.ConfigId = ConfigId;
     }
+
+    public DescribePullStreamConfigsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribePullStreamConfigsRequest(DescribePullStreamConfigsRequest source) {
+        if (source.ConfigId != null) {
+            this.ConfigId = new String(source.ConfigId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

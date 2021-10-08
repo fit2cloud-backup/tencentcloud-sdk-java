@@ -44,6 +44,20 @@ public class ModifyNatGatewayAttributeRequest extends AbstractModel{
     private Long InternetMaxBandwidthOut;
 
     /**
+    * 是否修改NAT网关绑定的安全组。
+    */
+    @SerializedName("ModifySecurityGroup")
+    @Expose
+    private Boolean ModifySecurityGroup;
+
+    /**
+    * NAT网关绑定的安全组列表，最终状态，空列表表示删除所有安全组，形如: `['sg-1n232323', 'sg-o4242424']`
+    */
+    @SerializedName("SecurityGroupIds")
+    @Expose
+    private String [] SecurityGroupIds;
+
+    /**
      * Get NAT网关的ID，形如：`nat-df45454`。 
      * @return NatGatewayId NAT网关的ID，形如：`nat-df45454`。
      */
@@ -92,12 +106,75 @@ public class ModifyNatGatewayAttributeRequest extends AbstractModel{
     }
 
     /**
+     * Get 是否修改NAT网关绑定的安全组。 
+     * @return ModifySecurityGroup 是否修改NAT网关绑定的安全组。
+     */
+    public Boolean getModifySecurityGroup() {
+        return this.ModifySecurityGroup;
+    }
+
+    /**
+     * Set 是否修改NAT网关绑定的安全组。
+     * @param ModifySecurityGroup 是否修改NAT网关绑定的安全组。
+     */
+    public void setModifySecurityGroup(Boolean ModifySecurityGroup) {
+        this.ModifySecurityGroup = ModifySecurityGroup;
+    }
+
+    /**
+     * Get NAT网关绑定的安全组列表，最终状态，空列表表示删除所有安全组，形如: `['sg-1n232323', 'sg-o4242424']` 
+     * @return SecurityGroupIds NAT网关绑定的安全组列表，最终状态，空列表表示删除所有安全组，形如: `['sg-1n232323', 'sg-o4242424']`
+     */
+    public String [] getSecurityGroupIds() {
+        return this.SecurityGroupIds;
+    }
+
+    /**
+     * Set NAT网关绑定的安全组列表，最终状态，空列表表示删除所有安全组，形如: `['sg-1n232323', 'sg-o4242424']`
+     * @param SecurityGroupIds NAT网关绑定的安全组列表，最终状态，空列表表示删除所有安全组，形如: `['sg-1n232323', 'sg-o4242424']`
+     */
+    public void setSecurityGroupIds(String [] SecurityGroupIds) {
+        this.SecurityGroupIds = SecurityGroupIds;
+    }
+
+    public ModifyNatGatewayAttributeRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyNatGatewayAttributeRequest(ModifyNatGatewayAttributeRequest source) {
+        if (source.NatGatewayId != null) {
+            this.NatGatewayId = new String(source.NatGatewayId);
+        }
+        if (source.NatGatewayName != null) {
+            this.NatGatewayName = new String(source.NatGatewayName);
+        }
+        if (source.InternetMaxBandwidthOut != null) {
+            this.InternetMaxBandwidthOut = new Long(source.InternetMaxBandwidthOut);
+        }
+        if (source.ModifySecurityGroup != null) {
+            this.ModifySecurityGroup = new Boolean(source.ModifySecurityGroup);
+        }
+        if (source.SecurityGroupIds != null) {
+            this.SecurityGroupIds = new String[source.SecurityGroupIds.length];
+            for (int i = 0; i < source.SecurityGroupIds.length; i++) {
+                this.SecurityGroupIds[i] = new String(source.SecurityGroupIds[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "NatGatewayId", this.NatGatewayId);
         this.setParamSimple(map, prefix + "NatGatewayName", this.NatGatewayName);
         this.setParamSimple(map, prefix + "InternetMaxBandwidthOut", this.InternetMaxBandwidthOut);
+        this.setParamSimple(map, prefix + "ModifySecurityGroup", this.ModifySecurityGroup);
+        this.setParamArraySimple(map, prefix + "SecurityGroupIds.", this.SecurityGroupIds);
 
     }
 }

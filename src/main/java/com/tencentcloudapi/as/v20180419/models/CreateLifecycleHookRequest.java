@@ -51,14 +51,14 @@ public class CreateLifecycleHookRequest extends AbstractModel{
     private String DefaultResult;
 
     /**
-    * 生命周期挂钩超时之前可以经过的最长时间（以秒为单位），范围从30到3600秒，默认值为300秒
+    * 生命周期挂钩超时之前可以经过的最长时间（以秒为单位），范围从30到7200秒，默认值为300秒
     */
     @SerializedName("HeartbeatTimeout")
     @Expose
     private Long HeartbeatTimeout;
 
     /**
-    * 弹性伸缩向通知目标发送的附加信息，默认值为空字符串“”。最大长度不能超过1024个字节。
+    * 弹性伸缩向通知目标发送的附加信息，默认值为空字符串""。最大长度不能超过1024个字节。
     */
     @SerializedName("NotificationMetadata")
     @Expose
@@ -143,32 +143,32 @@ public class CreateLifecycleHookRequest extends AbstractModel{
     }
 
     /**
-     * Get 生命周期挂钩超时之前可以经过的最长时间（以秒为单位），范围从30到3600秒，默认值为300秒 
-     * @return HeartbeatTimeout 生命周期挂钩超时之前可以经过的最长时间（以秒为单位），范围从30到3600秒，默认值为300秒
+     * Get 生命周期挂钩超时之前可以经过的最长时间（以秒为单位），范围从30到7200秒，默认值为300秒 
+     * @return HeartbeatTimeout 生命周期挂钩超时之前可以经过的最长时间（以秒为单位），范围从30到7200秒，默认值为300秒
      */
     public Long getHeartbeatTimeout() {
         return this.HeartbeatTimeout;
     }
 
     /**
-     * Set 生命周期挂钩超时之前可以经过的最长时间（以秒为单位），范围从30到3600秒，默认值为300秒
-     * @param HeartbeatTimeout 生命周期挂钩超时之前可以经过的最长时间（以秒为单位），范围从30到3600秒，默认值为300秒
+     * Set 生命周期挂钩超时之前可以经过的最长时间（以秒为单位），范围从30到7200秒，默认值为300秒
+     * @param HeartbeatTimeout 生命周期挂钩超时之前可以经过的最长时间（以秒为单位），范围从30到7200秒，默认值为300秒
      */
     public void setHeartbeatTimeout(Long HeartbeatTimeout) {
         this.HeartbeatTimeout = HeartbeatTimeout;
     }
 
     /**
-     * Get 弹性伸缩向通知目标发送的附加信息，默认值为空字符串“”。最大长度不能超过1024个字节。 
-     * @return NotificationMetadata 弹性伸缩向通知目标发送的附加信息，默认值为空字符串“”。最大长度不能超过1024个字节。
+     * Get 弹性伸缩向通知目标发送的附加信息，默认值为空字符串""。最大长度不能超过1024个字节。 
+     * @return NotificationMetadata 弹性伸缩向通知目标发送的附加信息，默认值为空字符串""。最大长度不能超过1024个字节。
      */
     public String getNotificationMetadata() {
         return this.NotificationMetadata;
     }
 
     /**
-     * Set 弹性伸缩向通知目标发送的附加信息，默认值为空字符串“”。最大长度不能超过1024个字节。
-     * @param NotificationMetadata 弹性伸缩向通知目标发送的附加信息，默认值为空字符串“”。最大长度不能超过1024个字节。
+     * Set 弹性伸缩向通知目标发送的附加信息，默认值为空字符串""。最大长度不能超过1024个字节。
+     * @param NotificationMetadata 弹性伸缩向通知目标发送的附加信息，默认值为空字符串""。最大长度不能超过1024个字节。
      */
     public void setNotificationMetadata(String NotificationMetadata) {
         this.NotificationMetadata = NotificationMetadata;
@@ -205,6 +205,41 @@ public class CreateLifecycleHookRequest extends AbstractModel{
     public void setLifecycleTransitionType(String LifecycleTransitionType) {
         this.LifecycleTransitionType = LifecycleTransitionType;
     }
+
+    public CreateLifecycleHookRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateLifecycleHookRequest(CreateLifecycleHookRequest source) {
+        if (source.AutoScalingGroupId != null) {
+            this.AutoScalingGroupId = new String(source.AutoScalingGroupId);
+        }
+        if (source.LifecycleHookName != null) {
+            this.LifecycleHookName = new String(source.LifecycleHookName);
+        }
+        if (source.LifecycleTransition != null) {
+            this.LifecycleTransition = new String(source.LifecycleTransition);
+        }
+        if (source.DefaultResult != null) {
+            this.DefaultResult = new String(source.DefaultResult);
+        }
+        if (source.HeartbeatTimeout != null) {
+            this.HeartbeatTimeout = new Long(source.HeartbeatTimeout);
+        }
+        if (source.NotificationMetadata != null) {
+            this.NotificationMetadata = new String(source.NotificationMetadata);
+        }
+        if (source.NotificationTarget != null) {
+            this.NotificationTarget = new NotificationTarget(source.NotificationTarget);
+        }
+        if (source.LifecycleTransitionType != null) {
+            this.LifecycleTransitionType = new String(source.LifecycleTransitionType);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

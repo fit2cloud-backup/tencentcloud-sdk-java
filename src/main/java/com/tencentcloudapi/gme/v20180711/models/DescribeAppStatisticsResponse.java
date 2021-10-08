@@ -25,31 +25,72 @@ public class DescribeAppStatisticsResponse extends AbstractModel{
     /**
     * 应用用量统计数据
     */
-    @SerializedName("AppStatistics")
+    @SerializedName("Data")
     @Expose
-    private AppStatisticsItem [] AppStatistics;
+    private DescribeAppStatisticsResp Data;
+
+    /**
+    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    */
+    @SerializedName("RequestId")
+    @Expose
+    private String RequestId;
 
     /**
      * Get 应用用量统计数据 
-     * @return AppStatistics 应用用量统计数据
+     * @return Data 应用用量统计数据
      */
-    public AppStatisticsItem [] getAppStatistics() {
-        return this.AppStatistics;
+    public DescribeAppStatisticsResp getData() {
+        return this.Data;
     }
 
     /**
      * Set 应用用量统计数据
-     * @param AppStatistics 应用用量统计数据
+     * @param Data 应用用量统计数据
      */
-    public void setAppStatistics(AppStatisticsItem [] AppStatistics) {
-        this.AppStatistics = AppStatistics;
+    public void setData(DescribeAppStatisticsResp Data) {
+        this.Data = Data;
     }
+
+    /**
+     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     */
+    public String getRequestId() {
+        return this.RequestId;
+    }
+
+    /**
+     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     */
+    public void setRequestId(String RequestId) {
+        this.RequestId = RequestId;
+    }
+
+    public DescribeAppStatisticsResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeAppStatisticsResponse(DescribeAppStatisticsResponse source) {
+        if (source.Data != null) {
+            this.Data = new DescribeAppStatisticsResp(source.Data);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamArrayObj(map, prefix + "AppStatistics.", this.AppStatistics);
+        this.setParamObj(map, prefix + "Data.", this.Data);
+        this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }
 }

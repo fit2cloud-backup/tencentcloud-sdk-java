@@ -39,7 +39,7 @@ Windows实例密码必须12~30位，不能以“/”开头且不包括用户名�
     private String Password;
 
     /**
-    * 待重置密码的实例操作系统的管理员账户。不得超过64个字符。
+    * 待重置密码的实例操作系统的用户名。不得超过64个字符。
     */
     @SerializedName("UserName")
     @Expose
@@ -93,16 +93,16 @@ Windows实例密码必须12~30位，不能以“/”开头且不包括用户名�
     }
 
     /**
-     * Get 待重置密码的实例操作系统的管理员账户。不得超过64个字符。 
-     * @return UserName 待重置密码的实例操作系统的管理员账户。不得超过64个字符。
+     * Get 待重置密码的实例操作系统的用户名。不得超过64个字符。 
+     * @return UserName 待重置密码的实例操作系统的用户名。不得超过64个字符。
      */
     public String getUserName() {
         return this.UserName;
     }
 
     /**
-     * Set 待重置密码的实例操作系统的管理员账户。不得超过64个字符。
-     * @param UserName 待重置密码的实例操作系统的管理员账户。不得超过64个字符。
+     * Set 待重置密码的实例操作系统的用户名。不得超过64个字符。
+     * @param UserName 待重置密码的实例操作系统的用户名。不得超过64个字符。
      */
     public void setUserName(String UserName) {
         this.UserName = UserName;
@@ -123,6 +123,32 @@ Windows实例密码必须12~30位，不能以“/”开头且不包括用户名�
     public void setForceStop(Boolean ForceStop) {
         this.ForceStop = ForceStop;
     }
+
+    public ResetInstancesPasswordRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ResetInstancesPasswordRequest(ResetInstancesPasswordRequest source) {
+        if (source.InstanceIds != null) {
+            this.InstanceIds = new String[source.InstanceIds.length];
+            for (int i = 0; i < source.InstanceIds.length; i++) {
+                this.InstanceIds[i] = new String(source.InstanceIds[i]);
+            }
+        }
+        if (source.Password != null) {
+            this.Password = new String(source.Password);
+        }
+        if (source.UserName != null) {
+            this.UserName = new String(source.UserName);
+        }
+        if (source.ForceStop != null) {
+            this.ForceStop = new Boolean(source.ForceStop);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

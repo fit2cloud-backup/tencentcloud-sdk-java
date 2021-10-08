@@ -23,27 +23,41 @@ import java.util.HashMap;
 public class DeleteContentReviewTemplateRequest extends AbstractModel{
 
     /**
-    * 内容审核模板唯一标识。
+    * 内容智能识别模板唯一标识。
     */
     @SerializedName("Definition")
     @Expose
     private Long Definition;
 
     /**
-     * Get 内容审核模板唯一标识。 
-     * @return Definition 内容审核模板唯一标识。
+     * Get 内容智能识别模板唯一标识。 
+     * @return Definition 内容智能识别模板唯一标识。
      */
     public Long getDefinition() {
         return this.Definition;
     }
 
     /**
-     * Set 内容审核模板唯一标识。
-     * @param Definition 内容审核模板唯一标识。
+     * Set 内容智能识别模板唯一标识。
+     * @param Definition 内容智能识别模板唯一标识。
      */
     public void setDefinition(Long Definition) {
         this.Definition = Definition;
     }
+
+    public DeleteContentReviewTemplateRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeleteContentReviewTemplateRequest(DeleteContentReviewTemplateRequest source) {
+        if (source.Definition != null) {
+            this.Definition = new Long(source.Definition);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

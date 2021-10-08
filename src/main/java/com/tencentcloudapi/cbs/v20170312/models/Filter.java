@@ -23,13 +23,6 @@ import java.util.HashMap;
 public class Filter extends AbstractModel{
 
     /**
-    * 过滤键的名称。
-    */
-    @SerializedName("Name")
-    @Expose
-    private String Name;
-
-    /**
     * 一个或者多个过滤值。
     */
     @SerializedName("Values")
@@ -37,20 +30,11 @@ public class Filter extends AbstractModel{
     private String [] Values;
 
     /**
-     * Get 过滤键的名称。 
-     * @return Name 过滤键的名称。
-     */
-    public String getName() {
-        return this.Name;
-    }
-
-    /**
-     * Set 过滤键的名称。
-     * @param Name 过滤键的名称。
-     */
-    public void setName(String Name) {
-        this.Name = Name;
-    }
+    * 过滤键的名称。
+    */
+    @SerializedName("Name")
+    @Expose
+    private String Name;
 
     /**
      * Get 一个或者多个过滤值。 
@@ -69,11 +53,47 @@ public class Filter extends AbstractModel{
     }
 
     /**
+     * Get 过滤键的名称。 
+     * @return Name 过滤键的名称。
+     */
+    public String getName() {
+        return this.Name;
+    }
+
+    /**
+     * Set 过滤键的名称。
+     * @param Name 过滤键的名称。
+     */
+    public void setName(String Name) {
+        this.Name = Name;
+    }
+
+    public Filter() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Filter(Filter source) {
+        if (source.Values != null) {
+            this.Values = new String[source.Values.length];
+            for (int i = 0; i < source.Values.length; i++) {
+                this.Values[i] = new String(source.Values[i]);
+            }
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamArraySimple(map, prefix + "Values.", this.Values);
+        this.setParamSimple(map, prefix + "Name", this.Name);
 
     }
 }

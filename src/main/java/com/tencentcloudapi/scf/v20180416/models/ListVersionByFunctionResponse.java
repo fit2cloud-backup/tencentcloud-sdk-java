@@ -38,6 +38,14 @@ public class ListVersionByFunctionResponse extends AbstractModel{
     private FunctionVersion [] Versions;
 
     /**
+    * 函数版本总数。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TotalCount")
+    @Expose
+    private Long TotalCount;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -81,6 +89,26 @@ public class ListVersionByFunctionResponse extends AbstractModel{
     }
 
     /**
+     * Get 函数版本总数。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TotalCount 函数版本总数。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getTotalCount() {
+        return this.TotalCount;
+    }
+
+    /**
+     * Set 函数版本总数。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TotalCount 函数版本总数。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTotalCount(Long TotalCount) {
+        this.TotalCount = TotalCount;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -96,12 +124,42 @@ public class ListVersionByFunctionResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public ListVersionByFunctionResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ListVersionByFunctionResponse(ListVersionByFunctionResponse source) {
+        if (source.FunctionVersion != null) {
+            this.FunctionVersion = new String[source.FunctionVersion.length];
+            for (int i = 0; i < source.FunctionVersion.length; i++) {
+                this.FunctionVersion[i] = new String(source.FunctionVersion[i]);
+            }
+        }
+        if (source.Versions != null) {
+            this.Versions = new FunctionVersion[source.Versions.length];
+            for (int i = 0; i < source.Versions.length; i++) {
+                this.Versions[i] = new FunctionVersion(source.Versions[i]);
+            }
+        }
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "FunctionVersion.", this.FunctionVersion);
         this.setParamArrayObj(map, prefix + "Versions.", this.Versions);
+        this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

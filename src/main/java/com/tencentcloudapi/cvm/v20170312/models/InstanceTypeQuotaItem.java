@@ -116,6 +116,55 @@ public class InstanceTypeQuotaItem extends AbstractModel{
     private String SoldOutReason;
 
     /**
+    * 内网带宽，单位Gbps。
+    */
+    @SerializedName("InstanceBandwidth")
+    @Expose
+    private Float InstanceBandwidth;
+
+    /**
+    * 网络收发包能力，单位万PPS。
+    */
+    @SerializedName("InstancePps")
+    @Expose
+    private Long InstancePps;
+
+    /**
+    * 本地存储块数量。
+    */
+    @SerializedName("StorageBlockAmount")
+    @Expose
+    private Long StorageBlockAmount;
+
+    /**
+    * 处理器型号。
+    */
+    @SerializedName("CpuType")
+    @Expose
+    private String CpuType;
+
+    /**
+    * 实例的GPU数量。
+    */
+    @SerializedName("Gpu")
+    @Expose
+    private Long Gpu;
+
+    /**
+    * 实例的FPGA数量。
+    */
+    @SerializedName("Fpga")
+    @Expose
+    private Long Fpga;
+
+    /**
+    * 实例备注信息。
+    */
+    @SerializedName("Remark")
+    @Expose
+    private String Remark;
+
+    /**
      * Get 可用区。 
      * @return Zone 可用区。
      */
@@ -332,6 +381,192 @@ public class InstanceTypeQuotaItem extends AbstractModel{
     }
 
     /**
+     * Get 内网带宽，单位Gbps。 
+     * @return InstanceBandwidth 内网带宽，单位Gbps。
+     */
+    public Float getInstanceBandwidth() {
+        return this.InstanceBandwidth;
+    }
+
+    /**
+     * Set 内网带宽，单位Gbps。
+     * @param InstanceBandwidth 内网带宽，单位Gbps。
+     */
+    public void setInstanceBandwidth(Float InstanceBandwidth) {
+        this.InstanceBandwidth = InstanceBandwidth;
+    }
+
+    /**
+     * Get 网络收发包能力，单位万PPS。 
+     * @return InstancePps 网络收发包能力，单位万PPS。
+     */
+    public Long getInstancePps() {
+        return this.InstancePps;
+    }
+
+    /**
+     * Set 网络收发包能力，单位万PPS。
+     * @param InstancePps 网络收发包能力，单位万PPS。
+     */
+    public void setInstancePps(Long InstancePps) {
+        this.InstancePps = InstancePps;
+    }
+
+    /**
+     * Get 本地存储块数量。 
+     * @return StorageBlockAmount 本地存储块数量。
+     */
+    public Long getStorageBlockAmount() {
+        return this.StorageBlockAmount;
+    }
+
+    /**
+     * Set 本地存储块数量。
+     * @param StorageBlockAmount 本地存储块数量。
+     */
+    public void setStorageBlockAmount(Long StorageBlockAmount) {
+        this.StorageBlockAmount = StorageBlockAmount;
+    }
+
+    /**
+     * Get 处理器型号。 
+     * @return CpuType 处理器型号。
+     */
+    public String getCpuType() {
+        return this.CpuType;
+    }
+
+    /**
+     * Set 处理器型号。
+     * @param CpuType 处理器型号。
+     */
+    public void setCpuType(String CpuType) {
+        this.CpuType = CpuType;
+    }
+
+    /**
+     * Get 实例的GPU数量。 
+     * @return Gpu 实例的GPU数量。
+     */
+    public Long getGpu() {
+        return this.Gpu;
+    }
+
+    /**
+     * Set 实例的GPU数量。
+     * @param Gpu 实例的GPU数量。
+     */
+    public void setGpu(Long Gpu) {
+        this.Gpu = Gpu;
+    }
+
+    /**
+     * Get 实例的FPGA数量。 
+     * @return Fpga 实例的FPGA数量。
+     */
+    public Long getFpga() {
+        return this.Fpga;
+    }
+
+    /**
+     * Set 实例的FPGA数量。
+     * @param Fpga 实例的FPGA数量。
+     */
+    public void setFpga(Long Fpga) {
+        this.Fpga = Fpga;
+    }
+
+    /**
+     * Get 实例备注信息。 
+     * @return Remark 实例备注信息。
+     */
+    public String getRemark() {
+        return this.Remark;
+    }
+
+    /**
+     * Set 实例备注信息。
+     * @param Remark 实例备注信息。
+     */
+    public void setRemark(String Remark) {
+        this.Remark = Remark;
+    }
+
+    public InstanceTypeQuotaItem() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public InstanceTypeQuotaItem(InstanceTypeQuotaItem source) {
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.InstanceType != null) {
+            this.InstanceType = new String(source.InstanceType);
+        }
+        if (source.InstanceChargeType != null) {
+            this.InstanceChargeType = new String(source.InstanceChargeType);
+        }
+        if (source.NetworkCard != null) {
+            this.NetworkCard = new Long(source.NetworkCard);
+        }
+        if (source.Externals != null) {
+            this.Externals = new Externals(source.Externals);
+        }
+        if (source.Cpu != null) {
+            this.Cpu = new Long(source.Cpu);
+        }
+        if (source.Memory != null) {
+            this.Memory = new Long(source.Memory);
+        }
+        if (source.InstanceFamily != null) {
+            this.InstanceFamily = new String(source.InstanceFamily);
+        }
+        if (source.TypeName != null) {
+            this.TypeName = new String(source.TypeName);
+        }
+        if (source.LocalDiskTypeList != null) {
+            this.LocalDiskTypeList = new LocalDiskType[source.LocalDiskTypeList.length];
+            for (int i = 0; i < source.LocalDiskTypeList.length; i++) {
+                this.LocalDiskTypeList[i] = new LocalDiskType(source.LocalDiskTypeList[i]);
+            }
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.Price != null) {
+            this.Price = new ItemPrice(source.Price);
+        }
+        if (source.SoldOutReason != null) {
+            this.SoldOutReason = new String(source.SoldOutReason);
+        }
+        if (source.InstanceBandwidth != null) {
+            this.InstanceBandwidth = new Float(source.InstanceBandwidth);
+        }
+        if (source.InstancePps != null) {
+            this.InstancePps = new Long(source.InstancePps);
+        }
+        if (source.StorageBlockAmount != null) {
+            this.StorageBlockAmount = new Long(source.StorageBlockAmount);
+        }
+        if (source.CpuType != null) {
+            this.CpuType = new String(source.CpuType);
+        }
+        if (source.Gpu != null) {
+            this.Gpu = new Long(source.Gpu);
+        }
+        if (source.Fpga != null) {
+            this.Fpga = new Long(source.Fpga);
+        }
+        if (source.Remark != null) {
+            this.Remark = new String(source.Remark);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -348,6 +583,13 @@ public class InstanceTypeQuotaItem extends AbstractModel{
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamObj(map, prefix + "Price.", this.Price);
         this.setParamSimple(map, prefix + "SoldOutReason", this.SoldOutReason);
+        this.setParamSimple(map, prefix + "InstanceBandwidth", this.InstanceBandwidth);
+        this.setParamSimple(map, prefix + "InstancePps", this.InstancePps);
+        this.setParamSimple(map, prefix + "StorageBlockAmount", this.StorageBlockAmount);
+        this.setParamSimple(map, prefix + "CpuType", this.CpuType);
+        this.setParamSimple(map, prefix + "Gpu", this.Gpu);
+        this.setParamSimple(map, prefix + "Fpga", this.Fpga);
+        this.setParamSimple(map, prefix + "Remark", this.Remark);
 
     }
 }

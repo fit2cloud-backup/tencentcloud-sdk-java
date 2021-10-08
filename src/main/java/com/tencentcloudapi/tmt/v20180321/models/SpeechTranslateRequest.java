@@ -37,14 +37,14 @@ public class SpeechTranslateRequest extends AbstractModel{
     private String Source;
 
     /**
-    * 翻译目标语⾔言类型 ，支持的语言列表<li> zh : 中文 </li> <li> en : 英文 </li>
+    * 翻译目标语言类型，支持的语言列表<li> zh : 中文 </li> <li> en : 英文 </li>
     */
     @SerializedName("Target")
     @Expose
     private String Target;
 
     /**
-    * pcm : 146   amr : 33554432   mp3 : 83886080
+    * pcm : 146   speex : 16779154   mp3 : 83886080
     */
     @SerializedName("AudioFormat")
     @Expose
@@ -65,7 +65,7 @@ public class SpeechTranslateRequest extends AbstractModel{
     private Long IsEnd;
 
     /**
-    * 语音分片内容的base64字符串，音频内容应含有效并可识别的文本
+    * 语音分片内容进行 Base64 编码后的字符串。音频内容需包含有效并可识别的文本信息。
     */
     @SerializedName("Data")
     @Expose
@@ -84,6 +84,13 @@ public class SpeechTranslateRequest extends AbstractModel{
     @SerializedName("Mode")
     @Expose
     private String Mode;
+
+    /**
+    * 该参数已废弃
+    */
+    @SerializedName("TransType")
+    @Expose
+    private Long TransType;
 
     /**
      * Get 一段完整的语音对应一个SessionUuid 
@@ -118,32 +125,32 @@ public class SpeechTranslateRequest extends AbstractModel{
     }
 
     /**
-     * Get 翻译目标语⾔言类型 ，支持的语言列表<li> zh : 中文 </li> <li> en : 英文 </li> 
-     * @return Target 翻译目标语⾔言类型 ，支持的语言列表<li> zh : 中文 </li> <li> en : 英文 </li>
+     * Get 翻译目标语言类型，支持的语言列表<li> zh : 中文 </li> <li> en : 英文 </li> 
+     * @return Target 翻译目标语言类型，支持的语言列表<li> zh : 中文 </li> <li> en : 英文 </li>
      */
     public String getTarget() {
         return this.Target;
     }
 
     /**
-     * Set 翻译目标语⾔言类型 ，支持的语言列表<li> zh : 中文 </li> <li> en : 英文 </li>
-     * @param Target 翻译目标语⾔言类型 ，支持的语言列表<li> zh : 中文 </li> <li> en : 英文 </li>
+     * Set 翻译目标语言类型，支持的语言列表<li> zh : 中文 </li> <li> en : 英文 </li>
+     * @param Target 翻译目标语言类型，支持的语言列表<li> zh : 中文 </li> <li> en : 英文 </li>
      */
     public void setTarget(String Target) {
         this.Target = Target;
     }
 
     /**
-     * Get pcm : 146   amr : 33554432   mp3 : 83886080 
-     * @return AudioFormat pcm : 146   amr : 33554432   mp3 : 83886080
+     * Get pcm : 146   speex : 16779154   mp3 : 83886080 
+     * @return AudioFormat pcm : 146   speex : 16779154   mp3 : 83886080
      */
     public Long getAudioFormat() {
         return this.AudioFormat;
     }
 
     /**
-     * Set pcm : 146   amr : 33554432   mp3 : 83886080
-     * @param AudioFormat pcm : 146   amr : 33554432   mp3 : 83886080
+     * Set pcm : 146   speex : 16779154   mp3 : 83886080
+     * @param AudioFormat pcm : 146   speex : 16779154   mp3 : 83886080
      */
     public void setAudioFormat(Long AudioFormat) {
         this.AudioFormat = AudioFormat;
@@ -182,16 +189,16 @@ public class SpeechTranslateRequest extends AbstractModel{
     }
 
     /**
-     * Get 语音分片内容的base64字符串，音频内容应含有效并可识别的文本 
-     * @return Data 语音分片内容的base64字符串，音频内容应含有效并可识别的文本
+     * Get 语音分片内容进行 Base64 编码后的字符串。音频内容需包含有效并可识别的文本信息。 
+     * @return Data 语音分片内容进行 Base64 编码后的字符串。音频内容需包含有效并可识别的文本信息。
      */
     public String getData() {
         return this.Data;
     }
 
     /**
-     * Set 语音分片内容的base64字符串，音频内容应含有效并可识别的文本
-     * @param Data 语音分片内容的base64字符串，音频内容应含有效并可识别的文本
+     * Set 语音分片内容进行 Base64 编码后的字符串。音频内容需包含有效并可识别的文本信息。
+     * @param Data 语音分片内容进行 Base64 编码后的字符串。音频内容需包含有效并可识别的文本信息。
      */
     public void setData(String Data) {
         this.Data = Data;
@@ -230,6 +237,63 @@ public class SpeechTranslateRequest extends AbstractModel{
     }
 
     /**
+     * Get 该参数已废弃 
+     * @return TransType 该参数已废弃
+     */
+    public Long getTransType() {
+        return this.TransType;
+    }
+
+    /**
+     * Set 该参数已废弃
+     * @param TransType 该参数已废弃
+     */
+    public void setTransType(Long TransType) {
+        this.TransType = TransType;
+    }
+
+    public SpeechTranslateRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SpeechTranslateRequest(SpeechTranslateRequest source) {
+        if (source.SessionUuid != null) {
+            this.SessionUuid = new String(source.SessionUuid);
+        }
+        if (source.Source != null) {
+            this.Source = new String(source.Source);
+        }
+        if (source.Target != null) {
+            this.Target = new String(source.Target);
+        }
+        if (source.AudioFormat != null) {
+            this.AudioFormat = new Long(source.AudioFormat);
+        }
+        if (source.Seq != null) {
+            this.Seq = new Long(source.Seq);
+        }
+        if (source.IsEnd != null) {
+            this.IsEnd = new Long(source.IsEnd);
+        }
+        if (source.Data != null) {
+            this.Data = new String(source.Data);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.Mode != null) {
+            this.Mode = new String(source.Mode);
+        }
+        if (source.TransType != null) {
+            this.TransType = new Long(source.TransType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -242,6 +306,7 @@ public class SpeechTranslateRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Data", this.Data);
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamSimple(map, prefix + "Mode", this.Mode);
+        this.setParamSimple(map, prefix + "TransType", this.TransType);
 
     }
 }

@@ -23,21 +23,21 @@ import java.util.HashMap;
 public class SellConfig extends AbstractModel{
 
     /**
-    * 设备类型
+    * 设备类型（废弃）
     */
     @SerializedName("Device")
     @Expose
     private String Device;
 
     /**
-    * 售卖规格描述
+    * 售卖规格描述（废弃）
     */
     @SerializedName("Type")
     @Expose
     private String Type;
 
     /**
-    * 实例类型
+    * 实例类型（废弃）
     */
     @SerializedName("CdbType")
     @Expose
@@ -107,62 +107,78 @@ public class SellConfig extends AbstractModel{
     private String Info;
 
     /**
-    * 状态值
+    * 状态值，0 表示该规格对外售卖
     */
     @SerializedName("Status")
     @Expose
     private Long Status;
 
     /**
-    * 标签值
+    * 标签值（废弃）
     */
     @SerializedName("Tag")
     @Expose
     private Long Tag;
 
     /**
-     * Get 设备类型 
-     * @return Device 设备类型
+    * 实例类型，可能的取值范围有：UNIVERSAL (通用型), EXCLUSIVE (独享型), BASIC (基础型)
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DeviceType")
+    @Expose
+    private String DeviceType;
+
+    /**
+    * 实例类型描述，可能的取值范围有：通用型， 独享型， 基础型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DeviceTypeName")
+    @Expose
+    private String DeviceTypeName;
+
+    /**
+     * Get 设备类型（废弃） 
+     * @return Device 设备类型（废弃）
      */
     public String getDevice() {
         return this.Device;
     }
 
     /**
-     * Set 设备类型
-     * @param Device 设备类型
+     * Set 设备类型（废弃）
+     * @param Device 设备类型（废弃）
      */
     public void setDevice(String Device) {
         this.Device = Device;
     }
 
     /**
-     * Get 售卖规格描述 
-     * @return Type 售卖规格描述
+     * Get 售卖规格描述（废弃） 
+     * @return Type 售卖规格描述（废弃）
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set 售卖规格描述
-     * @param Type 售卖规格描述
+     * Set 售卖规格描述（废弃）
+     * @param Type 售卖规格描述（废弃）
      */
     public void setType(String Type) {
         this.Type = Type;
     }
 
     /**
-     * Get 实例类型 
-     * @return CdbType 实例类型
+     * Get 实例类型（废弃） 
+     * @return CdbType 实例类型（废弃）
      */
     public String getCdbType() {
         return this.CdbType;
     }
 
     /**
-     * Set 实例类型
-     * @param CdbType 实例类型
+     * Set 实例类型（废弃）
+     * @param CdbType 实例类型（废弃）
      */
     public void setCdbType(String CdbType) {
         this.CdbType = CdbType;
@@ -313,36 +329,135 @@ public class SellConfig extends AbstractModel{
     }
 
     /**
-     * Get 状态值 
-     * @return Status 状态值
+     * Get 状态值，0 表示该规格对外售卖 
+     * @return Status 状态值，0 表示该规格对外售卖
      */
     public Long getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 状态值
-     * @param Status 状态值
+     * Set 状态值，0 表示该规格对外售卖
+     * @param Status 状态值，0 表示该规格对外售卖
      */
     public void setStatus(Long Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 标签值 
-     * @return Tag 标签值
+     * Get 标签值（废弃） 
+     * @return Tag 标签值（废弃）
      */
     public Long getTag() {
         return this.Tag;
     }
 
     /**
-     * Set 标签值
-     * @param Tag 标签值
+     * Set 标签值（废弃）
+     * @param Tag 标签值（废弃）
      */
     public void setTag(Long Tag) {
         this.Tag = Tag;
     }
+
+    /**
+     * Get 实例类型，可能的取值范围有：UNIVERSAL (通用型), EXCLUSIVE (独享型), BASIC (基础型)
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DeviceType 实例类型，可能的取值范围有：UNIVERSAL (通用型), EXCLUSIVE (独享型), BASIC (基础型)
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDeviceType() {
+        return this.DeviceType;
+    }
+
+    /**
+     * Set 实例类型，可能的取值范围有：UNIVERSAL (通用型), EXCLUSIVE (独享型), BASIC (基础型)
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DeviceType 实例类型，可能的取值范围有：UNIVERSAL (通用型), EXCLUSIVE (独享型), BASIC (基础型)
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDeviceType(String DeviceType) {
+        this.DeviceType = DeviceType;
+    }
+
+    /**
+     * Get 实例类型描述，可能的取值范围有：通用型， 独享型， 基础型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DeviceTypeName 实例类型描述，可能的取值范围有：通用型， 独享型， 基础型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDeviceTypeName() {
+        return this.DeviceTypeName;
+    }
+
+    /**
+     * Set 实例类型描述，可能的取值范围有：通用型， 独享型， 基础型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DeviceTypeName 实例类型描述，可能的取值范围有：通用型， 独享型， 基础型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDeviceTypeName(String DeviceTypeName) {
+        this.DeviceTypeName = DeviceTypeName;
+    }
+
+    public SellConfig() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SellConfig(SellConfig source) {
+        if (source.Device != null) {
+            this.Device = new String(source.Device);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.CdbType != null) {
+            this.CdbType = new String(source.CdbType);
+        }
+        if (source.Memory != null) {
+            this.Memory = new Long(source.Memory);
+        }
+        if (source.Cpu != null) {
+            this.Cpu = new Long(source.Cpu);
+        }
+        if (source.VolumeMin != null) {
+            this.VolumeMin = new Long(source.VolumeMin);
+        }
+        if (source.VolumeMax != null) {
+            this.VolumeMax = new Long(source.VolumeMax);
+        }
+        if (source.VolumeStep != null) {
+            this.VolumeStep = new Long(source.VolumeStep);
+        }
+        if (source.Connection != null) {
+            this.Connection = new Long(source.Connection);
+        }
+        if (source.Qps != null) {
+            this.Qps = new Long(source.Qps);
+        }
+        if (source.Iops != null) {
+            this.Iops = new Long(source.Iops);
+        }
+        if (source.Info != null) {
+            this.Info = new String(source.Info);
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+        if (source.Tag != null) {
+            this.Tag = new Long(source.Tag);
+        }
+        if (source.DeviceType != null) {
+            this.DeviceType = new String(source.DeviceType);
+        }
+        if (source.DeviceTypeName != null) {
+            this.DeviceTypeName = new String(source.DeviceTypeName);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -362,6 +477,8 @@ public class SellConfig extends AbstractModel{
         this.setParamSimple(map, prefix + "Info", this.Info);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "Tag", this.Tag);
+        this.setParamSimple(map, prefix + "DeviceType", this.DeviceType);
+        this.setParamSimple(map, prefix + "DeviceTypeName", this.DeviceTypeName);
 
     }
 }

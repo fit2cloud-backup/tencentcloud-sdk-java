@@ -142,6 +142,13 @@ public class QueryMemberTransactionRequest extends AbstractModel{
     private String WebSign;
 
     /**
+    * STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+    */
+    @SerializedName("Profile")
+    @Expose
+    private String Profile;
+
+    /**
      * Get String(22)，商户号（签约客户号） 
      * @return MrchCode String(22)，商户号（签约客户号）
      */
@@ -414,6 +421,87 @@ public class QueryMemberTransactionRequest extends AbstractModel{
     }
 
     /**
+     * Get STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod" 
+     * @return Profile STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     */
+    public String getProfile() {
+        return this.Profile;
+    }
+
+    /**
+     * Set STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     * @param Profile STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     */
+    public void setProfile(String Profile) {
+        this.Profile = Profile;
+    }
+
+    public QueryMemberTransactionRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public QueryMemberTransactionRequest(QueryMemberTransactionRequest source) {
+        if (source.MrchCode != null) {
+            this.MrchCode = new String(source.MrchCode);
+        }
+        if (source.FunctionFlag != null) {
+            this.FunctionFlag = new String(source.FunctionFlag);
+        }
+        if (source.OutSubAcctNo != null) {
+            this.OutSubAcctNo = new String(source.OutSubAcctNo);
+        }
+        if (source.OutMemberCode != null) {
+            this.OutMemberCode = new String(source.OutMemberCode);
+        }
+        if (source.OutSubAcctName != null) {
+            this.OutSubAcctName = new String(source.OutSubAcctName);
+        }
+        if (source.InSubAcctNo != null) {
+            this.InSubAcctNo = new String(source.InSubAcctNo);
+        }
+        if (source.InMemberCode != null) {
+            this.InMemberCode = new String(source.InMemberCode);
+        }
+        if (source.InSubAcctName != null) {
+            this.InSubAcctName = new String(source.InSubAcctName);
+        }
+        if (source.TranAmt != null) {
+            this.TranAmt = new String(source.TranAmt);
+        }
+        if (source.TranFee != null) {
+            this.TranFee = new String(source.TranFee);
+        }
+        if (source.TranType != null) {
+            this.TranType = new String(source.TranType);
+        }
+        if (source.Ccy != null) {
+            this.Ccy = new String(source.Ccy);
+        }
+        if (source.OrderNo != null) {
+            this.OrderNo = new String(source.OrderNo);
+        }
+        if (source.OrderContent != null) {
+            this.OrderContent = new String(source.OrderContent);
+        }
+        if (source.Remark != null) {
+            this.Remark = new String(source.Remark);
+        }
+        if (source.ReservedMsg != null) {
+            this.ReservedMsg = new String(source.ReservedMsg);
+        }
+        if (source.WebSign != null) {
+            this.WebSign = new String(source.WebSign);
+        }
+        if (source.Profile != null) {
+            this.Profile = new String(source.Profile);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -434,6 +522,7 @@ public class QueryMemberTransactionRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Remark", this.Remark);
         this.setParamSimple(map, prefix + "ReservedMsg", this.ReservedMsg);
         this.setParamSimple(map, prefix + "WebSign", this.WebSign);
+        this.setParamSimple(map, prefix + "Profile", this.Profile);
 
     }
 }

@@ -81,17 +81,17 @@ public class ProxyInfo extends AbstractModel{
 
     /**
     * 通道状态。其中：
-RUNNING，运行中；
-CREATING，创建中；
-DESTROYING，销毁中；
-OPENING，开启中；
-CLOSING，关闭中；
-CLOSED，已关闭；
-ADJUSTING，配置变更中；
-ISOLATING，隔离中（欠费触发）；
-ISOLATED，已隔离（欠费触发）；
-CLONING，复制中；
-UNKNOWN，未知状态。
+RUNNING表示运行中；
+CREATING表示创建中；
+DESTROYING表示销毁中；
+OPENING表示开启中；
+CLOSING表示关闭中；
+CLOSED表示已关闭；
+ADJUSTING表示配置变更中；
+ISOLATING表示隔离中；
+ISOLATED表示已隔离；
+CLONING表示复制中；
+UNKNOWN表示未知状态。
     */
     @SerializedName("Status")
     @Expose
@@ -196,12 +196,76 @@ UNKNOWN，未知状态。
     private Long SupportSecurity;
 
     /**
-    * 计费类型:(0:按带宽计费  1:按流量计费）
+    * 计费类型: 0表示按带宽计费  1表示按流量计费。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BillingType")
     @Expose
     private Long BillingType;
+
+    /**
+    * 关联了解析的域名列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RelatedGlobalDomains")
+    @Expose
+    private String [] RelatedGlobalDomains;
+
+    /**
+    * 配置变更时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ModifyConfigTime")
+    @Expose
+    private Long ModifyConfigTime;
+
+    /**
+    * 通道类型，100表示THUNDER通道，103表示微软合作通道
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ProxyType")
+    @Expose
+    private Long ProxyType;
+
+    /**
+    * 通道获取客户端IP的方式，0表示TOA，1表示Proxy Protocol
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ClientIPMethod")
+    @Expose
+    private Long [] ClientIPMethod;
+
+    /**
+    * IP版本：IPv4、IPv6
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IPAddressVersion")
+    @Expose
+    private String IPAddressVersion;
+
+    /**
+    * 网络类型：normal、cn2
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("NetworkType")
+    @Expose
+    private String NetworkType;
+
+    /**
+    * 通道套餐类型：Thunder表示标准通道，Accelerator表示游戏加速器通道。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PackageType")
+    @Expose
+    private String PackageType;
+
+    /**
+    * 封禁解封状态：BANNED表示已封禁，RECOVER表示已解封或未封禁，BANNING表示封禁中，RECOVERING表示解封中，BAN_FAILED表示封禁失败，RECOVER_FAILED表示解封失败。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("BanStatus")
+    @Expose
+    private String BanStatus;
 
     /**
      * Get （旧参数，请使用ProxyId）通道实例ID。
@@ -337,29 +401,29 @@ UNKNOWN，未知状态。
 
     /**
      * Get 通道状态。其中：
-RUNNING，运行中；
-CREATING，创建中；
-DESTROYING，销毁中；
-OPENING，开启中；
-CLOSING，关闭中；
-CLOSED，已关闭；
-ADJUSTING，配置变更中；
-ISOLATING，隔离中（欠费触发）；
-ISOLATED，已隔离（欠费触发）；
-CLONING，复制中；
-UNKNOWN，未知状态。 
+RUNNING表示运行中；
+CREATING表示创建中；
+DESTROYING表示销毁中；
+OPENING表示开启中；
+CLOSING表示关闭中；
+CLOSED表示已关闭；
+ADJUSTING表示配置变更中；
+ISOLATING表示隔离中；
+ISOLATED表示已隔离；
+CLONING表示复制中；
+UNKNOWN表示未知状态。 
      * @return Status 通道状态。其中：
-RUNNING，运行中；
-CREATING，创建中；
-DESTROYING，销毁中；
-OPENING，开启中；
-CLOSING，关闭中；
-CLOSED，已关闭；
-ADJUSTING，配置变更中；
-ISOLATING，隔离中（欠费触发）；
-ISOLATED，已隔离（欠费触发）；
-CLONING，复制中；
-UNKNOWN，未知状态。
+RUNNING表示运行中；
+CREATING表示创建中；
+DESTROYING表示销毁中；
+OPENING表示开启中；
+CLOSING表示关闭中；
+CLOSED表示已关闭；
+ADJUSTING表示配置变更中；
+ISOLATING表示隔离中；
+ISOLATED表示已隔离；
+CLONING表示复制中；
+UNKNOWN表示未知状态。
      */
     public String getStatus() {
         return this.Status;
@@ -367,29 +431,29 @@ UNKNOWN，未知状态。
 
     /**
      * Set 通道状态。其中：
-RUNNING，运行中；
-CREATING，创建中；
-DESTROYING，销毁中；
-OPENING，开启中；
-CLOSING，关闭中；
-CLOSED，已关闭；
-ADJUSTING，配置变更中；
-ISOLATING，隔离中（欠费触发）；
-ISOLATED，已隔离（欠费触发）；
-CLONING，复制中；
-UNKNOWN，未知状态。
+RUNNING表示运行中；
+CREATING表示创建中；
+DESTROYING表示销毁中；
+OPENING表示开启中；
+CLOSING表示关闭中；
+CLOSED表示已关闭；
+ADJUSTING表示配置变更中；
+ISOLATING表示隔离中；
+ISOLATED表示已隔离；
+CLONING表示复制中；
+UNKNOWN表示未知状态。
      * @param Status 通道状态。其中：
-RUNNING，运行中；
-CREATING，创建中；
-DESTROYING，销毁中；
-OPENING，开启中；
-CLOSING，关闭中；
-CLOSED，已关闭；
-ADJUSTING，配置变更中；
-ISOLATING，隔离中（欠费触发）；
-ISOLATED，已隔离（欠费触发）；
-CLONING，复制中；
-UNKNOWN，未知状态。
+RUNNING表示运行中；
+CREATING表示创建中；
+DESTROYING表示销毁中；
+OPENING表示开启中；
+CLOSING表示关闭中；
+CLOSED表示已关闭；
+ADJUSTING表示配置变更中；
+ISOLATING表示隔离中；
+ISOLATED表示已隔离；
+CLONING表示复制中；
+UNKNOWN表示未知状态。
      */
     public void setStatus(String Status) {
         this.Status = Status;
@@ -632,9 +696,9 @@ UNKNOWN，未知状态。
     }
 
     /**
-     * Get 计费类型:(0:按带宽计费  1:按流量计费）
+     * Get 计费类型: 0表示按带宽计费  1表示按流量计费。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return BillingType 计费类型:(0:按带宽计费  1:按流量计费）
+     * @return BillingType 计费类型: 0表示按带宽计费  1表示按流量计费。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getBillingType() {
@@ -642,14 +706,290 @@ UNKNOWN，未知状态。
     }
 
     /**
-     * Set 计费类型:(0:按带宽计费  1:按流量计费）
+     * Set 计费类型: 0表示按带宽计费  1表示按流量计费。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param BillingType 计费类型:(0:按带宽计费  1:按流量计费）
+     * @param BillingType 计费类型: 0表示按带宽计费  1表示按流量计费。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBillingType(Long BillingType) {
         this.BillingType = BillingType;
     }
+
+    /**
+     * Get 关联了解析的域名列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RelatedGlobalDomains 关联了解析的域名列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getRelatedGlobalDomains() {
+        return this.RelatedGlobalDomains;
+    }
+
+    /**
+     * Set 关联了解析的域名列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RelatedGlobalDomains 关联了解析的域名列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRelatedGlobalDomains(String [] RelatedGlobalDomains) {
+        this.RelatedGlobalDomains = RelatedGlobalDomains;
+    }
+
+    /**
+     * Get 配置变更时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ModifyConfigTime 配置变更时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getModifyConfigTime() {
+        return this.ModifyConfigTime;
+    }
+
+    /**
+     * Set 配置变更时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ModifyConfigTime 配置变更时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setModifyConfigTime(Long ModifyConfigTime) {
+        this.ModifyConfigTime = ModifyConfigTime;
+    }
+
+    /**
+     * Get 通道类型，100表示THUNDER通道，103表示微软合作通道
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ProxyType 通道类型，100表示THUNDER通道，103表示微软合作通道
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getProxyType() {
+        return this.ProxyType;
+    }
+
+    /**
+     * Set 通道类型，100表示THUNDER通道，103表示微软合作通道
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ProxyType 通道类型，100表示THUNDER通道，103表示微软合作通道
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setProxyType(Long ProxyType) {
+        this.ProxyType = ProxyType;
+    }
+
+    /**
+     * Get 通道获取客户端IP的方式，0表示TOA，1表示Proxy Protocol
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ClientIPMethod 通道获取客户端IP的方式，0表示TOA，1表示Proxy Protocol
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long [] getClientIPMethod() {
+        return this.ClientIPMethod;
+    }
+
+    /**
+     * Set 通道获取客户端IP的方式，0表示TOA，1表示Proxy Protocol
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ClientIPMethod 通道获取客户端IP的方式，0表示TOA，1表示Proxy Protocol
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setClientIPMethod(Long [] ClientIPMethod) {
+        this.ClientIPMethod = ClientIPMethod;
+    }
+
+    /**
+     * Get IP版本：IPv4、IPv6
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IPAddressVersion IP版本：IPv4、IPv6
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getIPAddressVersion() {
+        return this.IPAddressVersion;
+    }
+
+    /**
+     * Set IP版本：IPv4、IPv6
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IPAddressVersion IP版本：IPv4、IPv6
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIPAddressVersion(String IPAddressVersion) {
+        this.IPAddressVersion = IPAddressVersion;
+    }
+
+    /**
+     * Get 网络类型：normal、cn2
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return NetworkType 网络类型：normal、cn2
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getNetworkType() {
+        return this.NetworkType;
+    }
+
+    /**
+     * Set 网络类型：normal、cn2
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param NetworkType 网络类型：normal、cn2
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setNetworkType(String NetworkType) {
+        this.NetworkType = NetworkType;
+    }
+
+    /**
+     * Get 通道套餐类型：Thunder表示标准通道，Accelerator表示游戏加速器通道。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PackageType 通道套餐类型：Thunder表示标准通道，Accelerator表示游戏加速器通道。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getPackageType() {
+        return this.PackageType;
+    }
+
+    /**
+     * Set 通道套餐类型：Thunder表示标准通道，Accelerator表示游戏加速器通道。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PackageType 通道套餐类型：Thunder表示标准通道，Accelerator表示游戏加速器通道。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPackageType(String PackageType) {
+        this.PackageType = PackageType;
+    }
+
+    /**
+     * Get 封禁解封状态：BANNED表示已封禁，RECOVER表示已解封或未封禁，BANNING表示封禁中，RECOVERING表示解封中，BAN_FAILED表示封禁失败，RECOVER_FAILED表示解封失败。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return BanStatus 封禁解封状态：BANNED表示已封禁，RECOVER表示已解封或未封禁，BANNING表示封禁中，RECOVERING表示解封中，BAN_FAILED表示封禁失败，RECOVER_FAILED表示解封失败。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getBanStatus() {
+        return this.BanStatus;
+    }
+
+    /**
+     * Set 封禁解封状态：BANNED表示已封禁，RECOVER表示已解封或未封禁，BANNING表示封禁中，RECOVERING表示解封中，BAN_FAILED表示封禁失败，RECOVER_FAILED表示解封失败。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param BanStatus 封禁解封状态：BANNED表示已封禁，RECOVER表示已解封或未封禁，BANNING表示封禁中，RECOVERING表示解封中，BAN_FAILED表示封禁失败，RECOVER_FAILED表示解封失败。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBanStatus(String BanStatus) {
+        this.BanStatus = BanStatus;
+    }
+
+    public ProxyInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ProxyInfo(ProxyInfo source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new Long(source.CreateTime);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.ProxyName != null) {
+            this.ProxyName = new String(source.ProxyName);
+        }
+        if (source.AccessRegion != null) {
+            this.AccessRegion = new String(source.AccessRegion);
+        }
+        if (source.RealServerRegion != null) {
+            this.RealServerRegion = new String(source.RealServerRegion);
+        }
+        if (source.Bandwidth != null) {
+            this.Bandwidth = new Long(source.Bandwidth);
+        }
+        if (source.Concurrent != null) {
+            this.Concurrent = new Long(source.Concurrent);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.Domain != null) {
+            this.Domain = new String(source.Domain);
+        }
+        if (source.IP != null) {
+            this.IP = new String(source.IP);
+        }
+        if (source.Version != null) {
+            this.Version = new String(source.Version);
+        }
+        if (source.ProxyId != null) {
+            this.ProxyId = new String(source.ProxyId);
+        }
+        if (source.Scalarable != null) {
+            this.Scalarable = new Long(source.Scalarable);
+        }
+        if (source.SupportProtocols != null) {
+            this.SupportProtocols = new String[source.SupportProtocols.length];
+            for (int i = 0; i < source.SupportProtocols.length; i++) {
+                this.SupportProtocols[i] = new String(source.SupportProtocols[i]);
+            }
+        }
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
+        if (source.PolicyId != null) {
+            this.PolicyId = new String(source.PolicyId);
+        }
+        if (source.AccessRegionInfo != null) {
+            this.AccessRegionInfo = new RegionDetail(source.AccessRegionInfo);
+        }
+        if (source.RealServerRegionInfo != null) {
+            this.RealServerRegionInfo = new RegionDetail(source.RealServerRegionInfo);
+        }
+        if (source.ForwardIP != null) {
+            this.ForwardIP = new String(source.ForwardIP);
+        }
+        if (source.TagSet != null) {
+            this.TagSet = new TagPair[source.TagSet.length];
+            for (int i = 0; i < source.TagSet.length; i++) {
+                this.TagSet[i] = new TagPair(source.TagSet[i]);
+            }
+        }
+        if (source.SupportSecurity != null) {
+            this.SupportSecurity = new Long(source.SupportSecurity);
+        }
+        if (source.BillingType != null) {
+            this.BillingType = new Long(source.BillingType);
+        }
+        if (source.RelatedGlobalDomains != null) {
+            this.RelatedGlobalDomains = new String[source.RelatedGlobalDomains.length];
+            for (int i = 0; i < source.RelatedGlobalDomains.length; i++) {
+                this.RelatedGlobalDomains[i] = new String(source.RelatedGlobalDomains[i]);
+            }
+        }
+        if (source.ModifyConfigTime != null) {
+            this.ModifyConfigTime = new Long(source.ModifyConfigTime);
+        }
+        if (source.ProxyType != null) {
+            this.ProxyType = new Long(source.ProxyType);
+        }
+        if (source.ClientIPMethod != null) {
+            this.ClientIPMethod = new Long[source.ClientIPMethod.length];
+            for (int i = 0; i < source.ClientIPMethod.length; i++) {
+                this.ClientIPMethod[i] = new Long(source.ClientIPMethod[i]);
+            }
+        }
+        if (source.IPAddressVersion != null) {
+            this.IPAddressVersion = new String(source.IPAddressVersion);
+        }
+        if (source.NetworkType != null) {
+            this.NetworkType = new String(source.NetworkType);
+        }
+        if (source.PackageType != null) {
+            this.PackageType = new String(source.PackageType);
+        }
+        if (source.BanStatus != null) {
+            this.BanStatus = new String(source.BanStatus);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -678,6 +1018,14 @@ UNKNOWN，未知状态。
         this.setParamArrayObj(map, prefix + "TagSet.", this.TagSet);
         this.setParamSimple(map, prefix + "SupportSecurity", this.SupportSecurity);
         this.setParamSimple(map, prefix + "BillingType", this.BillingType);
+        this.setParamArraySimple(map, prefix + "RelatedGlobalDomains.", this.RelatedGlobalDomains);
+        this.setParamSimple(map, prefix + "ModifyConfigTime", this.ModifyConfigTime);
+        this.setParamSimple(map, prefix + "ProxyType", this.ProxyType);
+        this.setParamArraySimple(map, prefix + "ClientIPMethod.", this.ClientIPMethod);
+        this.setParamSimple(map, prefix + "IPAddressVersion", this.IPAddressVersion);
+        this.setParamSimple(map, prefix + "NetworkType", this.NetworkType);
+        this.setParamSimple(map, prefix + "PackageType", this.PackageType);
+        this.setParamSimple(map, prefix + "BanStatus", this.BanStatus);
 
     }
 }

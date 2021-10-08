@@ -24,17 +24,14 @@ public class MediaKeyFrameDescInfo extends AbstractModel{
 
     /**
     * 视频打点信息数组。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("KeyFrameDescSet")
     @Expose
     private MediaKeyFrameDescItem [] KeyFrameDescSet;
 
     /**
-     * Get 视频打点信息数组。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 视频打点信息数组。 
      * @return KeyFrameDescSet 视频打点信息数组。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MediaKeyFrameDescItem [] getKeyFrameDescSet() {
         return this.KeyFrameDescSet;
@@ -42,13 +39,28 @@ public class MediaKeyFrameDescInfo extends AbstractModel{
 
     /**
      * Set 视频打点信息数组。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param KeyFrameDescSet 视频打点信息数组。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKeyFrameDescSet(MediaKeyFrameDescItem [] KeyFrameDescSet) {
         this.KeyFrameDescSet = KeyFrameDescSet;
     }
+
+    public MediaKeyFrameDescInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MediaKeyFrameDescInfo(MediaKeyFrameDescInfo source) {
+        if (source.KeyFrameDescSet != null) {
+            this.KeyFrameDescSet = new MediaKeyFrameDescItem[source.KeyFrameDescSet.length];
+            for (int i = 0; i < source.KeyFrameDescSet.length; i++) {
+                this.KeyFrameDescSet[i] = new MediaKeyFrameDescItem(source.KeyFrameDescSet[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

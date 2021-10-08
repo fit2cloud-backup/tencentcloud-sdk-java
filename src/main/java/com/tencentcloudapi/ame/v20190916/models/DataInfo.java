@@ -58,6 +58,13 @@ public class DataInfo extends AbstractModel{
     private Long AuditionEnd;
 
     /**
+    * 标签名称
+    */
+    @SerializedName("TagNames")
+    @Expose
+    private String [] TagNames;
+
+    /**
      * Get Song Name 
      * @return Name Song Name
      */
@@ -138,6 +145,54 @@ public class DataInfo extends AbstractModel{
     }
 
     /**
+     * Get 标签名称 
+     * @return TagNames 标签名称
+     */
+    public String [] getTagNames() {
+        return this.TagNames;
+    }
+
+    /**
+     * Set 标签名称
+     * @param TagNames 标签名称
+     */
+    public void setTagNames(String [] TagNames) {
+        this.TagNames = TagNames;
+    }
+
+    public DataInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DataInfo(DataInfo source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Version != null) {
+            this.Version = new String(source.Version);
+        }
+        if (source.Duration != null) {
+            this.Duration = new String(source.Duration);
+        }
+        if (source.AuditionBegin != null) {
+            this.AuditionBegin = new Long(source.AuditionBegin);
+        }
+        if (source.AuditionEnd != null) {
+            this.AuditionEnd = new Long(source.AuditionEnd);
+        }
+        if (source.TagNames != null) {
+            this.TagNames = new String[source.TagNames.length];
+            for (int i = 0; i < source.TagNames.length; i++) {
+                this.TagNames[i] = new String(source.TagNames[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -146,6 +201,7 @@ public class DataInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Duration", this.Duration);
         this.setParamSimple(map, prefix + "AuditionBegin", this.AuditionBegin);
         this.setParamSimple(map, prefix + "AuditionEnd", this.AuditionEnd);
+        this.setParamArraySimple(map, prefix + "TagNames.", this.TagNames);
 
     }
 }

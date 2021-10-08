@@ -58,6 +58,20 @@ public class TaskNotifyConfig extends AbstractModel{
     private String NotifyMode;
 
     /**
+    * 通知类型，默认CMQ，指定URL时HTTP回调推送到 NotifyUrl 指定的地址。
+    */
+    @SerializedName("NotifyType")
+    @Expose
+    private String NotifyType;
+
+    /**
+    * HTTP回调地址，NotifyType为URL时必填。
+    */
+    @SerializedName("NotifyUrl")
+    @Expose
+    private String NotifyUrl;
+
+    /**
      * Get CMQ 的模型，有 Queue 和 Topic 两种，目前仅支持 Queue。 
      * @return CmqModel CMQ 的模型，有 Queue 和 Topic 两种，目前仅支持 Queue。
      */
@@ -138,6 +152,70 @@ public class TaskNotifyConfig extends AbstractModel{
     }
 
     /**
+     * Get 通知类型，默认CMQ，指定URL时HTTP回调推送到 NotifyUrl 指定的地址。 
+     * @return NotifyType 通知类型，默认CMQ，指定URL时HTTP回调推送到 NotifyUrl 指定的地址。
+     */
+    public String getNotifyType() {
+        return this.NotifyType;
+    }
+
+    /**
+     * Set 通知类型，默认CMQ，指定URL时HTTP回调推送到 NotifyUrl 指定的地址。
+     * @param NotifyType 通知类型，默认CMQ，指定URL时HTTP回调推送到 NotifyUrl 指定的地址。
+     */
+    public void setNotifyType(String NotifyType) {
+        this.NotifyType = NotifyType;
+    }
+
+    /**
+     * Get HTTP回调地址，NotifyType为URL时必填。 
+     * @return NotifyUrl HTTP回调地址，NotifyType为URL时必填。
+     */
+    public String getNotifyUrl() {
+        return this.NotifyUrl;
+    }
+
+    /**
+     * Set HTTP回调地址，NotifyType为URL时必填。
+     * @param NotifyUrl HTTP回调地址，NotifyType为URL时必填。
+     */
+    public void setNotifyUrl(String NotifyUrl) {
+        this.NotifyUrl = NotifyUrl;
+    }
+
+    public TaskNotifyConfig() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public TaskNotifyConfig(TaskNotifyConfig source) {
+        if (source.CmqModel != null) {
+            this.CmqModel = new String(source.CmqModel);
+        }
+        if (source.CmqRegion != null) {
+            this.CmqRegion = new String(source.CmqRegion);
+        }
+        if (source.QueueName != null) {
+            this.QueueName = new String(source.QueueName);
+        }
+        if (source.TopicName != null) {
+            this.TopicName = new String(source.TopicName);
+        }
+        if (source.NotifyMode != null) {
+            this.NotifyMode = new String(source.NotifyMode);
+        }
+        if (source.NotifyType != null) {
+            this.NotifyType = new String(source.NotifyType);
+        }
+        if (source.NotifyUrl != null) {
+            this.NotifyUrl = new String(source.NotifyUrl);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -146,6 +224,8 @@ public class TaskNotifyConfig extends AbstractModel{
         this.setParamSimple(map, prefix + "QueueName", this.QueueName);
         this.setParamSimple(map, prefix + "TopicName", this.TopicName);
         this.setParamSimple(map, prefix + "NotifyMode", this.NotifyMode);
+        this.setParamSimple(map, prefix + "NotifyType", this.NotifyType);
+        this.setParamSimple(map, prefix + "NotifyUrl", this.NotifyUrl);
 
     }
 }

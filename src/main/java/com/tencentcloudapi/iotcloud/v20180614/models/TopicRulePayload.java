@@ -31,7 +31,55 @@ public class TopicRulePayload extends AbstractModel{
 
     /**
     * 行为的JSON字符串，大部分种类举例如下：
-[{"republish":{"topic":"TEST/test"}},{"forward":{"api":"http://127.0.0.1:8080"}},{"ckafka":{"instance":{"id":"ckafka-test","name":""},"topic":{"id":"topic-test","name":"test"},"region":"gz"}},{"cmqqueue":{"queuename":"queue-test-TEST","region":"gz"}},{"mysql":{"instanceid":"cdb-test","region":"gz","username":"test","userpwd":"*****","dbname":"d_mqtt","tablename":"t_test","fieldpairs":[{"field":"test","value":"test"}],"devicetype":"CUSTOM"}}]
+[
+    {
+        "republish": {
+            "topic": "TEST/test"
+        }
+    },
+    {
+        "forward": {
+            "api": "http://127.0.0.1:8080",
+            "token":"xxx"
+        }
+    },
+    {
+        "ckafka": {
+            "instance": {
+                "id": "ckafka-test",
+                "name": ""
+            },
+            "topic": {
+                "id": "topic-test",
+                "name": "test"
+            },
+            "region": "gz"
+        }
+    },
+    {
+        "cmqqueue": {
+            "queuename": "queue-test-TEST",
+            "region": "gz"
+        }
+    },
+    {
+        "mysql": {
+            "instanceid": "cdb-test",
+            "region": "gz",
+            "username": "test",
+            "userpwd": "*****",
+            "dbname": "d_mqtt",
+            "tablename": "t_test",
+            "fieldpairs": [
+                {
+                    "field": "test",
+                    "value": "test"
+                }
+            ],
+            "devicetype": "CUSTOM"
+        }
+    }
+]
     */
     @SerializedName("Actions")
     @Expose
@@ -69,9 +117,105 @@ public class TopicRulePayload extends AbstractModel{
 
     /**
      * Get 行为的JSON字符串，大部分种类举例如下：
-[{"republish":{"topic":"TEST/test"}},{"forward":{"api":"http://127.0.0.1:8080"}},{"ckafka":{"instance":{"id":"ckafka-test","name":""},"topic":{"id":"topic-test","name":"test"},"region":"gz"}},{"cmqqueue":{"queuename":"queue-test-TEST","region":"gz"}},{"mysql":{"instanceid":"cdb-test","region":"gz","username":"test","userpwd":"*****","dbname":"d_mqtt","tablename":"t_test","fieldpairs":[{"field":"test","value":"test"}],"devicetype":"CUSTOM"}}] 
+[
+    {
+        "republish": {
+            "topic": "TEST/test"
+        }
+    },
+    {
+        "forward": {
+            "api": "http://127.0.0.1:8080",
+            "token":"xxx"
+        }
+    },
+    {
+        "ckafka": {
+            "instance": {
+                "id": "ckafka-test",
+                "name": ""
+            },
+            "topic": {
+                "id": "topic-test",
+                "name": "test"
+            },
+            "region": "gz"
+        }
+    },
+    {
+        "cmqqueue": {
+            "queuename": "queue-test-TEST",
+            "region": "gz"
+        }
+    },
+    {
+        "mysql": {
+            "instanceid": "cdb-test",
+            "region": "gz",
+            "username": "test",
+            "userpwd": "*****",
+            "dbname": "d_mqtt",
+            "tablename": "t_test",
+            "fieldpairs": [
+                {
+                    "field": "test",
+                    "value": "test"
+                }
+            ],
+            "devicetype": "CUSTOM"
+        }
+    }
+] 
      * @return Actions 行为的JSON字符串，大部分种类举例如下：
-[{"republish":{"topic":"TEST/test"}},{"forward":{"api":"http://127.0.0.1:8080"}},{"ckafka":{"instance":{"id":"ckafka-test","name":""},"topic":{"id":"topic-test","name":"test"},"region":"gz"}},{"cmqqueue":{"queuename":"queue-test-TEST","region":"gz"}},{"mysql":{"instanceid":"cdb-test","region":"gz","username":"test","userpwd":"*****","dbname":"d_mqtt","tablename":"t_test","fieldpairs":[{"field":"test","value":"test"}],"devicetype":"CUSTOM"}}]
+[
+    {
+        "republish": {
+            "topic": "TEST/test"
+        }
+    },
+    {
+        "forward": {
+            "api": "http://127.0.0.1:8080",
+            "token":"xxx"
+        }
+    },
+    {
+        "ckafka": {
+            "instance": {
+                "id": "ckafka-test",
+                "name": ""
+            },
+            "topic": {
+                "id": "topic-test",
+                "name": "test"
+            },
+            "region": "gz"
+        }
+    },
+    {
+        "cmqqueue": {
+            "queuename": "queue-test-TEST",
+            "region": "gz"
+        }
+    },
+    {
+        "mysql": {
+            "instanceid": "cdb-test",
+            "region": "gz",
+            "username": "test",
+            "userpwd": "*****",
+            "dbname": "d_mqtt",
+            "tablename": "t_test",
+            "fieldpairs": [
+                {
+                    "field": "test",
+                    "value": "test"
+                }
+            ],
+            "devicetype": "CUSTOM"
+        }
+    }
+]
      */
     public String getActions() {
         return this.Actions;
@@ -79,9 +223,105 @@ public class TopicRulePayload extends AbstractModel{
 
     /**
      * Set 行为的JSON字符串，大部分种类举例如下：
-[{"republish":{"topic":"TEST/test"}},{"forward":{"api":"http://127.0.0.1:8080"}},{"ckafka":{"instance":{"id":"ckafka-test","name":""},"topic":{"id":"topic-test","name":"test"},"region":"gz"}},{"cmqqueue":{"queuename":"queue-test-TEST","region":"gz"}},{"mysql":{"instanceid":"cdb-test","region":"gz","username":"test","userpwd":"*****","dbname":"d_mqtt","tablename":"t_test","fieldpairs":[{"field":"test","value":"test"}],"devicetype":"CUSTOM"}}]
+[
+    {
+        "republish": {
+            "topic": "TEST/test"
+        }
+    },
+    {
+        "forward": {
+            "api": "http://127.0.0.1:8080",
+            "token":"xxx"
+        }
+    },
+    {
+        "ckafka": {
+            "instance": {
+                "id": "ckafka-test",
+                "name": ""
+            },
+            "topic": {
+                "id": "topic-test",
+                "name": "test"
+            },
+            "region": "gz"
+        }
+    },
+    {
+        "cmqqueue": {
+            "queuename": "queue-test-TEST",
+            "region": "gz"
+        }
+    },
+    {
+        "mysql": {
+            "instanceid": "cdb-test",
+            "region": "gz",
+            "username": "test",
+            "userpwd": "*****",
+            "dbname": "d_mqtt",
+            "tablename": "t_test",
+            "fieldpairs": [
+                {
+                    "field": "test",
+                    "value": "test"
+                }
+            ],
+            "devicetype": "CUSTOM"
+        }
+    }
+]
      * @param Actions 行为的JSON字符串，大部分种类举例如下：
-[{"republish":{"topic":"TEST/test"}},{"forward":{"api":"http://127.0.0.1:8080"}},{"ckafka":{"instance":{"id":"ckafka-test","name":""},"topic":{"id":"topic-test","name":"test"},"region":"gz"}},{"cmqqueue":{"queuename":"queue-test-TEST","region":"gz"}},{"mysql":{"instanceid":"cdb-test","region":"gz","username":"test","userpwd":"*****","dbname":"d_mqtt","tablename":"t_test","fieldpairs":[{"field":"test","value":"test"}],"devicetype":"CUSTOM"}}]
+[
+    {
+        "republish": {
+            "topic": "TEST/test"
+        }
+    },
+    {
+        "forward": {
+            "api": "http://127.0.0.1:8080",
+            "token":"xxx"
+        }
+    },
+    {
+        "ckafka": {
+            "instance": {
+                "id": "ckafka-test",
+                "name": ""
+            },
+            "topic": {
+                "id": "topic-test",
+                "name": "test"
+            },
+            "region": "gz"
+        }
+    },
+    {
+        "cmqqueue": {
+            "queuename": "queue-test-TEST",
+            "region": "gz"
+        }
+    },
+    {
+        "mysql": {
+            "instanceid": "cdb-test",
+            "region": "gz",
+            "username": "test",
+            "userpwd": "*****",
+            "dbname": "d_mqtt",
+            "tablename": "t_test",
+            "fieldpairs": [
+                {
+                    "field": "test",
+                    "value": "test"
+                }
+            ],
+            "devicetype": "CUSTOM"
+        }
+    }
+]
      */
     public void setActions(String Actions) {
         this.Actions = Actions;
@@ -118,6 +358,29 @@ public class TopicRulePayload extends AbstractModel{
     public void setRuleDisabled(Boolean RuleDisabled) {
         this.RuleDisabled = RuleDisabled;
     }
+
+    public TopicRulePayload() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public TopicRulePayload(TopicRulePayload source) {
+        if (source.Sql != null) {
+            this.Sql = new String(source.Sql);
+        }
+        if (source.Actions != null) {
+            this.Actions = new String(source.Actions);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.RuleDisabled != null) {
+            this.RuleDisabled = new Boolean(source.RuleDisabled);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

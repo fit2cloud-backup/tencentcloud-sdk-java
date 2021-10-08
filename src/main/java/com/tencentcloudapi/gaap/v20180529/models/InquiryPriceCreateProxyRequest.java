@@ -65,6 +65,34 @@ public class InquiryPriceCreateProxyRequest extends AbstractModel{
     private Long Concurrent;
 
     /**
+    * 计费方式，0表示按带宽计费，1表示按流量计费。默认按带宽计费
+    */
+    @SerializedName("BillingType")
+    @Expose
+    private Long BillingType;
+
+    /**
+    * IP版本，可取值：IPv4、IPv6，默认值IPv4
+    */
+    @SerializedName("IPAddressVersion")
+    @Expose
+    private String IPAddressVersion;
+
+    /**
+    * 网络类型，可取值：normal、cn2，默认值normal
+    */
+    @SerializedName("NetworkType")
+    @Expose
+    private String NetworkType;
+
+    /**
+    * 通道组类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道。
+    */
+    @SerializedName("PackageType")
+    @Expose
+    private String PackageType;
+
+    /**
      * Get 加速区域名称。 
      * @return AccessRegion 加速区域名称。
      */
@@ -161,6 +189,111 @@ public class InquiryPriceCreateProxyRequest extends AbstractModel{
     }
 
     /**
+     * Get 计费方式，0表示按带宽计费，1表示按流量计费。默认按带宽计费 
+     * @return BillingType 计费方式，0表示按带宽计费，1表示按流量计费。默认按带宽计费
+     */
+    public Long getBillingType() {
+        return this.BillingType;
+    }
+
+    /**
+     * Set 计费方式，0表示按带宽计费，1表示按流量计费。默认按带宽计费
+     * @param BillingType 计费方式，0表示按带宽计费，1表示按流量计费。默认按带宽计费
+     */
+    public void setBillingType(Long BillingType) {
+        this.BillingType = BillingType;
+    }
+
+    /**
+     * Get IP版本，可取值：IPv4、IPv6，默认值IPv4 
+     * @return IPAddressVersion IP版本，可取值：IPv4、IPv6，默认值IPv4
+     */
+    public String getIPAddressVersion() {
+        return this.IPAddressVersion;
+    }
+
+    /**
+     * Set IP版本，可取值：IPv4、IPv6，默认值IPv4
+     * @param IPAddressVersion IP版本，可取值：IPv4、IPv6，默认值IPv4
+     */
+    public void setIPAddressVersion(String IPAddressVersion) {
+        this.IPAddressVersion = IPAddressVersion;
+    }
+
+    /**
+     * Get 网络类型，可取值：normal、cn2，默认值normal 
+     * @return NetworkType 网络类型，可取值：normal、cn2，默认值normal
+     */
+    public String getNetworkType() {
+        return this.NetworkType;
+    }
+
+    /**
+     * Set 网络类型，可取值：normal、cn2，默认值normal
+     * @param NetworkType 网络类型，可取值：normal、cn2，默认值normal
+     */
+    public void setNetworkType(String NetworkType) {
+        this.NetworkType = NetworkType;
+    }
+
+    /**
+     * Get 通道组类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道。 
+     * @return PackageType 通道组类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道。
+     */
+    public String getPackageType() {
+        return this.PackageType;
+    }
+
+    /**
+     * Set 通道组类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道。
+     * @param PackageType 通道组类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道。
+     */
+    public void setPackageType(String PackageType) {
+        this.PackageType = PackageType;
+    }
+
+    public InquiryPriceCreateProxyRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public InquiryPriceCreateProxyRequest(InquiryPriceCreateProxyRequest source) {
+        if (source.AccessRegion != null) {
+            this.AccessRegion = new String(source.AccessRegion);
+        }
+        if (source.Bandwidth != null) {
+            this.Bandwidth = new Long(source.Bandwidth);
+        }
+        if (source.DestRegion != null) {
+            this.DestRegion = new String(source.DestRegion);
+        }
+        if (source.Concurrency != null) {
+            this.Concurrency = new Long(source.Concurrency);
+        }
+        if (source.RealServerRegion != null) {
+            this.RealServerRegion = new String(source.RealServerRegion);
+        }
+        if (source.Concurrent != null) {
+            this.Concurrent = new Long(source.Concurrent);
+        }
+        if (source.BillingType != null) {
+            this.BillingType = new Long(source.BillingType);
+        }
+        if (source.IPAddressVersion != null) {
+            this.IPAddressVersion = new String(source.IPAddressVersion);
+        }
+        if (source.NetworkType != null) {
+            this.NetworkType = new String(source.NetworkType);
+        }
+        if (source.PackageType != null) {
+            this.PackageType = new String(source.PackageType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -170,6 +303,10 @@ public class InquiryPriceCreateProxyRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Concurrency", this.Concurrency);
         this.setParamSimple(map, prefix + "RealServerRegion", this.RealServerRegion);
         this.setParamSimple(map, prefix + "Concurrent", this.Concurrent);
+        this.setParamSimple(map, prefix + "BillingType", this.BillingType);
+        this.setParamSimple(map, prefix + "IPAddressVersion", this.IPAddressVersion);
+        this.setParamSimple(map, prefix + "NetworkType", this.NetworkType);
+        this.setParamSimple(map, prefix + "PackageType", this.PackageType);
 
     }
 }

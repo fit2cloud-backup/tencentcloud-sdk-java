@@ -88,6 +88,15 @@ public class DescribeProvinceIspPlayInfoListRequest extends AbstractModel{
     private String MainlandOrOversea;
 
     /**
+    * ip类型：
+“Ipv6”：Ipv6数据
+如果为空，查询总的数据；
+    */
+    @SerializedName("IpType")
+    @Expose
+    private String IpType;
+
+    /**
      * Get 起始时间点，当前使用北京时间，
 例：2019-02-21 10:00:00。 
      * @return StartTime 起始时间点，当前使用北京时间，
@@ -252,6 +261,77 @@ public class DescribeProvinceIspPlayInfoListRequest extends AbstractModel{
     }
 
     /**
+     * Get ip类型：
+“Ipv6”：Ipv6数据
+如果为空，查询总的数据； 
+     * @return IpType ip类型：
+“Ipv6”：Ipv6数据
+如果为空，查询总的数据；
+     */
+    public String getIpType() {
+        return this.IpType;
+    }
+
+    /**
+     * Set ip类型：
+“Ipv6”：Ipv6数据
+如果为空，查询总的数据；
+     * @param IpType ip类型：
+“Ipv6”：Ipv6数据
+如果为空，查询总的数据；
+     */
+    public void setIpType(String IpType) {
+        this.IpType = IpType;
+    }
+
+    public DescribeProvinceIspPlayInfoListRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeProvinceIspPlayInfoListRequest(DescribeProvinceIspPlayInfoListRequest source) {
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.Granularity != null) {
+            this.Granularity = new Long(source.Granularity);
+        }
+        if (source.StatType != null) {
+            this.StatType = new String(source.StatType);
+        }
+        if (source.PlayDomains != null) {
+            this.PlayDomains = new String[source.PlayDomains.length];
+            for (int i = 0; i < source.PlayDomains.length; i++) {
+                this.PlayDomains[i] = new String(source.PlayDomains[i]);
+            }
+        }
+        if (source.ProvinceNames != null) {
+            this.ProvinceNames = new String[source.ProvinceNames.length];
+            for (int i = 0; i < source.ProvinceNames.length; i++) {
+                this.ProvinceNames[i] = new String(source.ProvinceNames[i]);
+            }
+        }
+        if (source.IspNames != null) {
+            this.IspNames = new String[source.IspNames.length];
+            for (int i = 0; i < source.IspNames.length; i++) {
+                this.IspNames[i] = new String(source.IspNames[i]);
+            }
+        }
+        if (source.MainlandOrOversea != null) {
+            this.MainlandOrOversea = new String(source.MainlandOrOversea);
+        }
+        if (source.IpType != null) {
+            this.IpType = new String(source.IpType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -263,6 +343,7 @@ public class DescribeProvinceIspPlayInfoListRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "ProvinceNames.", this.ProvinceNames);
         this.setParamArraySimple(map, prefix + "IspNames.", this.IspNames);
         this.setParamSimple(map, prefix + "MainlandOrOversea", this.MainlandOrOversea);
+        this.setParamSimple(map, prefix + "IpType", this.IpType);
 
     }
 }

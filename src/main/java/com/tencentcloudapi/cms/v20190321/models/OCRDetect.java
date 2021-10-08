@@ -23,11 +23,34 @@ import java.util.HashMap;
 public class OCRDetect extends AbstractModel{
 
     /**
+    * 识别到的详细信息
+    */
+    @SerializedName("Item")
+    @Expose
+    private OCRItem [] Item;
+
+    /**
     * 识别到的文本信息
     */
     @SerializedName("TextInfo")
     @Expose
     private String TextInfo;
+
+    /**
+     * Get 识别到的详细信息 
+     * @return Item 识别到的详细信息
+     */
+    public OCRItem [] getItem() {
+        return this.Item;
+    }
+
+    /**
+     * Set 识别到的详细信息
+     * @param Item 识别到的详细信息
+     */
+    public void setItem(OCRItem [] Item) {
+        this.Item = Item;
+    }
 
     /**
      * Get 识别到的文本信息 
@@ -45,10 +68,31 @@ public class OCRDetect extends AbstractModel{
         this.TextInfo = TextInfo;
     }
 
+    public OCRDetect() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public OCRDetect(OCRDetect source) {
+        if (source.Item != null) {
+            this.Item = new OCRItem[source.Item.length];
+            for (int i = 0; i < source.Item.length; i++) {
+                this.Item[i] = new OCRItem(source.Item[i]);
+            }
+        }
+        if (source.TextInfo != null) {
+            this.TextInfo = new String(source.TextInfo);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamArrayObj(map, prefix + "Item.", this.Item);
         this.setParamSimple(map, prefix + "TextInfo", this.TextInfo);
 
     }

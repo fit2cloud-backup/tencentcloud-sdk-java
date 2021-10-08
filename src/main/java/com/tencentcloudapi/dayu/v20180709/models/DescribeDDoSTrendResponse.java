@@ -73,7 +73,7 @@ public class DescribeDDoSTrendResponse extends AbstractModel{
     private String EndTime;
 
     /**
-    * 值数组
+    * 值数组，攻击流量带宽单位为Mbps，包速率单位为pps
     */
     @SerializedName("Data")
     @Expose
@@ -210,16 +210,16 @@ public class DescribeDDoSTrendResponse extends AbstractModel{
     }
 
     /**
-     * Get 值数组 
-     * @return Data 值数组
+     * Get 值数组，攻击流量带宽单位为Mbps，包速率单位为pps 
+     * @return Data 值数组，攻击流量带宽单位为Mbps，包速率单位为pps
      */
     public Long [] getData() {
         return this.Data;
     }
 
     /**
-     * Set 值数组
-     * @param Data 值数组
+     * Set 值数组，攻击流量带宽单位为Mbps，包速率单位为pps
+     * @param Data 值数组，攻击流量带宽单位为Mbps，包速率单位为pps
      */
     public void setData(Long [] Data) {
         this.Data = Data;
@@ -256,6 +256,50 @@ public class DescribeDDoSTrendResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeDDoSTrendResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeDDoSTrendResponse(DescribeDDoSTrendResponse source) {
+        if (source.Business != null) {
+            this.Business = new String(source.Business);
+        }
+        if (source.Id != null) {
+            this.Id = new String(source.Id);
+        }
+        if (source.Ip != null) {
+            this.Ip = new String(source.Ip);
+        }
+        if (source.MetricName != null) {
+            this.MetricName = new String(source.MetricName);
+        }
+        if (source.Period != null) {
+            this.Period = new Long(source.Period);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.Data != null) {
+            this.Data = new Long[source.Data.length];
+            for (int i = 0; i < source.Data.length; i++) {
+                this.Data[i] = new Long(source.Data[i]);
+            }
+        }
+        if (source.Count != null) {
+            this.Count = new Long(source.Count);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

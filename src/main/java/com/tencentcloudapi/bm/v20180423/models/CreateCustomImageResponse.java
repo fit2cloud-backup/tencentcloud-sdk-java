@@ -30,6 +30,13 @@ public class CreateCustomImageResponse extends AbstractModel{
     private Long TaskId;
 
     /**
+    * 镜像ID
+    */
+    @SerializedName("ImageId")
+    @Expose
+    private String ImageId;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -53,6 +60,22 @@ public class CreateCustomImageResponse extends AbstractModel{
     }
 
     /**
+     * Get 镜像ID 
+     * @return ImageId 镜像ID
+     */
+    public String getImageId() {
+        return this.ImageId;
+    }
+
+    /**
+     * Set 镜像ID
+     * @param ImageId 镜像ID
+     */
+    public void setImageId(String ImageId) {
+        this.ImageId = ImageId;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -68,11 +91,32 @@ public class CreateCustomImageResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public CreateCustomImageResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateCustomImageResponse(CreateCustomImageResponse source) {
+        if (source.TaskId != null) {
+            this.TaskId = new Long(source.TaskId);
+        }
+        if (source.ImageId != null) {
+            this.ImageId = new String(source.ImageId);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TaskId", this.TaskId);
+        this.setParamSimple(map, prefix + "ImageId", this.ImageId);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

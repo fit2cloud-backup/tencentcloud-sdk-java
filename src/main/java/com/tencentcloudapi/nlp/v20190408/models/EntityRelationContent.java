@@ -24,28 +24,33 @@ public class EntityRelationContent extends AbstractModel{
 
     /**
     * 实体关系查询返回关系的object
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Object")
     @Expose
     private EntityRelationObject [] Object;
 
     /**
-    * 实体关系查询返回关系的subject
-    */
-    @SerializedName("Subject")
-    @Expose
-    private EntityRelationSubject [] Subject;
-
-    /**
     * 实体关系查询返回的关系名称
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Relation")
     @Expose
     private String Relation;
 
     /**
-     * Get 实体关系查询返回关系的object 
+    * 实体关系查询返回关系的subject
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Subject")
+    @Expose
+    private EntityRelationSubject [] Subject;
+
+    /**
+     * Get 实体关系查询返回关系的object
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Object 实体关系查询返回关系的object
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public EntityRelationObject [] getObject() {
         return this.Object;
@@ -53,31 +58,19 @@ public class EntityRelationContent extends AbstractModel{
 
     /**
      * Set 实体关系查询返回关系的object
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Object 实体关系查询返回关系的object
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setObject(EntityRelationObject [] Object) {
         this.Object = Object;
     }
 
     /**
-     * Get 实体关系查询返回关系的subject 
-     * @return Subject 实体关系查询返回关系的subject
-     */
-    public EntityRelationSubject [] getSubject() {
-        return this.Subject;
-    }
-
-    /**
-     * Set 实体关系查询返回关系的subject
-     * @param Subject 实体关系查询返回关系的subject
-     */
-    public void setSubject(EntityRelationSubject [] Subject) {
-        this.Subject = Subject;
-    }
-
-    /**
-     * Get 实体关系查询返回的关系名称 
+     * Get 实体关系查询返回的关系名称
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Relation 实体关系查询返回的关系名称
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRelation() {
         return this.Relation;
@@ -85,19 +78,67 @@ public class EntityRelationContent extends AbstractModel{
 
     /**
      * Set 实体关系查询返回的关系名称
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Relation 实体关系查询返回的关系名称
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRelation(String Relation) {
         this.Relation = Relation;
     }
 
     /**
+     * Get 实体关系查询返回关系的subject
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Subject 实体关系查询返回关系的subject
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public EntityRelationSubject [] getSubject() {
+        return this.Subject;
+    }
+
+    /**
+     * Set 实体关系查询返回关系的subject
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Subject 实体关系查询返回关系的subject
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSubject(EntityRelationSubject [] Subject) {
+        this.Subject = Subject;
+    }
+
+    public EntityRelationContent() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public EntityRelationContent(EntityRelationContent source) {
+        if (source.Object != null) {
+            this.Object = new EntityRelationObject[source.Object.length];
+            for (int i = 0; i < source.Object.length; i++) {
+                this.Object[i] = new EntityRelationObject(source.Object[i]);
+            }
+        }
+        if (source.Relation != null) {
+            this.Relation = new String(source.Relation);
+        }
+        if (source.Subject != null) {
+            this.Subject = new EntityRelationSubject[source.Subject.length];
+            for (int i = 0; i < source.Subject.length; i++) {
+                this.Subject[i] = new EntityRelationSubject(source.Subject[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "Object.", this.Object);
-        this.setParamArrayObj(map, prefix + "Subject.", this.Subject);
         this.setParamSimple(map, prefix + "Relation", this.Relation);
+        this.setParamArrayObj(map, prefix + "Subject.", this.Subject);
 
     }
 }

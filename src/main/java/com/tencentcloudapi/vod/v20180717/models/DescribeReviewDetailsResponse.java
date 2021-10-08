@@ -23,21 +23,21 @@ import java.util.HashMap;
 public class DescribeReviewDetailsResponse extends AbstractModel{
 
     /**
-    * 发起内容审核次数。
+    * 发起内容智能识别次数。
     */
     @SerializedName("TotalCount")
     @Expose
     private Long TotalCount;
 
     /**
-    * 内容审核总时长。
+    * 内容智能识别总时长。
     */
     @SerializedName("TotalDuration")
     @Expose
     private Long TotalDuration;
 
     /**
-    * 内容审核时长统计数据，每天一个数据。
+    * 内容智能识别时长统计数据，每天一个数据。
     */
     @SerializedName("Data")
     @Expose
@@ -51,48 +51,48 @@ public class DescribeReviewDetailsResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 发起内容审核次数。 
-     * @return TotalCount 发起内容审核次数。
+     * Get 发起内容智能识别次数。 
+     * @return TotalCount 发起内容智能识别次数。
      */
     public Long getTotalCount() {
         return this.TotalCount;
     }
 
     /**
-     * Set 发起内容审核次数。
-     * @param TotalCount 发起内容审核次数。
+     * Set 发起内容智能识别次数。
+     * @param TotalCount 发起内容智能识别次数。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 内容审核总时长。 
-     * @return TotalDuration 内容审核总时长。
+     * Get 内容智能识别总时长。 
+     * @return TotalDuration 内容智能识别总时长。
      */
     public Long getTotalDuration() {
         return this.TotalDuration;
     }
 
     /**
-     * Set 内容审核总时长。
-     * @param TotalDuration 内容审核总时长。
+     * Set 内容智能识别总时长。
+     * @param TotalDuration 内容智能识别总时长。
      */
     public void setTotalDuration(Long TotalDuration) {
         this.TotalDuration = TotalDuration;
     }
 
     /**
-     * Get 内容审核时长统计数据，每天一个数据。 
-     * @return Data 内容审核时长统计数据，每天一个数据。
+     * Get 内容智能识别时长统计数据，每天一个数据。 
+     * @return Data 内容智能识别时长统计数据，每天一个数据。
      */
     public StatDataItem [] getData() {
         return this.Data;
     }
 
     /**
-     * Set 内容审核时长统计数据，每天一个数据。
-     * @param Data 内容审核时长统计数据，每天一个数据。
+     * Set 内容智能识别时长统计数据，每天一个数据。
+     * @param Data 内容智能识别时长统计数据，每天一个数据。
      */
     public void setData(StatDataItem [] Data) {
         this.Data = Data;
@@ -113,6 +113,32 @@ public class DescribeReviewDetailsResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeReviewDetailsResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeReviewDetailsResponse(DescribeReviewDetailsResponse source) {
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
+        if (source.TotalDuration != null) {
+            this.TotalDuration = new Long(source.TotalDuration);
+        }
+        if (source.Data != null) {
+            this.Data = new StatDataItem[source.Data.length];
+            for (int i = 0; i < source.Data.length; i++) {
+                this.Data[i] = new StatDataItem(source.Data[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

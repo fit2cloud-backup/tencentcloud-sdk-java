@@ -86,6 +86,13 @@ public class RevResigterBillSupportWithdrawRequest extends AbstractModel{
     private String ReservedMsgThree;
 
     /**
+    * STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+    */
+    @SerializedName("Profile")
+    @Expose
+    private String Profile;
+
+    /**
      * Get String(22)，商户号（签约客户号） 
      * @return MrchCode String(22)，商户号（签约客户号）
      */
@@ -230,6 +237,63 @@ public class RevResigterBillSupportWithdrawRequest extends AbstractModel{
     }
 
     /**
+     * Get STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod" 
+     * @return Profile STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     */
+    public String getProfile() {
+        return this.Profile;
+    }
+
+    /**
+     * Set STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     * @param Profile STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     */
+    public void setProfile(String Profile) {
+        this.Profile = Profile;
+    }
+
+    public RevResigterBillSupportWithdrawRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public RevResigterBillSupportWithdrawRequest(RevResigterBillSupportWithdrawRequest source) {
+        if (source.MrchCode != null) {
+            this.MrchCode = new String(source.MrchCode);
+        }
+        if (source.TranNetMemberCode != null) {
+            this.TranNetMemberCode = new String(source.TranNetMemberCode);
+        }
+        if (source.OldOrderNo != null) {
+            this.OldOrderNo = new String(source.OldOrderNo);
+        }
+        if (source.CancelAmt != null) {
+            this.CancelAmt = new String(source.CancelAmt);
+        }
+        if (source.TranFee != null) {
+            this.TranFee = new String(source.TranFee);
+        }
+        if (source.Remark != null) {
+            this.Remark = new String(source.Remark);
+        }
+        if (source.ReservedMsgOne != null) {
+            this.ReservedMsgOne = new String(source.ReservedMsgOne);
+        }
+        if (source.ReservedMsgTwo != null) {
+            this.ReservedMsgTwo = new String(source.ReservedMsgTwo);
+        }
+        if (source.ReservedMsgThree != null) {
+            this.ReservedMsgThree = new String(source.ReservedMsgThree);
+        }
+        if (source.Profile != null) {
+            this.Profile = new String(source.Profile);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -242,6 +306,7 @@ public class RevResigterBillSupportWithdrawRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ReservedMsgOne", this.ReservedMsgOne);
         this.setParamSimple(map, prefix + "ReservedMsgTwo", this.ReservedMsgTwo);
         this.setParamSimple(map, prefix + "ReservedMsgThree", this.ReservedMsgThree);
+        this.setParamSimple(map, prefix + "Profile", this.Profile);
 
     }
 }

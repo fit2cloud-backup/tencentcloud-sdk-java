@@ -174,7 +174,7 @@ public class InstanceInfo extends AbstractModel{
     private MasterInfo MasterInfo;
 
     /**
-    * 实例类型，可能的返回值：“HA”-高可用版；“FE”-金融版；“BASIC”-基础版
+    * 实例类型
     */
     @SerializedName("DeviceType")
     @Expose
@@ -316,6 +316,21 @@ public class InstanceInfo extends AbstractModel{
     @SerializedName("ZoneId")
     @Expose
     private Long ZoneId;
+
+    /**
+    * 节点数
+    */
+    @SerializedName("InstanceNodes")
+    @Expose
+    private Long InstanceNodes;
+
+    /**
+    * 标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TagList")
+    @Expose
+    private TagInfoItem [] TagList;
 
     /**
      * Get 外网状态，可能的返回值为：0-未开通外网；1-已开通外网；2-已关闭外网 
@@ -670,16 +685,16 @@ public class InstanceInfo extends AbstractModel{
     }
 
     /**
-     * Get 实例类型，可能的返回值：“HA”-高可用版；“FE”-金融版；“BASIC”-基础版 
-     * @return DeviceType 实例类型，可能的返回值：“HA”-高可用版；“FE”-金融版；“BASIC”-基础版
+     * Get 实例类型 
+     * @return DeviceType 实例类型
      */
     public String getDeviceType() {
         return this.DeviceType;
     }
 
     /**
-     * Set 实例类型，可能的返回值：“HA”-高可用版；“FE”-金融版；“BASIC”-基础版
-     * @param DeviceType 实例类型，可能的返回值：“HA”-高可用版；“FE”-金融版；“BASIC”-基础版
+     * Set 实例类型
+     * @param DeviceType 实例类型
      */
     public void setDeviceType(String DeviceType) {
         this.DeviceType = DeviceType;
@@ -1006,6 +1021,191 @@ public class InstanceInfo extends AbstractModel{
     }
 
     /**
+     * Get 节点数 
+     * @return InstanceNodes 节点数
+     */
+    public Long getInstanceNodes() {
+        return this.InstanceNodes;
+    }
+
+    /**
+     * Set 节点数
+     * @param InstanceNodes 节点数
+     */
+    public void setInstanceNodes(Long InstanceNodes) {
+        this.InstanceNodes = InstanceNodes;
+    }
+
+    /**
+     * Get 标签列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TagList 标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public TagInfoItem [] getTagList() {
+        return this.TagList;
+    }
+
+    /**
+     * Set 标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TagList 标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTagList(TagInfoItem [] TagList) {
+        this.TagList = TagList;
+    }
+
+    public InstanceInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public InstanceInfo(InstanceInfo source) {
+        if (source.WanStatus != null) {
+            this.WanStatus = new Long(source.WanStatus);
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.InitFlag != null) {
+            this.InitFlag = new Long(source.InitFlag);
+        }
+        if (source.RoVipInfo != null) {
+            this.RoVipInfo = new RoVipInfo(source.RoVipInfo);
+        }
+        if (source.Memory != null) {
+            this.Memory = new Long(source.Memory);
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new Long(source.VpcId);
+        }
+        if (source.SlaveInfo != null) {
+            this.SlaveInfo = new SlaveInfo(source.SlaveInfo);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.Volume != null) {
+            this.Volume = new Long(source.Volume);
+        }
+        if (source.AutoRenew != null) {
+            this.AutoRenew = new Long(source.AutoRenew);
+        }
+        if (source.ProtectMode != null) {
+            this.ProtectMode = new Long(source.ProtectMode);
+        }
+        if (source.RoGroups != null) {
+            this.RoGroups = new RoGroup[source.RoGroups.length];
+            for (int i = 0; i < source.RoGroups.length; i++) {
+                this.RoGroups[i] = new RoGroup(source.RoGroups[i]);
+            }
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new Long(source.SubnetId);
+        }
+        if (source.InstanceType != null) {
+            this.InstanceType = new Long(source.InstanceType);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.Region != null) {
+            this.Region = new String(source.Region);
+        }
+        if (source.DeadlineTime != null) {
+            this.DeadlineTime = new String(source.DeadlineTime);
+        }
+        if (source.DeployMode != null) {
+            this.DeployMode = new Long(source.DeployMode);
+        }
+        if (source.TaskStatus != null) {
+            this.TaskStatus = new Long(source.TaskStatus);
+        }
+        if (source.MasterInfo != null) {
+            this.MasterInfo = new MasterInfo(source.MasterInfo);
+        }
+        if (source.DeviceType != null) {
+            this.DeviceType = new String(source.DeviceType);
+        }
+        if (source.EngineVersion != null) {
+            this.EngineVersion = new String(source.EngineVersion);
+        }
+        if (source.InstanceName != null) {
+            this.InstanceName = new String(source.InstanceName);
+        }
+        if (source.DrInfo != null) {
+            this.DrInfo = new DrInfo[source.DrInfo.length];
+            for (int i = 0; i < source.DrInfo.length; i++) {
+                this.DrInfo[i] = new DrInfo(source.DrInfo[i]);
+            }
+        }
+        if (source.WanDomain != null) {
+            this.WanDomain = new String(source.WanDomain);
+        }
+        if (source.WanPort != null) {
+            this.WanPort = new Long(source.WanPort);
+        }
+        if (source.PayType != null) {
+            this.PayType = new Long(source.PayType);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.Vip != null) {
+            this.Vip = new String(source.Vip);
+        }
+        if (source.Vport != null) {
+            this.Vport = new Long(source.Vport);
+        }
+        if (source.CdbError != null) {
+            this.CdbError = new Long(source.CdbError);
+        }
+        if (source.UniqVpcId != null) {
+            this.UniqVpcId = new String(source.UniqVpcId);
+        }
+        if (source.UniqSubnetId != null) {
+            this.UniqSubnetId = new String(source.UniqSubnetId);
+        }
+        if (source.PhysicalId != null) {
+            this.PhysicalId = new String(source.PhysicalId);
+        }
+        if (source.Cpu != null) {
+            this.Cpu = new Long(source.Cpu);
+        }
+        if (source.Qps != null) {
+            this.Qps = new Long(source.Qps);
+        }
+        if (source.ZoneName != null) {
+            this.ZoneName = new String(source.ZoneName);
+        }
+        if (source.DeviceClass != null) {
+            this.DeviceClass = new String(source.DeviceClass);
+        }
+        if (source.DeployGroupId != null) {
+            this.DeployGroupId = new String(source.DeployGroupId);
+        }
+        if (source.ZoneId != null) {
+            this.ZoneId = new Long(source.ZoneId);
+        }
+        if (source.InstanceNodes != null) {
+            this.InstanceNodes = new Long(source.InstanceNodes);
+        }
+        if (source.TagList != null) {
+            this.TagList = new TagInfoItem[source.TagList.length];
+            for (int i = 0; i < source.TagList.length; i++) {
+                this.TagList[i] = new TagInfoItem(source.TagList[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -1050,6 +1250,8 @@ public class InstanceInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "DeviceClass", this.DeviceClass);
         this.setParamSimple(map, prefix + "DeployGroupId", this.DeployGroupId);
         this.setParamSimple(map, prefix + "ZoneId", this.ZoneId);
+        this.setParamSimple(map, prefix + "InstanceNodes", this.InstanceNodes);
+        this.setParamArrayObj(map, prefix + "TagList.", this.TagList);
 
     }
 }

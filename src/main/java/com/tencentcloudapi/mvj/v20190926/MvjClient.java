@@ -27,6 +27,7 @@ import com.tencentcloudapi.mvj.v20190926.models.*;
 
 public class MvjClient extends AbstractClient{
     private static String endpoint = "mvj.tencentcloudapi.com";
+    private static String service = "mvj";
     private static String version = "2019-09-26";
 
     public MvjClient(Credential credential, String region) {
@@ -47,12 +48,14 @@ public class MvjClient extends AbstractClient{
      */
     public MarketingValueJudgementResponse MarketingValueJudgement(MarketingValueJudgementRequest req) throws TencentCloudSDKException{
         JsonResponseModel<MarketingValueJudgementResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<MarketingValueJudgementResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "MarketingValueJudgement"), type);
+                rspStr = this.internalRequest(req, "MarketingValueJudgement");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

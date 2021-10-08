@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class PayDealsResponse extends AbstractModel{
 
     /**
-    * 此次操作支付成功的订单号数组
+    * 此次操作支付成功的子订单号数组
     */
     @SerializedName("OrderIds")
     @Expose
@@ -37,6 +37,13 @@ public class PayDealsResponse extends AbstractModel{
     private String [] ResourceIds;
 
     /**
+    * 此次操作支付成功的大订单号数组
+    */
+    @SerializedName("BigDealIds")
+    @Expose
+    private String [] BigDealIds;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -44,16 +51,16 @@ public class PayDealsResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 此次操作支付成功的订单号数组 
-     * @return OrderIds 此次操作支付成功的订单号数组
+     * Get 此次操作支付成功的子订单号数组 
+     * @return OrderIds 此次操作支付成功的子订单号数组
      */
     public String [] getOrderIds() {
         return this.OrderIds;
     }
 
     /**
-     * Set 此次操作支付成功的订单号数组
-     * @param OrderIds 此次操作支付成功的订单号数组
+     * Set 此次操作支付成功的子订单号数组
+     * @param OrderIds 此次操作支付成功的子订单号数组
      */
     public void setOrderIds(String [] OrderIds) {
         this.OrderIds = OrderIds;
@@ -76,6 +83,22 @@ public class PayDealsResponse extends AbstractModel{
     }
 
     /**
+     * Get 此次操作支付成功的大订单号数组 
+     * @return BigDealIds 此次操作支付成功的大订单号数组
+     */
+    public String [] getBigDealIds() {
+        return this.BigDealIds;
+    }
+
+    /**
+     * Set 此次操作支付成功的大订单号数组
+     * @param BigDealIds 此次操作支付成功的大订单号数组
+     */
+    public void setBigDealIds(String [] BigDealIds) {
+        this.BigDealIds = BigDealIds;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -91,12 +114,45 @@ public class PayDealsResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public PayDealsResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public PayDealsResponse(PayDealsResponse source) {
+        if (source.OrderIds != null) {
+            this.OrderIds = new String[source.OrderIds.length];
+            for (int i = 0; i < source.OrderIds.length; i++) {
+                this.OrderIds[i] = new String(source.OrderIds[i]);
+            }
+        }
+        if (source.ResourceIds != null) {
+            this.ResourceIds = new String[source.ResourceIds.length];
+            for (int i = 0; i < source.ResourceIds.length; i++) {
+                this.ResourceIds[i] = new String(source.ResourceIds[i]);
+            }
+        }
+        if (source.BigDealIds != null) {
+            this.BigDealIds = new String[source.BigDealIds.length];
+            for (int i = 0; i < source.BigDealIds.length; i++) {
+                this.BigDealIds[i] = new String(source.BigDealIds[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "OrderIds.", this.OrderIds);
         this.setParamArraySimple(map, prefix + "ResourceIds.", this.ResourceIds);
+        this.setParamArraySimple(map, prefix + "BigDealIds.", this.BigDealIds);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

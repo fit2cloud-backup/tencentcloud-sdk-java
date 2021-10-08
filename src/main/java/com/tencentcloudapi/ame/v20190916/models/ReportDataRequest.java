@@ -35,7 +35,7 @@ reportData由两部分数据组成：
 不同的report_type对应的data数据结构不一样。
 
 详细说明请参考文档reportdata.docx：
-https://github.com/ame-demo/doc
+https://github.com/tencentyun/ame-documents
     */
     @SerializedName("ReportData")
     @Expose
@@ -54,7 +54,7 @@ reportData由两部分数据组成：
 不同的report_type对应的data数据结构不一样。
 
 详细说明请参考文档reportdata.docx：
-https://github.com/ame-demo/doc 
+https://github.com/tencentyun/ame-documents 
      * @return ReportData 上报数据
 注:reportData为客户端压缩后的上报数据进行16进制转换的字符串数据
 压缩说明：
@@ -67,7 +67,7 @@ reportData由两部分数据组成：
 不同的report_type对应的data数据结构不一样。
 
 详细说明请参考文档reportdata.docx：
-https://github.com/ame-demo/doc
+https://github.com/tencentyun/ame-documents
      */
     public String getReportData() {
         return this.ReportData;
@@ -86,7 +86,7 @@ reportData由两部分数据组成：
 不同的report_type对应的data数据结构不一样。
 
 详细说明请参考文档reportdata.docx：
-https://github.com/ame-demo/doc
+https://github.com/tencentyun/ame-documents
      * @param ReportData 上报数据
 注:reportData为客户端压缩后的上报数据进行16进制转换的字符串数据
 压缩说明：
@@ -99,11 +99,25 @@ reportData由两部分数据组成：
 不同的report_type对应的data数据结构不一样。
 
 详细说明请参考文档reportdata.docx：
-https://github.com/ame-demo/doc
+https://github.com/tencentyun/ame-documents
      */
     public void setReportData(String ReportData) {
         this.ReportData = ReportData;
     }
+
+    public ReportDataRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ReportDataRequest(ReportDataRequest source) {
+        if (source.ReportData != null) {
+            this.ReportData = new String(source.ReportData);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

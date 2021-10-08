@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class ClientIpPlaySumInfo extends AbstractModel{
 
     /**
-    * 客户端ip，点分型。
+    * 客户端 IP，点分型。
     */
     @SerializedName("ClientIp")
     @Expose
@@ -65,16 +65,16 @@ public class ClientIpPlaySumInfo extends AbstractModel{
     private String CountryArea;
 
     /**
-     * Get 客户端ip，点分型。 
-     * @return ClientIp 客户端ip，点分型。
+     * Get 客户端 IP，点分型。 
+     * @return ClientIp 客户端 IP，点分型。
      */
     public String getClientIp() {
         return this.ClientIp;
     }
 
     /**
-     * Set 客户端ip，点分型。
-     * @param ClientIp 客户端ip，点分型。
+     * Set 客户端 IP，点分型。
+     * @param ClientIp 客户端 IP，点分型。
      */
     public void setClientIp(String ClientIp) {
         this.ClientIp = ClientIp;
@@ -159,6 +159,35 @@ public class ClientIpPlaySumInfo extends AbstractModel{
     public void setCountryArea(String CountryArea) {
         this.CountryArea = CountryArea;
     }
+
+    public ClientIpPlaySumInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ClientIpPlaySumInfo(ClientIpPlaySumInfo source) {
+        if (source.ClientIp != null) {
+            this.ClientIp = new String(source.ClientIp);
+        }
+        if (source.Province != null) {
+            this.Province = new String(source.Province);
+        }
+        if (source.TotalFlux != null) {
+            this.TotalFlux = new Float(source.TotalFlux);
+        }
+        if (source.TotalRequest != null) {
+            this.TotalRequest = new Long(source.TotalRequest);
+        }
+        if (source.TotalFailedRequest != null) {
+            this.TotalFailedRequest = new Long(source.TotalFailedRequest);
+        }
+        if (source.CountryArea != null) {
+            this.CountryArea = new String(source.CountryArea);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

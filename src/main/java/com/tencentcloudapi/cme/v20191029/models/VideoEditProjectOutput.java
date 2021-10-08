@@ -23,6 +23,13 @@ import java.util.HashMap;
 public class VideoEditProjectOutput extends AbstractModel{
 
     /**
+    * 导出的云剪素材 MaterialId，仅当导出为云剪素材时有效。
+    */
+    @SerializedName("MaterialId")
+    @Expose
+    private String MaterialId;
+
+    /**
     * 云点播媒资 FileId。
     */
     @SerializedName("VodFileId")
@@ -38,18 +45,27 @@ public class VideoEditProjectOutput extends AbstractModel{
 
     /**
     * 元信息。
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MetaData")
     @Expose
     private MediaMetaData MetaData;
 
     /**
-    * 素材基础信息。
-注意：此字段可能返回 null，表示取不到有效值。
-    */
-    @SerializedName("MaterialBaseInfo")
-    @Expose
-    private MaterialBaseInfo MaterialBaseInfo;
+     * Get 导出的云剪素材 MaterialId，仅当导出为云剪素材时有效。 
+     * @return MaterialId 导出的云剪素材 MaterialId，仅当导出为云剪素材时有效。
+     */
+    public String getMaterialId() {
+        return this.MaterialId;
+    }
+
+    /**
+     * Set 导出的云剪素材 MaterialId，仅当导出为云剪素材时有效。
+     * @param MaterialId 导出的云剪素材 MaterialId，仅当导出为云剪素材时有效。
+     */
+    public void setMaterialId(String MaterialId) {
+        this.MaterialId = MaterialId;
+    }
 
     /**
      * Get 云点播媒资 FileId。 
@@ -84,8 +100,10 @@ public class VideoEditProjectOutput extends AbstractModel{
     }
 
     /**
-     * Get 元信息。 
+     * Get 元信息。
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return MetaData 元信息。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public MediaMetaData getMetaData() {
         return this.MetaData;
@@ -93,40 +111,45 @@ public class VideoEditProjectOutput extends AbstractModel{
 
     /**
      * Set 元信息。
+注意：此字段可能返回 null，表示取不到有效值。
      * @param MetaData 元信息。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMetaData(MediaMetaData MetaData) {
         this.MetaData = MetaData;
     }
 
-    /**
-     * Get 素材基础信息。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return MaterialBaseInfo 素材基础信息。
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public MaterialBaseInfo getMaterialBaseInfo() {
-        return this.MaterialBaseInfo;
+    public VideoEditProjectOutput() {
     }
 
     /**
-     * Set 素材基础信息。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param MaterialBaseInfo 素材基础信息。
-注意：此字段可能返回 null，表示取不到有效值。
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
-    public void setMaterialBaseInfo(MaterialBaseInfo MaterialBaseInfo) {
-        this.MaterialBaseInfo = MaterialBaseInfo;
+    public VideoEditProjectOutput(VideoEditProjectOutput source) {
+        if (source.MaterialId != null) {
+            this.MaterialId = new String(source.MaterialId);
+        }
+        if (source.VodFileId != null) {
+            this.VodFileId = new String(source.VodFileId);
+        }
+        if (source.URL != null) {
+            this.URL = new String(source.URL);
+        }
+        if (source.MetaData != null) {
+            this.MetaData = new MediaMetaData(source.MetaData);
+        }
     }
+
 
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "MaterialId", this.MaterialId);
         this.setParamSimple(map, prefix + "VodFileId", this.VodFileId);
         this.setParamSimple(map, prefix + "URL", this.URL);
         this.setParamObj(map, prefix + "MetaData.", this.MetaData);
-        this.setParamObj(map, prefix + "MaterialBaseInfo.", this.MaterialBaseInfo);
 
     }
 }

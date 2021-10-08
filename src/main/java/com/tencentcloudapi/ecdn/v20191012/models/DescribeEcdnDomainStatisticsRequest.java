@@ -39,16 +39,10 @@ public class DescribeEcdnDomainStatisticsRequest extends AbstractModel{
     private String EndTime;
 
     /**
-    * 统计指标名称。flux：流量，单位为 byte
+    * 统计指标名称:
+flux：流量，单位为 byte
 bandwidth：带宽，单位为 bps
 request：请求数，单位为 次
-delay：响应时间，单位为ms
-static_request ： 静态请求数，单位为 次
-static_flux：静态流量，单位为 byte
-static_bandwidth ： 静态带宽，单位为 bps
-dynamic_request：动态请求数，单位为 次
-dynamic_flux：动态流量，单位为 byte
-dynamic_bandwidth：动态带宽，单位为 bps
     */
     @SerializedName("Metrics")
     @Expose
@@ -82,6 +76,17 @@ dynamic_bandwidth：动态带宽，单位为 bps
     @SerializedName("Limit")
     @Expose
     private Long Limit;
+
+    /**
+    * 统计区域:
+mainland: 境内
+oversea: 境外
+global: 全部
+默认 global
+    */
+    @SerializedName("Area")
+    @Expose
+    private String Area;
 
     /**
      * Get 查询起始时间，如：2019-12-13 00:00:00。
@@ -124,52 +129,28 @@ dynamic_bandwidth：动态带宽，单位为 bps
     }
 
     /**
-     * Get 统计指标名称。flux：流量，单位为 byte
+     * Get 统计指标名称:
+flux：流量，单位为 byte
+bandwidth：带宽，单位为 bps
+request：请求数，单位为 次 
+     * @return Metrics 统计指标名称:
+flux：流量，单位为 byte
 bandwidth：带宽，单位为 bps
 request：请求数，单位为 次
-delay：响应时间，单位为ms
-static_request ： 静态请求数，单位为 次
-static_flux：静态流量，单位为 byte
-static_bandwidth ： 静态带宽，单位为 bps
-dynamic_request：动态请求数，单位为 次
-dynamic_flux：动态流量，单位为 byte
-dynamic_bandwidth：动态带宽，单位为 bps 
-     * @return Metrics 统计指标名称。flux：流量，单位为 byte
-bandwidth：带宽，单位为 bps
-request：请求数，单位为 次
-delay：响应时间，单位为ms
-static_request ： 静态请求数，单位为 次
-static_flux：静态流量，单位为 byte
-static_bandwidth ： 静态带宽，单位为 bps
-dynamic_request：动态请求数，单位为 次
-dynamic_flux：动态流量，单位为 byte
-dynamic_bandwidth：动态带宽，单位为 bps
      */
     public String [] getMetrics() {
         return this.Metrics;
     }
 
     /**
-     * Set 统计指标名称。flux：流量，单位为 byte
+     * Set 统计指标名称:
+flux：流量，单位为 byte
 bandwidth：带宽，单位为 bps
 request：请求数，单位为 次
-delay：响应时间，单位为ms
-static_request ： 静态请求数，单位为 次
-static_flux：静态流量，单位为 byte
-static_bandwidth ： 静态带宽，单位为 bps
-dynamic_request：动态请求数，单位为 次
-dynamic_flux：动态流量，单位为 byte
-dynamic_bandwidth：动态带宽，单位为 bps
-     * @param Metrics 统计指标名称。flux：流量，单位为 byte
+     * @param Metrics 统计指标名称:
+flux：流量，单位为 byte
 bandwidth：带宽，单位为 bps
 request：请求数，单位为 次
-delay：响应时间，单位为ms
-static_request ： 静态请求数，单位为 次
-static_flux：静态流量，单位为 byte
-static_bandwidth ： 静态带宽，单位为 bps
-dynamic_request：动态请求数，单位为 次
-dynamic_flux：动态流量，单位为 byte
-dynamic_bandwidth：动态带宽，单位为 bps
      */
     public void setMetrics(String [] Metrics) {
         this.Metrics = Metrics;
@@ -244,6 +225,82 @@ dynamic_bandwidth：动态带宽，单位为 bps
     }
 
     /**
+     * Get 统计区域:
+mainland: 境内
+oversea: 境外
+global: 全部
+默认 global 
+     * @return Area 统计区域:
+mainland: 境内
+oversea: 境外
+global: 全部
+默认 global
+     */
+    public String getArea() {
+        return this.Area;
+    }
+
+    /**
+     * Set 统计区域:
+mainland: 境内
+oversea: 境外
+global: 全部
+默认 global
+     * @param Area 统计区域:
+mainland: 境内
+oversea: 境外
+global: 全部
+默认 global
+     */
+    public void setArea(String Area) {
+        this.Area = Area;
+    }
+
+    public DescribeEcdnDomainStatisticsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeEcdnDomainStatisticsRequest(DescribeEcdnDomainStatisticsRequest source) {
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.Metrics != null) {
+            this.Metrics = new String[source.Metrics.length];
+            for (int i = 0; i < source.Metrics.length; i++) {
+                this.Metrics[i] = new String(source.Metrics[i]);
+            }
+        }
+        if (source.Domains != null) {
+            this.Domains = new String[source.Domains.length];
+            for (int i = 0; i < source.Domains.length; i++) {
+                this.Domains[i] = new String(source.Domains[i]);
+            }
+        }
+        if (source.Projects != null) {
+            this.Projects = new Long[source.Projects.length];
+            for (int i = 0; i < source.Projects.length; i++) {
+                this.Projects[i] = new Long(source.Projects[i]);
+            }
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Area != null) {
+            this.Area = new String(source.Area);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -254,6 +311,7 @@ dynamic_bandwidth：动态带宽，单位为 bps
         this.setParamArraySimple(map, prefix + "Projects.", this.Projects);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamSimple(map, prefix + "Area", this.Area);
 
     }
 }

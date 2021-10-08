@@ -31,10 +31,9 @@ public class CheckSimilarPersonRequest extends AbstractModel{
     private String [] GroupIds;
 
     /**
-    * 疑似同一人判断控制。  
-1：宽松的同一人要求； 
-2：严格的同一人要求。  
-注： 要求越高，则疑似同一人的概率越小。
+    * 人员查重整理力度的控制。
+1：力度较高的档案整理，能够消除更多的重复身份，对应稍高的非重复身份误清除率；
+2：力度较低的档案整理，非重复身份的误清除率较低，对应稍低的重复身份消除率。
     */
     @SerializedName("UniquePersonControl")
     @Expose
@@ -61,32 +60,48 @@ public class CheckSimilarPersonRequest extends AbstractModel{
     }
 
     /**
-     * Get 疑似同一人判断控制。  
-1：宽松的同一人要求； 
-2：严格的同一人要求。  
-注： 要求越高，则疑似同一人的概率越小。 
-     * @return UniquePersonControl 疑似同一人判断控制。  
-1：宽松的同一人要求； 
-2：严格的同一人要求。  
-注： 要求越高，则疑似同一人的概率越小。
+     * Get 人员查重整理力度的控制。
+1：力度较高的档案整理，能够消除更多的重复身份，对应稍高的非重复身份误清除率；
+2：力度较低的档案整理，非重复身份的误清除率较低，对应稍低的重复身份消除率。 
+     * @return UniquePersonControl 人员查重整理力度的控制。
+1：力度较高的档案整理，能够消除更多的重复身份，对应稍高的非重复身份误清除率；
+2：力度较低的档案整理，非重复身份的误清除率较低，对应稍低的重复身份消除率。
      */
     public Long getUniquePersonControl() {
         return this.UniquePersonControl;
     }
 
     /**
-     * Set 疑似同一人判断控制。  
-1：宽松的同一人要求； 
-2：严格的同一人要求。  
-注： 要求越高，则疑似同一人的概率越小。
-     * @param UniquePersonControl 疑似同一人判断控制。  
-1：宽松的同一人要求； 
-2：严格的同一人要求。  
-注： 要求越高，则疑似同一人的概率越小。
+     * Set 人员查重整理力度的控制。
+1：力度较高的档案整理，能够消除更多的重复身份，对应稍高的非重复身份误清除率；
+2：力度较低的档案整理，非重复身份的误清除率较低，对应稍低的重复身份消除率。
+     * @param UniquePersonControl 人员查重整理力度的控制。
+1：力度较高的档案整理，能够消除更多的重复身份，对应稍高的非重复身份误清除率；
+2：力度较低的档案整理，非重复身份的误清除率较低，对应稍低的重复身份消除率。
      */
     public void setUniquePersonControl(Long UniquePersonControl) {
         this.UniquePersonControl = UniquePersonControl;
     }
+
+    public CheckSimilarPersonRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CheckSimilarPersonRequest(CheckSimilarPersonRequest source) {
+        if (source.GroupIds != null) {
+            this.GroupIds = new String[source.GroupIds.length];
+            for (int i = 0; i < source.GroupIds.length; i++) {
+                this.GroupIds[i] = new String(source.GroupIds[i]);
+            }
+        }
+        if (source.UniquePersonControl != null) {
+            this.UniquePersonControl = new Long(source.UniquePersonControl);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

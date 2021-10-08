@@ -167,6 +167,22 @@ public class DomainDetailInfo extends AbstractModel{
     private String Readonly;
 
     /**
+    * 域名标签。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Tag")
+    @Expose
+    private Tag [] Tag;
+
+    /**
+    * WebSocket配置。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("WebSocket")
+    @Expose
+    private WebSocket WebSocket;
+
+    /**
      * Get 域名ID。 
      * @return ResourceId 域名ID。
      */
@@ -515,6 +531,123 @@ public class DomainDetailInfo extends AbstractModel{
     }
 
     /**
+     * Get 域名标签。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Tag 域名标签。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Tag [] getTag() {
+        return this.Tag;
+    }
+
+    /**
+     * Set 域名标签。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Tag 域名标签。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTag(Tag [] Tag) {
+        this.Tag = Tag;
+    }
+
+    /**
+     * Get WebSocket配置。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return WebSocket WebSocket配置。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public WebSocket getWebSocket() {
+        return this.WebSocket;
+    }
+
+    /**
+     * Set WebSocket配置。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param WebSocket WebSocket配置。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setWebSocket(WebSocket WebSocket) {
+        this.WebSocket = WebSocket;
+    }
+
+    public DomainDetailInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DomainDetailInfo(DomainDetailInfo source) {
+        if (source.ResourceId != null) {
+            this.ResourceId = new String(source.ResourceId);
+        }
+        if (source.AppId != null) {
+            this.AppId = new Long(source.AppId);
+        }
+        if (source.Domain != null) {
+            this.Domain = new String(source.Domain);
+        }
+        if (source.Cname != null) {
+            this.Cname = new String(source.Cname);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+        if (source.Origin != null) {
+            this.Origin = new Origin(source.Origin);
+        }
+        if (source.IpFilter != null) {
+            this.IpFilter = new IpFilter(source.IpFilter);
+        }
+        if (source.IpFreqLimit != null) {
+            this.IpFreqLimit = new IpFreqLimit(source.IpFreqLimit);
+        }
+        if (source.ResponseHeader != null) {
+            this.ResponseHeader = new ResponseHeader(source.ResponseHeader);
+        }
+        if (source.CacheKey != null) {
+            this.CacheKey = new CacheKey(source.CacheKey);
+        }
+        if (source.Cache != null) {
+            this.Cache = new Cache(source.Cache);
+        }
+        if (source.Https != null) {
+            this.Https = new Https(source.Https);
+        }
+        if (source.Disable != null) {
+            this.Disable = new String(source.Disable);
+        }
+        if (source.ForceRedirect != null) {
+            this.ForceRedirect = new ForceRedirect(source.ForceRedirect);
+        }
+        if (source.Area != null) {
+            this.Area = new String(source.Area);
+        }
+        if (source.Readonly != null) {
+            this.Readonly = new String(source.Readonly);
+        }
+        if (source.Tag != null) {
+            this.Tag = new Tag[source.Tag.length];
+            for (int i = 0; i < source.Tag.length; i++) {
+                this.Tag[i] = new Tag(source.Tag[i]);
+            }
+        }
+        if (source.WebSocket != null) {
+            this.WebSocket = new WebSocket(source.WebSocket);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -537,6 +670,8 @@ public class DomainDetailInfo extends AbstractModel{
         this.setParamObj(map, prefix + "ForceRedirect.", this.ForceRedirect);
         this.setParamSimple(map, prefix + "Area", this.Area);
         this.setParamSimple(map, prefix + "Readonly", this.Readonly);
+        this.setParamArrayObj(map, prefix + "Tag.", this.Tag);
+        this.setParamObj(map, prefix + "WebSocket.", this.WebSocket);
 
     }
 }

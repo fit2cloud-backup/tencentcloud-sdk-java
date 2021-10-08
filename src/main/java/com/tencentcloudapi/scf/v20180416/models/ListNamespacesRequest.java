@@ -51,6 +51,13 @@ public class ListNamespacesRequest extends AbstractModel{
     private String Order;
 
     /**
+    * 关键字匹配搜索，Key 可选值为 Namespace 和 Description，多个搜索条件之间是与的关系
+    */
+    @SerializedName("SearchKey")
+    @Expose
+    private SearchKey [] SearchKey;
+
+    /**
      * Get 返回数据长度，默认值为 20 
      * @return Limit 返回数据长度，默认值为 20
      */
@@ -115,6 +122,51 @@ public class ListNamespacesRequest extends AbstractModel{
     }
 
     /**
+     * Get 关键字匹配搜索，Key 可选值为 Namespace 和 Description，多个搜索条件之间是与的关系 
+     * @return SearchKey 关键字匹配搜索，Key 可选值为 Namespace 和 Description，多个搜索条件之间是与的关系
+     */
+    public SearchKey [] getSearchKey() {
+        return this.SearchKey;
+    }
+
+    /**
+     * Set 关键字匹配搜索，Key 可选值为 Namespace 和 Description，多个搜索条件之间是与的关系
+     * @param SearchKey 关键字匹配搜索，Key 可选值为 Namespace 和 Description，多个搜索条件之间是与的关系
+     */
+    public void setSearchKey(SearchKey [] SearchKey) {
+        this.SearchKey = SearchKey;
+    }
+
+    public ListNamespacesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ListNamespacesRequest(ListNamespacesRequest source) {
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Orderby != null) {
+            this.Orderby = new String(source.Orderby);
+        }
+        if (source.Order != null) {
+            this.Order = new String(source.Order);
+        }
+        if (source.SearchKey != null) {
+            this.SearchKey = new SearchKey[source.SearchKey.length];
+            for (int i = 0; i < source.SearchKey.length; i++) {
+                this.SearchKey[i] = new SearchKey(source.SearchKey[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -122,6 +174,7 @@ public class ListNamespacesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Orderby", this.Orderby);
         this.setParamSimple(map, prefix + "Order", this.Order);
+        this.setParamArrayObj(map, prefix + "SearchKey.", this.SearchKey);
 
     }
 }

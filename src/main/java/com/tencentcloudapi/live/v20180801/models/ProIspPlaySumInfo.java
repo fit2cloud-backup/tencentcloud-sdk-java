@@ -30,7 +30,7 @@ public class ProIspPlaySumInfo extends AbstractModel{
     private String Name;
 
     /**
-    * 总流量，单位：MB。
+    * 总流量，单位: MB。
     */
     @SerializedName("TotalFlux")
     @Expose
@@ -44,7 +44,7 @@ public class ProIspPlaySumInfo extends AbstractModel{
     private Long TotalRequest;
 
     /**
-    * 平均下载流量，单位：MB/s
+    * 平均下载流量，单位: MB/s。
     */
     @SerializedName("AvgFluxPerSecond")
     @Expose
@@ -67,16 +67,16 @@ public class ProIspPlaySumInfo extends AbstractModel{
     }
 
     /**
-     * Get 总流量，单位：MB。 
-     * @return TotalFlux 总流量，单位：MB。
+     * Get 总流量，单位: MB。 
+     * @return TotalFlux 总流量，单位: MB。
      */
     public Float getTotalFlux() {
         return this.TotalFlux;
     }
 
     /**
-     * Set 总流量，单位：MB。
-     * @param TotalFlux 总流量，单位：MB。
+     * Set 总流量，单位: MB。
+     * @param TotalFlux 总流量，单位: MB。
      */
     public void setTotalFlux(Float TotalFlux) {
         this.TotalFlux = TotalFlux;
@@ -99,20 +99,43 @@ public class ProIspPlaySumInfo extends AbstractModel{
     }
 
     /**
-     * Get 平均下载流量，单位：MB/s 
-     * @return AvgFluxPerSecond 平均下载流量，单位：MB/s
+     * Get 平均下载流量，单位: MB/s。 
+     * @return AvgFluxPerSecond 平均下载流量，单位: MB/s。
      */
     public Float getAvgFluxPerSecond() {
         return this.AvgFluxPerSecond;
     }
 
     /**
-     * Set 平均下载流量，单位：MB/s
-     * @param AvgFluxPerSecond 平均下载流量，单位：MB/s
+     * Set 平均下载流量，单位: MB/s。
+     * @param AvgFluxPerSecond 平均下载流量，单位: MB/s。
      */
     public void setAvgFluxPerSecond(Float AvgFluxPerSecond) {
         this.AvgFluxPerSecond = AvgFluxPerSecond;
     }
+
+    public ProIspPlaySumInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ProIspPlaySumInfo(ProIspPlaySumInfo source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.TotalFlux != null) {
+            this.TotalFlux = new Float(source.TotalFlux);
+        }
+        if (source.TotalRequest != null) {
+            this.TotalRequest = new Long(source.TotalRequest);
+        }
+        if (source.AvgFluxPerSecond != null) {
+            this.AvgFluxPerSecond = new Float(source.AvgFluxPerSecond);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

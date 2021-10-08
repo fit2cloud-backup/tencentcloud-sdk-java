@@ -27,7 +27,7 @@ public class CosAuthMode extends AbstractModel{
 0：bucket授权，需要将对应bucket授权给本服务帐号（3020447271），否则会读写cos失败； 
 1：key托管，把cos的账号id和key托管于本服务，本服务会提供一个托管id； 
 3：临时key授权。
-注意：目前智能编辑还不支持临时key授权。
+注意：目前智能编辑还不支持临时key授权；画质重生目前只支持bucket授权
     */
     @SerializedName("Type")
     @Expose
@@ -66,12 +66,12 @@ public class CosAuthMode extends AbstractModel{
 0：bucket授权，需要将对应bucket授权给本服务帐号（3020447271），否则会读写cos失败； 
 1：key托管，把cos的账号id和key托管于本服务，本服务会提供一个托管id； 
 3：临时key授权。
-注意：目前智能编辑还不支持临时key授权。 
+注意：目前智能编辑还不支持临时key授权；画质重生目前只支持bucket授权 
      * @return Type 授权类型，可选值： 
 0：bucket授权，需要将对应bucket授权给本服务帐号（3020447271），否则会读写cos失败； 
 1：key托管，把cos的账号id和key托管于本服务，本服务会提供一个托管id； 
 3：临时key授权。
-注意：目前智能编辑还不支持临时key授权。
+注意：目前智能编辑还不支持临时key授权；画质重生目前只支持bucket授权
      */
     public Long getType() {
         return this.Type;
@@ -82,12 +82,12 @@ public class CosAuthMode extends AbstractModel{
 0：bucket授权，需要将对应bucket授权给本服务帐号（3020447271），否则会读写cos失败； 
 1：key托管，把cos的账号id和key托管于本服务，本服务会提供一个托管id； 
 3：临时key授权。
-注意：目前智能编辑还不支持临时key授权。
+注意：目前智能编辑还不支持临时key授权；画质重生目前只支持bucket授权
      * @param Type 授权类型，可选值： 
 0：bucket授权，需要将对应bucket授权给本服务帐号（3020447271），否则会读写cos失败； 
 1：key托管，把cos的账号id和key托管于本服务，本服务会提供一个托管id； 
 3：临时key授权。
-注意：目前智能编辑还不支持临时key授权。
+注意：目前智能编辑还不支持临时key授权；画质重生目前只支持bucket授权
      */
     public void setType(Long Type) {
         this.Type = Type;
@@ -156,6 +156,32 @@ public class CosAuthMode extends AbstractModel{
     public void setToken(String Token) {
         this.Token = Token;
     }
+
+    public CosAuthMode() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CosAuthMode(CosAuthMode source) {
+        if (source.Type != null) {
+            this.Type = new Long(source.Type);
+        }
+        if (source.HostedId != null) {
+            this.HostedId = new String(source.HostedId);
+        }
+        if (source.SecretId != null) {
+            this.SecretId = new String(source.SecretId);
+        }
+        if (source.SecretKey != null) {
+            this.SecretKey = new String(source.SecretKey);
+        }
+        if (source.Token != null) {
+            this.Token = new String(source.Token);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

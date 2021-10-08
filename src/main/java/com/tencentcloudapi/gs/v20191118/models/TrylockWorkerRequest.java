@@ -37,25 +37,32 @@ public class TrylockWorkerRequest extends AbstractModel{
     private String GameId;
 
     /**
-    * 游戏区域，ap-guangzhou、ap-shanghai、ap-beijing等
+    * 游戏区域，ap-guangzhou、ap-shanghai、ap-beijing等，如果不为空，优先按照该区域进行调度分配机器
     */
     @SerializedName("GameRegion")
     @Expose
     private String GameRegion;
 
     /**
-    * 资源池编号，1表示共用，2表示测试
+    * 【废弃】资源池编号
     */
     @SerializedName("SetNo")
     @Expose
     private Long SetNo;
 
     /**
-    * 游戏用户IP，用于就近调度，例如125.127.178.228
+    * 【必选】用户IP，用于就近调度，不填将严重影响用户体验
     */
     @SerializedName("UserIp")
     @Expose
     private String UserIp;
+
+    /**
+    * 分组ID
+    */
+    @SerializedName("GroupId")
+    @Expose
+    private String GroupId;
 
     /**
      * Get 游戏用户ID 
@@ -90,52 +97,97 @@ public class TrylockWorkerRequest extends AbstractModel{
     }
 
     /**
-     * Get 游戏区域，ap-guangzhou、ap-shanghai、ap-beijing等 
-     * @return GameRegion 游戏区域，ap-guangzhou、ap-shanghai、ap-beijing等
+     * Get 游戏区域，ap-guangzhou、ap-shanghai、ap-beijing等，如果不为空，优先按照该区域进行调度分配机器 
+     * @return GameRegion 游戏区域，ap-guangzhou、ap-shanghai、ap-beijing等，如果不为空，优先按照该区域进行调度分配机器
      */
     public String getGameRegion() {
         return this.GameRegion;
     }
 
     /**
-     * Set 游戏区域，ap-guangzhou、ap-shanghai、ap-beijing等
-     * @param GameRegion 游戏区域，ap-guangzhou、ap-shanghai、ap-beijing等
+     * Set 游戏区域，ap-guangzhou、ap-shanghai、ap-beijing等，如果不为空，优先按照该区域进行调度分配机器
+     * @param GameRegion 游戏区域，ap-guangzhou、ap-shanghai、ap-beijing等，如果不为空，优先按照该区域进行调度分配机器
      */
     public void setGameRegion(String GameRegion) {
         this.GameRegion = GameRegion;
     }
 
     /**
-     * Get 资源池编号，1表示共用，2表示测试 
-     * @return SetNo 资源池编号，1表示共用，2表示测试
+     * Get 【废弃】资源池编号 
+     * @return SetNo 【废弃】资源池编号
      */
     public Long getSetNo() {
         return this.SetNo;
     }
 
     /**
-     * Set 资源池编号，1表示共用，2表示测试
-     * @param SetNo 资源池编号，1表示共用，2表示测试
+     * Set 【废弃】资源池编号
+     * @param SetNo 【废弃】资源池编号
      */
     public void setSetNo(Long SetNo) {
         this.SetNo = SetNo;
     }
 
     /**
-     * Get 游戏用户IP，用于就近调度，例如125.127.178.228 
-     * @return UserIp 游戏用户IP，用于就近调度，例如125.127.178.228
+     * Get 【必选】用户IP，用于就近调度，不填将严重影响用户体验 
+     * @return UserIp 【必选】用户IP，用于就近调度，不填将严重影响用户体验
      */
     public String getUserIp() {
         return this.UserIp;
     }
 
     /**
-     * Set 游戏用户IP，用于就近调度，例如125.127.178.228
-     * @param UserIp 游戏用户IP，用于就近调度，例如125.127.178.228
+     * Set 【必选】用户IP，用于就近调度，不填将严重影响用户体验
+     * @param UserIp 【必选】用户IP，用于就近调度，不填将严重影响用户体验
      */
     public void setUserIp(String UserIp) {
         this.UserIp = UserIp;
     }
+
+    /**
+     * Get 分组ID 
+     * @return GroupId 分组ID
+     */
+    public String getGroupId() {
+        return this.GroupId;
+    }
+
+    /**
+     * Set 分组ID
+     * @param GroupId 分组ID
+     */
+    public void setGroupId(String GroupId) {
+        this.GroupId = GroupId;
+    }
+
+    public TrylockWorkerRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public TrylockWorkerRequest(TrylockWorkerRequest source) {
+        if (source.UserId != null) {
+            this.UserId = new String(source.UserId);
+        }
+        if (source.GameId != null) {
+            this.GameId = new String(source.GameId);
+        }
+        if (source.GameRegion != null) {
+            this.GameRegion = new String(source.GameRegion);
+        }
+        if (source.SetNo != null) {
+            this.SetNo = new Long(source.SetNo);
+        }
+        if (source.UserIp != null) {
+            this.UserIp = new String(source.UserIp);
+        }
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -146,6 +198,7 @@ public class TrylockWorkerRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "GameRegion", this.GameRegion);
         this.setParamSimple(map, prefix + "SetNo", this.SetNo);
         this.setParamSimple(map, prefix + "UserIp", this.UserIp);
+        this.setParamSimple(map, prefix + "GroupId", this.GroupId);
 
     }
 }

@@ -28,9 +28,7 @@ public class AiRecognitionResult extends AbstractModel{
 <li>AsrWordsRecognition：语音关键词识别，</li>
 <li>OcrWordsRecognition：文本关键词识别，</li>
 <li>AsrFullTextRecognition：语音全文识别，</li>
-<li>OcrFullTextRecognition：文本全文识别，</li>
-<li>HeadTailRecognition：视频片头片尾识别，</li>
-<li>ObjectRecognition：物体识别。</li>
+<li>OcrFullTextRecognition：文本全文识别。</li>
     */
     @SerializedName("Type")
     @Expose
@@ -87,17 +85,13 @@ public class AiRecognitionResult extends AbstractModel{
 <li>AsrWordsRecognition：语音关键词识别，</li>
 <li>OcrWordsRecognition：文本关键词识别，</li>
 <li>AsrFullTextRecognition：语音全文识别，</li>
-<li>OcrFullTextRecognition：文本全文识别，</li>
-<li>HeadTailRecognition：视频片头片尾识别，</li>
-<li>ObjectRecognition：物体识别。</li> 
+<li>OcrFullTextRecognition：文本全文识别。</li> 
      * @return Type 任务的类型，取值范围：
 <li>FaceRecognition：人脸识别，</li>
 <li>AsrWordsRecognition：语音关键词识别，</li>
 <li>OcrWordsRecognition：文本关键词识别，</li>
 <li>AsrFullTextRecognition：语音全文识别，</li>
-<li>OcrFullTextRecognition：文本全文识别，</li>
-<li>HeadTailRecognition：视频片头片尾识别，</li>
-<li>ObjectRecognition：物体识别。</li>
+<li>OcrFullTextRecognition：文本全文识别。</li>
      */
     public String getType() {
         return this.Type;
@@ -109,17 +103,13 @@ public class AiRecognitionResult extends AbstractModel{
 <li>AsrWordsRecognition：语音关键词识别，</li>
 <li>OcrWordsRecognition：文本关键词识别，</li>
 <li>AsrFullTextRecognition：语音全文识别，</li>
-<li>OcrFullTextRecognition：文本全文识别，</li>
-<li>HeadTailRecognition：视频片头片尾识别，</li>
-<li>ObjectRecognition：物体识别。</li>
+<li>OcrFullTextRecognition：文本全文识别。</li>
      * @param Type 任务的类型，取值范围：
 <li>FaceRecognition：人脸识别，</li>
 <li>AsrWordsRecognition：语音关键词识别，</li>
 <li>OcrWordsRecognition：文本关键词识别，</li>
 <li>AsrFullTextRecognition：语音全文识别，</li>
-<li>OcrFullTextRecognition：文本全文识别，</li>
-<li>HeadTailRecognition：视频片头片尾识别，</li>
-<li>ObjectRecognition：物体识别。</li>
+<li>OcrFullTextRecognition：文本全文识别。</li>
      */
     public void setType(String Type) {
         this.Type = Type;
@@ -244,6 +234,35 @@ public class AiRecognitionResult extends AbstractModel{
     public void setOcrFullTextTask(AiRecognitionTaskOcrFullTextResult OcrFullTextTask) {
         this.OcrFullTextTask = OcrFullTextTask;
     }
+
+    public AiRecognitionResult() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AiRecognitionResult(AiRecognitionResult source) {
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.FaceTask != null) {
+            this.FaceTask = new AiRecognitionTaskFaceResult(source.FaceTask);
+        }
+        if (source.AsrWordsTask != null) {
+            this.AsrWordsTask = new AiRecognitionTaskAsrWordsResult(source.AsrWordsTask);
+        }
+        if (source.AsrFullTextTask != null) {
+            this.AsrFullTextTask = new AiRecognitionTaskAsrFullTextResult(source.AsrFullTextTask);
+        }
+        if (source.OcrWordsTask != null) {
+            this.OcrWordsTask = new AiRecognitionTaskOcrWordsResult(source.OcrWordsTask);
+        }
+        if (source.OcrFullTextTask != null) {
+            this.OcrFullTextTask = new AiRecognitionTaskOcrFullTextResult(source.OcrFullTextTask);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

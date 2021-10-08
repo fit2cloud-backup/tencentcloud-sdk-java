@@ -149,6 +149,13 @@ public class InquiryPriceRunInstancesRequest extends AbstractModel{
     private InstanceMarketOptionsRequest InstanceMarketOptions;
 
     /**
+    * 高性能计算集群ID。
+    */
+    @SerializedName("HpcClusterId")
+    @Expose
+    private String HpcClusterId;
+
+    /**
      * Get 实例所在的位置。通过该参数可以指定实例所属可用区，所属项目等属性。 
      * @return Placement 实例所在的位置。通过该参数可以指定实例所属可用区，所属项目等属性。
      */
@@ -437,6 +444,99 @@ public class InquiryPriceRunInstancesRequest extends AbstractModel{
     }
 
     /**
+     * Get 高性能计算集群ID。 
+     * @return HpcClusterId 高性能计算集群ID。
+     */
+    public String getHpcClusterId() {
+        return this.HpcClusterId;
+    }
+
+    /**
+     * Set 高性能计算集群ID。
+     * @param HpcClusterId 高性能计算集群ID。
+     */
+    public void setHpcClusterId(String HpcClusterId) {
+        this.HpcClusterId = HpcClusterId;
+    }
+
+    public InquiryPriceRunInstancesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public InquiryPriceRunInstancesRequest(InquiryPriceRunInstancesRequest source) {
+        if (source.Placement != null) {
+            this.Placement = new Placement(source.Placement);
+        }
+        if (source.ImageId != null) {
+            this.ImageId = new String(source.ImageId);
+        }
+        if (source.InstanceChargeType != null) {
+            this.InstanceChargeType = new String(source.InstanceChargeType);
+        }
+        if (source.InstanceChargePrepaid != null) {
+            this.InstanceChargePrepaid = new InstanceChargePrepaid(source.InstanceChargePrepaid);
+        }
+        if (source.InstanceType != null) {
+            this.InstanceType = new String(source.InstanceType);
+        }
+        if (source.SystemDisk != null) {
+            this.SystemDisk = new SystemDisk(source.SystemDisk);
+        }
+        if (source.DataDisks != null) {
+            this.DataDisks = new DataDisk[source.DataDisks.length];
+            for (int i = 0; i < source.DataDisks.length; i++) {
+                this.DataDisks[i] = new DataDisk(source.DataDisks[i]);
+            }
+        }
+        if (source.VirtualPrivateCloud != null) {
+            this.VirtualPrivateCloud = new VirtualPrivateCloud(source.VirtualPrivateCloud);
+        }
+        if (source.InternetAccessible != null) {
+            this.InternetAccessible = new InternetAccessible(source.InternetAccessible);
+        }
+        if (source.InstanceCount != null) {
+            this.InstanceCount = new Long(source.InstanceCount);
+        }
+        if (source.InstanceName != null) {
+            this.InstanceName = new String(source.InstanceName);
+        }
+        if (source.LoginSettings != null) {
+            this.LoginSettings = new LoginSettings(source.LoginSettings);
+        }
+        if (source.SecurityGroupIds != null) {
+            this.SecurityGroupIds = new String[source.SecurityGroupIds.length];
+            for (int i = 0; i < source.SecurityGroupIds.length; i++) {
+                this.SecurityGroupIds[i] = new String(source.SecurityGroupIds[i]);
+            }
+        }
+        if (source.EnhancedService != null) {
+            this.EnhancedService = new EnhancedService(source.EnhancedService);
+        }
+        if (source.ClientToken != null) {
+            this.ClientToken = new String(source.ClientToken);
+        }
+        if (source.HostName != null) {
+            this.HostName = new String(source.HostName);
+        }
+        if (source.TagSpecification != null) {
+            this.TagSpecification = new TagSpecification[source.TagSpecification.length];
+            for (int i = 0; i < source.TagSpecification.length; i++) {
+                this.TagSpecification[i] = new TagSpecification(source.TagSpecification[i]);
+            }
+        }
+        if (source.InstanceMarketOptions != null) {
+            this.InstanceMarketOptions = new InstanceMarketOptionsRequest(source.InstanceMarketOptions);
+        }
+        if (source.HpcClusterId != null) {
+            this.HpcClusterId = new String(source.HpcClusterId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -458,6 +558,7 @@ public class InquiryPriceRunInstancesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "HostName", this.HostName);
         this.setParamArrayObj(map, prefix + "TagSpecification.", this.TagSpecification);
         this.setParamObj(map, prefix + "InstanceMarketOptions.", this.InstanceMarketOptions);
+        this.setParamSimple(map, prefix + "HpcClusterId", this.HpcClusterId);
 
     }
 }

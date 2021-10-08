@@ -72,6 +72,13 @@ public class DescribeHTTPSListenersRequest extends AbstractModel{
     private String SearchValue;
 
     /**
+    * 过滤条件，通道组ID
+    */
+    @SerializedName("GroupId")
+    @Expose
+    private String GroupId;
+
+    /**
      * Get 过滤条件，通道ID 
      * @return ProxyId 过滤条件，通道ID
      */
@@ -184,6 +191,57 @@ public class DescribeHTTPSListenersRequest extends AbstractModel{
     }
 
     /**
+     * Get 过滤条件，通道组ID 
+     * @return GroupId 过滤条件，通道组ID
+     */
+    public String getGroupId() {
+        return this.GroupId;
+    }
+
+    /**
+     * Set 过滤条件，通道组ID
+     * @param GroupId 过滤条件，通道组ID
+     */
+    public void setGroupId(String GroupId) {
+        this.GroupId = GroupId;
+    }
+
+    public DescribeHTTPSListenersRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeHTTPSListenersRequest(DescribeHTTPSListenersRequest source) {
+        if (source.ProxyId != null) {
+            this.ProxyId = new String(source.ProxyId);
+        }
+        if (source.ListenerId != null) {
+            this.ListenerId = new String(source.ListenerId);
+        }
+        if (source.ListenerName != null) {
+            this.ListenerName = new String(source.ListenerName);
+        }
+        if (source.Port != null) {
+            this.Port = new Long(source.Port);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.SearchValue != null) {
+            this.SearchValue = new String(source.SearchValue);
+        }
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -194,6 +252,7 @@ public class DescribeHTTPSListenersRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "SearchValue", this.SearchValue);
+        this.setParamSimple(map, prefix + "GroupId", this.GroupId);
 
     }
 }

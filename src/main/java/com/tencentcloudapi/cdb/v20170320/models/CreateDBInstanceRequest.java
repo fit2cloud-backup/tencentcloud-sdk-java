@@ -142,7 +142,7 @@ public class CreateDBInstanceRequest extends AbstractModel{
     private ParamInfo [] ParamList;
 
     /**
-    * 备库 2 的可用区信息，默认为空，购买强同步主实例时可指定该参数，购买其他类型实例时指定该参数无意义。
+    * 备库 2 的可用区信息，默认为空，购买三节点主实例时可指定该参数。
     */
     @SerializedName("BackupZone")
     @Expose
@@ -203,6 +203,55 @@ public class CreateDBInstanceRequest extends AbstractModel{
     @SerializedName("ClientToken")
     @Expose
     private String ClientToken;
+
+    /**
+    * 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC" - 基础版实例。 不指定则默认为通用型实例。
+    */
+    @SerializedName("DeviceType")
+    @Expose
+    private String DeviceType;
+
+    /**
+    * 参数模板id。
+    */
+    @SerializedName("ParamTemplateId")
+    @Expose
+    private Long ParamTemplateId;
+
+    /**
+    * 告警策略id数组。
+    */
+    @SerializedName("AlarmPolicyList")
+    @Expose
+    private Long [] AlarmPolicyList;
+
+    /**
+    * 实例节点数。对于 RO 和 基础版实例， 该值默认为1。 如果需要购买三节点实例， 请将该值设置为3 或指定 BackupZone 参数。当购买主实例，且未指定该参数和 BackupZone 参数时，该值默认是 2， 即购买两节点实例。
+    */
+    @SerializedName("InstanceNodes")
+    @Expose
+    private Long InstanceNodes;
+
+    /**
+    * 实例cpu核数， 如果不传将根据memory指定的内存值自动填充对应的cpu值。
+    */
+    @SerializedName("Cpu")
+    @Expose
+    private Long Cpu;
+
+    /**
+    * 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。
+    */
+    @SerializedName("AutoSyncFlag")
+    @Expose
+    private Long AutoSyncFlag;
+
+    /**
+    * 金融围拢 ID。
+    */
+    @SerializedName("CageId")
+    @Expose
+    private String CageId;
 
     /**
      * Get 实例内存大小，单位：MB，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的内存规格。 
@@ -477,16 +526,16 @@ public class CreateDBInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 备库 2 的可用区信息，默认为空，购买强同步主实例时可指定该参数，购买其他类型实例时指定该参数无意义。 
-     * @return BackupZone 备库 2 的可用区信息，默认为空，购买强同步主实例时可指定该参数，购买其他类型实例时指定该参数无意义。
+     * Get 备库 2 的可用区信息，默认为空，购买三节点主实例时可指定该参数。 
+     * @return BackupZone 备库 2 的可用区信息，默认为空，购买三节点主实例时可指定该参数。
      */
     public String getBackupZone() {
         return this.BackupZone;
     }
 
     /**
-     * Set 备库 2 的可用区信息，默认为空，购买强同步主实例时可指定该参数，购买其他类型实例时指定该参数无意义。
-     * @param BackupZone 备库 2 的可用区信息，默认为空，购买强同步主实例时可指定该参数，购买其他类型实例时指定该参数无意义。
+     * Set 备库 2 的可用区信息，默认为空，购买三节点主实例时可指定该参数。
+     * @param BackupZone 备库 2 的可用区信息，默认为空，购买三节点主实例时可指定该参数。
      */
     public void setBackupZone(String BackupZone) {
         this.BackupZone = BackupZone;
@@ -621,6 +670,240 @@ public class CreateDBInstanceRequest extends AbstractModel{
     }
 
     /**
+     * Get 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC" - 基础版实例。 不指定则默认为通用型实例。 
+     * @return DeviceType 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC" - 基础版实例。 不指定则默认为通用型实例。
+     */
+    public String getDeviceType() {
+        return this.DeviceType;
+    }
+
+    /**
+     * Set 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC" - 基础版实例。 不指定则默认为通用型实例。
+     * @param DeviceType 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC" - 基础版实例。 不指定则默认为通用型实例。
+     */
+    public void setDeviceType(String DeviceType) {
+        this.DeviceType = DeviceType;
+    }
+
+    /**
+     * Get 参数模板id。 
+     * @return ParamTemplateId 参数模板id。
+     */
+    public Long getParamTemplateId() {
+        return this.ParamTemplateId;
+    }
+
+    /**
+     * Set 参数模板id。
+     * @param ParamTemplateId 参数模板id。
+     */
+    public void setParamTemplateId(Long ParamTemplateId) {
+        this.ParamTemplateId = ParamTemplateId;
+    }
+
+    /**
+     * Get 告警策略id数组。 
+     * @return AlarmPolicyList 告警策略id数组。
+     */
+    public Long [] getAlarmPolicyList() {
+        return this.AlarmPolicyList;
+    }
+
+    /**
+     * Set 告警策略id数组。
+     * @param AlarmPolicyList 告警策略id数组。
+     */
+    public void setAlarmPolicyList(Long [] AlarmPolicyList) {
+        this.AlarmPolicyList = AlarmPolicyList;
+    }
+
+    /**
+     * Get 实例节点数。对于 RO 和 基础版实例， 该值默认为1。 如果需要购买三节点实例， 请将该值设置为3 或指定 BackupZone 参数。当购买主实例，且未指定该参数和 BackupZone 参数时，该值默认是 2， 即购买两节点实例。 
+     * @return InstanceNodes 实例节点数。对于 RO 和 基础版实例， 该值默认为1。 如果需要购买三节点实例， 请将该值设置为3 或指定 BackupZone 参数。当购买主实例，且未指定该参数和 BackupZone 参数时，该值默认是 2， 即购买两节点实例。
+     */
+    public Long getInstanceNodes() {
+        return this.InstanceNodes;
+    }
+
+    /**
+     * Set 实例节点数。对于 RO 和 基础版实例， 该值默认为1。 如果需要购买三节点实例， 请将该值设置为3 或指定 BackupZone 参数。当购买主实例，且未指定该参数和 BackupZone 参数时，该值默认是 2， 即购买两节点实例。
+     * @param InstanceNodes 实例节点数。对于 RO 和 基础版实例， 该值默认为1。 如果需要购买三节点实例， 请将该值设置为3 或指定 BackupZone 参数。当购买主实例，且未指定该参数和 BackupZone 参数时，该值默认是 2， 即购买两节点实例。
+     */
+    public void setInstanceNodes(Long InstanceNodes) {
+        this.InstanceNodes = InstanceNodes;
+    }
+
+    /**
+     * Get 实例cpu核数， 如果不传将根据memory指定的内存值自动填充对应的cpu值。 
+     * @return Cpu 实例cpu核数， 如果不传将根据memory指定的内存值自动填充对应的cpu值。
+     */
+    public Long getCpu() {
+        return this.Cpu;
+    }
+
+    /**
+     * Set 实例cpu核数， 如果不传将根据memory指定的内存值自动填充对应的cpu值。
+     * @param Cpu 实例cpu核数， 如果不传将根据memory指定的内存值自动填充对应的cpu值。
+     */
+    public void setCpu(Long Cpu) {
+        this.Cpu = Cpu;
+    }
+
+    /**
+     * Get 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。 
+     * @return AutoSyncFlag 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。
+     */
+    public Long getAutoSyncFlag() {
+        return this.AutoSyncFlag;
+    }
+
+    /**
+     * Set 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。
+     * @param AutoSyncFlag 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。
+     */
+    public void setAutoSyncFlag(Long AutoSyncFlag) {
+        this.AutoSyncFlag = AutoSyncFlag;
+    }
+
+    /**
+     * Get 金融围拢 ID。 
+     * @return CageId 金融围拢 ID。
+     */
+    public String getCageId() {
+        return this.CageId;
+    }
+
+    /**
+     * Set 金融围拢 ID。
+     * @param CageId 金融围拢 ID。
+     */
+    public void setCageId(String CageId) {
+        this.CageId = CageId;
+    }
+
+    public CreateDBInstanceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateDBInstanceRequest(CreateDBInstanceRequest source) {
+        if (source.Memory != null) {
+            this.Memory = new Long(source.Memory);
+        }
+        if (source.Volume != null) {
+            this.Volume = new Long(source.Volume);
+        }
+        if (source.Period != null) {
+            this.Period = new Long(source.Period);
+        }
+        if (source.GoodsNum != null) {
+            this.GoodsNum = new Long(source.GoodsNum);
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.UniqVpcId != null) {
+            this.UniqVpcId = new String(source.UniqVpcId);
+        }
+        if (source.UniqSubnetId != null) {
+            this.UniqSubnetId = new String(source.UniqSubnetId);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.Port != null) {
+            this.Port = new Long(source.Port);
+        }
+        if (source.InstanceRole != null) {
+            this.InstanceRole = new String(source.InstanceRole);
+        }
+        if (source.MasterInstanceId != null) {
+            this.MasterInstanceId = new String(source.MasterInstanceId);
+        }
+        if (source.EngineVersion != null) {
+            this.EngineVersion = new String(source.EngineVersion);
+        }
+        if (source.Password != null) {
+            this.Password = new String(source.Password);
+        }
+        if (source.ProtectMode != null) {
+            this.ProtectMode = new Long(source.ProtectMode);
+        }
+        if (source.DeployMode != null) {
+            this.DeployMode = new Long(source.DeployMode);
+        }
+        if (source.SlaveZone != null) {
+            this.SlaveZone = new String(source.SlaveZone);
+        }
+        if (source.ParamList != null) {
+            this.ParamList = new ParamInfo[source.ParamList.length];
+            for (int i = 0; i < source.ParamList.length; i++) {
+                this.ParamList[i] = new ParamInfo(source.ParamList[i]);
+            }
+        }
+        if (source.BackupZone != null) {
+            this.BackupZone = new String(source.BackupZone);
+        }
+        if (source.AutoRenewFlag != null) {
+            this.AutoRenewFlag = new Long(source.AutoRenewFlag);
+        }
+        if (source.MasterRegion != null) {
+            this.MasterRegion = new String(source.MasterRegion);
+        }
+        if (source.SecurityGroup != null) {
+            this.SecurityGroup = new String[source.SecurityGroup.length];
+            for (int i = 0; i < source.SecurityGroup.length; i++) {
+                this.SecurityGroup[i] = new String(source.SecurityGroup[i]);
+            }
+        }
+        if (source.RoGroup != null) {
+            this.RoGroup = new RoGroup(source.RoGroup);
+        }
+        if (source.InstanceName != null) {
+            this.InstanceName = new String(source.InstanceName);
+        }
+        if (source.ResourceTags != null) {
+            this.ResourceTags = new TagInfo[source.ResourceTags.length];
+            for (int i = 0; i < source.ResourceTags.length; i++) {
+                this.ResourceTags[i] = new TagInfo(source.ResourceTags[i]);
+            }
+        }
+        if (source.DeployGroupId != null) {
+            this.DeployGroupId = new String(source.DeployGroupId);
+        }
+        if (source.ClientToken != null) {
+            this.ClientToken = new String(source.ClientToken);
+        }
+        if (source.DeviceType != null) {
+            this.DeviceType = new String(source.DeviceType);
+        }
+        if (source.ParamTemplateId != null) {
+            this.ParamTemplateId = new Long(source.ParamTemplateId);
+        }
+        if (source.AlarmPolicyList != null) {
+            this.AlarmPolicyList = new Long[source.AlarmPolicyList.length];
+            for (int i = 0; i < source.AlarmPolicyList.length; i++) {
+                this.AlarmPolicyList[i] = new Long(source.AlarmPolicyList[i]);
+            }
+        }
+        if (source.InstanceNodes != null) {
+            this.InstanceNodes = new Long(source.InstanceNodes);
+        }
+        if (source.Cpu != null) {
+            this.Cpu = new Long(source.Cpu);
+        }
+        if (source.AutoSyncFlag != null) {
+            this.AutoSyncFlag = new Long(source.AutoSyncFlag);
+        }
+        if (source.CageId != null) {
+            this.CageId = new String(source.CageId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -650,6 +933,13 @@ public class CreateDBInstanceRequest extends AbstractModel{
         this.setParamArrayObj(map, prefix + "ResourceTags.", this.ResourceTags);
         this.setParamSimple(map, prefix + "DeployGroupId", this.DeployGroupId);
         this.setParamSimple(map, prefix + "ClientToken", this.ClientToken);
+        this.setParamSimple(map, prefix + "DeviceType", this.DeviceType);
+        this.setParamSimple(map, prefix + "ParamTemplateId", this.ParamTemplateId);
+        this.setParamArraySimple(map, prefix + "AlarmPolicyList.", this.AlarmPolicyList);
+        this.setParamSimple(map, prefix + "InstanceNodes", this.InstanceNodes);
+        this.setParamSimple(map, prefix + "Cpu", this.Cpu);
+        this.setParamSimple(map, prefix + "AutoSyncFlag", this.AutoSyncFlag);
+        this.setParamSimple(map, prefix + "CageId", this.CageId);
 
     }
 }

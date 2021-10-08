@@ -27,6 +27,7 @@ import com.tencentcloudapi.mongodb.v20180408.models.*;
 
 public class MongodbClient extends AbstractClient{
     private static String endpoint = "mongodb.tencentcloudapi.com";
+    private static String service = "mongodb";
     private static String version = "2018-04-08";
 
     public MongodbClient(Credential credential, String region) {
@@ -47,12 +48,14 @@ public class MongodbClient extends AbstractClient{
      */
     public AssignProjectResponse AssignProject(AssignProjectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AssignProjectResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<AssignProjectResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "AssignProject"), type);
+                rspStr = this.internalRequest(req, "AssignProject");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -65,12 +68,14 @@ public class MongodbClient extends AbstractClient{
      */
     public CreateDBInstanceResponse CreateDBInstance(CreateDBInstanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateDBInstanceResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateDBInstanceResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "CreateDBInstance"), type);
+                rspStr = this.internalRequest(req, "CreateDBInstance");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -83,12 +88,14 @@ public class MongodbClient extends AbstractClient{
      */
     public CreateDBInstanceHourResponse CreateDBInstanceHour(CreateDBInstanceHourRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateDBInstanceHourResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateDBInstanceHourResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "CreateDBInstanceHour"), type);
+                rspStr = this.internalRequest(req, "CreateDBInstanceHour");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -101,12 +108,14 @@ public class MongodbClient extends AbstractClient{
      */
     public DescribeClientConnectionsResponse DescribeClientConnections(DescribeClientConnectionsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeClientConnectionsResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeClientConnectionsResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeClientConnections"), type);
+                rspStr = this.internalRequest(req, "DescribeClientConnections");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -119,12 +128,14 @@ public class MongodbClient extends AbstractClient{
      */
     public DescribeDBInstancesResponse DescribeDBInstances(DescribeDBInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDBInstancesResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDBInstancesResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeDBInstances"), type);
+                rspStr = this.internalRequest(req, "DescribeDBInstances");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -137,12 +148,14 @@ public class MongodbClient extends AbstractClient{
      */
     public DescribeSlowLogResponse DescribeSlowLog(DescribeSlowLogRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSlowLogResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSlowLogResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeSlowLog"), type);
+                rspStr = this.internalRequest(req, "DescribeSlowLog");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -155,12 +168,14 @@ public class MongodbClient extends AbstractClient{
      */
     public DescribeSpecInfoResponse DescribeSpecInfo(DescribeSpecInfoRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSpecInfoResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSpecInfoResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeSpecInfo"), type);
+                rspStr = this.internalRequest(req, "DescribeSpecInfo");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -173,12 +188,14 @@ public class MongodbClient extends AbstractClient{
      */
     public RenameInstanceResponse RenameInstance(RenameInstanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RenameInstanceResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<RenameInstanceResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "RenameInstance"), type);
+                rspStr = this.internalRequest(req, "RenameInstance");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -191,12 +208,14 @@ public class MongodbClient extends AbstractClient{
      */
     public SetAutoRenewResponse SetAutoRenew(SetAutoRenewRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SetAutoRenewResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<SetAutoRenewResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "SetAutoRenew"), type);
+                rspStr = this.internalRequest(req, "SetAutoRenew");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -211,12 +230,14 @@ public class MongodbClient extends AbstractClient{
      */
     public SetPasswordResponse SetPassword(SetPasswordRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SetPasswordResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<SetPasswordResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "SetPassword"), type);
+                rspStr = this.internalRequest(req, "SetPassword");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -229,12 +250,14 @@ public class MongodbClient extends AbstractClient{
      */
     public TerminateDBInstanceResponse TerminateDBInstance(TerminateDBInstanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<TerminateDBInstanceResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<TerminateDBInstanceResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "TerminateDBInstance"), type);
+                rspStr = this.internalRequest(req, "TerminateDBInstance");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -247,12 +270,14 @@ public class MongodbClient extends AbstractClient{
      */
     public UpgradeDBInstanceResponse UpgradeDBInstance(UpgradeDBInstanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<UpgradeDBInstanceResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<UpgradeDBInstanceResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "UpgradeDBInstance"), type);
+                rspStr = this.internalRequest(req, "UpgradeDBInstance");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -265,12 +290,14 @@ public class MongodbClient extends AbstractClient{
      */
     public UpgradeDBInstanceHourResponse UpgradeDBInstanceHour(UpgradeDBInstanceHourRequest req) throws TencentCloudSDKException{
         JsonResponseModel<UpgradeDBInstanceHourResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<UpgradeDBInstanceHourResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "UpgradeDBInstanceHour"), type);
+                rspStr = this.internalRequest(req, "UpgradeDBInstanceHour");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

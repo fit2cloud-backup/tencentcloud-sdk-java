@@ -47,6 +47,14 @@ public class AddInstanceResult extends AbstractModel{
     private String [] TimeoutInstanceIds;
 
     /**
+    * 失败的节点的失败原因
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FailedReasons")
+    @Expose
+    private String [] FailedReasons;
+
+    /**
      * Get 添加集群失败的节点列表
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return FailedInstanceIds 添加集群失败的节点列表
@@ -107,12 +115,68 @@ public class AddInstanceResult extends AbstractModel{
     }
 
     /**
+     * Get 失败的节点的失败原因
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FailedReasons 失败的节点的失败原因
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getFailedReasons() {
+        return this.FailedReasons;
+    }
+
+    /**
+     * Set 失败的节点的失败原因
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FailedReasons 失败的节点的失败原因
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFailedReasons(String [] FailedReasons) {
+        this.FailedReasons = FailedReasons;
+    }
+
+    public AddInstanceResult() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AddInstanceResult(AddInstanceResult source) {
+        if (source.FailedInstanceIds != null) {
+            this.FailedInstanceIds = new String[source.FailedInstanceIds.length];
+            for (int i = 0; i < source.FailedInstanceIds.length; i++) {
+                this.FailedInstanceIds[i] = new String(source.FailedInstanceIds[i]);
+            }
+        }
+        if (source.SuccInstanceIds != null) {
+            this.SuccInstanceIds = new String[source.SuccInstanceIds.length];
+            for (int i = 0; i < source.SuccInstanceIds.length; i++) {
+                this.SuccInstanceIds[i] = new String(source.SuccInstanceIds[i]);
+            }
+        }
+        if (source.TimeoutInstanceIds != null) {
+            this.TimeoutInstanceIds = new String[source.TimeoutInstanceIds.length];
+            for (int i = 0; i < source.TimeoutInstanceIds.length; i++) {
+                this.TimeoutInstanceIds[i] = new String(source.TimeoutInstanceIds[i]);
+            }
+        }
+        if (source.FailedReasons != null) {
+            this.FailedReasons = new String[source.FailedReasons.length];
+            for (int i = 0; i < source.FailedReasons.length; i++) {
+                this.FailedReasons[i] = new String(source.FailedReasons[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "FailedInstanceIds.", this.FailedInstanceIds);
         this.setParamArraySimple(map, prefix + "SuccInstanceIds.", this.SuccInstanceIds);
         this.setParamArraySimple(map, prefix + "TimeoutInstanceIds.", this.TimeoutInstanceIds);
+        this.setParamArraySimple(map, prefix + "FailedReasons.", this.FailedReasons);
 
     }
 }

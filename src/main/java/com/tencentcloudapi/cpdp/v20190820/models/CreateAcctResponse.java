@@ -30,7 +30,7 @@ public class CreateAcctResponse extends AbstractModel{
     private String SubAppId;
 
     /**
-    * 平安银行生成的子商户账户
+    * 银行生成的子商户账户
     */
     @SerializedName("SubAcctNo")
     @Expose
@@ -60,16 +60,16 @@ public class CreateAcctResponse extends AbstractModel{
     }
 
     /**
-     * Get 平安银行生成的子商户账户 
-     * @return SubAcctNo 平安银行生成的子商户账户
+     * Get 银行生成的子商户账户 
+     * @return SubAcctNo 银行生成的子商户账户
      */
     public String getSubAcctNo() {
         return this.SubAcctNo;
     }
 
     /**
-     * Set 平安银行生成的子商户账户
-     * @param SubAcctNo 平安银行生成的子商户账户
+     * Set 银行生成的子商户账户
+     * @param SubAcctNo 银行生成的子商户账户
      */
     public void setSubAcctNo(String SubAcctNo) {
         this.SubAcctNo = SubAcctNo;
@@ -90,6 +90,26 @@ public class CreateAcctResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public CreateAcctResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateAcctResponse(CreateAcctResponse source) {
+        if (source.SubAppId != null) {
+            this.SubAppId = new String(source.SubAppId);
+        }
+        if (source.SubAcctNo != null) {
+            this.SubAcctNo = new String(source.SubAcctNo);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

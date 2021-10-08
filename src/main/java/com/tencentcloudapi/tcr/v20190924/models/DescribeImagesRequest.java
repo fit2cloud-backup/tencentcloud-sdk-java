@@ -44,7 +44,7 @@ public class DescribeImagesRequest extends AbstractModel{
     private String RepositoryName;
 
     /**
-    * 指定镜像版本(Tag)，不填默认返回仓库内全部容器镜像
+    * 指定镜像版本进行查找，当前为模糊搜索
     */
     @SerializedName("ImageVersion")
     @Expose
@@ -113,16 +113,16 @@ public class DescribeImagesRequest extends AbstractModel{
     }
 
     /**
-     * Get 指定镜像版本(Tag)，不填默认返回仓库内全部容器镜像 
-     * @return ImageVersion 指定镜像版本(Tag)，不填默认返回仓库内全部容器镜像
+     * Get 指定镜像版本进行查找，当前为模糊搜索 
+     * @return ImageVersion 指定镜像版本进行查找，当前为模糊搜索
      */
     public String getImageVersion() {
         return this.ImageVersion;
     }
 
     /**
-     * Set 指定镜像版本(Tag)，不填默认返回仓库内全部容器镜像
-     * @param ImageVersion 指定镜像版本(Tag)，不填默认返回仓库内全部容器镜像
+     * Set 指定镜像版本进行查找，当前为模糊搜索
+     * @param ImageVersion 指定镜像版本进行查找，当前为模糊搜索
      */
     public void setImageVersion(String ImageVersion) {
         this.ImageVersion = ImageVersion;
@@ -159,6 +159,35 @@ public class DescribeImagesRequest extends AbstractModel{
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
+
+    public DescribeImagesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeImagesRequest(DescribeImagesRequest source) {
+        if (source.RegistryId != null) {
+            this.RegistryId = new String(source.RegistryId);
+        }
+        if (source.NamespaceName != null) {
+            this.NamespaceName = new String(source.NamespaceName);
+        }
+        if (source.RepositoryName != null) {
+            this.RepositoryName = new String(source.RepositoryName);
+        }
+        if (source.ImageVersion != null) {
+            this.ImageVersion = new String(source.ImageVersion);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

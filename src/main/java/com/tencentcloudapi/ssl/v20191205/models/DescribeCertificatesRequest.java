@@ -37,7 +37,7 @@ public class DescribeCertificatesRequest extends AbstractModel{
     private Long Limit;
 
     /**
-    * 搜索关键词。
+    * 搜索关键词，可搜索证书 ID、备注名称、域名。例如： a8xHcaIs。
     */
     @SerializedName("SearchKey")
     @Expose
@@ -79,6 +79,20 @@ public class DescribeCertificatesRequest extends AbstractModel{
     private Long Deployable;
 
     /**
+    * 是否筛选上传托管的 1筛选，0不筛选
+    */
+    @SerializedName("Upload")
+    @Expose
+    private Long Upload;
+
+    /**
+    * 是否筛选可续期证书 1筛选 0不筛选
+    */
+    @SerializedName("Renew")
+    @Expose
+    private Long Renew;
+
+    /**
      * Get 分页偏移量，从0开始。 
      * @return Offset 分页偏移量，从0开始。
      */
@@ -111,16 +125,16 @@ public class DescribeCertificatesRequest extends AbstractModel{
     }
 
     /**
-     * Get 搜索关键词。 
-     * @return SearchKey 搜索关键词。
+     * Get 搜索关键词，可搜索证书 ID、备注名称、域名。例如： a8xHcaIs。 
+     * @return SearchKey 搜索关键词，可搜索证书 ID、备注名称、域名。例如： a8xHcaIs。
      */
     public String getSearchKey() {
         return this.SearchKey;
     }
 
     /**
-     * Set 搜索关键词。
-     * @param SearchKey 搜索关键词。
+     * Set 搜索关键词，可搜索证书 ID、备注名称、域名。例如： a8xHcaIs。
+     * @param SearchKey 搜索关键词，可搜索证书 ID、备注名称、域名。例如： a8xHcaIs。
      */
     public void setSearchKey(String SearchKey) {
         this.SearchKey = SearchKey;
@@ -207,6 +221,82 @@ public class DescribeCertificatesRequest extends AbstractModel{
     }
 
     /**
+     * Get 是否筛选上传托管的 1筛选，0不筛选 
+     * @return Upload 是否筛选上传托管的 1筛选，0不筛选
+     */
+    public Long getUpload() {
+        return this.Upload;
+    }
+
+    /**
+     * Set 是否筛选上传托管的 1筛选，0不筛选
+     * @param Upload 是否筛选上传托管的 1筛选，0不筛选
+     */
+    public void setUpload(Long Upload) {
+        this.Upload = Upload;
+    }
+
+    /**
+     * Get 是否筛选可续期证书 1筛选 0不筛选 
+     * @return Renew 是否筛选可续期证书 1筛选 0不筛选
+     */
+    public Long getRenew() {
+        return this.Renew;
+    }
+
+    /**
+     * Set 是否筛选可续期证书 1筛选 0不筛选
+     * @param Renew 是否筛选可续期证书 1筛选 0不筛选
+     */
+    public void setRenew(Long Renew) {
+        this.Renew = Renew;
+    }
+
+    public DescribeCertificatesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeCertificatesRequest(DescribeCertificatesRequest source) {
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.SearchKey != null) {
+            this.SearchKey = new String(source.SearchKey);
+        }
+        if (source.CertificateType != null) {
+            this.CertificateType = new String(source.CertificateType);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.ExpirationSort != null) {
+            this.ExpirationSort = new String(source.ExpirationSort);
+        }
+        if (source.CertificateStatus != null) {
+            this.CertificateStatus = new Long[source.CertificateStatus.length];
+            for (int i = 0; i < source.CertificateStatus.length; i++) {
+                this.CertificateStatus[i] = new Long(source.CertificateStatus[i]);
+            }
+        }
+        if (source.Deployable != null) {
+            this.Deployable = new Long(source.Deployable);
+        }
+        if (source.Upload != null) {
+            this.Upload = new Long(source.Upload);
+        }
+        if (source.Renew != null) {
+            this.Renew = new Long(source.Renew);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -218,6 +308,8 @@ public class DescribeCertificatesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ExpirationSort", this.ExpirationSort);
         this.setParamArraySimple(map, prefix + "CertificateStatus.", this.CertificateStatus);
         this.setParamSimple(map, prefix + "Deployable", this.Deployable);
+        this.setParamSimple(map, prefix + "Upload", this.Upload);
+        this.setParamSimple(map, prefix + "Renew", this.Renew);
 
     }
 }

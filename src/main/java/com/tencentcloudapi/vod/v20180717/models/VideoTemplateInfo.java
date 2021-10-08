@@ -34,7 +34,7 @@ public class VideoTemplateInfo extends AbstractModel{
     private String Codec;
 
     /**
-    * 视频帧率，取值范围：[0, 60]，单位：Hz。
+    * 视频帧率，取值范围：[0, 100]，单位：Hz。
 当取值为 0，表示帧率和原始视频保持一致。
     */
     @SerializedName("Fps")
@@ -54,7 +54,6 @@ public class VideoTemplateInfo extends AbstractModel{
 <li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
 <li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
 默认值：open。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResolutionAdaptive")
     @Expose
@@ -67,7 +66,6 @@ public class VideoTemplateInfo extends AbstractModel{
 <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
 <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
 默认值：0。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Width")
     @Expose
@@ -80,7 +78,6 @@ public class VideoTemplateInfo extends AbstractModel{
 <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
 <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
 默认值：0。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Height")
     @Expose
@@ -90,12 +87,30 @@ public class VideoTemplateInfo extends AbstractModel{
     * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
 <li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
 <li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+<li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li>
+<li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊填充。</li>
 默认值：black 。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FillType")
     @Expose
     private String FillType;
+
+    /**
+    * 视频恒定码率控制因子，取值范围为[1, 51]。
+如果指定该参数，将使用 CRF 的码率控制方式做转码（视频码率将不再生效）。
+如果没有特殊需求，不建议指定该参数。
+    */
+    @SerializedName("Vcrf")
+    @Expose
+    private Long Vcrf;
+
+    /**
+    * 关键帧 I 帧之间的间隔，取值范围：0 和 [1, 100000]，单位：帧数。
+当填 0 或不填时，系统将自动设置 gop 长度。
+    */
+    @SerializedName("Gop")
+    @Expose
+    private Long Gop;
 
     /**
      * Get 视频流的编码格式，可选值：
@@ -130,9 +145,9 @@ public class VideoTemplateInfo extends AbstractModel{
     }
 
     /**
-     * Get 视频帧率，取值范围：[0, 60]，单位：Hz。
+     * Get 视频帧率，取值范围：[0, 100]，单位：Hz。
 当取值为 0，表示帧率和原始视频保持一致。 
-     * @return Fps 视频帧率，取值范围：[0, 60]，单位：Hz。
+     * @return Fps 视频帧率，取值范围：[0, 100]，单位：Hz。
 当取值为 0，表示帧率和原始视频保持一致。
      */
     public Long getFps() {
@@ -140,9 +155,9 @@ public class VideoTemplateInfo extends AbstractModel{
     }
 
     /**
-     * Set 视频帧率，取值范围：[0, 60]，单位：Hz。
+     * Set 视频帧率，取值范围：[0, 100]，单位：Hz。
 当取值为 0，表示帧率和原始视频保持一致。
-     * @param Fps 视频帧率，取值范围：[0, 60]，单位：Hz。
+     * @param Fps 视频帧率，取值范围：[0, 100]，单位：Hz。
 当取值为 0，表示帧率和原始视频保持一致。
      */
     public void setFps(Long Fps) {
@@ -173,13 +188,11 @@ public class VideoTemplateInfo extends AbstractModel{
      * Get 分辨率自适应，可选值：
 <li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
 <li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
-默认值：open。
-注意：此字段可能返回 null，表示取不到有效值。 
+默认值：open。 
      * @return ResolutionAdaptive 分辨率自适应，可选值：
 <li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
 <li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
 默认值：open。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResolutionAdaptive() {
         return this.ResolutionAdaptive;
@@ -190,12 +203,10 @@ public class VideoTemplateInfo extends AbstractModel{
 <li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
 <li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
 默认值：open。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResolutionAdaptive 分辨率自适应，可选值：
 <li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
 <li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
 默认值：open。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResolutionAdaptive(String ResolutionAdaptive) {
         this.ResolutionAdaptive = ResolutionAdaptive;
@@ -207,15 +218,13 @@ public class VideoTemplateInfo extends AbstractModel{
 <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
 <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
 <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-默认值：0。
-注意：此字段可能返回 null，表示取不到有效值。 
+默认值：0。 
      * @return Width 视频流宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
 <li>当 Width、Height 均为 0，则分辨率同源；</li>
 <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
 <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
 <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
 默认值：0。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getWidth() {
         return this.Width;
@@ -228,14 +237,12 @@ public class VideoTemplateInfo extends AbstractModel{
 <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
 <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
 默认值：0。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Width 视频流宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
 <li>当 Width、Height 均为 0，则分辨率同源；</li>
 <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
 <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
 <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
 默认值：0。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWidth(Long Width) {
         this.Width = Width;
@@ -247,15 +254,13 @@ public class VideoTemplateInfo extends AbstractModel{
 <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
 <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
 <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-默认值：0。
-注意：此字段可能返回 null，表示取不到有效值。 
+默认值：0。 
      * @return Height 视频流高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
 <li>当 Width、Height 均为 0，则分辨率同源；</li>
 <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
 <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
 <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
 默认值：0。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getHeight() {
         return this.Height;
@@ -268,14 +273,12 @@ public class VideoTemplateInfo extends AbstractModel{
 <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
 <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
 默认值：0。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Height 视频流高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
 <li>当 Width、Height 均为 0，则分辨率同源；</li>
 <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
 <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
 <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
 默认值：0。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHeight(Long Height) {
         this.Height = Height;
@@ -285,13 +288,15 @@ public class VideoTemplateInfo extends AbstractModel{
      * Get 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
 <li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
 <li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
-默认值：black 。
-注意：此字段可能返回 null，表示取不到有效值。 
+<li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li>
+<li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊填充。</li>
+默认值：black 。 
      * @return FillType 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
 <li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
 <li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+<li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li>
+<li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊填充。</li>
 默认值：black 。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFillType() {
         return this.FillType;
@@ -301,17 +306,101 @@ public class VideoTemplateInfo extends AbstractModel{
      * Set 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
 <li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
 <li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+<li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li>
+<li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊填充。</li>
 默认值：black 。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FillType 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
 <li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
 <li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+<li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li>
+<li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊填充。</li>
 默认值：black 。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFillType(String FillType) {
         this.FillType = FillType;
     }
+
+    /**
+     * Get 视频恒定码率控制因子，取值范围为[1, 51]。
+如果指定该参数，将使用 CRF 的码率控制方式做转码（视频码率将不再生效）。
+如果没有特殊需求，不建议指定该参数。 
+     * @return Vcrf 视频恒定码率控制因子，取值范围为[1, 51]。
+如果指定该参数，将使用 CRF 的码率控制方式做转码（视频码率将不再生效）。
+如果没有特殊需求，不建议指定该参数。
+     */
+    public Long getVcrf() {
+        return this.Vcrf;
+    }
+
+    /**
+     * Set 视频恒定码率控制因子，取值范围为[1, 51]。
+如果指定该参数，将使用 CRF 的码率控制方式做转码（视频码率将不再生效）。
+如果没有特殊需求，不建议指定该参数。
+     * @param Vcrf 视频恒定码率控制因子，取值范围为[1, 51]。
+如果指定该参数，将使用 CRF 的码率控制方式做转码（视频码率将不再生效）。
+如果没有特殊需求，不建议指定该参数。
+     */
+    public void setVcrf(Long Vcrf) {
+        this.Vcrf = Vcrf;
+    }
+
+    /**
+     * Get 关键帧 I 帧之间的间隔，取值范围：0 和 [1, 100000]，单位：帧数。
+当填 0 或不填时，系统将自动设置 gop 长度。 
+     * @return Gop 关键帧 I 帧之间的间隔，取值范围：0 和 [1, 100000]，单位：帧数。
+当填 0 或不填时，系统将自动设置 gop 长度。
+     */
+    public Long getGop() {
+        return this.Gop;
+    }
+
+    /**
+     * Set 关键帧 I 帧之间的间隔，取值范围：0 和 [1, 100000]，单位：帧数。
+当填 0 或不填时，系统将自动设置 gop 长度。
+     * @param Gop 关键帧 I 帧之间的间隔，取值范围：0 和 [1, 100000]，单位：帧数。
+当填 0 或不填时，系统将自动设置 gop 长度。
+     */
+    public void setGop(Long Gop) {
+        this.Gop = Gop;
+    }
+
+    public VideoTemplateInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public VideoTemplateInfo(VideoTemplateInfo source) {
+        if (source.Codec != null) {
+            this.Codec = new String(source.Codec);
+        }
+        if (source.Fps != null) {
+            this.Fps = new Long(source.Fps);
+        }
+        if (source.Bitrate != null) {
+            this.Bitrate = new Long(source.Bitrate);
+        }
+        if (source.ResolutionAdaptive != null) {
+            this.ResolutionAdaptive = new String(source.ResolutionAdaptive);
+        }
+        if (source.Width != null) {
+            this.Width = new Long(source.Width);
+        }
+        if (source.Height != null) {
+            this.Height = new Long(source.Height);
+        }
+        if (source.FillType != null) {
+            this.FillType = new String(source.FillType);
+        }
+        if (source.Vcrf != null) {
+            this.Vcrf = new Long(source.Vcrf);
+        }
+        if (source.Gop != null) {
+            this.Gop = new Long(source.Gop);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -324,6 +413,8 @@ public class VideoTemplateInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Width", this.Width);
         this.setParamSimple(map, prefix + "Height", this.Height);
         this.setParamSimple(map, prefix + "FillType", this.FillType);
+        this.setParamSimple(map, prefix + "Vcrf", this.Vcrf);
+        this.setParamSimple(map, prefix + "Gop", this.Gop);
 
     }
 }

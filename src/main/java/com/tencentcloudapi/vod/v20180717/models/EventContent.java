@@ -36,6 +36,7 @@ public class EventContent extends AbstractModel{
 <li>FileDeleted：视频删除完成；</li>
 <li>PullComplete：视频转拉完成；</li>
 <li>EditMediaComplete：视频编辑完成；</li>
+<li>SplitMediaComplete：视频拆分完成；</li>
 <li>WechatPublishComplete：微信发布完成；</li>
 <li>ComposeMediaComplete：制作媒体文件完成；</li>
 <li>WechatMiniProgramPublishComplete：微信小程序发布完成。</li>
@@ -91,28 +92,20 @@ public class EventContent extends AbstractModel{
     private EditMediaTask EditMediaCompleteEvent;
 
     /**
-    * 微信发布完成事件，当事件类型为 WechatPublishComplete 时有效。
+    * 视频拆条完成事件，当事件类型为 SplitMediaComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。
     */
-    @SerializedName("WechatPublishCompleteEvent")
+    @SerializedName("SplitMediaCompleteEvent")
     @Expose
-    private WechatPublishTask WechatPublishCompleteEvent;
+    private SplitMediaTask SplitMediaCompleteEvent;
 
     /**
-    * 视频转码完成事件，当事件类型为 TranscodeComplete 时有效。
+    * 制作媒体文件任务完成事件，当事件类型为 ComposeMediaComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。
     */
-    @SerializedName("TranscodeCompleteEvent")
+    @SerializedName("ComposeMediaCompleteEvent")
     @Expose
-    private TranscodeTask2017 TranscodeCompleteEvent;
-
-    /**
-    * 视频拼接完成事件，当事件类型为 ConcatComplete 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
-    */
-    @SerializedName("ConcatCompleteEvent")
-    @Expose
-    private ConcatTask2017 ConcatCompleteEvent;
+    private ComposeMediaTask ComposeMediaCompleteEvent;
 
     /**
     * 视频剪辑完成事件，当事件类型为 ClipComplete 时有效。
@@ -123,12 +116,28 @@ public class EventContent extends AbstractModel{
     private ClipTask2017 ClipCompleteEvent;
 
     /**
+    * 视频转码完成事件，当事件类型为 TranscodeComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TranscodeCompleteEvent")
+    @Expose
+    private TranscodeTask2017 TranscodeCompleteEvent;
+
+    /**
     * 视频截取雪碧图完成事件，当事件类型为 CreateImageSpriteComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateImageSpriteCompleteEvent")
     @Expose
     private CreateImageSpriteTask2017 CreateImageSpriteCompleteEvent;
+
+    /**
+    * 视频拼接完成事件，当事件类型为 ConcatComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ConcatCompleteEvent")
+    @Expose
+    private ConcatTask2017 ConcatCompleteEvent;
 
     /**
     * 视频按时间点截图完成事件，当事件类型为 CreateSnapshotByTimeOffsetComplete 时有效。
@@ -139,12 +148,12 @@ public class EventContent extends AbstractModel{
     private SnapshotByTimeOffsetTask2017 SnapshotByTimeOffsetCompleteEvent;
 
     /**
-    * 制作媒体文件任务完成事件，当事件类型为 ComposeMediaComplete 时有效。
+    * 微信发布完成事件，当事件类型为 WechatPublishComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。
     */
-    @SerializedName("ComposeMediaCompleteEvent")
+    @SerializedName("WechatPublishCompleteEvent")
     @Expose
-    private ComposeMediaTask ComposeMediaCompleteEvent;
+    private WechatPublishTask WechatPublishCompleteEvent;
 
     /**
     * 微信小程序发布任务完成事件，当事件类型为 WechatMiniProgramPublishComplete 时有效。
@@ -177,6 +186,7 @@ public class EventContent extends AbstractModel{
 <li>FileDeleted：视频删除完成；</li>
 <li>PullComplete：视频转拉完成；</li>
 <li>EditMediaComplete：视频编辑完成；</li>
+<li>SplitMediaComplete：视频拆分完成；</li>
 <li>WechatPublishComplete：微信发布完成；</li>
 <li>ComposeMediaComplete：制作媒体文件完成；</li>
 <li>WechatMiniProgramPublishComplete：微信小程序发布完成。</li>
@@ -192,6 +202,7 @@ public class EventContent extends AbstractModel{
 <li>FileDeleted：视频删除完成；</li>
 <li>PullComplete：视频转拉完成；</li>
 <li>EditMediaComplete：视频编辑完成；</li>
+<li>SplitMediaComplete：视频拆分完成；</li>
 <li>WechatPublishComplete：微信发布完成；</li>
 <li>ComposeMediaComplete：制作媒体文件完成；</li>
 <li>WechatMiniProgramPublishComplete：微信小程序发布完成。</li>
@@ -213,6 +224,7 @@ public class EventContent extends AbstractModel{
 <li>FileDeleted：视频删除完成；</li>
 <li>PullComplete：视频转拉完成；</li>
 <li>EditMediaComplete：视频编辑完成；</li>
+<li>SplitMediaComplete：视频拆分完成；</li>
 <li>WechatPublishComplete：微信发布完成；</li>
 <li>ComposeMediaComplete：制作媒体文件完成；</li>
 <li>WechatMiniProgramPublishComplete：微信小程序发布完成。</li>
@@ -228,6 +240,7 @@ public class EventContent extends AbstractModel{
 <li>FileDeleted：视频删除完成；</li>
 <li>PullComplete：视频转拉完成；</li>
 <li>EditMediaComplete：视频编辑完成；</li>
+<li>SplitMediaComplete：视频拆分完成；</li>
 <li>WechatPublishComplete：微信发布完成；</li>
 <li>ComposeMediaComplete：制作媒体文件完成；</li>
 <li>WechatMiniProgramPublishComplete：微信小程序发布完成。</li>
@@ -343,123 +356,23 @@ public class EventContent extends AbstractModel{
     }
 
     /**
-     * Get 微信发布完成事件，当事件类型为 WechatPublishComplete 时有效。
+     * Get 视频拆条完成事件，当事件类型为 SplitMediaComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return WechatPublishCompleteEvent 微信发布完成事件，当事件类型为 WechatPublishComplete 时有效。
+     * @return SplitMediaCompleteEvent 视频拆条完成事件，当事件类型为 SplitMediaComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public WechatPublishTask getWechatPublishCompleteEvent() {
-        return this.WechatPublishCompleteEvent;
+    public SplitMediaTask getSplitMediaCompleteEvent() {
+        return this.SplitMediaCompleteEvent;
     }
 
     /**
-     * Set 微信发布完成事件，当事件类型为 WechatPublishComplete 时有效。
+     * Set 视频拆条完成事件，当事件类型为 SplitMediaComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param WechatPublishCompleteEvent 微信发布完成事件，当事件类型为 WechatPublishComplete 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public void setWechatPublishCompleteEvent(WechatPublishTask WechatPublishCompleteEvent) {
-        this.WechatPublishCompleteEvent = WechatPublishCompleteEvent;
-    }
-
-    /**
-     * Get 视频转码完成事件，当事件类型为 TranscodeComplete 时有效。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TranscodeCompleteEvent 视频转码完成事件，当事件类型为 TranscodeComplete 时有效。
+     * @param SplitMediaCompleteEvent 视频拆条完成事件，当事件类型为 SplitMediaComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public TranscodeTask2017 getTranscodeCompleteEvent() {
-        return this.TranscodeCompleteEvent;
-    }
-
-    /**
-     * Set 视频转码完成事件，当事件类型为 TranscodeComplete 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param TranscodeCompleteEvent 视频转码完成事件，当事件类型为 TranscodeComplete 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public void setTranscodeCompleteEvent(TranscodeTask2017 TranscodeCompleteEvent) {
-        this.TranscodeCompleteEvent = TranscodeCompleteEvent;
-    }
-
-    /**
-     * Get 视频拼接完成事件，当事件类型为 ConcatComplete 时有效。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ConcatCompleteEvent 视频拼接完成事件，当事件类型为 ConcatComplete 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public ConcatTask2017 getConcatCompleteEvent() {
-        return this.ConcatCompleteEvent;
-    }
-
-    /**
-     * Set 视频拼接完成事件，当事件类型为 ConcatComplete 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ConcatCompleteEvent 视频拼接完成事件，当事件类型为 ConcatComplete 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public void setConcatCompleteEvent(ConcatTask2017 ConcatCompleteEvent) {
-        this.ConcatCompleteEvent = ConcatCompleteEvent;
-    }
-
-    /**
-     * Get 视频剪辑完成事件，当事件类型为 ClipComplete 时有效。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ClipCompleteEvent 视频剪辑完成事件，当事件类型为 ClipComplete 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public ClipTask2017 getClipCompleteEvent() {
-        return this.ClipCompleteEvent;
-    }
-
-    /**
-     * Set 视频剪辑完成事件，当事件类型为 ClipComplete 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ClipCompleteEvent 视频剪辑完成事件，当事件类型为 ClipComplete 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public void setClipCompleteEvent(ClipTask2017 ClipCompleteEvent) {
-        this.ClipCompleteEvent = ClipCompleteEvent;
-    }
-
-    /**
-     * Get 视频截取雪碧图完成事件，当事件类型为 CreateImageSpriteComplete 时有效。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CreateImageSpriteCompleteEvent 视频截取雪碧图完成事件，当事件类型为 CreateImageSpriteComplete 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public CreateImageSpriteTask2017 getCreateImageSpriteCompleteEvent() {
-        return this.CreateImageSpriteCompleteEvent;
-    }
-
-    /**
-     * Set 视频截取雪碧图完成事件，当事件类型为 CreateImageSpriteComplete 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param CreateImageSpriteCompleteEvent 视频截取雪碧图完成事件，当事件类型为 CreateImageSpriteComplete 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public void setCreateImageSpriteCompleteEvent(CreateImageSpriteTask2017 CreateImageSpriteCompleteEvent) {
-        this.CreateImageSpriteCompleteEvent = CreateImageSpriteCompleteEvent;
-    }
-
-    /**
-     * Get 视频按时间点截图完成事件，当事件类型为 CreateSnapshotByTimeOffsetComplete 时有效。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return SnapshotByTimeOffsetCompleteEvent 视频按时间点截图完成事件，当事件类型为 CreateSnapshotByTimeOffsetComplete 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public SnapshotByTimeOffsetTask2017 getSnapshotByTimeOffsetCompleteEvent() {
-        return this.SnapshotByTimeOffsetCompleteEvent;
-    }
-
-    /**
-     * Set 视频按时间点截图完成事件，当事件类型为 CreateSnapshotByTimeOffsetComplete 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param SnapshotByTimeOffsetCompleteEvent 视频按时间点截图完成事件，当事件类型为 CreateSnapshotByTimeOffsetComplete 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public void setSnapshotByTimeOffsetCompleteEvent(SnapshotByTimeOffsetTask2017 SnapshotByTimeOffsetCompleteEvent) {
-        this.SnapshotByTimeOffsetCompleteEvent = SnapshotByTimeOffsetCompleteEvent;
+    public void setSplitMediaCompleteEvent(SplitMediaTask SplitMediaCompleteEvent) {
+        this.SplitMediaCompleteEvent = SplitMediaCompleteEvent;
     }
 
     /**
@@ -483,6 +396,126 @@ public class EventContent extends AbstractModel{
     }
 
     /**
+     * Get 视频剪辑完成事件，当事件类型为 ClipComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ClipCompleteEvent 视频剪辑完成事件，当事件类型为 ClipComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ClipTask2017 getClipCompleteEvent() {
+        return this.ClipCompleteEvent;
+    }
+
+    /**
+     * Set 视频剪辑完成事件，当事件类型为 ClipComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ClipCompleteEvent 视频剪辑完成事件，当事件类型为 ClipComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setClipCompleteEvent(ClipTask2017 ClipCompleteEvent) {
+        this.ClipCompleteEvent = ClipCompleteEvent;
+    }
+
+    /**
+     * Get 视频转码完成事件，当事件类型为 TranscodeComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TranscodeCompleteEvent 视频转码完成事件，当事件类型为 TranscodeComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public TranscodeTask2017 getTranscodeCompleteEvent() {
+        return this.TranscodeCompleteEvent;
+    }
+
+    /**
+     * Set 视频转码完成事件，当事件类型为 TranscodeComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TranscodeCompleteEvent 视频转码完成事件，当事件类型为 TranscodeComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTranscodeCompleteEvent(TranscodeTask2017 TranscodeCompleteEvent) {
+        this.TranscodeCompleteEvent = TranscodeCompleteEvent;
+    }
+
+    /**
+     * Get 视频截取雪碧图完成事件，当事件类型为 CreateImageSpriteComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CreateImageSpriteCompleteEvent 视频截取雪碧图完成事件，当事件类型为 CreateImageSpriteComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public CreateImageSpriteTask2017 getCreateImageSpriteCompleteEvent() {
+        return this.CreateImageSpriteCompleteEvent;
+    }
+
+    /**
+     * Set 视频截取雪碧图完成事件，当事件类型为 CreateImageSpriteComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CreateImageSpriteCompleteEvent 视频截取雪碧图完成事件，当事件类型为 CreateImageSpriteComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCreateImageSpriteCompleteEvent(CreateImageSpriteTask2017 CreateImageSpriteCompleteEvent) {
+        this.CreateImageSpriteCompleteEvent = CreateImageSpriteCompleteEvent;
+    }
+
+    /**
+     * Get 视频拼接完成事件，当事件类型为 ConcatComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ConcatCompleteEvent 视频拼接完成事件，当事件类型为 ConcatComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ConcatTask2017 getConcatCompleteEvent() {
+        return this.ConcatCompleteEvent;
+    }
+
+    /**
+     * Set 视频拼接完成事件，当事件类型为 ConcatComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ConcatCompleteEvent 视频拼接完成事件，当事件类型为 ConcatComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setConcatCompleteEvent(ConcatTask2017 ConcatCompleteEvent) {
+        this.ConcatCompleteEvent = ConcatCompleteEvent;
+    }
+
+    /**
+     * Get 视频按时间点截图完成事件，当事件类型为 CreateSnapshotByTimeOffsetComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SnapshotByTimeOffsetCompleteEvent 视频按时间点截图完成事件，当事件类型为 CreateSnapshotByTimeOffsetComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public SnapshotByTimeOffsetTask2017 getSnapshotByTimeOffsetCompleteEvent() {
+        return this.SnapshotByTimeOffsetCompleteEvent;
+    }
+
+    /**
+     * Set 视频按时间点截图完成事件，当事件类型为 CreateSnapshotByTimeOffsetComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SnapshotByTimeOffsetCompleteEvent 视频按时间点截图完成事件，当事件类型为 CreateSnapshotByTimeOffsetComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSnapshotByTimeOffsetCompleteEvent(SnapshotByTimeOffsetTask2017 SnapshotByTimeOffsetCompleteEvent) {
+        this.SnapshotByTimeOffsetCompleteEvent = SnapshotByTimeOffsetCompleteEvent;
+    }
+
+    /**
+     * Get 微信发布完成事件，当事件类型为 WechatPublishComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return WechatPublishCompleteEvent 微信发布完成事件，当事件类型为 WechatPublishComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public WechatPublishTask getWechatPublishCompleteEvent() {
+        return this.WechatPublishCompleteEvent;
+    }
+
+    /**
+     * Set 微信发布完成事件，当事件类型为 WechatPublishComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param WechatPublishCompleteEvent 微信发布完成事件，当事件类型为 WechatPublishComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setWechatPublishCompleteEvent(WechatPublishTask WechatPublishCompleteEvent) {
+        this.WechatPublishCompleteEvent = WechatPublishCompleteEvent;
+    }
+
+    /**
      * Get 微信小程序发布任务完成事件，当事件类型为 WechatMiniProgramPublishComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return WechatMiniProgramPublishCompleteEvent 微信小程序发布任务完成事件，当事件类型为 WechatMiniProgramPublishComplete 时有效。
@@ -502,6 +535,65 @@ public class EventContent extends AbstractModel{
         this.WechatMiniProgramPublishCompleteEvent = WechatMiniProgramPublishCompleteEvent;
     }
 
+    public EventContent() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public EventContent(EventContent source) {
+        if (source.EventHandle != null) {
+            this.EventHandle = new String(source.EventHandle);
+        }
+        if (source.EventType != null) {
+            this.EventType = new String(source.EventType);
+        }
+        if (source.FileUploadEvent != null) {
+            this.FileUploadEvent = new FileUploadTask(source.FileUploadEvent);
+        }
+        if (source.ProcedureStateChangeEvent != null) {
+            this.ProcedureStateChangeEvent = new ProcedureTask(source.ProcedureStateChangeEvent);
+        }
+        if (source.FileDeleteEvent != null) {
+            this.FileDeleteEvent = new FileDeleteTask(source.FileDeleteEvent);
+        }
+        if (source.PullCompleteEvent != null) {
+            this.PullCompleteEvent = new PullUploadTask(source.PullCompleteEvent);
+        }
+        if (source.EditMediaCompleteEvent != null) {
+            this.EditMediaCompleteEvent = new EditMediaTask(source.EditMediaCompleteEvent);
+        }
+        if (source.SplitMediaCompleteEvent != null) {
+            this.SplitMediaCompleteEvent = new SplitMediaTask(source.SplitMediaCompleteEvent);
+        }
+        if (source.ComposeMediaCompleteEvent != null) {
+            this.ComposeMediaCompleteEvent = new ComposeMediaTask(source.ComposeMediaCompleteEvent);
+        }
+        if (source.ClipCompleteEvent != null) {
+            this.ClipCompleteEvent = new ClipTask2017(source.ClipCompleteEvent);
+        }
+        if (source.TranscodeCompleteEvent != null) {
+            this.TranscodeCompleteEvent = new TranscodeTask2017(source.TranscodeCompleteEvent);
+        }
+        if (source.CreateImageSpriteCompleteEvent != null) {
+            this.CreateImageSpriteCompleteEvent = new CreateImageSpriteTask2017(source.CreateImageSpriteCompleteEvent);
+        }
+        if (source.ConcatCompleteEvent != null) {
+            this.ConcatCompleteEvent = new ConcatTask2017(source.ConcatCompleteEvent);
+        }
+        if (source.SnapshotByTimeOffsetCompleteEvent != null) {
+            this.SnapshotByTimeOffsetCompleteEvent = new SnapshotByTimeOffsetTask2017(source.SnapshotByTimeOffsetCompleteEvent);
+        }
+        if (source.WechatPublishCompleteEvent != null) {
+            this.WechatPublishCompleteEvent = new WechatPublishTask(source.WechatPublishCompleteEvent);
+        }
+        if (source.WechatMiniProgramPublishCompleteEvent != null) {
+            this.WechatMiniProgramPublishCompleteEvent = new WechatMiniProgramPublishTask(source.WechatMiniProgramPublishCompleteEvent);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
@@ -513,13 +605,14 @@ public class EventContent extends AbstractModel{
         this.setParamObj(map, prefix + "FileDeleteEvent.", this.FileDeleteEvent);
         this.setParamObj(map, prefix + "PullCompleteEvent.", this.PullCompleteEvent);
         this.setParamObj(map, prefix + "EditMediaCompleteEvent.", this.EditMediaCompleteEvent);
-        this.setParamObj(map, prefix + "WechatPublishCompleteEvent.", this.WechatPublishCompleteEvent);
-        this.setParamObj(map, prefix + "TranscodeCompleteEvent.", this.TranscodeCompleteEvent);
-        this.setParamObj(map, prefix + "ConcatCompleteEvent.", this.ConcatCompleteEvent);
-        this.setParamObj(map, prefix + "ClipCompleteEvent.", this.ClipCompleteEvent);
-        this.setParamObj(map, prefix + "CreateImageSpriteCompleteEvent.", this.CreateImageSpriteCompleteEvent);
-        this.setParamObj(map, prefix + "SnapshotByTimeOffsetCompleteEvent.", this.SnapshotByTimeOffsetCompleteEvent);
+        this.setParamObj(map, prefix + "SplitMediaCompleteEvent.", this.SplitMediaCompleteEvent);
         this.setParamObj(map, prefix + "ComposeMediaCompleteEvent.", this.ComposeMediaCompleteEvent);
+        this.setParamObj(map, prefix + "ClipCompleteEvent.", this.ClipCompleteEvent);
+        this.setParamObj(map, prefix + "TranscodeCompleteEvent.", this.TranscodeCompleteEvent);
+        this.setParamObj(map, prefix + "CreateImageSpriteCompleteEvent.", this.CreateImageSpriteCompleteEvent);
+        this.setParamObj(map, prefix + "ConcatCompleteEvent.", this.ConcatCompleteEvent);
+        this.setParamObj(map, prefix + "SnapshotByTimeOffsetCompleteEvent.", this.SnapshotByTimeOffsetCompleteEvent);
+        this.setParamObj(map, prefix + "WechatPublishCompleteEvent.", this.WechatPublishCompleteEvent);
         this.setParamObj(map, prefix + "WechatMiniProgramPublishCompleteEvent.", this.WechatMiniProgramPublishCompleteEvent);
 
     }

@@ -32,6 +32,9 @@ public class DescribeTaskTemplatesRequest extends AbstractModel{
     /**
     * 过滤条件
 <li> task-template-name - String - 是否必填：否 -（过滤条件）按照任务模板名称过滤。</li>
+<li> tag-key - String - 是否必填：否 -（过滤条件）按照标签键进行过滤。</li>
+<li> tag-value - String - 是否必填：否 -（过滤条件）按照标签值进行过滤。</li>
+<li> tag:tag-key - String - 是否必填：否 -（过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。</li>
 与TaskTemplateIds参数不能同时指定。
     */
     @SerializedName("Filters")
@@ -71,9 +74,15 @@ public class DescribeTaskTemplatesRequest extends AbstractModel{
     /**
      * Get 过滤条件
 <li> task-template-name - String - 是否必填：否 -（过滤条件）按照任务模板名称过滤。</li>
+<li> tag-key - String - 是否必填：否 -（过滤条件）按照标签键进行过滤。</li>
+<li> tag-value - String - 是否必填：否 -（过滤条件）按照标签值进行过滤。</li>
+<li> tag:tag-key - String - 是否必填：否 -（过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。</li>
 与TaskTemplateIds参数不能同时指定。 
      * @return Filters 过滤条件
 <li> task-template-name - String - 是否必填：否 -（过滤条件）按照任务模板名称过滤。</li>
+<li> tag-key - String - 是否必填：否 -（过滤条件）按照标签键进行过滤。</li>
+<li> tag-value - String - 是否必填：否 -（过滤条件）按照标签值进行过滤。</li>
+<li> tag:tag-key - String - 是否必填：否 -（过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。</li>
 与TaskTemplateIds参数不能同时指定。
      */
     public Filter [] getFilters() {
@@ -83,9 +92,15 @@ public class DescribeTaskTemplatesRequest extends AbstractModel{
     /**
      * Set 过滤条件
 <li> task-template-name - String - 是否必填：否 -（过滤条件）按照任务模板名称过滤。</li>
+<li> tag-key - String - 是否必填：否 -（过滤条件）按照标签键进行过滤。</li>
+<li> tag-value - String - 是否必填：否 -（过滤条件）按照标签值进行过滤。</li>
+<li> tag:tag-key - String - 是否必填：否 -（过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。</li>
 与TaskTemplateIds参数不能同时指定。
      * @param Filters 过滤条件
 <li> task-template-name - String - 是否必填：否 -（过滤条件）按照任务模板名称过滤。</li>
+<li> tag-key - String - 是否必填：否 -（过滤条件）按照标签键进行过滤。</li>
+<li> tag-value - String - 是否必填：否 -（过滤条件）按照标签值进行过滤。</li>
+<li> tag:tag-key - String - 是否必填：否 -（过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。</li>
 与TaskTemplateIds参数不能同时指定。
      */
     public void setFilters(Filter [] Filters) {
@@ -123,6 +138,35 @@ public class DescribeTaskTemplatesRequest extends AbstractModel{
     public void setLimit(Long Limit) {
         this.Limit = Limit;
     }
+
+    public DescribeTaskTemplatesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeTaskTemplatesRequest(DescribeTaskTemplatesRequest source) {
+        if (source.TaskTemplateIds != null) {
+            this.TaskTemplateIds = new String[source.TaskTemplateIds.length];
+            for (int i = 0; i < source.TaskTemplateIds.length; i++) {
+                this.TaskTemplateIds[i] = new String(source.TaskTemplateIds[i]);
+            }
+        }
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

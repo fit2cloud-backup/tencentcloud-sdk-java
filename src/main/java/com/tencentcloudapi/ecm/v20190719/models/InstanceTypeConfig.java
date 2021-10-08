@@ -72,12 +72,28 @@ public class InstanceTypeConfig extends AbstractModel{
     private InstanceFamilyTypeConfig InstanceFamilyTypeConfig;
 
     /**
-    * 机型额外信息
+    * 机型额外信息 是一个json字符串，如果存在则表示特殊机型，格式如下：{"dataDiskSize":3200,"systemDiskSize":60, "systemDiskSizeShow":"系统盘默认60G","dataDiskSizeShow":"本地NVMe SSD 硬盘3200 GB"}
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExtInfo")
     @Expose
     private String ExtInfo;
+
+    /**
+    * GPU卡数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Vgpu")
+    @Expose
+    private Float Vgpu;
+
+    /**
+    * GPU型号
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("GpuModelName")
+    @Expose
+    private String GpuModelName;
 
     /**
      * Get 机型族配置信息 
@@ -192,9 +208,9 @@ public class InstanceTypeConfig extends AbstractModel{
     }
 
     /**
-     * Get 机型额外信息
+     * Get 机型额外信息 是一个json字符串，如果存在则表示特殊机型，格式如下：{"dataDiskSize":3200,"systemDiskSize":60, "systemDiskSizeShow":"系统盘默认60G","dataDiskSizeShow":"本地NVMe SSD 硬盘3200 GB"}
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ExtInfo 机型额外信息
+     * @return ExtInfo 机型额外信息 是一个json字符串，如果存在则表示特殊机型，格式如下：{"dataDiskSize":3200,"systemDiskSize":60, "systemDiskSizeShow":"系统盘默认60G","dataDiskSizeShow":"本地NVMe SSD 硬盘3200 GB"}
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getExtInfo() {
@@ -202,14 +218,95 @@ public class InstanceTypeConfig extends AbstractModel{
     }
 
     /**
-     * Set 机型额外信息
+     * Set 机型额外信息 是一个json字符串，如果存在则表示特殊机型，格式如下：{"dataDiskSize":3200,"systemDiskSize":60, "systemDiskSizeShow":"系统盘默认60G","dataDiskSizeShow":"本地NVMe SSD 硬盘3200 GB"}
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ExtInfo 机型额外信息
+     * @param ExtInfo 机型额外信息 是一个json字符串，如果存在则表示特殊机型，格式如下：{"dataDiskSize":3200,"systemDiskSize":60, "systemDiskSizeShow":"系统盘默认60G","dataDiskSizeShow":"本地NVMe SSD 硬盘3200 GB"}
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExtInfo(String ExtInfo) {
         this.ExtInfo = ExtInfo;
     }
+
+    /**
+     * Get GPU卡数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Vgpu GPU卡数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Float getVgpu() {
+        return this.Vgpu;
+    }
+
+    /**
+     * Set GPU卡数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Vgpu GPU卡数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setVgpu(Float Vgpu) {
+        this.Vgpu = Vgpu;
+    }
+
+    /**
+     * Get GPU型号
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return GpuModelName GPU型号
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getGpuModelName() {
+        return this.GpuModelName;
+    }
+
+    /**
+     * Set GPU型号
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param GpuModelName GPU型号
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setGpuModelName(String GpuModelName) {
+        this.GpuModelName = GpuModelName;
+    }
+
+    public InstanceTypeConfig() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public InstanceTypeConfig(InstanceTypeConfig source) {
+        if (source.InstanceFamilyConfig != null) {
+            this.InstanceFamilyConfig = new InstanceFamilyConfig(source.InstanceFamilyConfig);
+        }
+        if (source.InstanceType != null) {
+            this.InstanceType = new String(source.InstanceType);
+        }
+        if (source.Vcpu != null) {
+            this.Vcpu = new Long(source.Vcpu);
+        }
+        if (source.Memory != null) {
+            this.Memory = new Long(source.Memory);
+        }
+        if (source.Frequency != null) {
+            this.Frequency = new String(source.Frequency);
+        }
+        if (source.CpuModelName != null) {
+            this.CpuModelName = new String(source.CpuModelName);
+        }
+        if (source.InstanceFamilyTypeConfig != null) {
+            this.InstanceFamilyTypeConfig = new InstanceFamilyTypeConfig(source.InstanceFamilyTypeConfig);
+        }
+        if (source.ExtInfo != null) {
+            this.ExtInfo = new String(source.ExtInfo);
+        }
+        if (source.Vgpu != null) {
+            this.Vgpu = new Float(source.Vgpu);
+        }
+        if (source.GpuModelName != null) {
+            this.GpuModelName = new String(source.GpuModelName);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -223,6 +320,8 @@ public class InstanceTypeConfig extends AbstractModel{
         this.setParamSimple(map, prefix + "CpuModelName", this.CpuModelName);
         this.setParamObj(map, prefix + "InstanceFamilyTypeConfig.", this.InstanceFamilyTypeConfig);
         this.setParamSimple(map, prefix + "ExtInfo", this.ExtInfo);
+        this.setParamSimple(map, prefix + "Vgpu", this.Vgpu);
+        this.setParamSimple(map, prefix + "GpuModelName", this.GpuModelName);
 
     }
 }

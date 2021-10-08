@@ -58,7 +58,7 @@ public class DescribeTagsRequest extends AbstractModel{
     private Long CreateUin;
 
     /**
-    * 标签键数组,与标签值同时存在或同时不存在，不存在时表示查询该用户所有标签,当与TagKey同时传递时只会本值
+    * 标签键数组,与标签值同时存在或同时不存在，不存在时表示查询该用户所有标签,当与TagKey同时传递时只取本值
     */
     @SerializedName("TagKeys")
     @Expose
@@ -152,16 +152,16 @@ public class DescribeTagsRequest extends AbstractModel{
     }
 
     /**
-     * Get 标签键数组,与标签值同时存在或同时不存在，不存在时表示查询该用户所有标签,当与TagKey同时传递时只会本值 
-     * @return TagKeys 标签键数组,与标签值同时存在或同时不存在，不存在时表示查询该用户所有标签,当与TagKey同时传递时只会本值
+     * Get 标签键数组,与标签值同时存在或同时不存在，不存在时表示查询该用户所有标签,当与TagKey同时传递时只取本值 
+     * @return TagKeys 标签键数组,与标签值同时存在或同时不存在，不存在时表示查询该用户所有标签,当与TagKey同时传递时只取本值
      */
     public String [] getTagKeys() {
         return this.TagKeys;
     }
 
     /**
-     * Set 标签键数组,与标签值同时存在或同时不存在，不存在时表示查询该用户所有标签,当与TagKey同时传递时只会本值
-     * @param TagKeys 标签键数组,与标签值同时存在或同时不存在，不存在时表示查询该用户所有标签,当与TagKey同时传递时只会本值
+     * Set 标签键数组,与标签值同时存在或同时不存在，不存在时表示查询该用户所有标签,当与TagKey同时传递时只取本值
+     * @param TagKeys 标签键数组,与标签值同时存在或同时不存在，不存在时表示查询该用户所有标签,当与TagKey同时传递时只取本值
      */
     public void setTagKeys(String [] TagKeys) {
         this.TagKeys = TagKeys;
@@ -182,6 +182,41 @@ public class DescribeTagsRequest extends AbstractModel{
     public void setShowProject(Long ShowProject) {
         this.ShowProject = ShowProject;
     }
+
+    public DescribeTagsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeTagsRequest(DescribeTagsRequest source) {
+        if (source.TagKey != null) {
+            this.TagKey = new String(source.TagKey);
+        }
+        if (source.TagValue != null) {
+            this.TagValue = new String(source.TagValue);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.CreateUin != null) {
+            this.CreateUin = new Long(source.CreateUin);
+        }
+        if (source.TagKeys != null) {
+            this.TagKeys = new String[source.TagKeys.length];
+            for (int i = 0; i < source.TagKeys.length; i++) {
+                this.TagKeys[i] = new String(source.TagKeys[i]);
+            }
+        }
+        if (source.ShowProject != null) {
+            this.ShowProject = new Long(source.ShowProject);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

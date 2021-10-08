@@ -127,6 +127,14 @@ public class Namespace extends AbstractModel{
     private String NamespaceType;
 
     /**
+    * 是否开启高可用
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IsHaEnable")
+    @Expose
+    private String IsHaEnable;
+
+    /**
      * Get 命名空间ID
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return NamespaceId 命名空间ID
@@ -387,6 +395,82 @@ public class Namespace extends AbstractModel{
     }
 
     /**
+     * Get 是否开启高可用
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IsHaEnable 是否开启高可用
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getIsHaEnable() {
+        return this.IsHaEnable;
+    }
+
+    /**
+     * Set 是否开启高可用
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IsHaEnable 是否开启高可用
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIsHaEnable(String IsHaEnable) {
+        this.IsHaEnable = IsHaEnable;
+    }
+
+    public Namespace() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Namespace(Namespace source) {
+        if (source.NamespaceId != null) {
+            this.NamespaceId = new String(source.NamespaceId);
+        }
+        if (source.NamespaceCode != null) {
+            this.NamespaceCode = new String(source.NamespaceCode);
+        }
+        if (source.NamespaceName != null) {
+            this.NamespaceName = new String(source.NamespaceName);
+        }
+        if (source.NamespaceDesc != null) {
+            this.NamespaceDesc = new String(source.NamespaceDesc);
+        }
+        if (source.IsDefault != null) {
+            this.IsDefault = new String(source.IsDefault);
+        }
+        if (source.NamespaceStatus != null) {
+            this.NamespaceStatus = new String(source.NamespaceStatus);
+        }
+        if (source.DeleteFlag != null) {
+            this.DeleteFlag = new Boolean(source.DeleteFlag);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+        if (source.ClusterList != null) {
+            this.ClusterList = new Cluster[source.ClusterList.length];
+            for (int i = 0; i < source.ClusterList.length; i++) {
+                this.ClusterList[i] = new Cluster(source.ClusterList[i]);
+            }
+        }
+        if (source.ClusterId != null) {
+            this.ClusterId = new String(source.ClusterId);
+        }
+        if (source.NamespaceResourceType != null) {
+            this.NamespaceResourceType = new String(source.NamespaceResourceType);
+        }
+        if (source.NamespaceType != null) {
+            this.NamespaceType = new String(source.NamespaceType);
+        }
+        if (source.IsHaEnable != null) {
+            this.IsHaEnable = new String(source.IsHaEnable);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -403,6 +487,7 @@ public class Namespace extends AbstractModel{
         this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
         this.setParamSimple(map, prefix + "NamespaceResourceType", this.NamespaceResourceType);
         this.setParamSimple(map, prefix + "NamespaceType", this.NamespaceType);
+        this.setParamSimple(map, prefix + "IsHaEnable", this.IsHaEnable);
 
     }
 }

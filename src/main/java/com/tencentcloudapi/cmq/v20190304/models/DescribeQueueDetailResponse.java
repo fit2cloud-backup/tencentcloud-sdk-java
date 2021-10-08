@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class DescribeQueueDetailResponse extends AbstractModel{
 
     /**
-    * queue总数量
+    * 总队列数。
     */
     @SerializedName("TotalCount")
     @Expose
     private Long TotalCount;
 
     /**
-    * queue列表
+    * 队列详情列表。
     */
     @SerializedName("QueueSet")
     @Expose
@@ -44,32 +44,32 @@ public class DescribeQueueDetailResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get queue总数量 
-     * @return TotalCount queue总数量
+     * Get 总队列数。 
+     * @return TotalCount 总队列数。
      */
     public Long getTotalCount() {
         return this.TotalCount;
     }
 
     /**
-     * Set queue总数量
-     * @param TotalCount queue总数量
+     * Set 总队列数。
+     * @param TotalCount 总队列数。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get queue列表 
-     * @return QueueSet queue列表
+     * Get 队列详情列表。 
+     * @return QueueSet 队列详情列表。
      */
     public QueueSet [] getQueueSet() {
         return this.QueueSet;
     }
 
     /**
-     * Set queue列表
-     * @param QueueSet queue列表
+     * Set 队列详情列表。
+     * @param QueueSet 队列详情列表。
      */
     public void setQueueSet(QueueSet [] QueueSet) {
         this.QueueSet = QueueSet;
@@ -90,6 +90,29 @@ public class DescribeQueueDetailResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeQueueDetailResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeQueueDetailResponse(DescribeQueueDetailResponse source) {
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
+        if (source.QueueSet != null) {
+            this.QueueSet = new QueueSet[source.QueueSet.length];
+            for (int i = 0; i < source.QueueSet.length; i++) {
+                this.QueueSet[i] = new QueueSet(source.QueueSet[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -37,7 +37,7 @@ public class DescribeParamTemplateInfoResponse extends AbstractModel{
     private String Name;
 
     /**
-    * 参数模板描述
+    * 参数模板对应实例版本
     */
     @SerializedName("EngineVersion")
     @Expose
@@ -56,6 +56,13 @@ public class DescribeParamTemplateInfoResponse extends AbstractModel{
     @SerializedName("Items")
     @Expose
     private ParameterDetail [] Items;
+
+    /**
+    * 参数模板描述
+    */
+    @SerializedName("Description")
+    @Expose
+    private String Description;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -97,16 +104,16 @@ public class DescribeParamTemplateInfoResponse extends AbstractModel{
     }
 
     /**
-     * Get 参数模板描述 
-     * @return EngineVersion 参数模板描述
+     * Get 参数模板对应实例版本 
+     * @return EngineVersion 参数模板对应实例版本
      */
     public String getEngineVersion() {
         return this.EngineVersion;
     }
 
     /**
-     * Set 参数模板描述
-     * @param EngineVersion 参数模板描述
+     * Set 参数模板对应实例版本
+     * @param EngineVersion 参数模板对应实例版本
      */
     public void setEngineVersion(String EngineVersion) {
         this.EngineVersion = EngineVersion;
@@ -145,6 +152,22 @@ public class DescribeParamTemplateInfoResponse extends AbstractModel{
     }
 
     /**
+     * Get 参数模板描述 
+     * @return Description 参数模板描述
+     */
+    public String getDescription() {
+        return this.Description;
+    }
+
+    /**
+     * Set 参数模板描述
+     * @param Description 参数模板描述
+     */
+    public void setDescription(String Description) {
+        this.Description = Description;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -160,6 +183,41 @@ public class DescribeParamTemplateInfoResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public DescribeParamTemplateInfoResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeParamTemplateInfoResponse(DescribeParamTemplateInfoResponse source) {
+        if (source.TemplateId != null) {
+            this.TemplateId = new Long(source.TemplateId);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.EngineVersion != null) {
+            this.EngineVersion = new String(source.EngineVersion);
+        }
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
+        if (source.Items != null) {
+            this.Items = new ParameterDetail[source.Items.length];
+            for (int i = 0; i < source.Items.length; i++) {
+                this.Items[i] = new ParameterDetail(source.Items[i]);
+            }
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
@@ -169,6 +227,7 @@ public class DescribeParamTemplateInfoResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "EngineVersion", this.EngineVersion);
         this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
         this.setParamArrayObj(map, prefix + "Items.", this.Items);
+        this.setParamSimple(map, prefix + "Description", this.Description);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

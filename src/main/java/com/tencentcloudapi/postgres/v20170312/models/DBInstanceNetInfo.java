@@ -30,7 +30,7 @@ public class DBInstanceNetInfo extends AbstractModel{
     private String Address;
 
     /**
-    * Ip
+    * IP地址
     */
     @SerializedName("Ip")
     @Expose
@@ -44,7 +44,7 @@ public class DBInstanceNetInfo extends AbstractModel{
     private Long Port;
 
     /**
-    * 网络类型，1、inner（内网地址）；2、public（外网地址）
+    * 网络类型，1、inner（基础网络内网地址）；2、private（私有网络内网地址）；3、public（基础网络或私有网络的外网地址）；
     */
     @SerializedName("NetType")
     @Expose
@@ -74,16 +74,16 @@ public class DBInstanceNetInfo extends AbstractModel{
     }
 
     /**
-     * Get Ip 
-     * @return Ip Ip
+     * Get IP地址 
+     * @return Ip IP地址
      */
     public String getIp() {
         return this.Ip;
     }
 
     /**
-     * Set Ip
-     * @param Ip Ip
+     * Set IP地址
+     * @param Ip IP地址
      */
     public void setIp(String Ip) {
         this.Ip = Ip;
@@ -106,16 +106,16 @@ public class DBInstanceNetInfo extends AbstractModel{
     }
 
     /**
-     * Get 网络类型，1、inner（内网地址）；2、public（外网地址） 
-     * @return NetType 网络类型，1、inner（内网地址）；2、public（外网地址）
+     * Get 网络类型，1、inner（基础网络内网地址）；2、private（私有网络内网地址）；3、public（基础网络或私有网络的外网地址）； 
+     * @return NetType 网络类型，1、inner（基础网络内网地址）；2、private（私有网络内网地址）；3、public（基础网络或私有网络的外网地址）；
      */
     public String getNetType() {
         return this.NetType;
     }
 
     /**
-     * Set 网络类型，1、inner（内网地址）；2、public（外网地址）
-     * @param NetType 网络类型，1、inner（内网地址）；2、public（外网地址）
+     * Set 网络类型，1、inner（基础网络内网地址）；2、private（私有网络内网地址）；3、public（基础网络或私有网络的外网地址）；
+     * @param NetType 网络类型，1、inner（基础网络内网地址）；2、private（私有网络内网地址）；3、public（基础网络或私有网络的外网地址）；
      */
     public void setNetType(String NetType) {
         this.NetType = NetType;
@@ -136,6 +136,32 @@ public class DBInstanceNetInfo extends AbstractModel{
     public void setStatus(String Status) {
         this.Status = Status;
     }
+
+    public DBInstanceNetInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DBInstanceNetInfo(DBInstanceNetInfo source) {
+        if (source.Address != null) {
+            this.Address = new String(source.Address);
+        }
+        if (source.Ip != null) {
+            this.Ip = new String(source.Ip);
+        }
+        if (source.Port != null) {
+            this.Port = new Long(source.Port);
+        }
+        if (source.NetType != null) {
+            this.NetType = new String(source.NetType);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

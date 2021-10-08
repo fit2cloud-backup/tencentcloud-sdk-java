@@ -24,9 +24,11 @@ public class LexicalAnalysisResponse extends AbstractModel{
 
     /**
     * 命名实体识别结果。取值范围：
-<li>PER：表示人名</li>
-<li>LOC：表示地名</li>
-<li>ORG：表示机构团体名</li>
+<li>PER：表示人名，如刘德华、贝克汉姆</li>
+<li>LOC：表示地名，如北京、华山</li>
+<li>ORG：表示机构团体名，如腾讯、最高人民法院、人大附中</li>
+<li>PRODUCTION：表示产品名，如QQ、微信、iPhone</li>
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NerTokens")
     @Expose
@@ -48,13 +50,17 @@ public class LexicalAnalysisResponse extends AbstractModel{
 
     /**
      * Get 命名实体识别结果。取值范围：
-<li>PER：表示人名</li>
-<li>LOC：表示地名</li>
-<li>ORG：表示机构团体名</li> 
+<li>PER：表示人名，如刘德华、贝克汉姆</li>
+<li>LOC：表示地名，如北京、华山</li>
+<li>ORG：表示机构团体名，如腾讯、最高人民法院、人大附中</li>
+<li>PRODUCTION：表示产品名，如QQ、微信、iPhone</li>
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return NerTokens 命名实体识别结果。取值范围：
-<li>PER：表示人名</li>
-<li>LOC：表示地名</li>
-<li>ORG：表示机构团体名</li>
+<li>PER：表示人名，如刘德华、贝克汉姆</li>
+<li>LOC：表示地名，如北京、华山</li>
+<li>ORG：表示机构团体名，如腾讯、最高人民法院、人大附中</li>
+<li>PRODUCTION：表示产品名，如QQ、微信、iPhone</li>
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public NerToken [] getNerTokens() {
         return this.NerTokens;
@@ -62,13 +68,17 @@ public class LexicalAnalysisResponse extends AbstractModel{
 
     /**
      * Set 命名实体识别结果。取值范围：
-<li>PER：表示人名</li>
-<li>LOC：表示地名</li>
-<li>ORG：表示机构团体名</li>
+<li>PER：表示人名，如刘德华、贝克汉姆</li>
+<li>LOC：表示地名，如北京、华山</li>
+<li>ORG：表示机构团体名，如腾讯、最高人民法院、人大附中</li>
+<li>PRODUCTION：表示产品名，如QQ、微信、iPhone</li>
+注意：此字段可能返回 null，表示取不到有效值。
      * @param NerTokens 命名实体识别结果。取值范围：
-<li>PER：表示人名</li>
-<li>LOC：表示地名</li>
-<li>ORG：表示机构团体名</li>
+<li>PER：表示人名，如刘德华、贝克汉姆</li>
+<li>LOC：表示地名，如北京、华山</li>
+<li>ORG：表示机构团体名，如腾讯、最高人民法院、人大附中</li>
+<li>PRODUCTION：表示产品名，如QQ、微信、iPhone</li>
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNerTokens(NerToken [] NerTokens) {
         this.NerTokens = NerTokens;
@@ -105,6 +115,32 @@ public class LexicalAnalysisResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public LexicalAnalysisResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public LexicalAnalysisResponse(LexicalAnalysisResponse source) {
+        if (source.NerTokens != null) {
+            this.NerTokens = new NerToken[source.NerTokens.length];
+            for (int i = 0; i < source.NerTokens.length; i++) {
+                this.NerTokens[i] = new NerToken(source.NerTokens[i]);
+            }
+        }
+        if (source.PosTokens != null) {
+            this.PosTokens = new PosToken[source.PosTokens.length];
+            for (int i = 0; i < source.PosTokens.length; i++) {
+                this.PosTokens[i] = new PosToken(source.PosTokens[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

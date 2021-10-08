@@ -44,6 +44,14 @@ public class MediaAudioStreamItem extends AbstractModel{
     private String Codec;
 
     /**
+    * 音频声道数，例如 2。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Channel")
+    @Expose
+    private Long Channel;
+
+    /**
      * Get 音频流的码率，单位：bps。 
      * @return Bitrate 音频流的码率，单位：bps。
      */
@@ -92,12 +100,56 @@ public class MediaAudioStreamItem extends AbstractModel{
     }
 
     /**
+     * Get 音频声道数，例如 2。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Channel 音频声道数，例如 2。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getChannel() {
+        return this.Channel;
+    }
+
+    /**
+     * Set 音频声道数，例如 2。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Channel 音频声道数，例如 2。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setChannel(Long Channel) {
+        this.Channel = Channel;
+    }
+
+    public MediaAudioStreamItem() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MediaAudioStreamItem(MediaAudioStreamItem source) {
+        if (source.Bitrate != null) {
+            this.Bitrate = new Long(source.Bitrate);
+        }
+        if (source.SamplingRate != null) {
+            this.SamplingRate = new Long(source.SamplingRate);
+        }
+        if (source.Codec != null) {
+            this.Codec = new String(source.Codec);
+        }
+        if (source.Channel != null) {
+            this.Channel = new Long(source.Channel);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Bitrate", this.Bitrate);
         this.setParamSimple(map, prefix + "SamplingRate", this.SamplingRate);
         this.setParamSimple(map, prefix + "Codec", this.Codec);
+        this.setParamSimple(map, prefix + "Channel", this.Channel);
 
     }
 }

@@ -41,10 +41,26 @@ public class CcnInstance extends AbstractModel{
 <li>`VPC`：私有网络</li>
 <li>`DIRECTCONNECT`：专线网关</li>
 <li>`BMVPC`：黑石私有网络</li>
+<li>`VPNGW`：VPNGW类型</li>
     */
     @SerializedName("InstanceType")
     @Expose
     private String InstanceType;
+
+    /**
+    * 备注
+    */
+    @SerializedName("Description")
+    @Expose
+    private String Description;
+
+    /**
+    * 实例关联的路由表ID。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RouteTableId")
+    @Expose
+    private String RouteTableId;
 
     /**
      * Get 关联实例ID。 
@@ -82,11 +98,13 @@ public class CcnInstance extends AbstractModel{
      * Get 关联实例类型，可选值：
 <li>`VPC`：私有网络</li>
 <li>`DIRECTCONNECT`：专线网关</li>
-<li>`BMVPC`：黑石私有网络</li> 
+<li>`BMVPC`：黑石私有网络</li>
+<li>`VPNGW`：VPNGW类型</li> 
      * @return InstanceType 关联实例类型，可选值：
 <li>`VPC`：私有网络</li>
 <li>`DIRECTCONNECT`：专线网关</li>
 <li>`BMVPC`：黑石私有网络</li>
+<li>`VPNGW`：VPNGW类型</li>
      */
     public String getInstanceType() {
         return this.InstanceType;
@@ -97,14 +115,78 @@ public class CcnInstance extends AbstractModel{
 <li>`VPC`：私有网络</li>
 <li>`DIRECTCONNECT`：专线网关</li>
 <li>`BMVPC`：黑石私有网络</li>
+<li>`VPNGW`：VPNGW类型</li>
      * @param InstanceType 关联实例类型，可选值：
 <li>`VPC`：私有网络</li>
 <li>`DIRECTCONNECT`：专线网关</li>
 <li>`BMVPC`：黑石私有网络</li>
+<li>`VPNGW`：VPNGW类型</li>
      */
     public void setInstanceType(String InstanceType) {
         this.InstanceType = InstanceType;
     }
+
+    /**
+     * Get 备注 
+     * @return Description 备注
+     */
+    public String getDescription() {
+        return this.Description;
+    }
+
+    /**
+     * Set 备注
+     * @param Description 备注
+     */
+    public void setDescription(String Description) {
+        this.Description = Description;
+    }
+
+    /**
+     * Get 实例关联的路由表ID。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RouteTableId 实例关联的路由表ID。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getRouteTableId() {
+        return this.RouteTableId;
+    }
+
+    /**
+     * Set 实例关联的路由表ID。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RouteTableId 实例关联的路由表ID。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRouteTableId(String RouteTableId) {
+        this.RouteTableId = RouteTableId;
+    }
+
+    public CcnInstance() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CcnInstance(CcnInstance source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.InstanceRegion != null) {
+            this.InstanceRegion = new String(source.InstanceRegion);
+        }
+        if (source.InstanceType != null) {
+            this.InstanceType = new String(source.InstanceType);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.RouteTableId != null) {
+            this.RouteTableId = new String(source.RouteTableId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -113,6 +195,8 @@ public class CcnInstance extends AbstractModel{
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "InstanceRegion", this.InstanceRegion);
         this.setParamSimple(map, prefix + "InstanceType", this.InstanceType);
+        this.setParamSimple(map, prefix + "Description", this.Description);
+        this.setParamSimple(map, prefix + "RouteTableId", this.RouteTableId);
 
     }
 }

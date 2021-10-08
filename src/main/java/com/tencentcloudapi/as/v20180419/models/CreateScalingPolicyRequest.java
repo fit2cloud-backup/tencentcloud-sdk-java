@@ -65,7 +65,7 @@ public class CreateScalingPolicyRequest extends AbstractModel{
     private Long Cooldown;
 
     /**
-    * 通知组ID，即为用户组ID集合，用户组ID可以通过[DescribeUserGroup](https://cloud.tencent.com/document/api/378/4404)查询。
+    * 通知组ID，即为用户组ID集合，用户组ID可以通过[ListGroups](https://cloud.tencent.com/document/product/598/34589)查询。
     */
     @SerializedName("NotificationUserGroupIds")
     @Expose
@@ -168,20 +168,55 @@ public class CreateScalingPolicyRequest extends AbstractModel{
     }
 
     /**
-     * Get 通知组ID，即为用户组ID集合，用户组ID可以通过[DescribeUserGroup](https://cloud.tencent.com/document/api/378/4404)查询。 
-     * @return NotificationUserGroupIds 通知组ID，即为用户组ID集合，用户组ID可以通过[DescribeUserGroup](https://cloud.tencent.com/document/api/378/4404)查询。
+     * Get 通知组ID，即为用户组ID集合，用户组ID可以通过[ListGroups](https://cloud.tencent.com/document/product/598/34589)查询。 
+     * @return NotificationUserGroupIds 通知组ID，即为用户组ID集合，用户组ID可以通过[ListGroups](https://cloud.tencent.com/document/product/598/34589)查询。
      */
     public String [] getNotificationUserGroupIds() {
         return this.NotificationUserGroupIds;
     }
 
     /**
-     * Set 通知组ID，即为用户组ID集合，用户组ID可以通过[DescribeUserGroup](https://cloud.tencent.com/document/api/378/4404)查询。
-     * @param NotificationUserGroupIds 通知组ID，即为用户组ID集合，用户组ID可以通过[DescribeUserGroup](https://cloud.tencent.com/document/api/378/4404)查询。
+     * Set 通知组ID，即为用户组ID集合，用户组ID可以通过[ListGroups](https://cloud.tencent.com/document/product/598/34589)查询。
+     * @param NotificationUserGroupIds 通知组ID，即为用户组ID集合，用户组ID可以通过[ListGroups](https://cloud.tencent.com/document/product/598/34589)查询。
      */
     public void setNotificationUserGroupIds(String [] NotificationUserGroupIds) {
         this.NotificationUserGroupIds = NotificationUserGroupIds;
     }
+
+    public CreateScalingPolicyRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateScalingPolicyRequest(CreateScalingPolicyRequest source) {
+        if (source.AutoScalingGroupId != null) {
+            this.AutoScalingGroupId = new String(source.AutoScalingGroupId);
+        }
+        if (source.ScalingPolicyName != null) {
+            this.ScalingPolicyName = new String(source.ScalingPolicyName);
+        }
+        if (source.AdjustmentType != null) {
+            this.AdjustmentType = new String(source.AdjustmentType);
+        }
+        if (source.AdjustmentValue != null) {
+            this.AdjustmentValue = new Long(source.AdjustmentValue);
+        }
+        if (source.MetricAlarm != null) {
+            this.MetricAlarm = new MetricAlarm(source.MetricAlarm);
+        }
+        if (source.Cooldown != null) {
+            this.Cooldown = new Long(source.Cooldown);
+        }
+        if (source.NotificationUserGroupIds != null) {
+            this.NotificationUserGroupIds = new String[source.NotificationUserGroupIds.length];
+            for (int i = 0; i < source.NotificationUserGroupIds.length; i++) {
+                this.NotificationUserGroupIds[i] = new String(source.NotificationUserGroupIds[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

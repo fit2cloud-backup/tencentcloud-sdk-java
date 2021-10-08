@@ -30,7 +30,7 @@ public class FaceFusionResponse extends AbstractModel{
     private String Image;
 
     /**
-    * 鉴政结果
+    * 不适宜内容识别结果
     */
     @SerializedName("ReviewResultSet")
     @Expose
@@ -60,16 +60,16 @@ public class FaceFusionResponse extends AbstractModel{
     }
 
     /**
-     * Get 鉴政结果 
-     * @return ReviewResultSet 鉴政结果
+     * Get 不适宜内容识别结果 
+     * @return ReviewResultSet 不适宜内容识别结果
      */
     public FuseFaceReviewResult [] getReviewResultSet() {
         return this.ReviewResultSet;
     }
 
     /**
-     * Set 鉴政结果
-     * @param ReviewResultSet 鉴政结果
+     * Set 不适宜内容识别结果
+     * @param ReviewResultSet 不适宜内容识别结果
      */
     public void setReviewResultSet(FuseFaceReviewResult [] ReviewResultSet) {
         this.ReviewResultSet = ReviewResultSet;
@@ -90,6 +90,29 @@ public class FaceFusionResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public FaceFusionResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public FaceFusionResponse(FaceFusionResponse source) {
+        if (source.Image != null) {
+            this.Image = new String(source.Image);
+        }
+        if (source.ReviewResultSet != null) {
+            this.ReviewResultSet = new FuseFaceReviewResult[source.ReviewResultSet.length];
+            for (int i = 0; i < source.ReviewResultSet.length; i++) {
+                this.ReviewResultSet[i] = new FuseFaceReviewResult(source.ReviewResultSet[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

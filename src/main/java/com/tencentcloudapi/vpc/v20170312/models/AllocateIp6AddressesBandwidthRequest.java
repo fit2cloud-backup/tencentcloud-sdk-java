@@ -37,11 +37,18 @@ public class AllocateIp6AddressesBandwidthRequest extends AbstractModel{
     private Long InternetMaxBandwidthOut;
 
     /**
-    * 网络计费模式。IPV6当前支持"TRAFFIC_POSTPAID_BY_HOUR"，默认是"TRAFFIC_POSTPAID_BY_HOUR"。
+    * 网络计费模式。IPV6当前对标准账户类型支持"TRAFFIC_POSTPAID_BY_HOUR"，对传统账户类型支持"BANDWIDTH_PACKAGE"。默认网络计费模式是"TRAFFIC_POSTPAID_BY_HOUR"。
     */
     @SerializedName("InternetChargeType")
     @Expose
     private String InternetChargeType;
+
+    /**
+    * 带宽包id，上移账号，申请带宽包计费模式的ipv6地址需要传入.
+    */
+    @SerializedName("BandwidthPackageId")
+    @Expose
+    private String BandwidthPackageId;
 
     /**
      * Get 需要开通公网访问能力的IPV6地址 
@@ -76,20 +83,62 @@ public class AllocateIp6AddressesBandwidthRequest extends AbstractModel{
     }
 
     /**
-     * Get 网络计费模式。IPV6当前支持"TRAFFIC_POSTPAID_BY_HOUR"，默认是"TRAFFIC_POSTPAID_BY_HOUR"。 
-     * @return InternetChargeType 网络计费模式。IPV6当前支持"TRAFFIC_POSTPAID_BY_HOUR"，默认是"TRAFFIC_POSTPAID_BY_HOUR"。
+     * Get 网络计费模式。IPV6当前对标准账户类型支持"TRAFFIC_POSTPAID_BY_HOUR"，对传统账户类型支持"BANDWIDTH_PACKAGE"。默认网络计费模式是"TRAFFIC_POSTPAID_BY_HOUR"。 
+     * @return InternetChargeType 网络计费模式。IPV6当前对标准账户类型支持"TRAFFIC_POSTPAID_BY_HOUR"，对传统账户类型支持"BANDWIDTH_PACKAGE"。默认网络计费模式是"TRAFFIC_POSTPAID_BY_HOUR"。
      */
     public String getInternetChargeType() {
         return this.InternetChargeType;
     }
 
     /**
-     * Set 网络计费模式。IPV6当前支持"TRAFFIC_POSTPAID_BY_HOUR"，默认是"TRAFFIC_POSTPAID_BY_HOUR"。
-     * @param InternetChargeType 网络计费模式。IPV6当前支持"TRAFFIC_POSTPAID_BY_HOUR"，默认是"TRAFFIC_POSTPAID_BY_HOUR"。
+     * Set 网络计费模式。IPV6当前对标准账户类型支持"TRAFFIC_POSTPAID_BY_HOUR"，对传统账户类型支持"BANDWIDTH_PACKAGE"。默认网络计费模式是"TRAFFIC_POSTPAID_BY_HOUR"。
+     * @param InternetChargeType 网络计费模式。IPV6当前对标准账户类型支持"TRAFFIC_POSTPAID_BY_HOUR"，对传统账户类型支持"BANDWIDTH_PACKAGE"。默认网络计费模式是"TRAFFIC_POSTPAID_BY_HOUR"。
      */
     public void setInternetChargeType(String InternetChargeType) {
         this.InternetChargeType = InternetChargeType;
     }
+
+    /**
+     * Get 带宽包id，上移账号，申请带宽包计费模式的ipv6地址需要传入. 
+     * @return BandwidthPackageId 带宽包id，上移账号，申请带宽包计费模式的ipv6地址需要传入.
+     */
+    public String getBandwidthPackageId() {
+        return this.BandwidthPackageId;
+    }
+
+    /**
+     * Set 带宽包id，上移账号，申请带宽包计费模式的ipv6地址需要传入.
+     * @param BandwidthPackageId 带宽包id，上移账号，申请带宽包计费模式的ipv6地址需要传入.
+     */
+    public void setBandwidthPackageId(String BandwidthPackageId) {
+        this.BandwidthPackageId = BandwidthPackageId;
+    }
+
+    public AllocateIp6AddressesBandwidthRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AllocateIp6AddressesBandwidthRequest(AllocateIp6AddressesBandwidthRequest source) {
+        if (source.Ip6Addresses != null) {
+            this.Ip6Addresses = new String[source.Ip6Addresses.length];
+            for (int i = 0; i < source.Ip6Addresses.length; i++) {
+                this.Ip6Addresses[i] = new String(source.Ip6Addresses[i]);
+            }
+        }
+        if (source.InternetMaxBandwidthOut != null) {
+            this.InternetMaxBandwidthOut = new Long(source.InternetMaxBandwidthOut);
+        }
+        if (source.InternetChargeType != null) {
+            this.InternetChargeType = new String(source.InternetChargeType);
+        }
+        if (source.BandwidthPackageId != null) {
+            this.BandwidthPackageId = new String(source.BandwidthPackageId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -98,6 +147,7 @@ public class AllocateIp6AddressesBandwidthRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "Ip6Addresses.", this.Ip6Addresses);
         this.setParamSimple(map, prefix + "InternetMaxBandwidthOut", this.InternetMaxBandwidthOut);
         this.setParamSimple(map, prefix + "InternetChargeType", this.InternetChargeType);
+        this.setParamSimple(map, prefix + "BandwidthPackageId", this.BandwidthPackageId);
 
     }
 }

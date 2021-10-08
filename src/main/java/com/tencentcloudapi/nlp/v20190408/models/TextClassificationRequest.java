@@ -31,8 +31,8 @@ public class TextClassificationRequest extends AbstractModel{
 
     /**
     * 领域分类体系（默认取1值）：
-1、通用领域
-2、新闻领域
+1、通用领域，二分类
+2、新闻领域，五分类。类别数据不一定全部返回，详情见类目映射表
     */
     @SerializedName("Flag")
     @Expose
@@ -56,11 +56,11 @@ public class TextClassificationRequest extends AbstractModel{
 
     /**
      * Get 领域分类体系（默认取1值）：
-1、通用领域
-2、新闻领域 
+1、通用领域，二分类
+2、新闻领域，五分类。类别数据不一定全部返回，详情见类目映射表 
      * @return Flag 领域分类体系（默认取1值）：
-1、通用领域
-2、新闻领域
+1、通用领域，二分类
+2、新闻领域，五分类。类别数据不一定全部返回，详情见类目映射表
      */
     public Long getFlag() {
         return this.Flag;
@@ -68,15 +68,32 @@ public class TextClassificationRequest extends AbstractModel{
 
     /**
      * Set 领域分类体系（默认取1值）：
-1、通用领域
-2、新闻领域
+1、通用领域，二分类
+2、新闻领域，五分类。类别数据不一定全部返回，详情见类目映射表
      * @param Flag 领域分类体系（默认取1值）：
-1、通用领域
-2、新闻领域
+1、通用领域，二分类
+2、新闻领域，五分类。类别数据不一定全部返回，详情见类目映射表
      */
     public void setFlag(Long Flag) {
         this.Flag = Flag;
     }
+
+    public TextClassificationRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public TextClassificationRequest(TextClassificationRequest source) {
+        if (source.Text != null) {
+            this.Text = new String(source.Text);
+        }
+        if (source.Flag != null) {
+            this.Flag = new Long(source.Flag);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

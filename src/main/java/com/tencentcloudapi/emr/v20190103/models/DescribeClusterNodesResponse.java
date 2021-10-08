@@ -46,6 +46,14 @@ public class DescribeClusterNodesResponse extends AbstractModel{
     private String [] TagKeys;
 
     /**
+    * 资源类型列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("HardwareResourceTypeList")
+    @Expose
+    private String [] HardwareResourceTypeList;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -109,6 +117,26 @@ public class DescribeClusterNodesResponse extends AbstractModel{
     }
 
     /**
+     * Get 资源类型列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return HardwareResourceTypeList 资源类型列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getHardwareResourceTypeList() {
+        return this.HardwareResourceTypeList;
+    }
+
+    /**
+     * Set 资源类型列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param HardwareResourceTypeList 资源类型列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setHardwareResourceTypeList(String [] HardwareResourceTypeList) {
+        this.HardwareResourceTypeList = HardwareResourceTypeList;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -124,6 +152,41 @@ public class DescribeClusterNodesResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public DescribeClusterNodesResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeClusterNodesResponse(DescribeClusterNodesResponse source) {
+        if (source.TotalCnt != null) {
+            this.TotalCnt = new Long(source.TotalCnt);
+        }
+        if (source.NodeList != null) {
+            this.NodeList = new NodeHardwareInfo[source.NodeList.length];
+            for (int i = 0; i < source.NodeList.length; i++) {
+                this.NodeList[i] = new NodeHardwareInfo(source.NodeList[i]);
+            }
+        }
+        if (source.TagKeys != null) {
+            this.TagKeys = new String[source.TagKeys.length];
+            for (int i = 0; i < source.TagKeys.length; i++) {
+                this.TagKeys[i] = new String(source.TagKeys[i]);
+            }
+        }
+        if (source.HardwareResourceTypeList != null) {
+            this.HardwareResourceTypeList = new String[source.HardwareResourceTypeList.length];
+            for (int i = 0; i < source.HardwareResourceTypeList.length; i++) {
+                this.HardwareResourceTypeList[i] = new String(source.HardwareResourceTypeList[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
@@ -131,6 +194,7 @@ public class DescribeClusterNodesResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "TotalCnt", this.TotalCnt);
         this.setParamArrayObj(map, prefix + "NodeList.", this.NodeList);
         this.setParamArraySimple(map, prefix + "TagKeys.", this.TagKeys);
+        this.setParamArraySimple(map, prefix + "HardwareResourceTypeList.", this.HardwareResourceTypeList);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

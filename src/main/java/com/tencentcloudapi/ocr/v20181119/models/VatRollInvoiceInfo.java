@@ -23,7 +23,8 @@ import java.util.HashMap;
 public class VatRollInvoiceInfo extends AbstractModel{
 
     /**
-    * 识别出的字段名称（关键字）。
+    * 识别出的字段名称(关键字)，支持以下字段：
+发票代码、合计金额(小写)、合计金额(大写)、开票日期、发票号码、购买方识别号、销售方识别号、校验码、销售方名称、购买方名称、发票消费类型、省、市、是否有公司印章、服务类型、品名、种类。
     */
     @SerializedName("Name")
     @Expose
@@ -44,16 +45,20 @@ public class VatRollInvoiceInfo extends AbstractModel{
     private Rect Rect;
 
     /**
-     * Get 识别出的字段名称（关键字）。 
-     * @return Name 识别出的字段名称（关键字）。
+     * Get 识别出的字段名称(关键字)，支持以下字段：
+发票代码、合计金额(小写)、合计金额(大写)、开票日期、发票号码、购买方识别号、销售方识别号、校验码、销售方名称、购买方名称、发票消费类型、省、市、是否有公司印章、服务类型、品名、种类。 
+     * @return Name 识别出的字段名称(关键字)，支持以下字段：
+发票代码、合计金额(小写)、合计金额(大写)、开票日期、发票号码、购买方识别号、销售方识别号、校验码、销售方名称、购买方名称、发票消费类型、省、市、是否有公司印章、服务类型、品名、种类。
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 识别出的字段名称（关键字）。
-     * @param Name 识别出的字段名称（关键字）。
+     * Set 识别出的字段名称(关键字)，支持以下字段：
+发票代码、合计金额(小写)、合计金额(大写)、开票日期、发票号码、购买方识别号、销售方识别号、校验码、销售方名称、购买方名称、发票消费类型、省、市、是否有公司印章、服务类型、品名、种类。
+     * @param Name 识别出的字段名称(关键字)，支持以下字段：
+发票代码、合计金额(小写)、合计金额(大写)、开票日期、发票号码、购买方识别号、销售方识别号、校验码、销售方名称、购买方名称、发票消费类型、省、市、是否有公司印章、服务类型、品名、种类。
      */
     public void setName(String Name) {
         this.Name = Name;
@@ -90,6 +95,26 @@ public class VatRollInvoiceInfo extends AbstractModel{
     public void setRect(Rect Rect) {
         this.Rect = Rect;
     }
+
+    public VatRollInvoiceInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public VatRollInvoiceInfo(VatRollInvoiceInfo source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Value != null) {
+            this.Value = new String(source.Value);
+        }
+        if (source.Rect != null) {
+            this.Rect = new Rect(source.Rect);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

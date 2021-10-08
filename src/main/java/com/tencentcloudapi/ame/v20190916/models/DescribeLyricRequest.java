@@ -30,7 +30,9 @@ public class DescribeLyricRequest extends AbstractModel{
     private String ItemId;
 
     /**
-    * 歌词格式，可选项，可不填写，目前填写只能填LRC-LRC。该字段为预留的扩展字段。后续如果不填，会返回歌曲的所有格式的歌词。如果填写某个正确的格式，则只返回该格式的歌词。
+    * 格式，可选项，可不填写，默认值为：LRC-LRC。
+<li>LRC-LRC：歌词；</li>
+<li>JSON-ST：波形图。</li>
     */
     @SerializedName("SubItemType")
     @Expose
@@ -53,20 +55,45 @@ public class DescribeLyricRequest extends AbstractModel{
     }
 
     /**
-     * Get 歌词格式，可选项，可不填写，目前填写只能填LRC-LRC。该字段为预留的扩展字段。后续如果不填，会返回歌曲的所有格式的歌词。如果填写某个正确的格式，则只返回该格式的歌词。 
-     * @return SubItemType 歌词格式，可选项，可不填写，目前填写只能填LRC-LRC。该字段为预留的扩展字段。后续如果不填，会返回歌曲的所有格式的歌词。如果填写某个正确的格式，则只返回该格式的歌词。
+     * Get 格式，可选项，可不填写，默认值为：LRC-LRC。
+<li>LRC-LRC：歌词；</li>
+<li>JSON-ST：波形图。</li> 
+     * @return SubItemType 格式，可选项，可不填写，默认值为：LRC-LRC。
+<li>LRC-LRC：歌词；</li>
+<li>JSON-ST：波形图。</li>
      */
     public String getSubItemType() {
         return this.SubItemType;
     }
 
     /**
-     * Set 歌词格式，可选项，可不填写，目前填写只能填LRC-LRC。该字段为预留的扩展字段。后续如果不填，会返回歌曲的所有格式的歌词。如果填写某个正确的格式，则只返回该格式的歌词。
-     * @param SubItemType 歌词格式，可选项，可不填写，目前填写只能填LRC-LRC。该字段为预留的扩展字段。后续如果不填，会返回歌曲的所有格式的歌词。如果填写某个正确的格式，则只返回该格式的歌词。
+     * Set 格式，可选项，可不填写，默认值为：LRC-LRC。
+<li>LRC-LRC：歌词；</li>
+<li>JSON-ST：波形图。</li>
+     * @param SubItemType 格式，可选项，可不填写，默认值为：LRC-LRC。
+<li>LRC-LRC：歌词；</li>
+<li>JSON-ST：波形图。</li>
      */
     public void setSubItemType(String SubItemType) {
         this.SubItemType = SubItemType;
     }
+
+    public DescribeLyricRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeLyricRequest(DescribeLyricRequest source) {
+        if (source.ItemId != null) {
+            this.ItemId = new String(source.ItemId);
+        }
+        if (source.SubItemType != null) {
+            this.SubItemType = new String(source.SubItemType);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

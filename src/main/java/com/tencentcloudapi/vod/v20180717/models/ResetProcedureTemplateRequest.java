@@ -30,6 +30,13 @@ public class ResetProcedureTemplateRequest extends AbstractModel{
     private String Name;
 
     /**
+    * 模板描述信息，长度限制：256 个字符。
+    */
+    @SerializedName("Comment")
+    @Expose
+    private String Comment;
+
+    /**
     * 视频处理类型任务参数。
     */
     @SerializedName("MediaProcessTask")
@@ -78,6 +85,22 @@ public class ResetProcedureTemplateRequest extends AbstractModel{
      */
     public void setName(String Name) {
         this.Name = Name;
+    }
+
+    /**
+     * Get 模板描述信息，长度限制：256 个字符。 
+     * @return Comment 模板描述信息，长度限制：256 个字符。
+     */
+    public String getComment() {
+        return this.Comment;
+    }
+
+    /**
+     * Set 模板描述信息，长度限制：256 个字符。
+     * @param Comment 模板描述信息，长度限制：256 个字符。
+     */
+    public void setComment(String Comment) {
+        this.Comment = Comment;
     }
 
     /**
@@ -160,11 +183,44 @@ public class ResetProcedureTemplateRequest extends AbstractModel{
         this.SubAppId = SubAppId;
     }
 
+    public ResetProcedureTemplateRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ResetProcedureTemplateRequest(ResetProcedureTemplateRequest source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Comment != null) {
+            this.Comment = new String(source.Comment);
+        }
+        if (source.MediaProcessTask != null) {
+            this.MediaProcessTask = new MediaProcessTaskInput(source.MediaProcessTask);
+        }
+        if (source.AiContentReviewTask != null) {
+            this.AiContentReviewTask = new AiContentReviewTaskInput(source.AiContentReviewTask);
+        }
+        if (source.AiAnalysisTask != null) {
+            this.AiAnalysisTask = new AiAnalysisTaskInput(source.AiAnalysisTask);
+        }
+        if (source.AiRecognitionTask != null) {
+            this.AiRecognitionTask = new AiRecognitionTaskInput(source.AiRecognitionTask);
+        }
+        if (source.SubAppId != null) {
+            this.SubAppId = new Long(source.SubAppId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Name", this.Name);
+        this.setParamSimple(map, prefix + "Comment", this.Comment);
         this.setParamObj(map, prefix + "MediaProcessTask.", this.MediaProcessTask);
         this.setParamObj(map, prefix + "AiContentReviewTask.", this.AiContentReviewTask);
         this.setParamObj(map, prefix + "AiAnalysisTask.", this.AiAnalysisTask);

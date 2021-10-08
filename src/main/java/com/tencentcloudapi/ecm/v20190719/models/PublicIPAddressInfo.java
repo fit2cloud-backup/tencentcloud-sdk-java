@@ -44,11 +44,18 @@ public class PublicIPAddressInfo extends AbstractModel{
     private ISP ISP;
 
     /**
-    * 实例的最大出带宽上限。
+    * 实例的最大出带宽上限，单位为Mbps。
     */
     @SerializedName("MaxBandwidthOut")
     @Expose
     private Long MaxBandwidthOut;
+
+    /**
+    * 实例的最大入带宽上限，单位为Mbps。
+    */
+    @SerializedName("MaxBandwidthIn")
+    @Expose
+    private Long MaxBandwidthIn;
 
     /**
      * Get 计费模式。 
@@ -99,20 +106,62 @@ public class PublicIPAddressInfo extends AbstractModel{
     }
 
     /**
-     * Get 实例的最大出带宽上限。 
-     * @return MaxBandwidthOut 实例的最大出带宽上限。
+     * Get 实例的最大出带宽上限，单位为Mbps。 
+     * @return MaxBandwidthOut 实例的最大出带宽上限，单位为Mbps。
      */
     public Long getMaxBandwidthOut() {
         return this.MaxBandwidthOut;
     }
 
     /**
-     * Set 实例的最大出带宽上限。
-     * @param MaxBandwidthOut 实例的最大出带宽上限。
+     * Set 实例的最大出带宽上限，单位为Mbps。
+     * @param MaxBandwidthOut 实例的最大出带宽上限，单位为Mbps。
      */
     public void setMaxBandwidthOut(Long MaxBandwidthOut) {
         this.MaxBandwidthOut = MaxBandwidthOut;
     }
+
+    /**
+     * Get 实例的最大入带宽上限，单位为Mbps。 
+     * @return MaxBandwidthIn 实例的最大入带宽上限，单位为Mbps。
+     */
+    public Long getMaxBandwidthIn() {
+        return this.MaxBandwidthIn;
+    }
+
+    /**
+     * Set 实例的最大入带宽上限，单位为Mbps。
+     * @param MaxBandwidthIn 实例的最大入带宽上限，单位为Mbps。
+     */
+    public void setMaxBandwidthIn(Long MaxBandwidthIn) {
+        this.MaxBandwidthIn = MaxBandwidthIn;
+    }
+
+    public PublicIPAddressInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public PublicIPAddressInfo(PublicIPAddressInfo source) {
+        if (source.ChargeMode != null) {
+            this.ChargeMode = new String(source.ChargeMode);
+        }
+        if (source.PublicIPAddress != null) {
+            this.PublicIPAddress = new String(source.PublicIPAddress);
+        }
+        if (source.ISP != null) {
+            this.ISP = new ISP(source.ISP);
+        }
+        if (source.MaxBandwidthOut != null) {
+            this.MaxBandwidthOut = new Long(source.MaxBandwidthOut);
+        }
+        if (source.MaxBandwidthIn != null) {
+            this.MaxBandwidthIn = new Long(source.MaxBandwidthIn);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -122,6 +171,7 @@ public class PublicIPAddressInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "PublicIPAddress", this.PublicIPAddress);
         this.setParamObj(map, prefix + "ISP.", this.ISP);
         this.setParamSimple(map, prefix + "MaxBandwidthOut", this.MaxBandwidthOut);
+        this.setParamSimple(map, prefix + "MaxBandwidthIn", this.MaxBandwidthIn);
 
     }
 }

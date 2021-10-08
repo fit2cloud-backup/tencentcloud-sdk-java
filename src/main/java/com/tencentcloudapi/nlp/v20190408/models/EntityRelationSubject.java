@@ -23,6 +23,13 @@ import java.util.HashMap;
 public class EntityRelationSubject extends AbstractModel{
 
     /**
+    * Subject对应popular
+    */
+    @SerializedName("Popular")
+    @Expose
+    private Long [] Popular;
+
+    /**
     * Subject对应id
     */
     @SerializedName("Id")
@@ -37,11 +44,20 @@ public class EntityRelationSubject extends AbstractModel{
     private String [] Name;
 
     /**
-    * Subject对应popular
-    */
-    @SerializedName("Popular")
-    @Expose
-    private Long [] Popular;
+     * Get Subject对应popular 
+     * @return Popular Subject对应popular
+     */
+    public Long [] getPopular() {
+        return this.Popular;
+    }
+
+    /**
+     * Set Subject对应popular
+     * @param Popular Subject对应popular
+     */
+    public void setPopular(Long [] Popular) {
+        this.Popular = Popular;
+    }
 
     /**
      * Get Subject对应id 
@@ -75,29 +91,42 @@ public class EntityRelationSubject extends AbstractModel{
         this.Name = Name;
     }
 
-    /**
-     * Get Subject对应popular 
-     * @return Popular Subject对应popular
-     */
-    public Long [] getPopular() {
-        return this.Popular;
+    public EntityRelationSubject() {
     }
 
     /**
-     * Set Subject对应popular
-     * @param Popular Subject对应popular
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
-    public void setPopular(Long [] Popular) {
-        this.Popular = Popular;
+    public EntityRelationSubject(EntityRelationSubject source) {
+        if (source.Popular != null) {
+            this.Popular = new Long[source.Popular.length];
+            for (int i = 0; i < source.Popular.length; i++) {
+                this.Popular[i] = new Long(source.Popular[i]);
+            }
+        }
+        if (source.Id != null) {
+            this.Id = new String[source.Id.length];
+            for (int i = 0; i < source.Id.length; i++) {
+                this.Id[i] = new String(source.Id[i]);
+            }
+        }
+        if (source.Name != null) {
+            this.Name = new String[source.Name.length];
+            for (int i = 0; i < source.Name.length; i++) {
+                this.Name[i] = new String(source.Name[i]);
+            }
+        }
     }
+
 
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamArraySimple(map, prefix + "Popular.", this.Popular);
         this.setParamArraySimple(map, prefix + "Id.", this.Id);
         this.setParamArraySimple(map, prefix + "Name.", this.Name);
-        this.setParamArraySimple(map, prefix + "Popular.", this.Popular);
 
     }
 }

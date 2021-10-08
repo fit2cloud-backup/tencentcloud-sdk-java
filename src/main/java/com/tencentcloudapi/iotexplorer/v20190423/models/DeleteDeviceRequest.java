@@ -37,6 +37,13 @@ public class DeleteDeviceRequest extends AbstractModel{
     private String DeviceName;
 
     /**
+    * 是否删除绑定设备
+    */
+    @SerializedName("ForceDelete")
+    @Expose
+    private Boolean ForceDelete;
+
+    /**
      * Get 产品ID。 
      * @return ProductId 产品ID。
      */
@@ -69,11 +76,48 @@ public class DeleteDeviceRequest extends AbstractModel{
     }
 
     /**
+     * Get 是否删除绑定设备 
+     * @return ForceDelete 是否删除绑定设备
+     */
+    public Boolean getForceDelete() {
+        return this.ForceDelete;
+    }
+
+    /**
+     * Set 是否删除绑定设备
+     * @param ForceDelete 是否删除绑定设备
+     */
+    public void setForceDelete(Boolean ForceDelete) {
+        this.ForceDelete = ForceDelete;
+    }
+
+    public DeleteDeviceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeleteDeviceRequest(DeleteDeviceRequest source) {
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+        if (source.DeviceName != null) {
+            this.DeviceName = new String(source.DeviceName);
+        }
+        if (source.ForceDelete != null) {
+            this.ForceDelete = new Boolean(source.ForceDelete);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ProductId", this.ProductId);
         this.setParamSimple(map, prefix + "DeviceName", this.DeviceName);
+        this.setParamSimple(map, prefix + "ForceDelete", this.ForceDelete);
 
     }
 }

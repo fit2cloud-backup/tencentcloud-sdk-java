@@ -37,6 +37,13 @@ public class ModifyProxyGroupAttributeRequest extends AbstractModel{
     private String GroupName;
 
     /**
+    * 项目ID
+    */
+    @SerializedName("ProjectId")
+    @Expose
+    private Long ProjectId;
+
+    /**
      * Get 需要修改的通道组ID。 
      * @return GroupId 需要修改的通道组ID。
      */
@@ -69,11 +76,48 @@ public class ModifyProxyGroupAttributeRequest extends AbstractModel{
     }
 
     /**
+     * Get 项目ID 
+     * @return ProjectId 项目ID
+     */
+    public Long getProjectId() {
+        return this.ProjectId;
+    }
+
+    /**
+     * Set 项目ID
+     * @param ProjectId 项目ID
+     */
+    public void setProjectId(Long ProjectId) {
+        this.ProjectId = ProjectId;
+    }
+
+    public ModifyProxyGroupAttributeRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyProxyGroupAttributeRequest(ModifyProxyGroupAttributeRequest source) {
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
+        if (source.GroupName != null) {
+            this.GroupName = new String(source.GroupName);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "GroupId", this.GroupId);
         this.setParamSimple(map, prefix + "GroupName", this.GroupName);
+        this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
 
     }
 }

@@ -37,6 +37,13 @@ public class AttachNetworkInterfaceRequest extends AbstractModel{
     private String InstanceId;
 
     /**
+    * 网卡的挂载类型：0 标准型，1扩展型，默认值0。
+    */
+    @SerializedName("AttachType")
+    @Expose
+    private Long AttachType;
+
+    /**
      * Get 弹性网卡实例ID，例如：eni-m6dyj72l。 
      * @return NetworkInterfaceId 弹性网卡实例ID，例如：eni-m6dyj72l。
      */
@@ -69,11 +76,48 @@ public class AttachNetworkInterfaceRequest extends AbstractModel{
     }
 
     /**
+     * Get 网卡的挂载类型：0 标准型，1扩展型，默认值0。 
+     * @return AttachType 网卡的挂载类型：0 标准型，1扩展型，默认值0。
+     */
+    public Long getAttachType() {
+        return this.AttachType;
+    }
+
+    /**
+     * Set 网卡的挂载类型：0 标准型，1扩展型，默认值0。
+     * @param AttachType 网卡的挂载类型：0 标准型，1扩展型，默认值0。
+     */
+    public void setAttachType(Long AttachType) {
+        this.AttachType = AttachType;
+    }
+
+    public AttachNetworkInterfaceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AttachNetworkInterfaceRequest(AttachNetworkInterfaceRequest source) {
+        if (source.NetworkInterfaceId != null) {
+            this.NetworkInterfaceId = new String(source.NetworkInterfaceId);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.AttachType != null) {
+            this.AttachType = new Long(source.AttachType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "NetworkInterfaceId", this.NetworkInterfaceId);
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
+        this.setParamSimple(map, prefix + "AttachType", this.AttachType);
 
     }
 }

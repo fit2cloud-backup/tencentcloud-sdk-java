@@ -49,6 +49,16 @@ public class StreamLayout extends AbstractModel{
     private String BackgroundColor;
 
     /**
+    * 视频画面填充模式。
+
+0 - 自适应模式，对视频画面进行等比例缩放，在指定区域内显示完整的画面。此模式可能存在黑边。
+1 - 全屏模式，对视频画面进行等比例缩放，让画面填充满整个指定区域。此模式不会存在黑边，但会将超出区域的那一部分画面裁剪掉。
+    */
+    @SerializedName("FillMode")
+    @Expose
+    private Long FillMode;
+
+    /**
      * Get 流布局配置参数 
      * @return LayoutParams 流布局配置参数
      */
@@ -117,12 +127,64 @@ public class StreamLayout extends AbstractModel{
     }
 
     /**
+     * Get 视频画面填充模式。
+
+0 - 自适应模式，对视频画面进行等比例缩放，在指定区域内显示完整的画面。此模式可能存在黑边。
+1 - 全屏模式，对视频画面进行等比例缩放，让画面填充满整个指定区域。此模式不会存在黑边，但会将超出区域的那一部分画面裁剪掉。 
+     * @return FillMode 视频画面填充模式。
+
+0 - 自适应模式，对视频画面进行等比例缩放，在指定区域内显示完整的画面。此模式可能存在黑边。
+1 - 全屏模式，对视频画面进行等比例缩放，让画面填充满整个指定区域。此模式不会存在黑边，但会将超出区域的那一部分画面裁剪掉。
+     */
+    public Long getFillMode() {
+        return this.FillMode;
+    }
+
+    /**
+     * Set 视频画面填充模式。
+
+0 - 自适应模式，对视频画面进行等比例缩放，在指定区域内显示完整的画面。此模式可能存在黑边。
+1 - 全屏模式，对视频画面进行等比例缩放，让画面填充满整个指定区域。此模式不会存在黑边，但会将超出区域的那一部分画面裁剪掉。
+     * @param FillMode 视频画面填充模式。
+
+0 - 自适应模式，对视频画面进行等比例缩放，在指定区域内显示完整的画面。此模式可能存在黑边。
+1 - 全屏模式，对视频画面进行等比例缩放，让画面填充满整个指定区域。此模式不会存在黑边，但会将超出区域的那一部分画面裁剪掉。
+     */
+    public void setFillMode(Long FillMode) {
+        this.FillMode = FillMode;
+    }
+
+    public StreamLayout() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public StreamLayout(StreamLayout source) {
+        if (source.LayoutParams != null) {
+            this.LayoutParams = new LayoutParams(source.LayoutParams);
+        }
+        if (source.InputStreamId != null) {
+            this.InputStreamId = new String(source.InputStreamId);
+        }
+        if (source.BackgroundColor != null) {
+            this.BackgroundColor = new String(source.BackgroundColor);
+        }
+        if (source.FillMode != null) {
+            this.FillMode = new Long(source.FillMode);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "LayoutParams.", this.LayoutParams);
         this.setParamSimple(map, prefix + "InputStreamId", this.InputStreamId);
         this.setParamSimple(map, prefix + "BackgroundColor", this.BackgroundColor);
+        this.setParamSimple(map, prefix + "FillMode", this.FillMode);
 
     }
 }

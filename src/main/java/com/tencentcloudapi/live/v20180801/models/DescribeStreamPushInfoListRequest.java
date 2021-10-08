@@ -37,7 +37,7 @@ public class DescribeStreamPushInfoListRequest extends AbstractModel{
     private String StartTime;
 
     /**
-    * 结束时间点，格式为yyyy-mm-dd HH:MM:SS，最大时间跨度支持6小时，支持最近6天数据查询。
+    * 结束时间点，格式为yyyy-mm-dd HH:MM:SS，支持查询最近7天数据，建议查询时间跨度在3小时之内。
     */
     @SerializedName("EndTime")
     @Expose
@@ -90,16 +90,16 @@ public class DescribeStreamPushInfoListRequest extends AbstractModel{
     }
 
     /**
-     * Get 结束时间点，格式为yyyy-mm-dd HH:MM:SS，最大时间跨度支持6小时，支持最近6天数据查询。 
-     * @return EndTime 结束时间点，格式为yyyy-mm-dd HH:MM:SS，最大时间跨度支持6小时，支持最近6天数据查询。
+     * Get 结束时间点，格式为yyyy-mm-dd HH:MM:SS，支持查询最近7天数据，建议查询时间跨度在3小时之内。 
+     * @return EndTime 结束时间点，格式为yyyy-mm-dd HH:MM:SS，支持查询最近7天数据，建议查询时间跨度在3小时之内。
      */
     public String getEndTime() {
         return this.EndTime;
     }
 
     /**
-     * Set 结束时间点，格式为yyyy-mm-dd HH:MM:SS，最大时间跨度支持6小时，支持最近6天数据查询。
-     * @param EndTime 结束时间点，格式为yyyy-mm-dd HH:MM:SS，最大时间跨度支持6小时，支持最近6天数据查询。
+     * Set 结束时间点，格式为yyyy-mm-dd HH:MM:SS，支持查询最近7天数据，建议查询时间跨度在3小时之内。
+     * @param EndTime 结束时间点，格式为yyyy-mm-dd HH:MM:SS，支持查询最近7天数据，建议查询时间跨度在3小时之内。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
@@ -136,6 +136,32 @@ public class DescribeStreamPushInfoListRequest extends AbstractModel{
     public void setAppName(String AppName) {
         this.AppName = AppName;
     }
+
+    public DescribeStreamPushInfoListRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeStreamPushInfoListRequest(DescribeStreamPushInfoListRequest source) {
+        if (source.StreamName != null) {
+            this.StreamName = new String(source.StreamName);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.PushDomain != null) {
+            this.PushDomain = new String(source.PushDomain);
+        }
+        if (source.AppName != null) {
+            this.AppName = new String(source.AppName);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

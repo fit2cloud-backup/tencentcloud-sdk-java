@@ -30,7 +30,7 @@ public class RealServerStatus extends AbstractModel{
     private String RealServerId;
 
     /**
-    * 0: 未被绑定 1：被规则或者监听器绑定。
+    * 0表示未被绑定 1表示被规则或者监听器绑定。
     */
     @SerializedName("BindStatus")
     @Expose
@@ -60,16 +60,16 @@ public class RealServerStatus extends AbstractModel{
     }
 
     /**
-     * Get 0: 未被绑定 1：被规则或者监听器绑定。 
-     * @return BindStatus 0: 未被绑定 1：被规则或者监听器绑定。
+     * Get 0表示未被绑定 1表示被规则或者监听器绑定。 
+     * @return BindStatus 0表示未被绑定 1表示被规则或者监听器绑定。
      */
     public Long getBindStatus() {
         return this.BindStatus;
     }
 
     /**
-     * Set 0: 未被绑定 1：被规则或者监听器绑定。
-     * @param BindStatus 0: 未被绑定 1：被规则或者监听器绑定。
+     * Set 0表示未被绑定 1表示被规则或者监听器绑定。
+     * @param BindStatus 0表示未被绑定 1表示被规则或者监听器绑定。
      */
     public void setBindStatus(Long BindStatus) {
         this.BindStatus = BindStatus;
@@ -90,6 +90,26 @@ public class RealServerStatus extends AbstractModel{
     public void setProxyId(String ProxyId) {
         this.ProxyId = ProxyId;
     }
+
+    public RealServerStatus() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public RealServerStatus(RealServerStatus source) {
+        if (source.RealServerId != null) {
+            this.RealServerId = new String(source.RealServerId);
+        }
+        if (source.BindStatus != null) {
+            this.BindStatus = new Long(source.BindStatus);
+        }
+        if (source.ProxyId != null) {
+            this.ProxyId = new String(source.ProxyId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class UploadCertificateRequest extends AbstractModel{
 
     /**
-    * 证书公钥。
+    * 证书内容。
     */
     @SerializedName("CertificatePublicKey")
     @Expose
@@ -58,16 +58,23 @@ public class UploadCertificateRequest extends AbstractModel{
     private Long ProjectId;
 
     /**
-     * Get 证书公钥。 
-     * @return CertificatePublicKey 证书公钥。
+    * 证书用途/证书来源。“CLB，CDN，WAF，LIVE，DDOS”
+    */
+    @SerializedName("CertificateUse")
+    @Expose
+    private String CertificateUse;
+
+    /**
+     * Get 证书内容。 
+     * @return CertificatePublicKey 证书内容。
      */
     public String getCertificatePublicKey() {
         return this.CertificatePublicKey;
     }
 
     /**
-     * Set 证书公钥。
-     * @param CertificatePublicKey 证书公钥。
+     * Set 证书内容。
+     * @param CertificatePublicKey 证书内容。
      */
     public void setCertificatePublicKey(String CertificatePublicKey) {
         this.CertificatePublicKey = CertificatePublicKey;
@@ -138,6 +145,51 @@ public class UploadCertificateRequest extends AbstractModel{
     }
 
     /**
+     * Get 证书用途/证书来源。“CLB，CDN，WAF，LIVE，DDOS” 
+     * @return CertificateUse 证书用途/证书来源。“CLB，CDN，WAF，LIVE，DDOS”
+     */
+    public String getCertificateUse() {
+        return this.CertificateUse;
+    }
+
+    /**
+     * Set 证书用途/证书来源。“CLB，CDN，WAF，LIVE，DDOS”
+     * @param CertificateUse 证书用途/证书来源。“CLB，CDN，WAF，LIVE，DDOS”
+     */
+    public void setCertificateUse(String CertificateUse) {
+        this.CertificateUse = CertificateUse;
+    }
+
+    public UploadCertificateRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public UploadCertificateRequest(UploadCertificateRequest source) {
+        if (source.CertificatePublicKey != null) {
+            this.CertificatePublicKey = new String(source.CertificatePublicKey);
+        }
+        if (source.CertificatePrivateKey != null) {
+            this.CertificatePrivateKey = new String(source.CertificatePrivateKey);
+        }
+        if (source.CertificateType != null) {
+            this.CertificateType = new String(source.CertificateType);
+        }
+        if (source.Alias != null) {
+            this.Alias = new String(source.Alias);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.CertificateUse != null) {
+            this.CertificateUse = new String(source.CertificateUse);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -146,6 +198,7 @@ public class UploadCertificateRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "CertificateType", this.CertificateType);
         this.setParamSimple(map, prefix + "Alias", this.Alias);
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
+        this.setParamSimple(map, prefix + "CertificateUse", this.CertificateUse);
 
     }
 }

@@ -65,6 +65,27 @@ public class DescribePkgsRequest extends AbstractModel{
     private Long Limit;
 
     /**
+    * 程序包仓库类型
+    */
+    @SerializedName("RepositoryType")
+    @Expose
+    private String RepositoryType;
+
+    /**
+    * 程序包仓库id
+    */
+    @SerializedName("RepositoryId")
+    @Expose
+    private String RepositoryId;
+
+    /**
+    * 程序包类型数组支持（fatjar jar war tar.gz zip）
+    */
+    @SerializedName("PackageTypeList")
+    @Expose
+    private String [] PackageTypeList;
+
+    /**
      * Get 应用ID（只传入应用ID，返回该应用下所有软件包信息） 
      * @return ApplicationId 应用ID（只传入应用ID，返回该应用下所有软件包信息）
      */
@@ -161,6 +182,95 @@ public class DescribePkgsRequest extends AbstractModel{
     }
 
     /**
+     * Get 程序包仓库类型 
+     * @return RepositoryType 程序包仓库类型
+     */
+    public String getRepositoryType() {
+        return this.RepositoryType;
+    }
+
+    /**
+     * Set 程序包仓库类型
+     * @param RepositoryType 程序包仓库类型
+     */
+    public void setRepositoryType(String RepositoryType) {
+        this.RepositoryType = RepositoryType;
+    }
+
+    /**
+     * Get 程序包仓库id 
+     * @return RepositoryId 程序包仓库id
+     */
+    public String getRepositoryId() {
+        return this.RepositoryId;
+    }
+
+    /**
+     * Set 程序包仓库id
+     * @param RepositoryId 程序包仓库id
+     */
+    public void setRepositoryId(String RepositoryId) {
+        this.RepositoryId = RepositoryId;
+    }
+
+    /**
+     * Get 程序包类型数组支持（fatjar jar war tar.gz zip） 
+     * @return PackageTypeList 程序包类型数组支持（fatjar jar war tar.gz zip）
+     */
+    public String [] getPackageTypeList() {
+        return this.PackageTypeList;
+    }
+
+    /**
+     * Set 程序包类型数组支持（fatjar jar war tar.gz zip）
+     * @param PackageTypeList 程序包类型数组支持（fatjar jar war tar.gz zip）
+     */
+    public void setPackageTypeList(String [] PackageTypeList) {
+        this.PackageTypeList = PackageTypeList;
+    }
+
+    public DescribePkgsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribePkgsRequest(DescribePkgsRequest source) {
+        if (source.ApplicationId != null) {
+            this.ApplicationId = new String(source.ApplicationId);
+        }
+        if (source.SearchWord != null) {
+            this.SearchWord = new String(source.SearchWord);
+        }
+        if (source.OrderBy != null) {
+            this.OrderBy = new String(source.OrderBy);
+        }
+        if (source.OrderType != null) {
+            this.OrderType = new Long(source.OrderType);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.RepositoryType != null) {
+            this.RepositoryType = new String(source.RepositoryType);
+        }
+        if (source.RepositoryId != null) {
+            this.RepositoryId = new String(source.RepositoryId);
+        }
+        if (source.PackageTypeList != null) {
+            this.PackageTypeList = new String[source.PackageTypeList.length];
+            for (int i = 0; i < source.PackageTypeList.length; i++) {
+                this.PackageTypeList[i] = new String(source.PackageTypeList[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -170,6 +280,9 @@ public class DescribePkgsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "OrderType", this.OrderType);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamSimple(map, prefix + "RepositoryType", this.RepositoryType);
+        this.setParamSimple(map, prefix + "RepositoryId", this.RepositoryId);
+        this.setParamArraySimple(map, prefix + "PackageTypeList.", this.PackageTypeList);
 
     }
 }

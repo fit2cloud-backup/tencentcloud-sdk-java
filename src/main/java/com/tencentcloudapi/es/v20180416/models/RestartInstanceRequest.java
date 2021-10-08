@@ -37,6 +37,13 @@ public class RestartInstanceRequest extends AbstractModel{
     private Boolean ForceRestart;
 
     /**
+    * 重启模式：0 滚动重启； 1 全量重启
+    */
+    @SerializedName("RestartMode")
+    @Expose
+    private Long RestartMode;
+
+    /**
      * Get 实例ID 
      * @return InstanceId 实例ID
      */
@@ -69,11 +76,48 @@ public class RestartInstanceRequest extends AbstractModel{
     }
 
     /**
+     * Get 重启模式：0 滚动重启； 1 全量重启 
+     * @return RestartMode 重启模式：0 滚动重启； 1 全量重启
+     */
+    public Long getRestartMode() {
+        return this.RestartMode;
+    }
+
+    /**
+     * Set 重启模式：0 滚动重启； 1 全量重启
+     * @param RestartMode 重启模式：0 滚动重启； 1 全量重启
+     */
+    public void setRestartMode(Long RestartMode) {
+        this.RestartMode = RestartMode;
+    }
+
+    public RestartInstanceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public RestartInstanceRequest(RestartInstanceRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.ForceRestart != null) {
+            this.ForceRestart = new Boolean(source.ForceRestart);
+        }
+        if (source.RestartMode != null) {
+            this.RestartMode = new Long(source.RestartMode);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "ForceRestart", this.ForceRestart);
+        this.setParamSimple(map, prefix + "RestartMode", this.RestartMode);
 
     }
 }

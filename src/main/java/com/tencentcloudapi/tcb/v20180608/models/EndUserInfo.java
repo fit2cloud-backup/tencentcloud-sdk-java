@@ -107,6 +107,20 @@ public class EndUserInfo extends AbstractModel{
     private Boolean IsDisabled;
 
     /**
+    * 是否设置过密码
+    */
+    @SerializedName("HasPassword")
+    @Expose
+    private Boolean HasPassword;
+
+    /**
+    * 用户名
+    */
+    @SerializedName("UserName")
+    @Expose
+    private String UserName;
+
+    /**
      * Get 用户唯一ID 
      * @return UUId 用户唯一ID
      */
@@ -299,6 +313,91 @@ public class EndUserInfo extends AbstractModel{
     }
 
     /**
+     * Get 是否设置过密码 
+     * @return HasPassword 是否设置过密码
+     */
+    public Boolean getHasPassword() {
+        return this.HasPassword;
+    }
+
+    /**
+     * Set 是否设置过密码
+     * @param HasPassword 是否设置过密码
+     */
+    public void setHasPassword(Boolean HasPassword) {
+        this.HasPassword = HasPassword;
+    }
+
+    /**
+     * Get 用户名 
+     * @return UserName 用户名
+     */
+    public String getUserName() {
+        return this.UserName;
+    }
+
+    /**
+     * Set 用户名
+     * @param UserName 用户名
+     */
+    public void setUserName(String UserName) {
+        this.UserName = UserName;
+    }
+
+    public EndUserInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public EndUserInfo(EndUserInfo source) {
+        if (source.UUId != null) {
+            this.UUId = new String(source.UUId);
+        }
+        if (source.WXOpenId != null) {
+            this.WXOpenId = new String(source.WXOpenId);
+        }
+        if (source.QQOpenId != null) {
+            this.QQOpenId = new String(source.QQOpenId);
+        }
+        if (source.Phone != null) {
+            this.Phone = new String(source.Phone);
+        }
+        if (source.Email != null) {
+            this.Email = new String(source.Email);
+        }
+        if (source.NickName != null) {
+            this.NickName = new String(source.NickName);
+        }
+        if (source.Gender != null) {
+            this.Gender = new String(source.Gender);
+        }
+        if (source.AvatarUrl != null) {
+            this.AvatarUrl = new String(source.AvatarUrl);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.IsAnonymous != null) {
+            this.IsAnonymous = new Boolean(source.IsAnonymous);
+        }
+        if (source.IsDisabled != null) {
+            this.IsDisabled = new Boolean(source.IsDisabled);
+        }
+        if (source.HasPassword != null) {
+            this.HasPassword = new Boolean(source.HasPassword);
+        }
+        if (source.UserName != null) {
+            this.UserName = new String(source.UserName);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -314,6 +413,8 @@ public class EndUserInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "IsAnonymous", this.IsAnonymous);
         this.setParamSimple(map, prefix + "IsDisabled", this.IsDisabled);
+        this.setParamSimple(map, prefix + "HasPassword", this.HasPassword);
+        this.setParamSimple(map, prefix + "UserName", this.UserName);
 
     }
 }

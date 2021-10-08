@@ -37,6 +37,14 @@ public class DescribeLiveDomainsResponse extends AbstractModel{
     private DomainInfo [] DomainList;
 
     /**
+    * 可继续添加域名数量。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CreateLimitCount")
+    @Expose
+    private Long CreateLimitCount;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -76,6 +84,26 @@ public class DescribeLiveDomainsResponse extends AbstractModel{
     }
 
     /**
+     * Get 可继续添加域名数量。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CreateLimitCount 可继续添加域名数量。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getCreateLimitCount() {
+        return this.CreateLimitCount;
+    }
+
+    /**
+     * Set 可继续添加域名数量。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CreateLimitCount 可继续添加域名数量。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCreateLimitCount(Long CreateLimitCount) {
+        this.CreateLimitCount = CreateLimitCount;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -91,12 +119,39 @@ public class DescribeLiveDomainsResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public DescribeLiveDomainsResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeLiveDomainsResponse(DescribeLiveDomainsResponse source) {
+        if (source.AllCount != null) {
+            this.AllCount = new Long(source.AllCount);
+        }
+        if (source.DomainList != null) {
+            this.DomainList = new DomainInfo[source.DomainList.length];
+            for (int i = 0; i < source.DomainList.length; i++) {
+                this.DomainList[i] = new DomainInfo(source.DomainList[i]);
+            }
+        }
+        if (source.CreateLimitCount != null) {
+            this.CreateLimitCount = new Long(source.CreateLimitCount);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "AllCount", this.AllCount);
         this.setParamArrayObj(map, prefix + "DomainList.", this.DomainList);
+        this.setParamSimple(map, prefix + "CreateLimitCount", this.CreateLimitCount);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

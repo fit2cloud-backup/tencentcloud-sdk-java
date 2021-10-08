@@ -79,6 +79,13 @@ public class CreateNatGatewayRequest extends AbstractModel{
     private Tag [] Tags;
 
     /**
+    * NAT网关所属子网
+    */
+    @SerializedName("SubnetId")
+    @Expose
+    private String SubnetId;
+
+    /**
      * Get NAT网关名称 
      * @return NatGatewayName NAT网关名称
      */
@@ -207,6 +214,66 @@ public class CreateNatGatewayRequest extends AbstractModel{
     }
 
     /**
+     * Get NAT网关所属子网 
+     * @return SubnetId NAT网关所属子网
+     */
+    public String getSubnetId() {
+        return this.SubnetId;
+    }
+
+    /**
+     * Set NAT网关所属子网
+     * @param SubnetId NAT网关所属子网
+     */
+    public void setSubnetId(String SubnetId) {
+        this.SubnetId = SubnetId;
+    }
+
+    public CreateNatGatewayRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateNatGatewayRequest(CreateNatGatewayRequest source) {
+        if (source.NatGatewayName != null) {
+            this.NatGatewayName = new String(source.NatGatewayName);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.InternetMaxBandwidthOut != null) {
+            this.InternetMaxBandwidthOut = new Long(source.InternetMaxBandwidthOut);
+        }
+        if (source.MaxConcurrentConnection != null) {
+            this.MaxConcurrentConnection = new Long(source.MaxConcurrentConnection);
+        }
+        if (source.AddressCount != null) {
+            this.AddressCount = new Long(source.AddressCount);
+        }
+        if (source.PublicIpAddresses != null) {
+            this.PublicIpAddresses = new String[source.PublicIpAddresses.length];
+            for (int i = 0; i < source.PublicIpAddresses.length; i++) {
+                this.PublicIpAddresses[i] = new String(source.PublicIpAddresses[i]);
+            }
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -218,6 +285,7 @@ public class CreateNatGatewayRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "PublicIpAddresses.", this.PublicIpAddresses);
         this.setParamSimple(map, prefix + "Zone", this.Zone);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "SubnetId", this.SubnetId);
 
     }
 }

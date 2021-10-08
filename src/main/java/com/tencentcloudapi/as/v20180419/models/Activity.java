@@ -116,6 +116,20 @@ public class Activity extends AbstractModel{
     private String StatusMessageSimplified;
 
     /**
+    * 伸缩活动中生命周期挂钩的执行结果。
+    */
+    @SerializedName("LifecycleActionResultSet")
+    @Expose
+    private LifecycleActionResultInfo [] LifecycleActionResultSet;
+
+    /**
+    * 伸缩活动状态详细描述。
+    */
+    @SerializedName("DetailedStatusMessageSet")
+    @Expose
+    private DetailedStatusMessage [] DetailedStatusMessageSet;
+
+    /**
      * Get 伸缩组ID。 
      * @return AutoScalingGroupId 伸缩组ID。
      */
@@ -344,6 +358,100 @@ public class Activity extends AbstractModel{
     }
 
     /**
+     * Get 伸缩活动中生命周期挂钩的执行结果。 
+     * @return LifecycleActionResultSet 伸缩活动中生命周期挂钩的执行结果。
+     */
+    public LifecycleActionResultInfo [] getLifecycleActionResultSet() {
+        return this.LifecycleActionResultSet;
+    }
+
+    /**
+     * Set 伸缩活动中生命周期挂钩的执行结果。
+     * @param LifecycleActionResultSet 伸缩活动中生命周期挂钩的执行结果。
+     */
+    public void setLifecycleActionResultSet(LifecycleActionResultInfo [] LifecycleActionResultSet) {
+        this.LifecycleActionResultSet = LifecycleActionResultSet;
+    }
+
+    /**
+     * Get 伸缩活动状态详细描述。 
+     * @return DetailedStatusMessageSet 伸缩活动状态详细描述。
+     */
+    public DetailedStatusMessage [] getDetailedStatusMessageSet() {
+        return this.DetailedStatusMessageSet;
+    }
+
+    /**
+     * Set 伸缩活动状态详细描述。
+     * @param DetailedStatusMessageSet 伸缩活动状态详细描述。
+     */
+    public void setDetailedStatusMessageSet(DetailedStatusMessage [] DetailedStatusMessageSet) {
+        this.DetailedStatusMessageSet = DetailedStatusMessageSet;
+    }
+
+    public Activity() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Activity(Activity source) {
+        if (source.AutoScalingGroupId != null) {
+            this.AutoScalingGroupId = new String(source.AutoScalingGroupId);
+        }
+        if (source.ActivityId != null) {
+            this.ActivityId = new String(source.ActivityId);
+        }
+        if (source.ActivityType != null) {
+            this.ActivityType = new String(source.ActivityType);
+        }
+        if (source.StatusCode != null) {
+            this.StatusCode = new String(source.StatusCode);
+        }
+        if (source.StatusMessage != null) {
+            this.StatusMessage = new String(source.StatusMessage);
+        }
+        if (source.Cause != null) {
+            this.Cause = new String(source.Cause);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.CreatedTime != null) {
+            this.CreatedTime = new String(source.CreatedTime);
+        }
+        if (source.ActivityRelatedInstanceSet != null) {
+            this.ActivityRelatedInstanceSet = new ActivtyRelatedInstance[source.ActivityRelatedInstanceSet.length];
+            for (int i = 0; i < source.ActivityRelatedInstanceSet.length; i++) {
+                this.ActivityRelatedInstanceSet[i] = new ActivtyRelatedInstance(source.ActivityRelatedInstanceSet[i]);
+            }
+        }
+        if (source.StatusMessageSimplified != null) {
+            this.StatusMessageSimplified = new String(source.StatusMessageSimplified);
+        }
+        if (source.LifecycleActionResultSet != null) {
+            this.LifecycleActionResultSet = new LifecycleActionResultInfo[source.LifecycleActionResultSet.length];
+            for (int i = 0; i < source.LifecycleActionResultSet.length; i++) {
+                this.LifecycleActionResultSet[i] = new LifecycleActionResultInfo(source.LifecycleActionResultSet[i]);
+            }
+        }
+        if (source.DetailedStatusMessageSet != null) {
+            this.DetailedStatusMessageSet = new DetailedStatusMessage[source.DetailedStatusMessageSet.length];
+            for (int i = 0; i < source.DetailedStatusMessageSet.length; i++) {
+                this.DetailedStatusMessageSet[i] = new DetailedStatusMessage(source.DetailedStatusMessageSet[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -359,6 +467,8 @@ public class Activity extends AbstractModel{
         this.setParamSimple(map, prefix + "CreatedTime", this.CreatedTime);
         this.setParamArrayObj(map, prefix + "ActivityRelatedInstanceSet.", this.ActivityRelatedInstanceSet);
         this.setParamSimple(map, prefix + "StatusMessageSimplified", this.StatusMessageSimplified);
+        this.setParamArrayObj(map, prefix + "LifecycleActionResultSet.", this.LifecycleActionResultSet);
+        this.setParamArrayObj(map, prefix + "DetailedStatusMessageSet.", this.DetailedStatusMessageSet);
 
     }
 }

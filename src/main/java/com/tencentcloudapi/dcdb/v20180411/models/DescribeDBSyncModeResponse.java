@@ -37,6 +37,13 @@ public class DescribeDBSyncModeResponse extends AbstractModel{
     private Long IsModifying;
 
     /**
+    * 当前复制方式，0 异步，1 同步
+    */
+    @SerializedName("CurrentSyncMode")
+    @Expose
+    private Long CurrentSyncMode;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -76,6 +83,22 @@ public class DescribeDBSyncModeResponse extends AbstractModel{
     }
 
     /**
+     * Get 当前复制方式，0 异步，1 同步 
+     * @return CurrentSyncMode 当前复制方式，0 异步，1 同步
+     */
+    public Long getCurrentSyncMode() {
+        return this.CurrentSyncMode;
+    }
+
+    /**
+     * Set 当前复制方式，0 异步，1 同步
+     * @param CurrentSyncMode 当前复制方式，0 异步，1 同步
+     */
+    public void setCurrentSyncMode(Long CurrentSyncMode) {
+        this.CurrentSyncMode = CurrentSyncMode;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -91,12 +114,36 @@ public class DescribeDBSyncModeResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public DescribeDBSyncModeResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeDBSyncModeResponse(DescribeDBSyncModeResponse source) {
+        if (source.SyncMode != null) {
+            this.SyncMode = new Long(source.SyncMode);
+        }
+        if (source.IsModifying != null) {
+            this.IsModifying = new Long(source.IsModifying);
+        }
+        if (source.CurrentSyncMode != null) {
+            this.CurrentSyncMode = new Long(source.CurrentSyncMode);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "SyncMode", this.SyncMode);
         this.setParamSimple(map, prefix + "IsModifying", this.IsModifying);
+        this.setParamSimple(map, prefix + "CurrentSyncMode", this.CurrentSyncMode);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -23,7 +23,8 @@ import java.util.HashMap;
 public class ModifyDBInstanceVipVportResponse extends AbstractModel{
 
     /**
-    * 异步任务ID。
+    * 异步任务ID。(该返回字段目前已废弃)
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AsyncRequestId")
     @Expose
@@ -37,16 +38,20 @@ public class ModifyDBInstanceVipVportResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 异步任务ID。 
-     * @return AsyncRequestId 异步任务ID。
+     * Get 异步任务ID。(该返回字段目前已废弃)
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AsyncRequestId 异步任务ID。(该返回字段目前已废弃)
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAsyncRequestId() {
         return this.AsyncRequestId;
     }
 
     /**
-     * Set 异步任务ID。
-     * @param AsyncRequestId 异步任务ID。
+     * Set 异步任务ID。(该返回字段目前已废弃)
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AsyncRequestId 异步任务ID。(该返回字段目前已废弃)
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAsyncRequestId(String AsyncRequestId) {
         this.AsyncRequestId = AsyncRequestId;
@@ -67,6 +72,23 @@ public class ModifyDBInstanceVipVportResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public ModifyDBInstanceVipVportResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyDBInstanceVipVportResponse(ModifyDBInstanceVipVportResponse source) {
+        if (source.AsyncRequestId != null) {
+            this.AsyncRequestId = new String(source.AsyncRequestId);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -30,14 +30,14 @@ public class ListLayersRequest extends AbstractModel{
     private String CompatibleRuntime;
 
     /**
-    * Offset
+    * 偏移位置
     */
     @SerializedName("Offset")
     @Expose
     private Long Offset;
 
     /**
-    * Limit
+    * 查询数目限制
     */
     @SerializedName("Limit")
     @Expose
@@ -67,32 +67,32 @@ public class ListLayersRequest extends AbstractModel{
     }
 
     /**
-     * Get Offset 
-     * @return Offset Offset
+     * Get 偏移位置 
+     * @return Offset 偏移位置
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set Offset
-     * @param Offset Offset
+     * Set 偏移位置
+     * @param Offset 偏移位置
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get Limit 
-     * @return Limit Limit
+     * Get 查询数目限制 
+     * @return Limit 查询数目限制
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set Limit
-     * @param Limit Limit
+     * Set 查询数目限制
+     * @param Limit 查询数目限制
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
@@ -113,6 +113,29 @@ public class ListLayersRequest extends AbstractModel{
     public void setSearchKey(String SearchKey) {
         this.SearchKey = SearchKey;
     }
+
+    public ListLayersRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ListLayersRequest(ListLayersRequest source) {
+        if (source.CompatibleRuntime != null) {
+            this.CompatibleRuntime = new String(source.CompatibleRuntime);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.SearchKey != null) {
+            this.SearchKey = new String(source.SearchKey);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

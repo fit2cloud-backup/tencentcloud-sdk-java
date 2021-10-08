@@ -30,27 +30,29 @@ public class DescribeVpcsRequest extends AbstractModel{
     private String [] VpcIds;
 
     /**
-    * 过滤条件，参数不支持同时指定VpcIds和Filters。
-<li>vpc-name - String - （过滤条件）VPC实例名称。</li>
-<li>is-default - String - （过滤条件）是否默认VPC。</li>
-<li>vpc-id - String - （过滤条件）VPC实例ID形如：vpc-f49l6u0z。</li>
-<li>cidr-block - String - （过滤条件）vpc的cidr。</li>
-<li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。</li>
-<li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例2。</li>
+    * 过滤条件，不支持同时指定VpcIds和Filters参数。
+支持的过滤条件如下：
+<li>vpc-name：VPC实例名称。</li>
+<li>is-default ：是否默认VPC。</li>
+<li>vpc-id ：VPC实例ID，例如：vpc-f49l6u0z。</li>
+<li>cidr-block：VPC的CIDR。</li>
+<li>tag-key ：按照标签键进行过滤，非必填参数。</li>
+<li>tag:tag-key：按照标签键值对进行过滤，非必填参数。 其中 tag-key 请使用具体的标签键进行替换，可参考示例2。</li>
+  **说明：**若同一个过滤条件（Filter）存在多个Values，则同一Filter下Values间的关系为逻辑或（OR）关系；若存在多个过滤条件（Filter），Filter之间的关系为逻辑与（AND）关系。
     */
     @SerializedName("Filters")
     @Expose
     private Filter [] Filters;
 
     /**
-    * 偏移量
+    * 偏移量，默认为0。
     */
     @SerializedName("Offset")
     @Expose
     private String Offset;
 
     /**
-    * 返回数量
+    * 返回数量，默认为20，最大值为100。
     */
     @SerializedName("Limit")
     @Expose
@@ -73,76 +75,113 @@ public class DescribeVpcsRequest extends AbstractModel{
     }
 
     /**
-     * Get 过滤条件，参数不支持同时指定VpcIds和Filters。
-<li>vpc-name - String - （过滤条件）VPC实例名称。</li>
-<li>is-default - String - （过滤条件）是否默认VPC。</li>
-<li>vpc-id - String - （过滤条件）VPC实例ID形如：vpc-f49l6u0z。</li>
-<li>cidr-block - String - （过滤条件）vpc的cidr。</li>
-<li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。</li>
-<li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例2。</li> 
-     * @return Filters 过滤条件，参数不支持同时指定VpcIds和Filters。
-<li>vpc-name - String - （过滤条件）VPC实例名称。</li>
-<li>is-default - String - （过滤条件）是否默认VPC。</li>
-<li>vpc-id - String - （过滤条件）VPC实例ID形如：vpc-f49l6u0z。</li>
-<li>cidr-block - String - （过滤条件）vpc的cidr。</li>
-<li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。</li>
-<li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例2。</li>
+     * Get 过滤条件，不支持同时指定VpcIds和Filters参数。
+支持的过滤条件如下：
+<li>vpc-name：VPC实例名称。</li>
+<li>is-default ：是否默认VPC。</li>
+<li>vpc-id ：VPC实例ID，例如：vpc-f49l6u0z。</li>
+<li>cidr-block：VPC的CIDR。</li>
+<li>tag-key ：按照标签键进行过滤，非必填参数。</li>
+<li>tag:tag-key：按照标签键值对进行过滤，非必填参数。 其中 tag-key 请使用具体的标签键进行替换，可参考示例2。</li>
+  **说明：**若同一个过滤条件（Filter）存在多个Values，则同一Filter下Values间的关系为逻辑或（OR）关系；若存在多个过滤条件（Filter），Filter之间的关系为逻辑与（AND）关系。 
+     * @return Filters 过滤条件，不支持同时指定VpcIds和Filters参数。
+支持的过滤条件如下：
+<li>vpc-name：VPC实例名称。</li>
+<li>is-default ：是否默认VPC。</li>
+<li>vpc-id ：VPC实例ID，例如：vpc-f49l6u0z。</li>
+<li>cidr-block：VPC的CIDR。</li>
+<li>tag-key ：按照标签键进行过滤，非必填参数。</li>
+<li>tag:tag-key：按照标签键值对进行过滤，非必填参数。 其中 tag-key 请使用具体的标签键进行替换，可参考示例2。</li>
+  **说明：**若同一个过滤条件（Filter）存在多个Values，则同一Filter下Values间的关系为逻辑或（OR）关系；若存在多个过滤条件（Filter），Filter之间的关系为逻辑与（AND）关系。
      */
     public Filter [] getFilters() {
         return this.Filters;
     }
 
     /**
-     * Set 过滤条件，参数不支持同时指定VpcIds和Filters。
-<li>vpc-name - String - （过滤条件）VPC实例名称。</li>
-<li>is-default - String - （过滤条件）是否默认VPC。</li>
-<li>vpc-id - String - （过滤条件）VPC实例ID形如：vpc-f49l6u0z。</li>
-<li>cidr-block - String - （过滤条件）vpc的cidr。</li>
-<li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。</li>
-<li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例2。</li>
-     * @param Filters 过滤条件，参数不支持同时指定VpcIds和Filters。
-<li>vpc-name - String - （过滤条件）VPC实例名称。</li>
-<li>is-default - String - （过滤条件）是否默认VPC。</li>
-<li>vpc-id - String - （过滤条件）VPC实例ID形如：vpc-f49l6u0z。</li>
-<li>cidr-block - String - （过滤条件）vpc的cidr。</li>
-<li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。</li>
-<li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例2。</li>
+     * Set 过滤条件，不支持同时指定VpcIds和Filters参数。
+支持的过滤条件如下：
+<li>vpc-name：VPC实例名称。</li>
+<li>is-default ：是否默认VPC。</li>
+<li>vpc-id ：VPC实例ID，例如：vpc-f49l6u0z。</li>
+<li>cidr-block：VPC的CIDR。</li>
+<li>tag-key ：按照标签键进行过滤，非必填参数。</li>
+<li>tag:tag-key：按照标签键值对进行过滤，非必填参数。 其中 tag-key 请使用具体的标签键进行替换，可参考示例2。</li>
+  **说明：**若同一个过滤条件（Filter）存在多个Values，则同一Filter下Values间的关系为逻辑或（OR）关系；若存在多个过滤条件（Filter），Filter之间的关系为逻辑与（AND）关系。
+     * @param Filters 过滤条件，不支持同时指定VpcIds和Filters参数。
+支持的过滤条件如下：
+<li>vpc-name：VPC实例名称。</li>
+<li>is-default ：是否默认VPC。</li>
+<li>vpc-id ：VPC实例ID，例如：vpc-f49l6u0z。</li>
+<li>cidr-block：VPC的CIDR。</li>
+<li>tag-key ：按照标签键进行过滤，非必填参数。</li>
+<li>tag:tag-key：按照标签键值对进行过滤，非必填参数。 其中 tag-key 请使用具体的标签键进行替换，可参考示例2。</li>
+  **说明：**若同一个过滤条件（Filter）存在多个Values，则同一Filter下Values间的关系为逻辑或（OR）关系；若存在多个过滤条件（Filter），Filter之间的关系为逻辑与（AND）关系。
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;
     }
 
     /**
-     * Get 偏移量 
-     * @return Offset 偏移量
+     * Get 偏移量，默认为0。 
+     * @return Offset 偏移量，默认为0。
      */
     public String getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 偏移量
-     * @param Offset 偏移量
+     * Set 偏移量，默认为0。
+     * @param Offset 偏移量，默认为0。
      */
     public void setOffset(String Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get 返回数量 
-     * @return Limit 返回数量
+     * Get 返回数量，默认为20，最大值为100。 
+     * @return Limit 返回数量，默认为20，最大值为100。
      */
     public String getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 返回数量
-     * @param Limit 返回数量
+     * Set 返回数量，默认为20，最大值为100。
+     * @param Limit 返回数量，默认为20，最大值为100。
      */
     public void setLimit(String Limit) {
         this.Limit = Limit;
     }
+
+    public DescribeVpcsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeVpcsRequest(DescribeVpcsRequest source) {
+        if (source.VpcIds != null) {
+            this.VpcIds = new String[source.VpcIds.length];
+            for (int i = 0; i < source.VpcIds.length; i++) {
+                this.VpcIds[i] = new String(source.VpcIds[i]);
+            }
+        }
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
+        }
+        if (source.Offset != null) {
+            this.Offset = new String(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new String(source.Limit);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

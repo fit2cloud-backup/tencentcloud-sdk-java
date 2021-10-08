@@ -113,6 +113,13 @@ public class ModifyImageSpriteTemplateRequest extends AbstractModel{
     private String FillType;
 
     /**
+    * 模板描述信息，长度限制：256 个字符。
+    */
+    @SerializedName("Comment")
+    @Expose
+    private String Comment;
+
+    /**
      * Get 雪碧图模板唯一标识。 
      * @return Definition 雪碧图模板唯一标识。
      */
@@ -353,6 +360,66 @@ public class ModifyImageSpriteTemplateRequest extends AbstractModel{
     }
 
     /**
+     * Get 模板描述信息，长度限制：256 个字符。 
+     * @return Comment 模板描述信息，长度限制：256 个字符。
+     */
+    public String getComment() {
+        return this.Comment;
+    }
+
+    /**
+     * Set 模板描述信息，长度限制：256 个字符。
+     * @param Comment 模板描述信息，长度限制：256 个字符。
+     */
+    public void setComment(String Comment) {
+        this.Comment = Comment;
+    }
+
+    public ModifyImageSpriteTemplateRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyImageSpriteTemplateRequest(ModifyImageSpriteTemplateRequest source) {
+        if (source.Definition != null) {
+            this.Definition = new Long(source.Definition);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Width != null) {
+            this.Width = new Long(source.Width);
+        }
+        if (source.Height != null) {
+            this.Height = new Long(source.Height);
+        }
+        if (source.ResolutionAdaptive != null) {
+            this.ResolutionAdaptive = new String(source.ResolutionAdaptive);
+        }
+        if (source.SampleType != null) {
+            this.SampleType = new String(source.SampleType);
+        }
+        if (source.SampleInterval != null) {
+            this.SampleInterval = new Long(source.SampleInterval);
+        }
+        if (source.RowCount != null) {
+            this.RowCount = new Long(source.RowCount);
+        }
+        if (source.ColumnCount != null) {
+            this.ColumnCount = new Long(source.ColumnCount);
+        }
+        if (source.FillType != null) {
+            this.FillType = new String(source.FillType);
+        }
+        if (source.Comment != null) {
+            this.Comment = new String(source.Comment);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -366,6 +433,7 @@ public class ModifyImageSpriteTemplateRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "RowCount", this.RowCount);
         this.setParamSimple(map, prefix + "ColumnCount", this.ColumnCount);
         this.setParamSimple(map, prefix + "FillType", this.FillType);
+        this.setParamSimple(map, prefix + "Comment", this.Comment);
 
     }
 }

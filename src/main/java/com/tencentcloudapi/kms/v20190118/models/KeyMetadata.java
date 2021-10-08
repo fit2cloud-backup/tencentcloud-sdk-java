@@ -51,14 +51,14 @@ public class KeyMetadata extends AbstractModel{
     private String Description;
 
     /**
-    * CMK的状态， 取值为：Enabled | Disabled | PendingDelete | PendingImport
+    * CMK的状态， 取值为：Enabled | Disabled | PendingDelete | PendingImport | Archived
     */
     @SerializedName("KeyState")
     @Expose
     private String KeyState;
 
     /**
-    * CMK用途，取值为: ENCRYPT_DECRYPT | ASYMMETRIC_DECRYPT_RSA_2048 | ASYMMETRIC_DECRYPT_SM2
+    * CMK用途，取值为: ENCRYPT_DECRYPT | ASYMMETRIC_DECRYPT_RSA_2048 | ASYMMETRIC_DECRYPT_SM2 | ASYMMETRIC_SIGN_VERIFY_SM2 | ASYMMETRIC_SIGN_VERIFY_RSA_2048 | ASYMMETRIC_SIGN_VERIFY_ECC
     */
     @SerializedName("KeyUsage")
     @Expose
@@ -122,6 +122,13 @@ public class KeyMetadata extends AbstractModel{
     @SerializedName("ValidTo")
     @Expose
     private Long ValidTo;
+
+    /**
+    * 资源ID，格式：creatorUin/$creatorUin/$keyId
+    */
+    @SerializedName("ResourceId")
+    @Expose
+    private String ResourceId;
 
     /**
      * Get CMK的全局唯一标识 
@@ -188,32 +195,32 @@ public class KeyMetadata extends AbstractModel{
     }
 
     /**
-     * Get CMK的状态， 取值为：Enabled | Disabled | PendingDelete | PendingImport 
-     * @return KeyState CMK的状态， 取值为：Enabled | Disabled | PendingDelete | PendingImport
+     * Get CMK的状态， 取值为：Enabled | Disabled | PendingDelete | PendingImport | Archived 
+     * @return KeyState CMK的状态， 取值为：Enabled | Disabled | PendingDelete | PendingImport | Archived
      */
     public String getKeyState() {
         return this.KeyState;
     }
 
     /**
-     * Set CMK的状态， 取值为：Enabled | Disabled | PendingDelete | PendingImport
-     * @param KeyState CMK的状态， 取值为：Enabled | Disabled | PendingDelete | PendingImport
+     * Set CMK的状态， 取值为：Enabled | Disabled | PendingDelete | PendingImport | Archived
+     * @param KeyState CMK的状态， 取值为：Enabled | Disabled | PendingDelete | PendingImport | Archived
      */
     public void setKeyState(String KeyState) {
         this.KeyState = KeyState;
     }
 
     /**
-     * Get CMK用途，取值为: ENCRYPT_DECRYPT | ASYMMETRIC_DECRYPT_RSA_2048 | ASYMMETRIC_DECRYPT_SM2 
-     * @return KeyUsage CMK用途，取值为: ENCRYPT_DECRYPT | ASYMMETRIC_DECRYPT_RSA_2048 | ASYMMETRIC_DECRYPT_SM2
+     * Get CMK用途，取值为: ENCRYPT_DECRYPT | ASYMMETRIC_DECRYPT_RSA_2048 | ASYMMETRIC_DECRYPT_SM2 | ASYMMETRIC_SIGN_VERIFY_SM2 | ASYMMETRIC_SIGN_VERIFY_RSA_2048 | ASYMMETRIC_SIGN_VERIFY_ECC 
+     * @return KeyUsage CMK用途，取值为: ENCRYPT_DECRYPT | ASYMMETRIC_DECRYPT_RSA_2048 | ASYMMETRIC_DECRYPT_SM2 | ASYMMETRIC_SIGN_VERIFY_SM2 | ASYMMETRIC_SIGN_VERIFY_RSA_2048 | ASYMMETRIC_SIGN_VERIFY_ECC
      */
     public String getKeyUsage() {
         return this.KeyUsage;
     }
 
     /**
-     * Set CMK用途，取值为: ENCRYPT_DECRYPT | ASYMMETRIC_DECRYPT_RSA_2048 | ASYMMETRIC_DECRYPT_SM2
-     * @param KeyUsage CMK用途，取值为: ENCRYPT_DECRYPT | ASYMMETRIC_DECRYPT_RSA_2048 | ASYMMETRIC_DECRYPT_SM2
+     * Set CMK用途，取值为: ENCRYPT_DECRYPT | ASYMMETRIC_DECRYPT_RSA_2048 | ASYMMETRIC_DECRYPT_SM2 | ASYMMETRIC_SIGN_VERIFY_SM2 | ASYMMETRIC_SIGN_VERIFY_RSA_2048 | ASYMMETRIC_SIGN_VERIFY_ECC
+     * @param KeyUsage CMK用途，取值为: ENCRYPT_DECRYPT | ASYMMETRIC_DECRYPT_RSA_2048 | ASYMMETRIC_DECRYPT_SM2 | ASYMMETRIC_SIGN_VERIFY_SM2 | ASYMMETRIC_SIGN_VERIFY_RSA_2048 | ASYMMETRIC_SIGN_VERIFY_ECC
      */
     public void setKeyUsage(String KeyUsage) {
         this.KeyUsage = KeyUsage;
@@ -360,6 +367,78 @@ public class KeyMetadata extends AbstractModel{
     }
 
     /**
+     * Get 资源ID，格式：creatorUin/$creatorUin/$keyId 
+     * @return ResourceId 资源ID，格式：creatorUin/$creatorUin/$keyId
+     */
+    public String getResourceId() {
+        return this.ResourceId;
+    }
+
+    /**
+     * Set 资源ID，格式：creatorUin/$creatorUin/$keyId
+     * @param ResourceId 资源ID，格式：creatorUin/$creatorUin/$keyId
+     */
+    public void setResourceId(String ResourceId) {
+        this.ResourceId = ResourceId;
+    }
+
+    public KeyMetadata() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public KeyMetadata(KeyMetadata source) {
+        if (source.KeyId != null) {
+            this.KeyId = new String(source.KeyId);
+        }
+        if (source.Alias != null) {
+            this.Alias = new String(source.Alias);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new Long(source.CreateTime);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.KeyState != null) {
+            this.KeyState = new String(source.KeyState);
+        }
+        if (source.KeyUsage != null) {
+            this.KeyUsage = new String(source.KeyUsage);
+        }
+        if (source.Type != null) {
+            this.Type = new Long(source.Type);
+        }
+        if (source.CreatorUin != null) {
+            this.CreatorUin = new Long(source.CreatorUin);
+        }
+        if (source.KeyRotationEnabled != null) {
+            this.KeyRotationEnabled = new Boolean(source.KeyRotationEnabled);
+        }
+        if (source.Owner != null) {
+            this.Owner = new String(source.Owner);
+        }
+        if (source.NextRotateTime != null) {
+            this.NextRotateTime = new Long(source.NextRotateTime);
+        }
+        if (source.DeletionDate != null) {
+            this.DeletionDate = new Long(source.DeletionDate);
+        }
+        if (source.Origin != null) {
+            this.Origin = new String(source.Origin);
+        }
+        if (source.ValidTo != null) {
+            this.ValidTo = new Long(source.ValidTo);
+        }
+        if (source.ResourceId != null) {
+            this.ResourceId = new String(source.ResourceId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -377,6 +456,7 @@ public class KeyMetadata extends AbstractModel{
         this.setParamSimple(map, prefix + "DeletionDate", this.DeletionDate);
         this.setParamSimple(map, prefix + "Origin", this.Origin);
         this.setParamSimple(map, prefix + "ValidTo", this.ValidTo);
+        this.setParamSimple(map, prefix + "ResourceId", this.ResourceId);
 
     }
 }

@@ -24,14 +24,17 @@ public class HlsSpecialParam extends AbstractModel{
 
     /**
     * HLS续流超时时间。
+取值范围[0，1800]。
     */
     @SerializedName("FlowContinueDuration")
     @Expose
     private Long FlowContinueDuration;
 
     /**
-     * Get HLS续流超时时间。 
+     * Get HLS续流超时时间。
+取值范围[0，1800]。 
      * @return FlowContinueDuration HLS续流超时时间。
+取值范围[0，1800]。
      */
     public Long getFlowContinueDuration() {
         return this.FlowContinueDuration;
@@ -39,11 +42,27 @@ public class HlsSpecialParam extends AbstractModel{
 
     /**
      * Set HLS续流超时时间。
+取值范围[0，1800]。
      * @param FlowContinueDuration HLS续流超时时间。
+取值范围[0，1800]。
      */
     public void setFlowContinueDuration(Long FlowContinueDuration) {
         this.FlowContinueDuration = FlowContinueDuration;
     }
+
+    public HlsSpecialParam() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public HlsSpecialParam(HlsSpecialParam source) {
+        if (source.FlowContinueDuration != null) {
+            this.FlowContinueDuration = new Long(source.FlowContinueDuration);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

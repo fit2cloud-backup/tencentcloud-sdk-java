@@ -101,6 +101,17 @@ type=by_user根据用户id 查订单 。
     private String TransactionId;
 
     /**
+    * 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+    */
+    @SerializedName("MidasEnvironment")
+    @Expose
+    private String MidasEnvironment;
+
+    /**
      * Get 聚鑫分配的支付主 MidasAppId 
      * @return MidasAppId 聚鑫分配的支付主 MidasAppId
      */
@@ -281,6 +292,85 @@ type=by_user根据用户id 查订单 。
     }
 
     /**
+     * Get 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release 
+     * @return MidasEnvironment 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+     */
+    public String getMidasEnvironment() {
+        return this.MidasEnvironment;
+    }
+
+    /**
+     * Set 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+     * @param MidasEnvironment 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+     */
+    public void setMidasEnvironment(String MidasEnvironment) {
+        this.MidasEnvironment = MidasEnvironment;
+    }
+
+    public QueryOrderRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public QueryOrderRequest(QueryOrderRequest source) {
+        if (source.MidasAppId != null) {
+            this.MidasAppId = new String(source.MidasAppId);
+        }
+        if (source.UserId != null) {
+            this.UserId = new String(source.UserId);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.MidasSecretId != null) {
+            this.MidasSecretId = new String(source.MidasSecretId);
+        }
+        if (source.MidasSignature != null) {
+            this.MidasSignature = new String(source.MidasSignature);
+        }
+        if (source.Count != null) {
+            this.Count = new Long(source.Count);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.OutTradeNo != null) {
+            this.OutTradeNo = new String(source.OutTradeNo);
+        }
+        if (source.TransactionId != null) {
+            this.TransactionId = new String(source.TransactionId);
+        }
+        if (source.MidasEnvironment != null) {
+            this.MidasEnvironment = new String(source.MidasEnvironment);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -295,6 +385,7 @@ type=by_user根据用户id 查订单 。
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
         this.setParamSimple(map, prefix + "OutTradeNo", this.OutTradeNo);
         this.setParamSimple(map, prefix + "TransactionId", this.TransactionId);
+        this.setParamSimple(map, prefix + "MidasEnvironment", this.MidasEnvironment);
 
     }
 }

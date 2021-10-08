@@ -46,6 +46,14 @@ public class SubscribedInfo extends AbstractModel{
     private PartitionOffset [] PartitionOffset;
 
     /**
+    * 订阅的主题ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TopicId")
+    @Expose
+    private String TopicId;
+
+    /**
      * Get 订阅的主题名 
      * @return TopicName 订阅的主题名
      */
@@ -102,12 +110,62 @@ public class SubscribedInfo extends AbstractModel{
     }
 
     /**
+     * Get 订阅的主题ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TopicId 订阅的主题ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTopicId() {
+        return this.TopicId;
+    }
+
+    /**
+     * Set 订阅的主题ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TopicId 订阅的主题ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTopicId(String TopicId) {
+        this.TopicId = TopicId;
+    }
+
+    public SubscribedInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SubscribedInfo(SubscribedInfo source) {
+        if (source.TopicName != null) {
+            this.TopicName = new String(source.TopicName);
+        }
+        if (source.Partition != null) {
+            this.Partition = new Long[source.Partition.length];
+            for (int i = 0; i < source.Partition.length; i++) {
+                this.Partition[i] = new Long(source.Partition[i]);
+            }
+        }
+        if (source.PartitionOffset != null) {
+            this.PartitionOffset = new PartitionOffset[source.PartitionOffset.length];
+            for (int i = 0; i < source.PartitionOffset.length; i++) {
+                this.PartitionOffset[i] = new PartitionOffset(source.PartitionOffset[i]);
+            }
+        }
+        if (source.TopicId != null) {
+            this.TopicId = new String(source.TopicId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TopicName", this.TopicName);
         this.setParamArraySimple(map, prefix + "Partition.", this.Partition);
         this.setParamArrayObj(map, prefix + "PartitionOffset.", this.PartitionOffset);
+        this.setParamSimple(map, prefix + "TopicId", this.TopicId);
 
     }
 }

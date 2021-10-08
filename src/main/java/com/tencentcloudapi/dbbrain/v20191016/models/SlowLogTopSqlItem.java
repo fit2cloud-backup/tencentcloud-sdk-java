@@ -128,7 +128,7 @@ public class SlowLogTopSqlItem extends AbstractModel{
     private String SqlText;
 
     /**
-    * schema
+    * 数据库名
     */
     @SerializedName("Schema")
     @Expose
@@ -161,6 +161,34 @@ public class SlowLogTopSqlItem extends AbstractModel{
     @SerializedName("RowsSentRatio")
     @Expose
     private Float RowsSentRatio;
+
+    /**
+    * 平均执行时间
+    */
+    @SerializedName("QueryTimeAvg")
+    @Expose
+    private Float QueryTimeAvg;
+
+    /**
+    * 平均返回行数
+    */
+    @SerializedName("RowsSentAvg")
+    @Expose
+    private Float RowsSentAvg;
+
+    /**
+    * 平均锁等待时间
+    */
+    @SerializedName("LockTimeAvg")
+    @Expose
+    private Float LockTimeAvg;
+
+    /**
+    * 平均扫描行数
+    */
+    @SerializedName("RowsExaminedAvg")
+    @Expose
+    private Float RowsExaminedAvg;
 
     /**
      * Get sql总锁等待时间 
@@ -403,16 +431,16 @@ public class SlowLogTopSqlItem extends AbstractModel{
     }
 
     /**
-     * Get schema 
-     * @return Schema schema
+     * Get 数据库名 
+     * @return Schema 数据库名
      */
     public String getSchema() {
         return this.Schema;
     }
 
     /**
-     * Set schema
-     * @param Schema schema
+     * Set 数据库名
+     * @param Schema 数据库名
      */
     public void setSchema(String Schema) {
         this.Schema = Schema;
@@ -483,6 +511,153 @@ public class SlowLogTopSqlItem extends AbstractModel{
     }
 
     /**
+     * Get 平均执行时间 
+     * @return QueryTimeAvg 平均执行时间
+     */
+    public Float getQueryTimeAvg() {
+        return this.QueryTimeAvg;
+    }
+
+    /**
+     * Set 平均执行时间
+     * @param QueryTimeAvg 平均执行时间
+     */
+    public void setQueryTimeAvg(Float QueryTimeAvg) {
+        this.QueryTimeAvg = QueryTimeAvg;
+    }
+
+    /**
+     * Get 平均返回行数 
+     * @return RowsSentAvg 平均返回行数
+     */
+    public Float getRowsSentAvg() {
+        return this.RowsSentAvg;
+    }
+
+    /**
+     * Set 平均返回行数
+     * @param RowsSentAvg 平均返回行数
+     */
+    public void setRowsSentAvg(Float RowsSentAvg) {
+        this.RowsSentAvg = RowsSentAvg;
+    }
+
+    /**
+     * Get 平均锁等待时间 
+     * @return LockTimeAvg 平均锁等待时间
+     */
+    public Float getLockTimeAvg() {
+        return this.LockTimeAvg;
+    }
+
+    /**
+     * Set 平均锁等待时间
+     * @param LockTimeAvg 平均锁等待时间
+     */
+    public void setLockTimeAvg(Float LockTimeAvg) {
+        this.LockTimeAvg = LockTimeAvg;
+    }
+
+    /**
+     * Get 平均扫描行数 
+     * @return RowsExaminedAvg 平均扫描行数
+     */
+    public Float getRowsExaminedAvg() {
+        return this.RowsExaminedAvg;
+    }
+
+    /**
+     * Set 平均扫描行数
+     * @param RowsExaminedAvg 平均扫描行数
+     */
+    public void setRowsExaminedAvg(Float RowsExaminedAvg) {
+        this.RowsExaminedAvg = RowsExaminedAvg;
+    }
+
+    public SlowLogTopSqlItem() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SlowLogTopSqlItem(SlowLogTopSqlItem source) {
+        if (source.LockTime != null) {
+            this.LockTime = new Float(source.LockTime);
+        }
+        if (source.LockTimeMax != null) {
+            this.LockTimeMax = new Float(source.LockTimeMax);
+        }
+        if (source.LockTimeMin != null) {
+            this.LockTimeMin = new Float(source.LockTimeMin);
+        }
+        if (source.RowsExamined != null) {
+            this.RowsExamined = new Long(source.RowsExamined);
+        }
+        if (source.RowsExaminedMax != null) {
+            this.RowsExaminedMax = new Long(source.RowsExaminedMax);
+        }
+        if (source.RowsExaminedMin != null) {
+            this.RowsExaminedMin = new Long(source.RowsExaminedMin);
+        }
+        if (source.QueryTime != null) {
+            this.QueryTime = new Float(source.QueryTime);
+        }
+        if (source.QueryTimeMax != null) {
+            this.QueryTimeMax = new Float(source.QueryTimeMax);
+        }
+        if (source.QueryTimeMin != null) {
+            this.QueryTimeMin = new Float(source.QueryTimeMin);
+        }
+        if (source.RowsSent != null) {
+            this.RowsSent = new Long(source.RowsSent);
+        }
+        if (source.RowsSentMax != null) {
+            this.RowsSentMax = new Long(source.RowsSentMax);
+        }
+        if (source.RowsSentMin != null) {
+            this.RowsSentMin = new Long(source.RowsSentMin);
+        }
+        if (source.ExecTimes != null) {
+            this.ExecTimes = new Long(source.ExecTimes);
+        }
+        if (source.SqlTemplate != null) {
+            this.SqlTemplate = new String(source.SqlTemplate);
+        }
+        if (source.SqlText != null) {
+            this.SqlText = new String(source.SqlText);
+        }
+        if (source.Schema != null) {
+            this.Schema = new String(source.Schema);
+        }
+        if (source.QueryTimeRatio != null) {
+            this.QueryTimeRatio = new Float(source.QueryTimeRatio);
+        }
+        if (source.LockTimeRatio != null) {
+            this.LockTimeRatio = new Float(source.LockTimeRatio);
+        }
+        if (source.RowsExaminedRatio != null) {
+            this.RowsExaminedRatio = new Float(source.RowsExaminedRatio);
+        }
+        if (source.RowsSentRatio != null) {
+            this.RowsSentRatio = new Float(source.RowsSentRatio);
+        }
+        if (source.QueryTimeAvg != null) {
+            this.QueryTimeAvg = new Float(source.QueryTimeAvg);
+        }
+        if (source.RowsSentAvg != null) {
+            this.RowsSentAvg = new Float(source.RowsSentAvg);
+        }
+        if (source.LockTimeAvg != null) {
+            this.LockTimeAvg = new Float(source.LockTimeAvg);
+        }
+        if (source.RowsExaminedAvg != null) {
+            this.RowsExaminedAvg = new Float(source.RowsExaminedAvg);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -506,6 +681,10 @@ public class SlowLogTopSqlItem extends AbstractModel{
         this.setParamSimple(map, prefix + "LockTimeRatio", this.LockTimeRatio);
         this.setParamSimple(map, prefix + "RowsExaminedRatio", this.RowsExaminedRatio);
         this.setParamSimple(map, prefix + "RowsSentRatio", this.RowsSentRatio);
+        this.setParamSimple(map, prefix + "QueryTimeAvg", this.QueryTimeAvg);
+        this.setParamSimple(map, prefix + "RowsSentAvg", this.RowsSentAvg);
+        this.setParamSimple(map, prefix + "LockTimeAvg", this.LockTimeAvg);
+        this.setParamSimple(map, prefix + "RowsExaminedAvg", this.RowsExaminedAvg);
 
     }
 }

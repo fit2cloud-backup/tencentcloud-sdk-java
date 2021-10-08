@@ -24,6 +24,7 @@ public class TextCorrectionResponse extends AbstractModel{
 
     /**
     * 纠错详情
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CCITokens")
     @Expose
@@ -44,8 +45,10 @@ public class TextCorrectionResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 纠错详情 
+     * Get 纠错详情
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return CCITokens 纠错详情
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public CCIToken [] getCCITokens() {
         return this.CCITokens;
@@ -53,7 +56,9 @@ public class TextCorrectionResponse extends AbstractModel{
 
     /**
      * Set 纠错详情
+注意：此字段可能返回 null，表示取不到有效值。
      * @param CCITokens 纠错详情
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCCITokens(CCIToken [] CCITokens) {
         this.CCITokens = CCITokens;
@@ -90,6 +95,29 @@ public class TextCorrectionResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public TextCorrectionResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public TextCorrectionResponse(TextCorrectionResponse source) {
+        if (source.CCITokens != null) {
+            this.CCITokens = new CCIToken[source.CCITokens.length];
+            for (int i = 0; i < source.CCITokens.length; i++) {
+                this.CCITokens[i] = new CCIToken(source.CCITokens[i]);
+            }
+        }
+        if (source.ResultText != null) {
+            this.ResultText = new String(source.ResultText);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -23,50 +23,123 @@ import java.util.HashMap;
 public class DelayDistribution extends AbstractModel{
 
     /**
-    * 分布阶梯
+    * 分布阶梯，延时和Ladder值的对应关系：
+[0ms,1ms]: 1；
+[1ms,5ms]: 5；
+[5ms,10ms]: 10；
+[10ms,50ms]: 50；
+[50ms,200ms]: 200；
+[200ms,∞]: -1。
     */
     @SerializedName("Ladder")
     @Expose
     private Long Ladder;
 
     /**
-    * 大小
+    * 延时处于当前分布阶梯的命令数量，个。
     */
     @SerializedName("Size")
     @Expose
     private Long Size;
 
     /**
-     * Get 分布阶梯 
-     * @return Ladder 分布阶梯
+    * 修改时间。
+    */
+    @SerializedName("Updatetime")
+    @Expose
+    private Long Updatetime;
+
+    /**
+     * Get 分布阶梯，延时和Ladder值的对应关系：
+[0ms,1ms]: 1；
+[1ms,5ms]: 5；
+[5ms,10ms]: 10；
+[10ms,50ms]: 50；
+[50ms,200ms]: 200；
+[200ms,∞]: -1。 
+     * @return Ladder 分布阶梯，延时和Ladder值的对应关系：
+[0ms,1ms]: 1；
+[1ms,5ms]: 5；
+[5ms,10ms]: 10；
+[10ms,50ms]: 50；
+[50ms,200ms]: 200；
+[200ms,∞]: -1。
      */
     public Long getLadder() {
         return this.Ladder;
     }
 
     /**
-     * Set 分布阶梯
-     * @param Ladder 分布阶梯
+     * Set 分布阶梯，延时和Ladder值的对应关系：
+[0ms,1ms]: 1；
+[1ms,5ms]: 5；
+[5ms,10ms]: 10；
+[10ms,50ms]: 50；
+[50ms,200ms]: 200；
+[200ms,∞]: -1。
+     * @param Ladder 分布阶梯，延时和Ladder值的对应关系：
+[0ms,1ms]: 1；
+[1ms,5ms]: 5；
+[5ms,10ms]: 10；
+[10ms,50ms]: 50；
+[50ms,200ms]: 200；
+[200ms,∞]: -1。
      */
     public void setLadder(Long Ladder) {
         this.Ladder = Ladder;
     }
 
     /**
-     * Get 大小 
-     * @return Size 大小
+     * Get 延时处于当前分布阶梯的命令数量，个。 
+     * @return Size 延时处于当前分布阶梯的命令数量，个。
      */
     public Long getSize() {
         return this.Size;
     }
 
     /**
-     * Set 大小
-     * @param Size 大小
+     * Set 延时处于当前分布阶梯的命令数量，个。
+     * @param Size 延时处于当前分布阶梯的命令数量，个。
      */
     public void setSize(Long Size) {
         this.Size = Size;
     }
+
+    /**
+     * Get 修改时间。 
+     * @return Updatetime 修改时间。
+     */
+    public Long getUpdatetime() {
+        return this.Updatetime;
+    }
+
+    /**
+     * Set 修改时间。
+     * @param Updatetime 修改时间。
+     */
+    public void setUpdatetime(Long Updatetime) {
+        this.Updatetime = Updatetime;
+    }
+
+    public DelayDistribution() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DelayDistribution(DelayDistribution source) {
+        if (source.Ladder != null) {
+            this.Ladder = new Long(source.Ladder);
+        }
+        if (source.Size != null) {
+            this.Size = new Long(source.Size);
+        }
+        if (source.Updatetime != null) {
+            this.Updatetime = new Long(source.Updatetime);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -74,6 +147,7 @@ public class DelayDistribution extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Ladder", this.Ladder);
         this.setParamSimple(map, prefix + "Size", this.Size);
+        this.setParamSimple(map, prefix + "Updatetime", this.Updatetime);
 
     }
 }

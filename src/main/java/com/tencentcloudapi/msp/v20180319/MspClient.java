@@ -27,6 +27,7 @@ import com.tencentcloudapi.msp.v20180319.models.*;
 
 public class MspClient extends AbstractClient{
     private static String endpoint = "msp.tencentcloudapi.com";
+    private static String service = "msp";
     private static String version = "2018-03-19";
 
     public MspClient(Credential credential, String region) {
@@ -45,12 +46,14 @@ public class MspClient extends AbstractClient{
      */
     public DeregisterMigrationTaskResponse DeregisterMigrationTask(DeregisterMigrationTaskRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeregisterMigrationTaskResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DeregisterMigrationTaskResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DeregisterMigrationTask"), type);
+                rspStr = this.internalRequest(req, "DeregisterMigrationTask");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -63,12 +66,14 @@ public class MspClient extends AbstractClient{
      */
     public DescribeMigrationTaskResponse DescribeMigrationTask(DescribeMigrationTaskRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeMigrationTaskResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeMigrationTaskResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeMigrationTask"), type);
+                rspStr = this.internalRequest(req, "DescribeMigrationTask");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -81,12 +86,14 @@ public class MspClient extends AbstractClient{
      */
     public ListMigrationProjectResponse ListMigrationProject(ListMigrationProjectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ListMigrationProjectResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ListMigrationProjectResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ListMigrationProject"), type);
+                rspStr = this.internalRequest(req, "ListMigrationProject");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -99,12 +106,14 @@ public class MspClient extends AbstractClient{
      */
     public ListMigrationTaskResponse ListMigrationTask(ListMigrationTaskRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ListMigrationTaskResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ListMigrationTaskResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ListMigrationTask"), type);
+                rspStr = this.internalRequest(req, "ListMigrationTask");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -117,12 +126,14 @@ public class MspClient extends AbstractClient{
      */
     public ModifyMigrationTaskBelongToProjectResponse ModifyMigrationTaskBelongToProject(ModifyMigrationTaskBelongToProjectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyMigrationTaskBelongToProjectResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyMigrationTaskBelongToProjectResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ModifyMigrationTaskBelongToProject"), type);
+                rspStr = this.internalRequest(req, "ModifyMigrationTaskBelongToProject");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -135,12 +146,14 @@ public class MspClient extends AbstractClient{
      */
     public ModifyMigrationTaskStatusResponse ModifyMigrationTaskStatus(ModifyMigrationTaskStatusRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyMigrationTaskStatusResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyMigrationTaskStatusResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ModifyMigrationTaskStatus"), type);
+                rspStr = this.internalRequest(req, "ModifyMigrationTaskStatus");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -153,12 +166,14 @@ public class MspClient extends AbstractClient{
      */
     public RegisterMigrationTaskResponse RegisterMigrationTask(RegisterMigrationTaskRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RegisterMigrationTaskResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<RegisterMigrationTaskResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "RegisterMigrationTask"), type);
+                rspStr = this.internalRequest(req, "RegisterMigrationTask");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

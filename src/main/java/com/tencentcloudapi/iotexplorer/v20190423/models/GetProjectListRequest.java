@@ -37,6 +37,41 @@ public class GetProjectListRequest extends AbstractModel{
     private Long Limit;
 
     /**
+    * 实例ID
+    */
+    @SerializedName("InstanceId")
+    @Expose
+    private String InstanceId;
+
+    /**
+    * 按项目D搜索
+    */
+    @SerializedName("ProjectId")
+    @Expose
+    private String ProjectId;
+
+    /**
+    * 按产品ID搜索
+    */
+    @SerializedName("ProductId")
+    @Expose
+    private String ProductId;
+
+    /**
+    * 加载 ProductCount、DeviceCount、ApplicationCount，可选值：ProductCount、DeviceCount、ApplicationCount，可多选
+    */
+    @SerializedName("Includes")
+    @Expose
+    private String [] Includes;
+
+    /**
+    * 按项目名称搜索
+    */
+    @SerializedName("ProjectName")
+    @Expose
+    private String ProjectName;
+
+    /**
      * Get 偏移量 
      * @return Offset 偏移量
      */
@@ -69,11 +104,131 @@ public class GetProjectListRequest extends AbstractModel{
     }
 
     /**
+     * Get 实例ID 
+     * @return InstanceId 实例ID
+     */
+    public String getInstanceId() {
+        return this.InstanceId;
+    }
+
+    /**
+     * Set 实例ID
+     * @param InstanceId 实例ID
+     */
+    public void setInstanceId(String InstanceId) {
+        this.InstanceId = InstanceId;
+    }
+
+    /**
+     * Get 按项目D搜索 
+     * @return ProjectId 按项目D搜索
+     */
+    public String getProjectId() {
+        return this.ProjectId;
+    }
+
+    /**
+     * Set 按项目D搜索
+     * @param ProjectId 按项目D搜索
+     */
+    public void setProjectId(String ProjectId) {
+        this.ProjectId = ProjectId;
+    }
+
+    /**
+     * Get 按产品ID搜索 
+     * @return ProductId 按产品ID搜索
+     */
+    public String getProductId() {
+        return this.ProductId;
+    }
+
+    /**
+     * Set 按产品ID搜索
+     * @param ProductId 按产品ID搜索
+     */
+    public void setProductId(String ProductId) {
+        this.ProductId = ProductId;
+    }
+
+    /**
+     * Get 加载 ProductCount、DeviceCount、ApplicationCount，可选值：ProductCount、DeviceCount、ApplicationCount，可多选 
+     * @return Includes 加载 ProductCount、DeviceCount、ApplicationCount，可选值：ProductCount、DeviceCount、ApplicationCount，可多选
+     */
+    public String [] getIncludes() {
+        return this.Includes;
+    }
+
+    /**
+     * Set 加载 ProductCount、DeviceCount、ApplicationCount，可选值：ProductCount、DeviceCount、ApplicationCount，可多选
+     * @param Includes 加载 ProductCount、DeviceCount、ApplicationCount，可选值：ProductCount、DeviceCount、ApplicationCount，可多选
+     */
+    public void setIncludes(String [] Includes) {
+        this.Includes = Includes;
+    }
+
+    /**
+     * Get 按项目名称搜索 
+     * @return ProjectName 按项目名称搜索
+     */
+    public String getProjectName() {
+        return this.ProjectName;
+    }
+
+    /**
+     * Set 按项目名称搜索
+     * @param ProjectName 按项目名称搜索
+     */
+    public void setProjectName(String ProjectName) {
+        this.ProjectName = ProjectName;
+    }
+
+    public GetProjectListRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public GetProjectListRequest(GetProjectListRequest source) {
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
+        }
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+        if (source.Includes != null) {
+            this.Includes = new String[source.Includes.length];
+            for (int i = 0; i < source.Includes.length; i++) {
+                this.Includes[i] = new String(source.Includes[i]);
+            }
+        }
+        if (source.ProjectName != null) {
+            this.ProjectName = new String(source.ProjectName);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
+        this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
+        this.setParamSimple(map, prefix + "ProductId", this.ProductId);
+        this.setParamArraySimple(map, prefix + "Includes.", this.Includes);
+        this.setParamSimple(map, prefix + "ProjectName", this.ProjectName);
 
     }
 }

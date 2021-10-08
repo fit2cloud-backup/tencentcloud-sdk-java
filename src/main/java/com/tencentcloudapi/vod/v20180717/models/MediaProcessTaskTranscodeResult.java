@@ -30,10 +30,14 @@ public class MediaProcessTaskTranscodeResult extends AbstractModel{
     private String Status;
 
     /**
-    * 错误码，0 表示成功，其他值表示失败：
-<li>40000：输入参数不合法，请检查输入参数；</li>
-<li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
-<li>70000：内部服务错误，建议重试。</li>
+    * 错误码，空字符串表示成功，其他值表示失败，取值请参考 [视频处理类错误码](https://cloud.tencent.com/document/product/266/50368#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
+    */
+    @SerializedName("ErrCodeExt")
+    @Expose
+    private String ErrCodeExt;
+
+    /**
+    * 错误码，0 表示成功，其他值表示失败（该字段已不推荐使用，建议使用新的错误码字段 ErrCodeExt）。
     */
     @SerializedName("ErrCode")
     @Expose
@@ -62,6 +66,27 @@ public class MediaProcessTaskTranscodeResult extends AbstractModel{
     private MediaTranscodeItem Output;
 
     /**
+    * 转码进度，取值范围 [0-100] 。
+    */
+    @SerializedName("Progress")
+    @Expose
+    private Long Progress;
+
+    /**
+    * 转码任务开始执行的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+    */
+    @SerializedName("BeginProcessTime")
+    @Expose
+    private String BeginProcessTime;
+
+    /**
+    * 转码任务执行完毕的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+    */
+    @SerializedName("FinishTime")
+    @Expose
+    private String FinishTime;
+
+    /**
      * Get 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。 
      * @return Status 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
      */
@@ -78,28 +103,32 @@ public class MediaProcessTaskTranscodeResult extends AbstractModel{
     }
 
     /**
-     * Get 错误码，0 表示成功，其他值表示失败：
-<li>40000：输入参数不合法，请检查输入参数；</li>
-<li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
-<li>70000：内部服务错误，建议重试。</li> 
-     * @return ErrCode 错误码，0 表示成功，其他值表示失败：
-<li>40000：输入参数不合法，请检查输入参数；</li>
-<li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
-<li>70000：内部服务错误，建议重试。</li>
+     * Get 错误码，空字符串表示成功，其他值表示失败，取值请参考 [视频处理类错误码](https://cloud.tencent.com/document/product/266/50368#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。 
+     * @return ErrCodeExt 错误码，空字符串表示成功，其他值表示失败，取值请参考 [视频处理类错误码](https://cloud.tencent.com/document/product/266/50368#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
+     */
+    public String getErrCodeExt() {
+        return this.ErrCodeExt;
+    }
+
+    /**
+     * Set 错误码，空字符串表示成功，其他值表示失败，取值请参考 [视频处理类错误码](https://cloud.tencent.com/document/product/266/50368#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
+     * @param ErrCodeExt 错误码，空字符串表示成功，其他值表示失败，取值请参考 [视频处理类错误码](https://cloud.tencent.com/document/product/266/50368#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
+     */
+    public void setErrCodeExt(String ErrCodeExt) {
+        this.ErrCodeExt = ErrCodeExt;
+    }
+
+    /**
+     * Get 错误码，0 表示成功，其他值表示失败（该字段已不推荐使用，建议使用新的错误码字段 ErrCodeExt）。 
+     * @return ErrCode 错误码，0 表示成功，其他值表示失败（该字段已不推荐使用，建议使用新的错误码字段 ErrCodeExt）。
      */
     public Long getErrCode() {
         return this.ErrCode;
     }
 
     /**
-     * Set 错误码，0 表示成功，其他值表示失败：
-<li>40000：输入参数不合法，请检查输入参数；</li>
-<li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
-<li>70000：内部服务错误，建议重试。</li>
-     * @param ErrCode 错误码，0 表示成功，其他值表示失败：
-<li>40000：输入参数不合法，请检查输入参数；</li>
-<li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
-<li>70000：内部服务错误，建议重试。</li>
+     * Set 错误码，0 表示成功，其他值表示失败（该字段已不推荐使用，建议使用新的错误码字段 ErrCodeExt）。
+     * @param ErrCode 错误码，0 表示成功，其他值表示失败（该字段已不推荐使用，建议使用新的错误码字段 ErrCodeExt）。
      */
     public void setErrCode(Long ErrCode) {
         this.ErrCode = ErrCode;
@@ -158,14 +187,104 @@ public class MediaProcessTaskTranscodeResult extends AbstractModel{
     }
 
     /**
+     * Get 转码进度，取值范围 [0-100] 。 
+     * @return Progress 转码进度，取值范围 [0-100] 。
+     */
+    public Long getProgress() {
+        return this.Progress;
+    }
+
+    /**
+     * Set 转码进度，取值范围 [0-100] 。
+     * @param Progress 转码进度，取值范围 [0-100] 。
+     */
+    public void setProgress(Long Progress) {
+        this.Progress = Progress;
+    }
+
+    /**
+     * Get 转码任务开始执行的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。 
+     * @return BeginProcessTime 转码任务开始执行的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+     */
+    public String getBeginProcessTime() {
+        return this.BeginProcessTime;
+    }
+
+    /**
+     * Set 转码任务开始执行的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+     * @param BeginProcessTime 转码任务开始执行的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+     */
+    public void setBeginProcessTime(String BeginProcessTime) {
+        this.BeginProcessTime = BeginProcessTime;
+    }
+
+    /**
+     * Get 转码任务执行完毕的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。 
+     * @return FinishTime 转码任务执行完毕的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+     */
+    public String getFinishTime() {
+        return this.FinishTime;
+    }
+
+    /**
+     * Set 转码任务执行完毕的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+     * @param FinishTime 转码任务执行完毕的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+     */
+    public void setFinishTime(String FinishTime) {
+        this.FinishTime = FinishTime;
+    }
+
+    public MediaProcessTaskTranscodeResult() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MediaProcessTaskTranscodeResult(MediaProcessTaskTranscodeResult source) {
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.ErrCodeExt != null) {
+            this.ErrCodeExt = new String(source.ErrCodeExt);
+        }
+        if (source.ErrCode != null) {
+            this.ErrCode = new Long(source.ErrCode);
+        }
+        if (source.Message != null) {
+            this.Message = new String(source.Message);
+        }
+        if (source.Input != null) {
+            this.Input = new TranscodeTaskInput(source.Input);
+        }
+        if (source.Output != null) {
+            this.Output = new MediaTranscodeItem(source.Output);
+        }
+        if (source.Progress != null) {
+            this.Progress = new Long(source.Progress);
+        }
+        if (source.BeginProcessTime != null) {
+            this.BeginProcessTime = new String(source.BeginProcessTime);
+        }
+        if (source.FinishTime != null) {
+            this.FinishTime = new String(source.FinishTime);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Status", this.Status);
+        this.setParamSimple(map, prefix + "ErrCodeExt", this.ErrCodeExt);
         this.setParamSimple(map, prefix + "ErrCode", this.ErrCode);
         this.setParamSimple(map, prefix + "Message", this.Message);
         this.setParamObj(map, prefix + "Input.", this.Input);
         this.setParamObj(map, prefix + "Output.", this.Output);
+        this.setParamSimple(map, prefix + "Progress", this.Progress);
+        this.setParamSimple(map, prefix + "BeginProcessTime", this.BeginProcessTime);
+        this.setParamSimple(map, prefix + "FinishTime", this.FinishTime);
 
     }
 }

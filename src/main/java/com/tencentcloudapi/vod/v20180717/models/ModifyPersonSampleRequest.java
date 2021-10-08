@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class ModifyPersonSampleRequest extends AbstractModel{
 
     /**
-    * 人物 ID。
+    * 素材 ID。
     */
     @SerializedName("PersonId")
     @Expose
@@ -44,17 +44,17 @@ public class ModifyPersonSampleRequest extends AbstractModel{
     private String Description;
 
     /**
-    * 人物应用场景，可选值：
+    * 素材应用场景，可选值：
 1. Recognition：用于内容识别，等价于 Recognition.Face。
-2. Review：用于内容审核，等价于 Review.Face。
-3. All：用于内容识别、内容审核，等价于 1+2。
+2. Review：用于不适宜的内容识别，等价于 Review.Face。
+3. All：用于内容识别、不适宜的内容识别，等价于 1+2。
     */
     @SerializedName("Usages")
     @Expose
     private String [] Usages;
 
     /**
-    * 人脸操作信息。
+    * 五官操作信息。
     */
     @SerializedName("FaceOperationInfo")
     @Expose
@@ -75,16 +75,16 @@ public class ModifyPersonSampleRequest extends AbstractModel{
     private Long SubAppId;
 
     /**
-     * Get 人物 ID。 
-     * @return PersonId 人物 ID。
+     * Get 素材 ID。 
+     * @return PersonId 素材 ID。
      */
     public String getPersonId() {
         return this.PersonId;
     }
 
     /**
-     * Set 人物 ID。
-     * @param PersonId 人物 ID。
+     * Set 素材 ID。
+     * @param PersonId 素材 ID。
      */
     public void setPersonId(String PersonId) {
         this.PersonId = PersonId;
@@ -123,44 +123,44 @@ public class ModifyPersonSampleRequest extends AbstractModel{
     }
 
     /**
-     * Get 人物应用场景，可选值：
+     * Get 素材应用场景，可选值：
 1. Recognition：用于内容识别，等价于 Recognition.Face。
-2. Review：用于内容审核，等价于 Review.Face。
-3. All：用于内容识别、内容审核，等价于 1+2。 
-     * @return Usages 人物应用场景，可选值：
+2. Review：用于不适宜的内容识别，等价于 Review.Face。
+3. All：用于内容识别、不适宜的内容识别，等价于 1+2。 
+     * @return Usages 素材应用场景，可选值：
 1. Recognition：用于内容识别，等价于 Recognition.Face。
-2. Review：用于内容审核，等价于 Review.Face。
-3. All：用于内容识别、内容审核，等价于 1+2。
+2. Review：用于不适宜的内容识别，等价于 Review.Face。
+3. All：用于内容识别、不适宜的内容识别，等价于 1+2。
      */
     public String [] getUsages() {
         return this.Usages;
     }
 
     /**
-     * Set 人物应用场景，可选值：
+     * Set 素材应用场景，可选值：
 1. Recognition：用于内容识别，等价于 Recognition.Face。
-2. Review：用于内容审核，等价于 Review.Face。
-3. All：用于内容识别、内容审核，等价于 1+2。
-     * @param Usages 人物应用场景，可选值：
+2. Review：用于不适宜的内容识别，等价于 Review.Face。
+3. All：用于内容识别、不适宜的内容识别，等价于 1+2。
+     * @param Usages 素材应用场景，可选值：
 1. Recognition：用于内容识别，等价于 Recognition.Face。
-2. Review：用于内容审核，等价于 Review.Face。
-3. All：用于内容识别、内容审核，等价于 1+2。
+2. Review：用于不适宜的内容识别，等价于 Review.Face。
+3. All：用于内容识别、不适宜的内容识别，等价于 1+2。
      */
     public void setUsages(String [] Usages) {
         this.Usages = Usages;
     }
 
     /**
-     * Get 人脸操作信息。 
-     * @return FaceOperationInfo 人脸操作信息。
+     * Get 五官操作信息。 
+     * @return FaceOperationInfo 五官操作信息。
      */
     public AiSampleFaceOperation getFaceOperationInfo() {
         return this.FaceOperationInfo;
     }
 
     /**
-     * Set 人脸操作信息。
-     * @param FaceOperationInfo 人脸操作信息。
+     * Set 五官操作信息。
+     * @param FaceOperationInfo 五官操作信息。
      */
     public void setFaceOperationInfo(AiSampleFaceOperation FaceOperationInfo) {
         this.FaceOperationInfo = FaceOperationInfo;
@@ -197,6 +197,41 @@ public class ModifyPersonSampleRequest extends AbstractModel{
     public void setSubAppId(Long SubAppId) {
         this.SubAppId = SubAppId;
     }
+
+    public ModifyPersonSampleRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyPersonSampleRequest(ModifyPersonSampleRequest source) {
+        if (source.PersonId != null) {
+            this.PersonId = new String(source.PersonId);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.Usages != null) {
+            this.Usages = new String[source.Usages.length];
+            for (int i = 0; i < source.Usages.length; i++) {
+                this.Usages[i] = new String(source.Usages[i]);
+            }
+        }
+        if (source.FaceOperationInfo != null) {
+            this.FaceOperationInfo = new AiSampleFaceOperation(source.FaceOperationInfo);
+        }
+        if (source.TagOperationInfo != null) {
+            this.TagOperationInfo = new AiSampleTagOperation(source.TagOperationInfo);
+        }
+        if (source.SubAppId != null) {
+            this.SubAppId = new Long(source.SubAppId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

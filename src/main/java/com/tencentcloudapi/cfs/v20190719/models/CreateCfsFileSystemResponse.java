@@ -44,14 +44,14 @@ public class CreateCfsFileSystemResponse extends AbstractModel{
     private String FileSystemId;
 
     /**
-    * 文件系统状态
+    * 文件系统状态，可能出现状态包括：“creating”  创建中, “create_failed” 创建失败, “available” 可用, “unserviced” 不可用, “upgrading” 升级中， “deleting” 删除中。
     */
     @SerializedName("LifeCycleState")
     @Expose
     private String LifeCycleState;
 
     /**
-    * 文件系统已使用容量大小
+    * 文件系统已使用容量大小，单位为 Byte
     */
     @SerializedName("SizeByte")
     @Expose
@@ -134,32 +134,32 @@ public class CreateCfsFileSystemResponse extends AbstractModel{
     }
 
     /**
-     * Get 文件系统状态 
-     * @return LifeCycleState 文件系统状态
+     * Get 文件系统状态，可能出现状态包括：“creating”  创建中, “create_failed” 创建失败, “available” 可用, “unserviced” 不可用, “upgrading” 升级中， “deleting” 删除中。 
+     * @return LifeCycleState 文件系统状态，可能出现状态包括：“creating”  创建中, “create_failed” 创建失败, “available” 可用, “unserviced” 不可用, “upgrading” 升级中， “deleting” 删除中。
      */
     public String getLifeCycleState() {
         return this.LifeCycleState;
     }
 
     /**
-     * Set 文件系统状态
-     * @param LifeCycleState 文件系统状态
+     * Set 文件系统状态，可能出现状态包括：“creating”  创建中, “create_failed” 创建失败, “available” 可用, “unserviced” 不可用, “upgrading” 升级中， “deleting” 删除中。
+     * @param LifeCycleState 文件系统状态，可能出现状态包括：“creating”  创建中, “create_failed” 创建失败, “available” 可用, “unserviced” 不可用, “upgrading” 升级中， “deleting” 删除中。
      */
     public void setLifeCycleState(String LifeCycleState) {
         this.LifeCycleState = LifeCycleState;
     }
 
     /**
-     * Get 文件系统已使用容量大小 
-     * @return SizeByte 文件系统已使用容量大小
+     * Get 文件系统已使用容量大小，单位为 Byte 
+     * @return SizeByte 文件系统已使用容量大小，单位为 Byte
      */
     public Long getSizeByte() {
         return this.SizeByte;
     }
 
     /**
-     * Set 文件系统已使用容量大小
-     * @param SizeByte 文件系统已使用容量大小
+     * Set 文件系统已使用容量大小，单位为 Byte
+     * @param SizeByte 文件系统已使用容量大小，单位为 Byte
      */
     public void setSizeByte(Long SizeByte) {
         this.SizeByte = SizeByte;
@@ -228,6 +228,44 @@ public class CreateCfsFileSystemResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public CreateCfsFileSystemResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateCfsFileSystemResponse(CreateCfsFileSystemResponse source) {
+        if (source.CreationTime != null) {
+            this.CreationTime = new String(source.CreationTime);
+        }
+        if (source.CreationToken != null) {
+            this.CreationToken = new String(source.CreationToken);
+        }
+        if (source.FileSystemId != null) {
+            this.FileSystemId = new String(source.FileSystemId);
+        }
+        if (source.LifeCycleState != null) {
+            this.LifeCycleState = new String(source.LifeCycleState);
+        }
+        if (source.SizeByte != null) {
+            this.SizeByte = new Long(source.SizeByte);
+        }
+        if (source.ZoneId != null) {
+            this.ZoneId = new Long(source.ZoneId);
+        }
+        if (source.FsName != null) {
+            this.FsName = new String(source.FsName);
+        }
+        if (source.Encrypted != null) {
+            this.Encrypted = new Boolean(source.Encrypted);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

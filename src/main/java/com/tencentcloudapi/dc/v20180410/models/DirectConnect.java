@@ -227,6 +227,54 @@ public class DirectConnect extends AbstractModel{
     private String ChargeState;
 
     /**
+    * 物理专线开通时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("StartTime")
+    @Expose
+    private String StartTime;
+
+    /**
+    * 物理专线是否已签署用户协议
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SignLaw")
+    @Expose
+    private Boolean SignLaw;
+
+    /**
+    * 物理专线是否为LocalZone
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("LocalZone")
+    @Expose
+    private Boolean LocalZone;
+
+    /**
+    * 该物理专线下vlan 0的专用通道数量
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("VlanZeroDirectConnectTunnelCount")
+    @Expose
+    private Long VlanZeroDirectConnectTunnelCount;
+
+    /**
+    * 该物理专线下非vlan 0的专用通道数量
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OtherVlanDirectConnectTunnelCount")
+    @Expose
+    private Long OtherVlanDirectConnectTunnelCount;
+
+    /**
+    * 物理专线最小带宽
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MinBandwidth")
+    @Expose
+    private Long MinBandwidth;
+
+    /**
      * Get 物理专线ID。 
      * @return DirectConnectId 物理专线ID。
      */
@@ -731,6 +779,236 @@ public class DirectConnect extends AbstractModel{
     }
 
     /**
+     * Get 物理专线开通时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return StartTime 物理专线开通时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getStartTime() {
+        return this.StartTime;
+    }
+
+    /**
+     * Set 物理专线开通时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param StartTime 物理专线开通时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setStartTime(String StartTime) {
+        this.StartTime = StartTime;
+    }
+
+    /**
+     * Get 物理专线是否已签署用户协议
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SignLaw 物理专线是否已签署用户协议
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getSignLaw() {
+        return this.SignLaw;
+    }
+
+    /**
+     * Set 物理专线是否已签署用户协议
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SignLaw 物理专线是否已签署用户协议
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSignLaw(Boolean SignLaw) {
+        this.SignLaw = SignLaw;
+    }
+
+    /**
+     * Get 物理专线是否为LocalZone
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return LocalZone 物理专线是否为LocalZone
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getLocalZone() {
+        return this.LocalZone;
+    }
+
+    /**
+     * Set 物理专线是否为LocalZone
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param LocalZone 物理专线是否为LocalZone
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLocalZone(Boolean LocalZone) {
+        this.LocalZone = LocalZone;
+    }
+
+    /**
+     * Get 该物理专线下vlan 0的专用通道数量
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return VlanZeroDirectConnectTunnelCount 该物理专线下vlan 0的专用通道数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getVlanZeroDirectConnectTunnelCount() {
+        return this.VlanZeroDirectConnectTunnelCount;
+    }
+
+    /**
+     * Set 该物理专线下vlan 0的专用通道数量
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param VlanZeroDirectConnectTunnelCount 该物理专线下vlan 0的专用通道数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setVlanZeroDirectConnectTunnelCount(Long VlanZeroDirectConnectTunnelCount) {
+        this.VlanZeroDirectConnectTunnelCount = VlanZeroDirectConnectTunnelCount;
+    }
+
+    /**
+     * Get 该物理专线下非vlan 0的专用通道数量
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OtherVlanDirectConnectTunnelCount 该物理专线下非vlan 0的专用通道数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getOtherVlanDirectConnectTunnelCount() {
+        return this.OtherVlanDirectConnectTunnelCount;
+    }
+
+    /**
+     * Set 该物理专线下非vlan 0的专用通道数量
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OtherVlanDirectConnectTunnelCount 该物理专线下非vlan 0的专用通道数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOtherVlanDirectConnectTunnelCount(Long OtherVlanDirectConnectTunnelCount) {
+        this.OtherVlanDirectConnectTunnelCount = OtherVlanDirectConnectTunnelCount;
+    }
+
+    /**
+     * Get 物理专线最小带宽
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MinBandwidth 物理专线最小带宽
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getMinBandwidth() {
+        return this.MinBandwidth;
+    }
+
+    /**
+     * Set 物理专线最小带宽
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MinBandwidth 物理专线最小带宽
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMinBandwidth(Long MinBandwidth) {
+        this.MinBandwidth = MinBandwidth;
+    }
+
+    public DirectConnect() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DirectConnect(DirectConnect source) {
+        if (source.DirectConnectId != null) {
+            this.DirectConnectId = new String(source.DirectConnectId);
+        }
+        if (source.DirectConnectName != null) {
+            this.DirectConnectName = new String(source.DirectConnectName);
+        }
+        if (source.AccessPointId != null) {
+            this.AccessPointId = new String(source.AccessPointId);
+        }
+        if (source.State != null) {
+            this.State = new String(source.State);
+        }
+        if (source.CreatedTime != null) {
+            this.CreatedTime = new String(source.CreatedTime);
+        }
+        if (source.EnabledTime != null) {
+            this.EnabledTime = new String(source.EnabledTime);
+        }
+        if (source.LineOperator != null) {
+            this.LineOperator = new String(source.LineOperator);
+        }
+        if (source.Location != null) {
+            this.Location = new String(source.Location);
+        }
+        if (source.Bandwidth != null) {
+            this.Bandwidth = new Long(source.Bandwidth);
+        }
+        if (source.PortType != null) {
+            this.PortType = new String(source.PortType);
+        }
+        if (source.CircuitCode != null) {
+            this.CircuitCode = new String(source.CircuitCode);
+        }
+        if (source.RedundantDirectConnectId != null) {
+            this.RedundantDirectConnectId = new String(source.RedundantDirectConnectId);
+        }
+        if (source.Vlan != null) {
+            this.Vlan = new Long(source.Vlan);
+        }
+        if (source.TencentAddress != null) {
+            this.TencentAddress = new String(source.TencentAddress);
+        }
+        if (source.CustomerAddress != null) {
+            this.CustomerAddress = new String(source.CustomerAddress);
+        }
+        if (source.CustomerName != null) {
+            this.CustomerName = new String(source.CustomerName);
+        }
+        if (source.CustomerContactMail != null) {
+            this.CustomerContactMail = new String(source.CustomerContactMail);
+        }
+        if (source.CustomerContactNumber != null) {
+            this.CustomerContactNumber = new String(source.CustomerContactNumber);
+        }
+        if (source.ExpiredTime != null) {
+            this.ExpiredTime = new String(source.ExpiredTime);
+        }
+        if (source.ChargeType != null) {
+            this.ChargeType = new String(source.ChargeType);
+        }
+        if (source.FaultReportContactPerson != null) {
+            this.FaultReportContactPerson = new String(source.FaultReportContactPerson);
+        }
+        if (source.FaultReportContactNumber != null) {
+            this.FaultReportContactNumber = new String(source.FaultReportContactNumber);
+        }
+        if (source.TagSet != null) {
+            this.TagSet = new Tag[source.TagSet.length];
+            for (int i = 0; i < source.TagSet.length; i++) {
+                this.TagSet[i] = new Tag(source.TagSet[i]);
+            }
+        }
+        if (source.AccessPointType != null) {
+            this.AccessPointType = new String(source.AccessPointType);
+        }
+        if (source.IdcCity != null) {
+            this.IdcCity = new String(source.IdcCity);
+        }
+        if (source.ChargeState != null) {
+            this.ChargeState = new String(source.ChargeState);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.SignLaw != null) {
+            this.SignLaw = new Boolean(source.SignLaw);
+        }
+        if (source.LocalZone != null) {
+            this.LocalZone = new Boolean(source.LocalZone);
+        }
+        if (source.VlanZeroDirectConnectTunnelCount != null) {
+            this.VlanZeroDirectConnectTunnelCount = new Long(source.VlanZeroDirectConnectTunnelCount);
+        }
+        if (source.OtherVlanDirectConnectTunnelCount != null) {
+            this.OtherVlanDirectConnectTunnelCount = new Long(source.OtherVlanDirectConnectTunnelCount);
+        }
+        if (source.MinBandwidth != null) {
+            this.MinBandwidth = new Long(source.MinBandwidth);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -760,6 +1038,12 @@ public class DirectConnect extends AbstractModel{
         this.setParamSimple(map, prefix + "AccessPointType", this.AccessPointType);
         this.setParamSimple(map, prefix + "IdcCity", this.IdcCity);
         this.setParamSimple(map, prefix + "ChargeState", this.ChargeState);
+        this.setParamSimple(map, prefix + "StartTime", this.StartTime);
+        this.setParamSimple(map, prefix + "SignLaw", this.SignLaw);
+        this.setParamSimple(map, prefix + "LocalZone", this.LocalZone);
+        this.setParamSimple(map, prefix + "VlanZeroDirectConnectTunnelCount", this.VlanZeroDirectConnectTunnelCount);
+        this.setParamSimple(map, prefix + "OtherVlanDirectConnectTunnelCount", this.OtherVlanDirectConnectTunnelCount);
+        this.setParamSimple(map, prefix + "MinBandwidth", this.MinBandwidth);
 
     }
 }

@@ -37,7 +37,7 @@ public class VideoMaterial extends AbstractModel{
     private MediaImageSpriteInfo ImageSpriteInfo;
 
     /**
-    * 素材媒体文件的 URL 地址
+    * 素材媒体文件的播放 URL 地址。
     */
     @SerializedName("MaterialUrl")
     @Expose
@@ -51,11 +51,33 @@ public class VideoMaterial extends AbstractModel{
     private String CoverUrl;
 
     /**
-    * 媒体文件分辨率。
+    * 媒体文件分辨率。取值为：LD/SD/HD/FHD/2K/4K。
     */
     @SerializedName("Resolution")
     @Expose
     private String Resolution;
+
+    /**
+    * 素材状态。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MaterialStatus")
+    @Expose
+    private MaterialStatus MaterialStatus;
+
+    /**
+    * 素材媒体文件的原始 URL 地址。
+    */
+    @SerializedName("OriginalUrl")
+    @Expose
+    private String OriginalUrl;
+
+    /**
+    * 云点播媒资 FileId。
+    */
+    @SerializedName("VodFileId")
+    @Expose
+    private String VodFileId;
 
     /**
      * Get 素材元信息。 
@@ -90,16 +112,16 @@ public class VideoMaterial extends AbstractModel{
     }
 
     /**
-     * Get 素材媒体文件的 URL 地址 
-     * @return MaterialUrl 素材媒体文件的 URL 地址
+     * Get 素材媒体文件的播放 URL 地址。 
+     * @return MaterialUrl 素材媒体文件的播放 URL 地址。
      */
     public String getMaterialUrl() {
         return this.MaterialUrl;
     }
 
     /**
-     * Set 素材媒体文件的 URL 地址
-     * @param MaterialUrl 素材媒体文件的 URL 地址
+     * Set 素材媒体文件的播放 URL 地址。
+     * @param MaterialUrl 素材媒体文件的播放 URL 地址。
      */
     public void setMaterialUrl(String MaterialUrl) {
         this.MaterialUrl = MaterialUrl;
@@ -122,20 +144,107 @@ public class VideoMaterial extends AbstractModel{
     }
 
     /**
-     * Get 媒体文件分辨率。 
-     * @return Resolution 媒体文件分辨率。
+     * Get 媒体文件分辨率。取值为：LD/SD/HD/FHD/2K/4K。 
+     * @return Resolution 媒体文件分辨率。取值为：LD/SD/HD/FHD/2K/4K。
      */
     public String getResolution() {
         return this.Resolution;
     }
 
     /**
-     * Set 媒体文件分辨率。
-     * @param Resolution 媒体文件分辨率。
+     * Set 媒体文件分辨率。取值为：LD/SD/HD/FHD/2K/4K。
+     * @param Resolution 媒体文件分辨率。取值为：LD/SD/HD/FHD/2K/4K。
      */
     public void setResolution(String Resolution) {
         this.Resolution = Resolution;
     }
+
+    /**
+     * Get 素材状态。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MaterialStatus 素材状态。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public MaterialStatus getMaterialStatus() {
+        return this.MaterialStatus;
+    }
+
+    /**
+     * Set 素材状态。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MaterialStatus 素材状态。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMaterialStatus(MaterialStatus MaterialStatus) {
+        this.MaterialStatus = MaterialStatus;
+    }
+
+    /**
+     * Get 素材媒体文件的原始 URL 地址。 
+     * @return OriginalUrl 素材媒体文件的原始 URL 地址。
+     */
+    public String getOriginalUrl() {
+        return this.OriginalUrl;
+    }
+
+    /**
+     * Set 素材媒体文件的原始 URL 地址。
+     * @param OriginalUrl 素材媒体文件的原始 URL 地址。
+     */
+    public void setOriginalUrl(String OriginalUrl) {
+        this.OriginalUrl = OriginalUrl;
+    }
+
+    /**
+     * Get 云点播媒资 FileId。 
+     * @return VodFileId 云点播媒资 FileId。
+     */
+    public String getVodFileId() {
+        return this.VodFileId;
+    }
+
+    /**
+     * Set 云点播媒资 FileId。
+     * @param VodFileId 云点播媒资 FileId。
+     */
+    public void setVodFileId(String VodFileId) {
+        this.VodFileId = VodFileId;
+    }
+
+    public VideoMaterial() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public VideoMaterial(VideoMaterial source) {
+        if (source.MetaData != null) {
+            this.MetaData = new MediaMetaData(source.MetaData);
+        }
+        if (source.ImageSpriteInfo != null) {
+            this.ImageSpriteInfo = new MediaImageSpriteInfo(source.ImageSpriteInfo);
+        }
+        if (source.MaterialUrl != null) {
+            this.MaterialUrl = new String(source.MaterialUrl);
+        }
+        if (source.CoverUrl != null) {
+            this.CoverUrl = new String(source.CoverUrl);
+        }
+        if (source.Resolution != null) {
+            this.Resolution = new String(source.Resolution);
+        }
+        if (source.MaterialStatus != null) {
+            this.MaterialStatus = new MaterialStatus(source.MaterialStatus);
+        }
+        if (source.OriginalUrl != null) {
+            this.OriginalUrl = new String(source.OriginalUrl);
+        }
+        if (source.VodFileId != null) {
+            this.VodFileId = new String(source.VodFileId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -146,6 +255,9 @@ public class VideoMaterial extends AbstractModel{
         this.setParamSimple(map, prefix + "MaterialUrl", this.MaterialUrl);
         this.setParamSimple(map, prefix + "CoverUrl", this.CoverUrl);
         this.setParamSimple(map, prefix + "Resolution", this.Resolution);
+        this.setParamObj(map, prefix + "MaterialStatus.", this.MaterialStatus);
+        this.setParamSimple(map, prefix + "OriginalUrl", this.OriginalUrl);
+        this.setParamSimple(map, prefix + "VodFileId", this.VodFileId);
 
     }
 }

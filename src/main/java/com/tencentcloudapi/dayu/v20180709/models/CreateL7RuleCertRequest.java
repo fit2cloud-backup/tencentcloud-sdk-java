@@ -30,7 +30,7 @@ public class CreateL7RuleCertRequest extends AbstractModel{
     private String Business;
 
     /**
-    * 资源实例ID，比如高防IP实例的ID，高防IP专业版实例的ID
+    * 资源实例ID，例如高防IP实例的ID，高防IP专业版实例的ID
     */
     @SerializedName("Id")
     @Expose
@@ -88,16 +88,16 @@ public class CreateL7RuleCertRequest extends AbstractModel{
     }
 
     /**
-     * Get 资源实例ID，比如高防IP实例的ID，高防IP专业版实例的ID 
-     * @return Id 资源实例ID，比如高防IP实例的ID，高防IP专业版实例的ID
+     * Get 资源实例ID，例如高防IP实例的ID，高防IP专业版实例的ID 
+     * @return Id 资源实例ID，例如高防IP实例的ID，高防IP专业版实例的ID
      */
     public String getId() {
         return this.Id;
     }
 
     /**
-     * Set 资源实例ID，比如高防IP实例的ID，高防IP专业版实例的ID
-     * @param Id 资源实例ID，比如高防IP实例的ID，高防IP专业版实例的ID
+     * Set 资源实例ID，例如高防IP实例的ID，高防IP专业版实例的ID
+     * @param Id 资源实例ID，例如高防IP实例的ID，高防IP专业版实例的ID
      */
     public void setId(String Id) {
         this.Id = Id;
@@ -182,6 +182,38 @@ public class CreateL7RuleCertRequest extends AbstractModel{
     public void setPrivateKey(String PrivateKey) {
         this.PrivateKey = PrivateKey;
     }
+
+    public CreateL7RuleCertRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateL7RuleCertRequest(CreateL7RuleCertRequest source) {
+        if (source.Business != null) {
+            this.Business = new String(source.Business);
+        }
+        if (source.Id != null) {
+            this.Id = new String(source.Id);
+        }
+        if (source.RuleId != null) {
+            this.RuleId = new String(source.RuleId);
+        }
+        if (source.CertType != null) {
+            this.CertType = new Long(source.CertType);
+        }
+        if (source.SSLId != null) {
+            this.SSLId = new String(source.SSLId);
+        }
+        if (source.Cert != null) {
+            this.Cert = new String(source.Cert);
+        }
+        if (source.PrivateKey != null) {
+            this.PrivateKey = new String(source.PrivateKey);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

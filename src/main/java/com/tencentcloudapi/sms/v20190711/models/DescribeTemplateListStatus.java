@@ -41,6 +41,7 @@ public class DescribeTemplateListStatus extends AbstractModel{
     /**
     * 申请签名状态。其中：
 0：表示审核通过。
+1：表示审核中。
 -1：表示审核未通过或审核失败。
     */
     @SerializedName("StatusCode")
@@ -111,9 +112,11 @@ public class DescribeTemplateListStatus extends AbstractModel{
     /**
      * Get 申请签名状态。其中：
 0：表示审核通过。
+1：表示审核中。
 -1：表示审核未通过或审核失败。 
      * @return StatusCode 申请签名状态。其中：
 0：表示审核通过。
+1：表示审核中。
 -1：表示审核未通过或审核失败。
      */
     public Long getStatusCode() {
@@ -123,9 +126,11 @@ public class DescribeTemplateListStatus extends AbstractModel{
     /**
      * Set 申请签名状态。其中：
 0：表示审核通过。
+1：表示审核中。
 -1：表示审核未通过或审核失败。
      * @param StatusCode 申请签名状态。其中：
 0：表示审核通过。
+1：表示审核中。
 -1：表示审核未通过或审核失败。
      */
     public void setStatusCode(Long StatusCode) {
@@ -179,6 +184,35 @@ public class DescribeTemplateListStatus extends AbstractModel{
     public void setCreateTime(Long CreateTime) {
         this.CreateTime = CreateTime;
     }
+
+    public DescribeTemplateListStatus() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeTemplateListStatus(DescribeTemplateListStatus source) {
+        if (source.TemplateId != null) {
+            this.TemplateId = new Long(source.TemplateId);
+        }
+        if (source.International != null) {
+            this.International = new Long(source.International);
+        }
+        if (source.StatusCode != null) {
+            this.StatusCode = new Long(source.StatusCode);
+        }
+        if (source.ReviewReply != null) {
+            this.ReviewReply = new String(source.ReviewReply);
+        }
+        if (source.TemplateName != null) {
+            this.TemplateName = new String(source.TemplateName);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new Long(source.CreateTime);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

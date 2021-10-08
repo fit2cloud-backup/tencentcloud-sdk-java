@@ -23,13 +23,6 @@ import java.util.HashMap;
 public class SentenceEmbeddingResponse extends AbstractModel{
 
     /**
-    * 句向量的维度
-    */
-    @SerializedName("Dimension")
-    @Expose
-    private Long Dimension;
-
-    /**
     * 句向量数组
     */
     @SerializedName("Vector")
@@ -37,27 +30,18 @@ public class SentenceEmbeddingResponse extends AbstractModel{
     private Float [] Vector;
 
     /**
+    * 句向量的维度
+    */
+    @SerializedName("Dimension")
+    @Expose
+    private Long Dimension;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
-
-    /**
-     * Get 句向量的维度 
-     * @return Dimension 句向量的维度
-     */
-    public Long getDimension() {
-        return this.Dimension;
-    }
-
-    /**
-     * Set 句向量的维度
-     * @param Dimension 句向量的维度
-     */
-    public void setDimension(Long Dimension) {
-        this.Dimension = Dimension;
-    }
 
     /**
      * Get 句向量数组 
@@ -76,6 +60,22 @@ public class SentenceEmbeddingResponse extends AbstractModel{
     }
 
     /**
+     * Get 句向量的维度 
+     * @return Dimension 句向量的维度
+     */
+    public Long getDimension() {
+        return this.Dimension;
+    }
+
+    /**
+     * Set 句向量的维度
+     * @param Dimension 句向量的维度
+     */
+    public void setDimension(Long Dimension) {
+        this.Dimension = Dimension;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -91,12 +91,35 @@ public class SentenceEmbeddingResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public SentenceEmbeddingResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SentenceEmbeddingResponse(SentenceEmbeddingResponse source) {
+        if (source.Vector != null) {
+            this.Vector = new Float[source.Vector.length];
+            for (int i = 0; i < source.Vector.length; i++) {
+                this.Vector[i] = new Float(source.Vector[i]);
+            }
+        }
+        if (source.Dimension != null) {
+            this.Dimension = new Long(source.Dimension);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "Dimension", this.Dimension);
         this.setParamArraySimple(map, prefix + "Vector.", this.Vector);
+        this.setParamSimple(map, prefix + "Dimension", this.Dimension);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

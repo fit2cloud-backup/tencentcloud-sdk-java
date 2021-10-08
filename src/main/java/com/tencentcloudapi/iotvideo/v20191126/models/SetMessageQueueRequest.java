@@ -38,12 +38,13 @@ public class SetMessageQueueRequest extends AbstractModel{
 
     /**
     * 消息类型,整型值（0-31）之间以“,”分隔
-0：在线状态变更
-1.固件版本变更
-2.设置参数变更
-3.控制状态变更
-4.状态信息变更
-5.事件发布
+0.设备在线状态变更
+1.常亮属性(ProConst)变更
+2.可写属性(ProWritable)变更
+3.只读属性(ProReadonly)变更
+4.设备控制(Action)
+5.设备事件(Event)
+6.系统事件(System)
     */
     @SerializedName("MsgType")
     @Expose
@@ -104,19 +105,21 @@ public class SetMessageQueueRequest extends AbstractModel{
 
     /**
      * Get 消息类型,整型值（0-31）之间以“,”分隔
-0：在线状态变更
-1.固件版本变更
-2.设置参数变更
-3.控制状态变更
-4.状态信息变更
-5.事件发布 
+0.设备在线状态变更
+1.常亮属性(ProConst)变更
+2.可写属性(ProWritable)变更
+3.只读属性(ProReadonly)变更
+4.设备控制(Action)
+5.设备事件(Event)
+6.系统事件(System) 
      * @return MsgType 消息类型,整型值（0-31）之间以“,”分隔
-0：在线状态变更
-1.固件版本变更
-2.设置参数变更
-3.控制状态变更
-4.状态信息变更
-5.事件发布
+0.设备在线状态变更
+1.常亮属性(ProConst)变更
+2.可写属性(ProWritable)变更
+3.只读属性(ProReadonly)变更
+4.设备控制(Action)
+5.设备事件(Event)
+6.系统事件(System)
      */
     public String getMsgType() {
         return this.MsgType;
@@ -124,19 +127,21 @@ public class SetMessageQueueRequest extends AbstractModel{
 
     /**
      * Set 消息类型,整型值（0-31）之间以“,”分隔
-0：在线状态变更
-1.固件版本变更
-2.设置参数变更
-3.控制状态变更
-4.状态信息变更
-5.事件发布
+0.设备在线状态变更
+1.常亮属性(ProConst)变更
+2.可写属性(ProWritable)变更
+3.只读属性(ProReadonly)变更
+4.设备控制(Action)
+5.设备事件(Event)
+6.系统事件(System)
      * @param MsgType 消息类型,整型值（0-31）之间以“,”分隔
-0：在线状态变更
-1.固件版本变更
-2.设置参数变更
-3.控制状态变更
-4.状态信息变更
-5.事件发布
+0.设备在线状态变更
+1.常亮属性(ProConst)变更
+2.可写属性(ProWritable)变更
+3.只读属性(ProReadonly)变更
+4.设备控制(Action)
+5.设备事件(Event)
+6.系统事件(System)
      */
     public void setMsgType(String MsgType) {
         this.MsgType = MsgType;
@@ -189,6 +194,35 @@ public class SetMessageQueueRequest extends AbstractModel{
     public void setMsgRegion(String MsgRegion) {
         this.MsgRegion = MsgRegion;
     }
+
+    public SetMessageQueueRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SetMessageQueueRequest(SetMessageQueueRequest source) {
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+        if (source.MsgQueueType != null) {
+            this.MsgQueueType = new Long(source.MsgQueueType);
+        }
+        if (source.MsgType != null) {
+            this.MsgType = new String(source.MsgType);
+        }
+        if (source.Topic != null) {
+            this.Topic = new String(source.Topic);
+        }
+        if (source.Instance != null) {
+            this.Instance = new String(source.Instance);
+        }
+        if (source.MsgRegion != null) {
+            this.MsgRegion = new String(source.MsgRegion);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

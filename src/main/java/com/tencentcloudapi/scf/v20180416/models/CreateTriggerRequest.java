@@ -37,7 +37,7 @@ public class CreateTriggerRequest extends AbstractModel{
     private String TriggerName;
 
     /**
-    * 触发器类型，目前支持 cos 、cmq、 timer、 ckafka类型
+    * 触发器类型，目前支持 cos 、cmq、 timer、 ckafka、apigw类型。创建 cls 触发器请参考[CLS 创建投递 SCF 任务](https://cloud.tencent.com/document/product/614/61096)。
     */
     @SerializedName("Type")
     @Expose
@@ -72,6 +72,13 @@ public class CreateTriggerRequest extends AbstractModel{
     private String Enable;
 
     /**
+    * 用户自定义参数，仅支持timer触发器
+    */
+    @SerializedName("CustomArgument")
+    @Expose
+    private String CustomArgument;
+
+    /**
      * Get 新建触发器绑定的函数名称 
      * @return FunctionName 新建触发器绑定的函数名称
      */
@@ -104,16 +111,16 @@ public class CreateTriggerRequest extends AbstractModel{
     }
 
     /**
-     * Get 触发器类型，目前支持 cos 、cmq、 timer、 ckafka类型 
-     * @return Type 触发器类型，目前支持 cos 、cmq、 timer、 ckafka类型
+     * Get 触发器类型，目前支持 cos 、cmq、 timer、 ckafka、apigw类型。创建 cls 触发器请参考[CLS 创建投递 SCF 任务](https://cloud.tencent.com/document/product/614/61096)。 
+     * @return Type 触发器类型，目前支持 cos 、cmq、 timer、 ckafka、apigw类型。创建 cls 触发器请参考[CLS 创建投递 SCF 任务](https://cloud.tencent.com/document/product/614/61096)。
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set 触发器类型，目前支持 cos 、cmq、 timer、 ckafka类型
-     * @param Type 触发器类型，目前支持 cos 、cmq、 timer、 ckafka类型
+     * Set 触发器类型，目前支持 cos 、cmq、 timer、 ckafka、apigw类型。创建 cls 触发器请参考[CLS 创建投递 SCF 任务](https://cloud.tencent.com/document/product/614/61096)。
+     * @param Type 触发器类型，目前支持 cos 、cmq、 timer、 ckafka、apigw类型。创建 cls 触发器请参考[CLS 创建投递 SCF 任务](https://cloud.tencent.com/document/product/614/61096)。
      */
     public void setType(String Type) {
         this.Type = Type;
@@ -184,6 +191,57 @@ public class CreateTriggerRequest extends AbstractModel{
     }
 
     /**
+     * Get 用户自定义参数，仅支持timer触发器 
+     * @return CustomArgument 用户自定义参数，仅支持timer触发器
+     */
+    public String getCustomArgument() {
+        return this.CustomArgument;
+    }
+
+    /**
+     * Set 用户自定义参数，仅支持timer触发器
+     * @param CustomArgument 用户自定义参数，仅支持timer触发器
+     */
+    public void setCustomArgument(String CustomArgument) {
+        this.CustomArgument = CustomArgument;
+    }
+
+    public CreateTriggerRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateTriggerRequest(CreateTriggerRequest source) {
+        if (source.FunctionName != null) {
+            this.FunctionName = new String(source.FunctionName);
+        }
+        if (source.TriggerName != null) {
+            this.TriggerName = new String(source.TriggerName);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.TriggerDesc != null) {
+            this.TriggerDesc = new String(source.TriggerDesc);
+        }
+        if (source.Namespace != null) {
+            this.Namespace = new String(source.Namespace);
+        }
+        if (source.Qualifier != null) {
+            this.Qualifier = new String(source.Qualifier);
+        }
+        if (source.Enable != null) {
+            this.Enable = new String(source.Enable);
+        }
+        if (source.CustomArgument != null) {
+            this.CustomArgument = new String(source.CustomArgument);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -194,6 +252,7 @@ public class CreateTriggerRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Namespace", this.Namespace);
         this.setParamSimple(map, prefix + "Qualifier", this.Qualifier);
         this.setParamSimple(map, prefix + "Enable", this.Enable);
+        this.setParamSimple(map, prefix + "CustomArgument", this.CustomArgument);
 
     }
 }

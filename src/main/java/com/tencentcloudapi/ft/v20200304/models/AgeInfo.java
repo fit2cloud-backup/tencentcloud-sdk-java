@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class AgeInfo extends AbstractModel{
 
     /**
-    * 当前只支持设置为10且不可调整（后续放开后再知会）。
+    * 变化到的人脸年龄 [10,80]。
     */
     @SerializedName("Age")
     @Expose
@@ -38,16 +38,16 @@ public class AgeInfo extends AbstractModel{
     private FaceRect FaceRect;
 
     /**
-     * Get 当前只支持设置为10且不可调整（后续放开后再知会）。 
-     * @return Age 当前只支持设置为10且不可调整（后续放开后再知会）。
+     * Get 变化到的人脸年龄 [10,80]。 
+     * @return Age 变化到的人脸年龄 [10,80]。
      */
     public Long getAge() {
         return this.Age;
     }
 
     /**
-     * Set 当前只支持设置为10且不可调整（后续放开后再知会）。
-     * @param Age 当前只支持设置为10且不可调整（后续放开后再知会）。
+     * Set 变化到的人脸年龄 [10,80]。
+     * @param Age 变化到的人脸年龄 [10,80]。
      */
     public void setAge(Long Age) {
         this.Age = Age;
@@ -72,6 +72,23 @@ public class AgeInfo extends AbstractModel{
     public void setFaceRect(FaceRect FaceRect) {
         this.FaceRect = FaceRect;
     }
+
+    public AgeInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AgeInfo(AgeInfo source) {
+        if (source.Age != null) {
+            this.Age = new Long(source.Age);
+        }
+        if (source.FaceRect != null) {
+            this.FaceRect = new FaceRect(source.FaceRect);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

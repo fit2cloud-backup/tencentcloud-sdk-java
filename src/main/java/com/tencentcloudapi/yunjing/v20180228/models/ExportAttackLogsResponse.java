@@ -30,6 +30,13 @@ public class ExportAttackLogsResponse extends AbstractModel{
     private String DownloadUrl;
 
     /**
+    * 导出任务ID
+    */
+    @SerializedName("TaskId")
+    @Expose
+    private String TaskId;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -53,6 +60,22 @@ public class ExportAttackLogsResponse extends AbstractModel{
     }
 
     /**
+     * Get 导出任务ID 
+     * @return TaskId 导出任务ID
+     */
+    public String getTaskId() {
+        return this.TaskId;
+    }
+
+    /**
+     * Set 导出任务ID
+     * @param TaskId 导出任务ID
+     */
+    public void setTaskId(String TaskId) {
+        this.TaskId = TaskId;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -68,11 +91,32 @@ public class ExportAttackLogsResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public ExportAttackLogsResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ExportAttackLogsResponse(ExportAttackLogsResponse source) {
+        if (source.DownloadUrl != null) {
+            this.DownloadUrl = new String(source.DownloadUrl);
+        }
+        if (source.TaskId != null) {
+            this.TaskId = new String(source.TaskId);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "DownloadUrl", this.DownloadUrl);
+        this.setParamSimple(map, prefix + "TaskId", this.TaskId);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

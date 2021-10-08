@@ -179,6 +179,38 @@ public class UnifiedOrderRequest extends AbstractModel{
     private String WxSubOpenId;
 
     /**
+    * 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+    */
+    @SerializedName("MidasEnvironment")
+    @Expose
+    private String MidasEnvironment;
+
+    /**
+    * 微信商户应用ID
+    */
+    @SerializedName("WxAppId")
+    @Expose
+    private String WxAppId;
+
+    /**
+    * 微信商户子应用ID
+    */
+    @SerializedName("WxSubAppId")
+    @Expose
+    private String WxSubAppId;
+
+    /**
+    * 支付通知地址
+    */
+    @SerializedName("PaymentNotifyUrl")
+    @Expose
+    private String PaymentNotifyUrl;
+
+    /**
      * Get ISO 货币代码，CNY 
      * @return CurrencyType ISO 货币代码，CNY
      */
@@ -539,6 +571,178 @@ public class UnifiedOrderRequest extends AbstractModel{
     }
 
     /**
+     * Get 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release 
+     * @return MidasEnvironment 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+     */
+    public String getMidasEnvironment() {
+        return this.MidasEnvironment;
+    }
+
+    /**
+     * Set 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+     * @param MidasEnvironment 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+     */
+    public void setMidasEnvironment(String MidasEnvironment) {
+        this.MidasEnvironment = MidasEnvironment;
+    }
+
+    /**
+     * Get 微信商户应用ID 
+     * @return WxAppId 微信商户应用ID
+     */
+    public String getWxAppId() {
+        return this.WxAppId;
+    }
+
+    /**
+     * Set 微信商户应用ID
+     * @param WxAppId 微信商户应用ID
+     */
+    public void setWxAppId(String WxAppId) {
+        this.WxAppId = WxAppId;
+    }
+
+    /**
+     * Get 微信商户子应用ID 
+     * @return WxSubAppId 微信商户子应用ID
+     */
+    public String getWxSubAppId() {
+        return this.WxSubAppId;
+    }
+
+    /**
+     * Set 微信商户子应用ID
+     * @param WxSubAppId 微信商户子应用ID
+     */
+    public void setWxSubAppId(String WxSubAppId) {
+        this.WxSubAppId = WxSubAppId;
+    }
+
+    /**
+     * Get 支付通知地址 
+     * @return PaymentNotifyUrl 支付通知地址
+     */
+    public String getPaymentNotifyUrl() {
+        return this.PaymentNotifyUrl;
+    }
+
+    /**
+     * Set 支付通知地址
+     * @param PaymentNotifyUrl 支付通知地址
+     */
+    public void setPaymentNotifyUrl(String PaymentNotifyUrl) {
+        this.PaymentNotifyUrl = PaymentNotifyUrl;
+    }
+
+    public UnifiedOrderRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public UnifiedOrderRequest(UnifiedOrderRequest source) {
+        if (source.CurrencyType != null) {
+            this.CurrencyType = new String(source.CurrencyType);
+        }
+        if (source.MidasAppId != null) {
+            this.MidasAppId = new String(source.MidasAppId);
+        }
+        if (source.OutTradeNo != null) {
+            this.OutTradeNo = new String(source.OutTradeNo);
+        }
+        if (source.ProductDetail != null) {
+            this.ProductDetail = new String(source.ProductDetail);
+        }
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+        if (source.ProductName != null) {
+            this.ProductName = new String(source.ProductName);
+        }
+        if (source.TotalAmt != null) {
+            this.TotalAmt = new Long(source.TotalAmt);
+        }
+        if (source.UserId != null) {
+            this.UserId = new String(source.UserId);
+        }
+        if (source.RealChannel != null) {
+            this.RealChannel = new String(source.RealChannel);
+        }
+        if (source.OriginalAmt != null) {
+            this.OriginalAmt = new Long(source.OriginalAmt);
+        }
+        if (source.MidasSecretId != null) {
+            this.MidasSecretId = new String(source.MidasSecretId);
+        }
+        if (source.MidasSignature != null) {
+            this.MidasSignature = new String(source.MidasSignature);
+        }
+        if (source.CallbackUrl != null) {
+            this.CallbackUrl = new String(source.CallbackUrl);
+        }
+        if (source.Channel != null) {
+            this.Channel = new String(source.Channel);
+        }
+        if (source.Metadata != null) {
+            this.Metadata = new String(source.Metadata);
+        }
+        if (source.Quantity != null) {
+            this.Quantity = new Long(source.Quantity);
+        }
+        if (source.SubAppId != null) {
+            this.SubAppId = new String(source.SubAppId);
+        }
+        if (source.SubOrderList != null) {
+            this.SubOrderList = new UnifiedOrderInSubOrderList[source.SubOrderList.length];
+            for (int i = 0; i < source.SubOrderList.length; i++) {
+                this.SubOrderList[i] = new UnifiedOrderInSubOrderList(source.SubOrderList[i]);
+            }
+        }
+        if (source.TotalMchIncome != null) {
+            this.TotalMchIncome = new Long(source.TotalMchIncome);
+        }
+        if (source.TotalPlatformIncome != null) {
+            this.TotalPlatformIncome = new Long(source.TotalPlatformIncome);
+        }
+        if (source.WxOpenId != null) {
+            this.WxOpenId = new String(source.WxOpenId);
+        }
+        if (source.WxSubOpenId != null) {
+            this.WxSubOpenId = new String(source.WxSubOpenId);
+        }
+        if (source.MidasEnvironment != null) {
+            this.MidasEnvironment = new String(source.MidasEnvironment);
+        }
+        if (source.WxAppId != null) {
+            this.WxAppId = new String(source.WxAppId);
+        }
+        if (source.WxSubAppId != null) {
+            this.WxSubAppId = new String(source.WxSubAppId);
+        }
+        if (source.PaymentNotifyUrl != null) {
+            this.PaymentNotifyUrl = new String(source.PaymentNotifyUrl);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -564,6 +768,10 @@ public class UnifiedOrderRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TotalPlatformIncome", this.TotalPlatformIncome);
         this.setParamSimple(map, prefix + "WxOpenId", this.WxOpenId);
         this.setParamSimple(map, prefix + "WxSubOpenId", this.WxSubOpenId);
+        this.setParamSimple(map, prefix + "MidasEnvironment", this.MidasEnvironment);
+        this.setParamSimple(map, prefix + "WxAppId", this.WxAppId);
+        this.setParamSimple(map, prefix + "WxSubAppId", this.WxSubAppId);
+        this.setParamSimple(map, prefix + "PaymentNotifyUrl", this.PaymentNotifyUrl);
 
     }
 }

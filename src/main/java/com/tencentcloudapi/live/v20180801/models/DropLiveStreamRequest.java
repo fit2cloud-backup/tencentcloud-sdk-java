@@ -30,7 +30,7 @@ public class DropLiveStreamRequest extends AbstractModel{
     private String StreamName;
 
     /**
-    * 您的加速域名。
+    * 您的推流域名。
     */
     @SerializedName("DomainName")
     @Expose
@@ -60,16 +60,16 @@ public class DropLiveStreamRequest extends AbstractModel{
     }
 
     /**
-     * Get 您的加速域名。 
-     * @return DomainName 您的加速域名。
+     * Get 您的推流域名。 
+     * @return DomainName 您的推流域名。
      */
     public String getDomainName() {
         return this.DomainName;
     }
 
     /**
-     * Set 您的加速域名。
-     * @param DomainName 您的加速域名。
+     * Set 您的推流域名。
+     * @param DomainName 您的推流域名。
      */
     public void setDomainName(String DomainName) {
         this.DomainName = DomainName;
@@ -90,6 +90,26 @@ public class DropLiveStreamRequest extends AbstractModel{
     public void setAppName(String AppName) {
         this.AppName = AppName;
     }
+
+    public DropLiveStreamRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DropLiveStreamRequest(DropLiveStreamRequest source) {
+        if (source.StreamName != null) {
+            this.StreamName = new String(source.StreamName);
+        }
+        if (source.DomainName != null) {
+            this.DomainName = new String(source.DomainName);
+        }
+        if (source.AppName != null) {
+            this.AppName = new String(source.AppName);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

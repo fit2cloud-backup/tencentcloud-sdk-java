@@ -30,11 +30,18 @@ public class ModifyModuleNetworkRequest extends AbstractModel{
     private String ModuleId;
 
     /**
-    * 默认带宽上限
+    * 默认出带宽上限
     */
     @SerializedName("DefaultBandwidth")
     @Expose
     private Long DefaultBandwidth;
+
+    /**
+    * 默认入带宽上限
+    */
+    @SerializedName("DefaultBandwidthIn")
+    @Expose
+    private Long DefaultBandwidthIn;
 
     /**
      * Get 模块Id 
@@ -53,20 +60,56 @@ public class ModifyModuleNetworkRequest extends AbstractModel{
     }
 
     /**
-     * Get 默认带宽上限 
-     * @return DefaultBandwidth 默认带宽上限
+     * Get 默认出带宽上限 
+     * @return DefaultBandwidth 默认出带宽上限
      */
     public Long getDefaultBandwidth() {
         return this.DefaultBandwidth;
     }
 
     /**
-     * Set 默认带宽上限
-     * @param DefaultBandwidth 默认带宽上限
+     * Set 默认出带宽上限
+     * @param DefaultBandwidth 默认出带宽上限
      */
     public void setDefaultBandwidth(Long DefaultBandwidth) {
         this.DefaultBandwidth = DefaultBandwidth;
     }
+
+    /**
+     * Get 默认入带宽上限 
+     * @return DefaultBandwidthIn 默认入带宽上限
+     */
+    public Long getDefaultBandwidthIn() {
+        return this.DefaultBandwidthIn;
+    }
+
+    /**
+     * Set 默认入带宽上限
+     * @param DefaultBandwidthIn 默认入带宽上限
+     */
+    public void setDefaultBandwidthIn(Long DefaultBandwidthIn) {
+        this.DefaultBandwidthIn = DefaultBandwidthIn;
+    }
+
+    public ModifyModuleNetworkRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyModuleNetworkRequest(ModifyModuleNetworkRequest source) {
+        if (source.ModuleId != null) {
+            this.ModuleId = new String(source.ModuleId);
+        }
+        if (source.DefaultBandwidth != null) {
+            this.DefaultBandwidth = new Long(source.DefaultBandwidth);
+        }
+        if (source.DefaultBandwidthIn != null) {
+            this.DefaultBandwidthIn = new Long(source.DefaultBandwidthIn);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -74,6 +117,7 @@ public class ModifyModuleNetworkRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ModuleId", this.ModuleId);
         this.setParamSimple(map, prefix + "DefaultBandwidth", this.DefaultBandwidth);
+        this.setParamSimple(map, prefix + "DefaultBandwidthIn", this.DefaultBandwidthIn);
 
     }
 }

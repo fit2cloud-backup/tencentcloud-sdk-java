@@ -58,6 +58,14 @@ public class TaskTemplateView extends AbstractModel{
     private String CreateTime;
 
     /**
+    * 任务模板绑定的标签列表。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
      * Get 任务模板ID 
      * @return TaskTemplateId 任务模板ID
      */
@@ -138,6 +146,58 @@ public class TaskTemplateView extends AbstractModel{
     }
 
     /**
+     * Get 任务模板绑定的标签列表。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Tags 任务模板绑定的标签列表。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 任务模板绑定的标签列表。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Tags 任务模板绑定的标签列表。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    public TaskTemplateView() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public TaskTemplateView(TaskTemplateView source) {
+        if (source.TaskTemplateId != null) {
+            this.TaskTemplateId = new String(source.TaskTemplateId);
+        }
+        if (source.TaskTemplateName != null) {
+            this.TaskTemplateName = new String(source.TaskTemplateName);
+        }
+        if (source.TaskTemplateDescription != null) {
+            this.TaskTemplateDescription = new String(source.TaskTemplateDescription);
+        }
+        if (source.TaskTemplateInfo != null) {
+            this.TaskTemplateInfo = new Task(source.TaskTemplateInfo);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -146,6 +206,7 @@ public class TaskTemplateView extends AbstractModel{
         this.setParamSimple(map, prefix + "TaskTemplateDescription", this.TaskTemplateDescription);
         this.setParamObj(map, prefix + "TaskTemplateInfo.", this.TaskTemplateInfo);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

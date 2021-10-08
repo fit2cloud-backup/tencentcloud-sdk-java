@@ -37,6 +37,13 @@ public class DeleteFunctionRequest extends AbstractModel{
     private String Namespace;
 
     /**
+    * 函数版本
+    */
+    @SerializedName("Qualifier")
+    @Expose
+    private String Qualifier;
+
+    /**
      * Get 要删除的函数名称 
      * @return FunctionName 要删除的函数名称
      */
@@ -69,11 +76,48 @@ public class DeleteFunctionRequest extends AbstractModel{
     }
 
     /**
+     * Get 函数版本 
+     * @return Qualifier 函数版本
+     */
+    public String getQualifier() {
+        return this.Qualifier;
+    }
+
+    /**
+     * Set 函数版本
+     * @param Qualifier 函数版本
+     */
+    public void setQualifier(String Qualifier) {
+        this.Qualifier = Qualifier;
+    }
+
+    public DeleteFunctionRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeleteFunctionRequest(DeleteFunctionRequest source) {
+        if (source.FunctionName != null) {
+            this.FunctionName = new String(source.FunctionName);
+        }
+        if (source.Namespace != null) {
+            this.Namespace = new String(source.Namespace);
+        }
+        if (source.Qualifier != null) {
+            this.Qualifier = new String(source.Qualifier);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "FunctionName", this.FunctionName);
         this.setParamSimple(map, prefix + "Namespace", this.Namespace);
+        this.setParamSimple(map, prefix + "Qualifier", this.Qualifier);
 
     }
 }

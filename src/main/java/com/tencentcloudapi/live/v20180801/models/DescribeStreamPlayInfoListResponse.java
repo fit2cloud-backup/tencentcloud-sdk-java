@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeStreamPlayInfoListResponse extends AbstractModel{
 
     /**
-    * 统计信息列表。
+    * 统计信息列表，时间粒度是1分钟。
     */
     @SerializedName("DataInfoList")
     @Expose
@@ -37,16 +37,16 @@ public class DescribeStreamPlayInfoListResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 统计信息列表。 
-     * @return DataInfoList 统计信息列表。
+     * Get 统计信息列表，时间粒度是1分钟。 
+     * @return DataInfoList 统计信息列表，时间粒度是1分钟。
      */
     public DayStreamPlayInfo [] getDataInfoList() {
         return this.DataInfoList;
     }
 
     /**
-     * Set 统计信息列表。
-     * @param DataInfoList 统计信息列表。
+     * Set 统计信息列表，时间粒度是1分钟。
+     * @param DataInfoList 统计信息列表，时间粒度是1分钟。
      */
     public void setDataInfoList(DayStreamPlayInfo [] DataInfoList) {
         this.DataInfoList = DataInfoList;
@@ -67,6 +67,26 @@ public class DescribeStreamPlayInfoListResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeStreamPlayInfoListResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeStreamPlayInfoListResponse(DescribeStreamPlayInfoListResponse source) {
+        if (source.DataInfoList != null) {
+            this.DataInfoList = new DayStreamPlayInfo[source.DataInfoList.length];
+            for (int i = 0; i < source.DataInfoList.length; i++) {
+                this.DataInfoList[i] = new DayStreamPlayInfo(source.DataInfoList[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

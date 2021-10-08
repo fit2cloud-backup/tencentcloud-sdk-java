@@ -93,6 +93,20 @@ public class MountInfo extends AbstractModel{
     private String SubnetName;
 
     /**
+    * CFS Turbo使用的云联网ID
+    */
+    @SerializedName("CcnID")
+    @Expose
+    private String CcnID;
+
+    /**
+    * 云联网中CFS Turbo使用的网段
+    */
+    @SerializedName("CidrBlock")
+    @Expose
+    private String CidrBlock;
+
+    /**
      * Get 文件系统 ID 
      * @return FileSystemId 文件系统 ID
      */
@@ -253,6 +267,85 @@ public class MountInfo extends AbstractModel{
     }
 
     /**
+     * Get CFS Turbo使用的云联网ID 
+     * @return CcnID CFS Turbo使用的云联网ID
+     */
+    public String getCcnID() {
+        return this.CcnID;
+    }
+
+    /**
+     * Set CFS Turbo使用的云联网ID
+     * @param CcnID CFS Turbo使用的云联网ID
+     */
+    public void setCcnID(String CcnID) {
+        this.CcnID = CcnID;
+    }
+
+    /**
+     * Get 云联网中CFS Turbo使用的网段 
+     * @return CidrBlock 云联网中CFS Turbo使用的网段
+     */
+    public String getCidrBlock() {
+        return this.CidrBlock;
+    }
+
+    /**
+     * Set 云联网中CFS Turbo使用的网段
+     * @param CidrBlock 云联网中CFS Turbo使用的网段
+     */
+    public void setCidrBlock(String CidrBlock) {
+        this.CidrBlock = CidrBlock;
+    }
+
+    public MountInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MountInfo(MountInfo source) {
+        if (source.FileSystemId != null) {
+            this.FileSystemId = new String(source.FileSystemId);
+        }
+        if (source.MountTargetId != null) {
+            this.MountTargetId = new String(source.MountTargetId);
+        }
+        if (source.IpAddress != null) {
+            this.IpAddress = new String(source.IpAddress);
+        }
+        if (source.FSID != null) {
+            this.FSID = new String(source.FSID);
+        }
+        if (source.LifeCycleState != null) {
+            this.LifeCycleState = new String(source.LifeCycleState);
+        }
+        if (source.NetworkInterface != null) {
+            this.NetworkInterface = new String(source.NetworkInterface);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.VpcName != null) {
+            this.VpcName = new String(source.VpcName);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.SubnetName != null) {
+            this.SubnetName = new String(source.SubnetName);
+        }
+        if (source.CcnID != null) {
+            this.CcnID = new String(source.CcnID);
+        }
+        if (source.CidrBlock != null) {
+            this.CidrBlock = new String(source.CidrBlock);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -266,6 +359,8 @@ public class MountInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "VpcName", this.VpcName);
         this.setParamSimple(map, prefix + "SubnetId", this.SubnetId);
         this.setParamSimple(map, prefix + "SubnetName", this.SubnetName);
+        this.setParamSimple(map, prefix + "CcnID", this.CcnID);
+        this.setParamSimple(map, prefix + "CidrBlock", this.CidrBlock);
 
     }
 }

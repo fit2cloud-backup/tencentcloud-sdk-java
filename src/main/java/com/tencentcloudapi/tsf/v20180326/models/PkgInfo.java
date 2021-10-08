@@ -87,6 +87,14 @@ public class PkgInfo extends AbstractModel{
     private Long PkgPubStatus;
 
     /**
+    * 程序包关联关系
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PkgBindInfo")
+    @Expose
+    private PkgBind [] PkgBindInfo;
+
+    /**
      * Get 程序包ID
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return PkgId 程序包ID
@@ -247,6 +255,67 @@ public class PkgInfo extends AbstractModel{
     }
 
     /**
+     * Get 程序包关联关系
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PkgBindInfo 程序包关联关系
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public PkgBind [] getPkgBindInfo() {
+        return this.PkgBindInfo;
+    }
+
+    /**
+     * Set 程序包关联关系
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PkgBindInfo 程序包关联关系
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPkgBindInfo(PkgBind [] PkgBindInfo) {
+        this.PkgBindInfo = PkgBindInfo;
+    }
+
+    public PkgInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public PkgInfo(PkgInfo source) {
+        if (source.PkgId != null) {
+            this.PkgId = new String(source.PkgId);
+        }
+        if (source.PkgName != null) {
+            this.PkgName = new String(source.PkgName);
+        }
+        if (source.PkgType != null) {
+            this.PkgType = new String(source.PkgType);
+        }
+        if (source.PkgVersion != null) {
+            this.PkgVersion = new String(source.PkgVersion);
+        }
+        if (source.PkgDesc != null) {
+            this.PkgDesc = new String(source.PkgDesc);
+        }
+        if (source.UploadTime != null) {
+            this.UploadTime = new String(source.UploadTime);
+        }
+        if (source.Md5 != null) {
+            this.Md5 = new String(source.Md5);
+        }
+        if (source.PkgPubStatus != null) {
+            this.PkgPubStatus = new Long(source.PkgPubStatus);
+        }
+        if (source.PkgBindInfo != null) {
+            this.PkgBindInfo = new PkgBind[source.PkgBindInfo.length];
+            for (int i = 0; i < source.PkgBindInfo.length; i++) {
+                this.PkgBindInfo[i] = new PkgBind(source.PkgBindInfo[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -258,6 +327,7 @@ public class PkgInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "UploadTime", this.UploadTime);
         this.setParamSimple(map, prefix + "Md5", this.Md5);
         this.setParamSimple(map, prefix + "PkgPubStatus", this.PkgPubStatus);
+        this.setParamArrayObj(map, prefix + "PkgBindInfo.", this.PkgBindInfo);
 
     }
 }

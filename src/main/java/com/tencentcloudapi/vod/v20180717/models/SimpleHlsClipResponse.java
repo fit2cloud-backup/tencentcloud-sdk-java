@@ -37,6 +37,13 @@ public class SimpleHlsClipResponse extends AbstractModel{
     private MediaMetaData MetaData;
 
     /**
+    * 剪辑固化后的视频的媒体文件的唯一标识。
+    */
+    @SerializedName("FileId")
+    @Expose
+    private String FileId;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -76,6 +83,22 @@ public class SimpleHlsClipResponse extends AbstractModel{
     }
 
     /**
+     * Get 剪辑固化后的视频的媒体文件的唯一标识。 
+     * @return FileId 剪辑固化后的视频的媒体文件的唯一标识。
+     */
+    public String getFileId() {
+        return this.FileId;
+    }
+
+    /**
+     * Set 剪辑固化后的视频的媒体文件的唯一标识。
+     * @param FileId 剪辑固化后的视频的媒体文件的唯一标识。
+     */
+    public void setFileId(String FileId) {
+        this.FileId = FileId;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -91,12 +114,36 @@ public class SimpleHlsClipResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public SimpleHlsClipResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SimpleHlsClipResponse(SimpleHlsClipResponse source) {
+        if (source.Url != null) {
+            this.Url = new String(source.Url);
+        }
+        if (source.MetaData != null) {
+            this.MetaData = new MediaMetaData(source.MetaData);
+        }
+        if (source.FileId != null) {
+            this.FileId = new String(source.FileId);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Url", this.Url);
         this.setParamObj(map, prefix + "MetaData.", this.MetaData);
+        this.setParamSimple(map, prefix + "FileId", this.FileId);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

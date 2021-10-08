@@ -23,6 +23,13 @@ import java.util.HashMap;
 public class DescribeTeamsResponse extends AbstractModel{
 
     /**
+    * 符合条件的记录总数。
+    */
+    @SerializedName("TotalCount")
+    @Expose
+    private Long TotalCount;
+
+    /**
     * 团队列表。
     */
     @SerializedName("TeamSet")
@@ -35,6 +42,22 @@ public class DescribeTeamsResponse extends AbstractModel{
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
+
+    /**
+     * Get 符合条件的记录总数。 
+     * @return TotalCount 符合条件的记录总数。
+     */
+    public Long getTotalCount() {
+        return this.TotalCount;
+    }
+
+    /**
+     * Set 符合条件的记录总数。
+     * @param TotalCount 符合条件的记录总数。
+     */
+    public void setTotalCount(Long TotalCount) {
+        this.TotalCount = TotalCount;
+    }
 
     /**
      * Get 团队列表。 
@@ -68,10 +91,34 @@ public class DescribeTeamsResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public DescribeTeamsResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeTeamsResponse(DescribeTeamsResponse source) {
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
+        if (source.TeamSet != null) {
+            this.TeamSet = new TeamInfo[source.TeamSet.length];
+            for (int i = 0; i < source.TeamSet.length; i++) {
+                this.TeamSet[i] = new TeamInfo(source.TeamSet[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
         this.setParamArrayObj(map, prefix + "TeamSet.", this.TeamSet);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 

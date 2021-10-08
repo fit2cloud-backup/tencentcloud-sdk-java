@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeMaterialsResponse extends AbstractModel{
 
     /**
-    * 素材列表信息。
+    * 媒体列表信息。
     */
     @SerializedName("MaterialInfoSet")
     @Expose
@@ -37,16 +37,16 @@ public class DescribeMaterialsResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 素材列表信息。 
-     * @return MaterialInfoSet 素材列表信息。
+     * Get 媒体列表信息。 
+     * @return MaterialInfoSet 媒体列表信息。
      */
     public MaterialInfo [] getMaterialInfoSet() {
         return this.MaterialInfoSet;
     }
 
     /**
-     * Set 素材列表信息。
-     * @param MaterialInfoSet 素材列表信息。
+     * Set 媒体列表信息。
+     * @param MaterialInfoSet 媒体列表信息。
      */
     public void setMaterialInfoSet(MaterialInfo [] MaterialInfoSet) {
         this.MaterialInfoSet = MaterialInfoSet;
@@ -67,6 +67,26 @@ public class DescribeMaterialsResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeMaterialsResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeMaterialsResponse(DescribeMaterialsResponse source) {
+        if (source.MaterialInfoSet != null) {
+            this.MaterialInfoSet = new MaterialInfo[source.MaterialInfoSet.length];
+            for (int i = 0; i < source.MaterialInfoSet.length; i++) {
+                this.MaterialInfoSet[i] = new MaterialInfo(source.MaterialInfoSet[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

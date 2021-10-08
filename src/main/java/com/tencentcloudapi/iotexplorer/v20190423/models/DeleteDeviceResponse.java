@@ -23,11 +23,67 @@ import java.util.HashMap;
 public class DeleteDeviceResponse extends AbstractModel{
 
     /**
+    * 删除的结果代码
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ResultCode")
+    @Expose
+    private String ResultCode;
+
+    /**
+    * 删除的结果信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ResultMessage")
+    @Expose
+    private String ResultMessage;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
+
+    /**
+     * Get 删除的结果代码
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ResultCode 删除的结果代码
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getResultCode() {
+        return this.ResultCode;
+    }
+
+    /**
+     * Set 删除的结果代码
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ResultCode 删除的结果代码
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setResultCode(String ResultCode) {
+        this.ResultCode = ResultCode;
+    }
+
+    /**
+     * Get 删除的结果信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ResultMessage 删除的结果信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getResultMessage() {
+        return this.ResultMessage;
+    }
+
+    /**
+     * Set 删除的结果信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ResultMessage 删除的结果信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setResultMessage(String ResultMessage) {
+        this.ResultMessage = ResultMessage;
+    }
 
     /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
@@ -45,10 +101,32 @@ public class DeleteDeviceResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public DeleteDeviceResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeleteDeviceResponse(DeleteDeviceResponse source) {
+        if (source.ResultCode != null) {
+            this.ResultCode = new String(source.ResultCode);
+        }
+        if (source.ResultMessage != null) {
+            this.ResultMessage = new String(source.ResultMessage);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "ResultCode", this.ResultCode);
+        this.setParamSimple(map, prefix + "ResultMessage", this.ResultMessage);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

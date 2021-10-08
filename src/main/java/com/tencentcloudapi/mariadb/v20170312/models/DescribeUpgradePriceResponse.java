@@ -37,6 +37,13 @@ public class DescribeUpgradePriceResponse extends AbstractModel{
     private Long Price;
 
     /**
+    * 变配明细计算公式
+    */
+    @SerializedName("Formula")
+    @Expose
+    private String Formula;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -76,6 +83,22 @@ public class DescribeUpgradePriceResponse extends AbstractModel{
     }
 
     /**
+     * Get 变配明细计算公式 
+     * @return Formula 变配明细计算公式
+     */
+    public String getFormula() {
+        return this.Formula;
+    }
+
+    /**
+     * Set 变配明细计算公式
+     * @param Formula 变配明细计算公式
+     */
+    public void setFormula(String Formula) {
+        this.Formula = Formula;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -91,12 +114,36 @@ public class DescribeUpgradePriceResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public DescribeUpgradePriceResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeUpgradePriceResponse(DescribeUpgradePriceResponse source) {
+        if (source.OriginalPrice != null) {
+            this.OriginalPrice = new Long(source.OriginalPrice);
+        }
+        if (source.Price != null) {
+            this.Price = new Long(source.Price);
+        }
+        if (source.Formula != null) {
+            this.Formula = new String(source.Formula);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "OriginalPrice", this.OriginalPrice);
         this.setParamSimple(map, prefix + "Price", this.Price);
+        this.setParamSimple(map, prefix + "Formula", this.Formula);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

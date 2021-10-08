@@ -30,11 +30,19 @@ public class Env extends AbstractModel{
     private String Name;
 
     /**
-    * 服务端口
+    * 环境变量值
     */
     @SerializedName("Value")
     @Expose
     private String Value;
+
+    /**
+    * k8s ValueFrom
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ValueFrom")
+    @Expose
+    private ValueFrom ValueFrom;
 
     /**
      * Get 环境变量名称 
@@ -53,20 +61,60 @@ public class Env extends AbstractModel{
     }
 
     /**
-     * Get 服务端口 
-     * @return Value 服务端口
+     * Get 环境变量值 
+     * @return Value 环境变量值
      */
     public String getValue() {
         return this.Value;
     }
 
     /**
-     * Set 服务端口
-     * @param Value 服务端口
+     * Set 环境变量值
+     * @param Value 环境变量值
      */
     public void setValue(String Value) {
         this.Value = Value;
     }
+
+    /**
+     * Get k8s ValueFrom
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ValueFrom k8s ValueFrom
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ValueFrom getValueFrom() {
+        return this.ValueFrom;
+    }
+
+    /**
+     * Set k8s ValueFrom
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ValueFrom k8s ValueFrom
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setValueFrom(ValueFrom ValueFrom) {
+        this.ValueFrom = ValueFrom;
+    }
+
+    public Env() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Env(Env source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Value != null) {
+            this.Value = new String(source.Value);
+        }
+        if (source.ValueFrom != null) {
+            this.ValueFrom = new ValueFrom(source.ValueFrom);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -74,6 +122,7 @@ public class Env extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Value", this.Value);
+        this.setParamObj(map, prefix + "ValueFrom.", this.ValueFrom);
 
     }
 }

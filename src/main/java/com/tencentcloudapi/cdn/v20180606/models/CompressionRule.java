@@ -59,7 +59,7 @@ public class CompressionRule extends AbstractModel{
     /**
     * 文件压缩算法
 gzip：指定 GZIP 压缩
-brotli：需要同时指定 GZIP 压缩才可启用
+brotli：指定Brotli压缩
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Algorithms")
@@ -157,11 +157,11 @@ brotli：需要同时指定 GZIP 压缩才可启用
     /**
      * Get 文件压缩算法
 gzip：指定 GZIP 压缩
-brotli：需要同时指定 GZIP 压缩才可启用
+brotli：指定Brotli压缩
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return Algorithms 文件压缩算法
 gzip：指定 GZIP 压缩
-brotli：需要同时指定 GZIP 压缩才可启用
+brotli：指定Brotli压缩
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getAlgorithms() {
@@ -171,16 +171,48 @@ brotli：需要同时指定 GZIP 压缩才可启用
     /**
      * Set 文件压缩算法
 gzip：指定 GZIP 压缩
-brotli：需要同时指定 GZIP 压缩才可启用
+brotli：指定Brotli压缩
 注意：此字段可能返回 null，表示取不到有效值。
      * @param Algorithms 文件压缩算法
 gzip：指定 GZIP 压缩
-brotli：需要同时指定 GZIP 压缩才可启用
+brotli：指定Brotli压缩
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAlgorithms(String [] Algorithms) {
         this.Algorithms = Algorithms;
     }
+
+    public CompressionRule() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CompressionRule(CompressionRule source) {
+        if (source.Compress != null) {
+            this.Compress = new Boolean(source.Compress);
+        }
+        if (source.FileExtensions != null) {
+            this.FileExtensions = new String[source.FileExtensions.length];
+            for (int i = 0; i < source.FileExtensions.length; i++) {
+                this.FileExtensions[i] = new String(source.FileExtensions[i]);
+            }
+        }
+        if (source.MinLength != null) {
+            this.MinLength = new Long(source.MinLength);
+        }
+        if (source.MaxLength != null) {
+            this.MaxLength = new Long(source.MaxLength);
+        }
+        if (source.Algorithms != null) {
+            this.Algorithms = new String[source.Algorithms.length];
+            for (int i = 0; i < source.Algorithms.length; i++) {
+                this.Algorithms[i] = new String(source.Algorithms[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

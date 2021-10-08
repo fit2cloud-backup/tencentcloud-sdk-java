@@ -23,21 +23,23 @@ import java.util.HashMap;
 public class PlaySumStatInfo extends AbstractModel{
 
     /**
-    * 域名或流id。
+    * 域名或流 ID。
     */
     @SerializedName("Name")
     @Expose
     private String Name;
 
     /**
-    * 平均下载速度，单位是MB/s，计算公式是每分钟的下载速度求平均值。
+    * 平均下载速度，
+单位: MB/s。
+计算公式: 每分钟的下载速度求平均值。
     */
     @SerializedName("AvgFluxPerSecond")
     @Expose
     private Float AvgFluxPerSecond;
 
     /**
-    * 总流量，单位是MB。
+    * 总流量，单位: MB。
     */
     @SerializedName("TotalFlux")
     @Expose
@@ -51,48 +53,56 @@ public class PlaySumStatInfo extends AbstractModel{
     private Long TotalRequest;
 
     /**
-     * Get 域名或流id。 
-     * @return Name 域名或流id。
+     * Get 域名或流 ID。 
+     * @return Name 域名或流 ID。
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 域名或流id。
-     * @param Name 域名或流id。
+     * Set 域名或流 ID。
+     * @param Name 域名或流 ID。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 平均下载速度，单位是MB/s，计算公式是每分钟的下载速度求平均值。 
-     * @return AvgFluxPerSecond 平均下载速度，单位是MB/s，计算公式是每分钟的下载速度求平均值。
+     * Get 平均下载速度，
+单位: MB/s。
+计算公式: 每分钟的下载速度求平均值。 
+     * @return AvgFluxPerSecond 平均下载速度，
+单位: MB/s。
+计算公式: 每分钟的下载速度求平均值。
      */
     public Float getAvgFluxPerSecond() {
         return this.AvgFluxPerSecond;
     }
 
     /**
-     * Set 平均下载速度，单位是MB/s，计算公式是每分钟的下载速度求平均值。
-     * @param AvgFluxPerSecond 平均下载速度，单位是MB/s，计算公式是每分钟的下载速度求平均值。
+     * Set 平均下载速度，
+单位: MB/s。
+计算公式: 每分钟的下载速度求平均值。
+     * @param AvgFluxPerSecond 平均下载速度，
+单位: MB/s。
+计算公式: 每分钟的下载速度求平均值。
      */
     public void setAvgFluxPerSecond(Float AvgFluxPerSecond) {
         this.AvgFluxPerSecond = AvgFluxPerSecond;
     }
 
     /**
-     * Get 总流量，单位是MB。 
-     * @return TotalFlux 总流量，单位是MB。
+     * Get 总流量，单位: MB。 
+     * @return TotalFlux 总流量，单位: MB。
      */
     public Float getTotalFlux() {
         return this.TotalFlux;
     }
 
     /**
-     * Set 总流量，单位是MB。
-     * @param TotalFlux 总流量，单位是MB。
+     * Set 总流量，单位: MB。
+     * @param TotalFlux 总流量，单位: MB。
      */
     public void setTotalFlux(Float TotalFlux) {
         this.TotalFlux = TotalFlux;
@@ -113,6 +123,29 @@ public class PlaySumStatInfo extends AbstractModel{
     public void setTotalRequest(Long TotalRequest) {
         this.TotalRequest = TotalRequest;
     }
+
+    public PlaySumStatInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public PlaySumStatInfo(PlaySumStatInfo source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.AvgFluxPerSecond != null) {
+            this.AvgFluxPerSecond = new Float(source.AvgFluxPerSecond);
+        }
+        if (source.TotalFlux != null) {
+            this.TotalFlux = new Float(source.TotalFlux);
+        }
+        if (source.TotalRequest != null) {
+            this.TotalRequest = new Long(source.TotalRequest);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

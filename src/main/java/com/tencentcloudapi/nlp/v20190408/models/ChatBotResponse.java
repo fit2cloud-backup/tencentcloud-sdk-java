@@ -23,13 +23,6 @@ import java.util.HashMap;
 public class ChatBotResponse extends AbstractModel{
 
     /**
-    * 对于当前输出回复的自信度
-    */
-    @SerializedName("Confidence")
-    @Expose
-    private Float Confidence;
-
-    /**
     * 闲聊回复
     */
     @SerializedName("Reply")
@@ -37,27 +30,18 @@ public class ChatBotResponse extends AbstractModel{
     private String Reply;
 
     /**
+    * 对于当前输出回复的自信度
+    */
+    @SerializedName("Confidence")
+    @Expose
+    private Float Confidence;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
-
-    /**
-     * Get 对于当前输出回复的自信度 
-     * @return Confidence 对于当前输出回复的自信度
-     */
-    public Float getConfidence() {
-        return this.Confidence;
-    }
-
-    /**
-     * Set 对于当前输出回复的自信度
-     * @param Confidence 对于当前输出回复的自信度
-     */
-    public void setConfidence(Float Confidence) {
-        this.Confidence = Confidence;
-    }
 
     /**
      * Get 闲聊回复 
@@ -76,6 +60,22 @@ public class ChatBotResponse extends AbstractModel{
     }
 
     /**
+     * Get 对于当前输出回复的自信度 
+     * @return Confidence 对于当前输出回复的自信度
+     */
+    public Float getConfidence() {
+        return this.Confidence;
+    }
+
+    /**
+     * Set 对于当前输出回复的自信度
+     * @param Confidence 对于当前输出回复的自信度
+     */
+    public void setConfidence(Float Confidence) {
+        this.Confidence = Confidence;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -91,12 +91,32 @@ public class ChatBotResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public ChatBotResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ChatBotResponse(ChatBotResponse source) {
+        if (source.Reply != null) {
+            this.Reply = new String(source.Reply);
+        }
+        if (source.Confidence != null) {
+            this.Confidence = new Float(source.Confidence);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "Confidence", this.Confidence);
         this.setParamSimple(map, prefix + "Reply", this.Reply);
+        this.setParamSimple(map, prefix + "Confidence", this.Confidence);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

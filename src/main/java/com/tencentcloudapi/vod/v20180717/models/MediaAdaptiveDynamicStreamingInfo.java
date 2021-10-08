@@ -24,17 +24,14 @@ public class MediaAdaptiveDynamicStreamingInfo extends AbstractModel{
 
     /**
     * 转自适应码流信息数组。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AdaptiveDynamicStreamingSet")
     @Expose
     private AdaptiveDynamicStreamingInfoItem [] AdaptiveDynamicStreamingSet;
 
     /**
-     * Get 转自适应码流信息数组。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 转自适应码流信息数组。 
      * @return AdaptiveDynamicStreamingSet 转自适应码流信息数组。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AdaptiveDynamicStreamingInfoItem [] getAdaptiveDynamicStreamingSet() {
         return this.AdaptiveDynamicStreamingSet;
@@ -42,13 +39,28 @@ public class MediaAdaptiveDynamicStreamingInfo extends AbstractModel{
 
     /**
      * Set 转自适应码流信息数组。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AdaptiveDynamicStreamingSet 转自适应码流信息数组。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAdaptiveDynamicStreamingSet(AdaptiveDynamicStreamingInfoItem [] AdaptiveDynamicStreamingSet) {
         this.AdaptiveDynamicStreamingSet = AdaptiveDynamicStreamingSet;
     }
+
+    public MediaAdaptiveDynamicStreamingInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MediaAdaptiveDynamicStreamingInfo(MediaAdaptiveDynamicStreamingInfo source) {
+        if (source.AdaptiveDynamicStreamingSet != null) {
+            this.AdaptiveDynamicStreamingSet = new AdaptiveDynamicStreamingInfoItem[source.AdaptiveDynamicStreamingSet.length];
+            for (int i = 0; i < source.AdaptiveDynamicStreamingSet.length; i++) {
+                this.AdaptiveDynamicStreamingSet[i] = new AdaptiveDynamicStreamingInfoItem(source.AdaptiveDynamicStreamingSet[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

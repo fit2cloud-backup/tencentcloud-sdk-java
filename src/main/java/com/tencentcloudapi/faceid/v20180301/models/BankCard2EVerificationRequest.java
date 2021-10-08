@@ -37,6 +37,13 @@ public class BankCard2EVerificationRequest extends AbstractModel{
     private String BankCard;
 
     /**
+    * 敏感数据加密信息。对传入信息（姓名、银行卡号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+    */
+    @SerializedName("Encryption")
+    @Expose
+    private Encryption Encryption;
+
+    /**
      * Get 姓名 
      * @return Name 姓名
      */
@@ -69,11 +76,48 @@ public class BankCard2EVerificationRequest extends AbstractModel{
     }
 
     /**
+     * Get 敏感数据加密信息。对传入信息（姓名、银行卡号）有加密需求的用户可使用此参数，详情请点击左侧链接。 
+     * @return Encryption 敏感数据加密信息。对传入信息（姓名、银行卡号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+     */
+    public Encryption getEncryption() {
+        return this.Encryption;
+    }
+
+    /**
+     * Set 敏感数据加密信息。对传入信息（姓名、银行卡号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+     * @param Encryption 敏感数据加密信息。对传入信息（姓名、银行卡号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+     */
+    public void setEncryption(Encryption Encryption) {
+        this.Encryption = Encryption;
+    }
+
+    public BankCard2EVerificationRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public BankCard2EVerificationRequest(BankCard2EVerificationRequest source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.BankCard != null) {
+            this.BankCard = new String(source.BankCard);
+        }
+        if (source.Encryption != null) {
+            this.Encryption = new Encryption(source.Encryption);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "BankCard", this.BankCard);
+        this.setParamObj(map, prefix + "Encryption.", this.Encryption);
 
     }
 }

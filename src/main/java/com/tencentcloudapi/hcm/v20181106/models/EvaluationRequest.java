@@ -72,6 +72,48 @@ public class EvaluationRequest extends AbstractModel{
     private Long IsAsync;
 
     /**
+    * 是否展开耦合算式中的竖式计算
+    */
+    @SerializedName("EnableDispRelatedVertical")
+    @Expose
+    private Boolean EnableDispRelatedVertical;
+
+    /**
+    * 是否展示竖式算式的中间结果和格式控制字符
+    */
+    @SerializedName("EnableDispMidresult")
+    @Expose
+    private Boolean EnableDispMidresult;
+
+    /**
+    * 是否开启pdf识别，默认开启
+    */
+    @SerializedName("EnablePdfRecognize")
+    @Expose
+    private Boolean EnablePdfRecognize;
+
+    /**
+    * pdf页码，从0开始，默认为0
+    */
+    @SerializedName("PdfPageIndex")
+    @Expose
+    private Long PdfPageIndex;
+
+    /**
+    * 是否返回LaTex，默认为0返回普通格式，设置成1返回LaTex格式
+    */
+    @SerializedName("LaTex")
+    @Expose
+    private Long LaTex;
+
+    /**
+    * 用于选择是否拒绝模糊题 目。打开则丢弃模糊题目， 不进行后续的判题返回结 果。
+    */
+    @SerializedName("RejectVagueArithmetic")
+    @Expose
+    private Boolean RejectVagueArithmetic;
+
+    /**
      * Get 图片唯一标识，一张图片一个SessionId； 
      * @return SessionId 图片唯一标识，一张图片一个SessionId；
      */
@@ -184,6 +226,152 @@ public class EvaluationRequest extends AbstractModel{
     }
 
     /**
+     * Get 是否展开耦合算式中的竖式计算 
+     * @return EnableDispRelatedVertical 是否展开耦合算式中的竖式计算
+     */
+    public Boolean getEnableDispRelatedVertical() {
+        return this.EnableDispRelatedVertical;
+    }
+
+    /**
+     * Set 是否展开耦合算式中的竖式计算
+     * @param EnableDispRelatedVertical 是否展开耦合算式中的竖式计算
+     */
+    public void setEnableDispRelatedVertical(Boolean EnableDispRelatedVertical) {
+        this.EnableDispRelatedVertical = EnableDispRelatedVertical;
+    }
+
+    /**
+     * Get 是否展示竖式算式的中间结果和格式控制字符 
+     * @return EnableDispMidresult 是否展示竖式算式的中间结果和格式控制字符
+     */
+    public Boolean getEnableDispMidresult() {
+        return this.EnableDispMidresult;
+    }
+
+    /**
+     * Set 是否展示竖式算式的中间结果和格式控制字符
+     * @param EnableDispMidresult 是否展示竖式算式的中间结果和格式控制字符
+     */
+    public void setEnableDispMidresult(Boolean EnableDispMidresult) {
+        this.EnableDispMidresult = EnableDispMidresult;
+    }
+
+    /**
+     * Get 是否开启pdf识别，默认开启 
+     * @return EnablePdfRecognize 是否开启pdf识别，默认开启
+     */
+    public Boolean getEnablePdfRecognize() {
+        return this.EnablePdfRecognize;
+    }
+
+    /**
+     * Set 是否开启pdf识别，默认开启
+     * @param EnablePdfRecognize 是否开启pdf识别，默认开启
+     */
+    public void setEnablePdfRecognize(Boolean EnablePdfRecognize) {
+        this.EnablePdfRecognize = EnablePdfRecognize;
+    }
+
+    /**
+     * Get pdf页码，从0开始，默认为0 
+     * @return PdfPageIndex pdf页码，从0开始，默认为0
+     */
+    public Long getPdfPageIndex() {
+        return this.PdfPageIndex;
+    }
+
+    /**
+     * Set pdf页码，从0开始，默认为0
+     * @param PdfPageIndex pdf页码，从0开始，默认为0
+     */
+    public void setPdfPageIndex(Long PdfPageIndex) {
+        this.PdfPageIndex = PdfPageIndex;
+    }
+
+    /**
+     * Get 是否返回LaTex，默认为0返回普通格式，设置成1返回LaTex格式 
+     * @return LaTex 是否返回LaTex，默认为0返回普通格式，设置成1返回LaTex格式
+     */
+    public Long getLaTex() {
+        return this.LaTex;
+    }
+
+    /**
+     * Set 是否返回LaTex，默认为0返回普通格式，设置成1返回LaTex格式
+     * @param LaTex 是否返回LaTex，默认为0返回普通格式，设置成1返回LaTex格式
+     */
+    public void setLaTex(Long LaTex) {
+        this.LaTex = LaTex;
+    }
+
+    /**
+     * Get 用于选择是否拒绝模糊题 目。打开则丢弃模糊题目， 不进行后续的判题返回结 果。 
+     * @return RejectVagueArithmetic 用于选择是否拒绝模糊题 目。打开则丢弃模糊题目， 不进行后续的判题返回结 果。
+     */
+    public Boolean getRejectVagueArithmetic() {
+        return this.RejectVagueArithmetic;
+    }
+
+    /**
+     * Set 用于选择是否拒绝模糊题 目。打开则丢弃模糊题目， 不进行后续的判题返回结 果。
+     * @param RejectVagueArithmetic 用于选择是否拒绝模糊题 目。打开则丢弃模糊题目， 不进行后续的判题返回结 果。
+     */
+    public void setRejectVagueArithmetic(Boolean RejectVagueArithmetic) {
+        this.RejectVagueArithmetic = RejectVagueArithmetic;
+    }
+
+    public EvaluationRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public EvaluationRequest(EvaluationRequest source) {
+        if (source.SessionId != null) {
+            this.SessionId = new String(source.SessionId);
+        }
+        if (source.Image != null) {
+            this.Image = new String(source.Image);
+        }
+        if (source.HcmAppid != null) {
+            this.HcmAppid = new String(source.HcmAppid);
+        }
+        if (source.Url != null) {
+            this.Url = new String(source.Url);
+        }
+        if (source.SupportHorizontalImage != null) {
+            this.SupportHorizontalImage = new Boolean(source.SupportHorizontalImage);
+        }
+        if (source.RejectNonArithmeticImage != null) {
+            this.RejectNonArithmeticImage = new Boolean(source.RejectNonArithmeticImage);
+        }
+        if (source.IsAsync != null) {
+            this.IsAsync = new Long(source.IsAsync);
+        }
+        if (source.EnableDispRelatedVertical != null) {
+            this.EnableDispRelatedVertical = new Boolean(source.EnableDispRelatedVertical);
+        }
+        if (source.EnableDispMidresult != null) {
+            this.EnableDispMidresult = new Boolean(source.EnableDispMidresult);
+        }
+        if (source.EnablePdfRecognize != null) {
+            this.EnablePdfRecognize = new Boolean(source.EnablePdfRecognize);
+        }
+        if (source.PdfPageIndex != null) {
+            this.PdfPageIndex = new Long(source.PdfPageIndex);
+        }
+        if (source.LaTex != null) {
+            this.LaTex = new Long(source.LaTex);
+        }
+        if (source.RejectVagueArithmetic != null) {
+            this.RejectVagueArithmetic = new Boolean(source.RejectVagueArithmetic);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -194,6 +382,12 @@ public class EvaluationRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SupportHorizontalImage", this.SupportHorizontalImage);
         this.setParamSimple(map, prefix + "RejectNonArithmeticImage", this.RejectNonArithmeticImage);
         this.setParamSimple(map, prefix + "IsAsync", this.IsAsync);
+        this.setParamSimple(map, prefix + "EnableDispRelatedVertical", this.EnableDispRelatedVertical);
+        this.setParamSimple(map, prefix + "EnableDispMidresult", this.EnableDispMidresult);
+        this.setParamSimple(map, prefix + "EnablePdfRecognize", this.EnablePdfRecognize);
+        this.setParamSimple(map, prefix + "PdfPageIndex", this.PdfPageIndex);
+        this.setParamSimple(map, prefix + "LaTex", this.LaTex);
+        this.setParamSimple(map, prefix + "RejectVagueArithmetic", this.RejectVagueArithmetic);
 
     }
 }

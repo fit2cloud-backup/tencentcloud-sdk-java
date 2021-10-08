@@ -51,6 +51,27 @@ public class ModifyInstanceAttributesRequest extends AbstractModel{
     private ModifyInstanceAttributesConfig Config;
 
     /**
+    * 动态消息保留策略配置
+    */
+    @SerializedName("DynamicRetentionConfig")
+    @Expose
+    private DynamicRetentionTime DynamicRetentionConfig;
+
+    /**
+    * 修改升配置rebalance时间
+    */
+    @SerializedName("RebalanceTime")
+    @Expose
+    private Long RebalanceTime;
+
+    /**
+    * 时间戳
+    */
+    @SerializedName("PublicNetwork")
+    @Expose
+    private Long PublicNetwork;
+
+    /**
      * Get 实例id 
      * @return InstanceId 实例id
      */
@@ -115,6 +136,86 @@ public class ModifyInstanceAttributesRequest extends AbstractModel{
     }
 
     /**
+     * Get 动态消息保留策略配置 
+     * @return DynamicRetentionConfig 动态消息保留策略配置
+     */
+    public DynamicRetentionTime getDynamicRetentionConfig() {
+        return this.DynamicRetentionConfig;
+    }
+
+    /**
+     * Set 动态消息保留策略配置
+     * @param DynamicRetentionConfig 动态消息保留策略配置
+     */
+    public void setDynamicRetentionConfig(DynamicRetentionTime DynamicRetentionConfig) {
+        this.DynamicRetentionConfig = DynamicRetentionConfig;
+    }
+
+    /**
+     * Get 修改升配置rebalance时间 
+     * @return RebalanceTime 修改升配置rebalance时间
+     */
+    public Long getRebalanceTime() {
+        return this.RebalanceTime;
+    }
+
+    /**
+     * Set 修改升配置rebalance时间
+     * @param RebalanceTime 修改升配置rebalance时间
+     */
+    public void setRebalanceTime(Long RebalanceTime) {
+        this.RebalanceTime = RebalanceTime;
+    }
+
+    /**
+     * Get 时间戳 
+     * @return PublicNetwork 时间戳
+     */
+    public Long getPublicNetwork() {
+        return this.PublicNetwork;
+    }
+
+    /**
+     * Set 时间戳
+     * @param PublicNetwork 时间戳
+     */
+    public void setPublicNetwork(Long PublicNetwork) {
+        this.PublicNetwork = PublicNetwork;
+    }
+
+    public ModifyInstanceAttributesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyInstanceAttributesRequest(ModifyInstanceAttributesRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.MsgRetentionTime != null) {
+            this.MsgRetentionTime = new Long(source.MsgRetentionTime);
+        }
+        if (source.InstanceName != null) {
+            this.InstanceName = new String(source.InstanceName);
+        }
+        if (source.Config != null) {
+            this.Config = new ModifyInstanceAttributesConfig(source.Config);
+        }
+        if (source.DynamicRetentionConfig != null) {
+            this.DynamicRetentionConfig = new DynamicRetentionTime(source.DynamicRetentionConfig);
+        }
+        if (source.RebalanceTime != null) {
+            this.RebalanceTime = new Long(source.RebalanceTime);
+        }
+        if (source.PublicNetwork != null) {
+            this.PublicNetwork = new Long(source.PublicNetwork);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -122,6 +223,9 @@ public class ModifyInstanceAttributesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "MsgRetentionTime", this.MsgRetentionTime);
         this.setParamSimple(map, prefix + "InstanceName", this.InstanceName);
         this.setParamObj(map, prefix + "Config.", this.Config);
+        this.setParamObj(map, prefix + "DynamicRetentionConfig.", this.DynamicRetentionConfig);
+        this.setParamSimple(map, prefix + "RebalanceTime", this.RebalanceTime);
+        this.setParamSimple(map, prefix + "PublicNetwork", this.PublicNetwork);
 
     }
 }

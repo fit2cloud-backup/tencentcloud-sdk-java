@@ -79,6 +79,13 @@ public class PayModeSummaryOverviewItem extends AbstractModel{
     private String VoucherPayAmount;
 
     /**
+    * 原价，单位为元。TotalCost字段自账单3.0（即2021-05）之后开始生效，账单3.0之前返回"-"。合同价的情况下，TotalCost字段与官网价格存在差异，也返回“-”。
+    */
+    @SerializedName("TotalCost")
+    @Expose
+    private String TotalCost;
+
+    /**
      * Get 付费模式 
      * @return PayMode 付费模式
      */
@@ -207,6 +214,63 @@ public class PayModeSummaryOverviewItem extends AbstractModel{
     }
 
     /**
+     * Get 原价，单位为元。TotalCost字段自账单3.0（即2021-05）之后开始生效，账单3.0之前返回"-"。合同价的情况下，TotalCost字段与官网价格存在差异，也返回“-”。 
+     * @return TotalCost 原价，单位为元。TotalCost字段自账单3.0（即2021-05）之后开始生效，账单3.0之前返回"-"。合同价的情况下，TotalCost字段与官网价格存在差异，也返回“-”。
+     */
+    public String getTotalCost() {
+        return this.TotalCost;
+    }
+
+    /**
+     * Set 原价，单位为元。TotalCost字段自账单3.0（即2021-05）之后开始生效，账单3.0之前返回"-"。合同价的情况下，TotalCost字段与官网价格存在差异，也返回“-”。
+     * @param TotalCost 原价，单位为元。TotalCost字段自账单3.0（即2021-05）之后开始生效，账单3.0之前返回"-"。合同价的情况下，TotalCost字段与官网价格存在差异，也返回“-”。
+     */
+    public void setTotalCost(String TotalCost) {
+        this.TotalCost = TotalCost;
+    }
+
+    public PayModeSummaryOverviewItem() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public PayModeSummaryOverviewItem(PayModeSummaryOverviewItem source) {
+        if (source.PayMode != null) {
+            this.PayMode = new String(source.PayMode);
+        }
+        if (source.PayModeName != null) {
+            this.PayModeName = new String(source.PayModeName);
+        }
+        if (source.RealTotalCost != null) {
+            this.RealTotalCost = new String(source.RealTotalCost);
+        }
+        if (source.RealTotalCostRatio != null) {
+            this.RealTotalCostRatio = new String(source.RealTotalCostRatio);
+        }
+        if (source.Detail != null) {
+            this.Detail = new ActionSummaryOverviewItem[source.Detail.length];
+            for (int i = 0; i < source.Detail.length; i++) {
+                this.Detail[i] = new ActionSummaryOverviewItem(source.Detail[i]);
+            }
+        }
+        if (source.CashPayAmount != null) {
+            this.CashPayAmount = new String(source.CashPayAmount);
+        }
+        if (source.IncentivePayAmount != null) {
+            this.IncentivePayAmount = new String(source.IncentivePayAmount);
+        }
+        if (source.VoucherPayAmount != null) {
+            this.VoucherPayAmount = new String(source.VoucherPayAmount);
+        }
+        if (source.TotalCost != null) {
+            this.TotalCost = new String(source.TotalCost);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -218,6 +282,7 @@ public class PayModeSummaryOverviewItem extends AbstractModel{
         this.setParamSimple(map, prefix + "CashPayAmount", this.CashPayAmount);
         this.setParamSimple(map, prefix + "IncentivePayAmount", this.IncentivePayAmount);
         this.setParamSimple(map, prefix + "VoucherPayAmount", this.VoucherPayAmount);
+        this.setParamSimple(map, prefix + "TotalCost", this.TotalCost);
 
     }
 }

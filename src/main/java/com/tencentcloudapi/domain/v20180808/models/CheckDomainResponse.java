@@ -81,7 +81,7 @@ public class CheckDomainResponse extends AbstractModel{
     private Long FeeRenew;
 
     /**
-    * 域名真实价格
+    * 域名真实价格, 溢价词时价格跟年限有关，非溢价词时价格为1年的价格
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RealPrice")
@@ -109,6 +109,13 @@ public class CheckDomainResponse extends AbstractModel{
     @SerializedName("Period")
     @Expose
     private Long Period;
+
+    /**
+    * 是否支持北京备案  true 支持  false 不支持
+    */
+    @SerializedName("RecordSupport")
+    @Expose
+    private Boolean RecordSupport;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -254,9 +261,9 @@ public class CheckDomainResponse extends AbstractModel{
     }
 
     /**
-     * Get 域名真实价格
+     * Get 域名真实价格, 溢价词时价格跟年限有关，非溢价词时价格为1年的价格
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return RealPrice 域名真实价格
+     * @return RealPrice 域名真实价格, 溢价词时价格跟年限有关，非溢价词时价格为1年的价格
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRealPrice() {
@@ -264,9 +271,9 @@ public class CheckDomainResponse extends AbstractModel{
     }
 
     /**
-     * Set 域名真实价格
+     * Set 域名真实价格, 溢价词时价格跟年限有关，非溢价词时价格为1年的价格
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param RealPrice 域名真实价格
+     * @param RealPrice 域名真实价格, 溢价词时价格跟年限有关，非溢价词时价格为1年的价格
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRealPrice(Long RealPrice) {
@@ -326,6 +333,22 @@ public class CheckDomainResponse extends AbstractModel{
     }
 
     /**
+     * Get 是否支持北京备案  true 支持  false 不支持 
+     * @return RecordSupport 是否支持北京备案  true 支持  false 不支持
+     */
+    public Boolean getRecordSupport() {
+        return this.RecordSupport;
+    }
+
+    /**
+     * Set 是否支持北京备案  true 支持  false 不支持
+     * @param RecordSupport 是否支持北京备案  true 支持  false 不支持
+     */
+    public void setRecordSupport(Boolean RecordSupport) {
+        this.RecordSupport = RecordSupport;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -340,6 +363,59 @@ public class CheckDomainResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public CheckDomainResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CheckDomainResponse(CheckDomainResponse source) {
+        if (source.DomainName != null) {
+            this.DomainName = new String(source.DomainName);
+        }
+        if (source.Available != null) {
+            this.Available = new Boolean(source.Available);
+        }
+        if (source.Reason != null) {
+            this.Reason = new String(source.Reason);
+        }
+        if (source.Premium != null) {
+            this.Premium = new Boolean(source.Premium);
+        }
+        if (source.Price != null) {
+            this.Price = new Long(source.Price);
+        }
+        if (source.BlackWord != null) {
+            this.BlackWord = new Boolean(source.BlackWord);
+        }
+        if (source.Describe != null) {
+            this.Describe = new String(source.Describe);
+        }
+        if (source.FeeRenew != null) {
+            this.FeeRenew = new Long(source.FeeRenew);
+        }
+        if (source.RealPrice != null) {
+            this.RealPrice = new Long(source.RealPrice);
+        }
+        if (source.FeeTransfer != null) {
+            this.FeeTransfer = new Long(source.FeeTransfer);
+        }
+        if (source.FeeRestore != null) {
+            this.FeeRestore = new Long(source.FeeRestore);
+        }
+        if (source.Period != null) {
+            this.Period = new Long(source.Period);
+        }
+        if (source.RecordSupport != null) {
+            this.RecordSupport = new Boolean(source.RecordSupport);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -357,6 +433,7 @@ public class CheckDomainResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "FeeTransfer", this.FeeTransfer);
         this.setParamSimple(map, prefix + "FeeRestore", this.FeeRestore);
         this.setParamSimple(map, prefix + "Period", this.Period);
+        this.setParamSimple(map, prefix + "RecordSupport", this.RecordSupport);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

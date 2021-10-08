@@ -215,11 +215,27 @@ public class CardInfo extends AbstractModel{
     private Long NeedSms;
 
     /**
-    * 服务
+    * 供应商
     */
     @SerializedName("Provider")
     @Expose
     private Long Provider;
+
+    /**
+    * 实名认证 0:无 1:未实名 2:已实名
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CertificationState")
+    @Expose
+    private Long CertificationState;
+
+    /**
+    * 其他流量信息,流量分离统计其他流量
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OtherData")
+    @Expose
+    private Float OtherData;
 
     /**
      * Get 卡片ID 
@@ -690,20 +706,155 @@ public class CardInfo extends AbstractModel{
     }
 
     /**
-     * Get 服务 
-     * @return Provider 服务
+     * Get 供应商 
+     * @return Provider 供应商
      */
     public Long getProvider() {
         return this.Provider;
     }
 
     /**
-     * Set 服务
-     * @param Provider 服务
+     * Set 供应商
+     * @param Provider 供应商
      */
     public void setProvider(Long Provider) {
         this.Provider = Provider;
     }
+
+    /**
+     * Get 实名认证 0:无 1:未实名 2:已实名
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CertificationState 实名认证 0:无 1:未实名 2:已实名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getCertificationState() {
+        return this.CertificationState;
+    }
+
+    /**
+     * Set 实名认证 0:无 1:未实名 2:已实名
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CertificationState 实名认证 0:无 1:未实名 2:已实名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCertificationState(Long CertificationState) {
+        this.CertificationState = CertificationState;
+    }
+
+    /**
+     * Get 其他流量信息,流量分离统计其他流量
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OtherData 其他流量信息,流量分离统计其他流量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Float getOtherData() {
+        return this.OtherData;
+    }
+
+    /**
+     * Set 其他流量信息,流量分离统计其他流量
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OtherData 其他流量信息,流量分离统计其他流量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOtherData(Float OtherData) {
+        this.OtherData = OtherData;
+    }
+
+    public CardInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CardInfo(CardInfo source) {
+        if (source.Iccid != null) {
+            this.Iccid = new String(source.Iccid);
+        }
+        if (source.Msisdn != null) {
+            this.Msisdn = new String(source.Msisdn);
+        }
+        if (source.Imsi != null) {
+            this.Imsi = new String(source.Imsi);
+        }
+        if (source.Imei != null) {
+            this.Imei = new String(source.Imei);
+        }
+        if (source.Sdkappid != null) {
+            this.Sdkappid = new String(source.Sdkappid);
+        }
+        if (source.Teleoperator != null) {
+            this.Teleoperator = new Long(source.Teleoperator);
+        }
+        if (source.CardStatus != null) {
+            this.CardStatus = new Long(source.CardStatus);
+        }
+        if (source.NetworkStatus != null) {
+            this.NetworkStatus = new Long(source.NetworkStatus);
+        }
+        if (source.ActivitedTime != null) {
+            this.ActivitedTime = new String(source.ActivitedTime);
+        }
+        if (source.Type != null) {
+            this.Type = new Long(source.Type);
+        }
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+        if (source.PoolId != null) {
+            this.PoolId = new String(source.PoolId);
+        }
+        if (source.DataUsedInPeriod != null) {
+            this.DataUsedInPeriod = new Float(source.DataUsedInPeriod);
+        }
+        if (source.DataTotalInPeriod != null) {
+            this.DataTotalInPeriod = new Float(source.DataTotalInPeriod);
+        }
+        if (source.ProductExpiredTime != null) {
+            this.ProductExpiredTime = new String(source.ProductExpiredTime);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.CreatedTime != null) {
+            this.CreatedTime = new String(source.CreatedTime);
+        }
+        if (source.ModifiedTime != null) {
+            this.ModifiedTime = new String(source.ModifiedTime);
+        }
+        if (source.PreorderCnt != null) {
+            this.PreorderCnt = new Long(source.PreorderCnt);
+        }
+        if (source.IsActivated != null) {
+            this.IsActivated = new Long(source.IsActivated);
+        }
+        if (source.OrderId != null) {
+            this.OrderId = new String(source.OrderId);
+        }
+        if (source.AutoRenew != null) {
+            this.AutoRenew = new Long(source.AutoRenew);
+        }
+        if (source.Remark != null) {
+            this.Remark = new String(source.Remark);
+        }
+        if (source.AllowArrears != null) {
+            this.AllowArrears = new Long(source.AllowArrears);
+        }
+        if (source.NeedSms != null) {
+            this.NeedSms = new Long(source.NeedSms);
+        }
+        if (source.Provider != null) {
+            this.Provider = new Long(source.Provider);
+        }
+        if (source.CertificationState != null) {
+            this.CertificationState = new Long(source.CertificationState);
+        }
+        if (source.OtherData != null) {
+            this.OtherData = new Float(source.OtherData);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -735,6 +886,8 @@ public class CardInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "AllowArrears", this.AllowArrears);
         this.setParamSimple(map, prefix + "NeedSms", this.NeedSms);
         this.setParamSimple(map, prefix + "Provider", this.Provider);
+        this.setParamSimple(map, prefix + "CertificationState", this.CertificationState);
+        this.setParamSimple(map, prefix + "OtherData", this.OtherData);
 
     }
 }

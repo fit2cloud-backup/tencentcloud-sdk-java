@@ -23,11 +23,18 @@ import java.util.HashMap;
 public class GeneralEfficientOCRResponse extends AbstractModel{
 
     /**
-    * 检测到的文本信息，具体内容请点击左侧链接。
+    * 检测到的文本信息，包括文本行内容、置信度、文本行坐标以及文本行旋转纠正后的坐标，具体内容请点击左侧链接。
     */
     @SerializedName("TextDetections")
     @Expose
     private TextDetection [] TextDetections;
+
+    /**
+    * 图片旋转角度（角度制），文本的水平方向为0°；顺时针为正，逆时针为负。点击查看<a href="https://cloud.tencent.com/document/product/866/45139">如何纠正倾斜文本</a>
+    */
+    @SerializedName("Angel")
+    @Expose
+    private Float Angel;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -37,19 +44,35 @@ public class GeneralEfficientOCRResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 检测到的文本信息，具体内容请点击左侧链接。 
-     * @return TextDetections 检测到的文本信息，具体内容请点击左侧链接。
+     * Get 检测到的文本信息，包括文本行内容、置信度、文本行坐标以及文本行旋转纠正后的坐标，具体内容请点击左侧链接。 
+     * @return TextDetections 检测到的文本信息，包括文本行内容、置信度、文本行坐标以及文本行旋转纠正后的坐标，具体内容请点击左侧链接。
      */
     public TextDetection [] getTextDetections() {
         return this.TextDetections;
     }
 
     /**
-     * Set 检测到的文本信息，具体内容请点击左侧链接。
-     * @param TextDetections 检测到的文本信息，具体内容请点击左侧链接。
+     * Set 检测到的文本信息，包括文本行内容、置信度、文本行坐标以及文本行旋转纠正后的坐标，具体内容请点击左侧链接。
+     * @param TextDetections 检测到的文本信息，包括文本行内容、置信度、文本行坐标以及文本行旋转纠正后的坐标，具体内容请点击左侧链接。
      */
     public void setTextDetections(TextDetection [] TextDetections) {
         this.TextDetections = TextDetections;
+    }
+
+    /**
+     * Get 图片旋转角度（角度制），文本的水平方向为0°；顺时针为正，逆时针为负。点击查看<a href="https://cloud.tencent.com/document/product/866/45139">如何纠正倾斜文本</a> 
+     * @return Angel 图片旋转角度（角度制），文本的水平方向为0°；顺时针为正，逆时针为负。点击查看<a href="https://cloud.tencent.com/document/product/866/45139">如何纠正倾斜文本</a>
+     */
+    public Float getAngel() {
+        return this.Angel;
+    }
+
+    /**
+     * Set 图片旋转角度（角度制），文本的水平方向为0°；顺时针为正，逆时针为负。点击查看<a href="https://cloud.tencent.com/document/product/866/45139">如何纠正倾斜文本</a>
+     * @param Angel 图片旋转角度（角度制），文本的水平方向为0°；顺时针为正，逆时针为负。点击查看<a href="https://cloud.tencent.com/document/product/866/45139">如何纠正倾斜文本</a>
+     */
+    public void setAngel(Float Angel) {
+        this.Angel = Angel;
     }
 
     /**
@@ -68,11 +91,35 @@ public class GeneralEfficientOCRResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public GeneralEfficientOCRResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public GeneralEfficientOCRResponse(GeneralEfficientOCRResponse source) {
+        if (source.TextDetections != null) {
+            this.TextDetections = new TextDetection[source.TextDetections.length];
+            for (int i = 0; i < source.TextDetections.length; i++) {
+                this.TextDetections[i] = new TextDetection(source.TextDetections[i]);
+            }
+        }
+        if (source.Angel != null) {
+            this.Angel = new Float(source.Angel);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "TextDetections.", this.TextDetections);
+        this.setParamSimple(map, prefix + "Angel", this.Angel);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -25,14 +25,16 @@ public class InquiryPriceScaleOutInstanceRequest extends AbstractModel{
     /**
     * 扩容的时间单位。取值范围：
 <li>s：表示秒。PayMode取值为0时，TimeUnit只能取值为s。</li>
-<li>m：表示月份。PayMode取值为1时，TimeUnit只能取值为m。</li>
+<li>m：表示月份。PayMode取值为1时，TimeUnit只能取值为m。</li>
     */
     @SerializedName("TimeUnit")
     @Expose
     private String TimeUnit;
 
     /**
-    * 扩容的时长。需要结合TimeUnit一起使用。
+    * 扩容的时长。结合TimeUnit一起使用。
+<li>TimeUnit为s时，该参数只能填写3600，表示按量计费实例。</li>
+<li>TimeUnit为m时，该参数填写的数字表示包年包月实例的购买时长，如1表示购买一个月</li>
     */
     @SerializedName("TimeSpan")
     @Expose
@@ -48,7 +50,7 @@ public class InquiryPriceScaleOutInstanceRequest extends AbstractModel{
     /**
     * 实例计费模式。取值范围：
 <li>0：表示按量计费。</li>
-<li>1：表示包年包月。</li>
+<li>1：表示包年包月。</li>
     */
     @SerializedName("PayMode")
     @Expose
@@ -91,12 +93,19 @@ public class InquiryPriceScaleOutInstanceRequest extends AbstractModel{
     private Long RouterCount;
 
     /**
+    * 扩容的Master节点数量。
+    */
+    @SerializedName("MasterCount")
+    @Expose
+    private Long MasterCount;
+
+    /**
      * Get 扩容的时间单位。取值范围：
 <li>s：表示秒。PayMode取值为0时，TimeUnit只能取值为s。</li>
-<li>m：表示月份。PayMode取值为1时，TimeUnit只能取值为m。</li> 
+<li>m：表示月份。PayMode取值为1时，TimeUnit只能取值为m。</li> 
      * @return TimeUnit 扩容的时间单位。取值范围：
 <li>s：表示秒。PayMode取值为0时，TimeUnit只能取值为s。</li>
-<li>m：表示月份。PayMode取值为1时，TimeUnit只能取值为m。</li>
+<li>m：表示月份。PayMode取值为1时，TimeUnit只能取值为m。</li>
      */
     public String getTimeUnit() {
         return this.TimeUnit;
@@ -105,26 +114,34 @@ public class InquiryPriceScaleOutInstanceRequest extends AbstractModel{
     /**
      * Set 扩容的时间单位。取值范围：
 <li>s：表示秒。PayMode取值为0时，TimeUnit只能取值为s。</li>
-<li>m：表示月份。PayMode取值为1时，TimeUnit只能取值为m。</li>
+<li>m：表示月份。PayMode取值为1时，TimeUnit只能取值为m。</li>
      * @param TimeUnit 扩容的时间单位。取值范围：
 <li>s：表示秒。PayMode取值为0时，TimeUnit只能取值为s。</li>
-<li>m：表示月份。PayMode取值为1时，TimeUnit只能取值为m。</li>
+<li>m：表示月份。PayMode取值为1时，TimeUnit只能取值为m。</li>
      */
     public void setTimeUnit(String TimeUnit) {
         this.TimeUnit = TimeUnit;
     }
 
     /**
-     * Get 扩容的时长。需要结合TimeUnit一起使用。 
-     * @return TimeSpan 扩容的时长。需要结合TimeUnit一起使用。
+     * Get 扩容的时长。结合TimeUnit一起使用。
+<li>TimeUnit为s时，该参数只能填写3600，表示按量计费实例。</li>
+<li>TimeUnit为m时，该参数填写的数字表示包年包月实例的购买时长，如1表示购买一个月</li> 
+     * @return TimeSpan 扩容的时长。结合TimeUnit一起使用。
+<li>TimeUnit为s时，该参数只能填写3600，表示按量计费实例。</li>
+<li>TimeUnit为m时，该参数填写的数字表示包年包月实例的购买时长，如1表示购买一个月</li>
      */
     public Long getTimeSpan() {
         return this.TimeSpan;
     }
 
     /**
-     * Set 扩容的时长。需要结合TimeUnit一起使用。
-     * @param TimeSpan 扩容的时长。需要结合TimeUnit一起使用。
+     * Set 扩容的时长。结合TimeUnit一起使用。
+<li>TimeUnit为s时，该参数只能填写3600，表示按量计费实例。</li>
+<li>TimeUnit为m时，该参数填写的数字表示包年包月实例的购买时长，如1表示购买一个月</li>
+     * @param TimeSpan 扩容的时长。结合TimeUnit一起使用。
+<li>TimeUnit为s时，该参数只能填写3600，表示按量计费实例。</li>
+<li>TimeUnit为m时，该参数填写的数字表示包年包月实例的购买时长，如1表示购买一个月</li>
      */
     public void setTimeSpan(Long TimeSpan) {
         this.TimeSpan = TimeSpan;
@@ -149,10 +166,10 @@ public class InquiryPriceScaleOutInstanceRequest extends AbstractModel{
     /**
      * Get 实例计费模式。取值范围：
 <li>0：表示按量计费。</li>
-<li>1：表示包年包月。</li> 
+<li>1：表示包年包月。</li> 
      * @return PayMode 实例计费模式。取值范围：
 <li>0：表示按量计费。</li>
-<li>1：表示包年包月。</li>
+<li>1：表示包年包月。</li>
      */
     public Long getPayMode() {
         return this.PayMode;
@@ -161,10 +178,10 @@ public class InquiryPriceScaleOutInstanceRequest extends AbstractModel{
     /**
      * Set 实例计费模式。取值范围：
 <li>0：表示按量计费。</li>
-<li>1：表示包年包月。</li>
+<li>1：表示包年包月。</li>
      * @param PayMode 实例计费模式。取值范围：
 <li>0：表示按量计费。</li>
-<li>1：表示包年包月。</li>
+<li>1：表示包年包月。</li>
      */
     public void setPayMode(Long PayMode) {
         this.PayMode = PayMode;
@@ -255,6 +272,63 @@ public class InquiryPriceScaleOutInstanceRequest extends AbstractModel{
     }
 
     /**
+     * Get 扩容的Master节点数量。 
+     * @return MasterCount 扩容的Master节点数量。
+     */
+    public Long getMasterCount() {
+        return this.MasterCount;
+    }
+
+    /**
+     * Set 扩容的Master节点数量。
+     * @param MasterCount 扩容的Master节点数量。
+     */
+    public void setMasterCount(Long MasterCount) {
+        this.MasterCount = MasterCount;
+    }
+
+    public InquiryPriceScaleOutInstanceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public InquiryPriceScaleOutInstanceRequest(InquiryPriceScaleOutInstanceRequest source) {
+        if (source.TimeUnit != null) {
+            this.TimeUnit = new String(source.TimeUnit);
+        }
+        if (source.TimeSpan != null) {
+            this.TimeSpan = new Long(source.TimeSpan);
+        }
+        if (source.ZoneId != null) {
+            this.ZoneId = new Long(source.ZoneId);
+        }
+        if (source.PayMode != null) {
+            this.PayMode = new Long(source.PayMode);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.CoreCount != null) {
+            this.CoreCount = new Long(source.CoreCount);
+        }
+        if (source.TaskCount != null) {
+            this.TaskCount = new Long(source.TaskCount);
+        }
+        if (source.Currency != null) {
+            this.Currency = new String(source.Currency);
+        }
+        if (source.RouterCount != null) {
+            this.RouterCount = new Long(source.RouterCount);
+        }
+        if (source.MasterCount != null) {
+            this.MasterCount = new Long(source.MasterCount);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -267,6 +341,7 @@ public class InquiryPriceScaleOutInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TaskCount", this.TaskCount);
         this.setParamSimple(map, prefix + "Currency", this.Currency);
         this.setParamSimple(map, prefix + "RouterCount", this.RouterCount);
+        this.setParamSimple(map, prefix + "MasterCount", this.MasterCount);
 
     }
 }

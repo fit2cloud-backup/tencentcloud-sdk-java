@@ -23,28 +23,29 @@ import java.util.HashMap;
 public class BatchTarget extends AbstractModel{
 
     /**
-    * 监听器ID
+    * 监听器 ID。
     */
     @SerializedName("ListenerId")
     @Expose
     private String ListenerId;
 
     /**
-    * 绑定端口
+    * 绑定端口。
     */
     @SerializedName("Port")
     @Expose
     private Long Port;
 
     /**
-    * 子机ID
+    * 子机 ID。表示绑定主网卡主 IP。
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
 
     /**
-    * 弹性网卡ip
+    * 绑定 IP 时需要传入此参数，支持弹性网卡的 IP 和其他内网 IP，如果是弹性网卡则必须先绑定至CVM，然后才能绑定到负载均衡实例。
+注意：参数 InstanceId、EniIp 只能传入一个且必须传入一个。如果绑定双栈IPV6子机，必须传该参数。
     */
     @SerializedName("EniIp")
     @Expose
@@ -58,71 +59,75 @@ public class BatchTarget extends AbstractModel{
     private Long Weight;
 
     /**
-    * 七层规则ID
+    * 七层规则 ID。
     */
     @SerializedName("LocationId")
     @Expose
     private String LocationId;
 
     /**
-     * Get 监听器ID 
-     * @return ListenerId 监听器ID
+     * Get 监听器 ID。 
+     * @return ListenerId 监听器 ID。
      */
     public String getListenerId() {
         return this.ListenerId;
     }
 
     /**
-     * Set 监听器ID
-     * @param ListenerId 监听器ID
+     * Set 监听器 ID。
+     * @param ListenerId 监听器 ID。
      */
     public void setListenerId(String ListenerId) {
         this.ListenerId = ListenerId;
     }
 
     /**
-     * Get 绑定端口 
-     * @return Port 绑定端口
+     * Get 绑定端口。 
+     * @return Port 绑定端口。
      */
     public Long getPort() {
         return this.Port;
     }
 
     /**
-     * Set 绑定端口
-     * @param Port 绑定端口
+     * Set 绑定端口。
+     * @param Port 绑定端口。
      */
     public void setPort(Long Port) {
         this.Port = Port;
     }
 
     /**
-     * Get 子机ID 
-     * @return InstanceId 子机ID
+     * Get 子机 ID。表示绑定主网卡主 IP。 
+     * @return InstanceId 子机 ID。表示绑定主网卡主 IP。
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 子机ID
-     * @param InstanceId 子机ID
+     * Set 子机 ID。表示绑定主网卡主 IP。
+     * @param InstanceId 子机 ID。表示绑定主网卡主 IP。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 弹性网卡ip 
-     * @return EniIp 弹性网卡ip
+     * Get 绑定 IP 时需要传入此参数，支持弹性网卡的 IP 和其他内网 IP，如果是弹性网卡则必须先绑定至CVM，然后才能绑定到负载均衡实例。
+注意：参数 InstanceId、EniIp 只能传入一个且必须传入一个。如果绑定双栈IPV6子机，必须传该参数。 
+     * @return EniIp 绑定 IP 时需要传入此参数，支持弹性网卡的 IP 和其他内网 IP，如果是弹性网卡则必须先绑定至CVM，然后才能绑定到负载均衡实例。
+注意：参数 InstanceId、EniIp 只能传入一个且必须传入一个。如果绑定双栈IPV6子机，必须传该参数。
      */
     public String getEniIp() {
         return this.EniIp;
     }
 
     /**
-     * Set 弹性网卡ip
-     * @param EniIp 弹性网卡ip
+     * Set 绑定 IP 时需要传入此参数，支持弹性网卡的 IP 和其他内网 IP，如果是弹性网卡则必须先绑定至CVM，然后才能绑定到负载均衡实例。
+注意：参数 InstanceId、EniIp 只能传入一个且必须传入一个。如果绑定双栈IPV6子机，必须传该参数。
+     * @param EniIp 绑定 IP 时需要传入此参数，支持弹性网卡的 IP 和其他内网 IP，如果是弹性网卡则必须先绑定至CVM，然后才能绑定到负载均衡实例。
+注意：参数 InstanceId、EniIp 只能传入一个且必须传入一个。如果绑定双栈IPV6子机，必须传该参数。
      */
     public void setEniIp(String EniIp) {
         this.EniIp = EniIp;
@@ -145,20 +150,49 @@ public class BatchTarget extends AbstractModel{
     }
 
     /**
-     * Get 七层规则ID 
-     * @return LocationId 七层规则ID
+     * Get 七层规则 ID。 
+     * @return LocationId 七层规则 ID。
      */
     public String getLocationId() {
         return this.LocationId;
     }
 
     /**
-     * Set 七层规则ID
-     * @param LocationId 七层规则ID
+     * Set 七层规则 ID。
+     * @param LocationId 七层规则 ID。
      */
     public void setLocationId(String LocationId) {
         this.LocationId = LocationId;
     }
+
+    public BatchTarget() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public BatchTarget(BatchTarget source) {
+        if (source.ListenerId != null) {
+            this.ListenerId = new String(source.ListenerId);
+        }
+        if (source.Port != null) {
+            this.Port = new Long(source.Port);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.EniIp != null) {
+            this.EniIp = new String(source.EniIp);
+        }
+        if (source.Weight != null) {
+            this.Weight = new Long(source.Weight);
+        }
+        if (source.LocationId != null) {
+            this.LocationId = new String(source.LocationId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

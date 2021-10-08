@@ -23,13 +23,6 @@ import java.util.HashMap;
 public class Resource extends AbstractModel{
 
     /**
-    * 资源名称
-    */
-    @SerializedName("ResourceName")
-    @Expose
-    private String ResourceName;
-
-    /**
     * 资源类型
     */
     @SerializedName("ResourceType")
@@ -37,20 +30,12 @@ public class Resource extends AbstractModel{
     private String ResourceType;
 
     /**
-     * Get 资源名称 
-     * @return ResourceName 资源名称
-     */
-    public String getResourceName() {
-        return this.ResourceName;
-    }
-
-    /**
-     * Set 资源名称
-     * @param ResourceName 资源名称
-     */
-    public void setResourceName(String ResourceName) {
-        this.ResourceName = ResourceName;
-    }
+    * 资源名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ResourceName")
+    @Expose
+    private String ResourceName;
 
     /**
      * Get 资源类型 
@@ -69,11 +54,48 @@ public class Resource extends AbstractModel{
     }
 
     /**
+     * Get 资源名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ResourceName 资源名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getResourceName() {
+        return this.ResourceName;
+    }
+
+    /**
+     * Set 资源名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ResourceName 资源名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setResourceName(String ResourceName) {
+        this.ResourceName = ResourceName;
+    }
+
+    public Resource() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Resource(Resource source) {
+        if (source.ResourceType != null) {
+            this.ResourceType = new String(source.ResourceType);
+        }
+        if (source.ResourceName != null) {
+            this.ResourceName = new String(source.ResourceName);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "ResourceName", this.ResourceName);
         this.setParamSimple(map, prefix + "ResourceType", this.ResourceType);
+        this.setParamSimple(map, prefix + "ResourceName", this.ResourceName);
 
     }
 }

@@ -44,6 +44,13 @@ public class EditMediaRequest extends AbstractModel{
     private String OutputObjectPath;
 
     /**
+    * 编辑后生成的文件配置。
+    */
+    @SerializedName("OutputConfig")
+    @Expose
+    private EditMediaOutputConfig OutputConfig;
+
+    /**
     * 任务的事件通知信息，不填代表不获取事件通知。
     */
     @SerializedName("TaskNotifyConfig")
@@ -58,7 +65,7 @@ public class EditMediaRequest extends AbstractModel{
     private Long TasksPriority;
 
     /**
-    * 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+    * 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
     */
     @SerializedName("SessionId")
     @Expose
@@ -120,6 +127,22 @@ public class EditMediaRequest extends AbstractModel{
     }
 
     /**
+     * Get 编辑后生成的文件配置。 
+     * @return OutputConfig 编辑后生成的文件配置。
+     */
+    public EditMediaOutputConfig getOutputConfig() {
+        return this.OutputConfig;
+    }
+
+    /**
+     * Set 编辑后生成的文件配置。
+     * @param OutputConfig 编辑后生成的文件配置。
+     */
+    public void setOutputConfig(EditMediaOutputConfig OutputConfig) {
+        this.OutputConfig = OutputConfig;
+    }
+
+    /**
      * Get 任务的事件通知信息，不填代表不获取事件通知。 
      * @return TaskNotifyConfig 任务的事件通知信息，不填代表不获取事件通知。
      */
@@ -152,16 +175,16 @@ public class EditMediaRequest extends AbstractModel{
     }
 
     /**
-     * Get 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。 
-     * @return SessionId 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+     * Get 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。 
+     * @return SessionId 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
      */
     public String getSessionId() {
         return this.SessionId;
     }
 
     /**
-     * Set 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
-     * @param SessionId 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+     * Set 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+     * @param SessionId 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
      */
     public void setSessionId(String SessionId) {
         this.SessionId = SessionId;
@@ -183,6 +206,44 @@ public class EditMediaRequest extends AbstractModel{
         this.SessionContext = SessionContext;
     }
 
+    public EditMediaRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public EditMediaRequest(EditMediaRequest source) {
+        if (source.FileInfos != null) {
+            this.FileInfos = new EditMediaFileInfo[source.FileInfos.length];
+            for (int i = 0; i < source.FileInfos.length; i++) {
+                this.FileInfos[i] = new EditMediaFileInfo(source.FileInfos[i]);
+            }
+        }
+        if (source.OutputStorage != null) {
+            this.OutputStorage = new TaskOutputStorage(source.OutputStorage);
+        }
+        if (source.OutputObjectPath != null) {
+            this.OutputObjectPath = new String(source.OutputObjectPath);
+        }
+        if (source.OutputConfig != null) {
+            this.OutputConfig = new EditMediaOutputConfig(source.OutputConfig);
+        }
+        if (source.TaskNotifyConfig != null) {
+            this.TaskNotifyConfig = new TaskNotifyConfig(source.TaskNotifyConfig);
+        }
+        if (source.TasksPriority != null) {
+            this.TasksPriority = new Long(source.TasksPriority);
+        }
+        if (source.SessionId != null) {
+            this.SessionId = new String(source.SessionId);
+        }
+        if (source.SessionContext != null) {
+            this.SessionContext = new String(source.SessionContext);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
@@ -190,6 +251,7 @@ public class EditMediaRequest extends AbstractModel{
         this.setParamArrayObj(map, prefix + "FileInfos.", this.FileInfos);
         this.setParamObj(map, prefix + "OutputStorage.", this.OutputStorage);
         this.setParamSimple(map, prefix + "OutputObjectPath", this.OutputObjectPath);
+        this.setParamObj(map, prefix + "OutputConfig.", this.OutputConfig);
         this.setParamObj(map, prefix + "TaskNotifyConfig.", this.TaskNotifyConfig);
         this.setParamSimple(map, prefix + "TasksPriority", this.TasksPriority);
         this.setParamSimple(map, prefix + "SessionId", this.SessionId);

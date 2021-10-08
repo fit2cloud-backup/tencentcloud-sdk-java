@@ -23,27 +23,44 @@ import java.util.HashMap;
 public class DeleteTargetGroupsRequest extends AbstractModel{
 
     /**
-    * 目标组的ID数组
+    * 目标组的ID数组。
     */
     @SerializedName("TargetGroupIds")
     @Expose
     private String [] TargetGroupIds;
 
     /**
-     * Get 目标组的ID数组 
-     * @return TargetGroupIds 目标组的ID数组
+     * Get 目标组的ID数组。 
+     * @return TargetGroupIds 目标组的ID数组。
      */
     public String [] getTargetGroupIds() {
         return this.TargetGroupIds;
     }
 
     /**
-     * Set 目标组的ID数组
-     * @param TargetGroupIds 目标组的ID数组
+     * Set 目标组的ID数组。
+     * @param TargetGroupIds 目标组的ID数组。
      */
     public void setTargetGroupIds(String [] TargetGroupIds) {
         this.TargetGroupIds = TargetGroupIds;
     }
+
+    public DeleteTargetGroupsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeleteTargetGroupsRequest(DeleteTargetGroupsRequest source) {
+        if (source.TargetGroupIds != null) {
+            this.TargetGroupIds = new String[source.TargetGroupIds.length];
+            for (int i = 0; i < source.TargetGroupIds.length; i++) {
+                this.TargetGroupIds[i] = new String(source.TargetGroupIds[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

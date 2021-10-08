@@ -32,8 +32,9 @@ public class InquiryPriceUpdateInstanceRequest extends AbstractModel{
     private String TimeUnit;
 
     /**
-    * 变配的时长。需要结合TimeUnit一起使用。
-<li>PayMode取值为0时，TimeSpan只能取值为3600。</li>
+    * 变配的时长。结合TimeUnit一起使用。
+<li>TimeUnit为s时，该参数只能填写3600，表示按量计费实例。</li>
+<li>TimeUnit为m时，该参数填写的数字表示包年包月实例的购买时长，如1表示购买一个月</li>
     */
     @SerializedName("TimeSpan")
     @Expose
@@ -95,20 +96,24 @@ public class InquiryPriceUpdateInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 变配的时长。需要结合TimeUnit一起使用。
-<li>PayMode取值为0时，TimeSpan只能取值为3600。</li> 
-     * @return TimeSpan 变配的时长。需要结合TimeUnit一起使用。
-<li>PayMode取值为0时，TimeSpan只能取值为3600。</li>
+     * Get 变配的时长。结合TimeUnit一起使用。
+<li>TimeUnit为s时，该参数只能填写3600，表示按量计费实例。</li>
+<li>TimeUnit为m时，该参数填写的数字表示包年包月实例的购买时长，如1表示购买一个月</li> 
+     * @return TimeSpan 变配的时长。结合TimeUnit一起使用。
+<li>TimeUnit为s时，该参数只能填写3600，表示按量计费实例。</li>
+<li>TimeUnit为m时，该参数填写的数字表示包年包月实例的购买时长，如1表示购买一个月</li>
      */
     public Long getTimeSpan() {
         return this.TimeSpan;
     }
 
     /**
-     * Set 变配的时长。需要结合TimeUnit一起使用。
-<li>PayMode取值为0时，TimeSpan只能取值为3600。</li>
-     * @param TimeSpan 变配的时长。需要结合TimeUnit一起使用。
-<li>PayMode取值为0时，TimeSpan只能取值为3600。</li>
+     * Set 变配的时长。结合TimeUnit一起使用。
+<li>TimeUnit为s时，该参数只能填写3600，表示按量计费实例。</li>
+<li>TimeUnit为m时，该参数填写的数字表示包年包月实例的购买时长，如1表示购买一个月</li>
+     * @param TimeSpan 变配的时长。结合TimeUnit一起使用。
+<li>TimeUnit为s时，该参数只能填写3600，表示按量计费实例。</li>
+<li>TimeUnit为m时，该参数填写的数字表示包年包月实例的购买时长，如1表示购买一个月</li>
      */
     public void setTimeSpan(Long TimeSpan) {
         this.TimeSpan = TimeSpan;
@@ -189,6 +194,35 @@ public class InquiryPriceUpdateInstanceRequest extends AbstractModel{
     public void setCurrency(String Currency) {
         this.Currency = Currency;
     }
+
+    public InquiryPriceUpdateInstanceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public InquiryPriceUpdateInstanceRequest(InquiryPriceUpdateInstanceRequest source) {
+        if (source.TimeUnit != null) {
+            this.TimeUnit = new String(source.TimeUnit);
+        }
+        if (source.TimeSpan != null) {
+            this.TimeSpan = new Long(source.TimeSpan);
+        }
+        if (source.UpdateSpec != null) {
+            this.UpdateSpec = new UpdateInstanceSettings(source.UpdateSpec);
+        }
+        if (source.PayMode != null) {
+            this.PayMode = new Long(source.PayMode);
+        }
+        if (source.Placement != null) {
+            this.Placement = new Placement(source.Placement);
+        }
+        if (source.Currency != null) {
+            this.Currency = new String(source.Currency);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

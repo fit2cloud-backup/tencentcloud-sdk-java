@@ -44,6 +44,20 @@ public class DescribeServerlessDBInstancesRequest extends AbstractModel{
     private Long Offset;
 
     /**
+    * 排序指标，目前支持实例创建时间CreateTime
+    */
+    @SerializedName("OrderBy")
+    @Expose
+    private String OrderBy;
+
+    /**
+    * 排序方式，包括升序、降序
+    */
+    @SerializedName("OrderByType")
+    @Expose
+    private String OrderByType;
+
+    /**
      * Get 查询条件 
      * @return Filter 查询条件
      */
@@ -92,12 +106,75 @@ public class DescribeServerlessDBInstancesRequest extends AbstractModel{
     }
 
     /**
+     * Get 排序指标，目前支持实例创建时间CreateTime 
+     * @return OrderBy 排序指标，目前支持实例创建时间CreateTime
+     */
+    public String getOrderBy() {
+        return this.OrderBy;
+    }
+
+    /**
+     * Set 排序指标，目前支持实例创建时间CreateTime
+     * @param OrderBy 排序指标，目前支持实例创建时间CreateTime
+     */
+    public void setOrderBy(String OrderBy) {
+        this.OrderBy = OrderBy;
+    }
+
+    /**
+     * Get 排序方式，包括升序、降序 
+     * @return OrderByType 排序方式，包括升序、降序
+     */
+    public String getOrderByType() {
+        return this.OrderByType;
+    }
+
+    /**
+     * Set 排序方式，包括升序、降序
+     * @param OrderByType 排序方式，包括升序、降序
+     */
+    public void setOrderByType(String OrderByType) {
+        this.OrderByType = OrderByType;
+    }
+
+    public DescribeServerlessDBInstancesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeServerlessDBInstancesRequest(DescribeServerlessDBInstancesRequest source) {
+        if (source.Filter != null) {
+            this.Filter = new Filter[source.Filter.length];
+            for (int i = 0; i < source.Filter.length; i++) {
+                this.Filter[i] = new Filter(source.Filter[i]);
+            }
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.OrderBy != null) {
+            this.OrderBy = new String(source.OrderBy);
+        }
+        if (source.OrderByType != null) {
+            this.OrderByType = new String(source.OrderByType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "Filter.", this.Filter);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
+        this.setParamSimple(map, prefix + "OrderBy", this.OrderBy);
+        this.setParamSimple(map, prefix + "OrderByType", this.OrderByType);
 
     }
 }

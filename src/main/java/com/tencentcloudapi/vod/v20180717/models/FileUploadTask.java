@@ -38,7 +38,6 @@ public class FileUploadTask extends AbstractModel{
 
     /**
     * 若视频上传时指定了视频处理流程，则该字段为流程任务 ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProcedureTaskId")
     @Expose
@@ -85,10 +84,8 @@ public class FileUploadTask extends AbstractModel{
     }
 
     /**
-     * Get 若视频上传时指定了视频处理流程，则该字段为流程任务 ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 若视频上传时指定了视频处理流程，则该字段为流程任务 ID。 
      * @return ProcedureTaskId 若视频上传时指定了视频处理流程，则该字段为流程任务 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProcedureTaskId() {
         return this.ProcedureTaskId;
@@ -96,9 +93,7 @@ public class FileUploadTask extends AbstractModel{
 
     /**
      * Set 若视频上传时指定了视频处理流程，则该字段为流程任务 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProcedureTaskId 若视频上传时指定了视频处理流程，则该字段为流程任务 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProcedureTaskId(String ProcedureTaskId) {
         this.ProcedureTaskId = ProcedureTaskId;
@@ -123,6 +118,29 @@ public class FileUploadTask extends AbstractModel{
     public void setMetaData(MediaMetaData MetaData) {
         this.MetaData = MetaData;
     }
+
+    public FileUploadTask() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public FileUploadTask(FileUploadTask source) {
+        if (source.FileId != null) {
+            this.FileId = new String(source.FileId);
+        }
+        if (source.MediaBasicInfo != null) {
+            this.MediaBasicInfo = new MediaBasicInfo(source.MediaBasicInfo);
+        }
+        if (source.ProcedureTaskId != null) {
+            this.ProcedureTaskId = new String(source.ProcedureTaskId);
+        }
+        if (source.MetaData != null) {
+            this.MetaData = new MediaMetaData(source.MetaData);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

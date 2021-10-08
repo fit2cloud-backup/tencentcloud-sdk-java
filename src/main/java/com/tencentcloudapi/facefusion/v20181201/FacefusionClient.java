@@ -27,6 +27,7 @@ import com.tencentcloudapi.facefusion.v20181201.models.*;
 
 public class FacefusionClient extends AbstractClient{
     private static String endpoint = "facefusion.tencentcloudapi.com";
+    private static String service = "facefusion";
     private static String version = "2018-12-01";
 
     public FacefusionClient(Credential credential, String region) {
@@ -35,6 +36,26 @@ public class FacefusionClient extends AbstractClient{
 
     public FacefusionClient(Credential credential, String region, ClientProfile profile) {
         super(FacefusionClient.endpoint, FacefusionClient.version, credential, region, profile);
+    }
+
+    /**
+     *通常通过腾讯云人脸融合的控制台可以查看到素材相关的参数数据，可以满足使用。本接口返回活动的素材数据，包括素材状态等。用于用户通过Api查看素材相关数据，方便使用。
+     * @param req DescribeMaterialListRequest
+     * @return DescribeMaterialListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeMaterialListResponse DescribeMaterialList(DescribeMaterialListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeMaterialListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeMaterialListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeMaterialList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
     }
 
     /**
@@ -47,12 +68,34 @@ public class FacefusionClient extends AbstractClient{
      */
     public FaceFusionResponse FaceFusion(FaceFusionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<FaceFusionResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<FaceFusionResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "FaceFusion"), type);
+                rspStr = this.internalRequest(req, "FaceFusion");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *人脸融合活动专用版，不推荐使用。人脸融合接口建议使用[人脸融合](https://cloud.tencent.com/document/product/670/31061)或[选脸融合](https://cloud.tencent.com/document/product/670/37736)接口
+     * @param req FaceFusionLiteRequest
+     * @return FaceFusionLiteResponse
+     * @throws TencentCloudSDKException
+     */
+    public FaceFusionLiteResponse FaceFusionLite(FaceFusionLiteRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<FaceFusionLiteResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<FaceFusionLiteResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "FaceFusionLite");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -69,12 +112,14 @@ public class FacefusionClient extends AbstractClient{
      */
     public FuseFaceResponse FuseFace(FuseFaceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<FuseFaceResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<FuseFaceResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "FuseFace"), type);
+                rspStr = this.internalRequest(req, "FuseFace");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

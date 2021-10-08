@@ -79,6 +79,27 @@ public class ModifyTCPListenerAttributeRequest extends AbstractModel{
     private Long HealthCheck;
 
     /**
+    * 源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启
+    */
+    @SerializedName("FailoverSwitch")
+    @Expose
+    private Long FailoverSwitch;
+
+    /**
+    * 健康阈值，表示连续检查成功多少次数后认定源站健康。范围为1到10
+    */
+    @SerializedName("HealthyThreshold")
+    @Expose
+    private Long HealthyThreshold;
+
+    /**
+    * 不健康阈值，表示连续检查失败次数后认定源站不健康。范围为1到10
+    */
+    @SerializedName("UnhealthyThreshold")
+    @Expose
+    private Long UnhealthyThreshold;
+
+    /**
      * Get 监听器ID 
      * @return ListenerId 监听器ID
      */
@@ -207,6 +228,98 @@ public class ModifyTCPListenerAttributeRequest extends AbstractModel{
     }
 
     /**
+     * Get 源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启 
+     * @return FailoverSwitch 源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启
+     */
+    public Long getFailoverSwitch() {
+        return this.FailoverSwitch;
+    }
+
+    /**
+     * Set 源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启
+     * @param FailoverSwitch 源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启
+     */
+    public void setFailoverSwitch(Long FailoverSwitch) {
+        this.FailoverSwitch = FailoverSwitch;
+    }
+
+    /**
+     * Get 健康阈值，表示连续检查成功多少次数后认定源站健康。范围为1到10 
+     * @return HealthyThreshold 健康阈值，表示连续检查成功多少次数后认定源站健康。范围为1到10
+     */
+    public Long getHealthyThreshold() {
+        return this.HealthyThreshold;
+    }
+
+    /**
+     * Set 健康阈值，表示连续检查成功多少次数后认定源站健康。范围为1到10
+     * @param HealthyThreshold 健康阈值，表示连续检查成功多少次数后认定源站健康。范围为1到10
+     */
+    public void setHealthyThreshold(Long HealthyThreshold) {
+        this.HealthyThreshold = HealthyThreshold;
+    }
+
+    /**
+     * Get 不健康阈值，表示连续检查失败次数后认定源站不健康。范围为1到10 
+     * @return UnhealthyThreshold 不健康阈值，表示连续检查失败次数后认定源站不健康。范围为1到10
+     */
+    public Long getUnhealthyThreshold() {
+        return this.UnhealthyThreshold;
+    }
+
+    /**
+     * Set 不健康阈值，表示连续检查失败次数后认定源站不健康。范围为1到10
+     * @param UnhealthyThreshold 不健康阈值，表示连续检查失败次数后认定源站不健康。范围为1到10
+     */
+    public void setUnhealthyThreshold(Long UnhealthyThreshold) {
+        this.UnhealthyThreshold = UnhealthyThreshold;
+    }
+
+    public ModifyTCPListenerAttributeRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyTCPListenerAttributeRequest(ModifyTCPListenerAttributeRequest source) {
+        if (source.ListenerId != null) {
+            this.ListenerId = new String(source.ListenerId);
+        }
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
+        if (source.ProxyId != null) {
+            this.ProxyId = new String(source.ProxyId);
+        }
+        if (source.ListenerName != null) {
+            this.ListenerName = new String(source.ListenerName);
+        }
+        if (source.Scheduler != null) {
+            this.Scheduler = new String(source.Scheduler);
+        }
+        if (source.DelayLoop != null) {
+            this.DelayLoop = new Long(source.DelayLoop);
+        }
+        if (source.ConnectTimeout != null) {
+            this.ConnectTimeout = new Long(source.ConnectTimeout);
+        }
+        if (source.HealthCheck != null) {
+            this.HealthCheck = new Long(source.HealthCheck);
+        }
+        if (source.FailoverSwitch != null) {
+            this.FailoverSwitch = new Long(source.FailoverSwitch);
+        }
+        if (source.HealthyThreshold != null) {
+            this.HealthyThreshold = new Long(source.HealthyThreshold);
+        }
+        if (source.UnhealthyThreshold != null) {
+            this.UnhealthyThreshold = new Long(source.UnhealthyThreshold);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -218,6 +331,9 @@ public class ModifyTCPListenerAttributeRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "DelayLoop", this.DelayLoop);
         this.setParamSimple(map, prefix + "ConnectTimeout", this.ConnectTimeout);
         this.setParamSimple(map, prefix + "HealthCheck", this.HealthCheck);
+        this.setParamSimple(map, prefix + "FailoverSwitch", this.FailoverSwitch);
+        this.setParamSimple(map, prefix + "HealthyThreshold", this.HealthyThreshold);
+        this.setParamSimple(map, prefix + "UnhealthyThreshold", this.UnhealthyThreshold);
 
     }
 }

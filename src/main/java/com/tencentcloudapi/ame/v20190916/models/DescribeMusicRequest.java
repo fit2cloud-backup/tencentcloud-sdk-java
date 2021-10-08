@@ -37,7 +37,8 @@ public class DescribeMusicRequest extends AbstractModel{
     private String IdentityId;
 
     /**
-    * 填 MP3-64K-FTD-P 获取歌曲热门片段
+    * MP3-320K-FTD-P  为获取320kbps歌曲热门片段。
+MP3-320K-FTD 为获取320kbps已核验歌曲完整资源。
     */
     @SerializedName("SubItemType")
     @Expose
@@ -84,16 +85,20 @@ Values:Y , N(default)
     }
 
     /**
-     * Get 填 MP3-64K-FTD-P 获取歌曲热门片段 
-     * @return SubItemType 填 MP3-64K-FTD-P 获取歌曲热门片段
+     * Get MP3-320K-FTD-P  为获取320kbps歌曲热门片段。
+MP3-320K-FTD 为获取320kbps已核验歌曲完整资源。 
+     * @return SubItemType MP3-320K-FTD-P  为获取320kbps歌曲热门片段。
+MP3-320K-FTD 为获取320kbps已核验歌曲完整资源。
      */
     public String getSubItemType() {
         return this.SubItemType;
     }
 
     /**
-     * Set 填 MP3-64K-FTD-P 获取歌曲热门片段
-     * @param SubItemType 填 MP3-64K-FTD-P 获取歌曲热门片段
+     * Set MP3-320K-FTD-P  为获取320kbps歌曲热门片段。
+MP3-320K-FTD 为获取320kbps已核验歌曲完整资源。
+     * @param SubItemType MP3-320K-FTD-P  为获取320kbps歌曲热门片段。
+MP3-320K-FTD 为获取320kbps已核验歌曲完整资源。
      */
     public void setSubItemType(String SubItemType) {
         this.SubItemType = SubItemType;
@@ -118,6 +123,29 @@ Values:Y , N(default)
     public void setSsl(String Ssl) {
         this.Ssl = Ssl;
     }
+
+    public DescribeMusicRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeMusicRequest(DescribeMusicRequest source) {
+        if (source.ItemId != null) {
+            this.ItemId = new String(source.ItemId);
+        }
+        if (source.IdentityId != null) {
+            this.IdentityId = new String(source.IdentityId);
+        }
+        if (source.SubItemType != null) {
+            this.SubItemType = new String(source.SubItemType);
+        }
+        if (source.Ssl != null) {
+            this.Ssl = new String(source.Ssl);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

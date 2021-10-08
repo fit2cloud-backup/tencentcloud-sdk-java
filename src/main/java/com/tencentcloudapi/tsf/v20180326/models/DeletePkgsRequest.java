@@ -37,6 +37,20 @@ public class DeletePkgsRequest extends AbstractModel{
     private String [] PkgIds;
 
     /**
+    * 程序包仓库类型
+    */
+    @SerializedName("RepositoryType")
+    @Expose
+    private String RepositoryType;
+
+    /**
+    * 程序包仓库id
+    */
+    @SerializedName("RepositoryId")
+    @Expose
+    private String RepositoryId;
+
+    /**
      * Get 应用ID 
      * @return ApplicationId 应用ID
      */
@@ -69,11 +83,71 @@ public class DeletePkgsRequest extends AbstractModel{
     }
 
     /**
+     * Get 程序包仓库类型 
+     * @return RepositoryType 程序包仓库类型
+     */
+    public String getRepositoryType() {
+        return this.RepositoryType;
+    }
+
+    /**
+     * Set 程序包仓库类型
+     * @param RepositoryType 程序包仓库类型
+     */
+    public void setRepositoryType(String RepositoryType) {
+        this.RepositoryType = RepositoryType;
+    }
+
+    /**
+     * Get 程序包仓库id 
+     * @return RepositoryId 程序包仓库id
+     */
+    public String getRepositoryId() {
+        return this.RepositoryId;
+    }
+
+    /**
+     * Set 程序包仓库id
+     * @param RepositoryId 程序包仓库id
+     */
+    public void setRepositoryId(String RepositoryId) {
+        this.RepositoryId = RepositoryId;
+    }
+
+    public DeletePkgsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeletePkgsRequest(DeletePkgsRequest source) {
+        if (source.ApplicationId != null) {
+            this.ApplicationId = new String(source.ApplicationId);
+        }
+        if (source.PkgIds != null) {
+            this.PkgIds = new String[source.PkgIds.length];
+            for (int i = 0; i < source.PkgIds.length; i++) {
+                this.PkgIds[i] = new String(source.PkgIds[i]);
+            }
+        }
+        if (source.RepositoryType != null) {
+            this.RepositoryType = new String(source.RepositoryType);
+        }
+        if (source.RepositoryId != null) {
+            this.RepositoryId = new String(source.RepositoryId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ApplicationId", this.ApplicationId);
         this.setParamArraySimple(map, prefix + "PkgIds.", this.PkgIds);
+        this.setParamSimple(map, prefix + "RepositoryType", this.RepositoryType);
+        this.setParamSimple(map, prefix + "RepositoryId", this.RepositoryId);
 
     }
 }

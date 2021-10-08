@@ -37,8 +37,9 @@ public class ImageRecognitionRequest extends AbstractModel{
     private String Name;
 
     /**
-    * 用于人脸比对的照片，图片的BASE64值；
-BASE64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
+    * 用于人脸比对的照片，图片的Base64值；
+Base64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
+请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。
     */
     @SerializedName("ImageBase64")
     @Expose
@@ -50,6 +51,13 @@ BASE64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
     @SerializedName("Optional")
     @Expose
     private String Optional;
+
+    /**
+    * 敏感数据加密信息。对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+    */
+    @SerializedName("Encryption")
+    @Expose
+    private Encryption Encryption;
 
     /**
      * Get 身份证号 
@@ -84,20 +92,24 @@ BASE64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
     }
 
     /**
-     * Get 用于人脸比对的照片，图片的BASE64值；
-BASE64编码后的图片数据大小不超过3M，仅支持jpg、png格式。 
-     * @return ImageBase64 用于人脸比对的照片，图片的BASE64值；
-BASE64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
+     * Get 用于人脸比对的照片，图片的Base64值；
+Base64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
+请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。 
+     * @return ImageBase64 用于人脸比对的照片，图片的Base64值；
+Base64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
+请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。
      */
     public String getImageBase64() {
         return this.ImageBase64;
     }
 
     /**
-     * Set 用于人脸比对的照片，图片的BASE64值；
-BASE64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
-     * @param ImageBase64 用于人脸比对的照片，图片的BASE64值；
-BASE64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
+     * Set 用于人脸比对的照片，图片的Base64值；
+Base64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
+请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。
+     * @param ImageBase64 用于人脸比对的照片，图片的Base64值；
+Base64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
+请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。
      */
     public void setImageBase64(String ImageBase64) {
         this.ImageBase64 = ImageBase64;
@@ -120,6 +132,48 @@ BASE64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
     }
 
     /**
+     * Get 敏感数据加密信息。对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。 
+     * @return Encryption 敏感数据加密信息。对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+     */
+    public Encryption getEncryption() {
+        return this.Encryption;
+    }
+
+    /**
+     * Set 敏感数据加密信息。对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+     * @param Encryption 敏感数据加密信息。对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+     */
+    public void setEncryption(Encryption Encryption) {
+        this.Encryption = Encryption;
+    }
+
+    public ImageRecognitionRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ImageRecognitionRequest(ImageRecognitionRequest source) {
+        if (source.IdCard != null) {
+            this.IdCard = new String(source.IdCard);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.ImageBase64 != null) {
+            this.ImageBase64 = new String(source.ImageBase64);
+        }
+        if (source.Optional != null) {
+            this.Optional = new String(source.Optional);
+        }
+        if (source.Encryption != null) {
+            this.Encryption = new Encryption(source.Encryption);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -127,6 +181,7 @@ BASE64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "ImageBase64", this.ImageBase64);
         this.setParamSimple(map, prefix + "Optional", this.Optional);
+        this.setParamObj(map, prefix + "Encryption.", this.Encryption);
 
     }
 }

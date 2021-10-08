@@ -150,6 +150,36 @@ public class Deal extends AbstractModel{
     private String SubProductCode;
 
     /**
+    * 大订单号
+    */
+    @SerializedName("BigDealId")
+    @Expose
+    private String BigDealId;
+
+    /**
+    * 退费公式
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Formula")
+    @Expose
+    private String Formula;
+
+    /**
+    * 退费涉及订单信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RefReturnDeals")
+    @Expose
+    private String RefReturnDeals;
+
+    /**
+    * 付费模式：prePay 预付费 postPay后付费 riPay预留实例
+    */
+    @SerializedName("PayMode")
+    @Expose
+    private String PayMode;
+
+    /**
      * Get 订单号 
      * @return OrderId 订单号
      */
@@ -442,6 +472,158 @@ public class Deal extends AbstractModel{
     }
 
     /**
+     * Get 大订单号 
+     * @return BigDealId 大订单号
+     */
+    public String getBigDealId() {
+        return this.BigDealId;
+    }
+
+    /**
+     * Set 大订单号
+     * @param BigDealId 大订单号
+     */
+    public void setBigDealId(String BigDealId) {
+        this.BigDealId = BigDealId;
+    }
+
+    /**
+     * Get 退费公式
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Formula 退费公式
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getFormula() {
+        return this.Formula;
+    }
+
+    /**
+     * Set 退费公式
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Formula 退费公式
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFormula(String Formula) {
+        this.Formula = Formula;
+    }
+
+    /**
+     * Get 退费涉及订单信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RefReturnDeals 退费涉及订单信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getRefReturnDeals() {
+        return this.RefReturnDeals;
+    }
+
+    /**
+     * Set 退费涉及订单信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RefReturnDeals 退费涉及订单信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRefReturnDeals(String RefReturnDeals) {
+        this.RefReturnDeals = RefReturnDeals;
+    }
+
+    /**
+     * Get 付费模式：prePay 预付费 postPay后付费 riPay预留实例 
+     * @return PayMode 付费模式：prePay 预付费 postPay后付费 riPay预留实例
+     */
+    public String getPayMode() {
+        return this.PayMode;
+    }
+
+    /**
+     * Set 付费模式：prePay 预付费 postPay后付费 riPay预留实例
+     * @param PayMode 付费模式：prePay 预付费 postPay后付费 riPay预留实例
+     */
+    public void setPayMode(String PayMode) {
+        this.PayMode = PayMode;
+    }
+
+    public Deal() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Deal(Deal source) {
+        if (source.OrderId != null) {
+            this.OrderId = new String(source.OrderId);
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+        if (source.Payer != null) {
+            this.Payer = new String(source.Payer);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.Creator != null) {
+            this.Creator = new String(source.Creator);
+        }
+        if (source.RealTotalCost != null) {
+            this.RealTotalCost = new Long(source.RealTotalCost);
+        }
+        if (source.VoucherDecline != null) {
+            this.VoucherDecline = new Long(source.VoucherDecline);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.GoodsCategoryId != null) {
+            this.GoodsCategoryId = new Long(source.GoodsCategoryId);
+        }
+        if (source.ProductInfo != null) {
+            this.ProductInfo = new ProductInfo[source.ProductInfo.length];
+            for (int i = 0; i < source.ProductInfo.length; i++) {
+                this.ProductInfo[i] = new ProductInfo(source.ProductInfo[i]);
+            }
+        }
+        if (source.TimeSpan != null) {
+            this.TimeSpan = new Float(source.TimeSpan);
+        }
+        if (source.TimeUnit != null) {
+            this.TimeUnit = new String(source.TimeUnit);
+        }
+        if (source.Currency != null) {
+            this.Currency = new String(source.Currency);
+        }
+        if (source.Policy != null) {
+            this.Policy = new Float(source.Policy);
+        }
+        if (source.Price != null) {
+            this.Price = new Float(source.Price);
+        }
+        if (source.TotalCost != null) {
+            this.TotalCost = new Float(source.TotalCost);
+        }
+        if (source.ProductCode != null) {
+            this.ProductCode = new String(source.ProductCode);
+        }
+        if (source.SubProductCode != null) {
+            this.SubProductCode = new String(source.SubProductCode);
+        }
+        if (source.BigDealId != null) {
+            this.BigDealId = new String(source.BigDealId);
+        }
+        if (source.Formula != null) {
+            this.Formula = new String(source.Formula);
+        }
+        if (source.RefReturnDeals != null) {
+            this.RefReturnDeals = new String(source.RefReturnDeals);
+        }
+        if (source.PayMode != null) {
+            this.PayMode = new String(source.PayMode);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -463,6 +645,10 @@ public class Deal extends AbstractModel{
         this.setParamSimple(map, prefix + "TotalCost", this.TotalCost);
         this.setParamSimple(map, prefix + "ProductCode", this.ProductCode);
         this.setParamSimple(map, prefix + "SubProductCode", this.SubProductCode);
+        this.setParamSimple(map, prefix + "BigDealId", this.BigDealId);
+        this.setParamSimple(map, prefix + "Formula", this.Formula);
+        this.setParamSimple(map, prefix + "RefReturnDeals", this.RefReturnDeals);
+        this.setParamSimple(map, prefix + "PayMode", this.PayMode);
 
     }
 }

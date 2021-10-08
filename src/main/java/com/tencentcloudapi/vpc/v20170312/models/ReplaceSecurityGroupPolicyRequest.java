@@ -37,6 +37,13 @@ public class ReplaceSecurityGroupPolicyRequest extends AbstractModel{
     private SecurityGroupPolicySet SecurityGroupPolicySet;
 
     /**
+    * 旧的安全组规则集合对象，可选，日志记录用。
+    */
+    @SerializedName("OriginalSecurityGroupPolicySet")
+    @Expose
+    private SecurityGroupPolicySet OriginalSecurityGroupPolicySet;
+
+    /**
      * Get 安全组实例ID，例如sg-33ocnj9n，可通过DescribeSecurityGroups获取。 
      * @return SecurityGroupId 安全组实例ID，例如sg-33ocnj9n，可通过DescribeSecurityGroups获取。
      */
@@ -69,11 +76,48 @@ public class ReplaceSecurityGroupPolicyRequest extends AbstractModel{
     }
 
     /**
+     * Get 旧的安全组规则集合对象，可选，日志记录用。 
+     * @return OriginalSecurityGroupPolicySet 旧的安全组规则集合对象，可选，日志记录用。
+     */
+    public SecurityGroupPolicySet getOriginalSecurityGroupPolicySet() {
+        return this.OriginalSecurityGroupPolicySet;
+    }
+
+    /**
+     * Set 旧的安全组规则集合对象，可选，日志记录用。
+     * @param OriginalSecurityGroupPolicySet 旧的安全组规则集合对象，可选，日志记录用。
+     */
+    public void setOriginalSecurityGroupPolicySet(SecurityGroupPolicySet OriginalSecurityGroupPolicySet) {
+        this.OriginalSecurityGroupPolicySet = OriginalSecurityGroupPolicySet;
+    }
+
+    public ReplaceSecurityGroupPolicyRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ReplaceSecurityGroupPolicyRequest(ReplaceSecurityGroupPolicyRequest source) {
+        if (source.SecurityGroupId != null) {
+            this.SecurityGroupId = new String(source.SecurityGroupId);
+        }
+        if (source.SecurityGroupPolicySet != null) {
+            this.SecurityGroupPolicySet = new SecurityGroupPolicySet(source.SecurityGroupPolicySet);
+        }
+        if (source.OriginalSecurityGroupPolicySet != null) {
+            this.OriginalSecurityGroupPolicySet = new SecurityGroupPolicySet(source.OriginalSecurityGroupPolicySet);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "SecurityGroupId", this.SecurityGroupId);
         this.setParamObj(map, prefix + "SecurityGroupPolicySet.", this.SecurityGroupPolicySet);
+        this.setParamObj(map, prefix + "OriginalSecurityGroupPolicySet.", this.OriginalSecurityGroupPolicySet);
 
     }
 }

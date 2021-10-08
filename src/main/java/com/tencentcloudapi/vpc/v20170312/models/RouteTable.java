@@ -51,7 +51,7 @@ public class RouteTable extends AbstractModel{
     private RouteTableAssociation [] AssociationSet;
 
     /**
-    * 路由表策略集合。
+    * IPv4路由策略集合。
     */
     @SerializedName("RouteSet")
     @Expose
@@ -77,6 +77,14 @@ public class RouteTable extends AbstractModel{
     @SerializedName("TagSet")
     @Expose
     private Tag [] TagSet;
+
+    /**
+    * local路由是否发布云联网。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("LocalCidrForCcn")
+    @Expose
+    private CidrForCcn [] LocalCidrForCcn;
 
     /**
      * Get VPC实例ID。 
@@ -143,16 +151,16 @@ public class RouteTable extends AbstractModel{
     }
 
     /**
-     * Get 路由表策略集合。 
-     * @return RouteSet 路由表策略集合。
+     * Get IPv4路由策略集合。 
+     * @return RouteSet IPv4路由策略集合。
      */
     public Route [] getRouteSet() {
         return this.RouteSet;
     }
 
     /**
-     * Set 路由表策略集合。
-     * @param RouteSet 路由表策略集合。
+     * Set IPv4路由策略集合。
+     * @param RouteSet IPv4路由策略集合。
      */
     public void setRouteSet(Route [] RouteSet) {
         this.RouteSet = RouteSet;
@@ -207,6 +215,76 @@ public class RouteTable extends AbstractModel{
     }
 
     /**
+     * Get local路由是否发布云联网。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return LocalCidrForCcn local路由是否发布云联网。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public CidrForCcn [] getLocalCidrForCcn() {
+        return this.LocalCidrForCcn;
+    }
+
+    /**
+     * Set local路由是否发布云联网。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param LocalCidrForCcn local路由是否发布云联网。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLocalCidrForCcn(CidrForCcn [] LocalCidrForCcn) {
+        this.LocalCidrForCcn = LocalCidrForCcn;
+    }
+
+    public RouteTable() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public RouteTable(RouteTable source) {
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.RouteTableId != null) {
+            this.RouteTableId = new String(source.RouteTableId);
+        }
+        if (source.RouteTableName != null) {
+            this.RouteTableName = new String(source.RouteTableName);
+        }
+        if (source.AssociationSet != null) {
+            this.AssociationSet = new RouteTableAssociation[source.AssociationSet.length];
+            for (int i = 0; i < source.AssociationSet.length; i++) {
+                this.AssociationSet[i] = new RouteTableAssociation(source.AssociationSet[i]);
+            }
+        }
+        if (source.RouteSet != null) {
+            this.RouteSet = new Route[source.RouteSet.length];
+            for (int i = 0; i < source.RouteSet.length; i++) {
+                this.RouteSet[i] = new Route(source.RouteSet[i]);
+            }
+        }
+        if (source.Main != null) {
+            this.Main = new Boolean(source.Main);
+        }
+        if (source.CreatedTime != null) {
+            this.CreatedTime = new String(source.CreatedTime);
+        }
+        if (source.TagSet != null) {
+            this.TagSet = new Tag[source.TagSet.length];
+            for (int i = 0; i < source.TagSet.length; i++) {
+                this.TagSet[i] = new Tag(source.TagSet[i]);
+            }
+        }
+        if (source.LocalCidrForCcn != null) {
+            this.LocalCidrForCcn = new CidrForCcn[source.LocalCidrForCcn.length];
+            for (int i = 0; i < source.LocalCidrForCcn.length; i++) {
+                this.LocalCidrForCcn[i] = new CidrForCcn(source.LocalCidrForCcn[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -218,6 +296,7 @@ public class RouteTable extends AbstractModel{
         this.setParamSimple(map, prefix + "Main", this.Main);
         this.setParamSimple(map, prefix + "CreatedTime", this.CreatedTime);
         this.setParamArrayObj(map, prefix + "TagSet.", this.TagSet);
+        this.setParamArrayObj(map, prefix + "LocalCidrForCcn.", this.LocalCidrForCcn);
 
     }
 }

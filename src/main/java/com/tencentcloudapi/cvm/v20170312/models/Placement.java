@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class Placement extends AbstractModel{
 
     /**
-    * 实例所属的[可用区](https://cloud.tencent.com/document/product/213/15753#ZoneInfo)ID。该参数也可以通过调用  [DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。
+    * 实例所属的可用区ID。该参数可以通过调用  [DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。
     */
     @SerializedName("Zone")
     @Expose
@@ -58,16 +58,16 @@ public class Placement extends AbstractModel{
     private String HostId;
 
     /**
-     * Get 实例所属的[可用区](https://cloud.tencent.com/document/product/213/15753#ZoneInfo)ID。该参数也可以通过调用  [DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。 
-     * @return Zone 实例所属的[可用区](https://cloud.tencent.com/document/product/213/15753#ZoneInfo)ID。该参数也可以通过调用  [DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。
+     * Get 实例所属的可用区ID。该参数可以通过调用  [DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。 
+     * @return Zone 实例所属的可用区ID。该参数可以通过调用  [DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。
      */
     public String getZone() {
         return this.Zone;
     }
 
     /**
-     * Set 实例所属的[可用区](https://cloud.tencent.com/document/product/213/15753#ZoneInfo)ID。该参数也可以通过调用  [DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。
-     * @param Zone 实例所属的[可用区](https://cloud.tencent.com/document/product/213/15753#ZoneInfo)ID。该参数也可以通过调用  [DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。
+     * Set 实例所属的可用区ID。该参数可以通过调用  [DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。
+     * @param Zone 实例所属的可用区ID。该参数可以通过调用  [DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。
      */
     public void setZone(String Zone) {
         this.Zone = Zone;
@@ -136,6 +136,38 @@ public class Placement extends AbstractModel{
     public void setHostId(String HostId) {
         this.HostId = HostId;
     }
+
+    public Placement() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Placement(Placement source) {
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.HostIds != null) {
+            this.HostIds = new String[source.HostIds.length];
+            for (int i = 0; i < source.HostIds.length; i++) {
+                this.HostIds[i] = new String(source.HostIds[i]);
+            }
+        }
+        if (source.HostIps != null) {
+            this.HostIps = new String[source.HostIps.length];
+            for (int i = 0; i < source.HostIps.length; i++) {
+                this.HostIps[i] = new String(source.HostIps[i]);
+            }
+        }
+        if (source.HostId != null) {
+            this.HostId = new String(source.HostId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

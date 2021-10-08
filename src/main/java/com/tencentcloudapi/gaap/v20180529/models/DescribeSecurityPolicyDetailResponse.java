@@ -24,6 +24,7 @@ public class DescribeSecurityPolicyDetailResponse extends AbstractModel{
 
     /**
     * 通道ID
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProxyId")
     @Expose
@@ -69,8 +70,10 @@ UNBINDING，安全策略关闭中。
     private String RequestId;
 
     /**
-     * Get 通道ID 
+     * Get 通道ID
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return ProxyId 通道ID
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProxyId() {
         return this.ProxyId;
@@ -78,7 +81,9 @@ UNBINDING，安全策略关闭中。
 
     /**
      * Set 通道ID
+注意：此字段可能返回 null，表示取不到有效值。
      * @param ProxyId 通道ID
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProxyId(String ProxyId) {
         this.ProxyId = ProxyId;
@@ -179,6 +184,38 @@ UNBINDING，安全策略关闭中。
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeSecurityPolicyDetailResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeSecurityPolicyDetailResponse(DescribeSecurityPolicyDetailResponse source) {
+        if (source.ProxyId != null) {
+            this.ProxyId = new String(source.ProxyId);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.DefaultAction != null) {
+            this.DefaultAction = new String(source.DefaultAction);
+        }
+        if (source.PolicyId != null) {
+            this.PolicyId = new String(source.PolicyId);
+        }
+        if (source.RuleList != null) {
+            this.RuleList = new SecurityPolicyRuleOut[source.RuleList.length];
+            for (int i = 0; i < source.RuleList.length; i++) {
+                this.RuleList[i] = new SecurityPolicyRuleOut(source.RuleList[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

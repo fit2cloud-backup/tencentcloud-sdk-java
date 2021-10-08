@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DeadLetterSource extends AbstractModel{
 
     /**
-    * QueueId
+    * 消息队列ID。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("QueueId")
@@ -31,7 +31,7 @@ public class DeadLetterSource extends AbstractModel{
     private String QueueId;
 
     /**
-    * QueueName
+    * 消息队列名字。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("QueueName")
@@ -39,9 +39,9 @@ public class DeadLetterSource extends AbstractModel{
     private String QueueName;
 
     /**
-     * Get QueueId
+     * Get 消息队列ID。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return QueueId QueueId
+     * @return QueueId 消息队列ID。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getQueueId() {
@@ -49,9 +49,9 @@ public class DeadLetterSource extends AbstractModel{
     }
 
     /**
-     * Set QueueId
+     * Set 消息队列ID。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param QueueId QueueId
+     * @param QueueId 消息队列ID。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setQueueId(String QueueId) {
@@ -59,9 +59,9 @@ public class DeadLetterSource extends AbstractModel{
     }
 
     /**
-     * Get QueueName
+     * Get 消息队列名字。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return QueueName QueueName
+     * @return QueueName 消息队列名字。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getQueueName() {
@@ -69,14 +69,31 @@ public class DeadLetterSource extends AbstractModel{
     }
 
     /**
-     * Set QueueName
+     * Set 消息队列名字。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param QueueName QueueName
+     * @param QueueName 消息队列名字。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setQueueName(String QueueName) {
         this.QueueName = QueueName;
     }
+
+    public DeadLetterSource() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeadLetterSource(DeadLetterSource source) {
+        if (source.QueueId != null) {
+            this.QueueId = new String(source.QueueId);
+        }
+        if (source.QueueName != null) {
+            this.QueueName = new String(source.QueueName);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

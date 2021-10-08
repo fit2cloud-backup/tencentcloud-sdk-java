@@ -65,6 +65,13 @@ public class ModifyLoadBalancerAttributesRequest extends AbstractModel{
     private Boolean SnatPro;
 
     /**
+    * 是否开启删除保护
+    */
+    @SerializedName("DeleteProtect")
+    @Expose
+    private Boolean DeleteProtect;
+
+    /**
      * Get 负载均衡的唯一ID 
      * @return LoadBalancerId 负载均衡的唯一ID
      */
@@ -161,6 +168,54 @@ public class ModifyLoadBalancerAttributesRequest extends AbstractModel{
     }
 
     /**
+     * Get 是否开启删除保护 
+     * @return DeleteProtect 是否开启删除保护
+     */
+    public Boolean getDeleteProtect() {
+        return this.DeleteProtect;
+    }
+
+    /**
+     * Set 是否开启删除保护
+     * @param DeleteProtect 是否开启删除保护
+     */
+    public void setDeleteProtect(Boolean DeleteProtect) {
+        this.DeleteProtect = DeleteProtect;
+    }
+
+    public ModifyLoadBalancerAttributesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyLoadBalancerAttributesRequest(ModifyLoadBalancerAttributesRequest source) {
+        if (source.LoadBalancerId != null) {
+            this.LoadBalancerId = new String(source.LoadBalancerId);
+        }
+        if (source.LoadBalancerName != null) {
+            this.LoadBalancerName = new String(source.LoadBalancerName);
+        }
+        if (source.TargetRegionInfo != null) {
+            this.TargetRegionInfo = new TargetRegionInfo(source.TargetRegionInfo);
+        }
+        if (source.InternetChargeInfo != null) {
+            this.InternetChargeInfo = new InternetAccessible(source.InternetChargeInfo);
+        }
+        if (source.LoadBalancerPassToTarget != null) {
+            this.LoadBalancerPassToTarget = new Boolean(source.LoadBalancerPassToTarget);
+        }
+        if (source.SnatPro != null) {
+            this.SnatPro = new Boolean(source.SnatPro);
+        }
+        if (source.DeleteProtect != null) {
+            this.DeleteProtect = new Boolean(source.DeleteProtect);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -170,6 +225,7 @@ public class ModifyLoadBalancerAttributesRequest extends AbstractModel{
         this.setParamObj(map, prefix + "InternetChargeInfo.", this.InternetChargeInfo);
         this.setParamSimple(map, prefix + "LoadBalancerPassToTarget", this.LoadBalancerPassToTarget);
         this.setParamSimple(map, prefix + "SnatPro", this.SnatPro);
+        this.setParamSimple(map, prefix + "DeleteProtect", this.DeleteProtect);
 
     }
 }

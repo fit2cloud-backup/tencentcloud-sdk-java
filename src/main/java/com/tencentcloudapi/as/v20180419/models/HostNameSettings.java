@@ -26,7 +26,7 @@ public class HostNameSettings extends AbstractModel{
     * 云服务器的主机名。
 <br><li> 点号（.）和短横线（-）不能作为 HostName 的首尾字符，不能连续使用。
 <br><li> 不支持 Windows 实例。
-<br><li> 其他类型（Linux 等）实例：字符长度为[2, 40]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。
+<br><li> 其他类型（Linux 等）实例：字符长度为[2, 40]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。不允许为纯数字。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HostName")
@@ -47,12 +47,12 @@ public class HostNameSettings extends AbstractModel{
      * Get 云服务器的主机名。
 <br><li> 点号（.）和短横线（-）不能作为 HostName 的首尾字符，不能连续使用。
 <br><li> 不支持 Windows 实例。
-<br><li> 其他类型（Linux 等）实例：字符长度为[2, 40]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。
+<br><li> 其他类型（Linux 等）实例：字符长度为[2, 40]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。不允许为纯数字。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return HostName 云服务器的主机名。
 <br><li> 点号（.）和短横线（-）不能作为 HostName 的首尾字符，不能连续使用。
 <br><li> 不支持 Windows 实例。
-<br><li> 其他类型（Linux 等）实例：字符长度为[2, 40]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。
+<br><li> 其他类型（Linux 等）实例：字符长度为[2, 40]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。不允许为纯数字。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHostName() {
@@ -63,12 +63,12 @@ public class HostNameSettings extends AbstractModel{
      * Set 云服务器的主机名。
 <br><li> 点号（.）和短横线（-）不能作为 HostName 的首尾字符，不能连续使用。
 <br><li> 不支持 Windows 实例。
-<br><li> 其他类型（Linux 等）实例：字符长度为[2, 40]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。
+<br><li> 其他类型（Linux 等）实例：字符长度为[2, 40]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。不允许为纯数字。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param HostName 云服务器的主机名。
 <br><li> 点号（.）和短横线（-）不能作为 HostName 的首尾字符，不能连续使用。
 <br><li> 不支持 Windows 实例。
-<br><li> 其他类型（Linux 等）实例：字符长度为[2, 40]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。
+<br><li> 其他类型（Linux 等）实例：字符长度为[2, 40]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。不允许为纯数字。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHostName(String HostName) {
@@ -102,6 +102,23 @@ public class HostNameSettings extends AbstractModel{
     public void setHostNameStyle(String HostNameStyle) {
         this.HostNameStyle = HostNameStyle;
     }
+
+    public HostNameSettings() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public HostNameSettings(HostNameSettings source) {
+        if (source.HostName != null) {
+            this.HostName = new String(source.HostName);
+        }
+        if (source.HostNameStyle != null) {
+            this.HostNameStyle = new String(source.HostNameStyle);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

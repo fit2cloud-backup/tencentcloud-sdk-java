@@ -23,7 +23,10 @@ import java.util.HashMap;
 public class VideoTrackItem extends AbstractModel{
 
     /**
-    * 视频片段的媒体素材来源，可以是点播的文件 ID，或者是其它文件的 URL。
+    * 视频片段的媒体素材来源，可以是：
+<li>点播的媒体文件 ID；</li>
+<li>其他媒体文件的下载 URL。</li>
+注意：当使用其他媒体文件的下载 URL 作为素材来源，且开启了访问控制（如防盗链）时，需要在 URL 携带访问控制参数（如防盗链签名）。
     */
     @SerializedName("SourceMedia")
     @Expose
@@ -98,7 +101,6 @@ public class VideoTrackItem extends AbstractModel{
 
     /**
     * 对图像进行的操作，如图像旋转等。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageOperations")
     @Expose
@@ -106,23 +108,34 @@ public class VideoTrackItem extends AbstractModel{
 
     /**
     * 对音频进行操作，如静音等。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AudioOperations")
     @Expose
     private AudioTransform [] AudioOperations;
 
     /**
-     * Get 视频片段的媒体素材来源，可以是点播的文件 ID，或者是其它文件的 URL。 
-     * @return SourceMedia 视频片段的媒体素材来源，可以是点播的文件 ID，或者是其它文件的 URL。
+     * Get 视频片段的媒体素材来源，可以是：
+<li>点播的媒体文件 ID；</li>
+<li>其他媒体文件的下载 URL。</li>
+注意：当使用其他媒体文件的下载 URL 作为素材来源，且开启了访问控制（如防盗链）时，需要在 URL 携带访问控制参数（如防盗链签名）。 
+     * @return SourceMedia 视频片段的媒体素材来源，可以是：
+<li>点播的媒体文件 ID；</li>
+<li>其他媒体文件的下载 URL。</li>
+注意：当使用其他媒体文件的下载 URL 作为素材来源，且开启了访问控制（如防盗链）时，需要在 URL 携带访问控制参数（如防盗链签名）。
      */
     public String getSourceMedia() {
         return this.SourceMedia;
     }
 
     /**
-     * Set 视频片段的媒体素材来源，可以是点播的文件 ID，或者是其它文件的 URL。
-     * @param SourceMedia 视频片段的媒体素材来源，可以是点播的文件 ID，或者是其它文件的 URL。
+     * Set 视频片段的媒体素材来源，可以是：
+<li>点播的媒体文件 ID；</li>
+<li>其他媒体文件的下载 URL。</li>
+注意：当使用其他媒体文件的下载 URL 作为素材来源，且开启了访问控制（如防盗链）时，需要在 URL 携带访问控制参数（如防盗链签名）。
+     * @param SourceMedia 视频片段的媒体素材来源，可以是：
+<li>点播的媒体文件 ID；</li>
+<li>其他媒体文件的下载 URL。</li>
+注意：当使用其他媒体文件的下载 URL 作为素材来源，且开启了访问控制（如防盗链）时，需要在 URL 携带访问控制参数（如防盗链签名）。
      */
     public void setSourceMedia(String SourceMedia) {
         this.SourceMedia = SourceMedia;
@@ -313,10 +326,8 @@ public class VideoTrackItem extends AbstractModel{
     }
 
     /**
-     * Get 对图像进行的操作，如图像旋转等。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 对图像进行的操作，如图像旋转等。 
      * @return ImageOperations 对图像进行的操作，如图像旋转等。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ImageTransform [] getImageOperations() {
         return this.ImageOperations;
@@ -324,19 +335,15 @@ public class VideoTrackItem extends AbstractModel{
 
     /**
      * Set 对图像进行的操作，如图像旋转等。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImageOperations 对图像进行的操作，如图像旋转等。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageOperations(ImageTransform [] ImageOperations) {
         this.ImageOperations = ImageOperations;
     }
 
     /**
-     * Get 对音频进行操作，如静音等。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 对音频进行操作，如静音等。 
      * @return AudioOperations 对音频进行操作，如静音等。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AudioTransform [] getAudioOperations() {
         return this.AudioOperations;
@@ -344,13 +351,58 @@ public class VideoTrackItem extends AbstractModel{
 
     /**
      * Set 对音频进行操作，如静音等。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AudioOperations 对音频进行操作，如静音等。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAudioOperations(AudioTransform [] AudioOperations) {
         this.AudioOperations = AudioOperations;
     }
+
+    public VideoTrackItem() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public VideoTrackItem(VideoTrackItem source) {
+        if (source.SourceMedia != null) {
+            this.SourceMedia = new String(source.SourceMedia);
+        }
+        if (source.SourceMediaStartTime != null) {
+            this.SourceMediaStartTime = new Float(source.SourceMediaStartTime);
+        }
+        if (source.Duration != null) {
+            this.Duration = new Float(source.Duration);
+        }
+        if (source.CoordinateOrigin != null) {
+            this.CoordinateOrigin = new String(source.CoordinateOrigin);
+        }
+        if (source.XPos != null) {
+            this.XPos = new String(source.XPos);
+        }
+        if (source.YPos != null) {
+            this.YPos = new String(source.YPos);
+        }
+        if (source.Width != null) {
+            this.Width = new String(source.Width);
+        }
+        if (source.Height != null) {
+            this.Height = new String(source.Height);
+        }
+        if (source.ImageOperations != null) {
+            this.ImageOperations = new ImageTransform[source.ImageOperations.length];
+            for (int i = 0; i < source.ImageOperations.length; i++) {
+                this.ImageOperations[i] = new ImageTransform(source.ImageOperations[i]);
+            }
+        }
+        if (source.AudioOperations != null) {
+            this.AudioOperations = new AudioTransform[source.AudioOperations.length];
+            for (int i = 0; i < source.AudioOperations.length; i++) {
+                this.AudioOperations[i] = new AudioTransform(source.AudioOperations[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

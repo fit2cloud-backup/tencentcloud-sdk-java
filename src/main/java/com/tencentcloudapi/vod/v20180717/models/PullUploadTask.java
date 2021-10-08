@@ -71,6 +71,13 @@ public class PullUploadTask extends AbstractModel{
     private MediaBasicInfo MediaBasicInfo;
 
     /**
+    * 原始视频的元信息。
+    */
+    @SerializedName("MetaData")
+    @Expose
+    private MediaMetaData MetaData;
+
+    /**
     * 转拉上传完成后生成的播放地址。
     */
     @SerializedName("FileUrl")
@@ -219,6 +226,22 @@ public class PullUploadTask extends AbstractModel{
     }
 
     /**
+     * Get 原始视频的元信息。 
+     * @return MetaData 原始视频的元信息。
+     */
+    public MediaMetaData getMetaData() {
+        return this.MetaData;
+    }
+
+    /**
+     * Set 原始视频的元信息。
+     * @param MetaData 原始视频的元信息。
+     */
+    public void setMetaData(MediaMetaData MetaData) {
+        this.MetaData = MetaData;
+    }
+
+    /**
      * Get 转拉上传完成后生成的播放地址。 
      * @return FileUrl 转拉上传完成后生成的播放地址。
      */
@@ -282,6 +305,50 @@ public class PullUploadTask extends AbstractModel{
         this.SessionId = SessionId;
     }
 
+    public PullUploadTask() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public PullUploadTask(PullUploadTask source) {
+        if (source.TaskId != null) {
+            this.TaskId = new String(source.TaskId);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.ErrCode != null) {
+            this.ErrCode = new Long(source.ErrCode);
+        }
+        if (source.Message != null) {
+            this.Message = new String(source.Message);
+        }
+        if (source.FileId != null) {
+            this.FileId = new String(source.FileId);
+        }
+        if (source.MediaBasicInfo != null) {
+            this.MediaBasicInfo = new MediaBasicInfo(source.MediaBasicInfo);
+        }
+        if (source.MetaData != null) {
+            this.MetaData = new MediaMetaData(source.MetaData);
+        }
+        if (source.FileUrl != null) {
+            this.FileUrl = new String(source.FileUrl);
+        }
+        if (source.ProcedureTaskId != null) {
+            this.ProcedureTaskId = new String(source.ProcedureTaskId);
+        }
+        if (source.SessionContext != null) {
+            this.SessionContext = new String(source.SessionContext);
+        }
+        if (source.SessionId != null) {
+            this.SessionId = new String(source.SessionId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
@@ -292,6 +359,7 @@ public class PullUploadTask extends AbstractModel{
         this.setParamSimple(map, prefix + "Message", this.Message);
         this.setParamSimple(map, prefix + "FileId", this.FileId);
         this.setParamObj(map, prefix + "MediaBasicInfo.", this.MediaBasicInfo);
+        this.setParamObj(map, prefix + "MetaData.", this.MetaData);
         this.setParamSimple(map, prefix + "FileUrl", this.FileUrl);
         this.setParamSimple(map, prefix + "ProcedureTaskId", this.ProcedureTaskId);
         this.setParamSimple(map, prefix + "SessionContext", this.SessionContext);

@@ -44,6 +44,13 @@ public class CreateTaskTemplateRequest extends AbstractModel{
     private String TaskTemplateDescription;
 
     /**
+    * 标签列表。通过指定该参数可以支持绑定标签到任务模板。每个任务模板最多绑定10个标签。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
      * Get 任务模板名称 
      * @return TaskTemplateName 任务模板名称
      */
@@ -92,12 +99,55 @@ public class CreateTaskTemplateRequest extends AbstractModel{
     }
 
     /**
+     * Get 标签列表。通过指定该参数可以支持绑定标签到任务模板。每个任务模板最多绑定10个标签。 
+     * @return Tags 标签列表。通过指定该参数可以支持绑定标签到任务模板。每个任务模板最多绑定10个标签。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 标签列表。通过指定该参数可以支持绑定标签到任务模板。每个任务模板最多绑定10个标签。
+     * @param Tags 标签列表。通过指定该参数可以支持绑定标签到任务模板。每个任务模板最多绑定10个标签。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    public CreateTaskTemplateRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateTaskTemplateRequest(CreateTaskTemplateRequest source) {
+        if (source.TaskTemplateName != null) {
+            this.TaskTemplateName = new String(source.TaskTemplateName);
+        }
+        if (source.TaskTemplateInfo != null) {
+            this.TaskTemplateInfo = new Task(source.TaskTemplateInfo);
+        }
+        if (source.TaskTemplateDescription != null) {
+            this.TaskTemplateDescription = new String(source.TaskTemplateDescription);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TaskTemplateName", this.TaskTemplateName);
         this.setParamObj(map, prefix + "TaskTemplateInfo.", this.TaskTemplateInfo);
         this.setParamSimple(map, prefix + "TaskTemplateDescription", this.TaskTemplateDescription);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

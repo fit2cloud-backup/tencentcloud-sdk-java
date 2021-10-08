@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class DescribeTargetGroupsResponse extends AbstractModel{
 
     /**
-    * 显示的结果数量
+    * 显示的结果数量。
     */
     @SerializedName("TotalCount")
     @Expose
     private Long TotalCount;
 
     /**
-    * 显示的目标组信息集合
+    * 显示的目标组信息集合。
     */
     @SerializedName("TargetGroupSet")
     @Expose
@@ -44,32 +44,32 @@ public class DescribeTargetGroupsResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 显示的结果数量 
-     * @return TotalCount 显示的结果数量
+     * Get 显示的结果数量。 
+     * @return TotalCount 显示的结果数量。
      */
     public Long getTotalCount() {
         return this.TotalCount;
     }
 
     /**
-     * Set 显示的结果数量
-     * @param TotalCount 显示的结果数量
+     * Set 显示的结果数量。
+     * @param TotalCount 显示的结果数量。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 显示的目标组信息集合 
-     * @return TargetGroupSet 显示的目标组信息集合
+     * Get 显示的目标组信息集合。 
+     * @return TargetGroupSet 显示的目标组信息集合。
      */
     public TargetGroupInfo [] getTargetGroupSet() {
         return this.TargetGroupSet;
     }
 
     /**
-     * Set 显示的目标组信息集合
-     * @param TargetGroupSet 显示的目标组信息集合
+     * Set 显示的目标组信息集合。
+     * @param TargetGroupSet 显示的目标组信息集合。
      */
     public void setTargetGroupSet(TargetGroupInfo [] TargetGroupSet) {
         this.TargetGroupSet = TargetGroupSet;
@@ -90,6 +90,29 @@ public class DescribeTargetGroupsResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeTargetGroupsResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeTargetGroupsResponse(DescribeTargetGroupsResponse source) {
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
+        if (source.TargetGroupSet != null) {
+            this.TargetGroupSet = new TargetGroupInfo[source.TargetGroupSet.length];
+            for (int i = 0; i < source.TargetGroupSet.length; i++) {
+                this.TargetGroupSet[i] = new TargetGroupInfo(source.TargetGroupSet[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

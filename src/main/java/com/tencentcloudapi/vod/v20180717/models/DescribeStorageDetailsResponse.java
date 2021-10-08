@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeStorageDetailsResponse extends AbstractModel{
 
     /**
-    * 存储统计数据，每分钟/小时/天一条数据。
+    * 存储统计数据，每5分钟或每天一条数据。
     */
     @SerializedName("Data")
     @Expose
@@ -37,16 +37,16 @@ public class DescribeStorageDetailsResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 存储统计数据，每分钟/小时/天一条数据。 
-     * @return Data 存储统计数据，每分钟/小时/天一条数据。
+     * Get 存储统计数据，每5分钟或每天一条数据。 
+     * @return Data 存储统计数据，每5分钟或每天一条数据。
      */
     public StatDataItem [] getData() {
         return this.Data;
     }
 
     /**
-     * Set 存储统计数据，每分钟/小时/天一条数据。
-     * @param Data 存储统计数据，每分钟/小时/天一条数据。
+     * Set 存储统计数据，每5分钟或每天一条数据。
+     * @param Data 存储统计数据，每5分钟或每天一条数据。
      */
     public void setData(StatDataItem [] Data) {
         this.Data = Data;
@@ -67,6 +67,26 @@ public class DescribeStorageDetailsResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeStorageDetailsResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeStorageDetailsResponse(DescribeStorageDetailsResponse source) {
+        if (source.Data != null) {
+            this.Data = new StatDataItem[source.Data.length];
+            for (int i = 0; i < source.Data.length; i++) {
+                this.Data[i] = new StatDataItem(source.Data[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

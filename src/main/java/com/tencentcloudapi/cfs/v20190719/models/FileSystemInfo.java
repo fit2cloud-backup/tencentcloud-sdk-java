@@ -93,7 +93,7 @@ public class FileSystemInfo extends AbstractModel{
     private String StorageType;
 
     /**
-    * 文件系统绑定的预付费存储包（暂未支持）
+    * 文件系统绑定的预付费存储包
     */
     @SerializedName("StorageResourcePkg")
     @Expose
@@ -140,6 +140,20 @@ public class FileSystemInfo extends AbstractModel{
     @SerializedName("AppId")
     @Expose
     private Long AppId;
+
+    /**
+    * 文件系统吞吐上限，吞吐上限是根据文件系统当前已使用存储量、绑定的存储资源包以及吞吐资源包一同确定
+    */
+    @SerializedName("BandwidthLimit")
+    @Expose
+    private Float BandwidthLimit;
+
+    /**
+    * 文件系统总容量
+    */
+    @SerializedName("Capacity")
+    @Expose
+    private Long Capacity;
 
     /**
      * Get 创建时间 
@@ -302,16 +316,16 @@ public class FileSystemInfo extends AbstractModel{
     }
 
     /**
-     * Get 文件系统绑定的预付费存储包（暂未支持） 
-     * @return StorageResourcePkg 文件系统绑定的预付费存储包（暂未支持）
+     * Get 文件系统绑定的预付费存储包 
+     * @return StorageResourcePkg 文件系统绑定的预付费存储包
      */
     public String getStorageResourcePkg() {
         return this.StorageResourcePkg;
     }
 
     /**
-     * Set 文件系统绑定的预付费存储包（暂未支持）
-     * @param StorageResourcePkg 文件系统绑定的预付费存储包（暂未支持）
+     * Set 文件系统绑定的预付费存储包
+     * @param StorageResourcePkg 文件系统绑定的预付费存储包
      */
     public void setStorageResourcePkg(String StorageResourcePkg) {
         this.StorageResourcePkg = StorageResourcePkg;
@@ -414,6 +428,106 @@ public class FileSystemInfo extends AbstractModel{
     }
 
     /**
+     * Get 文件系统吞吐上限，吞吐上限是根据文件系统当前已使用存储量、绑定的存储资源包以及吞吐资源包一同确定 
+     * @return BandwidthLimit 文件系统吞吐上限，吞吐上限是根据文件系统当前已使用存储量、绑定的存储资源包以及吞吐资源包一同确定
+     */
+    public Float getBandwidthLimit() {
+        return this.BandwidthLimit;
+    }
+
+    /**
+     * Set 文件系统吞吐上限，吞吐上限是根据文件系统当前已使用存储量、绑定的存储资源包以及吞吐资源包一同确定
+     * @param BandwidthLimit 文件系统吞吐上限，吞吐上限是根据文件系统当前已使用存储量、绑定的存储资源包以及吞吐资源包一同确定
+     */
+    public void setBandwidthLimit(Float BandwidthLimit) {
+        this.BandwidthLimit = BandwidthLimit;
+    }
+
+    /**
+     * Get 文件系统总容量 
+     * @return Capacity 文件系统总容量
+     */
+    public Long getCapacity() {
+        return this.Capacity;
+    }
+
+    /**
+     * Set 文件系统总容量
+     * @param Capacity 文件系统总容量
+     */
+    public void setCapacity(Long Capacity) {
+        this.Capacity = Capacity;
+    }
+
+    public FileSystemInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public FileSystemInfo(FileSystemInfo source) {
+        if (source.CreationTime != null) {
+            this.CreationTime = new String(source.CreationTime);
+        }
+        if (source.CreationToken != null) {
+            this.CreationToken = new String(source.CreationToken);
+        }
+        if (source.FileSystemId != null) {
+            this.FileSystemId = new String(source.FileSystemId);
+        }
+        if (source.LifeCycleState != null) {
+            this.LifeCycleState = new String(source.LifeCycleState);
+        }
+        if (source.SizeByte != null) {
+            this.SizeByte = new Long(source.SizeByte);
+        }
+        if (source.SizeLimit != null) {
+            this.SizeLimit = new Long(source.SizeLimit);
+        }
+        if (source.ZoneId != null) {
+            this.ZoneId = new Long(source.ZoneId);
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.Protocol != null) {
+            this.Protocol = new String(source.Protocol);
+        }
+        if (source.StorageType != null) {
+            this.StorageType = new String(source.StorageType);
+        }
+        if (source.StorageResourcePkg != null) {
+            this.StorageResourcePkg = new String(source.StorageResourcePkg);
+        }
+        if (source.BandwidthResourcePkg != null) {
+            this.BandwidthResourcePkg = new String(source.BandwidthResourcePkg);
+        }
+        if (source.PGroup != null) {
+            this.PGroup = new PGroup(source.PGroup);
+        }
+        if (source.FsName != null) {
+            this.FsName = new String(source.FsName);
+        }
+        if (source.Encrypted != null) {
+            this.Encrypted = new Boolean(source.Encrypted);
+        }
+        if (source.KmsKeyId != null) {
+            this.KmsKeyId = new String(source.KmsKeyId);
+        }
+        if (source.AppId != null) {
+            this.AppId = new Long(source.AppId);
+        }
+        if (source.BandwidthLimit != null) {
+            this.BandwidthLimit = new Float(source.BandwidthLimit);
+        }
+        if (source.Capacity != null) {
+            this.Capacity = new Long(source.Capacity);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -434,6 +548,8 @@ public class FileSystemInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Encrypted", this.Encrypted);
         this.setParamSimple(map, prefix + "KmsKeyId", this.KmsKeyId);
         this.setParamSimple(map, prefix + "AppId", this.AppId);
+        this.setParamSimple(map, prefix + "BandwidthLimit", this.BandwidthLimit);
+        this.setParamSimple(map, prefix + "Capacity", this.Capacity);
 
     }
 }

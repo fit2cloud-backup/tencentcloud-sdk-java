@@ -107,6 +107,13 @@ public class NamedComputeEnv extends AbstractModel{
     private Long ResourceMaxRetryCount;
 
     /**
+    * 标签列表。通过指定该参数可以支持绑定标签到计算环境。每个计算环境最多绑定10个标签。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
      * Get 计算环境名称 
      * @return EnvName 计算环境名称
      */
@@ -299,6 +306,84 @@ public class NamedComputeEnv extends AbstractModel{
     }
 
     /**
+     * Get 标签列表。通过指定该参数可以支持绑定标签到计算环境。每个计算环境最多绑定10个标签。 
+     * @return Tags 标签列表。通过指定该参数可以支持绑定标签到计算环境。每个计算环境最多绑定10个标签。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 标签列表。通过指定该参数可以支持绑定标签到计算环境。每个计算环境最多绑定10个标签。
+     * @param Tags 标签列表。通过指定该参数可以支持绑定标签到计算环境。每个计算环境最多绑定10个标签。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    public NamedComputeEnv() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public NamedComputeEnv(NamedComputeEnv source) {
+        if (source.EnvName != null) {
+            this.EnvName = new String(source.EnvName);
+        }
+        if (source.DesiredComputeNodeCount != null) {
+            this.DesiredComputeNodeCount = new Long(source.DesiredComputeNodeCount);
+        }
+        if (source.EnvDescription != null) {
+            this.EnvDescription = new String(source.EnvDescription);
+        }
+        if (source.EnvType != null) {
+            this.EnvType = new String(source.EnvType);
+        }
+        if (source.EnvData != null) {
+            this.EnvData = new EnvData(source.EnvData);
+        }
+        if (source.MountDataDisks != null) {
+            this.MountDataDisks = new MountDataDisk[source.MountDataDisks.length];
+            for (int i = 0; i < source.MountDataDisks.length; i++) {
+                this.MountDataDisks[i] = new MountDataDisk(source.MountDataDisks[i]);
+            }
+        }
+        if (source.Authentications != null) {
+            this.Authentications = new Authentication[source.Authentications.length];
+            for (int i = 0; i < source.Authentications.length; i++) {
+                this.Authentications[i] = new Authentication(source.Authentications[i]);
+            }
+        }
+        if (source.InputMappings != null) {
+            this.InputMappings = new InputMapping[source.InputMappings.length];
+            for (int i = 0; i < source.InputMappings.length; i++) {
+                this.InputMappings[i] = new InputMapping(source.InputMappings[i]);
+            }
+        }
+        if (source.AgentRunningMode != null) {
+            this.AgentRunningMode = new AgentRunningMode(source.AgentRunningMode);
+        }
+        if (source.Notifications != null) {
+            this.Notifications = new Notification(source.Notifications);
+        }
+        if (source.ActionIfComputeNodeInactive != null) {
+            this.ActionIfComputeNodeInactive = new String(source.ActionIfComputeNodeInactive);
+        }
+        if (source.ResourceMaxRetryCount != null) {
+            this.ResourceMaxRetryCount = new Long(source.ResourceMaxRetryCount);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -314,6 +399,7 @@ public class NamedComputeEnv extends AbstractModel{
         this.setParamObj(map, prefix + "Notifications.", this.Notifications);
         this.setParamSimple(map, prefix + "ActionIfComputeNodeInactive", this.ActionIfComputeNodeInactive);
         this.setParamSimple(map, prefix + "ResourceMaxRetryCount", this.ResourceMaxRetryCount);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

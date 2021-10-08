@@ -72,6 +72,13 @@ public class ModifyDirectConnectTunnelAttributeRequest extends AbstractModel{
     private Long Bandwidth;
 
     /**
+    * 腾讯侧备用互联IP
+    */
+    @SerializedName("TencentBackupAddress")
+    @Expose
+    private String TencentBackupAddress;
+
+    /**
      * Get 专用通道ID 
      * @return DirectConnectTunnelId 专用通道ID
      */
@@ -184,6 +191,60 @@ public class ModifyDirectConnectTunnelAttributeRequest extends AbstractModel{
     }
 
     /**
+     * Get 腾讯侧备用互联IP 
+     * @return TencentBackupAddress 腾讯侧备用互联IP
+     */
+    public String getTencentBackupAddress() {
+        return this.TencentBackupAddress;
+    }
+
+    /**
+     * Set 腾讯侧备用互联IP
+     * @param TencentBackupAddress 腾讯侧备用互联IP
+     */
+    public void setTencentBackupAddress(String TencentBackupAddress) {
+        this.TencentBackupAddress = TencentBackupAddress;
+    }
+
+    public ModifyDirectConnectTunnelAttributeRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyDirectConnectTunnelAttributeRequest(ModifyDirectConnectTunnelAttributeRequest source) {
+        if (source.DirectConnectTunnelId != null) {
+            this.DirectConnectTunnelId = new String(source.DirectConnectTunnelId);
+        }
+        if (source.DirectConnectTunnelName != null) {
+            this.DirectConnectTunnelName = new String(source.DirectConnectTunnelName);
+        }
+        if (source.BgpPeer != null) {
+            this.BgpPeer = new BgpPeer(source.BgpPeer);
+        }
+        if (source.RouteFilterPrefixes != null) {
+            this.RouteFilterPrefixes = new RouteFilterPrefix[source.RouteFilterPrefixes.length];
+            for (int i = 0; i < source.RouteFilterPrefixes.length; i++) {
+                this.RouteFilterPrefixes[i] = new RouteFilterPrefix(source.RouteFilterPrefixes[i]);
+            }
+        }
+        if (source.TencentAddress != null) {
+            this.TencentAddress = new String(source.TencentAddress);
+        }
+        if (source.CustomerAddress != null) {
+            this.CustomerAddress = new String(source.CustomerAddress);
+        }
+        if (source.Bandwidth != null) {
+            this.Bandwidth = new Long(source.Bandwidth);
+        }
+        if (source.TencentBackupAddress != null) {
+            this.TencentBackupAddress = new String(source.TencentBackupAddress);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -194,6 +255,7 @@ public class ModifyDirectConnectTunnelAttributeRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TencentAddress", this.TencentAddress);
         this.setParamSimple(map, prefix + "CustomerAddress", this.CustomerAddress);
         this.setParamSimple(map, prefix + "Bandwidth", this.Bandwidth);
+        this.setParamSimple(map, prefix + "TencentBackupAddress", this.TencentBackupAddress);
 
     }
 }

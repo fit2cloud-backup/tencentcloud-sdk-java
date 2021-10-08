@@ -141,6 +141,30 @@ public class NetworkInterface extends AbstractModel{
     private Long EniType;
 
     /**
+    * 网卡绑定的子机类型：cvm，eks。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Business")
+    @Expose
+    private String Business;
+
+    /**
+    * 网卡所关联的CDC实例ID。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CdcId")
+    @Expose
+    private String CdcId;
+
+    /**
+    * 弹性网卡类型：0:标准型/1:扩展型。默认值为0。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AttachType")
+    @Expose
+    private Long AttachType;
+
+    /**
      * Get 弹性网卡实例ID，例如：eni-f1xjkw1b。 
      * @return NetworkInterfaceId 弹性网卡实例ID，例如：eni-f1xjkw1b。
      */
@@ -421,6 +445,146 @@ public class NetworkInterface extends AbstractModel{
     }
 
     /**
+     * Get 网卡绑定的子机类型：cvm，eks。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Business 网卡绑定的子机类型：cvm，eks。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getBusiness() {
+        return this.Business;
+    }
+
+    /**
+     * Set 网卡绑定的子机类型：cvm，eks。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Business 网卡绑定的子机类型：cvm，eks。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBusiness(String Business) {
+        this.Business = Business;
+    }
+
+    /**
+     * Get 网卡所关联的CDC实例ID。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CdcId 网卡所关联的CDC实例ID。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCdcId() {
+        return this.CdcId;
+    }
+
+    /**
+     * Set 网卡所关联的CDC实例ID。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CdcId 网卡所关联的CDC实例ID。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCdcId(String CdcId) {
+        this.CdcId = CdcId;
+    }
+
+    /**
+     * Get 弹性网卡类型：0:标准型/1:扩展型。默认值为0。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AttachType 弹性网卡类型：0:标准型/1:扩展型。默认值为0。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getAttachType() {
+        return this.AttachType;
+    }
+
+    /**
+     * Set 弹性网卡类型：0:标准型/1:扩展型。默认值为0。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AttachType 弹性网卡类型：0:标准型/1:扩展型。默认值为0。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAttachType(Long AttachType) {
+        this.AttachType = AttachType;
+    }
+
+    public NetworkInterface() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public NetworkInterface(NetworkInterface source) {
+        if (source.NetworkInterfaceId != null) {
+            this.NetworkInterfaceId = new String(source.NetworkInterfaceId);
+        }
+        if (source.NetworkInterfaceName != null) {
+            this.NetworkInterfaceName = new String(source.NetworkInterfaceName);
+        }
+        if (source.NetworkInterfaceDescription != null) {
+            this.NetworkInterfaceDescription = new String(source.NetworkInterfaceDescription);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.GroupSet != null) {
+            this.GroupSet = new String[source.GroupSet.length];
+            for (int i = 0; i < source.GroupSet.length; i++) {
+                this.GroupSet[i] = new String(source.GroupSet[i]);
+            }
+        }
+        if (source.Primary != null) {
+            this.Primary = new Boolean(source.Primary);
+        }
+        if (source.MacAddress != null) {
+            this.MacAddress = new String(source.MacAddress);
+        }
+        if (source.State != null) {
+            this.State = new String(source.State);
+        }
+        if (source.PrivateIpAddressSet != null) {
+            this.PrivateIpAddressSet = new PrivateIpAddressSpecification[source.PrivateIpAddressSet.length];
+            for (int i = 0; i < source.PrivateIpAddressSet.length; i++) {
+                this.PrivateIpAddressSet[i] = new PrivateIpAddressSpecification(source.PrivateIpAddressSet[i]);
+            }
+        }
+        if (source.Attachment != null) {
+            this.Attachment = new NetworkInterfaceAttachment(source.Attachment);
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.CreatedTime != null) {
+            this.CreatedTime = new String(source.CreatedTime);
+        }
+        if (source.Ipv6AddressSet != null) {
+            this.Ipv6AddressSet = new Ipv6Address[source.Ipv6AddressSet.length];
+            for (int i = 0; i < source.Ipv6AddressSet.length; i++) {
+                this.Ipv6AddressSet[i] = new Ipv6Address(source.Ipv6AddressSet[i]);
+            }
+        }
+        if (source.TagSet != null) {
+            this.TagSet = new Tag[source.TagSet.length];
+            for (int i = 0; i < source.TagSet.length; i++) {
+                this.TagSet[i] = new Tag(source.TagSet[i]);
+            }
+        }
+        if (source.EniType != null) {
+            this.EniType = new Long(source.EniType);
+        }
+        if (source.Business != null) {
+            this.Business = new String(source.Business);
+        }
+        if (source.CdcId != null) {
+            this.CdcId = new String(source.CdcId);
+        }
+        if (source.AttachType != null) {
+            this.AttachType = new Long(source.AttachType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -440,6 +604,9 @@ public class NetworkInterface extends AbstractModel{
         this.setParamArrayObj(map, prefix + "Ipv6AddressSet.", this.Ipv6AddressSet);
         this.setParamArrayObj(map, prefix + "TagSet.", this.TagSet);
         this.setParamSimple(map, prefix + "EniType", this.EniType);
+        this.setParamSimple(map, prefix + "Business", this.Business);
+        this.setParamSimple(map, prefix + "CdcId", this.CdcId);
+        this.setParamSimple(map, prefix + "AttachType", this.AttachType);
 
     }
 }

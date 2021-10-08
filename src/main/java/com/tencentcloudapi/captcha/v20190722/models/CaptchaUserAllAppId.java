@@ -44,6 +44,13 @@ public class CaptchaUserAllAppId extends AbstractModel{
     private Long TcAppId;
 
     /**
+    * 渠道信息
+    */
+    @SerializedName("ChannelInfo")
+    @Expose
+    private String ChannelInfo;
+
+    /**
      * Get 验证码应用ID 
      * @return CaptchaAppId 验证码应用ID
      */
@@ -92,12 +99,52 @@ public class CaptchaUserAllAppId extends AbstractModel{
     }
 
     /**
+     * Get 渠道信息 
+     * @return ChannelInfo 渠道信息
+     */
+    public String getChannelInfo() {
+        return this.ChannelInfo;
+    }
+
+    /**
+     * Set 渠道信息
+     * @param ChannelInfo 渠道信息
+     */
+    public void setChannelInfo(String ChannelInfo) {
+        this.ChannelInfo = ChannelInfo;
+    }
+
+    public CaptchaUserAllAppId() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CaptchaUserAllAppId(CaptchaUserAllAppId source) {
+        if (source.CaptchaAppId != null) {
+            this.CaptchaAppId = new Long(source.CaptchaAppId);
+        }
+        if (source.AppName != null) {
+            this.AppName = new String(source.AppName);
+        }
+        if (source.TcAppId != null) {
+            this.TcAppId = new Long(source.TcAppId);
+        }
+        if (source.ChannelInfo != null) {
+            this.ChannelInfo = new String(source.ChannelInfo);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "CaptchaAppId", this.CaptchaAppId);
         this.setParamSimple(map, prefix + "AppName", this.AppName);
         this.setParamSimple(map, prefix + "TcAppId", this.TcAppId);
+        this.setParamSimple(map, prefix + "ChannelInfo", this.ChannelInfo);
 
     }
 }

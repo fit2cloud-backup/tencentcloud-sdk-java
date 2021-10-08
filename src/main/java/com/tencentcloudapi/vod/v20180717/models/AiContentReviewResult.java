@@ -27,12 +27,12 @@ public class AiContentReviewResult extends AbstractModel{
 <li>Porn：图片鉴黄</li>
 <li>Terrorism：图片鉴恐</li>
 <li>Political：图片鉴政</li>
-<li>Porn.Asr：Asr 文字鉴黄</li>
+<li>Porn.Asr：Asr 文字（ 音频中的文字）鉴黄</li>
 <li>Porn.Ocr：Ocr 文字鉴黄</li>
-<li>Political.Asr：Asr 文字鉴政</li>
+<li>Political.Asr：Asr 文字（ 音频中的文字）鉴政</li>
 <li>Political.Ocr：Ocr 文字鉴政</li>
 <li>Terrorism.Ocr：Ocr 文字鉴恐</li>
-<li>Prohibited.Asr：Asr 文字鉴违禁</li>
+<li>Prohibited.Asr：Asr 文字（ 音频中的文字）鉴违禁</li>
 <li>Prohibited.Ocr：Ocr 文字鉴违禁</li>
     */
     @SerializedName("Type")
@@ -124,23 +124,23 @@ public class AiContentReviewResult extends AbstractModel{
 <li>Porn：图片鉴黄</li>
 <li>Terrorism：图片鉴恐</li>
 <li>Political：图片鉴政</li>
-<li>Porn.Asr：Asr 文字鉴黄</li>
+<li>Porn.Asr：Asr 文字（ 音频中的文字）鉴黄</li>
 <li>Porn.Ocr：Ocr 文字鉴黄</li>
-<li>Political.Asr：Asr 文字鉴政</li>
+<li>Political.Asr：Asr 文字（ 音频中的文字）鉴政</li>
 <li>Political.Ocr：Ocr 文字鉴政</li>
 <li>Terrorism.Ocr：Ocr 文字鉴恐</li>
-<li>Prohibited.Asr：Asr 文字鉴违禁</li>
+<li>Prohibited.Asr：Asr 文字（ 音频中的文字）鉴违禁</li>
 <li>Prohibited.Ocr：Ocr 文字鉴违禁</li> 
      * @return Type 任务的类型，可以取的值有：
 <li>Porn：图片鉴黄</li>
 <li>Terrorism：图片鉴恐</li>
 <li>Political：图片鉴政</li>
-<li>Porn.Asr：Asr 文字鉴黄</li>
+<li>Porn.Asr：Asr 文字（ 音频中的文字）鉴黄</li>
 <li>Porn.Ocr：Ocr 文字鉴黄</li>
-<li>Political.Asr：Asr 文字鉴政</li>
+<li>Political.Asr：Asr 文字（ 音频中的文字）鉴政</li>
 <li>Political.Ocr：Ocr 文字鉴政</li>
 <li>Terrorism.Ocr：Ocr 文字鉴恐</li>
-<li>Prohibited.Asr：Asr 文字鉴违禁</li>
+<li>Prohibited.Asr：Asr 文字（ 音频中的文字）鉴违禁</li>
 <li>Prohibited.Ocr：Ocr 文字鉴违禁</li>
      */
     public String getType() {
@@ -152,23 +152,23 @@ public class AiContentReviewResult extends AbstractModel{
 <li>Porn：图片鉴黄</li>
 <li>Terrorism：图片鉴恐</li>
 <li>Political：图片鉴政</li>
-<li>Porn.Asr：Asr 文字鉴黄</li>
+<li>Porn.Asr：Asr 文字（ 音频中的文字）鉴黄</li>
 <li>Porn.Ocr：Ocr 文字鉴黄</li>
-<li>Political.Asr：Asr 文字鉴政</li>
+<li>Political.Asr：Asr 文字（ 音频中的文字）鉴政</li>
 <li>Political.Ocr：Ocr 文字鉴政</li>
 <li>Terrorism.Ocr：Ocr 文字鉴恐</li>
-<li>Prohibited.Asr：Asr 文字鉴违禁</li>
+<li>Prohibited.Asr：Asr 文字（ 音频中的文字）鉴违禁</li>
 <li>Prohibited.Ocr：Ocr 文字鉴违禁</li>
      * @param Type 任务的类型，可以取的值有：
 <li>Porn：图片鉴黄</li>
 <li>Terrorism：图片鉴恐</li>
 <li>Political：图片鉴政</li>
-<li>Porn.Asr：Asr 文字鉴黄</li>
+<li>Porn.Asr：Asr 文字（ 音频中的文字）鉴黄</li>
 <li>Porn.Ocr：Ocr 文字鉴黄</li>
-<li>Political.Asr：Asr 文字鉴政</li>
+<li>Political.Asr：Asr 文字（ 音频中的文字）鉴政</li>
 <li>Political.Ocr：Ocr 文字鉴政</li>
 <li>Terrorism.Ocr：Ocr 文字鉴恐</li>
-<li>Prohibited.Asr：Asr 文字鉴违禁</li>
+<li>Prohibited.Asr：Asr 文字（ 音频中的文字）鉴违禁</li>
 <li>Prohibited.Ocr：Ocr 文字鉴违禁</li>
      */
     public void setType(String Type) {
@@ -374,6 +374,50 @@ public class AiContentReviewResult extends AbstractModel{
     public void setProhibitedOcrTask(AiReviewTaskProhibitedOcrResult ProhibitedOcrTask) {
         this.ProhibitedOcrTask = ProhibitedOcrTask;
     }
+
+    public AiContentReviewResult() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AiContentReviewResult(AiContentReviewResult source) {
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.PornTask != null) {
+            this.PornTask = new AiReviewTaskPornResult(source.PornTask);
+        }
+        if (source.TerrorismTask != null) {
+            this.TerrorismTask = new AiReviewTaskTerrorismResult(source.TerrorismTask);
+        }
+        if (source.PoliticalTask != null) {
+            this.PoliticalTask = new AiReviewTaskPoliticalResult(source.PoliticalTask);
+        }
+        if (source.PornAsrTask != null) {
+            this.PornAsrTask = new AiReviewTaskPornAsrResult(source.PornAsrTask);
+        }
+        if (source.PornOcrTask != null) {
+            this.PornOcrTask = new AiReviewTaskPornOcrResult(source.PornOcrTask);
+        }
+        if (source.PoliticalAsrTask != null) {
+            this.PoliticalAsrTask = new AiReviewTaskPoliticalAsrResult(source.PoliticalAsrTask);
+        }
+        if (source.PoliticalOcrTask != null) {
+            this.PoliticalOcrTask = new AiReviewTaskPoliticalOcrResult(source.PoliticalOcrTask);
+        }
+        if (source.TerrorismOcrTask != null) {
+            this.TerrorismOcrTask = new AiReviewTaskTerrorismOcrResult(source.TerrorismOcrTask);
+        }
+        if (source.ProhibitedAsrTask != null) {
+            this.ProhibitedAsrTask = new AiReviewTaskProhibitedAsrResult(source.ProhibitedAsrTask);
+        }
+        if (source.ProhibitedOcrTask != null) {
+            this.ProhibitedOcrTask = new AiReviewTaskProhibitedOcrResult(source.ProhibitedOcrTask);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

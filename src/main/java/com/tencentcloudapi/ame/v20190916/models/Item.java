@@ -54,6 +54,14 @@ public class Item extends AbstractModel{
     private Artist [] Artists;
 
     /**
+    * 歌曲状态，1:添加进购物车；2:核销进曲库包
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Status")
+    @Expose
+    private Long Status;
+
+    /**
      * Get Song ID 
      * @return ItemID Song ID
      */
@@ -130,6 +138,55 @@ public class Item extends AbstractModel{
     }
 
     /**
+     * Get 歌曲状态，1:添加进购物车；2:核销进曲库包
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Status 歌曲状态，1:添加进购物车；2:核销进曲库包
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getStatus() {
+        return this.Status;
+    }
+
+    /**
+     * Set 歌曲状态，1:添加进购物车；2:核销进曲库包
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Status 歌曲状态，1:添加进购物车；2:核销进曲库包
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setStatus(Long Status) {
+        this.Status = Status;
+    }
+
+    public Item() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Item(Item source) {
+        if (source.ItemID != null) {
+            this.ItemID = new String(source.ItemID);
+        }
+        if (source.DataInfo != null) {
+            this.DataInfo = new DataInfo(source.DataInfo);
+        }
+        if (source.Album != null) {
+            this.Album = new Album(source.Album);
+        }
+        if (source.Artists != null) {
+            this.Artists = new Artist[source.Artists.length];
+            for (int i = 0; i < source.Artists.length; i++) {
+                this.Artists[i] = new Artist(source.Artists[i]);
+            }
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -137,6 +194,7 @@ public class Item extends AbstractModel{
         this.setParamObj(map, prefix + "DataInfo.", this.DataInfo);
         this.setParamObj(map, prefix + "Album.", this.Album);
         this.setParamArrayObj(map, prefix + "Artists.", this.Artists);
+        this.setParamSimple(map, prefix + "Status", this.Status);
 
     }
 }

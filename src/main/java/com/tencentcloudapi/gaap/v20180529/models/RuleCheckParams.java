@@ -66,6 +66,30 @@ public class RuleCheckParams extends AbstractModel{
     private String Domain;
 
     /**
+    * 源站服务失败统计频率
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FailedCountInter")
+    @Expose
+    private Long FailedCountInter;
+
+    /**
+    * 源站健康性检查阀值，超过该阀值会屏蔽服务
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FailedThreshold")
+    @Expose
+    private Long FailedThreshold;
+
+    /**
+    * 源站健康性检测超出阀值后，屏蔽的时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("BlockInter")
+    @Expose
+    private Long BlockInter;
+
+    /**
      * Get 健康检查的时间间隔 
      * @return DelayLoop 健康检查的时间间隔
      */
@@ -166,6 +190,107 @@ public class RuleCheckParams extends AbstractModel{
     }
 
     /**
+     * Get 源站服务失败统计频率
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FailedCountInter 源站服务失败统计频率
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getFailedCountInter() {
+        return this.FailedCountInter;
+    }
+
+    /**
+     * Set 源站服务失败统计频率
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FailedCountInter 源站服务失败统计频率
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFailedCountInter(Long FailedCountInter) {
+        this.FailedCountInter = FailedCountInter;
+    }
+
+    /**
+     * Get 源站健康性检查阀值，超过该阀值会屏蔽服务
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FailedThreshold 源站健康性检查阀值，超过该阀值会屏蔽服务
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getFailedThreshold() {
+        return this.FailedThreshold;
+    }
+
+    /**
+     * Set 源站健康性检查阀值，超过该阀值会屏蔽服务
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FailedThreshold 源站健康性检查阀值，超过该阀值会屏蔽服务
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFailedThreshold(Long FailedThreshold) {
+        this.FailedThreshold = FailedThreshold;
+    }
+
+    /**
+     * Get 源站健康性检测超出阀值后，屏蔽的时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return BlockInter 源站健康性检测超出阀值后，屏蔽的时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getBlockInter() {
+        return this.BlockInter;
+    }
+
+    /**
+     * Set 源站健康性检测超出阀值后，屏蔽的时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param BlockInter 源站健康性检测超出阀值后，屏蔽的时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBlockInter(Long BlockInter) {
+        this.BlockInter = BlockInter;
+    }
+
+    public RuleCheckParams() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public RuleCheckParams(RuleCheckParams source) {
+        if (source.DelayLoop != null) {
+            this.DelayLoop = new Long(source.DelayLoop);
+        }
+        if (source.ConnectTimeout != null) {
+            this.ConnectTimeout = new Long(source.ConnectTimeout);
+        }
+        if (source.Path != null) {
+            this.Path = new String(source.Path);
+        }
+        if (source.Method != null) {
+            this.Method = new String(source.Method);
+        }
+        if (source.StatusCode != null) {
+            this.StatusCode = new Long[source.StatusCode.length];
+            for (int i = 0; i < source.StatusCode.length; i++) {
+                this.StatusCode[i] = new Long(source.StatusCode[i]);
+            }
+        }
+        if (source.Domain != null) {
+            this.Domain = new String(source.Domain);
+        }
+        if (source.FailedCountInter != null) {
+            this.FailedCountInter = new Long(source.FailedCountInter);
+        }
+        if (source.FailedThreshold != null) {
+            this.FailedThreshold = new Long(source.FailedThreshold);
+        }
+        if (source.BlockInter != null) {
+            this.BlockInter = new Long(source.BlockInter);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -175,6 +300,9 @@ public class RuleCheckParams extends AbstractModel{
         this.setParamSimple(map, prefix + "Method", this.Method);
         this.setParamArraySimple(map, prefix + "StatusCode.", this.StatusCode);
         this.setParamSimple(map, prefix + "Domain", this.Domain);
+        this.setParamSimple(map, prefix + "FailedCountInter", this.FailedCountInter);
+        this.setParamSimple(map, prefix + "FailedThreshold", this.FailedThreshold);
+        this.setParamSimple(map, prefix + "BlockInter", this.BlockInter);
 
     }
 }

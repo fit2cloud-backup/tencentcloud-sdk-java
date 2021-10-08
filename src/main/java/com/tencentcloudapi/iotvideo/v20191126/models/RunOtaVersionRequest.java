@@ -58,6 +58,20 @@ public class RunOtaVersionRequest extends AbstractModel{
     private String Operator;
 
     /**
+    * 备注信息
+    */
+    @SerializedName("Remark")
+    @Expose
+    private String Remark;
+
+    /**
+    * 版本发布的描述信息，需要国际化，可以为空
+    */
+    @SerializedName("Contents")
+    @Expose
+    private Contents Contents;
+
+    /**
      * Get 产品ID 
      * @return ProductId 产品ID
      */
@@ -138,6 +152,73 @@ public class RunOtaVersionRequest extends AbstractModel{
     }
 
     /**
+     * Get 备注信息 
+     * @return Remark 备注信息
+     */
+    public String getRemark() {
+        return this.Remark;
+    }
+
+    /**
+     * Set 备注信息
+     * @param Remark 备注信息
+     */
+    public void setRemark(String Remark) {
+        this.Remark = Remark;
+    }
+
+    /**
+     * Get 版本发布的描述信息，需要国际化，可以为空 
+     * @return Contents 版本发布的描述信息，需要国际化，可以为空
+     */
+    public Contents getContents() {
+        return this.Contents;
+    }
+
+    /**
+     * Set 版本发布的描述信息，需要国际化，可以为空
+     * @param Contents 版本发布的描述信息，需要国际化，可以为空
+     */
+    public void setContents(Contents Contents) {
+        this.Contents = Contents;
+    }
+
+    public RunOtaVersionRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public RunOtaVersionRequest(RunOtaVersionRequest source) {
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+        if (source.OtaVersion != null) {
+            this.OtaVersion = new String(source.OtaVersion);
+        }
+        if (source.GrayValue != null) {
+            this.GrayValue = new Long(source.GrayValue);
+        }
+        if (source.OldVersions != null) {
+            this.OldVersions = new String[source.OldVersions.length];
+            for (int i = 0; i < source.OldVersions.length; i++) {
+                this.OldVersions[i] = new String(source.OldVersions[i]);
+            }
+        }
+        if (source.Operator != null) {
+            this.Operator = new String(source.Operator);
+        }
+        if (source.Remark != null) {
+            this.Remark = new String(source.Remark);
+        }
+        if (source.Contents != null) {
+            this.Contents = new Contents(source.Contents);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -146,6 +227,8 @@ public class RunOtaVersionRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "GrayValue", this.GrayValue);
         this.setParamArraySimple(map, prefix + "OldVersions.", this.OldVersions);
         this.setParamSimple(map, prefix + "Operator", this.Operator);
+        this.setParamSimple(map, prefix + "Remark", this.Remark);
+        this.setParamObj(map, prefix + "Contents.", this.Contents);
 
     }
 }

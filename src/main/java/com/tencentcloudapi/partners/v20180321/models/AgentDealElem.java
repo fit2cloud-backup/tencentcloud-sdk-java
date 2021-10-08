@@ -211,6 +211,38 @@ public class AgentDealElem extends AbstractModel{
     private String ActivityId;
 
     /**
+    * 订单过期时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OverdueTime")
+    @Expose
+    private String OverdueTime;
+
+    /**
+    * 产品详情
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ProductInfo")
+    @Expose
+    private ProductInfoElem [] ProductInfo;
+
+    /**
+    * 付款方式
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PaymentMethod")
+    @Expose
+    private String PaymentMethod;
+
+    /**
+    * 订单更新时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UpdateTime")
+    @Expose
+    private String UpdateTime;
+
+    /**
      * Get 订单自增 ID 
      * @return DealId 订单自增 ID
      */
@@ -675,6 +707,184 @@ public class AgentDealElem extends AbstractModel{
     }
 
     /**
+     * Get 订单过期时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OverdueTime 订单过期时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getOverdueTime() {
+        return this.OverdueTime;
+    }
+
+    /**
+     * Set 订单过期时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OverdueTime 订单过期时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOverdueTime(String OverdueTime) {
+        this.OverdueTime = OverdueTime;
+    }
+
+    /**
+     * Get 产品详情
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ProductInfo 产品详情
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ProductInfoElem [] getProductInfo() {
+        return this.ProductInfo;
+    }
+
+    /**
+     * Set 产品详情
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ProductInfo 产品详情
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setProductInfo(ProductInfoElem [] ProductInfo) {
+        this.ProductInfo = ProductInfo;
+    }
+
+    /**
+     * Get 付款方式
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PaymentMethod 付款方式
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getPaymentMethod() {
+        return this.PaymentMethod;
+    }
+
+    /**
+     * Set 付款方式
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PaymentMethod 付款方式
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPaymentMethod(String PaymentMethod) {
+        this.PaymentMethod = PaymentMethod;
+    }
+
+    /**
+     * Get 订单更新时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UpdateTime 订单更新时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getUpdateTime() {
+        return this.UpdateTime;
+    }
+
+    /**
+     * Set 订单更新时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UpdateTime 订单更新时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUpdateTime(String UpdateTime) {
+        this.UpdateTime = UpdateTime;
+    }
+
+    public AgentDealElem() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AgentDealElem(AgentDealElem source) {
+        if (source.DealId != null) {
+            this.DealId = new String(source.DealId);
+        }
+        if (source.DealName != null) {
+            this.DealName = new String(source.DealName);
+        }
+        if (source.GoodsCategoryId != null) {
+            this.GoodsCategoryId = new String(source.GoodsCategoryId);
+        }
+        if (source.OwnerUin != null) {
+            this.OwnerUin = new String(source.OwnerUin);
+        }
+        if (source.AppId != null) {
+            this.AppId = new String(source.AppId);
+        }
+        if (source.GoodsNum != null) {
+            this.GoodsNum = new String(source.GoodsNum);
+        }
+        if (source.GoodsPrice != null) {
+            this.GoodsPrice = new DealGoodsPriceElem(source.GoodsPrice);
+        }
+        if (source.Creater != null) {
+            this.Creater = new String(source.Creater);
+        }
+        if (source.CreatTime != null) {
+            this.CreatTime = new String(source.CreatTime);
+        }
+        if (source.PayEndTime != null) {
+            this.PayEndTime = new String(source.PayEndTime);
+        }
+        if (source.BillId != null) {
+            this.BillId = new String(source.BillId);
+        }
+        if (source.Payer != null) {
+            this.Payer = new String(source.Payer);
+        }
+        if (source.DealStatus != null) {
+            this.DealStatus = new String(source.DealStatus);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.GoodsName != null) {
+            this.GoodsName = new String(source.GoodsName);
+        }
+        if (source.ClientRemark != null) {
+            this.ClientRemark = new String(source.ClientRemark);
+        }
+        if (source.ActionType != null) {
+            this.ActionType = new String(source.ActionType);
+        }
+        if (source.VoucherDecline != null) {
+            this.VoucherDecline = new String(source.VoucherDecline);
+        }
+        if (source.BigDealId != null) {
+            this.BigDealId = new String(source.BigDealId);
+        }
+        if (source.ClientType != null) {
+            this.ClientType = new String(source.ClientType);
+        }
+        if (source.ProjectType != null) {
+            this.ProjectType = new String(source.ProjectType);
+        }
+        if (source.SalesUin != null) {
+            this.SalesUin = new String(source.SalesUin);
+        }
+        if (source.PayerMode != null) {
+            this.PayerMode = new String(source.PayerMode);
+        }
+        if (source.ActivityId != null) {
+            this.ActivityId = new String(source.ActivityId);
+        }
+        if (source.OverdueTime != null) {
+            this.OverdueTime = new String(source.OverdueTime);
+        }
+        if (source.ProductInfo != null) {
+            this.ProductInfo = new ProductInfoElem[source.ProductInfo.length];
+            for (int i = 0; i < source.ProductInfo.length; i++) {
+                this.ProductInfo[i] = new ProductInfoElem(source.ProductInfo[i]);
+            }
+        }
+        if (source.PaymentMethod != null) {
+            this.PaymentMethod = new String(source.PaymentMethod);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -702,6 +912,10 @@ public class AgentDealElem extends AbstractModel{
         this.setParamSimple(map, prefix + "SalesUin", this.SalesUin);
         this.setParamSimple(map, prefix + "PayerMode", this.PayerMode);
         this.setParamSimple(map, prefix + "ActivityId", this.ActivityId);
+        this.setParamSimple(map, prefix + "OverdueTime", this.OverdueTime);
+        this.setParamArrayObj(map, prefix + "ProductInfo.", this.ProductInfo);
+        this.setParamSimple(map, prefix + "PaymentMethod", this.PaymentMethod);
+        this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
 
     }
 }

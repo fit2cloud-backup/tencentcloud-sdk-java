@@ -44,6 +44,13 @@ public class CreateTablesRequest extends AbstractModel{
     private SelectedTableInfoNew [] SelectedTables;
 
     /**
+    * 表格标签列表
+    */
+    @SerializedName("ResourceTags")
+    @Expose
+    private TagInfoUnit [] ResourceTags;
+
+    /**
      * Get 待创建表格所属集群ID 
      * @return ClusterId 待创建表格所属集群ID
      */
@@ -92,12 +99,61 @@ public class CreateTablesRequest extends AbstractModel{
     }
 
     /**
+     * Get 表格标签列表 
+     * @return ResourceTags 表格标签列表
+     */
+    public TagInfoUnit [] getResourceTags() {
+        return this.ResourceTags;
+    }
+
+    /**
+     * Set 表格标签列表
+     * @param ResourceTags 表格标签列表
+     */
+    public void setResourceTags(TagInfoUnit [] ResourceTags) {
+        this.ResourceTags = ResourceTags;
+    }
+
+    public CreateTablesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateTablesRequest(CreateTablesRequest source) {
+        if (source.ClusterId != null) {
+            this.ClusterId = new String(source.ClusterId);
+        }
+        if (source.IdlFiles != null) {
+            this.IdlFiles = new IdlFileInfo[source.IdlFiles.length];
+            for (int i = 0; i < source.IdlFiles.length; i++) {
+                this.IdlFiles[i] = new IdlFileInfo(source.IdlFiles[i]);
+            }
+        }
+        if (source.SelectedTables != null) {
+            this.SelectedTables = new SelectedTableInfoNew[source.SelectedTables.length];
+            for (int i = 0; i < source.SelectedTables.length; i++) {
+                this.SelectedTables[i] = new SelectedTableInfoNew(source.SelectedTables[i]);
+            }
+        }
+        if (source.ResourceTags != null) {
+            this.ResourceTags = new TagInfoUnit[source.ResourceTags.length];
+            for (int i = 0; i < source.ResourceTags.length; i++) {
+                this.ResourceTags[i] = new TagInfoUnit(source.ResourceTags[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
         this.setParamArrayObj(map, prefix + "IdlFiles.", this.IdlFiles);
         this.setParamArrayObj(map, prefix + "SelectedTables.", this.SelectedTables);
+        this.setParamArrayObj(map, prefix + "ResourceTags.", this.ResourceTags);
 
     }
 }

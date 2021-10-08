@@ -30,7 +30,7 @@ public class PlayDataInfoByStream extends AbstractModel{
     private String StreamName;
 
     /**
-    * 总流量（单位MB）。
+    * 总流量，单位: MB。
     */
     @SerializedName("TotalFlux")
     @Expose
@@ -53,20 +53,37 @@ public class PlayDataInfoByStream extends AbstractModel{
     }
 
     /**
-     * Get 总流量（单位MB）。 
-     * @return TotalFlux 总流量（单位MB）。
+     * Get 总流量，单位: MB。 
+     * @return TotalFlux 总流量，单位: MB。
      */
     public Float getTotalFlux() {
         return this.TotalFlux;
     }
 
     /**
-     * Set 总流量（单位MB）。
-     * @param TotalFlux 总流量（单位MB）。
+     * Set 总流量，单位: MB。
+     * @param TotalFlux 总流量，单位: MB。
      */
     public void setTotalFlux(Float TotalFlux) {
         this.TotalFlux = TotalFlux;
     }
+
+    public PlayDataInfoByStream() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public PlayDataInfoByStream(PlayDataInfoByStream source) {
+        if (source.StreamName != null) {
+            this.StreamName = new String(source.StreamName);
+        }
+        if (source.TotalFlux != null) {
+            this.TotalFlux = new Float(source.TotalFlux);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

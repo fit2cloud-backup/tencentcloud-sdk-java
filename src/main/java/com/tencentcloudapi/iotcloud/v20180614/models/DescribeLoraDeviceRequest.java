@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeLoraDeviceRequest extends AbstractModel{
 
     /**
-    * 产品id
+    * 产品ID
     */
     @SerializedName("ProductId")
     @Expose
@@ -37,16 +37,16 @@ public class DescribeLoraDeviceRequest extends AbstractModel{
     private String DeviceName;
 
     /**
-     * Get 产品id 
-     * @return ProductId 产品id
+     * Get 产品ID 
+     * @return ProductId 产品ID
      */
     public String getProductId() {
         return this.ProductId;
     }
 
     /**
-     * Set 产品id
-     * @param ProductId 产品id
+     * Set 产品ID
+     * @param ProductId 产品ID
      */
     public void setProductId(String ProductId) {
         this.ProductId = ProductId;
@@ -67,6 +67,23 @@ public class DescribeLoraDeviceRequest extends AbstractModel{
     public void setDeviceName(String DeviceName) {
         this.DeviceName = DeviceName;
     }
+
+    public DescribeLoraDeviceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeLoraDeviceRequest(DescribeLoraDeviceRequest source) {
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+        if (source.DeviceName != null) {
+            this.DeviceName = new String(source.DeviceName);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -55,6 +55,14 @@ public class GetDetectInfoEnhancedResponse extends AbstractModel{
     private DetectInfoVideoData VideoData;
 
     /**
+    * 敏感数据加密信息。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Encryption")
+    @Expose
+    private Encryption Encryption;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -142,6 +150,26 @@ public class GetDetectInfoEnhancedResponse extends AbstractModel{
     }
 
     /**
+     * Get 敏感数据加密信息。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Encryption 敏感数据加密信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Encryption getEncryption() {
+        return this.Encryption;
+    }
+
+    /**
+     * Set 敏感数据加密信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Encryption 敏感数据加密信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEncryption(Encryption Encryption) {
+        this.Encryption = Encryption;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -157,6 +185,35 @@ public class GetDetectInfoEnhancedResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public GetDetectInfoEnhancedResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public GetDetectInfoEnhancedResponse(GetDetectInfoEnhancedResponse source) {
+        if (source.Text != null) {
+            this.Text = new DetectInfoText(source.Text);
+        }
+        if (source.IdCardData != null) {
+            this.IdCardData = new DetectInfoIdCardData(source.IdCardData);
+        }
+        if (source.BestFrame != null) {
+            this.BestFrame = new DetectInfoBestFrame(source.BestFrame);
+        }
+        if (source.VideoData != null) {
+            this.VideoData = new DetectInfoVideoData(source.VideoData);
+        }
+        if (source.Encryption != null) {
+            this.Encryption = new Encryption(source.Encryption);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
@@ -165,6 +222,7 @@ public class GetDetectInfoEnhancedResponse extends AbstractModel{
         this.setParamObj(map, prefix + "IdCardData.", this.IdCardData);
         this.setParamObj(map, prefix + "BestFrame.", this.BestFrame);
         this.setParamObj(map, prefix + "VideoData.", this.VideoData);
+        this.setParamObj(map, prefix + "Encryption.", this.Encryption);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

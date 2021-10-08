@@ -37,7 +37,7 @@ public class DescribeInstanceMonitorTookDistRequest extends AbstractModel{
     private String Date;
 
     /**
-    * 请求类型：1——string类型，2——所有类型
+    * 时间范围：1——实时，2——近30分钟，3——近6小时，4——近24小时
     */
     @SerializedName("SpanType")
     @Expose
@@ -76,20 +76,40 @@ public class DescribeInstanceMonitorTookDistRequest extends AbstractModel{
     }
 
     /**
-     * Get 请求类型：1——string类型，2——所有类型 
-     * @return SpanType 请求类型：1——string类型，2——所有类型
+     * Get 时间范围：1——实时，2——近30分钟，3——近6小时，4——近24小时 
+     * @return SpanType 时间范围：1——实时，2——近30分钟，3——近6小时，4——近24小时
      */
     public Long getSpanType() {
         return this.SpanType;
     }
 
     /**
-     * Set 请求类型：1——string类型，2——所有类型
-     * @param SpanType 请求类型：1——string类型，2——所有类型
+     * Set 时间范围：1——实时，2——近30分钟，3——近6小时，4——近24小时
+     * @param SpanType 时间范围：1——实时，2——近30分钟，3——近6小时，4——近24小时
      */
     public void setSpanType(Long SpanType) {
         this.SpanType = SpanType;
     }
+
+    public DescribeInstanceMonitorTookDistRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeInstanceMonitorTookDistRequest(DescribeInstanceMonitorTookDistRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.Date != null) {
+            this.Date = new String(source.Date);
+        }
+        if (source.SpanType != null) {
+            this.SpanType = new Long(source.SpanType);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

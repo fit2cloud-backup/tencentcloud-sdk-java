@@ -57,6 +57,7 @@ DIRECTCONNECT：专线网关；
 PEERCONNECTION：对等连接；
 NAT：NAT网关；
 NORMAL_CVM：普通云服务器；
+CCN：云联网网关；
     */
     @SerializedName("NextHopType")
     @Expose
@@ -69,6 +70,7 @@ NORMAL_CVM：普通云服务器；
 下一跳类型为PEERCONNECTION，取值对等连接ID，形如：pcx-12345678；
 下一跳类型为NAT，取值Nat网关，形如：nat-12345678；
 下一跳类型为NORMAL_CVM，取值云服务器IPv4地址，形如：10.0.0.12；
+下一跳类型为CCN，取值云联网ID，形如：ccn-12345678；
     */
     @SerializedName("NextHopDestination")
     @Expose
@@ -151,13 +153,15 @@ VPN：VPN网关；
 DIRECTCONNECT：专线网关；
 PEERCONNECTION：对等连接；
 NAT：NAT网关；
-NORMAL_CVM：普通云服务器； 
+NORMAL_CVM：普通云服务器；
+CCN：云联网网关； 
      * @return NextHopType 下一跳类型，目前我们支持的类型有：
 VPN：VPN网关；
 DIRECTCONNECT：专线网关；
 PEERCONNECTION：对等连接；
 NAT：NAT网关；
 NORMAL_CVM：普通云服务器；
+CCN：云联网网关；
      */
     public String getNextHopType() {
         return this.NextHopType;
@@ -170,12 +174,14 @@ DIRECTCONNECT：专线网关；
 PEERCONNECTION：对等连接；
 NAT：NAT网关；
 NORMAL_CVM：普通云服务器；
+CCN：云联网网关；
      * @param NextHopType 下一跳类型，目前我们支持的类型有：
 VPN：VPN网关；
 DIRECTCONNECT：专线网关；
 PEERCONNECTION：对等连接；
 NAT：NAT网关；
 NORMAL_CVM：普通云服务器；
+CCN：云联网网关；
      */
     public void setNextHopType(String NextHopType) {
         this.NextHopType = NextHopType;
@@ -187,13 +193,15 @@ NORMAL_CVM：普通云服务器；
 下一跳类型为DIRECTCONNECT，取值专线网关ID，形如：dcg-12345678；
 下一跳类型为PEERCONNECTION，取值对等连接ID，形如：pcx-12345678；
 下一跳类型为NAT，取值Nat网关，形如：nat-12345678；
-下一跳类型为NORMAL_CVM，取值云服务器IPv4地址，形如：10.0.0.12； 
+下一跳类型为NORMAL_CVM，取值云服务器IPv4地址，形如：10.0.0.12；
+下一跳类型为CCN，取值云联网ID，形如：ccn-12345678； 
      * @return NextHopDestination 下一跳目的网关，取值与“下一跳类型”相关：
 下一跳类型为VPN，取值VPN网关ID，形如：vpngw-12345678；
 下一跳类型为DIRECTCONNECT，取值专线网关ID，形如：dcg-12345678；
 下一跳类型为PEERCONNECTION，取值对等连接ID，形如：pcx-12345678；
 下一跳类型为NAT，取值Nat网关，形如：nat-12345678；
 下一跳类型为NORMAL_CVM，取值云服务器IPv4地址，形如：10.0.0.12；
+下一跳类型为CCN，取值云联网ID，形如：ccn-12345678；
      */
     public String getNextHopDestination() {
         return this.NextHopDestination;
@@ -206,12 +214,14 @@ NORMAL_CVM：普通云服务器；
 下一跳类型为PEERCONNECTION，取值对等连接ID，形如：pcx-12345678；
 下一跳类型为NAT，取值Nat网关，形如：nat-12345678；
 下一跳类型为NORMAL_CVM，取值云服务器IPv4地址，形如：10.0.0.12；
+下一跳类型为CCN，取值云联网ID，形如：ccn-12345678；
      * @param NextHopDestination 下一跳目的网关，取值与“下一跳类型”相关：
 下一跳类型为VPN，取值VPN网关ID，形如：vpngw-12345678；
 下一跳类型为DIRECTCONNECT，取值专线网关ID，形如：dcg-12345678；
 下一跳类型为PEERCONNECTION，取值对等连接ID，形如：pcx-12345678；
 下一跳类型为NAT，取值Nat网关，形如：nat-12345678；
 下一跳类型为NORMAL_CVM，取值云服务器IPv4地址，形如：10.0.0.12；
+下一跳类型为CCN，取值云联网ID，形如：ccn-12345678；
      */
     public void setNextHopDestination(String NextHopDestination) {
         this.NextHopDestination = NextHopDestination;
@@ -232,6 +242,41 @@ NORMAL_CVM：普通云服务器；
     public void setNetDetectDescription(String NetDetectDescription) {
         this.NetDetectDescription = NetDetectDescription;
     }
+
+    public CreateNetDetectRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateNetDetectRequest(CreateNetDetectRequest source) {
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.NetDetectName != null) {
+            this.NetDetectName = new String(source.NetDetectName);
+        }
+        if (source.DetectDestinationIp != null) {
+            this.DetectDestinationIp = new String[source.DetectDestinationIp.length];
+            for (int i = 0; i < source.DetectDestinationIp.length; i++) {
+                this.DetectDestinationIp[i] = new String(source.DetectDestinationIp[i]);
+            }
+        }
+        if (source.NextHopType != null) {
+            this.NextHopType = new String(source.NextHopType);
+        }
+        if (source.NextHopDestination != null) {
+            this.NextHopDestination = new String(source.NextHopDestination);
+        }
+        if (source.NetDetectDescription != null) {
+            this.NetDetectDescription = new String(source.NetDetectDescription);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

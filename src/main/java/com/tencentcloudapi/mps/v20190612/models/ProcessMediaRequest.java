@@ -86,7 +86,7 @@ public class ProcessMediaRequest extends AbstractModel{
     private Long TasksPriority;
 
     /**
-    * 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+    * 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
     */
     @SerializedName("SessionId")
     @Expose
@@ -244,16 +244,16 @@ public class ProcessMediaRequest extends AbstractModel{
     }
 
     /**
-     * Get 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。 
-     * @return SessionId 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+     * Get 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。 
+     * @return SessionId 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
      */
     public String getSessionId() {
         return this.SessionId;
     }
 
     /**
-     * Set 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
-     * @param SessionId 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+     * Set 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+     * @param SessionId 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
      */
     public void setSessionId(String SessionId) {
         this.SessionId = SessionId;
@@ -274,6 +274,50 @@ public class ProcessMediaRequest extends AbstractModel{
     public void setSessionContext(String SessionContext) {
         this.SessionContext = SessionContext;
     }
+
+    public ProcessMediaRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ProcessMediaRequest(ProcessMediaRequest source) {
+        if (source.InputInfo != null) {
+            this.InputInfo = new MediaInputInfo(source.InputInfo);
+        }
+        if (source.OutputStorage != null) {
+            this.OutputStorage = new TaskOutputStorage(source.OutputStorage);
+        }
+        if (source.OutputDir != null) {
+            this.OutputDir = new String(source.OutputDir);
+        }
+        if (source.MediaProcessTask != null) {
+            this.MediaProcessTask = new MediaProcessTaskInput(source.MediaProcessTask);
+        }
+        if (source.AiContentReviewTask != null) {
+            this.AiContentReviewTask = new AiContentReviewTaskInput(source.AiContentReviewTask);
+        }
+        if (source.AiAnalysisTask != null) {
+            this.AiAnalysisTask = new AiAnalysisTaskInput(source.AiAnalysisTask);
+        }
+        if (source.AiRecognitionTask != null) {
+            this.AiRecognitionTask = new AiRecognitionTaskInput(source.AiRecognitionTask);
+        }
+        if (source.TaskNotifyConfig != null) {
+            this.TaskNotifyConfig = new TaskNotifyConfig(source.TaskNotifyConfig);
+        }
+        if (source.TasksPriority != null) {
+            this.TasksPriority = new Long(source.TasksPriority);
+        }
+        if (source.SessionId != null) {
+            this.SessionId = new String(source.SessionId);
+        }
+        if (source.SessionContext != null) {
+            this.SessionContext = new String(source.SessionContext);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

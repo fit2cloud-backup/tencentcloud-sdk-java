@@ -26,9 +26,7 @@ public class InstanceNameSettings extends AbstractModel{
     * 云服务器的实例名。
 
 点号（.）和短横线（-）不能作为 InstanceName 的首尾字符，不能连续使用。
-
-其他类型（Linux 等）实例：字符长度为[2, 40]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。
-注意：此字段可能返回 null，表示取不到有效值。
+字符长度为[2, 40]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。不允许为纯数字。
     */
     @SerializedName("InstanceName")
     @Expose
@@ -40,7 +38,6 @@ public class InstanceNameSettings extends AbstractModel{
 ORIGINAL，AS 直接将入参中所填的 InstanceName 传递给 CVM，CVM 可能会对 InstanceName 追加序列号，伸缩组中实例的 InstanceName 会出现冲突的情况。
 
 UNIQUE，入参所填的 InstanceName 相当于实例名前缀，AS 和 CVM 会对其进行拓展，伸缩组中实例的 InstanceName 可以保证唯一。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceNameStyle")
     @Expose
@@ -50,15 +47,11 @@ UNIQUE，入参所填的 InstanceName 相当于实例名前缀，AS 和 CVM 会�
      * Get 云服务器的实例名。
 
 点号（.）和短横线（-）不能作为 InstanceName 的首尾字符，不能连续使用。
-
-其他类型（Linux 等）实例：字符长度为[2, 40]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。
-注意：此字段可能返回 null，表示取不到有效值。 
+字符长度为[2, 40]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。不允许为纯数字。 
      * @return InstanceName 云服务器的实例名。
 
 点号（.）和短横线（-）不能作为 InstanceName 的首尾字符，不能连续使用。
-
-其他类型（Linux 等）实例：字符长度为[2, 40]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。
-注意：此字段可能返回 null，表示取不到有效值。
+字符长度为[2, 40]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。不允许为纯数字。
      */
     public String getInstanceName() {
         return this.InstanceName;
@@ -68,15 +61,11 @@ UNIQUE，入参所填的 InstanceName 相当于实例名前缀，AS 和 CVM 会�
      * Set 云服务器的实例名。
 
 点号（.）和短横线（-）不能作为 InstanceName 的首尾字符，不能连续使用。
-
-其他类型（Linux 等）实例：字符长度为[2, 40]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。
-注意：此字段可能返回 null，表示取不到有效值。
+字符长度为[2, 40]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。不允许为纯数字。
      * @param InstanceName 云服务器的实例名。
 
 点号（.）和短横线（-）不能作为 InstanceName 的首尾字符，不能连续使用。
-
-其他类型（Linux 等）实例：字符长度为[2, 40]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。
-注意：此字段可能返回 null，表示取不到有效值。
+字符长度为[2, 40]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。不允许为纯数字。
      */
     public void setInstanceName(String InstanceName) {
         this.InstanceName = InstanceName;
@@ -87,14 +76,12 @@ UNIQUE，入参所填的 InstanceName 相当于实例名前缀，AS 和 CVM 会�
 
 ORIGINAL，AS 直接将入参中所填的 InstanceName 传递给 CVM，CVM 可能会对 InstanceName 追加序列号，伸缩组中实例的 InstanceName 会出现冲突的情况。
 
-UNIQUE，入参所填的 InstanceName 相当于实例名前缀，AS 和 CVM 会对其进行拓展，伸缩组中实例的 InstanceName 可以保证唯一。
-注意：此字段可能返回 null，表示取不到有效值。 
+UNIQUE，入参所填的 InstanceName 相当于实例名前缀，AS 和 CVM 会对其进行拓展，伸缩组中实例的 InstanceName 可以保证唯一。 
      * @return InstanceNameStyle 云服务器实例名的风格，取值范围包括 ORIGINAL 和 UNIQUE，默认为 ORIGINAL。
 
 ORIGINAL，AS 直接将入参中所填的 InstanceName 传递给 CVM，CVM 可能会对 InstanceName 追加序列号，伸缩组中实例的 InstanceName 会出现冲突的情况。
 
 UNIQUE，入参所填的 InstanceName 相当于实例名前缀，AS 和 CVM 会对其进行拓展，伸缩组中实例的 InstanceName 可以保证唯一。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceNameStyle() {
         return this.InstanceNameStyle;
@@ -106,17 +93,32 @@ UNIQUE，入参所填的 InstanceName 相当于实例名前缀，AS 和 CVM 会�
 ORIGINAL，AS 直接将入参中所填的 InstanceName 传递给 CVM，CVM 可能会对 InstanceName 追加序列号，伸缩组中实例的 InstanceName 会出现冲突的情况。
 
 UNIQUE，入参所填的 InstanceName 相当于实例名前缀，AS 和 CVM 会对其进行拓展，伸缩组中实例的 InstanceName 可以保证唯一。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceNameStyle 云服务器实例名的风格，取值范围包括 ORIGINAL 和 UNIQUE，默认为 ORIGINAL。
 
 ORIGINAL，AS 直接将入参中所填的 InstanceName 传递给 CVM，CVM 可能会对 InstanceName 追加序列号，伸缩组中实例的 InstanceName 会出现冲突的情况。
 
 UNIQUE，入参所填的 InstanceName 相当于实例名前缀，AS 和 CVM 会对其进行拓展，伸缩组中实例的 InstanceName 可以保证唯一。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceNameStyle(String InstanceNameStyle) {
         this.InstanceNameStyle = InstanceNameStyle;
     }
+
+    public InstanceNameSettings() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public InstanceNameSettings(InstanceNameSettings source) {
+        if (source.InstanceName != null) {
+            this.InstanceName = new String(source.InstanceName);
+        }
+        if (source.InstanceNameStyle != null) {
+            this.InstanceNameStyle = new String(source.InstanceNameStyle);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

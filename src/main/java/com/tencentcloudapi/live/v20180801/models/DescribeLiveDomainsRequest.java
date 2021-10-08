@@ -65,6 +65,16 @@ public class DescribeLiveDomainsRequest extends AbstractModel{
     private String DomainPrefix;
 
     /**
+    * 播放区域，只在 DomainType=1 时该参数有意义。
+1: 国内。
+2: 全球。
+3: 海外。
+    */
+    @SerializedName("PlayType")
+    @Expose
+    private Long PlayType;
+
+    /**
      * Get 域名状态过滤。0-停用，1-启用。 
      * @return DomainStatus 域名状态过滤。0-停用，1-启用。
      */
@@ -161,6 +171,66 @@ public class DescribeLiveDomainsRequest extends AbstractModel{
     }
 
     /**
+     * Get 播放区域，只在 DomainType=1 时该参数有意义。
+1: 国内。
+2: 全球。
+3: 海外。 
+     * @return PlayType 播放区域，只在 DomainType=1 时该参数有意义。
+1: 国内。
+2: 全球。
+3: 海外。
+     */
+    public Long getPlayType() {
+        return this.PlayType;
+    }
+
+    /**
+     * Set 播放区域，只在 DomainType=1 时该参数有意义。
+1: 国内。
+2: 全球。
+3: 海外。
+     * @param PlayType 播放区域，只在 DomainType=1 时该参数有意义。
+1: 国内。
+2: 全球。
+3: 海外。
+     */
+    public void setPlayType(Long PlayType) {
+        this.PlayType = PlayType;
+    }
+
+    public DescribeLiveDomainsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeLiveDomainsRequest(DescribeLiveDomainsRequest source) {
+        if (source.DomainStatus != null) {
+            this.DomainStatus = new Long(source.DomainStatus);
+        }
+        if (source.DomainType != null) {
+            this.DomainType = new Long(source.DomainType);
+        }
+        if (source.PageSize != null) {
+            this.PageSize = new Long(source.PageSize);
+        }
+        if (source.PageNum != null) {
+            this.PageNum = new Long(source.PageNum);
+        }
+        if (source.IsDelayLive != null) {
+            this.IsDelayLive = new Long(source.IsDelayLive);
+        }
+        if (source.DomainPrefix != null) {
+            this.DomainPrefix = new String(source.DomainPrefix);
+        }
+        if (source.PlayType != null) {
+            this.PlayType = new Long(source.PlayType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -170,6 +240,7 @@ public class DescribeLiveDomainsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "PageNum", this.PageNum);
         this.setParamSimple(map, prefix + "IsDelayLive", this.IsDelayLive);
         this.setParamSimple(map, prefix + "DomainPrefix", this.DomainPrefix);
+        this.setParamSimple(map, prefix + "PlayType", this.PlayType);
 
     }
 }

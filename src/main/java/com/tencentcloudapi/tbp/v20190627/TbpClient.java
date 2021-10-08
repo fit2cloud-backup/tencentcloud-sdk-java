@@ -27,6 +27,7 @@ import com.tencentcloudapi.tbp.v20190627.models.*;
 
 public class TbpClient extends AbstractClient{
     private static String endpoint = "tbp.tencentcloudapi.com";
+    private static String service = "tbp";
     private static String version = "2019-06-27";
 
     public TbpClient(Credential credential, String region) {
@@ -45,12 +46,14 @@ public class TbpClient extends AbstractClient{
      */
     public TextProcessResponse TextProcess(TextProcessRequest req) throws TencentCloudSDKException{
         JsonResponseModel<TextProcessResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<TextProcessResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "TextProcess"), type);
+                rspStr = this.internalRequest(req, "TextProcess");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -63,12 +66,14 @@ public class TbpClient extends AbstractClient{
      */
     public TextResetResponse TextReset(TextResetRequest req) throws TencentCloudSDKException{
         JsonResponseModel<TextResetResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<TextResetResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "TextReset"), type);
+                rspStr = this.internalRequest(req, "TextReset");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

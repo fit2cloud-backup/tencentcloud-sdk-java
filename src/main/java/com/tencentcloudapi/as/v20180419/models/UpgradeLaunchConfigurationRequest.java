@@ -68,6 +68,7 @@ public class UpgradeLaunchConfigurationRequest extends AbstractModel{
     * 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。
 <br><li>POSTPAID_BY_HOUR：按小时后付费
 <br><li>SPOTPAID：竞价付费
+<br><li>PREPAID：预付费，即包年包月
     */
     @SerializedName("InstanceChargeType")
     @Expose
@@ -170,6 +171,15 @@ public class UpgradeLaunchConfigurationRequest extends AbstractModel{
     private InstanceChargePrepaid InstanceChargePrepaid;
 
     /**
+    * 云盘类型选择策略，取值范围：
+<br><li>ORIGINAL：使用设置的云盘类型
+<br><li>AUTOMATIC：自动选择当前可用的云盘类型
+    */
+    @SerializedName("DiskTypePolicy")
+    @Expose
+    private String DiskTypePolicy;
+
+    /**
      * Get 启动配置ID。 
      * @return LaunchConfigurationId 启动配置ID。
      */
@@ -268,10 +278,12 @@ public class UpgradeLaunchConfigurationRequest extends AbstractModel{
     /**
      * Get 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。
 <br><li>POSTPAID_BY_HOUR：按小时后付费
-<br><li>SPOTPAID：竞价付费 
+<br><li>SPOTPAID：竞价付费
+<br><li>PREPAID：预付费，即包年包月 
      * @return InstanceChargeType 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。
 <br><li>POSTPAID_BY_HOUR：按小时后付费
 <br><li>SPOTPAID：竞价付费
+<br><li>PREPAID：预付费，即包年包月
      */
     public String getInstanceChargeType() {
         return this.InstanceChargeType;
@@ -281,9 +293,11 @@ public class UpgradeLaunchConfigurationRequest extends AbstractModel{
      * Set 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。
 <br><li>POSTPAID_BY_HOUR：按小时后付费
 <br><li>SPOTPAID：竞价付费
+<br><li>PREPAID：预付费，即包年包月
      * @param InstanceChargeType 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。
 <br><li>POSTPAID_BY_HOUR：按小时后付费
 <br><li>SPOTPAID：竞价付费
+<br><li>PREPAID：预付费，即包年包月
      */
     public void setInstanceChargeType(String InstanceChargeType) {
         this.InstanceChargeType = InstanceChargeType;
@@ -518,6 +532,116 @@ public class UpgradeLaunchConfigurationRequest extends AbstractModel{
     }
 
     /**
+     * Get 云盘类型选择策略，取值范围：
+<br><li>ORIGINAL：使用设置的云盘类型
+<br><li>AUTOMATIC：自动选择当前可用的云盘类型 
+     * @return DiskTypePolicy 云盘类型选择策略，取值范围：
+<br><li>ORIGINAL：使用设置的云盘类型
+<br><li>AUTOMATIC：自动选择当前可用的云盘类型
+     */
+    public String getDiskTypePolicy() {
+        return this.DiskTypePolicy;
+    }
+
+    /**
+     * Set 云盘类型选择策略，取值范围：
+<br><li>ORIGINAL：使用设置的云盘类型
+<br><li>AUTOMATIC：自动选择当前可用的云盘类型
+     * @param DiskTypePolicy 云盘类型选择策略，取值范围：
+<br><li>ORIGINAL：使用设置的云盘类型
+<br><li>AUTOMATIC：自动选择当前可用的云盘类型
+     */
+    public void setDiskTypePolicy(String DiskTypePolicy) {
+        this.DiskTypePolicy = DiskTypePolicy;
+    }
+
+    public UpgradeLaunchConfigurationRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public UpgradeLaunchConfigurationRequest(UpgradeLaunchConfigurationRequest source) {
+        if (source.LaunchConfigurationId != null) {
+            this.LaunchConfigurationId = new String(source.LaunchConfigurationId);
+        }
+        if (source.ImageId != null) {
+            this.ImageId = new String(source.ImageId);
+        }
+        if (source.InstanceTypes != null) {
+            this.InstanceTypes = new String[source.InstanceTypes.length];
+            for (int i = 0; i < source.InstanceTypes.length; i++) {
+                this.InstanceTypes[i] = new String(source.InstanceTypes[i]);
+            }
+        }
+        if (source.LaunchConfigurationName != null) {
+            this.LaunchConfigurationName = new String(source.LaunchConfigurationName);
+        }
+        if (source.DataDisks != null) {
+            this.DataDisks = new DataDisk[source.DataDisks.length];
+            for (int i = 0; i < source.DataDisks.length; i++) {
+                this.DataDisks[i] = new DataDisk(source.DataDisks[i]);
+            }
+        }
+        if (source.EnhancedService != null) {
+            this.EnhancedService = new EnhancedService(source.EnhancedService);
+        }
+        if (source.InstanceChargeType != null) {
+            this.InstanceChargeType = new String(source.InstanceChargeType);
+        }
+        if (source.InstanceMarketOptions != null) {
+            this.InstanceMarketOptions = new InstanceMarketOptionsRequest(source.InstanceMarketOptions);
+        }
+        if (source.InstanceTypesCheckPolicy != null) {
+            this.InstanceTypesCheckPolicy = new String(source.InstanceTypesCheckPolicy);
+        }
+        if (source.InternetAccessible != null) {
+            this.InternetAccessible = new InternetAccessible(source.InternetAccessible);
+        }
+        if (source.LoginSettings != null) {
+            this.LoginSettings = new LoginSettings(source.LoginSettings);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.SecurityGroupIds != null) {
+            this.SecurityGroupIds = new String[source.SecurityGroupIds.length];
+            for (int i = 0; i < source.SecurityGroupIds.length; i++) {
+                this.SecurityGroupIds[i] = new String(source.SecurityGroupIds[i]);
+            }
+        }
+        if (source.SystemDisk != null) {
+            this.SystemDisk = new SystemDisk(source.SystemDisk);
+        }
+        if (source.UserData != null) {
+            this.UserData = new String(source.UserData);
+        }
+        if (source.InstanceTags != null) {
+            this.InstanceTags = new InstanceTag[source.InstanceTags.length];
+            for (int i = 0; i < source.InstanceTags.length; i++) {
+                this.InstanceTags[i] = new InstanceTag(source.InstanceTags[i]);
+            }
+        }
+        if (source.CamRoleName != null) {
+            this.CamRoleName = new String(source.CamRoleName);
+        }
+        if (source.HostNameSettings != null) {
+            this.HostNameSettings = new HostNameSettings(source.HostNameSettings);
+        }
+        if (source.InstanceNameSettings != null) {
+            this.InstanceNameSettings = new InstanceNameSettings(source.InstanceNameSettings);
+        }
+        if (source.InstanceChargePrepaid != null) {
+            this.InstanceChargePrepaid = new InstanceChargePrepaid(source.InstanceChargePrepaid);
+        }
+        if (source.DiskTypePolicy != null) {
+            this.DiskTypePolicy = new String(source.DiskTypePolicy);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -541,6 +665,7 @@ public class UpgradeLaunchConfigurationRequest extends AbstractModel{
         this.setParamObj(map, prefix + "HostNameSettings.", this.HostNameSettings);
         this.setParamObj(map, prefix + "InstanceNameSettings.", this.InstanceNameSettings);
         this.setParamObj(map, prefix + "InstanceChargePrepaid.", this.InstanceChargePrepaid);
+        this.setParamSimple(map, prefix + "DiskTypePolicy", this.DiskTypePolicy);
 
     }
 }

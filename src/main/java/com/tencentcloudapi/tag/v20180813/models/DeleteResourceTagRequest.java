@@ -30,7 +30,7 @@ public class DeleteResourceTagRequest extends AbstractModel{
     private String TagKey;
 
     /**
-    * 资源六段式描述
+    * [ 资源六段式描述 ](https://cloud.tencent.com/document/product/598/10606)
     */
     @SerializedName("Resource")
     @Expose
@@ -53,20 +53,37 @@ public class DeleteResourceTagRequest extends AbstractModel{
     }
 
     /**
-     * Get 资源六段式描述 
-     * @return Resource 资源六段式描述
+     * Get [ 资源六段式描述 ](https://cloud.tencent.com/document/product/598/10606) 
+     * @return Resource [ 资源六段式描述 ](https://cloud.tencent.com/document/product/598/10606)
      */
     public String getResource() {
         return this.Resource;
     }
 
     /**
-     * Set 资源六段式描述
-     * @param Resource 资源六段式描述
+     * Set [ 资源六段式描述 ](https://cloud.tencent.com/document/product/598/10606)
+     * @param Resource [ 资源六段式描述 ](https://cloud.tencent.com/document/product/598/10606)
      */
     public void setResource(String Resource) {
         this.Resource = Resource;
     }
+
+    public DeleteResourceTagRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeleteResourceTagRequest(DeleteResourceTagRequest source) {
+        if (source.TagKey != null) {
+            this.TagKey = new String(source.TagKey);
+        }
+        if (source.Resource != null) {
+            this.Resource = new String(source.Resource);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -37,7 +37,7 @@ public class CreateInvoiceItem extends AbstractModel{
     private String TaxCode;
 
     /**
-    * 不含税商品总价（商品含税价总额/（1+税率））。单位为分
+    * 不含税商品总价（商品含税价总额/（1+税率））。InvoicePlatformId 为1时，该金额为含税总金额。单位为分。
     */
     @SerializedName("TotalPrice")
     @Expose
@@ -86,7 +86,7 @@ public class CreateInvoiceItem extends AbstractModel{
     private String Total;
 
     /**
-    * 不含税商品单价
+    * 不含税商品单价。InvoicePlatformId 为1时，该金额为含税单价。
     */
     @SerializedName("Price")
     @Expose
@@ -158,16 +158,16 @@ public class CreateInvoiceItem extends AbstractModel{
     }
 
     /**
-     * Get 不含税商品总价（商品含税价总额/（1+税率））。单位为分 
-     * @return TotalPrice 不含税商品总价（商品含税价总额/（1+税率））。单位为分
+     * Get 不含税商品总价（商品含税价总额/（1+税率））。InvoicePlatformId 为1时，该金额为含税总金额。单位为分。 
+     * @return TotalPrice 不含税商品总价（商品含税价总额/（1+税率））。InvoicePlatformId 为1时，该金额为含税总金额。单位为分。
      */
     public Long getTotalPrice() {
         return this.TotalPrice;
     }
 
     /**
-     * Set 不含税商品总价（商品含税价总额/（1+税率））。单位为分
-     * @param TotalPrice 不含税商品总价（商品含税价总额/（1+税率））。单位为分
+     * Set 不含税商品总价（商品含税价总额/（1+税率））。InvoicePlatformId 为1时，该金额为含税总金额。单位为分。
+     * @param TotalPrice 不含税商品总价（商品含税价总额/（1+税率））。InvoicePlatformId 为1时，该金额为含税总金额。单位为分。
      */
     public void setTotalPrice(Long TotalPrice) {
         this.TotalPrice = TotalPrice;
@@ -270,16 +270,16 @@ public class CreateInvoiceItem extends AbstractModel{
     }
 
     /**
-     * Get 不含税商品单价 
-     * @return Price 不含税商品单价
+     * Get 不含税商品单价。InvoicePlatformId 为1时，该金额为含税单价。 
+     * @return Price 不含税商品单价。InvoicePlatformId 为1时，该金额为含税单价。
      */
     public String getPrice() {
         return this.Price;
     }
 
     /**
-     * Set 不含税商品单价
-     * @param Price 不含税商品单价
+     * Set 不含税商品单价。InvoicePlatformId 为1时，该金额为含税单价。
+     * @param Price 不含税商品单价。InvoicePlatformId 为1时，该金额为含税单价。
      */
     public void setPrice(String Price) {
         this.Price = Price;
@@ -368,6 +368,59 @@ public class CreateInvoiceItem extends AbstractModel{
     public void setVatSpecialManagement(String VatSpecialManagement) {
         this.VatSpecialManagement = VatSpecialManagement;
     }
+
+    public CreateInvoiceItem() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateInvoiceItem(CreateInvoiceItem source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.TaxCode != null) {
+            this.TaxCode = new String(source.TaxCode);
+        }
+        if (source.TotalPrice != null) {
+            this.TotalPrice = new Long(source.TotalPrice);
+        }
+        if (source.TaxRate != null) {
+            this.TaxRate = new Long(source.TaxRate);
+        }
+        if (source.TaxAmount != null) {
+            this.TaxAmount = new Long(source.TaxAmount);
+        }
+        if (source.TaxType != null) {
+            this.TaxType = new String(source.TaxType);
+        }
+        if (source.Models != null) {
+            this.Models = new String(source.Models);
+        }
+        if (source.Unit != null) {
+            this.Unit = new String(source.Unit);
+        }
+        if (source.Total != null) {
+            this.Total = new String(source.Total);
+        }
+        if (source.Price != null) {
+            this.Price = new String(source.Price);
+        }
+        if (source.Discount != null) {
+            this.Discount = new Long(source.Discount);
+        }
+        if (source.PreferentialPolicyFlag != null) {
+            this.PreferentialPolicyFlag = new String(source.PreferentialPolicyFlag);
+        }
+        if (source.ZeroTaxFlag != null) {
+            this.ZeroTaxFlag = new String(source.ZeroTaxFlag);
+        }
+        if (source.VatSpecialManagement != null) {
+            this.VatSpecialManagement = new String(source.VatSpecialManagement);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

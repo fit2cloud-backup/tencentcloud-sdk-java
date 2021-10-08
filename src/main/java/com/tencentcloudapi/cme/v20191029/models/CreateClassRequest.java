@@ -44,7 +44,7 @@ public class CreateClassRequest extends AbstractModel{
     private String ClassPath;
 
     /**
-    * 操作者。填写用户的 Id，用于标识调用者及校验操作权限。
+    * 操作者。填写用户的 Id，用于标识调用者及校验分类创建权限。
     */
     @SerializedName("Operator")
     @Expose
@@ -99,20 +99,43 @@ public class CreateClassRequest extends AbstractModel{
     }
 
     /**
-     * Get 操作者。填写用户的 Id，用于标识调用者及校验操作权限。 
-     * @return Operator 操作者。填写用户的 Id，用于标识调用者及校验操作权限。
+     * Get 操作者。填写用户的 Id，用于标识调用者及校验分类创建权限。 
+     * @return Operator 操作者。填写用户的 Id，用于标识调用者及校验分类创建权限。
      */
     public String getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 操作者。填写用户的 Id，用于标识调用者及校验操作权限。
-     * @param Operator 操作者。填写用户的 Id，用于标识调用者及校验操作权限。
+     * Set 操作者。填写用户的 Id，用于标识调用者及校验分类创建权限。
+     * @param Operator 操作者。填写用户的 Id，用于标识调用者及校验分类创建权限。
      */
     public void setOperator(String Operator) {
         this.Operator = Operator;
     }
+
+    public CreateClassRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateClassRequest(CreateClassRequest source) {
+        if (source.Platform != null) {
+            this.Platform = new String(source.Platform);
+        }
+        if (source.Owner != null) {
+            this.Owner = new Entity(source.Owner);
+        }
+        if (source.ClassPath != null) {
+            this.ClassPath = new String(source.ClassPath);
+        }
+        if (source.Operator != null) {
+            this.Operator = new String(source.Operator);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

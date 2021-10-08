@@ -53,7 +53,7 @@ public class InvoiceDetectInfo extends AbstractModel{
     private Long Type;
 
     /**
-    * 识别出的图片在混贴票据图片中的位置信息。与Angel结合可以得出原图位置，组成RotatedRect((X,Y), (Width, Height), Angle)，详情可参考OpenCV文档。
+    * 识别出的图片在混贴票据图片中的位置信息。与Angel结合可以得出原图位置，组成RotatedRect((X+0.5\*Width,Y+0.5\*Height), (Width, Height), Angle)，详情可参考OpenCV文档。
     */
     @SerializedName("Rect")
     @Expose
@@ -164,16 +164,16 @@ public class InvoiceDetectInfo extends AbstractModel{
     }
 
     /**
-     * Get 识别出的图片在混贴票据图片中的位置信息。与Angel结合可以得出原图位置，组成RotatedRect((X,Y), (Width, Height), Angle)，详情可参考OpenCV文档。 
-     * @return Rect 识别出的图片在混贴票据图片中的位置信息。与Angel结合可以得出原图位置，组成RotatedRect((X,Y), (Width, Height), Angle)，详情可参考OpenCV文档。
+     * Get 识别出的图片在混贴票据图片中的位置信息。与Angel结合可以得出原图位置，组成RotatedRect((X+0.5\*Width,Y+0.5\*Height), (Width, Height), Angle)，详情可参考OpenCV文档。 
+     * @return Rect 识别出的图片在混贴票据图片中的位置信息。与Angel结合可以得出原图位置，组成RotatedRect((X+0.5\*Width,Y+0.5\*Height), (Width, Height), Angle)，详情可参考OpenCV文档。
      */
     public Rect getRect() {
         return this.Rect;
     }
 
     /**
-     * Set 识别出的图片在混贴票据图片中的位置信息。与Angel结合可以得出原图位置，组成RotatedRect((X,Y), (Width, Height), Angle)，详情可参考OpenCV文档。
-     * @param Rect 识别出的图片在混贴票据图片中的位置信息。与Angel结合可以得出原图位置，组成RotatedRect((X,Y), (Width, Height), Angle)，详情可参考OpenCV文档。
+     * Set 识别出的图片在混贴票据图片中的位置信息。与Angel结合可以得出原图位置，组成RotatedRect((X+0.5\*Width,Y+0.5\*Height), (Width, Height), Angle)，详情可参考OpenCV文档。
+     * @param Rect 识别出的图片在混贴票据图片中的位置信息。与Angel结合可以得出原图位置，组成RotatedRect((X+0.5\*Width,Y+0.5\*Height), (Width, Height), Angle)，详情可参考OpenCV文档。
      */
     public void setRect(Rect Rect) {
         this.Rect = Rect;
@@ -198,6 +198,29 @@ public class InvoiceDetectInfo extends AbstractModel{
     public void setImage(String Image) {
         this.Image = Image;
     }
+
+    public InvoiceDetectInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public InvoiceDetectInfo(InvoiceDetectInfo source) {
+        if (source.Angle != null) {
+            this.Angle = new Float(source.Angle);
+        }
+        if (source.Type != null) {
+            this.Type = new Long(source.Type);
+        }
+        if (source.Rect != null) {
+            this.Rect = new Rect(source.Rect);
+        }
+        if (source.Image != null) {
+            this.Image = new String(source.Image);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

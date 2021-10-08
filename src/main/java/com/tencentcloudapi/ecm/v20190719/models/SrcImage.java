@@ -72,6 +72,27 @@ public class SrcImage extends AbstractModel{
     private String RegionName;
 
     /**
+    * 来源实例名称
+    */
+    @SerializedName("InstanceName")
+    @Expose
+    private String InstanceName;
+
+    /**
+    * 来源实例ID
+    */
+    @SerializedName("InstanceId")
+    @Expose
+    private String InstanceId;
+
+    /**
+    * 来源镜像类型
+    */
+    @SerializedName("ImageType")
+    @Expose
+    private String ImageType;
+
+    /**
      * Get 镜像id 
      * @return ImageId 镜像id
      */
@@ -184,6 +205,95 @@ public class SrcImage extends AbstractModel{
     }
 
     /**
+     * Get 来源实例名称 
+     * @return InstanceName 来源实例名称
+     */
+    public String getInstanceName() {
+        return this.InstanceName;
+    }
+
+    /**
+     * Set 来源实例名称
+     * @param InstanceName 来源实例名称
+     */
+    public void setInstanceName(String InstanceName) {
+        this.InstanceName = InstanceName;
+    }
+
+    /**
+     * Get 来源实例ID 
+     * @return InstanceId 来源实例ID
+     */
+    public String getInstanceId() {
+        return this.InstanceId;
+    }
+
+    /**
+     * Set 来源实例ID
+     * @param InstanceId 来源实例ID
+     */
+    public void setInstanceId(String InstanceId) {
+        this.InstanceId = InstanceId;
+    }
+
+    /**
+     * Get 来源镜像类型 
+     * @return ImageType 来源镜像类型
+     */
+    public String getImageType() {
+        return this.ImageType;
+    }
+
+    /**
+     * Set 来源镜像类型
+     * @param ImageType 来源镜像类型
+     */
+    public void setImageType(String ImageType) {
+        this.ImageType = ImageType;
+    }
+
+    public SrcImage() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SrcImage(SrcImage source) {
+        if (source.ImageId != null) {
+            this.ImageId = new String(source.ImageId);
+        }
+        if (source.ImageName != null) {
+            this.ImageName = new String(source.ImageName);
+        }
+        if (source.ImageOsName != null) {
+            this.ImageOsName = new String(source.ImageOsName);
+        }
+        if (source.ImageDescription != null) {
+            this.ImageDescription = new String(source.ImageDescription);
+        }
+        if (source.Region != null) {
+            this.Region = new String(source.Region);
+        }
+        if (source.RegionID != null) {
+            this.RegionID = new Long(source.RegionID);
+        }
+        if (source.RegionName != null) {
+            this.RegionName = new String(source.RegionName);
+        }
+        if (source.InstanceName != null) {
+            this.InstanceName = new String(source.InstanceName);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.ImageType != null) {
+            this.ImageType = new String(source.ImageType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -194,6 +304,9 @@ public class SrcImage extends AbstractModel{
         this.setParamSimple(map, prefix + "Region", this.Region);
         this.setParamSimple(map, prefix + "RegionID", this.RegionID);
         this.setParamSimple(map, prefix + "RegionName", this.RegionName);
+        this.setParamSimple(map, prefix + "InstanceName", this.InstanceName);
+        this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
+        this.setParamSimple(map, prefix + "ImageType", this.ImageType);
 
     }
 }

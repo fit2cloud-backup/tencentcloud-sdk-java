@@ -86,6 +86,13 @@ public class DescribeGroupsRequest extends AbstractModel{
     private String [] GroupResourceTypeList;
 
     /**
+    * 部署组状态过滤字段
+    */
+    @SerializedName("Status")
+    @Expose
+    private String Status;
+
+    /**
      * Get 搜索字段 
      * @return SearchWord 搜索字段
      */
@@ -230,6 +237,66 @@ public class DescribeGroupsRequest extends AbstractModel{
     }
 
     /**
+     * Get 部署组状态过滤字段 
+     * @return Status 部署组状态过滤字段
+     */
+    public String getStatus() {
+        return this.Status;
+    }
+
+    /**
+     * Set 部署组状态过滤字段
+     * @param Status 部署组状态过滤字段
+     */
+    public void setStatus(String Status) {
+        this.Status = Status;
+    }
+
+    public DescribeGroupsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeGroupsRequest(DescribeGroupsRequest source) {
+        if (source.SearchWord != null) {
+            this.SearchWord = new String(source.SearchWord);
+        }
+        if (source.ApplicationId != null) {
+            this.ApplicationId = new String(source.ApplicationId);
+        }
+        if (source.OrderBy != null) {
+            this.OrderBy = new String(source.OrderBy);
+        }
+        if (source.OrderType != null) {
+            this.OrderType = new Long(source.OrderType);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.NamespaceId != null) {
+            this.NamespaceId = new String(source.NamespaceId);
+        }
+        if (source.ClusterId != null) {
+            this.ClusterId = new String(source.ClusterId);
+        }
+        if (source.GroupResourceTypeList != null) {
+            this.GroupResourceTypeList = new String[source.GroupResourceTypeList.length];
+            for (int i = 0; i < source.GroupResourceTypeList.length; i++) {
+                this.GroupResourceTypeList[i] = new String(source.GroupResourceTypeList[i]);
+            }
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -242,6 +309,7 @@ public class DescribeGroupsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "NamespaceId", this.NamespaceId);
         this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
         this.setParamArraySimple(map, prefix + "GroupResourceTypeList.", this.GroupResourceTypeList);
+        this.setParamSimple(map, prefix + "Status", this.Status);
 
     }
 }

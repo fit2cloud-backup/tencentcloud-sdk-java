@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class ListTopDataRequest extends AbstractModel{
 
     /**
-    * 查询起始日期，如：2018-09-09
+    * 查询起始日期：yyyy-MM-dd HH:mm:ss
 仅支持按天粒度的数据查询，取入参中的天信息作为起始日期
 返回大于等于起始日期当天 00:00:00 点产生的数据
 仅支持 90 天内数据查询
@@ -33,7 +33,7 @@ public class ListTopDataRequest extends AbstractModel{
     private String StartTime;
 
     /**
-    * 查询结束日期，如：2018-09-10
+    * 查询结束日期：yyyy-MM-dd HH:mm:ss
 仅支持按天粒度的数据查询，取入参中的天信息作为结束日期
 返回小于等于结束日期当天 23:59:59 产生的数据
 EndTime 需要大于等于 StartTime
@@ -44,12 +44,11 @@ EndTime 需要大于等于 StartTime
 
     /**
     * 排序对象，支持以下几种形式：
-url：访问 URL 排序，带参数统计，支持的 Filter 为 flux、request
-path：访问 URL 排序，不带参数统计，支持的 Filter 为 flux、request（白名单功能）
+url：访问 URL 排序（无参数的URL），支持的 Filter 为 flux、request
 district：省份、国家/地区排序，支持的 Filter 为 flux、request
 isp：运营商排序，支持的 Filter 为 flux、request
-host：域名访问数据排序，支持的 Filter 为：flux, request, bandwidth, fluxHitRate, 2XX, 3XX, 4XX, 5XX，具体状态码统计
-originHost：域名回源数据排序，支持的 Filter 为 flux， request，bandwidth，origin_2XX，origin_3XX，oringin_4XX，origin_5XX，具体回源状态码统计
+host：域名访问数据排序，支持的 Filter 为：flux、request、bandwidth、fluxHitRate、2XX、3XX、4XX、5XX、statusCode
+originHost：域名回源数据排序，支持的 Filter 为 flux、request、bandwidth、origin_2XX、origin_3XX、origin_4XX、origin_5XX、OriginStatusCode
     */
     @SerializedName("Metric")
     @Expose
@@ -93,7 +92,7 @@ OriginStatusCode：指定回源状态码统计，在 Code 参数中填充指定�
 
     /**
     * 多域名查询时，默认（false)返回所有域名汇总排序结果
-Metric 为 Url、Path、District、Isp，Filter 为 flux、reqeust 时，可设置为 true，返回每一个 Domain 的排序数据
+Metric 为 url、path、district、isp，Filter 为 flux、request 时，可设置为 true，返回每一个 Domain 的排序数据
     */
     @SerializedName("Detail")
     @Expose
@@ -116,7 +115,7 @@ overseas：指定查询中国境外 CDN 数据，支持的 Metric 为 url、dist
     private String Area;
 
     /**
-    * 查询中国境外CDN数据，且仅当 Metric 为 District 或 Host 时，可指定地区类型查询，不填充表示查询服务地区数据（仅在 Area 为 overseas，且 Metric 是 District 或 Host 时可用）
+    * 查询中国境外CDN数据，且仅当 Metric 为 district 或 host 时，可指定地区类型查询，不填充表示查询服务地区数据（仅在 Area 为 overseas，且 Metric 是 district 或 host 时可用）
 server：指定查询服务地区（腾讯云 CDN 节点服务器所在地区）数据
 client：指定查询客户端地区（用户请求终端所在地区）数据，当 Metric 为 host 时仅支持 flux、request、bandwidth Filter
     */
@@ -125,11 +124,18 @@ client：指定查询客户端地区（用户请求终端所在地区）数据�
     private String AreaType;
 
     /**
-     * Get 查询起始日期，如：2018-09-09
+    * 指定查询的产品数据，可选为cdn或者ecdn，默认为cdn
+    */
+    @SerializedName("Product")
+    @Expose
+    private String Product;
+
+    /**
+     * Get 查询起始日期：yyyy-MM-dd HH:mm:ss
 仅支持按天粒度的数据查询，取入参中的天信息作为起始日期
 返回大于等于起始日期当天 00:00:00 点产生的数据
 仅支持 90 天内数据查询 
-     * @return StartTime 查询起始日期，如：2018-09-09
+     * @return StartTime 查询起始日期：yyyy-MM-dd HH:mm:ss
 仅支持按天粒度的数据查询，取入参中的天信息作为起始日期
 返回大于等于起始日期当天 00:00:00 点产生的数据
 仅支持 90 天内数据查询
@@ -139,11 +145,11 @@ client：指定查询客户端地区（用户请求终端所在地区）数据�
     }
 
     /**
-     * Set 查询起始日期，如：2018-09-09
+     * Set 查询起始日期：yyyy-MM-dd HH:mm:ss
 仅支持按天粒度的数据查询，取入参中的天信息作为起始日期
 返回大于等于起始日期当天 00:00:00 点产生的数据
 仅支持 90 天内数据查询
-     * @param StartTime 查询起始日期，如：2018-09-09
+     * @param StartTime 查询起始日期：yyyy-MM-dd HH:mm:ss
 仅支持按天粒度的数据查询，取入参中的天信息作为起始日期
 返回大于等于起始日期当天 00:00:00 点产生的数据
 仅支持 90 天内数据查询
@@ -153,11 +159,11 @@ client：指定查询客户端地区（用户请求终端所在地区）数据�
     }
 
     /**
-     * Get 查询结束日期，如：2018-09-10
+     * Get 查询结束日期：yyyy-MM-dd HH:mm:ss
 仅支持按天粒度的数据查询，取入参中的天信息作为结束日期
 返回小于等于结束日期当天 23:59:59 产生的数据
 EndTime 需要大于等于 StartTime 
-     * @return EndTime 查询结束日期，如：2018-09-10
+     * @return EndTime 查询结束日期：yyyy-MM-dd HH:mm:ss
 仅支持按天粒度的数据查询，取入参中的天信息作为结束日期
 返回小于等于结束日期当天 23:59:59 产生的数据
 EndTime 需要大于等于 StartTime
@@ -167,11 +173,11 @@ EndTime 需要大于等于 StartTime
     }
 
     /**
-     * Set 查询结束日期，如：2018-09-10
+     * Set 查询结束日期：yyyy-MM-dd HH:mm:ss
 仅支持按天粒度的数据查询，取入参中的天信息作为结束日期
 返回小于等于结束日期当天 23:59:59 产生的数据
 EndTime 需要大于等于 StartTime
-     * @param EndTime 查询结束日期，如：2018-09-10
+     * @param EndTime 查询结束日期：yyyy-MM-dd HH:mm:ss
 仅支持按天粒度的数据查询，取入参中的天信息作为结束日期
 返回小于等于结束日期当天 23:59:59 产生的数据
 EndTime 需要大于等于 StartTime
@@ -182,19 +188,17 @@ EndTime 需要大于等于 StartTime
 
     /**
      * Get 排序对象，支持以下几种形式：
-url：访问 URL 排序，带参数统计，支持的 Filter 为 flux、request
-path：访问 URL 排序，不带参数统计，支持的 Filter 为 flux、request（白名单功能）
+url：访问 URL 排序（无参数的URL），支持的 Filter 为 flux、request
 district：省份、国家/地区排序，支持的 Filter 为 flux、request
 isp：运营商排序，支持的 Filter 为 flux、request
-host：域名访问数据排序，支持的 Filter 为：flux, request, bandwidth, fluxHitRate, 2XX, 3XX, 4XX, 5XX，具体状态码统计
-originHost：域名回源数据排序，支持的 Filter 为 flux， request，bandwidth，origin_2XX，origin_3XX，oringin_4XX，origin_5XX，具体回源状态码统计 
+host：域名访问数据排序，支持的 Filter 为：flux、request、bandwidth、fluxHitRate、2XX、3XX、4XX、5XX、statusCode
+originHost：域名回源数据排序，支持的 Filter 为 flux、request、bandwidth、origin_2XX、origin_3XX、origin_4XX、origin_5XX、OriginStatusCode 
      * @return Metric 排序对象，支持以下几种形式：
-url：访问 URL 排序，带参数统计，支持的 Filter 为 flux、request
-path：访问 URL 排序，不带参数统计，支持的 Filter 为 flux、request（白名单功能）
+url：访问 URL 排序（无参数的URL），支持的 Filter 为 flux、request
 district：省份、国家/地区排序，支持的 Filter 为 flux、request
 isp：运营商排序，支持的 Filter 为 flux、request
-host：域名访问数据排序，支持的 Filter 为：flux, request, bandwidth, fluxHitRate, 2XX, 3XX, 4XX, 5XX，具体状态码统计
-originHost：域名回源数据排序，支持的 Filter 为 flux， request，bandwidth，origin_2XX，origin_3XX，oringin_4XX，origin_5XX，具体回源状态码统计
+host：域名访问数据排序，支持的 Filter 为：flux、request、bandwidth、fluxHitRate、2XX、3XX、4XX、5XX、statusCode
+originHost：域名回源数据排序，支持的 Filter 为 flux、request、bandwidth、origin_2XX、origin_3XX、origin_4XX、origin_5XX、OriginStatusCode
      */
     public String getMetric() {
         return this.Metric;
@@ -202,19 +206,17 @@ originHost：域名回源数据排序，支持的 Filter 为 flux， request，b
 
     /**
      * Set 排序对象，支持以下几种形式：
-url：访问 URL 排序，带参数统计，支持的 Filter 为 flux、request
-path：访问 URL 排序，不带参数统计，支持的 Filter 为 flux、request（白名单功能）
+url：访问 URL 排序（无参数的URL），支持的 Filter 为 flux、request
 district：省份、国家/地区排序，支持的 Filter 为 flux、request
 isp：运营商排序，支持的 Filter 为 flux、request
-host：域名访问数据排序，支持的 Filter 为：flux, request, bandwidth, fluxHitRate, 2XX, 3XX, 4XX, 5XX，具体状态码统计
-originHost：域名回源数据排序，支持的 Filter 为 flux， request，bandwidth，origin_2XX，origin_3XX，oringin_4XX，origin_5XX，具体回源状态码统计
+host：域名访问数据排序，支持的 Filter 为：flux、request、bandwidth、fluxHitRate、2XX、3XX、4XX、5XX、statusCode
+originHost：域名回源数据排序，支持的 Filter 为 flux、request、bandwidth、origin_2XX、origin_3XX、origin_4XX、origin_5XX、OriginStatusCode
      * @param Metric 排序对象，支持以下几种形式：
-url：访问 URL 排序，带参数统计，支持的 Filter 为 flux、request
-path：访问 URL 排序，不带参数统计，支持的 Filter 为 flux、request（白名单功能）
+url：访问 URL 排序（无参数的URL），支持的 Filter 为 flux、request
 district：省份、国家/地区排序，支持的 Filter 为 flux、request
 isp：运营商排序，支持的 Filter 为 flux、request
-host：域名访问数据排序，支持的 Filter 为：flux, request, bandwidth, fluxHitRate, 2XX, 3XX, 4XX, 5XX，具体状态码统计
-originHost：域名回源数据排序，支持的 Filter 为 flux， request，bandwidth，origin_2XX，origin_3XX，oringin_4XX，origin_5XX，具体回源状态码统计
+host：域名访问数据排序，支持的 Filter 为：flux、request、bandwidth、fluxHitRate、2XX、3XX、4XX、5XX、statusCode
+originHost：域名回源数据排序，支持的 Filter 为 flux、request、bandwidth、origin_2XX、origin_3XX、origin_4XX、origin_5XX、OriginStatusCode
      */
     public void setMetric(String Metric) {
         this.Metric = Metric;
@@ -330,9 +332,9 @@ OriginStatusCode：指定回源状态码统计，在 Code 参数中填充指定�
 
     /**
      * Get 多域名查询时，默认（false)返回所有域名汇总排序结果
-Metric 为 Url、Path、District、Isp，Filter 为 flux、reqeust 时，可设置为 true，返回每一个 Domain 的排序数据 
+Metric 为 url、path、district、isp，Filter 为 flux、request 时，可设置为 true，返回每一个 Domain 的排序数据 
      * @return Detail 多域名查询时，默认（false)返回所有域名汇总排序结果
-Metric 为 Url、Path、District、Isp，Filter 为 flux、reqeust 时，可设置为 true，返回每一个 Domain 的排序数据
+Metric 为 url、path、district、isp，Filter 为 flux、request 时，可设置为 true，返回每一个 Domain 的排序数据
      */
     public Boolean getDetail() {
         return this.Detail;
@@ -340,9 +342,9 @@ Metric 为 Url、Path、District、Isp，Filter 为 flux、reqeust 时，可设�
 
     /**
      * Set 多域名查询时，默认（false)返回所有域名汇总排序结果
-Metric 为 Url、Path、District、Isp，Filter 为 flux、reqeust 时，可设置为 true，返回每一个 Domain 的排序数据
+Metric 为 url、path、district、isp，Filter 为 flux、request 时，可设置为 true，返回每一个 Domain 的排序数据
      * @param Detail 多域名查询时，默认（false)返回所有域名汇总排序结果
-Metric 为 Url、Path、District、Isp，Filter 为 flux、reqeust 时，可设置为 true，返回每一个 Domain 的排序数据
+Metric 为 url、path、district、isp，Filter 为 flux、request 时，可设置为 true，返回每一个 Domain 的排序数据
      */
     public void setDetail(Boolean Detail) {
         this.Detail = Detail;
@@ -389,10 +391,10 @@ overseas：指定查询中国境外 CDN 数据，支持的 Metric 为 url、dist
     }
 
     /**
-     * Get 查询中国境外CDN数据，且仅当 Metric 为 District 或 Host 时，可指定地区类型查询，不填充表示查询服务地区数据（仅在 Area 为 overseas，且 Metric 是 District 或 Host 时可用）
+     * Get 查询中国境外CDN数据，且仅当 Metric 为 district 或 host 时，可指定地区类型查询，不填充表示查询服务地区数据（仅在 Area 为 overseas，且 Metric 是 district 或 host 时可用）
 server：指定查询服务地区（腾讯云 CDN 节点服务器所在地区）数据
 client：指定查询客户端地区（用户请求终端所在地区）数据，当 Metric 为 host 时仅支持 flux、request、bandwidth Filter 
-     * @return AreaType 查询中国境外CDN数据，且仅当 Metric 为 District 或 Host 时，可指定地区类型查询，不填充表示查询服务地区数据（仅在 Area 为 overseas，且 Metric 是 District 或 Host 时可用）
+     * @return AreaType 查询中国境外CDN数据，且仅当 Metric 为 district 或 host 时，可指定地区类型查询，不填充表示查询服务地区数据（仅在 Area 为 overseas，且 Metric 是 district 或 host 时可用）
 server：指定查询服务地区（腾讯云 CDN 节点服务器所在地区）数据
 client：指定查询客户端地区（用户请求终端所在地区）数据，当 Metric 为 host 时仅支持 flux、request、bandwidth Filter
      */
@@ -401,16 +403,79 @@ client：指定查询客户端地区（用户请求终端所在地区）数据�
     }
 
     /**
-     * Set 查询中国境外CDN数据，且仅当 Metric 为 District 或 Host 时，可指定地区类型查询，不填充表示查询服务地区数据（仅在 Area 为 overseas，且 Metric 是 District 或 Host 时可用）
+     * Set 查询中国境外CDN数据，且仅当 Metric 为 district 或 host 时，可指定地区类型查询，不填充表示查询服务地区数据（仅在 Area 为 overseas，且 Metric 是 district 或 host 时可用）
 server：指定查询服务地区（腾讯云 CDN 节点服务器所在地区）数据
 client：指定查询客户端地区（用户请求终端所在地区）数据，当 Metric 为 host 时仅支持 flux、request、bandwidth Filter
-     * @param AreaType 查询中国境外CDN数据，且仅当 Metric 为 District 或 Host 时，可指定地区类型查询，不填充表示查询服务地区数据（仅在 Area 为 overseas，且 Metric 是 District 或 Host 时可用）
+     * @param AreaType 查询中国境外CDN数据，且仅当 Metric 为 district 或 host 时，可指定地区类型查询，不填充表示查询服务地区数据（仅在 Area 为 overseas，且 Metric 是 district 或 host 时可用）
 server：指定查询服务地区（腾讯云 CDN 节点服务器所在地区）数据
 client：指定查询客户端地区（用户请求终端所在地区）数据，当 Metric 为 host 时仅支持 flux、request、bandwidth Filter
      */
     public void setAreaType(String AreaType) {
         this.AreaType = AreaType;
     }
+
+    /**
+     * Get 指定查询的产品数据，可选为cdn或者ecdn，默认为cdn 
+     * @return Product 指定查询的产品数据，可选为cdn或者ecdn，默认为cdn
+     */
+    public String getProduct() {
+        return this.Product;
+    }
+
+    /**
+     * Set 指定查询的产品数据，可选为cdn或者ecdn，默认为cdn
+     * @param Product 指定查询的产品数据，可选为cdn或者ecdn，默认为cdn
+     */
+    public void setProduct(String Product) {
+        this.Product = Product;
+    }
+
+    public ListTopDataRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ListTopDataRequest(ListTopDataRequest source) {
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.Metric != null) {
+            this.Metric = new String(source.Metric);
+        }
+        if (source.Filter != null) {
+            this.Filter = new String(source.Filter);
+        }
+        if (source.Domains != null) {
+            this.Domains = new String[source.Domains.length];
+            for (int i = 0; i < source.Domains.length; i++) {
+                this.Domains[i] = new String(source.Domains[i]);
+            }
+        }
+        if (source.Project != null) {
+            this.Project = new Long(source.Project);
+        }
+        if (source.Detail != null) {
+            this.Detail = new Boolean(source.Detail);
+        }
+        if (source.Code != null) {
+            this.Code = new String(source.Code);
+        }
+        if (source.Area != null) {
+            this.Area = new String(source.Area);
+        }
+        if (source.AreaType != null) {
+            this.AreaType = new String(source.AreaType);
+        }
+        if (source.Product != null) {
+            this.Product = new String(source.Product);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -426,6 +491,7 @@ client：指定查询客户端地区（用户请求终端所在地区）数据�
         this.setParamSimple(map, prefix + "Code", this.Code);
         this.setParamSimple(map, prefix + "Area", this.Area);
         this.setParamSimple(map, prefix + "AreaType", this.AreaType);
+        this.setParamSimple(map, prefix + "Product", this.Product);
 
     }
 }

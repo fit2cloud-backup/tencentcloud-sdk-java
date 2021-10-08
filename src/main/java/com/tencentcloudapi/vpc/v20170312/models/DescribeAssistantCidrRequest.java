@@ -30,7 +30,7 @@ public class DescribeAssistantCidrRequest extends AbstractModel{
     private String [] VpcIds;
 
     /**
-    * 过滤条件，参数不支持同时指定NetworkInterfaceIds和Filters。
+    * 过滤条件，参数不支持同时指定VpcIds和Filters。
 <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
     */
     @SerializedName("Filters")
@@ -68,9 +68,9 @@ public class DescribeAssistantCidrRequest extends AbstractModel{
     }
 
     /**
-     * Get 过滤条件，参数不支持同时指定NetworkInterfaceIds和Filters。
+     * Get 过滤条件，参数不支持同时指定VpcIds和Filters。
 <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li> 
-     * @return Filters 过滤条件，参数不支持同时指定NetworkInterfaceIds和Filters。
+     * @return Filters 过滤条件，参数不支持同时指定VpcIds和Filters。
 <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
      */
     public Filter [] getFilters() {
@@ -78,9 +78,9 @@ public class DescribeAssistantCidrRequest extends AbstractModel{
     }
 
     /**
-     * Set 过滤条件，参数不支持同时指定NetworkInterfaceIds和Filters。
+     * Set 过滤条件，参数不支持同时指定VpcIds和Filters。
 <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
-     * @param Filters 过滤条件，参数不支持同时指定NetworkInterfaceIds和Filters。
+     * @param Filters 过滤条件，参数不支持同时指定VpcIds和Filters。
 <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
      */
     public void setFilters(Filter [] Filters) {
@@ -118,6 +118,35 @@ public class DescribeAssistantCidrRequest extends AbstractModel{
     public void setLimit(Long Limit) {
         this.Limit = Limit;
     }
+
+    public DescribeAssistantCidrRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeAssistantCidrRequest(DescribeAssistantCidrRequest source) {
+        if (source.VpcIds != null) {
+            this.VpcIds = new String[source.VpcIds.length];
+            for (int i = 0; i < source.VpcIds.length; i++) {
+                this.VpcIds[i] = new String(source.VpcIds[i]);
+            }
+        }
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

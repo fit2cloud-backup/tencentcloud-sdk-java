@@ -65,6 +65,20 @@ public class DescribeMicroservicesRequest extends AbstractModel{
     private Long Limit;
 
     /**
+    * 状态过滤，online、offline、single_online
+    */
+    @SerializedName("Status")
+    @Expose
+    private String [] Status;
+
+    /**
+    * IdList
+    */
+    @SerializedName("MicroserviceIdList")
+    @Expose
+    private String [] MicroserviceIdList;
+
+    /**
      * Get 命名空间ID 
      * @return NamespaceId 命名空间ID
      */
@@ -161,6 +175,79 @@ public class DescribeMicroservicesRequest extends AbstractModel{
     }
 
     /**
+     * Get 状态过滤，online、offline、single_online 
+     * @return Status 状态过滤，online、offline、single_online
+     */
+    public String [] getStatus() {
+        return this.Status;
+    }
+
+    /**
+     * Set 状态过滤，online、offline、single_online
+     * @param Status 状态过滤，online、offline、single_online
+     */
+    public void setStatus(String [] Status) {
+        this.Status = Status;
+    }
+
+    /**
+     * Get IdList 
+     * @return MicroserviceIdList IdList
+     */
+    public String [] getMicroserviceIdList() {
+        return this.MicroserviceIdList;
+    }
+
+    /**
+     * Set IdList
+     * @param MicroserviceIdList IdList
+     */
+    public void setMicroserviceIdList(String [] MicroserviceIdList) {
+        this.MicroserviceIdList = MicroserviceIdList;
+    }
+
+    public DescribeMicroservicesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeMicroservicesRequest(DescribeMicroservicesRequest source) {
+        if (source.NamespaceId != null) {
+            this.NamespaceId = new String(source.NamespaceId);
+        }
+        if (source.SearchWord != null) {
+            this.SearchWord = new String(source.SearchWord);
+        }
+        if (source.OrderBy != null) {
+            this.OrderBy = new String(source.OrderBy);
+        }
+        if (source.OrderType != null) {
+            this.OrderType = new Long(source.OrderType);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Status != null) {
+            this.Status = new String[source.Status.length];
+            for (int i = 0; i < source.Status.length; i++) {
+                this.Status[i] = new String(source.Status[i]);
+            }
+        }
+        if (source.MicroserviceIdList != null) {
+            this.MicroserviceIdList = new String[source.MicroserviceIdList.length];
+            for (int i = 0; i < source.MicroserviceIdList.length; i++) {
+                this.MicroserviceIdList[i] = new String(source.MicroserviceIdList[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -170,6 +257,8 @@ public class DescribeMicroservicesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "OrderType", this.OrderType);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamArraySimple(map, prefix + "Status.", this.Status);
+        this.setParamArraySimple(map, prefix + "MicroserviceIdList.", this.MicroserviceIdList);
 
     }
 }

@@ -191,6 +191,22 @@ public class DescribeSubscribeConfResponse extends AbstractModel{
     private String Region;
 
     /**
+    * 订阅实例的标签
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private TagItem [] Tags;
+
+    /**
+    * 自动续费标识,0-不自动续费，1-自动续费
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AutoRenewFlag")
+    @Expose
+    private Long AutoRenewFlag;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -582,6 +598,46 @@ public class DescribeSubscribeConfResponse extends AbstractModel{
     }
 
     /**
+     * Get 订阅实例的标签
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Tags 订阅实例的标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public TagItem [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 订阅实例的标签
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Tags 订阅实例的标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTags(TagItem [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
+     * Get 自动续费标识,0-不自动续费，1-自动续费
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AutoRenewFlag 自动续费标识,0-不自动续费，1-自动续费
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getAutoRenewFlag() {
+        return this.AutoRenewFlag;
+    }
+
+    /**
+     * Set 自动续费标识,0-不自动续费，1-自动续费
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AutoRenewFlag 自动续费标识,0-不自动续费，1-自动续费
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAutoRenewFlag(Long AutoRenewFlag) {
+        this.AutoRenewFlag = AutoRenewFlag;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -596,6 +652,104 @@ public class DescribeSubscribeConfResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeSubscribeConfResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeSubscribeConfResponse(DescribeSubscribeConfResponse source) {
+        if (source.SubscribeId != null) {
+            this.SubscribeId = new String(source.SubscribeId);
+        }
+        if (source.SubscribeName != null) {
+            this.SubscribeName = new String(source.SubscribeName);
+        }
+        if (source.ChannelId != null) {
+            this.ChannelId = new String(source.ChannelId);
+        }
+        if (source.Product != null) {
+            this.Product = new String(source.Product);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.InstanceStatus != null) {
+            this.InstanceStatus = new String(source.InstanceStatus);
+        }
+        if (source.SubsStatus != null) {
+            this.SubsStatus = new String(source.SubsStatus);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.IsolateTime != null) {
+            this.IsolateTime = new String(source.IsolateTime);
+        }
+        if (source.ExpireTime != null) {
+            this.ExpireTime = new String(source.ExpireTime);
+        }
+        if (source.OfflineTime != null) {
+            this.OfflineTime = new String(source.OfflineTime);
+        }
+        if (source.ConsumeStartTime != null) {
+            this.ConsumeStartTime = new String(source.ConsumeStartTime);
+        }
+        if (source.PayType != null) {
+            this.PayType = new Long(source.PayType);
+        }
+        if (source.Vip != null) {
+            this.Vip = new String(source.Vip);
+        }
+        if (source.Vport != null) {
+            this.Vport = new Long(source.Vport);
+        }
+        if (source.UniqVpcId != null) {
+            this.UniqVpcId = new String(source.UniqVpcId);
+        }
+        if (source.UniqSubnetId != null) {
+            this.UniqSubnetId = new String(source.UniqSubnetId);
+        }
+        if (source.SdkConsumedTime != null) {
+            this.SdkConsumedTime = new String(source.SdkConsumedTime);
+        }
+        if (source.SdkHost != null) {
+            this.SdkHost = new String(source.SdkHost);
+        }
+        if (source.SubscribeObjectType != null) {
+            this.SubscribeObjectType = new Long(source.SubscribeObjectType);
+        }
+        if (source.SubscribeObjects != null) {
+            this.SubscribeObjects = new SubscribeObject[source.SubscribeObjects.length];
+            for (int i = 0; i < source.SubscribeObjects.length; i++) {
+                this.SubscribeObjects[i] = new SubscribeObject(source.SubscribeObjects[i]);
+            }
+        }
+        if (source.ModifyTime != null) {
+            this.ModifyTime = new String(source.ModifyTime);
+        }
+        if (source.Region != null) {
+            this.Region = new String(source.Region);
+        }
+        if (source.Tags != null) {
+            this.Tags = new TagItem[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new TagItem(source.Tags[i]);
+            }
+        }
+        if (source.AutoRenewFlag != null) {
+            this.AutoRenewFlag = new Long(source.AutoRenewFlag);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -625,6 +779,8 @@ public class DescribeSubscribeConfResponse extends AbstractModel{
         this.setParamArrayObj(map, prefix + "SubscribeObjects.", this.SubscribeObjects);
         this.setParamSimple(map, prefix + "ModifyTime", this.ModifyTime);
         this.setParamSimple(map, prefix + "Region", this.Region);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "AutoRenewFlag", this.AutoRenewFlag);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

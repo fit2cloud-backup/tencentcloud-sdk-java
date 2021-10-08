@@ -247,7 +247,7 @@ public class Instance extends AbstractModel{
     private Long OperationState;
 
     /**
-    * NamespaceId
+    * NamespaceId Ns ID
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NamespaceId")
@@ -255,7 +255,7 @@ public class Instance extends AbstractModel{
     private String NamespaceId;
 
     /**
-    * InstanceZoneId
+    * InstanceZoneId 可用区ID
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceZoneId")
@@ -263,7 +263,7 @@ public class Instance extends AbstractModel{
     private String InstanceZoneId;
 
     /**
-    * InstanceImportMode
+    * InstanceImportMode 导入模式
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceImportMode")
@@ -271,7 +271,7 @@ public class Instance extends AbstractModel{
     private String InstanceImportMode;
 
     /**
-    * ApplicationType
+    * ApplicationType应用类型
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApplicationType")
@@ -279,7 +279,7 @@ public class Instance extends AbstractModel{
     private String ApplicationType;
 
     /**
-    * ApplicationResourceType
+    * ApplicationResourceType 资源类型
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApplicationResourceType")
@@ -287,7 +287,7 @@ public class Instance extends AbstractModel{
     private String ApplicationResourceType;
 
     /**
-    * ServiceSidecarStatus
+    * sidecar状态
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServiceSidecarStatus")
@@ -295,7 +295,7 @@ public class Instance extends AbstractModel{
     private String ServiceSidecarStatus;
 
     /**
-    * GroupName
+    * 部署组名
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupName")
@@ -303,12 +303,28 @@ public class Instance extends AbstractModel{
     private String GroupName;
 
     /**
-    * NamespaceName
+    * NS名
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NamespaceName")
     @Expose
     private String NamespaceName;
+
+    /**
+    * 健康检查原因
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Reason")
+    @Expose
+    private String Reason;
+
+    /**
+    * agent版本
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AgentVersion")
+    @Expose
+    private String AgentVersion;
 
     /**
      * Get 机器实例ID
@@ -871,9 +887,9 @@ public class Instance extends AbstractModel{
     }
 
     /**
-     * Get NamespaceId
+     * Get NamespaceId Ns ID
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return NamespaceId NamespaceId
+     * @return NamespaceId NamespaceId Ns ID
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNamespaceId() {
@@ -881,9 +897,9 @@ public class Instance extends AbstractModel{
     }
 
     /**
-     * Set NamespaceId
+     * Set NamespaceId Ns ID
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param NamespaceId NamespaceId
+     * @param NamespaceId NamespaceId Ns ID
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNamespaceId(String NamespaceId) {
@@ -891,9 +907,9 @@ public class Instance extends AbstractModel{
     }
 
     /**
-     * Get InstanceZoneId
+     * Get InstanceZoneId 可用区ID
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return InstanceZoneId InstanceZoneId
+     * @return InstanceZoneId InstanceZoneId 可用区ID
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceZoneId() {
@@ -901,9 +917,9 @@ public class Instance extends AbstractModel{
     }
 
     /**
-     * Set InstanceZoneId
+     * Set InstanceZoneId 可用区ID
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param InstanceZoneId InstanceZoneId
+     * @param InstanceZoneId InstanceZoneId 可用区ID
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceZoneId(String InstanceZoneId) {
@@ -911,9 +927,9 @@ public class Instance extends AbstractModel{
     }
 
     /**
-     * Get InstanceImportMode
+     * Get InstanceImportMode 导入模式
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return InstanceImportMode InstanceImportMode
+     * @return InstanceImportMode InstanceImportMode 导入模式
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceImportMode() {
@@ -921,9 +937,9 @@ public class Instance extends AbstractModel{
     }
 
     /**
-     * Set InstanceImportMode
+     * Set InstanceImportMode 导入模式
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param InstanceImportMode InstanceImportMode
+     * @param InstanceImportMode InstanceImportMode 导入模式
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceImportMode(String InstanceImportMode) {
@@ -931,9 +947,9 @@ public class Instance extends AbstractModel{
     }
 
     /**
-     * Get ApplicationType
+     * Get ApplicationType应用类型
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ApplicationType ApplicationType
+     * @return ApplicationType ApplicationType应用类型
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApplicationType() {
@@ -941,9 +957,9 @@ public class Instance extends AbstractModel{
     }
 
     /**
-     * Set ApplicationType
+     * Set ApplicationType应用类型
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ApplicationType ApplicationType
+     * @param ApplicationType ApplicationType应用类型
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApplicationType(String ApplicationType) {
@@ -951,9 +967,9 @@ public class Instance extends AbstractModel{
     }
 
     /**
-     * Get ApplicationResourceType
+     * Get ApplicationResourceType 资源类型
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ApplicationResourceType ApplicationResourceType
+     * @return ApplicationResourceType ApplicationResourceType 资源类型
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApplicationResourceType() {
@@ -961,9 +977,9 @@ public class Instance extends AbstractModel{
     }
 
     /**
-     * Set ApplicationResourceType
+     * Set ApplicationResourceType 资源类型
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ApplicationResourceType ApplicationResourceType
+     * @param ApplicationResourceType ApplicationResourceType 资源类型
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApplicationResourceType(String ApplicationResourceType) {
@@ -971,9 +987,9 @@ public class Instance extends AbstractModel{
     }
 
     /**
-     * Get ServiceSidecarStatus
+     * Get sidecar状态
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ServiceSidecarStatus ServiceSidecarStatus
+     * @return ServiceSidecarStatus sidecar状态
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getServiceSidecarStatus() {
@@ -981,9 +997,9 @@ public class Instance extends AbstractModel{
     }
 
     /**
-     * Set ServiceSidecarStatus
+     * Set sidecar状态
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ServiceSidecarStatus ServiceSidecarStatus
+     * @param ServiceSidecarStatus sidecar状态
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServiceSidecarStatus(String ServiceSidecarStatus) {
@@ -991,9 +1007,9 @@ public class Instance extends AbstractModel{
     }
 
     /**
-     * Get GroupName
+     * Get 部署组名
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return GroupName GroupName
+     * @return GroupName 部署组名
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGroupName() {
@@ -1001,9 +1017,9 @@ public class Instance extends AbstractModel{
     }
 
     /**
-     * Set GroupName
+     * Set 部署组名
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param GroupName GroupName
+     * @param GroupName 部署组名
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupName(String GroupName) {
@@ -1011,9 +1027,9 @@ public class Instance extends AbstractModel{
     }
 
     /**
-     * Get NamespaceName
+     * Get NS名
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return NamespaceName NamespaceName
+     * @return NamespaceName NS名
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNamespaceName() {
@@ -1021,14 +1037,179 @@ public class Instance extends AbstractModel{
     }
 
     /**
-     * Set NamespaceName
+     * Set NS名
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param NamespaceName NamespaceName
+     * @param NamespaceName NS名
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNamespaceName(String NamespaceName) {
         this.NamespaceName = NamespaceName;
     }
+
+    /**
+     * Get 健康检查原因
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Reason 健康检查原因
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getReason() {
+        return this.Reason;
+    }
+
+    /**
+     * Set 健康检查原因
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Reason 健康检查原因
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setReason(String Reason) {
+        this.Reason = Reason;
+    }
+
+    /**
+     * Get agent版本
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AgentVersion agent版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAgentVersion() {
+        return this.AgentVersion;
+    }
+
+    /**
+     * Set agent版本
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AgentVersion agent版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAgentVersion(String AgentVersion) {
+        this.AgentVersion = AgentVersion;
+    }
+
+    public Instance() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Instance(Instance source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.InstanceName != null) {
+            this.InstanceName = new String(source.InstanceName);
+        }
+        if (source.LanIp != null) {
+            this.LanIp = new String(source.LanIp);
+        }
+        if (source.WanIp != null) {
+            this.WanIp = new String(source.WanIp);
+        }
+        if (source.InstanceDesc != null) {
+            this.InstanceDesc = new String(source.InstanceDesc);
+        }
+        if (source.ClusterId != null) {
+            this.ClusterId = new String(source.ClusterId);
+        }
+        if (source.ClusterName != null) {
+            this.ClusterName = new String(source.ClusterName);
+        }
+        if (source.InstanceStatus != null) {
+            this.InstanceStatus = new String(source.InstanceStatus);
+        }
+        if (source.InstanceAvailableStatus != null) {
+            this.InstanceAvailableStatus = new String(source.InstanceAvailableStatus);
+        }
+        if (source.ServiceInstanceStatus != null) {
+            this.ServiceInstanceStatus = new String(source.ServiceInstanceStatus);
+        }
+        if (source.CountInTsf != null) {
+            this.CountInTsf = new Long(source.CountInTsf);
+        }
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
+        if (source.ApplicationId != null) {
+            this.ApplicationId = new String(source.ApplicationId);
+        }
+        if (source.ApplicationName != null) {
+            this.ApplicationName = new String(source.ApplicationName);
+        }
+        if (source.InstanceCreatedTime != null) {
+            this.InstanceCreatedTime = new String(source.InstanceCreatedTime);
+        }
+        if (source.InstanceExpiredTime != null) {
+            this.InstanceExpiredTime = new String(source.InstanceExpiredTime);
+        }
+        if (source.InstanceChargeType != null) {
+            this.InstanceChargeType = new String(source.InstanceChargeType);
+        }
+        if (source.InstanceTotalCpu != null) {
+            this.InstanceTotalCpu = new Float(source.InstanceTotalCpu);
+        }
+        if (source.InstanceTotalMem != null) {
+            this.InstanceTotalMem = new Float(source.InstanceTotalMem);
+        }
+        if (source.InstanceUsedCpu != null) {
+            this.InstanceUsedCpu = new Float(source.InstanceUsedCpu);
+        }
+        if (source.InstanceUsedMem != null) {
+            this.InstanceUsedMem = new Float(source.InstanceUsedMem);
+        }
+        if (source.InstanceLimitCpu != null) {
+            this.InstanceLimitCpu = new Float(source.InstanceLimitCpu);
+        }
+        if (source.InstanceLimitMem != null) {
+            this.InstanceLimitMem = new Float(source.InstanceLimitMem);
+        }
+        if (source.InstancePkgVersion != null) {
+            this.InstancePkgVersion = new String(source.InstancePkgVersion);
+        }
+        if (source.ClusterType != null) {
+            this.ClusterType = new String(source.ClusterType);
+        }
+        if (source.RestrictState != null) {
+            this.RestrictState = new String(source.RestrictState);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+        if (source.OperationState != null) {
+            this.OperationState = new Long(source.OperationState);
+        }
+        if (source.NamespaceId != null) {
+            this.NamespaceId = new String(source.NamespaceId);
+        }
+        if (source.InstanceZoneId != null) {
+            this.InstanceZoneId = new String(source.InstanceZoneId);
+        }
+        if (source.InstanceImportMode != null) {
+            this.InstanceImportMode = new String(source.InstanceImportMode);
+        }
+        if (source.ApplicationType != null) {
+            this.ApplicationType = new String(source.ApplicationType);
+        }
+        if (source.ApplicationResourceType != null) {
+            this.ApplicationResourceType = new String(source.ApplicationResourceType);
+        }
+        if (source.ServiceSidecarStatus != null) {
+            this.ServiceSidecarStatus = new String(source.ServiceSidecarStatus);
+        }
+        if (source.GroupName != null) {
+            this.GroupName = new String(source.GroupName);
+        }
+        if (source.NamespaceName != null) {
+            this.NamespaceName = new String(source.NamespaceName);
+        }
+        if (source.Reason != null) {
+            this.Reason = new String(source.Reason);
+        }
+        if (source.AgentVersion != null) {
+            this.AgentVersion = new String(source.AgentVersion);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -1070,6 +1251,8 @@ public class Instance extends AbstractModel{
         this.setParamSimple(map, prefix + "ServiceSidecarStatus", this.ServiceSidecarStatus);
         this.setParamSimple(map, prefix + "GroupName", this.GroupName);
         this.setParamSimple(map, prefix + "NamespaceName", this.NamespaceName);
+        this.setParamSimple(map, prefix + "Reason", this.Reason);
+        this.setParamSimple(map, prefix + "AgentVersion", this.AgentVersion);
 
     }
 }

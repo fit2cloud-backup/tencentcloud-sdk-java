@@ -51,6 +51,13 @@ public class DescribeClustersRequest extends AbstractModel{
     private Long Limit;
 
     /**
+    * 是否启用Ipv6
+    */
+    @SerializedName("Ipv6Enable")
+    @Expose
+    private Long Ipv6Enable;
+
+    /**
      * Get 指定查询的集群ID列表 
      * @return ClusterIds 指定查询的集群ID列表
      */
@@ -115,6 +122,54 @@ public class DescribeClustersRequest extends AbstractModel{
     }
 
     /**
+     * Get 是否启用Ipv6 
+     * @return Ipv6Enable 是否启用Ipv6
+     */
+    public Long getIpv6Enable() {
+        return this.Ipv6Enable;
+    }
+
+    /**
+     * Set 是否启用Ipv6
+     * @param Ipv6Enable 是否启用Ipv6
+     */
+    public void setIpv6Enable(Long Ipv6Enable) {
+        this.Ipv6Enable = Ipv6Enable;
+    }
+
+    public DescribeClustersRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeClustersRequest(DescribeClustersRequest source) {
+        if (source.ClusterIds != null) {
+            this.ClusterIds = new String[source.ClusterIds.length];
+            for (int i = 0; i < source.ClusterIds.length; i++) {
+                this.ClusterIds[i] = new String(source.ClusterIds[i]);
+            }
+        }
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Ipv6Enable != null) {
+            this.Ipv6Enable = new Long(source.Ipv6Enable);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -122,6 +177,7 @@ public class DescribeClustersRequest extends AbstractModel{
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamSimple(map, prefix + "Ipv6Enable", this.Ipv6Enable);
 
     }
 }

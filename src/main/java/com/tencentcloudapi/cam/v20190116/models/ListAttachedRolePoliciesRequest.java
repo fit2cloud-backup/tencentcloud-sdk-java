@@ -58,6 +58,13 @@ public class ListAttachedRolePoliciesRequest extends AbstractModel{
     private String PolicyType;
 
     /**
+    * 搜索关键字
+    */
+    @SerializedName("Keyword")
+    @Expose
+    private String Keyword;
+
+    /**
      * Get 页码，从 1 开始 
      * @return Page 页码，从 1 开始
      */
@@ -138,6 +145,51 @@ public class ListAttachedRolePoliciesRequest extends AbstractModel{
     }
 
     /**
+     * Get 搜索关键字 
+     * @return Keyword 搜索关键字
+     */
+    public String getKeyword() {
+        return this.Keyword;
+    }
+
+    /**
+     * Set 搜索关键字
+     * @param Keyword 搜索关键字
+     */
+    public void setKeyword(String Keyword) {
+        this.Keyword = Keyword;
+    }
+
+    public ListAttachedRolePoliciesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ListAttachedRolePoliciesRequest(ListAttachedRolePoliciesRequest source) {
+        if (source.Page != null) {
+            this.Page = new Long(source.Page);
+        }
+        if (source.Rp != null) {
+            this.Rp = new Long(source.Rp);
+        }
+        if (source.RoleId != null) {
+            this.RoleId = new String(source.RoleId);
+        }
+        if (source.RoleName != null) {
+            this.RoleName = new String(source.RoleName);
+        }
+        if (source.PolicyType != null) {
+            this.PolicyType = new String(source.PolicyType);
+        }
+        if (source.Keyword != null) {
+            this.Keyword = new String(source.Keyword);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -146,6 +198,7 @@ public class ListAttachedRolePoliciesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "RoleId", this.RoleId);
         this.setParamSimple(map, prefix + "RoleName", this.RoleName);
         this.setParamSimple(map, prefix + "PolicyType", this.PolicyType);
+        this.setParamSimple(map, prefix + "Keyword", this.Keyword);
 
     }
 }

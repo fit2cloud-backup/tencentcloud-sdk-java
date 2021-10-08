@@ -27,6 +27,7 @@ import com.tencentcloudapi.ecdn.v20191012.models.*;
 
 public class EcdnClient extends AbstractClient{
     private static String endpoint = "ecdn.tencentcloudapi.com";
+    private static String service = "ecdn";
     private static String version = "2019-10-12";
 
     public EcdnClient(Credential credential, String region) {
@@ -45,12 +46,34 @@ public class EcdnClient extends AbstractClient{
      */
     public AddEcdnDomainResponse AddEcdnDomain(AddEcdnDomainRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AddEcdnDomainResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<AddEcdnDomainResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "AddEcdnDomain"), type);
+                rspStr = this.internalRequest(req, "AddEcdnDomain");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *生成一条子域名解析，提示客户添加到域名解析上，用于泛域名及域名取回校验归属权
+     * @param req CreateVerifyRecordRequest
+     * @return CreateVerifyRecordResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateVerifyRecordResponse CreateVerifyRecord(CreateVerifyRecordRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateVerifyRecordResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateVerifyRecordResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateVerifyRecord");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -63,12 +86,14 @@ public class EcdnClient extends AbstractClient{
      */
     public DeleteEcdnDomainResponse DeleteEcdnDomain(DeleteEcdnDomainRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteEcdnDomainResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteEcdnDomainResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DeleteEcdnDomain"), type);
+                rspStr = this.internalRequest(req, "DeleteEcdnDomain");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -81,12 +106,14 @@ public class EcdnClient extends AbstractClient{
      */
     public DescribeDomainsResponse DescribeDomains(DescribeDomainsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDomainsResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDomainsResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeDomains"), type);
+                rspStr = this.internalRequest(req, "DescribeDomains");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -99,12 +126,14 @@ public class EcdnClient extends AbstractClient{
      */
     public DescribeDomainsConfigResponse DescribeDomainsConfig(DescribeDomainsConfigRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDomainsConfigResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDomainsConfigResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeDomainsConfig"), type);
+                rspStr = this.internalRequest(req, "DescribeDomainsConfig");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -117,12 +146,14 @@ public class EcdnClient extends AbstractClient{
      */
     public DescribeEcdnDomainLogsResponse DescribeEcdnDomainLogs(DescribeEcdnDomainLogsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeEcdnDomainLogsResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeEcdnDomainLogsResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeEcdnDomainLogs"), type);
+                rspStr = this.internalRequest(req, "DescribeEcdnDomainLogs");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -135,12 +166,14 @@ public class EcdnClient extends AbstractClient{
      */
     public DescribeEcdnDomainStatisticsResponse DescribeEcdnDomainStatistics(DescribeEcdnDomainStatisticsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeEcdnDomainStatisticsResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeEcdnDomainStatisticsResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeEcdnDomainStatistics"), type);
+                rspStr = this.internalRequest(req, "DescribeEcdnDomainStatistics");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -151,7 +184,6 @@ public class EcdnClient extends AbstractClient{
 + 流量（单位为 byte）
 + 带宽（单位为 bps）
 + 请求数（单位为 次）
-+ 响应时间（单位为ms）
 + 状态码 2xx 汇总及各 2 开头状态码明细（单位为 个）
 + 状态码 3xx 汇总及各 3 开头状态码明细（单位为 个）
 + 状态码 4xx 汇总及各 4 开头状态码明细（单位为 个）
@@ -162,12 +194,36 @@ public class EcdnClient extends AbstractClient{
      */
     public DescribeEcdnStatisticsResponse DescribeEcdnStatistics(DescribeEcdnStatisticsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeEcdnStatisticsResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeEcdnStatisticsResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeEcdnStatistics"), type);
+                rspStr = this.internalRequest(req, "DescribeEcdnStatistics");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *DescribeIpStatus 用于查询域名所在加速平台的所有节点信息, 如果您的源站有白名单设置,可以通过本接口获取ECDN服务的节点IP进行加白, 本接口为内测接口,请联系腾讯云工程师开白。
+
+由于产品服务节点常有更新，对于源站开白的使用场景，请定期调用接口获取最新节点信息，若新增服务节点发布7日后您尚未更新加白导致回源失败等问题，ECDN侧不对此承担责任。
+     * @param req DescribeIpStatusRequest
+     * @return DescribeIpStatusResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeIpStatusResponse DescribeIpStatus(DescribeIpStatusRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeIpStatusResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeIpStatusResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeIpStatus");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -180,12 +236,14 @@ public class EcdnClient extends AbstractClient{
      */
     public DescribePurgeQuotaResponse DescribePurgeQuota(DescribePurgeQuotaRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribePurgeQuotaResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribePurgeQuotaResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribePurgeQuota"), type);
+                rspStr = this.internalRequest(req, "DescribePurgeQuota");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -198,30 +256,34 @@ public class EcdnClient extends AbstractClient{
      */
     public DescribePurgeTasksResponse DescribePurgeTasks(DescribePurgeTasksRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribePurgeTasksResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribePurgeTasksResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribePurgeTasks"), type);
+                rspStr = this.internalRequest(req, "DescribePurgeTasks");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
 
     /**
-     *PurgeUrlsCache 用于批量刷新目录缓存，一次提交将返回一个刷新任务id。
+     *PurgePathCache 用于批量刷新目录缓存，一次提交将返回一个刷新任务id。
      * @param req PurgePathCacheRequest
      * @return PurgePathCacheResponse
      * @throws TencentCloudSDKException
      */
     public PurgePathCacheResponse PurgePathCache(PurgePathCacheRequest req) throws TencentCloudSDKException{
         JsonResponseModel<PurgePathCacheResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<PurgePathCacheResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "PurgePathCache"), type);
+                rspStr = this.internalRequest(req, "PurgePathCache");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -234,12 +296,14 @@ public class EcdnClient extends AbstractClient{
      */
     public PurgeUrlsCacheResponse PurgeUrlsCache(PurgeUrlsCacheRequest req) throws TencentCloudSDKException{
         JsonResponseModel<PurgeUrlsCacheResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<PurgeUrlsCacheResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "PurgeUrlsCache"), type);
+                rspStr = this.internalRequest(req, "PurgeUrlsCache");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -252,12 +316,14 @@ public class EcdnClient extends AbstractClient{
      */
     public StartEcdnDomainResponse StartEcdnDomain(StartEcdnDomainRequest req) throws TencentCloudSDKException{
         JsonResponseModel<StartEcdnDomainResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<StartEcdnDomainResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "StartEcdnDomain"), type);
+                rspStr = this.internalRequest(req, "StartEcdnDomain");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -270,12 +336,14 @@ public class EcdnClient extends AbstractClient{
      */
     public StopEcdnDomainResponse StopEcdnDomain(StopEcdnDomainRequest req) throws TencentCloudSDKException{
         JsonResponseModel<StopEcdnDomainResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<StopEcdnDomainResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "StopEcdnDomain"), type);
+                rspStr = this.internalRequest(req, "StopEcdnDomain");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -289,12 +357,14 @@ public class EcdnClient extends AbstractClient{
      */
     public UpdateDomainConfigResponse UpdateDomainConfig(UpdateDomainConfigRequest req) throws TencentCloudSDKException{
         JsonResponseModel<UpdateDomainConfigResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<UpdateDomainConfigResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "UpdateDomainConfig"), type);
+                rspStr = this.internalRequest(req, "UpdateDomainConfig");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

@@ -37,6 +37,13 @@ public class ExecuteScalingPolicyRequest extends AbstractModel{
     private Boolean HonorCooldown;
 
     /**
+    * 执行伸缩策略的触发来源，取值包括 API 和 CLOUD_MONITOR，默认值为 API。CLOUD_MONITOR 专门供云监控触发调用。
+    */
+    @SerializedName("TriggerSource")
+    @Expose
+    private String TriggerSource;
+
+    /**
      * Get 告警伸缩策略ID 
      * @return AutoScalingPolicyId 告警伸缩策略ID
      */
@@ -69,11 +76,48 @@ public class ExecuteScalingPolicyRequest extends AbstractModel{
     }
 
     /**
+     * Get 执行伸缩策略的触发来源，取值包括 API 和 CLOUD_MONITOR，默认值为 API。CLOUD_MONITOR 专门供云监控触发调用。 
+     * @return TriggerSource 执行伸缩策略的触发来源，取值包括 API 和 CLOUD_MONITOR，默认值为 API。CLOUD_MONITOR 专门供云监控触发调用。
+     */
+    public String getTriggerSource() {
+        return this.TriggerSource;
+    }
+
+    /**
+     * Set 执行伸缩策略的触发来源，取值包括 API 和 CLOUD_MONITOR，默认值为 API。CLOUD_MONITOR 专门供云监控触发调用。
+     * @param TriggerSource 执行伸缩策略的触发来源，取值包括 API 和 CLOUD_MONITOR，默认值为 API。CLOUD_MONITOR 专门供云监控触发调用。
+     */
+    public void setTriggerSource(String TriggerSource) {
+        this.TriggerSource = TriggerSource;
+    }
+
+    public ExecuteScalingPolicyRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ExecuteScalingPolicyRequest(ExecuteScalingPolicyRequest source) {
+        if (source.AutoScalingPolicyId != null) {
+            this.AutoScalingPolicyId = new String(source.AutoScalingPolicyId);
+        }
+        if (source.HonorCooldown != null) {
+            this.HonorCooldown = new Boolean(source.HonorCooldown);
+        }
+        if (source.TriggerSource != null) {
+            this.TriggerSource = new String(source.TriggerSource);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "AutoScalingPolicyId", this.AutoScalingPolicyId);
         this.setParamSimple(map, prefix + "HonorCooldown", this.HonorCooldown);
+        this.setParamSimple(map, prefix + "TriggerSource", this.TriggerSource);
 
     }
 }

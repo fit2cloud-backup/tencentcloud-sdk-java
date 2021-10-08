@@ -65,6 +65,17 @@ public class CloseOrderRequest extends AbstractModel{
     private String TransactionId;
 
     /**
+    * 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+    */
+    @SerializedName("MidasEnvironment")
+    @Expose
+    private String MidasEnvironment;
+
+    /**
      * Get 聚鑫分配的支付主MidasAppId 
      * @return MidasAppId 聚鑫分配的支付主MidasAppId
      */
@@ -161,6 +172,70 @@ public class CloseOrderRequest extends AbstractModel{
     }
 
     /**
+     * Get 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release 
+     * @return MidasEnvironment 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+     */
+    public String getMidasEnvironment() {
+        return this.MidasEnvironment;
+    }
+
+    /**
+     * Set 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+     * @param MidasEnvironment 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+     */
+    public void setMidasEnvironment(String MidasEnvironment) {
+        this.MidasEnvironment = MidasEnvironment;
+    }
+
+    public CloseOrderRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CloseOrderRequest(CloseOrderRequest source) {
+        if (source.MidasAppId != null) {
+            this.MidasAppId = new String(source.MidasAppId);
+        }
+        if (source.UserId != null) {
+            this.UserId = new String(source.UserId);
+        }
+        if (source.MidasSecretId != null) {
+            this.MidasSecretId = new String(source.MidasSecretId);
+        }
+        if (source.MidasSignature != null) {
+            this.MidasSignature = new String(source.MidasSignature);
+        }
+        if (source.OutTradeNo != null) {
+            this.OutTradeNo = new String(source.OutTradeNo);
+        }
+        if (source.TransactionId != null) {
+            this.TransactionId = new String(source.TransactionId);
+        }
+        if (source.MidasEnvironment != null) {
+            this.MidasEnvironment = new String(source.MidasEnvironment);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -170,6 +245,7 @@ public class CloseOrderRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "MidasSignature", this.MidasSignature);
         this.setParamSimple(map, prefix + "OutTradeNo", this.OutTradeNo);
         this.setParamSimple(map, prefix + "TransactionId", this.TransactionId);
+        this.setParamSimple(map, prefix + "MidasEnvironment", this.MidasEnvironment);
 
     }
 }

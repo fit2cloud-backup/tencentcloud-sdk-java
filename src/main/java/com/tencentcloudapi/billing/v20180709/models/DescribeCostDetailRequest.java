@@ -37,14 +37,14 @@ public class DescribeCostDetailRequest extends AbstractModel{
     private Long Offset;
 
     /**
-    * 周期开始时间，格式为Y-m-d H:i:s，Month和BeginTime&EndTime必传一个，如果有该字段则Month字段无效。BeginTime和EndTime必须一起传。不能早于开通成本分析的月份，最多可拉取24个月内的数据。
+    * 周期开始时间，格式为yyyy-mm-dd hh:ii:ss，Month和BeginTime&EndTime必传一个，如果有该字段则Month字段无效。BeginTime和EndTime必须一起传，且为同一月份，暂不支持跨月拉取。可拉取的数据是开通成本分析后，且距今 24 个月内的数据。
     */
     @SerializedName("BeginTime")
     @Expose
     private String BeginTime;
 
     /**
-    * 周期结束时间，格式为Y-m-d H:i:s，Month和BeginTime&EndTime必传一个，如果有该字段则Month字段无效。BeginTime和EndTime必须一起传。不能早于开通成本分析的月份，最多可拉取24个月内的数据。
+    * 周期结束时间，格式为yyyy-mm-dd hh:ii:ss，Month和BeginTime&EndTime必传一个，如果有该字段则Month字段无效。BeginTime和EndTime必须一起传，且为同一月份，暂不支持跨月拉取。可拉取的数据是开通成本分析后，且距今 24 个月内的数据。
     */
     @SerializedName("EndTime")
     @Expose
@@ -66,7 +66,7 @@ public class DescribeCostDetailRequest extends AbstractModel{
     private String Month;
 
     /**
-    * 查询指定产品信息
+    * 查询指定产品信息（暂时未开放获取）
     */
     @SerializedName("ProductCode")
     @Expose
@@ -119,32 +119,32 @@ public class DescribeCostDetailRequest extends AbstractModel{
     }
 
     /**
-     * Get 周期开始时间，格式为Y-m-d H:i:s，Month和BeginTime&EndTime必传一个，如果有该字段则Month字段无效。BeginTime和EndTime必须一起传。不能早于开通成本分析的月份，最多可拉取24个月内的数据。 
-     * @return BeginTime 周期开始时间，格式为Y-m-d H:i:s，Month和BeginTime&EndTime必传一个，如果有该字段则Month字段无效。BeginTime和EndTime必须一起传。不能早于开通成本分析的月份，最多可拉取24个月内的数据。
+     * Get 周期开始时间，格式为yyyy-mm-dd hh:ii:ss，Month和BeginTime&EndTime必传一个，如果有该字段则Month字段无效。BeginTime和EndTime必须一起传，且为同一月份，暂不支持跨月拉取。可拉取的数据是开通成本分析后，且距今 24 个月内的数据。 
+     * @return BeginTime 周期开始时间，格式为yyyy-mm-dd hh:ii:ss，Month和BeginTime&EndTime必传一个，如果有该字段则Month字段无效。BeginTime和EndTime必须一起传，且为同一月份，暂不支持跨月拉取。可拉取的数据是开通成本分析后，且距今 24 个月内的数据。
      */
     public String getBeginTime() {
         return this.BeginTime;
     }
 
     /**
-     * Set 周期开始时间，格式为Y-m-d H:i:s，Month和BeginTime&EndTime必传一个，如果有该字段则Month字段无效。BeginTime和EndTime必须一起传。不能早于开通成本分析的月份，最多可拉取24个月内的数据。
-     * @param BeginTime 周期开始时间，格式为Y-m-d H:i:s，Month和BeginTime&EndTime必传一个，如果有该字段则Month字段无效。BeginTime和EndTime必须一起传。不能早于开通成本分析的月份，最多可拉取24个月内的数据。
+     * Set 周期开始时间，格式为yyyy-mm-dd hh:ii:ss，Month和BeginTime&EndTime必传一个，如果有该字段则Month字段无效。BeginTime和EndTime必须一起传，且为同一月份，暂不支持跨月拉取。可拉取的数据是开通成本分析后，且距今 24 个月内的数据。
+     * @param BeginTime 周期开始时间，格式为yyyy-mm-dd hh:ii:ss，Month和BeginTime&EndTime必传一个，如果有该字段则Month字段无效。BeginTime和EndTime必须一起传，且为同一月份，暂不支持跨月拉取。可拉取的数据是开通成本分析后，且距今 24 个月内的数据。
      */
     public void setBeginTime(String BeginTime) {
         this.BeginTime = BeginTime;
     }
 
     /**
-     * Get 周期结束时间，格式为Y-m-d H:i:s，Month和BeginTime&EndTime必传一个，如果有该字段则Month字段无效。BeginTime和EndTime必须一起传。不能早于开通成本分析的月份，最多可拉取24个月内的数据。 
-     * @return EndTime 周期结束时间，格式为Y-m-d H:i:s，Month和BeginTime&EndTime必传一个，如果有该字段则Month字段无效。BeginTime和EndTime必须一起传。不能早于开通成本分析的月份，最多可拉取24个月内的数据。
+     * Get 周期结束时间，格式为yyyy-mm-dd hh:ii:ss，Month和BeginTime&EndTime必传一个，如果有该字段则Month字段无效。BeginTime和EndTime必须一起传，且为同一月份，暂不支持跨月拉取。可拉取的数据是开通成本分析后，且距今 24 个月内的数据。 
+     * @return EndTime 周期结束时间，格式为yyyy-mm-dd hh:ii:ss，Month和BeginTime&EndTime必传一个，如果有该字段则Month字段无效。BeginTime和EndTime必须一起传，且为同一月份，暂不支持跨月拉取。可拉取的数据是开通成本分析后，且距今 24 个月内的数据。
      */
     public String getEndTime() {
         return this.EndTime;
     }
 
     /**
-     * Set 周期结束时间，格式为Y-m-d H:i:s，Month和BeginTime&EndTime必传一个，如果有该字段则Month字段无效。BeginTime和EndTime必须一起传。不能早于开通成本分析的月份，最多可拉取24个月内的数据。
-     * @param EndTime 周期结束时间，格式为Y-m-d H:i:s，Month和BeginTime&EndTime必传一个，如果有该字段则Month字段无效。BeginTime和EndTime必须一起传。不能早于开通成本分析的月份，最多可拉取24个月内的数据。
+     * Set 周期结束时间，格式为yyyy-mm-dd hh:ii:ss，Month和BeginTime&EndTime必传一个，如果有该字段则Month字段无效。BeginTime和EndTime必须一起传，且为同一月份，暂不支持跨月拉取。可拉取的数据是开通成本分析后，且距今 24 个月内的数据。
+     * @param EndTime 周期结束时间，格式为yyyy-mm-dd hh:ii:ss，Month和BeginTime&EndTime必传一个，如果有该字段则Month字段无效。BeginTime和EndTime必须一起传，且为同一月份，暂不支持跨月拉取。可拉取的数据是开通成本分析后，且距今 24 个月内的数据。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
@@ -187,16 +187,16 @@ public class DescribeCostDetailRequest extends AbstractModel{
     }
 
     /**
-     * Get 查询指定产品信息 
-     * @return ProductCode 查询指定产品信息
+     * Get 查询指定产品信息（暂时未开放获取） 
+     * @return ProductCode 查询指定产品信息（暂时未开放获取）
      */
     public String getProductCode() {
         return this.ProductCode;
     }
 
     /**
-     * Set 查询指定产品信息
-     * @param ProductCode 查询指定产品信息
+     * Set 查询指定产品信息（暂时未开放获取）
+     * @param ProductCode 查询指定产品信息（暂时未开放获取）
      */
     public void setProductCode(String ProductCode) {
         this.ProductCode = ProductCode;
@@ -233,6 +233,44 @@ public class DescribeCostDetailRequest extends AbstractModel{
     public void setResourceId(String ResourceId) {
         this.ResourceId = ResourceId;
     }
+
+    public DescribeCostDetailRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeCostDetailRequest(DescribeCostDetailRequest source) {
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.BeginTime != null) {
+            this.BeginTime = new String(source.BeginTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.NeedRecordNum != null) {
+            this.NeedRecordNum = new Long(source.NeedRecordNum);
+        }
+        if (source.Month != null) {
+            this.Month = new String(source.Month);
+        }
+        if (source.ProductCode != null) {
+            this.ProductCode = new String(source.ProductCode);
+        }
+        if (source.PayMode != null) {
+            this.PayMode = new String(source.PayMode);
+        }
+        if (source.ResourceId != null) {
+            this.ResourceId = new String(source.ResourceId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

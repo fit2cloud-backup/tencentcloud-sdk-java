@@ -107,6 +107,13 @@ public class BindRelateAcctUnionPayRequest extends AbstractModel{
     private String ReservedMsg;
 
     /**
+    * STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+    */
+    @SerializedName("Profile")
+    @Expose
+    private String Profile;
+
+    /**
      * Get STRING(32)，交易网会员代码（若需要把一个待绑定账户关联到两个会员名下，此字段可上送两个会员的交易网代码，并且须用“|::|”（右侧）进行分隔） 
      * @return TranNetMemberCode STRING(32)，交易网会员代码（若需要把一个待绑定账户关联到两个会员名下，此字段可上送两个会员的交易网代码，并且须用“|::|”（右侧）进行分隔）
      */
@@ -299,6 +306,72 @@ public class BindRelateAcctUnionPayRequest extends AbstractModel{
     }
 
     /**
+     * Get STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod" 
+     * @return Profile STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     */
+    public String getProfile() {
+        return this.Profile;
+    }
+
+    /**
+     * Set STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     * @param Profile STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     */
+    public void setProfile(String Profile) {
+        this.Profile = Profile;
+    }
+
+    public BindRelateAcctUnionPayRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public BindRelateAcctUnionPayRequest(BindRelateAcctUnionPayRequest source) {
+        if (source.TranNetMemberCode != null) {
+            this.TranNetMemberCode = new String(source.TranNetMemberCode);
+        }
+        if (source.MemberName != null) {
+            this.MemberName = new String(source.MemberName);
+        }
+        if (source.MemberGlobalType != null) {
+            this.MemberGlobalType = new String(source.MemberGlobalType);
+        }
+        if (source.MemberGlobalId != null) {
+            this.MemberGlobalId = new String(source.MemberGlobalId);
+        }
+        if (source.MemberAcctNo != null) {
+            this.MemberAcctNo = new String(source.MemberAcctNo);
+        }
+        if (source.BankType != null) {
+            this.BankType = new String(source.BankType);
+        }
+        if (source.AcctOpenBranchName != null) {
+            this.AcctOpenBranchName = new String(source.AcctOpenBranchName);
+        }
+        if (source.Mobile != null) {
+            this.Mobile = new String(source.Mobile);
+        }
+        if (source.MrchCode != null) {
+            this.MrchCode = new String(source.MrchCode);
+        }
+        if (source.CnapsBranchId != null) {
+            this.CnapsBranchId = new String(source.CnapsBranchId);
+        }
+        if (source.EiconBankBranchId != null) {
+            this.EiconBankBranchId = new String(source.EiconBankBranchId);
+        }
+        if (source.ReservedMsg != null) {
+            this.ReservedMsg = new String(source.ReservedMsg);
+        }
+        if (source.Profile != null) {
+            this.Profile = new String(source.Profile);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -314,6 +387,7 @@ public class BindRelateAcctUnionPayRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "CnapsBranchId", this.CnapsBranchId);
         this.setParamSimple(map, prefix + "EiconBankBranchId", this.EiconBankBranchId);
         this.setParamSimple(map, prefix + "ReservedMsg", this.ReservedMsg);
+        this.setParamSimple(map, prefix + "Profile", this.Profile);
 
     }
 }

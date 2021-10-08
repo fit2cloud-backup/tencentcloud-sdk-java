@@ -33,7 +33,7 @@ VPN网关实例ID，形如，`vpn-ltjahce6`。
     private String GatewayId;
 
     /**
-    * 流控带宽值。
+    * 流控带宽值。取值大于0，表示限流到指定的Mbps；取值等于0，表示完全限流；取值为-1，不限流。
     */
     @SerializedName("Bandwidth")
     @Expose
@@ -75,16 +75,16 @@ VPN网关实例ID，形如，`vpn-ltjahce6`。
     }
 
     /**
-     * Get 流控带宽值。 
-     * @return Bandwidth 流控带宽值。
+     * Get 流控带宽值。取值大于0，表示限流到指定的Mbps；取值等于0，表示完全限流；取值为-1，不限流。 
+     * @return Bandwidth 流控带宽值。取值大于0，表示限流到指定的Mbps；取值等于0，表示完全限流；取值为-1，不限流。
      */
     public Long getBandwidth() {
         return this.Bandwidth;
     }
 
     /**
-     * Set 流控带宽值。
-     * @param Bandwidth 流控带宽值。
+     * Set 流控带宽值。取值大于0，表示限流到指定的Mbps；取值等于0，表示完全限流；取值为-1，不限流。
+     * @param Bandwidth 流控带宽值。取值大于0，表示限流到指定的Mbps；取值等于0，表示完全限流；取值为-1，不限流。
      */
     public void setBandwidth(Long Bandwidth) {
         this.Bandwidth = Bandwidth;
@@ -105,6 +105,29 @@ VPN网关实例ID，形如，`vpn-ltjahce6`。
     public void setIpAddresses(String [] IpAddresses) {
         this.IpAddresses = IpAddresses;
     }
+
+    public ModifyGatewayFlowQosRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyGatewayFlowQosRequest(ModifyGatewayFlowQosRequest source) {
+        if (source.GatewayId != null) {
+            this.GatewayId = new String(source.GatewayId);
+        }
+        if (source.Bandwidth != null) {
+            this.Bandwidth = new Long(source.Bandwidth);
+        }
+        if (source.IpAddresses != null) {
+            this.IpAddresses = new String[source.IpAddresses.length];
+            for (int i = 0; i < source.IpAddresses.length; i++) {
+                this.IpAddresses[i] = new String(source.IpAddresses[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

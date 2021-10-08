@@ -55,7 +55,7 @@ public class DescribeMachinesRequest extends AbstractModel{
     /**
     * 过滤条件。
 <li>Keywords - String - 是否必填：否 - 查询关键字 </li>
-<li>Status - String - 是否必填：否 - 客户端在线状态（OFFLINE: 离线 | ONLINE: 在线）</li>
+<li>Status - String - 是否必填：否 - 客户端在线状态（OFFLINE: 离线 | ONLINE: 在线 | UNINSTALLED：未安装）</li>
 <li>Version - String  是否必填：否 - 当前防护版本（ PRO_VERSION：专业版 | BASIC_VERSION：基础版）</li>
 每个过滤条件只支持一个值，暂不支持多个值“或”关系查询
     */
@@ -138,12 +138,12 @@ public class DescribeMachinesRequest extends AbstractModel{
     /**
      * Get 过滤条件。
 <li>Keywords - String - 是否必填：否 - 查询关键字 </li>
-<li>Status - String - 是否必填：否 - 客户端在线状态（OFFLINE: 离线 | ONLINE: 在线）</li>
+<li>Status - String - 是否必填：否 - 客户端在线状态（OFFLINE: 离线 | ONLINE: 在线 | UNINSTALLED：未安装）</li>
 <li>Version - String  是否必填：否 - 当前防护版本（ PRO_VERSION：专业版 | BASIC_VERSION：基础版）</li>
 每个过滤条件只支持一个值，暂不支持多个值“或”关系查询 
      * @return Filters 过滤条件。
 <li>Keywords - String - 是否必填：否 - 查询关键字 </li>
-<li>Status - String - 是否必填：否 - 客户端在线状态（OFFLINE: 离线 | ONLINE: 在线）</li>
+<li>Status - String - 是否必填：否 - 客户端在线状态（OFFLINE: 离线 | ONLINE: 在线 | UNINSTALLED：未安装）</li>
 <li>Version - String  是否必填：否 - 当前防护版本（ PRO_VERSION：专业版 | BASIC_VERSION：基础版）</li>
 每个过滤条件只支持一个值，暂不支持多个值“或”关系查询
      */
@@ -154,18 +154,47 @@ public class DescribeMachinesRequest extends AbstractModel{
     /**
      * Set 过滤条件。
 <li>Keywords - String - 是否必填：否 - 查询关键字 </li>
-<li>Status - String - 是否必填：否 - 客户端在线状态（OFFLINE: 离线 | ONLINE: 在线）</li>
+<li>Status - String - 是否必填：否 - 客户端在线状态（OFFLINE: 离线 | ONLINE: 在线 | UNINSTALLED：未安装）</li>
 <li>Version - String  是否必填：否 - 当前防护版本（ PRO_VERSION：专业版 | BASIC_VERSION：基础版）</li>
 每个过滤条件只支持一个值，暂不支持多个值“或”关系查询
      * @param Filters 过滤条件。
 <li>Keywords - String - 是否必填：否 - 查询关键字 </li>
-<li>Status - String - 是否必填：否 - 客户端在线状态（OFFLINE: 离线 | ONLINE: 在线）</li>
+<li>Status - String - 是否必填：否 - 客户端在线状态（OFFLINE: 离线 | ONLINE: 在线 | UNINSTALLED：未安装）</li>
 <li>Version - String  是否必填：否 - 当前防护版本（ PRO_VERSION：专业版 | BASIC_VERSION：基础版）</li>
 每个过滤条件只支持一个值，暂不支持多个值“或”关系查询
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;
     }
+
+    public DescribeMachinesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeMachinesRequest(DescribeMachinesRequest source) {
+        if (source.MachineType != null) {
+            this.MachineType = new String(source.MachineType);
+        }
+        if (source.MachineRegion != null) {
+            this.MachineRegion = new String(source.MachineRegion);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

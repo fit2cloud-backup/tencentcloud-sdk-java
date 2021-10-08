@@ -72,6 +72,14 @@ public class CarTagItem extends AbstractModel{
     private Coord [] CarLocation;
 
     /**
+    * 车牌信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PlateContent")
+    @Expose
+    private CarPlateContent PlateContent;
+
+    /**
      * Get 车系 
      * @return Serial 车系
      */
@@ -184,6 +192,64 @@ public class CarTagItem extends AbstractModel{
     }
 
     /**
+     * Get 车牌信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PlateContent 车牌信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public CarPlateContent getPlateContent() {
+        return this.PlateContent;
+    }
+
+    /**
+     * Set 车牌信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PlateContent 车牌信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPlateContent(CarPlateContent PlateContent) {
+        this.PlateContent = PlateContent;
+    }
+
+    public CarTagItem() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CarTagItem(CarTagItem source) {
+        if (source.Serial != null) {
+            this.Serial = new String(source.Serial);
+        }
+        if (source.Brand != null) {
+            this.Brand = new String(source.Brand);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.Color != null) {
+            this.Color = new String(source.Color);
+        }
+        if (source.Confidence != null) {
+            this.Confidence = new Long(source.Confidence);
+        }
+        if (source.Year != null) {
+            this.Year = new Long(source.Year);
+        }
+        if (source.CarLocation != null) {
+            this.CarLocation = new Coord[source.CarLocation.length];
+            for (int i = 0; i < source.CarLocation.length; i++) {
+                this.CarLocation[i] = new Coord(source.CarLocation[i]);
+            }
+        }
+        if (source.PlateContent != null) {
+            this.PlateContent = new CarPlateContent(source.PlateContent);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -194,6 +260,7 @@ public class CarTagItem extends AbstractModel{
         this.setParamSimple(map, prefix + "Confidence", this.Confidence);
         this.setParamSimple(map, prefix + "Year", this.Year);
         this.setParamArrayObj(map, prefix + "CarLocation.", this.CarLocation);
+        this.setParamObj(map, prefix + "PlateContent.", this.PlateContent);
 
     }
 }

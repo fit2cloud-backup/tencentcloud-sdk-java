@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class BizLicenseOCRResponse extends AbstractModel{
 
     /**
-    * 注册号
+    * 统一社会信用代码（三合一之前为注册号）
     */
     @SerializedName("RegNum")
     @Expose
@@ -93,6 +93,24 @@ public class BizLicenseOCRResponse extends AbstractModel{
     private String SetDate;
 
     /**
+    * Code 告警码列表和释义：
+-20001 非营业执照
+注：告警码可以同时存在多个
+    */
+    @SerializedName("RecognizeWarnCode")
+    @Expose
+    private Long [] RecognizeWarnCode;
+
+    /**
+    * 告警码说明：
+OCR_WARNING_TPYE_NOT_MATCH 非营业执照
+注：告警信息可以同时存在多个
+    */
+    @SerializedName("RecognizeWarnMsg")
+    @Expose
+    private String [] RecognizeWarnMsg;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -100,16 +118,16 @@ public class BizLicenseOCRResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 注册号 
-     * @return RegNum 注册号
+     * Get 统一社会信用代码（三合一之前为注册号） 
+     * @return RegNum 统一社会信用代码（三合一之前为注册号）
      */
     public String getRegNum() {
         return this.RegNum;
     }
 
     /**
-     * Set 注册号
-     * @param RegNum 注册号
+     * Set 统一社会信用代码（三合一之前为注册号）
+     * @param RegNum 统一社会信用代码（三合一之前为注册号）
      */
     public void setRegNum(String RegNum) {
         this.RegNum = RegNum;
@@ -260,6 +278,54 @@ public class BizLicenseOCRResponse extends AbstractModel{
     }
 
     /**
+     * Get Code 告警码列表和释义：
+-20001 非营业执照
+注：告警码可以同时存在多个 
+     * @return RecognizeWarnCode Code 告警码列表和释义：
+-20001 非营业执照
+注：告警码可以同时存在多个
+     */
+    public Long [] getRecognizeWarnCode() {
+        return this.RecognizeWarnCode;
+    }
+
+    /**
+     * Set Code 告警码列表和释义：
+-20001 非营业执照
+注：告警码可以同时存在多个
+     * @param RecognizeWarnCode Code 告警码列表和释义：
+-20001 非营业执照
+注：告警码可以同时存在多个
+     */
+    public void setRecognizeWarnCode(Long [] RecognizeWarnCode) {
+        this.RecognizeWarnCode = RecognizeWarnCode;
+    }
+
+    /**
+     * Get 告警码说明：
+OCR_WARNING_TPYE_NOT_MATCH 非营业执照
+注：告警信息可以同时存在多个 
+     * @return RecognizeWarnMsg 告警码说明：
+OCR_WARNING_TPYE_NOT_MATCH 非营业执照
+注：告警信息可以同时存在多个
+     */
+    public String [] getRecognizeWarnMsg() {
+        return this.RecognizeWarnMsg;
+    }
+
+    /**
+     * Set 告警码说明：
+OCR_WARNING_TPYE_NOT_MATCH 非营业执照
+注：告警信息可以同时存在多个
+     * @param RecognizeWarnMsg 告警码说明：
+OCR_WARNING_TPYE_NOT_MATCH 非营业执照
+注：告警信息可以同时存在多个
+     */
+    public void setRecognizeWarnMsg(String [] RecognizeWarnMsg) {
+        this.RecognizeWarnMsg = RecognizeWarnMsg;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -275,6 +341,62 @@ public class BizLicenseOCRResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public BizLicenseOCRResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public BizLicenseOCRResponse(BizLicenseOCRResponse source) {
+        if (source.RegNum != null) {
+            this.RegNum = new String(source.RegNum);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Capital != null) {
+            this.Capital = new String(source.Capital);
+        }
+        if (source.Person != null) {
+            this.Person = new String(source.Person);
+        }
+        if (source.Address != null) {
+            this.Address = new String(source.Address);
+        }
+        if (source.Business != null) {
+            this.Business = new String(source.Business);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.Period != null) {
+            this.Period = new String(source.Period);
+        }
+        if (source.ComposingForm != null) {
+            this.ComposingForm = new String(source.ComposingForm);
+        }
+        if (source.SetDate != null) {
+            this.SetDate = new String(source.SetDate);
+        }
+        if (source.RecognizeWarnCode != null) {
+            this.RecognizeWarnCode = new Long[source.RecognizeWarnCode.length];
+            for (int i = 0; i < source.RecognizeWarnCode.length; i++) {
+                this.RecognizeWarnCode[i] = new Long(source.RecognizeWarnCode[i]);
+            }
+        }
+        if (source.RecognizeWarnMsg != null) {
+            this.RecognizeWarnMsg = new String[source.RecognizeWarnMsg.length];
+            for (int i = 0; i < source.RecognizeWarnMsg.length; i++) {
+                this.RecognizeWarnMsg[i] = new String(source.RecognizeWarnMsg[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
@@ -289,6 +411,8 @@ public class BizLicenseOCRResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "Period", this.Period);
         this.setParamSimple(map, prefix + "ComposingForm", this.ComposingForm);
         this.setParamSimple(map, prefix + "SetDate", this.SetDate);
+        this.setParamArraySimple(map, prefix + "RecognizeWarnCode.", this.RecognizeWarnCode);
+        this.setParamArraySimple(map, prefix + "RecognizeWarnMsg.", this.RecognizeWarnMsg);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

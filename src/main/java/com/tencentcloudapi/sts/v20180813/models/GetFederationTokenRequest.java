@@ -30,18 +30,18 @@ public class GetFederationTokenRequest extends AbstractModel{
     private String Name;
 
     /**
-    * 策略描述
+    * 授予该临时证书权限的CAM策略
 注意：
-1、policy 需要做 urlencode（如果通过 GET 方法请求云 API，发送请求前，所有参数都需要按照[云 API 规范](https://cloud.tencent.com/document/api/598/33159#1.-.E6.8B.BC.E6.8E.A5.E8.A7.84.E8.8C.83.E8.AF.B7.E6.B1.82.E4.B8.B2)再 urlencode 一次）。
-2、策略语法参照[ CAM 策略语法](https://cloud.tencent.com/document/product/598/10603)。
-3、策略中不能包含 principal 元素。
+1、策略语法参照[ CAM 策略语法](https://cloud.tencent.com/document/product/598/10603)。
+2、策略中不能包含 principal 元素。
+3、该参数需要做urlencode。
     */
     @SerializedName("Policy")
     @Expose
     private String Policy;
 
     /**
-    * 指定临时证书的有效期，单位：秒，默认1800秒，最长可设定有效期为7200秒。
+    * 指定临时证书的有效期，单位：秒，默认1800秒，主账号最长可设定有效期为7200秒，子账号最长可设定有效期为129600秒。
     */
     @SerializedName("DurationSeconds")
     @Expose
@@ -64,52 +64,72 @@ public class GetFederationTokenRequest extends AbstractModel{
     }
 
     /**
-     * Get 策略描述
+     * Get 授予该临时证书权限的CAM策略
 注意：
-1、policy 需要做 urlencode（如果通过 GET 方法请求云 API，发送请求前，所有参数都需要按照[云 API 规范](https://cloud.tencent.com/document/api/598/33159#1.-.E6.8B.BC.E6.8E.A5.E8.A7.84.E8.8C.83.E8.AF.B7.E6.B1.82.E4.B8.B2)再 urlencode 一次）。
-2、策略语法参照[ CAM 策略语法](https://cloud.tencent.com/document/product/598/10603)。
-3、策略中不能包含 principal 元素。 
-     * @return Policy 策略描述
+1、策略语法参照[ CAM 策略语法](https://cloud.tencent.com/document/product/598/10603)。
+2、策略中不能包含 principal 元素。
+3、该参数需要做urlencode。 
+     * @return Policy 授予该临时证书权限的CAM策略
 注意：
-1、policy 需要做 urlencode（如果通过 GET 方法请求云 API，发送请求前，所有参数都需要按照[云 API 规范](https://cloud.tencent.com/document/api/598/33159#1.-.E6.8B.BC.E6.8E.A5.E8.A7.84.E8.8C.83.E8.AF.B7.E6.B1.82.E4.B8.B2)再 urlencode 一次）。
-2、策略语法参照[ CAM 策略语法](https://cloud.tencent.com/document/product/598/10603)。
-3、策略中不能包含 principal 元素。
+1、策略语法参照[ CAM 策略语法](https://cloud.tencent.com/document/product/598/10603)。
+2、策略中不能包含 principal 元素。
+3、该参数需要做urlencode。
      */
     public String getPolicy() {
         return this.Policy;
     }
 
     /**
-     * Set 策略描述
+     * Set 授予该临时证书权限的CAM策略
 注意：
-1、policy 需要做 urlencode（如果通过 GET 方法请求云 API，发送请求前，所有参数都需要按照[云 API 规范](https://cloud.tencent.com/document/api/598/33159#1.-.E6.8B.BC.E6.8E.A5.E8.A7.84.E8.8C.83.E8.AF.B7.E6.B1.82.E4.B8.B2)再 urlencode 一次）。
-2、策略语法参照[ CAM 策略语法](https://cloud.tencent.com/document/product/598/10603)。
-3、策略中不能包含 principal 元素。
-     * @param Policy 策略描述
+1、策略语法参照[ CAM 策略语法](https://cloud.tencent.com/document/product/598/10603)。
+2、策略中不能包含 principal 元素。
+3、该参数需要做urlencode。
+     * @param Policy 授予该临时证书权限的CAM策略
 注意：
-1、policy 需要做 urlencode（如果通过 GET 方法请求云 API，发送请求前，所有参数都需要按照[云 API 规范](https://cloud.tencent.com/document/api/598/33159#1.-.E6.8B.BC.E6.8E.A5.E8.A7.84.E8.8C.83.E8.AF.B7.E6.B1.82.E4.B8.B2)再 urlencode 一次）。
-2、策略语法参照[ CAM 策略语法](https://cloud.tencent.com/document/product/598/10603)。
-3、策略中不能包含 principal 元素。
+1、策略语法参照[ CAM 策略语法](https://cloud.tencent.com/document/product/598/10603)。
+2、策略中不能包含 principal 元素。
+3、该参数需要做urlencode。
      */
     public void setPolicy(String Policy) {
         this.Policy = Policy;
     }
 
     /**
-     * Get 指定临时证书的有效期，单位：秒，默认1800秒，最长可设定有效期为7200秒。 
-     * @return DurationSeconds 指定临时证书的有效期，单位：秒，默认1800秒，最长可设定有效期为7200秒。
+     * Get 指定临时证书的有效期，单位：秒，默认1800秒，主账号最长可设定有效期为7200秒，子账号最长可设定有效期为129600秒。 
+     * @return DurationSeconds 指定临时证书的有效期，单位：秒，默认1800秒，主账号最长可设定有效期为7200秒，子账号最长可设定有效期为129600秒。
      */
     public Long getDurationSeconds() {
         return this.DurationSeconds;
     }
 
     /**
-     * Set 指定临时证书的有效期，单位：秒，默认1800秒，最长可设定有效期为7200秒。
-     * @param DurationSeconds 指定临时证书的有效期，单位：秒，默认1800秒，最长可设定有效期为7200秒。
+     * Set 指定临时证书的有效期，单位：秒，默认1800秒，主账号最长可设定有效期为7200秒，子账号最长可设定有效期为129600秒。
+     * @param DurationSeconds 指定临时证书的有效期，单位：秒，默认1800秒，主账号最长可设定有效期为7200秒，子账号最长可设定有效期为129600秒。
      */
     public void setDurationSeconds(Long DurationSeconds) {
         this.DurationSeconds = DurationSeconds;
     }
+
+    public GetFederationTokenRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public GetFederationTokenRequest(GetFederationTokenRequest source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Policy != null) {
+            this.Policy = new String(source.Policy);
+        }
+        if (source.DurationSeconds != null) {
+            this.DurationSeconds = new Long(source.DurationSeconds);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

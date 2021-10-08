@@ -37,6 +37,13 @@ public class MachineTag extends AbstractModel{
     private String Name;
 
     /**
+    * 标签ID
+    */
+    @SerializedName("TagId")
+    @Expose
+    private Long TagId;
+
+    /**
      * Get 关联标签ID 
      * @return Rid 关联标签ID
      */
@@ -69,11 +76,48 @@ public class MachineTag extends AbstractModel{
     }
 
     /**
+     * Get 标签ID 
+     * @return TagId 标签ID
+     */
+    public Long getTagId() {
+        return this.TagId;
+    }
+
+    /**
+     * Set 标签ID
+     * @param TagId 标签ID
+     */
+    public void setTagId(Long TagId) {
+        this.TagId = TagId;
+    }
+
+    public MachineTag() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MachineTag(MachineTag source) {
+        if (source.Rid != null) {
+            this.Rid = new Long(source.Rid);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.TagId != null) {
+            this.TagId = new Long(source.TagId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Rid", this.Rid);
         this.setParamSimple(map, prefix + "Name", this.Name);
+        this.setParamSimple(map, prefix + "TagId", this.TagId);
 
     }
 }

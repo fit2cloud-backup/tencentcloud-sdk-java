@@ -51,7 +51,7 @@ public class DescribeResourceTagsRequest extends AbstractModel{
     private String ResourcePrefix;
 
     /**
-    * 资源唯一标识
+    * 资源唯一标识。只输入ResourceId进行查询可能会查询较慢，或者无法匹配到结果，建议在输入ResourceId的同时也输入ServiceType、ResourcePrefix和ResourceRegion（不区分地域的资源可忽略该参数）
     */
     @SerializedName("ResourceId")
     @Expose
@@ -72,7 +72,7 @@ public class DescribeResourceTagsRequest extends AbstractModel{
     private Long Limit;
 
     /**
-    * 是否是Cos的资源id
+    * 是否是cos的资源（0或者1），输入的ResourceId为cos资源时必填
     */
     @SerializedName("CosResourceId")
     @Expose
@@ -143,16 +143,16 @@ public class DescribeResourceTagsRequest extends AbstractModel{
     }
 
     /**
-     * Get 资源唯一标识 
-     * @return ResourceId 资源唯一标识
+     * Get 资源唯一标识。只输入ResourceId进行查询可能会查询较慢，或者无法匹配到结果，建议在输入ResourceId的同时也输入ServiceType、ResourcePrefix和ResourceRegion（不区分地域的资源可忽略该参数） 
+     * @return ResourceId 资源唯一标识。只输入ResourceId进行查询可能会查询较慢，或者无法匹配到结果，建议在输入ResourceId的同时也输入ServiceType、ResourcePrefix和ResourceRegion（不区分地域的资源可忽略该参数）
      */
     public String getResourceId() {
         return this.ResourceId;
     }
 
     /**
-     * Set 资源唯一标识
-     * @param ResourceId 资源唯一标识
+     * Set 资源唯一标识。只输入ResourceId进行查询可能会查询较慢，或者无法匹配到结果，建议在输入ResourceId的同时也输入ServiceType、ResourcePrefix和ResourceRegion（不区分地域的资源可忽略该参数）
+     * @param ResourceId 资源唯一标识。只输入ResourceId进行查询可能会查询较慢，或者无法匹配到结果，建议在输入ResourceId的同时也输入ServiceType、ResourcePrefix和ResourceRegion（不区分地域的资源可忽略该参数）
      */
     public void setResourceId(String ResourceId) {
         this.ResourceId = ResourceId;
@@ -191,20 +191,55 @@ public class DescribeResourceTagsRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否是Cos的资源id 
-     * @return CosResourceId 是否是Cos的资源id
+     * Get 是否是cos的资源（0或者1），输入的ResourceId为cos资源时必填 
+     * @return CosResourceId 是否是cos的资源（0或者1），输入的ResourceId为cos资源时必填
      */
     public Long getCosResourceId() {
         return this.CosResourceId;
     }
 
     /**
-     * Set 是否是Cos的资源id
-     * @param CosResourceId 是否是Cos的资源id
+     * Set 是否是cos的资源（0或者1），输入的ResourceId为cos资源时必填
+     * @param CosResourceId 是否是cos的资源（0或者1），输入的ResourceId为cos资源时必填
      */
     public void setCosResourceId(Long CosResourceId) {
         this.CosResourceId = CosResourceId;
     }
+
+    public DescribeResourceTagsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeResourceTagsRequest(DescribeResourceTagsRequest source) {
+        if (source.CreateUin != null) {
+            this.CreateUin = new Long(source.CreateUin);
+        }
+        if (source.ResourceRegion != null) {
+            this.ResourceRegion = new String(source.ResourceRegion);
+        }
+        if (source.ServiceType != null) {
+            this.ServiceType = new String(source.ServiceType);
+        }
+        if (source.ResourcePrefix != null) {
+            this.ResourcePrefix = new String(source.ResourcePrefix);
+        }
+        if (source.ResourceId != null) {
+            this.ResourceId = new String(source.ResourceId);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.CosResourceId != null) {
+            this.CosResourceId = new Long(source.CosResourceId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

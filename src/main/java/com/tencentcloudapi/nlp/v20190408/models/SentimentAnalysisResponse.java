@@ -23,13 +23,6 @@ import java.util.HashMap;
 public class SentimentAnalysisResponse extends AbstractModel{
 
     /**
-    * 负面情感概率
-    */
-    @SerializedName("Negative")
-    @Expose
-    private Float Negative;
-
-    /**
     * 正面情感概率
     */
     @SerializedName("Positive")
@@ -37,7 +30,25 @@ public class SentimentAnalysisResponse extends AbstractModel{
     private Float Positive;
 
     /**
-    * 情感属性
+    * 中性情感概率，当输入参数Mode取值为3class时有效，否则值为空
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Neutral")
+    @Expose
+    private Float Neutral;
+
+    /**
+    * 负面情感概率
+    */
+    @SerializedName("Negative")
+    @Expose
+    private Float Negative;
+
+    /**
+    * 情感分类结果：
+1、positive，表示正面情感
+2、negative，表示负面情感
+3、neutral，表示中性、无情感
     */
     @SerializedName("Sentiment")
     @Expose
@@ -49,22 +60,6 @@ public class SentimentAnalysisResponse extends AbstractModel{
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
-
-    /**
-     * Get 负面情感概率 
-     * @return Negative 负面情感概率
-     */
-    public Float getNegative() {
-        return this.Negative;
-    }
-
-    /**
-     * Set 负面情感概率
-     * @param Negative 负面情感概率
-     */
-    public void setNegative(Float Negative) {
-        this.Negative = Negative;
-    }
 
     /**
      * Get 正面情感概率 
@@ -83,16 +78,64 @@ public class SentimentAnalysisResponse extends AbstractModel{
     }
 
     /**
-     * Get 情感属性 
-     * @return Sentiment 情感属性
+     * Get 中性情感概率，当输入参数Mode取值为3class时有效，否则值为空
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Neutral 中性情感概率，当输入参数Mode取值为3class时有效，否则值为空
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Float getNeutral() {
+        return this.Neutral;
+    }
+
+    /**
+     * Set 中性情感概率，当输入参数Mode取值为3class时有效，否则值为空
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Neutral 中性情感概率，当输入参数Mode取值为3class时有效，否则值为空
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setNeutral(Float Neutral) {
+        this.Neutral = Neutral;
+    }
+
+    /**
+     * Get 负面情感概率 
+     * @return Negative 负面情感概率
+     */
+    public Float getNegative() {
+        return this.Negative;
+    }
+
+    /**
+     * Set 负面情感概率
+     * @param Negative 负面情感概率
+     */
+    public void setNegative(Float Negative) {
+        this.Negative = Negative;
+    }
+
+    /**
+     * Get 情感分类结果：
+1、positive，表示正面情感
+2、negative，表示负面情感
+3、neutral，表示中性、无情感 
+     * @return Sentiment 情感分类结果：
+1、positive，表示正面情感
+2、negative，表示负面情感
+3、neutral，表示中性、无情感
      */
     public String getSentiment() {
         return this.Sentiment;
     }
 
     /**
-     * Set 情感属性
-     * @param Sentiment 情感属性
+     * Set 情感分类结果：
+1、positive，表示正面情感
+2、negative，表示负面情感
+3、neutral，表示中性、无情感
+     * @param Sentiment 情感分类结果：
+1、positive，表示正面情感
+2、negative，表示负面情感
+3、neutral，表示中性、无情感
      */
     public void setSentiment(String Sentiment) {
         this.Sentiment = Sentiment;
@@ -114,12 +157,39 @@ public class SentimentAnalysisResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public SentimentAnalysisResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SentimentAnalysisResponse(SentimentAnalysisResponse source) {
+        if (source.Positive != null) {
+            this.Positive = new Float(source.Positive);
+        }
+        if (source.Neutral != null) {
+            this.Neutral = new Float(source.Neutral);
+        }
+        if (source.Negative != null) {
+            this.Negative = new Float(source.Negative);
+        }
+        if (source.Sentiment != null) {
+            this.Sentiment = new String(source.Sentiment);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "Negative", this.Negative);
         this.setParamSimple(map, prefix + "Positive", this.Positive);
+        this.setParamSimple(map, prefix + "Neutral", this.Neutral);
+        this.setParamSimple(map, prefix + "Negative", this.Negative);
         this.setParamSimple(map, prefix + "Sentiment", this.Sentiment);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 

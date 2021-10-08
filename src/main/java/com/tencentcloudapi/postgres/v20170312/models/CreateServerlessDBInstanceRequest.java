@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class CreateServerlessDBInstanceRequest extends AbstractModel{
 
     /**
-    * 可用区ID。该参数可以通过调用 DescribeZones 接口的返回值中的Zone字段来获取。
+    * 可用区ID。公测阶段仅支持ap-shanghai-2、ap-beijing-1,ap-guangzhou-2.
     */
     @SerializedName("Zone")
     @Expose
@@ -37,14 +37,14 @@ public class CreateServerlessDBInstanceRequest extends AbstractModel{
     private String DBInstanceName;
 
     /**
-    * PostgreSQL内核版本，目前只支持：9.3.5、9.5.4、10.4三种版本。
+    * PostgreSQL内核版本，目前只支持：10.4。
     */
     @SerializedName("DBVersion")
     @Expose
     private String DBVersion;
 
     /**
-    * PostgreSQL数据库字符集，目前支持UTF8、LATIN1两种。
+    * PostgreSQL数据库字符集，目前支持UTF8。
     */
     @SerializedName("DBCharset")
     @Expose
@@ -72,16 +72,23 @@ public class CreateServerlessDBInstanceRequest extends AbstractModel{
     private String SubnetId;
 
     /**
-     * Get 可用区ID。该参数可以通过调用 DescribeZones 接口的返回值中的Zone字段来获取。 
-     * @return Zone 可用区ID。该参数可以通过调用 DescribeZones 接口的返回值中的Zone字段来获取。
+    * 实例需要绑定的标签数组信息
+    */
+    @SerializedName("TagList")
+    @Expose
+    private Tag [] TagList;
+
+    /**
+     * Get 可用区ID。公测阶段仅支持ap-shanghai-2、ap-beijing-1,ap-guangzhou-2. 
+     * @return Zone 可用区ID。公测阶段仅支持ap-shanghai-2、ap-beijing-1,ap-guangzhou-2.
      */
     public String getZone() {
         return this.Zone;
     }
 
     /**
-     * Set 可用区ID。该参数可以通过调用 DescribeZones 接口的返回值中的Zone字段来获取。
-     * @param Zone 可用区ID。该参数可以通过调用 DescribeZones 接口的返回值中的Zone字段来获取。
+     * Set 可用区ID。公测阶段仅支持ap-shanghai-2、ap-beijing-1,ap-guangzhou-2.
+     * @param Zone 可用区ID。公测阶段仅支持ap-shanghai-2、ap-beijing-1,ap-guangzhou-2.
      */
     public void setZone(String Zone) {
         this.Zone = Zone;
@@ -104,32 +111,32 @@ public class CreateServerlessDBInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get PostgreSQL内核版本，目前只支持：9.3.5、9.5.4、10.4三种版本。 
-     * @return DBVersion PostgreSQL内核版本，目前只支持：9.3.5、9.5.4、10.4三种版本。
+     * Get PostgreSQL内核版本，目前只支持：10.4。 
+     * @return DBVersion PostgreSQL内核版本，目前只支持：10.4。
      */
     public String getDBVersion() {
         return this.DBVersion;
     }
 
     /**
-     * Set PostgreSQL内核版本，目前只支持：9.3.5、9.5.4、10.4三种版本。
-     * @param DBVersion PostgreSQL内核版本，目前只支持：9.3.5、9.5.4、10.4三种版本。
+     * Set PostgreSQL内核版本，目前只支持：10.4。
+     * @param DBVersion PostgreSQL内核版本，目前只支持：10.4。
      */
     public void setDBVersion(String DBVersion) {
         this.DBVersion = DBVersion;
     }
 
     /**
-     * Get PostgreSQL数据库字符集，目前支持UTF8、LATIN1两种。 
-     * @return DBCharset PostgreSQL数据库字符集，目前支持UTF8、LATIN1两种。
+     * Get PostgreSQL数据库字符集，目前支持UTF8。 
+     * @return DBCharset PostgreSQL数据库字符集，目前支持UTF8。
      */
     public String getDBCharset() {
         return this.DBCharset;
     }
 
     /**
-     * Set PostgreSQL数据库字符集，目前支持UTF8、LATIN1两种。
-     * @param DBCharset PostgreSQL数据库字符集，目前支持UTF8、LATIN1两种。
+     * Set PostgreSQL数据库字符集，目前支持UTF8。
+     * @param DBCharset PostgreSQL数据库字符集，目前支持UTF8。
      */
     public void setDBCharset(String DBCharset) {
         this.DBCharset = DBCharset;
@@ -184,6 +191,60 @@ public class CreateServerlessDBInstanceRequest extends AbstractModel{
     }
 
     /**
+     * Get 实例需要绑定的标签数组信息 
+     * @return TagList 实例需要绑定的标签数组信息
+     */
+    public Tag [] getTagList() {
+        return this.TagList;
+    }
+
+    /**
+     * Set 实例需要绑定的标签数组信息
+     * @param TagList 实例需要绑定的标签数组信息
+     */
+    public void setTagList(Tag [] TagList) {
+        this.TagList = TagList;
+    }
+
+    public CreateServerlessDBInstanceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateServerlessDBInstanceRequest(CreateServerlessDBInstanceRequest source) {
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.DBInstanceName != null) {
+            this.DBInstanceName = new String(source.DBInstanceName);
+        }
+        if (source.DBVersion != null) {
+            this.DBVersion = new String(source.DBVersion);
+        }
+        if (source.DBCharset != null) {
+            this.DBCharset = new String(source.DBCharset);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.TagList != null) {
+            this.TagList = new Tag[source.TagList.length];
+            for (int i = 0; i < source.TagList.length; i++) {
+                this.TagList[i] = new Tag(source.TagList[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -194,6 +255,7 @@ public class CreateServerlessDBInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamSimple(map, prefix + "VpcId", this.VpcId);
         this.setParamSimple(map, prefix + "SubnetId", this.SubnetId);
+        this.setParamArrayObj(map, prefix + "TagList.", this.TagList);
 
     }
 }

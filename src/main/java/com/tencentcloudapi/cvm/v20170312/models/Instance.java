@@ -86,7 +86,7 @@ public class Instance extends AbstractModel{
     private SystemDisk SystemDisk;
 
     /**
-    * 实例数据盘信息。只包含随实例购买的数据盘。
+    * 实例数据盘信息。
     */
     @SerializedName("DataDisks")
     @Expose
@@ -249,6 +249,30 @@ public class Instance extends AbstractModel{
     private String CamRoleName;
 
     /**
+    * 高性能计算集群`ID`。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("HpcClusterId")
+    @Expose
+    private String HpcClusterId;
+
+    /**
+    * 高性能计算集群`IP`列表。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RdmaIpAddresses")
+    @Expose
+    private String [] RdmaIpAddresses;
+
+    /**
+    * 实例隔离类型。取值范围：<br><li>ARREAR：表示欠费隔离<br></li><li>EXPIRE：表示到期隔离<br></li><li>MANMADE：表示主动退还隔离<br></li><li>NOTISOLATED：表示未隔离<br></li>
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IsolatedSource")
+    @Expose
+    private String IsolatedSource;
+
+    /**
      * Get 实例所在的位置。 
      * @return Placement 实例所在的位置。
      */
@@ -393,16 +417,16 @@ public class Instance extends AbstractModel{
     }
 
     /**
-     * Get 实例数据盘信息。只包含随实例购买的数据盘。 
-     * @return DataDisks 实例数据盘信息。只包含随实例购买的数据盘。
+     * Get 实例数据盘信息。 
+     * @return DataDisks 实例数据盘信息。
      */
     public DataDisk [] getDataDisks() {
         return this.DataDisks;
     }
 
     /**
-     * Set 实例数据盘信息。只包含随实例购买的数据盘。
-     * @param DataDisks 实例数据盘信息。只包含随实例购买的数据盘。
+     * Set 实例数据盘信息。
+     * @param DataDisks 实例数据盘信息。
      */
     public void setDataDisks(DataDisk [] DataDisks) {
         this.DataDisks = DataDisks;
@@ -781,6 +805,200 @@ public class Instance extends AbstractModel{
     }
 
     /**
+     * Get 高性能计算集群`ID`。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return HpcClusterId 高性能计算集群`ID`。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getHpcClusterId() {
+        return this.HpcClusterId;
+    }
+
+    /**
+     * Set 高性能计算集群`ID`。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param HpcClusterId 高性能计算集群`ID`。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setHpcClusterId(String HpcClusterId) {
+        this.HpcClusterId = HpcClusterId;
+    }
+
+    /**
+     * Get 高性能计算集群`IP`列表。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RdmaIpAddresses 高性能计算集群`IP`列表。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getRdmaIpAddresses() {
+        return this.RdmaIpAddresses;
+    }
+
+    /**
+     * Set 高性能计算集群`IP`列表。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RdmaIpAddresses 高性能计算集群`IP`列表。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRdmaIpAddresses(String [] RdmaIpAddresses) {
+        this.RdmaIpAddresses = RdmaIpAddresses;
+    }
+
+    /**
+     * Get 实例隔离类型。取值范围：<br><li>ARREAR：表示欠费隔离<br></li><li>EXPIRE：表示到期隔离<br></li><li>MANMADE：表示主动退还隔离<br></li><li>NOTISOLATED：表示未隔离<br></li>
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IsolatedSource 实例隔离类型。取值范围：<br><li>ARREAR：表示欠费隔离<br></li><li>EXPIRE：表示到期隔离<br></li><li>MANMADE：表示主动退还隔离<br></li><li>NOTISOLATED：表示未隔离<br></li>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getIsolatedSource() {
+        return this.IsolatedSource;
+    }
+
+    /**
+     * Set 实例隔离类型。取值范围：<br><li>ARREAR：表示欠费隔离<br></li><li>EXPIRE：表示到期隔离<br></li><li>MANMADE：表示主动退还隔离<br></li><li>NOTISOLATED：表示未隔离<br></li>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IsolatedSource 实例隔离类型。取值范围：<br><li>ARREAR：表示欠费隔离<br></li><li>EXPIRE：表示到期隔离<br></li><li>MANMADE：表示主动退还隔离<br></li><li>NOTISOLATED：表示未隔离<br></li>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIsolatedSource(String IsolatedSource) {
+        this.IsolatedSource = IsolatedSource;
+    }
+
+    public Instance() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Instance(Instance source) {
+        if (source.Placement != null) {
+            this.Placement = new Placement(source.Placement);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.InstanceType != null) {
+            this.InstanceType = new String(source.InstanceType);
+        }
+        if (source.CPU != null) {
+            this.CPU = new Long(source.CPU);
+        }
+        if (source.Memory != null) {
+            this.Memory = new Long(source.Memory);
+        }
+        if (source.RestrictState != null) {
+            this.RestrictState = new String(source.RestrictState);
+        }
+        if (source.InstanceName != null) {
+            this.InstanceName = new String(source.InstanceName);
+        }
+        if (source.InstanceChargeType != null) {
+            this.InstanceChargeType = new String(source.InstanceChargeType);
+        }
+        if (source.SystemDisk != null) {
+            this.SystemDisk = new SystemDisk(source.SystemDisk);
+        }
+        if (source.DataDisks != null) {
+            this.DataDisks = new DataDisk[source.DataDisks.length];
+            for (int i = 0; i < source.DataDisks.length; i++) {
+                this.DataDisks[i] = new DataDisk(source.DataDisks[i]);
+            }
+        }
+        if (source.PrivateIpAddresses != null) {
+            this.PrivateIpAddresses = new String[source.PrivateIpAddresses.length];
+            for (int i = 0; i < source.PrivateIpAddresses.length; i++) {
+                this.PrivateIpAddresses[i] = new String(source.PrivateIpAddresses[i]);
+            }
+        }
+        if (source.PublicIpAddresses != null) {
+            this.PublicIpAddresses = new String[source.PublicIpAddresses.length];
+            for (int i = 0; i < source.PublicIpAddresses.length; i++) {
+                this.PublicIpAddresses[i] = new String(source.PublicIpAddresses[i]);
+            }
+        }
+        if (source.InternetAccessible != null) {
+            this.InternetAccessible = new InternetAccessible(source.InternetAccessible);
+        }
+        if (source.VirtualPrivateCloud != null) {
+            this.VirtualPrivateCloud = new VirtualPrivateCloud(source.VirtualPrivateCloud);
+        }
+        if (source.ImageId != null) {
+            this.ImageId = new String(source.ImageId);
+        }
+        if (source.RenewFlag != null) {
+            this.RenewFlag = new String(source.RenewFlag);
+        }
+        if (source.CreatedTime != null) {
+            this.CreatedTime = new String(source.CreatedTime);
+        }
+        if (source.ExpiredTime != null) {
+            this.ExpiredTime = new String(source.ExpiredTime);
+        }
+        if (source.OsName != null) {
+            this.OsName = new String(source.OsName);
+        }
+        if (source.SecurityGroupIds != null) {
+            this.SecurityGroupIds = new String[source.SecurityGroupIds.length];
+            for (int i = 0; i < source.SecurityGroupIds.length; i++) {
+                this.SecurityGroupIds[i] = new String(source.SecurityGroupIds[i]);
+            }
+        }
+        if (source.LoginSettings != null) {
+            this.LoginSettings = new LoginSettings(source.LoginSettings);
+        }
+        if (source.InstanceState != null) {
+            this.InstanceState = new String(source.InstanceState);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.StopChargingMode != null) {
+            this.StopChargingMode = new String(source.StopChargingMode);
+        }
+        if (source.Uuid != null) {
+            this.Uuid = new String(source.Uuid);
+        }
+        if (source.LatestOperation != null) {
+            this.LatestOperation = new String(source.LatestOperation);
+        }
+        if (source.LatestOperationState != null) {
+            this.LatestOperationState = new String(source.LatestOperationState);
+        }
+        if (source.LatestOperationRequestId != null) {
+            this.LatestOperationRequestId = new String(source.LatestOperationRequestId);
+        }
+        if (source.DisasterRecoverGroupId != null) {
+            this.DisasterRecoverGroupId = new String(source.DisasterRecoverGroupId);
+        }
+        if (source.IPv6Addresses != null) {
+            this.IPv6Addresses = new String[source.IPv6Addresses.length];
+            for (int i = 0; i < source.IPv6Addresses.length; i++) {
+                this.IPv6Addresses[i] = new String(source.IPv6Addresses[i]);
+            }
+        }
+        if (source.CamRoleName != null) {
+            this.CamRoleName = new String(source.CamRoleName);
+        }
+        if (source.HpcClusterId != null) {
+            this.HpcClusterId = new String(source.HpcClusterId);
+        }
+        if (source.RdmaIpAddresses != null) {
+            this.RdmaIpAddresses = new String[source.RdmaIpAddresses.length];
+            for (int i = 0; i < source.RdmaIpAddresses.length; i++) {
+                this.RdmaIpAddresses[i] = new String(source.RdmaIpAddresses[i]);
+            }
+        }
+        if (source.IsolatedSource != null) {
+            this.IsolatedSource = new String(source.IsolatedSource);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -815,6 +1033,9 @@ public class Instance extends AbstractModel{
         this.setParamSimple(map, prefix + "DisasterRecoverGroupId", this.DisasterRecoverGroupId);
         this.setParamArraySimple(map, prefix + "IPv6Addresses.", this.IPv6Addresses);
         this.setParamSimple(map, prefix + "CamRoleName", this.CamRoleName);
+        this.setParamSimple(map, prefix + "HpcClusterId", this.HpcClusterId);
+        this.setParamArraySimple(map, prefix + "RdmaIpAddresses.", this.RdmaIpAddresses);
+        this.setParamSimple(map, prefix + "IsolatedSource", this.IsolatedSource);
 
     }
 }

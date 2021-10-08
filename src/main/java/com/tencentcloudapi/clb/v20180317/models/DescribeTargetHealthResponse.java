@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeTargetHealthResponse extends AbstractModel{
 
     /**
-    * 负载均衡实例列表
+    * 负载均衡实例列表。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LoadBalancers")
@@ -38,9 +38,9 @@ public class DescribeTargetHealthResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 负载均衡实例列表
+     * Get 负载均衡实例列表。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return LoadBalancers 负载均衡实例列表
+     * @return LoadBalancers 负载均衡实例列表。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public LoadBalancerHealth [] getLoadBalancers() {
@@ -48,9 +48,9 @@ public class DescribeTargetHealthResponse extends AbstractModel{
     }
 
     /**
-     * Set 负载均衡实例列表
+     * Set 负载均衡实例列表。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param LoadBalancers 负载均衡实例列表
+     * @param LoadBalancers 负载均衡实例列表。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLoadBalancers(LoadBalancerHealth [] LoadBalancers) {
@@ -72,6 +72,26 @@ public class DescribeTargetHealthResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeTargetHealthResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeTargetHealthResponse(DescribeTargetHealthResponse source) {
+        if (source.LoadBalancers != null) {
+            this.LoadBalancers = new LoadBalancerHealth[source.LoadBalancers.length];
+            for (int i = 0; i < source.LoadBalancers.length; i++) {
+                this.LoadBalancers[i] = new LoadBalancerHealth(source.LoadBalancers[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

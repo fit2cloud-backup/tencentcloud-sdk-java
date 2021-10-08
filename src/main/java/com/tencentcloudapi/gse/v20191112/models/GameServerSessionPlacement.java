@@ -92,7 +92,7 @@ public class GameServerSessionPlacement extends AbstractModel{
     private GameProperty [] GameProperties;
 
     /**
-    * 最大玩家数量
+    * 游戏服务器允许同时连接到游戏会话的最大玩家数量，最小值1，最大值为玩家会话最大限额
     */
     @SerializedName("MaximumPlayerSessionCount")
     @Expose
@@ -322,16 +322,16 @@ public class GameServerSessionPlacement extends AbstractModel{
     }
 
     /**
-     * Get 最大玩家数量 
-     * @return MaximumPlayerSessionCount 最大玩家数量
+     * Get 游戏服务器允许同时连接到游戏会话的最大玩家数量，最小值1，最大值为玩家会话最大限额 
+     * @return MaximumPlayerSessionCount 游戏服务器允许同时连接到游戏会话的最大玩家数量，最小值1，最大值为玩家会话最大限额
      */
     public Long getMaximumPlayerSessionCount() {
         return this.MaximumPlayerSessionCount;
     }
 
     /**
-     * Set 最大玩家数量
-     * @param MaximumPlayerSessionCount 最大玩家数量
+     * Set 游戏服务器允许同时连接到游戏会话的最大玩家数量，最小值1，最大值为玩家会话最大限额
+     * @param MaximumPlayerSessionCount 游戏服务器允许同时连接到游戏会话的最大玩家数量，最小值1，最大值为玩家会话最大限额
      */
     public void setMaximumPlayerSessionCount(Long MaximumPlayerSessionCount) {
         this.MaximumPlayerSessionCount = MaximumPlayerSessionCount;
@@ -472,6 +472,77 @@ public class GameServerSessionPlacement extends AbstractModel{
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
     }
+
+    public GameServerSessionPlacement() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public GameServerSessionPlacement(GameServerSessionPlacement source) {
+        if (source.PlacementId != null) {
+            this.PlacementId = new String(source.PlacementId);
+        }
+        if (source.GameServerSessionQueueName != null) {
+            this.GameServerSessionQueueName = new String(source.GameServerSessionQueueName);
+        }
+        if (source.PlayerLatencies != null) {
+            this.PlayerLatencies = new PlayerLatency[source.PlayerLatencies.length];
+            for (int i = 0; i < source.PlayerLatencies.length; i++) {
+                this.PlayerLatencies[i] = new PlayerLatency(source.PlayerLatencies[i]);
+            }
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.DnsName != null) {
+            this.DnsName = new String(source.DnsName);
+        }
+        if (source.GameServerSessionId != null) {
+            this.GameServerSessionId = new String(source.GameServerSessionId);
+        }
+        if (source.GameServerSessionName != null) {
+            this.GameServerSessionName = new String(source.GameServerSessionName);
+        }
+        if (source.GameServerSessionRegion != null) {
+            this.GameServerSessionRegion = new String(source.GameServerSessionRegion);
+        }
+        if (source.GameProperties != null) {
+            this.GameProperties = new GameProperty[source.GameProperties.length];
+            for (int i = 0; i < source.GameProperties.length; i++) {
+                this.GameProperties[i] = new GameProperty(source.GameProperties[i]);
+            }
+        }
+        if (source.MaximumPlayerSessionCount != null) {
+            this.MaximumPlayerSessionCount = new Long(source.MaximumPlayerSessionCount);
+        }
+        if (source.GameServerSessionData != null) {
+            this.GameServerSessionData = new String(source.GameServerSessionData);
+        }
+        if (source.IpAddress != null) {
+            this.IpAddress = new String(source.IpAddress);
+        }
+        if (source.Port != null) {
+            this.Port = new Long(source.Port);
+        }
+        if (source.MatchmakerData != null) {
+            this.MatchmakerData = new String(source.MatchmakerData);
+        }
+        if (source.PlacedPlayerSessions != null) {
+            this.PlacedPlayerSessions = new PlacedPlayerSession[source.PlacedPlayerSessions.length];
+            for (int i = 0; i < source.PlacedPlayerSessions.length; i++) {
+                this.PlacedPlayerSessions[i] = new PlacedPlayerSession(source.PlacedPlayerSessions[i]);
+            }
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

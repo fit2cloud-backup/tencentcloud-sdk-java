@@ -27,6 +27,7 @@ import com.tencentcloudapi.aai.v20180522.models.*;
 
 public class AaiClient extends AbstractClient{
     private static String endpoint = "aai.tencentcloudapi.com";
+    private static String service = "aai";
     private static String version = "2018-05-22";
 
     public AaiClient(Credential credential, String region) {
@@ -45,12 +46,14 @@ public class AaiClient extends AbstractClient{
      */
     public ChatResponse Chat(ChatRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ChatResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ChatResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "Chat"), type);
+                rspStr = this.internalRequest(req, "Chat");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -63,12 +66,14 @@ public class AaiClient extends AbstractClient{
      */
     public SentenceRecognitionResponse SentenceRecognition(SentenceRecognitionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SentenceRecognitionResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<SentenceRecognitionResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "SentenceRecognition"), type);
+                rspStr = this.internalRequest(req, "SentenceRecognition");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -81,12 +86,14 @@ public class AaiClient extends AbstractClient{
      */
     public SimultaneousInterpretingResponse SimultaneousInterpreting(SimultaneousInterpretingRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SimultaneousInterpretingResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<SimultaneousInterpretingResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "SimultaneousInterpreting"), type);
+                rspStr = this.internalRequest(req, "SimultaneousInterpreting");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -101,12 +108,14 @@ public class AaiClient extends AbstractClient{
      */
     public TextToVoiceResponse TextToVoice(TextToVoiceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<TextToVoiceResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<TextToVoiceResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "TextToVoice"), type);
+                rspStr = this.internalRequest(req, "TextToVoice");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

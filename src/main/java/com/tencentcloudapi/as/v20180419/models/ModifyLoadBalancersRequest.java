@@ -37,7 +37,7 @@ public class ModifyLoadBalancersRequest extends AbstractModel{
     private String [] LoadBalancerIds;
 
     /**
-    * 应用型负载均衡器列表，目前长度上限为20，LoadBalancerIds 和 ForwardLoadBalancers 二者同时最多只能指定一个
+    * 应用型负载均衡器列表，目前长度上限为50，LoadBalancerIds 和 ForwardLoadBalancers 二者同时最多只能指定一个
     */
     @SerializedName("ForwardLoadBalancers")
     @Expose
@@ -85,16 +85,16 @@ public class ModifyLoadBalancersRequest extends AbstractModel{
     }
 
     /**
-     * Get 应用型负载均衡器列表，目前长度上限为20，LoadBalancerIds 和 ForwardLoadBalancers 二者同时最多只能指定一个 
-     * @return ForwardLoadBalancers 应用型负载均衡器列表，目前长度上限为20，LoadBalancerIds 和 ForwardLoadBalancers 二者同时最多只能指定一个
+     * Get 应用型负载均衡器列表，目前长度上限为50，LoadBalancerIds 和 ForwardLoadBalancers 二者同时最多只能指定一个 
+     * @return ForwardLoadBalancers 应用型负载均衡器列表，目前长度上限为50，LoadBalancerIds 和 ForwardLoadBalancers 二者同时最多只能指定一个
      */
     public ForwardLoadBalancer [] getForwardLoadBalancers() {
         return this.ForwardLoadBalancers;
     }
 
     /**
-     * Set 应用型负载均衡器列表，目前长度上限为20，LoadBalancerIds 和 ForwardLoadBalancers 二者同时最多只能指定一个
-     * @param ForwardLoadBalancers 应用型负载均衡器列表，目前长度上限为20，LoadBalancerIds 和 ForwardLoadBalancers 二者同时最多只能指定一个
+     * Set 应用型负载均衡器列表，目前长度上限为50，LoadBalancerIds 和 ForwardLoadBalancers 二者同时最多只能指定一个
+     * @param ForwardLoadBalancers 应用型负载均衡器列表，目前长度上限为50，LoadBalancerIds 和 ForwardLoadBalancers 二者同时最多只能指定一个
      */
     public void setForwardLoadBalancers(ForwardLoadBalancer [] ForwardLoadBalancers) {
         this.ForwardLoadBalancers = ForwardLoadBalancers;
@@ -123,6 +123,35 @@ public class ModifyLoadBalancersRequest extends AbstractModel{
     public void setLoadBalancersCheckPolicy(String LoadBalancersCheckPolicy) {
         this.LoadBalancersCheckPolicy = LoadBalancersCheckPolicy;
     }
+
+    public ModifyLoadBalancersRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyLoadBalancersRequest(ModifyLoadBalancersRequest source) {
+        if (source.AutoScalingGroupId != null) {
+            this.AutoScalingGroupId = new String(source.AutoScalingGroupId);
+        }
+        if (source.LoadBalancerIds != null) {
+            this.LoadBalancerIds = new String[source.LoadBalancerIds.length];
+            for (int i = 0; i < source.LoadBalancerIds.length; i++) {
+                this.LoadBalancerIds[i] = new String(source.LoadBalancerIds[i]);
+            }
+        }
+        if (source.ForwardLoadBalancers != null) {
+            this.ForwardLoadBalancers = new ForwardLoadBalancer[source.ForwardLoadBalancers.length];
+            for (int i = 0; i < source.ForwardLoadBalancers.length; i++) {
+                this.ForwardLoadBalancers[i] = new ForwardLoadBalancer(source.ForwardLoadBalancers[i]);
+            }
+        }
+        if (source.LoadBalancersCheckPolicy != null) {
+            this.LoadBalancersCheckPolicy = new String(source.LoadBalancersCheckPolicy);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

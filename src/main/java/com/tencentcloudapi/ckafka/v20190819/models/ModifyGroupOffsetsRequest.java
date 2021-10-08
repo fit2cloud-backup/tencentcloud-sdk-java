@@ -72,6 +72,13 @@ public class ModifyGroupOffsetsRequest extends AbstractModel{
     private Long Offset;
 
     /**
+    * 需要重新设置的partition的列表，如果没有指定Topics参数。则重置全部topics的对应的Partition列表里的partition。指定Topics时则重置指定的topic列表的对应的Partitions列表的partition。
+    */
+    @SerializedName("Partitions")
+    @Expose
+    private Long [] Partitions;
+
+    /**
      * Get kafka实例id 
      * @return InstanceId kafka实例id
      */
@@ -184,6 +191,63 @@ public class ModifyGroupOffsetsRequest extends AbstractModel{
     }
 
     /**
+     * Get 需要重新设置的partition的列表，如果没有指定Topics参数。则重置全部topics的对应的Partition列表里的partition。指定Topics时则重置指定的topic列表的对应的Partitions列表的partition。 
+     * @return Partitions 需要重新设置的partition的列表，如果没有指定Topics参数。则重置全部topics的对应的Partition列表里的partition。指定Topics时则重置指定的topic列表的对应的Partitions列表的partition。
+     */
+    public Long [] getPartitions() {
+        return this.Partitions;
+    }
+
+    /**
+     * Set 需要重新设置的partition的列表，如果没有指定Topics参数。则重置全部topics的对应的Partition列表里的partition。指定Topics时则重置指定的topic列表的对应的Partitions列表的partition。
+     * @param Partitions 需要重新设置的partition的列表，如果没有指定Topics参数。则重置全部topics的对应的Partition列表里的partition。指定Topics时则重置指定的topic列表的对应的Partitions列表的partition。
+     */
+    public void setPartitions(Long [] Partitions) {
+        this.Partitions = Partitions;
+    }
+
+    public ModifyGroupOffsetsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyGroupOffsetsRequest(ModifyGroupOffsetsRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.Group != null) {
+            this.Group = new String(source.Group);
+        }
+        if (source.Strategy != null) {
+            this.Strategy = new Long(source.Strategy);
+        }
+        if (source.Topics != null) {
+            this.Topics = new String[source.Topics.length];
+            for (int i = 0; i < source.Topics.length; i++) {
+                this.Topics[i] = new String(source.Topics[i]);
+            }
+        }
+        if (source.Shift != null) {
+            this.Shift = new Long(source.Shift);
+        }
+        if (source.ShiftTimestamp != null) {
+            this.ShiftTimestamp = new Long(source.ShiftTimestamp);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Partitions != null) {
+            this.Partitions = new Long[source.Partitions.length];
+            for (int i = 0; i < source.Partitions.length; i++) {
+                this.Partitions[i] = new Long(source.Partitions[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -194,6 +258,7 @@ public class ModifyGroupOffsetsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Shift", this.Shift);
         this.setParamSimple(map, prefix + "ShiftTimestamp", this.ShiftTimestamp);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
+        this.setParamArraySimple(map, prefix + "Partitions.", this.Partitions);
 
     }
 }

@@ -51,6 +51,13 @@ public class DescribeTopicRequest extends AbstractModel{
     private Long Limit;
 
     /**
+    * Acl预设策略名称
+    */
+    @SerializedName("AclRuleName")
+    @Expose
+    private String AclRuleName;
+
+    /**
      * Get 实例 ID 
      * @return InstanceId 实例 ID
      */
@@ -115,6 +122,48 @@ public class DescribeTopicRequest extends AbstractModel{
     }
 
     /**
+     * Get Acl预设策略名称 
+     * @return AclRuleName Acl预设策略名称
+     */
+    public String getAclRuleName() {
+        return this.AclRuleName;
+    }
+
+    /**
+     * Set Acl预设策略名称
+     * @param AclRuleName Acl预设策略名称
+     */
+    public void setAclRuleName(String AclRuleName) {
+        this.AclRuleName = AclRuleName;
+    }
+
+    public DescribeTopicRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeTopicRequest(DescribeTopicRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.SearchWord != null) {
+            this.SearchWord = new String(source.SearchWord);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.AclRuleName != null) {
+            this.AclRuleName = new String(source.AclRuleName);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -122,6 +171,7 @@ public class DescribeTopicRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SearchWord", this.SearchWord);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamSimple(map, prefix + "AclRuleName", this.AclRuleName);
 
     }
 }

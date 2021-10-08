@@ -194,6 +194,13 @@ public class DCDBShardInfo extends AbstractModel{
     private Long Cpu;
 
     /**
+    * 分片ShardKey的范围（总共64个哈希值），例如： 0-31，32-63
+    */
+    @SerializedName("Range")
+    @Expose
+    private String Range;
+
+    /**
      * Get 所属实例Id 
      * @return InstanceId 所属实例Id
      */
@@ -590,6 +597,111 @@ public class DCDBShardInfo extends AbstractModel{
     }
 
     /**
+     * Get 分片ShardKey的范围（总共64个哈希值），例如： 0-31，32-63 
+     * @return Range 分片ShardKey的范围（总共64个哈希值），例如： 0-31，32-63
+     */
+    public String getRange() {
+        return this.Range;
+    }
+
+    /**
+     * Set 分片ShardKey的范围（总共64个哈希值），例如： 0-31，32-63
+     * @param Range 分片ShardKey的范围（总共64个哈希值），例如： 0-31，32-63
+     */
+    public void setRange(String Range) {
+        this.Range = Range;
+    }
+
+    public DCDBShardInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DCDBShardInfo(DCDBShardInfo source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.ShardSerialId != null) {
+            this.ShardSerialId = new String(source.ShardSerialId);
+        }
+        if (source.ShardInstanceId != null) {
+            this.ShardInstanceId = new String(source.ShardInstanceId);
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+        if (source.StatusDesc != null) {
+            this.StatusDesc = new String(source.StatusDesc);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.Region != null) {
+            this.Region = new String(source.Region);
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.Memory != null) {
+            this.Memory = new Long(source.Memory);
+        }
+        if (source.Storage != null) {
+            this.Storage = new Long(source.Storage);
+        }
+        if (source.PeriodEndTime != null) {
+            this.PeriodEndTime = new String(source.PeriodEndTime);
+        }
+        if (source.NodeCount != null) {
+            this.NodeCount = new Long(source.NodeCount);
+        }
+        if (source.StorageUsage != null) {
+            this.StorageUsage = new Float(source.StorageUsage);
+        }
+        if (source.MemoryUsage != null) {
+            this.MemoryUsage = new Float(source.MemoryUsage);
+        }
+        if (source.ShardId != null) {
+            this.ShardId = new Long(source.ShardId);
+        }
+        if (source.Pid != null) {
+            this.Pid = new Long(source.Pid);
+        }
+        if (source.ProxyVersion != null) {
+            this.ProxyVersion = new String(source.ProxyVersion);
+        }
+        if (source.Paymode != null) {
+            this.Paymode = new String(source.Paymode);
+        }
+        if (source.ShardMasterZone != null) {
+            this.ShardMasterZone = new String(source.ShardMasterZone);
+        }
+        if (source.ShardSlaveZones != null) {
+            this.ShardSlaveZones = new String[source.ShardSlaveZones.length];
+            for (int i = 0; i < source.ShardSlaveZones.length; i++) {
+                this.ShardSlaveZones[i] = new String(source.ShardSlaveZones[i]);
+            }
+        }
+        if (source.Cpu != null) {
+            this.Cpu = new Long(source.Cpu);
+        }
+        if (source.Range != null) {
+            this.Range = new String(source.Range);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -617,6 +729,7 @@ public class DCDBShardInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "ShardMasterZone", this.ShardMasterZone);
         this.setParamArraySimple(map, prefix + "ShardSlaveZones.", this.ShardSlaveZones);
         this.setParamSimple(map, prefix + "Cpu", this.Cpu);
+        this.setParamSimple(map, prefix + "Range", this.Range);
 
     }
 }

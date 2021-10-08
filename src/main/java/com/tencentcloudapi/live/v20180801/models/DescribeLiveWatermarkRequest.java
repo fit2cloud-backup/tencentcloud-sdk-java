@@ -23,27 +23,41 @@ import java.util.HashMap;
 public class DescribeLiveWatermarkRequest extends AbstractModel{
 
     /**
-    * 水印ID。
+    * DescribeLiveWatermarks接口返回的水印 ID。
     */
     @SerializedName("WatermarkId")
     @Expose
     private Long WatermarkId;
 
     /**
-     * Get 水印ID。 
-     * @return WatermarkId 水印ID。
+     * Get DescribeLiveWatermarks接口返回的水印 ID。 
+     * @return WatermarkId DescribeLiveWatermarks接口返回的水印 ID。
      */
     public Long getWatermarkId() {
         return this.WatermarkId;
     }
 
     /**
-     * Set 水印ID。
-     * @param WatermarkId 水印ID。
+     * Set DescribeLiveWatermarks接口返回的水印 ID。
+     * @param WatermarkId DescribeLiveWatermarks接口返回的水印 ID。
      */
     public void setWatermarkId(Long WatermarkId) {
         this.WatermarkId = WatermarkId;
     }
+
+    public DescribeLiveWatermarkRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeLiveWatermarkRequest(DescribeLiveWatermarkRequest source) {
+        if (source.WatermarkId != null) {
+            this.WatermarkId = new Long(source.WatermarkId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

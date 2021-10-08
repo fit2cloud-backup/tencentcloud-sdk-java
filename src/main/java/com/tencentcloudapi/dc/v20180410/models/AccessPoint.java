@@ -65,6 +65,46 @@ public class AccessPoint extends AbstractModel{
     private String RegionId;
 
     /**
+    * 接入点可用的端口类型列表。1000BASE-T代表千兆电口，1000BASE-LX代表千兆单模光口10km，1000BASE-ZX代表千兆单模光口80km,10GBASE-LR代表万兆单模光口10km,10GBASE-ZR代表万兆单模光口80km,10GBASE-LH代表万兆单模光口40km,100GBASE-LR4代表100G单模光口10km
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AvailablePortType")
+    @Expose
+    private String [] AvailablePortType;
+
+    /**
+    * 接入点经纬度
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Coordinate")
+    @Expose
+    private Coordinate Coordinate;
+
+    /**
+    * 接入点所在城市
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("City")
+    @Expose
+    private String City;
+
+    /**
+    * 接入点地域名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Area")
+    @Expose
+    private String Area;
+
+    /**
+    * 接入点类型。VXLAN/QCPL/QCAR
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AccessPointType")
+    @Expose
+    private String AccessPointType;
+
+    /**
      * Get 接入点的名称。 
      * @return AccessPointName 接入点的名称。
      */
@@ -161,6 +201,156 @@ public class AccessPoint extends AbstractModel{
     }
 
     /**
+     * Get 接入点可用的端口类型列表。1000BASE-T代表千兆电口，1000BASE-LX代表千兆单模光口10km，1000BASE-ZX代表千兆单模光口80km,10GBASE-LR代表万兆单模光口10km,10GBASE-ZR代表万兆单模光口80km,10GBASE-LH代表万兆单模光口40km,100GBASE-LR4代表100G单模光口10km
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AvailablePortType 接入点可用的端口类型列表。1000BASE-T代表千兆电口，1000BASE-LX代表千兆单模光口10km，1000BASE-ZX代表千兆单模光口80km,10GBASE-LR代表万兆单模光口10km,10GBASE-ZR代表万兆单模光口80km,10GBASE-LH代表万兆单模光口40km,100GBASE-LR4代表100G单模光口10km
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getAvailablePortType() {
+        return this.AvailablePortType;
+    }
+
+    /**
+     * Set 接入点可用的端口类型列表。1000BASE-T代表千兆电口，1000BASE-LX代表千兆单模光口10km，1000BASE-ZX代表千兆单模光口80km,10GBASE-LR代表万兆单模光口10km,10GBASE-ZR代表万兆单模光口80km,10GBASE-LH代表万兆单模光口40km,100GBASE-LR4代表100G单模光口10km
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AvailablePortType 接入点可用的端口类型列表。1000BASE-T代表千兆电口，1000BASE-LX代表千兆单模光口10km，1000BASE-ZX代表千兆单模光口80km,10GBASE-LR代表万兆单模光口10km,10GBASE-ZR代表万兆单模光口80km,10GBASE-LH代表万兆单模光口40km,100GBASE-LR4代表100G单模光口10km
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAvailablePortType(String [] AvailablePortType) {
+        this.AvailablePortType = AvailablePortType;
+    }
+
+    /**
+     * Get 接入点经纬度
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Coordinate 接入点经纬度
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Coordinate getCoordinate() {
+        return this.Coordinate;
+    }
+
+    /**
+     * Set 接入点经纬度
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Coordinate 接入点经纬度
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCoordinate(Coordinate Coordinate) {
+        this.Coordinate = Coordinate;
+    }
+
+    /**
+     * Get 接入点所在城市
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return City 接入点所在城市
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCity() {
+        return this.City;
+    }
+
+    /**
+     * Set 接入点所在城市
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param City 接入点所在城市
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCity(String City) {
+        this.City = City;
+    }
+
+    /**
+     * Get 接入点地域名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Area 接入点地域名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getArea() {
+        return this.Area;
+    }
+
+    /**
+     * Set 接入点地域名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Area 接入点地域名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setArea(String Area) {
+        this.Area = Area;
+    }
+
+    /**
+     * Get 接入点类型。VXLAN/QCPL/QCAR
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AccessPointType 接入点类型。VXLAN/QCPL/QCAR
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAccessPointType() {
+        return this.AccessPointType;
+    }
+
+    /**
+     * Set 接入点类型。VXLAN/QCPL/QCAR
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AccessPointType 接入点类型。VXLAN/QCPL/QCAR
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAccessPointType(String AccessPointType) {
+        this.AccessPointType = AccessPointType;
+    }
+
+    public AccessPoint() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AccessPoint(AccessPoint source) {
+        if (source.AccessPointName != null) {
+            this.AccessPointName = new String(source.AccessPointName);
+        }
+        if (source.AccessPointId != null) {
+            this.AccessPointId = new String(source.AccessPointId);
+        }
+        if (source.State != null) {
+            this.State = new String(source.State);
+        }
+        if (source.Location != null) {
+            this.Location = new String(source.Location);
+        }
+        if (source.LineOperator != null) {
+            this.LineOperator = new String[source.LineOperator.length];
+            for (int i = 0; i < source.LineOperator.length; i++) {
+                this.LineOperator[i] = new String(source.LineOperator[i]);
+            }
+        }
+        if (source.RegionId != null) {
+            this.RegionId = new String(source.RegionId);
+        }
+        if (source.AvailablePortType != null) {
+            this.AvailablePortType = new String[source.AvailablePortType.length];
+            for (int i = 0; i < source.AvailablePortType.length; i++) {
+                this.AvailablePortType[i] = new String(source.AvailablePortType[i]);
+            }
+        }
+        if (source.Coordinate != null) {
+            this.Coordinate = new Coordinate(source.Coordinate);
+        }
+        if (source.City != null) {
+            this.City = new String(source.City);
+        }
+        if (source.Area != null) {
+            this.Area = new String(source.Area);
+        }
+        if (source.AccessPointType != null) {
+            this.AccessPointType = new String(source.AccessPointType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -170,6 +360,11 @@ public class AccessPoint extends AbstractModel{
         this.setParamSimple(map, prefix + "Location", this.Location);
         this.setParamArraySimple(map, prefix + "LineOperator.", this.LineOperator);
         this.setParamSimple(map, prefix + "RegionId", this.RegionId);
+        this.setParamArraySimple(map, prefix + "AvailablePortType.", this.AvailablePortType);
+        this.setParamObj(map, prefix + "Coordinate.", this.Coordinate);
+        this.setParamSimple(map, prefix + "City", this.City);
+        this.setParamSimple(map, prefix + "Area", this.Area);
+        this.setParamSimple(map, prefix + "AccessPointType", this.AccessPointType);
 
     }
 }

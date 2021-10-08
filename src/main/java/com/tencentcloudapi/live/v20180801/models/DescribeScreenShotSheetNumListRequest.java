@@ -51,7 +51,7 @@ public class DescribeScreenShotSheetNumListRequest extends AbstractModel{
     private String [] PushDomains;
 
     /**
-    * 数据维度，数据延迟1个半小时，可选值包括：1、Minute（5分钟粒度，最大支持查询时间范围是31天），2、Day（天粒度，默认值，最大支持查询时间范围是186天当天）。
+    * 数据维度，数据延迟1个半小时，可选值包括：1、Minute（5分钟粒度，最大支持查询时间范围是31天），2、Day（天粒度，默认值，按照北京时间做跨天处理，最大支持查询时间范围是186天当天）。
     */
     @SerializedName("Granularity")
     @Expose
@@ -122,20 +122,49 @@ public class DescribeScreenShotSheetNumListRequest extends AbstractModel{
     }
 
     /**
-     * Get 数据维度，数据延迟1个半小时，可选值包括：1、Minute（5分钟粒度，最大支持查询时间范围是31天），2、Day（天粒度，默认值，最大支持查询时间范围是186天当天）。 
-     * @return Granularity 数据维度，数据延迟1个半小时，可选值包括：1、Minute（5分钟粒度，最大支持查询时间范围是31天），2、Day（天粒度，默认值，最大支持查询时间范围是186天当天）。
+     * Get 数据维度，数据延迟1个半小时，可选值包括：1、Minute（5分钟粒度，最大支持查询时间范围是31天），2、Day（天粒度，默认值，按照北京时间做跨天处理，最大支持查询时间范围是186天当天）。 
+     * @return Granularity 数据维度，数据延迟1个半小时，可选值包括：1、Minute（5分钟粒度，最大支持查询时间范围是31天），2、Day（天粒度，默认值，按照北京时间做跨天处理，最大支持查询时间范围是186天当天）。
      */
     public String getGranularity() {
         return this.Granularity;
     }
 
     /**
-     * Set 数据维度，数据延迟1个半小时，可选值包括：1、Minute（5分钟粒度，最大支持查询时间范围是31天），2、Day（天粒度，默认值，最大支持查询时间范围是186天当天）。
-     * @param Granularity 数据维度，数据延迟1个半小时，可选值包括：1、Minute（5分钟粒度，最大支持查询时间范围是31天），2、Day（天粒度，默认值，最大支持查询时间范围是186天当天）。
+     * Set 数据维度，数据延迟1个半小时，可选值包括：1、Minute（5分钟粒度，最大支持查询时间范围是31天），2、Day（天粒度，默认值，按照北京时间做跨天处理，最大支持查询时间范围是186天当天）。
+     * @param Granularity 数据维度，数据延迟1个半小时，可选值包括：1、Minute（5分钟粒度，最大支持查询时间范围是31天），2、Day（天粒度，默认值，按照北京时间做跨天处理，最大支持查询时间范围是186天当天）。
      */
     public void setGranularity(String Granularity) {
         this.Granularity = Granularity;
     }
+
+    public DescribeScreenShotSheetNumListRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeScreenShotSheetNumListRequest(DescribeScreenShotSheetNumListRequest source) {
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.PushDomains != null) {
+            this.PushDomains = new String[source.PushDomains.length];
+            for (int i = 0; i < source.PushDomains.length; i++) {
+                this.PushDomains[i] = new String(source.PushDomains[i]);
+            }
+        }
+        if (source.Granularity != null) {
+            this.Granularity = new String(source.Granularity);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

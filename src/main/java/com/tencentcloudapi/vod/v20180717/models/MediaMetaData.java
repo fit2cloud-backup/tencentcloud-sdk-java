@@ -73,7 +73,6 @@ public class MediaMetaData extends AbstractModel{
 
     /**
     * 视频流信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VideoStreamSet")
     @Expose
@@ -81,7 +80,6 @@ public class MediaMetaData extends AbstractModel{
 
     /**
     * 音频流信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AudioStreamSet")
     @Expose
@@ -214,10 +212,8 @@ public class MediaMetaData extends AbstractModel{
     }
 
     /**
-     * Get 视频流信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 视频流信息。 
      * @return VideoStreamSet 视频流信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MediaVideoStreamItem [] getVideoStreamSet() {
         return this.VideoStreamSet;
@@ -225,19 +221,15 @@ public class MediaMetaData extends AbstractModel{
 
     /**
      * Set 视频流信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VideoStreamSet 视频流信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVideoStreamSet(MediaVideoStreamItem [] VideoStreamSet) {
         this.VideoStreamSet = VideoStreamSet;
     }
 
     /**
-     * Get 音频流信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 音频流信息。 
      * @return AudioStreamSet 音频流信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MediaAudioStreamItem [] getAudioStreamSet() {
         return this.AudioStreamSet;
@@ -245,9 +237,7 @@ public class MediaMetaData extends AbstractModel{
 
     /**
      * Set 音频流信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AudioStreamSet 音频流信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAudioStreamSet(MediaAudioStreamItem [] AudioStreamSet) {
         this.AudioStreamSet = AudioStreamSet;
@@ -284,6 +274,56 @@ public class MediaMetaData extends AbstractModel{
     public void setAudioDuration(Float AudioDuration) {
         this.AudioDuration = AudioDuration;
     }
+
+    public MediaMetaData() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MediaMetaData(MediaMetaData source) {
+        if (source.Size != null) {
+            this.Size = new Long(source.Size);
+        }
+        if (source.Container != null) {
+            this.Container = new String(source.Container);
+        }
+        if (source.Bitrate != null) {
+            this.Bitrate = new Long(source.Bitrate);
+        }
+        if (source.Height != null) {
+            this.Height = new Long(source.Height);
+        }
+        if (source.Width != null) {
+            this.Width = new Long(source.Width);
+        }
+        if (source.Duration != null) {
+            this.Duration = new Float(source.Duration);
+        }
+        if (source.Rotate != null) {
+            this.Rotate = new Long(source.Rotate);
+        }
+        if (source.VideoStreamSet != null) {
+            this.VideoStreamSet = new MediaVideoStreamItem[source.VideoStreamSet.length];
+            for (int i = 0; i < source.VideoStreamSet.length; i++) {
+                this.VideoStreamSet[i] = new MediaVideoStreamItem(source.VideoStreamSet[i]);
+            }
+        }
+        if (source.AudioStreamSet != null) {
+            this.AudioStreamSet = new MediaAudioStreamItem[source.AudioStreamSet.length];
+            for (int i = 0; i < source.AudioStreamSet.length; i++) {
+                this.AudioStreamSet[i] = new MediaAudioStreamItem(source.AudioStreamSet[i]);
+            }
+        }
+        if (source.VideoDuration != null) {
+            this.VideoDuration = new Float(source.VideoDuration);
+        }
+        if (source.AudioDuration != null) {
+            this.AudioDuration = new Float(source.AudioDuration);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

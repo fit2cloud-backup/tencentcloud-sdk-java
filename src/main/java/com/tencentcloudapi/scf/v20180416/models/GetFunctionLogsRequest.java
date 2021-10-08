@@ -23,7 +23,9 @@ import java.util.HashMap;
 public class GetFunctionLogsRequest extends AbstractModel{
 
     /**
-    * 函数的名称
+    * 函数的名称。
+- 为保证[获取函数运行日志](https://cloud.tencent.com/document/product/583/18583)接口`GetFunctionLogs`兼容性，输入参数`FunctionName`仍为非必填项，但建议填写该参数，否则可能导致日志获取失败。
+- 函数关联日志服务后，建议使用[日志服务](https://cloud.tencent.com/document/product/614/16875)相关接口以获得最佳日志检索体验。
     */
     @SerializedName("FunctionName")
     @Expose
@@ -100,23 +102,31 @@ public class GetFunctionLogsRequest extends AbstractModel{
     private String EndTime;
 
     /**
-    * 服务日志相关参数，第一页日志 Offset 为空字符串，后续分页按响应字段里的SearchContext填写
+    * 该字段已下线
     */
     @SerializedName("SearchContext")
     @Expose
     private LogSearchContext SearchContext;
 
     /**
-     * Get 函数的名称 
-     * @return FunctionName 函数的名称
+     * Get 函数的名称。
+- 为保证[获取函数运行日志](https://cloud.tencent.com/document/product/583/18583)接口`GetFunctionLogs`兼容性，输入参数`FunctionName`仍为非必填项，但建议填写该参数，否则可能导致日志获取失败。
+- 函数关联日志服务后，建议使用[日志服务](https://cloud.tencent.com/document/product/614/16875)相关接口以获得最佳日志检索体验。 
+     * @return FunctionName 函数的名称。
+- 为保证[获取函数运行日志](https://cloud.tencent.com/document/product/583/18583)接口`GetFunctionLogs`兼容性，输入参数`FunctionName`仍为非必填项，但建议填写该参数，否则可能导致日志获取失败。
+- 函数关联日志服务后，建议使用[日志服务](https://cloud.tencent.com/document/product/614/16875)相关接口以获得最佳日志检索体验。
      */
     public String getFunctionName() {
         return this.FunctionName;
     }
 
     /**
-     * Set 函数的名称
-     * @param FunctionName 函数的名称
+     * Set 函数的名称。
+- 为保证[获取函数运行日志](https://cloud.tencent.com/document/product/583/18583)接口`GetFunctionLogs`兼容性，输入参数`FunctionName`仍为非必填项，但建议填写该参数，否则可能导致日志获取失败。
+- 函数关联日志服务后，建议使用[日志服务](https://cloud.tencent.com/document/product/614/16875)相关接口以获得最佳日志检索体验。
+     * @param FunctionName 函数的名称。
+- 为保证[获取函数运行日志](https://cloud.tencent.com/document/product/583/18583)接口`GetFunctionLogs`兼容性，输入参数`FunctionName`仍为非必填项，但建议填写该参数，否则可能导致日志获取失败。
+- 函数关联日志服务后，建议使用[日志服务](https://cloud.tencent.com/document/product/614/16875)相关接口以获得最佳日志检索体验。
      */
     public void setFunctionName(String FunctionName) {
         this.FunctionName = FunctionName;
@@ -283,20 +293,67 @@ public class GetFunctionLogsRequest extends AbstractModel{
     }
 
     /**
-     * Get 服务日志相关参数，第一页日志 Offset 为空字符串，后续分页按响应字段里的SearchContext填写 
-     * @return SearchContext 服务日志相关参数，第一页日志 Offset 为空字符串，后续分页按响应字段里的SearchContext填写
+     * Get 该字段已下线 
+     * @return SearchContext 该字段已下线
      */
     public LogSearchContext getSearchContext() {
         return this.SearchContext;
     }
 
     /**
-     * Set 服务日志相关参数，第一页日志 Offset 为空字符串，后续分页按响应字段里的SearchContext填写
-     * @param SearchContext 服务日志相关参数，第一页日志 Offset 为空字符串，后续分页按响应字段里的SearchContext填写
+     * Set 该字段已下线
+     * @param SearchContext 该字段已下线
      */
     public void setSearchContext(LogSearchContext SearchContext) {
         this.SearchContext = SearchContext;
     }
+
+    public GetFunctionLogsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public GetFunctionLogsRequest(GetFunctionLogsRequest source) {
+        if (source.FunctionName != null) {
+            this.FunctionName = new String(source.FunctionName);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Order != null) {
+            this.Order = new String(source.Order);
+        }
+        if (source.OrderBy != null) {
+            this.OrderBy = new String(source.OrderBy);
+        }
+        if (source.Filter != null) {
+            this.Filter = new LogFilter(source.Filter);
+        }
+        if (source.Namespace != null) {
+            this.Namespace = new String(source.Namespace);
+        }
+        if (source.Qualifier != null) {
+            this.Qualifier = new String(source.Qualifier);
+        }
+        if (source.FunctionRequestId != null) {
+            this.FunctionRequestId = new String(source.FunctionRequestId);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.SearchContext != null) {
+            this.SearchContext = new LogSearchContext(source.SearchContext);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

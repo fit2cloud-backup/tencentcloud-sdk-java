@@ -23,18 +23,25 @@ import java.util.HashMap;
 public class BindingPolicyObjectRequest extends AbstractModel{
 
     /**
-    * 策略分组Id
+    * 必填。固定值"monitor"
+    */
+    @SerializedName("Module")
+    @Expose
+    private String Module;
+
+    /**
+    * 策略组id，如传入 PolicyId 则该字段会被忽略可传入任意值如 0
     */
     @SerializedName("GroupId")
     @Expose
     private Long GroupId;
 
     /**
-    * 必填。固定值"monitor"
+    * 告警策略ID，使用此字段时 GroupId 会被忽略
     */
-    @SerializedName("Module")
+    @SerializedName("PolicyId")
     @Expose
-    private String Module;
+    private String PolicyId;
 
     /**
     * 实例分组ID
@@ -51,22 +58,6 @@ public class BindingPolicyObjectRequest extends AbstractModel{
     private BindingPolicyObjectDimension [] Dimensions;
 
     /**
-     * Get 策略分组Id 
-     * @return GroupId 策略分组Id
-     */
-    public Long getGroupId() {
-        return this.GroupId;
-    }
-
-    /**
-     * Set 策略分组Id
-     * @param GroupId 策略分组Id
-     */
-    public void setGroupId(Long GroupId) {
-        this.GroupId = GroupId;
-    }
-
-    /**
      * Get 必填。固定值"monitor" 
      * @return Module 必填。固定值"monitor"
      */
@@ -80,6 +71,38 @@ public class BindingPolicyObjectRequest extends AbstractModel{
      */
     public void setModule(String Module) {
         this.Module = Module;
+    }
+
+    /**
+     * Get 策略组id，如传入 PolicyId 则该字段会被忽略可传入任意值如 0 
+     * @return GroupId 策略组id，如传入 PolicyId 则该字段会被忽略可传入任意值如 0
+     */
+    public Long getGroupId() {
+        return this.GroupId;
+    }
+
+    /**
+     * Set 策略组id，如传入 PolicyId 则该字段会被忽略可传入任意值如 0
+     * @param GroupId 策略组id，如传入 PolicyId 则该字段会被忽略可传入任意值如 0
+     */
+    public void setGroupId(Long GroupId) {
+        this.GroupId = GroupId;
+    }
+
+    /**
+     * Get 告警策略ID，使用此字段时 GroupId 会被忽略 
+     * @return PolicyId 告警策略ID，使用此字段时 GroupId 会被忽略
+     */
+    public String getPolicyId() {
+        return this.PolicyId;
+    }
+
+    /**
+     * Set 告警策略ID，使用此字段时 GroupId 会被忽略
+     * @param PolicyId 告警策略ID，使用此字段时 GroupId 会被忽略
+     */
+    public void setPolicyId(String PolicyId) {
+        this.PolicyId = PolicyId;
     }
 
     /**
@@ -114,12 +137,42 @@ public class BindingPolicyObjectRequest extends AbstractModel{
         this.Dimensions = Dimensions;
     }
 
+    public BindingPolicyObjectRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public BindingPolicyObjectRequest(BindingPolicyObjectRequest source) {
+        if (source.Module != null) {
+            this.Module = new String(source.Module);
+        }
+        if (source.GroupId != null) {
+            this.GroupId = new Long(source.GroupId);
+        }
+        if (source.PolicyId != null) {
+            this.PolicyId = new String(source.PolicyId);
+        }
+        if (source.InstanceGroupId != null) {
+            this.InstanceGroupId = new Long(source.InstanceGroupId);
+        }
+        if (source.Dimensions != null) {
+            this.Dimensions = new BindingPolicyObjectDimension[source.Dimensions.length];
+            for (int i = 0; i < source.Dimensions.length; i++) {
+                this.Dimensions[i] = new BindingPolicyObjectDimension(source.Dimensions[i]);
+            }
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "GroupId", this.GroupId);
         this.setParamSimple(map, prefix + "Module", this.Module);
+        this.setParamSimple(map, prefix + "GroupId", this.GroupId);
+        this.setParamSimple(map, prefix + "PolicyId", this.PolicyId);
         this.setParamSimple(map, prefix + "InstanceGroupId", this.InstanceGroupId);
         this.setParamArrayObj(map, prefix + "Dimensions.", this.Dimensions);
 

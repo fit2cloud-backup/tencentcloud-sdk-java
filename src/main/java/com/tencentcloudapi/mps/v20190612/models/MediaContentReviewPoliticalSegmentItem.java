@@ -61,7 +61,30 @@ public class MediaContentReviewPoliticalSegmentItem extends AbstractModel{
     private String Name;
 
     /**
-    * 嫌疑片段鉴政结果标签。
+    * 嫌疑片段鉴政结果标签。内容审核模板[画面鉴政任务控制参数](https://cloud.tencent.com/document/api/862/37615#PoliticalImgReviewTemplateInfo)里 LabelSet 参数与此参数取值范围的对应关系：
+violation_photo：
+<li>violation_photo：违规图标。</li>
+politician：
+<li>nation_politician：国家领导人；</li>
+<li>province_politician: 省部级领导人；</li>
+<li>bureau_politician：厅局级领导人；</li>
+<li>county_politician：县处级领导人；</li>
+<li>rural_politician：乡科级领导人；</li>
+<li>sensitive_politician：敏感政治人物；</li>
+<li>foreign_politician：国外领导人。</li>
+entertainment：
+<li>sensitive_entertainment：敏感娱乐人物。</li>
+sport：
+<li>sensitive_sport：敏感体育人物。</li>
+entrepreneur：
+<li>sensitive_entrepreneur：敏感商业人物。</li>
+scholar：
+<li>sensitive_scholar：敏感教育学者。</li>
+celebrity：
+<li>sensitive_celebrity：敏感知名人物；</li>
+<li>historical_celebrity：历史知名人物。</li>
+military：
+<li>sensitive_military：敏感军事人物。</li>
     */
     @SerializedName("Label")
     @Expose
@@ -182,16 +205,108 @@ public class MediaContentReviewPoliticalSegmentItem extends AbstractModel{
     }
 
     /**
-     * Get 嫌疑片段鉴政结果标签。 
-     * @return Label 嫌疑片段鉴政结果标签。
+     * Get 嫌疑片段鉴政结果标签。内容审核模板[画面鉴政任务控制参数](https://cloud.tencent.com/document/api/862/37615#PoliticalImgReviewTemplateInfo)里 LabelSet 参数与此参数取值范围的对应关系：
+violation_photo：
+<li>violation_photo：违规图标。</li>
+politician：
+<li>nation_politician：国家领导人；</li>
+<li>province_politician: 省部级领导人；</li>
+<li>bureau_politician：厅局级领导人；</li>
+<li>county_politician：县处级领导人；</li>
+<li>rural_politician：乡科级领导人；</li>
+<li>sensitive_politician：敏感政治人物；</li>
+<li>foreign_politician：国外领导人。</li>
+entertainment：
+<li>sensitive_entertainment：敏感娱乐人物。</li>
+sport：
+<li>sensitive_sport：敏感体育人物。</li>
+entrepreneur：
+<li>sensitive_entrepreneur：敏感商业人物。</li>
+scholar：
+<li>sensitive_scholar：敏感教育学者。</li>
+celebrity：
+<li>sensitive_celebrity：敏感知名人物；</li>
+<li>historical_celebrity：历史知名人物。</li>
+military：
+<li>sensitive_military：敏感军事人物。</li> 
+     * @return Label 嫌疑片段鉴政结果标签。内容审核模板[画面鉴政任务控制参数](https://cloud.tencent.com/document/api/862/37615#PoliticalImgReviewTemplateInfo)里 LabelSet 参数与此参数取值范围的对应关系：
+violation_photo：
+<li>violation_photo：违规图标。</li>
+politician：
+<li>nation_politician：国家领导人；</li>
+<li>province_politician: 省部级领导人；</li>
+<li>bureau_politician：厅局级领导人；</li>
+<li>county_politician：县处级领导人；</li>
+<li>rural_politician：乡科级领导人；</li>
+<li>sensitive_politician：敏感政治人物；</li>
+<li>foreign_politician：国外领导人。</li>
+entertainment：
+<li>sensitive_entertainment：敏感娱乐人物。</li>
+sport：
+<li>sensitive_sport：敏感体育人物。</li>
+entrepreneur：
+<li>sensitive_entrepreneur：敏感商业人物。</li>
+scholar：
+<li>sensitive_scholar：敏感教育学者。</li>
+celebrity：
+<li>sensitive_celebrity：敏感知名人物；</li>
+<li>historical_celebrity：历史知名人物。</li>
+military：
+<li>sensitive_military：敏感军事人物。</li>
      */
     public String getLabel() {
         return this.Label;
     }
 
     /**
-     * Set 嫌疑片段鉴政结果标签。
-     * @param Label 嫌疑片段鉴政结果标签。
+     * Set 嫌疑片段鉴政结果标签。内容审核模板[画面鉴政任务控制参数](https://cloud.tencent.com/document/api/862/37615#PoliticalImgReviewTemplateInfo)里 LabelSet 参数与此参数取值范围的对应关系：
+violation_photo：
+<li>violation_photo：违规图标。</li>
+politician：
+<li>nation_politician：国家领导人；</li>
+<li>province_politician: 省部级领导人；</li>
+<li>bureau_politician：厅局级领导人；</li>
+<li>county_politician：县处级领导人；</li>
+<li>rural_politician：乡科级领导人；</li>
+<li>sensitive_politician：敏感政治人物；</li>
+<li>foreign_politician：国外领导人。</li>
+entertainment：
+<li>sensitive_entertainment：敏感娱乐人物。</li>
+sport：
+<li>sensitive_sport：敏感体育人物。</li>
+entrepreneur：
+<li>sensitive_entrepreneur：敏感商业人物。</li>
+scholar：
+<li>sensitive_scholar：敏感教育学者。</li>
+celebrity：
+<li>sensitive_celebrity：敏感知名人物；</li>
+<li>historical_celebrity：历史知名人物。</li>
+military：
+<li>sensitive_military：敏感军事人物。</li>
+     * @param Label 嫌疑片段鉴政结果标签。内容审核模板[画面鉴政任务控制参数](https://cloud.tencent.com/document/api/862/37615#PoliticalImgReviewTemplateInfo)里 LabelSet 参数与此参数取值范围的对应关系：
+violation_photo：
+<li>violation_photo：违规图标。</li>
+politician：
+<li>nation_politician：国家领导人；</li>
+<li>province_politician: 省部级领导人；</li>
+<li>bureau_politician：厅局级领导人；</li>
+<li>county_politician：县处级领导人；</li>
+<li>rural_politician：乡科级领导人；</li>
+<li>sensitive_politician：敏感政治人物；</li>
+<li>foreign_politician：国外领导人。</li>
+entertainment：
+<li>sensitive_entertainment：敏感娱乐人物。</li>
+sport：
+<li>sensitive_sport：敏感体育人物。</li>
+entrepreneur：
+<li>sensitive_entrepreneur：敏感商业人物。</li>
+scholar：
+<li>sensitive_scholar：敏感教育学者。</li>
+celebrity：
+<li>sensitive_celebrity：敏感知名人物；</li>
+<li>historical_celebrity：历史知名人物。</li>
+military：
+<li>sensitive_military：敏感军事人物。</li>
      */
     public void setLabel(String Label) {
         this.Label = Label;
@@ -248,6 +363,47 @@ public class MediaContentReviewPoliticalSegmentItem extends AbstractModel{
     public void setPicUrlExpireTime(String PicUrlExpireTime) {
         this.PicUrlExpireTime = PicUrlExpireTime;
     }
+
+    public MediaContentReviewPoliticalSegmentItem() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MediaContentReviewPoliticalSegmentItem(MediaContentReviewPoliticalSegmentItem source) {
+        if (source.StartTimeOffset != null) {
+            this.StartTimeOffset = new Float(source.StartTimeOffset);
+        }
+        if (source.EndTimeOffset != null) {
+            this.EndTimeOffset = new Float(source.EndTimeOffset);
+        }
+        if (source.Confidence != null) {
+            this.Confidence = new Float(source.Confidence);
+        }
+        if (source.Suggestion != null) {
+            this.Suggestion = new String(source.Suggestion);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Label != null) {
+            this.Label = new String(source.Label);
+        }
+        if (source.Url != null) {
+            this.Url = new String(source.Url);
+        }
+        if (source.AreaCoordSet != null) {
+            this.AreaCoordSet = new Long[source.AreaCoordSet.length];
+            for (int i = 0; i < source.AreaCoordSet.length; i++) {
+                this.AreaCoordSet[i] = new Long(source.AreaCoordSet[i]);
+            }
+        }
+        if (source.PicUrlExpireTime != null) {
+            this.PicUrlExpireTime = new String(source.PicUrlExpireTime);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

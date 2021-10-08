@@ -119,6 +119,18 @@ public class DetectDetail extends AbstractModel{
     private String Comparemsg;
 
     /**
+    * 比对库源类型。包括：
+公安商业库；
+业务方自有库（用户上传照片、客户的混合库、混合部署库）；
+二次验证库；
+人工审核库；
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CompareLibType")
+    @Expose
+    private String CompareLibType;
+
+    /**
      * Get 请求时间戳。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return ReqTime 请求时间戳。
@@ -359,6 +371,92 @@ public class DetectDetail extends AbstractModel{
     }
 
     /**
+     * Get 比对库源类型。包括：
+公安商业库；
+业务方自有库（用户上传照片、客户的混合库、混合部署库）；
+二次验证库；
+人工审核库；
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CompareLibType 比对库源类型。包括：
+公安商业库；
+业务方自有库（用户上传照片、客户的混合库、混合部署库）；
+二次验证库；
+人工审核库；
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCompareLibType() {
+        return this.CompareLibType;
+    }
+
+    /**
+     * Set 比对库源类型。包括：
+公安商业库；
+业务方自有库（用户上传照片、客户的混合库、混合部署库）；
+二次验证库；
+人工审核库；
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CompareLibType 比对库源类型。包括：
+公安商业库；
+业务方自有库（用户上传照片、客户的混合库、混合部署库）；
+二次验证库；
+人工审核库；
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCompareLibType(String CompareLibType) {
+        this.CompareLibType = CompareLibType;
+    }
+
+    public DetectDetail() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DetectDetail(DetectDetail source) {
+        if (source.ReqTime != null) {
+            this.ReqTime = new String(source.ReqTime);
+        }
+        if (source.Seq != null) {
+            this.Seq = new String(source.Seq);
+        }
+        if (source.Idcard != null) {
+            this.Idcard = new String(source.Idcard);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Sim != null) {
+            this.Sim = new String(source.Sim);
+        }
+        if (source.IsNeedCharge != null) {
+            this.IsNeedCharge = new Boolean(source.IsNeedCharge);
+        }
+        if (source.Errcode != null) {
+            this.Errcode = new Long(source.Errcode);
+        }
+        if (source.Errmsg != null) {
+            this.Errmsg = new String(source.Errmsg);
+        }
+        if (source.Livestatus != null) {
+            this.Livestatus = new Long(source.Livestatus);
+        }
+        if (source.Livemsg != null) {
+            this.Livemsg = new String(source.Livemsg);
+        }
+        if (source.Comparestatus != null) {
+            this.Comparestatus = new Long(source.Comparestatus);
+        }
+        if (source.Comparemsg != null) {
+            this.Comparemsg = new String(source.Comparemsg);
+        }
+        if (source.CompareLibType != null) {
+            this.CompareLibType = new String(source.CompareLibType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -374,6 +472,7 @@ public class DetectDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "Livemsg", this.Livemsg);
         this.setParamSimple(map, prefix + "Comparestatus", this.Comparestatus);
         this.setParamSimple(map, prefix + "Comparemsg", this.Comparemsg);
+        this.setParamSimple(map, prefix + "CompareLibType", this.CompareLibType);
 
     }
 }

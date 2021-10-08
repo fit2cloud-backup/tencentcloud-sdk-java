@@ -23,11 +23,11 @@ import java.util.HashMap;
 public class NerToken extends AbstractModel{
 
     /**
-    * 起始位置
+    * 基础词
     */
-    @SerializedName("BeginOffset")
+    @SerializedName("Word")
     @Expose
-    private Long BeginOffset;
+    private String Word;
 
     /**
     * 长度
@@ -37,6 +37,13 @@ public class NerToken extends AbstractModel{
     private Long Length;
 
     /**
+    * 起始位置
+    */
+    @SerializedName("BeginOffset")
+    @Expose
+    private Long BeginOffset;
+
+    /**
     * 命名实体类型
     */
     @SerializedName("Type")
@@ -44,26 +51,19 @@ public class NerToken extends AbstractModel{
     private String Type;
 
     /**
-    * 基础词
-    */
-    @SerializedName("Word")
-    @Expose
-    private String Word;
-
-    /**
-     * Get 起始位置 
-     * @return BeginOffset 起始位置
+     * Get 基础词 
+     * @return Word 基础词
      */
-    public Long getBeginOffset() {
-        return this.BeginOffset;
+    public String getWord() {
+        return this.Word;
     }
 
     /**
-     * Set 起始位置
-     * @param BeginOffset 起始位置
+     * Set 基础词
+     * @param Word 基础词
      */
-    public void setBeginOffset(Long BeginOffset) {
-        this.BeginOffset = BeginOffset;
+    public void setWord(String Word) {
+        this.Word = Word;
     }
 
     /**
@@ -83,6 +83,22 @@ public class NerToken extends AbstractModel{
     }
 
     /**
+     * Get 起始位置 
+     * @return BeginOffset 起始位置
+     */
+    public Long getBeginOffset() {
+        return this.BeginOffset;
+    }
+
+    /**
+     * Set 起始位置
+     * @param BeginOffset 起始位置
+     */
+    public void setBeginOffset(Long BeginOffset) {
+        this.BeginOffset = BeginOffset;
+    }
+
+    /**
      * Get 命名实体类型 
      * @return Type 命名实体类型
      */
@@ -98,30 +114,37 @@ public class NerToken extends AbstractModel{
         this.Type = Type;
     }
 
-    /**
-     * Get 基础词 
-     * @return Word 基础词
-     */
-    public String getWord() {
-        return this.Word;
+    public NerToken() {
     }
 
     /**
-     * Set 基础词
-     * @param Word 基础词
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
-    public void setWord(String Word) {
-        this.Word = Word;
+    public NerToken(NerToken source) {
+        if (source.Word != null) {
+            this.Word = new String(source.Word);
+        }
+        if (source.Length != null) {
+            this.Length = new Long(source.Length);
+        }
+        if (source.BeginOffset != null) {
+            this.BeginOffset = new Long(source.BeginOffset);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
     }
+
 
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "BeginOffset", this.BeginOffset);
-        this.setParamSimple(map, prefix + "Length", this.Length);
-        this.setParamSimple(map, prefix + "Type", this.Type);
         this.setParamSimple(map, prefix + "Word", this.Word);
+        this.setParamSimple(map, prefix + "Length", this.Length);
+        this.setParamSimple(map, prefix + "BeginOffset", this.BeginOffset);
+        this.setParamSimple(map, prefix + "Type", this.Type);
 
     }
 }

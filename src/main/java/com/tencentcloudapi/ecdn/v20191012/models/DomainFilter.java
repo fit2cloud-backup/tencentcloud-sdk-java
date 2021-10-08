@@ -34,6 +34,7 @@ public class DomainFilter extends AbstractModel{
 - https：是否配置https，on，off或processing。
 - originPullProtocol：回源协议类型，支持http，follow或https。
 - area：加速区域，支持mainland，overseas或global。
+- tagKey：标签键。
     */
     @SerializedName("Name")
     @Expose
@@ -64,7 +65,8 @@ public class DomainFilter extends AbstractModel{
 - fullUrlCache：全路径缓存，on或off。
 - https：是否配置https，on，off或processing。
 - originPullProtocol：回源协议类型，支持http，follow或https。
-- area：加速区域，支持mainland，overseas或global。 
+- area：加速区域，支持mainland，overseas或global。
+- tagKey：标签键。 
      * @return Name 过滤字段名，支持的列表如下：
 - origin：主源站。
 - domain：域名。
@@ -76,6 +78,7 @@ public class DomainFilter extends AbstractModel{
 - https：是否配置https，on，off或processing。
 - originPullProtocol：回源协议类型，支持http，follow或https。
 - area：加速区域，支持mainland，overseas或global。
+- tagKey：标签键。
      */
     public String getName() {
         return this.Name;
@@ -93,6 +96,7 @@ public class DomainFilter extends AbstractModel{
 - https：是否配置https，on，off或processing。
 - originPullProtocol：回源协议类型，支持http，follow或https。
 - area：加速区域，支持mainland，overseas或global。
+- tagKey：标签键。
      * @param Name 过滤字段名，支持的列表如下：
 - origin：主源站。
 - domain：域名。
@@ -104,6 +108,7 @@ public class DomainFilter extends AbstractModel{
 - https：是否配置https，on，off或processing。
 - originPullProtocol：回源协议类型，支持http，follow或https。
 - area：加速区域，支持mainland，overseas或global。
+- tagKey：标签键。
      */
     public void setName(String Name) {
         this.Name = Name;
@@ -140,6 +145,29 @@ public class DomainFilter extends AbstractModel{
     public void setFuzzy(Boolean Fuzzy) {
         this.Fuzzy = Fuzzy;
     }
+
+    public DomainFilter() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DomainFilter(DomainFilter source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Value != null) {
+            this.Value = new String[source.Value.length];
+            for (int i = 0; i < source.Value.length; i++) {
+                this.Value[i] = new String(source.Value[i]);
+            }
+        }
+        if (source.Fuzzy != null) {
+            this.Fuzzy = new Boolean(source.Fuzzy);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

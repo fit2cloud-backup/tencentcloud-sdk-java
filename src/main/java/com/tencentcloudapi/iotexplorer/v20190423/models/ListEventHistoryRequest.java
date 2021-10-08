@@ -65,11 +65,18 @@ public class ListEventHistoryRequest extends AbstractModel{
     private String Context;
 
     /**
-    * 单次获取的历史数据项目的最大数量
+    * 单次获取的历史数据项目的最大数量, 缺省10
     */
     @SerializedName("Size")
     @Expose
     private Long Size;
+
+    /**
+    * 事件标识符，可以用来指定查询特定的事件，如果不指定，则查询所有事件。
+    */
+    @SerializedName("EventId")
+    @Expose
+    private String EventId;
 
     /**
      * Get 产品ID 
@@ -168,20 +175,71 @@ public class ListEventHistoryRequest extends AbstractModel{
     }
 
     /**
-     * Get 单次获取的历史数据项目的最大数量 
-     * @return Size 单次获取的历史数据项目的最大数量
+     * Get 单次获取的历史数据项目的最大数量, 缺省10 
+     * @return Size 单次获取的历史数据项目的最大数量, 缺省10
      */
     public Long getSize() {
         return this.Size;
     }
 
     /**
-     * Set 单次获取的历史数据项目的最大数量
-     * @param Size 单次获取的历史数据项目的最大数量
+     * Set 单次获取的历史数据项目的最大数量, 缺省10
+     * @param Size 单次获取的历史数据项目的最大数量, 缺省10
      */
     public void setSize(Long Size) {
         this.Size = Size;
     }
+
+    /**
+     * Get 事件标识符，可以用来指定查询特定的事件，如果不指定，则查询所有事件。 
+     * @return EventId 事件标识符，可以用来指定查询特定的事件，如果不指定，则查询所有事件。
+     */
+    public String getEventId() {
+        return this.EventId;
+    }
+
+    /**
+     * Set 事件标识符，可以用来指定查询特定的事件，如果不指定，则查询所有事件。
+     * @param EventId 事件标识符，可以用来指定查询特定的事件，如果不指定，则查询所有事件。
+     */
+    public void setEventId(String EventId) {
+        this.EventId = EventId;
+    }
+
+    public ListEventHistoryRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ListEventHistoryRequest(ListEventHistoryRequest source) {
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+        if (source.DeviceName != null) {
+            this.DeviceName = new String(source.DeviceName);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new Long(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new Long(source.EndTime);
+        }
+        if (source.Context != null) {
+            this.Context = new String(source.Context);
+        }
+        if (source.Size != null) {
+            this.Size = new Long(source.Size);
+        }
+        if (source.EventId != null) {
+            this.EventId = new String(source.EventId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -194,6 +252,7 @@ public class ListEventHistoryRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
         this.setParamSimple(map, prefix + "Context", this.Context);
         this.setParamSimple(map, prefix + "Size", this.Size);
+        this.setParamSimple(map, prefix + "EventId", this.EventId);
 
     }
 }

@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class GetInstanceAccessRequest extends AbstractModel{
 
     /**
-    * 服务部署Id
+    * 服务器舰队ID
     */
     @SerializedName("FleetId")
     @Expose
@@ -37,16 +37,16 @@ public class GetInstanceAccessRequest extends AbstractModel{
     private String InstanceId;
 
     /**
-     * Get 服务部署Id 
-     * @return FleetId 服务部署Id
+     * Get 服务器舰队ID 
+     * @return FleetId 服务器舰队ID
      */
     public String getFleetId() {
         return this.FleetId;
     }
 
     /**
-     * Set 服务部署Id
-     * @param FleetId 服务部署Id
+     * Set 服务器舰队ID
+     * @param FleetId 服务器舰队ID
      */
     public void setFleetId(String FleetId) {
         this.FleetId = FleetId;
@@ -67,6 +67,23 @@ public class GetInstanceAccessRequest extends AbstractModel{
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
+
+    public GetInstanceAccessRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public GetInstanceAccessRequest(GetInstanceAccessRequest source) {
+        if (source.FleetId != null) {
+            this.FleetId = new String(source.FleetId);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

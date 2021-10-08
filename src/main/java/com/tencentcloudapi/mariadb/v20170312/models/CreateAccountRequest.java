@@ -44,7 +44,7 @@ public class CreateAccountRequest extends AbstractModel{
     private String Host;
 
     /**
-    * 账号密码，由字母、数字或常见符号组成，不能包含分号、单引号和双引号，长度为6~32位。
+    * 账号密码，密码需要 8-32 个字符，不能以 '/' 开头，并且必须包含小写字母、大写字母、数字和符号()~!@#$%^&*-+=_|{}[]:<>,.?/。
     */
     @SerializedName("Password")
     @Expose
@@ -120,16 +120,16 @@ public class CreateAccountRequest extends AbstractModel{
     }
 
     /**
-     * Get 账号密码，由字母、数字或常见符号组成，不能包含分号、单引号和双引号，长度为6~32位。 
-     * @return Password 账号密码，由字母、数字或常见符号组成，不能包含分号、单引号和双引号，长度为6~32位。
+     * Get 账号密码，密码需要 8-32 个字符，不能以 '/' 开头，并且必须包含小写字母、大写字母、数字和符号()~!@#$%^&*-+=_|{}[]:<>,.?/。 
+     * @return Password 账号密码，密码需要 8-32 个字符，不能以 '/' 开头，并且必须包含小写字母、大写字母、数字和符号()~!@#$%^&*-+=_|{}[]:<>,.?/。
      */
     public String getPassword() {
         return this.Password;
     }
 
     /**
-     * Set 账号密码，由字母、数字或常见符号组成，不能包含分号、单引号和双引号，长度为6~32位。
-     * @param Password 账号密码，由字母、数字或常见符号组成，不能包含分号、单引号和双引号，长度为6~32位。
+     * Set 账号密码，密码需要 8-32 个字符，不能以 '/' 开头，并且必须包含小写字母、大写字母、数字和符号()~!@#$%^&*-+=_|{}[]:<>,.?/。
+     * @param Password 账号密码，密码需要 8-32 个字符，不能以 '/' 开头，并且必须包含小写字母、大写字母、数字和符号()~!@#$%^&*-+=_|{}[]:<>,.?/。
      */
     public void setPassword(String Password) {
         this.Password = Password;
@@ -182,6 +182,38 @@ public class CreateAccountRequest extends AbstractModel{
     public void setDelayThresh(Long DelayThresh) {
         this.DelayThresh = DelayThresh;
     }
+
+    public CreateAccountRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateAccountRequest(CreateAccountRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.UserName != null) {
+            this.UserName = new String(source.UserName);
+        }
+        if (source.Host != null) {
+            this.Host = new String(source.Host);
+        }
+        if (source.Password != null) {
+            this.Password = new String(source.Password);
+        }
+        if (source.ReadOnly != null) {
+            this.ReadOnly = new Long(source.ReadOnly);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.DelayThresh != null) {
+            this.DelayThresh = new Long(source.DelayThresh);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

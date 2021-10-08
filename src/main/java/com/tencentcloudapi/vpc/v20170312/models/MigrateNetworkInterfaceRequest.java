@@ -44,6 +44,13 @@ public class MigrateNetworkInterfaceRequest extends AbstractModel{
     private String DestinationInstanceId;
 
     /**
+    * 网卡绑定类型：0 标准型 1 扩展型。
+    */
+    @SerializedName("AttachType")
+    @Expose
+    private Long AttachType;
+
+    /**
      * Get 弹性网卡实例ID，例如：eni-m6dyj72l。 
      * @return NetworkInterfaceId 弹性网卡实例ID，例如：eni-m6dyj72l。
      */
@@ -92,12 +99,52 @@ public class MigrateNetworkInterfaceRequest extends AbstractModel{
     }
 
     /**
+     * Get 网卡绑定类型：0 标准型 1 扩展型。 
+     * @return AttachType 网卡绑定类型：0 标准型 1 扩展型。
+     */
+    public Long getAttachType() {
+        return this.AttachType;
+    }
+
+    /**
+     * Set 网卡绑定类型：0 标准型 1 扩展型。
+     * @param AttachType 网卡绑定类型：0 标准型 1 扩展型。
+     */
+    public void setAttachType(Long AttachType) {
+        this.AttachType = AttachType;
+    }
+
+    public MigrateNetworkInterfaceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MigrateNetworkInterfaceRequest(MigrateNetworkInterfaceRequest source) {
+        if (source.NetworkInterfaceId != null) {
+            this.NetworkInterfaceId = new String(source.NetworkInterfaceId);
+        }
+        if (source.SourceInstanceId != null) {
+            this.SourceInstanceId = new String(source.SourceInstanceId);
+        }
+        if (source.DestinationInstanceId != null) {
+            this.DestinationInstanceId = new String(source.DestinationInstanceId);
+        }
+        if (source.AttachType != null) {
+            this.AttachType = new Long(source.AttachType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "NetworkInterfaceId", this.NetworkInterfaceId);
         this.setParamSimple(map, prefix + "SourceInstanceId", this.SourceInstanceId);
         this.setParamSimple(map, prefix + "DestinationInstanceId", this.DestinationInstanceId);
+        this.setParamSimple(map, prefix + "AttachType", this.AttachType);
 
     }
 }

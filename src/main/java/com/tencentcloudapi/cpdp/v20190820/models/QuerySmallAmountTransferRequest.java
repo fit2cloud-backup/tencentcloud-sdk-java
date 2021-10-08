@@ -51,6 +51,13 @@ public class QuerySmallAmountTransferRequest extends AbstractModel{
     private String ReservedMsg;
 
     /**
+    * STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+    */
+    @SerializedName("Profile")
+    @Expose
+    private String Profile;
+
+    /**
      * Get String(22)，商户号（签约客户号） 
      * @return MrchCode String(22)，商户号（签约客户号）
      */
@@ -115,6 +122,48 @@ public class QuerySmallAmountTransferRequest extends AbstractModel{
     }
 
     /**
+     * Get STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod" 
+     * @return Profile STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     */
+    public String getProfile() {
+        return this.Profile;
+    }
+
+    /**
+     * Set STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     * @param Profile STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     */
+    public void setProfile(String Profile) {
+        this.Profile = Profile;
+    }
+
+    public QuerySmallAmountTransferRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public QuerySmallAmountTransferRequest(QuerySmallAmountTransferRequest source) {
+        if (source.MrchCode != null) {
+            this.MrchCode = new String(source.MrchCode);
+        }
+        if (source.OldTranSeqNo != null) {
+            this.OldTranSeqNo = new String(source.OldTranSeqNo);
+        }
+        if (source.TranDate != null) {
+            this.TranDate = new String(source.TranDate);
+        }
+        if (source.ReservedMsg != null) {
+            this.ReservedMsg = new String(source.ReservedMsg);
+        }
+        if (source.Profile != null) {
+            this.Profile = new String(source.Profile);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -122,6 +171,7 @@ public class QuerySmallAmountTransferRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "OldTranSeqNo", this.OldTranSeqNo);
         this.setParamSimple(map, prefix + "TranDate", this.TranDate);
         this.setParamSimple(map, prefix + "ReservedMsg", this.ReservedMsg);
+        this.setParamSimple(map, prefix + "Profile", this.Profile);
 
     }
 }

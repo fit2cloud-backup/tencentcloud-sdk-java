@@ -119,6 +119,14 @@ public class ConfigRelease extends AbstractModel{
     private String ReleaseDesc;
 
     /**
+    * 应用ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ApplicationId")
+    @Expose
+    private String ApplicationId;
+
+    /**
      * Get 配置项发布ID
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return ConfigReleaseId 配置项发布ID
@@ -359,6 +367,76 @@ public class ConfigRelease extends AbstractModel{
     }
 
     /**
+     * Get 应用ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ApplicationId 应用ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getApplicationId() {
+        return this.ApplicationId;
+    }
+
+    /**
+     * Set 应用ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ApplicationId 应用ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setApplicationId(String ApplicationId) {
+        this.ApplicationId = ApplicationId;
+    }
+
+    public ConfigRelease() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ConfigRelease(ConfigRelease source) {
+        if (source.ConfigReleaseId != null) {
+            this.ConfigReleaseId = new String(source.ConfigReleaseId);
+        }
+        if (source.ConfigId != null) {
+            this.ConfigId = new String(source.ConfigId);
+        }
+        if (source.ConfigName != null) {
+            this.ConfigName = new String(source.ConfigName);
+        }
+        if (source.ConfigVersion != null) {
+            this.ConfigVersion = new String(source.ConfigVersion);
+        }
+        if (source.ReleaseTime != null) {
+            this.ReleaseTime = new String(source.ReleaseTime);
+        }
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
+        if (source.GroupName != null) {
+            this.GroupName = new String(source.GroupName);
+        }
+        if (source.NamespaceId != null) {
+            this.NamespaceId = new String(source.NamespaceId);
+        }
+        if (source.NamespaceName != null) {
+            this.NamespaceName = new String(source.NamespaceName);
+        }
+        if (source.ClusterId != null) {
+            this.ClusterId = new String(source.ClusterId);
+        }
+        if (source.ClusterName != null) {
+            this.ClusterName = new String(source.ClusterName);
+        }
+        if (source.ReleaseDesc != null) {
+            this.ReleaseDesc = new String(source.ReleaseDesc);
+        }
+        if (source.ApplicationId != null) {
+            this.ApplicationId = new String(source.ApplicationId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -374,6 +452,7 @@ public class ConfigRelease extends AbstractModel{
         this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
         this.setParamSimple(map, prefix + "ClusterName", this.ClusterName);
         this.setParamSimple(map, prefix + "ReleaseDesc", this.ReleaseDesc);
+        this.setParamSimple(map, prefix + "ApplicationId", this.ApplicationId);
 
     }
 }

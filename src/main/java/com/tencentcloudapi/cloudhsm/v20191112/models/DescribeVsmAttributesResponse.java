@@ -37,7 +37,7 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
     private String ResourceName;
 
     /**
-    * 资源状态
+    * 资源状态，1表示资源为正常，2表示资源处于隔离状态
     */
     @SerializedName("Status")
     @Expose
@@ -72,21 +72,21 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
     private String Model;
 
     /**
-    * 资源类型
+    * 资源类型，17表示EVSM，33表示GVSM，49表示SVSM
     */
     @SerializedName("VsmType")
     @Expose
     private Long VsmType;
 
     /**
-    * 地域Id
+    * 地域Id，返回腾讯云地域代码，如广州为1，北京为8
     */
     @SerializedName("RegionId")
     @Expose
     private Long RegionId;
 
     /**
-    * 区域Id
+    * 区域Id，返回腾讯云每个地域的可用区代码
     */
     @SerializedName("ZoneId")
     @Expose
@@ -172,6 +172,30 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
     private String SubnetCidrBlock;
 
     /**
+    * 资源所关联的Tag
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
+    * 资源续费标识，0表示默认状态(用户未设置，即初始状态)， 1表示自动续费，2表示明确不自动续费(用户设置)
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RenewFlag")
+    @Expose
+    private Long RenewFlag;
+
+    /**
+    * 厂商
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Manufacturer")
+    @Expose
+    private String Manufacturer;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -211,16 +235,16 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
     }
 
     /**
-     * Get 资源状态 
-     * @return Status 资源状态
+     * Get 资源状态，1表示资源为正常，2表示资源处于隔离状态 
+     * @return Status 资源状态，1表示资源为正常，2表示资源处于隔离状态
      */
     public Long getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 资源状态
-     * @param Status 资源状态
+     * Set 资源状态，1表示资源为正常，2表示资源处于隔离状态
+     * @param Status 资源状态，1表示资源为正常，2表示资源处于隔离状态
      */
     public void setStatus(Long Status) {
         this.Status = Status;
@@ -291,48 +315,48 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
     }
 
     /**
-     * Get 资源类型 
-     * @return VsmType 资源类型
+     * Get 资源类型，17表示EVSM，33表示GVSM，49表示SVSM 
+     * @return VsmType 资源类型，17表示EVSM，33表示GVSM，49表示SVSM
      */
     public Long getVsmType() {
         return this.VsmType;
     }
 
     /**
-     * Set 资源类型
-     * @param VsmType 资源类型
+     * Set 资源类型，17表示EVSM，33表示GVSM，49表示SVSM
+     * @param VsmType 资源类型，17表示EVSM，33表示GVSM，49表示SVSM
      */
     public void setVsmType(Long VsmType) {
         this.VsmType = VsmType;
     }
 
     /**
-     * Get 地域Id 
-     * @return RegionId 地域Id
+     * Get 地域Id，返回腾讯云地域代码，如广州为1，北京为8 
+     * @return RegionId 地域Id，返回腾讯云地域代码，如广州为1，北京为8
      */
     public Long getRegionId() {
         return this.RegionId;
     }
 
     /**
-     * Set 地域Id
-     * @param RegionId 地域Id
+     * Set 地域Id，返回腾讯云地域代码，如广州为1，北京为8
+     * @param RegionId 地域Id，返回腾讯云地域代码，如广州为1，北京为8
      */
     public void setRegionId(Long RegionId) {
         this.RegionId = RegionId;
     }
 
     /**
-     * Get 区域Id 
-     * @return ZoneId 区域Id
+     * Get 区域Id，返回腾讯云每个地域的可用区代码 
+     * @return ZoneId 区域Id，返回腾讯云每个地域的可用区代码
      */
     public Long getZoneId() {
         return this.ZoneId;
     }
 
     /**
-     * Set 区域Id
-     * @param ZoneId 区域Id
+     * Set 区域Id，返回腾讯云每个地域的可用区代码
+     * @param ZoneId 区域Id，返回腾讯云每个地域的可用区代码
      */
     public void setZoneId(Long ZoneId) {
         this.ZoneId = ZoneId;
@@ -535,6 +559,66 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
     }
 
     /**
+     * Get 资源所关联的Tag
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Tags 资源所关联的Tag
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 资源所关联的Tag
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Tags 资源所关联的Tag
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
+     * Get 资源续费标识，0表示默认状态(用户未设置，即初始状态)， 1表示自动续费，2表示明确不自动续费(用户设置)
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RenewFlag 资源续费标识，0表示默认状态(用户未设置，即初始状态)， 1表示自动续费，2表示明确不自动续费(用户设置)
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getRenewFlag() {
+        return this.RenewFlag;
+    }
+
+    /**
+     * Set 资源续费标识，0表示默认状态(用户未设置，即初始状态)， 1表示自动续费，2表示明确不自动续费(用户设置)
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RenewFlag 资源续费标识，0表示默认状态(用户未设置，即初始状态)， 1表示自动续费，2表示明确不自动续费(用户设置)
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRenewFlag(Long RenewFlag) {
+        this.RenewFlag = RenewFlag;
+    }
+
+    /**
+     * Get 厂商
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Manufacturer 厂商
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getManufacturer() {
+        return this.Manufacturer;
+    }
+
+    /**
+     * Set 厂商
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Manufacturer 厂商
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setManufacturer(String Manufacturer) {
+        this.Manufacturer = Manufacturer;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -549,6 +633,95 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeVsmAttributesResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeVsmAttributesResponse(DescribeVsmAttributesResponse source) {
+        if (source.ResourceId != null) {
+            this.ResourceId = new String(source.ResourceId);
+        }
+        if (source.ResourceName != null) {
+            this.ResourceName = new String(source.ResourceName);
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+        if (source.Vip != null) {
+            this.Vip = new String(source.Vip);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.Model != null) {
+            this.Model = new String(source.Model);
+        }
+        if (source.VsmType != null) {
+            this.VsmType = new Long(source.VsmType);
+        }
+        if (source.RegionId != null) {
+            this.RegionId = new Long(source.RegionId);
+        }
+        if (source.ZoneId != null) {
+            this.ZoneId = new Long(source.ZoneId);
+        }
+        if (source.ExpireTime != null) {
+            this.ExpireTime = new Long(source.ExpireTime);
+        }
+        if (source.SgList != null) {
+            this.SgList = new UsgRuleDetail[source.SgList.length];
+            for (int i = 0; i < source.SgList.length; i++) {
+                this.SgList[i] = new UsgRuleDetail(source.SgList[i]);
+            }
+        }
+        if (source.SubnetName != null) {
+            this.SubnetName = new String(source.SubnetName);
+        }
+        if (source.RegionName != null) {
+            this.RegionName = new String(source.RegionName);
+        }
+        if (source.ZoneName != null) {
+            this.ZoneName = new String(source.ZoneName);
+        }
+        if (source.Expired != null) {
+            this.Expired = new Boolean(source.Expired);
+        }
+        if (source.RemainSeconds != null) {
+            this.RemainSeconds = new Long(source.RemainSeconds);
+        }
+        if (source.VpcName != null) {
+            this.VpcName = new String(source.VpcName);
+        }
+        if (source.VpcCidrBlock != null) {
+            this.VpcCidrBlock = new String(source.VpcCidrBlock);
+        }
+        if (source.SubnetCidrBlock != null) {
+            this.SubnetCidrBlock = new String(source.SubnetCidrBlock);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.RenewFlag != null) {
+            this.RenewFlag = new Long(source.RenewFlag);
+        }
+        if (source.Manufacturer != null) {
+            this.Manufacturer = new String(source.Manufacturer);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -574,6 +747,9 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "VpcName", this.VpcName);
         this.setParamSimple(map, prefix + "VpcCidrBlock", this.VpcCidrBlock);
         this.setParamSimple(map, prefix + "SubnetCidrBlock", this.SubnetCidrBlock);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "RenewFlag", this.RenewFlag);
+        this.setParamSimple(map, prefix + "Manufacturer", this.Manufacturer);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

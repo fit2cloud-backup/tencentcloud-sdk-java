@@ -31,6 +31,7 @@ public class GetSecretValueRequest extends AbstractModel{
 
     /**
     * 指定对应凭据的版本号。
+对于云产品凭据如Mysql凭据，通过指定凭据名称和历史版本号来获取历史轮转凭据的明文信息，如果要获取当前正在使用的凭据版本的明文，需要将版本号指定为：SSM_Current。
     */
     @SerializedName("VersionId")
     @Expose
@@ -53,8 +54,10 @@ public class GetSecretValueRequest extends AbstractModel{
     }
 
     /**
-     * Get 指定对应凭据的版本号。 
+     * Get 指定对应凭据的版本号。
+对于云产品凭据如Mysql凭据，通过指定凭据名称和历史版本号来获取历史轮转凭据的明文信息，如果要获取当前正在使用的凭据版本的明文，需要将版本号指定为：SSM_Current。 
      * @return VersionId 指定对应凭据的版本号。
+对于云产品凭据如Mysql凭据，通过指定凭据名称和历史版本号来获取历史轮转凭据的明文信息，如果要获取当前正在使用的凭据版本的明文，需要将版本号指定为：SSM_Current。
      */
     public String getVersionId() {
         return this.VersionId;
@@ -62,11 +65,30 @@ public class GetSecretValueRequest extends AbstractModel{
 
     /**
      * Set 指定对应凭据的版本号。
+对于云产品凭据如Mysql凭据，通过指定凭据名称和历史版本号来获取历史轮转凭据的明文信息，如果要获取当前正在使用的凭据版本的明文，需要将版本号指定为：SSM_Current。
      * @param VersionId 指定对应凭据的版本号。
+对于云产品凭据如Mysql凭据，通过指定凭据名称和历史版本号来获取历史轮转凭据的明文信息，如果要获取当前正在使用的凭据版本的明文，需要将版本号指定为：SSM_Current。
      */
     public void setVersionId(String VersionId) {
         this.VersionId = VersionId;
     }
+
+    public GetSecretValueRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public GetSecretValueRequest(GetSecretValueRequest source) {
+        if (source.SecretName != null) {
+            this.SecretName = new String(source.SecretName);
+        }
+        if (source.VersionId != null) {
+            this.VersionId = new String(source.VersionId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -60,6 +60,20 @@ public class QueryInvoiceRequest extends AbstractModel{
     private String Profile;
 
     /**
+    * 开票渠道。0：线上渠道，1：线下渠道。不填默认为线上渠道
+    */
+    @SerializedName("InvoiceChannel")
+    @Expose
+    private Long InvoiceChannel;
+
+    /**
+    * 当渠道为线下渠道时，必填
+    */
+    @SerializedName("SellerTaxpayerNum")
+    @Expose
+    private String SellerTaxpayerNum;
+
+    /**
      * Get 开票平台ID 
      * @return InvoicePlatformId 开票平台ID
      */
@@ -148,6 +162,70 @@ public class QueryInvoiceRequest extends AbstractModel{
     }
 
     /**
+     * Get 开票渠道。0：线上渠道，1：线下渠道。不填默认为线上渠道 
+     * @return InvoiceChannel 开票渠道。0：线上渠道，1：线下渠道。不填默认为线上渠道
+     */
+    public Long getInvoiceChannel() {
+        return this.InvoiceChannel;
+    }
+
+    /**
+     * Set 开票渠道。0：线上渠道，1：线下渠道。不填默认为线上渠道
+     * @param InvoiceChannel 开票渠道。0：线上渠道，1：线下渠道。不填默认为线上渠道
+     */
+    public void setInvoiceChannel(Long InvoiceChannel) {
+        this.InvoiceChannel = InvoiceChannel;
+    }
+
+    /**
+     * Get 当渠道为线下渠道时，必填 
+     * @return SellerTaxpayerNum 当渠道为线下渠道时，必填
+     */
+    public String getSellerTaxpayerNum() {
+        return this.SellerTaxpayerNum;
+    }
+
+    /**
+     * Set 当渠道为线下渠道时，必填
+     * @param SellerTaxpayerNum 当渠道为线下渠道时，必填
+     */
+    public void setSellerTaxpayerNum(String SellerTaxpayerNum) {
+        this.SellerTaxpayerNum = SellerTaxpayerNum;
+    }
+
+    public QueryInvoiceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public QueryInvoiceRequest(QueryInvoiceRequest source) {
+        if (source.InvoicePlatformId != null) {
+            this.InvoicePlatformId = new Long(source.InvoicePlatformId);
+        }
+        if (source.OrderId != null) {
+            this.OrderId = new String(source.OrderId);
+        }
+        if (source.OrderSn != null) {
+            this.OrderSn = new String(source.OrderSn);
+        }
+        if (source.IsRed != null) {
+            this.IsRed = new Long(source.IsRed);
+        }
+        if (source.Profile != null) {
+            this.Profile = new String(source.Profile);
+        }
+        if (source.InvoiceChannel != null) {
+            this.InvoiceChannel = new Long(source.InvoiceChannel);
+        }
+        if (source.SellerTaxpayerNum != null) {
+            this.SellerTaxpayerNum = new String(source.SellerTaxpayerNum);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -156,6 +234,8 @@ public class QueryInvoiceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "OrderSn", this.OrderSn);
         this.setParamSimple(map, prefix + "IsRed", this.IsRed);
         this.setParamSimple(map, prefix + "Profile", this.Profile);
+        this.setParamSimple(map, prefix + "InvoiceChannel", this.InvoiceChannel);
+        this.setParamSimple(map, prefix + "SellerTaxpayerNum", this.SellerTaxpayerNum);
 
     }
 }

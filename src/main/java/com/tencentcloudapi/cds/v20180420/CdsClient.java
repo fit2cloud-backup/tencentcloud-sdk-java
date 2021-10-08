@@ -27,6 +27,7 @@ import com.tencentcloudapi.cds.v20180420.models.*;
 
 public class CdsClient extends AbstractClient{
     private static String endpoint = "cds.tencentcloudapi.com";
+    private static String service = "cds";
     private static String version = "2018-04-20";
 
     public CdsClient(Credential credential, String region) {
@@ -45,12 +46,14 @@ public class CdsClient extends AbstractClient{
      */
     public DescribeDasbImageIdsResponse DescribeDasbImageIds(DescribeDasbImageIdsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDasbImageIdsResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDasbImageIdsResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeDasbImageIds"), type);
+                rspStr = this.internalRequest(req, "DescribeDasbImageIds");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -63,12 +66,14 @@ public class CdsClient extends AbstractClient{
      */
     public DescribeDbauditInstanceTypeResponse DescribeDbauditInstanceType(DescribeDbauditInstanceTypeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDbauditInstanceTypeResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDbauditInstanceTypeResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeDbauditInstanceType"), type);
+                rspStr = this.internalRequest(req, "DescribeDbauditInstanceType");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -81,12 +86,14 @@ public class CdsClient extends AbstractClient{
      */
     public DescribeDbauditInstancesResponse DescribeDbauditInstances(DescribeDbauditInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDbauditInstancesResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDbauditInstancesResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeDbauditInstances"), type);
+                rspStr = this.internalRequest(req, "DescribeDbauditInstances");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -99,12 +106,14 @@ public class CdsClient extends AbstractClient{
      */
     public DescribeDbauditUsedRegionsResponse DescribeDbauditUsedRegions(DescribeDbauditUsedRegionsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDbauditUsedRegionsResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDbauditUsedRegionsResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeDbauditUsedRegions"), type);
+                rspStr = this.internalRequest(req, "DescribeDbauditUsedRegions");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -117,12 +126,14 @@ public class CdsClient extends AbstractClient{
      */
     public InquiryPriceDbauditInstanceResponse InquiryPriceDbauditInstance(InquiryPriceDbauditInstanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<InquiryPriceDbauditInstanceResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<InquiryPriceDbauditInstanceResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "InquiryPriceDbauditInstance"), type);
+                rspStr = this.internalRequest(req, "InquiryPriceDbauditInstance");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -135,12 +146,14 @@ public class CdsClient extends AbstractClient{
      */
     public ModifyDbauditInstancesRenewFlagResponse ModifyDbauditInstancesRenewFlag(ModifyDbauditInstancesRenewFlagRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyDbauditInstancesRenewFlagResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyDbauditInstancesRenewFlagResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ModifyDbauditInstancesRenewFlag"), type);
+                rspStr = this.internalRequest(req, "ModifyDbauditInstancesRenewFlag");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

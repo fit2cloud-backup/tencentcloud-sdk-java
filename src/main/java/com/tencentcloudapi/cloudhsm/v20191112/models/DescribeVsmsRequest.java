@@ -44,6 +44,20 @@ public class DescribeVsmsRequest extends AbstractModel{
     private String SearchWord;
 
     /**
+    * 标签过滤条件
+    */
+    @SerializedName("TagFilters")
+    @Expose
+    private TagFilter [] TagFilters;
+
+    /**
+    * 设备所属的厂商名称，根据厂商来进行筛选
+    */
+    @SerializedName("Manufacturer")
+    @Expose
+    private String Manufacturer;
+
+    /**
      * Get 偏移 
      * @return Offset 偏移
      */
@@ -92,12 +106,75 @@ public class DescribeVsmsRequest extends AbstractModel{
     }
 
     /**
+     * Get 标签过滤条件 
+     * @return TagFilters 标签过滤条件
+     */
+    public TagFilter [] getTagFilters() {
+        return this.TagFilters;
+    }
+
+    /**
+     * Set 标签过滤条件
+     * @param TagFilters 标签过滤条件
+     */
+    public void setTagFilters(TagFilter [] TagFilters) {
+        this.TagFilters = TagFilters;
+    }
+
+    /**
+     * Get 设备所属的厂商名称，根据厂商来进行筛选 
+     * @return Manufacturer 设备所属的厂商名称，根据厂商来进行筛选
+     */
+    public String getManufacturer() {
+        return this.Manufacturer;
+    }
+
+    /**
+     * Set 设备所属的厂商名称，根据厂商来进行筛选
+     * @param Manufacturer 设备所属的厂商名称，根据厂商来进行筛选
+     */
+    public void setManufacturer(String Manufacturer) {
+        this.Manufacturer = Manufacturer;
+    }
+
+    public DescribeVsmsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeVsmsRequest(DescribeVsmsRequest source) {
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.SearchWord != null) {
+            this.SearchWord = new String(source.SearchWord);
+        }
+        if (source.TagFilters != null) {
+            this.TagFilters = new TagFilter[source.TagFilters.length];
+            for (int i = 0; i < source.TagFilters.length; i++) {
+                this.TagFilters[i] = new TagFilter(source.TagFilters[i]);
+            }
+        }
+        if (source.Manufacturer != null) {
+            this.Manufacturer = new String(source.Manufacturer);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "SearchWord", this.SearchWord);
+        this.setParamArrayObj(map, prefix + "TagFilters.", this.TagFilters);
+        this.setParamSimple(map, prefix + "Manufacturer", this.Manufacturer);
 
     }
 }

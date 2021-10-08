@@ -65,6 +65,13 @@ public class CreateMigrationRequest extends AbstractModel{
     private MigrateDB [] MigrateDBSet;
 
     /**
+    * 按照ReNameRestoreDatabase中的库进行恢复，并重命名，不填则按照默认方式命名恢复的库，且恢复所有的库。SourceType=5的情况下有效。
+    */
+    @SerializedName("RenameRestore")
+    @Expose
+    private RenameRestoreDatabase [] RenameRestore;
+
+    /**
      * Get 迁移任务的名称 
      * @return MigrateName 迁移任务的名称
      */
@@ -161,6 +168,60 @@ public class CreateMigrationRequest extends AbstractModel{
     }
 
     /**
+     * Get 按照ReNameRestoreDatabase中的库进行恢复，并重命名，不填则按照默认方式命名恢复的库，且恢复所有的库。SourceType=5的情况下有效。 
+     * @return RenameRestore 按照ReNameRestoreDatabase中的库进行恢复，并重命名，不填则按照默认方式命名恢复的库，且恢复所有的库。SourceType=5的情况下有效。
+     */
+    public RenameRestoreDatabase [] getRenameRestore() {
+        return this.RenameRestore;
+    }
+
+    /**
+     * Set 按照ReNameRestoreDatabase中的库进行恢复，并重命名，不填则按照默认方式命名恢复的库，且恢复所有的库。SourceType=5的情况下有效。
+     * @param RenameRestore 按照ReNameRestoreDatabase中的库进行恢复，并重命名，不填则按照默认方式命名恢复的库，且恢复所有的库。SourceType=5的情况下有效。
+     */
+    public void setRenameRestore(RenameRestoreDatabase [] RenameRestore) {
+        this.RenameRestore = RenameRestore;
+    }
+
+    public CreateMigrationRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateMigrationRequest(CreateMigrationRequest source) {
+        if (source.MigrateName != null) {
+            this.MigrateName = new String(source.MigrateName);
+        }
+        if (source.MigrateType != null) {
+            this.MigrateType = new Long(source.MigrateType);
+        }
+        if (source.SourceType != null) {
+            this.SourceType = new Long(source.SourceType);
+        }
+        if (source.Source != null) {
+            this.Source = new MigrateSource(source.Source);
+        }
+        if (source.Target != null) {
+            this.Target = new MigrateTarget(source.Target);
+        }
+        if (source.MigrateDBSet != null) {
+            this.MigrateDBSet = new MigrateDB[source.MigrateDBSet.length];
+            for (int i = 0; i < source.MigrateDBSet.length; i++) {
+                this.MigrateDBSet[i] = new MigrateDB(source.MigrateDBSet[i]);
+            }
+        }
+        if (source.RenameRestore != null) {
+            this.RenameRestore = new RenameRestoreDatabase[source.RenameRestore.length];
+            for (int i = 0; i < source.RenameRestore.length; i++) {
+                this.RenameRestore[i] = new RenameRestoreDatabase(source.RenameRestore[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -170,6 +231,7 @@ public class CreateMigrationRequest extends AbstractModel{
         this.setParamObj(map, prefix + "Source.", this.Source);
         this.setParamObj(map, prefix + "Target.", this.Target);
         this.setParamArrayObj(map, prefix + "MigrateDBSet.", this.MigrateDBSet);
+        this.setParamArrayObj(map, prefix + "RenameRestore.", this.RenameRestore);
 
     }
 }

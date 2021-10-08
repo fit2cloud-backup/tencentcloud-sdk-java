@@ -67,6 +67,30 @@ public class ModifySuperPlayerConfigRequest extends AbstractModel{
     private ResolutionNameInfo [] ResolutionNames;
 
     /**
+    * 播放时使用的域名。填 Default 表示使用[默认分发配置](https://cloud.tencent.com/document/product/266/33373)中的域名。
+    */
+    @SerializedName("Domain")
+    @Expose
+    private String Domain;
+
+    /**
+    * 播放时使用的 Scheme。取值范围：
+<li>Default：使用[默认分发配置](https://cloud.tencent.com/document/product/266/33373)中的 Scheme；</li>
+<li>HTTP；</li>
+<li>HTTPS。</li>
+    */
+    @SerializedName("Scheme")
+    @Expose
+    private String Scheme;
+
+    /**
+    * 模板描述信息，长度限制：256 个字符。
+    */
+    @SerializedName("Comment")
+    @Expose
+    private String Comment;
+
+    /**
     * 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
     */
     @SerializedName("SubAppId")
@@ -178,6 +202,66 @@ public class ModifySuperPlayerConfigRequest extends AbstractModel{
     }
 
     /**
+     * Get 播放时使用的域名。填 Default 表示使用[默认分发配置](https://cloud.tencent.com/document/product/266/33373)中的域名。 
+     * @return Domain 播放时使用的域名。填 Default 表示使用[默认分发配置](https://cloud.tencent.com/document/product/266/33373)中的域名。
+     */
+    public String getDomain() {
+        return this.Domain;
+    }
+
+    /**
+     * Set 播放时使用的域名。填 Default 表示使用[默认分发配置](https://cloud.tencent.com/document/product/266/33373)中的域名。
+     * @param Domain 播放时使用的域名。填 Default 表示使用[默认分发配置](https://cloud.tencent.com/document/product/266/33373)中的域名。
+     */
+    public void setDomain(String Domain) {
+        this.Domain = Domain;
+    }
+
+    /**
+     * Get 播放时使用的 Scheme。取值范围：
+<li>Default：使用[默认分发配置](https://cloud.tencent.com/document/product/266/33373)中的 Scheme；</li>
+<li>HTTP；</li>
+<li>HTTPS。</li> 
+     * @return Scheme 播放时使用的 Scheme。取值范围：
+<li>Default：使用[默认分发配置](https://cloud.tencent.com/document/product/266/33373)中的 Scheme；</li>
+<li>HTTP；</li>
+<li>HTTPS。</li>
+     */
+    public String getScheme() {
+        return this.Scheme;
+    }
+
+    /**
+     * Set 播放时使用的 Scheme。取值范围：
+<li>Default：使用[默认分发配置](https://cloud.tencent.com/document/product/266/33373)中的 Scheme；</li>
+<li>HTTP；</li>
+<li>HTTPS。</li>
+     * @param Scheme 播放时使用的 Scheme。取值范围：
+<li>Default：使用[默认分发配置](https://cloud.tencent.com/document/product/266/33373)中的 Scheme；</li>
+<li>HTTP；</li>
+<li>HTTPS。</li>
+     */
+    public void setScheme(String Scheme) {
+        this.Scheme = Scheme;
+    }
+
+    /**
+     * Get 模板描述信息，长度限制：256 个字符。 
+     * @return Comment 模板描述信息，长度限制：256 个字符。
+     */
+    public String getComment() {
+        return this.Comment;
+    }
+
+    /**
+     * Set 模板描述信息，长度限制：256 个字符。
+     * @param Comment 模板描述信息，长度限制：256 个字符。
+     */
+    public void setComment(String Comment) {
+        this.Comment = Comment;
+    }
+
+    /**
      * Get 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。 
      * @return SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
      */
@@ -193,6 +277,50 @@ public class ModifySuperPlayerConfigRequest extends AbstractModel{
         this.SubAppId = SubAppId;
     }
 
+    public ModifySuperPlayerConfigRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifySuperPlayerConfigRequest(ModifySuperPlayerConfigRequest source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.DrmSwitch != null) {
+            this.DrmSwitch = new String(source.DrmSwitch);
+        }
+        if (source.AdaptiveDynamicStreamingDefinition != null) {
+            this.AdaptiveDynamicStreamingDefinition = new Long(source.AdaptiveDynamicStreamingDefinition);
+        }
+        if (source.DrmStreamingsInfo != null) {
+            this.DrmStreamingsInfo = new DrmStreamingsInfoForUpdate(source.DrmStreamingsInfo);
+        }
+        if (source.ImageSpriteDefinition != null) {
+            this.ImageSpriteDefinition = new Long(source.ImageSpriteDefinition);
+        }
+        if (source.ResolutionNames != null) {
+            this.ResolutionNames = new ResolutionNameInfo[source.ResolutionNames.length];
+            for (int i = 0; i < source.ResolutionNames.length; i++) {
+                this.ResolutionNames[i] = new ResolutionNameInfo(source.ResolutionNames[i]);
+            }
+        }
+        if (source.Domain != null) {
+            this.Domain = new String(source.Domain);
+        }
+        if (source.Scheme != null) {
+            this.Scheme = new String(source.Scheme);
+        }
+        if (source.Comment != null) {
+            this.Comment = new String(source.Comment);
+        }
+        if (source.SubAppId != null) {
+            this.SubAppId = new Long(source.SubAppId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
@@ -203,6 +331,9 @@ public class ModifySuperPlayerConfigRequest extends AbstractModel{
         this.setParamObj(map, prefix + "DrmStreamingsInfo.", this.DrmStreamingsInfo);
         this.setParamSimple(map, prefix + "ImageSpriteDefinition", this.ImageSpriteDefinition);
         this.setParamArrayObj(map, prefix + "ResolutionNames.", this.ResolutionNames);
+        this.setParamSimple(map, prefix + "Domain", this.Domain);
+        this.setParamSimple(map, prefix + "Scheme", this.Scheme);
+        this.setParamSimple(map, prefix + "Comment", this.Comment);
         this.setParamSimple(map, prefix + "SubAppId", this.SubAppId);
 
     }

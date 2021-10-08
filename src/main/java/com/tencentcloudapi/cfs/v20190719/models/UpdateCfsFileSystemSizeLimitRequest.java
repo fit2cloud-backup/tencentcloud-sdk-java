@@ -30,7 +30,7 @@ public class UpdateCfsFileSystemSizeLimitRequest extends AbstractModel{
     private Long FsLimit;
 
     /**
-    * 文件系统ID
+    * 文件系统ID，目前仅支持标准型文件系统。
     */
     @SerializedName("FileSystemId")
     @Expose
@@ -53,20 +53,37 @@ public class UpdateCfsFileSystemSizeLimitRequest extends AbstractModel{
     }
 
     /**
-     * Get 文件系统ID 
-     * @return FileSystemId 文件系统ID
+     * Get 文件系统ID，目前仅支持标准型文件系统。 
+     * @return FileSystemId 文件系统ID，目前仅支持标准型文件系统。
      */
     public String getFileSystemId() {
         return this.FileSystemId;
     }
 
     /**
-     * Set 文件系统ID
-     * @param FileSystemId 文件系统ID
+     * Set 文件系统ID，目前仅支持标准型文件系统。
+     * @param FileSystemId 文件系统ID，目前仅支持标准型文件系统。
      */
     public void setFileSystemId(String FileSystemId) {
         this.FileSystemId = FileSystemId;
     }
+
+    public UpdateCfsFileSystemSizeLimitRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public UpdateCfsFileSystemSizeLimitRequest(UpdateCfsFileSystemSizeLimitRequest source) {
+        if (source.FsLimit != null) {
+            this.FsLimit = new Long(source.FsLimit);
+        }
+        if (source.FileSystemId != null) {
+            this.FileSystemId = new String(source.FileSystemId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

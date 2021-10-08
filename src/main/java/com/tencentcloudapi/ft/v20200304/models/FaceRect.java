@@ -23,18 +23,18 @@ import java.util.HashMap;
 public class FaceRect extends AbstractModel{
 
     /**
-    * 人脸框左上角横坐标。
-    */
-    @SerializedName("X")
-    @Expose
-    private Long X;
-
-    /**
     * 人脸框左上角纵坐标。
     */
     @SerializedName("Y")
     @Expose
     private Long Y;
+
+    /**
+    * 人脸框左上角横坐标。
+    */
+    @SerializedName("X")
+    @Expose
+    private Long X;
 
     /**
     * 人脸框宽度。
@@ -51,22 +51,6 @@ public class FaceRect extends AbstractModel{
     private Long Height;
 
     /**
-     * Get 人脸框左上角横坐标。 
-     * @return X 人脸框左上角横坐标。
-     */
-    public Long getX() {
-        return this.X;
-    }
-
-    /**
-     * Set 人脸框左上角横坐标。
-     * @param X 人脸框左上角横坐标。
-     */
-    public void setX(Long X) {
-        this.X = X;
-    }
-
-    /**
      * Get 人脸框左上角纵坐标。 
      * @return Y 人脸框左上角纵坐标。
      */
@@ -80,6 +64,22 @@ public class FaceRect extends AbstractModel{
      */
     public void setY(Long Y) {
         this.Y = Y;
+    }
+
+    /**
+     * Get 人脸框左上角横坐标。 
+     * @return X 人脸框左上角横坐标。
+     */
+    public Long getX() {
+        return this.X;
+    }
+
+    /**
+     * Set 人脸框左上角横坐标。
+     * @param X 人脸框左上角横坐标。
+     */
+    public void setX(Long X) {
+        this.X = X;
     }
 
     /**
@@ -114,12 +114,35 @@ public class FaceRect extends AbstractModel{
         this.Height = Height;
     }
 
+    public FaceRect() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public FaceRect(FaceRect source) {
+        if (source.Y != null) {
+            this.Y = new Long(source.Y);
+        }
+        if (source.X != null) {
+            this.X = new Long(source.X);
+        }
+        if (source.Width != null) {
+            this.Width = new Long(source.Width);
+        }
+        if (source.Height != null) {
+            this.Height = new Long(source.Height);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "X", this.X);
         this.setParamSimple(map, prefix + "Y", this.Y);
+        this.setParamSimple(map, prefix + "X", this.X);
         this.setParamSimple(map, prefix + "Width", this.Width);
         this.setParamSimple(map, prefix + "Height", this.Height);
 

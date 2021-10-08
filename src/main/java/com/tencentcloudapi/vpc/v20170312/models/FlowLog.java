@@ -44,7 +44,7 @@ public class FlowLog extends AbstractModel{
     private String FlowLogName;
 
     /**
-    * 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE
+    * 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE|CCN
     */
     @SerializedName("ResourceType")
     @Expose
@@ -91,6 +91,13 @@ public class FlowLog extends AbstractModel{
     @SerializedName("CreatedTime")
     @Expose
     private String CreatedTime;
+
+    /**
+    * 标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+    */
+    @SerializedName("TagSet")
+    @Expose
+    private Tag [] TagSet;
 
     /**
      * Get 私用网络ID或者统一ID，建议使用统一ID 
@@ -141,16 +148,16 @@ public class FlowLog extends AbstractModel{
     }
 
     /**
-     * Get 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE 
-     * @return ResourceType 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE
+     * Get 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE|CCN 
+     * @return ResourceType 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE|CCN
      */
     public String getResourceType() {
         return this.ResourceType;
     }
 
     /**
-     * Set 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE
-     * @param ResourceType 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE
+     * Set 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE|CCN
+     * @param ResourceType 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE|CCN
      */
     public void setResourceType(String ResourceType) {
         this.ResourceType = ResourceType;
@@ -253,6 +260,69 @@ public class FlowLog extends AbstractModel{
     }
 
     /**
+     * Get 标签列表，例如：[{"Key": "city", "Value": "shanghai"}] 
+     * @return TagSet 标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+     */
+    public Tag [] getTagSet() {
+        return this.TagSet;
+    }
+
+    /**
+     * Set 标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+     * @param TagSet 标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+     */
+    public void setTagSet(Tag [] TagSet) {
+        this.TagSet = TagSet;
+    }
+
+    public FlowLog() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public FlowLog(FlowLog source) {
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.FlowLogId != null) {
+            this.FlowLogId = new String(source.FlowLogId);
+        }
+        if (source.FlowLogName != null) {
+            this.FlowLogName = new String(source.FlowLogName);
+        }
+        if (source.ResourceType != null) {
+            this.ResourceType = new String(source.ResourceType);
+        }
+        if (source.ResourceId != null) {
+            this.ResourceId = new String(source.ResourceId);
+        }
+        if (source.TrafficType != null) {
+            this.TrafficType = new String(source.TrafficType);
+        }
+        if (source.CloudLogId != null) {
+            this.CloudLogId = new String(source.CloudLogId);
+        }
+        if (source.CloudLogState != null) {
+            this.CloudLogState = new String(source.CloudLogState);
+        }
+        if (source.FlowLogDescription != null) {
+            this.FlowLogDescription = new String(source.FlowLogDescription);
+        }
+        if (source.CreatedTime != null) {
+            this.CreatedTime = new String(source.CreatedTime);
+        }
+        if (source.TagSet != null) {
+            this.TagSet = new Tag[source.TagSet.length];
+            for (int i = 0; i < source.TagSet.length; i++) {
+                this.TagSet[i] = new Tag(source.TagSet[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -266,6 +336,7 @@ public class FlowLog extends AbstractModel{
         this.setParamSimple(map, prefix + "CloudLogState", this.CloudLogState);
         this.setParamSimple(map, prefix + "FlowLogDescription", this.FlowLogDescription);
         this.setParamSimple(map, prefix + "CreatedTime", this.CreatedTime);
+        this.setParamArrayObj(map, prefix + "TagSet.", this.TagSet);
 
     }
 }

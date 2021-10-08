@@ -37,7 +37,7 @@ public class SearchMaterialRequest extends AbstractModel{
     private SearchScope [] SearchScopes;
 
     /**
-    * 素材类型，取值：
+    * 媒体类型，取值：
 <li>AUDIO：音频；</li>
 <li>VIDEO：视频 ；</li>
 <li>IMAGE：图片。</li>
@@ -47,7 +47,7 @@ public class SearchMaterialRequest extends AbstractModel{
     private String [] MaterialTypes;
 
     /**
-    * 搜索文本，模糊匹配素材名称或描述信息，匹配项越多，匹配度越高，排序越优先。长度限制：64 个字符。
+    * 搜索文本，模糊匹配媒体名称或描述信息，匹配项越多，匹配度越高，排序越优先。长度限制：15个字符。
     */
     @SerializedName("Text")
     @Expose
@@ -61,21 +61,21 @@ public class SearchMaterialRequest extends AbstractModel{
     private String Resolution;
 
     /**
-    * 按素材时长检索，单位s。
+    * 按媒体时长检索，单位s。
     */
     @SerializedName("DurationRange")
     @Expose
     private IntegerRange DurationRange;
 
     /**
-    * 按照素材创建时间检索。
+    * 按照媒体创建时间检索。
     */
     @SerializedName("CreateTimeRange")
     @Expose
     private TimeRange CreateTimeRange;
 
     /**
-    * 标签集合，匹配集合中任意元素。单个标签长度限制：10 个字符。数组长度限制：10。
+    * 按标签检索，填入检索的标签名。
     */
     @SerializedName("Tags")
     @Expose
@@ -103,7 +103,7 @@ public class SearchMaterialRequest extends AbstractModel{
     private Long Limit;
 
     /**
-    * 操作者。填写用户的 Id，用于标识调用者及校验操作权限。
+    * 操作者。填写用户的 Id，用于标识调用者及校验媒体访问权限。
     */
     @SerializedName("Operator")
     @Expose
@@ -142,11 +142,11 @@ public class SearchMaterialRequest extends AbstractModel{
     }
 
     /**
-     * Get 素材类型，取值：
+     * Get 媒体类型，取值：
 <li>AUDIO：音频；</li>
 <li>VIDEO：视频 ；</li>
 <li>IMAGE：图片。</li> 
-     * @return MaterialTypes 素材类型，取值：
+     * @return MaterialTypes 媒体类型，取值：
 <li>AUDIO：音频；</li>
 <li>VIDEO：视频 ；</li>
 <li>IMAGE：图片。</li>
@@ -156,11 +156,11 @@ public class SearchMaterialRequest extends AbstractModel{
     }
 
     /**
-     * Set 素材类型，取值：
+     * Set 媒体类型，取值：
 <li>AUDIO：音频；</li>
 <li>VIDEO：视频 ；</li>
 <li>IMAGE：图片。</li>
-     * @param MaterialTypes 素材类型，取值：
+     * @param MaterialTypes 媒体类型，取值：
 <li>AUDIO：音频；</li>
 <li>VIDEO：视频 ；</li>
 <li>IMAGE：图片。</li>
@@ -170,16 +170,16 @@ public class SearchMaterialRequest extends AbstractModel{
     }
 
     /**
-     * Get 搜索文本，模糊匹配素材名称或描述信息，匹配项越多，匹配度越高，排序越优先。长度限制：64 个字符。 
-     * @return Text 搜索文本，模糊匹配素材名称或描述信息，匹配项越多，匹配度越高，排序越优先。长度限制：64 个字符。
+     * Get 搜索文本，模糊匹配媒体名称或描述信息，匹配项越多，匹配度越高，排序越优先。长度限制：15个字符。 
+     * @return Text 搜索文本，模糊匹配媒体名称或描述信息，匹配项越多，匹配度越高，排序越优先。长度限制：15个字符。
      */
     public String getText() {
         return this.Text;
     }
 
     /**
-     * Set 搜索文本，模糊匹配素材名称或描述信息，匹配项越多，匹配度越高，排序越优先。长度限制：64 个字符。
-     * @param Text 搜索文本，模糊匹配素材名称或描述信息，匹配项越多，匹配度越高，排序越优先。长度限制：64 个字符。
+     * Set 搜索文本，模糊匹配媒体名称或描述信息，匹配项越多，匹配度越高，排序越优先。长度限制：15个字符。
+     * @param Text 搜索文本，模糊匹配媒体名称或描述信息，匹配项越多，匹配度越高，排序越优先。长度限制：15个字符。
      */
     public void setText(String Text) {
         this.Text = Text;
@@ -202,48 +202,48 @@ public class SearchMaterialRequest extends AbstractModel{
     }
 
     /**
-     * Get 按素材时长检索，单位s。 
-     * @return DurationRange 按素材时长检索，单位s。
+     * Get 按媒体时长检索，单位s。 
+     * @return DurationRange 按媒体时长检索，单位s。
      */
     public IntegerRange getDurationRange() {
         return this.DurationRange;
     }
 
     /**
-     * Set 按素材时长检索，单位s。
-     * @param DurationRange 按素材时长检索，单位s。
+     * Set 按媒体时长检索，单位s。
+     * @param DurationRange 按媒体时长检索，单位s。
      */
     public void setDurationRange(IntegerRange DurationRange) {
         this.DurationRange = DurationRange;
     }
 
     /**
-     * Get 按照素材创建时间检索。 
-     * @return CreateTimeRange 按照素材创建时间检索。
+     * Get 按照媒体创建时间检索。 
+     * @return CreateTimeRange 按照媒体创建时间检索。
      */
     public TimeRange getCreateTimeRange() {
         return this.CreateTimeRange;
     }
 
     /**
-     * Set 按照素材创建时间检索。
-     * @param CreateTimeRange 按照素材创建时间检索。
+     * Set 按照媒体创建时间检索。
+     * @param CreateTimeRange 按照媒体创建时间检索。
      */
     public void setCreateTimeRange(TimeRange CreateTimeRange) {
         this.CreateTimeRange = CreateTimeRange;
     }
 
     /**
-     * Get 标签集合，匹配集合中任意元素。单个标签长度限制：10 个字符。数组长度限制：10。 
-     * @return Tags 标签集合，匹配集合中任意元素。单个标签长度限制：10 个字符。数组长度限制：10。
+     * Get 按标签检索，填入检索的标签名。 
+     * @return Tags 按标签检索，填入检索的标签名。
      */
     public String [] getTags() {
         return this.Tags;
     }
 
     /**
-     * Set 标签集合，匹配集合中任意元素。单个标签长度限制：10 个字符。数组长度限制：10。
-     * @param Tags 标签集合，匹配集合中任意元素。单个标签长度限制：10 个字符。数组长度限制：10。
+     * Set 按标签检索，填入检索的标签名。
+     * @param Tags 按标签检索，填入检索的标签名。
      */
     public void setTags(String [] Tags) {
         this.Tags = Tags;
@@ -298,20 +298,76 @@ public class SearchMaterialRequest extends AbstractModel{
     }
 
     /**
-     * Get 操作者。填写用户的 Id，用于标识调用者及校验操作权限。 
-     * @return Operator 操作者。填写用户的 Id，用于标识调用者及校验操作权限。
+     * Get 操作者。填写用户的 Id，用于标识调用者及校验媒体访问权限。 
+     * @return Operator 操作者。填写用户的 Id，用于标识调用者及校验媒体访问权限。
      */
     public String getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 操作者。填写用户的 Id，用于标识调用者及校验操作权限。
-     * @param Operator 操作者。填写用户的 Id，用于标识调用者及校验操作权限。
+     * Set 操作者。填写用户的 Id，用于标识调用者及校验媒体访问权限。
+     * @param Operator 操作者。填写用户的 Id，用于标识调用者及校验媒体访问权限。
      */
     public void setOperator(String Operator) {
         this.Operator = Operator;
     }
+
+    public SearchMaterialRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SearchMaterialRequest(SearchMaterialRequest source) {
+        if (source.Platform != null) {
+            this.Platform = new String(source.Platform);
+        }
+        if (source.SearchScopes != null) {
+            this.SearchScopes = new SearchScope[source.SearchScopes.length];
+            for (int i = 0; i < source.SearchScopes.length; i++) {
+                this.SearchScopes[i] = new SearchScope(source.SearchScopes[i]);
+            }
+        }
+        if (source.MaterialTypes != null) {
+            this.MaterialTypes = new String[source.MaterialTypes.length];
+            for (int i = 0; i < source.MaterialTypes.length; i++) {
+                this.MaterialTypes[i] = new String(source.MaterialTypes[i]);
+            }
+        }
+        if (source.Text != null) {
+            this.Text = new String(source.Text);
+        }
+        if (source.Resolution != null) {
+            this.Resolution = new String(source.Resolution);
+        }
+        if (source.DurationRange != null) {
+            this.DurationRange = new IntegerRange(source.DurationRange);
+        }
+        if (source.CreateTimeRange != null) {
+            this.CreateTimeRange = new TimeRange(source.CreateTimeRange);
+        }
+        if (source.Tags != null) {
+            this.Tags = new String[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new String(source.Tags[i]);
+            }
+        }
+        if (source.Sort != null) {
+            this.Sort = new SortBy(source.Sort);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Operator != null) {
+            this.Operator = new String(source.Operator);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

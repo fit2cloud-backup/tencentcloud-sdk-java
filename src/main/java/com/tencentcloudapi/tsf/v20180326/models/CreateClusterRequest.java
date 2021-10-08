@@ -79,6 +79,34 @@ public class CreateClusterRequest extends AbstractModel{
     private String SubnetId;
 
     /**
+    * 集群版本
+    */
+    @SerializedName("ClusterVersion")
+    @Expose
+    private String ClusterVersion;
+
+    /**
+    * 集群中每个Node上最大的Pod数量。取值范围4～256。不为2的幂值时会向上取最接近的2的幂值。
+    */
+    @SerializedName("MaxNodePodNum")
+    @Expose
+    private Long MaxNodePodNum;
+
+    /**
+    * 集群最大的service数量。取值范围32～32768，不为2的幂值时会向上取最接近的2的幂值。
+    */
+    @SerializedName("MaxClusterServiceNum")
+    @Expose
+    private Long MaxClusterServiceNum;
+
+    /**
+    * 需要绑定的数据集ID
+    */
+    @SerializedName("ProgramId")
+    @Expose
+    private String ProgramId;
+
+    /**
      * Get 集群名称 
      * @return ClusterName 集群名称
      */
@@ -207,6 +235,117 @@ public class CreateClusterRequest extends AbstractModel{
     }
 
     /**
+     * Get 集群版本 
+     * @return ClusterVersion 集群版本
+     */
+    public String getClusterVersion() {
+        return this.ClusterVersion;
+    }
+
+    /**
+     * Set 集群版本
+     * @param ClusterVersion 集群版本
+     */
+    public void setClusterVersion(String ClusterVersion) {
+        this.ClusterVersion = ClusterVersion;
+    }
+
+    /**
+     * Get 集群中每个Node上最大的Pod数量。取值范围4～256。不为2的幂值时会向上取最接近的2的幂值。 
+     * @return MaxNodePodNum 集群中每个Node上最大的Pod数量。取值范围4～256。不为2的幂值时会向上取最接近的2的幂值。
+     */
+    public Long getMaxNodePodNum() {
+        return this.MaxNodePodNum;
+    }
+
+    /**
+     * Set 集群中每个Node上最大的Pod数量。取值范围4～256。不为2的幂值时会向上取最接近的2的幂值。
+     * @param MaxNodePodNum 集群中每个Node上最大的Pod数量。取值范围4～256。不为2的幂值时会向上取最接近的2的幂值。
+     */
+    public void setMaxNodePodNum(Long MaxNodePodNum) {
+        this.MaxNodePodNum = MaxNodePodNum;
+    }
+
+    /**
+     * Get 集群最大的service数量。取值范围32～32768，不为2的幂值时会向上取最接近的2的幂值。 
+     * @return MaxClusterServiceNum 集群最大的service数量。取值范围32～32768，不为2的幂值时会向上取最接近的2的幂值。
+     */
+    public Long getMaxClusterServiceNum() {
+        return this.MaxClusterServiceNum;
+    }
+
+    /**
+     * Set 集群最大的service数量。取值范围32～32768，不为2的幂值时会向上取最接近的2的幂值。
+     * @param MaxClusterServiceNum 集群最大的service数量。取值范围32～32768，不为2的幂值时会向上取最接近的2的幂值。
+     */
+    public void setMaxClusterServiceNum(Long MaxClusterServiceNum) {
+        this.MaxClusterServiceNum = MaxClusterServiceNum;
+    }
+
+    /**
+     * Get 需要绑定的数据集ID 
+     * @return ProgramId 需要绑定的数据集ID
+     */
+    public String getProgramId() {
+        return this.ProgramId;
+    }
+
+    /**
+     * Set 需要绑定的数据集ID
+     * @param ProgramId 需要绑定的数据集ID
+     */
+    public void setProgramId(String ProgramId) {
+        this.ProgramId = ProgramId;
+    }
+
+    public CreateClusterRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateClusterRequest(CreateClusterRequest source) {
+        if (source.ClusterName != null) {
+            this.ClusterName = new String(source.ClusterName);
+        }
+        if (source.ClusterType != null) {
+            this.ClusterType = new String(source.ClusterType);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.ClusterCIDR != null) {
+            this.ClusterCIDR = new String(source.ClusterCIDR);
+        }
+        if (source.ClusterDesc != null) {
+            this.ClusterDesc = new String(source.ClusterDesc);
+        }
+        if (source.TsfRegionId != null) {
+            this.TsfRegionId = new String(source.TsfRegionId);
+        }
+        if (source.TsfZoneId != null) {
+            this.TsfZoneId = new String(source.TsfZoneId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.ClusterVersion != null) {
+            this.ClusterVersion = new String(source.ClusterVersion);
+        }
+        if (source.MaxNodePodNum != null) {
+            this.MaxNodePodNum = new Long(source.MaxNodePodNum);
+        }
+        if (source.MaxClusterServiceNum != null) {
+            this.MaxClusterServiceNum = new Long(source.MaxClusterServiceNum);
+        }
+        if (source.ProgramId != null) {
+            this.ProgramId = new String(source.ProgramId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -218,6 +357,10 @@ public class CreateClusterRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TsfRegionId", this.TsfRegionId);
         this.setParamSimple(map, prefix + "TsfZoneId", this.TsfZoneId);
         this.setParamSimple(map, prefix + "SubnetId", this.SubnetId);
+        this.setParamSimple(map, prefix + "ClusterVersion", this.ClusterVersion);
+        this.setParamSimple(map, prefix + "MaxNodePodNum", this.MaxNodePodNum);
+        this.setParamSimple(map, prefix + "MaxClusterServiceNum", this.MaxClusterServiceNum);
+        this.setParamSimple(map, prefix + "ProgramId", this.ProgramId);
 
     }
 }

@@ -37,8 +37,8 @@ public class GetDetectInfoEnhancedRequest extends AbstractModel{
     private String RuleId;
 
     /**
-    * 指定拉取的结果信息，取值（0：全部；1：文本类；2：身份证信息；3：视频最佳截图信息；4：视频信息）。
-如 134表示拉取文本类、视频最佳截图信息、视频信息。
+    * 指定拉取的结果信息，取值（0：全部；1：文本类；2：身份证信息；3：视频最佳截图信息）。
+如 13表示拉取文本类、视频最佳截图信息。
 默认值：0
     */
     @SerializedName("InfoType")
@@ -46,7 +46,7 @@ public class GetDetectInfoEnhancedRequest extends AbstractModel{
     private String InfoType;
 
     /**
-    * 从活体视频中截取一定张数的最佳帧。默认为0，最大为10，超出10的最多只给10张。（InfoType需要包含3）
+    * 从活体视频中截取一定张数的最佳帧（仅部分服务支持，若需使用请与慧眼小助手沟通）。默认为0，最大为10，超出10的最多只给10张。（InfoType需要包含3）
     */
     @SerializedName("BestFramesCount")
     @Expose
@@ -65,6 +65,13 @@ public class GetDetectInfoEnhancedRequest extends AbstractModel{
     @SerializedName("IsNeedIdCardAvatar")
     @Expose
     private Boolean IsNeedIdCardAvatar;
+
+    /**
+    * 是否需要对返回中的敏感信息进行加密。其中敏感信息包括：Response.Text.IdCard、Response.Text.Name、Response.Text.OcrIdCard、Response.Text.OcrName
+    */
+    @SerializedName("IsEncrypt")
+    @Expose
+    private Boolean IsEncrypt;
 
     /**
      * Get 人脸核身流程的标识，调用DetectAuth接口时生成。 
@@ -99,11 +106,11 @@ public class GetDetectInfoEnhancedRequest extends AbstractModel{
     }
 
     /**
-     * Get 指定拉取的结果信息，取值（0：全部；1：文本类；2：身份证信息；3：视频最佳截图信息；4：视频信息）。
-如 134表示拉取文本类、视频最佳截图信息、视频信息。
+     * Get 指定拉取的结果信息，取值（0：全部；1：文本类；2：身份证信息；3：视频最佳截图信息）。
+如 13表示拉取文本类、视频最佳截图信息。
 默认值：0 
-     * @return InfoType 指定拉取的结果信息，取值（0：全部；1：文本类；2：身份证信息；3：视频最佳截图信息；4：视频信息）。
-如 134表示拉取文本类、视频最佳截图信息、视频信息。
+     * @return InfoType 指定拉取的结果信息，取值（0：全部；1：文本类；2：身份证信息；3：视频最佳截图信息）。
+如 13表示拉取文本类、视频最佳截图信息。
 默认值：0
      */
     public String getInfoType() {
@@ -111,11 +118,11 @@ public class GetDetectInfoEnhancedRequest extends AbstractModel{
     }
 
     /**
-     * Set 指定拉取的结果信息，取值（0：全部；1：文本类；2：身份证信息；3：视频最佳截图信息；4：视频信息）。
-如 134表示拉取文本类、视频最佳截图信息、视频信息。
+     * Set 指定拉取的结果信息，取值（0：全部；1：文本类；2：身份证信息；3：视频最佳截图信息）。
+如 13表示拉取文本类、视频最佳截图信息。
 默认值：0
-     * @param InfoType 指定拉取的结果信息，取值（0：全部；1：文本类；2：身份证信息；3：视频最佳截图信息；4：视频信息）。
-如 134表示拉取文本类、视频最佳截图信息、视频信息。
+     * @param InfoType 指定拉取的结果信息，取值（0：全部；1：文本类；2：身份证信息；3：视频最佳截图信息）。
+如 13表示拉取文本类、视频最佳截图信息。
 默认值：0
      */
     public void setInfoType(String InfoType) {
@@ -123,16 +130,16 @@ public class GetDetectInfoEnhancedRequest extends AbstractModel{
     }
 
     /**
-     * Get 从活体视频中截取一定张数的最佳帧。默认为0，最大为10，超出10的最多只给10张。（InfoType需要包含3） 
-     * @return BestFramesCount 从活体视频中截取一定张数的最佳帧。默认为0，最大为10，超出10的最多只给10张。（InfoType需要包含3）
+     * Get 从活体视频中截取一定张数的最佳帧（仅部分服务支持，若需使用请与慧眼小助手沟通）。默认为0，最大为10，超出10的最多只给10张。（InfoType需要包含3） 
+     * @return BestFramesCount 从活体视频中截取一定张数的最佳帧（仅部分服务支持，若需使用请与慧眼小助手沟通）。默认为0，最大为10，超出10的最多只给10张。（InfoType需要包含3）
      */
     public Long getBestFramesCount() {
         return this.BestFramesCount;
     }
 
     /**
-     * Set 从活体视频中截取一定张数的最佳帧。默认为0，最大为10，超出10的最多只给10张。（InfoType需要包含3）
-     * @param BestFramesCount 从活体视频中截取一定张数的最佳帧。默认为0，最大为10，超出10的最多只给10张。（InfoType需要包含3）
+     * Set 从活体视频中截取一定张数的最佳帧（仅部分服务支持，若需使用请与慧眼小助手沟通）。默认为0，最大为10，超出10的最多只给10张。（InfoType需要包含3）
+     * @param BestFramesCount 从活体视频中截取一定张数的最佳帧（仅部分服务支持，若需使用请与慧眼小助手沟通）。默认为0，最大为10，超出10的最多只给10张。（InfoType需要包含3）
      */
     public void setBestFramesCount(Long BestFramesCount) {
         this.BestFramesCount = BestFramesCount;
@@ -171,6 +178,54 @@ public class GetDetectInfoEnhancedRequest extends AbstractModel{
     }
 
     /**
+     * Get 是否需要对返回中的敏感信息进行加密。其中敏感信息包括：Response.Text.IdCard、Response.Text.Name、Response.Text.OcrIdCard、Response.Text.OcrName 
+     * @return IsEncrypt 是否需要对返回中的敏感信息进行加密。其中敏感信息包括：Response.Text.IdCard、Response.Text.Name、Response.Text.OcrIdCard、Response.Text.OcrName
+     */
+    public Boolean getIsEncrypt() {
+        return this.IsEncrypt;
+    }
+
+    /**
+     * Set 是否需要对返回中的敏感信息进行加密。其中敏感信息包括：Response.Text.IdCard、Response.Text.Name、Response.Text.OcrIdCard、Response.Text.OcrName
+     * @param IsEncrypt 是否需要对返回中的敏感信息进行加密。其中敏感信息包括：Response.Text.IdCard、Response.Text.Name、Response.Text.OcrIdCard、Response.Text.OcrName
+     */
+    public void setIsEncrypt(Boolean IsEncrypt) {
+        this.IsEncrypt = IsEncrypt;
+    }
+
+    public GetDetectInfoEnhancedRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public GetDetectInfoEnhancedRequest(GetDetectInfoEnhancedRequest source) {
+        if (source.BizToken != null) {
+            this.BizToken = new String(source.BizToken);
+        }
+        if (source.RuleId != null) {
+            this.RuleId = new String(source.RuleId);
+        }
+        if (source.InfoType != null) {
+            this.InfoType = new String(source.InfoType);
+        }
+        if (source.BestFramesCount != null) {
+            this.BestFramesCount = new Long(source.BestFramesCount);
+        }
+        if (source.IsCutIdCardImage != null) {
+            this.IsCutIdCardImage = new Boolean(source.IsCutIdCardImage);
+        }
+        if (source.IsNeedIdCardAvatar != null) {
+            this.IsNeedIdCardAvatar = new Boolean(source.IsNeedIdCardAvatar);
+        }
+        if (source.IsEncrypt != null) {
+            this.IsEncrypt = new Boolean(source.IsEncrypt);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -180,6 +235,7 @@ public class GetDetectInfoEnhancedRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "BestFramesCount", this.BestFramesCount);
         this.setParamSimple(map, prefix + "IsCutIdCardImage", this.IsCutIdCardImage);
         this.setParamSimple(map, prefix + "IsNeedIdCardAvatar", this.IsNeedIdCardAvatar);
+        this.setParamSimple(map, prefix + "IsEncrypt", this.IsEncrypt);
 
     }
 }

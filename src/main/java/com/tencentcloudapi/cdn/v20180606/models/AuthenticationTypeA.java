@@ -41,7 +41,7 @@ public class AuthenticationTypeA extends AbstractModel{
 
     /**
     * 签名过期时间设置
-单位为秒，最大可设置为 31536000
+单位为秒，最大可设置为 630720000
     */
     @SerializedName("ExpireTime")
     @Expose
@@ -109,9 +109,9 @@ blacklist：黑名单，表示仅对 FileExtensions 中的类型进行鉴权
 
     /**
      * Get 签名过期时间设置
-单位为秒，最大可设置为 31536000 
+单位为秒，最大可设置为 630720000 
      * @return ExpireTime 签名过期时间设置
-单位为秒，最大可设置为 31536000
+单位为秒，最大可设置为 630720000
      */
     public Long getExpireTime() {
         return this.ExpireTime;
@@ -119,9 +119,9 @@ blacklist：黑名单，表示仅对 FileExtensions 中的类型进行鉴权
 
     /**
      * Set 签名过期时间设置
-单位为秒，最大可设置为 31536000
+单位为秒，最大可设置为 630720000
      * @param ExpireTime 签名过期时间设置
-单位为秒，最大可设置为 31536000
+单位为秒，最大可设置为 630720000
      */
     public void setExpireTime(Long ExpireTime) {
         this.ExpireTime = ExpireTime;
@@ -166,6 +166,35 @@ blacklist：黑名单，表示仅对 FileExtensions 中的类型进行鉴权
     public void setFilterType(String FilterType) {
         this.FilterType = FilterType;
     }
+
+    public AuthenticationTypeA() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AuthenticationTypeA(AuthenticationTypeA source) {
+        if (source.SecretKey != null) {
+            this.SecretKey = new String(source.SecretKey);
+        }
+        if (source.SignParam != null) {
+            this.SignParam = new String(source.SignParam);
+        }
+        if (source.ExpireTime != null) {
+            this.ExpireTime = new Long(source.ExpireTime);
+        }
+        if (source.FileExtensions != null) {
+            this.FileExtensions = new String[source.FileExtensions.length];
+            for (int i = 0; i < source.FileExtensions.length; i++) {
+                this.FileExtensions[i] = new String(source.FileExtensions[i]);
+            }
+        }
+        if (source.FilterType != null) {
+            this.FilterType = new String(source.FilterType);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

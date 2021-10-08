@@ -23,7 +23,8 @@ import java.util.HashMap;
 public class FlightInvoiceInfo extends AbstractModel{
 
     /**
-    * 识别出的字段名称（关键字）。
+    * 识别出的字段名称(关键字)，支持以下字段：
+票价、合计金额、填开日期、有效身份证件号码、电子客票号码、验证码、旅客姓名、填开单位、其他税费、燃油附加费、民航发展基金、保险费、销售单位代号、始发地、目的地、航班号、时间、日期、座位等级、承运人、发票消费类型、国内国际标签、印刷序号、客票级别/类别、客票生效日期、有效期截止日期、免费行李。
     */
     @SerializedName("Name")
     @Expose
@@ -37,16 +38,27 @@ public class FlightInvoiceInfo extends AbstractModel{
     private String Value;
 
     /**
-     * Get 识别出的字段名称（关键字）。 
-     * @return Name 识别出的字段名称（关键字）。
+    * 多个行程的字段所在行号，下标从0开始，非行字段或未能识别行号的该值返回-1。
+    */
+    @SerializedName("Row")
+    @Expose
+    private Long Row;
+
+    /**
+     * Get 识别出的字段名称(关键字)，支持以下字段：
+票价、合计金额、填开日期、有效身份证件号码、电子客票号码、验证码、旅客姓名、填开单位、其他税费、燃油附加费、民航发展基金、保险费、销售单位代号、始发地、目的地、航班号、时间、日期、座位等级、承运人、发票消费类型、国内国际标签、印刷序号、客票级别/类别、客票生效日期、有效期截止日期、免费行李。 
+     * @return Name 识别出的字段名称(关键字)，支持以下字段：
+票价、合计金额、填开日期、有效身份证件号码、电子客票号码、验证码、旅客姓名、填开单位、其他税费、燃油附加费、民航发展基金、保险费、销售单位代号、始发地、目的地、航班号、时间、日期、座位等级、承运人、发票消费类型、国内国际标签、印刷序号、客票级别/类别、客票生效日期、有效期截止日期、免费行李。
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 识别出的字段名称（关键字）。
-     * @param Name 识别出的字段名称（关键字）。
+     * Set 识别出的字段名称(关键字)，支持以下字段：
+票价、合计金额、填开日期、有效身份证件号码、电子客票号码、验证码、旅客姓名、填开单位、其他税费、燃油附加费、民航发展基金、保险费、销售单位代号、始发地、目的地、航班号、时间、日期、座位等级、承运人、发票消费类型、国内国际标签、印刷序号、客票级别/类别、客票生效日期、有效期截止日期、免费行李。
+     * @param Name 识别出的字段名称(关键字)，支持以下字段：
+票价、合计金额、填开日期、有效身份证件号码、电子客票号码、验证码、旅客姓名、填开单位、其他税费、燃油附加费、民航发展基金、保险费、销售单位代号、始发地、目的地、航班号、时间、日期、座位等级、承运人、发票消费类型、国内国际标签、印刷序号、客票级别/类别、客票生效日期、有效期截止日期、免费行李。
      */
     public void setName(String Name) {
         this.Name = Name;
@@ -69,11 +81,48 @@ public class FlightInvoiceInfo extends AbstractModel{
     }
 
     /**
+     * Get 多个行程的字段所在行号，下标从0开始，非行字段或未能识别行号的该值返回-1。 
+     * @return Row 多个行程的字段所在行号，下标从0开始，非行字段或未能识别行号的该值返回-1。
+     */
+    public Long getRow() {
+        return this.Row;
+    }
+
+    /**
+     * Set 多个行程的字段所在行号，下标从0开始，非行字段或未能识别行号的该值返回-1。
+     * @param Row 多个行程的字段所在行号，下标从0开始，非行字段或未能识别行号的该值返回-1。
+     */
+    public void setRow(Long Row) {
+        this.Row = Row;
+    }
+
+    public FlightInvoiceInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public FlightInvoiceInfo(FlightInvoiceInfo source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Value != null) {
+            this.Value = new String(source.Value);
+        }
+        if (source.Row != null) {
+            this.Row = new Long(source.Row);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Value", this.Value);
+        this.setParamSimple(map, prefix + "Row", this.Row);
 
     }
 }

@@ -51,7 +51,7 @@ public class AssumeRoleWithSAMLRequest extends AbstractModel{
     private String RoleSessionName;
 
     /**
-    * 指定临时证书的有效期，单位：秒，默认 7200 秒，最长可设定有效期为 7200 秒
+    * 指定临时证书的有效期，单位：秒，默认 7200 秒，最长可设定有效期为 43200 秒
     */
     @SerializedName("DurationSeconds")
     @Expose
@@ -122,20 +122,46 @@ public class AssumeRoleWithSAMLRequest extends AbstractModel{
     }
 
     /**
-     * Get 指定临时证书的有效期，单位：秒，默认 7200 秒，最长可设定有效期为 7200 秒 
-     * @return DurationSeconds 指定临时证书的有效期，单位：秒，默认 7200 秒，最长可设定有效期为 7200 秒
+     * Get 指定临时证书的有效期，单位：秒，默认 7200 秒，最长可设定有效期为 43200 秒 
+     * @return DurationSeconds 指定临时证书的有效期，单位：秒，默认 7200 秒，最长可设定有效期为 43200 秒
      */
     public Long getDurationSeconds() {
         return this.DurationSeconds;
     }
 
     /**
-     * Set 指定临时证书的有效期，单位：秒，默认 7200 秒，最长可设定有效期为 7200 秒
-     * @param DurationSeconds 指定临时证书的有效期，单位：秒，默认 7200 秒，最长可设定有效期为 7200 秒
+     * Set 指定临时证书的有效期，单位：秒，默认 7200 秒，最长可设定有效期为 43200 秒
+     * @param DurationSeconds 指定临时证书的有效期，单位：秒，默认 7200 秒，最长可设定有效期为 43200 秒
      */
     public void setDurationSeconds(Long DurationSeconds) {
         this.DurationSeconds = DurationSeconds;
     }
+
+    public AssumeRoleWithSAMLRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AssumeRoleWithSAMLRequest(AssumeRoleWithSAMLRequest source) {
+        if (source.SAMLAssertion != null) {
+            this.SAMLAssertion = new String(source.SAMLAssertion);
+        }
+        if (source.PrincipalArn != null) {
+            this.PrincipalArn = new String(source.PrincipalArn);
+        }
+        if (source.RoleArn != null) {
+            this.RoleArn = new String(source.RoleArn);
+        }
+        if (source.RoleSessionName != null) {
+            this.RoleSessionName = new String(source.RoleSessionName);
+        }
+        if (source.DurationSeconds != null) {
+            this.DurationSeconds = new Long(source.DurationSeconds);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

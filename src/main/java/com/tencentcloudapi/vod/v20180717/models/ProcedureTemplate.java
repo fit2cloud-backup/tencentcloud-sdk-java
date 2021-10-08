@@ -39,6 +39,13 @@ public class ProcedureTemplate extends AbstractModel{
     private String Type;
 
     /**
+    * 模板描述信息，长度限制：256 个字符。
+    */
+    @SerializedName("Comment")
+    @Expose
+    private String Comment;
+
+    /**
     * 视频处理类型任务参数。
 注意：此字段可能返回 null，表示取不到有效值。
     */
@@ -130,6 +137,22 @@ public class ProcedureTemplate extends AbstractModel{
      */
     public void setType(String Type) {
         this.Type = Type;
+    }
+
+    /**
+     * Get 模板描述信息，长度限制：256 个字符。 
+     * @return Comment 模板描述信息，长度限制：256 个字符。
+     */
+    public String getComment() {
+        return this.Comment;
+    }
+
+    /**
+     * Set 模板描述信息，长度限制：256 个字符。
+     * @param Comment 模板描述信息，长度限制：256 个字符。
+     */
+    public void setComment(String Comment) {
+        this.Comment = Comment;
     }
 
     /**
@@ -264,12 +287,54 @@ public class ProcedureTemplate extends AbstractModel{
         this.UpdateTime = UpdateTime;
     }
 
+    public ProcedureTemplate() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ProcedureTemplate(ProcedureTemplate source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.Comment != null) {
+            this.Comment = new String(source.Comment);
+        }
+        if (source.MediaProcessTask != null) {
+            this.MediaProcessTask = new MediaProcessTaskInput(source.MediaProcessTask);
+        }
+        if (source.AiContentReviewTask != null) {
+            this.AiContentReviewTask = new AiContentReviewTaskInput(source.AiContentReviewTask);
+        }
+        if (source.AiAnalysisTask != null) {
+            this.AiAnalysisTask = new AiAnalysisTaskInput(source.AiAnalysisTask);
+        }
+        if (source.AiRecognitionTask != null) {
+            this.AiRecognitionTask = new AiRecognitionTaskInput(source.AiRecognitionTask);
+        }
+        if (source.MiniProgramPublishTask != null) {
+            this.MiniProgramPublishTask = new WechatMiniProgramPublishTaskInput(source.MiniProgramPublishTask);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamSimple(map, prefix + "Comment", this.Comment);
         this.setParamObj(map, prefix + "MediaProcessTask.", this.MediaProcessTask);
         this.setParamObj(map, prefix + "AiContentReviewTask.", this.AiContentReviewTask);
         this.setParamObj(map, prefix + "AiAnalysisTask.", this.AiAnalysisTask);

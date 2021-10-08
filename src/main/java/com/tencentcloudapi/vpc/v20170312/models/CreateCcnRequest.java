@@ -51,7 +51,7 @@ public class CreateCcnRequest extends AbstractModel{
     private String InstanceChargeType;
 
     /**
-    * 限速类型，OUTER_REGION_LIMIT表示地域出口限速，INTER_REGION_LIMIT为地域间限速，默认为OUTER_REGION_LIMIT
+    * 限速类型，OUTER_REGION_LIMIT表示地域出口限速，INTER_REGION_LIMIT为地域间限速，默认为OUTER_REGION_LIMIT。预付费模式仅支持地域间限速，后付费模式支持地域间限速和地域出口限速。
     */
     @SerializedName("BandwidthLimitType")
     @Expose
@@ -129,16 +129,16 @@ public class CreateCcnRequest extends AbstractModel{
     }
 
     /**
-     * Get 限速类型，OUTER_REGION_LIMIT表示地域出口限速，INTER_REGION_LIMIT为地域间限速，默认为OUTER_REGION_LIMIT 
-     * @return BandwidthLimitType 限速类型，OUTER_REGION_LIMIT表示地域出口限速，INTER_REGION_LIMIT为地域间限速，默认为OUTER_REGION_LIMIT
+     * Get 限速类型，OUTER_REGION_LIMIT表示地域出口限速，INTER_REGION_LIMIT为地域间限速，默认为OUTER_REGION_LIMIT。预付费模式仅支持地域间限速，后付费模式支持地域间限速和地域出口限速。 
+     * @return BandwidthLimitType 限速类型，OUTER_REGION_LIMIT表示地域出口限速，INTER_REGION_LIMIT为地域间限速，默认为OUTER_REGION_LIMIT。预付费模式仅支持地域间限速，后付费模式支持地域间限速和地域出口限速。
      */
     public String getBandwidthLimitType() {
         return this.BandwidthLimitType;
     }
 
     /**
-     * Set 限速类型，OUTER_REGION_LIMIT表示地域出口限速，INTER_REGION_LIMIT为地域间限速，默认为OUTER_REGION_LIMIT
-     * @param BandwidthLimitType 限速类型，OUTER_REGION_LIMIT表示地域出口限速，INTER_REGION_LIMIT为地域间限速，默认为OUTER_REGION_LIMIT
+     * Set 限速类型，OUTER_REGION_LIMIT表示地域出口限速，INTER_REGION_LIMIT为地域间限速，默认为OUTER_REGION_LIMIT。预付费模式仅支持地域间限速，后付费模式支持地域间限速和地域出口限速。
+     * @param BandwidthLimitType 限速类型，OUTER_REGION_LIMIT表示地域出口限速，INTER_REGION_LIMIT为地域间限速，默认为OUTER_REGION_LIMIT。预付费模式仅支持地域间限速，后付费模式支持地域间限速和地域出口限速。
      */
     public void setBandwidthLimitType(String BandwidthLimitType) {
         this.BandwidthLimitType = BandwidthLimitType;
@@ -159,6 +159,38 @@ public class CreateCcnRequest extends AbstractModel{
     public void setTags(Tag [] Tags) {
         this.Tags = Tags;
     }
+
+    public CreateCcnRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateCcnRequest(CreateCcnRequest source) {
+        if (source.CcnName != null) {
+            this.CcnName = new String(source.CcnName);
+        }
+        if (source.CcnDescription != null) {
+            this.CcnDescription = new String(source.CcnDescription);
+        }
+        if (source.QosLevel != null) {
+            this.QosLevel = new String(source.QosLevel);
+        }
+        if (source.InstanceChargeType != null) {
+            this.InstanceChargeType = new String(source.InstanceChargeType);
+        }
+        if (source.BandwidthLimitType != null) {
+            this.BandwidthLimitType = new String(source.BandwidthLimitType);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

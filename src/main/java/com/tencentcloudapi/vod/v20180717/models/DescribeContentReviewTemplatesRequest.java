@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeContentReviewTemplatesRequest extends AbstractModel{
 
     /**
-    * 内容审核模板唯一标识过滤条件，数组长度限制：100。
+    * 内容智能识别模板唯一标识过滤条件，数组长度限制：100。
     */
     @SerializedName("Definitions")
     @Expose
@@ -51,16 +51,16 @@ public class DescribeContentReviewTemplatesRequest extends AbstractModel{
     private Long SubAppId;
 
     /**
-     * Get 内容审核模板唯一标识过滤条件，数组长度限制：100。 
-     * @return Definitions 内容审核模板唯一标识过滤条件，数组长度限制：100。
+     * Get 内容智能识别模板唯一标识过滤条件，数组长度限制：100。 
+     * @return Definitions 内容智能识别模板唯一标识过滤条件，数组长度限制：100。
      */
     public Long [] getDefinitions() {
         return this.Definitions;
     }
 
     /**
-     * Set 内容审核模板唯一标识过滤条件，数组长度限制：100。
-     * @param Definitions 内容审核模板唯一标识过滤条件，数组长度限制：100。
+     * Set 内容智能识别模板唯一标识过滤条件，数组长度限制：100。
+     * @param Definitions 内容智能识别模板唯一标识过滤条件，数组长度限制：100。
      */
     public void setDefinitions(Long [] Definitions) {
         this.Definitions = Definitions;
@@ -113,6 +113,32 @@ public class DescribeContentReviewTemplatesRequest extends AbstractModel{
     public void setSubAppId(Long SubAppId) {
         this.SubAppId = SubAppId;
     }
+
+    public DescribeContentReviewTemplatesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeContentReviewTemplatesRequest(DescribeContentReviewTemplatesRequest source) {
+        if (source.Definitions != null) {
+            this.Definitions = new Long[source.Definitions.length];
+            for (int i = 0; i < source.Definitions.length; i++) {
+                this.Definitions[i] = new Long(source.Definitions[i]);
+            }
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.SubAppId != null) {
+            this.SubAppId = new Long(source.SubAppId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

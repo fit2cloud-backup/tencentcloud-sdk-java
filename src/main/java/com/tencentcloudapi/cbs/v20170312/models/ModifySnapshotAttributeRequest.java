@@ -37,11 +37,18 @@ public class ModifySnapshotAttributeRequest extends AbstractModel{
     private String SnapshotName;
 
     /**
-    * 快照的保留时间，FALSE表示非永久保留，TRUE表示永久保留。仅支持将非永久快照修改为永久快照。
+    * 快照的保留方式，FALSE表示非永久保留，TRUE表示永久保留。
     */
     @SerializedName("IsPermanent")
     @Expose
     private Boolean IsPermanent;
+
+    /**
+    * 快照的到期时间；设置好快照将会被同时设置为非永久保留方式；超过到期时间后快照将会被自动删除。
+    */
+    @SerializedName("Deadline")
+    @Expose
+    private String Deadline;
 
     /**
      * Get 快照ID, 可通过[DescribeSnapshots](/document/product/362/15647)查询。 
@@ -76,20 +83,59 @@ public class ModifySnapshotAttributeRequest extends AbstractModel{
     }
 
     /**
-     * Get 快照的保留时间，FALSE表示非永久保留，TRUE表示永久保留。仅支持将非永久快照修改为永久快照。 
-     * @return IsPermanent 快照的保留时间，FALSE表示非永久保留，TRUE表示永久保留。仅支持将非永久快照修改为永久快照。
+     * Get 快照的保留方式，FALSE表示非永久保留，TRUE表示永久保留。 
+     * @return IsPermanent 快照的保留方式，FALSE表示非永久保留，TRUE表示永久保留。
      */
     public Boolean getIsPermanent() {
         return this.IsPermanent;
     }
 
     /**
-     * Set 快照的保留时间，FALSE表示非永久保留，TRUE表示永久保留。仅支持将非永久快照修改为永久快照。
-     * @param IsPermanent 快照的保留时间，FALSE表示非永久保留，TRUE表示永久保留。仅支持将非永久快照修改为永久快照。
+     * Set 快照的保留方式，FALSE表示非永久保留，TRUE表示永久保留。
+     * @param IsPermanent 快照的保留方式，FALSE表示非永久保留，TRUE表示永久保留。
      */
     public void setIsPermanent(Boolean IsPermanent) {
         this.IsPermanent = IsPermanent;
     }
+
+    /**
+     * Get 快照的到期时间；设置好快照将会被同时设置为非永久保留方式；超过到期时间后快照将会被自动删除。 
+     * @return Deadline 快照的到期时间；设置好快照将会被同时设置为非永久保留方式；超过到期时间后快照将会被自动删除。
+     */
+    public String getDeadline() {
+        return this.Deadline;
+    }
+
+    /**
+     * Set 快照的到期时间；设置好快照将会被同时设置为非永久保留方式；超过到期时间后快照将会被自动删除。
+     * @param Deadline 快照的到期时间；设置好快照将会被同时设置为非永久保留方式；超过到期时间后快照将会被自动删除。
+     */
+    public void setDeadline(String Deadline) {
+        this.Deadline = Deadline;
+    }
+
+    public ModifySnapshotAttributeRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifySnapshotAttributeRequest(ModifySnapshotAttributeRequest source) {
+        if (source.SnapshotId != null) {
+            this.SnapshotId = new String(source.SnapshotId);
+        }
+        if (source.SnapshotName != null) {
+            this.SnapshotName = new String(source.SnapshotName);
+        }
+        if (source.IsPermanent != null) {
+            this.IsPermanent = new Boolean(source.IsPermanent);
+        }
+        if (source.Deadline != null) {
+            this.Deadline = new String(source.Deadline);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -98,6 +144,7 @@ public class ModifySnapshotAttributeRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SnapshotId", this.SnapshotId);
         this.setParamSimple(map, prefix + "SnapshotName", this.SnapshotName);
         this.setParamSimple(map, prefix + "IsPermanent", this.IsPermanent);
+        this.setParamSimple(map, prefix + "Deadline", this.Deadline);
 
     }
 }

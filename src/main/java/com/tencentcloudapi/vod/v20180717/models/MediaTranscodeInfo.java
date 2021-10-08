@@ -24,17 +24,14 @@ public class MediaTranscodeInfo extends AbstractModel{
 
     /**
     * 各规格的转码信息集合，每个元素代表一个规格的转码结果。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TranscodeSet")
     @Expose
     private MediaTranscodeItem [] TranscodeSet;
 
     /**
-     * Get 各规格的转码信息集合，每个元素代表一个规格的转码结果。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 各规格的转码信息集合，每个元素代表一个规格的转码结果。 
      * @return TranscodeSet 各规格的转码信息集合，每个元素代表一个规格的转码结果。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MediaTranscodeItem [] getTranscodeSet() {
         return this.TranscodeSet;
@@ -42,13 +39,28 @@ public class MediaTranscodeInfo extends AbstractModel{
 
     /**
      * Set 各规格的转码信息集合，每个元素代表一个规格的转码结果。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TranscodeSet 各规格的转码信息集合，每个元素代表一个规格的转码结果。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTranscodeSet(MediaTranscodeItem [] TranscodeSet) {
         this.TranscodeSet = TranscodeSet;
     }
+
+    public MediaTranscodeInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MediaTranscodeInfo(MediaTranscodeInfo source) {
+        if (source.TranscodeSet != null) {
+            this.TranscodeSet = new MediaTranscodeItem[source.TranscodeSet.length];
+            for (int i = 0; i < source.TranscodeSet.length; i++) {
+                this.TranscodeSet[i] = new MediaTranscodeItem(source.TranscodeSet[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

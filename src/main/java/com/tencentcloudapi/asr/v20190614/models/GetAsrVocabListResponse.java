@@ -30,6 +30,13 @@ public class GetAsrVocabListResponse extends AbstractModel{
     private Vocab [] VocabList;
 
     /**
+    * 热词列表总数
+    */
+    @SerializedName("TotalCount")
+    @Expose
+    private Long TotalCount;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -53,6 +60,22 @@ public class GetAsrVocabListResponse extends AbstractModel{
     }
 
     /**
+     * Get 热词列表总数 
+     * @return TotalCount 热词列表总数
+     */
+    public Long getTotalCount() {
+        return this.TotalCount;
+    }
+
+    /**
+     * Set 热词列表总数
+     * @param TotalCount 热词列表总数
+     */
+    public void setTotalCount(Long TotalCount) {
+        this.TotalCount = TotalCount;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -68,11 +91,35 @@ public class GetAsrVocabListResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public GetAsrVocabListResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public GetAsrVocabListResponse(GetAsrVocabListResponse source) {
+        if (source.VocabList != null) {
+            this.VocabList = new Vocab[source.VocabList.length];
+            for (int i = 0; i < source.VocabList.length; i++) {
+                this.VocabList[i] = new Vocab(source.VocabList[i]);
+            }
+        }
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "VocabList.", this.VocabList);
+        this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

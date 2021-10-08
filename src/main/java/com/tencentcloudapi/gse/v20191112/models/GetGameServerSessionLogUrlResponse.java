@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class GetGameServerSessionLogUrlResponse extends AbstractModel{
 
     /**
-    * 日志下载URL
+    * 日志下载URL，最小长度不小于1个ASCII字符，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PreSignedUrl")
@@ -38,9 +38,9 @@ public class GetGameServerSessionLogUrlResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 日志下载URL
+     * Get 日志下载URL，最小长度不小于1个ASCII字符，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return PreSignedUrl 日志下载URL
+     * @return PreSignedUrl 日志下载URL，最小长度不小于1个ASCII字符，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPreSignedUrl() {
@@ -48,9 +48,9 @@ public class GetGameServerSessionLogUrlResponse extends AbstractModel{
     }
 
     /**
-     * Set 日志下载URL
+     * Set 日志下载URL，最小长度不小于1个ASCII字符，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param PreSignedUrl 日志下载URL
+     * @param PreSignedUrl 日志下载URL，最小长度不小于1个ASCII字符，最大长度不超过1024个ASCII字符
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPreSignedUrl(String PreSignedUrl) {
@@ -72,6 +72,23 @@ public class GetGameServerSessionLogUrlResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public GetGameServerSessionLogUrlResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public GetGameServerSessionLogUrlResponse(GetGameServerSessionLogUrlResponse source) {
+        if (source.PreSignedUrl != null) {
+            this.PreSignedUrl = new String(source.PreSignedUrl);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeContentReviewTemplatesRequest extends AbstractModel{
 
     /**
-    * 内容审核模板唯一标识过滤条件，数组长度限制：50。
+    * 内容智能识别模板唯一标识过滤条件，数组长度限制：50。
     */
     @SerializedName("Definitions")
     @Expose
@@ -44,16 +44,16 @@ public class DescribeContentReviewTemplatesRequest extends AbstractModel{
     private Long Limit;
 
     /**
-     * Get 内容审核模板唯一标识过滤条件，数组长度限制：50。 
-     * @return Definitions 内容审核模板唯一标识过滤条件，数组长度限制：50。
+     * Get 内容智能识别模板唯一标识过滤条件，数组长度限制：50。 
+     * @return Definitions 内容智能识别模板唯一标识过滤条件，数组长度限制：50。
      */
     public Long [] getDefinitions() {
         return this.Definitions;
     }
 
     /**
-     * Set 内容审核模板唯一标识过滤条件，数组长度限制：50。
-     * @param Definitions 内容审核模板唯一标识过滤条件，数组长度限制：50。
+     * Set 内容智能识别模板唯一标识过滤条件，数组长度限制：50。
+     * @param Definitions 内容智能识别模板唯一标识过滤条件，数组长度限制：50。
      */
     public void setDefinitions(Long [] Definitions) {
         this.Definitions = Definitions;
@@ -90,6 +90,29 @@ public class DescribeContentReviewTemplatesRequest extends AbstractModel{
     public void setLimit(Long Limit) {
         this.Limit = Limit;
     }
+
+    public DescribeContentReviewTemplatesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeContentReviewTemplatesRequest(DescribeContentReviewTemplatesRequest source) {
+        if (source.Definitions != null) {
+            this.Definitions = new Long[source.Definitions.length];
+            for (int i = 0; i < source.Definitions.length; i++) {
+                this.Definitions[i] = new Long(source.Definitions[i]);
+            }
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

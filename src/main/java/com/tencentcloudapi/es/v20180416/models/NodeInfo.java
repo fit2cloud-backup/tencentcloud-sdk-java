@@ -69,6 +69,20 @@ public class NodeInfo extends AbstractModel{
     private LocalDiskInfo LocalDiskInfo;
 
     /**
+    * 节点磁盘块数
+    */
+    @SerializedName("DiskCount")
+    @Expose
+    private Long DiskCount;
+
+    /**
+    * 节点磁盘是否加密 0: 不加密，1: 加密；默认不加密
+    */
+    @SerializedName("DiskEncrypt")
+    @Expose
+    private Long DiskEncrypt;
+
+    /**
      * Get 节点数量 
      * @return NodeNum 节点数量
      */
@@ -181,6 +195,73 @@ public class NodeInfo extends AbstractModel{
     }
 
     /**
+     * Get 节点磁盘块数 
+     * @return DiskCount 节点磁盘块数
+     */
+    public Long getDiskCount() {
+        return this.DiskCount;
+    }
+
+    /**
+     * Set 节点磁盘块数
+     * @param DiskCount 节点磁盘块数
+     */
+    public void setDiskCount(Long DiskCount) {
+        this.DiskCount = DiskCount;
+    }
+
+    /**
+     * Get 节点磁盘是否加密 0: 不加密，1: 加密；默认不加密 
+     * @return DiskEncrypt 节点磁盘是否加密 0: 不加密，1: 加密；默认不加密
+     */
+    public Long getDiskEncrypt() {
+        return this.DiskEncrypt;
+    }
+
+    /**
+     * Set 节点磁盘是否加密 0: 不加密，1: 加密；默认不加密
+     * @param DiskEncrypt 节点磁盘是否加密 0: 不加密，1: 加密；默认不加密
+     */
+    public void setDiskEncrypt(Long DiskEncrypt) {
+        this.DiskEncrypt = DiskEncrypt;
+    }
+
+    public NodeInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public NodeInfo(NodeInfo source) {
+        if (source.NodeNum != null) {
+            this.NodeNum = new Long(source.NodeNum);
+        }
+        if (source.NodeType != null) {
+            this.NodeType = new String(source.NodeType);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.DiskType != null) {
+            this.DiskType = new String(source.DiskType);
+        }
+        if (source.DiskSize != null) {
+            this.DiskSize = new Long(source.DiskSize);
+        }
+        if (source.LocalDiskInfo != null) {
+            this.LocalDiskInfo = new LocalDiskInfo(source.LocalDiskInfo);
+        }
+        if (source.DiskCount != null) {
+            this.DiskCount = new Long(source.DiskCount);
+        }
+        if (source.DiskEncrypt != null) {
+            this.DiskEncrypt = new Long(source.DiskEncrypt);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -190,6 +271,8 @@ public class NodeInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "DiskType", this.DiskType);
         this.setParamSimple(map, prefix + "DiskSize", this.DiskSize);
         this.setParamObj(map, prefix + "LocalDiskInfo.", this.LocalDiskInfo);
+        this.setParamSimple(map, prefix + "DiskCount", this.DiskCount);
+        this.setParamSimple(map, prefix + "DiskEncrypt", this.DiskEncrypt);
 
     }
 }

@@ -24,6 +24,7 @@ public class KeywordsExtractionResponse extends AbstractModel{
 
     /**
     * 关键词提取结果
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Keywords")
     @Expose
@@ -37,8 +38,10 @@ public class KeywordsExtractionResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 关键词提取结果 
+     * Get 关键词提取结果
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Keywords 关键词提取结果
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public Keyword [] getKeywords() {
         return this.Keywords;
@@ -46,7 +49,9 @@ public class KeywordsExtractionResponse extends AbstractModel{
 
     /**
      * Set 关键词提取结果
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Keywords 关键词提取结果
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKeywords(Keyword [] Keywords) {
         this.Keywords = Keywords;
@@ -67,6 +72,26 @@ public class KeywordsExtractionResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public KeywordsExtractionResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public KeywordsExtractionResponse(KeywordsExtractionResponse source) {
+        if (source.Keywords != null) {
+            this.Keywords = new Keyword[source.Keywords.length];
+            for (int i = 0; i < source.Keywords.length; i++) {
+                this.Keywords[i] = new Keyword(source.Keywords[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

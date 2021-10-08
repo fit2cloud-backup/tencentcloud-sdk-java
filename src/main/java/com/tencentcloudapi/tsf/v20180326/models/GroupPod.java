@@ -127,6 +127,14 @@ public class GroupPod extends AbstractModel{
     private String InstanceStatus;
 
     /**
+    * 节点实例id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("NodeInstanceId")
+    @Expose
+    private String NodeInstanceId;
+
+    /**
      * Get 实例名称(对应到kubernetes的pod名称)
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return PodName 实例名称(对应到kubernetes的pod名称)
@@ -387,6 +395,79 @@ public class GroupPod extends AbstractModel{
     }
 
     /**
+     * Get 节点实例id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return NodeInstanceId 节点实例id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getNodeInstanceId() {
+        return this.NodeInstanceId;
+    }
+
+    /**
+     * Set 节点实例id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param NodeInstanceId 节点实例id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setNodeInstanceId(String NodeInstanceId) {
+        this.NodeInstanceId = NodeInstanceId;
+    }
+
+    public GroupPod() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public GroupPod(GroupPod source) {
+        if (source.PodName != null) {
+            this.PodName = new String(source.PodName);
+        }
+        if (source.PodId != null) {
+            this.PodId = new String(source.PodId);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.Reason != null) {
+            this.Reason = new String(source.Reason);
+        }
+        if (source.NodeIp != null) {
+            this.NodeIp = new String(source.NodeIp);
+        }
+        if (source.Ip != null) {
+            this.Ip = new String(source.Ip);
+        }
+        if (source.RestartCount != null) {
+            this.RestartCount = new Long(source.RestartCount);
+        }
+        if (source.ReadyCount != null) {
+            this.ReadyCount = new Long(source.ReadyCount);
+        }
+        if (source.Runtime != null) {
+            this.Runtime = new String(source.Runtime);
+        }
+        if (source.CreatedAt != null) {
+            this.CreatedAt = new String(source.CreatedAt);
+        }
+        if (source.ServiceInstanceStatus != null) {
+            this.ServiceInstanceStatus = new String(source.ServiceInstanceStatus);
+        }
+        if (source.InstanceAvailableStatus != null) {
+            this.InstanceAvailableStatus = new String(source.InstanceAvailableStatus);
+        }
+        if (source.InstanceStatus != null) {
+            this.InstanceStatus = new String(source.InstanceStatus);
+        }
+        if (source.NodeInstanceId != null) {
+            this.NodeInstanceId = new String(source.NodeInstanceId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -403,6 +484,7 @@ public class GroupPod extends AbstractModel{
         this.setParamSimple(map, prefix + "ServiceInstanceStatus", this.ServiceInstanceStatus);
         this.setParamSimple(map, prefix + "InstanceAvailableStatus", this.InstanceAvailableStatus);
         this.setParamSimple(map, prefix + "InstanceStatus", this.InstanceStatus);
+        this.setParamSimple(map, prefix + "NodeInstanceId", this.NodeInstanceId);
 
     }
 }

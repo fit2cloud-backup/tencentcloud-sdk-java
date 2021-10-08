@@ -116,6 +116,46 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
     private Boolean EnableBGPCommunity;
 
     /**
+    * 绑定的NAT网关ID。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("NatGatewayId")
+    @Expose
+    private String NatGatewayId;
+
+    /**
+    * 专线网关是否支持VXLAN架构
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("VXLANSupport")
+    @Expose
+    private Boolean [] VXLANSupport;
+
+    /**
+    * 云联网路由发布模式：`standard`（标准模式）、`exquisite`（精细模式）。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ModeType")
+    @Expose
+    private String ModeType;
+
+    /**
+    * 是否为localZone专线网关。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("LocalZone")
+    @Expose
+    private Boolean LocalZone;
+
+    /**
+    * 专线网关所在可用区
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Zone")
+    @Expose
+    private String Zone;
+
+    /**
      * Get 专线网关`ID`。 
      * @return DirectConnectGatewayId 专线网关`ID`。
      */
@@ -344,6 +384,171 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
     }
 
     /**
+     * Get 绑定的NAT网关ID。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return NatGatewayId 绑定的NAT网关ID。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getNatGatewayId() {
+        return this.NatGatewayId;
+    }
+
+    /**
+     * Set 绑定的NAT网关ID。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param NatGatewayId 绑定的NAT网关ID。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setNatGatewayId(String NatGatewayId) {
+        this.NatGatewayId = NatGatewayId;
+    }
+
+    /**
+     * Get 专线网关是否支持VXLAN架构
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return VXLANSupport 专线网关是否支持VXLAN架构
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean [] getVXLANSupport() {
+        return this.VXLANSupport;
+    }
+
+    /**
+     * Set 专线网关是否支持VXLAN架构
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param VXLANSupport 专线网关是否支持VXLAN架构
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setVXLANSupport(Boolean [] VXLANSupport) {
+        this.VXLANSupport = VXLANSupport;
+    }
+
+    /**
+     * Get 云联网路由发布模式：`standard`（标准模式）、`exquisite`（精细模式）。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ModeType 云联网路由发布模式：`standard`（标准模式）、`exquisite`（精细模式）。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getModeType() {
+        return this.ModeType;
+    }
+
+    /**
+     * Set 云联网路由发布模式：`standard`（标准模式）、`exquisite`（精细模式）。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ModeType 云联网路由发布模式：`standard`（标准模式）、`exquisite`（精细模式）。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setModeType(String ModeType) {
+        this.ModeType = ModeType;
+    }
+
+    /**
+     * Get 是否为localZone专线网关。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return LocalZone 是否为localZone专线网关。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getLocalZone() {
+        return this.LocalZone;
+    }
+
+    /**
+     * Set 是否为localZone专线网关。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param LocalZone 是否为localZone专线网关。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLocalZone(Boolean LocalZone) {
+        this.LocalZone = LocalZone;
+    }
+
+    /**
+     * Get 专线网关所在可用区
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Zone 专线网关所在可用区
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getZone() {
+        return this.Zone;
+    }
+
+    /**
+     * Set 专线网关所在可用区
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Zone 专线网关所在可用区
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setZone(String Zone) {
+        this.Zone = Zone;
+    }
+
+    public DirectConnectGateway() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DirectConnectGateway(DirectConnectGateway source) {
+        if (source.DirectConnectGatewayId != null) {
+            this.DirectConnectGatewayId = new String(source.DirectConnectGatewayId);
+        }
+        if (source.DirectConnectGatewayName != null) {
+            this.DirectConnectGatewayName = new String(source.DirectConnectGatewayName);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.NetworkType != null) {
+            this.NetworkType = new String(source.NetworkType);
+        }
+        if (source.NetworkInstanceId != null) {
+            this.NetworkInstanceId = new String(source.NetworkInstanceId);
+        }
+        if (source.GatewayType != null) {
+            this.GatewayType = new String(source.GatewayType);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.DirectConnectGatewayIp != null) {
+            this.DirectConnectGatewayIp = new String(source.DirectConnectGatewayIp);
+        }
+        if (source.CcnId != null) {
+            this.CcnId = new String(source.CcnId);
+        }
+        if (source.CcnRouteType != null) {
+            this.CcnRouteType = new String(source.CcnRouteType);
+        }
+        if (source.EnableBGP != null) {
+            this.EnableBGP = new Boolean(source.EnableBGP);
+        }
+        if (source.EnableBGPCommunity != null) {
+            this.EnableBGPCommunity = new Boolean(source.EnableBGPCommunity);
+        }
+        if (source.NatGatewayId != null) {
+            this.NatGatewayId = new String(source.NatGatewayId);
+        }
+        if (source.VXLANSupport != null) {
+            this.VXLANSupport = new Boolean[source.VXLANSupport.length];
+            for (int i = 0; i < source.VXLANSupport.length; i++) {
+                this.VXLANSupport[i] = new Boolean(source.VXLANSupport[i]);
+            }
+        }
+        if (source.ModeType != null) {
+            this.ModeType = new String(source.ModeType);
+        }
+        if (source.LocalZone != null) {
+            this.LocalZone = new Boolean(source.LocalZone);
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -359,6 +564,11 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
         this.setParamSimple(map, prefix + "CcnRouteType", this.CcnRouteType);
         this.setParamSimple(map, prefix + "EnableBGP", this.EnableBGP);
         this.setParamSimple(map, prefix + "EnableBGPCommunity", this.EnableBGPCommunity);
+        this.setParamSimple(map, prefix + "NatGatewayId", this.NatGatewayId);
+        this.setParamArraySimple(map, prefix + "VXLANSupport.", this.VXLANSupport);
+        this.setParamSimple(map, prefix + "ModeType", this.ModeType);
+        this.setParamSimple(map, prefix + "LocalZone", this.LocalZone);
+        this.setParamSimple(map, prefix + "Zone", this.Zone);
 
     }
 }

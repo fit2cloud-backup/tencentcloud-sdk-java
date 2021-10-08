@@ -51,6 +51,13 @@ public class PurchaseReservedInstancesOfferingRequest extends AbstractModel{
     private String ClientToken;
 
     /**
+    * 预留实例显示名称。<br><li>不指定实例显示名称则默认显示‘未命名’。</li><li>最多支持60个字符（包含模式串）。</li>
+    */
+    @SerializedName("ReservedInstanceName")
+    @Expose
+    private String ReservedInstanceName;
+
+    /**
      * Get 购买预留实例计费数量 
      * @return InstanceCount 购买预留实例计费数量
      */
@@ -115,6 +122,48 @@ public class PurchaseReservedInstancesOfferingRequest extends AbstractModel{
     }
 
     /**
+     * Get 预留实例显示名称。<br><li>不指定实例显示名称则默认显示‘未命名’。</li><li>最多支持60个字符（包含模式串）。</li> 
+     * @return ReservedInstanceName 预留实例显示名称。<br><li>不指定实例显示名称则默认显示‘未命名’。</li><li>最多支持60个字符（包含模式串）。</li>
+     */
+    public String getReservedInstanceName() {
+        return this.ReservedInstanceName;
+    }
+
+    /**
+     * Set 预留实例显示名称。<br><li>不指定实例显示名称则默认显示‘未命名’。</li><li>最多支持60个字符（包含模式串）。</li>
+     * @param ReservedInstanceName 预留实例显示名称。<br><li>不指定实例显示名称则默认显示‘未命名’。</li><li>最多支持60个字符（包含模式串）。</li>
+     */
+    public void setReservedInstanceName(String ReservedInstanceName) {
+        this.ReservedInstanceName = ReservedInstanceName;
+    }
+
+    public PurchaseReservedInstancesOfferingRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public PurchaseReservedInstancesOfferingRequest(PurchaseReservedInstancesOfferingRequest source) {
+        if (source.InstanceCount != null) {
+            this.InstanceCount = new Long(source.InstanceCount);
+        }
+        if (source.ReservedInstancesOfferingId != null) {
+            this.ReservedInstancesOfferingId = new String(source.ReservedInstancesOfferingId);
+        }
+        if (source.DryRun != null) {
+            this.DryRun = new Boolean(source.DryRun);
+        }
+        if (source.ClientToken != null) {
+            this.ClientToken = new String(source.ClientToken);
+        }
+        if (source.ReservedInstanceName != null) {
+            this.ReservedInstanceName = new String(source.ReservedInstanceName);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -122,6 +171,7 @@ public class PurchaseReservedInstancesOfferingRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ReservedInstancesOfferingId", this.ReservedInstancesOfferingId);
         this.setParamSimple(map, prefix + "DryRun", this.DryRun);
         this.setParamSimple(map, prefix + "ClientToken", this.ClientToken);
+        this.setParamSimple(map, prefix + "ReservedInstanceName", this.ReservedInstanceName);
 
     }
 }

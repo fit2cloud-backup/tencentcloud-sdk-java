@@ -203,12 +203,60 @@ public class InstanceAttributesResponse extends AbstractModel{
     private Long MaxGroupNum;
 
     /**
-    * 售卖类型
+    * 售卖类型,0:标准版,1:专业版
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Cvm")
     @Expose
     private Long Cvm;
+
+    /**
+    * 类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("InstanceType")
+    @Expose
+    private String InstanceType;
+
+    /**
+    * 表示该实例支持的特性。FEATURE_SUBNET_ACL:表示acl策略支持设置子网。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Features")
+    @Expose
+    private String [] Features;
+
+    /**
+    * 动态消息保留策略
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RetentionTimeConfig")
+    @Expose
+    private DynamicRetentionTime RetentionTimeConfig;
+
+    /**
+    * 最大连接数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MaxConnection")
+    @Expose
+    private Long MaxConnection;
+
+    /**
+    * 公网带宽
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PublicNetwork")
+    @Expose
+    private Long PublicNetwork;
+
+    /**
+    * 时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DeleteRouteTimestamp")
+    @Expose
+    private String DeleteRouteTimestamp;
 
     /**
      * Get 实例ID 
@@ -631,9 +679,9 @@ public class InstanceAttributesResponse extends AbstractModel{
     }
 
     /**
-     * Get 售卖类型
+     * Get 售卖类型,0:标准版,1:专业版
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Cvm 售卖类型
+     * @return Cvm 售卖类型,0:标准版,1:专业版
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCvm() {
@@ -641,14 +689,253 @@ public class InstanceAttributesResponse extends AbstractModel{
     }
 
     /**
-     * Set 售卖类型
+     * Set 售卖类型,0:标准版,1:专业版
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Cvm 售卖类型
+     * @param Cvm 售卖类型,0:标准版,1:专业版
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCvm(Long Cvm) {
         this.Cvm = Cvm;
     }
+
+    /**
+     * Get 类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return InstanceType 类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getInstanceType() {
+        return this.InstanceType;
+    }
+
+    /**
+     * Set 类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param InstanceType 类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setInstanceType(String InstanceType) {
+        this.InstanceType = InstanceType;
+    }
+
+    /**
+     * Get 表示该实例支持的特性。FEATURE_SUBNET_ACL:表示acl策略支持设置子网。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Features 表示该实例支持的特性。FEATURE_SUBNET_ACL:表示acl策略支持设置子网。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getFeatures() {
+        return this.Features;
+    }
+
+    /**
+     * Set 表示该实例支持的特性。FEATURE_SUBNET_ACL:表示acl策略支持设置子网。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Features 表示该实例支持的特性。FEATURE_SUBNET_ACL:表示acl策略支持设置子网。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFeatures(String [] Features) {
+        this.Features = Features;
+    }
+
+    /**
+     * Get 动态消息保留策略
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RetentionTimeConfig 动态消息保留策略
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public DynamicRetentionTime getRetentionTimeConfig() {
+        return this.RetentionTimeConfig;
+    }
+
+    /**
+     * Set 动态消息保留策略
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RetentionTimeConfig 动态消息保留策略
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRetentionTimeConfig(DynamicRetentionTime RetentionTimeConfig) {
+        this.RetentionTimeConfig = RetentionTimeConfig;
+    }
+
+    /**
+     * Get 最大连接数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MaxConnection 最大连接数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getMaxConnection() {
+        return this.MaxConnection;
+    }
+
+    /**
+     * Set 最大连接数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MaxConnection 最大连接数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMaxConnection(Long MaxConnection) {
+        this.MaxConnection = MaxConnection;
+    }
+
+    /**
+     * Get 公网带宽
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PublicNetwork 公网带宽
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getPublicNetwork() {
+        return this.PublicNetwork;
+    }
+
+    /**
+     * Set 公网带宽
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PublicNetwork 公网带宽
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPublicNetwork(Long PublicNetwork) {
+        this.PublicNetwork = PublicNetwork;
+    }
+
+    /**
+     * Get 时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DeleteRouteTimestamp 时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDeleteRouteTimestamp() {
+        return this.DeleteRouteTimestamp;
+    }
+
+    /**
+     * Set 时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DeleteRouteTimestamp 时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDeleteRouteTimestamp(String DeleteRouteTimestamp) {
+        this.DeleteRouteTimestamp = DeleteRouteTimestamp;
+    }
+
+    public InstanceAttributesResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public InstanceAttributesResponse(InstanceAttributesResponse source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.InstanceName != null) {
+            this.InstanceName = new String(source.InstanceName);
+        }
+        if (source.VipList != null) {
+            this.VipList = new VipEntity[source.VipList.length];
+            for (int i = 0; i < source.VipList.length; i++) {
+                this.VipList[i] = new VipEntity(source.VipList[i]);
+            }
+        }
+        if (source.Vip != null) {
+            this.Vip = new String(source.Vip);
+        }
+        if (source.Vport != null) {
+            this.Vport = new String(source.Vport);
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+        if (source.Bandwidth != null) {
+            this.Bandwidth = new Long(source.Bandwidth);
+        }
+        if (source.DiskSize != null) {
+            this.DiskSize = new Long(source.DiskSize);
+        }
+        if (source.ZoneId != null) {
+            this.ZoneId = new Long(source.ZoneId);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.Healthy != null) {
+            this.Healthy = new Long(source.Healthy);
+        }
+        if (source.HealthyMessage != null) {
+            this.HealthyMessage = new String(source.HealthyMessage);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new Long(source.CreateTime);
+        }
+        if (source.MsgRetentionTime != null) {
+            this.MsgRetentionTime = new Long(source.MsgRetentionTime);
+        }
+        if (source.Config != null) {
+            this.Config = new InstanceConfigDO(source.Config);
+        }
+        if (source.RemainderPartitions != null) {
+            this.RemainderPartitions = new Long(source.RemainderPartitions);
+        }
+        if (source.RemainderTopics != null) {
+            this.RemainderTopics = new Long(source.RemainderTopics);
+        }
+        if (source.CreatedPartitions != null) {
+            this.CreatedPartitions = new Long(source.CreatedPartitions);
+        }
+        if (source.CreatedTopics != null) {
+            this.CreatedTopics = new Long(source.CreatedTopics);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.ExpireTime != null) {
+            this.ExpireTime = new Long(source.ExpireTime);
+        }
+        if (source.ZoneIds != null) {
+            this.ZoneIds = new Long[source.ZoneIds.length];
+            for (int i = 0; i < source.ZoneIds.length; i++) {
+                this.ZoneIds[i] = new Long(source.ZoneIds[i]);
+            }
+        }
+        if (source.Version != null) {
+            this.Version = new String(source.Version);
+        }
+        if (source.MaxGroupNum != null) {
+            this.MaxGroupNum = new Long(source.MaxGroupNum);
+        }
+        if (source.Cvm != null) {
+            this.Cvm = new Long(source.Cvm);
+        }
+        if (source.InstanceType != null) {
+            this.InstanceType = new String(source.InstanceType);
+        }
+        if (source.Features != null) {
+            this.Features = new String[source.Features.length];
+            for (int i = 0; i < source.Features.length; i++) {
+                this.Features[i] = new String(source.Features[i]);
+            }
+        }
+        if (source.RetentionTimeConfig != null) {
+            this.RetentionTimeConfig = new DynamicRetentionTime(source.RetentionTimeConfig);
+        }
+        if (source.MaxConnection != null) {
+            this.MaxConnection = new Long(source.MaxConnection);
+        }
+        if (source.PublicNetwork != null) {
+            this.PublicNetwork = new Long(source.PublicNetwork);
+        }
+        if (source.DeleteRouteTimestamp != null) {
+            this.DeleteRouteTimestamp = new String(source.DeleteRouteTimestamp);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -680,6 +967,12 @@ public class InstanceAttributesResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "Version", this.Version);
         this.setParamSimple(map, prefix + "MaxGroupNum", this.MaxGroupNum);
         this.setParamSimple(map, prefix + "Cvm", this.Cvm);
+        this.setParamSimple(map, prefix + "InstanceType", this.InstanceType);
+        this.setParamArraySimple(map, prefix + "Features.", this.Features);
+        this.setParamObj(map, prefix + "RetentionTimeConfig.", this.RetentionTimeConfig);
+        this.setParamSimple(map, prefix + "MaxConnection", this.MaxConnection);
+        this.setParamSimple(map, prefix + "PublicNetwork", this.PublicNetwork);
+        this.setParamSimple(map, prefix + "DeleteRouteTimestamp", this.DeleteRouteTimestamp);
 
     }
 }

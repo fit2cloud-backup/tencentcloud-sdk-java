@@ -27,6 +27,7 @@ import com.tencentcloudapi.captcha.v20190722.models.*;
 
 public class CaptchaClient extends AbstractClient{
     private static String endpoint = "captcha.tencentcloudapi.com";
+    private static String service = "captcha";
     private static String version = "2019-07-22";
 
     public CaptchaClient(Credential credential, String region) {
@@ -45,30 +46,34 @@ public class CaptchaClient extends AbstractClient{
      */
     public DescribeCaptchaAppIdInfoResponse DescribeCaptchaAppIdInfo(DescribeCaptchaAppIdInfoRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCaptchaAppIdInfoResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCaptchaAppIdInfoResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeCaptchaAppIdInfo"), type);
+                rspStr = this.internalRequest(req, "DescribeCaptchaAppIdInfo");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
 
     /**
-     *安全验证码分类查询数据接口，请求量type=0、验证量type=1、通过量type=2、拦截量type=3  分钟级查询
+     *安全验证码分类查询数据接口，请求量type=0、通过量type=1、验证量type=2、拦截量type=3  分钟级查询
      * @param req DescribeCaptchaDataRequest
      * @return DescribeCaptchaDataResponse
      * @throws TencentCloudSDKException
      */
     public DescribeCaptchaDataResponse DescribeCaptchaData(DescribeCaptchaDataRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCaptchaDataResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCaptchaDataResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeCaptchaData"), type);
+                rspStr = this.internalRequest(req, "DescribeCaptchaData");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -81,12 +86,114 @@ public class CaptchaClient extends AbstractClient{
      */
     public DescribeCaptchaDataSumResponse DescribeCaptchaDataSum(DescribeCaptchaDataSumRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCaptchaDataSumResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCaptchaDataSumResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeCaptchaDataSum"), type);
+                rspStr = this.internalRequest(req, "DescribeCaptchaDataSum");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *安全验证码小程序插件分类查询数据接口，请求量type=0、通过量type=1、验证量type=2、拦截量type=3 小时级查询（五小时左右延迟）
+     * @param req DescribeCaptchaMiniDataRequest
+     * @return DescribeCaptchaMiniDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCaptchaMiniDataResponse DescribeCaptchaMiniData(DescribeCaptchaMiniDataRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeCaptchaMiniDataResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeCaptchaMiniDataResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeCaptchaMiniData");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *安全验证码小程序插件查询请求数据概况
+     * @param req DescribeCaptchaMiniDataSumRequest
+     * @return DescribeCaptchaMiniDataSumResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCaptchaMiniDataSumResponse DescribeCaptchaMiniDataSum(DescribeCaptchaMiniDataSumRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeCaptchaMiniDataSumResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeCaptchaMiniDataSumResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeCaptchaMiniDataSum");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *安全验证码小程序插件用户操作数据查询
+     * @param req DescribeCaptchaMiniOperDataRequest
+     * @return DescribeCaptchaMiniOperDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCaptchaMiniOperDataResponse DescribeCaptchaMiniOperData(DescribeCaptchaMiniOperDataRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeCaptchaMiniOperDataResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeCaptchaMiniOperDataResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeCaptchaMiniOperData");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *核查验证码小程序插件票据结果
+     * @param req DescribeCaptchaMiniResultRequest
+     * @return DescribeCaptchaMiniResultResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCaptchaMiniResultResponse DescribeCaptchaMiniResult(DescribeCaptchaMiniResultRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeCaptchaMiniResultResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeCaptchaMiniResultResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeCaptchaMiniResult");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *核查验证码小程序插件票据接入风控结果(Beta)
+     * @param req DescribeCaptchaMiniRiskResultRequest
+     * @return DescribeCaptchaMiniRiskResultResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCaptchaMiniRiskResultResponse DescribeCaptchaMiniRiskResult(DescribeCaptchaMiniRiskResultRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeCaptchaMiniRiskResultResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeCaptchaMiniRiskResultResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeCaptchaMiniRiskResult");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -99,12 +206,14 @@ public class CaptchaClient extends AbstractClient{
      */
     public DescribeCaptchaOperDataResponse DescribeCaptchaOperData(DescribeCaptchaOperDataRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCaptchaOperDataResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCaptchaOperDataResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeCaptchaOperData"), type);
+                rspStr = this.internalRequest(req, "DescribeCaptchaOperData");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -117,12 +226,34 @@ public class CaptchaClient extends AbstractClient{
      */
     public DescribeCaptchaResultResponse DescribeCaptchaResult(DescribeCaptchaResultRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCaptchaResultResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCaptchaResultResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeCaptchaResult"), type);
+                rspStr = this.internalRequest(req, "DescribeCaptchaResult");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *安全验证码用户操作票据数据查询
+     * @param req DescribeCaptchaTicketDataRequest
+     * @return DescribeCaptchaTicketDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCaptchaTicketDataResponse DescribeCaptchaTicketData(DescribeCaptchaTicketDataRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeCaptchaTicketDataResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeCaptchaTicketDataResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeCaptchaTicketData");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -135,12 +266,14 @@ public class CaptchaClient extends AbstractClient{
      */
     public DescribeCaptchaUserAllAppIdResponse DescribeCaptchaUserAllAppId(DescribeCaptchaUserAllAppIdRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCaptchaUserAllAppIdResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCaptchaUserAllAppIdResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeCaptchaUserAllAppId"), type);
+                rspStr = this.internalRequest(req, "DescribeCaptchaUserAllAppId");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -153,12 +286,14 @@ public class CaptchaClient extends AbstractClient{
      */
     public UpdateCaptchaAppIdInfoResponse UpdateCaptchaAppIdInfo(UpdateCaptchaAppIdInfoRequest req) throws TencentCloudSDKException{
         JsonResponseModel<UpdateCaptchaAppIdInfoResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<UpdateCaptchaAppIdInfoResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "UpdateCaptchaAppIdInfo"), type);
+                rspStr = this.internalRequest(req, "UpdateCaptchaAppIdInfo");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

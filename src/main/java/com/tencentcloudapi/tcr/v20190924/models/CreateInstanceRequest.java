@@ -30,11 +30,25 @@ public class CreateInstanceRequest extends AbstractModel{
     private String RegistryName;
 
     /**
-    * 企业版实例类型
+    * 企业版实例类型（basic 基础版；standard 标准版；premium 高级版）
     */
     @SerializedName("RegistryType")
     @Expose
     private String RegistryType;
+
+    /**
+    * 云标签描述
+    */
+    @SerializedName("TagSpecification")
+    @Expose
+    private TagSpecification TagSpecification;
+
+    /**
+    * 实例计费类型，0表示按量计费，1表示预付费，默认为按量计费
+    */
+    @SerializedName("RegistryChargeType")
+    @Expose
+    private Long RegistryChargeType;
 
     /**
      * Get 企业版实例名称 
@@ -53,20 +67,75 @@ public class CreateInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 企业版实例类型 
-     * @return RegistryType 企业版实例类型
+     * Get 企业版实例类型（basic 基础版；standard 标准版；premium 高级版） 
+     * @return RegistryType 企业版实例类型（basic 基础版；standard 标准版；premium 高级版）
      */
     public String getRegistryType() {
         return this.RegistryType;
     }
 
     /**
-     * Set 企业版实例类型
-     * @param RegistryType 企业版实例类型
+     * Set 企业版实例类型（basic 基础版；standard 标准版；premium 高级版）
+     * @param RegistryType 企业版实例类型（basic 基础版；standard 标准版；premium 高级版）
      */
     public void setRegistryType(String RegistryType) {
         this.RegistryType = RegistryType;
     }
+
+    /**
+     * Get 云标签描述 
+     * @return TagSpecification 云标签描述
+     */
+    public TagSpecification getTagSpecification() {
+        return this.TagSpecification;
+    }
+
+    /**
+     * Set 云标签描述
+     * @param TagSpecification 云标签描述
+     */
+    public void setTagSpecification(TagSpecification TagSpecification) {
+        this.TagSpecification = TagSpecification;
+    }
+
+    /**
+     * Get 实例计费类型，0表示按量计费，1表示预付费，默认为按量计费 
+     * @return RegistryChargeType 实例计费类型，0表示按量计费，1表示预付费，默认为按量计费
+     */
+    public Long getRegistryChargeType() {
+        return this.RegistryChargeType;
+    }
+
+    /**
+     * Set 实例计费类型，0表示按量计费，1表示预付费，默认为按量计费
+     * @param RegistryChargeType 实例计费类型，0表示按量计费，1表示预付费，默认为按量计费
+     */
+    public void setRegistryChargeType(Long RegistryChargeType) {
+        this.RegistryChargeType = RegistryChargeType;
+    }
+
+    public CreateInstanceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateInstanceRequest(CreateInstanceRequest source) {
+        if (source.RegistryName != null) {
+            this.RegistryName = new String(source.RegistryName);
+        }
+        if (source.RegistryType != null) {
+            this.RegistryType = new String(source.RegistryType);
+        }
+        if (source.TagSpecification != null) {
+            this.TagSpecification = new TagSpecification(source.TagSpecification);
+        }
+        if (source.RegistryChargeType != null) {
+            this.RegistryChargeType = new Long(source.RegistryChargeType);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -74,6 +143,8 @@ public class CreateInstanceRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "RegistryName", this.RegistryName);
         this.setParamSimple(map, prefix + "RegistryType", this.RegistryType);
+        this.setParamObj(map, prefix + "TagSpecification.", this.TagSpecification);
+        this.setParamSimple(map, prefix + "RegistryChargeType", this.RegistryChargeType);
 
     }
 }

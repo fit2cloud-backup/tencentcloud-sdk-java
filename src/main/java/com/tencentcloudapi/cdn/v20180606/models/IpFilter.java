@@ -52,6 +52,14 @@ blacklist：黑名单
     private String [] Filters;
 
     /**
+    * IP 黑白名单分路径配置，白名单功能
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FilterRules")
+    @Expose
+    private IpFilterPathRule [] FilterRules;
+
+    /**
      * Get IP 黑白名单配置开关
 on：开启
 off：关闭 
@@ -132,12 +140,62 @@ blacklist：黑名单
     }
 
     /**
+     * Get IP 黑白名单分路径配置，白名单功能
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FilterRules IP 黑白名单分路径配置，白名单功能
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public IpFilterPathRule [] getFilterRules() {
+        return this.FilterRules;
+    }
+
+    /**
+     * Set IP 黑白名单分路径配置，白名单功能
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FilterRules IP 黑白名单分路径配置，白名单功能
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFilterRules(IpFilterPathRule [] FilterRules) {
+        this.FilterRules = FilterRules;
+    }
+
+    public IpFilter() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public IpFilter(IpFilter source) {
+        if (source.Switch != null) {
+            this.Switch = new String(source.Switch);
+        }
+        if (source.FilterType != null) {
+            this.FilterType = new String(source.FilterType);
+        }
+        if (source.Filters != null) {
+            this.Filters = new String[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new String(source.Filters[i]);
+            }
+        }
+        if (source.FilterRules != null) {
+            this.FilterRules = new IpFilterPathRule[source.FilterRules.length];
+            for (int i = 0; i < source.FilterRules.length; i++) {
+                this.FilterRules[i] = new IpFilterPathRule(source.FilterRules[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Switch", this.Switch);
         this.setParamSimple(map, prefix + "FilterType", this.FilterType);
         this.setParamArraySimple(map, prefix + "Filters.", this.Filters);
+        this.setParamArrayObj(map, prefix + "FilterRules.", this.FilterRules);
 
     }
 }

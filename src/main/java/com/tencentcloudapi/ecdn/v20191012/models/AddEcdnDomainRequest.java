@@ -100,6 +100,20 @@ public class AddEcdnDomainRequest extends AbstractModel{
     private ForceRedirect ForceRedirect;
 
     /**
+    * 域名绑定的标签
+    */
+    @SerializedName("Tag")
+    @Expose
+    private Tag [] Tag;
+
+    /**
+    * WebSocket配置
+    */
+    @SerializedName("WebSocket")
+    @Expose
+    private WebSocket WebSocket;
+
+    /**
      * Get 域名。 
      * @return Domain 域名。
      */
@@ -276,6 +290,91 @@ public class AddEcdnDomainRequest extends AbstractModel{
     }
 
     /**
+     * Get 域名绑定的标签 
+     * @return Tag 域名绑定的标签
+     */
+    public Tag [] getTag() {
+        return this.Tag;
+    }
+
+    /**
+     * Set 域名绑定的标签
+     * @param Tag 域名绑定的标签
+     */
+    public void setTag(Tag [] Tag) {
+        this.Tag = Tag;
+    }
+
+    /**
+     * Get WebSocket配置 
+     * @return WebSocket WebSocket配置
+     */
+    public WebSocket getWebSocket() {
+        return this.WebSocket;
+    }
+
+    /**
+     * Set WebSocket配置
+     * @param WebSocket WebSocket配置
+     */
+    public void setWebSocket(WebSocket WebSocket) {
+        this.WebSocket = WebSocket;
+    }
+
+    public AddEcdnDomainRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AddEcdnDomainRequest(AddEcdnDomainRequest source) {
+        if (source.Domain != null) {
+            this.Domain = new String(source.Domain);
+        }
+        if (source.Origin != null) {
+            this.Origin = new Origin(source.Origin);
+        }
+        if (source.Area != null) {
+            this.Area = new String(source.Area);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.IpFilter != null) {
+            this.IpFilter = new IpFilter(source.IpFilter);
+        }
+        if (source.IpFreqLimit != null) {
+            this.IpFreqLimit = new IpFreqLimit(source.IpFreqLimit);
+        }
+        if (source.ResponseHeader != null) {
+            this.ResponseHeader = new ResponseHeader(source.ResponseHeader);
+        }
+        if (source.CacheKey != null) {
+            this.CacheKey = new CacheKey(source.CacheKey);
+        }
+        if (source.Cache != null) {
+            this.Cache = new Cache(source.Cache);
+        }
+        if (source.Https != null) {
+            this.Https = new Https(source.Https);
+        }
+        if (source.ForceRedirect != null) {
+            this.ForceRedirect = new ForceRedirect(source.ForceRedirect);
+        }
+        if (source.Tag != null) {
+            this.Tag = new Tag[source.Tag.length];
+            for (int i = 0; i < source.Tag.length; i++) {
+                this.Tag[i] = new Tag(source.Tag[i]);
+            }
+        }
+        if (source.WebSocket != null) {
+            this.WebSocket = new WebSocket(source.WebSocket);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -290,6 +389,8 @@ public class AddEcdnDomainRequest extends AbstractModel{
         this.setParamObj(map, prefix + "Cache.", this.Cache);
         this.setParamObj(map, prefix + "Https.", this.Https);
         this.setParamObj(map, prefix + "ForceRedirect.", this.ForceRedirect);
+        this.setParamArrayObj(map, prefix + "Tag.", this.Tag);
+        this.setParamObj(map, prefix + "WebSocket.", this.WebSocket);
 
     }
 }

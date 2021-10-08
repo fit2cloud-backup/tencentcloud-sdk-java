@@ -58,7 +58,7 @@ public class DescribeResourceListRequest extends AbstractModel{
     private String Name;
 
     /**
-    * IP搜索列表，可选，当不为空时表示安装IP搜索资源；
+    * IP搜索列表，可选，当不为空时表示按照IP搜索资源；
     */
     @SerializedName("IpList")
     @Expose
@@ -194,16 +194,16 @@ public class DescribeResourceListRequest extends AbstractModel{
     }
 
     /**
-     * Get IP搜索列表，可选，当不为空时表示安装IP搜索资源； 
-     * @return IpList IP搜索列表，可选，当不为空时表示安装IP搜索资源；
+     * Get IP搜索列表，可选，当不为空时表示按照IP搜索资源； 
+     * @return IpList IP搜索列表，可选，当不为空时表示按照IP搜索资源；
      */
     public String [] getIpList() {
         return this.IpList;
     }
 
     /**
-     * Set IP搜索列表，可选，当不为空时表示安装IP搜索资源；
-     * @param IpList IP搜索列表，可选，当不为空时表示安装IP搜索资源；
+     * Set IP搜索列表，可选，当不为空时表示按照IP搜索资源；
+     * @param IpList IP搜索列表，可选，当不为空时表示按照IP搜索资源；
      */
     public void setIpList(String [] IpList) {
         this.IpList = IpList;
@@ -320,6 +320,74 @@ public class DescribeResourceListRequest extends AbstractModel{
     public void setDomain(String Domain) {
         this.Domain = Domain;
     }
+
+    public DescribeResourceListRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeResourceListRequest(DescribeResourceListRequest source) {
+        if (source.Business != null) {
+            this.Business = new String(source.Business);
+        }
+        if (source.RegionList != null) {
+            this.RegionList = new String[source.RegionList.length];
+            for (int i = 0; i < source.RegionList.length; i++) {
+                this.RegionList[i] = new String(source.RegionList[i]);
+            }
+        }
+        if (source.Line != null) {
+            this.Line = new Long[source.Line.length];
+            for (int i = 0; i < source.Line.length; i++) {
+                this.Line[i] = new Long(source.Line[i]);
+            }
+        }
+        if (source.IdList != null) {
+            this.IdList = new String[source.IdList.length];
+            for (int i = 0; i < source.IdList.length; i++) {
+                this.IdList[i] = new String(source.IdList[i]);
+            }
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.IpList != null) {
+            this.IpList = new String[source.IpList.length];
+            for (int i = 0; i < source.IpList.length; i++) {
+                this.IpList[i] = new String(source.IpList[i]);
+            }
+        }
+        if (source.Status != null) {
+            this.Status = new Long[source.Status.length];
+            for (int i = 0; i < source.Status.length; i++) {
+                this.Status[i] = new Long(source.Status[i]);
+            }
+        }
+        if (source.Expire != null) {
+            this.Expire = new Long(source.Expire);
+        }
+        if (source.OderBy != null) {
+            this.OderBy = new OrderBy[source.OderBy.length];
+            for (int i = 0; i < source.OderBy.length; i++) {
+                this.OderBy[i] = new OrderBy(source.OderBy[i]);
+            }
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.CName != null) {
+            this.CName = new String(source.CName);
+        }
+        if (source.Domain != null) {
+            this.Domain = new String(source.Domain);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

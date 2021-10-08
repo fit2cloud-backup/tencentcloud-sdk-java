@@ -57,8 +57,14 @@ public class CreateGroupRequest extends AbstractModel{
     private String Tag;
 
     /**
-    * 人脸识别服务所用的算法模型版本。目前入参支持 “2.0”和“3.0“ 两个输入。
-2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。 
+    * 人脸识别服务所用的算法模型版本。
+
+目前入参支持 “2.0”和“3.0“ 两个输入。
+
+2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。
+
+2020年11月26日后开通服务的账号仅支持输入“3.0”。
+
 不同算法模型版本对应的人脸识别算法不同，新版本的整体效果会优于旧版本，建议使用“3.0”版本。
     */
     @SerializedName("FaceModelVersion")
@@ -154,11 +160,23 @@ public class CreateGroupRequest extends AbstractModel{
     }
 
     /**
-     * Get 人脸识别服务所用的算法模型版本。目前入参支持 “2.0”和“3.0“ 两个输入。
-2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。 
+     * Get 人脸识别服务所用的算法模型版本。
+
+目前入参支持 “2.0”和“3.0“ 两个输入。
+
+2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。
+
+2020年11月26日后开通服务的账号仅支持输入“3.0”。
+
 不同算法模型版本对应的人脸识别算法不同，新版本的整体效果会优于旧版本，建议使用“3.0”版本。 
-     * @return FaceModelVersion 人脸识别服务所用的算法模型版本。目前入参支持 “2.0”和“3.0“ 两个输入。
-2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。 
+     * @return FaceModelVersion 人脸识别服务所用的算法模型版本。
+
+目前入参支持 “2.0”和“3.0“ 两个输入。
+
+2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。
+
+2020年11月26日后开通服务的账号仅支持输入“3.0”。
+
 不同算法模型版本对应的人脸识别算法不同，新版本的整体效果会优于旧版本，建议使用“3.0”版本。
      */
     public String getFaceModelVersion() {
@@ -166,16 +184,57 @@ public class CreateGroupRequest extends AbstractModel{
     }
 
     /**
-     * Set 人脸识别服务所用的算法模型版本。目前入参支持 “2.0”和“3.0“ 两个输入。
-2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。 
+     * Set 人脸识别服务所用的算法模型版本。
+
+目前入参支持 “2.0”和“3.0“ 两个输入。
+
+2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。
+
+2020年11月26日后开通服务的账号仅支持输入“3.0”。
+
 不同算法模型版本对应的人脸识别算法不同，新版本的整体效果会优于旧版本，建议使用“3.0”版本。
-     * @param FaceModelVersion 人脸识别服务所用的算法模型版本。目前入参支持 “2.0”和“3.0“ 两个输入。
-2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。 
+     * @param FaceModelVersion 人脸识别服务所用的算法模型版本。
+
+目前入参支持 “2.0”和“3.0“ 两个输入。
+
+2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。
+
+2020年11月26日后开通服务的账号仅支持输入“3.0”。
+
 不同算法模型版本对应的人脸识别算法不同，新版本的整体效果会优于旧版本，建议使用“3.0”版本。
      */
     public void setFaceModelVersion(String FaceModelVersion) {
         this.FaceModelVersion = FaceModelVersion;
     }
+
+    public CreateGroupRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateGroupRequest(CreateGroupRequest source) {
+        if (source.GroupName != null) {
+            this.GroupName = new String(source.GroupName);
+        }
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
+        if (source.GroupExDescriptions != null) {
+            this.GroupExDescriptions = new String[source.GroupExDescriptions.length];
+            for (int i = 0; i < source.GroupExDescriptions.length; i++) {
+                this.GroupExDescriptions[i] = new String(source.GroupExDescriptions[i]);
+            }
+        }
+        if (source.Tag != null) {
+            this.Tag = new String(source.Tag);
+        }
+        if (source.FaceModelVersion != null) {
+            this.FaceModelVersion = new String(source.FaceModelVersion);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

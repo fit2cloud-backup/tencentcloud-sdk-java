@@ -183,7 +183,7 @@ public class VmGroup extends AbstractModel{
     private String MicroserviceType;
 
     /**
-    * ApplicationType
+    * 应用类型
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApplicationType")
@@ -191,12 +191,116 @@ public class VmGroup extends AbstractModel{
     private String ApplicationType;
 
     /**
-    * GroupResourceType
+    * 部署组资源类型
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupResourceType")
     @Expose
     private String GroupResourceType;
+
+    /**
+    * 部署组更新时间戳
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UpdatedTime")
+    @Expose
+    private Long UpdatedTime;
+
+    /**
+    * 部署应用描述信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DeployDesc")
+    @Expose
+    private String DeployDesc;
+
+    /**
+    * 滚动发布的更新方式
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UpdateType")
+    @Expose
+    private Long UpdateType;
+
+    /**
+    * 发布是否启用beta批次
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DeployBetaEnable")
+    @Expose
+    private Boolean DeployBetaEnable;
+
+    /**
+    * 滚动发布的批次比例列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DeployBatch")
+    @Expose
+    private Float [] DeployBatch;
+
+    /**
+    * 滚动发布的批次执行方式
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DeployExeMode")
+    @Expose
+    private String DeployExeMode;
+
+    /**
+    * 滚动发布的每个批次的等待时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DeployWaitTime")
+    @Expose
+    private Long DeployWaitTime;
+
+    /**
+    * 是否开启了健康检查
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EnableHealthCheck")
+    @Expose
+    private Boolean EnableHealthCheck;
+
+    /**
+    * 健康检查配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("HealthCheckSettings")
+    @Expose
+    private HealthCheckSettings HealthCheckSettings;
+
+    /**
+    * 程序包类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PackageType")
+    @Expose
+    private String PackageType;
+
+    /**
+    * 启动脚本 base64编码
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("StartScript")
+    @Expose
+    private String StartScript;
+
+    /**
+    * 停止脚本 base64编码
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("StopScript")
+    @Expose
+    private String StopScript;
+
+    /**
+    * 部署组备注
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Alias")
+    @Expose
+    private String Alias;
 
     /**
      * Get 部署组ID
@@ -599,9 +703,9 @@ public class VmGroup extends AbstractModel{
     }
 
     /**
-     * Get ApplicationType
+     * Get 应用类型
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ApplicationType ApplicationType
+     * @return ApplicationType 应用类型
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApplicationType() {
@@ -609,9 +713,9 @@ public class VmGroup extends AbstractModel{
     }
 
     /**
-     * Set ApplicationType
+     * Set 应用类型
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ApplicationType ApplicationType
+     * @param ApplicationType 应用类型
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApplicationType(String ApplicationType) {
@@ -619,9 +723,9 @@ public class VmGroup extends AbstractModel{
     }
 
     /**
-     * Get GroupResourceType
+     * Get 部署组资源类型
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return GroupResourceType GroupResourceType
+     * @return GroupResourceType 部署组资源类型
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGroupResourceType() {
@@ -629,14 +733,393 @@ public class VmGroup extends AbstractModel{
     }
 
     /**
-     * Set GroupResourceType
+     * Set 部署组资源类型
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param GroupResourceType GroupResourceType
+     * @param GroupResourceType 部署组资源类型
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupResourceType(String GroupResourceType) {
         this.GroupResourceType = GroupResourceType;
     }
+
+    /**
+     * Get 部署组更新时间戳
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UpdatedTime 部署组更新时间戳
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getUpdatedTime() {
+        return this.UpdatedTime;
+    }
+
+    /**
+     * Set 部署组更新时间戳
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UpdatedTime 部署组更新时间戳
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUpdatedTime(Long UpdatedTime) {
+        this.UpdatedTime = UpdatedTime;
+    }
+
+    /**
+     * Get 部署应用描述信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DeployDesc 部署应用描述信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDeployDesc() {
+        return this.DeployDesc;
+    }
+
+    /**
+     * Set 部署应用描述信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DeployDesc 部署应用描述信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDeployDesc(String DeployDesc) {
+        this.DeployDesc = DeployDesc;
+    }
+
+    /**
+     * Get 滚动发布的更新方式
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UpdateType 滚动发布的更新方式
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getUpdateType() {
+        return this.UpdateType;
+    }
+
+    /**
+     * Set 滚动发布的更新方式
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UpdateType 滚动发布的更新方式
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUpdateType(Long UpdateType) {
+        this.UpdateType = UpdateType;
+    }
+
+    /**
+     * Get 发布是否启用beta批次
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DeployBetaEnable 发布是否启用beta批次
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getDeployBetaEnable() {
+        return this.DeployBetaEnable;
+    }
+
+    /**
+     * Set 发布是否启用beta批次
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DeployBetaEnable 发布是否启用beta批次
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDeployBetaEnable(Boolean DeployBetaEnable) {
+        this.DeployBetaEnable = DeployBetaEnable;
+    }
+
+    /**
+     * Get 滚动发布的批次比例列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DeployBatch 滚动发布的批次比例列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Float [] getDeployBatch() {
+        return this.DeployBatch;
+    }
+
+    /**
+     * Set 滚动发布的批次比例列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DeployBatch 滚动发布的批次比例列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDeployBatch(Float [] DeployBatch) {
+        this.DeployBatch = DeployBatch;
+    }
+
+    /**
+     * Get 滚动发布的批次执行方式
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DeployExeMode 滚动发布的批次执行方式
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDeployExeMode() {
+        return this.DeployExeMode;
+    }
+
+    /**
+     * Set 滚动发布的批次执行方式
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DeployExeMode 滚动发布的批次执行方式
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDeployExeMode(String DeployExeMode) {
+        this.DeployExeMode = DeployExeMode;
+    }
+
+    /**
+     * Get 滚动发布的每个批次的等待时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DeployWaitTime 滚动发布的每个批次的等待时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getDeployWaitTime() {
+        return this.DeployWaitTime;
+    }
+
+    /**
+     * Set 滚动发布的每个批次的等待时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DeployWaitTime 滚动发布的每个批次的等待时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDeployWaitTime(Long DeployWaitTime) {
+        this.DeployWaitTime = DeployWaitTime;
+    }
+
+    /**
+     * Get 是否开启了健康检查
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EnableHealthCheck 是否开启了健康检查
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getEnableHealthCheck() {
+        return this.EnableHealthCheck;
+    }
+
+    /**
+     * Set 是否开启了健康检查
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EnableHealthCheck 是否开启了健康检查
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEnableHealthCheck(Boolean EnableHealthCheck) {
+        this.EnableHealthCheck = EnableHealthCheck;
+    }
+
+    /**
+     * Get 健康检查配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return HealthCheckSettings 健康检查配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public HealthCheckSettings getHealthCheckSettings() {
+        return this.HealthCheckSettings;
+    }
+
+    /**
+     * Set 健康检查配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param HealthCheckSettings 健康检查配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setHealthCheckSettings(HealthCheckSettings HealthCheckSettings) {
+        this.HealthCheckSettings = HealthCheckSettings;
+    }
+
+    /**
+     * Get 程序包类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PackageType 程序包类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getPackageType() {
+        return this.PackageType;
+    }
+
+    /**
+     * Set 程序包类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PackageType 程序包类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPackageType(String PackageType) {
+        this.PackageType = PackageType;
+    }
+
+    /**
+     * Get 启动脚本 base64编码
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return StartScript 启动脚本 base64编码
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getStartScript() {
+        return this.StartScript;
+    }
+
+    /**
+     * Set 启动脚本 base64编码
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param StartScript 启动脚本 base64编码
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setStartScript(String StartScript) {
+        this.StartScript = StartScript;
+    }
+
+    /**
+     * Get 停止脚本 base64编码
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return StopScript 停止脚本 base64编码
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getStopScript() {
+        return this.StopScript;
+    }
+
+    /**
+     * Set 停止脚本 base64编码
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param StopScript 停止脚本 base64编码
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setStopScript(String StopScript) {
+        this.StopScript = StopScript;
+    }
+
+    /**
+     * Get 部署组备注
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Alias 部署组备注
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAlias() {
+        return this.Alias;
+    }
+
+    /**
+     * Set 部署组备注
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Alias 部署组备注
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAlias(String Alias) {
+        this.Alias = Alias;
+    }
+
+    public VmGroup() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public VmGroup(VmGroup source) {
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
+        if (source.GroupName != null) {
+            this.GroupName = new String(source.GroupName);
+        }
+        if (source.GroupStatus != null) {
+            this.GroupStatus = new String(source.GroupStatus);
+        }
+        if (source.PackageId != null) {
+            this.PackageId = new String(source.PackageId);
+        }
+        if (source.PackageName != null) {
+            this.PackageName = new String(source.PackageName);
+        }
+        if (source.PackageVersion != null) {
+            this.PackageVersion = new String(source.PackageVersion);
+        }
+        if (source.ClusterId != null) {
+            this.ClusterId = new String(source.ClusterId);
+        }
+        if (source.ClusterName != null) {
+            this.ClusterName = new String(source.ClusterName);
+        }
+        if (source.NamespaceId != null) {
+            this.NamespaceId = new String(source.NamespaceId);
+        }
+        if (source.NamespaceName != null) {
+            this.NamespaceName = new String(source.NamespaceName);
+        }
+        if (source.ApplicationId != null) {
+            this.ApplicationId = new String(source.ApplicationId);
+        }
+        if (source.ApplicationName != null) {
+            this.ApplicationName = new String(source.ApplicationName);
+        }
+        if (source.InstanceCount != null) {
+            this.InstanceCount = new Long(source.InstanceCount);
+        }
+        if (source.RunInstanceCount != null) {
+            this.RunInstanceCount = new Long(source.RunInstanceCount);
+        }
+        if (source.StartupParameters != null) {
+            this.StartupParameters = new String(source.StartupParameters);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+        if (source.OffInstanceCount != null) {
+            this.OffInstanceCount = new Long(source.OffInstanceCount);
+        }
+        if (source.GroupDesc != null) {
+            this.GroupDesc = new String(source.GroupDesc);
+        }
+        if (source.MicroserviceType != null) {
+            this.MicroserviceType = new String(source.MicroserviceType);
+        }
+        if (source.ApplicationType != null) {
+            this.ApplicationType = new String(source.ApplicationType);
+        }
+        if (source.GroupResourceType != null) {
+            this.GroupResourceType = new String(source.GroupResourceType);
+        }
+        if (source.UpdatedTime != null) {
+            this.UpdatedTime = new Long(source.UpdatedTime);
+        }
+        if (source.DeployDesc != null) {
+            this.DeployDesc = new String(source.DeployDesc);
+        }
+        if (source.UpdateType != null) {
+            this.UpdateType = new Long(source.UpdateType);
+        }
+        if (source.DeployBetaEnable != null) {
+            this.DeployBetaEnable = new Boolean(source.DeployBetaEnable);
+        }
+        if (source.DeployBatch != null) {
+            this.DeployBatch = new Float[source.DeployBatch.length];
+            for (int i = 0; i < source.DeployBatch.length; i++) {
+                this.DeployBatch[i] = new Float(source.DeployBatch[i]);
+            }
+        }
+        if (source.DeployExeMode != null) {
+            this.DeployExeMode = new String(source.DeployExeMode);
+        }
+        if (source.DeployWaitTime != null) {
+            this.DeployWaitTime = new Long(source.DeployWaitTime);
+        }
+        if (source.EnableHealthCheck != null) {
+            this.EnableHealthCheck = new Boolean(source.EnableHealthCheck);
+        }
+        if (source.HealthCheckSettings != null) {
+            this.HealthCheckSettings = new HealthCheckSettings(source.HealthCheckSettings);
+        }
+        if (source.PackageType != null) {
+            this.PackageType = new String(source.PackageType);
+        }
+        if (source.StartScript != null) {
+            this.StartScript = new String(source.StartScript);
+        }
+        if (source.StopScript != null) {
+            this.StopScript = new String(source.StopScript);
+        }
+        if (source.Alias != null) {
+            this.Alias = new String(source.Alias);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -664,6 +1147,19 @@ public class VmGroup extends AbstractModel{
         this.setParamSimple(map, prefix + "MicroserviceType", this.MicroserviceType);
         this.setParamSimple(map, prefix + "ApplicationType", this.ApplicationType);
         this.setParamSimple(map, prefix + "GroupResourceType", this.GroupResourceType);
+        this.setParamSimple(map, prefix + "UpdatedTime", this.UpdatedTime);
+        this.setParamSimple(map, prefix + "DeployDesc", this.DeployDesc);
+        this.setParamSimple(map, prefix + "UpdateType", this.UpdateType);
+        this.setParamSimple(map, prefix + "DeployBetaEnable", this.DeployBetaEnable);
+        this.setParamArraySimple(map, prefix + "DeployBatch.", this.DeployBatch);
+        this.setParamSimple(map, prefix + "DeployExeMode", this.DeployExeMode);
+        this.setParamSimple(map, prefix + "DeployWaitTime", this.DeployWaitTime);
+        this.setParamSimple(map, prefix + "EnableHealthCheck", this.EnableHealthCheck);
+        this.setParamObj(map, prefix + "HealthCheckSettings.", this.HealthCheckSettings);
+        this.setParamSimple(map, prefix + "PackageType", this.PackageType);
+        this.setParamSimple(map, prefix + "StartScript", this.StartScript);
+        this.setParamSimple(map, prefix + "StopScript", this.StopScript);
+        this.setParamSimple(map, prefix + "Alias", this.Alias);
 
     }
 }

@@ -47,6 +47,20 @@ public class DescribeAttackLogsRequest extends AbstractModel{
     private Filter [] Filters;
 
     /**
+    * 主机安全客户端ID
+    */
+    @SerializedName("Uuid")
+    @Expose
+    private String Uuid;
+
+    /**
+    * 云主机机器ID
+    */
+    @SerializedName("Quuid")
+    @Expose
+    private String Quuid;
+
+    /**
      * Get 返回数量，默认为10，最大值为100。 
      * @return Limit 返回数量，默认为10，最大值为100。
      */
@@ -107,12 +121,75 @@ public class DescribeAttackLogsRequest extends AbstractModel{
     }
 
     /**
+     * Get 主机安全客户端ID 
+     * @return Uuid 主机安全客户端ID
+     */
+    public String getUuid() {
+        return this.Uuid;
+    }
+
+    /**
+     * Set 主机安全客户端ID
+     * @param Uuid 主机安全客户端ID
+     */
+    public void setUuid(String Uuid) {
+        this.Uuid = Uuid;
+    }
+
+    /**
+     * Get 云主机机器ID 
+     * @return Quuid 云主机机器ID
+     */
+    public String getQuuid() {
+        return this.Quuid;
+    }
+
+    /**
+     * Set 云主机机器ID
+     * @param Quuid 云主机机器ID
+     */
+    public void setQuuid(String Quuid) {
+        this.Quuid = Quuid;
+    }
+
+    public DescribeAttackLogsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeAttackLogsRequest(DescribeAttackLogsRequest source) {
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
+        }
+        if (source.Uuid != null) {
+            this.Uuid = new String(source.Uuid);
+        }
+        if (source.Quuid != null) {
+            this.Quuid = new String(source.Quuid);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
+        this.setParamSimple(map, prefix + "Uuid", this.Uuid);
+        this.setParamSimple(map, prefix + "Quuid", this.Quuid);
 
     }
 }

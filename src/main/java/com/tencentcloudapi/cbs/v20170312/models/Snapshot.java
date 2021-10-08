@@ -58,7 +58,7 @@ public class Snapshot extends AbstractModel{
     private Long DiskSize;
 
     /**
-    * 快照的状态。取值范围：<br><li>NORMAL：正常<br><li>CREATING：创建中<br><li>ROLLBACKING：回滚中<br><li>COPYING_FROM_REMOTE：跨地域复制快照拷贝中。
+    * 快照的状态。取值范围：<br><li>NORMAL：正常<br><li>CREATING：创建中<br><li>ROLLBACKING：回滚中<br><li>COPYING_FROM_REMOTE：跨地域复制中<br><li>CHECKING_COPIED：复制校验中<br><li>TORECYCLE：待回收。
     */
     @SerializedName("SnapshotState")
     @Expose
@@ -142,11 +142,18 @@ public class Snapshot extends AbstractModel{
     private String SnapshotType;
 
     /**
-    * 快照当前被共享数
+    * 快照当前被共享数。
     */
     @SerializedName("ShareReference")
     @Expose
     private Long ShareReference;
+
+    /**
+    * 快照开始共享的时间。
+    */
+    @SerializedName("TimeStartShare")
+    @Expose
+    private String TimeStartShare;
 
     /**
      * Get 快照ID。 
@@ -229,16 +236,16 @@ public class Snapshot extends AbstractModel{
     }
 
     /**
-     * Get 快照的状态。取值范围：<br><li>NORMAL：正常<br><li>CREATING：创建中<br><li>ROLLBACKING：回滚中<br><li>COPYING_FROM_REMOTE：跨地域复制快照拷贝中。 
-     * @return SnapshotState 快照的状态。取值范围：<br><li>NORMAL：正常<br><li>CREATING：创建中<br><li>ROLLBACKING：回滚中<br><li>COPYING_FROM_REMOTE：跨地域复制快照拷贝中。
+     * Get 快照的状态。取值范围：<br><li>NORMAL：正常<br><li>CREATING：创建中<br><li>ROLLBACKING：回滚中<br><li>COPYING_FROM_REMOTE：跨地域复制中<br><li>CHECKING_COPIED：复制校验中<br><li>TORECYCLE：待回收。 
+     * @return SnapshotState 快照的状态。取值范围：<br><li>NORMAL：正常<br><li>CREATING：创建中<br><li>ROLLBACKING：回滚中<br><li>COPYING_FROM_REMOTE：跨地域复制中<br><li>CHECKING_COPIED：复制校验中<br><li>TORECYCLE：待回收。
      */
     public String getSnapshotState() {
         return this.SnapshotState;
     }
 
     /**
-     * Set 快照的状态。取值范围：<br><li>NORMAL：正常<br><li>CREATING：创建中<br><li>ROLLBACKING：回滚中<br><li>COPYING_FROM_REMOTE：跨地域复制快照拷贝中。
-     * @param SnapshotState 快照的状态。取值范围：<br><li>NORMAL：正常<br><li>CREATING：创建中<br><li>ROLLBACKING：回滚中<br><li>COPYING_FROM_REMOTE：跨地域复制快照拷贝中。
+     * Set 快照的状态。取值范围：<br><li>NORMAL：正常<br><li>CREATING：创建中<br><li>ROLLBACKING：回滚中<br><li>COPYING_FROM_REMOTE：跨地域复制中<br><li>CHECKING_COPIED：复制校验中<br><li>TORECYCLE：待回收。
+     * @param SnapshotState 快照的状态。取值范围：<br><li>NORMAL：正常<br><li>CREATING：创建中<br><li>ROLLBACKING：回滚中<br><li>COPYING_FROM_REMOTE：跨地域复制中<br><li>CHECKING_COPIED：复制校验中<br><li>TORECYCLE：待回收。
      */
     public void setSnapshotState(String SnapshotState) {
         this.SnapshotState = SnapshotState;
@@ -421,20 +428,110 @@ public class Snapshot extends AbstractModel{
     }
 
     /**
-     * Get 快照当前被共享数 
-     * @return ShareReference 快照当前被共享数
+     * Get 快照当前被共享数。 
+     * @return ShareReference 快照当前被共享数。
      */
     public Long getShareReference() {
         return this.ShareReference;
     }
 
     /**
-     * Set 快照当前被共享数
-     * @param ShareReference 快照当前被共享数
+     * Set 快照当前被共享数。
+     * @param ShareReference 快照当前被共享数。
      */
     public void setShareReference(Long ShareReference) {
         this.ShareReference = ShareReference;
     }
+
+    /**
+     * Get 快照开始共享的时间。 
+     * @return TimeStartShare 快照开始共享的时间。
+     */
+    public String getTimeStartShare() {
+        return this.TimeStartShare;
+    }
+
+    /**
+     * Set 快照开始共享的时间。
+     * @param TimeStartShare 快照开始共享的时间。
+     */
+    public void setTimeStartShare(String TimeStartShare) {
+        this.TimeStartShare = TimeStartShare;
+    }
+
+    public Snapshot() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Snapshot(Snapshot source) {
+        if (source.SnapshotId != null) {
+            this.SnapshotId = new String(source.SnapshotId);
+        }
+        if (source.Placement != null) {
+            this.Placement = new Placement(source.Placement);
+        }
+        if (source.DiskUsage != null) {
+            this.DiskUsage = new String(source.DiskUsage);
+        }
+        if (source.DiskId != null) {
+            this.DiskId = new String(source.DiskId);
+        }
+        if (source.DiskSize != null) {
+            this.DiskSize = new Long(source.DiskSize);
+        }
+        if (source.SnapshotState != null) {
+            this.SnapshotState = new String(source.SnapshotState);
+        }
+        if (source.SnapshotName != null) {
+            this.SnapshotName = new String(source.SnapshotName);
+        }
+        if (source.Percent != null) {
+            this.Percent = new Long(source.Percent);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.DeadlineTime != null) {
+            this.DeadlineTime = new String(source.DeadlineTime);
+        }
+        if (source.Encrypt != null) {
+            this.Encrypt = new Boolean(source.Encrypt);
+        }
+        if (source.IsPermanent != null) {
+            this.IsPermanent = new Boolean(source.IsPermanent);
+        }
+        if (source.CopyingToRegions != null) {
+            this.CopyingToRegions = new String[source.CopyingToRegions.length];
+            for (int i = 0; i < source.CopyingToRegions.length; i++) {
+                this.CopyingToRegions[i] = new String(source.CopyingToRegions[i]);
+            }
+        }
+        if (source.CopyFromRemote != null) {
+            this.CopyFromRemote = new Boolean(source.CopyFromRemote);
+        }
+        if (source.Images != null) {
+            this.Images = new Image[source.Images.length];
+            for (int i = 0; i < source.Images.length; i++) {
+                this.Images[i] = new Image(source.Images[i]);
+            }
+        }
+        if (source.ImageCount != null) {
+            this.ImageCount = new Long(source.ImageCount);
+        }
+        if (source.SnapshotType != null) {
+            this.SnapshotType = new String(source.SnapshotType);
+        }
+        if (source.ShareReference != null) {
+            this.ShareReference = new Long(source.ShareReference);
+        }
+        if (source.TimeStartShare != null) {
+            this.TimeStartShare = new String(source.TimeStartShare);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -458,6 +555,7 @@ public class Snapshot extends AbstractModel{
         this.setParamSimple(map, prefix + "ImageCount", this.ImageCount);
         this.setParamSimple(map, prefix + "SnapshotType", this.SnapshotType);
         this.setParamSimple(map, prefix + "ShareReference", this.ShareReference);
+        this.setParamSimple(map, prefix + "TimeStartShare", this.TimeStartShare);
 
     }
 }

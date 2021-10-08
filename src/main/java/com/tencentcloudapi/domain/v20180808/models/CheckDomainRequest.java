@@ -30,7 +30,7 @@ public class CheckDomainRequest extends AbstractModel{
     private String DomainName;
 
     /**
-    * 年限
+    * 年限。该参数为空时无法查询溢价词域名
     */
     @SerializedName("Period")
     @Expose
@@ -53,20 +53,37 @@ public class CheckDomainRequest extends AbstractModel{
     }
 
     /**
-     * Get 年限 
-     * @return Period 年限
+     * Get 年限。该参数为空时无法查询溢价词域名 
+     * @return Period 年限。该参数为空时无法查询溢价词域名
      */
     public String getPeriod() {
         return this.Period;
     }
 
     /**
-     * Set 年限
-     * @param Period 年限
+     * Set 年限。该参数为空时无法查询溢价词域名
+     * @param Period 年限。该参数为空时无法查询溢价词域名
      */
     public void setPeriod(String Period) {
         this.Period = Period;
     }
+
+    public CheckDomainRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CheckDomainRequest(CheckDomainRequest source) {
+        if (source.DomainName != null) {
+            this.DomainName = new String(source.DomainName);
+        }
+        if (source.Period != null) {
+            this.Period = new String(source.Period);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

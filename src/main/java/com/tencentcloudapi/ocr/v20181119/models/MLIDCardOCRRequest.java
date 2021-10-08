@@ -25,7 +25,7 @@ public class MLIDCardOCRRequest extends AbstractModel{
     /**
     * 图片的 Base64 值。
 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经Base64编码后不超过 3M。图片下载时间不超过 3 秒。
+支持的图片大小：所下载图片经Base64编码后不超过 7M。图片下载时间不超过 3 秒。
     */
     @SerializedName("ImageBase64")
     @Expose
@@ -34,7 +34,7 @@ public class MLIDCardOCRRequest extends AbstractModel{
     /**
     * 图片的 Url 地址。( 中国地区之外不支持这个字段 )
 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经 Base64 编码后不超过 3M。图片下载时间不超过 3 秒。
+支持的图片大小：所下载图片经 Base64 编码后不超过 7M。图片下载时间不超过 3 秒。
 图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
 非腾讯云存储的 Url 速度和稳定性可能受一定影响。
     */
@@ -43,7 +43,7 @@ public class MLIDCardOCRRequest extends AbstractModel{
     private String ImageUrl;
 
     /**
-    * 是否返回图片
+    * 是否返回图片，默认false
     */
     @SerializedName("RetImage")
     @Expose
@@ -52,10 +52,10 @@ public class MLIDCardOCRRequest extends AbstractModel{
     /**
      * Get 图片的 Base64 值。
 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经Base64编码后不超过 3M。图片下载时间不超过 3 秒。 
+支持的图片大小：所下载图片经Base64编码后不超过 7M。图片下载时间不超过 3 秒。 
      * @return ImageBase64 图片的 Base64 值。
 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经Base64编码后不超过 3M。图片下载时间不超过 3 秒。
+支持的图片大小：所下载图片经Base64编码后不超过 7M。图片下载时间不超过 3 秒。
      */
     public String getImageBase64() {
         return this.ImageBase64;
@@ -64,10 +64,10 @@ public class MLIDCardOCRRequest extends AbstractModel{
     /**
      * Set 图片的 Base64 值。
 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经Base64编码后不超过 3M。图片下载时间不超过 3 秒。
+支持的图片大小：所下载图片经Base64编码后不超过 7M。图片下载时间不超过 3 秒。
      * @param ImageBase64 图片的 Base64 值。
 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经Base64编码后不超过 3M。图片下载时间不超过 3 秒。
+支持的图片大小：所下载图片经Base64编码后不超过 7M。图片下载时间不超过 3 秒。
      */
     public void setImageBase64(String ImageBase64) {
         this.ImageBase64 = ImageBase64;
@@ -76,12 +76,12 @@ public class MLIDCardOCRRequest extends AbstractModel{
     /**
      * Get 图片的 Url 地址。( 中国地区之外不支持这个字段 )
 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经 Base64 编码后不超过 3M。图片下载时间不超过 3 秒。
+支持的图片大小：所下载图片经 Base64 编码后不超过 7M。图片下载时间不超过 3 秒。
 图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
 非腾讯云存储的 Url 速度和稳定性可能受一定影响。 
      * @return ImageUrl 图片的 Url 地址。( 中国地区之外不支持这个字段 )
 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经 Base64 编码后不超过 3M。图片下载时间不超过 3 秒。
+支持的图片大小：所下载图片经 Base64 编码后不超过 7M。图片下载时间不超过 3 秒。
 图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
 非腾讯云存储的 Url 速度和稳定性可能受一定影响。
      */
@@ -92,12 +92,12 @@ public class MLIDCardOCRRequest extends AbstractModel{
     /**
      * Set 图片的 Url 地址。( 中国地区之外不支持这个字段 )
 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经 Base64 编码后不超过 3M。图片下载时间不超过 3 秒。
+支持的图片大小：所下载图片经 Base64 编码后不超过 7M。图片下载时间不超过 3 秒。
 图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
 非腾讯云存储的 Url 速度和稳定性可能受一定影响。
      * @param ImageUrl 图片的 Url 地址。( 中国地区之外不支持这个字段 )
 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经 Base64 编码后不超过 3M。图片下载时间不超过 3 秒。
+支持的图片大小：所下载图片经 Base64 编码后不超过 7M。图片下载时间不超过 3 秒。
 图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
 非腾讯云存储的 Url 速度和稳定性可能受一定影响。
      */
@@ -106,20 +106,40 @@ public class MLIDCardOCRRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否返回图片 
-     * @return RetImage 是否返回图片
+     * Get 是否返回图片，默认false 
+     * @return RetImage 是否返回图片，默认false
      */
     public Boolean getRetImage() {
         return this.RetImage;
     }
 
     /**
-     * Set 是否返回图片
-     * @param RetImage 是否返回图片
+     * Set 是否返回图片，默认false
+     * @param RetImage 是否返回图片，默认false
      */
     public void setRetImage(Boolean RetImage) {
         this.RetImage = RetImage;
     }
+
+    public MLIDCardOCRRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MLIDCardOCRRequest(MLIDCardOCRRequest source) {
+        if (source.ImageBase64 != null) {
+            this.ImageBase64 = new String(source.ImageBase64);
+        }
+        if (source.ImageUrl != null) {
+            this.ImageUrl = new String(source.ImageUrl);
+        }
+        if (source.RetImage != null) {
+            this.RetImage = new Boolean(source.RetImage);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

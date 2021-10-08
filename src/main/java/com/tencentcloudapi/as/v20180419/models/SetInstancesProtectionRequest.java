@@ -37,7 +37,7 @@ public class SetInstancesProtectionRequest extends AbstractModel{
     private String [] InstanceIds;
 
     /**
-    * 实例是否需要移出保护。
+    * 实例是否需要设置保护。
     */
     @SerializedName("ProtectedFromScaleIn")
     @Expose
@@ -76,20 +76,43 @@ public class SetInstancesProtectionRequest extends AbstractModel{
     }
 
     /**
-     * Get 实例是否需要移出保护。 
-     * @return ProtectedFromScaleIn 实例是否需要移出保护。
+     * Get 实例是否需要设置保护。 
+     * @return ProtectedFromScaleIn 实例是否需要设置保护。
      */
     public Boolean getProtectedFromScaleIn() {
         return this.ProtectedFromScaleIn;
     }
 
     /**
-     * Set 实例是否需要移出保护。
-     * @param ProtectedFromScaleIn 实例是否需要移出保护。
+     * Set 实例是否需要设置保护。
+     * @param ProtectedFromScaleIn 实例是否需要设置保护。
      */
     public void setProtectedFromScaleIn(Boolean ProtectedFromScaleIn) {
         this.ProtectedFromScaleIn = ProtectedFromScaleIn;
     }
+
+    public SetInstancesProtectionRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SetInstancesProtectionRequest(SetInstancesProtectionRequest source) {
+        if (source.AutoScalingGroupId != null) {
+            this.AutoScalingGroupId = new String(source.AutoScalingGroupId);
+        }
+        if (source.InstanceIds != null) {
+            this.InstanceIds = new String[source.InstanceIds.length];
+            for (int i = 0; i < source.InstanceIds.length; i++) {
+                this.InstanceIds[i] = new String(source.InstanceIds[i]);
+            }
+        }
+        if (source.ProtectedFromScaleIn != null) {
+            this.ProtectedFromScaleIn = new Boolean(source.ProtectedFromScaleIn);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

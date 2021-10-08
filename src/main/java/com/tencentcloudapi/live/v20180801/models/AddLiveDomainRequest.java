@@ -60,6 +60,16 @@ public class AddLiveDomainRequest extends AbstractModel{
     private Long IsDelayLive;
 
     /**
+    * 是否是小程序直播：
+0： 标准直播，
+1 ：小程序直播 。
+默认值： 0。
+    */
+    @SerializedName("IsMiniProgramLive")
+    @Expose
+    private Long IsMiniProgramLive;
+
+    /**
      * Get 域名名称。 
      * @return DomainName 域名名称。
      */
@@ -160,6 +170,60 @@ public class AddLiveDomainRequest extends AbstractModel{
     }
 
     /**
+     * Get 是否是小程序直播：
+0： 标准直播，
+1 ：小程序直播 。
+默认值： 0。 
+     * @return IsMiniProgramLive 是否是小程序直播：
+0： 标准直播，
+1 ：小程序直播 。
+默认值： 0。
+     */
+    public Long getIsMiniProgramLive() {
+        return this.IsMiniProgramLive;
+    }
+
+    /**
+     * Set 是否是小程序直播：
+0： 标准直播，
+1 ：小程序直播 。
+默认值： 0。
+     * @param IsMiniProgramLive 是否是小程序直播：
+0： 标准直播，
+1 ：小程序直播 。
+默认值： 0。
+     */
+    public void setIsMiniProgramLive(Long IsMiniProgramLive) {
+        this.IsMiniProgramLive = IsMiniProgramLive;
+    }
+
+    public AddLiveDomainRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AddLiveDomainRequest(AddLiveDomainRequest source) {
+        if (source.DomainName != null) {
+            this.DomainName = new String(source.DomainName);
+        }
+        if (source.DomainType != null) {
+            this.DomainType = new Long(source.DomainType);
+        }
+        if (source.PlayType != null) {
+            this.PlayType = new Long(source.PlayType);
+        }
+        if (source.IsDelayLive != null) {
+            this.IsDelayLive = new Long(source.IsDelayLive);
+        }
+        if (source.IsMiniProgramLive != null) {
+            this.IsMiniProgramLive = new Long(source.IsMiniProgramLive);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -167,6 +231,7 @@ public class AddLiveDomainRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "DomainType", this.DomainType);
         this.setParamSimple(map, prefix + "PlayType", this.PlayType);
         this.setParamSimple(map, prefix + "IsDelayLive", this.IsDelayLive);
+        this.setParamSimple(map, prefix + "IsMiniProgramLive", this.IsMiniProgramLive);
 
     }
 }

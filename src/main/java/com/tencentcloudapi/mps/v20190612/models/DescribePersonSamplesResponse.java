@@ -30,7 +30,7 @@ public class DescribePersonSamplesResponse extends AbstractModel{
     private Long TotalCount;
 
     /**
-    * 人物信息。
+    * 素材信息。
     */
     @SerializedName("PersonSet")
     @Expose
@@ -60,16 +60,16 @@ public class DescribePersonSamplesResponse extends AbstractModel{
     }
 
     /**
-     * Get 人物信息。 
-     * @return PersonSet 人物信息。
+     * Get 素材信息。 
+     * @return PersonSet 素材信息。
      */
     public AiSamplePerson [] getPersonSet() {
         return this.PersonSet;
     }
 
     /**
-     * Set 人物信息。
-     * @param PersonSet 人物信息。
+     * Set 素材信息。
+     * @param PersonSet 素材信息。
      */
     public void setPersonSet(AiSamplePerson [] PersonSet) {
         this.PersonSet = PersonSet;
@@ -90,6 +90,29 @@ public class DescribePersonSamplesResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribePersonSamplesResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribePersonSamplesResponse(DescribePersonSamplesResponse source) {
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
+        if (source.PersonSet != null) {
+            this.PersonSet = new AiSamplePerson[source.PersonSet.length];
+            for (int i = 0; i < source.PersonSet.length; i++) {
+                this.PersonSet[i] = new AiSamplePerson(source.PersonSet[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

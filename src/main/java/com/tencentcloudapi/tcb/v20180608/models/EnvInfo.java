@@ -130,6 +130,56 @@ public class EnvInfo extends AbstractModel{
     private Boolean IsAutoDegrade;
 
     /**
+    * 环境渠道
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EnvChannel")
+    @Expose
+    private String EnvChannel;
+
+    /**
+    * 支付方式。包含以下取值：
+<li> prepayment：预付费</li>
+<li> postpaid：后付费</li>
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PayMode")
+    @Expose
+    private String PayMode;
+
+    /**
+    * 是否为默认环境
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IsDefault")
+    @Expose
+    private Boolean IsDefault;
+
+    /**
+    * 环境所属地域
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Region")
+    @Expose
+    private String Region;
+
+    /**
+    * 环境标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
+    * 自定义日志服务
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CustomLogServices")
+    @Expose
+    private ClsInfo [] CustomLogServices;
+
+    /**
      * Get 账户下该环境唯一标识 
      * @return EnvId 账户下该环境唯一标识
      */
@@ -390,6 +440,226 @@ public class EnvInfo extends AbstractModel{
     }
 
     /**
+     * Get 环境渠道
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EnvChannel 环境渠道
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getEnvChannel() {
+        return this.EnvChannel;
+    }
+
+    /**
+     * Set 环境渠道
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EnvChannel 环境渠道
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEnvChannel(String EnvChannel) {
+        this.EnvChannel = EnvChannel;
+    }
+
+    /**
+     * Get 支付方式。包含以下取值：
+<li> prepayment：预付费</li>
+<li> postpaid：后付费</li>
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PayMode 支付方式。包含以下取值：
+<li> prepayment：预付费</li>
+<li> postpaid：后付费</li>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getPayMode() {
+        return this.PayMode;
+    }
+
+    /**
+     * Set 支付方式。包含以下取值：
+<li> prepayment：预付费</li>
+<li> postpaid：后付费</li>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PayMode 支付方式。包含以下取值：
+<li> prepayment：预付费</li>
+<li> postpaid：后付费</li>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPayMode(String PayMode) {
+        this.PayMode = PayMode;
+    }
+
+    /**
+     * Get 是否为默认环境
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IsDefault 是否为默认环境
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getIsDefault() {
+        return this.IsDefault;
+    }
+
+    /**
+     * Set 是否为默认环境
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IsDefault 是否为默认环境
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIsDefault(Boolean IsDefault) {
+        this.IsDefault = IsDefault;
+    }
+
+    /**
+     * Get 环境所属地域
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Region 环境所属地域
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getRegion() {
+        return this.Region;
+    }
+
+    /**
+     * Set 环境所属地域
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Region 环境所属地域
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRegion(String Region) {
+        this.Region = Region;
+    }
+
+    /**
+     * Get 环境标签列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Tags 环境标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 环境标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Tags 环境标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
+     * Get 自定义日志服务
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CustomLogServices 自定义日志服务
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ClsInfo [] getCustomLogServices() {
+        return this.CustomLogServices;
+    }
+
+    /**
+     * Set 自定义日志服务
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CustomLogServices 自定义日志服务
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCustomLogServices(ClsInfo [] CustomLogServices) {
+        this.CustomLogServices = CustomLogServices;
+    }
+
+    public EnvInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public EnvInfo(EnvInfo source) {
+        if (source.EnvId != null) {
+            this.EnvId = new String(source.EnvId);
+        }
+        if (source.Source != null) {
+            this.Source = new String(source.Source);
+        }
+        if (source.Alias != null) {
+            this.Alias = new String(source.Alias);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.Databases != null) {
+            this.Databases = new DatabasesInfo[source.Databases.length];
+            for (int i = 0; i < source.Databases.length; i++) {
+                this.Databases[i] = new DatabasesInfo(source.Databases[i]);
+            }
+        }
+        if (source.Storages != null) {
+            this.Storages = new StorageInfo[source.Storages.length];
+            for (int i = 0; i < source.Storages.length; i++) {
+                this.Storages[i] = new StorageInfo(source.Storages[i]);
+            }
+        }
+        if (source.Functions != null) {
+            this.Functions = new FunctionInfo[source.Functions.length];
+            for (int i = 0; i < source.Functions.length; i++) {
+                this.Functions[i] = new FunctionInfo(source.Functions[i]);
+            }
+        }
+        if (source.PackageId != null) {
+            this.PackageId = new String(source.PackageId);
+        }
+        if (source.PackageName != null) {
+            this.PackageName = new String(source.PackageName);
+        }
+        if (source.LogServices != null) {
+            this.LogServices = new LogServiceInfo[source.LogServices.length];
+            for (int i = 0; i < source.LogServices.length; i++) {
+                this.LogServices[i] = new LogServiceInfo(source.LogServices[i]);
+            }
+        }
+        if (source.StaticStorages != null) {
+            this.StaticStorages = new StaticStorageInfo[source.StaticStorages.length];
+            for (int i = 0; i < source.StaticStorages.length; i++) {
+                this.StaticStorages[i] = new StaticStorageInfo(source.StaticStorages[i]);
+            }
+        }
+        if (source.IsAutoDegrade != null) {
+            this.IsAutoDegrade = new Boolean(source.IsAutoDegrade);
+        }
+        if (source.EnvChannel != null) {
+            this.EnvChannel = new String(source.EnvChannel);
+        }
+        if (source.PayMode != null) {
+            this.PayMode = new String(source.PayMode);
+        }
+        if (source.IsDefault != null) {
+            this.IsDefault = new Boolean(source.IsDefault);
+        }
+        if (source.Region != null) {
+            this.Region = new String(source.Region);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.CustomLogServices != null) {
+            this.CustomLogServices = new ClsInfo[source.CustomLogServices.length];
+            for (int i = 0; i < source.CustomLogServices.length; i++) {
+                this.CustomLogServices[i] = new ClsInfo(source.CustomLogServices[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -407,6 +677,12 @@ public class EnvInfo extends AbstractModel{
         this.setParamArrayObj(map, prefix + "LogServices.", this.LogServices);
         this.setParamArrayObj(map, prefix + "StaticStorages.", this.StaticStorages);
         this.setParamSimple(map, prefix + "IsAutoDegrade", this.IsAutoDegrade);
+        this.setParamSimple(map, prefix + "EnvChannel", this.EnvChannel);
+        this.setParamSimple(map, prefix + "PayMode", this.PayMode);
+        this.setParamSimple(map, prefix + "IsDefault", this.IsDefault);
+        this.setParamSimple(map, prefix + "Region", this.Region);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamArrayObj(map, prefix + "CustomLogServices.", this.CustomLogServices);
 
     }
 }

@@ -151,7 +151,7 @@ public class DetectInfoText extends AbstractModel{
     private String Comparemsg;
 
     /**
-    * 本次流程活体一比一的分数。
+    * 本次流程活体一比一的分数，取值范围 [0.00, 100.00]。相似度大于等于70时才判断为同一人，也可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Sim")
@@ -189,6 +189,18 @@ public class DetectInfoText extends AbstractModel{
     @SerializedName("Mobile")
     @Expose
     private String Mobile;
+
+    /**
+    * 本次流程最终比对库源类型。包括：
+权威库；
+业务方自有库（用户上传照片、客户的混合库、混合部署库）；
+二次验证库；
+人工审核库；
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CompareLibType")
+    @Expose
+    private String CompareLibType;
 
     /**
      * Get 本次流程最终验证结果。0为成功
@@ -511,9 +523,9 @@ public class DetectInfoText extends AbstractModel{
     }
 
     /**
-     * Get 本次流程活体一比一的分数。
+     * Get 本次流程活体一比一的分数，取值范围 [0.00, 100.00]。相似度大于等于70时才判断为同一人，也可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Sim 本次流程活体一比一的分数。
+     * @return Sim 本次流程活体一比一的分数，取值范围 [0.00, 100.00]。相似度大于等于70时才判断为同一人，也可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSim() {
@@ -521,9 +533,9 @@ public class DetectInfoText extends AbstractModel{
     }
 
     /**
-     * Set 本次流程活体一比一的分数。
+     * Set 本次流程活体一比一的分数，取值范围 [0.00, 100.00]。相似度大于等于70时才判断为同一人，也可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Sim 本次流程活体一比一的分数。
+     * @param Sim 本次流程活体一比一的分数，取值范围 [0.00, 100.00]。相似度大于等于70时才判断为同一人，也可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSim(String Sim) {
@@ -611,6 +623,122 @@ public class DetectInfoText extends AbstractModel{
     }
 
     /**
+     * Get 本次流程最终比对库源类型。包括：
+权威库；
+业务方自有库（用户上传照片、客户的混合库、混合部署库）；
+二次验证库；
+人工审核库；
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CompareLibType 本次流程最终比对库源类型。包括：
+权威库；
+业务方自有库（用户上传照片、客户的混合库、混合部署库）；
+二次验证库；
+人工审核库；
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCompareLibType() {
+        return this.CompareLibType;
+    }
+
+    /**
+     * Set 本次流程最终比对库源类型。包括：
+权威库；
+业务方自有库（用户上传照片、客户的混合库、混合部署库）；
+二次验证库；
+人工审核库；
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CompareLibType 本次流程最终比对库源类型。包括：
+权威库；
+业务方自有库（用户上传照片、客户的混合库、混合部署库）；
+二次验证库；
+人工审核库；
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCompareLibType(String CompareLibType) {
+        this.CompareLibType = CompareLibType;
+    }
+
+    public DetectInfoText() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DetectInfoText(DetectInfoText source) {
+        if (source.ErrCode != null) {
+            this.ErrCode = new Long(source.ErrCode);
+        }
+        if (source.ErrMsg != null) {
+            this.ErrMsg = new String(source.ErrMsg);
+        }
+        if (source.IdCard != null) {
+            this.IdCard = new String(source.IdCard);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.OcrNation != null) {
+            this.OcrNation = new String(source.OcrNation);
+        }
+        if (source.OcrAddress != null) {
+            this.OcrAddress = new String(source.OcrAddress);
+        }
+        if (source.OcrBirth != null) {
+            this.OcrBirth = new String(source.OcrBirth);
+        }
+        if (source.OcrAuthority != null) {
+            this.OcrAuthority = new String(source.OcrAuthority);
+        }
+        if (source.OcrValidDate != null) {
+            this.OcrValidDate = new String(source.OcrValidDate);
+        }
+        if (source.OcrName != null) {
+            this.OcrName = new String(source.OcrName);
+        }
+        if (source.OcrIdCard != null) {
+            this.OcrIdCard = new String(source.OcrIdCard);
+        }
+        if (source.OcrGender != null) {
+            this.OcrGender = new String(source.OcrGender);
+        }
+        if (source.LiveStatus != null) {
+            this.LiveStatus = new Long(source.LiveStatus);
+        }
+        if (source.LiveMsg != null) {
+            this.LiveMsg = new String(source.LiveMsg);
+        }
+        if (source.Comparestatus != null) {
+            this.Comparestatus = new Long(source.Comparestatus);
+        }
+        if (source.Comparemsg != null) {
+            this.Comparemsg = new String(source.Comparemsg);
+        }
+        if (source.Sim != null) {
+            this.Sim = new String(source.Sim);
+        }
+        if (source.Location != null) {
+            this.Location = new String(source.Location);
+        }
+        if (source.Extra != null) {
+            this.Extra = new String(source.Extra);
+        }
+        if (source.LivenessDetail != null) {
+            this.LivenessDetail = new DetectDetail[source.LivenessDetail.length];
+            for (int i = 0; i < source.LivenessDetail.length; i++) {
+                this.LivenessDetail[i] = new DetectDetail(source.LivenessDetail[i]);
+            }
+        }
+        if (source.Mobile != null) {
+            this.Mobile = new String(source.Mobile);
+        }
+        if (source.CompareLibType != null) {
+            this.CompareLibType = new String(source.CompareLibType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -635,6 +763,7 @@ public class DetectInfoText extends AbstractModel{
         this.setParamSimple(map, prefix + "Extra", this.Extra);
         this.setParamArrayObj(map, prefix + "LivenessDetail.", this.LivenessDetail);
         this.setParamSimple(map, prefix + "Mobile", this.Mobile);
+        this.setParamSimple(map, prefix + "CompareLibType", this.CompareLibType);
 
     }
 }

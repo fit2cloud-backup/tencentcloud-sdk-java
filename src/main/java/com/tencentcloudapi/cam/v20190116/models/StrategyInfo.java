@@ -114,6 +114,30 @@ public class StrategyInfo extends AbstractModel{
     private Long IsServiceLinkedPolicy;
 
     /**
+    * 关联策略实体数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AttachEntityCount")
+    @Expose
+    private Long AttachEntityCount;
+
+    /**
+    * 关联权限边界实体数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AttachEntityBoundaryCount")
+    @Expose
+    private Long AttachEntityBoundaryCount;
+
+    /**
+    * 最后编辑时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UpdateTime")
+    @Expose
+    private String UpdateTime;
+
+    /**
      * Get 策略ID。 
      * @return PolicyId 策略ID。
      */
@@ -334,6 +358,125 @@ public class StrategyInfo extends AbstractModel{
     }
 
     /**
+     * Get 关联策略实体数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AttachEntityCount 关联策略实体数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getAttachEntityCount() {
+        return this.AttachEntityCount;
+    }
+
+    /**
+     * Set 关联策略实体数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AttachEntityCount 关联策略实体数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAttachEntityCount(Long AttachEntityCount) {
+        this.AttachEntityCount = AttachEntityCount;
+    }
+
+    /**
+     * Get 关联权限边界实体数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AttachEntityBoundaryCount 关联权限边界实体数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getAttachEntityBoundaryCount() {
+        return this.AttachEntityBoundaryCount;
+    }
+
+    /**
+     * Set 关联权限边界实体数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AttachEntityBoundaryCount 关联权限边界实体数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAttachEntityBoundaryCount(Long AttachEntityBoundaryCount) {
+        this.AttachEntityBoundaryCount = AttachEntityBoundaryCount;
+    }
+
+    /**
+     * Get 最后编辑时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UpdateTime 最后编辑时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getUpdateTime() {
+        return this.UpdateTime;
+    }
+
+    /**
+     * Set 最后编辑时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UpdateTime 最后编辑时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUpdateTime(String UpdateTime) {
+        this.UpdateTime = UpdateTime;
+    }
+
+    public StrategyInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public StrategyInfo(StrategyInfo source) {
+        if (source.PolicyId != null) {
+            this.PolicyId = new Long(source.PolicyId);
+        }
+        if (source.PolicyName != null) {
+            this.PolicyName = new String(source.PolicyName);
+        }
+        if (source.AddTime != null) {
+            this.AddTime = new String(source.AddTime);
+        }
+        if (source.Type != null) {
+            this.Type = new Long(source.Type);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.CreateMode != null) {
+            this.CreateMode = new Long(source.CreateMode);
+        }
+        if (source.Attachments != null) {
+            this.Attachments = new Long(source.Attachments);
+        }
+        if (source.ServiceType != null) {
+            this.ServiceType = new String(source.ServiceType);
+        }
+        if (source.IsAttached != null) {
+            this.IsAttached = new Long(source.IsAttached);
+        }
+        if (source.Deactived != null) {
+            this.Deactived = new Long(source.Deactived);
+        }
+        if (source.DeactivedDetail != null) {
+            this.DeactivedDetail = new String[source.DeactivedDetail.length];
+            for (int i = 0; i < source.DeactivedDetail.length; i++) {
+                this.DeactivedDetail[i] = new String(source.DeactivedDetail[i]);
+            }
+        }
+        if (source.IsServiceLinkedPolicy != null) {
+            this.IsServiceLinkedPolicy = new Long(source.IsServiceLinkedPolicy);
+        }
+        if (source.AttachEntityCount != null) {
+            this.AttachEntityCount = new Long(source.AttachEntityCount);
+        }
+        if (source.AttachEntityBoundaryCount != null) {
+            this.AttachEntityBoundaryCount = new Long(source.AttachEntityBoundaryCount);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -349,6 +492,9 @@ public class StrategyInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Deactived", this.Deactived);
         this.setParamArraySimple(map, prefix + "DeactivedDetail.", this.DeactivedDetail);
         this.setParamSimple(map, prefix + "IsServiceLinkedPolicy", this.IsServiceLinkedPolicy);
+        this.setParamSimple(map, prefix + "AttachEntityCount", this.AttachEntityCount);
+        this.setParamSimple(map, prefix + "AttachEntityBoundaryCount", this.AttachEntityBoundaryCount);
+        this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
 
     }
 }

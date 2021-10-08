@@ -37,14 +37,14 @@ public class AssociateNatGatewayAddressRequest extends AbstractModel{
     private Long AddressCount;
 
     /**
-    * 绑定NAT网关的弹性IP数组，其中AddressCount和PublicAddresses至少传递一个。。
+    * 绑定NAT网关的弹性IP数组，其中AddressCount和PublicAddresses至少传递一个。
     */
     @SerializedName("PublicIpAddresses")
     @Expose
     private String [] PublicIpAddresses;
 
     /**
-    * 弹性IP可以区，自动分配弹性IP时传递。
+    * 弹性IP可用区，自动分配弹性IP时传递。
     */
     @SerializedName("Zone")
     @Expose
@@ -83,36 +83,62 @@ public class AssociateNatGatewayAddressRequest extends AbstractModel{
     }
 
     /**
-     * Get 绑定NAT网关的弹性IP数组，其中AddressCount和PublicAddresses至少传递一个。。 
-     * @return PublicIpAddresses 绑定NAT网关的弹性IP数组，其中AddressCount和PublicAddresses至少传递一个。。
+     * Get 绑定NAT网关的弹性IP数组，其中AddressCount和PublicAddresses至少传递一个。 
+     * @return PublicIpAddresses 绑定NAT网关的弹性IP数组，其中AddressCount和PublicAddresses至少传递一个。
      */
     public String [] getPublicIpAddresses() {
         return this.PublicIpAddresses;
     }
 
     /**
-     * Set 绑定NAT网关的弹性IP数组，其中AddressCount和PublicAddresses至少传递一个。。
-     * @param PublicIpAddresses 绑定NAT网关的弹性IP数组，其中AddressCount和PublicAddresses至少传递一个。。
+     * Set 绑定NAT网关的弹性IP数组，其中AddressCount和PublicAddresses至少传递一个。
+     * @param PublicIpAddresses 绑定NAT网关的弹性IP数组，其中AddressCount和PublicAddresses至少传递一个。
      */
     public void setPublicIpAddresses(String [] PublicIpAddresses) {
         this.PublicIpAddresses = PublicIpAddresses;
     }
 
     /**
-     * Get 弹性IP可以区，自动分配弹性IP时传递。 
-     * @return Zone 弹性IP可以区，自动分配弹性IP时传递。
+     * Get 弹性IP可用区，自动分配弹性IP时传递。 
+     * @return Zone 弹性IP可用区，自动分配弹性IP时传递。
      */
     public String getZone() {
         return this.Zone;
     }
 
     /**
-     * Set 弹性IP可以区，自动分配弹性IP时传递。
-     * @param Zone 弹性IP可以区，自动分配弹性IP时传递。
+     * Set 弹性IP可用区，自动分配弹性IP时传递。
+     * @param Zone 弹性IP可用区，自动分配弹性IP时传递。
      */
     public void setZone(String Zone) {
         this.Zone = Zone;
     }
+
+    public AssociateNatGatewayAddressRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AssociateNatGatewayAddressRequest(AssociateNatGatewayAddressRequest source) {
+        if (source.NatGatewayId != null) {
+            this.NatGatewayId = new String(source.NatGatewayId);
+        }
+        if (source.AddressCount != null) {
+            this.AddressCount = new Long(source.AddressCount);
+        }
+        if (source.PublicIpAddresses != null) {
+            this.PublicIpAddresses = new String[source.PublicIpAddresses.length];
+            for (int i = 0; i < source.PublicIpAddresses.length; i++) {
+                this.PublicIpAddresses[i] = new String(source.PublicIpAddresses[i]);
+            }
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

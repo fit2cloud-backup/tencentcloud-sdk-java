@@ -44,7 +44,7 @@ public class DescribeDatabasesRequest extends AbstractModel{
     private Long Limit;
 
     /**
-    * 匹配数据库库名的正则表达式，规则同 MySQL 官网
+    * 匹配数据库库名的正则表达式。
     */
     @SerializedName("DatabaseRegexp")
     @Expose
@@ -99,20 +99,43 @@ public class DescribeDatabasesRequest extends AbstractModel{
     }
 
     /**
-     * Get 匹配数据库库名的正则表达式，规则同 MySQL 官网 
-     * @return DatabaseRegexp 匹配数据库库名的正则表达式，规则同 MySQL 官网
+     * Get 匹配数据库库名的正则表达式。 
+     * @return DatabaseRegexp 匹配数据库库名的正则表达式。
      */
     public String getDatabaseRegexp() {
         return this.DatabaseRegexp;
     }
 
     /**
-     * Set 匹配数据库库名的正则表达式，规则同 MySQL 官网
-     * @param DatabaseRegexp 匹配数据库库名的正则表达式，规则同 MySQL 官网
+     * Set 匹配数据库库名的正则表达式。
+     * @param DatabaseRegexp 匹配数据库库名的正则表达式。
      */
     public void setDatabaseRegexp(String DatabaseRegexp) {
         this.DatabaseRegexp = DatabaseRegexp;
     }
+
+    public DescribeDatabasesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeDatabasesRequest(DescribeDatabasesRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.DatabaseRegexp != null) {
+            this.DatabaseRegexp = new String(source.DatabaseRegexp);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

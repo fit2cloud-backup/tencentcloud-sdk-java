@@ -135,6 +135,14 @@ public class MigrateJobInfo extends AbstractModel{
     private ErrorInfo [] ErrorInfo;
 
     /**
+    * 标签
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private TagItem [] Tags;
+
+    /**
      * Get 数据迁移任务ID 
      * @return JobId 数据迁移任务ID
      */
@@ -391,6 +399,94 @@ public class MigrateJobInfo extends AbstractModel{
     }
 
     /**
+     * Get 标签
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Tags 标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public TagItem [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 标签
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Tags 标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTags(TagItem [] Tags) {
+        this.Tags = Tags;
+    }
+
+    public MigrateJobInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MigrateJobInfo(MigrateJobInfo source) {
+        if (source.JobId != null) {
+            this.JobId = new String(source.JobId);
+        }
+        if (source.JobName != null) {
+            this.JobName = new String(source.JobName);
+        }
+        if (source.MigrateOption != null) {
+            this.MigrateOption = new MigrateOption(source.MigrateOption);
+        }
+        if (source.SrcDatabaseType != null) {
+            this.SrcDatabaseType = new String(source.SrcDatabaseType);
+        }
+        if (source.SrcAccessType != null) {
+            this.SrcAccessType = new String(source.SrcAccessType);
+        }
+        if (source.SrcInfo != null) {
+            this.SrcInfo = new SrcInfo(source.SrcInfo);
+        }
+        if (source.DstDatabaseType != null) {
+            this.DstDatabaseType = new String(source.DstDatabaseType);
+        }
+        if (source.DstAccessType != null) {
+            this.DstAccessType = new String(source.DstAccessType);
+        }
+        if (source.DstInfo != null) {
+            this.DstInfo = new DstInfo(source.DstInfo);
+        }
+        if (source.DatabaseInfo != null) {
+            this.DatabaseInfo = new String(source.DatabaseInfo);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+        if (source.Detail != null) {
+            this.Detail = new MigrateDetailInfo(source.Detail);
+        }
+        if (source.ErrorInfo != null) {
+            this.ErrorInfo = new ErrorInfo[source.ErrorInfo.length];
+            for (int i = 0; i < source.ErrorInfo.length; i++) {
+                this.ErrorInfo[i] = new ErrorInfo(source.ErrorInfo[i]);
+            }
+        }
+        if (source.Tags != null) {
+            this.Tags = new TagItem[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new TagItem(source.Tags[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -410,6 +506,7 @@ public class MigrateJobInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamObj(map, prefix + "Detail.", this.Detail);
         this.setParamArrayObj(map, prefix + "ErrorInfo.", this.ErrorInfo);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

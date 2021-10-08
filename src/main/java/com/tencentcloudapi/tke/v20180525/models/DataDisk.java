@@ -24,6 +24,7 @@ public class DataDisk extends AbstractModel{
 
     /**
     * 云盘类型
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DiskType")
     @Expose
@@ -31,6 +32,7 @@ public class DataDisk extends AbstractModel{
 
     /**
     * 文件系统(ext3/ext4/xfs)
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FileSystem")
     @Expose
@@ -38,6 +40,7 @@ public class DataDisk extends AbstractModel{
 
     /**
     * 云盘大小(G）
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DiskSize")
     @Expose
@@ -45,6 +48,7 @@ public class DataDisk extends AbstractModel{
 
     /**
     * 是否自动化格式盘并挂载
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AutoFormatAndMount")
     @Expose
@@ -52,14 +56,25 @@ public class DataDisk extends AbstractModel{
 
     /**
     * 挂载目录
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MountTarget")
     @Expose
     private String MountTarget;
 
     /**
-     * Get 云盘类型 
+    * 挂载设备名或分区名
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DiskPartition")
+    @Expose
+    private String DiskPartition;
+
+    /**
+     * Get 云盘类型
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return DiskType 云盘类型
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDiskType() {
         return this.DiskType;
@@ -67,15 +82,19 @@ public class DataDisk extends AbstractModel{
 
     /**
      * Set 云盘类型
+注意：此字段可能返回 null，表示取不到有效值。
      * @param DiskType 云盘类型
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDiskType(String DiskType) {
         this.DiskType = DiskType;
     }
 
     /**
-     * Get 文件系统(ext3/ext4/xfs) 
+     * Get 文件系统(ext3/ext4/xfs)
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return FileSystem 文件系统(ext3/ext4/xfs)
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFileSystem() {
         return this.FileSystem;
@@ -83,15 +102,19 @@ public class DataDisk extends AbstractModel{
 
     /**
      * Set 文件系统(ext3/ext4/xfs)
+注意：此字段可能返回 null，表示取不到有效值。
      * @param FileSystem 文件系统(ext3/ext4/xfs)
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFileSystem(String FileSystem) {
         this.FileSystem = FileSystem;
     }
 
     /**
-     * Get 云盘大小(G） 
+     * Get 云盘大小(G）
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return DiskSize 云盘大小(G）
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDiskSize() {
         return this.DiskSize;
@@ -99,15 +122,19 @@ public class DataDisk extends AbstractModel{
 
     /**
      * Set 云盘大小(G）
+注意：此字段可能返回 null，表示取不到有效值。
      * @param DiskSize 云盘大小(G）
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDiskSize(Long DiskSize) {
         this.DiskSize = DiskSize;
     }
 
     /**
-     * Get 是否自动化格式盘并挂载 
+     * Get 是否自动化格式盘并挂载
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return AutoFormatAndMount 是否自动化格式盘并挂载
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getAutoFormatAndMount() {
         return this.AutoFormatAndMount;
@@ -115,15 +142,19 @@ public class DataDisk extends AbstractModel{
 
     /**
      * Set 是否自动化格式盘并挂载
+注意：此字段可能返回 null，表示取不到有效值。
      * @param AutoFormatAndMount 是否自动化格式盘并挂载
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAutoFormatAndMount(Boolean AutoFormatAndMount) {
         this.AutoFormatAndMount = AutoFormatAndMount;
     }
 
     /**
-     * Get 挂载目录 
+     * Get 挂载目录
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return MountTarget 挂载目录
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMountTarget() {
         return this.MountTarget;
@@ -131,11 +162,62 @@ public class DataDisk extends AbstractModel{
 
     /**
      * Set 挂载目录
+注意：此字段可能返回 null，表示取不到有效值。
      * @param MountTarget 挂载目录
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMountTarget(String MountTarget) {
         this.MountTarget = MountTarget;
     }
+
+    /**
+     * Get 挂载设备名或分区名
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DiskPartition 挂载设备名或分区名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDiskPartition() {
+        return this.DiskPartition;
+    }
+
+    /**
+     * Set 挂载设备名或分区名
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DiskPartition 挂载设备名或分区名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDiskPartition(String DiskPartition) {
+        this.DiskPartition = DiskPartition;
+    }
+
+    public DataDisk() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DataDisk(DataDisk source) {
+        if (source.DiskType != null) {
+            this.DiskType = new String(source.DiskType);
+        }
+        if (source.FileSystem != null) {
+            this.FileSystem = new String(source.FileSystem);
+        }
+        if (source.DiskSize != null) {
+            this.DiskSize = new Long(source.DiskSize);
+        }
+        if (source.AutoFormatAndMount != null) {
+            this.AutoFormatAndMount = new Boolean(source.AutoFormatAndMount);
+        }
+        if (source.MountTarget != null) {
+            this.MountTarget = new String(source.MountTarget);
+        }
+        if (source.DiskPartition != null) {
+            this.DiskPartition = new String(source.DiskPartition);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -146,6 +228,7 @@ public class DataDisk extends AbstractModel{
         this.setParamSimple(map, prefix + "DiskSize", this.DiskSize);
         this.setParamSimple(map, prefix + "AutoFormatAndMount", this.AutoFormatAndMount);
         this.setParamSimple(map, prefix + "MountTarget", this.MountTarget);
+        this.setParamSimple(map, prefix + "DiskPartition", this.DiskPartition);
 
     }
 }

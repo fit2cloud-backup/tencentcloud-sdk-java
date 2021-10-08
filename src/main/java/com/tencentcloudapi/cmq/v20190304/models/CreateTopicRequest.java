@@ -37,7 +37,7 @@ public class CreateTopicRequest extends AbstractModel{
     private Long MaxMsgSize;
 
     /**
-    * 用于指定主题的消息匹配策略。
+    * 用于指定主题的消息匹配策略。1：表示标签匹配策略；2：表示路由匹配策略，默认值为标签匹配策略。
     */
     @SerializedName("FilterType")
     @Expose
@@ -90,16 +90,16 @@ public class CreateTopicRequest extends AbstractModel{
     }
 
     /**
-     * Get 用于指定主题的消息匹配策略。 
-     * @return FilterType 用于指定主题的消息匹配策略。
+     * Get 用于指定主题的消息匹配策略。1：表示标签匹配策略；2：表示路由匹配策略，默认值为标签匹配策略。 
+     * @return FilterType 用于指定主题的消息匹配策略。1：表示标签匹配策略；2：表示路由匹配策略，默认值为标签匹配策略。
      */
     public Long getFilterType() {
         return this.FilterType;
     }
 
     /**
-     * Set 用于指定主题的消息匹配策略。
-     * @param FilterType 用于指定主题的消息匹配策略。
+     * Set 用于指定主题的消息匹配策略。1：表示标签匹配策略；2：表示路由匹配策略，默认值为标签匹配策略。
+     * @param FilterType 用于指定主题的消息匹配策略。1：表示标签匹配策略；2：表示路由匹配策略，默认值为标签匹配策略。
      */
     public void setFilterType(Long FilterType) {
         this.FilterType = FilterType;
@@ -136,6 +136,32 @@ public class CreateTopicRequest extends AbstractModel{
     public void setTrace(Boolean Trace) {
         this.Trace = Trace;
     }
+
+    public CreateTopicRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateTopicRequest(CreateTopicRequest source) {
+        if (source.TopicName != null) {
+            this.TopicName = new String(source.TopicName);
+        }
+        if (source.MaxMsgSize != null) {
+            this.MaxMsgSize = new Long(source.MaxMsgSize);
+        }
+        if (source.FilterType != null) {
+            this.FilterType = new Long(source.FilterType);
+        }
+        if (source.MsgRetentionSeconds != null) {
+            this.MsgRetentionSeconds = new Long(source.MsgRetentionSeconds);
+        }
+        if (source.Trace != null) {
+            this.Trace = new Boolean(source.Trace);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

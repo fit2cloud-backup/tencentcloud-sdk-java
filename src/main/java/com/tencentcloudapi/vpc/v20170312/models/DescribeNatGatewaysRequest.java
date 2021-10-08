@@ -34,6 +34,7 @@ public class DescribeNatGatewaysRequest extends AbstractModel{
 <li>nat-gateway-id - String - （过滤条件）协议端口模板实例ID，形如：`nat-123xx454`。</li>
 <li>vpc-id - String - （过滤条件）私有网络 唯一ID，形如：`vpc-123xx454`。</li>
 <li>nat-gateway-name - String - （过滤条件）协议端口模板实例ID，形如：`test_nat`。</li>
+<li>tag-key - String - （过滤条件）标签键，形如：`test-key`。</li>
     */
     @SerializedName("Filters")
     @Expose
@@ -73,11 +74,13 @@ public class DescribeNatGatewaysRequest extends AbstractModel{
      * Get 过滤条件，参数不支持同时指定NatGatewayIds和Filters。
 <li>nat-gateway-id - String - （过滤条件）协议端口模板实例ID，形如：`nat-123xx454`。</li>
 <li>vpc-id - String - （过滤条件）私有网络 唯一ID，形如：`vpc-123xx454`。</li>
-<li>nat-gateway-name - String - （过滤条件）协议端口模板实例ID，形如：`test_nat`。</li> 
+<li>nat-gateway-name - String - （过滤条件）协议端口模板实例ID，形如：`test_nat`。</li>
+<li>tag-key - String - （过滤条件）标签键，形如：`test-key`。</li> 
      * @return Filters 过滤条件，参数不支持同时指定NatGatewayIds和Filters。
 <li>nat-gateway-id - String - （过滤条件）协议端口模板实例ID，形如：`nat-123xx454`。</li>
 <li>vpc-id - String - （过滤条件）私有网络 唯一ID，形如：`vpc-123xx454`。</li>
 <li>nat-gateway-name - String - （过滤条件）协议端口模板实例ID，形如：`test_nat`。</li>
+<li>tag-key - String - （过滤条件）标签键，形如：`test-key`。</li>
      */
     public Filter [] getFilters() {
         return this.Filters;
@@ -88,10 +91,12 @@ public class DescribeNatGatewaysRequest extends AbstractModel{
 <li>nat-gateway-id - String - （过滤条件）协议端口模板实例ID，形如：`nat-123xx454`。</li>
 <li>vpc-id - String - （过滤条件）私有网络 唯一ID，形如：`vpc-123xx454`。</li>
 <li>nat-gateway-name - String - （过滤条件）协议端口模板实例ID，形如：`test_nat`。</li>
+<li>tag-key - String - （过滤条件）标签键，形如：`test-key`。</li>
      * @param Filters 过滤条件，参数不支持同时指定NatGatewayIds和Filters。
 <li>nat-gateway-id - String - （过滤条件）协议端口模板实例ID，形如：`nat-123xx454`。</li>
 <li>vpc-id - String - （过滤条件）私有网络 唯一ID，形如：`vpc-123xx454`。</li>
 <li>nat-gateway-name - String - （过滤条件）协议端口模板实例ID，形如：`test_nat`。</li>
+<li>tag-key - String - （过滤条件）标签键，形如：`test-key`。</li>
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;
@@ -128,6 +133,35 @@ public class DescribeNatGatewaysRequest extends AbstractModel{
     public void setLimit(Long Limit) {
         this.Limit = Limit;
     }
+
+    public DescribeNatGatewaysRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeNatGatewaysRequest(DescribeNatGatewaysRequest source) {
+        if (source.NatGatewayIds != null) {
+            this.NatGatewayIds = new String[source.NatGatewayIds.length];
+            for (int i = 0; i < source.NatGatewayIds.length; i++) {
+                this.NatGatewayIds[i] = new String(source.NatGatewayIds[i]);
+            }
+        }
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

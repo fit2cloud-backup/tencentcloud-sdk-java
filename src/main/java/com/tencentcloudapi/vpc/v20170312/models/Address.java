@@ -121,6 +121,44 @@ public class Address extends AbstractModel{
     private AlgType EipAlgType;
 
     /**
+    * 弹性公网IP的运营商信息，当前可能返回值包括"CMCC","CTCC","CUCC","BGP"
+    */
+    @SerializedName("InternetServiceProvider")
+    @Expose
+    private String InternetServiceProvider;
+
+    /**
+    * 是否本地带宽EIP
+    */
+    @SerializedName("LocalBgp")
+    @Expose
+    private Boolean LocalBgp;
+
+    /**
+    * 弹性公网IP的带宽值。注意，传统账户类型账户的弹性公网IP没有带宽属性，值为空。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Bandwidth")
+    @Expose
+    private Long Bandwidth;
+
+    /**
+    * 弹性公网IP的网络计费模式。注意，传统账户类型账户的弹性公网IP没有网络计费模式属性，值为空。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("InternetChargeType")
+    @Expose
+    private String InternetChargeType;
+
+    /**
+    * 弹性公网IP关联的标签列表。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TagSet")
+    @Expose
+    private Tag [] TagSet;
+
+    /**
      * Get `EIP`的`ID`，是`EIP`的唯一标识。 
      * @return AddressId `EIP`的`ID`，是`EIP`的唯一标识。
      */
@@ -345,6 +383,169 @@ public class Address extends AbstractModel{
     }
 
     /**
+     * Get 弹性公网IP的运营商信息，当前可能返回值包括"CMCC","CTCC","CUCC","BGP" 
+     * @return InternetServiceProvider 弹性公网IP的运营商信息，当前可能返回值包括"CMCC","CTCC","CUCC","BGP"
+     */
+    public String getInternetServiceProvider() {
+        return this.InternetServiceProvider;
+    }
+
+    /**
+     * Set 弹性公网IP的运营商信息，当前可能返回值包括"CMCC","CTCC","CUCC","BGP"
+     * @param InternetServiceProvider 弹性公网IP的运营商信息，当前可能返回值包括"CMCC","CTCC","CUCC","BGP"
+     */
+    public void setInternetServiceProvider(String InternetServiceProvider) {
+        this.InternetServiceProvider = InternetServiceProvider;
+    }
+
+    /**
+     * Get 是否本地带宽EIP 
+     * @return LocalBgp 是否本地带宽EIP
+     */
+    public Boolean getLocalBgp() {
+        return this.LocalBgp;
+    }
+
+    /**
+     * Set 是否本地带宽EIP
+     * @param LocalBgp 是否本地带宽EIP
+     */
+    public void setLocalBgp(Boolean LocalBgp) {
+        this.LocalBgp = LocalBgp;
+    }
+
+    /**
+     * Get 弹性公网IP的带宽值。注意，传统账户类型账户的弹性公网IP没有带宽属性，值为空。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Bandwidth 弹性公网IP的带宽值。注意，传统账户类型账户的弹性公网IP没有带宽属性，值为空。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getBandwidth() {
+        return this.Bandwidth;
+    }
+
+    /**
+     * Set 弹性公网IP的带宽值。注意，传统账户类型账户的弹性公网IP没有带宽属性，值为空。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Bandwidth 弹性公网IP的带宽值。注意，传统账户类型账户的弹性公网IP没有带宽属性，值为空。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBandwidth(Long Bandwidth) {
+        this.Bandwidth = Bandwidth;
+    }
+
+    /**
+     * Get 弹性公网IP的网络计费模式。注意，传统账户类型账户的弹性公网IP没有网络计费模式属性，值为空。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return InternetChargeType 弹性公网IP的网络计费模式。注意，传统账户类型账户的弹性公网IP没有网络计费模式属性，值为空。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getInternetChargeType() {
+        return this.InternetChargeType;
+    }
+
+    /**
+     * Set 弹性公网IP的网络计费模式。注意，传统账户类型账户的弹性公网IP没有网络计费模式属性，值为空。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param InternetChargeType 弹性公网IP的网络计费模式。注意，传统账户类型账户的弹性公网IP没有网络计费模式属性，值为空。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setInternetChargeType(String InternetChargeType) {
+        this.InternetChargeType = InternetChargeType;
+    }
+
+    /**
+     * Get 弹性公网IP关联的标签列表。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TagSet 弹性公网IP关联的标签列表。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Tag [] getTagSet() {
+        return this.TagSet;
+    }
+
+    /**
+     * Set 弹性公网IP关联的标签列表。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TagSet 弹性公网IP关联的标签列表。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTagSet(Tag [] TagSet) {
+        this.TagSet = TagSet;
+    }
+
+    public Address() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Address(Address source) {
+        if (source.AddressId != null) {
+            this.AddressId = new String(source.AddressId);
+        }
+        if (source.AddressName != null) {
+            this.AddressName = new String(source.AddressName);
+        }
+        if (source.AddressStatus != null) {
+            this.AddressStatus = new String(source.AddressStatus);
+        }
+        if (source.AddressIp != null) {
+            this.AddressIp = new String(source.AddressIp);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.CreatedTime != null) {
+            this.CreatedTime = new String(source.CreatedTime);
+        }
+        if (source.NetworkInterfaceId != null) {
+            this.NetworkInterfaceId = new String(source.NetworkInterfaceId);
+        }
+        if (source.PrivateAddressIp != null) {
+            this.PrivateAddressIp = new String(source.PrivateAddressIp);
+        }
+        if (source.IsArrears != null) {
+            this.IsArrears = new Boolean(source.IsArrears);
+        }
+        if (source.IsBlocked != null) {
+            this.IsBlocked = new Boolean(source.IsBlocked);
+        }
+        if (source.IsEipDirectConnection != null) {
+            this.IsEipDirectConnection = new Boolean(source.IsEipDirectConnection);
+        }
+        if (source.AddressType != null) {
+            this.AddressType = new String(source.AddressType);
+        }
+        if (source.CascadeRelease != null) {
+            this.CascadeRelease = new Boolean(source.CascadeRelease);
+        }
+        if (source.EipAlgType != null) {
+            this.EipAlgType = new AlgType(source.EipAlgType);
+        }
+        if (source.InternetServiceProvider != null) {
+            this.InternetServiceProvider = new String(source.InternetServiceProvider);
+        }
+        if (source.LocalBgp != null) {
+            this.LocalBgp = new Boolean(source.LocalBgp);
+        }
+        if (source.Bandwidth != null) {
+            this.Bandwidth = new Long(source.Bandwidth);
+        }
+        if (source.InternetChargeType != null) {
+            this.InternetChargeType = new String(source.InternetChargeType);
+        }
+        if (source.TagSet != null) {
+            this.TagSet = new Tag[source.TagSet.length];
+            for (int i = 0; i < source.TagSet.length; i++) {
+                this.TagSet[i] = new Tag(source.TagSet[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -362,6 +563,11 @@ public class Address extends AbstractModel{
         this.setParamSimple(map, prefix + "AddressType", this.AddressType);
         this.setParamSimple(map, prefix + "CascadeRelease", this.CascadeRelease);
         this.setParamObj(map, prefix + "EipAlgType.", this.EipAlgType);
+        this.setParamSimple(map, prefix + "InternetServiceProvider", this.InternetServiceProvider);
+        this.setParamSimple(map, prefix + "LocalBgp", this.LocalBgp);
+        this.setParamSimple(map, prefix + "Bandwidth", this.Bandwidth);
+        this.setParamSimple(map, prefix + "InternetChargeType", this.InternetChargeType);
+        this.setParamArrayObj(map, prefix + "TagSet.", this.TagSet);
 
     }
 }

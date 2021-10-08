@@ -27,6 +27,7 @@ import com.tencentcloudapi.tkgdq.v20190411.models.*;
 
 public class TkgdqClient extends AbstractClient{
     private static String endpoint = "tkgdq.tencentcloudapi.com";
+    private static String service = "tkgdq";
     private static String version = "2019-04-11";
 
     public TkgdqClient(Credential credential, String region) {
@@ -45,12 +46,14 @@ public class TkgdqClient extends AbstractClient{
      */
     public DescribeEntityResponse DescribeEntity(DescribeEntityRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeEntityResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeEntityResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeEntity"), type);
+                rspStr = this.internalRequest(req, "DescribeEntity");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -63,12 +66,14 @@ public class TkgdqClient extends AbstractClient{
      */
     public DescribeRelationResponse DescribeRelation(DescribeRelationRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeRelationResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeRelationResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeRelation"), type);
+                rspStr = this.internalRequest(req, "DescribeRelation");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -81,12 +86,14 @@ public class TkgdqClient extends AbstractClient{
      */
     public DescribeTripleResponse DescribeTriple(DescribeTripleRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeTripleResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeTripleResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DescribeTriple"), type);
+                rspStr = this.internalRequest(req, "DescribeTriple");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

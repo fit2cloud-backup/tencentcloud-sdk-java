@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class InquiryPriceRenewInstanceRequest extends AbstractModel{
 
     /**
-    * 实例续费的时长。需要结合TimeUnit一起使用。
+    * 实例续费的时长。需要结合TimeUnit一起使用。1表示续费1一个月
     */
     @SerializedName("TimeSpan")
     @Expose
@@ -52,7 +52,7 @@ public class InquiryPriceRenewInstanceRequest extends AbstractModel{
 
     /**
     * 实例续费的时间单位。取值范围：
-<li>m：表示月份。</li>
+<li>m：表示月份。</li>
     */
     @SerializedName("TimeUnit")
     @Expose
@@ -67,16 +67,23 @@ public class InquiryPriceRenewInstanceRequest extends AbstractModel{
     private String Currency;
 
     /**
-     * Get 实例续费的时长。需要结合TimeUnit一起使用。 
-     * @return TimeSpan 实例续费的时长。需要结合TimeUnit一起使用。
+    * 是否按量转包年包月。0：否，1：是。
+    */
+    @SerializedName("ModifyPayMode")
+    @Expose
+    private Long ModifyPayMode;
+
+    /**
+     * Get 实例续费的时长。需要结合TimeUnit一起使用。1表示续费1一个月 
+     * @return TimeSpan 实例续费的时长。需要结合TimeUnit一起使用。1表示续费1一个月
      */
     public Long getTimeSpan() {
         return this.TimeSpan;
     }
 
     /**
-     * Set 实例续费的时长。需要结合TimeUnit一起使用。
-     * @param TimeSpan 实例续费的时长。需要结合TimeUnit一起使用。
+     * Set 实例续费的时长。需要结合TimeUnit一起使用。1表示续费1一个月
+     * @param TimeSpan 实例续费的时长。需要结合TimeUnit一起使用。1表示续费1一个月
      */
     public void setTimeSpan(Long TimeSpan) {
         this.TimeSpan = TimeSpan;
@@ -132,9 +139,9 @@ public class InquiryPriceRenewInstanceRequest extends AbstractModel{
 
     /**
      * Get 实例续费的时间单位。取值范围：
-<li>m：表示月份。</li> 
+<li>m：表示月份。</li> 
      * @return TimeUnit 实例续费的时间单位。取值范围：
-<li>m：表示月份。</li>
+<li>m：表示月份。</li>
      */
     public String getTimeUnit() {
         return this.TimeUnit;
@@ -142,9 +149,9 @@ public class InquiryPriceRenewInstanceRequest extends AbstractModel{
 
     /**
      * Set 实例续费的时间单位。取值范围：
-<li>m：表示月份。</li>
+<li>m：表示月份。</li>
      * @param TimeUnit 实例续费的时间单位。取值范围：
-<li>m：表示月份。</li>
+<li>m：表示月份。</li>
      */
     public void setTimeUnit(String TimeUnit) {
         this.TimeUnit = TimeUnit;
@@ -171,6 +178,57 @@ public class InquiryPriceRenewInstanceRequest extends AbstractModel{
     }
 
     /**
+     * Get 是否按量转包年包月。0：否，1：是。 
+     * @return ModifyPayMode 是否按量转包年包月。0：否，1：是。
+     */
+    public Long getModifyPayMode() {
+        return this.ModifyPayMode;
+    }
+
+    /**
+     * Set 是否按量转包年包月。0：否，1：是。
+     * @param ModifyPayMode 是否按量转包年包月。0：否，1：是。
+     */
+    public void setModifyPayMode(Long ModifyPayMode) {
+        this.ModifyPayMode = ModifyPayMode;
+    }
+
+    public InquiryPriceRenewInstanceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public InquiryPriceRenewInstanceRequest(InquiryPriceRenewInstanceRequest source) {
+        if (source.TimeSpan != null) {
+            this.TimeSpan = new Long(source.TimeSpan);
+        }
+        if (source.ResourceIds != null) {
+            this.ResourceIds = new String[source.ResourceIds.length];
+            for (int i = 0; i < source.ResourceIds.length; i++) {
+                this.ResourceIds[i] = new String(source.ResourceIds[i]);
+            }
+        }
+        if (source.Placement != null) {
+            this.Placement = new Placement(source.Placement);
+        }
+        if (source.PayMode != null) {
+            this.PayMode = new Long(source.PayMode);
+        }
+        if (source.TimeUnit != null) {
+            this.TimeUnit = new String(source.TimeUnit);
+        }
+        if (source.Currency != null) {
+            this.Currency = new String(source.Currency);
+        }
+        if (source.ModifyPayMode != null) {
+            this.ModifyPayMode = new Long(source.ModifyPayMode);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -180,6 +238,7 @@ public class InquiryPriceRenewInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "PayMode", this.PayMode);
         this.setParamSimple(map, prefix + "TimeUnit", this.TimeUnit);
         this.setParamSimple(map, prefix + "Currency", this.Currency);
+        this.setParamSimple(map, prefix + "ModifyPayMode", this.ModifyPayMode);
 
     }
 }

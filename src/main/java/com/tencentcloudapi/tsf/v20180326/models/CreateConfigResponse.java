@@ -24,6 +24,7 @@ public class CreateConfigResponse extends AbstractModel{
 
     /**
     * true：创建成功；false：创建失败
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Result")
     @Expose
@@ -37,8 +38,10 @@ public class CreateConfigResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get true：创建成功；false：创建失败 
+     * Get true：创建成功；false：创建失败
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Result true：创建成功；false：创建失败
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getResult() {
         return this.Result;
@@ -46,7 +49,9 @@ public class CreateConfigResponse extends AbstractModel{
 
     /**
      * Set true：创建成功；false：创建失败
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Result true：创建成功；false：创建失败
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResult(Boolean Result) {
         this.Result = Result;
@@ -67,6 +72,23 @@ public class CreateConfigResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public CreateConfigResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateConfigResponse(CreateConfigResponse source) {
+        if (source.Result != null) {
+            this.Result = new Boolean(source.Result);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

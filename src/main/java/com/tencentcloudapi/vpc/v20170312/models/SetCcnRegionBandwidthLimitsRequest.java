@@ -37,6 +37,13 @@ public class SetCcnRegionBandwidthLimitsRequest extends AbstractModel{
     private CcnRegionBandwidthLimit [] CcnRegionBandwidthLimits;
 
     /**
+    * 是否恢复云联网地域出口/地域间带宽限速为默认值（1Gbps）。false表示不恢复；true表示恢复。恢复默认值后，限速实例将不在控制台展示。该参数默认为 false，不恢复。
+    */
+    @SerializedName("SetDefaultLimitFlag")
+    @Expose
+    private Boolean SetDefaultLimitFlag;
+
+    /**
      * Get CCN实例ID。形如：ccn-f49l6u0z。 
      * @return CcnId CCN实例ID。形如：ccn-f49l6u0z。
      */
@@ -69,11 +76,51 @@ public class SetCcnRegionBandwidthLimitsRequest extends AbstractModel{
     }
 
     /**
+     * Get 是否恢复云联网地域出口/地域间带宽限速为默认值（1Gbps）。false表示不恢复；true表示恢复。恢复默认值后，限速实例将不在控制台展示。该参数默认为 false，不恢复。 
+     * @return SetDefaultLimitFlag 是否恢复云联网地域出口/地域间带宽限速为默认值（1Gbps）。false表示不恢复；true表示恢复。恢复默认值后，限速实例将不在控制台展示。该参数默认为 false，不恢复。
+     */
+    public Boolean getSetDefaultLimitFlag() {
+        return this.SetDefaultLimitFlag;
+    }
+
+    /**
+     * Set 是否恢复云联网地域出口/地域间带宽限速为默认值（1Gbps）。false表示不恢复；true表示恢复。恢复默认值后，限速实例将不在控制台展示。该参数默认为 false，不恢复。
+     * @param SetDefaultLimitFlag 是否恢复云联网地域出口/地域间带宽限速为默认值（1Gbps）。false表示不恢复；true表示恢复。恢复默认值后，限速实例将不在控制台展示。该参数默认为 false，不恢复。
+     */
+    public void setSetDefaultLimitFlag(Boolean SetDefaultLimitFlag) {
+        this.SetDefaultLimitFlag = SetDefaultLimitFlag;
+    }
+
+    public SetCcnRegionBandwidthLimitsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SetCcnRegionBandwidthLimitsRequest(SetCcnRegionBandwidthLimitsRequest source) {
+        if (source.CcnId != null) {
+            this.CcnId = new String(source.CcnId);
+        }
+        if (source.CcnRegionBandwidthLimits != null) {
+            this.CcnRegionBandwidthLimits = new CcnRegionBandwidthLimit[source.CcnRegionBandwidthLimits.length];
+            for (int i = 0; i < source.CcnRegionBandwidthLimits.length; i++) {
+                this.CcnRegionBandwidthLimits[i] = new CcnRegionBandwidthLimit(source.CcnRegionBandwidthLimits[i]);
+            }
+        }
+        if (source.SetDefaultLimitFlag != null) {
+            this.SetDefaultLimitFlag = new Boolean(source.SetDefaultLimitFlag);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "CcnId", this.CcnId);
         this.setParamArrayObj(map, prefix + "CcnRegionBandwidthLimits.", this.CcnRegionBandwidthLimits);
+        this.setParamSimple(map, prefix + "SetDefaultLimitFlag", this.SetDefaultLimitFlag);
 
     }
 }

@@ -287,6 +287,38 @@ public class ContainerGroupDetail extends AbstractModel{
     private Long InstanceCount;
 
     /**
+    * 部署组更新时间戳
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UpdatedTime")
+    @Expose
+    private Long UpdatedTime;
+
+    /**
+    * kubernetes滚动更新策略的MaxSurge参数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MaxSurge")
+    @Expose
+    private String MaxSurge;
+
+    /**
+    * kubernetes滚动更新策略的MaxUnavailable参数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MaxUnavailable")
+    @Expose
+    private String MaxUnavailable;
+
+    /**
+    * 部署组健康检查设置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("HealthCheckSettings")
+    @Expose
+    private HealthCheckSettings HealthCheckSettings;
+
+    /**
      * Get 部署组ID
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return GroupId 部署组ID
@@ -947,6 +979,214 @@ public class ContainerGroupDetail extends AbstractModel{
     }
 
     /**
+     * Get 部署组更新时间戳
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UpdatedTime 部署组更新时间戳
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getUpdatedTime() {
+        return this.UpdatedTime;
+    }
+
+    /**
+     * Set 部署组更新时间戳
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UpdatedTime 部署组更新时间戳
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUpdatedTime(Long UpdatedTime) {
+        this.UpdatedTime = UpdatedTime;
+    }
+
+    /**
+     * Get kubernetes滚动更新策略的MaxSurge参数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MaxSurge kubernetes滚动更新策略的MaxSurge参数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getMaxSurge() {
+        return this.MaxSurge;
+    }
+
+    /**
+     * Set kubernetes滚动更新策略的MaxSurge参数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MaxSurge kubernetes滚动更新策略的MaxSurge参数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMaxSurge(String MaxSurge) {
+        this.MaxSurge = MaxSurge;
+    }
+
+    /**
+     * Get kubernetes滚动更新策略的MaxUnavailable参数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MaxUnavailable kubernetes滚动更新策略的MaxUnavailable参数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getMaxUnavailable() {
+        return this.MaxUnavailable;
+    }
+
+    /**
+     * Set kubernetes滚动更新策略的MaxUnavailable参数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MaxUnavailable kubernetes滚动更新策略的MaxUnavailable参数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMaxUnavailable(String MaxUnavailable) {
+        this.MaxUnavailable = MaxUnavailable;
+    }
+
+    /**
+     * Get 部署组健康检查设置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return HealthCheckSettings 部署组健康检查设置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public HealthCheckSettings getHealthCheckSettings() {
+        return this.HealthCheckSettings;
+    }
+
+    /**
+     * Set 部署组健康检查设置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param HealthCheckSettings 部署组健康检查设置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setHealthCheckSettings(HealthCheckSettings HealthCheckSettings) {
+        this.HealthCheckSettings = HealthCheckSettings;
+    }
+
+    public ContainerGroupDetail() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ContainerGroupDetail(ContainerGroupDetail source) {
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
+        if (source.GroupName != null) {
+            this.GroupName = new String(source.GroupName);
+        }
+        if (source.InstanceNum != null) {
+            this.InstanceNum = new Long(source.InstanceNum);
+        }
+        if (source.CurrentNum != null) {
+            this.CurrentNum = new Long(source.CurrentNum);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.Server != null) {
+            this.Server = new String(source.Server);
+        }
+        if (source.Reponame != null) {
+            this.Reponame = new String(source.Reponame);
+        }
+        if (source.TagName != null) {
+            this.TagName = new String(source.TagName);
+        }
+        if (source.ClusterId != null) {
+            this.ClusterId = new String(source.ClusterId);
+        }
+        if (source.ClusterName != null) {
+            this.ClusterName = new String(source.ClusterName);
+        }
+        if (source.NamespaceId != null) {
+            this.NamespaceId = new String(source.NamespaceId);
+        }
+        if (source.NamespaceName != null) {
+            this.NamespaceName = new String(source.NamespaceName);
+        }
+        if (source.ApplicationId != null) {
+            this.ApplicationId = new String(source.ApplicationId);
+        }
+        if (source.LbIp != null) {
+            this.LbIp = new String(source.LbIp);
+        }
+        if (source.ApplicationType != null) {
+            this.ApplicationType = new String(source.ApplicationType);
+        }
+        if (source.ClusterIp != null) {
+            this.ClusterIp = new String(source.ClusterIp);
+        }
+        if (source.NodePort != null) {
+            this.NodePort = new Long(source.NodePort);
+        }
+        if (source.CpuLimit != null) {
+            this.CpuLimit = new String(source.CpuLimit);
+        }
+        if (source.MemLimit != null) {
+            this.MemLimit = new String(source.MemLimit);
+        }
+        if (source.AccessType != null) {
+            this.AccessType = new Long(source.AccessType);
+        }
+        if (source.UpdateType != null) {
+            this.UpdateType = new Long(source.UpdateType);
+        }
+        if (source.UpdateIvl != null) {
+            this.UpdateIvl = new Long(source.UpdateIvl);
+        }
+        if (source.ProtocolPorts != null) {
+            this.ProtocolPorts = new ProtocolPort[source.ProtocolPorts.length];
+            for (int i = 0; i < source.ProtocolPorts.length; i++) {
+                this.ProtocolPorts[i] = new ProtocolPort(source.ProtocolPorts[i]);
+            }
+        }
+        if (source.Envs != null) {
+            this.Envs = new Env[source.Envs.length];
+            for (int i = 0; i < source.Envs.length; i++) {
+                this.Envs[i] = new Env(source.Envs[i]);
+            }
+        }
+        if (source.ApplicationName != null) {
+            this.ApplicationName = new String(source.ApplicationName);
+        }
+        if (source.Message != null) {
+            this.Message = new String(source.Message);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.MicroserviceType != null) {
+            this.MicroserviceType = new String(source.MicroserviceType);
+        }
+        if (source.CpuRequest != null) {
+            this.CpuRequest = new String(source.CpuRequest);
+        }
+        if (source.MemRequest != null) {
+            this.MemRequest = new String(source.MemRequest);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.GroupResourceType != null) {
+            this.GroupResourceType = new String(source.GroupResourceType);
+        }
+        if (source.InstanceCount != null) {
+            this.InstanceCount = new Long(source.InstanceCount);
+        }
+        if (source.UpdatedTime != null) {
+            this.UpdatedTime = new Long(source.UpdatedTime);
+        }
+        if (source.MaxSurge != null) {
+            this.MaxSurge = new String(source.MaxSurge);
+        }
+        if (source.MaxUnavailable != null) {
+            this.MaxUnavailable = new String(source.MaxUnavailable);
+        }
+        if (source.HealthCheckSettings != null) {
+            this.HealthCheckSettings = new HealthCheckSettings(source.HealthCheckSettings);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -983,6 +1223,10 @@ public class ContainerGroupDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "SubnetId", this.SubnetId);
         this.setParamSimple(map, prefix + "GroupResourceType", this.GroupResourceType);
         this.setParamSimple(map, prefix + "InstanceCount", this.InstanceCount);
+        this.setParamSimple(map, prefix + "UpdatedTime", this.UpdatedTime);
+        this.setParamSimple(map, prefix + "MaxSurge", this.MaxSurge);
+        this.setParamSimple(map, prefix + "MaxUnavailable", this.MaxUnavailable);
+        this.setParamObj(map, prefix + "HealthCheckSettings.", this.HealthCheckSettings);
 
     }
 }

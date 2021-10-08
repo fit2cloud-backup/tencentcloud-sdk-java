@@ -31,8 +31,7 @@ public class SearchMediaResponse extends AbstractModel{
     private Long TotalCount;
 
     /**
-    * 媒体文件信息列表，只包含基础信息（BasicInfo）。
-注意：此字段可能返回 null，表示取不到有效值。
+    * 媒体文件信息列表。
     */
     @SerializedName("MediaInfoSet")
     @Expose
@@ -66,20 +65,16 @@ public class SearchMediaResponse extends AbstractModel{
     }
 
     /**
-     * Get 媒体文件信息列表，只包含基础信息（BasicInfo）。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return MediaInfoSet 媒体文件信息列表，只包含基础信息（BasicInfo）。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 媒体文件信息列表。 
+     * @return MediaInfoSet 媒体文件信息列表。
      */
     public MediaInfo [] getMediaInfoSet() {
         return this.MediaInfoSet;
     }
 
     /**
-     * Set 媒体文件信息列表，只包含基础信息（BasicInfo）。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param MediaInfoSet 媒体文件信息列表，只包含基础信息（BasicInfo）。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 媒体文件信息列表。
+     * @param MediaInfoSet 媒体文件信息列表。
      */
     public void setMediaInfoSet(MediaInfo [] MediaInfoSet) {
         this.MediaInfoSet = MediaInfoSet;
@@ -100,6 +95,29 @@ public class SearchMediaResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public SearchMediaResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SearchMediaResponse(SearchMediaResponse source) {
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
+        if (source.MediaInfoSet != null) {
+            this.MediaInfoSet = new MediaInfo[source.MediaInfoSet.length];
+            for (int i = 0; i < source.MediaInfoSet.length; i++) {
+                this.MediaInfoSet[i] = new MediaInfo(source.MediaInfoSet[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

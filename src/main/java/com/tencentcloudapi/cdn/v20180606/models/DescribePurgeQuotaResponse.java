@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribePurgeQuotaResponse extends AbstractModel{
 
     /**
-    * Url刷新用量及配额。
+    * URL刷新用量及配额。
     */
     @SerializedName("UrlPurge")
     @Expose
@@ -44,16 +44,16 @@ public class DescribePurgeQuotaResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get Url刷新用量及配额。 
-     * @return UrlPurge Url刷新用量及配额。
+     * Get URL刷新用量及配额。 
+     * @return UrlPurge URL刷新用量及配额。
      */
     public Quota [] getUrlPurge() {
         return this.UrlPurge;
     }
 
     /**
-     * Set Url刷新用量及配额。
-     * @param UrlPurge Url刷新用量及配额。
+     * Set URL刷新用量及配额。
+     * @param UrlPurge URL刷新用量及配额。
      */
     public void setUrlPurge(Quota [] UrlPurge) {
         this.UrlPurge = UrlPurge;
@@ -90,6 +90,32 @@ public class DescribePurgeQuotaResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribePurgeQuotaResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribePurgeQuotaResponse(DescribePurgeQuotaResponse source) {
+        if (source.UrlPurge != null) {
+            this.UrlPurge = new Quota[source.UrlPurge.length];
+            for (int i = 0; i < source.UrlPurge.length; i++) {
+                this.UrlPurge[i] = new Quota(source.UrlPurge[i]);
+            }
+        }
+        if (source.PathPurge != null) {
+            this.PathPurge = new Quota[source.PathPurge.length];
+            for (int i = 0; i < source.PathPurge.length; i++) {
+                this.PathPurge[i] = new Quota(source.PathPurge[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

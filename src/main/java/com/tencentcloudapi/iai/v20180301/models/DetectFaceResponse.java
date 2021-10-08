@@ -44,7 +44,15 @@ public class DetectFaceResponse extends AbstractModel{
     private FaceInfo [] FaceInfos;
 
     /**
-    * 人脸识别所用的算法模型版本。
+    * 人脸识别服务所用的算法模型版本。
+
+目前入参支持 “2.0”和“3.0“ 两个输入。
+
+2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。
+
+2020年11月26日后开通服务的账号仅支持输入“3.0”。
+
+不同算法模型版本对应的人脸识别算法不同，新版本的整体效果会优于旧版本，建议使用“3.0”版本。
     */
     @SerializedName("FaceModelVersion")
     @Expose
@@ -106,16 +114,48 @@ public class DetectFaceResponse extends AbstractModel{
     }
 
     /**
-     * Get 人脸识别所用的算法模型版本。 
-     * @return FaceModelVersion 人脸识别所用的算法模型版本。
+     * Get 人脸识别服务所用的算法模型版本。
+
+目前入参支持 “2.0”和“3.0“ 两个输入。
+
+2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。
+
+2020年11月26日后开通服务的账号仅支持输入“3.0”。
+
+不同算法模型版本对应的人脸识别算法不同，新版本的整体效果会优于旧版本，建议使用“3.0”版本。 
+     * @return FaceModelVersion 人脸识别服务所用的算法模型版本。
+
+目前入参支持 “2.0”和“3.0“ 两个输入。
+
+2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。
+
+2020年11月26日后开通服务的账号仅支持输入“3.0”。
+
+不同算法模型版本对应的人脸识别算法不同，新版本的整体效果会优于旧版本，建议使用“3.0”版本。
      */
     public String getFaceModelVersion() {
         return this.FaceModelVersion;
     }
 
     /**
-     * Set 人脸识别所用的算法模型版本。
-     * @param FaceModelVersion 人脸识别所用的算法模型版本。
+     * Set 人脸识别服务所用的算法模型版本。
+
+目前入参支持 “2.0”和“3.0“ 两个输入。
+
+2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。
+
+2020年11月26日后开通服务的账号仅支持输入“3.0”。
+
+不同算法模型版本对应的人脸识别算法不同，新版本的整体效果会优于旧版本，建议使用“3.0”版本。
+     * @param FaceModelVersion 人脸识别服务所用的算法模型版本。
+
+目前入参支持 “2.0”和“3.0“ 两个输入。
+
+2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。
+
+2020年11月26日后开通服务的账号仅支持输入“3.0”。
+
+不同算法模型版本对应的人脸识别算法不同，新版本的整体效果会优于旧版本，建议使用“3.0”版本。
      */
     public void setFaceModelVersion(String FaceModelVersion) {
         this.FaceModelVersion = FaceModelVersion;
@@ -136,6 +176,35 @@ public class DetectFaceResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DetectFaceResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DetectFaceResponse(DetectFaceResponse source) {
+        if (source.ImageWidth != null) {
+            this.ImageWidth = new Long(source.ImageWidth);
+        }
+        if (source.ImageHeight != null) {
+            this.ImageHeight = new Long(source.ImageHeight);
+        }
+        if (source.FaceInfos != null) {
+            this.FaceInfos = new FaceInfo[source.FaceInfos.length];
+            for (int i = 0; i < source.FaceInfos.length; i++) {
+                this.FaceInfos[i] = new FaceInfo(source.FaceInfos[i]);
+            }
+        }
+        if (source.FaceModelVersion != null) {
+            this.FaceModelVersion = new String(source.FaceModelVersion);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -30,7 +30,7 @@ public class CreateDBInstancesRequest extends AbstractModel{
     private String SpecCode;
 
     /**
-    * PostgreSQL内核版本，目前支持：9.3.5、9.5.4、10.4三种版本。
+    * PostgreSQL内核版本，目前支持以下版本：9.3.5、9.5.4、10.4、11.8、12.4 。
     */
     @SerializedName("DBVersion")
     @Expose
@@ -121,11 +121,32 @@ public class CreateDBInstancesRequest extends AbstractModel{
     private Long ActivityId;
 
     /**
-    * 实例名
+    * 实例名(后续支持)
     */
     @SerializedName("Name")
     @Expose
     private String Name;
+
+    /**
+    * 是否需要支持Ipv6，1：是，0：否
+    */
+    @SerializedName("NeedSupportIpv6")
+    @Expose
+    private Long NeedSupportIpv6;
+
+    /**
+    * 实例需要绑定的Tag信息，默认为空
+    */
+    @SerializedName("TagList")
+    @Expose
+    private Tag [] TagList;
+
+    /**
+    * 安全组id
+    */
+    @SerializedName("SecurityGroupIds")
+    @Expose
+    private String [] SecurityGroupIds;
 
     /**
      * Get 售卖规格ID。该参数可以通过调用DescribeProductConfig的返回值中的SpecCode字段来获取。 
@@ -144,16 +165,16 @@ public class CreateDBInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get PostgreSQL内核版本，目前支持：9.3.5、9.5.4、10.4三种版本。 
-     * @return DBVersion PostgreSQL内核版本，目前支持：9.3.5、9.5.4、10.4三种版本。
+     * Get PostgreSQL内核版本，目前支持以下版本：9.3.5、9.5.4、10.4、11.8、12.4 。 
+     * @return DBVersion PostgreSQL内核版本，目前支持以下版本：9.3.5、9.5.4、10.4、11.8、12.4 。
      */
     public String getDBVersion() {
         return this.DBVersion;
     }
 
     /**
-     * Set PostgreSQL内核版本，目前支持：9.3.5、9.5.4、10.4三种版本。
-     * @param DBVersion PostgreSQL内核版本，目前支持：9.3.5、9.5.4、10.4三种版本。
+     * Set PostgreSQL内核版本，目前支持以下版本：9.3.5、9.5.4、10.4、11.8、12.4 。
+     * @param DBVersion PostgreSQL内核版本，目前支持以下版本：9.3.5、9.5.4、10.4、11.8、12.4 。
      */
     public void setDBVersion(String DBVersion) {
         this.DBVersion = DBVersion;
@@ -352,20 +373,142 @@ public class CreateDBInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 实例名 
-     * @return Name 实例名
+     * Get 实例名(后续支持) 
+     * @return Name 实例名(后续支持)
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 实例名
-     * @param Name 实例名
+     * Set 实例名(后续支持)
+     * @param Name 实例名(后续支持)
      */
     public void setName(String Name) {
         this.Name = Name;
     }
+
+    /**
+     * Get 是否需要支持Ipv6，1：是，0：否 
+     * @return NeedSupportIpv6 是否需要支持Ipv6，1：是，0：否
+     */
+    public Long getNeedSupportIpv6() {
+        return this.NeedSupportIpv6;
+    }
+
+    /**
+     * Set 是否需要支持Ipv6，1：是，0：否
+     * @param NeedSupportIpv6 是否需要支持Ipv6，1：是，0：否
+     */
+    public void setNeedSupportIpv6(Long NeedSupportIpv6) {
+        this.NeedSupportIpv6 = NeedSupportIpv6;
+    }
+
+    /**
+     * Get 实例需要绑定的Tag信息，默认为空 
+     * @return TagList 实例需要绑定的Tag信息，默认为空
+     */
+    public Tag [] getTagList() {
+        return this.TagList;
+    }
+
+    /**
+     * Set 实例需要绑定的Tag信息，默认为空
+     * @param TagList 实例需要绑定的Tag信息，默认为空
+     */
+    public void setTagList(Tag [] TagList) {
+        this.TagList = TagList;
+    }
+
+    /**
+     * Get 安全组id 
+     * @return SecurityGroupIds 安全组id
+     */
+    public String [] getSecurityGroupIds() {
+        return this.SecurityGroupIds;
+    }
+
+    /**
+     * Set 安全组id
+     * @param SecurityGroupIds 安全组id
+     */
+    public void setSecurityGroupIds(String [] SecurityGroupIds) {
+        this.SecurityGroupIds = SecurityGroupIds;
+    }
+
+    public CreateDBInstancesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateDBInstancesRequest(CreateDBInstancesRequest source) {
+        if (source.SpecCode != null) {
+            this.SpecCode = new String(source.SpecCode);
+        }
+        if (source.DBVersion != null) {
+            this.DBVersion = new String(source.DBVersion);
+        }
+        if (source.Storage != null) {
+            this.Storage = new Long(source.Storage);
+        }
+        if (source.InstanceCount != null) {
+            this.InstanceCount = new Long(source.InstanceCount);
+        }
+        if (source.Period != null) {
+            this.Period = new Long(source.Period);
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.InstanceChargeType != null) {
+            this.InstanceChargeType = new String(source.InstanceChargeType);
+        }
+        if (source.AutoVoucher != null) {
+            this.AutoVoucher = new Long(source.AutoVoucher);
+        }
+        if (source.VoucherIds != null) {
+            this.VoucherIds = new String[source.VoucherIds.length];
+            for (int i = 0; i < source.VoucherIds.length; i++) {
+                this.VoucherIds[i] = new String(source.VoucherIds[i]);
+            }
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.AutoRenewFlag != null) {
+            this.AutoRenewFlag = new Long(source.AutoRenewFlag);
+        }
+        if (source.ActivityId != null) {
+            this.ActivityId = new Long(source.ActivityId);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.NeedSupportIpv6 != null) {
+            this.NeedSupportIpv6 = new Long(source.NeedSupportIpv6);
+        }
+        if (source.TagList != null) {
+            this.TagList = new Tag[source.TagList.length];
+            for (int i = 0; i < source.TagList.length; i++) {
+                this.TagList[i] = new Tag(source.TagList[i]);
+            }
+        }
+        if (source.SecurityGroupIds != null) {
+            this.SecurityGroupIds = new String[source.SecurityGroupIds.length];
+            for (int i = 0; i < source.SecurityGroupIds.length; i++) {
+                this.SecurityGroupIds[i] = new String(source.SecurityGroupIds[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -386,6 +529,9 @@ public class CreateDBInstancesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "AutoRenewFlag", this.AutoRenewFlag);
         this.setParamSimple(map, prefix + "ActivityId", this.ActivityId);
         this.setParamSimple(map, prefix + "Name", this.Name);
+        this.setParamSimple(map, prefix + "NeedSupportIpv6", this.NeedSupportIpv6);
+        this.setParamArrayObj(map, prefix + "TagList.", this.TagList);
+        this.setParamArraySimple(map, prefix + "SecurityGroupIds.", this.SecurityGroupIds);
 
     }
 }

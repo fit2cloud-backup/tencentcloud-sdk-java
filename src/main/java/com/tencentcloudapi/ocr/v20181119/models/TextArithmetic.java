@@ -30,7 +30,7 @@ public class TextArithmetic extends AbstractModel{
     private String DetectedText;
 
     /**
-    * 算式运算结果
+    * 算式运算结果，true-正确   false-错误或非法参数
     */
     @SerializedName("Result")
     @Expose
@@ -84,6 +84,13 @@ public class TextArithmetic extends AbstractModel{
     private String ExpressionType;
 
     /**
+    * 错题推荐答案，算式运算结果正确返回为""，算式运算结果错误返回推荐答案 (注：暂不支持多个关系运算符（如1<10<7）、无关系运算符（如frac(1,2)+frac(2,3)）、单位换算（如1元=100角）错题的推荐答案返回)
+    */
+    @SerializedName("Answer")
+    @Expose
+    private String Answer;
+
+    /**
      * Get 识别出的文本行内容 
      * @return DetectedText 识别出的文本行内容
      */
@@ -100,16 +107,16 @@ public class TextArithmetic extends AbstractModel{
     }
 
     /**
-     * Get 算式运算结果 
-     * @return Result 算式运算结果
+     * Get 算式运算结果，true-正确   false-错误或非法参数 
+     * @return Result 算式运算结果，true-正确   false-错误或非法参数
      */
     public Boolean getResult() {
         return this.Result;
     }
 
     /**
-     * Set 算式运算结果
-     * @param Result 算式运算结果
+     * Set 算式运算结果，true-正确   false-错误或非法参数
+     * @param Result 算式运算结果，true-正确   false-错误或非法参数
      */
     public void setResult(Boolean Result) {
         this.Result = Result;
@@ -244,6 +251,60 @@ public class TextArithmetic extends AbstractModel{
     }
 
     /**
+     * Get 错题推荐答案，算式运算结果正确返回为""，算式运算结果错误返回推荐答案 (注：暂不支持多个关系运算符（如1<10<7）、无关系运算符（如frac(1,2)+frac(2,3)）、单位换算（如1元=100角）错题的推荐答案返回) 
+     * @return Answer 错题推荐答案，算式运算结果正确返回为""，算式运算结果错误返回推荐答案 (注：暂不支持多个关系运算符（如1<10<7）、无关系运算符（如frac(1,2)+frac(2,3)）、单位换算（如1元=100角）错题的推荐答案返回)
+     */
+    public String getAnswer() {
+        return this.Answer;
+    }
+
+    /**
+     * Set 错题推荐答案，算式运算结果正确返回为""，算式运算结果错误返回推荐答案 (注：暂不支持多个关系运算符（如1<10<7）、无关系运算符（如frac(1,2)+frac(2,3)）、单位换算（如1元=100角）错题的推荐答案返回)
+     * @param Answer 错题推荐答案，算式运算结果正确返回为""，算式运算结果错误返回推荐答案 (注：暂不支持多个关系运算符（如1<10<7）、无关系运算符（如frac(1,2)+frac(2,3)）、单位换算（如1元=100角）错题的推荐答案返回)
+     */
+    public void setAnswer(String Answer) {
+        this.Answer = Answer;
+    }
+
+    public TextArithmetic() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public TextArithmetic(TextArithmetic source) {
+        if (source.DetectedText != null) {
+            this.DetectedText = new String(source.DetectedText);
+        }
+        if (source.Result != null) {
+            this.Result = new Boolean(source.Result);
+        }
+        if (source.Confidence != null) {
+            this.Confidence = new Long(source.Confidence);
+        }
+        if (source.Polygon != null) {
+            this.Polygon = new Coord[source.Polygon.length];
+            for (int i = 0; i < source.Polygon.length; i++) {
+                this.Polygon[i] = new Coord(source.Polygon[i]);
+            }
+        }
+        if (source.AdvancedInfo != null) {
+            this.AdvancedInfo = new String(source.AdvancedInfo);
+        }
+        if (source.ItemCoord != null) {
+            this.ItemCoord = new ItemCoord(source.ItemCoord);
+        }
+        if (source.ExpressionType != null) {
+            this.ExpressionType = new String(source.ExpressionType);
+        }
+        if (source.Answer != null) {
+            this.Answer = new String(source.Answer);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -254,6 +315,7 @@ public class TextArithmetic extends AbstractModel{
         this.setParamSimple(map, prefix + "AdvancedInfo", this.AdvancedInfo);
         this.setParamObj(map, prefix + "ItemCoord.", this.ItemCoord);
         this.setParamSimple(map, prefix + "ExpressionType", this.ExpressionType);
+        this.setParamSimple(map, prefix + "Answer", this.Answer);
 
     }
 }

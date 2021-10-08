@@ -37,6 +37,13 @@ public class DeleteProjectRequest extends AbstractModel{
     private String ProjectId;
 
     /**
+    * 操作者。填写用户的 Id，用于标识调用者及校验对项目删除操作权限。
+    */
+    @SerializedName("Operator")
+    @Expose
+    private String Operator;
+
+    /**
      * Get 平台名称，指定访问的平台。 
      * @return Platform 平台名称，指定访问的平台。
      */
@@ -69,11 +76,48 @@ public class DeleteProjectRequest extends AbstractModel{
     }
 
     /**
+     * Get 操作者。填写用户的 Id，用于标识调用者及校验对项目删除操作权限。 
+     * @return Operator 操作者。填写用户的 Id，用于标识调用者及校验对项目删除操作权限。
+     */
+    public String getOperator() {
+        return this.Operator;
+    }
+
+    /**
+     * Set 操作者。填写用户的 Id，用于标识调用者及校验对项目删除操作权限。
+     * @param Operator 操作者。填写用户的 Id，用于标识调用者及校验对项目删除操作权限。
+     */
+    public void setOperator(String Operator) {
+        this.Operator = Operator;
+    }
+
+    public DeleteProjectRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeleteProjectRequest(DeleteProjectRequest source) {
+        if (source.Platform != null) {
+            this.Platform = new String(source.Platform);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
+        }
+        if (source.Operator != null) {
+            this.Operator = new String(source.Operator);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Platform", this.Platform);
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
+        this.setParamSimple(map, prefix + "Operator", this.Operator);
 
     }
 }

@@ -23,27 +23,41 @@ import java.util.HashMap;
 public class DestroyDBInstanceRequest extends AbstractModel{
 
     /**
-    * 待删除实例标识符
+    * 待下线实例ID
     */
     @SerializedName("DBInstanceId")
     @Expose
     private String DBInstanceId;
 
     /**
-     * Get 待删除实例标识符 
-     * @return DBInstanceId 待删除实例标识符
+     * Get 待下线实例ID 
+     * @return DBInstanceId 待下线实例ID
      */
     public String getDBInstanceId() {
         return this.DBInstanceId;
     }
 
     /**
-     * Set 待删除实例标识符
-     * @param DBInstanceId 待删除实例标识符
+     * Set 待下线实例ID
+     * @param DBInstanceId 待下线实例ID
      */
     public void setDBInstanceId(String DBInstanceId) {
         this.DBInstanceId = DBInstanceId;
     }
+
+    public DestroyDBInstanceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DestroyDBInstanceRequest(DestroyDBInstanceRequest source) {
+        if (source.DBInstanceId != null) {
+            this.DBInstanceId = new String(source.DBInstanceId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

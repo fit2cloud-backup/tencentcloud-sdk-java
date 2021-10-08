@@ -124,7 +124,7 @@ public class Cluster extends AbstractModel{
     private String ImageId;
 
     /**
-    * OsCustomizeType
+    * OsCustomizeType 系统定制类型
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OsCustomizeType")
@@ -146,6 +146,22 @@ public class Cluster extends AbstractModel{
     @SerializedName("CreatedTime")
     @Expose
     private String CreatedTime;
+
+    /**
+    * 删除保护开关
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DeletionProtection")
+    @Expose
+    private Boolean DeletionProtection;
+
+    /**
+    * 集群是否开启第三方节点支持
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EnableExternalNode")
+    @Expose
+    private Boolean EnableExternalNode;
 
     /**
      * Get 集群ID 
@@ -384,9 +400,9 @@ public class Cluster extends AbstractModel{
     }
 
     /**
-     * Get OsCustomizeType
+     * Get OsCustomizeType 系统定制类型
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return OsCustomizeType OsCustomizeType
+     * @return OsCustomizeType OsCustomizeType 系统定制类型
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOsCustomizeType() {
@@ -394,9 +410,9 @@ public class Cluster extends AbstractModel{
     }
 
     /**
-     * Set OsCustomizeType
+     * Set OsCustomizeType 系统定制类型
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param OsCustomizeType OsCustomizeType
+     * @param OsCustomizeType OsCustomizeType 系统定制类型
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOsCustomizeType(String OsCustomizeType) {
@@ -444,6 +460,117 @@ public class Cluster extends AbstractModel{
     }
 
     /**
+     * Get 删除保护开关
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DeletionProtection 删除保护开关
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getDeletionProtection() {
+        return this.DeletionProtection;
+    }
+
+    /**
+     * Set 删除保护开关
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DeletionProtection 删除保护开关
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDeletionProtection(Boolean DeletionProtection) {
+        this.DeletionProtection = DeletionProtection;
+    }
+
+    /**
+     * Get 集群是否开启第三方节点支持
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EnableExternalNode 集群是否开启第三方节点支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getEnableExternalNode() {
+        return this.EnableExternalNode;
+    }
+
+    /**
+     * Set 集群是否开启第三方节点支持
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EnableExternalNode 集群是否开启第三方节点支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEnableExternalNode(Boolean EnableExternalNode) {
+        this.EnableExternalNode = EnableExternalNode;
+    }
+
+    public Cluster() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Cluster(Cluster source) {
+        if (source.ClusterId != null) {
+            this.ClusterId = new String(source.ClusterId);
+        }
+        if (source.ClusterName != null) {
+            this.ClusterName = new String(source.ClusterName);
+        }
+        if (source.ClusterDescription != null) {
+            this.ClusterDescription = new String(source.ClusterDescription);
+        }
+        if (source.ClusterVersion != null) {
+            this.ClusterVersion = new String(source.ClusterVersion);
+        }
+        if (source.ClusterOs != null) {
+            this.ClusterOs = new String(source.ClusterOs);
+        }
+        if (source.ClusterType != null) {
+            this.ClusterType = new String(source.ClusterType);
+        }
+        if (source.ClusterNetworkSettings != null) {
+            this.ClusterNetworkSettings = new ClusterNetworkSettings(source.ClusterNetworkSettings);
+        }
+        if (source.ClusterNodeNum != null) {
+            this.ClusterNodeNum = new Long(source.ClusterNodeNum);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.TagSpecification != null) {
+            this.TagSpecification = new TagSpecification[source.TagSpecification.length];
+            for (int i = 0; i < source.TagSpecification.length; i++) {
+                this.TagSpecification[i] = new TagSpecification(source.TagSpecification[i]);
+            }
+        }
+        if (source.ClusterStatus != null) {
+            this.ClusterStatus = new String(source.ClusterStatus);
+        }
+        if (source.Property != null) {
+            this.Property = new String(source.Property);
+        }
+        if (source.ClusterMaterNodeNum != null) {
+            this.ClusterMaterNodeNum = new Long(source.ClusterMaterNodeNum);
+        }
+        if (source.ImageId != null) {
+            this.ImageId = new String(source.ImageId);
+        }
+        if (source.OsCustomizeType != null) {
+            this.OsCustomizeType = new String(source.OsCustomizeType);
+        }
+        if (source.ContainerRuntime != null) {
+            this.ContainerRuntime = new String(source.ContainerRuntime);
+        }
+        if (source.CreatedTime != null) {
+            this.CreatedTime = new String(source.CreatedTime);
+        }
+        if (source.DeletionProtection != null) {
+            this.DeletionProtection = new Boolean(source.DeletionProtection);
+        }
+        if (source.EnableExternalNode != null) {
+            this.EnableExternalNode = new Boolean(source.EnableExternalNode);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -464,6 +591,8 @@ public class Cluster extends AbstractModel{
         this.setParamSimple(map, prefix + "OsCustomizeType", this.OsCustomizeType);
         this.setParamSimple(map, prefix + "ContainerRuntime", this.ContainerRuntime);
         this.setParamSimple(map, prefix + "CreatedTime", this.CreatedTime);
+        this.setParamSimple(map, prefix + "DeletionProtection", this.DeletionProtection);
+        this.setParamSimple(map, prefix + "EnableExternalNode", this.EnableExternalNode);
 
     }
 }

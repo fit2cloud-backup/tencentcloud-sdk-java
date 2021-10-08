@@ -24,7 +24,6 @@ public class AiReviewPoliticalTaskOutput extends AbstractModel{
 
     /**
     * 视频涉政评分，分值为0到100。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Confidence")
     @Expose
@@ -35,17 +34,17 @@ public class AiReviewPoliticalTaskOutput extends AbstractModel{
 <li>pass。</li>
 <li>review。</li>
 <li>block。</li>
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Suggestion")
     @Expose
     private String Suggestion;
 
     /**
-    * 视频鉴政结果标签，取值范围：
-<li>politician：政治人物。</li>
+    * 视频鉴政结果标签。内容审核模板[画面鉴政任务控制参数](https://cloud.tencent.com/document/api/266/31773#PoliticalImgReviewTemplateInfo)里 LabelSet 参数与此参数取值范围的对应关系：
+violation_photo：
 <li>violation_photo：违规图标。</li>
-注意：此字段可能返回 null，表示取不到有效值。
+其他（即 politician/entertainment/sport/entrepreneur/scholar/celebrity/military）：
+<li>politician：政治人物。</li>
     */
     @SerializedName("Label")
     @Expose
@@ -53,17 +52,14 @@ public class AiReviewPoliticalTaskOutput extends AbstractModel{
 
     /**
     * 有涉政嫌疑的视频片段列表。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SegmentSet")
     @Expose
     private MediaContentReviewPoliticalSegmentItem [] SegmentSet;
 
     /**
-     * Get 视频涉政评分，分值为0到100。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 视频涉政评分，分值为0到100。 
      * @return Confidence 视频涉政评分，分值为0到100。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getConfidence() {
         return this.Confidence;
@@ -71,9 +67,7 @@ public class AiReviewPoliticalTaskOutput extends AbstractModel{
 
     /**
      * Set 视频涉政评分，分值为0到100。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Confidence 视频涉政评分，分值为0到100。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setConfidence(Float Confidence) {
         this.Confidence = Confidence;
@@ -83,13 +77,11 @@ public class AiReviewPoliticalTaskOutput extends AbstractModel{
      * Get 涉政结果建议，取值范围：
 <li>pass。</li>
 <li>review。</li>
-<li>block。</li>
-注意：此字段可能返回 null，表示取不到有效值。 
+<li>block。</li> 
      * @return Suggestion 涉政结果建议，取值范围：
 <li>pass。</li>
 <li>review。</li>
 <li>block。</li>
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSuggestion() {
         return this.Suggestion;
@@ -100,50 +92,50 @@ public class AiReviewPoliticalTaskOutput extends AbstractModel{
 <li>pass。</li>
 <li>review。</li>
 <li>block。</li>
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Suggestion 涉政结果建议，取值范围：
 <li>pass。</li>
 <li>review。</li>
 <li>block。</li>
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSuggestion(String Suggestion) {
         this.Suggestion = Suggestion;
     }
 
     /**
-     * Get 视频鉴政结果标签，取值范围：
-<li>politician：政治人物。</li>
+     * Get 视频鉴政结果标签。内容审核模板[画面鉴政任务控制参数](https://cloud.tencent.com/document/api/266/31773#PoliticalImgReviewTemplateInfo)里 LabelSet 参数与此参数取值范围的对应关系：
+violation_photo：
 <li>violation_photo：违规图标。</li>
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Label 视频鉴政结果标签，取值范围：
-<li>politician：政治人物。</li>
+其他（即 politician/entertainment/sport/entrepreneur/scholar/celebrity/military）：
+<li>politician：政治人物。</li> 
+     * @return Label 视频鉴政结果标签。内容审核模板[画面鉴政任务控制参数](https://cloud.tencent.com/document/api/266/31773#PoliticalImgReviewTemplateInfo)里 LabelSet 参数与此参数取值范围的对应关系：
+violation_photo：
 <li>violation_photo：违规图标。</li>
-注意：此字段可能返回 null，表示取不到有效值。
+其他（即 politician/entertainment/sport/entrepreneur/scholar/celebrity/military）：
+<li>politician：政治人物。</li>
      */
     public String getLabel() {
         return this.Label;
     }
 
     /**
-     * Set 视频鉴政结果标签，取值范围：
-<li>politician：政治人物。</li>
+     * Set 视频鉴政结果标签。内容审核模板[画面鉴政任务控制参数](https://cloud.tencent.com/document/api/266/31773#PoliticalImgReviewTemplateInfo)里 LabelSet 参数与此参数取值范围的对应关系：
+violation_photo：
 <li>violation_photo：违规图标。</li>
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Label 视频鉴政结果标签，取值范围：
+其他（即 politician/entertainment/sport/entrepreneur/scholar/celebrity/military）：
 <li>politician：政治人物。</li>
+     * @param Label 视频鉴政结果标签。内容审核模板[画面鉴政任务控制参数](https://cloud.tencent.com/document/api/266/31773#PoliticalImgReviewTemplateInfo)里 LabelSet 参数与此参数取值范围的对应关系：
+violation_photo：
 <li>violation_photo：违规图标。</li>
-注意：此字段可能返回 null，表示取不到有效值。
+其他（即 politician/entertainment/sport/entrepreneur/scholar/celebrity/military）：
+<li>politician：政治人物。</li>
      */
     public void setLabel(String Label) {
         this.Label = Label;
     }
 
     /**
-     * Get 有涉政嫌疑的视频片段列表。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 有涉政嫌疑的视频片段列表。 
      * @return SegmentSet 有涉政嫌疑的视频片段列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MediaContentReviewPoliticalSegmentItem [] getSegmentSet() {
         return this.SegmentSet;
@@ -151,13 +143,37 @@ public class AiReviewPoliticalTaskOutput extends AbstractModel{
 
     /**
      * Set 有涉政嫌疑的视频片段列表。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SegmentSet 有涉政嫌疑的视频片段列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSegmentSet(MediaContentReviewPoliticalSegmentItem [] SegmentSet) {
         this.SegmentSet = SegmentSet;
     }
+
+    public AiReviewPoliticalTaskOutput() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AiReviewPoliticalTaskOutput(AiReviewPoliticalTaskOutput source) {
+        if (source.Confidence != null) {
+            this.Confidence = new Float(source.Confidence);
+        }
+        if (source.Suggestion != null) {
+            this.Suggestion = new String(source.Suggestion);
+        }
+        if (source.Label != null) {
+            this.Label = new String(source.Label);
+        }
+        if (source.SegmentSet != null) {
+            this.SegmentSet = new MediaContentReviewPoliticalSegmentItem[source.SegmentSet.length];
+            for (int i = 0; i < source.SegmentSet.length; i++) {
+                this.SegmentSet[i] = new MediaContentReviewPoliticalSegmentItem(source.SegmentSet[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

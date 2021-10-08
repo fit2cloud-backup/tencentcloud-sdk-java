@@ -43,7 +43,7 @@ public class ModifyNotificationConfigurationRequest extends AbstractModel{
     private String [] NotificationTypes;
 
     /**
-    * 通知组ID，即为用户组ID集合，用户组ID可以通过[DescribeUserGroup](https://cloud.tencent.com/document/api/378/4404)查询。
+    * 通知组ID，即为用户组ID集合，用户组ID可以通过[ListGroups](https://cloud.tencent.com/document/product/598/34589)查询。
     */
     @SerializedName("NotificationUserGroupIds")
     @Expose
@@ -106,20 +106,46 @@ public class ModifyNotificationConfigurationRequest extends AbstractModel{
     }
 
     /**
-     * Get 通知组ID，即为用户组ID集合，用户组ID可以通过[DescribeUserGroup](https://cloud.tencent.com/document/api/378/4404)查询。 
-     * @return NotificationUserGroupIds 通知组ID，即为用户组ID集合，用户组ID可以通过[DescribeUserGroup](https://cloud.tencent.com/document/api/378/4404)查询。
+     * Get 通知组ID，即为用户组ID集合，用户组ID可以通过[ListGroups](https://cloud.tencent.com/document/product/598/34589)查询。 
+     * @return NotificationUserGroupIds 通知组ID，即为用户组ID集合，用户组ID可以通过[ListGroups](https://cloud.tencent.com/document/product/598/34589)查询。
      */
     public String [] getNotificationUserGroupIds() {
         return this.NotificationUserGroupIds;
     }
 
     /**
-     * Set 通知组ID，即为用户组ID集合，用户组ID可以通过[DescribeUserGroup](https://cloud.tencent.com/document/api/378/4404)查询。
-     * @param NotificationUserGroupIds 通知组ID，即为用户组ID集合，用户组ID可以通过[DescribeUserGroup](https://cloud.tencent.com/document/api/378/4404)查询。
+     * Set 通知组ID，即为用户组ID集合，用户组ID可以通过[ListGroups](https://cloud.tencent.com/document/product/598/34589)查询。
+     * @param NotificationUserGroupIds 通知组ID，即为用户组ID集合，用户组ID可以通过[ListGroups](https://cloud.tencent.com/document/product/598/34589)查询。
      */
     public void setNotificationUserGroupIds(String [] NotificationUserGroupIds) {
         this.NotificationUserGroupIds = NotificationUserGroupIds;
     }
+
+    public ModifyNotificationConfigurationRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyNotificationConfigurationRequest(ModifyNotificationConfigurationRequest source) {
+        if (source.AutoScalingNotificationId != null) {
+            this.AutoScalingNotificationId = new String(source.AutoScalingNotificationId);
+        }
+        if (source.NotificationTypes != null) {
+            this.NotificationTypes = new String[source.NotificationTypes.length];
+            for (int i = 0; i < source.NotificationTypes.length; i++) {
+                this.NotificationTypes[i] = new String(source.NotificationTypes[i]);
+            }
+        }
+        if (source.NotificationUserGroupIds != null) {
+            this.NotificationUserGroupIds = new String[source.NotificationUserGroupIds.length];
+            for (int i = 0; i < source.NotificationUserGroupIds.length; i++) {
+                this.NotificationUserGroupIds[i] = new String(source.NotificationUserGroupIds[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

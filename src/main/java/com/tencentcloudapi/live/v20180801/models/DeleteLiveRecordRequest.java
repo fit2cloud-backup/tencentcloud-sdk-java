@@ -30,7 +30,7 @@ public class DeleteLiveRecordRequest extends AbstractModel{
     private String StreamName;
 
     /**
-    * 任务ID，全局唯一标识录制任务。
+    * 任务ID，由CreateLiveRecord接口返回。
     */
     @SerializedName("TaskId")
     @Expose
@@ -53,20 +53,37 @@ public class DeleteLiveRecordRequest extends AbstractModel{
     }
 
     /**
-     * Get 任务ID，全局唯一标识录制任务。 
-     * @return TaskId 任务ID，全局唯一标识录制任务。
+     * Get 任务ID，由CreateLiveRecord接口返回。 
+     * @return TaskId 任务ID，由CreateLiveRecord接口返回。
      */
     public Long getTaskId() {
         return this.TaskId;
     }
 
     /**
-     * Set 任务ID，全局唯一标识录制任务。
-     * @param TaskId 任务ID，全局唯一标识录制任务。
+     * Set 任务ID，由CreateLiveRecord接口返回。
+     * @param TaskId 任务ID，由CreateLiveRecord接口返回。
      */
     public void setTaskId(Long TaskId) {
         this.TaskId = TaskId;
     }
+
+    public DeleteLiveRecordRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeleteLiveRecordRequest(DeleteLiveRecordRequest source) {
+        if (source.StreamName != null) {
+            this.StreamName = new String(source.StreamName);
+        }
+        if (source.TaskId != null) {
+            this.TaskId = new Long(source.TaskId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

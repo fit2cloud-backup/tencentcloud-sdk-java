@@ -79,6 +79,22 @@ public class MetricSet extends AbstractModel{
     private DimensionsDesc [] Dimensions;
 
     /**
+    * 指标中文名
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MetricCName")
+    @Expose
+    private String MetricCName;
+
+    /**
+    * 指标英文名
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MetricEName")
+    @Expose
+    private String MetricEName;
+
+    /**
      * Get 命名空间，每个云产品会有一个命名空间 
      * @return Namespace 命名空间，每个云产品会有一个命名空间
      */
@@ -207,6 +223,96 @@ public class MetricSet extends AbstractModel{
     }
 
     /**
+     * Get 指标中文名
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MetricCName 指标中文名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getMetricCName() {
+        return this.MetricCName;
+    }
+
+    /**
+     * Set 指标中文名
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MetricCName 指标中文名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMetricCName(String MetricCName) {
+        this.MetricCName = MetricCName;
+    }
+
+    /**
+     * Get 指标英文名
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MetricEName 指标英文名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getMetricEName() {
+        return this.MetricEName;
+    }
+
+    /**
+     * Set 指标英文名
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MetricEName 指标英文名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMetricEName(String MetricEName) {
+        this.MetricEName = MetricEName;
+    }
+
+    public MetricSet() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MetricSet(MetricSet source) {
+        if (source.Namespace != null) {
+            this.Namespace = new String(source.Namespace);
+        }
+        if (source.MetricName != null) {
+            this.MetricName = new String(source.MetricName);
+        }
+        if (source.Unit != null) {
+            this.Unit = new String(source.Unit);
+        }
+        if (source.UnitCname != null) {
+            this.UnitCname = new String(source.UnitCname);
+        }
+        if (source.Period != null) {
+            this.Period = new Long[source.Period.length];
+            for (int i = 0; i < source.Period.length; i++) {
+                this.Period[i] = new Long(source.Period[i]);
+            }
+        }
+        if (source.Periods != null) {
+            this.Periods = new PeriodsSt[source.Periods.length];
+            for (int i = 0; i < source.Periods.length; i++) {
+                this.Periods[i] = new PeriodsSt(source.Periods[i]);
+            }
+        }
+        if (source.Meaning != null) {
+            this.Meaning = new MetricObjectMeaning(source.Meaning);
+        }
+        if (source.Dimensions != null) {
+            this.Dimensions = new DimensionsDesc[source.Dimensions.length];
+            for (int i = 0; i < source.Dimensions.length; i++) {
+                this.Dimensions[i] = new DimensionsDesc(source.Dimensions[i]);
+            }
+        }
+        if (source.MetricCName != null) {
+            this.MetricCName = new String(source.MetricCName);
+        }
+        if (source.MetricEName != null) {
+            this.MetricEName = new String(source.MetricEName);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -218,6 +324,8 @@ public class MetricSet extends AbstractModel{
         this.setParamArrayObj(map, prefix + "Periods.", this.Periods);
         this.setParamObj(map, prefix + "Meaning.", this.Meaning);
         this.setParamArrayObj(map, prefix + "Dimensions.", this.Dimensions);
+        this.setParamSimple(map, prefix + "MetricCName", this.MetricCName);
+        this.setParamSimple(map, prefix + "MetricEName", this.MetricEName);
 
     }
 }

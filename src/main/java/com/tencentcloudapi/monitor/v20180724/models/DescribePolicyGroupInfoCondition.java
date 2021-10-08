@@ -96,6 +96,14 @@ public class DescribePolicyGroupInfoCondition extends AbstractModel{
     private Long ContinueTime;
 
     /**
+    * 告警指标名
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MetricName")
+    @Expose
+    private String MetricName;
+
+    /**
      * Get 指标名称 
      * @return MetricShowName 指标名称
      */
@@ -268,6 +276,70 @@ public class DescribePolicyGroupInfoCondition extends AbstractModel{
     }
 
     /**
+     * Get 告警指标名
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MetricName 告警指标名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getMetricName() {
+        return this.MetricName;
+    }
+
+    /**
+     * Set 告警指标名
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MetricName 告警指标名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMetricName(String MetricName) {
+        this.MetricName = MetricName;
+    }
+
+    public DescribePolicyGroupInfoCondition() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribePolicyGroupInfoCondition(DescribePolicyGroupInfoCondition source) {
+        if (source.MetricShowName != null) {
+            this.MetricShowName = new String(source.MetricShowName);
+        }
+        if (source.Period != null) {
+            this.Period = new Long(source.Period);
+        }
+        if (source.MetricId != null) {
+            this.MetricId = new Long(source.MetricId);
+        }
+        if (source.RuleId != null) {
+            this.RuleId = new Long(source.RuleId);
+        }
+        if (source.Unit != null) {
+            this.Unit = new String(source.Unit);
+        }
+        if (source.AlarmNotifyType != null) {
+            this.AlarmNotifyType = new Long(source.AlarmNotifyType);
+        }
+        if (source.AlarmNotifyPeriod != null) {
+            this.AlarmNotifyPeriod = new Long(source.AlarmNotifyPeriod);
+        }
+        if (source.CalcType != null) {
+            this.CalcType = new Long(source.CalcType);
+        }
+        if (source.CalcValue != null) {
+            this.CalcValue = new String(source.CalcValue);
+        }
+        if (source.ContinueTime != null) {
+            this.ContinueTime = new Long(source.ContinueTime);
+        }
+        if (source.MetricName != null) {
+            this.MetricName = new String(source.MetricName);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -281,6 +353,7 @@ public class DescribePolicyGroupInfoCondition extends AbstractModel{
         this.setParamSimple(map, prefix + "CalcType", this.CalcType);
         this.setParamSimple(map, prefix + "CalcValue", this.CalcValue);
         this.setParamSimple(map, prefix + "ContinueTime", this.ContinueTime);
+        this.setParamSimple(map, prefix + "MetricName", this.MetricName);
 
     }
 }

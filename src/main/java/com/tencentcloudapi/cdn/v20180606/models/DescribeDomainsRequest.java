@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeDomainsRequest extends AbstractModel{
 
     /**
-    * 分页查询偏移量，默认为 0 （第一页）
+    * 分页查询偏移量，默认为 0
     */
     @SerializedName("Offset")
     @Expose
@@ -44,16 +44,16 @@ public class DescribeDomainsRequest extends AbstractModel{
     private DomainFilter [] Filters;
 
     /**
-     * Get 分页查询偏移量，默认为 0 （第一页） 
-     * @return Offset 分页查询偏移量，默认为 0 （第一页）
+     * Get 分页查询偏移量，默认为 0 
+     * @return Offset 分页查询偏移量，默认为 0
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 分页查询偏移量，默认为 0 （第一页）
-     * @param Offset 分页查询偏移量，默认为 0 （第一页）
+     * Set 分页查询偏移量，默认为 0
+     * @param Offset 分页查询偏移量，默认为 0
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
@@ -90,6 +90,29 @@ public class DescribeDomainsRequest extends AbstractModel{
     public void setFilters(DomainFilter [] Filters) {
         this.Filters = Filters;
     }
+
+    public DescribeDomainsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeDomainsRequest(DescribeDomainsRequest source) {
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Filters != null) {
+            this.Filters = new DomainFilter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new DomainFilter(source.Filters[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

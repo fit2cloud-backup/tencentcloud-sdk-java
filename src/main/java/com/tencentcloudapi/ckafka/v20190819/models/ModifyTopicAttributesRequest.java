@@ -93,6 +93,27 @@ public class ModifyTopicAttributesRequest extends AbstractModel{
     private String CleanUpPolicy;
 
     /**
+    * Ip白名单列表，配额限制，enableWhileList=1时必选
+    */
+    @SerializedName("IpWhiteList")
+    @Expose
+    private String [] IpWhiteList;
+
+    /**
+    * 预设ACL规则, 1:打开  0:关闭，默认不打开
+    */
+    @SerializedName("EnableAclRule")
+    @Expose
+    private Long EnableAclRule;
+
+    /**
+    * 预设ACL规则的名称
+    */
+    @SerializedName("AclRuleName")
+    @Expose
+    private String AclRuleName;
+
+    /**
      * Get 实例 ID。 
      * @return InstanceId 实例 ID。
      */
@@ -253,6 +274,107 @@ public class ModifyTopicAttributesRequest extends AbstractModel{
     }
 
     /**
+     * Get Ip白名单列表，配额限制，enableWhileList=1时必选 
+     * @return IpWhiteList Ip白名单列表，配额限制，enableWhileList=1时必选
+     */
+    public String [] getIpWhiteList() {
+        return this.IpWhiteList;
+    }
+
+    /**
+     * Set Ip白名单列表，配额限制，enableWhileList=1时必选
+     * @param IpWhiteList Ip白名单列表，配额限制，enableWhileList=1时必选
+     */
+    public void setIpWhiteList(String [] IpWhiteList) {
+        this.IpWhiteList = IpWhiteList;
+    }
+
+    /**
+     * Get 预设ACL规则, 1:打开  0:关闭，默认不打开 
+     * @return EnableAclRule 预设ACL规则, 1:打开  0:关闭，默认不打开
+     */
+    public Long getEnableAclRule() {
+        return this.EnableAclRule;
+    }
+
+    /**
+     * Set 预设ACL规则, 1:打开  0:关闭，默认不打开
+     * @param EnableAclRule 预设ACL规则, 1:打开  0:关闭，默认不打开
+     */
+    public void setEnableAclRule(Long EnableAclRule) {
+        this.EnableAclRule = EnableAclRule;
+    }
+
+    /**
+     * Get 预设ACL规则的名称 
+     * @return AclRuleName 预设ACL规则的名称
+     */
+    public String getAclRuleName() {
+        return this.AclRuleName;
+    }
+
+    /**
+     * Set 预设ACL规则的名称
+     * @param AclRuleName 预设ACL规则的名称
+     */
+    public void setAclRuleName(String AclRuleName) {
+        this.AclRuleName = AclRuleName;
+    }
+
+    public ModifyTopicAttributesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyTopicAttributesRequest(ModifyTopicAttributesRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.TopicName != null) {
+            this.TopicName = new String(source.TopicName);
+        }
+        if (source.Note != null) {
+            this.Note = new String(source.Note);
+        }
+        if (source.EnableWhiteList != null) {
+            this.EnableWhiteList = new Long(source.EnableWhiteList);
+        }
+        if (source.MinInsyncReplicas != null) {
+            this.MinInsyncReplicas = new Long(source.MinInsyncReplicas);
+        }
+        if (source.UncleanLeaderElectionEnable != null) {
+            this.UncleanLeaderElectionEnable = new Long(source.UncleanLeaderElectionEnable);
+        }
+        if (source.RetentionMs != null) {
+            this.RetentionMs = new Long(source.RetentionMs);
+        }
+        if (source.SegmentMs != null) {
+            this.SegmentMs = new Long(source.SegmentMs);
+        }
+        if (source.MaxMessageBytes != null) {
+            this.MaxMessageBytes = new Long(source.MaxMessageBytes);
+        }
+        if (source.CleanUpPolicy != null) {
+            this.CleanUpPolicy = new String(source.CleanUpPolicy);
+        }
+        if (source.IpWhiteList != null) {
+            this.IpWhiteList = new String[source.IpWhiteList.length];
+            for (int i = 0; i < source.IpWhiteList.length; i++) {
+                this.IpWhiteList[i] = new String(source.IpWhiteList[i]);
+            }
+        }
+        if (source.EnableAclRule != null) {
+            this.EnableAclRule = new Long(source.EnableAclRule);
+        }
+        if (source.AclRuleName != null) {
+            this.AclRuleName = new String(source.AclRuleName);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -266,6 +388,9 @@ public class ModifyTopicAttributesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SegmentMs", this.SegmentMs);
         this.setParamSimple(map, prefix + "MaxMessageBytes", this.MaxMessageBytes);
         this.setParamSimple(map, prefix + "CleanUpPolicy", this.CleanUpPolicy);
+        this.setParamArraySimple(map, prefix + "IpWhiteList.", this.IpWhiteList);
+        this.setParamSimple(map, prefix + "EnableAclRule", this.EnableAclRule);
+        this.setParamSimple(map, prefix + "AclRuleName", this.AclRuleName);
 
     }
 }

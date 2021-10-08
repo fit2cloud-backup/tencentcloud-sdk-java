@@ -23,7 +23,8 @@ import java.util.HashMap;
 public class EnterpriseLicenseInfo extends AbstractModel{
 
     /**
-    * 识别出的字段名称。
+    * 识别出的字段名称（关键字），不同证件类型可能不同，证件类型包含企业登记证书、许可证书、企业执照、三证合一类证书；
+支持以下字段：统一社会信用代码、法定代表人、公司名称、公司地址、注册资金、企业关型、经营范围、成立日期、有效期、开办资金、经费来源、举办单位等；
     */
     @SerializedName("Name")
     @Expose
@@ -37,16 +38,20 @@ public class EnterpriseLicenseInfo extends AbstractModel{
     private String Value;
 
     /**
-     * Get 识别出的字段名称。 
-     * @return Name 识别出的字段名称。
+     * Get 识别出的字段名称（关键字），不同证件类型可能不同，证件类型包含企业登记证书、许可证书、企业执照、三证合一类证书；
+支持以下字段：统一社会信用代码、法定代表人、公司名称、公司地址、注册资金、企业关型、经营范围、成立日期、有效期、开办资金、经费来源、举办单位等； 
+     * @return Name 识别出的字段名称（关键字），不同证件类型可能不同，证件类型包含企业登记证书、许可证书、企业执照、三证合一类证书；
+支持以下字段：统一社会信用代码、法定代表人、公司名称、公司地址、注册资金、企业关型、经营范围、成立日期、有效期、开办资金、经费来源、举办单位等；
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 识别出的字段名称。
-     * @param Name 识别出的字段名称。
+     * Set 识别出的字段名称（关键字），不同证件类型可能不同，证件类型包含企业登记证书、许可证书、企业执照、三证合一类证书；
+支持以下字段：统一社会信用代码、法定代表人、公司名称、公司地址、注册资金、企业关型、经营范围、成立日期、有效期、开办资金、经费来源、举办单位等；
+     * @param Name 识别出的字段名称（关键字），不同证件类型可能不同，证件类型包含企业登记证书、许可证书、企业执照、三证合一类证书；
+支持以下字段：统一社会信用代码、法定代表人、公司名称、公司地址、注册资金、企业关型、经营范围、成立日期、有效期、开办资金、经费来源、举办单位等；
      */
     public void setName(String Name) {
         this.Name = Name;
@@ -67,6 +72,23 @@ public class EnterpriseLicenseInfo extends AbstractModel{
     public void setValue(String Value) {
         this.Value = Value;
     }
+
+    public EnterpriseLicenseInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public EnterpriseLicenseInfo(EnterpriseLicenseInfo source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Value != null) {
+            this.Value = new String(source.Value);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

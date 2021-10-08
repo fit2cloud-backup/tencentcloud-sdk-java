@@ -23,15 +23,16 @@ import java.util.HashMap;
 public class CreateLiveSnapshotTemplateRequest extends AbstractModel{
 
     /**
-    * 模板名称，非空的字符串。
+    * 模板名称。
 长度上限：255字节。
+仅支持中文、英文、数字、_、-。
     */
     @SerializedName("TemplateName")
     @Expose
     private String TemplateName;
 
     /**
-    * Cos AppId。
+    * Cos 应用 ID。
     */
     @SerializedName("CosAppId")
     @Expose
@@ -39,6 +40,7 @@ public class CreateLiveSnapshotTemplateRequest extends AbstractModel{
 
     /**
     * Cos Bucket名称。
+注：CosBucket参数值不能包含-[appid] 部分。
     */
     @SerializedName("CosBucket")
     @Expose
@@ -54,6 +56,7 @@ public class CreateLiveSnapshotTemplateRequest extends AbstractModel{
     /**
     * 描述信息。
 长度上限：1024字节。
+仅支持中文、英文、数字、_、-。
     */
     @SerializedName("Description")
     @Expose
@@ -61,7 +64,7 @@ public class CreateLiveSnapshotTemplateRequest extends AbstractModel{
 
     /**
     * 截图间隔，单位s，默认10s。
-范围： 5s ~ 600s。
+范围： 5s ~ 300s。
     */
     @SerializedName("SnapshotInterval")
     @Expose
@@ -69,6 +72,7 @@ public class CreateLiveSnapshotTemplateRequest extends AbstractModel{
 
     /**
     * 截图宽度。默认：0（原始宽）。
+范围：0-3000 。
     */
     @SerializedName("Width")
     @Expose
@@ -76,6 +80,7 @@ public class CreateLiveSnapshotTemplateRequest extends AbstractModel{
 
     /**
     * 截图高度。默认：0（原始高）。
+范围：0-2000 。
     */
     @SerializedName("Height")
     @Expose
@@ -89,44 +94,70 @@ public class CreateLiveSnapshotTemplateRequest extends AbstractModel{
     private Long PornFlag;
 
     /**
-     * Get 模板名称，非空的字符串。
-长度上限：255字节。 
-     * @return TemplateName 模板名称，非空的字符串。
+    * Cos Bucket文件夹前缀。
+如不传，实际按默认值
+/{Year}-{Month}-{Day}
+生效
+    */
+    @SerializedName("CosPrefix")
+    @Expose
+    private String CosPrefix;
+
+    /**
+    * Cos 文件名称。
+如不传，实际按默认值
+{StreamID}-screenshot-{Hour}-{Minute}-{Second}-{Width}x{Height}{Ext}
+生效
+    */
+    @SerializedName("CosFileName")
+    @Expose
+    private String CosFileName;
+
+    /**
+     * Get 模板名称。
 长度上限：255字节。
+仅支持中文、英文、数字、_、-。 
+     * @return TemplateName 模板名称。
+长度上限：255字节。
+仅支持中文、英文、数字、_、-。
      */
     public String getTemplateName() {
         return this.TemplateName;
     }
 
     /**
-     * Set 模板名称，非空的字符串。
+     * Set 模板名称。
 长度上限：255字节。
-     * @param TemplateName 模板名称，非空的字符串。
+仅支持中文、英文、数字、_、-。
+     * @param TemplateName 模板名称。
 长度上限：255字节。
+仅支持中文、英文、数字、_、-。
      */
     public void setTemplateName(String TemplateName) {
         this.TemplateName = TemplateName;
     }
 
     /**
-     * Get Cos AppId。 
-     * @return CosAppId Cos AppId。
+     * Get Cos 应用 ID。 
+     * @return CosAppId Cos 应用 ID。
      */
     public Long getCosAppId() {
         return this.CosAppId;
     }
 
     /**
-     * Set Cos AppId。
-     * @param CosAppId Cos AppId。
+     * Set Cos 应用 ID。
+     * @param CosAppId Cos 应用 ID。
      */
     public void setCosAppId(Long CosAppId) {
         this.CosAppId = CosAppId;
     }
 
     /**
-     * Get Cos Bucket名称。 
+     * Get Cos Bucket名称。
+注：CosBucket参数值不能包含-[appid] 部分。 
      * @return CosBucket Cos Bucket名称。
+注：CosBucket参数值不能包含-[appid] 部分。
      */
     public String getCosBucket() {
         return this.CosBucket;
@@ -134,7 +165,9 @@ public class CreateLiveSnapshotTemplateRequest extends AbstractModel{
 
     /**
      * Set Cos Bucket名称。
+注：CosBucket参数值不能包含-[appid] 部分。
      * @param CosBucket Cos Bucket名称。
+注：CosBucket参数值不能包含-[appid] 部分。
      */
     public void setCosBucket(String CosBucket) {
         this.CosBucket = CosBucket;
@@ -158,9 +191,11 @@ public class CreateLiveSnapshotTemplateRequest extends AbstractModel{
 
     /**
      * Get 描述信息。
-长度上限：1024字节。 
+长度上限：1024字节。
+仅支持中文、英文、数字、_、-。 
      * @return Description 描述信息。
 长度上限：1024字节。
+仅支持中文、英文、数字、_、-。
      */
     public String getDescription() {
         return this.Description;
@@ -169,8 +204,10 @@ public class CreateLiveSnapshotTemplateRequest extends AbstractModel{
     /**
      * Set 描述信息。
 长度上限：1024字节。
+仅支持中文、英文、数字、_、-。
      * @param Description 描述信息。
 长度上限：1024字节。
+仅支持中文、英文、数字、_、-。
      */
     public void setDescription(String Description) {
         this.Description = Description;
@@ -178,9 +215,9 @@ public class CreateLiveSnapshotTemplateRequest extends AbstractModel{
 
     /**
      * Get 截图间隔，单位s，默认10s。
-范围： 5s ~ 600s。 
+范围： 5s ~ 300s。 
      * @return SnapshotInterval 截图间隔，单位s，默认10s。
-范围： 5s ~ 600s。
+范围： 5s ~ 300s。
      */
     public Long getSnapshotInterval() {
         return this.SnapshotInterval;
@@ -188,17 +225,19 @@ public class CreateLiveSnapshotTemplateRequest extends AbstractModel{
 
     /**
      * Set 截图间隔，单位s，默认10s。
-范围： 5s ~ 600s。
+范围： 5s ~ 300s。
      * @param SnapshotInterval 截图间隔，单位s，默认10s。
-范围： 5s ~ 600s。
+范围： 5s ~ 300s。
      */
     public void setSnapshotInterval(Long SnapshotInterval) {
         this.SnapshotInterval = SnapshotInterval;
     }
 
     /**
-     * Get 截图宽度。默认：0（原始宽）。 
+     * Get 截图宽度。默认：0（原始宽）。
+范围：0-3000 。 
      * @return Width 截图宽度。默认：0（原始宽）。
+范围：0-3000 。
      */
     public Long getWidth() {
         return this.Width;
@@ -206,15 +245,19 @@ public class CreateLiveSnapshotTemplateRequest extends AbstractModel{
 
     /**
      * Set 截图宽度。默认：0（原始宽）。
+范围：0-3000 。
      * @param Width 截图宽度。默认：0（原始宽）。
+范围：0-3000 。
      */
     public void setWidth(Long Width) {
         this.Width = Width;
     }
 
     /**
-     * Get 截图高度。默认：0（原始高）。 
+     * Get 截图高度。默认：0（原始高）。
+范围：0-2000 。 
      * @return Height 截图高度。默认：0（原始高）。
+范围：0-2000 。
      */
     public Long getHeight() {
         return this.Height;
@@ -222,7 +265,9 @@ public class CreateLiveSnapshotTemplateRequest extends AbstractModel{
 
     /**
      * Set 截图高度。默认：0（原始高）。
+范围：0-2000 。
      * @param Height 截图高度。默认：0（原始高）。
+范围：0-2000 。
      */
     public void setHeight(Long Height) {
         this.Height = Height;
@@ -245,6 +290,106 @@ public class CreateLiveSnapshotTemplateRequest extends AbstractModel{
     }
 
     /**
+     * Get Cos Bucket文件夹前缀。
+如不传，实际按默认值
+/{Year}-{Month}-{Day}
+生效 
+     * @return CosPrefix Cos Bucket文件夹前缀。
+如不传，实际按默认值
+/{Year}-{Month}-{Day}
+生效
+     */
+    public String getCosPrefix() {
+        return this.CosPrefix;
+    }
+
+    /**
+     * Set Cos Bucket文件夹前缀。
+如不传，实际按默认值
+/{Year}-{Month}-{Day}
+生效
+     * @param CosPrefix Cos Bucket文件夹前缀。
+如不传，实际按默认值
+/{Year}-{Month}-{Day}
+生效
+     */
+    public void setCosPrefix(String CosPrefix) {
+        this.CosPrefix = CosPrefix;
+    }
+
+    /**
+     * Get Cos 文件名称。
+如不传，实际按默认值
+{StreamID}-screenshot-{Hour}-{Minute}-{Second}-{Width}x{Height}{Ext}
+生效 
+     * @return CosFileName Cos 文件名称。
+如不传，实际按默认值
+{StreamID}-screenshot-{Hour}-{Minute}-{Second}-{Width}x{Height}{Ext}
+生效
+     */
+    public String getCosFileName() {
+        return this.CosFileName;
+    }
+
+    /**
+     * Set Cos 文件名称。
+如不传，实际按默认值
+{StreamID}-screenshot-{Hour}-{Minute}-{Second}-{Width}x{Height}{Ext}
+生效
+     * @param CosFileName Cos 文件名称。
+如不传，实际按默认值
+{StreamID}-screenshot-{Hour}-{Minute}-{Second}-{Width}x{Height}{Ext}
+生效
+     */
+    public void setCosFileName(String CosFileName) {
+        this.CosFileName = CosFileName;
+    }
+
+    public CreateLiveSnapshotTemplateRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateLiveSnapshotTemplateRequest(CreateLiveSnapshotTemplateRequest source) {
+        if (source.TemplateName != null) {
+            this.TemplateName = new String(source.TemplateName);
+        }
+        if (source.CosAppId != null) {
+            this.CosAppId = new Long(source.CosAppId);
+        }
+        if (source.CosBucket != null) {
+            this.CosBucket = new String(source.CosBucket);
+        }
+        if (source.CosRegion != null) {
+            this.CosRegion = new String(source.CosRegion);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.SnapshotInterval != null) {
+            this.SnapshotInterval = new Long(source.SnapshotInterval);
+        }
+        if (source.Width != null) {
+            this.Width = new Long(source.Width);
+        }
+        if (source.Height != null) {
+            this.Height = new Long(source.Height);
+        }
+        if (source.PornFlag != null) {
+            this.PornFlag = new Long(source.PornFlag);
+        }
+        if (source.CosPrefix != null) {
+            this.CosPrefix = new String(source.CosPrefix);
+        }
+        if (source.CosFileName != null) {
+            this.CosFileName = new String(source.CosFileName);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -257,6 +402,8 @@ public class CreateLiveSnapshotTemplateRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Width", this.Width);
         this.setParamSimple(map, prefix + "Height", this.Height);
         this.setParamSimple(map, prefix + "PornFlag", this.PornFlag);
+        this.setParamSimple(map, prefix + "CosPrefix", this.CosPrefix);
+        this.setParamSimple(map, prefix + "CosFileName", this.CosFileName);
 
     }
 }

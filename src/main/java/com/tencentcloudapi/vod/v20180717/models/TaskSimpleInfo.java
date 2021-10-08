@@ -30,6 +30,20 @@ public class TaskSimpleInfo extends AbstractModel{
     private String TaskId;
 
     /**
+    * 任务状态。取值：WAITING（等待中）、PROCESSING（处理中）、FINISH（已完成）。
+    */
+    @SerializedName("Status")
+    @Expose
+    private String Status;
+
+    /**
+    * 视频 ID。
+    */
+    @SerializedName("FileId")
+    @Expose
+    private String FileId;
+
+    /**
     * 任务类型，取值：
 <li>Procedure：视频处理任务；</li>
 <li>EditMedia：视频编辑任务</li>
@@ -54,7 +68,6 @@ public class TaskSimpleInfo extends AbstractModel{
 
     /**
     * 任务开始执行时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。若任务尚未开始，该字段为空。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BeginProcessTime")
     @Expose
@@ -62,7 +75,6 @@ public class TaskSimpleInfo extends AbstractModel{
 
     /**
     * 任务结束时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。若任务尚未完成，该字段为空。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FinishTime")
     @Expose
@@ -96,6 +108,38 @@ public class TaskSimpleInfo extends AbstractModel{
      */
     public void setTaskId(String TaskId) {
         this.TaskId = TaskId;
+    }
+
+    /**
+     * Get 任务状态。取值：WAITING（等待中）、PROCESSING（处理中）、FINISH（已完成）。 
+     * @return Status 任务状态。取值：WAITING（等待中）、PROCESSING（处理中）、FINISH（已完成）。
+     */
+    public String getStatus() {
+        return this.Status;
+    }
+
+    /**
+     * Set 任务状态。取值：WAITING（等待中）、PROCESSING（处理中）、FINISH（已完成）。
+     * @param Status 任务状态。取值：WAITING（等待中）、PROCESSING（处理中）、FINISH（已完成）。
+     */
+    public void setStatus(String Status) {
+        this.Status = Status;
+    }
+
+    /**
+     * Get 视频 ID。 
+     * @return FileId 视频 ID。
+     */
+    public String getFileId() {
+        return this.FileId;
+    }
+
+    /**
+     * Set 视频 ID。
+     * @param FileId 视频 ID。
+     */
+    public void setFileId(String FileId) {
+        this.FileId = FileId;
     }
 
     /**
@@ -167,10 +211,8 @@ public class TaskSimpleInfo extends AbstractModel{
     }
 
     /**
-     * Get 任务开始执行时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。若任务尚未开始，该字段为空。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务开始执行时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。若任务尚未开始，该字段为空。 
      * @return BeginProcessTime 任务开始执行时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。若任务尚未开始，该字段为空。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBeginProcessTime() {
         return this.BeginProcessTime;
@@ -178,19 +220,15 @@ public class TaskSimpleInfo extends AbstractModel{
 
     /**
      * Set 任务开始执行时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。若任务尚未开始，该字段为空。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BeginProcessTime 任务开始执行时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。若任务尚未开始，该字段为空。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBeginProcessTime(String BeginProcessTime) {
         this.BeginProcessTime = BeginProcessTime;
     }
 
     /**
-     * Get 任务结束时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。若任务尚未完成，该字段为空。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务结束时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。若任务尚未完成，该字段为空。 
      * @return FinishTime 任务结束时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。若任务尚未完成，该字段为空。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFinishTime() {
         return this.FinishTime;
@@ -198,9 +236,7 @@ public class TaskSimpleInfo extends AbstractModel{
 
     /**
      * Set 任务结束时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。若任务尚未完成，该字段为空。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FinishTime 任务结束时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。若任务尚未完成，该字段为空。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFinishTime(String FinishTime) {
         this.FinishTime = FinishTime;
@@ -238,11 +274,51 @@ public class TaskSimpleInfo extends AbstractModel{
         this.SessionContext = SessionContext;
     }
 
+    public TaskSimpleInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public TaskSimpleInfo(TaskSimpleInfo source) {
+        if (source.TaskId != null) {
+            this.TaskId = new String(source.TaskId);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.FileId != null) {
+            this.FileId = new String(source.FileId);
+        }
+        if (source.TaskType != null) {
+            this.TaskType = new String(source.TaskType);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.BeginProcessTime != null) {
+            this.BeginProcessTime = new String(source.BeginProcessTime);
+        }
+        if (source.FinishTime != null) {
+            this.FinishTime = new String(source.FinishTime);
+        }
+        if (source.SessionId != null) {
+            this.SessionId = new String(source.SessionId);
+        }
+        if (source.SessionContext != null) {
+            this.SessionContext = new String(source.SessionContext);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TaskId", this.TaskId);
+        this.setParamSimple(map, prefix + "Status", this.Status);
+        this.setParamSimple(map, prefix + "FileId", this.FileId);
         this.setParamSimple(map, prefix + "TaskType", this.TaskType);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "BeginProcessTime", this.BeginProcessTime);

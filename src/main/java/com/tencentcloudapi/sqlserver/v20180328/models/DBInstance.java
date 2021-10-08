@@ -72,7 +72,7 @@ public class DBInstance extends AbstractModel{
     private Long SubnetId;
 
     /**
-    * 实例状态。取值范围： <li>1：申请中</li> <li>2：运行中</li> <li>3：受限运行中 (主备切换中)</li> <li>4：已隔离</li> <li>5：回收中</li> <li>6：已回收</li> <li>7：任务执行中 (实例做备份、回档等操作)</li> <li>8：已下线</li> <li>9：实例扩容中</li> <li>10：实例迁移中</li> <li>11：只读</li> <li>12：重启中</li>
+    * 实例状态。取值范围： <li>1：申请中</li> <li>2：运行中</li> <li>3：受限运行中 (主备切换中)</li> <li>4：已隔离</li> <li>5：回收中</li> <li>6：已回收</li> <li>7：任务执行中 (实例做备份、回档等操作)</li> <li>8：已下线</li> <li>9：实例扩容中</li> <li>10：实例迁移中</li> <li>11：只读</li> <li>12：重启中</li>  <li>13：实例修改中且待切换</li> <li>14：订阅发布创建中</li> <li>15：订阅发布修改中</li> <li>16：实例修改中且切换中</li> <li>17：创建RO副本中</li>
     */
     @SerializedName("Status")
     @Expose
@@ -163,7 +163,7 @@ public class DBInstance extends AbstractModel{
     private Long RenewFlag;
 
     /**
-    * 实例高可用， 1-双机高可用，2-单机
+    * 实例高可用， 1-双机高可用，2-单机，3-跨可用区，4-集群跨可用区，5-集群，9-自研机房
     */
     @SerializedName("Model")
     @Expose
@@ -245,6 +245,54 @@ public class DBInstance extends AbstractModel{
     @SerializedName("UniqSubnetId")
     @Expose
     private String UniqSubnetId;
+
+    /**
+    * 实例隔离操作
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IsolateOperator")
+    @Expose
+    private String IsolateOperator;
+
+    /**
+    * 发布订阅标识，SUB-订阅实例，PUB-发布实例，空值-没有发布订阅的普通实例
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SubFlag")
+    @Expose
+    private String SubFlag;
+
+    /**
+    * 只读标识，RO-只读实例，MASTER-有RO实例的主实例，空值-没有只读组的非RO实例
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ROFlag")
+    @Expose
+    private String ROFlag;
+
+    /**
+    * 容灾类型，MIRROR-镜像，ALWAYSON-AlwaysOn, SINGLE-单例
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("HAFlag")
+    @Expose
+    private String HAFlag;
+
+    /**
+    * 实例绑定的标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ResourceTags")
+    @Expose
+    private ResourceTag [] ResourceTags;
+
+    /**
+    * 备份模式，master_pkg-主节点打包备份(默认) ；master_no_pkg-主节点不打包备份；slave_pkg-从节点打包备份(always on集群有效)；slave_no_pkg-从节点不打包备份(always on集群有效)；只读副本对该值无效。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("BackupModel")
+    @Expose
+    private String BackupModel;
 
     /**
      * Get 实例ID 
@@ -359,16 +407,16 @@ public class DBInstance extends AbstractModel{
     }
 
     /**
-     * Get 实例状态。取值范围： <li>1：申请中</li> <li>2：运行中</li> <li>3：受限运行中 (主备切换中)</li> <li>4：已隔离</li> <li>5：回收中</li> <li>6：已回收</li> <li>7：任务执行中 (实例做备份、回档等操作)</li> <li>8：已下线</li> <li>9：实例扩容中</li> <li>10：实例迁移中</li> <li>11：只读</li> <li>12：重启中</li> 
-     * @return Status 实例状态。取值范围： <li>1：申请中</li> <li>2：运行中</li> <li>3：受限运行中 (主备切换中)</li> <li>4：已隔离</li> <li>5：回收中</li> <li>6：已回收</li> <li>7：任务执行中 (实例做备份、回档等操作)</li> <li>8：已下线</li> <li>9：实例扩容中</li> <li>10：实例迁移中</li> <li>11：只读</li> <li>12：重启中</li>
+     * Get 实例状态。取值范围： <li>1：申请中</li> <li>2：运行中</li> <li>3：受限运行中 (主备切换中)</li> <li>4：已隔离</li> <li>5：回收中</li> <li>6：已回收</li> <li>7：任务执行中 (实例做备份、回档等操作)</li> <li>8：已下线</li> <li>9：实例扩容中</li> <li>10：实例迁移中</li> <li>11：只读</li> <li>12：重启中</li>  <li>13：实例修改中且待切换</li> <li>14：订阅发布创建中</li> <li>15：订阅发布修改中</li> <li>16：实例修改中且切换中</li> <li>17：创建RO副本中</li> 
+     * @return Status 实例状态。取值范围： <li>1：申请中</li> <li>2：运行中</li> <li>3：受限运行中 (主备切换中)</li> <li>4：已隔离</li> <li>5：回收中</li> <li>6：已回收</li> <li>7：任务执行中 (实例做备份、回档等操作)</li> <li>8：已下线</li> <li>9：实例扩容中</li> <li>10：实例迁移中</li> <li>11：只读</li> <li>12：重启中</li>  <li>13：实例修改中且待切换</li> <li>14：订阅发布创建中</li> <li>15：订阅发布修改中</li> <li>16：实例修改中且切换中</li> <li>17：创建RO副本中</li>
      */
     public Long getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 实例状态。取值范围： <li>1：申请中</li> <li>2：运行中</li> <li>3：受限运行中 (主备切换中)</li> <li>4：已隔离</li> <li>5：回收中</li> <li>6：已回收</li> <li>7：任务执行中 (实例做备份、回档等操作)</li> <li>8：已下线</li> <li>9：实例扩容中</li> <li>10：实例迁移中</li> <li>11：只读</li> <li>12：重启中</li>
-     * @param Status 实例状态。取值范围： <li>1：申请中</li> <li>2：运行中</li> <li>3：受限运行中 (主备切换中)</li> <li>4：已隔离</li> <li>5：回收中</li> <li>6：已回收</li> <li>7：任务执行中 (实例做备份、回档等操作)</li> <li>8：已下线</li> <li>9：实例扩容中</li> <li>10：实例迁移中</li> <li>11：只读</li> <li>12：重启中</li>
+     * Set 实例状态。取值范围： <li>1：申请中</li> <li>2：运行中</li> <li>3：受限运行中 (主备切换中)</li> <li>4：已隔离</li> <li>5：回收中</li> <li>6：已回收</li> <li>7：任务执行中 (实例做备份、回档等操作)</li> <li>8：已下线</li> <li>9：实例扩容中</li> <li>10：实例迁移中</li> <li>11：只读</li> <li>12：重启中</li>  <li>13：实例修改中且待切换</li> <li>14：订阅发布创建中</li> <li>15：订阅发布修改中</li> <li>16：实例修改中且切换中</li> <li>17：创建RO副本中</li>
+     * @param Status 实例状态。取值范围： <li>1：申请中</li> <li>2：运行中</li> <li>3：受限运行中 (主备切换中)</li> <li>4：已隔离</li> <li>5：回收中</li> <li>6：已回收</li> <li>7：任务执行中 (实例做备份、回档等操作)</li> <li>8：已下线</li> <li>9：实例扩容中</li> <li>10：实例迁移中</li> <li>11：只读</li> <li>12：重启中</li>  <li>13：实例修改中且待切换</li> <li>14：订阅发布创建中</li> <li>15：订阅发布修改中</li> <li>16：实例修改中且切换中</li> <li>17：创建RO副本中</li>
      */
     public void setStatus(Long Status) {
         this.Status = Status;
@@ -567,16 +615,16 @@ public class DBInstance extends AbstractModel{
     }
 
     /**
-     * Get 实例高可用， 1-双机高可用，2-单机 
-     * @return Model 实例高可用， 1-双机高可用，2-单机
+     * Get 实例高可用， 1-双机高可用，2-单机，3-跨可用区，4-集群跨可用区，5-集群，9-自研机房 
+     * @return Model 实例高可用， 1-双机高可用，2-单机，3-跨可用区，4-集群跨可用区，5-集群，9-自研机房
      */
     public Long getModel() {
         return this.Model;
     }
 
     /**
-     * Set 实例高可用， 1-双机高可用，2-单机
-     * @param Model 实例高可用， 1-双机高可用，2-单机
+     * Set 实例高可用， 1-双机高可用，2-单机，3-跨可用区，4-集群跨可用区，5-集群，9-自研机房
+     * @param Model 实例高可用， 1-双机高可用，2-单机，3-跨可用区，4-集群跨可用区，5-集群，9-自研机房
      */
     public void setModel(Long Model) {
         this.Model = Model;
@@ -759,6 +807,254 @@ public class DBInstance extends AbstractModel{
     }
 
     /**
+     * Get 实例隔离操作
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IsolateOperator 实例隔离操作
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getIsolateOperator() {
+        return this.IsolateOperator;
+    }
+
+    /**
+     * Set 实例隔离操作
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IsolateOperator 实例隔离操作
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIsolateOperator(String IsolateOperator) {
+        this.IsolateOperator = IsolateOperator;
+    }
+
+    /**
+     * Get 发布订阅标识，SUB-订阅实例，PUB-发布实例，空值-没有发布订阅的普通实例
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SubFlag 发布订阅标识，SUB-订阅实例，PUB-发布实例，空值-没有发布订阅的普通实例
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSubFlag() {
+        return this.SubFlag;
+    }
+
+    /**
+     * Set 发布订阅标识，SUB-订阅实例，PUB-发布实例，空值-没有发布订阅的普通实例
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SubFlag 发布订阅标识，SUB-订阅实例，PUB-发布实例，空值-没有发布订阅的普通实例
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSubFlag(String SubFlag) {
+        this.SubFlag = SubFlag;
+    }
+
+    /**
+     * Get 只读标识，RO-只读实例，MASTER-有RO实例的主实例，空值-没有只读组的非RO实例
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ROFlag 只读标识，RO-只读实例，MASTER-有RO实例的主实例，空值-没有只读组的非RO实例
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getROFlag() {
+        return this.ROFlag;
+    }
+
+    /**
+     * Set 只读标识，RO-只读实例，MASTER-有RO实例的主实例，空值-没有只读组的非RO实例
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ROFlag 只读标识，RO-只读实例，MASTER-有RO实例的主实例，空值-没有只读组的非RO实例
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setROFlag(String ROFlag) {
+        this.ROFlag = ROFlag;
+    }
+
+    /**
+     * Get 容灾类型，MIRROR-镜像，ALWAYSON-AlwaysOn, SINGLE-单例
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return HAFlag 容灾类型，MIRROR-镜像，ALWAYSON-AlwaysOn, SINGLE-单例
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getHAFlag() {
+        return this.HAFlag;
+    }
+
+    /**
+     * Set 容灾类型，MIRROR-镜像，ALWAYSON-AlwaysOn, SINGLE-单例
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param HAFlag 容灾类型，MIRROR-镜像，ALWAYSON-AlwaysOn, SINGLE-单例
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setHAFlag(String HAFlag) {
+        this.HAFlag = HAFlag;
+    }
+
+    /**
+     * Get 实例绑定的标签列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ResourceTags 实例绑定的标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ResourceTag [] getResourceTags() {
+        return this.ResourceTags;
+    }
+
+    /**
+     * Set 实例绑定的标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ResourceTags 实例绑定的标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setResourceTags(ResourceTag [] ResourceTags) {
+        this.ResourceTags = ResourceTags;
+    }
+
+    /**
+     * Get 备份模式，master_pkg-主节点打包备份(默认) ；master_no_pkg-主节点不打包备份；slave_pkg-从节点打包备份(always on集群有效)；slave_no_pkg-从节点不打包备份(always on集群有效)；只读副本对该值无效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return BackupModel 备份模式，master_pkg-主节点打包备份(默认) ；master_no_pkg-主节点不打包备份；slave_pkg-从节点打包备份(always on集群有效)；slave_no_pkg-从节点不打包备份(always on集群有效)；只读副本对该值无效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getBackupModel() {
+        return this.BackupModel;
+    }
+
+    /**
+     * Set 备份模式，master_pkg-主节点打包备份(默认) ；master_no_pkg-主节点不打包备份；slave_pkg-从节点打包备份(always on集群有效)；slave_no_pkg-从节点不打包备份(always on集群有效)；只读副本对该值无效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param BackupModel 备份模式，master_pkg-主节点打包备份(默认) ；master_no_pkg-主节点不打包备份；slave_pkg-从节点打包备份(always on集群有效)；slave_no_pkg-从节点不打包备份(always on集群有效)；只读副本对该值无效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBackupModel(String BackupModel) {
+        this.BackupModel = BackupModel;
+    }
+
+    public DBInstance() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DBInstance(DBInstance source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.RegionId != null) {
+            this.RegionId = new Long(source.RegionId);
+        }
+        if (source.ZoneId != null) {
+            this.ZoneId = new Long(source.ZoneId);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new Long(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new Long(source.SubnetId);
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+        if (source.Vip != null) {
+            this.Vip = new String(source.Vip);
+        }
+        if (source.Vport != null) {
+            this.Vport = new Long(source.Vport);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.IsolateTime != null) {
+            this.IsolateTime = new String(source.IsolateTime);
+        }
+        if (source.Memory != null) {
+            this.Memory = new Long(source.Memory);
+        }
+        if (source.UsedStorage != null) {
+            this.UsedStorage = new Long(source.UsedStorage);
+        }
+        if (source.Storage != null) {
+            this.Storage = new Long(source.Storage);
+        }
+        if (source.VersionName != null) {
+            this.VersionName = new String(source.VersionName);
+        }
+        if (source.RenewFlag != null) {
+            this.RenewFlag = new Long(source.RenewFlag);
+        }
+        if (source.Model != null) {
+            this.Model = new Long(source.Model);
+        }
+        if (source.Region != null) {
+            this.Region = new String(source.Region);
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.BackupTime != null) {
+            this.BackupTime = new String(source.BackupTime);
+        }
+        if (source.PayMode != null) {
+            this.PayMode = new Long(source.PayMode);
+        }
+        if (source.Uid != null) {
+            this.Uid = new String(source.Uid);
+        }
+        if (source.Cpu != null) {
+            this.Cpu = new Long(source.Cpu);
+        }
+        if (source.Version != null) {
+            this.Version = new String(source.Version);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.Pid != null) {
+            this.Pid = new Long(source.Pid);
+        }
+        if (source.UniqVpcId != null) {
+            this.UniqVpcId = new String(source.UniqVpcId);
+        }
+        if (source.UniqSubnetId != null) {
+            this.UniqSubnetId = new String(source.UniqSubnetId);
+        }
+        if (source.IsolateOperator != null) {
+            this.IsolateOperator = new String(source.IsolateOperator);
+        }
+        if (source.SubFlag != null) {
+            this.SubFlag = new String(source.SubFlag);
+        }
+        if (source.ROFlag != null) {
+            this.ROFlag = new String(source.ROFlag);
+        }
+        if (source.HAFlag != null) {
+            this.HAFlag = new String(source.HAFlag);
+        }
+        if (source.ResourceTags != null) {
+            this.ResourceTags = new ResourceTag[source.ResourceTags.length];
+            for (int i = 0; i < source.ResourceTags.length; i++) {
+                this.ResourceTags[i] = new ResourceTag(source.ResourceTags[i]);
+            }
+        }
+        if (source.BackupModel != null) {
+            this.BackupModel = new String(source.BackupModel);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -794,6 +1090,12 @@ public class DBInstance extends AbstractModel{
         this.setParamSimple(map, prefix + "Pid", this.Pid);
         this.setParamSimple(map, prefix + "UniqVpcId", this.UniqVpcId);
         this.setParamSimple(map, prefix + "UniqSubnetId", this.UniqSubnetId);
+        this.setParamSimple(map, prefix + "IsolateOperator", this.IsolateOperator);
+        this.setParamSimple(map, prefix + "SubFlag", this.SubFlag);
+        this.setParamSimple(map, prefix + "ROFlag", this.ROFlag);
+        this.setParamSimple(map, prefix + "HAFlag", this.HAFlag);
+        this.setParamArrayObj(map, prefix + "ResourceTags.", this.ResourceTags);
+        this.setParamSimple(map, prefix + "BackupModel", this.BackupModel);
 
     }
 }

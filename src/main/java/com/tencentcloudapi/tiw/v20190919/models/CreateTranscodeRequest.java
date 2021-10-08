@@ -30,7 +30,7 @@ public class CreateTranscodeRequest extends AbstractModel{
     private Long SdkAppId;
 
     /**
-    * 需要进行转码文件地址
+    * 经过URL编码后的转码文件地址。URL 编码会将字符转换为可通过因特网传输的格式，比如文档地址为http://example.com/测试.pdf，经过URL编码之后为http://example.com/%E6%B5%8B%E8%AF%95.pdf。为了提高URL解析的成功率，请对URL进行编码。
     */
     @SerializedName("Url")
     @Expose
@@ -45,7 +45,9 @@ public class CreateTranscodeRequest extends AbstractModel{
     private Boolean IsStaticPPT;
 
     /**
-    * 转码后文档的最小分辨率，不传、传空字符串或分辨率格式错误则使用文档原分辨率
+    * 注意: 该参数已废弃, 请使用 MinScaleResolution
+
+转码后文档的最小分辨率，不传、传空字符串或分辨率格式错误则使用文档原分辨率
 
 注意分辨率宽高中间为英文字母"xyz"的"x"
     */
@@ -55,8 +57,6 @@ public class CreateTranscodeRequest extends AbstractModel{
 
     /**
     * 动态PPT转码可以为文件生成该分辨率的缩略图，不传、传空字符串或分辨率格式错误则不生成缩略图，分辨率格式同MinResolution
-
-静态转码这个参数不起作用
     */
     @SerializedName("ThumbnailResolution")
     @Expose
@@ -71,6 +71,33 @@ tar.gz： 生成`.tar.gz`压缩包
     @SerializedName("CompressFileType")
     @Expose
     private String CompressFileType;
+
+    /**
+    * 内部参数
+    */
+    @SerializedName("ExtraData")
+    @Expose
+    private String ExtraData;
+
+    /**
+    * 文档转码优先级， 只有对于PPT动态转码生效，支持填入以下值：<br/>
+- low: 低优先级转码，对于动态转码，能支持500MB（下载超时时间10分钟）以及2000页文档，但资源有限可能会有比较长时间的排队，请酌情使用该功能。<br/>
+- 不填表示正常优先级转码，支持200MB文件（下载超时时间2分钟），500页以内的文档进行转码
+<br/>
+注意：对于PDF等静态文件转码，无论是正常优先级或者低优先级，最大只能支持200MB
+    */
+    @SerializedName("Priority")
+    @Expose
+    private String Priority;
+
+    /**
+    * 转码后文档的最小分辨率，不传、传空字符串或分辨率格式错误则使用文档原分辨率
+
+注意分辨率宽高中间为英文字母"xyz"的"x"
+    */
+    @SerializedName("MinScaleResolution")
+    @Expose
+    private String MinScaleResolution;
 
     /**
      * Get 客户的SdkAppId 
@@ -89,16 +116,16 @@ tar.gz： 生成`.tar.gz`压缩包
     }
 
     /**
-     * Get 需要进行转码文件地址 
-     * @return Url 需要进行转码文件地址
+     * Get 经过URL编码后的转码文件地址。URL 编码会将字符转换为可通过因特网传输的格式，比如文档地址为http://example.com/测试.pdf，经过URL编码之后为http://example.com/%E6%B5%8B%E8%AF%95.pdf。为了提高URL解析的成功率，请对URL进行编码。 
+     * @return Url 经过URL编码后的转码文件地址。URL 编码会将字符转换为可通过因特网传输的格式，比如文档地址为http://example.com/测试.pdf，经过URL编码之后为http://example.com/%E6%B5%8B%E8%AF%95.pdf。为了提高URL解析的成功率，请对URL进行编码。
      */
     public String getUrl() {
         return this.Url;
     }
 
     /**
-     * Set 需要进行转码文件地址
-     * @param Url 需要进行转码文件地址
+     * Set 经过URL编码后的转码文件地址。URL 编码会将字符转换为可通过因特网传输的格式，比如文档地址为http://example.com/测试.pdf，经过URL编码之后为http://example.com/%E6%B5%8B%E8%AF%95.pdf。为了提高URL解析的成功率，请对URL进行编码。
+     * @param Url 经过URL编码后的转码文件地址。URL 编码会将字符转换为可通过因特网传输的格式，比如文档地址为http://example.com/测试.pdf，经过URL编码之后为http://example.com/%E6%B5%8B%E8%AF%95.pdf。为了提高URL解析的成功率，请对URL进行编码。
      */
     public void setUrl(String Url) {
         this.Url = Url;
@@ -125,10 +152,14 @@ tar.gz： 生成`.tar.gz`压缩包
     }
 
     /**
-     * Get 转码后文档的最小分辨率，不传、传空字符串或分辨率格式错误则使用文档原分辨率
+     * Get 注意: 该参数已废弃, 请使用 MinScaleResolution
+
+转码后文档的最小分辨率，不传、传空字符串或分辨率格式错误则使用文档原分辨率
 
 注意分辨率宽高中间为英文字母"xyz"的"x" 
-     * @return MinResolution 转码后文档的最小分辨率，不传、传空字符串或分辨率格式错误则使用文档原分辨率
+     * @return MinResolution 注意: 该参数已废弃, 请使用 MinScaleResolution
+
+转码后文档的最小分辨率，不传、传空字符串或分辨率格式错误则使用文档原分辨率
 
 注意分辨率宽高中间为英文字母"xyz"的"x"
      */
@@ -137,10 +168,14 @@ tar.gz： 生成`.tar.gz`压缩包
     }
 
     /**
-     * Set 转码后文档的最小分辨率，不传、传空字符串或分辨率格式错误则使用文档原分辨率
+     * Set 注意: 该参数已废弃, 请使用 MinScaleResolution
+
+转码后文档的最小分辨率，不传、传空字符串或分辨率格式错误则使用文档原分辨率
 
 注意分辨率宽高中间为英文字母"xyz"的"x"
-     * @param MinResolution 转码后文档的最小分辨率，不传、传空字符串或分辨率格式错误则使用文档原分辨率
+     * @param MinResolution 注意: 该参数已废弃, 请使用 MinScaleResolution
+
+转码后文档的最小分辨率，不传、传空字符串或分辨率格式错误则使用文档原分辨率
 
 注意分辨率宽高中间为英文字母"xyz"的"x"
      */
@@ -149,12 +184,8 @@ tar.gz： 生成`.tar.gz`压缩包
     }
 
     /**
-     * Get 动态PPT转码可以为文件生成该分辨率的缩略图，不传、传空字符串或分辨率格式错误则不生成缩略图，分辨率格式同MinResolution
-
-静态转码这个参数不起作用 
+     * Get 动态PPT转码可以为文件生成该分辨率的缩略图，不传、传空字符串或分辨率格式错误则不生成缩略图，分辨率格式同MinResolution 
      * @return ThumbnailResolution 动态PPT转码可以为文件生成该分辨率的缩略图，不传、传空字符串或分辨率格式错误则不生成缩略图，分辨率格式同MinResolution
-
-静态转码这个参数不起作用
      */
     public String getThumbnailResolution() {
         return this.ThumbnailResolution;
@@ -162,11 +193,7 @@ tar.gz： 生成`.tar.gz`压缩包
 
     /**
      * Set 动态PPT转码可以为文件生成该分辨率的缩略图，不传、传空字符串或分辨率格式错误则不生成缩略图，分辨率格式同MinResolution
-
-静态转码这个参数不起作用
      * @param ThumbnailResolution 动态PPT转码可以为文件生成该分辨率的缩略图，不传、传空字符串或分辨率格式错误则不生成缩略图，分辨率格式同MinResolution
-
-静态转码这个参数不起作用
      */
     public void setThumbnailResolution(String ThumbnailResolution) {
         this.ThumbnailResolution = ThumbnailResolution;
@@ -201,6 +228,116 @@ tar.gz： 生成`.tar.gz`压缩包
     }
 
     /**
+     * Get 内部参数 
+     * @return ExtraData 内部参数
+     */
+    public String getExtraData() {
+        return this.ExtraData;
+    }
+
+    /**
+     * Set 内部参数
+     * @param ExtraData 内部参数
+     */
+    public void setExtraData(String ExtraData) {
+        this.ExtraData = ExtraData;
+    }
+
+    /**
+     * Get 文档转码优先级， 只有对于PPT动态转码生效，支持填入以下值：<br/>
+- low: 低优先级转码，对于动态转码，能支持500MB（下载超时时间10分钟）以及2000页文档，但资源有限可能会有比较长时间的排队，请酌情使用该功能。<br/>
+- 不填表示正常优先级转码，支持200MB文件（下载超时时间2分钟），500页以内的文档进行转码
+<br/>
+注意：对于PDF等静态文件转码，无论是正常优先级或者低优先级，最大只能支持200MB 
+     * @return Priority 文档转码优先级， 只有对于PPT动态转码生效，支持填入以下值：<br/>
+- low: 低优先级转码，对于动态转码，能支持500MB（下载超时时间10分钟）以及2000页文档，但资源有限可能会有比较长时间的排队，请酌情使用该功能。<br/>
+- 不填表示正常优先级转码，支持200MB文件（下载超时时间2分钟），500页以内的文档进行转码
+<br/>
+注意：对于PDF等静态文件转码，无论是正常优先级或者低优先级，最大只能支持200MB
+     */
+    public String getPriority() {
+        return this.Priority;
+    }
+
+    /**
+     * Set 文档转码优先级， 只有对于PPT动态转码生效，支持填入以下值：<br/>
+- low: 低优先级转码，对于动态转码，能支持500MB（下载超时时间10分钟）以及2000页文档，但资源有限可能会有比较长时间的排队，请酌情使用该功能。<br/>
+- 不填表示正常优先级转码，支持200MB文件（下载超时时间2分钟），500页以内的文档进行转码
+<br/>
+注意：对于PDF等静态文件转码，无论是正常优先级或者低优先级，最大只能支持200MB
+     * @param Priority 文档转码优先级， 只有对于PPT动态转码生效，支持填入以下值：<br/>
+- low: 低优先级转码，对于动态转码，能支持500MB（下载超时时间10分钟）以及2000页文档，但资源有限可能会有比较长时间的排队，请酌情使用该功能。<br/>
+- 不填表示正常优先级转码，支持200MB文件（下载超时时间2分钟），500页以内的文档进行转码
+<br/>
+注意：对于PDF等静态文件转码，无论是正常优先级或者低优先级，最大只能支持200MB
+     */
+    public void setPriority(String Priority) {
+        this.Priority = Priority;
+    }
+
+    /**
+     * Get 转码后文档的最小分辨率，不传、传空字符串或分辨率格式错误则使用文档原分辨率
+
+注意分辨率宽高中间为英文字母"xyz"的"x" 
+     * @return MinScaleResolution 转码后文档的最小分辨率，不传、传空字符串或分辨率格式错误则使用文档原分辨率
+
+注意分辨率宽高中间为英文字母"xyz"的"x"
+     */
+    public String getMinScaleResolution() {
+        return this.MinScaleResolution;
+    }
+
+    /**
+     * Set 转码后文档的最小分辨率，不传、传空字符串或分辨率格式错误则使用文档原分辨率
+
+注意分辨率宽高中间为英文字母"xyz"的"x"
+     * @param MinScaleResolution 转码后文档的最小分辨率，不传、传空字符串或分辨率格式错误则使用文档原分辨率
+
+注意分辨率宽高中间为英文字母"xyz"的"x"
+     */
+    public void setMinScaleResolution(String MinScaleResolution) {
+        this.MinScaleResolution = MinScaleResolution;
+    }
+
+    public CreateTranscodeRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateTranscodeRequest(CreateTranscodeRequest source) {
+        if (source.SdkAppId != null) {
+            this.SdkAppId = new Long(source.SdkAppId);
+        }
+        if (source.Url != null) {
+            this.Url = new String(source.Url);
+        }
+        if (source.IsStaticPPT != null) {
+            this.IsStaticPPT = new Boolean(source.IsStaticPPT);
+        }
+        if (source.MinResolution != null) {
+            this.MinResolution = new String(source.MinResolution);
+        }
+        if (source.ThumbnailResolution != null) {
+            this.ThumbnailResolution = new String(source.ThumbnailResolution);
+        }
+        if (source.CompressFileType != null) {
+            this.CompressFileType = new String(source.CompressFileType);
+        }
+        if (source.ExtraData != null) {
+            this.ExtraData = new String(source.ExtraData);
+        }
+        if (source.Priority != null) {
+            this.Priority = new String(source.Priority);
+        }
+        if (source.MinScaleResolution != null) {
+            this.MinScaleResolution = new String(source.MinScaleResolution);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -210,6 +347,9 @@ tar.gz： 生成`.tar.gz`压缩包
         this.setParamSimple(map, prefix + "MinResolution", this.MinResolution);
         this.setParamSimple(map, prefix + "ThumbnailResolution", this.ThumbnailResolution);
         this.setParamSimple(map, prefix + "CompressFileType", this.CompressFileType);
+        this.setParamSimple(map, prefix + "ExtraData", this.ExtraData);
+        this.setParamSimple(map, prefix + "Priority", this.Priority);
+        this.setParamSimple(map, prefix + "MinScaleResolution", this.MinScaleResolution);
 
     }
 }

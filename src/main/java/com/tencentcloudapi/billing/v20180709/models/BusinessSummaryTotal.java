@@ -51,6 +51,13 @@ public class BusinessSummaryTotal extends AbstractModel{
     private String CashPayAmount;
 
     /**
+    * 原价，单位为元。TotalCost字段自账单3.0（即2021-05）之后开始生效，账单3.0之前返回"-"。合同价的情况下，TotalCost字段与官网价格存在差异，也返回“-”。
+    */
+    @SerializedName("TotalCost")
+    @Expose
+    private String TotalCost;
+
+    /**
      * Get 总花费 
      * @return RealTotalCost 总花费
      */
@@ -115,6 +122,48 @@ public class BusinessSummaryTotal extends AbstractModel{
     }
 
     /**
+     * Get 原价，单位为元。TotalCost字段自账单3.0（即2021-05）之后开始生效，账单3.0之前返回"-"。合同价的情况下，TotalCost字段与官网价格存在差异，也返回“-”。 
+     * @return TotalCost 原价，单位为元。TotalCost字段自账单3.0（即2021-05）之后开始生效，账单3.0之前返回"-"。合同价的情况下，TotalCost字段与官网价格存在差异，也返回“-”。
+     */
+    public String getTotalCost() {
+        return this.TotalCost;
+    }
+
+    /**
+     * Set 原价，单位为元。TotalCost字段自账单3.0（即2021-05）之后开始生效，账单3.0之前返回"-"。合同价的情况下，TotalCost字段与官网价格存在差异，也返回“-”。
+     * @param TotalCost 原价，单位为元。TotalCost字段自账单3.0（即2021-05）之后开始生效，账单3.0之前返回"-"。合同价的情况下，TotalCost字段与官网价格存在差异，也返回“-”。
+     */
+    public void setTotalCost(String TotalCost) {
+        this.TotalCost = TotalCost;
+    }
+
+    public BusinessSummaryTotal() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public BusinessSummaryTotal(BusinessSummaryTotal source) {
+        if (source.RealTotalCost != null) {
+            this.RealTotalCost = new String(source.RealTotalCost);
+        }
+        if (source.VoucherPayAmount != null) {
+            this.VoucherPayAmount = new String(source.VoucherPayAmount);
+        }
+        if (source.IncentivePayAmount != null) {
+            this.IncentivePayAmount = new String(source.IncentivePayAmount);
+        }
+        if (source.CashPayAmount != null) {
+            this.CashPayAmount = new String(source.CashPayAmount);
+        }
+        if (source.TotalCost != null) {
+            this.TotalCost = new String(source.TotalCost);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -122,6 +171,7 @@ public class BusinessSummaryTotal extends AbstractModel{
         this.setParamSimple(map, prefix + "VoucherPayAmount", this.VoucherPayAmount);
         this.setParamSimple(map, prefix + "IncentivePayAmount", this.IncentivePayAmount);
         this.setParamSimple(map, prefix + "CashPayAmount", this.CashPayAmount);
+        this.setParamSimple(map, prefix + "TotalCost", this.TotalCost);
 
     }
 }

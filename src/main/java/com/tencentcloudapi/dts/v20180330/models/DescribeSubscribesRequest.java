@@ -100,6 +100,20 @@ public class DescribeSubscribesRequest extends AbstractModel{
     private String OrderDirection;
 
     /**
+    * 标签过滤条件
+    */
+    @SerializedName("TagFilters")
+    @Expose
+    private TagFilter [] TagFilters;
+
+    /**
+    * 订阅实例版本;txdts-旧版数据订阅，kafka-kafka版本数据订阅
+    */
+    @SerializedName("SubscribeVersion")
+    @Expose
+    private String SubscribeVersion;
+
+    /**
      * Get 数据订阅的实例ID 
      * @return SubscribeId 数据订阅的实例ID
      */
@@ -276,6 +290,97 @@ public class DescribeSubscribesRequest extends AbstractModel{
     }
 
     /**
+     * Get 标签过滤条件 
+     * @return TagFilters 标签过滤条件
+     */
+    public TagFilter [] getTagFilters() {
+        return this.TagFilters;
+    }
+
+    /**
+     * Set 标签过滤条件
+     * @param TagFilters 标签过滤条件
+     */
+    public void setTagFilters(TagFilter [] TagFilters) {
+        this.TagFilters = TagFilters;
+    }
+
+    /**
+     * Get 订阅实例版本;txdts-旧版数据订阅，kafka-kafka版本数据订阅 
+     * @return SubscribeVersion 订阅实例版本;txdts-旧版数据订阅，kafka-kafka版本数据订阅
+     */
+    public String getSubscribeVersion() {
+        return this.SubscribeVersion;
+    }
+
+    /**
+     * Set 订阅实例版本;txdts-旧版数据订阅，kafka-kafka版本数据订阅
+     * @param SubscribeVersion 订阅实例版本;txdts-旧版数据订阅，kafka-kafka版本数据订阅
+     */
+    public void setSubscribeVersion(String SubscribeVersion) {
+        this.SubscribeVersion = SubscribeVersion;
+    }
+
+    public DescribeSubscribesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeSubscribesRequest(DescribeSubscribesRequest source) {
+        if (source.SubscribeId != null) {
+            this.SubscribeId = new String(source.SubscribeId);
+        }
+        if (source.SubscribeName != null) {
+            this.SubscribeName = new String(source.SubscribeName);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.ChannelId != null) {
+            this.ChannelId = new String(source.ChannelId);
+        }
+        if (source.PayType != null) {
+            this.PayType = new String(source.PayType);
+        }
+        if (source.Product != null) {
+            this.Product = new String(source.Product);
+        }
+        if (source.Status != null) {
+            this.Status = new String[source.Status.length];
+            for (int i = 0; i < source.Status.length; i++) {
+                this.Status[i] = new String(source.Status[i]);
+            }
+        }
+        if (source.SubsStatus != null) {
+            this.SubsStatus = new String[source.SubsStatus.length];
+            for (int i = 0; i < source.SubsStatus.length; i++) {
+                this.SubsStatus[i] = new String(source.SubsStatus[i]);
+            }
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.OrderDirection != null) {
+            this.OrderDirection = new String(source.OrderDirection);
+        }
+        if (source.TagFilters != null) {
+            this.TagFilters = new TagFilter[source.TagFilters.length];
+            for (int i = 0; i < source.TagFilters.length; i++) {
+                this.TagFilters[i] = new TagFilter(source.TagFilters[i]);
+            }
+        }
+        if (source.SubscribeVersion != null) {
+            this.SubscribeVersion = new String(source.SubscribeVersion);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -290,6 +395,8 @@ public class DescribeSubscribesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "OrderDirection", this.OrderDirection);
+        this.setParamArrayObj(map, prefix + "TagFilters.", this.TagFilters);
+        this.setParamSimple(map, prefix + "SubscribeVersion", this.SubscribeVersion);
 
     }
 }

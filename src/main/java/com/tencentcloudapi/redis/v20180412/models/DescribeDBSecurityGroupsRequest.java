@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeDBSecurityGroupsRequest extends AbstractModel{
 
     /**
-    * 数据库引擎名称：mariadb,cdb,cynosdb,dcdb,redis,mongodb 等。
+    * 数据库引擎名称，本接口取值：redis。
     */
     @SerializedName("Product")
     @Expose
@@ -37,16 +37,16 @@ public class DescribeDBSecurityGroupsRequest extends AbstractModel{
     private String InstanceId;
 
     /**
-     * Get 数据库引擎名称：mariadb,cdb,cynosdb,dcdb,redis,mongodb 等。 
-     * @return Product 数据库引擎名称：mariadb,cdb,cynosdb,dcdb,redis,mongodb 等。
+     * Get 数据库引擎名称，本接口取值：redis。 
+     * @return Product 数据库引擎名称，本接口取值：redis。
      */
     public String getProduct() {
         return this.Product;
     }
 
     /**
-     * Set 数据库引擎名称：mariadb,cdb,cynosdb,dcdb,redis,mongodb 等。
-     * @param Product 数据库引擎名称：mariadb,cdb,cynosdb,dcdb,redis,mongodb 等。
+     * Set 数据库引擎名称，本接口取值：redis。
+     * @param Product 数据库引擎名称，本接口取值：redis。
      */
     public void setProduct(String Product) {
         this.Product = Product;
@@ -67,6 +67,23 @@ public class DescribeDBSecurityGroupsRequest extends AbstractModel{
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
+
+    public DescribeDBSecurityGroupsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeDBSecurityGroupsRequest(DescribeDBSecurityGroupsRequest source) {
+        if (source.Product != null) {
+            this.Product = new String(source.Product);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeTrafficPackagesRequest extends AbstractModel{
 
     /**
-    * 分页查询起始地址，默认 0（第一页）
+    * 分页查询起始地址，默认 0
     */
     @SerializedName("Offset")
     @Expose
@@ -37,16 +37,16 @@ public class DescribeTrafficPackagesRequest extends AbstractModel{
     private Long Limit;
 
     /**
-     * Get 分页查询起始地址，默认 0（第一页） 
-     * @return Offset 分页查询起始地址，默认 0（第一页）
+     * Get 分页查询起始地址，默认 0 
+     * @return Offset 分页查询起始地址，默认 0
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 分页查询起始地址，默认 0（第一页）
-     * @param Offset 分页查询起始地址，默认 0（第一页）
+     * Set 分页查询起始地址，默认 0
+     * @param Offset 分页查询起始地址，默认 0
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
@@ -67,6 +67,23 @@ public class DescribeTrafficPackagesRequest extends AbstractModel{
     public void setLimit(Long Limit) {
         this.Limit = Limit;
     }
+
+    public DescribeTrafficPackagesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeTrafficPackagesRequest(DescribeTrafficPackagesRequest source) {
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -37,7 +37,8 @@ public class PutSecretValueRequest extends AbstractModel{
     private String VersionId;
 
     /**
-    * 二进制凭据信息，使用base64编码。SecretBinary 和 SecretString 必须且只能设置一个。
+    * 二进制凭据信息，使用base64编码。
+SecretBinary 和 SecretString 必须且只能设置一个。
     */
     @SerializedName("SecretBinary")
     @Expose
@@ -83,16 +84,20 @@ public class PutSecretValueRequest extends AbstractModel{
     }
 
     /**
-     * Get 二进制凭据信息，使用base64编码。SecretBinary 和 SecretString 必须且只能设置一个。 
-     * @return SecretBinary 二进制凭据信息，使用base64编码。SecretBinary 和 SecretString 必须且只能设置一个。
+     * Get 二进制凭据信息，使用base64编码。
+SecretBinary 和 SecretString 必须且只能设置一个。 
+     * @return SecretBinary 二进制凭据信息，使用base64编码。
+SecretBinary 和 SecretString 必须且只能设置一个。
      */
     public String getSecretBinary() {
         return this.SecretBinary;
     }
 
     /**
-     * Set 二进制凭据信息，使用base64编码。SecretBinary 和 SecretString 必须且只能设置一个。
-     * @param SecretBinary 二进制凭据信息，使用base64编码。SecretBinary 和 SecretString 必须且只能设置一个。
+     * Set 二进制凭据信息，使用base64编码。
+SecretBinary 和 SecretString 必须且只能设置一个。
+     * @param SecretBinary 二进制凭据信息，使用base64编码。
+SecretBinary 和 SecretString 必须且只能设置一个。
      */
     public void setSecretBinary(String SecretBinary) {
         this.SecretBinary = SecretBinary;
@@ -113,6 +118,29 @@ public class PutSecretValueRequest extends AbstractModel{
     public void setSecretString(String SecretString) {
         this.SecretString = SecretString;
     }
+
+    public PutSecretValueRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public PutSecretValueRequest(PutSecretValueRequest source) {
+        if (source.SecretName != null) {
+            this.SecretName = new String(source.SecretName);
+        }
+        if (source.VersionId != null) {
+            this.VersionId = new String(source.VersionId);
+        }
+        if (source.SecretBinary != null) {
+            this.SecretBinary = new String(source.SecretBinary);
+        }
+        if (source.SecretString != null) {
+            this.SecretString = new String(source.SecretString);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -23,11 +23,34 @@ import java.util.HashMap;
 public class DeleteRoutesResponse extends AbstractModel{
 
     /**
+    * 已删除的路由策略详情。
+    */
+    @SerializedName("RouteSet")
+    @Expose
+    private Route [] RouteSet;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
+
+    /**
+     * Get 已删除的路由策略详情。 
+     * @return RouteSet 已删除的路由策略详情。
+     */
+    public Route [] getRouteSet() {
+        return this.RouteSet;
+    }
+
+    /**
+     * Set 已删除的路由策略详情。
+     * @param RouteSet 已删除的路由策略详情。
+     */
+    public void setRouteSet(Route [] RouteSet) {
+        this.RouteSet = RouteSet;
+    }
 
     /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
@@ -45,10 +68,31 @@ public class DeleteRoutesResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public DeleteRoutesResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeleteRoutesResponse(DeleteRoutesResponse source) {
+        if (source.RouteSet != null) {
+            this.RouteSet = new Route[source.RouteSet.length];
+            for (int i = 0; i < source.RouteSet.length; i++) {
+                this.RouteSet[i] = new Route(source.RouteSet[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamArrayObj(map, prefix + "RouteSet.", this.RouteSet);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

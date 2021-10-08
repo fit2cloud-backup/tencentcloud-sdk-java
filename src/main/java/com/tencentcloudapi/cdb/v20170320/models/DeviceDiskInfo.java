@@ -51,6 +51,13 @@ public class DeviceDiskInfo extends AbstractModel{
     private Long [] Write;
 
     /**
+    * 磁盘空间容量，每两个一组，第一个为已使用容量，第二个为磁盘总容量
+    */
+    @SerializedName("CapacityRatio")
+    @Expose
+    private Long [] CapacityRatio;
+
+    /**
      * Get 平均每秒有百分之几的时间用于IO操作 
      * @return IoRatioPerSec 平均每秒有百分之几的时间用于IO操作
      */
@@ -115,6 +122,63 @@ public class DeviceDiskInfo extends AbstractModel{
     }
 
     /**
+     * Get 磁盘空间容量，每两个一组，第一个为已使用容量，第二个为磁盘总容量 
+     * @return CapacityRatio 磁盘空间容量，每两个一组，第一个为已使用容量，第二个为磁盘总容量
+     */
+    public Long [] getCapacityRatio() {
+        return this.CapacityRatio;
+    }
+
+    /**
+     * Set 磁盘空间容量，每两个一组，第一个为已使用容量，第二个为磁盘总容量
+     * @param CapacityRatio 磁盘空间容量，每两个一组，第一个为已使用容量，第二个为磁盘总容量
+     */
+    public void setCapacityRatio(Long [] CapacityRatio) {
+        this.CapacityRatio = CapacityRatio;
+    }
+
+    public DeviceDiskInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeviceDiskInfo(DeviceDiskInfo source) {
+        if (source.IoRatioPerSec != null) {
+            this.IoRatioPerSec = new Long[source.IoRatioPerSec.length];
+            for (int i = 0; i < source.IoRatioPerSec.length; i++) {
+                this.IoRatioPerSec[i] = new Long(source.IoRatioPerSec[i]);
+            }
+        }
+        if (source.IoWaitTime != null) {
+            this.IoWaitTime = new Long[source.IoWaitTime.length];
+            for (int i = 0; i < source.IoWaitTime.length; i++) {
+                this.IoWaitTime[i] = new Long(source.IoWaitTime[i]);
+            }
+        }
+        if (source.Read != null) {
+            this.Read = new Long[source.Read.length];
+            for (int i = 0; i < source.Read.length; i++) {
+                this.Read[i] = new Long(source.Read[i]);
+            }
+        }
+        if (source.Write != null) {
+            this.Write = new Long[source.Write.length];
+            for (int i = 0; i < source.Write.length; i++) {
+                this.Write[i] = new Long(source.Write[i]);
+            }
+        }
+        if (source.CapacityRatio != null) {
+            this.CapacityRatio = new Long[source.CapacityRatio.length];
+            for (int i = 0; i < source.CapacityRatio.length; i++) {
+                this.CapacityRatio[i] = new Long(source.CapacityRatio[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -122,6 +186,7 @@ public class DeviceDiskInfo extends AbstractModel{
         this.setParamArraySimple(map, prefix + "IoWaitTime.", this.IoWaitTime);
         this.setParamArraySimple(map, prefix + "Read.", this.Read);
         this.setParamArraySimple(map, prefix + "Write.", this.Write);
+        this.setParamArraySimple(map, prefix + "CapacityRatio.", this.CapacityRatio);
 
     }
 }

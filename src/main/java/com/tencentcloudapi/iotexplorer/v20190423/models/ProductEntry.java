@@ -129,6 +129,22 @@ public class ProductEntry extends AbstractModel{
     private String EnableProductScript;
 
     /**
+    * 创建人 UinId
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CreateUserId")
+    @Expose
+    private Long CreateUserId;
+
+    /**
+    * 创建者昵称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CreatorNickName")
+    @Expose
+    private String CreatorNickName;
+
+    /**
      * Get 产品ID 
      * @return ProductId 产品ID
      */
@@ -373,6 +389,108 @@ public class ProductEntry extends AbstractModel{
     }
 
     /**
+     * Get 创建人 UinId
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CreateUserId 创建人 UinId
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getCreateUserId() {
+        return this.CreateUserId;
+    }
+
+    /**
+     * Set 创建人 UinId
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CreateUserId 创建人 UinId
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCreateUserId(Long CreateUserId) {
+        this.CreateUserId = CreateUserId;
+    }
+
+    /**
+     * Get 创建者昵称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CreatorNickName 创建者昵称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCreatorNickName() {
+        return this.CreatorNickName;
+    }
+
+    /**
+     * Set 创建者昵称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CreatorNickName 创建者昵称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCreatorNickName(String CreatorNickName) {
+        this.CreatorNickName = CreatorNickName;
+    }
+
+    public ProductEntry() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ProductEntry(ProductEntry source) {
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+        if (source.ProductName != null) {
+            this.ProductName = new String(source.ProductName);
+        }
+        if (source.CategoryId != null) {
+            this.CategoryId = new Long(source.CategoryId);
+        }
+        if (source.EncryptionType != null) {
+            this.EncryptionType = new String(source.EncryptionType);
+        }
+        if (source.NetType != null) {
+            this.NetType = new String(source.NetType);
+        }
+        if (source.DataProtocol != null) {
+            this.DataProtocol = new Long(source.DataProtocol);
+        }
+        if (source.ProductDesc != null) {
+            this.ProductDesc = new String(source.ProductDesc);
+        }
+        if (source.DevStatus != null) {
+            this.DevStatus = new String(source.DevStatus);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new Long(source.CreateTime);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new Long(source.UpdateTime);
+        }
+        if (source.Region != null) {
+            this.Region = new String(source.Region);
+        }
+        if (source.ProductType != null) {
+            this.ProductType = new Long(source.ProductType);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
+        }
+        if (source.ModuleId != null) {
+            this.ModuleId = new Long(source.ModuleId);
+        }
+        if (source.EnableProductScript != null) {
+            this.EnableProductScript = new String(source.EnableProductScript);
+        }
+        if (source.CreateUserId != null) {
+            this.CreateUserId = new Long(source.CreateUserId);
+        }
+        if (source.CreatorNickName != null) {
+            this.CreatorNickName = new String(source.CreatorNickName);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -391,6 +509,8 @@ public class ProductEntry extends AbstractModel{
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamSimple(map, prefix + "ModuleId", this.ModuleId);
         this.setParamSimple(map, prefix + "EnableProductScript", this.EnableProductScript);
+        this.setParamSimple(map, prefix + "CreateUserId", this.CreateUserId);
+        this.setParamSimple(map, prefix + "CreatorNickName", this.CreatorNickName);
 
     }
 }

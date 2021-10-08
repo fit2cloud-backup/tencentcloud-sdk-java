@@ -30,6 +30,20 @@ public class CreateSessionResponse extends AbstractModel{
     private String ServerSession;
 
     /**
+    * 【已废弃】
+    */
+    @SerializedName("RoleNumber")
+    @Expose
+    private String RoleNumber;
+
+    /**
+    * 【互动云游】角色；Player表示玩家；Viewer表示观察者
+    */
+    @SerializedName("Role")
+    @Expose
+    private String Role;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -53,6 +67,38 @@ public class CreateSessionResponse extends AbstractModel{
     }
 
     /**
+     * Get 【已废弃】 
+     * @return RoleNumber 【已废弃】
+     */
+    public String getRoleNumber() {
+        return this.RoleNumber;
+    }
+
+    /**
+     * Set 【已废弃】
+     * @param RoleNumber 【已废弃】
+     */
+    public void setRoleNumber(String RoleNumber) {
+        this.RoleNumber = RoleNumber;
+    }
+
+    /**
+     * Get 【互动云游】角色；Player表示玩家；Viewer表示观察者 
+     * @return Role 【互动云游】角色；Player表示玩家；Viewer表示观察者
+     */
+    public String getRole() {
+        return this.Role;
+    }
+
+    /**
+     * Set 【互动云游】角色；Player表示玩家；Viewer表示观察者
+     * @param Role 【互动云游】角色；Player表示玩家；Viewer表示观察者
+     */
+    public void setRole(String Role) {
+        this.Role = Role;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -68,11 +114,36 @@ public class CreateSessionResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public CreateSessionResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateSessionResponse(CreateSessionResponse source) {
+        if (source.ServerSession != null) {
+            this.ServerSession = new String(source.ServerSession);
+        }
+        if (source.RoleNumber != null) {
+            this.RoleNumber = new String(source.RoleNumber);
+        }
+        if (source.Role != null) {
+            this.Role = new String(source.Role);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ServerSession", this.ServerSession);
+        this.setParamSimple(map, prefix + "RoleNumber", this.RoleNumber);
+        this.setParamSimple(map, prefix + "Role", this.Role);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

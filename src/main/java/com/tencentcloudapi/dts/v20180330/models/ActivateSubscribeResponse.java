@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class ActivateSubscribeResponse extends AbstractModel{
 
     /**
-    * 配置数据订阅任务任务ID。
+    * 配置数据订阅任务ID。
     */
     @SerializedName("AsyncRequestId")
     @Expose
@@ -37,16 +37,16 @@ public class ActivateSubscribeResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 配置数据订阅任务任务ID。 
-     * @return AsyncRequestId 配置数据订阅任务任务ID。
+     * Get 配置数据订阅任务ID。 
+     * @return AsyncRequestId 配置数据订阅任务ID。
      */
     public String getAsyncRequestId() {
         return this.AsyncRequestId;
     }
 
     /**
-     * Set 配置数据订阅任务任务ID。
-     * @param AsyncRequestId 配置数据订阅任务任务ID。
+     * Set 配置数据订阅任务ID。
+     * @param AsyncRequestId 配置数据订阅任务ID。
      */
     public void setAsyncRequestId(String AsyncRequestId) {
         this.AsyncRequestId = AsyncRequestId;
@@ -67,6 +67,23 @@ public class ActivateSubscribeResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public ActivateSubscribeResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ActivateSubscribeResponse(ActivateSubscribeResponse source) {
+        if (source.AsyncRequestId != null) {
+            this.AsyncRequestId = new String(source.AsyncRequestId);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -23,7 +23,10 @@ import java.util.HashMap;
 public class StickerTrackItem extends AbstractModel{
 
     /**
-    * 贴图素材的媒体文件来源。可以是点播的文件 ID，也可以是其它文件的 URL。
+    * 贴图片段的媒体素材来源，可以是：
+<li>点播的媒体文件 ID；</li>
+<li>其他媒体文件的下载 URL。</li>
+注意：当使用其他媒体文件的下载 URL 作为素材来源，且开启了访问控制（如防盗链）时，需要在 URL 携带访问控制参数（如防盗链签名）。
     */
     @SerializedName("SourceMedia")
     @Expose
@@ -97,23 +100,34 @@ public class StickerTrackItem extends AbstractModel{
 
     /**
     * 对贴图进行的操作，如图像旋转等。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageOperations")
     @Expose
     private ImageTransform [] ImageOperations;
 
     /**
-     * Get 贴图素材的媒体文件来源。可以是点播的文件 ID，也可以是其它文件的 URL。 
-     * @return SourceMedia 贴图素材的媒体文件来源。可以是点播的文件 ID，也可以是其它文件的 URL。
+     * Get 贴图片段的媒体素材来源，可以是：
+<li>点播的媒体文件 ID；</li>
+<li>其他媒体文件的下载 URL。</li>
+注意：当使用其他媒体文件的下载 URL 作为素材来源，且开启了访问控制（如防盗链）时，需要在 URL 携带访问控制参数（如防盗链签名）。 
+     * @return SourceMedia 贴图片段的媒体素材来源，可以是：
+<li>点播的媒体文件 ID；</li>
+<li>其他媒体文件的下载 URL。</li>
+注意：当使用其他媒体文件的下载 URL 作为素材来源，且开启了访问控制（如防盗链）时，需要在 URL 携带访问控制参数（如防盗链签名）。
      */
     public String getSourceMedia() {
         return this.SourceMedia;
     }
 
     /**
-     * Set 贴图素材的媒体文件来源。可以是点播的文件 ID，也可以是其它文件的 URL。
-     * @param SourceMedia 贴图素材的媒体文件来源。可以是点播的文件 ID，也可以是其它文件的 URL。
+     * Set 贴图片段的媒体素材来源，可以是：
+<li>点播的媒体文件 ID；</li>
+<li>其他媒体文件的下载 URL。</li>
+注意：当使用其他媒体文件的下载 URL 作为素材来源，且开启了访问控制（如防盗链）时，需要在 URL 携带访问控制参数（如防盗链签名）。
+     * @param SourceMedia 贴图片段的媒体素材来源，可以是：
+<li>点播的媒体文件 ID；</li>
+<li>其他媒体文件的下载 URL。</li>
+注意：当使用其他媒体文件的下载 URL 作为素材来源，且开启了访问控制（如防盗链）时，需要在 URL 携带访问控制参数（如防盗链签名）。
      */
     public void setSourceMedia(String SourceMedia) {
         this.SourceMedia = SourceMedia;
@@ -300,10 +314,8 @@ public class StickerTrackItem extends AbstractModel{
     }
 
     /**
-     * Get 对贴图进行的操作，如图像旋转等。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 对贴图进行的操作，如图像旋转等。 
      * @return ImageOperations 对贴图进行的操作，如图像旋转等。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ImageTransform [] getImageOperations() {
         return this.ImageOperations;
@@ -311,13 +323,52 @@ public class StickerTrackItem extends AbstractModel{
 
     /**
      * Set 对贴图进行的操作，如图像旋转等。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImageOperations 对贴图进行的操作，如图像旋转等。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageOperations(ImageTransform [] ImageOperations) {
         this.ImageOperations = ImageOperations;
     }
+
+    public StickerTrackItem() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public StickerTrackItem(StickerTrackItem source) {
+        if (source.SourceMedia != null) {
+            this.SourceMedia = new String(source.SourceMedia);
+        }
+        if (source.Duration != null) {
+            this.Duration = new Float(source.Duration);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new Float(source.StartTime);
+        }
+        if (source.CoordinateOrigin != null) {
+            this.CoordinateOrigin = new String(source.CoordinateOrigin);
+        }
+        if (source.XPos != null) {
+            this.XPos = new String(source.XPos);
+        }
+        if (source.YPos != null) {
+            this.YPos = new String(source.YPos);
+        }
+        if (source.Width != null) {
+            this.Width = new String(source.Width);
+        }
+        if (source.Height != null) {
+            this.Height = new String(source.Height);
+        }
+        if (source.ImageOperations != null) {
+            this.ImageOperations = new ImageTransform[source.ImageOperations.length];
+            for (int i = 0; i < source.ImageOperations.length; i++) {
+                this.ImageOperations[i] = new ImageTransform(source.ImageOperations[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

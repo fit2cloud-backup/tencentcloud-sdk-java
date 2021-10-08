@@ -27,6 +27,7 @@ import com.tencentcloudapi.tiia.v20190529.models.*;
 
 public class TiiaClient extends AbstractClient{
     private static String endpoint = "tiia.tencentcloudapi.com";
+    private static String service = "tiia";
     private static String version = "2019-05-29";
 
     public TiiaClient(Credential credential, String region) {
@@ -47,12 +48,14 @@ public class TiiaClient extends AbstractClient{
      */
     public AssessQualityResponse AssessQuality(AssessQualityRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AssessQualityResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<AssessQualityResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "AssessQuality"), type);
+                rspStr = this.internalRequest(req, "AssessQuality");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -69,12 +72,14 @@ public class TiiaClient extends AbstractClient{
      */
     public CropImageResponse CropImage(CropImageRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CropImageResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<CropImageResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "CropImage"), type);
+                rspStr = this.internalRequest(req, "CropImage");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -91,12 +96,14 @@ public class TiiaClient extends AbstractClient{
      */
     public DetectCelebrityResponse DetectCelebrity(DetectCelebrityRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DetectCelebrityResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DetectCelebrityResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DetectCelebrity"), type);
+                rspStr = this.internalRequest(req, "DetectCelebrity");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -113,12 +120,14 @@ public class TiiaClient extends AbstractClient{
      */
     public DetectDisgustResponse DetectDisgust(DetectDisgustRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DetectDisgustResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DetectDisgustResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DetectDisgust"), type);
+                rspStr = this.internalRequest(req, "DetectDisgust");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -126,9 +135,9 @@ public class TiiaClient extends AbstractClient{
     /**
      *图像标签利用深度学习技术、海量训练数据，可以对图片进行智能分类、物体识别等。
 
-目前支持8个大类、六十多个子类、数千个标签。涵盖各种日常场景、动植物、物品、美食、卡证等。具体分类请见图像分析常见问题功能和限制部分（https://cloud.tencent.com/document/product/865/17629 ）
+目前支持8个大类、六十多个子类、数千个标签。涵盖各种日常场景、动植物、物品、美食、卡证等。具体分类请见[图像分析常见问题功能与限制相关](https://cloud.tencent.com/document/product/865/39164)。
 
-图像标签提供三个版本供选择：
+图像标签提供四个版本供选择：
 
 • 摄像头版：针对搜索、手机摄像头照片进行优化，涵盖大量卡证、日常物品、二维码条形码。
 
@@ -136,7 +145,9 @@ public class TiiaClient extends AbstractClient{
 
 • 网络版：针对网络图片进行优化，涵盖标签更多，满足长尾识别需求。
 
-每个产品的图像类型都有独特性，建议在接入初期，对三个版本进行对比评估后选择合适的版本使用。
+• 新闻版：针对新闻、资讯、广电等行业进行优化，增加定制识别，支持万级图像标签。
+
+每个产品的图像类型都有独特性，建议在接入初期，对四个版本进行对比评估后选择合适的版本使用。
 
 为了方便使用、减少图片传输次数，图像标签包装成多合一接口，实际上是多个服务。
 
@@ -149,12 +160,37 @@ public class TiiaClient extends AbstractClient{
      */
     public DetectLabelResponse DetectLabel(DetectLabelRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DetectLabelResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DetectLabelResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DetectLabel"), type);
+                rspStr = this.internalRequest(req, "DetectLabel");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *图像标签测试接口
+
+>     
+- 公共参数中的签名方式必须指定为V3版本，即配置SignatureMethod参数为TC3-HMAC-SHA256。
+     * @param req DetectLabelBetaRequest
+     * @return DetectLabelBetaResponse
+     * @throws TencentCloudSDKException
+     */
+    public DetectLabelBetaResponse DetectLabelBeta(DetectLabelBetaRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DetectLabelBetaResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DetectLabelBetaResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DetectLabelBeta");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -169,12 +205,14 @@ public class TiiaClient extends AbstractClient{
      */
     public DetectMisbehaviorResponse DetectMisbehavior(DetectMisbehaviorRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DetectMisbehaviorResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DetectMisbehaviorResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DetectMisbehavior"), type);
+                rspStr = this.internalRequest(req, "DetectMisbehavior");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -189,12 +227,14 @@ public class TiiaClient extends AbstractClient{
      */
     public DetectProductResponse DetectProduct(DetectProductRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DetectProductResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DetectProductResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DetectProduct"), type);
+                rspStr = this.internalRequest(req, "DetectProduct");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -216,12 +256,14 @@ public class TiiaClient extends AbstractClient{
      */
     public DetectProductBetaResponse DetectProductBeta(DetectProductBetaRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DetectProductBetaResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DetectProductBetaResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DetectProductBeta"), type);
+                rspStr = this.internalRequest(req, "DetectProductBeta");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -238,12 +280,14 @@ public class TiiaClient extends AbstractClient{
      */
     public EnhanceImageResponse EnhanceImage(EnhanceImageRequest req) throws TencentCloudSDKException{
         JsonResponseModel<EnhanceImageResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<EnhanceImageResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "EnhanceImage"), type);
+                rspStr = this.internalRequest(req, "EnhanceImage");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -258,12 +302,14 @@ public class TiiaClient extends AbstractClient{
      */
     public RecognizeCarResponse RecognizeCar(RecognizeCarRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RecognizeCarResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<RecognizeCarResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "RecognizeCar"), type);
+                rspStr = this.internalRequest(req, "RecognizeCar");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

@@ -51,7 +51,7 @@ public class CreateHTTPSListenerRequest extends AbstractModel{
     private String ForwardProtocol;
 
     /**
-    * 通道ID
+    * 通道ID，与GroupId之间只能设置一个。表示创建通道的监听器。
     */
     @SerializedName("ProxyId")
     @Expose
@@ -80,6 +80,13 @@ public class CreateHTTPSListenerRequest extends AbstractModel{
     @SerializedName("PolyClientCertificateIds")
     @Expose
     private String [] PolyClientCertificateIds;
+
+    /**
+    * 通道组ID，与ProxyId之间只能设置一个。表示创建通道组的监听器。
+    */
+    @SerializedName("GroupId")
+    @Expose
+    private String GroupId;
 
     /**
      * Get 监听器名称 
@@ -146,16 +153,16 @@ public class CreateHTTPSListenerRequest extends AbstractModel{
     }
 
     /**
-     * Get 通道ID 
-     * @return ProxyId 通道ID
+     * Get 通道ID，与GroupId之间只能设置一个。表示创建通道的监听器。 
+     * @return ProxyId 通道ID，与GroupId之间只能设置一个。表示创建通道的监听器。
      */
     public String getProxyId() {
         return this.ProxyId;
     }
 
     /**
-     * Set 通道ID
-     * @param ProxyId 通道ID
+     * Set 通道ID，与GroupId之间只能设置一个。表示创建通道的监听器。
+     * @param ProxyId 通道ID，与GroupId之间只能设置一个。表示创建通道的监听器。
      */
     public void setProxyId(String ProxyId) {
         this.ProxyId = ProxyId;
@@ -222,6 +229,63 @@ public class CreateHTTPSListenerRequest extends AbstractModel{
     }
 
     /**
+     * Get 通道组ID，与ProxyId之间只能设置一个。表示创建通道组的监听器。 
+     * @return GroupId 通道组ID，与ProxyId之间只能设置一个。表示创建通道组的监听器。
+     */
+    public String getGroupId() {
+        return this.GroupId;
+    }
+
+    /**
+     * Set 通道组ID，与ProxyId之间只能设置一个。表示创建通道组的监听器。
+     * @param GroupId 通道组ID，与ProxyId之间只能设置一个。表示创建通道组的监听器。
+     */
+    public void setGroupId(String GroupId) {
+        this.GroupId = GroupId;
+    }
+
+    public CreateHTTPSListenerRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateHTTPSListenerRequest(CreateHTTPSListenerRequest source) {
+        if (source.ListenerName != null) {
+            this.ListenerName = new String(source.ListenerName);
+        }
+        if (source.Port != null) {
+            this.Port = new Long(source.Port);
+        }
+        if (source.CertificateId != null) {
+            this.CertificateId = new String(source.CertificateId);
+        }
+        if (source.ForwardProtocol != null) {
+            this.ForwardProtocol = new String(source.ForwardProtocol);
+        }
+        if (source.ProxyId != null) {
+            this.ProxyId = new String(source.ProxyId);
+        }
+        if (source.AuthType != null) {
+            this.AuthType = new Long(source.AuthType);
+        }
+        if (source.ClientCertificateId != null) {
+            this.ClientCertificateId = new String(source.ClientCertificateId);
+        }
+        if (source.PolyClientCertificateIds != null) {
+            this.PolyClientCertificateIds = new String[source.PolyClientCertificateIds.length];
+            for (int i = 0; i < source.PolyClientCertificateIds.length; i++) {
+                this.PolyClientCertificateIds[i] = new String(source.PolyClientCertificateIds[i]);
+            }
+        }
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -233,6 +297,7 @@ public class CreateHTTPSListenerRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "AuthType", this.AuthType);
         this.setParamSimple(map, prefix + "ClientCertificateId", this.ClientCertificateId);
         this.setParamArraySimple(map, prefix + "PolyClientCertificateIds.", this.PolyClientCertificateIds);
+        this.setParamSimple(map, prefix + "GroupId", this.GroupId);
 
     }
 }

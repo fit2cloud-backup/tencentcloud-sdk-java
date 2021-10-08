@@ -23,9 +23,47 @@ import java.util.HashMap;
 public class GetActionSequenceRequest extends AbstractModel{
 
     /**
+    * 默认不需要使用
+    */
+    @SerializedName("ActionType")
+    @Expose
+    private String ActionType;
+
+    /**
+     * Get 默认不需要使用 
+     * @return ActionType 默认不需要使用
+     */
+    public String getActionType() {
+        return this.ActionType;
+    }
+
+    /**
+     * Set 默认不需要使用
+     * @param ActionType 默认不需要使用
+     */
+    public void setActionType(String ActionType) {
+        this.ActionType = ActionType;
+    }
+
+    public GetActionSequenceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public GetActionSequenceRequest(GetActionSequenceRequest source) {
+        if (source.ActionType != null) {
+            this.ActionType = new String(source.ActionType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "ActionType", this.ActionType);
 
     }
 }

@@ -79,6 +79,48 @@ public class DescribeEnvLimitResponse extends AbstractModel{
     private Long CurrentDeleteMonthly;
 
     /**
+    * 微信网关体验版可购买月份数
+    */
+    @SerializedName("MaxFreeTrialNum")
+    @Expose
+    private Long MaxFreeTrialNum;
+
+    /**
+    * 微信网关体验版已购买月份数
+    */
+    @SerializedName("CurrentFreeTrialNum")
+    @Expose
+    private Long CurrentFreeTrialNum;
+
+    /**
+    * 转支付限额总数
+    */
+    @SerializedName("ChangePayTotal")
+    @Expose
+    private Long ChangePayTotal;
+
+    /**
+    * 当前已用转支付次数
+    */
+    @SerializedName("CurrentChangePayTotal")
+    @Expose
+    private Long CurrentChangePayTotal;
+
+    /**
+    * 转支付每月限额
+    */
+    @SerializedName("ChangePayMonthly")
+    @Expose
+    private Long ChangePayMonthly;
+
+    /**
+    * 本月已用转支付额度
+    */
+    @SerializedName("CurrentChangePayMonthly")
+    @Expose
+    private Long CurrentChangePayMonthly;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -214,6 +256,102 @@ public class DescribeEnvLimitResponse extends AbstractModel{
     }
 
     /**
+     * Get 微信网关体验版可购买月份数 
+     * @return MaxFreeTrialNum 微信网关体验版可购买月份数
+     */
+    public Long getMaxFreeTrialNum() {
+        return this.MaxFreeTrialNum;
+    }
+
+    /**
+     * Set 微信网关体验版可购买月份数
+     * @param MaxFreeTrialNum 微信网关体验版可购买月份数
+     */
+    public void setMaxFreeTrialNum(Long MaxFreeTrialNum) {
+        this.MaxFreeTrialNum = MaxFreeTrialNum;
+    }
+
+    /**
+     * Get 微信网关体验版已购买月份数 
+     * @return CurrentFreeTrialNum 微信网关体验版已购买月份数
+     */
+    public Long getCurrentFreeTrialNum() {
+        return this.CurrentFreeTrialNum;
+    }
+
+    /**
+     * Set 微信网关体验版已购买月份数
+     * @param CurrentFreeTrialNum 微信网关体验版已购买月份数
+     */
+    public void setCurrentFreeTrialNum(Long CurrentFreeTrialNum) {
+        this.CurrentFreeTrialNum = CurrentFreeTrialNum;
+    }
+
+    /**
+     * Get 转支付限额总数 
+     * @return ChangePayTotal 转支付限额总数
+     */
+    public Long getChangePayTotal() {
+        return this.ChangePayTotal;
+    }
+
+    /**
+     * Set 转支付限额总数
+     * @param ChangePayTotal 转支付限额总数
+     */
+    public void setChangePayTotal(Long ChangePayTotal) {
+        this.ChangePayTotal = ChangePayTotal;
+    }
+
+    /**
+     * Get 当前已用转支付次数 
+     * @return CurrentChangePayTotal 当前已用转支付次数
+     */
+    public Long getCurrentChangePayTotal() {
+        return this.CurrentChangePayTotal;
+    }
+
+    /**
+     * Set 当前已用转支付次数
+     * @param CurrentChangePayTotal 当前已用转支付次数
+     */
+    public void setCurrentChangePayTotal(Long CurrentChangePayTotal) {
+        this.CurrentChangePayTotal = CurrentChangePayTotal;
+    }
+
+    /**
+     * Get 转支付每月限额 
+     * @return ChangePayMonthly 转支付每月限额
+     */
+    public Long getChangePayMonthly() {
+        return this.ChangePayMonthly;
+    }
+
+    /**
+     * Set 转支付每月限额
+     * @param ChangePayMonthly 转支付每月限额
+     */
+    public void setChangePayMonthly(Long ChangePayMonthly) {
+        this.ChangePayMonthly = ChangePayMonthly;
+    }
+
+    /**
+     * Get 本月已用转支付额度 
+     * @return CurrentChangePayMonthly 本月已用转支付额度
+     */
+    public Long getCurrentChangePayMonthly() {
+        return this.CurrentChangePayMonthly;
+    }
+
+    /**
+     * Set 本月已用转支付额度
+     * @param CurrentChangePayMonthly 本月已用转支付额度
+     */
+    public void setCurrentChangePayMonthly(Long CurrentChangePayMonthly) {
+        this.CurrentChangePayMonthly = CurrentChangePayMonthly;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -229,6 +367,62 @@ public class DescribeEnvLimitResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public DescribeEnvLimitResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeEnvLimitResponse(DescribeEnvLimitResponse source) {
+        if (source.MaxEnvNum != null) {
+            this.MaxEnvNum = new Long(source.MaxEnvNum);
+        }
+        if (source.CurrentEnvNum != null) {
+            this.CurrentEnvNum = new Long(source.CurrentEnvNum);
+        }
+        if (source.MaxFreeEnvNum != null) {
+            this.MaxFreeEnvNum = new Long(source.MaxFreeEnvNum);
+        }
+        if (source.CurrentFreeEnvNum != null) {
+            this.CurrentFreeEnvNum = new Long(source.CurrentFreeEnvNum);
+        }
+        if (source.MaxDeleteTotal != null) {
+            this.MaxDeleteTotal = new Long(source.MaxDeleteTotal);
+        }
+        if (source.CurrentDeleteTotal != null) {
+            this.CurrentDeleteTotal = new Long(source.CurrentDeleteTotal);
+        }
+        if (source.MaxDeleteMonthly != null) {
+            this.MaxDeleteMonthly = new Long(source.MaxDeleteMonthly);
+        }
+        if (source.CurrentDeleteMonthly != null) {
+            this.CurrentDeleteMonthly = new Long(source.CurrentDeleteMonthly);
+        }
+        if (source.MaxFreeTrialNum != null) {
+            this.MaxFreeTrialNum = new Long(source.MaxFreeTrialNum);
+        }
+        if (source.CurrentFreeTrialNum != null) {
+            this.CurrentFreeTrialNum = new Long(source.CurrentFreeTrialNum);
+        }
+        if (source.ChangePayTotal != null) {
+            this.ChangePayTotal = new Long(source.ChangePayTotal);
+        }
+        if (source.CurrentChangePayTotal != null) {
+            this.CurrentChangePayTotal = new Long(source.CurrentChangePayTotal);
+        }
+        if (source.ChangePayMonthly != null) {
+            this.ChangePayMonthly = new Long(source.ChangePayMonthly);
+        }
+        if (source.CurrentChangePayMonthly != null) {
+            this.CurrentChangePayMonthly = new Long(source.CurrentChangePayMonthly);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
@@ -241,6 +435,12 @@ public class DescribeEnvLimitResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "CurrentDeleteTotal", this.CurrentDeleteTotal);
         this.setParamSimple(map, prefix + "MaxDeleteMonthly", this.MaxDeleteMonthly);
         this.setParamSimple(map, prefix + "CurrentDeleteMonthly", this.CurrentDeleteMonthly);
+        this.setParamSimple(map, prefix + "MaxFreeTrialNum", this.MaxFreeTrialNum);
+        this.setParamSimple(map, prefix + "CurrentFreeTrialNum", this.CurrentFreeTrialNum);
+        this.setParamSimple(map, prefix + "ChangePayTotal", this.ChangePayTotal);
+        this.setParamSimple(map, prefix + "CurrentChangePayTotal", this.CurrentChangePayTotal);
+        this.setParamSimple(map, prefix + "ChangePayMonthly", this.ChangePayMonthly);
+        this.setParamSimple(map, prefix + "CurrentChangePayMonthly", this.CurrentChangePayMonthly);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

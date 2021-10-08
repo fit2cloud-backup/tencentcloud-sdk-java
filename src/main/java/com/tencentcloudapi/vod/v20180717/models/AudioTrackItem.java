@@ -23,7 +23,10 @@ import java.util.HashMap;
 public class AudioTrackItem extends AbstractModel{
 
     /**
-    * 音频素材的媒体文件来源。可以是点播的文件 ID，也可以是其它文件的 URL。
+    * 音频片段的媒体素材来源，可以是：
+<li>点播的媒体文件 ID；</li>
+<li>其他媒体文件的下载 URL。</li>
+注意：当使用其他媒体文件的下载 URL 作为素材来源，且开启了访问控制（如防盗链）时，需要在 URL 携带访问控制参数（如防盗链签名）。
     */
     @SerializedName("SourceMedia")
     @Expose
@@ -45,23 +48,34 @@ public class AudioTrackItem extends AbstractModel{
 
     /**
     * 对音频片段进行的操作，如音量调节等。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AudioOperations")
     @Expose
     private AudioTransform [] AudioOperations;
 
     /**
-     * Get 音频素材的媒体文件来源。可以是点播的文件 ID，也可以是其它文件的 URL。 
-     * @return SourceMedia 音频素材的媒体文件来源。可以是点播的文件 ID，也可以是其它文件的 URL。
+     * Get 音频片段的媒体素材来源，可以是：
+<li>点播的媒体文件 ID；</li>
+<li>其他媒体文件的下载 URL。</li>
+注意：当使用其他媒体文件的下载 URL 作为素材来源，且开启了访问控制（如防盗链）时，需要在 URL 携带访问控制参数（如防盗链签名）。 
+     * @return SourceMedia 音频片段的媒体素材来源，可以是：
+<li>点播的媒体文件 ID；</li>
+<li>其他媒体文件的下载 URL。</li>
+注意：当使用其他媒体文件的下载 URL 作为素材来源，且开启了访问控制（如防盗链）时，需要在 URL 携带访问控制参数（如防盗链签名）。
      */
     public String getSourceMedia() {
         return this.SourceMedia;
     }
 
     /**
-     * Set 音频素材的媒体文件来源。可以是点播的文件 ID，也可以是其它文件的 URL。
-     * @param SourceMedia 音频素材的媒体文件来源。可以是点播的文件 ID，也可以是其它文件的 URL。
+     * Set 音频片段的媒体素材来源，可以是：
+<li>点播的媒体文件 ID；</li>
+<li>其他媒体文件的下载 URL。</li>
+注意：当使用其他媒体文件的下载 URL 作为素材来源，且开启了访问控制（如防盗链）时，需要在 URL 携带访问控制参数（如防盗链签名）。
+     * @param SourceMedia 音频片段的媒体素材来源，可以是：
+<li>点播的媒体文件 ID；</li>
+<li>其他媒体文件的下载 URL。</li>
+注意：当使用其他媒体文件的下载 URL 作为素材来源，且开启了访问控制（如防盗链）时，需要在 URL 携带访问控制参数（如防盗链签名）。
      */
     public void setSourceMedia(String SourceMedia) {
         this.SourceMedia = SourceMedia;
@@ -100,10 +114,8 @@ public class AudioTrackItem extends AbstractModel{
     }
 
     /**
-     * Get 对音频片段进行的操作，如音量调节等。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 对音频片段进行的操作，如音量调节等。 
      * @return AudioOperations 对音频片段进行的操作，如音量调节等。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AudioTransform [] getAudioOperations() {
         return this.AudioOperations;
@@ -111,13 +123,37 @@ public class AudioTrackItem extends AbstractModel{
 
     /**
      * Set 对音频片段进行的操作，如音量调节等。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AudioOperations 对音频片段进行的操作，如音量调节等。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAudioOperations(AudioTransform [] AudioOperations) {
         this.AudioOperations = AudioOperations;
     }
+
+    public AudioTrackItem() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AudioTrackItem(AudioTrackItem source) {
+        if (source.SourceMedia != null) {
+            this.SourceMedia = new String(source.SourceMedia);
+        }
+        if (source.SourceMediaStartTime != null) {
+            this.SourceMediaStartTime = new Float(source.SourceMediaStartTime);
+        }
+        if (source.Duration != null) {
+            this.Duration = new Float(source.Duration);
+        }
+        if (source.AudioOperations != null) {
+            this.AudioOperations = new AudioTransform[source.AudioOperations.length];
+            for (int i = 0; i < source.AudioOperations.length; i++) {
+                this.AudioOperations[i] = new AudioTransform(source.AudioOperations[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

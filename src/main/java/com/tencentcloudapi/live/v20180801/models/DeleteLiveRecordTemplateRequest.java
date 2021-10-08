@@ -23,27 +23,41 @@ import java.util.HashMap;
 public class DeleteLiveRecordTemplateRequest extends AbstractModel{
 
     /**
-    * 模板ID。
+    * DescribeRecordTemplates接口获取到的模板 ID。
     */
     @SerializedName("TemplateId")
     @Expose
     private Long TemplateId;
 
     /**
-     * Get 模板ID。 
-     * @return TemplateId 模板ID。
+     * Get DescribeRecordTemplates接口获取到的模板 ID。 
+     * @return TemplateId DescribeRecordTemplates接口获取到的模板 ID。
      */
     public Long getTemplateId() {
         return this.TemplateId;
     }
 
     /**
-     * Set 模板ID。
-     * @param TemplateId 模板ID。
+     * Set DescribeRecordTemplates接口获取到的模板 ID。
+     * @param TemplateId DescribeRecordTemplates接口获取到的模板 ID。
      */
     public void setTemplateId(Long TemplateId) {
         this.TemplateId = TemplateId;
     }
+
+    public DeleteLiveRecordTemplateRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeleteLiveRecordTemplateRequest(DeleteLiveRecordTemplateRequest source) {
+        if (source.TemplateId != null) {
+            this.TemplateId = new Long(source.TemplateId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

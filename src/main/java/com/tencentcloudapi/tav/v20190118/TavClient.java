@@ -27,6 +27,7 @@ import com.tencentcloudapi.tav.v20190118.models.*;
 
 public class TavClient extends AbstractClient{
     private static String endpoint = "tav.tencentcloudapi.com";
+    private static String service = "tav";
     private static String version = "2019-01-18";
 
     public TavClient(Credential credential, String region) {
@@ -45,12 +46,14 @@ public class TavClient extends AbstractClient{
      */
     public GetLocalEngineResponse GetLocalEngine(GetLocalEngineRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetLocalEngineResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<GetLocalEngineResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "GetLocalEngine"), type);
+                rspStr = this.internalRequest(req, "GetLocalEngine");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -63,12 +66,14 @@ public class TavClient extends AbstractClient{
      */
     public GetScanResultResponse GetScanResult(GetScanResultRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetScanResultResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<GetScanResultResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "GetScanResult"), type);
+                rspStr = this.internalRequest(req, "GetScanResult");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -81,12 +86,14 @@ public class TavClient extends AbstractClient{
      */
     public ScanFileResponse ScanFile(ScanFileRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ScanFileResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ScanFileResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ScanFile"), type);
+                rspStr = this.internalRequest(req, "ScanFile");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -99,12 +106,14 @@ public class TavClient extends AbstractClient{
      */
     public ScanFileHashResponse ScanFileHash(ScanFileHashRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ScanFileHashResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ScanFileHashResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ScanFileHash"), type);
+                rspStr = this.internalRequest(req, "ScanFileHash");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

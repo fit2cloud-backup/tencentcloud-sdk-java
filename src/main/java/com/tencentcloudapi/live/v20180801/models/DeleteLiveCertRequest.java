@@ -23,27 +23,41 @@ import java.util.HashMap;
 public class DeleteLiveCertRequest extends AbstractModel{
 
     /**
-    * 证书Id。
+    * DescribeLiveCerts接口获取到的证书Id。
     */
     @SerializedName("CertId")
     @Expose
     private Long CertId;
 
     /**
-     * Get 证书Id。 
-     * @return CertId 证书Id。
+     * Get DescribeLiveCerts接口获取到的证书Id。 
+     * @return CertId DescribeLiveCerts接口获取到的证书Id。
      */
     public Long getCertId() {
         return this.CertId;
     }
 
     /**
-     * Set 证书Id。
-     * @param CertId 证书Id。
+     * Set DescribeLiveCerts接口获取到的证书Id。
+     * @param CertId DescribeLiveCerts接口获取到的证书Id。
      */
     public void setCertId(Long CertId) {
         this.CertId = CertId;
     }
+
+    public DeleteLiveCertRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeleteLiveCertRequest(DeleteLiveCertRequest source) {
+        if (source.CertId != null) {
+            this.CertId = new Long(source.CertId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

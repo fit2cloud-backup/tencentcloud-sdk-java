@@ -58,7 +58,7 @@ public class InvokeRequest extends AbstractModel{
     private String ChannelName;
 
     /**
-    * 对该笔交易进行背书的节点列表（包括节点名称和节点所属组织名称，详见数据结构一节），可以在通道详情中获取该通道上的节点名称极其所属组织名称
+    * 对该笔交易进行背书的节点列表（包括节点名称和节点所属组织名称，详见数据结构一节），可以在通道详情中获取该通道上的节点名称及其所属组织名称
     */
     @SerializedName("Peers")
     @Expose
@@ -79,7 +79,7 @@ public class InvokeRequest extends AbstractModel{
     private String GroupName;
 
     /**
-    * 被调用的函数参数列表
+    * 被调用的函数参数列表，参数列表大小总和要求小于2M
     */
     @SerializedName("Args")
     @Expose
@@ -173,16 +173,16 @@ public class InvokeRequest extends AbstractModel{
     }
 
     /**
-     * Get 对该笔交易进行背书的节点列表（包括节点名称和节点所属组织名称，详见数据结构一节），可以在通道详情中获取该通道上的节点名称极其所属组织名称 
-     * @return Peers 对该笔交易进行背书的节点列表（包括节点名称和节点所属组织名称，详见数据结构一节），可以在通道详情中获取该通道上的节点名称极其所属组织名称
+     * Get 对该笔交易进行背书的节点列表（包括节点名称和节点所属组织名称，详见数据结构一节），可以在通道详情中获取该通道上的节点名称及其所属组织名称 
+     * @return Peers 对该笔交易进行背书的节点列表（包括节点名称和节点所属组织名称，详见数据结构一节），可以在通道详情中获取该通道上的节点名称及其所属组织名称
      */
     public PeerSet [] getPeers() {
         return this.Peers;
     }
 
     /**
-     * Set 对该笔交易进行背书的节点列表（包括节点名称和节点所属组织名称，详见数据结构一节），可以在通道详情中获取该通道上的节点名称极其所属组织名称
-     * @param Peers 对该笔交易进行背书的节点列表（包括节点名称和节点所属组织名称，详见数据结构一节），可以在通道详情中获取该通道上的节点名称极其所属组织名称
+     * Set 对该笔交易进行背书的节点列表（包括节点名称和节点所属组织名称，详见数据结构一节），可以在通道详情中获取该通道上的节点名称及其所属组织名称
+     * @param Peers 对该笔交易进行背书的节点列表（包括节点名称和节点所属组织名称，详见数据结构一节），可以在通道详情中获取该通道上的节点名称及其所属组织名称
      */
     public void setPeers(PeerSet [] Peers) {
         this.Peers = Peers;
@@ -221,16 +221,16 @@ public class InvokeRequest extends AbstractModel{
     }
 
     /**
-     * Get 被调用的函数参数列表 
-     * @return Args 被调用的函数参数列表
+     * Get 被调用的函数参数列表，参数列表大小总和要求小于2M 
+     * @return Args 被调用的函数参数列表，参数列表大小总和要求小于2M
      */
     public String [] getArgs() {
         return this.Args;
     }
 
     /**
-     * Set 被调用的函数参数列表
-     * @param Args 被调用的函数参数列表
+     * Set 被调用的函数参数列表，参数列表大小总和要求小于2M
+     * @param Args 被调用的函数参数列表，参数列表大小总和要求小于2M
      */
     public void setArgs(String [] Args) {
         this.Args = Args;
@@ -251,6 +251,53 @@ public class InvokeRequest extends AbstractModel{
     public void setAsyncFlag(Long AsyncFlag) {
         this.AsyncFlag = AsyncFlag;
     }
+
+    public InvokeRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public InvokeRequest(InvokeRequest source) {
+        if (source.Module != null) {
+            this.Module = new String(source.Module);
+        }
+        if (source.Operation != null) {
+            this.Operation = new String(source.Operation);
+        }
+        if (source.ClusterId != null) {
+            this.ClusterId = new String(source.ClusterId);
+        }
+        if (source.ChaincodeName != null) {
+            this.ChaincodeName = new String(source.ChaincodeName);
+        }
+        if (source.ChannelName != null) {
+            this.ChannelName = new String(source.ChannelName);
+        }
+        if (source.Peers != null) {
+            this.Peers = new PeerSet[source.Peers.length];
+            for (int i = 0; i < source.Peers.length; i++) {
+                this.Peers[i] = new PeerSet(source.Peers[i]);
+            }
+        }
+        if (source.FuncName != null) {
+            this.FuncName = new String(source.FuncName);
+        }
+        if (source.GroupName != null) {
+            this.GroupName = new String(source.GroupName);
+        }
+        if (source.Args != null) {
+            this.Args = new String[source.Args.length];
+            for (int i = 0; i < source.Args.length; i++) {
+                this.Args[i] = new String(source.Args[i]);
+            }
+        }
+        if (source.AsyncFlag != null) {
+            this.AsyncFlag = new Long(source.AsyncFlag);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

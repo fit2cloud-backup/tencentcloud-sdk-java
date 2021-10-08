@@ -31,7 +31,6 @@ public class SampleSnapshotTaskInput extends AbstractModel{
 
     /**
     * 水印列表，支持多张图片或文字水印，最大可支持 10 张。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WatermarkSet")
     @Expose
@@ -54,10 +53,8 @@ public class SampleSnapshotTaskInput extends AbstractModel{
     }
 
     /**
-     * Get 水印列表，支持多张图片或文字水印，最大可支持 10 张。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 水印列表，支持多张图片或文字水印，最大可支持 10 张。 
      * @return WatermarkSet 水印列表，支持多张图片或文字水印，最大可支持 10 张。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public WatermarkInput [] getWatermarkSet() {
         return this.WatermarkSet;
@@ -65,13 +62,31 @@ public class SampleSnapshotTaskInput extends AbstractModel{
 
     /**
      * Set 水印列表，支持多张图片或文字水印，最大可支持 10 张。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param WatermarkSet 水印列表，支持多张图片或文字水印，最大可支持 10 张。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWatermarkSet(WatermarkInput [] WatermarkSet) {
         this.WatermarkSet = WatermarkSet;
     }
+
+    public SampleSnapshotTaskInput() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SampleSnapshotTaskInput(SampleSnapshotTaskInput source) {
+        if (source.Definition != null) {
+            this.Definition = new Long(source.Definition);
+        }
+        if (source.WatermarkSet != null) {
+            this.WatermarkSet = new WatermarkInput[source.WatermarkSet.length];
+            for (int i = 0; i < source.WatermarkSet.length; i++) {
+                this.WatermarkSet[i] = new WatermarkInput(source.WatermarkSet[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -30,14 +30,14 @@ public class ModifyAssistantCidrRequest extends AbstractModel{
     private String VpcId;
 
     /**
-    * 待添加的负载CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]
+    * 待添加的辅助CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]，入参NewCidrBlocks和OldCidrBlocks至少需要其一。
     */
     @SerializedName("NewCidrBlocks")
     @Expose
     private String [] NewCidrBlocks;
 
     /**
-    * 待删除的负载CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]
+    * 待删除的辅助CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]，入参NewCidrBlocks和OldCidrBlocks至少需要其一。
     */
     @SerializedName("OldCidrBlocks")
     @Expose
@@ -60,36 +60,62 @@ public class ModifyAssistantCidrRequest extends AbstractModel{
     }
 
     /**
-     * Get 待添加的负载CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"] 
-     * @return NewCidrBlocks 待添加的负载CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]
+     * Get 待添加的辅助CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]，入参NewCidrBlocks和OldCidrBlocks至少需要其一。 
+     * @return NewCidrBlocks 待添加的辅助CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]，入参NewCidrBlocks和OldCidrBlocks至少需要其一。
      */
     public String [] getNewCidrBlocks() {
         return this.NewCidrBlocks;
     }
 
     /**
-     * Set 待添加的负载CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]
-     * @param NewCidrBlocks 待添加的负载CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]
+     * Set 待添加的辅助CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]，入参NewCidrBlocks和OldCidrBlocks至少需要其一。
+     * @param NewCidrBlocks 待添加的辅助CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]，入参NewCidrBlocks和OldCidrBlocks至少需要其一。
      */
     public void setNewCidrBlocks(String [] NewCidrBlocks) {
         this.NewCidrBlocks = NewCidrBlocks;
     }
 
     /**
-     * Get 待删除的负载CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"] 
-     * @return OldCidrBlocks 待删除的负载CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]
+     * Get 待删除的辅助CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]，入参NewCidrBlocks和OldCidrBlocks至少需要其一。 
+     * @return OldCidrBlocks 待删除的辅助CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]，入参NewCidrBlocks和OldCidrBlocks至少需要其一。
      */
     public String [] getOldCidrBlocks() {
         return this.OldCidrBlocks;
     }
 
     /**
-     * Set 待删除的负载CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]
-     * @param OldCidrBlocks 待删除的负载CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]
+     * Set 待删除的辅助CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]，入参NewCidrBlocks和OldCidrBlocks至少需要其一。
+     * @param OldCidrBlocks 待删除的辅助CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]，入参NewCidrBlocks和OldCidrBlocks至少需要其一。
      */
     public void setOldCidrBlocks(String [] OldCidrBlocks) {
         this.OldCidrBlocks = OldCidrBlocks;
     }
+
+    public ModifyAssistantCidrRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyAssistantCidrRequest(ModifyAssistantCidrRequest source) {
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.NewCidrBlocks != null) {
+            this.NewCidrBlocks = new String[source.NewCidrBlocks.length];
+            for (int i = 0; i < source.NewCidrBlocks.length; i++) {
+                this.NewCidrBlocks[i] = new String(source.NewCidrBlocks[i]);
+            }
+        }
+        if (source.OldCidrBlocks != null) {
+            this.OldCidrBlocks = new String[source.OldCidrBlocks.length];
+            for (int i = 0; i < source.OldCidrBlocks.length; i++) {
+                this.OldCidrBlocks[i] = new String(source.OldCidrBlocks[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

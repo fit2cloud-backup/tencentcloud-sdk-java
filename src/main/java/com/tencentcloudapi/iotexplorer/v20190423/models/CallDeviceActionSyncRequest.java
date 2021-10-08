@@ -37,7 +37,7 @@ public class CallDeviceActionSyncRequest extends AbstractModel{
     private String DeviceName;
 
     /**
-    * 动作Id
+    * 产品数据模板中行为功能的标识符，由开发者自行根据设备的应用场景定义
     */
     @SerializedName("ActionId")
     @Expose
@@ -83,16 +83,16 @@ public class CallDeviceActionSyncRequest extends AbstractModel{
     }
 
     /**
-     * Get 动作Id 
-     * @return ActionId 动作Id
+     * Get 产品数据模板中行为功能的标识符，由开发者自行根据设备的应用场景定义 
+     * @return ActionId 产品数据模板中行为功能的标识符，由开发者自行根据设备的应用场景定义
      */
     public String getActionId() {
         return this.ActionId;
     }
 
     /**
-     * Set 动作Id
-     * @param ActionId 动作Id
+     * Set 产品数据模板中行为功能的标识符，由开发者自行根据设备的应用场景定义
+     * @param ActionId 产品数据模板中行为功能的标识符，由开发者自行根据设备的应用场景定义
      */
     public void setActionId(String ActionId) {
         this.ActionId = ActionId;
@@ -113,6 +113,29 @@ public class CallDeviceActionSyncRequest extends AbstractModel{
     public void setInputParams(String InputParams) {
         this.InputParams = InputParams;
     }
+
+    public CallDeviceActionSyncRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CallDeviceActionSyncRequest(CallDeviceActionSyncRequest source) {
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+        if (source.DeviceName != null) {
+            this.DeviceName = new String(source.DeviceName);
+        }
+        if (source.ActionId != null) {
+            this.ActionId = new String(source.ActionId);
+        }
+        if (source.InputParams != null) {
+            this.InputParams = new String(source.InputParams);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

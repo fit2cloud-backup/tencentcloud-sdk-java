@@ -24,6 +24,7 @@ public class PullSmsReplyStatusByPhoneNumberRequest extends AbstractModel{
 
     /**
     * 拉取起始时间，UNIX 时间戳（时间：秒）。
+注：最大可拉取当前时期7天前的数据。
     */
     @SerializedName("SendDateTime")
     @Expose
@@ -52,15 +53,24 @@ public class PullSmsReplyStatusByPhoneNumberRequest extends AbstractModel{
     private String PhoneNumber;
 
     /**
-    * 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/sms/smslist) 添加应用后生成的实际SdkAppid，例如1400006666。
+    * 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/smsv2) 添加应用后生成的实际SdkAppid，例如1400006666。
     */
     @SerializedName("SmsSdkAppid")
     @Expose
     private String SmsSdkAppid;
 
     /**
-     * Get 拉取起始时间，UNIX 时间戳（时间：秒）。 
+    * 拉取截止时间，UNIX 时间戳（时间：秒）。
+    */
+    @SerializedName("EndDateTime")
+    @Expose
+    private Long EndDateTime;
+
+    /**
+     * Get 拉取起始时间，UNIX 时间戳（时间：秒）。
+注：最大可拉取当前时期7天前的数据。 
      * @return SendDateTime 拉取起始时间，UNIX 时间戳（时间：秒）。
+注：最大可拉取当前时期7天前的数据。
      */
     public Long getSendDateTime() {
         return this.SendDateTime;
@@ -68,7 +78,9 @@ public class PullSmsReplyStatusByPhoneNumberRequest extends AbstractModel{
 
     /**
      * Set 拉取起始时间，UNIX 时间戳（时间：秒）。
+注：最大可拉取当前时期7天前的数据。
      * @param SendDateTime 拉取起始时间，UNIX 时间戳（时间：秒）。
+注：最大可拉取当前时期7天前的数据。
      */
     public void setSendDateTime(Long SendDateTime) {
         this.SendDateTime = SendDateTime;
@@ -127,20 +139,65 @@ public class PullSmsReplyStatusByPhoneNumberRequest extends AbstractModel{
     }
 
     /**
-     * Get 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/sms/smslist) 添加应用后生成的实际SdkAppid，例如1400006666。 
-     * @return SmsSdkAppid 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/sms/smslist) 添加应用后生成的实际SdkAppid，例如1400006666。
+     * Get 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/smsv2) 添加应用后生成的实际SdkAppid，例如1400006666。 
+     * @return SmsSdkAppid 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/smsv2) 添加应用后生成的实际SdkAppid，例如1400006666。
      */
     public String getSmsSdkAppid() {
         return this.SmsSdkAppid;
     }
 
     /**
-     * Set 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/sms/smslist) 添加应用后生成的实际SdkAppid，例如1400006666。
-     * @param SmsSdkAppid 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/sms/smslist) 添加应用后生成的实际SdkAppid，例如1400006666。
+     * Set 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/smsv2) 添加应用后生成的实际SdkAppid，例如1400006666。
+     * @param SmsSdkAppid 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/smsv2) 添加应用后生成的实际SdkAppid，例如1400006666。
      */
     public void setSmsSdkAppid(String SmsSdkAppid) {
         this.SmsSdkAppid = SmsSdkAppid;
     }
+
+    /**
+     * Get 拉取截止时间，UNIX 时间戳（时间：秒）。 
+     * @return EndDateTime 拉取截止时间，UNIX 时间戳（时间：秒）。
+     */
+    public Long getEndDateTime() {
+        return this.EndDateTime;
+    }
+
+    /**
+     * Set 拉取截止时间，UNIX 时间戳（时间：秒）。
+     * @param EndDateTime 拉取截止时间，UNIX 时间戳（时间：秒）。
+     */
+    public void setEndDateTime(Long EndDateTime) {
+        this.EndDateTime = EndDateTime;
+    }
+
+    public PullSmsReplyStatusByPhoneNumberRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public PullSmsReplyStatusByPhoneNumberRequest(PullSmsReplyStatusByPhoneNumberRequest source) {
+        if (source.SendDateTime != null) {
+            this.SendDateTime = new Long(source.SendDateTime);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.PhoneNumber != null) {
+            this.PhoneNumber = new String(source.PhoneNumber);
+        }
+        if (source.SmsSdkAppid != null) {
+            this.SmsSdkAppid = new String(source.SmsSdkAppid);
+        }
+        if (source.EndDateTime != null) {
+            this.EndDateTime = new Long(source.EndDateTime);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -151,6 +208,7 @@ public class PullSmsReplyStatusByPhoneNumberRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "PhoneNumber", this.PhoneNumber);
         this.setParamSimple(map, prefix + "SmsSdkAppid", this.SmsSdkAppid);
+        this.setParamSimple(map, prefix + "EndDateTime", this.EndDateTime);
 
     }
 }

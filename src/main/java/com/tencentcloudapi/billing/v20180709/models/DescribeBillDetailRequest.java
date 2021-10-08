@@ -73,7 +73,7 @@ public class DescribeBillDetailRequest extends AbstractModel{
     private Long NeedRecordNum;
 
     /**
-    * 查询指定产品信息
+    * 查询指定产品信息（暂时未开放获取）
     */
     @SerializedName("ProductCode")
     @Expose
@@ -99,6 +99,13 @@ public class DescribeBillDetailRequest extends AbstractModel{
     @SerializedName("ActionType")
     @Expose
     private String ActionType;
+
+    /**
+    * 项目ID:资源所属项目ID
+    */
+    @SerializedName("ProjectId")
+    @Expose
+    private Long ProjectId;
 
     /**
      * Get 偏移量 
@@ -217,16 +224,16 @@ public class DescribeBillDetailRequest extends AbstractModel{
     }
 
     /**
-     * Get 查询指定产品信息 
-     * @return ProductCode 查询指定产品信息
+     * Get 查询指定产品信息（暂时未开放获取） 
+     * @return ProductCode 查询指定产品信息（暂时未开放获取）
      */
     public String getProductCode() {
         return this.ProductCode;
     }
 
     /**
-     * Set 查询指定产品信息
-     * @param ProductCode 查询指定产品信息
+     * Set 查询指定产品信息（暂时未开放获取）
+     * @param ProductCode 查询指定产品信息（暂时未开放获取）
      */
     public void setProductCode(String ProductCode) {
         this.ProductCode = ProductCode;
@@ -281,6 +288,69 @@ public class DescribeBillDetailRequest extends AbstractModel{
     }
 
     /**
+     * Get 项目ID:资源所属项目ID 
+     * @return ProjectId 项目ID:资源所属项目ID
+     */
+    public Long getProjectId() {
+        return this.ProjectId;
+    }
+
+    /**
+     * Set 项目ID:资源所属项目ID
+     * @param ProjectId 项目ID:资源所属项目ID
+     */
+    public void setProjectId(Long ProjectId) {
+        this.ProjectId = ProjectId;
+    }
+
+    public DescribeBillDetailRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeBillDetailRequest(DescribeBillDetailRequest source) {
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.PeriodType != null) {
+            this.PeriodType = new String(source.PeriodType);
+        }
+        if (source.Month != null) {
+            this.Month = new String(source.Month);
+        }
+        if (source.BeginTime != null) {
+            this.BeginTime = new String(source.BeginTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.NeedRecordNum != null) {
+            this.NeedRecordNum = new Long(source.NeedRecordNum);
+        }
+        if (source.ProductCode != null) {
+            this.ProductCode = new String(source.ProductCode);
+        }
+        if (source.PayMode != null) {
+            this.PayMode = new String(source.PayMode);
+        }
+        if (source.ResourceId != null) {
+            this.ResourceId = new String(source.ResourceId);
+        }
+        if (source.ActionType != null) {
+            this.ActionType = new String(source.ActionType);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -295,6 +365,7 @@ public class DescribeBillDetailRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "PayMode", this.PayMode);
         this.setParamSimple(map, prefix + "ResourceId", this.ResourceId);
         this.setParamSimple(map, prefix + "ActionType", this.ActionType);
+        this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
 
     }
 }

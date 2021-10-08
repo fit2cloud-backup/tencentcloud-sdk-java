@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class CreateLoraDeviceRequest extends AbstractModel{
 
     /**
-    * 产品 ID ，创建产品时腾讯云为用户分配全局唯一的 ID
+    * 产品Id ，创建产品时腾讯云为用户分配全局唯一的Id
     */
     @SerializedName("ProductId")
     @Expose
@@ -79,16 +79,16 @@ public class CreateLoraDeviceRequest extends AbstractModel{
     private String Memo;
 
     /**
-     * Get 产品 ID ，创建产品时腾讯云为用户分配全局唯一的 ID 
-     * @return ProductId 产品 ID ，创建产品时腾讯云为用户分配全局唯一的 ID
+     * Get 产品Id ，创建产品时腾讯云为用户分配全局唯一的Id 
+     * @return ProductId 产品Id ，创建产品时腾讯云为用户分配全局唯一的Id
      */
     public String getProductId() {
         return this.ProductId;
     }
 
     /**
-     * Set 产品 ID ，创建产品时腾讯云为用户分配全局唯一的 ID
-     * @param ProductId 产品 ID ，创建产品时腾讯云为用户分配全局唯一的 ID
+     * Set 产品Id ，创建产品时腾讯云为用户分配全局唯一的Id
+     * @param ProductId 产品Id ，创建产品时腾讯云为用户分配全局唯一的Id
      */
     public void setProductId(String ProductId) {
         this.ProductId = ProductId;
@@ -205,6 +205,41 @@ public class CreateLoraDeviceRequest extends AbstractModel{
     public void setMemo(String Memo) {
         this.Memo = Memo;
     }
+
+    public CreateLoraDeviceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateLoraDeviceRequest(CreateLoraDeviceRequest source) {
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+        if (source.DeviceName != null) {
+            this.DeviceName = new String(source.DeviceName);
+        }
+        if (source.DeviceType != null) {
+            this.DeviceType = new String(source.DeviceType);
+        }
+        if (source.AppEui != null) {
+            this.AppEui = new String(source.AppEui);
+        }
+        if (source.DeviceEui != null) {
+            this.DeviceEui = new String(source.DeviceEui);
+        }
+        if (source.AppKey != null) {
+            this.AppKey = new String(source.AppKey);
+        }
+        if (source.AuthKey != null) {
+            this.AuthKey = new String(source.AuthKey);
+        }
+        if (source.Memo != null) {
+            this.Memo = new String(source.Memo);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

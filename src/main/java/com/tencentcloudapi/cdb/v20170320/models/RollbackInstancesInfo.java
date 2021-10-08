@@ -24,13 +24,14 @@ public class RollbackInstancesInfo extends AbstractModel{
 
     /**
     * 云数据库实例ID
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
 
     /**
-    * 回档策略。可选值为：table、db、full；默认值为full。table - 急速回档模式，仅导入所选中表级别的备份和binlog，如有跨表操作，且关联表未被同时选中，将会导致回档失败，该模式下参数Databases必须为空；db - 快速模式，仅导入所选中库级别的备份和binlog，如有跨库操作，且关联库未被同时选中，将会导致回档失败；full - 普通回档模式，将导入整个实例的备份和binlog，速度较慢。
+    * 回档策略。可选值为：table、db、full；默认值为full。table - 极速回档模式，仅导入所选中表级别的备份和binlog，如有跨表操作，且关联表未被同时选中，将会导致回档失败，该模式下参数Databases必须为空；db - 快速模式，仅导入所选中库级别的备份和binlog，如有跨库操作，且关联库未被同时选中，将会导致回档失败；full - 普通回档模式，将导入整个实例的备份和binlog，速度较慢。
     */
     @SerializedName("Strategy")
     @Expose
@@ -45,6 +46,7 @@ public class RollbackInstancesInfo extends AbstractModel{
 
     /**
     * 待回档的数据库信息，表示整库回档
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Databases")
     @Expose
@@ -52,14 +54,17 @@ public class RollbackInstancesInfo extends AbstractModel{
 
     /**
     * 待回档的数据库表信息，表示按表回档
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tables")
     @Expose
     private RollbackTables [] Tables;
 
     /**
-     * Get 云数据库实例ID 
+     * Get 云数据库实例ID
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return InstanceId 云数据库实例ID
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceId() {
         return this.InstanceId;
@@ -67,23 +72,25 @@ public class RollbackInstancesInfo extends AbstractModel{
 
     /**
      * Set 云数据库实例ID
+注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceId 云数据库实例ID
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 回档策略。可选值为：table、db、full；默认值为full。table - 急速回档模式，仅导入所选中表级别的备份和binlog，如有跨表操作，且关联表未被同时选中，将会导致回档失败，该模式下参数Databases必须为空；db - 快速模式，仅导入所选中库级别的备份和binlog，如有跨库操作，且关联库未被同时选中，将会导致回档失败；full - 普通回档模式，将导入整个实例的备份和binlog，速度较慢。 
-     * @return Strategy 回档策略。可选值为：table、db、full；默认值为full。table - 急速回档模式，仅导入所选中表级别的备份和binlog，如有跨表操作，且关联表未被同时选中，将会导致回档失败，该模式下参数Databases必须为空；db - 快速模式，仅导入所选中库级别的备份和binlog，如有跨库操作，且关联库未被同时选中，将会导致回档失败；full - 普通回档模式，将导入整个实例的备份和binlog，速度较慢。
+     * Get 回档策略。可选值为：table、db、full；默认值为full。table - 极速回档模式，仅导入所选中表级别的备份和binlog，如有跨表操作，且关联表未被同时选中，将会导致回档失败，该模式下参数Databases必须为空；db - 快速模式，仅导入所选中库级别的备份和binlog，如有跨库操作，且关联库未被同时选中，将会导致回档失败；full - 普通回档模式，将导入整个实例的备份和binlog，速度较慢。 
+     * @return Strategy 回档策略。可选值为：table、db、full；默认值为full。table - 极速回档模式，仅导入所选中表级别的备份和binlog，如有跨表操作，且关联表未被同时选中，将会导致回档失败，该模式下参数Databases必须为空；db - 快速模式，仅导入所选中库级别的备份和binlog，如有跨库操作，且关联库未被同时选中，将会导致回档失败；full - 普通回档模式，将导入整个实例的备份和binlog，速度较慢。
      */
     public String getStrategy() {
         return this.Strategy;
     }
 
     /**
-     * Set 回档策略。可选值为：table、db、full；默认值为full。table - 急速回档模式，仅导入所选中表级别的备份和binlog，如有跨表操作，且关联表未被同时选中，将会导致回档失败，该模式下参数Databases必须为空；db - 快速模式，仅导入所选中库级别的备份和binlog，如有跨库操作，且关联库未被同时选中，将会导致回档失败；full - 普通回档模式，将导入整个实例的备份和binlog，速度较慢。
-     * @param Strategy 回档策略。可选值为：table、db、full；默认值为full。table - 急速回档模式，仅导入所选中表级别的备份和binlog，如有跨表操作，且关联表未被同时选中，将会导致回档失败，该模式下参数Databases必须为空；db - 快速模式，仅导入所选中库级别的备份和binlog，如有跨库操作，且关联库未被同时选中，将会导致回档失败；full - 普通回档模式，将导入整个实例的备份和binlog，速度较慢。
+     * Set 回档策略。可选值为：table、db、full；默认值为full。table - 极速回档模式，仅导入所选中表级别的备份和binlog，如有跨表操作，且关联表未被同时选中，将会导致回档失败，该模式下参数Databases必须为空；db - 快速模式，仅导入所选中库级别的备份和binlog，如有跨库操作，且关联库未被同时选中，将会导致回档失败；full - 普通回档模式，将导入整个实例的备份和binlog，速度较慢。
+     * @param Strategy 回档策略。可选值为：table、db、full；默认值为full。table - 极速回档模式，仅导入所选中表级别的备份和binlog，如有跨表操作，且关联表未被同时选中，将会导致回档失败，该模式下参数Databases必须为空；db - 快速模式，仅导入所选中库级别的备份和binlog，如有跨库操作，且关联库未被同时选中，将会导致回档失败；full - 普通回档模式，将导入整个实例的备份和binlog，速度较慢。
      */
     public void setStrategy(String Strategy) {
         this.Strategy = Strategy;
@@ -106,8 +113,10 @@ public class RollbackInstancesInfo extends AbstractModel{
     }
 
     /**
-     * Get 待回档的数据库信息，表示整库回档 
+     * Get 待回档的数据库信息，表示整库回档
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Databases 待回档的数据库信息，表示整库回档
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public RollbackDBName [] getDatabases() {
         return this.Databases;
@@ -115,15 +124,19 @@ public class RollbackInstancesInfo extends AbstractModel{
 
     /**
      * Set 待回档的数据库信息，表示整库回档
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Databases 待回档的数据库信息，表示整库回档
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDatabases(RollbackDBName [] Databases) {
         this.Databases = Databases;
     }
 
     /**
-     * Get 待回档的数据库表信息，表示按表回档 
+     * Get 待回档的数据库表信息，表示按表回档
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Tables 待回档的数据库表信息，表示按表回档
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public RollbackTables [] getTables() {
         return this.Tables;
@@ -131,11 +144,45 @@ public class RollbackInstancesInfo extends AbstractModel{
 
     /**
      * Set 待回档的数据库表信息，表示按表回档
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Tables 待回档的数据库表信息，表示按表回档
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTables(RollbackTables [] Tables) {
         this.Tables = Tables;
     }
+
+    public RollbackInstancesInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public RollbackInstancesInfo(RollbackInstancesInfo source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.Strategy != null) {
+            this.Strategy = new String(source.Strategy);
+        }
+        if (source.RollbackTime != null) {
+            this.RollbackTime = new String(source.RollbackTime);
+        }
+        if (source.Databases != null) {
+            this.Databases = new RollbackDBName[source.Databases.length];
+            for (int i = 0; i < source.Databases.length; i++) {
+                this.Databases[i] = new RollbackDBName(source.Databases[i]);
+            }
+        }
+        if (source.Tables != null) {
+            this.Tables = new RollbackTables[source.Tables.length];
+            for (int i = 0; i < source.Tables.length; i++) {
+                this.Tables[i] = new RollbackTables(source.Tables[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

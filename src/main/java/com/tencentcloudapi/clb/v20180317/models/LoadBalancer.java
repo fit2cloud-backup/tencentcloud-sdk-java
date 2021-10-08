@@ -236,7 +236,7 @@ OPEN：公网属性， INTERNAL：内网属性。
     private String ExpireTime;
 
     /**
-    * 负载均衡实例的计费类型
+    * 负载均衡实例的计费类型，PREPAID：包年包月，POSTPAID_BY_HOUR：按量计费
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ChargeType")
@@ -332,7 +332,7 @@ OPEN：公网属性， INTERNAL：内网属性。
     private String IPv6Mode;
 
     /**
-    * 是否开启SnatPro
+    * 是否开启SnatPro。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SnatPro")
@@ -340,7 +340,7 @@ OPEN：公网属性， INTERNAL：内网属性。
     private Boolean SnatPro;
 
     /**
-    * 开启SnatPro负载均衡后，SnatIp列表
+    * 开启SnatPro负载均衡后，SnatIp列表。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SnatIps")
@@ -370,6 +370,62 @@ OPEN：公网属性， INTERNAL：内网属性。
     @SerializedName("IsBlockTime")
     @Expose
     private String IsBlockTime;
+
+    /**
+    * IP类型是否是本地BGP
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("LocalBgp")
+    @Expose
+    private Boolean LocalBgp;
+
+    /**
+    * 7层独占标签。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ClusterTag")
+    @Expose
+    private String ClusterTag;
+
+    /**
+    * 开启IPv6FullChain负载均衡7层监听器支持混绑IPv4/IPv6目标功能。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MixIpTarget")
+    @Expose
+    private Boolean MixIpTarget;
+
+    /**
+    * 私有网络内网负载均衡，就近接入模式下规则所落在的可用区
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Zones")
+    @Expose
+    private String [] Zones;
+
+    /**
+    * CLB是否为NFV，空：不是，l7nfv：七层是NFV。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("NfvInfo")
+    @Expose
+    private String NfvInfo;
+
+    /**
+    * 负载均衡日志服务(CLS)的健康检查日志集ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("HealthLogSetId")
+    @Expose
+    private String HealthLogSetId;
+
+    /**
+    * 负载均衡日志服务(CLS)的健康检查日志主题ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("HealthLogTopicId")
+    @Expose
+    private String HealthLogTopicId;
 
     /**
      * Get 负载均衡实例 ID。 
@@ -900,9 +956,9 @@ OPEN：公网属性， INTERNAL：内网属性。
     }
 
     /**
-     * Get 负载均衡实例的计费类型
+     * Get 负载均衡实例的计费类型，PREPAID：包年包月，POSTPAID_BY_HOUR：按量计费
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ChargeType 负载均衡实例的计费类型
+     * @return ChargeType 负载均衡实例的计费类型，PREPAID：包年包月，POSTPAID_BY_HOUR：按量计费
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getChargeType() {
@@ -910,9 +966,9 @@ OPEN：公网属性， INTERNAL：内网属性。
     }
 
     /**
-     * Set 负载均衡实例的计费类型
+     * Set 负载均衡实例的计费类型，PREPAID：包年包月，POSTPAID_BY_HOUR：按量计费
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ChargeType 负载均衡实例的计费类型
+     * @param ChargeType 负载均衡实例的计费类型，PREPAID：包年包月，POSTPAID_BY_HOUR：按量计费
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setChargeType(String ChargeType) {
@@ -1140,9 +1196,9 @@ OPEN：公网属性， INTERNAL：内网属性。
     }
 
     /**
-     * Get 是否开启SnatPro
+     * Get 是否开启SnatPro。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return SnatPro 是否开启SnatPro
+     * @return SnatPro 是否开启SnatPro。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getSnatPro() {
@@ -1150,9 +1206,9 @@ OPEN：公网属性， INTERNAL：内网属性。
     }
 
     /**
-     * Set 是否开启SnatPro
+     * Set 是否开启SnatPro。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param SnatPro 是否开启SnatPro
+     * @param SnatPro 是否开启SnatPro。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSnatPro(Boolean SnatPro) {
@@ -1160,9 +1216,9 @@ OPEN：公网属性， INTERNAL：内网属性。
     }
 
     /**
-     * Get 开启SnatPro负载均衡后，SnatIp列表
+     * Get 开启SnatPro负载均衡后，SnatIp列表。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return SnatIps 开启SnatPro负载均衡后，SnatIp列表
+     * @return SnatIps 开启SnatPro负载均衡后，SnatIp列表。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public SnatIp [] getSnatIps() {
@@ -1170,9 +1226,9 @@ OPEN：公网属性， INTERNAL：内网属性。
     }
 
     /**
-     * Set 开启SnatPro负载均衡后，SnatIp列表
+     * Set 开启SnatPro负载均衡后，SnatIp列表。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param SnatIps 开启SnatPro负载均衡后，SnatIp列表
+     * @param SnatIps 开启SnatPro负载均衡后，SnatIp列表。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSnatIps(SnatIp [] SnatIps) {
@@ -1240,6 +1296,328 @@ OPEN：公网属性， INTERNAL：内网属性。
     }
 
     /**
+     * Get IP类型是否是本地BGP
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return LocalBgp IP类型是否是本地BGP
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getLocalBgp() {
+        return this.LocalBgp;
+    }
+
+    /**
+     * Set IP类型是否是本地BGP
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param LocalBgp IP类型是否是本地BGP
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLocalBgp(Boolean LocalBgp) {
+        this.LocalBgp = LocalBgp;
+    }
+
+    /**
+     * Get 7层独占标签。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ClusterTag 7层独占标签。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getClusterTag() {
+        return this.ClusterTag;
+    }
+
+    /**
+     * Set 7层独占标签。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ClusterTag 7层独占标签。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setClusterTag(String ClusterTag) {
+        this.ClusterTag = ClusterTag;
+    }
+
+    /**
+     * Get 开启IPv6FullChain负载均衡7层监听器支持混绑IPv4/IPv6目标功能。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MixIpTarget 开启IPv6FullChain负载均衡7层监听器支持混绑IPv4/IPv6目标功能。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getMixIpTarget() {
+        return this.MixIpTarget;
+    }
+
+    /**
+     * Set 开启IPv6FullChain负载均衡7层监听器支持混绑IPv4/IPv6目标功能。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MixIpTarget 开启IPv6FullChain负载均衡7层监听器支持混绑IPv4/IPv6目标功能。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMixIpTarget(Boolean MixIpTarget) {
+        this.MixIpTarget = MixIpTarget;
+    }
+
+    /**
+     * Get 私有网络内网负载均衡，就近接入模式下规则所落在的可用区
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Zones 私有网络内网负载均衡，就近接入模式下规则所落在的可用区
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getZones() {
+        return this.Zones;
+    }
+
+    /**
+     * Set 私有网络内网负载均衡，就近接入模式下规则所落在的可用区
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Zones 私有网络内网负载均衡，就近接入模式下规则所落在的可用区
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setZones(String [] Zones) {
+        this.Zones = Zones;
+    }
+
+    /**
+     * Get CLB是否为NFV，空：不是，l7nfv：七层是NFV。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return NfvInfo CLB是否为NFV，空：不是，l7nfv：七层是NFV。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getNfvInfo() {
+        return this.NfvInfo;
+    }
+
+    /**
+     * Set CLB是否为NFV，空：不是，l7nfv：七层是NFV。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param NfvInfo CLB是否为NFV，空：不是，l7nfv：七层是NFV。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setNfvInfo(String NfvInfo) {
+        this.NfvInfo = NfvInfo;
+    }
+
+    /**
+     * Get 负载均衡日志服务(CLS)的健康检查日志集ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return HealthLogSetId 负载均衡日志服务(CLS)的健康检查日志集ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getHealthLogSetId() {
+        return this.HealthLogSetId;
+    }
+
+    /**
+     * Set 负载均衡日志服务(CLS)的健康检查日志集ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param HealthLogSetId 负载均衡日志服务(CLS)的健康检查日志集ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setHealthLogSetId(String HealthLogSetId) {
+        this.HealthLogSetId = HealthLogSetId;
+    }
+
+    /**
+     * Get 负载均衡日志服务(CLS)的健康检查日志主题ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return HealthLogTopicId 负载均衡日志服务(CLS)的健康检查日志主题ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getHealthLogTopicId() {
+        return this.HealthLogTopicId;
+    }
+
+    /**
+     * Set 负载均衡日志服务(CLS)的健康检查日志主题ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param HealthLogTopicId 负载均衡日志服务(CLS)的健康检查日志主题ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setHealthLogTopicId(String HealthLogTopicId) {
+        this.HealthLogTopicId = HealthLogTopicId;
+    }
+
+    public LoadBalancer() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public LoadBalancer(LoadBalancer source) {
+        if (source.LoadBalancerId != null) {
+            this.LoadBalancerId = new String(source.LoadBalancerId);
+        }
+        if (source.LoadBalancerName != null) {
+            this.LoadBalancerName = new String(source.LoadBalancerName);
+        }
+        if (source.LoadBalancerType != null) {
+            this.LoadBalancerType = new String(source.LoadBalancerType);
+        }
+        if (source.Forward != null) {
+            this.Forward = new Long(source.Forward);
+        }
+        if (source.Domain != null) {
+            this.Domain = new String(source.Domain);
+        }
+        if (source.LoadBalancerVips != null) {
+            this.LoadBalancerVips = new String[source.LoadBalancerVips.length];
+            for (int i = 0; i < source.LoadBalancerVips.length; i++) {
+                this.LoadBalancerVips[i] = new String(source.LoadBalancerVips[i]);
+            }
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.StatusTime != null) {
+            this.StatusTime = new String(source.StatusTime);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.OpenBgp != null) {
+            this.OpenBgp = new Long(source.OpenBgp);
+        }
+        if (source.Snat != null) {
+            this.Snat = new Boolean(source.Snat);
+        }
+        if (source.Isolation != null) {
+            this.Isolation = new Long(source.Isolation);
+        }
+        if (source.Log != null) {
+            this.Log = new String(source.Log);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.Tags != null) {
+            this.Tags = new TagInfo[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new TagInfo(source.Tags[i]);
+            }
+        }
+        if (source.SecureGroups != null) {
+            this.SecureGroups = new String[source.SecureGroups.length];
+            for (int i = 0; i < source.SecureGroups.length; i++) {
+                this.SecureGroups[i] = new String(source.SecureGroups[i]);
+            }
+        }
+        if (source.TargetRegionInfo != null) {
+            this.TargetRegionInfo = new TargetRegionInfo(source.TargetRegionInfo);
+        }
+        if (source.AnycastZone != null) {
+            this.AnycastZone = new String(source.AnycastZone);
+        }
+        if (source.AddressIPVersion != null) {
+            this.AddressIPVersion = new String(source.AddressIPVersion);
+        }
+        if (source.NumericalVpcId != null) {
+            this.NumericalVpcId = new Long(source.NumericalVpcId);
+        }
+        if (source.VipIsp != null) {
+            this.VipIsp = new String(source.VipIsp);
+        }
+        if (source.MasterZone != null) {
+            this.MasterZone = new ZoneInfo(source.MasterZone);
+        }
+        if (source.BackupZoneSet != null) {
+            this.BackupZoneSet = new ZoneInfo[source.BackupZoneSet.length];
+            for (int i = 0; i < source.BackupZoneSet.length; i++) {
+                this.BackupZoneSet[i] = new ZoneInfo(source.BackupZoneSet[i]);
+            }
+        }
+        if (source.IsolatedTime != null) {
+            this.IsolatedTime = new String(source.IsolatedTime);
+        }
+        if (source.ExpireTime != null) {
+            this.ExpireTime = new String(source.ExpireTime);
+        }
+        if (source.ChargeType != null) {
+            this.ChargeType = new String(source.ChargeType);
+        }
+        if (source.NetworkAttributes != null) {
+            this.NetworkAttributes = new InternetAccessible(source.NetworkAttributes);
+        }
+        if (source.PrepaidAttributes != null) {
+            this.PrepaidAttributes = new LBChargePrepaid(source.PrepaidAttributes);
+        }
+        if (source.LogSetId != null) {
+            this.LogSetId = new String(source.LogSetId);
+        }
+        if (source.LogTopicId != null) {
+            this.LogTopicId = new String(source.LogTopicId);
+        }
+        if (source.AddressIPv6 != null) {
+            this.AddressIPv6 = new String(source.AddressIPv6);
+        }
+        if (source.ExtraInfo != null) {
+            this.ExtraInfo = new ExtraInfo(source.ExtraInfo);
+        }
+        if (source.IsDDos != null) {
+            this.IsDDos = new Boolean(source.IsDDos);
+        }
+        if (source.ConfigId != null) {
+            this.ConfigId = new String(source.ConfigId);
+        }
+        if (source.LoadBalancerPassToTarget != null) {
+            this.LoadBalancerPassToTarget = new Boolean(source.LoadBalancerPassToTarget);
+        }
+        if (source.ExclusiveCluster != null) {
+            this.ExclusiveCluster = new ExclusiveCluster(source.ExclusiveCluster);
+        }
+        if (source.IPv6Mode != null) {
+            this.IPv6Mode = new String(source.IPv6Mode);
+        }
+        if (source.SnatPro != null) {
+            this.SnatPro = new Boolean(source.SnatPro);
+        }
+        if (source.SnatIps != null) {
+            this.SnatIps = new SnatIp[source.SnatIps.length];
+            for (int i = 0; i < source.SnatIps.length; i++) {
+                this.SnatIps[i] = new SnatIp(source.SnatIps[i]);
+            }
+        }
+        if (source.SlaType != null) {
+            this.SlaType = new String(source.SlaType);
+        }
+        if (source.IsBlock != null) {
+            this.IsBlock = new Boolean(source.IsBlock);
+        }
+        if (source.IsBlockTime != null) {
+            this.IsBlockTime = new String(source.IsBlockTime);
+        }
+        if (source.LocalBgp != null) {
+            this.LocalBgp = new Boolean(source.LocalBgp);
+        }
+        if (source.ClusterTag != null) {
+            this.ClusterTag = new String(source.ClusterTag);
+        }
+        if (source.MixIpTarget != null) {
+            this.MixIpTarget = new Boolean(source.MixIpTarget);
+        }
+        if (source.Zones != null) {
+            this.Zones = new String[source.Zones.length];
+            for (int i = 0; i < source.Zones.length; i++) {
+                this.Zones[i] = new String(source.Zones[i]);
+            }
+        }
+        if (source.NfvInfo != null) {
+            this.NfvInfo = new String(source.NfvInfo);
+        }
+        if (source.HealthLogSetId != null) {
+            this.HealthLogSetId = new String(source.HealthLogSetId);
+        }
+        if (source.HealthLogTopicId != null) {
+            this.HealthLogTopicId = new String(source.HealthLogTopicId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -1287,6 +1665,13 @@ OPEN：公网属性， INTERNAL：内网属性。
         this.setParamSimple(map, prefix + "SlaType", this.SlaType);
         this.setParamSimple(map, prefix + "IsBlock", this.IsBlock);
         this.setParamSimple(map, prefix + "IsBlockTime", this.IsBlockTime);
+        this.setParamSimple(map, prefix + "LocalBgp", this.LocalBgp);
+        this.setParamSimple(map, prefix + "ClusterTag", this.ClusterTag);
+        this.setParamSimple(map, prefix + "MixIpTarget", this.MixIpTarget);
+        this.setParamArraySimple(map, prefix + "Zones.", this.Zones);
+        this.setParamSimple(map, prefix + "NfvInfo", this.NfvInfo);
+        this.setParamSimple(map, prefix + "HealthLogSetId", this.HealthLogSetId);
+        this.setParamSimple(map, prefix + "HealthLogTopicId", this.HealthLogTopicId);
 
     }
 }

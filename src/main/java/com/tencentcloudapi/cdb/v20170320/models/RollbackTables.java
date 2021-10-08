@@ -24,6 +24,7 @@ public class RollbackTables extends AbstractModel{
 
     /**
     * 数据库名
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Database")
     @Expose
@@ -31,14 +32,17 @@ public class RollbackTables extends AbstractModel{
 
     /**
     * 数据库表详情
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Table")
     @Expose
     private RollbackTableName [] Table;
 
     /**
-     * Get 数据库名 
+     * Get 数据库名
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Database 数据库名
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDatabase() {
         return this.Database;
@@ -46,15 +50,19 @@ public class RollbackTables extends AbstractModel{
 
     /**
      * Set 数据库名
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Database 数据库名
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDatabase(String Database) {
         this.Database = Database;
     }
 
     /**
-     * Get 数据库表详情 
+     * Get 数据库表详情
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Table 数据库表详情
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public RollbackTableName [] getTable() {
         return this.Table;
@@ -62,11 +70,33 @@ public class RollbackTables extends AbstractModel{
 
     /**
      * Set 数据库表详情
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Table 数据库表详情
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTable(RollbackTableName [] Table) {
         this.Table = Table;
     }
+
+    public RollbackTables() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public RollbackTables(RollbackTables source) {
+        if (source.Database != null) {
+            this.Database = new String(source.Database);
+        }
+        if (source.Table != null) {
+            this.Table = new RollbackTableName[source.Table.length];
+            for (int i = 0; i < source.Table.length; i++) {
+                this.Table[i] = new RollbackTableName(source.Table[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

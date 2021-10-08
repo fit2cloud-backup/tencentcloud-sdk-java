@@ -41,6 +41,7 @@ public class DriverLicenseOCRRequest extends AbstractModel{
     /**
     * FRONT 为驾驶证主页正面（有红色印章的一面），
 BACK 为驾驶证副页正面（有档案编号的一面）。
+默认值为：FRONT。
     */
     @SerializedName("CardSide")
     @Expose
@@ -88,9 +89,11 @@ BACK 为驾驶证副页正面（有档案编号的一面）。
 
     /**
      * Get FRONT 为驾驶证主页正面（有红色印章的一面），
-BACK 为驾驶证副页正面（有档案编号的一面）。 
+BACK 为驾驶证副页正面（有档案编号的一面）。
+默认值为：FRONT。 
      * @return CardSide FRONT 为驾驶证主页正面（有红色印章的一面），
 BACK 为驾驶证副页正面（有档案编号的一面）。
+默认值为：FRONT。
      */
     public String getCardSide() {
         return this.CardSide;
@@ -99,12 +102,34 @@ BACK 为驾驶证副页正面（有档案编号的一面）。
     /**
      * Set FRONT 为驾驶证主页正面（有红色印章的一面），
 BACK 为驾驶证副页正面（有档案编号的一面）。
+默认值为：FRONT。
      * @param CardSide FRONT 为驾驶证主页正面（有红色印章的一面），
 BACK 为驾驶证副页正面（有档案编号的一面）。
+默认值为：FRONT。
      */
     public void setCardSide(String CardSide) {
         this.CardSide = CardSide;
     }
+
+    public DriverLicenseOCRRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DriverLicenseOCRRequest(DriverLicenseOCRRequest source) {
+        if (source.ImageBase64 != null) {
+            this.ImageBase64 = new String(source.ImageBase64);
+        }
+        if (source.ImageUrl != null) {
+            this.ImageUrl = new String(source.ImageUrl);
+        }
+        if (source.CardSide != null) {
+            this.CardSide = new String(source.CardSide);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

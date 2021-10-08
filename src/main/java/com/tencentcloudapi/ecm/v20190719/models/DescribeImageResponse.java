@@ -24,7 +24,6 @@ public class DescribeImageResponse extends AbstractModel{
 
     /**
     * 镜像总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TotalCount")
     @Expose
@@ -46,10 +45,8 @@ public class DescribeImageResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 镜像总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 镜像总数 
      * @return TotalCount 镜像总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotalCount() {
         return this.TotalCount;
@@ -57,9 +54,7 @@ public class DescribeImageResponse extends AbstractModel{
 
     /**
      * Set 镜像总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TotalCount 镜像总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
@@ -100,6 +95,29 @@ public class DescribeImageResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeImageResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeImageResponse(DescribeImageResponse source) {
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
+        if (source.ImageSet != null) {
+            this.ImageSet = new Image[source.ImageSet.length];
+            for (int i = 0; i < source.ImageSet.length; i++) {
+                this.ImageSet[i] = new Image(source.ImageSet[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

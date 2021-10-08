@@ -37,7 +37,7 @@ public class JoinTeamInfo extends AbstractModel{
     private String Name;
 
     /**
-    * 团队成员个数
+    * 团队成员个数。
     */
     @SerializedName("MemberCount")
     @Expose
@@ -86,16 +86,16 @@ public class JoinTeamInfo extends AbstractModel{
     }
 
     /**
-     * Get 团队成员个数 
-     * @return MemberCount 团队成员个数
+     * Get 团队成员个数。 
+     * @return MemberCount 团队成员个数。
      */
     public Long getMemberCount() {
         return this.MemberCount;
     }
 
     /**
-     * Set 团队成员个数
-     * @param MemberCount 团队成员个数
+     * Set 团队成员个数。
+     * @param MemberCount 团队成员个数。
      */
     public void setMemberCount(Long MemberCount) {
         this.MemberCount = MemberCount;
@@ -128,6 +128,29 @@ public class JoinTeamInfo extends AbstractModel{
     public void setRole(String Role) {
         this.Role = Role;
     }
+
+    public JoinTeamInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public JoinTeamInfo(JoinTeamInfo source) {
+        if (source.TeamId != null) {
+            this.TeamId = new String(source.TeamId);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.MemberCount != null) {
+            this.MemberCount = new Long(source.MemberCount);
+        }
+        if (source.Role != null) {
+            this.Role = new String(source.Role);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

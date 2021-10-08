@@ -30,21 +30,21 @@ public class DescribeCaptchaResultRequest extends AbstractModel{
     private Long CaptchaType;
 
     /**
-    * 验证码返回给用户的票据
+    * 前端回调函数返回的用户验证票据
     */
     @SerializedName("Ticket")
     @Expose
     private String Ticket;
 
     /**
-    * 用户操作来源的外网 IP
+    * 业务侧获取到的验证码使用者的外网IP
     */
     @SerializedName("UserIp")
     @Expose
     private String UserIp;
 
     /**
-    * 验证票据需要的随机字符串
+    * 前端回调函数返回的随机字符串
     */
     @SerializedName("Randstr")
     @Expose
@@ -116,48 +116,48 @@ public class DescribeCaptchaResultRequest extends AbstractModel{
     }
 
     /**
-     * Get 验证码返回给用户的票据 
-     * @return Ticket 验证码返回给用户的票据
+     * Get 前端回调函数返回的用户验证票据 
+     * @return Ticket 前端回调函数返回的用户验证票据
      */
     public String getTicket() {
         return this.Ticket;
     }
 
     /**
-     * Set 验证码返回给用户的票据
-     * @param Ticket 验证码返回给用户的票据
+     * Set 前端回调函数返回的用户验证票据
+     * @param Ticket 前端回调函数返回的用户验证票据
      */
     public void setTicket(String Ticket) {
         this.Ticket = Ticket;
     }
 
     /**
-     * Get 用户操作来源的外网 IP 
-     * @return UserIp 用户操作来源的外网 IP
+     * Get 业务侧获取到的验证码使用者的外网IP 
+     * @return UserIp 业务侧获取到的验证码使用者的外网IP
      */
     public String getUserIp() {
         return this.UserIp;
     }
 
     /**
-     * Set 用户操作来源的外网 IP
-     * @param UserIp 用户操作来源的外网 IP
+     * Set 业务侧获取到的验证码使用者的外网IP
+     * @param UserIp 业务侧获取到的验证码使用者的外网IP
      */
     public void setUserIp(String UserIp) {
         this.UserIp = UserIp;
     }
 
     /**
-     * Get 验证票据需要的随机字符串 
-     * @return Randstr 验证票据需要的随机字符串
+     * Get 前端回调函数返回的随机字符串 
+     * @return Randstr 前端回调函数返回的随机字符串
      */
     public String getRandstr() {
         return this.Randstr;
     }
 
     /**
-     * Set 验证票据需要的随机字符串
-     * @param Randstr 验证票据需要的随机字符串
+     * Set 前端回调函数返回的随机字符串
+     * @param Randstr 前端回调函数返回的随机字符串
      */
     public void setRandstr(String Randstr) {
         this.Randstr = Randstr;
@@ -274,6 +274,50 @@ public class DescribeCaptchaResultRequest extends AbstractModel{
     public void setNeedGetCaptchaTime(Long NeedGetCaptchaTime) {
         this.NeedGetCaptchaTime = NeedGetCaptchaTime;
     }
+
+    public DescribeCaptchaResultRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeCaptchaResultRequest(DescribeCaptchaResultRequest source) {
+        if (source.CaptchaType != null) {
+            this.CaptchaType = new Long(source.CaptchaType);
+        }
+        if (source.Ticket != null) {
+            this.Ticket = new String(source.Ticket);
+        }
+        if (source.UserIp != null) {
+            this.UserIp = new String(source.UserIp);
+        }
+        if (source.Randstr != null) {
+            this.Randstr = new String(source.Randstr);
+        }
+        if (source.CaptchaAppId != null) {
+            this.CaptchaAppId = new Long(source.CaptchaAppId);
+        }
+        if (source.AppSecretKey != null) {
+            this.AppSecretKey = new String(source.AppSecretKey);
+        }
+        if (source.BusinessId != null) {
+            this.BusinessId = new Long(source.BusinessId);
+        }
+        if (source.SceneId != null) {
+            this.SceneId = new Long(source.SceneId);
+        }
+        if (source.MacAddress != null) {
+            this.MacAddress = new String(source.MacAddress);
+        }
+        if (source.Imei != null) {
+            this.Imei = new String(source.Imei);
+        }
+        if (source.NeedGetCaptchaTime != null) {
+            this.NeedGetCaptchaTime = new Long(source.NeedGetCaptchaTime);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -62,6 +62,23 @@ public class CreateImageSpriteTemplateRequest extends AbstractModel{
     private String Name;
 
     /**
+    * 模板描述信息，长度限制：256 个字符。
+    */
+    @SerializedName("Comment")
+    @Expose
+    private String Comment;
+
+    /**
+    * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
+<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
+<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+默认值：black 。
+    */
+    @SerializedName("FillType")
+    @Expose
+    private String FillType;
+
+    /**
     * 雪碧图中小图的宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
 <li>当 Width、Height 均为 0，则分辨率同源；</li>
 <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
@@ -101,16 +118,6 @@ public class CreateImageSpriteTemplateRequest extends AbstractModel{
     @SerializedName("SubAppId")
     @Expose
     private Long SubAppId;
-
-    /**
-    * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
-<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
-<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
-默认值：black 。
-    */
-    @SerializedName("FillType")
-    @Expose
-    private String FillType;
 
     /**
      * Get 采样类型，取值：
@@ -206,6 +213,50 @@ public class CreateImageSpriteTemplateRequest extends AbstractModel{
      */
     public void setName(String Name) {
         this.Name = Name;
+    }
+
+    /**
+     * Get 模板描述信息，长度限制：256 个字符。 
+     * @return Comment 模板描述信息，长度限制：256 个字符。
+     */
+    public String getComment() {
+        return this.Comment;
+    }
+
+    /**
+     * Set 模板描述信息，长度限制：256 个字符。
+     * @param Comment 模板描述信息，长度限制：256 个字符。
+     */
+    public void setComment(String Comment) {
+        this.Comment = Comment;
+    }
+
+    /**
+     * Get 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
+<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
+<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+默认值：black 。 
+     * @return FillType 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
+<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
+<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+默认值：black 。
+     */
+    public String getFillType() {
+        return this.FillType;
+    }
+
+    /**
+     * Set 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
+<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
+<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+默认值：black 。
+     * @param FillType 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
+<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
+<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+默认值：black 。
+     */
+    public void setFillType(String FillType) {
+        this.FillType = FillType;
     }
 
     /**
@@ -324,33 +375,49 @@ public class CreateImageSpriteTemplateRequest extends AbstractModel{
         this.SubAppId = SubAppId;
     }
 
-    /**
-     * Get 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
-<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
-<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
-默认值：black 。 
-     * @return FillType 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
-<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
-<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
-默认值：black 。
-     */
-    public String getFillType() {
-        return this.FillType;
+    public CreateImageSpriteTemplateRequest() {
     }
 
     /**
-     * Set 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
-<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
-<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
-默认值：black 。
-     * @param FillType 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
-<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
-<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
-默认值：black 。
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
-    public void setFillType(String FillType) {
-        this.FillType = FillType;
+    public CreateImageSpriteTemplateRequest(CreateImageSpriteTemplateRequest source) {
+        if (source.SampleType != null) {
+            this.SampleType = new String(source.SampleType);
+        }
+        if (source.SampleInterval != null) {
+            this.SampleInterval = new Long(source.SampleInterval);
+        }
+        if (source.RowCount != null) {
+            this.RowCount = new Long(source.RowCount);
+        }
+        if (source.ColumnCount != null) {
+            this.ColumnCount = new Long(source.ColumnCount);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Comment != null) {
+            this.Comment = new String(source.Comment);
+        }
+        if (source.FillType != null) {
+            this.FillType = new String(source.FillType);
+        }
+        if (source.Width != null) {
+            this.Width = new Long(source.Width);
+        }
+        if (source.Height != null) {
+            this.Height = new Long(source.Height);
+        }
+        if (source.ResolutionAdaptive != null) {
+            this.ResolutionAdaptive = new String(source.ResolutionAdaptive);
+        }
+        if (source.SubAppId != null) {
+            this.SubAppId = new Long(source.SubAppId);
+        }
     }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -361,11 +428,12 @@ public class CreateImageSpriteTemplateRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "RowCount", this.RowCount);
         this.setParamSimple(map, prefix + "ColumnCount", this.ColumnCount);
         this.setParamSimple(map, prefix + "Name", this.Name);
+        this.setParamSimple(map, prefix + "Comment", this.Comment);
+        this.setParamSimple(map, prefix + "FillType", this.FillType);
         this.setParamSimple(map, prefix + "Width", this.Width);
         this.setParamSimple(map, prefix + "Height", this.Height);
         this.setParamSimple(map, prefix + "ResolutionAdaptive", this.ResolutionAdaptive);
         this.setParamSimple(map, prefix + "SubAppId", this.SubAppId);
-        this.setParamSimple(map, prefix + "FillType", this.FillType);
 
     }
 }

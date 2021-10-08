@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class ModifyLiveSnapshotTemplateRequest extends AbstractModel{
 
     /**
-    * 模板Id。
+    * 模板 ID。
     */
     @SerializedName("TemplateId")
     @Expose
@@ -47,7 +47,7 @@ public class ModifyLiveSnapshotTemplateRequest extends AbstractModel{
 
     /**
     * 截图间隔，单位s，默认10s。
-范围： 5s ~ 600s。
+范围： 5s ~ 300s。
     */
     @SerializedName("SnapshotInterval")
     @Expose
@@ -68,14 +68,16 @@ public class ModifyLiveSnapshotTemplateRequest extends AbstractModel{
     private Long Height;
 
     /**
-    * 是否开启鉴黄，0：不开启，1：开启。
+    * 是否开启鉴黄，默认 0 。
+0：不开启。
+1：开启。
     */
     @SerializedName("PornFlag")
     @Expose
     private Long PornFlag;
 
     /**
-    * Cos AppId。
+    * Cos 应用 ID。
     */
     @SerializedName("CosAppId")
     @Expose
@@ -83,6 +85,7 @@ public class ModifyLiveSnapshotTemplateRequest extends AbstractModel{
 
     /**
     * Cos Bucket名称。
+注：CosBucket参数值不能包含-[appid] 部分。
     */
     @SerializedName("CosBucket")
     @Expose
@@ -96,16 +99,30 @@ public class ModifyLiveSnapshotTemplateRequest extends AbstractModel{
     private String CosRegion;
 
     /**
-     * Get 模板Id。 
-     * @return TemplateId 模板Id。
+    * Cos Bucket文件夹前缀。
+    */
+    @SerializedName("CosPrefix")
+    @Expose
+    private String CosPrefix;
+
+    /**
+    * Cos 文件名称。
+    */
+    @SerializedName("CosFileName")
+    @Expose
+    private String CosFileName;
+
+    /**
+     * Get 模板 ID。 
+     * @return TemplateId 模板 ID。
      */
     public Long getTemplateId() {
         return this.TemplateId;
     }
 
     /**
-     * Set 模板Id。
-     * @param TemplateId 模板Id。
+     * Set 模板 ID。
+     * @param TemplateId 模板 ID。
      */
     public void setTemplateId(Long TemplateId) {
         this.TemplateId = TemplateId;
@@ -153,9 +170,9 @@ public class ModifyLiveSnapshotTemplateRequest extends AbstractModel{
 
     /**
      * Get 截图间隔，单位s，默认10s。
-范围： 5s ~ 600s。 
+范围： 5s ~ 300s。 
      * @return SnapshotInterval 截图间隔，单位s，默认10s。
-范围： 5s ~ 600s。
+范围： 5s ~ 300s。
      */
     public Long getSnapshotInterval() {
         return this.SnapshotInterval;
@@ -163,9 +180,9 @@ public class ModifyLiveSnapshotTemplateRequest extends AbstractModel{
 
     /**
      * Set 截图间隔，单位s，默认10s。
-范围： 5s ~ 600s。
+范围： 5s ~ 300s。
      * @param SnapshotInterval 截图间隔，单位s，默认10s。
-范围： 5s ~ 600s。
+范围： 5s ~ 300s。
      */
     public void setSnapshotInterval(Long SnapshotInterval) {
         this.SnapshotInterval = SnapshotInterval;
@@ -204,40 +221,50 @@ public class ModifyLiveSnapshotTemplateRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否开启鉴黄，0：不开启，1：开启。 
-     * @return PornFlag 是否开启鉴黄，0：不开启，1：开启。
+     * Get 是否开启鉴黄，默认 0 。
+0：不开启。
+1：开启。 
+     * @return PornFlag 是否开启鉴黄，默认 0 。
+0：不开启。
+1：开启。
      */
     public Long getPornFlag() {
         return this.PornFlag;
     }
 
     /**
-     * Set 是否开启鉴黄，0：不开启，1：开启。
-     * @param PornFlag 是否开启鉴黄，0：不开启，1：开启。
+     * Set 是否开启鉴黄，默认 0 。
+0：不开启。
+1：开启。
+     * @param PornFlag 是否开启鉴黄，默认 0 。
+0：不开启。
+1：开启。
      */
     public void setPornFlag(Long PornFlag) {
         this.PornFlag = PornFlag;
     }
 
     /**
-     * Get Cos AppId。 
-     * @return CosAppId Cos AppId。
+     * Get Cos 应用 ID。 
+     * @return CosAppId Cos 应用 ID。
      */
     public Long getCosAppId() {
         return this.CosAppId;
     }
 
     /**
-     * Set Cos AppId。
-     * @param CosAppId Cos AppId。
+     * Set Cos 应用 ID。
+     * @param CosAppId Cos 应用 ID。
      */
     public void setCosAppId(Long CosAppId) {
         this.CosAppId = CosAppId;
     }
 
     /**
-     * Get Cos Bucket名称。 
+     * Get Cos Bucket名称。
+注：CosBucket参数值不能包含-[appid] 部分。 
      * @return CosBucket Cos Bucket名称。
+注：CosBucket参数值不能包含-[appid] 部分。
      */
     public String getCosBucket() {
         return this.CosBucket;
@@ -245,7 +272,9 @@ public class ModifyLiveSnapshotTemplateRequest extends AbstractModel{
 
     /**
      * Set Cos Bucket名称。
+注：CosBucket参数值不能包含-[appid] 部分。
      * @param CosBucket Cos Bucket名称。
+注：CosBucket参数值不能包含-[appid] 部分。
      */
     public void setCosBucket(String CosBucket) {
         this.CosBucket = CosBucket;
@@ -268,6 +297,85 @@ public class ModifyLiveSnapshotTemplateRequest extends AbstractModel{
     }
 
     /**
+     * Get Cos Bucket文件夹前缀。 
+     * @return CosPrefix Cos Bucket文件夹前缀。
+     */
+    public String getCosPrefix() {
+        return this.CosPrefix;
+    }
+
+    /**
+     * Set Cos Bucket文件夹前缀。
+     * @param CosPrefix Cos Bucket文件夹前缀。
+     */
+    public void setCosPrefix(String CosPrefix) {
+        this.CosPrefix = CosPrefix;
+    }
+
+    /**
+     * Get Cos 文件名称。 
+     * @return CosFileName Cos 文件名称。
+     */
+    public String getCosFileName() {
+        return this.CosFileName;
+    }
+
+    /**
+     * Set Cos 文件名称。
+     * @param CosFileName Cos 文件名称。
+     */
+    public void setCosFileName(String CosFileName) {
+        this.CosFileName = CosFileName;
+    }
+
+    public ModifyLiveSnapshotTemplateRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyLiveSnapshotTemplateRequest(ModifyLiveSnapshotTemplateRequest source) {
+        if (source.TemplateId != null) {
+            this.TemplateId = new Long(source.TemplateId);
+        }
+        if (source.TemplateName != null) {
+            this.TemplateName = new String(source.TemplateName);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.SnapshotInterval != null) {
+            this.SnapshotInterval = new Long(source.SnapshotInterval);
+        }
+        if (source.Width != null) {
+            this.Width = new Long(source.Width);
+        }
+        if (source.Height != null) {
+            this.Height = new Long(source.Height);
+        }
+        if (source.PornFlag != null) {
+            this.PornFlag = new Long(source.PornFlag);
+        }
+        if (source.CosAppId != null) {
+            this.CosAppId = new Long(source.CosAppId);
+        }
+        if (source.CosBucket != null) {
+            this.CosBucket = new String(source.CosBucket);
+        }
+        if (source.CosRegion != null) {
+            this.CosRegion = new String(source.CosRegion);
+        }
+        if (source.CosPrefix != null) {
+            this.CosPrefix = new String(source.CosPrefix);
+        }
+        if (source.CosFileName != null) {
+            this.CosFileName = new String(source.CosFileName);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -281,6 +389,8 @@ public class ModifyLiveSnapshotTemplateRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "CosAppId", this.CosAppId);
         this.setParamSimple(map, prefix + "CosBucket", this.CosBucket);
         this.setParamSimple(map, prefix + "CosRegion", this.CosRegion);
+        this.setParamSimple(map, prefix + "CosPrefix", this.CosPrefix);
+        this.setParamSimple(map, prefix + "CosFileName", this.CosFileName);
 
     }
 }

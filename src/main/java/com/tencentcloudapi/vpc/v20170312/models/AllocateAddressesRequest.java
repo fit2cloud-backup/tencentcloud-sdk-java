@@ -41,10 +41,11 @@ public class AllocateAddressesRequest extends AbstractModel{
 
     /**
     * EIP计费方式。
-<ul style="margin:0"><li>已开通带宽上移白名单的用户，可选值：<ul><li>BANDWIDTH_PACKAGE：[共享带宽包](https://cloud.tencent.com/document/product/684/15255)付费（需额外开通共享带宽包白名单）</li>
+<ul style="margin:0"><li>已开通标准账户类型白名单的用户，可选值：<ul><li>BANDWIDTH_PACKAGE：[共享带宽包](https://cloud.tencent.com/document/product/684/15255)付费（需额外开通共享带宽包白名单）</li>
 <li>BANDWIDTH_POSTPAID_BY_HOUR：带宽按小时后付费</li>
+<li>BANDWIDTH_PREPAID_BY_MONTH：包月按带宽预付费</li>
 <li>TRAFFIC_POSTPAID_BY_HOUR：流量按小时后付费</li></ul>默认值：TRAFFIC_POSTPAID_BY_HOUR。</li>
-<li>未开通带宽上移白名单的用户，EIP计费方式与其绑定的实例的计费方式一致，无需传递此参数。</li></ul>
+<li>未开通标准账户类型白名单的用户，EIP计费方式与其绑定的实例的计费方式一致，无需传递此参数。</li></ul>
     */
     @SerializedName("InternetChargeType")
     @Expose
@@ -52,18 +53,27 @@ public class AllocateAddressesRequest extends AbstractModel{
 
     /**
     * EIP出带宽上限，单位：Mbps。
-<ul style="margin:0"><li>已开通带宽上移白名单的用户，可选值范围取决于EIP计费方式：<ul><li>BANDWIDTH_PACKAGE：1 Mbps 至 1000 Mbps</li>
+<ul style="margin:0"><li>已开通标准账户类型白名单的用户，可选值范围取决于EIP计费方式：<ul><li>BANDWIDTH_PACKAGE：1 Mbps 至 1000 Mbps</li>
 <li>BANDWIDTH_POSTPAID_BY_HOUR：1 Mbps 至 100 Mbps</li>
+<li>BANDWIDTH_PREPAID_BY_MONTH：1 Mbps 至 200 Mbps</li>
 <li>TRAFFIC_POSTPAID_BY_HOUR：1 Mbps 至 100 Mbps</li></ul>默认值：1 Mbps。</li>
-<li>未开通带宽上移白名单的用户，EIP出带宽上限取决于与其绑定的实例的公网出带宽上限，无需传递此参数。</li></ul>
+<li>未开通标准账户类型白名单的用户，EIP出带宽上限取决于与其绑定的实例的公网出带宽上限，无需传递此参数。</li></ul>
     */
     @SerializedName("InternetMaxBandwidthOut")
     @Expose
     private Long InternetMaxBandwidthOut;
 
     /**
+    * 包月按带宽预付费EIP的计费参数。EIP为包月按带宽预付费时，该参数必传，其余场景不需传递
+    */
+    @SerializedName("AddressChargePrepaid")
+    @Expose
+    private AddressChargePrepaid AddressChargePrepaid;
+
+    /**
     * EIP类型。默认值：EIP。
 <ul style="margin:0"><li>已开通Anycast公网加速白名单的用户，可选值：<ul><li>AnycastEIP：加速IP，可参见 [Anycast 公网加速](https://cloud.tencent.com/document/product/644)</li></ul>注意：仅部分地域支持加速IP。</li></ul>
+<ul style="margin:0"><li>已开通精品IP白名单的用户，可选值：<ul><li>HighQualityEIP：精品IP</li></ul>注意：仅部分地域支持精品IP。</li></ul>
     */
     @SerializedName("AddressType")
     @Expose
@@ -100,6 +110,13 @@ AnycastEIP是否用于绑定负载均衡。
     @SerializedName("BandwidthPackageId")
     @Expose
     private String BandwidthPackageId;
+
+    /**
+    * EIP名称，用于申请EIP时用户自定义该EIP的个性化名称，默认值：未命名
+    */
+    @SerializedName("AddressName")
+    @Expose
+    private String AddressName;
 
     /**
      * Get EIP数量。默认值：1。 
@@ -147,15 +164,17 @@ AnycastEIP是否用于绑定负载均衡。
 
     /**
      * Get EIP计费方式。
-<ul style="margin:0"><li>已开通带宽上移白名单的用户，可选值：<ul><li>BANDWIDTH_PACKAGE：[共享带宽包](https://cloud.tencent.com/document/product/684/15255)付费（需额外开通共享带宽包白名单）</li>
+<ul style="margin:0"><li>已开通标准账户类型白名单的用户，可选值：<ul><li>BANDWIDTH_PACKAGE：[共享带宽包](https://cloud.tencent.com/document/product/684/15255)付费（需额外开通共享带宽包白名单）</li>
 <li>BANDWIDTH_POSTPAID_BY_HOUR：带宽按小时后付费</li>
+<li>BANDWIDTH_PREPAID_BY_MONTH：包月按带宽预付费</li>
 <li>TRAFFIC_POSTPAID_BY_HOUR：流量按小时后付费</li></ul>默认值：TRAFFIC_POSTPAID_BY_HOUR。</li>
-<li>未开通带宽上移白名单的用户，EIP计费方式与其绑定的实例的计费方式一致，无需传递此参数。</li></ul> 
+<li>未开通标准账户类型白名单的用户，EIP计费方式与其绑定的实例的计费方式一致，无需传递此参数。</li></ul> 
      * @return InternetChargeType EIP计费方式。
-<ul style="margin:0"><li>已开通带宽上移白名单的用户，可选值：<ul><li>BANDWIDTH_PACKAGE：[共享带宽包](https://cloud.tencent.com/document/product/684/15255)付费（需额外开通共享带宽包白名单）</li>
+<ul style="margin:0"><li>已开通标准账户类型白名单的用户，可选值：<ul><li>BANDWIDTH_PACKAGE：[共享带宽包](https://cloud.tencent.com/document/product/684/15255)付费（需额外开通共享带宽包白名单）</li>
 <li>BANDWIDTH_POSTPAID_BY_HOUR：带宽按小时后付费</li>
+<li>BANDWIDTH_PREPAID_BY_MONTH：包月按带宽预付费</li>
 <li>TRAFFIC_POSTPAID_BY_HOUR：流量按小时后付费</li></ul>默认值：TRAFFIC_POSTPAID_BY_HOUR。</li>
-<li>未开通带宽上移白名单的用户，EIP计费方式与其绑定的实例的计费方式一致，无需传递此参数。</li></ul>
+<li>未开通标准账户类型白名单的用户，EIP计费方式与其绑定的实例的计费方式一致，无需传递此参数。</li></ul>
      */
     public String getInternetChargeType() {
         return this.InternetChargeType;
@@ -163,15 +182,17 @@ AnycastEIP是否用于绑定负载均衡。
 
     /**
      * Set EIP计费方式。
-<ul style="margin:0"><li>已开通带宽上移白名单的用户，可选值：<ul><li>BANDWIDTH_PACKAGE：[共享带宽包](https://cloud.tencent.com/document/product/684/15255)付费（需额外开通共享带宽包白名单）</li>
+<ul style="margin:0"><li>已开通标准账户类型白名单的用户，可选值：<ul><li>BANDWIDTH_PACKAGE：[共享带宽包](https://cloud.tencent.com/document/product/684/15255)付费（需额外开通共享带宽包白名单）</li>
 <li>BANDWIDTH_POSTPAID_BY_HOUR：带宽按小时后付费</li>
+<li>BANDWIDTH_PREPAID_BY_MONTH：包月按带宽预付费</li>
 <li>TRAFFIC_POSTPAID_BY_HOUR：流量按小时后付费</li></ul>默认值：TRAFFIC_POSTPAID_BY_HOUR。</li>
-<li>未开通带宽上移白名单的用户，EIP计费方式与其绑定的实例的计费方式一致，无需传递此参数。</li></ul>
+<li>未开通标准账户类型白名单的用户，EIP计费方式与其绑定的实例的计费方式一致，无需传递此参数。</li></ul>
      * @param InternetChargeType EIP计费方式。
-<ul style="margin:0"><li>已开通带宽上移白名单的用户，可选值：<ul><li>BANDWIDTH_PACKAGE：[共享带宽包](https://cloud.tencent.com/document/product/684/15255)付费（需额外开通共享带宽包白名单）</li>
+<ul style="margin:0"><li>已开通标准账户类型白名单的用户，可选值：<ul><li>BANDWIDTH_PACKAGE：[共享带宽包](https://cloud.tencent.com/document/product/684/15255)付费（需额外开通共享带宽包白名单）</li>
 <li>BANDWIDTH_POSTPAID_BY_HOUR：带宽按小时后付费</li>
+<li>BANDWIDTH_PREPAID_BY_MONTH：包月按带宽预付费</li>
 <li>TRAFFIC_POSTPAID_BY_HOUR：流量按小时后付费</li></ul>默认值：TRAFFIC_POSTPAID_BY_HOUR。</li>
-<li>未开通带宽上移白名单的用户，EIP计费方式与其绑定的实例的计费方式一致，无需传递此参数。</li></ul>
+<li>未开通标准账户类型白名单的用户，EIP计费方式与其绑定的实例的计费方式一致，无需传递此参数。</li></ul>
      */
     public void setInternetChargeType(String InternetChargeType) {
         this.InternetChargeType = InternetChargeType;
@@ -179,15 +200,17 @@ AnycastEIP是否用于绑定负载均衡。
 
     /**
      * Get EIP出带宽上限，单位：Mbps。
-<ul style="margin:0"><li>已开通带宽上移白名单的用户，可选值范围取决于EIP计费方式：<ul><li>BANDWIDTH_PACKAGE：1 Mbps 至 1000 Mbps</li>
+<ul style="margin:0"><li>已开通标准账户类型白名单的用户，可选值范围取决于EIP计费方式：<ul><li>BANDWIDTH_PACKAGE：1 Mbps 至 1000 Mbps</li>
 <li>BANDWIDTH_POSTPAID_BY_HOUR：1 Mbps 至 100 Mbps</li>
+<li>BANDWIDTH_PREPAID_BY_MONTH：1 Mbps 至 200 Mbps</li>
 <li>TRAFFIC_POSTPAID_BY_HOUR：1 Mbps 至 100 Mbps</li></ul>默认值：1 Mbps。</li>
-<li>未开通带宽上移白名单的用户，EIP出带宽上限取决于与其绑定的实例的公网出带宽上限，无需传递此参数。</li></ul> 
+<li>未开通标准账户类型白名单的用户，EIP出带宽上限取决于与其绑定的实例的公网出带宽上限，无需传递此参数。</li></ul> 
      * @return InternetMaxBandwidthOut EIP出带宽上限，单位：Mbps。
-<ul style="margin:0"><li>已开通带宽上移白名单的用户，可选值范围取决于EIP计费方式：<ul><li>BANDWIDTH_PACKAGE：1 Mbps 至 1000 Mbps</li>
+<ul style="margin:0"><li>已开通标准账户类型白名单的用户，可选值范围取决于EIP计费方式：<ul><li>BANDWIDTH_PACKAGE：1 Mbps 至 1000 Mbps</li>
 <li>BANDWIDTH_POSTPAID_BY_HOUR：1 Mbps 至 100 Mbps</li>
+<li>BANDWIDTH_PREPAID_BY_MONTH：1 Mbps 至 200 Mbps</li>
 <li>TRAFFIC_POSTPAID_BY_HOUR：1 Mbps 至 100 Mbps</li></ul>默认值：1 Mbps。</li>
-<li>未开通带宽上移白名单的用户，EIP出带宽上限取决于与其绑定的实例的公网出带宽上限，无需传递此参数。</li></ul>
+<li>未开通标准账户类型白名单的用户，EIP出带宽上限取决于与其绑定的实例的公网出带宽上限，无需传递此参数。</li></ul>
      */
     public Long getInternetMaxBandwidthOut() {
         return this.InternetMaxBandwidthOut;
@@ -195,25 +218,45 @@ AnycastEIP是否用于绑定负载均衡。
 
     /**
      * Set EIP出带宽上限，单位：Mbps。
-<ul style="margin:0"><li>已开通带宽上移白名单的用户，可选值范围取决于EIP计费方式：<ul><li>BANDWIDTH_PACKAGE：1 Mbps 至 1000 Mbps</li>
+<ul style="margin:0"><li>已开通标准账户类型白名单的用户，可选值范围取决于EIP计费方式：<ul><li>BANDWIDTH_PACKAGE：1 Mbps 至 1000 Mbps</li>
 <li>BANDWIDTH_POSTPAID_BY_HOUR：1 Mbps 至 100 Mbps</li>
+<li>BANDWIDTH_PREPAID_BY_MONTH：1 Mbps 至 200 Mbps</li>
 <li>TRAFFIC_POSTPAID_BY_HOUR：1 Mbps 至 100 Mbps</li></ul>默认值：1 Mbps。</li>
-<li>未开通带宽上移白名单的用户，EIP出带宽上限取决于与其绑定的实例的公网出带宽上限，无需传递此参数。</li></ul>
+<li>未开通标准账户类型白名单的用户，EIP出带宽上限取决于与其绑定的实例的公网出带宽上限，无需传递此参数。</li></ul>
      * @param InternetMaxBandwidthOut EIP出带宽上限，单位：Mbps。
-<ul style="margin:0"><li>已开通带宽上移白名单的用户，可选值范围取决于EIP计费方式：<ul><li>BANDWIDTH_PACKAGE：1 Mbps 至 1000 Mbps</li>
+<ul style="margin:0"><li>已开通标准账户类型白名单的用户，可选值范围取决于EIP计费方式：<ul><li>BANDWIDTH_PACKAGE：1 Mbps 至 1000 Mbps</li>
 <li>BANDWIDTH_POSTPAID_BY_HOUR：1 Mbps 至 100 Mbps</li>
+<li>BANDWIDTH_PREPAID_BY_MONTH：1 Mbps 至 200 Mbps</li>
 <li>TRAFFIC_POSTPAID_BY_HOUR：1 Mbps 至 100 Mbps</li></ul>默认值：1 Mbps。</li>
-<li>未开通带宽上移白名单的用户，EIP出带宽上限取决于与其绑定的实例的公网出带宽上限，无需传递此参数。</li></ul>
+<li>未开通标准账户类型白名单的用户，EIP出带宽上限取决于与其绑定的实例的公网出带宽上限，无需传递此参数。</li></ul>
      */
     public void setInternetMaxBandwidthOut(Long InternetMaxBandwidthOut) {
         this.InternetMaxBandwidthOut = InternetMaxBandwidthOut;
     }
 
     /**
+     * Get 包月按带宽预付费EIP的计费参数。EIP为包月按带宽预付费时，该参数必传，其余场景不需传递 
+     * @return AddressChargePrepaid 包月按带宽预付费EIP的计费参数。EIP为包月按带宽预付费时，该参数必传，其余场景不需传递
+     */
+    public AddressChargePrepaid getAddressChargePrepaid() {
+        return this.AddressChargePrepaid;
+    }
+
+    /**
+     * Set 包月按带宽预付费EIP的计费参数。EIP为包月按带宽预付费时，该参数必传，其余场景不需传递
+     * @param AddressChargePrepaid 包月按带宽预付费EIP的计费参数。EIP为包月按带宽预付费时，该参数必传，其余场景不需传递
+     */
+    public void setAddressChargePrepaid(AddressChargePrepaid AddressChargePrepaid) {
+        this.AddressChargePrepaid = AddressChargePrepaid;
+    }
+
+    /**
      * Get EIP类型。默认值：EIP。
-<ul style="margin:0"><li>已开通Anycast公网加速白名单的用户，可选值：<ul><li>AnycastEIP：加速IP，可参见 [Anycast 公网加速](https://cloud.tencent.com/document/product/644)</li></ul>注意：仅部分地域支持加速IP。</li></ul> 
+<ul style="margin:0"><li>已开通Anycast公网加速白名单的用户，可选值：<ul><li>AnycastEIP：加速IP，可参见 [Anycast 公网加速](https://cloud.tencent.com/document/product/644)</li></ul>注意：仅部分地域支持加速IP。</li></ul>
+<ul style="margin:0"><li>已开通精品IP白名单的用户，可选值：<ul><li>HighQualityEIP：精品IP</li></ul>注意：仅部分地域支持精品IP。</li></ul> 
      * @return AddressType EIP类型。默认值：EIP。
 <ul style="margin:0"><li>已开通Anycast公网加速白名单的用户，可选值：<ul><li>AnycastEIP：加速IP，可参见 [Anycast 公网加速](https://cloud.tencent.com/document/product/644)</li></ul>注意：仅部分地域支持加速IP。</li></ul>
+<ul style="margin:0"><li>已开通精品IP白名单的用户，可选值：<ul><li>HighQualityEIP：精品IP</li></ul>注意：仅部分地域支持精品IP。</li></ul>
      */
     public String getAddressType() {
         return this.AddressType;
@@ -222,8 +265,10 @@ AnycastEIP是否用于绑定负载均衡。
     /**
      * Set EIP类型。默认值：EIP。
 <ul style="margin:0"><li>已开通Anycast公网加速白名单的用户，可选值：<ul><li>AnycastEIP：加速IP，可参见 [Anycast 公网加速](https://cloud.tencent.com/document/product/644)</li></ul>注意：仅部分地域支持加速IP。</li></ul>
+<ul style="margin:0"><li>已开通精品IP白名单的用户，可选值：<ul><li>HighQualityEIP：精品IP</li></ul>注意：仅部分地域支持精品IP。</li></ul>
      * @param AddressType EIP类型。默认值：EIP。
 <ul style="margin:0"><li>已开通Anycast公网加速白名单的用户，可选值：<ul><li>AnycastEIP：加速IP，可参见 [Anycast 公网加速](https://cloud.tencent.com/document/product/644)</li></ul>注意：仅部分地域支持加速IP。</li></ul>
+<ul style="margin:0"><li>已开通精品IP白名单的用户，可选值：<ul><li>HighQualityEIP：精品IP</li></ul>注意：仅部分地域支持精品IP。</li></ul>
      */
     public void setAddressType(String AddressType) {
         this.AddressType = AddressType;
@@ -310,6 +355,69 @@ AnycastEIP是否用于绑定负载均衡。
     }
 
     /**
+     * Get EIP名称，用于申请EIP时用户自定义该EIP的个性化名称，默认值：未命名 
+     * @return AddressName EIP名称，用于申请EIP时用户自定义该EIP的个性化名称，默认值：未命名
+     */
+    public String getAddressName() {
+        return this.AddressName;
+    }
+
+    /**
+     * Set EIP名称，用于申请EIP时用户自定义该EIP的个性化名称，默认值：未命名
+     * @param AddressName EIP名称，用于申请EIP时用户自定义该EIP的个性化名称，默认值：未命名
+     */
+    public void setAddressName(String AddressName) {
+        this.AddressName = AddressName;
+    }
+
+    public AllocateAddressesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AllocateAddressesRequest(AllocateAddressesRequest source) {
+        if (source.AddressCount != null) {
+            this.AddressCount = new Long(source.AddressCount);
+        }
+        if (source.InternetServiceProvider != null) {
+            this.InternetServiceProvider = new String(source.InternetServiceProvider);
+        }
+        if (source.InternetChargeType != null) {
+            this.InternetChargeType = new String(source.InternetChargeType);
+        }
+        if (source.InternetMaxBandwidthOut != null) {
+            this.InternetMaxBandwidthOut = new Long(source.InternetMaxBandwidthOut);
+        }
+        if (source.AddressChargePrepaid != null) {
+            this.AddressChargePrepaid = new AddressChargePrepaid(source.AddressChargePrepaid);
+        }
+        if (source.AddressType != null) {
+            this.AddressType = new String(source.AddressType);
+        }
+        if (source.AnycastZone != null) {
+            this.AnycastZone = new String(source.AnycastZone);
+        }
+        if (source.ApplicableForCLB != null) {
+            this.ApplicableForCLB = new Boolean(source.ApplicableForCLB);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.BandwidthPackageId != null) {
+            this.BandwidthPackageId = new String(source.BandwidthPackageId);
+        }
+        if (source.AddressName != null) {
+            this.AddressName = new String(source.AddressName);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -317,11 +425,13 @@ AnycastEIP是否用于绑定负载均衡。
         this.setParamSimple(map, prefix + "InternetServiceProvider", this.InternetServiceProvider);
         this.setParamSimple(map, prefix + "InternetChargeType", this.InternetChargeType);
         this.setParamSimple(map, prefix + "InternetMaxBandwidthOut", this.InternetMaxBandwidthOut);
+        this.setParamObj(map, prefix + "AddressChargePrepaid.", this.AddressChargePrepaid);
         this.setParamSimple(map, prefix + "AddressType", this.AddressType);
         this.setParamSimple(map, prefix + "AnycastZone", this.AnycastZone);
         this.setParamSimple(map, prefix + "ApplicableForCLB", this.ApplicableForCLB);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "BandwidthPackageId", this.BandwidthPackageId);
+        this.setParamSimple(map, prefix + "AddressName", this.AddressName);
 
     }
 }

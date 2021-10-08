@@ -32,13 +32,13 @@ public class ModifyWordSampleRequest extends AbstractModel{
     /**
     * <b>关键词应用场景，可选值：</b>
 1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
-2. Recognition.Asr：通过语音识别技术，进行内容识别；
-3. Review.Ocr：通过光学字符识别技术，进行内容审核；
-4. Review.Asr：通过语音识别技术，进行内容审核；
+2. Recognition.Asr：通过音频识别技术，进行内容识别；
+3. Review.Ocr：通过光学字符识别技术，进行不适宜的内容识别；
+4. Review.Asr：通过音频识别技术，进行不适宜的内容识别；
 <b>可合并简写为：</b>
-5. Recognition：通过光学字符识别技术、语音识别技术，进行内容识别，等价于 1+2；
-6. Review：通过光学字符识别技术、语音识别技术，进行内容审核，等价于 3+4；
-7. All：通过光学字符识别技术、语音识别技术，进行内容识别、内容审核，等价于 1+2+3+4。
+5. Recognition：通过光学字符识别技术、音频识别技术，进行内容识别，等价于 1+2；
+6. Review：通过光学字符识别技术、音频识别技术，进行不适宜的内容识别，等价于 3+4；
+7. All：包含以上全部，等价于 1+2+3+4。
     */
     @SerializedName("Usages")
     @Expose
@@ -77,22 +77,22 @@ public class ModifyWordSampleRequest extends AbstractModel{
     /**
      * Get <b>关键词应用场景，可选值：</b>
 1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
-2. Recognition.Asr：通过语音识别技术，进行内容识别；
-3. Review.Ocr：通过光学字符识别技术，进行内容审核；
-4. Review.Asr：通过语音识别技术，进行内容审核；
+2. Recognition.Asr：通过音频识别技术，进行内容识别；
+3. Review.Ocr：通过光学字符识别技术，进行不适宜的内容识别；
+4. Review.Asr：通过音频识别技术，进行不适宜的内容识别；
 <b>可合并简写为：</b>
-5. Recognition：通过光学字符识别技术、语音识别技术，进行内容识别，等价于 1+2；
-6. Review：通过光学字符识别技术、语音识别技术，进行内容审核，等价于 3+4；
-7. All：通过光学字符识别技术、语音识别技术，进行内容识别、内容审核，等价于 1+2+3+4。 
+5. Recognition：通过光学字符识别技术、音频识别技术，进行内容识别，等价于 1+2；
+6. Review：通过光学字符识别技术、音频识别技术，进行不适宜的内容识别，等价于 3+4；
+7. All：包含以上全部，等价于 1+2+3+4。 
      * @return Usages <b>关键词应用场景，可选值：</b>
 1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
-2. Recognition.Asr：通过语音识别技术，进行内容识别；
-3. Review.Ocr：通过光学字符识别技术，进行内容审核；
-4. Review.Asr：通过语音识别技术，进行内容审核；
+2. Recognition.Asr：通过音频识别技术，进行内容识别；
+3. Review.Ocr：通过光学字符识别技术，进行不适宜的内容识别；
+4. Review.Asr：通过音频识别技术，进行不适宜的内容识别；
 <b>可合并简写为：</b>
-5. Recognition：通过光学字符识别技术、语音识别技术，进行内容识别，等价于 1+2；
-6. Review：通过光学字符识别技术、语音识别技术，进行内容审核，等价于 3+4；
-7. All：通过光学字符识别技术、语音识别技术，进行内容识别、内容审核，等价于 1+2+3+4。
+5. Recognition：通过光学字符识别技术、音频识别技术，进行内容识别，等价于 1+2；
+6. Review：通过光学字符识别技术、音频识别技术，进行不适宜的内容识别，等价于 3+4；
+7. All：包含以上全部，等价于 1+2+3+4。
      */
     public String [] getUsages() {
         return this.Usages;
@@ -101,22 +101,22 @@ public class ModifyWordSampleRequest extends AbstractModel{
     /**
      * Set <b>关键词应用场景，可选值：</b>
 1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
-2. Recognition.Asr：通过语音识别技术，进行内容识别；
-3. Review.Ocr：通过光学字符识别技术，进行内容审核；
-4. Review.Asr：通过语音识别技术，进行内容审核；
+2. Recognition.Asr：通过音频识别技术，进行内容识别；
+3. Review.Ocr：通过光学字符识别技术，进行不适宜的内容识别；
+4. Review.Asr：通过音频识别技术，进行不适宜的内容识别；
 <b>可合并简写为：</b>
-5. Recognition：通过光学字符识别技术、语音识别技术，进行内容识别，等价于 1+2；
-6. Review：通过光学字符识别技术、语音识别技术，进行内容审核，等价于 3+4；
-7. All：通过光学字符识别技术、语音识别技术，进行内容识别、内容审核，等价于 1+2+3+4。
+5. Recognition：通过光学字符识别技术、音频识别技术，进行内容识别，等价于 1+2；
+6. Review：通过光学字符识别技术、音频识别技术，进行不适宜的内容识别，等价于 3+4；
+7. All：包含以上全部，等价于 1+2+3+4。
      * @param Usages <b>关键词应用场景，可选值：</b>
 1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
-2. Recognition.Asr：通过语音识别技术，进行内容识别；
-3. Review.Ocr：通过光学字符识别技术，进行内容审核；
-4. Review.Asr：通过语音识别技术，进行内容审核；
+2. Recognition.Asr：通过音频识别技术，进行内容识别；
+3. Review.Ocr：通过光学字符识别技术，进行不适宜的内容识别；
+4. Review.Asr：通过音频识别技术，进行不适宜的内容识别；
 <b>可合并简写为：</b>
-5. Recognition：通过光学字符识别技术、语音识别技术，进行内容识别，等价于 1+2；
-6. Review：通过光学字符识别技术、语音识别技术，进行内容审核，等价于 3+4；
-7. All：通过光学字符识别技术、语音识别技术，进行内容识别、内容审核，等价于 1+2+3+4。
+5. Recognition：通过光学字符识别技术、音频识别技术，进行内容识别，等价于 1+2；
+6. Review：通过光学字符识别技术、音频识别技术，进行不适宜的内容识别，等价于 3+4；
+7. All：包含以上全部，等价于 1+2+3+4。
      */
     public void setUsages(String [] Usages) {
         this.Usages = Usages;
@@ -153,6 +153,32 @@ public class ModifyWordSampleRequest extends AbstractModel{
     public void setSubAppId(Long SubAppId) {
         this.SubAppId = SubAppId;
     }
+
+    public ModifyWordSampleRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyWordSampleRequest(ModifyWordSampleRequest source) {
+        if (source.Keyword != null) {
+            this.Keyword = new String(source.Keyword);
+        }
+        if (source.Usages != null) {
+            this.Usages = new String[source.Usages.length];
+            for (int i = 0; i < source.Usages.length; i++) {
+                this.Usages[i] = new String(source.Usages[i]);
+            }
+        }
+        if (source.TagOperationInfo != null) {
+            this.TagOperationInfo = new AiSampleTagOperation(source.TagOperationInfo);
+        }
+        if (source.SubAppId != null) {
+            this.SubAppId = new Long(source.SubAppId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

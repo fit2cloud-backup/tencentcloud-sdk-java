@@ -80,9 +80,12 @@ public class IDCardOCRResponse extends AbstractModel{
 
     /**
     * 扩展信息，不请求则不返回，具体输入参考示例3和示例4。
-IdCard，裁剪后身份证照片的base64编码，请求 CropIdCard 时返回；
-Portrait，身份证头像照片的base64编码，请求 CropPortrait 时返回；
-QualityValue，图片质量分，请求 Quality 时返回（取值范围：0~100，分数越低越模糊，建议阈值≥50）;
+IdCard，裁剪后身份证照片的base64编码，请求 Config.CropIdCard 时返回；
+Portrait，身份证头像照片的base64编码，请求 Config.CropPortrait 时返回；
+
+Quality，图片质量分数，请求 Config.Quality 时返回（取值范围：0~100，分数越低越模糊，建议阈值≥50）;
+BorderCodeValue，身份证边框不完整告警阈值分数，请求 Config.BorderCheckWarn时返回（取值范围：0~100，分数越低边框遮挡可能性越低，建议阈值≥50）;
+
 WarnInfos，告警信息，Code 告警码列表和释义：
 -9100	身份证有效日期不合法告警，
 -9101	身份证边框不完整告警，
@@ -90,7 +93,8 @@ WarnInfos，告警信息，Code 告警码列表和释义：
 -9103	身份证翻拍告警，
 -9105	身份证框内遮挡告警，
 -9104	临时身份证告警，
--9106	身份证 PS 告警。
+-9106	身份证 PS 告警，
+-9107       身份证反光告警。
     */
     @SerializedName("AdvancedInfo")
     @Expose
@@ -233,9 +237,12 @@ WarnInfos，告警信息，Code 告警码列表和释义：
 
     /**
      * Get 扩展信息，不请求则不返回，具体输入参考示例3和示例4。
-IdCard，裁剪后身份证照片的base64编码，请求 CropIdCard 时返回；
-Portrait，身份证头像照片的base64编码，请求 CropPortrait 时返回；
-QualityValue，图片质量分，请求 Quality 时返回（取值范围：0~100，分数越低越模糊，建议阈值≥50）;
+IdCard，裁剪后身份证照片的base64编码，请求 Config.CropIdCard 时返回；
+Portrait，身份证头像照片的base64编码，请求 Config.CropPortrait 时返回；
+
+Quality，图片质量分数，请求 Config.Quality 时返回（取值范围：0~100，分数越低越模糊，建议阈值≥50）;
+BorderCodeValue，身份证边框不完整告警阈值分数，请求 Config.BorderCheckWarn时返回（取值范围：0~100，分数越低边框遮挡可能性越低，建议阈值≥50）;
+
 WarnInfos，告警信息，Code 告警码列表和释义：
 -9100	身份证有效日期不合法告警，
 -9101	身份证边框不完整告警，
@@ -243,11 +250,15 @@ WarnInfos，告警信息，Code 告警码列表和释义：
 -9103	身份证翻拍告警，
 -9105	身份证框内遮挡告警，
 -9104	临时身份证告警，
--9106	身份证 PS 告警。 
+-9106	身份证 PS 告警，
+-9107       身份证反光告警。 
      * @return AdvancedInfo 扩展信息，不请求则不返回，具体输入参考示例3和示例4。
-IdCard，裁剪后身份证照片的base64编码，请求 CropIdCard 时返回；
-Portrait，身份证头像照片的base64编码，请求 CropPortrait 时返回；
-QualityValue，图片质量分，请求 Quality 时返回（取值范围：0~100，分数越低越模糊，建议阈值≥50）;
+IdCard，裁剪后身份证照片的base64编码，请求 Config.CropIdCard 时返回；
+Portrait，身份证头像照片的base64编码，请求 Config.CropPortrait 时返回；
+
+Quality，图片质量分数，请求 Config.Quality 时返回（取值范围：0~100，分数越低越模糊，建议阈值≥50）;
+BorderCodeValue，身份证边框不完整告警阈值分数，请求 Config.BorderCheckWarn时返回（取值范围：0~100，分数越低边框遮挡可能性越低，建议阈值≥50）;
+
 WarnInfos，告警信息，Code 告警码列表和释义：
 -9100	身份证有效日期不合法告警，
 -9101	身份证边框不完整告警，
@@ -255,7 +266,8 @@ WarnInfos，告警信息，Code 告警码列表和释义：
 -9103	身份证翻拍告警，
 -9105	身份证框内遮挡告警，
 -9104	临时身份证告警，
--9106	身份证 PS 告警。
+-9106	身份证 PS 告警，
+-9107       身份证反光告警。
      */
     public String getAdvancedInfo() {
         return this.AdvancedInfo;
@@ -263,9 +275,12 @@ WarnInfos，告警信息，Code 告警码列表和释义：
 
     /**
      * Set 扩展信息，不请求则不返回，具体输入参考示例3和示例4。
-IdCard，裁剪后身份证照片的base64编码，请求 CropIdCard 时返回；
-Portrait，身份证头像照片的base64编码，请求 CropPortrait 时返回；
-QualityValue，图片质量分，请求 Quality 时返回（取值范围：0~100，分数越低越模糊，建议阈值≥50）;
+IdCard，裁剪后身份证照片的base64编码，请求 Config.CropIdCard 时返回；
+Portrait，身份证头像照片的base64编码，请求 Config.CropPortrait 时返回；
+
+Quality，图片质量分数，请求 Config.Quality 时返回（取值范围：0~100，分数越低越模糊，建议阈值≥50）;
+BorderCodeValue，身份证边框不完整告警阈值分数，请求 Config.BorderCheckWarn时返回（取值范围：0~100，分数越低边框遮挡可能性越低，建议阈值≥50）;
+
 WarnInfos，告警信息，Code 告警码列表和释义：
 -9100	身份证有效日期不合法告警，
 -9101	身份证边框不完整告警，
@@ -273,11 +288,15 @@ WarnInfos，告警信息，Code 告警码列表和释义：
 -9103	身份证翻拍告警，
 -9105	身份证框内遮挡告警，
 -9104	临时身份证告警，
--9106	身份证 PS 告警。
+-9106	身份证 PS 告警，
+-9107       身份证反光告警。
      * @param AdvancedInfo 扩展信息，不请求则不返回，具体输入参考示例3和示例4。
-IdCard，裁剪后身份证照片的base64编码，请求 CropIdCard 时返回；
-Portrait，身份证头像照片的base64编码，请求 CropPortrait 时返回；
-QualityValue，图片质量分，请求 Quality 时返回（取值范围：0~100，分数越低越模糊，建议阈值≥50）;
+IdCard，裁剪后身份证照片的base64编码，请求 Config.CropIdCard 时返回；
+Portrait，身份证头像照片的base64编码，请求 Config.CropPortrait 时返回；
+
+Quality，图片质量分数，请求 Config.Quality 时返回（取值范围：0~100，分数越低越模糊，建议阈值≥50）;
+BorderCodeValue，身份证边框不完整告警阈值分数，请求 Config.BorderCheckWarn时返回（取值范围：0~100，分数越低边框遮挡可能性越低，建议阈值≥50）;
+
 WarnInfos，告警信息，Code 告警码列表和释义：
 -9100	身份证有效日期不合法告警，
 -9101	身份证边框不完整告警，
@@ -285,7 +304,8 @@ WarnInfos，告警信息，Code 告警码列表和释义：
 -9103	身份证翻拍告警，
 -9105	身份证框内遮挡告警，
 -9104	临时身份证告警，
--9106	身份证 PS 告警。
+-9106	身份证 PS 告警，
+-9107       身份证反光告警。
      */
     public void setAdvancedInfo(String AdvancedInfo) {
         this.AdvancedInfo = AdvancedInfo;
@@ -306,6 +326,47 @@ WarnInfos，告警信息，Code 告警码列表和释义：
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public IDCardOCRResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public IDCardOCRResponse(IDCardOCRResponse source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Sex != null) {
+            this.Sex = new String(source.Sex);
+        }
+        if (source.Nation != null) {
+            this.Nation = new String(source.Nation);
+        }
+        if (source.Birth != null) {
+            this.Birth = new String(source.Birth);
+        }
+        if (source.Address != null) {
+            this.Address = new String(source.Address);
+        }
+        if (source.IdNum != null) {
+            this.IdNum = new String(source.IdNum);
+        }
+        if (source.Authority != null) {
+            this.Authority = new String(source.Authority);
+        }
+        if (source.ValidDate != null) {
+            this.ValidDate = new String(source.ValidDate);
+        }
+        if (source.AdvancedInfo != null) {
+            this.AdvancedInfo = new String(source.AdvancedInfo);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -100,6 +100,13 @@ public class RevokeMemberRechargeThirdPayRequest extends AbstractModel{
     private String ReservedMsgThree;
 
     /**
+    * STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+    */
+    @SerializedName("Profile")
+    @Expose
+    private String Profile;
+
+    /**
      * Get STRING(52)，原充值的前置流水号 
      * @return OldFillFrontSeqNo STRING(52)，原充值的前置流水号
      */
@@ -276,6 +283,69 @@ public class RevokeMemberRechargeThirdPayRequest extends AbstractModel{
     }
 
     /**
+     * Get STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod" 
+     * @return Profile STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     */
+    public String getProfile() {
+        return this.Profile;
+    }
+
+    /**
+     * Set STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     * @param Profile STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     */
+    public void setProfile(String Profile) {
+        this.Profile = Profile;
+    }
+
+    public RevokeMemberRechargeThirdPayRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public RevokeMemberRechargeThirdPayRequest(RevokeMemberRechargeThirdPayRequest source) {
+        if (source.OldFillFrontSeqNo != null) {
+            this.OldFillFrontSeqNo = new String(source.OldFillFrontSeqNo);
+        }
+        if (source.OldFillPayChannelType != null) {
+            this.OldFillPayChannelType = new String(source.OldFillPayChannelType);
+        }
+        if (source.OldPayChannelTranSeqNo != null) {
+            this.OldPayChannelTranSeqNo = new String(source.OldPayChannelTranSeqNo);
+        }
+        if (source.OldFillEjzbOrderNo != null) {
+            this.OldFillEjzbOrderNo = new String(source.OldFillEjzbOrderNo);
+        }
+        if (source.ApplyCancelMemberAmt != null) {
+            this.ApplyCancelMemberAmt = new String(source.ApplyCancelMemberAmt);
+        }
+        if (source.ApplyCancelCommission != null) {
+            this.ApplyCancelCommission = new String(source.ApplyCancelCommission);
+        }
+        if (source.MrchCode != null) {
+            this.MrchCode = new String(source.MrchCode);
+        }
+        if (source.Remark != null) {
+            this.Remark = new String(source.Remark);
+        }
+        if (source.ReservedMsgOne != null) {
+            this.ReservedMsgOne = new String(source.ReservedMsgOne);
+        }
+        if (source.ReservedMsgTwo != null) {
+            this.ReservedMsgTwo = new String(source.ReservedMsgTwo);
+        }
+        if (source.ReservedMsgThree != null) {
+            this.ReservedMsgThree = new String(source.ReservedMsgThree);
+        }
+        if (source.Profile != null) {
+            this.Profile = new String(source.Profile);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -290,6 +360,7 @@ public class RevokeMemberRechargeThirdPayRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ReservedMsgOne", this.ReservedMsgOne);
         this.setParamSimple(map, prefix + "ReservedMsgTwo", this.ReservedMsgTwo);
         this.setParamSimple(map, prefix + "ReservedMsgThree", this.ReservedMsgThree);
+        this.setParamSimple(map, prefix + "Profile", this.Profile);
 
     }
 }

@@ -97,7 +97,7 @@ public class DescribeJobResponse extends AbstractModel{
     */
     @SerializedName("TaskInstanceMetrics")
     @Expose
-    private TaskInstanceView TaskInstanceMetrics;
+    private TaskInstanceMetrics TaskInstanceMetrics;
 
     /**
     * 作业失败原因
@@ -105,6 +105,22 @@ public class DescribeJobResponse extends AbstractModel{
     @SerializedName("StateReason")
     @Expose
     private String StateReason;
+
+    /**
+    * 作业绑定的标签列表。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
+    * 下一步动作
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("NextAction")
+    @Expose
+    private String NextAction;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -277,7 +293,7 @@ public class DescribeJobResponse extends AbstractModel{
      * Get 任务实例统计指标 
      * @return TaskInstanceMetrics 任务实例统计指标
      */
-    public TaskInstanceView getTaskInstanceMetrics() {
+    public TaskInstanceMetrics getTaskInstanceMetrics() {
         return this.TaskInstanceMetrics;
     }
 
@@ -285,7 +301,7 @@ public class DescribeJobResponse extends AbstractModel{
      * Set 任务实例统计指标
      * @param TaskInstanceMetrics 任务实例统计指标
      */
-    public void setTaskInstanceMetrics(TaskInstanceView TaskInstanceMetrics) {
+    public void setTaskInstanceMetrics(TaskInstanceMetrics TaskInstanceMetrics) {
         this.TaskInstanceMetrics = TaskInstanceMetrics;
     }
 
@@ -306,6 +322,46 @@ public class DescribeJobResponse extends AbstractModel{
     }
 
     /**
+     * Get 作业绑定的标签列表。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Tags 作业绑定的标签列表。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 作业绑定的标签列表。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Tags 作业绑定的标签列表。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
+     * Get 下一步动作
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return NextAction 下一步动作
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getNextAction() {
+        return this.NextAction;
+    }
+
+    /**
+     * Set 下一步动作
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param NextAction 下一步动作
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setNextAction(String NextAction) {
+        this.NextAction = NextAction;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -320,6 +376,71 @@ public class DescribeJobResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeJobResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeJobResponse(DescribeJobResponse source) {
+        if (source.JobId != null) {
+            this.JobId = new String(source.JobId);
+        }
+        if (source.JobName != null) {
+            this.JobName = new String(source.JobName);
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.Priority != null) {
+            this.Priority = new Long(source.Priority);
+        }
+        if (source.JobState != null) {
+            this.JobState = new String(source.JobState);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.TaskSet != null) {
+            this.TaskSet = new TaskView[source.TaskSet.length];
+            for (int i = 0; i < source.TaskSet.length; i++) {
+                this.TaskSet[i] = new TaskView(source.TaskSet[i]);
+            }
+        }
+        if (source.DependenceSet != null) {
+            this.DependenceSet = new Dependence[source.DependenceSet.length];
+            for (int i = 0; i < source.DependenceSet.length; i++) {
+                this.DependenceSet[i] = new Dependence(source.DependenceSet[i]);
+            }
+        }
+        if (source.TaskMetrics != null) {
+            this.TaskMetrics = new TaskMetrics(source.TaskMetrics);
+        }
+        if (source.TaskInstanceMetrics != null) {
+            this.TaskInstanceMetrics = new TaskInstanceMetrics(source.TaskInstanceMetrics);
+        }
+        if (source.StateReason != null) {
+            this.StateReason = new String(source.StateReason);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.NextAction != null) {
+            this.NextAction = new String(source.NextAction);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -337,6 +458,8 @@ public class DescribeJobResponse extends AbstractModel{
         this.setParamObj(map, prefix + "TaskMetrics.", this.TaskMetrics);
         this.setParamObj(map, prefix + "TaskInstanceMetrics.", this.TaskInstanceMetrics);
         this.setParamSimple(map, prefix + "StateReason", this.StateReason);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "NextAction", this.NextAction);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

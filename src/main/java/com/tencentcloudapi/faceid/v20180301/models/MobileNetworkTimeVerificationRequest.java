@@ -23,33 +23,74 @@ import java.util.HashMap;
 public class MobileNetworkTimeVerificationRequest extends AbstractModel{
 
     /**
-    * 手机号码。不支持电信手机号。
+    * 手机号码
     */
     @SerializedName("Mobile")
     @Expose
     private String Mobile;
 
     /**
-     * Get 手机号码。不支持电信手机号。 
-     * @return Mobile 手机号码。不支持电信手机号。
+    * 敏感数据加密信息。对传入信息（手机号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+    */
+    @SerializedName("Encryption")
+    @Expose
+    private Encryption Encryption;
+
+    /**
+     * Get 手机号码 
+     * @return Mobile 手机号码
      */
     public String getMobile() {
         return this.Mobile;
     }
 
     /**
-     * Set 手机号码。不支持电信手机号。
-     * @param Mobile 手机号码。不支持电信手机号。
+     * Set 手机号码
+     * @param Mobile 手机号码
      */
     public void setMobile(String Mobile) {
         this.Mobile = Mobile;
     }
 
     /**
+     * Get 敏感数据加密信息。对传入信息（手机号）有加密需求的用户可使用此参数，详情请点击左侧链接。 
+     * @return Encryption 敏感数据加密信息。对传入信息（手机号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+     */
+    public Encryption getEncryption() {
+        return this.Encryption;
+    }
+
+    /**
+     * Set 敏感数据加密信息。对传入信息（手机号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+     * @param Encryption 敏感数据加密信息。对传入信息（手机号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+     */
+    public void setEncryption(Encryption Encryption) {
+        this.Encryption = Encryption;
+    }
+
+    public MobileNetworkTimeVerificationRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MobileNetworkTimeVerificationRequest(MobileNetworkTimeVerificationRequest source) {
+        if (source.Mobile != null) {
+            this.Mobile = new String(source.Mobile);
+        }
+        if (source.Encryption != null) {
+            this.Encryption = new Encryption(source.Encryption);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Mobile", this.Mobile);
+        this.setParamObj(map, prefix + "Encryption.", this.Encryption);
 
     }
 }

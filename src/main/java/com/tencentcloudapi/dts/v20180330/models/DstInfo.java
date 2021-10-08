@@ -23,18 +23,18 @@ import java.util.HashMap;
 public class DstInfo extends AbstractModel{
 
     /**
-    * 目标实例ID，如cdb-jd92ijd8
-    */
-    @SerializedName("InstanceId")
-    @Expose
-    private String InstanceId;
-
-    /**
     * 目标实例地域，如ap-guangzhou
     */
     @SerializedName("Region")
     @Expose
     private String Region;
+
+    /**
+    * 目标实例ID，如cdb-jd92ijd8
+    */
+    @SerializedName("InstanceId")
+    @Expose
+    private String InstanceId;
 
     /**
     * 目标实例vip。已废弃，无需填写
@@ -58,20 +58,18 @@ public class DstInfo extends AbstractModel{
     private Long ReadOnly;
 
     /**
-     * Get 目标实例ID，如cdb-jd92ijd8 
-     * @return InstanceId 目标实例ID，如cdb-jd92ijd8
-     */
-    public String getInstanceId() {
-        return this.InstanceId;
-    }
+    * 目标数据库账号
+    */
+    @SerializedName("User")
+    @Expose
+    private String User;
 
     /**
-     * Set 目标实例ID，如cdb-jd92ijd8
-     * @param InstanceId 目标实例ID，如cdb-jd92ijd8
-     */
-    public void setInstanceId(String InstanceId) {
-        this.InstanceId = InstanceId;
-    }
+    * 目标数据库密码
+    */
+    @SerializedName("Password")
+    @Expose
+    private String Password;
 
     /**
      * Get 目标实例地域，如ap-guangzhou 
@@ -87,6 +85,22 @@ public class DstInfo extends AbstractModel{
      */
     public void setRegion(String Region) {
         this.Region = Region;
+    }
+
+    /**
+     * Get 目标实例ID，如cdb-jd92ijd8 
+     * @return InstanceId 目标实例ID，如cdb-jd92ijd8
+     */
+    public String getInstanceId() {
+        return this.InstanceId;
+    }
+
+    /**
+     * Set 目标实例ID，如cdb-jd92ijd8
+     * @param InstanceId 目标实例ID，如cdb-jd92ijd8
+     */
+    public void setInstanceId(String InstanceId) {
+        this.InstanceId = InstanceId;
     }
 
     /**
@@ -138,14 +152,80 @@ public class DstInfo extends AbstractModel{
     }
 
     /**
+     * Get 目标数据库账号 
+     * @return User 目标数据库账号
+     */
+    public String getUser() {
+        return this.User;
+    }
+
+    /**
+     * Set 目标数据库账号
+     * @param User 目标数据库账号
+     */
+    public void setUser(String User) {
+        this.User = User;
+    }
+
+    /**
+     * Get 目标数据库密码 
+     * @return Password 目标数据库密码
+     */
+    public String getPassword() {
+        return this.Password;
+    }
+
+    /**
+     * Set 目标数据库密码
+     * @param Password 目标数据库密码
+     */
+    public void setPassword(String Password) {
+        this.Password = Password;
+    }
+
+    public DstInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DstInfo(DstInfo source) {
+        if (source.Region != null) {
+            this.Region = new String(source.Region);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.Ip != null) {
+            this.Ip = new String(source.Ip);
+        }
+        if (source.Port != null) {
+            this.Port = new Long(source.Port);
+        }
+        if (source.ReadOnly != null) {
+            this.ReadOnly = new Long(source.ReadOnly);
+        }
+        if (source.User != null) {
+            this.User = new String(source.User);
+        }
+        if (source.Password != null) {
+            this.Password = new String(source.Password);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "Region", this.Region);
+        this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "Ip", this.Ip);
         this.setParamSimple(map, prefix + "Port", this.Port);
         this.setParamSimple(map, prefix + "ReadOnly", this.ReadOnly);
+        this.setParamSimple(map, prefix + "User", this.User);
+        this.setParamSimple(map, prefix + "Password", this.Password);
 
     }
 }

@@ -23,50 +23,70 @@ import java.util.HashMap;
 public class ModifyTargetGroupInstancesPortRequest extends AbstractModel{
 
     /**
-    * 目标组ID
+    * 目标组ID。
     */
     @SerializedName("TargetGroupId")
     @Expose
     private String TargetGroupId;
 
     /**
-    * 待修改端口的服务器数组
+    * 待修改端口的服务器数组。
     */
     @SerializedName("TargetGroupInstances")
     @Expose
     private TargetGroupInstance [] TargetGroupInstances;
 
     /**
-     * Get 目标组ID 
-     * @return TargetGroupId 目标组ID
+     * Get 目标组ID。 
+     * @return TargetGroupId 目标组ID。
      */
     public String getTargetGroupId() {
         return this.TargetGroupId;
     }
 
     /**
-     * Set 目标组ID
-     * @param TargetGroupId 目标组ID
+     * Set 目标组ID。
+     * @param TargetGroupId 目标组ID。
      */
     public void setTargetGroupId(String TargetGroupId) {
         this.TargetGroupId = TargetGroupId;
     }
 
     /**
-     * Get 待修改端口的服务器数组 
-     * @return TargetGroupInstances 待修改端口的服务器数组
+     * Get 待修改端口的服务器数组。 
+     * @return TargetGroupInstances 待修改端口的服务器数组。
      */
     public TargetGroupInstance [] getTargetGroupInstances() {
         return this.TargetGroupInstances;
     }
 
     /**
-     * Set 待修改端口的服务器数组
-     * @param TargetGroupInstances 待修改端口的服务器数组
+     * Set 待修改端口的服务器数组。
+     * @param TargetGroupInstances 待修改端口的服务器数组。
      */
     public void setTargetGroupInstances(TargetGroupInstance [] TargetGroupInstances) {
         this.TargetGroupInstances = TargetGroupInstances;
     }
+
+    public ModifyTargetGroupInstancesPortRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyTargetGroupInstancesPortRequest(ModifyTargetGroupInstancesPortRequest source) {
+        if (source.TargetGroupId != null) {
+            this.TargetGroupId = new String(source.TargetGroupId);
+        }
+        if (source.TargetGroupInstances != null) {
+            this.TargetGroupInstances = new TargetGroupInstance[source.TargetGroupInstances.length];
+            for (int i = 0; i < source.TargetGroupInstances.length; i++) {
+                this.TargetGroupInstances[i] = new TargetGroupInstance(source.TargetGroupInstances[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

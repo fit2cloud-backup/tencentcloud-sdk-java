@@ -54,6 +54,8 @@ public class SubAppIdInfo extends AbstractModel{
     * 子应用状态，有效值：
 <li>On：启用；</li>
 <li>Off：停用。</li>
+<li>Destroying：销毁中。</li>
+<li>Destroyed：销毁完成。</li>
     */
     @SerializedName("Status")
     @Expose
@@ -126,10 +128,14 @@ public class SubAppIdInfo extends AbstractModel{
     /**
      * Get 子应用状态，有效值：
 <li>On：启用；</li>
-<li>Off：停用。</li> 
+<li>Off：停用。</li>
+<li>Destroying：销毁中。</li>
+<li>Destroyed：销毁完成。</li> 
      * @return Status 子应用状态，有效值：
 <li>On：启用；</li>
 <li>Off：停用。</li>
+<li>Destroying：销毁中。</li>
+<li>Destroyed：销毁完成。</li>
      */
     public String getStatus() {
         return this.Status;
@@ -139,13 +145,43 @@ public class SubAppIdInfo extends AbstractModel{
      * Set 子应用状态，有效值：
 <li>On：启用；</li>
 <li>Off：停用。</li>
+<li>Destroying：销毁中。</li>
+<li>Destroyed：销毁完成。</li>
      * @param Status 子应用状态，有效值：
 <li>On：启用；</li>
 <li>Off：停用。</li>
+<li>Destroying：销毁中。</li>
+<li>Destroyed：销毁完成。</li>
      */
     public void setStatus(String Status) {
         this.Status = Status;
     }
+
+    public SubAppIdInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SubAppIdInfo(SubAppIdInfo source) {
+        if (source.SubAppId != null) {
+            this.SubAppId = new Long(source.SubAppId);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

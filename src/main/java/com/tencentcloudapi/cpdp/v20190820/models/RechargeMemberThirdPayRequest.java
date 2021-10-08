@@ -124,6 +124,13 @@ public class RechargeMemberThirdPayRequest extends AbstractModel{
     private String ReservedMsgThree;
 
     /**
+    * STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+    */
+    @SerializedName("Profile")
+    @Expose
+    private String Profile;
+
+    /**
      * Get STRING(32)，交易网会代码 
      * @return TranNetMemberCode STRING(32)，交易网会代码
      */
@@ -360,6 +367,78 @@ public class RechargeMemberThirdPayRequest extends AbstractModel{
     }
 
     /**
+     * Get STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod" 
+     * @return Profile STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     */
+    public String getProfile() {
+        return this.Profile;
+    }
+
+    /**
+     * Set STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     * @param Profile STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     */
+    public void setProfile(String Profile) {
+        this.Profile = Profile;
+    }
+
+    public RechargeMemberThirdPayRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public RechargeMemberThirdPayRequest(RechargeMemberThirdPayRequest source) {
+        if (source.TranNetMemberCode != null) {
+            this.TranNetMemberCode = new String(source.TranNetMemberCode);
+        }
+        if (source.MemberFillAmt != null) {
+            this.MemberFillAmt = new String(source.MemberFillAmt);
+        }
+        if (source.Commission != null) {
+            this.Commission = new String(source.Commission);
+        }
+        if (source.Ccy != null) {
+            this.Ccy = new String(source.Ccy);
+        }
+        if (source.PayChannelType != null) {
+            this.PayChannelType = new String(source.PayChannelType);
+        }
+        if (source.PayChannelAssignMerNo != null) {
+            this.PayChannelAssignMerNo = new String(source.PayChannelAssignMerNo);
+        }
+        if (source.PayChannelTranSeqNo != null) {
+            this.PayChannelTranSeqNo = new String(source.PayChannelTranSeqNo);
+        }
+        if (source.EjzbOrderNo != null) {
+            this.EjzbOrderNo = new String(source.EjzbOrderNo);
+        }
+        if (source.MrchCode != null) {
+            this.MrchCode = new String(source.MrchCode);
+        }
+        if (source.EjzbOrderContent != null) {
+            this.EjzbOrderContent = new String(source.EjzbOrderContent);
+        }
+        if (source.Remark != null) {
+            this.Remark = new String(source.Remark);
+        }
+        if (source.ReservedMsgOne != null) {
+            this.ReservedMsgOne = new String(source.ReservedMsgOne);
+        }
+        if (source.ReservedMsgTwo != null) {
+            this.ReservedMsgTwo = new String(source.ReservedMsgTwo);
+        }
+        if (source.ReservedMsgThree != null) {
+            this.ReservedMsgThree = new String(source.ReservedMsgThree);
+        }
+        if (source.Profile != null) {
+            this.Profile = new String(source.Profile);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -377,6 +456,7 @@ public class RechargeMemberThirdPayRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ReservedMsgOne", this.ReservedMsgOne);
         this.setParamSimple(map, prefix + "ReservedMsgTwo", this.ReservedMsgTwo);
         this.setParamSimple(map, prefix + "ReservedMsgThree", this.ReservedMsgThree);
+        this.setParamSimple(map, prefix + "Profile", this.Profile);
 
     }
 }

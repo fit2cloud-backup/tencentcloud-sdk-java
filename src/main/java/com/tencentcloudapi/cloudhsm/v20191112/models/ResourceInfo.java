@@ -167,6 +167,38 @@ public class ResourceInfo extends AbstractModel{
     private String VpcName;
 
     /**
+    * 创建者Uin账号
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CreateUin")
+    @Expose
+    private String CreateUin;
+
+    /**
+    * 自动续费状态标识， 0-手动续费，1-自动续费，2-到期不续
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RenewFlag")
+    @Expose
+    private Long RenewFlag;
+
+    /**
+    * 标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
+    * 厂商
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Manufacturer")
+    @Expose
+    private String Manufacturer;
+
+    /**
      * Get 资源Id
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return ResourceId 资源Id
@@ -527,6 +559,169 @@ public class ResourceInfo extends AbstractModel{
     }
 
     /**
+     * Get 创建者Uin账号
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CreateUin 创建者Uin账号
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCreateUin() {
+        return this.CreateUin;
+    }
+
+    /**
+     * Set 创建者Uin账号
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CreateUin 创建者Uin账号
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCreateUin(String CreateUin) {
+        this.CreateUin = CreateUin;
+    }
+
+    /**
+     * Get 自动续费状态标识， 0-手动续费，1-自动续费，2-到期不续
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RenewFlag 自动续费状态标识， 0-手动续费，1-自动续费，2-到期不续
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getRenewFlag() {
+        return this.RenewFlag;
+    }
+
+    /**
+     * Set 自动续费状态标识， 0-手动续费，1-自动续费，2-到期不续
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RenewFlag 自动续费状态标识， 0-手动续费，1-自动续费，2-到期不续
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRenewFlag(Long RenewFlag) {
+        this.RenewFlag = RenewFlag;
+    }
+
+    /**
+     * Get 标签列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Tags 标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Tags 标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
+     * Get 厂商
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Manufacturer 厂商
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getManufacturer() {
+        return this.Manufacturer;
+    }
+
+    /**
+     * Set 厂商
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Manufacturer 厂商
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setManufacturer(String Manufacturer) {
+        this.Manufacturer = Manufacturer;
+    }
+
+    public ResourceInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ResourceInfo(ResourceInfo source) {
+        if (source.ResourceId != null) {
+            this.ResourceId = new String(source.ResourceId);
+        }
+        if (source.ResourceName != null) {
+            this.ResourceName = new String(source.ResourceName);
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+        if (source.Vip != null) {
+            this.Vip = new String(source.Vip);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.Model != null) {
+            this.Model = new String(source.Model);
+        }
+        if (source.VsmType != null) {
+            this.VsmType = new Long(source.VsmType);
+        }
+        if (source.RegionId != null) {
+            this.RegionId = new Long(source.RegionId);
+        }
+        if (source.ZoneId != null) {
+            this.ZoneId = new Long(source.ZoneId);
+        }
+        if (source.ExpireTime != null) {
+            this.ExpireTime = new Long(source.ExpireTime);
+        }
+        if (source.RegionName != null) {
+            this.RegionName = new String(source.RegionName);
+        }
+        if (source.ZoneName != null) {
+            this.ZoneName = new String(source.ZoneName);
+        }
+        if (source.SgList != null) {
+            this.SgList = new SgUnit[source.SgList.length];
+            for (int i = 0; i < source.SgList.length; i++) {
+                this.SgList[i] = new SgUnit(source.SgList[i]);
+            }
+        }
+        if (source.SubnetName != null) {
+            this.SubnetName = new String(source.SubnetName);
+        }
+        if (source.Expired != null) {
+            this.Expired = new Boolean(source.Expired);
+        }
+        if (source.RemainSeconds != null) {
+            this.RemainSeconds = new Long(source.RemainSeconds);
+        }
+        if (source.VpcName != null) {
+            this.VpcName = new String(source.VpcName);
+        }
+        if (source.CreateUin != null) {
+            this.CreateUin = new String(source.CreateUin);
+        }
+        if (source.RenewFlag != null) {
+            this.RenewFlag = new Long(source.RenewFlag);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.Manufacturer != null) {
+            this.Manufacturer = new String(source.Manufacturer);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -548,6 +743,10 @@ public class ResourceInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Expired", this.Expired);
         this.setParamSimple(map, prefix + "RemainSeconds", this.RemainSeconds);
         this.setParamSimple(map, prefix + "VpcName", this.VpcName);
+        this.setParamSimple(map, prefix + "CreateUin", this.CreateUin);
+        this.setParamSimple(map, prefix + "RenewFlag", this.RenewFlag);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "Manufacturer", this.Manufacturer);
 
     }
 }

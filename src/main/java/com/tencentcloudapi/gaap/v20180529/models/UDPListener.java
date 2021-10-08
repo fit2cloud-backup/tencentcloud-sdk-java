@@ -67,11 +67,11 @@ public class UDPListener extends AbstractModel{
 
     /**
     * 监听器状态，其中：
-0， 运行中；
-1， 创建中；
-2，销毁中；
-3，源站调整中；
-4，配置变更中。
+0表示运行中；
+1表示创建中；
+2表示销毁中；
+3表示源站调整中；
+4表示配置变更中。
     */
     @SerializedName("ListenerStatus")
     @Expose
@@ -85,7 +85,7 @@ public class UDPListener extends AbstractModel{
     private String Scheduler;
 
     /**
-    * 监听器绑定源站状态， 0正常，1IP异常，2域名解析异常
+    * 监听器绑定源站状态， 0表示正常，1表示IP异常，2表示域名解析异常
     */
     @SerializedName("BindStatus")
     @Expose
@@ -104,6 +104,14 @@ public class UDPListener extends AbstractModel{
     @SerializedName("CreateTime")
     @Expose
     private Long CreateTime;
+
+    /**
+    * 是否开启会话保持选项：0关闭， 非0开启，非0值为会话保持时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SessionPersist")
+    @Expose
+    private Long SessionPersist;
 
     /**
      * Get 监听器ID 
@@ -207,17 +215,17 @@ public class UDPListener extends AbstractModel{
 
     /**
      * Get 监听器状态，其中：
-0， 运行中；
-1， 创建中；
-2，销毁中；
-3，源站调整中；
-4，配置变更中。 
+0表示运行中；
+1表示创建中；
+2表示销毁中；
+3表示源站调整中；
+4表示配置变更中。 
      * @return ListenerStatus 监听器状态，其中：
-0， 运行中；
-1， 创建中；
-2，销毁中；
-3，源站调整中；
-4，配置变更中。
+0表示运行中；
+1表示创建中；
+2表示销毁中；
+3表示源站调整中；
+4表示配置变更中。
      */
     public Long getListenerStatus() {
         return this.ListenerStatus;
@@ -225,17 +233,17 @@ public class UDPListener extends AbstractModel{
 
     /**
      * Set 监听器状态，其中：
-0， 运行中；
-1， 创建中；
-2，销毁中；
-3，源站调整中；
-4，配置变更中。
+0表示运行中；
+1表示创建中；
+2表示销毁中；
+3表示源站调整中；
+4表示配置变更中。
      * @param ListenerStatus 监听器状态，其中：
-0， 运行中；
-1， 创建中；
-2，销毁中；
-3，源站调整中；
-4，配置变更中。
+0表示运行中；
+1表示创建中；
+2表示销毁中；
+3表示源站调整中；
+4表示配置变更中。
      */
     public void setListenerStatus(Long ListenerStatus) {
         this.ListenerStatus = ListenerStatus;
@@ -258,16 +266,16 @@ public class UDPListener extends AbstractModel{
     }
 
     /**
-     * Get 监听器绑定源站状态， 0正常，1IP异常，2域名解析异常 
-     * @return BindStatus 监听器绑定源站状态， 0正常，1IP异常，2域名解析异常
+     * Get 监听器绑定源站状态， 0表示正常，1表示IP异常，2表示域名解析异常 
+     * @return BindStatus 监听器绑定源站状态， 0表示正常，1表示IP异常，2表示域名解析异常
      */
     public Long getBindStatus() {
         return this.BindStatus;
     }
 
     /**
-     * Set 监听器绑定源站状态， 0正常，1IP异常，2域名解析异常
-     * @param BindStatus 监听器绑定源站状态， 0正常，1IP异常，2域名解析异常
+     * Set 监听器绑定源站状态， 0表示正常，1表示IP异常，2表示域名解析异常
+     * @param BindStatus 监听器绑定源站状态， 0表示正常，1表示IP异常，2表示域名解析异常
      */
     public void setBindStatus(Long BindStatus) {
         this.BindStatus = BindStatus;
@@ -306,6 +314,76 @@ public class UDPListener extends AbstractModel{
     }
 
     /**
+     * Get 是否开启会话保持选项：0关闭， 非0开启，非0值为会话保持时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SessionPersist 是否开启会话保持选项：0关闭， 非0开启，非0值为会话保持时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getSessionPersist() {
+        return this.SessionPersist;
+    }
+
+    /**
+     * Set 是否开启会话保持选项：0关闭， 非0开启，非0值为会话保持时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SessionPersist 是否开启会话保持选项：0关闭， 非0开启，非0值为会话保持时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSessionPersist(Long SessionPersist) {
+        this.SessionPersist = SessionPersist;
+    }
+
+    public UDPListener() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public UDPListener(UDPListener source) {
+        if (source.ListenerId != null) {
+            this.ListenerId = new String(source.ListenerId);
+        }
+        if (source.ListenerName != null) {
+            this.ListenerName = new String(source.ListenerName);
+        }
+        if (source.Port != null) {
+            this.Port = new Long(source.Port);
+        }
+        if (source.RealServerPort != null) {
+            this.RealServerPort = new Long(source.RealServerPort);
+        }
+        if (source.RealServerType != null) {
+            this.RealServerType = new String(source.RealServerType);
+        }
+        if (source.Protocol != null) {
+            this.Protocol = new String(source.Protocol);
+        }
+        if (source.ListenerStatus != null) {
+            this.ListenerStatus = new Long(source.ListenerStatus);
+        }
+        if (source.Scheduler != null) {
+            this.Scheduler = new String(source.Scheduler);
+        }
+        if (source.BindStatus != null) {
+            this.BindStatus = new Long(source.BindStatus);
+        }
+        if (source.RealServerSet != null) {
+            this.RealServerSet = new BindRealServer[source.RealServerSet.length];
+            for (int i = 0; i < source.RealServerSet.length; i++) {
+                this.RealServerSet[i] = new BindRealServer(source.RealServerSet[i]);
+            }
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new Long(source.CreateTime);
+        }
+        if (source.SessionPersist != null) {
+            this.SessionPersist = new Long(source.SessionPersist);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -320,6 +398,7 @@ public class UDPListener extends AbstractModel{
         this.setParamSimple(map, prefix + "BindStatus", this.BindStatus);
         this.setParamArrayObj(map, prefix + "RealServerSet.", this.RealServerSet);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
+        this.setParamSimple(map, prefix + "SessionPersist", this.SessionPersist);
 
     }
 }

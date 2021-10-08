@@ -24,6 +24,7 @@ public class AddSmsSignRequest extends AbstractModel{
 
     /**
     * 签名名称。
+注：不能重复申请已通过或待审核的签名。
     */
     @SerializedName("SignName")
     @Expose
@@ -100,8 +101,10 @@ public class AddSmsSignRequest extends AbstractModel{
     private String Remark;
 
     /**
-     * Get 签名名称。 
+     * Get 签名名称。
+注：不能重复申请已通过或待审核的签名。 
      * @return SignName 签名名称。
+注：不能重复申请已通过或待审核的签名。
      */
     public String getSignName() {
         return this.SignName;
@@ -109,7 +112,9 @@ public class AddSmsSignRequest extends AbstractModel{
 
     /**
      * Set 签名名称。
+注：不能重复申请已通过或待审核的签名。
      * @param SignName 签名名称。
+注：不能重复申请已通过或待审核的签名。
      */
     public void setSignName(String SignName) {
         this.SignName = SignName;
@@ -310,6 +315,41 @@ public class AddSmsSignRequest extends AbstractModel{
     public void setRemark(String Remark) {
         this.Remark = Remark;
     }
+
+    public AddSmsSignRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AddSmsSignRequest(AddSmsSignRequest source) {
+        if (source.SignName != null) {
+            this.SignName = new String(source.SignName);
+        }
+        if (source.SignType != null) {
+            this.SignType = new Long(source.SignType);
+        }
+        if (source.DocumentType != null) {
+            this.DocumentType = new Long(source.DocumentType);
+        }
+        if (source.International != null) {
+            this.International = new Long(source.International);
+        }
+        if (source.UsedMethod != null) {
+            this.UsedMethod = new Long(source.UsedMethod);
+        }
+        if (source.ProofImage != null) {
+            this.ProofImage = new String(source.ProofImage);
+        }
+        if (source.CommissionImage != null) {
+            this.CommissionImage = new String(source.CommissionImage);
+        }
+        if (source.Remark != null) {
+            this.Remark = new String(source.Remark);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

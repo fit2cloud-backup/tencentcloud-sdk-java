@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class ProcessMediaByUrlRequest extends AbstractModel{
 
     /**
-    * 输入视频信息，包括视频 URL ， 名称、视频自定义 ID。
+    * API 已经<font color='red'>不再维护</font>。推荐使用的替代 API 请参考接口描述。
     */
     @SerializedName("InputInfo")
     @Expose
@@ -79,7 +79,7 @@ public class ProcessMediaByUrlRequest extends AbstractModel{
     private String SessionContext;
 
     /**
-    * 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+    * 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
     */
     @SerializedName("SessionId")
     @Expose
@@ -93,16 +93,16 @@ public class ProcessMediaByUrlRequest extends AbstractModel{
     private Long SubAppId;
 
     /**
-     * Get 输入视频信息，包括视频 URL ， 名称、视频自定义 ID。 
-     * @return InputInfo 输入视频信息，包括视频 URL ， 名称、视频自定义 ID。
+     * Get API 已经<font color='red'>不再维护</font>。推荐使用的替代 API 请参考接口描述。 
+     * @return InputInfo API 已经<font color='red'>不再维护</font>。推荐使用的替代 API 请参考接口描述。
      */
     public MediaInputInfo getInputInfo() {
         return this.InputInfo;
     }
 
     /**
-     * Set 输入视频信息，包括视频 URL ， 名称、视频自定义 ID。
-     * @param InputInfo 输入视频信息，包括视频 URL ， 名称、视频自定义 ID。
+     * Set API 已经<font color='red'>不再维护</font>。推荐使用的替代 API 请参考接口描述。
+     * @param InputInfo API 已经<font color='red'>不再维护</font>。推荐使用的替代 API 请参考接口描述。
      */
     public void setInputInfo(MediaInputInfo InputInfo) {
         this.InputInfo = InputInfo;
@@ -221,16 +221,16 @@ public class ProcessMediaByUrlRequest extends AbstractModel{
     }
 
     /**
-     * Get 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。 
-     * @return SessionId 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+     * Get 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。 
+     * @return SessionId 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
      */
     public String getSessionId() {
         return this.SessionId;
     }
 
     /**
-     * Set 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
-     * @param SessionId 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+     * Set 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+     * @param SessionId 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
      */
     public void setSessionId(String SessionId) {
         this.SessionId = SessionId;
@@ -251,6 +251,47 @@ public class ProcessMediaByUrlRequest extends AbstractModel{
     public void setSubAppId(Long SubAppId) {
         this.SubAppId = SubAppId;
     }
+
+    public ProcessMediaByUrlRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ProcessMediaByUrlRequest(ProcessMediaByUrlRequest source) {
+        if (source.InputInfo != null) {
+            this.InputInfo = new MediaInputInfo(source.InputInfo);
+        }
+        if (source.OutputInfo != null) {
+            this.OutputInfo = new MediaOutputInfo(source.OutputInfo);
+        }
+        if (source.AiContentReviewTask != null) {
+            this.AiContentReviewTask = new AiContentReviewTaskInput(source.AiContentReviewTask);
+        }
+        if (source.AiAnalysisTask != null) {
+            this.AiAnalysisTask = new AiAnalysisTaskInput(source.AiAnalysisTask);
+        }
+        if (source.AiRecognitionTask != null) {
+            this.AiRecognitionTask = new AiRecognitionTaskInput(source.AiRecognitionTask);
+        }
+        if (source.TasksPriority != null) {
+            this.TasksPriority = new Long(source.TasksPriority);
+        }
+        if (source.TasksNotifyMode != null) {
+            this.TasksNotifyMode = new String(source.TasksNotifyMode);
+        }
+        if (source.SessionContext != null) {
+            this.SessionContext = new String(source.SessionContext);
+        }
+        if (source.SessionId != null) {
+            this.SessionId = new String(source.SessionId);
+        }
+        if (source.SubAppId != null) {
+            this.SubAppId = new Long(source.SubAppId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

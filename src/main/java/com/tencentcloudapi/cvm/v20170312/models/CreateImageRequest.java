@@ -30,7 +30,7 @@ public class CreateImageRequest extends AbstractModel{
     private String ImageName;
 
     /**
-    * 需要制作镜像的实例ID。
+    * 需要制作镜像的实例ID。基于实例创建镜像时，为必填参数。
     */
     @SerializedName("InstanceId")
     @Expose
@@ -52,7 +52,10 @@ public class CreateImageRequest extends AbstractModel{
     private String ForcePoweroff;
 
     /**
-    * 创建Windows镜像时是否启用Sysprep
+    * 创建Windows镜像时是否启用Sysprep。
+取值范围：TRUE或FALSE，默认取值为FALSE。
+
+关于Sysprep的详情请参考[链接](https://cloud.tencent.com/document/product/213/43498)。
     */
     @SerializedName("Sysprep")
     @Expose
@@ -96,16 +99,16 @@ public class CreateImageRequest extends AbstractModel{
     }
 
     /**
-     * Get 需要制作镜像的实例ID。 
-     * @return InstanceId 需要制作镜像的实例ID。
+     * Get 需要制作镜像的实例ID。基于实例创建镜像时，为必填参数。 
+     * @return InstanceId 需要制作镜像的实例ID。基于实例创建镜像时，为必填参数。
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 需要制作镜像的实例ID。
-     * @param InstanceId 需要制作镜像的实例ID。
+     * Set 需要制作镜像的实例ID。基于实例创建镜像时，为必填参数。
+     * @param InstanceId 需要制作镜像的实例ID。基于实例创建镜像时，为必填参数。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
@@ -148,16 +151,28 @@ public class CreateImageRequest extends AbstractModel{
     }
 
     /**
-     * Get 创建Windows镜像时是否启用Sysprep 
-     * @return Sysprep 创建Windows镜像时是否启用Sysprep
+     * Get 创建Windows镜像时是否启用Sysprep。
+取值范围：TRUE或FALSE，默认取值为FALSE。
+
+关于Sysprep的详情请参考[链接](https://cloud.tencent.com/document/product/213/43498)。 
+     * @return Sysprep 创建Windows镜像时是否启用Sysprep。
+取值范围：TRUE或FALSE，默认取值为FALSE。
+
+关于Sysprep的详情请参考[链接](https://cloud.tencent.com/document/product/213/43498)。
      */
     public String getSysprep() {
         return this.Sysprep;
     }
 
     /**
-     * Set 创建Windows镜像时是否启用Sysprep
-     * @param Sysprep 创建Windows镜像时是否启用Sysprep
+     * Set 创建Windows镜像时是否启用Sysprep。
+取值范围：TRUE或FALSE，默认取值为FALSE。
+
+关于Sysprep的详情请参考[链接](https://cloud.tencent.com/document/product/213/43498)。
+     * @param Sysprep 创建Windows镜像时是否启用Sysprep。
+取值范围：TRUE或FALSE，默认取值为FALSE。
+
+关于Sysprep的详情请参考[链接](https://cloud.tencent.com/document/product/213/43498)。
      */
     public void setSysprep(String Sysprep) {
         this.Sysprep = Sysprep;
@@ -210,6 +225,47 @@ public class CreateImageRequest extends AbstractModel{
     public void setDryRun(Boolean DryRun) {
         this.DryRun = DryRun;
     }
+
+    public CreateImageRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateImageRequest(CreateImageRequest source) {
+        if (source.ImageName != null) {
+            this.ImageName = new String(source.ImageName);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.ImageDescription != null) {
+            this.ImageDescription = new String(source.ImageDescription);
+        }
+        if (source.ForcePoweroff != null) {
+            this.ForcePoweroff = new String(source.ForcePoweroff);
+        }
+        if (source.Sysprep != null) {
+            this.Sysprep = new String(source.Sysprep);
+        }
+        if (source.DataDiskIds != null) {
+            this.DataDiskIds = new String[source.DataDiskIds.length];
+            for (int i = 0; i < source.DataDiskIds.length; i++) {
+                this.DataDiskIds[i] = new String(source.DataDiskIds[i]);
+            }
+        }
+        if (source.SnapshotIds != null) {
+            this.SnapshotIds = new String[source.SnapshotIds.length];
+            for (int i = 0; i < source.SnapshotIds.length; i++) {
+                this.SnapshotIds[i] = new String(source.SnapshotIds[i]);
+            }
+        }
+        if (source.DryRun != null) {
+            this.DryRun = new Boolean(source.DryRun);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

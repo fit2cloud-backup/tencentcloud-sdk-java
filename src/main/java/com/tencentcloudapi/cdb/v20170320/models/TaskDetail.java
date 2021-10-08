@@ -60,6 +60,7 @@ public class TaskDetail extends AbstractModel{
 "KILLED" - 已终止；
 "REMOVED" - 已删除；
 "PAUSED" - 已暂停。
+"WAITING" - 等待中（可撤销）
     */
     @SerializedName("TaskStatus")
     @Expose
@@ -186,7 +187,8 @@ public class TaskDetail extends AbstractModel{
 "FAILED" - 执行失败；
 "KILLED" - 已终止；
 "REMOVED" - 已删除；
-"PAUSED" - 已暂停。 
+"PAUSED" - 已暂停。
+"WAITING" - 等待中（可撤销） 
      * @return TaskStatus 实例任务状态，可能的值包括：
 "UNDEFINED" - 未定义；
 "INITIAL" - 初始化；
@@ -196,6 +198,7 @@ public class TaskDetail extends AbstractModel{
 "KILLED" - 已终止；
 "REMOVED" - 已删除；
 "PAUSED" - 已暂停。
+"WAITING" - 等待中（可撤销）
      */
     public String getTaskStatus() {
         return this.TaskStatus;
@@ -211,6 +214,7 @@ public class TaskDetail extends AbstractModel{
 "KILLED" - 已终止；
 "REMOVED" - 已删除；
 "PAUSED" - 已暂停。
+"WAITING" - 等待中（可撤销）
      * @param TaskStatus 实例任务状态，可能的值包括：
 "UNDEFINED" - 未定义；
 "INITIAL" - 初始化；
@@ -220,6 +224,7 @@ public class TaskDetail extends AbstractModel{
 "KILLED" - 已终止；
 "REMOVED" - 已删除；
 "PAUSED" - 已暂停。
+"WAITING" - 等待中（可撤销）
      */
     public void setTaskStatus(String TaskStatus) {
         this.TaskStatus = TaskStatus;
@@ -356,6 +361,50 @@ public class TaskDetail extends AbstractModel{
     public void setAsyncRequestId(String AsyncRequestId) {
         this.AsyncRequestId = AsyncRequestId;
     }
+
+    public TaskDetail() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public TaskDetail(TaskDetail source) {
+        if (source.Code != null) {
+            this.Code = new Long(source.Code);
+        }
+        if (source.Message != null) {
+            this.Message = new String(source.Message);
+        }
+        if (source.JobId != null) {
+            this.JobId = new Long(source.JobId);
+        }
+        if (source.Progress != null) {
+            this.Progress = new Long(source.Progress);
+        }
+        if (source.TaskStatus != null) {
+            this.TaskStatus = new String(source.TaskStatus);
+        }
+        if (source.TaskType != null) {
+            this.TaskType = new String(source.TaskType);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.InstanceIds != null) {
+            this.InstanceIds = new String[source.InstanceIds.length];
+            for (int i = 0; i < source.InstanceIds.length; i++) {
+                this.InstanceIds[i] = new String(source.InstanceIds[i]);
+            }
+        }
+        if (source.AsyncRequestId != null) {
+            this.AsyncRequestId = new String(source.AsyncRequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

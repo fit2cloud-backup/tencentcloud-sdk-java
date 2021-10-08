@@ -28,6 +28,22 @@ public class CreateInstanceRequest extends AbstractModel{
 <li>2：表示EMR-V2.0.1。</li>
 <li>4：表示EMR-V2.1.0。</li>
 <li>7：表示EMR-V3.0.0。</li>
+<li>9：表示EMR-V2.2.0。</li>
+<li>11：表示CLICKHOUSE-V1.0.0。</li>
+<li>13：表示DRUID-V1.0.0。</li>
+<li>15：表示EMR-V2.2.1。</li>
+<li>16：表示EMR-V2.3.0。</li>
+<li>17：表示CLICKHOUSE-V1.1.0。</li>
+<li>19：表示EMR-V2.4.0。</li>
+<li>20：表示EMR-V2.5.0。</li>
+<li>22：表示CLICKHOUSE-V1.2.0。</li>
+<li>24：表示EMR-TianQiong-V1.0.0。</li>
+<li>25：表示EMR-V3.1.0。</li>
+<li>26：表示DORIS-V1.0.0。</li>
+<li>27：表示KAFKA-V1.0.0。</li>
+<li>28：表示EMR-V3.2.0。</li>
+<li>29：表示EMR-V2.5.1。</li>
+<li>30：表示EMR-V2.6.0。</li>
     */
     @SerializedName("ProductId")
     @Expose
@@ -41,7 +57,8 @@ public class CreateInstanceRequest extends AbstractModel{
     private VPCSettings VPCSettings;
 
     /**
-    * 部署的组件列表。不同ProductId对应特定版本的组件。例如，当ProductId取值为4时，该参数可以填写Software.0=hadoop-2.8.4&Software.1=zookeeper-3.4.9；当ProductId取值为2时，该参数可以填写Software.0=hadoop-2.7.3&Software.1=zookeeper-3.4.9。
+    * 部署的组件列表。不同的EMR产品ID（ProductId：具体含义参考入参ProductId字段）对应不同可选组件列表，不同产品版本可选组件列表查询：[组件版本](https://cloud.tencent.com/document/product/589/20279) ；
+填写实例值：hive、flink。
     */
     @SerializedName("Software")
     @Expose
@@ -89,8 +106,9 @@ public class CreateInstanceRequest extends AbstractModel{
     private Placement Placement;
 
     /**
-    * 购买实例的时长。需要结合TimeUnit一起使用。
-<li>PayMode取值为0时，TimeSpan只能取值为3600。</li>
+    * 购买实例的时长。结合TimeUnit一起使用。
+<li>TimeUnit为s时，该参数只能填写3600，表示按量计费实例。</li>
+<li>TimeUnit为m时，该参数填写的数字表示包年包月实例的购买时长，如1表示购买一个月</li>
     */
     @SerializedName("TimeSpan")
     @Expose
@@ -129,7 +147,7 @@ public class CreateInstanceRequest extends AbstractModel{
     private String SgId;
 
     /**
-    * 引导操作脚本设置。
+    * [引导操作](https://cloud.tencent.com/document/product/589/35656)脚本设置。
     */
     @SerializedName("PreExecutedFileSettings")
     @Expose
@@ -190,6 +208,7 @@ public class CreateInstanceRequest extends AbstractModel{
 
     /**
     * 分散置放群组ID列表，当前只支持指定一个。
+该参数可以通过调用 [DescribeSecurityGroups](https://cloud.tencent.com/document/product/213/15486 ) 的返回值中的SecurityGroupId字段来获取。
     */
     @SerializedName("DisasterRecoverGroupIds")
     @Expose
@@ -205,7 +224,7 @@ public class CreateInstanceRequest extends AbstractModel{
     /**
     * hive共享元数据库类型。取值范围：
 <li>EMR_NEW_META：表示集群默认创建</li>
-<li>EMR_EXIT_METE：表示集群使用指定EMR-MetaDB。</li>
+<li>EMR_EXIT_META：表示集群使用指定EMR-MetaDB。</li>
 <li>USER_CUSTOM_META：表示集群使用自定义MetaDB。</li>
     */
     @SerializedName("MetaType")
@@ -227,16 +246,55 @@ public class CreateInstanceRequest extends AbstractModel{
     private CustomMetaInfo MetaDBInfo;
 
     /**
+    * 自定义应用角色。
+    */
+    @SerializedName("ApplicationRole")
+    @Expose
+    private String ApplicationRole;
+
+    /**
      * Get 产品ID，不同产品ID表示不同的EMR产品版本。取值范围：
 <li>1：表示EMR-V1.3.1。</li>
 <li>2：表示EMR-V2.0.1。</li>
 <li>4：表示EMR-V2.1.0。</li>
-<li>7：表示EMR-V3.0.0。</li> 
+<li>7：表示EMR-V3.0.0。</li>
+<li>9：表示EMR-V2.2.0。</li>
+<li>11：表示CLICKHOUSE-V1.0.0。</li>
+<li>13：表示DRUID-V1.0.0。</li>
+<li>15：表示EMR-V2.2.1。</li>
+<li>16：表示EMR-V2.3.0。</li>
+<li>17：表示CLICKHOUSE-V1.1.0。</li>
+<li>19：表示EMR-V2.4.0。</li>
+<li>20：表示EMR-V2.5.0。</li>
+<li>22：表示CLICKHOUSE-V1.2.0。</li>
+<li>24：表示EMR-TianQiong-V1.0.0。</li>
+<li>25：表示EMR-V3.1.0。</li>
+<li>26：表示DORIS-V1.0.0。</li>
+<li>27：表示KAFKA-V1.0.0。</li>
+<li>28：表示EMR-V3.2.0。</li>
+<li>29：表示EMR-V2.5.1。</li>
+<li>30：表示EMR-V2.6.0。</li> 
      * @return ProductId 产品ID，不同产品ID表示不同的EMR产品版本。取值范围：
 <li>1：表示EMR-V1.3.1。</li>
 <li>2：表示EMR-V2.0.1。</li>
 <li>4：表示EMR-V2.1.0。</li>
 <li>7：表示EMR-V3.0.0。</li>
+<li>9：表示EMR-V2.2.0。</li>
+<li>11：表示CLICKHOUSE-V1.0.0。</li>
+<li>13：表示DRUID-V1.0.0。</li>
+<li>15：表示EMR-V2.2.1。</li>
+<li>16：表示EMR-V2.3.0。</li>
+<li>17：表示CLICKHOUSE-V1.1.0。</li>
+<li>19：表示EMR-V2.4.0。</li>
+<li>20：表示EMR-V2.5.0。</li>
+<li>22：表示CLICKHOUSE-V1.2.0。</li>
+<li>24：表示EMR-TianQiong-V1.0.0。</li>
+<li>25：表示EMR-V3.1.0。</li>
+<li>26：表示DORIS-V1.0.0。</li>
+<li>27：表示KAFKA-V1.0.0。</li>
+<li>28：表示EMR-V3.2.0。</li>
+<li>29：表示EMR-V2.5.1。</li>
+<li>30：表示EMR-V2.6.0。</li>
      */
     public Long getProductId() {
         return this.ProductId;
@@ -248,11 +306,43 @@ public class CreateInstanceRequest extends AbstractModel{
 <li>2：表示EMR-V2.0.1。</li>
 <li>4：表示EMR-V2.1.0。</li>
 <li>7：表示EMR-V3.0.0。</li>
+<li>9：表示EMR-V2.2.0。</li>
+<li>11：表示CLICKHOUSE-V1.0.0。</li>
+<li>13：表示DRUID-V1.0.0。</li>
+<li>15：表示EMR-V2.2.1。</li>
+<li>16：表示EMR-V2.3.0。</li>
+<li>17：表示CLICKHOUSE-V1.1.0。</li>
+<li>19：表示EMR-V2.4.0。</li>
+<li>20：表示EMR-V2.5.0。</li>
+<li>22：表示CLICKHOUSE-V1.2.0。</li>
+<li>24：表示EMR-TianQiong-V1.0.0。</li>
+<li>25：表示EMR-V3.1.0。</li>
+<li>26：表示DORIS-V1.0.0。</li>
+<li>27：表示KAFKA-V1.0.0。</li>
+<li>28：表示EMR-V3.2.0。</li>
+<li>29：表示EMR-V2.5.1。</li>
+<li>30：表示EMR-V2.6.0。</li>
      * @param ProductId 产品ID，不同产品ID表示不同的EMR产品版本。取值范围：
 <li>1：表示EMR-V1.3.1。</li>
 <li>2：表示EMR-V2.0.1。</li>
 <li>4：表示EMR-V2.1.0。</li>
 <li>7：表示EMR-V3.0.0。</li>
+<li>9：表示EMR-V2.2.0。</li>
+<li>11：表示CLICKHOUSE-V1.0.0。</li>
+<li>13：表示DRUID-V1.0.0。</li>
+<li>15：表示EMR-V2.2.1。</li>
+<li>16：表示EMR-V2.3.0。</li>
+<li>17：表示CLICKHOUSE-V1.1.0。</li>
+<li>19：表示EMR-V2.4.0。</li>
+<li>20：表示EMR-V2.5.0。</li>
+<li>22：表示CLICKHOUSE-V1.2.0。</li>
+<li>24：表示EMR-TianQiong-V1.0.0。</li>
+<li>25：表示EMR-V3.1.0。</li>
+<li>26：表示DORIS-V1.0.0。</li>
+<li>27：表示KAFKA-V1.0.0。</li>
+<li>28：表示EMR-V3.2.0。</li>
+<li>29：表示EMR-V2.5.1。</li>
+<li>30：表示EMR-V2.6.0。</li>
      */
     public void setProductId(Long ProductId) {
         this.ProductId = ProductId;
@@ -275,16 +365,20 @@ public class CreateInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 部署的组件列表。不同ProductId对应特定版本的组件。例如，当ProductId取值为4时，该参数可以填写Software.0=hadoop-2.8.4&Software.1=zookeeper-3.4.9；当ProductId取值为2时，该参数可以填写Software.0=hadoop-2.7.3&Software.1=zookeeper-3.4.9。 
-     * @return Software 部署的组件列表。不同ProductId对应特定版本的组件。例如，当ProductId取值为4时，该参数可以填写Software.0=hadoop-2.8.4&Software.1=zookeeper-3.4.9；当ProductId取值为2时，该参数可以填写Software.0=hadoop-2.7.3&Software.1=zookeeper-3.4.9。
+     * Get 部署的组件列表。不同的EMR产品ID（ProductId：具体含义参考入参ProductId字段）对应不同可选组件列表，不同产品版本可选组件列表查询：[组件版本](https://cloud.tencent.com/document/product/589/20279) ；
+填写实例值：hive、flink。 
+     * @return Software 部署的组件列表。不同的EMR产品ID（ProductId：具体含义参考入参ProductId字段）对应不同可选组件列表，不同产品版本可选组件列表查询：[组件版本](https://cloud.tencent.com/document/product/589/20279) ；
+填写实例值：hive、flink。
      */
     public String [] getSoftware() {
         return this.Software;
     }
 
     /**
-     * Set 部署的组件列表。不同ProductId对应特定版本的组件。例如，当ProductId取值为4时，该参数可以填写Software.0=hadoop-2.8.4&Software.1=zookeeper-3.4.9；当ProductId取值为2时，该参数可以填写Software.0=hadoop-2.7.3&Software.1=zookeeper-3.4.9。
-     * @param Software 部署的组件列表。不同ProductId对应特定版本的组件。例如，当ProductId取值为4时，该参数可以填写Software.0=hadoop-2.8.4&Software.1=zookeeper-3.4.9；当ProductId取值为2时，该参数可以填写Software.0=hadoop-2.7.3&Software.1=zookeeper-3.4.9。
+     * Set 部署的组件列表。不同的EMR产品ID（ProductId：具体含义参考入参ProductId字段）对应不同可选组件列表，不同产品版本可选组件列表查询：[组件版本](https://cloud.tencent.com/document/product/589/20279) ；
+填写实例值：hive、flink。
+     * @param Software 部署的组件列表。不同的EMR产品ID（ProductId：具体含义参考入参ProductId字段）对应不同可选组件列表，不同产品版本可选组件列表查询：[组件版本](https://cloud.tencent.com/document/product/589/20279) ；
+填写实例值：hive、flink。
      */
     public void setSoftware(String [] Software) {
         this.Software = Software;
@@ -395,20 +489,24 @@ public class CreateInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 购买实例的时长。需要结合TimeUnit一起使用。
-<li>PayMode取值为0时，TimeSpan只能取值为3600。</li> 
-     * @return TimeSpan 购买实例的时长。需要结合TimeUnit一起使用。
-<li>PayMode取值为0时，TimeSpan只能取值为3600。</li>
+     * Get 购买实例的时长。结合TimeUnit一起使用。
+<li>TimeUnit为s时，该参数只能填写3600，表示按量计费实例。</li>
+<li>TimeUnit为m时，该参数填写的数字表示包年包月实例的购买时长，如1表示购买一个月</li> 
+     * @return TimeSpan 购买实例的时长。结合TimeUnit一起使用。
+<li>TimeUnit为s时，该参数只能填写3600，表示按量计费实例。</li>
+<li>TimeUnit为m时，该参数填写的数字表示包年包月实例的购买时长，如1表示购买一个月</li>
      */
     public Long getTimeSpan() {
         return this.TimeSpan;
     }
 
     /**
-     * Set 购买实例的时长。需要结合TimeUnit一起使用。
-<li>PayMode取值为0时，TimeSpan只能取值为3600。</li>
-     * @param TimeSpan 购买实例的时长。需要结合TimeUnit一起使用。
-<li>PayMode取值为0时，TimeSpan只能取值为3600。</li>
+     * Set 购买实例的时长。结合TimeUnit一起使用。
+<li>TimeUnit为s时，该参数只能填写3600，表示按量计费实例。</li>
+<li>TimeUnit为m时，该参数填写的数字表示包年包月实例的购买时长，如1表示购买一个月</li>
+     * @param TimeSpan 购买实例的时长。结合TimeUnit一起使用。
+<li>TimeUnit为s时，该参数只能填写3600，表示按量计费实例。</li>
+<li>TimeUnit为m时，该参数填写的数字表示包年包月实例的购买时长，如1表示购买一个月</li>
      */
     public void setTimeSpan(Long TimeSpan) {
         this.TimeSpan = TimeSpan;
@@ -495,16 +593,16 @@ public class CreateInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 引导操作脚本设置。 
-     * @return PreExecutedFileSettings 引导操作脚本设置。
+     * Get [引导操作](https://cloud.tencent.com/document/product/589/35656)脚本设置。 
+     * @return PreExecutedFileSettings [引导操作](https://cloud.tencent.com/document/product/589/35656)脚本设置。
      */
     public PreExecuteFileSettings [] getPreExecutedFileSettings() {
         return this.PreExecutedFileSettings;
     }
 
     /**
-     * Set 引导操作脚本设置。
-     * @param PreExecutedFileSettings 引导操作脚本设置。
+     * Set [引导操作](https://cloud.tencent.com/document/product/589/35656)脚本设置。
+     * @param PreExecutedFileSettings [引导操作](https://cloud.tencent.com/document/product/589/35656)脚本设置。
      */
     public void setPreExecutedFileSettings(PreExecuteFileSettings [] PreExecutedFileSettings) {
         this.PreExecutedFileSettings = PreExecutedFileSettings;
@@ -639,8 +737,10 @@ public class CreateInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 分散置放群组ID列表，当前只支持指定一个。 
+     * Get 分散置放群组ID列表，当前只支持指定一个。
+该参数可以通过调用 [DescribeSecurityGroups](https://cloud.tencent.com/document/product/213/15486 ) 的返回值中的SecurityGroupId字段来获取。 
      * @return DisasterRecoverGroupIds 分散置放群组ID列表，当前只支持指定一个。
+该参数可以通过调用 [DescribeSecurityGroups](https://cloud.tencent.com/document/product/213/15486 ) 的返回值中的SecurityGroupId字段来获取。
      */
     public String [] getDisasterRecoverGroupIds() {
         return this.DisasterRecoverGroupIds;
@@ -648,7 +748,9 @@ public class CreateInstanceRequest extends AbstractModel{
 
     /**
      * Set 分散置放群组ID列表，当前只支持指定一个。
+该参数可以通过调用 [DescribeSecurityGroups](https://cloud.tencent.com/document/product/213/15486 ) 的返回值中的SecurityGroupId字段来获取。
      * @param DisasterRecoverGroupIds 分散置放群组ID列表，当前只支持指定一个。
+该参数可以通过调用 [DescribeSecurityGroups](https://cloud.tencent.com/document/product/213/15486 ) 的返回值中的SecurityGroupId字段来获取。
      */
     public void setDisasterRecoverGroupIds(String [] DisasterRecoverGroupIds) {
         this.DisasterRecoverGroupIds = DisasterRecoverGroupIds;
@@ -673,11 +775,11 @@ public class CreateInstanceRequest extends AbstractModel{
     /**
      * Get hive共享元数据库类型。取值范围：
 <li>EMR_NEW_META：表示集群默认创建</li>
-<li>EMR_EXIT_METE：表示集群使用指定EMR-MetaDB。</li>
+<li>EMR_EXIT_META：表示集群使用指定EMR-MetaDB。</li>
 <li>USER_CUSTOM_META：表示集群使用自定义MetaDB。</li> 
      * @return MetaType hive共享元数据库类型。取值范围：
 <li>EMR_NEW_META：表示集群默认创建</li>
-<li>EMR_EXIT_METE：表示集群使用指定EMR-MetaDB。</li>
+<li>EMR_EXIT_META：表示集群使用指定EMR-MetaDB。</li>
 <li>USER_CUSTOM_META：表示集群使用自定义MetaDB。</li>
      */
     public String getMetaType() {
@@ -687,11 +789,11 @@ public class CreateInstanceRequest extends AbstractModel{
     /**
      * Set hive共享元数据库类型。取值范围：
 <li>EMR_NEW_META：表示集群默认创建</li>
-<li>EMR_EXIT_METE：表示集群使用指定EMR-MetaDB。</li>
+<li>EMR_EXIT_META：表示集群使用指定EMR-MetaDB。</li>
 <li>USER_CUSTOM_META：表示集群使用自定义MetaDB。</li>
      * @param MetaType hive共享元数据库类型。取值范围：
 <li>EMR_NEW_META：表示集群默认创建</li>
-<li>EMR_EXIT_METE：表示集群使用指定EMR-MetaDB。</li>
+<li>EMR_EXIT_META：表示集群使用指定EMR-MetaDB。</li>
 <li>USER_CUSTOM_META：表示集群使用自定义MetaDB。</li>
      */
     public void setMetaType(String MetaType) {
@@ -731,6 +833,126 @@ public class CreateInstanceRequest extends AbstractModel{
     }
 
     /**
+     * Get 自定义应用角色。 
+     * @return ApplicationRole 自定义应用角色。
+     */
+    public String getApplicationRole() {
+        return this.ApplicationRole;
+    }
+
+    /**
+     * Set 自定义应用角色。
+     * @param ApplicationRole 自定义应用角色。
+     */
+    public void setApplicationRole(String ApplicationRole) {
+        this.ApplicationRole = ApplicationRole;
+    }
+
+    public CreateInstanceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateInstanceRequest(CreateInstanceRequest source) {
+        if (source.ProductId != null) {
+            this.ProductId = new Long(source.ProductId);
+        }
+        if (source.VPCSettings != null) {
+            this.VPCSettings = new VPCSettings(source.VPCSettings);
+        }
+        if (source.Software != null) {
+            this.Software = new String[source.Software.length];
+            for (int i = 0; i < source.Software.length; i++) {
+                this.Software[i] = new String(source.Software[i]);
+            }
+        }
+        if (source.ResourceSpec != null) {
+            this.ResourceSpec = new NewResourceSpec(source.ResourceSpec);
+        }
+        if (source.SupportHA != null) {
+            this.SupportHA = new Long(source.SupportHA);
+        }
+        if (source.InstanceName != null) {
+            this.InstanceName = new String(source.InstanceName);
+        }
+        if (source.PayMode != null) {
+            this.PayMode = new Long(source.PayMode);
+        }
+        if (source.Placement != null) {
+            this.Placement = new Placement(source.Placement);
+        }
+        if (source.TimeSpan != null) {
+            this.TimeSpan = new Long(source.TimeSpan);
+        }
+        if (source.TimeUnit != null) {
+            this.TimeUnit = new String(source.TimeUnit);
+        }
+        if (source.LoginSettings != null) {
+            this.LoginSettings = new LoginSettings(source.LoginSettings);
+        }
+        if (source.COSSettings != null) {
+            this.COSSettings = new COSSettings(source.COSSettings);
+        }
+        if (source.SgId != null) {
+            this.SgId = new String(source.SgId);
+        }
+        if (source.PreExecutedFileSettings != null) {
+            this.PreExecutedFileSettings = new PreExecuteFileSettings[source.PreExecutedFileSettings.length];
+            for (int i = 0; i < source.PreExecutedFileSettings.length; i++) {
+                this.PreExecutedFileSettings[i] = new PreExecuteFileSettings(source.PreExecutedFileSettings[i]);
+            }
+        }
+        if (source.AutoRenew != null) {
+            this.AutoRenew = new Long(source.AutoRenew);
+        }
+        if (source.ClientToken != null) {
+            this.ClientToken = new String(source.ClientToken);
+        }
+        if (source.NeedMasterWan != null) {
+            this.NeedMasterWan = new String(source.NeedMasterWan);
+        }
+        if (source.RemoteLoginAtCreate != null) {
+            this.RemoteLoginAtCreate = new Long(source.RemoteLoginAtCreate);
+        }
+        if (source.CheckSecurity != null) {
+            this.CheckSecurity = new Long(source.CheckSecurity);
+        }
+        if (source.ExtendFsField != null) {
+            this.ExtendFsField = new String(source.ExtendFsField);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.DisasterRecoverGroupIds != null) {
+            this.DisasterRecoverGroupIds = new String[source.DisasterRecoverGroupIds.length];
+            for (int i = 0; i < source.DisasterRecoverGroupIds.length; i++) {
+                this.DisasterRecoverGroupIds[i] = new String(source.DisasterRecoverGroupIds[i]);
+            }
+        }
+        if (source.CbsEncrypt != null) {
+            this.CbsEncrypt = new Long(source.CbsEncrypt);
+        }
+        if (source.MetaType != null) {
+            this.MetaType = new String(source.MetaType);
+        }
+        if (source.UnifyMetaInstanceId != null) {
+            this.UnifyMetaInstanceId = new String(source.UnifyMetaInstanceId);
+        }
+        if (source.MetaDBInfo != null) {
+            this.MetaDBInfo = new CustomMetaInfo(source.MetaDBInfo);
+        }
+        if (source.ApplicationRole != null) {
+            this.ApplicationRole = new String(source.ApplicationRole);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -760,6 +982,7 @@ public class CreateInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "MetaType", this.MetaType);
         this.setParamSimple(map, prefix + "UnifyMetaInstanceId", this.UnifyMetaInstanceId);
         this.setParamObj(map, prefix + "MetaDBInfo.", this.MetaDBInfo);
+        this.setParamSimple(map, prefix + "ApplicationRole", this.ApplicationRole);
 
     }
 }

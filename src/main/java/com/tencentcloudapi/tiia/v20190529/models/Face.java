@@ -45,7 +45,6 @@ public class Face extends AbstractModel{
 
     /**
     * 算法对于Name的置信度（图像中人脸与公众人物的相似度），0-100之间，值越高，表示对于Name越确定。
-当Confidence低于70分时，Name仅供参考。您可以根据业务实际情况调整阈值。
     */
     @SerializedName("Confidence")
     @Expose
@@ -136,10 +135,8 @@ public class Face extends AbstractModel{
     }
 
     /**
-     * Get 算法对于Name的置信度（图像中人脸与公众人物的相似度），0-100之间，值越高，表示对于Name越确定。
-当Confidence低于70分时，Name仅供参考。您可以根据业务实际情况调整阈值。 
+     * Get 算法对于Name的置信度（图像中人脸与公众人物的相似度），0-100之间，值越高，表示对于Name越确定。 
      * @return Confidence 算法对于Name的置信度（图像中人脸与公众人物的相似度），0-100之间，值越高，表示对于Name越确定。
-当Confidence低于70分时，Name仅供参考。您可以根据业务实际情况调整阈值。
      */
     public Long getConfidence() {
         return this.Confidence;
@@ -147,9 +144,7 @@ public class Face extends AbstractModel{
 
     /**
      * Set 算法对于Name的置信度（图像中人脸与公众人物的相似度），0-100之间，值越高，表示对于Name越确定。
-当Confidence低于70分时，Name仅供参考。您可以根据业务实际情况调整阈值。
      * @param Confidence 算法对于Name的置信度（图像中人脸与公众人物的相似度），0-100之间，值越高，表示对于Name越确定。
-当Confidence低于70分时，Name仅供参考。您可以根据业务实际情况调整阈值。
      */
     public void setConfidence(Long Confidence) {
         this.Confidence = Confidence;
@@ -238,6 +233,47 @@ public class Face extends AbstractModel{
     public void setID(String ID) {
         this.ID = ID;
     }
+
+    public Face() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Face(Face source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Labels != null) {
+            this.Labels = new Labels[source.Labels.length];
+            for (int i = 0; i < source.Labels.length; i++) {
+                this.Labels[i] = new Labels(source.Labels[i]);
+            }
+        }
+        if (source.BasicInfo != null) {
+            this.BasicInfo = new String(source.BasicInfo);
+        }
+        if (source.Confidence != null) {
+            this.Confidence = new Long(source.Confidence);
+        }
+        if (source.X != null) {
+            this.X = new Long(source.X);
+        }
+        if (source.Y != null) {
+            this.Y = new Long(source.Y);
+        }
+        if (source.Width != null) {
+            this.Width = new Long(source.Width);
+        }
+        if (source.Height != null) {
+            this.Height = new Long(source.Height);
+        }
+        if (source.ID != null) {
+            this.ID = new String(source.ID);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

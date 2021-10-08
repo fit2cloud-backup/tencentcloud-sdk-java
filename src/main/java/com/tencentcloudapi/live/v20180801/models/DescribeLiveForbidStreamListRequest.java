@@ -39,6 +39,13 @@ public class DescribeLiveForbidStreamListRequest extends AbstractModel{
     private Long PageSize;
 
     /**
+    * 按流名称查询。
+    */
+    @SerializedName("StreamName")
+    @Expose
+    private String StreamName;
+
+    /**
      * Get 取得第几页，默认1。 
      * @return PageNum 取得第几页，默认1。
      */
@@ -79,11 +86,48 @@ public class DescribeLiveForbidStreamListRequest extends AbstractModel{
     }
 
     /**
+     * Get 按流名称查询。 
+     * @return StreamName 按流名称查询。
+     */
+    public String getStreamName() {
+        return this.StreamName;
+    }
+
+    /**
+     * Set 按流名称查询。
+     * @param StreamName 按流名称查询。
+     */
+    public void setStreamName(String StreamName) {
+        this.StreamName = StreamName;
+    }
+
+    public DescribeLiveForbidStreamListRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeLiveForbidStreamListRequest(DescribeLiveForbidStreamListRequest source) {
+        if (source.PageNum != null) {
+            this.PageNum = new Long(source.PageNum);
+        }
+        if (source.PageSize != null) {
+            this.PageSize = new Long(source.PageSize);
+        }
+        if (source.StreamName != null) {
+            this.StreamName = new String(source.StreamName);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "PageNum", this.PageNum);
         this.setParamSimple(map, prefix + "PageSize", this.PageSize);
+        this.setParamSimple(map, prefix + "StreamName", this.StreamName);
 
     }
 }

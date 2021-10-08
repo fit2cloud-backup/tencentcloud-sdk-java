@@ -170,6 +170,30 @@ public class SubscribeInfo extends AbstractModel{
     private String SdkConsumedTime;
 
     /**
+    * 标签
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private TagItem [] Tags;
+
+    /**
+    * 自动续费标识。0-不自动续费，1-自动续费
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AutoRenewFlag")
+    @Expose
+    private Long AutoRenewFlag;
+
+    /**
+    * 订阅实例版本；txdts-旧版数据订阅,kafka-kafka版本数据订阅
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SubscribeVersion")
+    @Expose
+    private String SubscribeVersion;
+
+    /**
      * Get 数据订阅的实例ID 
      * @return SubscribeId 数据订阅的实例ID
      */
@@ -506,6 +530,152 @@ public class SubscribeInfo extends AbstractModel{
     }
 
     /**
+     * Get 标签
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Tags 标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public TagItem [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 标签
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Tags 标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTags(TagItem [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
+     * Get 自动续费标识。0-不自动续费，1-自动续费
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AutoRenewFlag 自动续费标识。0-不自动续费，1-自动续费
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getAutoRenewFlag() {
+        return this.AutoRenewFlag;
+    }
+
+    /**
+     * Set 自动续费标识。0-不自动续费，1-自动续费
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AutoRenewFlag 自动续费标识。0-不自动续费，1-自动续费
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAutoRenewFlag(Long AutoRenewFlag) {
+        this.AutoRenewFlag = AutoRenewFlag;
+    }
+
+    /**
+     * Get 订阅实例版本；txdts-旧版数据订阅,kafka-kafka版本数据订阅
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SubscribeVersion 订阅实例版本；txdts-旧版数据订阅,kafka-kafka版本数据订阅
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSubscribeVersion() {
+        return this.SubscribeVersion;
+    }
+
+    /**
+     * Set 订阅实例版本；txdts-旧版数据订阅,kafka-kafka版本数据订阅
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SubscribeVersion 订阅实例版本；txdts-旧版数据订阅,kafka-kafka版本数据订阅
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSubscribeVersion(String SubscribeVersion) {
+        this.SubscribeVersion = SubscribeVersion;
+    }
+
+    public SubscribeInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SubscribeInfo(SubscribeInfo source) {
+        if (source.SubscribeId != null) {
+            this.SubscribeId = new String(source.SubscribeId);
+        }
+        if (source.SubscribeName != null) {
+            this.SubscribeName = new String(source.SubscribeName);
+        }
+        if (source.ChannelId != null) {
+            this.ChannelId = new String(source.ChannelId);
+        }
+        if (source.Product != null) {
+            this.Product = new String(source.Product);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.InstanceStatus != null) {
+            this.InstanceStatus = new String(source.InstanceStatus);
+        }
+        if (source.SubsStatus != null) {
+            this.SubsStatus = new String(source.SubsStatus);
+        }
+        if (source.ModifyTime != null) {
+            this.ModifyTime = new String(source.ModifyTime);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.IsolateTime != null) {
+            this.IsolateTime = new String(source.IsolateTime);
+        }
+        if (source.ExpireTime != null) {
+            this.ExpireTime = new String(source.ExpireTime);
+        }
+        if (source.OfflineTime != null) {
+            this.OfflineTime = new String(source.OfflineTime);
+        }
+        if (source.ConsumeStartTime != null) {
+            this.ConsumeStartTime = new String(source.ConsumeStartTime);
+        }
+        if (source.Region != null) {
+            this.Region = new String(source.Region);
+        }
+        if (source.PayType != null) {
+            this.PayType = new Long(source.PayType);
+        }
+        if (source.Vip != null) {
+            this.Vip = new String(source.Vip);
+        }
+        if (source.Vport != null) {
+            this.Vport = new Long(source.Vport);
+        }
+        if (source.UniqVpcId != null) {
+            this.UniqVpcId = new String(source.UniqVpcId);
+        }
+        if (source.UniqSubnetId != null) {
+            this.UniqSubnetId = new String(source.UniqSubnetId);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.SdkConsumedTime != null) {
+            this.SdkConsumedTime = new String(source.SdkConsumedTime);
+        }
+        if (source.Tags != null) {
+            this.Tags = new TagItem[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new TagItem(source.Tags[i]);
+            }
+        }
+        if (source.AutoRenewFlag != null) {
+            this.AutoRenewFlag = new Long(source.AutoRenewFlag);
+        }
+        if (source.SubscribeVersion != null) {
+            this.SubscribeVersion = new String(source.SubscribeVersion);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -530,6 +700,9 @@ public class SubscribeInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "UniqSubnetId", this.UniqSubnetId);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "SdkConsumedTime", this.SdkConsumedTime);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "AutoRenewFlag", this.AutoRenewFlag);
+        this.setParamSimple(map, prefix + "SubscribeVersion", this.SubscribeVersion);
 
     }
 }

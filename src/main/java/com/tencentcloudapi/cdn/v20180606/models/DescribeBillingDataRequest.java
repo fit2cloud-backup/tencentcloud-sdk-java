@@ -43,7 +43,7 @@ public class DescribeBillingDataRequest extends AbstractModel{
     /**
     * 时间粒度，支持模式如下：
 min：1 分钟粒度，查询区间需要小于等于 24 小时
-5min：5 分钟粒度，查询区间需要小于等于 31 天
+5min：5 分钟粒度，查询区间需要小于等于 31 天(计费数据粒度)
 hour：1 小时粒度，查询区间需要小于等于 31 天内
 day：天粒度，查询区间需要大于 31 天
 
@@ -98,6 +98,13 @@ bandwidth：计费带宽
     private String Metric;
 
     /**
+    * 指定查询的产品数据，可选为cdn或者ecdn，默认为cdn
+    */
+    @SerializedName("Product")
+    @Expose
+    private String Product;
+
+    /**
      * Get 查询起始时间，如：2018-09-04 10:40:00，返回结果大于等于指定时间
 根据指定时间粒度参数不同，会进行向前取整，如指定起始时间为 2018-09-04 10:40:00 按小时粒度查询，返回的第一个数据对应时间点为 2018-09-04 10:00:00
 起始时间与结束时间间隔小于等于 90 天 
@@ -148,14 +155,14 @@ bandwidth：计费带宽
     /**
      * Get 时间粒度，支持模式如下：
 min：1 分钟粒度，查询区间需要小于等于 24 小时
-5min：5 分钟粒度，查询区间需要小于等于 31 天
+5min：5 分钟粒度，查询区间需要小于等于 31 天(计费数据粒度)
 hour：1 小时粒度，查询区间需要小于等于 31 天内
 day：天粒度，查询区间需要大于 31 天
 
 Area 字段为 overseas 时暂不支持1分钟粒度数据查询 
      * @return Interval 时间粒度，支持模式如下：
 min：1 分钟粒度，查询区间需要小于等于 24 小时
-5min：5 分钟粒度，查询区间需要小于等于 31 天
+5min：5 分钟粒度，查询区间需要小于等于 31 天(计费数据粒度)
 hour：1 小时粒度，查询区间需要小于等于 31 天内
 day：天粒度，查询区间需要大于 31 天
 
@@ -168,14 +175,14 @@ Area 字段为 overseas 时暂不支持1分钟粒度数据查询
     /**
      * Set 时间粒度，支持模式如下：
 min：1 分钟粒度，查询区间需要小于等于 24 小时
-5min：5 分钟粒度，查询区间需要小于等于 31 天
+5min：5 分钟粒度，查询区间需要小于等于 31 天(计费数据粒度)
 hour：1 小时粒度，查询区间需要小于等于 31 天内
 day：天粒度，查询区间需要大于 31 天
 
 Area 字段为 overseas 时暂不支持1分钟粒度数据查询
      * @param Interval 时间粒度，支持模式如下：
 min：1 分钟粒度，查询区间需要小于等于 24 小时
-5min：5 分钟粒度，查询区间需要小于等于 31 天
+5min：5 分钟粒度，查询区间需要小于等于 31 天(计费数据粒度)
 hour：1 小时粒度，查询区间需要小于等于 31 天内
 day：天粒度，查询区间需要大于 31 天
 
@@ -302,6 +309,60 @@ bandwidth：计费带宽
     }
 
     /**
+     * Get 指定查询的产品数据，可选为cdn或者ecdn，默认为cdn 
+     * @return Product 指定查询的产品数据，可选为cdn或者ecdn，默认为cdn
+     */
+    public String getProduct() {
+        return this.Product;
+    }
+
+    /**
+     * Set 指定查询的产品数据，可选为cdn或者ecdn，默认为cdn
+     * @param Product 指定查询的产品数据，可选为cdn或者ecdn，默认为cdn
+     */
+    public void setProduct(String Product) {
+        this.Product = Product;
+    }
+
+    public DescribeBillingDataRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeBillingDataRequest(DescribeBillingDataRequest source) {
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.Interval != null) {
+            this.Interval = new String(source.Interval);
+        }
+        if (source.Domain != null) {
+            this.Domain = new String(source.Domain);
+        }
+        if (source.Project != null) {
+            this.Project = new Long(source.Project);
+        }
+        if (source.Area != null) {
+            this.Area = new String(source.Area);
+        }
+        if (source.District != null) {
+            this.District = new Long(source.District);
+        }
+        if (source.Metric != null) {
+            this.Metric = new String(source.Metric);
+        }
+        if (source.Product != null) {
+            this.Product = new String(source.Product);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -313,6 +374,7 @@ bandwidth：计费带宽
         this.setParamSimple(map, prefix + "Area", this.Area);
         this.setParamSimple(map, prefix + "District", this.District);
         this.setParamSimple(map, prefix + "Metric", this.Metric);
+        this.setParamSimple(map, prefix + "Product", this.Product);
 
     }
 }

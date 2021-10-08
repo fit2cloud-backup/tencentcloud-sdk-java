@@ -30,7 +30,7 @@ public class UpdateAsrVocabRequest extends AbstractModel{
     private String VocabId;
 
     /**
-    * 热词表名称
+    * 热词表名称，长度在1-255之间
     */
     @SerializedName("Name")
     @Expose
@@ -52,7 +52,7 @@ public class UpdateAsrVocabRequest extends AbstractModel{
     private String WordWeightStr;
 
     /**
-    * 热词表描述
+    * 热词表描述，长度在0-1000之间
     */
     @SerializedName("Description")
     @Expose
@@ -75,16 +75,16 @@ public class UpdateAsrVocabRequest extends AbstractModel{
     }
 
     /**
-     * Get 热词表名称 
-     * @return Name 热词表名称
+     * Get 热词表名称，长度在1-255之间 
+     * @return Name 热词表名称，长度在1-255之间
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 热词表名称
-     * @param Name 热词表名称
+     * Set 热词表名称，长度在1-255之间
+     * @param Name 热词表名称，长度在1-255之间
      */
     public void setName(String Name) {
         this.Name = Name;
@@ -127,20 +127,49 @@ public class UpdateAsrVocabRequest extends AbstractModel{
     }
 
     /**
-     * Get 热词表描述 
-     * @return Description 热词表描述
+     * Get 热词表描述，长度在0-1000之间 
+     * @return Description 热词表描述，长度在0-1000之间
      */
     public String getDescription() {
         return this.Description;
     }
 
     /**
-     * Set 热词表描述
-     * @param Description 热词表描述
+     * Set 热词表描述，长度在0-1000之间
+     * @param Description 热词表描述，长度在0-1000之间
      */
     public void setDescription(String Description) {
         this.Description = Description;
     }
+
+    public UpdateAsrVocabRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public UpdateAsrVocabRequest(UpdateAsrVocabRequest source) {
+        if (source.VocabId != null) {
+            this.VocabId = new String(source.VocabId);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.WordWeights != null) {
+            this.WordWeights = new HotWord[source.WordWeights.length];
+            for (int i = 0; i < source.WordWeights.length; i++) {
+                this.WordWeights[i] = new HotWord(source.WordWeights[i]);
+            }
+        }
+        if (source.WordWeightStr != null) {
+            this.WordWeightStr = new String(source.WordWeightStr);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

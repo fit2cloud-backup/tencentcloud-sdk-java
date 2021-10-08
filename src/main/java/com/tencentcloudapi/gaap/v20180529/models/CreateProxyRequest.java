@@ -95,6 +95,27 @@ public class CreateProxyRequest extends AbstractModel{
     private String ClonedProxyId;
 
     /**
+    * 计费方式 (0:按带宽计费，1:按流量计费 默认按带宽计费）
+    */
+    @SerializedName("BillingType")
+    @Expose
+    private Long BillingType;
+
+    /**
+    * IP版本，可取值：IPv4、IPv6，默认值IPv4
+    */
+    @SerializedName("IPAddressVersion")
+    @Expose
+    private String IPAddressVersion;
+
+    /**
+    * 网络类型，可取值：normal、cn2，默认值normal
+    */
+    @SerializedName("NetworkType")
+    @Expose
+    private String NetworkType;
+
+    /**
      * Get 通道的项目ID。 
      * @return ProjectId 通道的项目ID。
      */
@@ -263,6 +284,107 @@ public class CreateProxyRequest extends AbstractModel{
     }
 
     /**
+     * Get 计费方式 (0:按带宽计费，1:按流量计费 默认按带宽计费） 
+     * @return BillingType 计费方式 (0:按带宽计费，1:按流量计费 默认按带宽计费）
+     */
+    public Long getBillingType() {
+        return this.BillingType;
+    }
+
+    /**
+     * Set 计费方式 (0:按带宽计费，1:按流量计费 默认按带宽计费）
+     * @param BillingType 计费方式 (0:按带宽计费，1:按流量计费 默认按带宽计费）
+     */
+    public void setBillingType(Long BillingType) {
+        this.BillingType = BillingType;
+    }
+
+    /**
+     * Get IP版本，可取值：IPv4、IPv6，默认值IPv4 
+     * @return IPAddressVersion IP版本，可取值：IPv4、IPv6，默认值IPv4
+     */
+    public String getIPAddressVersion() {
+        return this.IPAddressVersion;
+    }
+
+    /**
+     * Set IP版本，可取值：IPv4、IPv6，默认值IPv4
+     * @param IPAddressVersion IP版本，可取值：IPv4、IPv6，默认值IPv4
+     */
+    public void setIPAddressVersion(String IPAddressVersion) {
+        this.IPAddressVersion = IPAddressVersion;
+    }
+
+    /**
+     * Get 网络类型，可取值：normal、cn2，默认值normal 
+     * @return NetworkType 网络类型，可取值：normal、cn2，默认值normal
+     */
+    public String getNetworkType() {
+        return this.NetworkType;
+    }
+
+    /**
+     * Set 网络类型，可取值：normal、cn2，默认值normal
+     * @param NetworkType 网络类型，可取值：normal、cn2，默认值normal
+     */
+    public void setNetworkType(String NetworkType) {
+        this.NetworkType = NetworkType;
+    }
+
+    public CreateProxyRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateProxyRequest(CreateProxyRequest source) {
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.ProxyName != null) {
+            this.ProxyName = new String(source.ProxyName);
+        }
+        if (source.AccessRegion != null) {
+            this.AccessRegion = new String(source.AccessRegion);
+        }
+        if (source.Bandwidth != null) {
+            this.Bandwidth = new Long(source.Bandwidth);
+        }
+        if (source.Concurrent != null) {
+            this.Concurrent = new Long(source.Concurrent);
+        }
+        if (source.RealServerRegion != null) {
+            this.RealServerRegion = new String(source.RealServerRegion);
+        }
+        if (source.ClientToken != null) {
+            this.ClientToken = new String(source.ClientToken);
+        }
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
+        if (source.TagSet != null) {
+            this.TagSet = new TagPair[source.TagSet.length];
+            for (int i = 0; i < source.TagSet.length; i++) {
+                this.TagSet[i] = new TagPair(source.TagSet[i]);
+            }
+        }
+        if (source.ClonedProxyId != null) {
+            this.ClonedProxyId = new String(source.ClonedProxyId);
+        }
+        if (source.BillingType != null) {
+            this.BillingType = new Long(source.BillingType);
+        }
+        if (source.IPAddressVersion != null) {
+            this.IPAddressVersion = new String(source.IPAddressVersion);
+        }
+        if (source.NetworkType != null) {
+            this.NetworkType = new String(source.NetworkType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -276,6 +398,9 @@ public class CreateProxyRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "GroupId", this.GroupId);
         this.setParamArrayObj(map, prefix + "TagSet.", this.TagSet);
         this.setParamSimple(map, prefix + "ClonedProxyId", this.ClonedProxyId);
+        this.setParamSimple(map, prefix + "BillingType", this.BillingType);
+        this.setParamSimple(map, prefix + "IPAddressVersion", this.IPAddressVersion);
+        this.setParamSimple(map, prefix + "NetworkType", this.NetworkType);
 
     }
 }

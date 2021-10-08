@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class ModifyPullStreamStatusRequest extends AbstractModel{
 
     /**
-    * 配置id列表。
+    * 配置 ID 列表。
     */
     @SerializedName("ConfigIds")
     @Expose
@@ -37,16 +37,16 @@ public class ModifyPullStreamStatusRequest extends AbstractModel{
     private String Status;
 
     /**
-     * Get 配置id列表。 
-     * @return ConfigIds 配置id列表。
+     * Get 配置 ID 列表。 
+     * @return ConfigIds 配置 ID 列表。
      */
     public String [] getConfigIds() {
         return this.ConfigIds;
     }
 
     /**
-     * Set 配置id列表。
-     * @param ConfigIds 配置id列表。
+     * Set 配置 ID 列表。
+     * @param ConfigIds 配置 ID 列表。
      */
     public void setConfigIds(String [] ConfigIds) {
         this.ConfigIds = ConfigIds;
@@ -67,6 +67,26 @@ public class ModifyPullStreamStatusRequest extends AbstractModel{
     public void setStatus(String Status) {
         this.Status = Status;
     }
+
+    public ModifyPullStreamStatusRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyPullStreamStatusRequest(ModifyPullStreamStatusRequest source) {
+        if (source.ConfigIds != null) {
+            this.ConfigIds = new String[source.ConfigIds.length];
+            for (int i = 0; i < source.ConfigIds.length; i++) {
+                this.ConfigIds[i] = new String(source.ConfigIds[i]);
+            }
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

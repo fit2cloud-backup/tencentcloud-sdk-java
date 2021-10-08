@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class CreateContentReviewTemplateResponse extends AbstractModel{
 
     /**
-    * 内容审核模板唯一标识。
+    * 内容智能识别模板唯一标识。
     */
     @SerializedName("Definition")
     @Expose
@@ -37,16 +37,16 @@ public class CreateContentReviewTemplateResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 内容审核模板唯一标识。 
-     * @return Definition 内容审核模板唯一标识。
+     * Get 内容智能识别模板唯一标识。 
+     * @return Definition 内容智能识别模板唯一标识。
      */
     public Long getDefinition() {
         return this.Definition;
     }
 
     /**
-     * Set 内容审核模板唯一标识。
-     * @param Definition 内容审核模板唯一标识。
+     * Set 内容智能识别模板唯一标识。
+     * @param Definition 内容智能识别模板唯一标识。
      */
     public void setDefinition(Long Definition) {
         this.Definition = Definition;
@@ -67,6 +67,23 @@ public class CreateContentReviewTemplateResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public CreateContentReviewTemplateResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateContentReviewTemplateResponse(CreateContentReviewTemplateResponse source) {
+        if (source.Definition != null) {
+            this.Definition = new Long(source.Definition);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

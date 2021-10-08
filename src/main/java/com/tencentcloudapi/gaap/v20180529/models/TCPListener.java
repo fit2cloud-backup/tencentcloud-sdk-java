@@ -67,11 +67,11 @@ public class TCPListener extends AbstractModel{
 
     /**
     * 监听器状态，其中：
-0， 运行中；
-1， 创建中；
-2，销毁中；
-3，源站调整中；
-4，配置变更中。
+0表示运行中；
+1表示创建中；
+2表示销毁中；
+3表示源站调整中；
+4表示配置变更中。
     */
     @SerializedName("ListenerStatus")
     @Expose
@@ -79,9 +79,9 @@ public class TCPListener extends AbstractModel{
 
     /**
     * 监听器源站访问策略，其中：
-rr，轮询；
-wrr，加权轮询；
-lc，最小连接数。
+rr表示轮询；
+wrr表示加权轮询；
+lc表示最小连接数。
     */
     @SerializedName("Scheduler")
     @Expose
@@ -103,8 +103,8 @@ lc，最小连接数。
 
     /**
     * 监听器是否开启健康检查，其中：
-0，关闭；
-1，开启
+0表示关闭；
+1表示开启
     */
     @SerializedName("HealthCheck")
     @Expose
@@ -112,8 +112,8 @@ lc，最小连接数。
 
     /**
     * 监听器绑定的源站状态， 其中：
-0，异常；
-1，正常。
+0表示异常；
+1表示正常。
     */
     @SerializedName("BindStatus")
     @Expose
@@ -133,6 +133,46 @@ lc，最小连接数。
     @SerializedName("CreateTime")
     @Expose
     private Long CreateTime;
+
+    /**
+    * 监听器获取客户端 IP 的方式，0表示TOA, 1表示Proxy Protocol
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ClientIPMethod")
+    @Expose
+    private Long ClientIPMethod;
+
+    /**
+    * 健康阈值，表示连续检查成功多少次后认定源站健康。范围为1到10
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("HealthyThreshold")
+    @Expose
+    private Long HealthyThreshold;
+
+    /**
+    * 不健康阈值，表示连续检查失败多少次数后认为源站不健康。范围为1到10
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UnhealthyThreshold")
+    @Expose
+    private Long UnhealthyThreshold;
+
+    /**
+    * 源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FailoverSwitch")
+    @Expose
+    private Long FailoverSwitch;
+
+    /**
+    * 是否开启会话保持选项：0关闭， 非0开启，非0值为会话保持时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SessionPersist")
+    @Expose
+    private Long SessionPersist;
 
     /**
      * Get 监听器ID 
@@ -236,17 +276,17 @@ lc，最小连接数。
 
     /**
      * Get 监听器状态，其中：
-0， 运行中；
-1， 创建中；
-2，销毁中；
-3，源站调整中；
-4，配置变更中。 
+0表示运行中；
+1表示创建中；
+2表示销毁中；
+3表示源站调整中；
+4表示配置变更中。 
      * @return ListenerStatus 监听器状态，其中：
-0， 运行中；
-1， 创建中；
-2，销毁中；
-3，源站调整中；
-4，配置变更中。
+0表示运行中；
+1表示创建中；
+2表示销毁中；
+3表示源站调整中；
+4表示配置变更中。
      */
     public Long getListenerStatus() {
         return this.ListenerStatus;
@@ -254,17 +294,17 @@ lc，最小连接数。
 
     /**
      * Set 监听器状态，其中：
-0， 运行中；
-1， 创建中；
-2，销毁中；
-3，源站调整中；
-4，配置变更中。
+0表示运行中；
+1表示创建中；
+2表示销毁中；
+3表示源站调整中；
+4表示配置变更中。
      * @param ListenerStatus 监听器状态，其中：
-0， 运行中；
-1， 创建中；
-2，销毁中；
-3，源站调整中；
-4，配置变更中。
+0表示运行中；
+1表示创建中；
+2表示销毁中；
+3表示源站调整中；
+4表示配置变更中。
      */
     public void setListenerStatus(Long ListenerStatus) {
         this.ListenerStatus = ListenerStatus;
@@ -272,13 +312,13 @@ lc，最小连接数。
 
     /**
      * Get 监听器源站访问策略，其中：
-rr，轮询；
-wrr，加权轮询；
-lc，最小连接数。 
+rr表示轮询；
+wrr表示加权轮询；
+lc表示最小连接数。 
      * @return Scheduler 监听器源站访问策略，其中：
-rr，轮询；
-wrr，加权轮询；
-lc，最小连接数。
+rr表示轮询；
+wrr表示加权轮询；
+lc表示最小连接数。
      */
     public String getScheduler() {
         return this.Scheduler;
@@ -286,13 +326,13 @@ lc，最小连接数。
 
     /**
      * Set 监听器源站访问策略，其中：
-rr，轮询；
-wrr，加权轮询；
-lc，最小连接数。
+rr表示轮询；
+wrr表示加权轮询；
+lc表示最小连接数。
      * @param Scheduler 监听器源站访问策略，其中：
-rr，轮询；
-wrr，加权轮询；
-lc，最小连接数。
+rr表示轮询；
+wrr表示加权轮询；
+lc表示最小连接数。
      */
     public void setScheduler(String Scheduler) {
         this.Scheduler = Scheduler;
@@ -332,11 +372,11 @@ lc，最小连接数。
 
     /**
      * Get 监听器是否开启健康检查，其中：
-0，关闭；
-1，开启 
+0表示关闭；
+1表示开启 
      * @return HealthCheck 监听器是否开启健康检查，其中：
-0，关闭；
-1，开启
+0表示关闭；
+1表示开启
      */
     public Long getHealthCheck() {
         return this.HealthCheck;
@@ -344,11 +384,11 @@ lc，最小连接数。
 
     /**
      * Set 监听器是否开启健康检查，其中：
-0，关闭；
-1，开启
+0表示关闭；
+1表示开启
      * @param HealthCheck 监听器是否开启健康检查，其中：
-0，关闭；
-1，开启
+0表示关闭；
+1表示开启
      */
     public void setHealthCheck(Long HealthCheck) {
         this.HealthCheck = HealthCheck;
@@ -356,11 +396,11 @@ lc，最小连接数。
 
     /**
      * Get 监听器绑定的源站状态， 其中：
-0，异常；
-1，正常。 
+0表示异常；
+1表示正常。 
      * @return BindStatus 监听器绑定的源站状态， 其中：
-0，异常；
-1，正常。
+0表示异常；
+1表示正常。
      */
     public Long getBindStatus() {
         return this.BindStatus;
@@ -368,11 +408,11 @@ lc，最小连接数。
 
     /**
      * Set 监听器绑定的源站状态， 其中：
-0，异常；
-1，正常。
+0表示异常；
+1表示正常。
      * @param BindStatus 监听器绑定的源站状态， 其中：
-0，异常；
-1，正常。
+0表示异常；
+1表示正常。
      */
     public void setBindStatus(Long BindStatus) {
         this.BindStatus = BindStatus;
@@ -415,6 +455,177 @@ lc，最小连接数。
     }
 
     /**
+     * Get 监听器获取客户端 IP 的方式，0表示TOA, 1表示Proxy Protocol
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ClientIPMethod 监听器获取客户端 IP 的方式，0表示TOA, 1表示Proxy Protocol
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getClientIPMethod() {
+        return this.ClientIPMethod;
+    }
+
+    /**
+     * Set 监听器获取客户端 IP 的方式，0表示TOA, 1表示Proxy Protocol
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ClientIPMethod 监听器获取客户端 IP 的方式，0表示TOA, 1表示Proxy Protocol
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setClientIPMethod(Long ClientIPMethod) {
+        this.ClientIPMethod = ClientIPMethod;
+    }
+
+    /**
+     * Get 健康阈值，表示连续检查成功多少次后认定源站健康。范围为1到10
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return HealthyThreshold 健康阈值，表示连续检查成功多少次后认定源站健康。范围为1到10
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getHealthyThreshold() {
+        return this.HealthyThreshold;
+    }
+
+    /**
+     * Set 健康阈值，表示连续检查成功多少次后认定源站健康。范围为1到10
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param HealthyThreshold 健康阈值，表示连续检查成功多少次后认定源站健康。范围为1到10
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setHealthyThreshold(Long HealthyThreshold) {
+        this.HealthyThreshold = HealthyThreshold;
+    }
+
+    /**
+     * Get 不健康阈值，表示连续检查失败多少次数后认为源站不健康。范围为1到10
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UnhealthyThreshold 不健康阈值，表示连续检查失败多少次数后认为源站不健康。范围为1到10
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getUnhealthyThreshold() {
+        return this.UnhealthyThreshold;
+    }
+
+    /**
+     * Set 不健康阈值，表示连续检查失败多少次数后认为源站不健康。范围为1到10
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UnhealthyThreshold 不健康阈值，表示连续检查失败多少次数后认为源站不健康。范围为1到10
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUnhealthyThreshold(Long UnhealthyThreshold) {
+        this.UnhealthyThreshold = UnhealthyThreshold;
+    }
+
+    /**
+     * Get 源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FailoverSwitch 源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getFailoverSwitch() {
+        return this.FailoverSwitch;
+    }
+
+    /**
+     * Set 源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FailoverSwitch 源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFailoverSwitch(Long FailoverSwitch) {
+        this.FailoverSwitch = FailoverSwitch;
+    }
+
+    /**
+     * Get 是否开启会话保持选项：0关闭， 非0开启，非0值为会话保持时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SessionPersist 是否开启会话保持选项：0关闭， 非0开启，非0值为会话保持时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getSessionPersist() {
+        return this.SessionPersist;
+    }
+
+    /**
+     * Set 是否开启会话保持选项：0关闭， 非0开启，非0值为会话保持时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SessionPersist 是否开启会话保持选项：0关闭， 非0开启，非0值为会话保持时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSessionPersist(Long SessionPersist) {
+        this.SessionPersist = SessionPersist;
+    }
+
+    public TCPListener() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public TCPListener(TCPListener source) {
+        if (source.ListenerId != null) {
+            this.ListenerId = new String(source.ListenerId);
+        }
+        if (source.ListenerName != null) {
+            this.ListenerName = new String(source.ListenerName);
+        }
+        if (source.Port != null) {
+            this.Port = new Long(source.Port);
+        }
+        if (source.RealServerPort != null) {
+            this.RealServerPort = new Long(source.RealServerPort);
+        }
+        if (source.RealServerType != null) {
+            this.RealServerType = new String(source.RealServerType);
+        }
+        if (source.Protocol != null) {
+            this.Protocol = new String(source.Protocol);
+        }
+        if (source.ListenerStatus != null) {
+            this.ListenerStatus = new Long(source.ListenerStatus);
+        }
+        if (source.Scheduler != null) {
+            this.Scheduler = new String(source.Scheduler);
+        }
+        if (source.ConnectTimeout != null) {
+            this.ConnectTimeout = new Long(source.ConnectTimeout);
+        }
+        if (source.DelayLoop != null) {
+            this.DelayLoop = new Long(source.DelayLoop);
+        }
+        if (source.HealthCheck != null) {
+            this.HealthCheck = new Long(source.HealthCheck);
+        }
+        if (source.BindStatus != null) {
+            this.BindStatus = new Long(source.BindStatus);
+        }
+        if (source.RealServerSet != null) {
+            this.RealServerSet = new BindRealServer[source.RealServerSet.length];
+            for (int i = 0; i < source.RealServerSet.length; i++) {
+                this.RealServerSet[i] = new BindRealServer(source.RealServerSet[i]);
+            }
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new Long(source.CreateTime);
+        }
+        if (source.ClientIPMethod != null) {
+            this.ClientIPMethod = new Long(source.ClientIPMethod);
+        }
+        if (source.HealthyThreshold != null) {
+            this.HealthyThreshold = new Long(source.HealthyThreshold);
+        }
+        if (source.UnhealthyThreshold != null) {
+            this.UnhealthyThreshold = new Long(source.UnhealthyThreshold);
+        }
+        if (source.FailoverSwitch != null) {
+            this.FailoverSwitch = new Long(source.FailoverSwitch);
+        }
+        if (source.SessionPersist != null) {
+            this.SessionPersist = new Long(source.SessionPersist);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -432,6 +643,11 @@ lc，最小连接数。
         this.setParamSimple(map, prefix + "BindStatus", this.BindStatus);
         this.setParamArrayObj(map, prefix + "RealServerSet.", this.RealServerSet);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
+        this.setParamSimple(map, prefix + "ClientIPMethod", this.ClientIPMethod);
+        this.setParamSimple(map, prefix + "HealthyThreshold", this.HealthyThreshold);
+        this.setParamSimple(map, prefix + "UnhealthyThreshold", this.UnhealthyThreshold);
+        this.setParamSimple(map, prefix + "FailoverSwitch", this.FailoverSwitch);
+        this.setParamSimple(map, prefix + "SessionPersist", this.SessionPersist);
 
     }
 }

@@ -58,6 +58,48 @@ public class DescribeBackupsRequest extends AbstractModel{
     private Long Offset;
 
     /**
+    * 按照备份名称筛选，不填则不筛选此项
+    */
+    @SerializedName("BackupName")
+    @Expose
+    private String BackupName;
+
+    /**
+    * 按照备份策略筛选，0-实例备份，1-多库备份，不填则不筛选此项
+    */
+    @SerializedName("Strategy")
+    @Expose
+    private Long Strategy;
+
+    /**
+    * 按照备份方式筛选，0-后台自动定时备份，1-用户手动临时备份，不填则不筛选此项
+    */
+    @SerializedName("BackupWay")
+    @Expose
+    private Long BackupWay;
+
+    /**
+    * 按照备份ID筛选，不填则不筛选此项
+    */
+    @SerializedName("BackupId")
+    @Expose
+    private Long BackupId;
+
+    /**
+    * 按照备份的库名称筛选，不填则不筛选此项
+    */
+    @SerializedName("DatabaseName")
+    @Expose
+    private String DatabaseName;
+
+    /**
+    * 是否分组查询，默认是0，单库备份情况下 0-兼容老方式不分组，1-单库备份分组后展示
+    */
+    @SerializedName("Group")
+    @Expose
+    private Long Group;
+
+    /**
      * Get 开始时间(yyyy-MM-dd HH:mm:ss) 
      * @return StartTime 开始时间(yyyy-MM-dd HH:mm:ss)
      */
@@ -138,6 +180,146 @@ public class DescribeBackupsRequest extends AbstractModel{
     }
 
     /**
+     * Get 按照备份名称筛选，不填则不筛选此项 
+     * @return BackupName 按照备份名称筛选，不填则不筛选此项
+     */
+    public String getBackupName() {
+        return this.BackupName;
+    }
+
+    /**
+     * Set 按照备份名称筛选，不填则不筛选此项
+     * @param BackupName 按照备份名称筛选，不填则不筛选此项
+     */
+    public void setBackupName(String BackupName) {
+        this.BackupName = BackupName;
+    }
+
+    /**
+     * Get 按照备份策略筛选，0-实例备份，1-多库备份，不填则不筛选此项 
+     * @return Strategy 按照备份策略筛选，0-实例备份，1-多库备份，不填则不筛选此项
+     */
+    public Long getStrategy() {
+        return this.Strategy;
+    }
+
+    /**
+     * Set 按照备份策略筛选，0-实例备份，1-多库备份，不填则不筛选此项
+     * @param Strategy 按照备份策略筛选，0-实例备份，1-多库备份，不填则不筛选此项
+     */
+    public void setStrategy(Long Strategy) {
+        this.Strategy = Strategy;
+    }
+
+    /**
+     * Get 按照备份方式筛选，0-后台自动定时备份，1-用户手动临时备份，不填则不筛选此项 
+     * @return BackupWay 按照备份方式筛选，0-后台自动定时备份，1-用户手动临时备份，不填则不筛选此项
+     */
+    public Long getBackupWay() {
+        return this.BackupWay;
+    }
+
+    /**
+     * Set 按照备份方式筛选，0-后台自动定时备份，1-用户手动临时备份，不填则不筛选此项
+     * @param BackupWay 按照备份方式筛选，0-后台自动定时备份，1-用户手动临时备份，不填则不筛选此项
+     */
+    public void setBackupWay(Long BackupWay) {
+        this.BackupWay = BackupWay;
+    }
+
+    /**
+     * Get 按照备份ID筛选，不填则不筛选此项 
+     * @return BackupId 按照备份ID筛选，不填则不筛选此项
+     */
+    public Long getBackupId() {
+        return this.BackupId;
+    }
+
+    /**
+     * Set 按照备份ID筛选，不填则不筛选此项
+     * @param BackupId 按照备份ID筛选，不填则不筛选此项
+     */
+    public void setBackupId(Long BackupId) {
+        this.BackupId = BackupId;
+    }
+
+    /**
+     * Get 按照备份的库名称筛选，不填则不筛选此项 
+     * @return DatabaseName 按照备份的库名称筛选，不填则不筛选此项
+     */
+    public String getDatabaseName() {
+        return this.DatabaseName;
+    }
+
+    /**
+     * Set 按照备份的库名称筛选，不填则不筛选此项
+     * @param DatabaseName 按照备份的库名称筛选，不填则不筛选此项
+     */
+    public void setDatabaseName(String DatabaseName) {
+        this.DatabaseName = DatabaseName;
+    }
+
+    /**
+     * Get 是否分组查询，默认是0，单库备份情况下 0-兼容老方式不分组，1-单库备份分组后展示 
+     * @return Group 是否分组查询，默认是0，单库备份情况下 0-兼容老方式不分组，1-单库备份分组后展示
+     */
+    public Long getGroup() {
+        return this.Group;
+    }
+
+    /**
+     * Set 是否分组查询，默认是0，单库备份情况下 0-兼容老方式不分组，1-单库备份分组后展示
+     * @param Group 是否分组查询，默认是0，单库备份情况下 0-兼容老方式不分组，1-单库备份分组后展示
+     */
+    public void setGroup(Long Group) {
+        this.Group = Group;
+    }
+
+    public DescribeBackupsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeBackupsRequest(DescribeBackupsRequest source) {
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.BackupName != null) {
+            this.BackupName = new String(source.BackupName);
+        }
+        if (source.Strategy != null) {
+            this.Strategy = new Long(source.Strategy);
+        }
+        if (source.BackupWay != null) {
+            this.BackupWay = new Long(source.BackupWay);
+        }
+        if (source.BackupId != null) {
+            this.BackupId = new Long(source.BackupId);
+        }
+        if (source.DatabaseName != null) {
+            this.DatabaseName = new String(source.DatabaseName);
+        }
+        if (source.Group != null) {
+            this.Group = new Long(source.Group);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -146,6 +328,12 @@ public class DescribeBackupsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
+        this.setParamSimple(map, prefix + "BackupName", this.BackupName);
+        this.setParamSimple(map, prefix + "Strategy", this.Strategy);
+        this.setParamSimple(map, prefix + "BackupWay", this.BackupWay);
+        this.setParamSimple(map, prefix + "BackupId", this.BackupId);
+        this.setParamSimple(map, prefix + "DatabaseName", this.DatabaseName);
+        this.setParamSimple(map, prefix + "Group", this.Group);
 
     }
 }

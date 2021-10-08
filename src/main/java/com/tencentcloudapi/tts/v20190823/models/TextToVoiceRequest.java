@@ -24,7 +24,7 @@ public class TextToVoiceRequest extends AbstractModel{
 
     /**
     * 合成语音的源文本，按UTF-8编码统一计算。
-中文最大支持110个汉字（全角标点符号算一个汉字）；英文最大支持350个字母（半角标点符号算一个字母）。
+中文最大支持150个汉字（全角标点符号算一个汉字）；英文最大支持500个字母（半角标点符号算一个字母）。
     */
     @SerializedName("Text")
     @Expose
@@ -67,7 +67,7 @@ public class TextToVoiceRequest extends AbstractModel{
     private Long ProjectId;
 
     /**
-    * 音色<li>0-云小宁，亲和女声(默认)</li><li>1-云小奇，亲和男声</li><li>2-云小晚，成熟男声</li><li>4-云小叶，温暖女声</li><li>5-云小欣，情感女声</li><li>6-云小龙，情感男声</li><li>1000-智侠、情感男声（新）</li><li>1001-智瑜，情感女声（新）</li><li>1002-智聆，通用女声（新）</li><li>1003-智美，客服女声（新）</li><li>1050-WeJack，英文男声（新）</li><li>1051-WeRose，英文女声（新）</li>
+    * 标准音色<li>10510000-智逍遥，阅读男声</li><li>1001-智瑜，情感女声</li><li>1002-智聆，通用女声</li><li>1003-智美，客服女声</li><li>1004-智云，通用男声</li><li>1005-智莉，通用女声</li><li>1007-智娜，客服女声</li><li>1008-智琪，客服女声</li><li>1009-智芸，知性女声</li><li>1010-智华，通用男声</li><li>1017-智蓉，情感女声</li><li>1018-智靖，情感男声</li><li>1050-WeJack，英文男声</li><li>1051-WeRose，英文女声</li>精品音色<br>精品音色拟真度更高，价格不同于标准音色，查看[购买指南](https://cloud.tencent.com/product/tts/pricing)<br><li>100510000-智逍遥，阅读男声（精品）</li><li>101001-智瑜，情感女声（精品）</li><li>101002-智聆，通用女声（精品）</li><li>101003-智美，客服女声（精品）</li><li>101004-智云，通用男声（精品）</li><li>101005-智莉，通用女声（精品）</li><li>101006-智言，助手女声</li><li>101007-智娜，客服女声（精品）</li><li>101008-智琪，客服女声（精品）</li><li>101009-智芸，知性女声（精品）</li><li>101010-智华，通用男声（精品）</li><li>101011-智燕，新闻女声</li><li>101012-智丹，新闻女声</li><li>101013-智辉，新闻男声</li><li>101014-智宁，新闻男声</li><li>101015-智萌，男童声</li><li>101016-智甜，女童声</li><li>101017-智蓉，情感女声（精品）</li><li>101018-智靖，情感男声（精品）</li><li>101019-智彤，粤语女声</li><li>101050-WeJack，英文男声（精品）</li><li>101051-WeRose，英文女声（精品）</li>
     */
     @SerializedName("VoiceType")
     @Expose
@@ -88,7 +88,7 @@ public class TextToVoiceRequest extends AbstractModel{
     private Long SampleRate;
 
     /**
-    * 返回音频格式，可取值：wav（默认），mp3
+    * 返回音频格式，可取值：wav（默认），mp3，pcm
     */
     @SerializedName("Codec")
     @Expose
@@ -96,9 +96,9 @@ public class TextToVoiceRequest extends AbstractModel{
 
     /**
      * Get 合成语音的源文本，按UTF-8编码统一计算。
-中文最大支持110个汉字（全角标点符号算一个汉字）；英文最大支持350个字母（半角标点符号算一个字母）。 
+中文最大支持150个汉字（全角标点符号算一个汉字）；英文最大支持500个字母（半角标点符号算一个字母）。 
      * @return Text 合成语音的源文本，按UTF-8编码统一计算。
-中文最大支持110个汉字（全角标点符号算一个汉字）；英文最大支持350个字母（半角标点符号算一个字母）。
+中文最大支持150个汉字（全角标点符号算一个汉字）；英文最大支持500个字母（半角标点符号算一个字母）。
      */
     public String getText() {
         return this.Text;
@@ -106,9 +106,9 @@ public class TextToVoiceRequest extends AbstractModel{
 
     /**
      * Set 合成语音的源文本，按UTF-8编码统一计算。
-中文最大支持110个汉字（全角标点符号算一个汉字）；英文最大支持350个字母（半角标点符号算一个字母）。
+中文最大支持150个汉字（全角标点符号算一个汉字）；英文最大支持500个字母（半角标点符号算一个字母）。
      * @param Text 合成语音的源文本，按UTF-8编码统一计算。
-中文最大支持110个汉字（全角标点符号算一个汉字）；英文最大支持350个字母（半角标点符号算一个字母）。
+中文最大支持150个汉字（全角标点符号算一个汉字）；英文最大支持500个字母（半角标点符号算一个字母）。
      */
     public void setText(String Text) {
         this.Text = Text;
@@ -199,16 +199,16 @@ public class TextToVoiceRequest extends AbstractModel{
     }
 
     /**
-     * Get 音色<li>0-云小宁，亲和女声(默认)</li><li>1-云小奇，亲和男声</li><li>2-云小晚，成熟男声</li><li>4-云小叶，温暖女声</li><li>5-云小欣，情感女声</li><li>6-云小龙，情感男声</li><li>1000-智侠、情感男声（新）</li><li>1001-智瑜，情感女声（新）</li><li>1002-智聆，通用女声（新）</li><li>1003-智美，客服女声（新）</li><li>1050-WeJack，英文男声（新）</li><li>1051-WeRose，英文女声（新）</li> 
-     * @return VoiceType 音色<li>0-云小宁，亲和女声(默认)</li><li>1-云小奇，亲和男声</li><li>2-云小晚，成熟男声</li><li>4-云小叶，温暖女声</li><li>5-云小欣，情感女声</li><li>6-云小龙，情感男声</li><li>1000-智侠、情感男声（新）</li><li>1001-智瑜，情感女声（新）</li><li>1002-智聆，通用女声（新）</li><li>1003-智美，客服女声（新）</li><li>1050-WeJack，英文男声（新）</li><li>1051-WeRose，英文女声（新）</li>
+     * Get 标准音色<li>10510000-智逍遥，阅读男声</li><li>1001-智瑜，情感女声</li><li>1002-智聆，通用女声</li><li>1003-智美，客服女声</li><li>1004-智云，通用男声</li><li>1005-智莉，通用女声</li><li>1007-智娜，客服女声</li><li>1008-智琪，客服女声</li><li>1009-智芸，知性女声</li><li>1010-智华，通用男声</li><li>1017-智蓉，情感女声</li><li>1018-智靖，情感男声</li><li>1050-WeJack，英文男声</li><li>1051-WeRose，英文女声</li>精品音色<br>精品音色拟真度更高，价格不同于标准音色，查看[购买指南](https://cloud.tencent.com/product/tts/pricing)<br><li>100510000-智逍遥，阅读男声（精品）</li><li>101001-智瑜，情感女声（精品）</li><li>101002-智聆，通用女声（精品）</li><li>101003-智美，客服女声（精品）</li><li>101004-智云，通用男声（精品）</li><li>101005-智莉，通用女声（精品）</li><li>101006-智言，助手女声</li><li>101007-智娜，客服女声（精品）</li><li>101008-智琪，客服女声（精品）</li><li>101009-智芸，知性女声（精品）</li><li>101010-智华，通用男声（精品）</li><li>101011-智燕，新闻女声</li><li>101012-智丹，新闻女声</li><li>101013-智辉，新闻男声</li><li>101014-智宁，新闻男声</li><li>101015-智萌，男童声</li><li>101016-智甜，女童声</li><li>101017-智蓉，情感女声（精品）</li><li>101018-智靖，情感男声（精品）</li><li>101019-智彤，粤语女声</li><li>101050-WeJack，英文男声（精品）</li><li>101051-WeRose，英文女声（精品）</li> 
+     * @return VoiceType 标准音色<li>10510000-智逍遥，阅读男声</li><li>1001-智瑜，情感女声</li><li>1002-智聆，通用女声</li><li>1003-智美，客服女声</li><li>1004-智云，通用男声</li><li>1005-智莉，通用女声</li><li>1007-智娜，客服女声</li><li>1008-智琪，客服女声</li><li>1009-智芸，知性女声</li><li>1010-智华，通用男声</li><li>1017-智蓉，情感女声</li><li>1018-智靖，情感男声</li><li>1050-WeJack，英文男声</li><li>1051-WeRose，英文女声</li>精品音色<br>精品音色拟真度更高，价格不同于标准音色，查看[购买指南](https://cloud.tencent.com/product/tts/pricing)<br><li>100510000-智逍遥，阅读男声（精品）</li><li>101001-智瑜，情感女声（精品）</li><li>101002-智聆，通用女声（精品）</li><li>101003-智美，客服女声（精品）</li><li>101004-智云，通用男声（精品）</li><li>101005-智莉，通用女声（精品）</li><li>101006-智言，助手女声</li><li>101007-智娜，客服女声（精品）</li><li>101008-智琪，客服女声（精品）</li><li>101009-智芸，知性女声（精品）</li><li>101010-智华，通用男声（精品）</li><li>101011-智燕，新闻女声</li><li>101012-智丹，新闻女声</li><li>101013-智辉，新闻男声</li><li>101014-智宁，新闻男声</li><li>101015-智萌，男童声</li><li>101016-智甜，女童声</li><li>101017-智蓉，情感女声（精品）</li><li>101018-智靖，情感男声（精品）</li><li>101019-智彤，粤语女声</li><li>101050-WeJack，英文男声（精品）</li><li>101051-WeRose，英文女声（精品）</li>
      */
     public Long getVoiceType() {
         return this.VoiceType;
     }
 
     /**
-     * Set 音色<li>0-云小宁，亲和女声(默认)</li><li>1-云小奇，亲和男声</li><li>2-云小晚，成熟男声</li><li>4-云小叶，温暖女声</li><li>5-云小欣，情感女声</li><li>6-云小龙，情感男声</li><li>1000-智侠、情感男声（新）</li><li>1001-智瑜，情感女声（新）</li><li>1002-智聆，通用女声（新）</li><li>1003-智美，客服女声（新）</li><li>1050-WeJack，英文男声（新）</li><li>1051-WeRose，英文女声（新）</li>
-     * @param VoiceType 音色<li>0-云小宁，亲和女声(默认)</li><li>1-云小奇，亲和男声</li><li>2-云小晚，成熟男声</li><li>4-云小叶，温暖女声</li><li>5-云小欣，情感女声</li><li>6-云小龙，情感男声</li><li>1000-智侠、情感男声（新）</li><li>1001-智瑜，情感女声（新）</li><li>1002-智聆，通用女声（新）</li><li>1003-智美，客服女声（新）</li><li>1050-WeJack，英文男声（新）</li><li>1051-WeRose，英文女声（新）</li>
+     * Set 标准音色<li>10510000-智逍遥，阅读男声</li><li>1001-智瑜，情感女声</li><li>1002-智聆，通用女声</li><li>1003-智美，客服女声</li><li>1004-智云，通用男声</li><li>1005-智莉，通用女声</li><li>1007-智娜，客服女声</li><li>1008-智琪，客服女声</li><li>1009-智芸，知性女声</li><li>1010-智华，通用男声</li><li>1017-智蓉，情感女声</li><li>1018-智靖，情感男声</li><li>1050-WeJack，英文男声</li><li>1051-WeRose，英文女声</li>精品音色<br>精品音色拟真度更高，价格不同于标准音色，查看[购买指南](https://cloud.tencent.com/product/tts/pricing)<br><li>100510000-智逍遥，阅读男声（精品）</li><li>101001-智瑜，情感女声（精品）</li><li>101002-智聆，通用女声（精品）</li><li>101003-智美，客服女声（精品）</li><li>101004-智云，通用男声（精品）</li><li>101005-智莉，通用女声（精品）</li><li>101006-智言，助手女声</li><li>101007-智娜，客服女声（精品）</li><li>101008-智琪，客服女声（精品）</li><li>101009-智芸，知性女声（精品）</li><li>101010-智华，通用男声（精品）</li><li>101011-智燕，新闻女声</li><li>101012-智丹，新闻女声</li><li>101013-智辉，新闻男声</li><li>101014-智宁，新闻男声</li><li>101015-智萌，男童声</li><li>101016-智甜，女童声</li><li>101017-智蓉，情感女声（精品）</li><li>101018-智靖，情感男声（精品）</li><li>101019-智彤，粤语女声</li><li>101050-WeJack，英文男声（精品）</li><li>101051-WeRose，英文女声（精品）</li>
+     * @param VoiceType 标准音色<li>10510000-智逍遥，阅读男声</li><li>1001-智瑜，情感女声</li><li>1002-智聆，通用女声</li><li>1003-智美，客服女声</li><li>1004-智云，通用男声</li><li>1005-智莉，通用女声</li><li>1007-智娜，客服女声</li><li>1008-智琪，客服女声</li><li>1009-智芸，知性女声</li><li>1010-智华，通用男声</li><li>1017-智蓉，情感女声</li><li>1018-智靖，情感男声</li><li>1050-WeJack，英文男声</li><li>1051-WeRose，英文女声</li>精品音色<br>精品音色拟真度更高，价格不同于标准音色，查看[购买指南](https://cloud.tencent.com/product/tts/pricing)<br><li>100510000-智逍遥，阅读男声（精品）</li><li>101001-智瑜，情感女声（精品）</li><li>101002-智聆，通用女声（精品）</li><li>101003-智美，客服女声（精品）</li><li>101004-智云，通用男声（精品）</li><li>101005-智莉，通用女声（精品）</li><li>101006-智言，助手女声</li><li>101007-智娜，客服女声（精品）</li><li>101008-智琪，客服女声（精品）</li><li>101009-智芸，知性女声（精品）</li><li>101010-智华，通用男声（精品）</li><li>101011-智燕，新闻女声</li><li>101012-智丹，新闻女声</li><li>101013-智辉，新闻男声</li><li>101014-智宁，新闻男声</li><li>101015-智萌，男童声</li><li>101016-智甜，女童声</li><li>101017-智蓉，情感女声（精品）</li><li>101018-智靖，情感男声（精品）</li><li>101019-智彤，粤语女声</li><li>101050-WeJack，英文男声（精品）</li><li>101051-WeRose，英文女声（精品）</li>
      */
     public void setVoiceType(Long VoiceType) {
         this.VoiceType = VoiceType;
@@ -247,20 +247,61 @@ public class TextToVoiceRequest extends AbstractModel{
     }
 
     /**
-     * Get 返回音频格式，可取值：wav（默认），mp3 
-     * @return Codec 返回音频格式，可取值：wav（默认），mp3
+     * Get 返回音频格式，可取值：wav（默认），mp3，pcm 
+     * @return Codec 返回音频格式，可取值：wav（默认），mp3，pcm
      */
     public String getCodec() {
         return this.Codec;
     }
 
     /**
-     * Set 返回音频格式，可取值：wav（默认），mp3
-     * @param Codec 返回音频格式，可取值：wav（默认），mp3
+     * Set 返回音频格式，可取值：wav（默认），mp3，pcm
+     * @param Codec 返回音频格式，可取值：wav（默认），mp3，pcm
      */
     public void setCodec(String Codec) {
         this.Codec = Codec;
     }
+
+    public TextToVoiceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public TextToVoiceRequest(TextToVoiceRequest source) {
+        if (source.Text != null) {
+            this.Text = new String(source.Text);
+        }
+        if (source.SessionId != null) {
+            this.SessionId = new String(source.SessionId);
+        }
+        if (source.ModelType != null) {
+            this.ModelType = new Long(source.ModelType);
+        }
+        if (source.Volume != null) {
+            this.Volume = new Float(source.Volume);
+        }
+        if (source.Speed != null) {
+            this.Speed = new Float(source.Speed);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.VoiceType != null) {
+            this.VoiceType = new Long(source.VoiceType);
+        }
+        if (source.PrimaryLanguage != null) {
+            this.PrimaryLanguage = new Long(source.PrimaryLanguage);
+        }
+        if (source.SampleRate != null) {
+            this.SampleRate = new Long(source.SampleRate);
+        }
+        if (source.Codec != null) {
+            this.Codec = new String(source.Codec);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

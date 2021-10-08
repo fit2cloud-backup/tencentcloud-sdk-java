@@ -48,7 +48,7 @@ public class ExportVideoEditProjectRequest extends AbstractModel{
 
     /**
     * 导出目标。
-<li>CME：云剪，即导出为云剪素材；</li>
+<li>CME：云剪，即导出为云剪媒体；</li>
 <li>VOD：云点播，即导出为云点播媒资。</li>
     */
     @SerializedName("ExportDestination")
@@ -56,18 +56,32 @@ public class ExportVideoEditProjectRequest extends AbstractModel{
     private String ExportDestination;
 
     /**
-    * 导出的云剪素材信息。指定 ExportDestination = CME 时有效。
+    * 视频封面图片文件（如 jpeg, png 等）进行 Base64 编码后的字符串，仅支持 gif、jpeg、png 三种图片格式，原图片文件不能超过2 M大 小。
+    */
+    @SerializedName("CoverData")
+    @Expose
+    private String CoverData;
+
+    /**
+    * 导出的云剪媒体信息。当导出目标为 CME 时必填。
     */
     @SerializedName("CMEExportInfo")
     @Expose
     private CMEExportInfo CMEExportInfo;
 
     /**
-    * 导出的云点播媒资信息。指定 ExportDestination = VOD 时有效。
+    * 导出的云点播媒资信息。当导出目标为 VOD 时必填。
     */
     @SerializedName("VODExportInfo")
     @Expose
     private VODExportInfo VODExportInfo;
+
+    /**
+    * 操作者。填写用户的 Id，用于标识调用者及校验项目导出权限。
+    */
+    @SerializedName("Operator")
+    @Expose
+    private String Operator;
 
     /**
      * Get 平台名称，指定访问的平台。 
@@ -131,10 +145,10 @@ public class ExportVideoEditProjectRequest extends AbstractModel{
 
     /**
      * Get 导出目标。
-<li>CME：云剪，即导出为云剪素材；</li>
+<li>CME：云剪，即导出为云剪媒体；</li>
 <li>VOD：云点播，即导出为云点播媒资。</li> 
      * @return ExportDestination 导出目标。
-<li>CME：云剪，即导出为云剪素材；</li>
+<li>CME：云剪，即导出为云剪媒体；</li>
 <li>VOD：云点播，即导出为云点播媒资。</li>
      */
     public String getExportDestination() {
@@ -143,10 +157,10 @@ public class ExportVideoEditProjectRequest extends AbstractModel{
 
     /**
      * Set 导出目标。
-<li>CME：云剪，即导出为云剪素材；</li>
+<li>CME：云剪，即导出为云剪媒体；</li>
 <li>VOD：云点播，即导出为云点播媒资。</li>
      * @param ExportDestination 导出目标。
-<li>CME：云剪，即导出为云剪素材；</li>
+<li>CME：云剪，即导出为云剪媒体；</li>
 <li>VOD：云点播，即导出为云点播媒资。</li>
      */
     public void setExportDestination(String ExportDestination) {
@@ -154,36 +168,103 @@ public class ExportVideoEditProjectRequest extends AbstractModel{
     }
 
     /**
-     * Get 导出的云剪素材信息。指定 ExportDestination = CME 时有效。 
-     * @return CMEExportInfo 导出的云剪素材信息。指定 ExportDestination = CME 时有效。
+     * Get 视频封面图片文件（如 jpeg, png 等）进行 Base64 编码后的字符串，仅支持 gif、jpeg、png 三种图片格式，原图片文件不能超过2 M大 小。 
+     * @return CoverData 视频封面图片文件（如 jpeg, png 等）进行 Base64 编码后的字符串，仅支持 gif、jpeg、png 三种图片格式，原图片文件不能超过2 M大 小。
+     */
+    public String getCoverData() {
+        return this.CoverData;
+    }
+
+    /**
+     * Set 视频封面图片文件（如 jpeg, png 等）进行 Base64 编码后的字符串，仅支持 gif、jpeg、png 三种图片格式，原图片文件不能超过2 M大 小。
+     * @param CoverData 视频封面图片文件（如 jpeg, png 等）进行 Base64 编码后的字符串，仅支持 gif、jpeg、png 三种图片格式，原图片文件不能超过2 M大 小。
+     */
+    public void setCoverData(String CoverData) {
+        this.CoverData = CoverData;
+    }
+
+    /**
+     * Get 导出的云剪媒体信息。当导出目标为 CME 时必填。 
+     * @return CMEExportInfo 导出的云剪媒体信息。当导出目标为 CME 时必填。
      */
     public CMEExportInfo getCMEExportInfo() {
         return this.CMEExportInfo;
     }
 
     /**
-     * Set 导出的云剪素材信息。指定 ExportDestination = CME 时有效。
-     * @param CMEExportInfo 导出的云剪素材信息。指定 ExportDestination = CME 时有效。
+     * Set 导出的云剪媒体信息。当导出目标为 CME 时必填。
+     * @param CMEExportInfo 导出的云剪媒体信息。当导出目标为 CME 时必填。
      */
     public void setCMEExportInfo(CMEExportInfo CMEExportInfo) {
         this.CMEExportInfo = CMEExportInfo;
     }
 
     /**
-     * Get 导出的云点播媒资信息。指定 ExportDestination = VOD 时有效。 
-     * @return VODExportInfo 导出的云点播媒资信息。指定 ExportDestination = VOD 时有效。
+     * Get 导出的云点播媒资信息。当导出目标为 VOD 时必填。 
+     * @return VODExportInfo 导出的云点播媒资信息。当导出目标为 VOD 时必填。
      */
     public VODExportInfo getVODExportInfo() {
         return this.VODExportInfo;
     }
 
     /**
-     * Set 导出的云点播媒资信息。指定 ExportDestination = VOD 时有效。
-     * @param VODExportInfo 导出的云点播媒资信息。指定 ExportDestination = VOD 时有效。
+     * Set 导出的云点播媒资信息。当导出目标为 VOD 时必填。
+     * @param VODExportInfo 导出的云点播媒资信息。当导出目标为 VOD 时必填。
      */
     public void setVODExportInfo(VODExportInfo VODExportInfo) {
         this.VODExportInfo = VODExportInfo;
     }
+
+    /**
+     * Get 操作者。填写用户的 Id，用于标识调用者及校验项目导出权限。 
+     * @return Operator 操作者。填写用户的 Id，用于标识调用者及校验项目导出权限。
+     */
+    public String getOperator() {
+        return this.Operator;
+    }
+
+    /**
+     * Set 操作者。填写用户的 Id，用于标识调用者及校验项目导出权限。
+     * @param Operator 操作者。填写用户的 Id，用于标识调用者及校验项目导出权限。
+     */
+    public void setOperator(String Operator) {
+        this.Operator = Operator;
+    }
+
+    public ExportVideoEditProjectRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ExportVideoEditProjectRequest(ExportVideoEditProjectRequest source) {
+        if (source.Platform != null) {
+            this.Platform = new String(source.Platform);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
+        }
+        if (source.Definition != null) {
+            this.Definition = new Long(source.Definition);
+        }
+        if (source.ExportDestination != null) {
+            this.ExportDestination = new String(source.ExportDestination);
+        }
+        if (source.CoverData != null) {
+            this.CoverData = new String(source.CoverData);
+        }
+        if (source.CMEExportInfo != null) {
+            this.CMEExportInfo = new CMEExportInfo(source.CMEExportInfo);
+        }
+        if (source.VODExportInfo != null) {
+            this.VODExportInfo = new VODExportInfo(source.VODExportInfo);
+        }
+        if (source.Operator != null) {
+            this.Operator = new String(source.Operator);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -193,8 +274,10 @@ public class ExportVideoEditProjectRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamSimple(map, prefix + "Definition", this.Definition);
         this.setParamSimple(map, prefix + "ExportDestination", this.ExportDestination);
+        this.setParamSimple(map, prefix + "CoverData", this.CoverData);
         this.setParamObj(map, prefix + "CMEExportInfo.", this.CMEExportInfo);
         this.setParamObj(map, prefix + "VODExportInfo.", this.VODExportInfo);
+        this.setParamSimple(map, prefix + "Operator", this.Operator);
 
     }
 }

@@ -23,6 +23,13 @@ import java.util.HashMap;
 public class VerifyPersonRequest extends AbstractModel{
 
     /**
+    * 待验证的人员ID。人员ID具体信息请参考人员库管理相关接口。
+    */
+    @SerializedName("PersonId")
+    @Expose
+    private String PersonId;
+
+    /**
     * 图片 base64 数据。
 若图片中包含多张人脸，只选取其中人脸面积最大的人脸。
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
@@ -43,13 +50,6 @@ public class VerifyPersonRequest extends AbstractModel{
     private String Url;
 
     /**
-    * 待验证的人员ID。人员ID具体信息请参考人员库管理相关接口。
-    */
-    @SerializedName("PersonId")
-    @Expose
-    private String PersonId;
-
-    /**
     * 图片质量控制。 
 0: 不进行控制； 
 1:较低的质量要求，图像存在非常模糊，眼睛鼻子嘴巴遮挡至少其中一种或多种的情况； 
@@ -62,6 +62,29 @@ public class VerifyPersonRequest extends AbstractModel{
     @SerializedName("QualityControl")
     @Expose
     private Long QualityControl;
+
+    /**
+    * 是否开启图片旋转识别支持。0为不开启，1为开启。默认为0。本参数的作用为，当图片中的人脸被旋转且图片没有exif信息时，如果不开启图片旋转识别支持则无法正确检测、识别图片中的人脸。若您确认图片包含exif信息或者您确认输入图中人脸不会出现被旋转情况，请不要开启本参数。开启后，整体耗时将可能增加数百毫秒。
+    */
+    @SerializedName("NeedRotateDetection")
+    @Expose
+    private Long NeedRotateDetection;
+
+    /**
+     * Get 待验证的人员ID。人员ID具体信息请参考人员库管理相关接口。 
+     * @return PersonId 待验证的人员ID。人员ID具体信息请参考人员库管理相关接口。
+     */
+    public String getPersonId() {
+        return this.PersonId;
+    }
+
+    /**
+     * Set 待验证的人员ID。人员ID具体信息请参考人员库管理相关接口。
+     * @param PersonId 待验证的人员ID。人员ID具体信息请参考人员库管理相关接口。
+     */
+    public void setPersonId(String PersonId) {
+        this.PersonId = PersonId;
+    }
 
     /**
      * Get 图片 base64 数据。
@@ -120,22 +143,6 @@ public class VerifyPersonRequest extends AbstractModel{
     }
 
     /**
-     * Get 待验证的人员ID。人员ID具体信息请参考人员库管理相关接口。 
-     * @return PersonId 待验证的人员ID。人员ID具体信息请参考人员库管理相关接口。
-     */
-    public String getPersonId() {
-        return this.PersonId;
-    }
-
-    /**
-     * Set 待验证的人员ID。人员ID具体信息请参考人员库管理相关接口。
-     * @param PersonId 待验证的人员ID。人员ID具体信息请参考人员库管理相关接口。
-     */
-    public void setPersonId(String PersonId) {
-        this.PersonId = PersonId;
-    }
-
-    /**
      * Get 图片质量控制。 
 0: 不进行控制； 
 1:较低的质量要求，图像存在非常模糊，眼睛鼻子嘴巴遮挡至少其中一种或多种的情况； 
@@ -180,13 +187,56 @@ public class VerifyPersonRequest extends AbstractModel{
     }
 
     /**
+     * Get 是否开启图片旋转识别支持。0为不开启，1为开启。默认为0。本参数的作用为，当图片中的人脸被旋转且图片没有exif信息时，如果不开启图片旋转识别支持则无法正确检测、识别图片中的人脸。若您确认图片包含exif信息或者您确认输入图中人脸不会出现被旋转情况，请不要开启本参数。开启后，整体耗时将可能增加数百毫秒。 
+     * @return NeedRotateDetection 是否开启图片旋转识别支持。0为不开启，1为开启。默认为0。本参数的作用为，当图片中的人脸被旋转且图片没有exif信息时，如果不开启图片旋转识别支持则无法正确检测、识别图片中的人脸。若您确认图片包含exif信息或者您确认输入图中人脸不会出现被旋转情况，请不要开启本参数。开启后，整体耗时将可能增加数百毫秒。
+     */
+    public Long getNeedRotateDetection() {
+        return this.NeedRotateDetection;
+    }
+
+    /**
+     * Set 是否开启图片旋转识别支持。0为不开启，1为开启。默认为0。本参数的作用为，当图片中的人脸被旋转且图片没有exif信息时，如果不开启图片旋转识别支持则无法正确检测、识别图片中的人脸。若您确认图片包含exif信息或者您确认输入图中人脸不会出现被旋转情况，请不要开启本参数。开启后，整体耗时将可能增加数百毫秒。
+     * @param NeedRotateDetection 是否开启图片旋转识别支持。0为不开启，1为开启。默认为0。本参数的作用为，当图片中的人脸被旋转且图片没有exif信息时，如果不开启图片旋转识别支持则无法正确检测、识别图片中的人脸。若您确认图片包含exif信息或者您确认输入图中人脸不会出现被旋转情况，请不要开启本参数。开启后，整体耗时将可能增加数百毫秒。
+     */
+    public void setNeedRotateDetection(Long NeedRotateDetection) {
+        this.NeedRotateDetection = NeedRotateDetection;
+    }
+
+    public VerifyPersonRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public VerifyPersonRequest(VerifyPersonRequest source) {
+        if (source.PersonId != null) {
+            this.PersonId = new String(source.PersonId);
+        }
+        if (source.Image != null) {
+            this.Image = new String(source.Image);
+        }
+        if (source.Url != null) {
+            this.Url = new String(source.Url);
+        }
+        if (source.QualityControl != null) {
+            this.QualityControl = new Long(source.QualityControl);
+        }
+        if (source.NeedRotateDetection != null) {
+            this.NeedRotateDetection = new Long(source.NeedRotateDetection);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "PersonId", this.PersonId);
         this.setParamSimple(map, prefix + "Image", this.Image);
         this.setParamSimple(map, prefix + "Url", this.Url);
-        this.setParamSimple(map, prefix + "PersonId", this.PersonId);
         this.setParamSimple(map, prefix + "QualityControl", this.QualityControl);
+        this.setParamSimple(map, prefix + "NeedRotateDetection", this.NeedRotateDetection);
 
     }
 }

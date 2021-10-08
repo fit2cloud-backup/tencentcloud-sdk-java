@@ -30,6 +30,14 @@ public class MediaAiAnalysisFrameTagItem extends AbstractModel{
     private String Tag;
 
     /**
+    * 按帧标签名称的分类列表，CategorySet.N 表示第 N+1级分类。
+比如 Tag 为“塔楼”时，CategorySet 包含两个元素：CategorySet.0 为“场景”，CategorySet.1为 “建筑”，表示按帧标签为“塔楼”，且第1级分类是“场景”，第2级分类是“建筑”。
+    */
+    @SerializedName("CategorySet")
+    @Expose
+    private String [] CategorySet;
+
+    /**
     * 按帧标签的可信度，取值范围是 0 到 100。
     */
     @SerializedName("Confidence")
@@ -53,6 +61,26 @@ public class MediaAiAnalysisFrameTagItem extends AbstractModel{
     }
 
     /**
+     * Get 按帧标签名称的分类列表，CategorySet.N 表示第 N+1级分类。
+比如 Tag 为“塔楼”时，CategorySet 包含两个元素：CategorySet.0 为“场景”，CategorySet.1为 “建筑”，表示按帧标签为“塔楼”，且第1级分类是“场景”，第2级分类是“建筑”。 
+     * @return CategorySet 按帧标签名称的分类列表，CategorySet.N 表示第 N+1级分类。
+比如 Tag 为“塔楼”时，CategorySet 包含两个元素：CategorySet.0 为“场景”，CategorySet.1为 “建筑”，表示按帧标签为“塔楼”，且第1级分类是“场景”，第2级分类是“建筑”。
+     */
+    public String [] getCategorySet() {
+        return this.CategorySet;
+    }
+
+    /**
+     * Set 按帧标签名称的分类列表，CategorySet.N 表示第 N+1级分类。
+比如 Tag 为“塔楼”时，CategorySet 包含两个元素：CategorySet.0 为“场景”，CategorySet.1为 “建筑”，表示按帧标签为“塔楼”，且第1级分类是“场景”，第2级分类是“建筑”。
+     * @param CategorySet 按帧标签名称的分类列表，CategorySet.N 表示第 N+1级分类。
+比如 Tag 为“塔楼”时，CategorySet 包含两个元素：CategorySet.0 为“场景”，CategorySet.1为 “建筑”，表示按帧标签为“塔楼”，且第1级分类是“场景”，第2级分类是“建筑”。
+     */
+    public void setCategorySet(String [] CategorySet) {
+        this.CategorySet = CategorySet;
+    }
+
+    /**
      * Get 按帧标签的可信度，取值范围是 0 到 100。 
      * @return Confidence 按帧标签的可信度，取值范围是 0 到 100。
      */
@@ -68,11 +96,35 @@ public class MediaAiAnalysisFrameTagItem extends AbstractModel{
         this.Confidence = Confidence;
     }
 
+    public MediaAiAnalysisFrameTagItem() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MediaAiAnalysisFrameTagItem(MediaAiAnalysisFrameTagItem source) {
+        if (source.Tag != null) {
+            this.Tag = new String(source.Tag);
+        }
+        if (source.CategorySet != null) {
+            this.CategorySet = new String[source.CategorySet.length];
+            for (int i = 0; i < source.CategorySet.length; i++) {
+                this.CategorySet[i] = new String(source.CategorySet[i]);
+            }
+        }
+        if (source.Confidence != null) {
+            this.Confidence = new Float(source.Confidence);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Tag", this.Tag);
+        this.setParamArraySimple(map, prefix + "CategorySet.", this.CategorySet);
         this.setParamSimple(map, prefix + "Confidence", this.Confidence);
 
     }

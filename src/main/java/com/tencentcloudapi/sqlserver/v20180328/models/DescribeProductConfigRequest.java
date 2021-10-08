@@ -30,6 +30,13 @@ public class DescribeProductConfigRequest extends AbstractModel{
     private String Zone;
 
     /**
+    * 购买实例的类型 HA-高可用型(包括双机高可用，alwaysOn集群)，RO-只读副本型，SI-基础版本型
+    */
+    @SerializedName("InstanceType")
+    @Expose
+    private String InstanceType;
+
+    /**
      * Get 可用区英文ID，形如ap-guangzhou-1 
      * @return Zone 可用区英文ID，形如ap-guangzhou-1
      */
@@ -46,10 +53,44 @@ public class DescribeProductConfigRequest extends AbstractModel{
     }
 
     /**
+     * Get 购买实例的类型 HA-高可用型(包括双机高可用，alwaysOn集群)，RO-只读副本型，SI-基础版本型 
+     * @return InstanceType 购买实例的类型 HA-高可用型(包括双机高可用，alwaysOn集群)，RO-只读副本型，SI-基础版本型
+     */
+    public String getInstanceType() {
+        return this.InstanceType;
+    }
+
+    /**
+     * Set 购买实例的类型 HA-高可用型(包括双机高可用，alwaysOn集群)，RO-只读副本型，SI-基础版本型
+     * @param InstanceType 购买实例的类型 HA-高可用型(包括双机高可用，alwaysOn集群)，RO-只读副本型，SI-基础版本型
+     */
+    public void setInstanceType(String InstanceType) {
+        this.InstanceType = InstanceType;
+    }
+
+    public DescribeProductConfigRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeProductConfigRequest(DescribeProductConfigRequest source) {
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.InstanceType != null) {
+            this.InstanceType = new String(source.InstanceType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Zone", this.Zone);
+        this.setParamSimple(map, prefix + "InstanceType", this.InstanceType);
 
     }
 }

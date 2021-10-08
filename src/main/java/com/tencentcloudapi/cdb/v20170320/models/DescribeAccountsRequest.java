@@ -44,6 +44,13 @@ public class DescribeAccountsRequest extends AbstractModel{
     private Long Limit;
 
     /**
+    * 匹配账号名的正则表达式，规则同 MySQL 官网。
+    */
+    @SerializedName("AccountRegexp")
+    @Expose
+    private String AccountRegexp;
+
+    /**
      * Get 实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。 
      * @return InstanceId 实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
      */
@@ -92,12 +99,52 @@ public class DescribeAccountsRequest extends AbstractModel{
     }
 
     /**
+     * Get 匹配账号名的正则表达式，规则同 MySQL 官网。 
+     * @return AccountRegexp 匹配账号名的正则表达式，规则同 MySQL 官网。
+     */
+    public String getAccountRegexp() {
+        return this.AccountRegexp;
+    }
+
+    /**
+     * Set 匹配账号名的正则表达式，规则同 MySQL 官网。
+     * @param AccountRegexp 匹配账号名的正则表达式，规则同 MySQL 官网。
+     */
+    public void setAccountRegexp(String AccountRegexp) {
+        this.AccountRegexp = AccountRegexp;
+    }
+
+    public DescribeAccountsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeAccountsRequest(DescribeAccountsRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.AccountRegexp != null) {
+            this.AccountRegexp = new String(source.AccountRegexp);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamSimple(map, prefix + "AccountRegexp", this.AccountRegexp);
 
     }
 }

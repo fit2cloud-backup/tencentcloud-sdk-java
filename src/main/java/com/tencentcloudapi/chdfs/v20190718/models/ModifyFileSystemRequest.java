@@ -44,7 +44,7 @@ public class ModifyFileSystemRequest extends AbstractModel{
     private String Description;
 
     /**
-    * 文件系统容量（byte），下限为1M，上限为1P，且必须是1M的整数倍
+    * 文件系统容量（byte），下限为1G，上限为1P，且必须是1G的整数倍
 注意：修改的文件系统容量不能小于当前使用量
     */
     @SerializedName("CapacityQuota")
@@ -100,9 +100,9 @@ public class ModifyFileSystemRequest extends AbstractModel{
     }
 
     /**
-     * Get 文件系统容量（byte），下限为1M，上限为1P，且必须是1M的整数倍
+     * Get 文件系统容量（byte），下限为1G，上限为1P，且必须是1G的整数倍
 注意：修改的文件系统容量不能小于当前使用量 
-     * @return CapacityQuota 文件系统容量（byte），下限为1M，上限为1P，且必须是1M的整数倍
+     * @return CapacityQuota 文件系统容量（byte），下限为1G，上限为1P，且必须是1G的整数倍
 注意：修改的文件系统容量不能小于当前使用量
      */
     public Long getCapacityQuota() {
@@ -110,14 +110,37 @@ public class ModifyFileSystemRequest extends AbstractModel{
     }
 
     /**
-     * Set 文件系统容量（byte），下限为1M，上限为1P，且必须是1M的整数倍
+     * Set 文件系统容量（byte），下限为1G，上限为1P，且必须是1G的整数倍
 注意：修改的文件系统容量不能小于当前使用量
-     * @param CapacityQuota 文件系统容量（byte），下限为1M，上限为1P，且必须是1M的整数倍
+     * @param CapacityQuota 文件系统容量（byte），下限为1G，上限为1P，且必须是1G的整数倍
 注意：修改的文件系统容量不能小于当前使用量
      */
     public void setCapacityQuota(Long CapacityQuota) {
         this.CapacityQuota = CapacityQuota;
     }
+
+    public ModifyFileSystemRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyFileSystemRequest(ModifyFileSystemRequest source) {
+        if (source.FileSystemId != null) {
+            this.FileSystemId = new String(source.FileSystemId);
+        }
+        if (source.FileSystemName != null) {
+            this.FileSystemName = new String(source.FileSystemName);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.CapacityQuota != null) {
+            this.CapacityQuota = new Long(source.CapacityQuota);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

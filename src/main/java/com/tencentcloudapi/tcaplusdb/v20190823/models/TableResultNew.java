@@ -87,6 +87,14 @@ public class TableResultNew extends AbstractModel{
     private String [] TaskIds;
 
     /**
+    * 腾讯云申请审核单Id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ApplicationId")
+    @Expose
+    private String ApplicationId;
+
+    /**
      * Get 表格实例ID，形如：tcaplus-3be64cbb
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return TableInstanceId 表格实例ID，形如：tcaplus-3be64cbb
@@ -247,6 +255,67 @@ public class TableResultNew extends AbstractModel{
     }
 
     /**
+     * Get 腾讯云申请审核单Id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ApplicationId 腾讯云申请审核单Id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getApplicationId() {
+        return this.ApplicationId;
+    }
+
+    /**
+     * Set 腾讯云申请审核单Id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ApplicationId 腾讯云申请审核单Id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setApplicationId(String ApplicationId) {
+        this.ApplicationId = ApplicationId;
+    }
+
+    public TableResultNew() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public TableResultNew(TableResultNew source) {
+        if (source.TableInstanceId != null) {
+            this.TableInstanceId = new String(source.TableInstanceId);
+        }
+        if (source.TaskId != null) {
+            this.TaskId = new String(source.TaskId);
+        }
+        if (source.TableName != null) {
+            this.TableName = new String(source.TableName);
+        }
+        if (source.TableType != null) {
+            this.TableType = new String(source.TableType);
+        }
+        if (source.TableIdlType != null) {
+            this.TableIdlType = new String(source.TableIdlType);
+        }
+        if (source.TableGroupId != null) {
+            this.TableGroupId = new String(source.TableGroupId);
+        }
+        if (source.Error != null) {
+            this.Error = new ErrorInfo(source.Error);
+        }
+        if (source.TaskIds != null) {
+            this.TaskIds = new String[source.TaskIds.length];
+            for (int i = 0; i < source.TaskIds.length; i++) {
+                this.TaskIds[i] = new String(source.TaskIds[i]);
+            }
+        }
+        if (source.ApplicationId != null) {
+            this.ApplicationId = new String(source.ApplicationId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -258,6 +327,7 @@ public class TableResultNew extends AbstractModel{
         this.setParamSimple(map, prefix + "TableGroupId", this.TableGroupId);
         this.setParamObj(map, prefix + "Error.", this.Error);
         this.setParamArraySimple(map, prefix + "TaskIds.", this.TaskIds);
+        this.setParamSimple(map, prefix + "ApplicationId", this.ApplicationId);
 
     }
 }

@@ -37,6 +37,13 @@ public class DescribeDBDiagEventRequest extends AbstractModel{
     private Long EventId;
 
     /**
+    * 服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 CynosDB  for MySQL，默认为"mysql"。
+    */
+    @SerializedName("Product")
+    @Expose
+    private String Product;
+
+    /**
      * Get 实例 ID 。 
      * @return InstanceId 实例 ID 。
      */
@@ -69,11 +76,48 @@ public class DescribeDBDiagEventRequest extends AbstractModel{
     }
 
     /**
+     * Get 服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 CynosDB  for MySQL，默认为"mysql"。 
+     * @return Product 服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 CynosDB  for MySQL，默认为"mysql"。
+     */
+    public String getProduct() {
+        return this.Product;
+    }
+
+    /**
+     * Set 服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 CynosDB  for MySQL，默认为"mysql"。
+     * @param Product 服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 CynosDB  for MySQL，默认为"mysql"。
+     */
+    public void setProduct(String Product) {
+        this.Product = Product;
+    }
+
+    public DescribeDBDiagEventRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeDBDiagEventRequest(DescribeDBDiagEventRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.EventId != null) {
+            this.EventId = new Long(source.EventId);
+        }
+        if (source.Product != null) {
+            this.Product = new String(source.Product);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "EventId", this.EventId);
+        this.setParamSimple(map, prefix + "Product", this.Product);
 
     }
 }

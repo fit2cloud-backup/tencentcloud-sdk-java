@@ -27,6 +27,7 @@ import com.tencentcloudapi.soe.v20180724.models.*;
 
 public class SoeClient extends AbstractClient{
     private static String endpoint = "soe.tencentcloudapi.com";
+    private static String service = "soe";
     private static String version = "2018-07-24";
 
     public SoeClient(Credential credential, String region) {
@@ -45,12 +46,14 @@ public class SoeClient extends AbstractClient{
      */
     public InitOralProcessResponse InitOralProcess(InitOralProcessRequest req) throws TencentCloudSDKException{
         JsonResponseModel<InitOralProcessResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<InitOralProcessResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "InitOralProcess"), type);
+                rspStr = this.internalRequest(req, "InitOralProcess");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -63,48 +66,54 @@ public class SoeClient extends AbstractClient{
      */
     public KeywordEvaluateResponse KeywordEvaluate(KeywordEvaluateRequest req) throws TencentCloudSDKException{
         JsonResponseModel<KeywordEvaluateResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<KeywordEvaluateResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "KeywordEvaluate"), type);
+                rspStr = this.internalRequest(req, "KeywordEvaluate");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
 
     /**
-     *传输音频数据，必须在完成发音评估初始化接口之后调用，且SessonId要与初始化接口保持一致。分片传输时，尽量保证SeqId顺序传输。音频源目前仅支持16k采样率16bit单声道编码方式，如有不一致可能导致评估不准确或失败。
+     *本接口可用于中英文发音评测数据传输。在使用本接口时需要注意：传输音频数据，必须在完成发音评估初始化接口之后调用，且SessonId要与初始化接口保持一致。分片传输时，尽量保证SeqId顺序传输（请确认SeqId由1开始）。音频源目前仅支持16k采样率16bit单声道编码方式，如有不一致可能导致评估不准确或失败。
      * @param req TransmitOralProcessRequest
      * @return TransmitOralProcessResponse
      * @throws TencentCloudSDKException
      */
     public TransmitOralProcessResponse TransmitOralProcess(TransmitOralProcessRequest req) throws TencentCloudSDKException{
         JsonResponseModel<TransmitOralProcessResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<TransmitOralProcessResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "TransmitOralProcess"), type);
+                rspStr = this.internalRequest(req, "TransmitOralProcess");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
 
     /**
-     *初始化并传输音频数据，分片传输时，尽量保证SeqId顺序传输。音频源目前仅支持16k采样率16bit单声道编码方式，如有不一致可能导致评估不准确或失败。
+     *本接口可用于中英文发音评测。在使用本接口时需要注意：初始化并传输音频数据，分片传输时，尽量保证SeqId顺序传输（请确认SeqId由1开始）。音频源目前仅支持16k采样率16bit单声道编码方式，如有不一致可能导致评估不准确或失败。
      * @param req TransmitOralProcessWithInitRequest
      * @return TransmitOralProcessWithInitResponse
      * @throws TencentCloudSDKException
      */
     public TransmitOralProcessWithInitResponse TransmitOralProcessWithInit(TransmitOralProcessWithInitRequest req) throws TencentCloudSDKException{
         JsonResponseModel<TransmitOralProcessWithInitResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<TransmitOralProcessWithInitResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "TransmitOralProcessWithInit"), type);
+                rspStr = this.internalRequest(req, "TransmitOralProcessWithInit");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

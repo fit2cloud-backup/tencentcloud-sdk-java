@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class ClusterInstancesInfo extends AbstractModel{
 
     /**
-    * ID
+    * ID号
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Id")
@@ -274,9 +274,25 @@ public class ClusterInstancesInfo extends AbstractModel{
     private String AliasInfo;
 
     /**
-     * Get ID
+    * 集群版本Id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ProductId")
+    @Expose
+    private Long ProductId;
+
+    /**
+    * 地区ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Zone")
+    @Expose
+    private String Zone;
+
+    /**
+     * Get ID号
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Id ID
+     * @return Id ID号
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getId() {
@@ -284,9 +300,9 @@ public class ClusterInstancesInfo extends AbstractModel{
     }
 
     /**
-     * Set ID
+     * Set ID号
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Id ID
+     * @param Id ID号
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setId(Long Id) {
@@ -942,6 +958,150 @@ public class ClusterInstancesInfo extends AbstractModel{
     }
 
     /**
+     * Get 集群版本Id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ProductId 集群版本Id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getProductId() {
+        return this.ProductId;
+    }
+
+    /**
+     * Set 集群版本Id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ProductId 集群版本Id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setProductId(Long ProductId) {
+        this.ProductId = ProductId;
+    }
+
+    /**
+     * Get 地区ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Zone 地区ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getZone() {
+        return this.Zone;
+    }
+
+    /**
+     * Set 地区ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Zone 地区ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setZone(String Zone) {
+        this.Zone = Zone;
+    }
+
+    public ClusterInstancesInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ClusterInstancesInfo(ClusterInstancesInfo source) {
+        if (source.Id != null) {
+            this.Id = new Long(source.Id);
+        }
+        if (source.ClusterId != null) {
+            this.ClusterId = new String(source.ClusterId);
+        }
+        if (source.Ftitle != null) {
+            this.Ftitle = new String(source.Ftitle);
+        }
+        if (source.ClusterName != null) {
+            this.ClusterName = new String(source.ClusterName);
+        }
+        if (source.RegionId != null) {
+            this.RegionId = new Long(source.RegionId);
+        }
+        if (source.ZoneId != null) {
+            this.ZoneId = new Long(source.ZoneId);
+        }
+        if (source.AppId != null) {
+            this.AppId = new Long(source.AppId);
+        }
+        if (source.Uin != null) {
+            this.Uin = new String(source.Uin);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new Long(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new Long(source.SubnetId);
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+        if (source.AddTime != null) {
+            this.AddTime = new String(source.AddTime);
+        }
+        if (source.RunTime != null) {
+            this.RunTime = new String(source.RunTime);
+        }
+        if (source.Config != null) {
+            this.Config = new EmrProductConfigOutter(source.Config);
+        }
+        if (source.MasterIp != null) {
+            this.MasterIp = new String(source.MasterIp);
+        }
+        if (source.EmrVersion != null) {
+            this.EmrVersion = new String(source.EmrVersion);
+        }
+        if (source.ChargeType != null) {
+            this.ChargeType = new Long(source.ChargeType);
+        }
+        if (source.TradeVersion != null) {
+            this.TradeVersion = new Long(source.TradeVersion);
+        }
+        if (source.ResourceOrderId != null) {
+            this.ResourceOrderId = new Long(source.ResourceOrderId);
+        }
+        if (source.IsTradeCluster != null) {
+            this.IsTradeCluster = new Long(source.IsTradeCluster);
+        }
+        if (source.AlarmInfo != null) {
+            this.AlarmInfo = new String(source.AlarmInfo);
+        }
+        if (source.IsWoodpeckerCluster != null) {
+            this.IsWoodpeckerCluster = new Long(source.IsWoodpeckerCluster);
+        }
+        if (source.MetaDb != null) {
+            this.MetaDb = new String(source.MetaDb);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.HiveMetaDb != null) {
+            this.HiveMetaDb = new String(source.HiveMetaDb);
+        }
+        if (source.ServiceClass != null) {
+            this.ServiceClass = new String(source.ServiceClass);
+        }
+        if (source.AliasInfo != null) {
+            this.AliasInfo = new String(source.AliasInfo);
+        }
+        if (source.ProductId != null) {
+            this.ProductId = new Long(source.ProductId);
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -973,6 +1133,8 @@ public class ClusterInstancesInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "HiveMetaDb", this.HiveMetaDb);
         this.setParamSimple(map, prefix + "ServiceClass", this.ServiceClass);
         this.setParamSimple(map, prefix + "AliasInfo", this.AliasInfo);
+        this.setParamSimple(map, prefix + "ProductId", this.ProductId);
+        this.setParamSimple(map, prefix + "Zone", this.Zone);
 
     }
 }

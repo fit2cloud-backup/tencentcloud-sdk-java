@@ -72,6 +72,14 @@ public class Vocab extends AbstractModel{
     private Long State;
 
     /**
+    * 标签数组
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TagInfos")
+    @Expose
+    private String [] TagInfos;
+
+    /**
      * Get 热词表名称 
      * @return Name 热词表名称
      */
@@ -184,6 +192,67 @@ public class Vocab extends AbstractModel{
     }
 
     /**
+     * Get 标签数组
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TagInfos 标签数组
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getTagInfos() {
+        return this.TagInfos;
+    }
+
+    /**
+     * Set 标签数组
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TagInfos 标签数组
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTagInfos(String [] TagInfos) {
+        this.TagInfos = TagInfos;
+    }
+
+    public Vocab() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Vocab(Vocab source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.VocabId != null) {
+            this.VocabId = new String(source.VocabId);
+        }
+        if (source.WordWeights != null) {
+            this.WordWeights = new HotWord[source.WordWeights.length];
+            for (int i = 0; i < source.WordWeights.length; i++) {
+                this.WordWeights[i] = new HotWord(source.WordWeights[i]);
+            }
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+        if (source.State != null) {
+            this.State = new Long(source.State);
+        }
+        if (source.TagInfos != null) {
+            this.TagInfos = new String[source.TagInfos.length];
+            for (int i = 0; i < source.TagInfos.length; i++) {
+                this.TagInfos[i] = new String(source.TagInfos[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -194,6 +263,7 @@ public class Vocab extends AbstractModel{
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
         this.setParamSimple(map, prefix + "State", this.State);
+        this.setParamArraySimple(map, prefix + "TagInfos.", this.TagInfos);
 
     }
 }

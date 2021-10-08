@@ -100,6 +100,14 @@ public class DescribeComputeEnvResponse extends AbstractModel{
     private Long AttachedComputeNodeCount;
 
     /**
+    * 计算环境绑定的标签列表。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -283,6 +291,26 @@ public class DescribeComputeEnvResponse extends AbstractModel{
     }
 
     /**
+     * Get 计算环境绑定的标签列表。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Tags 计算环境绑定的标签列表。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 计算环境绑定的标签列表。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Tags 计算环境绑定的标签列表。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -297,6 +325,62 @@ public class DescribeComputeEnvResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeComputeEnvResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeComputeEnvResponse(DescribeComputeEnvResponse source) {
+        if (source.EnvId != null) {
+            this.EnvId = new String(source.EnvId);
+        }
+        if (source.EnvName != null) {
+            this.EnvName = new String(source.EnvName);
+        }
+        if (source.Placement != null) {
+            this.Placement = new Placement(source.Placement);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.ComputeNodeSet != null) {
+            this.ComputeNodeSet = new ComputeNode[source.ComputeNodeSet.length];
+            for (int i = 0; i < source.ComputeNodeSet.length; i++) {
+                this.ComputeNodeSet[i] = new ComputeNode(source.ComputeNodeSet[i]);
+            }
+        }
+        if (source.ComputeNodeMetrics != null) {
+            this.ComputeNodeMetrics = new ComputeNodeMetrics(source.ComputeNodeMetrics);
+        }
+        if (source.DesiredComputeNodeCount != null) {
+            this.DesiredComputeNodeCount = new Long(source.DesiredComputeNodeCount);
+        }
+        if (source.EnvType != null) {
+            this.EnvType = new String(source.EnvType);
+        }
+        if (source.ResourceType != null) {
+            this.ResourceType = new String(source.ResourceType);
+        }
+        if (source.NextAction != null) {
+            this.NextAction = new String(source.NextAction);
+        }
+        if (source.AttachedComputeNodeCount != null) {
+            this.AttachedComputeNodeCount = new Long(source.AttachedComputeNodeCount);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -313,6 +397,7 @@ public class DescribeComputeEnvResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "ResourceType", this.ResourceType);
         this.setParamSimple(map, prefix + "NextAction", this.NextAction);
         this.setParamSimple(map, prefix + "AttachedComputeNodeCount", this.AttachedComputeNodeCount);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

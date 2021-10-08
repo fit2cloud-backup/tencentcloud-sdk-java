@@ -56,6 +56,20 @@ public class CreateDirectConnectGatewayRequest extends AbstractModel{
     private String GatewayType;
 
     /**
+    * 云联网路由发布模式，可选值：`standard`（标准模式）、`exquisite`（精细模式）。只有云联网类型专线网关才支持`ModeType`。
+    */
+    @SerializedName("ModeType")
+    @Expose
+    private String ModeType;
+
+    /**
+    * 专线网关可用区
+    */
+    @SerializedName("Zone")
+    @Expose
+    private String Zone;
+
+    /**
      * Get 专线网关名称 
      * @return DirectConnectGatewayName 专线网关名称
      */
@@ -140,6 +154,67 @@ public class CreateDirectConnectGatewayRequest extends AbstractModel{
     }
 
     /**
+     * Get 云联网路由发布模式，可选值：`standard`（标准模式）、`exquisite`（精细模式）。只有云联网类型专线网关才支持`ModeType`。 
+     * @return ModeType 云联网路由发布模式，可选值：`standard`（标准模式）、`exquisite`（精细模式）。只有云联网类型专线网关才支持`ModeType`。
+     */
+    public String getModeType() {
+        return this.ModeType;
+    }
+
+    /**
+     * Set 云联网路由发布模式，可选值：`standard`（标准模式）、`exquisite`（精细模式）。只有云联网类型专线网关才支持`ModeType`。
+     * @param ModeType 云联网路由发布模式，可选值：`standard`（标准模式）、`exquisite`（精细模式）。只有云联网类型专线网关才支持`ModeType`。
+     */
+    public void setModeType(String ModeType) {
+        this.ModeType = ModeType;
+    }
+
+    /**
+     * Get 专线网关可用区 
+     * @return Zone 专线网关可用区
+     */
+    public String getZone() {
+        return this.Zone;
+    }
+
+    /**
+     * Set 专线网关可用区
+     * @param Zone 专线网关可用区
+     */
+    public void setZone(String Zone) {
+        this.Zone = Zone;
+    }
+
+    public CreateDirectConnectGatewayRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateDirectConnectGatewayRequest(CreateDirectConnectGatewayRequest source) {
+        if (source.DirectConnectGatewayName != null) {
+            this.DirectConnectGatewayName = new String(source.DirectConnectGatewayName);
+        }
+        if (source.NetworkType != null) {
+            this.NetworkType = new String(source.NetworkType);
+        }
+        if (source.NetworkInstanceId != null) {
+            this.NetworkInstanceId = new String(source.NetworkInstanceId);
+        }
+        if (source.GatewayType != null) {
+            this.GatewayType = new String(source.GatewayType);
+        }
+        if (source.ModeType != null) {
+            this.ModeType = new String(source.ModeType);
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -147,6 +222,8 @@ public class CreateDirectConnectGatewayRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "NetworkType", this.NetworkType);
         this.setParamSimple(map, prefix + "NetworkInstanceId", this.NetworkInstanceId);
         this.setParamSimple(map, prefix + "GatewayType", this.GatewayType);
+        this.setParamSimple(map, prefix + "ModeType", this.ModeType);
+        this.setParamSimple(map, prefix + "Zone", this.Zone);
 
     }
 }

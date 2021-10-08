@@ -63,7 +63,7 @@ public class ServerlessDBInstance extends AbstractModel{
     private String Zone;
 
     /**
-    * projectId
+    * 项目id
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProjectId")
@@ -71,7 +71,7 @@ public class ServerlessDBInstance extends AbstractModel{
     private Long ProjectId;
 
     /**
-    * VpcId
+    * 私有网络Id
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VpcId")
@@ -133,6 +133,14 @@ public class ServerlessDBInstance extends AbstractModel{
     @SerializedName("DBDatabaseList")
     @Expose
     private String [] DBDatabaseList;
+
+    /**
+    * 实例绑定的标签数组
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TagList")
+    @Expose
+    private Tag [] TagList;
 
     /**
      * Get 实例id，唯一标识符
@@ -235,9 +243,9 @@ public class ServerlessDBInstance extends AbstractModel{
     }
 
     /**
-     * Get projectId
+     * Get 项目id
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ProjectId projectId
+     * @return ProjectId 项目id
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getProjectId() {
@@ -245,9 +253,9 @@ public class ServerlessDBInstance extends AbstractModel{
     }
 
     /**
-     * Set projectId
+     * Set 项目id
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ProjectId projectId
+     * @param ProjectId 项目id
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProjectId(Long ProjectId) {
@@ -255,9 +263,9 @@ public class ServerlessDBInstance extends AbstractModel{
     }
 
     /**
-     * Get VpcId
+     * Get 私有网络Id
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return VpcId VpcId
+     * @return VpcId 私有网络Id
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVpcId() {
@@ -265,9 +273,9 @@ public class ServerlessDBInstance extends AbstractModel{
     }
 
     /**
-     * Set VpcId
+     * Set 私有网络Id
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param VpcId VpcId
+     * @param VpcId 私有网络Id
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVpcId(String VpcId) {
@@ -415,6 +423,94 @@ public class ServerlessDBInstance extends AbstractModel{
     }
 
     /**
+     * Get 实例绑定的标签数组
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TagList 实例绑定的标签数组
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Tag [] getTagList() {
+        return this.TagList;
+    }
+
+    /**
+     * Set 实例绑定的标签数组
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TagList 实例绑定的标签数组
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTagList(Tag [] TagList) {
+        this.TagList = TagList;
+    }
+
+    public ServerlessDBInstance() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ServerlessDBInstance(ServerlessDBInstance source) {
+        if (source.DBInstanceId != null) {
+            this.DBInstanceId = new String(source.DBInstanceId);
+        }
+        if (source.DBInstanceName != null) {
+            this.DBInstanceName = new String(source.DBInstanceName);
+        }
+        if (source.DBInstanceStatus != null) {
+            this.DBInstanceStatus = new String(source.DBInstanceStatus);
+        }
+        if (source.Region != null) {
+            this.Region = new String(source.Region);
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.DBCharset != null) {
+            this.DBCharset = new String(source.DBCharset);
+        }
+        if (source.DBVersion != null) {
+            this.DBVersion = new String(source.DBVersion);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.DBInstanceNetInfo != null) {
+            this.DBInstanceNetInfo = new ServerlessDBInstanceNetInfo[source.DBInstanceNetInfo.length];
+            for (int i = 0; i < source.DBInstanceNetInfo.length; i++) {
+                this.DBInstanceNetInfo[i] = new ServerlessDBInstanceNetInfo(source.DBInstanceNetInfo[i]);
+            }
+        }
+        if (source.DBAccountSet != null) {
+            this.DBAccountSet = new ServerlessDBAccount[source.DBAccountSet.length];
+            for (int i = 0; i < source.DBAccountSet.length; i++) {
+                this.DBAccountSet[i] = new ServerlessDBAccount(source.DBAccountSet[i]);
+            }
+        }
+        if (source.DBDatabaseList != null) {
+            this.DBDatabaseList = new String[source.DBDatabaseList.length];
+            for (int i = 0; i < source.DBDatabaseList.length; i++) {
+                this.DBDatabaseList[i] = new String(source.DBDatabaseList[i]);
+            }
+        }
+        if (source.TagList != null) {
+            this.TagList = new Tag[source.TagList.length];
+            for (int i = 0; i < source.TagList.length; i++) {
+                this.TagList[i] = new Tag(source.TagList[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -432,6 +528,7 @@ public class ServerlessDBInstance extends AbstractModel{
         this.setParamArrayObj(map, prefix + "DBInstanceNetInfo.", this.DBInstanceNetInfo);
         this.setParamArrayObj(map, prefix + "DBAccountSet.", this.DBAccountSet);
         this.setParamArraySimple(map, prefix + "DBDatabaseList.", this.DBDatabaseList);
+        this.setParamArrayObj(map, prefix + "TagList.", this.TagList);
 
     }
 }

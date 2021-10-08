@@ -34,7 +34,7 @@ public class DescribeClusterAsGroupsResponse extends AbstractModel{
     */
     @SerializedName("ClusterAsGroupSet")
     @Expose
-    private ClusterAsGroup ClusterAsGroupSet;
+    private ClusterAsGroup [] ClusterAsGroupSet;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -63,7 +63,7 @@ public class DescribeClusterAsGroupsResponse extends AbstractModel{
      * Get 集群关联的伸缩组列表 
      * @return ClusterAsGroupSet 集群关联的伸缩组列表
      */
-    public ClusterAsGroup getClusterAsGroupSet() {
+    public ClusterAsGroup [] getClusterAsGroupSet() {
         return this.ClusterAsGroupSet;
     }
 
@@ -71,7 +71,7 @@ public class DescribeClusterAsGroupsResponse extends AbstractModel{
      * Set 集群关联的伸缩组列表
      * @param ClusterAsGroupSet 集群关联的伸缩组列表
      */
-    public void setClusterAsGroupSet(ClusterAsGroup ClusterAsGroupSet) {
+    public void setClusterAsGroupSet(ClusterAsGroup [] ClusterAsGroupSet) {
         this.ClusterAsGroupSet = ClusterAsGroupSet;
     }
 
@@ -91,12 +91,35 @@ public class DescribeClusterAsGroupsResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public DescribeClusterAsGroupsResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeClusterAsGroupsResponse(DescribeClusterAsGroupsResponse source) {
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
+        if (source.ClusterAsGroupSet != null) {
+            this.ClusterAsGroupSet = new ClusterAsGroup[source.ClusterAsGroupSet.length];
+            for (int i = 0; i < source.ClusterAsGroupSet.length; i++) {
+                this.ClusterAsGroupSet[i] = new ClusterAsGroup(source.ClusterAsGroupSet[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
-        this.setParamObj(map, prefix + "ClusterAsGroupSet.", this.ClusterAsGroupSet);
+        this.setParamArrayObj(map, prefix + "ClusterAsGroupSet.", this.ClusterAsGroupSet);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

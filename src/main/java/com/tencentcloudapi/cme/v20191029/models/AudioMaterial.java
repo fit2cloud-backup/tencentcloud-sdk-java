@@ -30,7 +30,7 @@ public class AudioMaterial extends AbstractModel{
     private MediaMetaData MetaData;
 
     /**
-    * 素材媒体文件的 URL 地址。
+    * 素材媒体文件的播放 URL 地址。
     */
     @SerializedName("MaterialUrl")
     @Expose
@@ -42,6 +42,28 @@ public class AudioMaterial extends AbstractModel{
     @SerializedName("CoverUrl")
     @Expose
     private String CoverUrl;
+
+    /**
+    * 素材状态。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MaterialStatus")
+    @Expose
+    private MaterialStatus MaterialStatus;
+
+    /**
+    * 素材媒体文件的原始 URL 地址。
+    */
+    @SerializedName("OriginalUrl")
+    @Expose
+    private String OriginalUrl;
+
+    /**
+    * 云点播媒资 FileId。
+    */
+    @SerializedName("VodFileId")
+    @Expose
+    private String VodFileId;
 
     /**
      * Get 素材元信息。 
@@ -60,16 +82,16 @@ public class AudioMaterial extends AbstractModel{
     }
 
     /**
-     * Get 素材媒体文件的 URL 地址。 
-     * @return MaterialUrl 素材媒体文件的 URL 地址。
+     * Get 素材媒体文件的播放 URL 地址。 
+     * @return MaterialUrl 素材媒体文件的播放 URL 地址。
      */
     public String getMaterialUrl() {
         return this.MaterialUrl;
     }
 
     /**
-     * Set 素材媒体文件的 URL 地址。
-     * @param MaterialUrl 素材媒体文件的 URL 地址。
+     * Set 素材媒体文件的播放 URL 地址。
+     * @param MaterialUrl 素材媒体文件的播放 URL 地址。
      */
     public void setMaterialUrl(String MaterialUrl) {
         this.MaterialUrl = MaterialUrl;
@@ -92,12 +114,96 @@ public class AudioMaterial extends AbstractModel{
     }
 
     /**
+     * Get 素材状态。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MaterialStatus 素材状态。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public MaterialStatus getMaterialStatus() {
+        return this.MaterialStatus;
+    }
+
+    /**
+     * Set 素材状态。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MaterialStatus 素材状态。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMaterialStatus(MaterialStatus MaterialStatus) {
+        this.MaterialStatus = MaterialStatus;
+    }
+
+    /**
+     * Get 素材媒体文件的原始 URL 地址。 
+     * @return OriginalUrl 素材媒体文件的原始 URL 地址。
+     */
+    public String getOriginalUrl() {
+        return this.OriginalUrl;
+    }
+
+    /**
+     * Set 素材媒体文件的原始 URL 地址。
+     * @param OriginalUrl 素材媒体文件的原始 URL 地址。
+     */
+    public void setOriginalUrl(String OriginalUrl) {
+        this.OriginalUrl = OriginalUrl;
+    }
+
+    /**
+     * Get 云点播媒资 FileId。 
+     * @return VodFileId 云点播媒资 FileId。
+     */
+    public String getVodFileId() {
+        return this.VodFileId;
+    }
+
+    /**
+     * Set 云点播媒资 FileId。
+     * @param VodFileId 云点播媒资 FileId。
+     */
+    public void setVodFileId(String VodFileId) {
+        this.VodFileId = VodFileId;
+    }
+
+    public AudioMaterial() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AudioMaterial(AudioMaterial source) {
+        if (source.MetaData != null) {
+            this.MetaData = new MediaMetaData(source.MetaData);
+        }
+        if (source.MaterialUrl != null) {
+            this.MaterialUrl = new String(source.MaterialUrl);
+        }
+        if (source.CoverUrl != null) {
+            this.CoverUrl = new String(source.CoverUrl);
+        }
+        if (source.MaterialStatus != null) {
+            this.MaterialStatus = new MaterialStatus(source.MaterialStatus);
+        }
+        if (source.OriginalUrl != null) {
+            this.OriginalUrl = new String(source.OriginalUrl);
+        }
+        if (source.VodFileId != null) {
+            this.VodFileId = new String(source.VodFileId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "MetaData.", this.MetaData);
         this.setParamSimple(map, prefix + "MaterialUrl", this.MaterialUrl);
         this.setParamSimple(map, prefix + "CoverUrl", this.CoverUrl);
+        this.setParamObj(map, prefix + "MaterialStatus.", this.MaterialStatus);
+        this.setParamSimple(map, prefix + "OriginalUrl", this.OriginalUrl);
+        this.setParamSimple(map, prefix + "VodFileId", this.VodFileId);
 
     }
 }

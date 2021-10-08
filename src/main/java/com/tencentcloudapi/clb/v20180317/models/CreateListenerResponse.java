@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class CreateListenerResponse extends AbstractModel{
 
     /**
-    * 创建的监听器的唯一标识数组
+    * 创建的监听器的唯一标识数组。
     */
     @SerializedName("ListenerIds")
     @Expose
@@ -37,16 +37,16 @@ public class CreateListenerResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 创建的监听器的唯一标识数组 
-     * @return ListenerIds 创建的监听器的唯一标识数组
+     * Get 创建的监听器的唯一标识数组。 
+     * @return ListenerIds 创建的监听器的唯一标识数组。
      */
     public String [] getListenerIds() {
         return this.ListenerIds;
     }
 
     /**
-     * Set 创建的监听器的唯一标识数组
-     * @param ListenerIds 创建的监听器的唯一标识数组
+     * Set 创建的监听器的唯一标识数组。
+     * @param ListenerIds 创建的监听器的唯一标识数组。
      */
     public void setListenerIds(String [] ListenerIds) {
         this.ListenerIds = ListenerIds;
@@ -67,6 +67,26 @@ public class CreateListenerResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public CreateListenerResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateListenerResponse(CreateListenerResponse source) {
+        if (source.ListenerIds != null) {
+            this.ListenerIds = new String[source.ListenerIds.length];
+            for (int i = 0; i < source.ListenerIds.length; i++) {
+                this.ListenerIds[i] = new String(source.ListenerIds[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

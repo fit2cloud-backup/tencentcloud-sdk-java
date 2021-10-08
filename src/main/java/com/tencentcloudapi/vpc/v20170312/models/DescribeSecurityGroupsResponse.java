@@ -24,6 +24,7 @@ public class DescribeSecurityGroupsResponse extends AbstractModel{
 
     /**
     * 安全组对象。
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SecurityGroupSet")
     @Expose
@@ -44,8 +45,10 @@ public class DescribeSecurityGroupsResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 安全组对象。 
+     * Get 安全组对象。
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return SecurityGroupSet 安全组对象。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public SecurityGroup [] getSecurityGroupSet() {
         return this.SecurityGroupSet;
@@ -53,7 +56,9 @@ public class DescribeSecurityGroupsResponse extends AbstractModel{
 
     /**
      * Set 安全组对象。
+注意：此字段可能返回 null，表示取不到有效值。
      * @param SecurityGroupSet 安全组对象。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSecurityGroupSet(SecurityGroup [] SecurityGroupSet) {
         this.SecurityGroupSet = SecurityGroupSet;
@@ -90,6 +95,29 @@ public class DescribeSecurityGroupsResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeSecurityGroupsResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeSecurityGroupsResponse(DescribeSecurityGroupsResponse source) {
+        if (source.SecurityGroupSet != null) {
+            this.SecurityGroupSet = new SecurityGroup[source.SecurityGroupSet.length];
+            for (int i = 0; i < source.SecurityGroupSet.length; i++) {
+                this.SecurityGroupSet[i] = new SecurityGroup(source.SecurityGroupSet[i]);
+            }
+        }
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

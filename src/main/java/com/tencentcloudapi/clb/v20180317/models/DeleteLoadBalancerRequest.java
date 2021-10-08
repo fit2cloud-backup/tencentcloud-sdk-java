@@ -23,27 +23,44 @@ import java.util.HashMap;
 public class DeleteLoadBalancerRequest extends AbstractModel{
 
     /**
-    * 要删除的负载均衡实例 ID数组，数组大小最大支持20
+    * 要删除的负载均衡实例 ID数组，数组大小最大支持20。
     */
     @SerializedName("LoadBalancerIds")
     @Expose
     private String [] LoadBalancerIds;
 
     /**
-     * Get 要删除的负载均衡实例 ID数组，数组大小最大支持20 
-     * @return LoadBalancerIds 要删除的负载均衡实例 ID数组，数组大小最大支持20
+     * Get 要删除的负载均衡实例 ID数组，数组大小最大支持20。 
+     * @return LoadBalancerIds 要删除的负载均衡实例 ID数组，数组大小最大支持20。
      */
     public String [] getLoadBalancerIds() {
         return this.LoadBalancerIds;
     }
 
     /**
-     * Set 要删除的负载均衡实例 ID数组，数组大小最大支持20
-     * @param LoadBalancerIds 要删除的负载均衡实例 ID数组，数组大小最大支持20
+     * Set 要删除的负载均衡实例 ID数组，数组大小最大支持20。
+     * @param LoadBalancerIds 要删除的负载均衡实例 ID数组，数组大小最大支持20。
      */
     public void setLoadBalancerIds(String [] LoadBalancerIds) {
         this.LoadBalancerIds = LoadBalancerIds;
     }
+
+    public DeleteLoadBalancerRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeleteLoadBalancerRequest(DeleteLoadBalancerRequest source) {
+        if (source.LoadBalancerIds != null) {
+            this.LoadBalancerIds = new String[source.LoadBalancerIds.length];
+            for (int i = 0; i < source.LoadBalancerIds.length; i++) {
+                this.LoadBalancerIds[i] = new String(source.LoadBalancerIds[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

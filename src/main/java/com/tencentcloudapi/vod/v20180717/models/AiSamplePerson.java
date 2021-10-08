@@ -38,7 +38,6 @@ public class AiSamplePerson extends AbstractModel{
 
     /**
     * 人物描述。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Description")
     @Expose
@@ -53,7 +52,6 @@ public class AiSamplePerson extends AbstractModel{
 
     /**
     * 人物标签。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TagSet")
     @Expose
@@ -113,10 +111,8 @@ public class AiSamplePerson extends AbstractModel{
     }
 
     /**
-     * Get 人物描述。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 人物描述。 
      * @return Description 人物描述。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescription() {
         return this.Description;
@@ -124,9 +120,7 @@ public class AiSamplePerson extends AbstractModel{
 
     /**
      * Set 人物描述。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Description 人物描述。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescription(String Description) {
         this.Description = Description;
@@ -149,10 +143,8 @@ public class AiSamplePerson extends AbstractModel{
     }
 
     /**
-     * Get 人物标签。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 人物标签。 
      * @return TagSet 人物标签。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getTagSet() {
         return this.TagSet;
@@ -160,9 +152,7 @@ public class AiSamplePerson extends AbstractModel{
 
     /**
      * Set 人物标签。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TagSet 人物标签。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTagSet(String [] TagSet) {
         this.TagSet = TagSet;
@@ -215,6 +205,50 @@ public class AiSamplePerson extends AbstractModel{
     public void setUpdateTime(String UpdateTime) {
         this.UpdateTime = UpdateTime;
     }
+
+    public AiSamplePerson() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public AiSamplePerson(AiSamplePerson source) {
+        if (source.PersonId != null) {
+            this.PersonId = new String(source.PersonId);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.FaceInfoSet != null) {
+            this.FaceInfoSet = new AiSampleFaceInfo[source.FaceInfoSet.length];
+            for (int i = 0; i < source.FaceInfoSet.length; i++) {
+                this.FaceInfoSet[i] = new AiSampleFaceInfo(source.FaceInfoSet[i]);
+            }
+        }
+        if (source.TagSet != null) {
+            this.TagSet = new String[source.TagSet.length];
+            for (int i = 0; i < source.TagSet.length; i++) {
+                this.TagSet[i] = new String(source.TagSet[i]);
+            }
+        }
+        if (source.UsageSet != null) {
+            this.UsageSet = new String[source.UsageSet.length];
+            for (int i = 0; i < source.UsageSet.length; i++) {
+                this.UsageSet[i] = new String(source.UsageSet[i]);
+            }
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

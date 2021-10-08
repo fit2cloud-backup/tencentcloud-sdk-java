@@ -44,6 +44,13 @@ public class InquiryPriceUpgradeDBInstanceRequest extends AbstractModel{
     private Long Storage;
 
     /**
+    * 实例升级后的CPU核心数，其值不能比当前实例CPU小
+    */
+    @SerializedName("Cpu")
+    @Expose
+    private Long Cpu;
+
+    /**
      * Get 实例ID，形如mssql-njj2mtpl 
      * @return InstanceId 实例ID，形如mssql-njj2mtpl
      */
@@ -92,12 +99,52 @@ public class InquiryPriceUpgradeDBInstanceRequest extends AbstractModel{
     }
 
     /**
+     * Get 实例升级后的CPU核心数，其值不能比当前实例CPU小 
+     * @return Cpu 实例升级后的CPU核心数，其值不能比当前实例CPU小
+     */
+    public Long getCpu() {
+        return this.Cpu;
+    }
+
+    /**
+     * Set 实例升级后的CPU核心数，其值不能比当前实例CPU小
+     * @param Cpu 实例升级后的CPU核心数，其值不能比当前实例CPU小
+     */
+    public void setCpu(Long Cpu) {
+        this.Cpu = Cpu;
+    }
+
+    public InquiryPriceUpgradeDBInstanceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public InquiryPriceUpgradeDBInstanceRequest(InquiryPriceUpgradeDBInstanceRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.Memory != null) {
+            this.Memory = new Long(source.Memory);
+        }
+        if (source.Storage != null) {
+            this.Storage = new Long(source.Storage);
+        }
+        if (source.Cpu != null) {
+            this.Cpu = new Long(source.Cpu);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "Memory", this.Memory);
         this.setParamSimple(map, prefix + "Storage", this.Storage);
+        this.setParamSimple(map, prefix + "Cpu", this.Cpu);
 
     }
 }

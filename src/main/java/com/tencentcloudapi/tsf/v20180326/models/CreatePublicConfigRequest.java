@@ -58,6 +58,13 @@ public class CreatePublicConfigRequest extends AbstractModel{
     private String ConfigType;
 
     /**
+    * Base64编码的配置项
+    */
+    @SerializedName("EncodeWithBase64")
+    @Expose
+    private Boolean EncodeWithBase64;
+
+    /**
      * Get 配置项名称 
      * @return ConfigName 配置项名称
      */
@@ -138,6 +145,51 @@ public class CreatePublicConfigRequest extends AbstractModel{
     }
 
     /**
+     * Get Base64编码的配置项 
+     * @return EncodeWithBase64 Base64编码的配置项
+     */
+    public Boolean getEncodeWithBase64() {
+        return this.EncodeWithBase64;
+    }
+
+    /**
+     * Set Base64编码的配置项
+     * @param EncodeWithBase64 Base64编码的配置项
+     */
+    public void setEncodeWithBase64(Boolean EncodeWithBase64) {
+        this.EncodeWithBase64 = EncodeWithBase64;
+    }
+
+    public CreatePublicConfigRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreatePublicConfigRequest(CreatePublicConfigRequest source) {
+        if (source.ConfigName != null) {
+            this.ConfigName = new String(source.ConfigName);
+        }
+        if (source.ConfigVersion != null) {
+            this.ConfigVersion = new String(source.ConfigVersion);
+        }
+        if (source.ConfigValue != null) {
+            this.ConfigValue = new String(source.ConfigValue);
+        }
+        if (source.ConfigVersionDesc != null) {
+            this.ConfigVersionDesc = new String(source.ConfigVersionDesc);
+        }
+        if (source.ConfigType != null) {
+            this.ConfigType = new String(source.ConfigType);
+        }
+        if (source.EncodeWithBase64 != null) {
+            this.EncodeWithBase64 = new Boolean(source.EncodeWithBase64);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -146,6 +198,7 @@ public class CreatePublicConfigRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ConfigValue", this.ConfigValue);
         this.setParamSimple(map, prefix + "ConfigVersionDesc", this.ConfigVersionDesc);
         this.setParamSimple(map, prefix + "ConfigType", this.ConfigType);
+        this.setParamSimple(map, prefix + "EncodeWithBase64", this.EncodeWithBase64);
 
     }
 }

@@ -30,6 +30,13 @@ public class EnableCachesRequest extends AbstractModel{
     private String [] Urls;
 
     /**
+    * URL封禁日期
+    */
+    @SerializedName("Date")
+    @Expose
+    private String Date;
+
+    /**
      * Get 解封 URL 列表 
      * @return Urls 解封 URL 列表
      */
@@ -46,10 +53,47 @@ public class EnableCachesRequest extends AbstractModel{
     }
 
     /**
+     * Get URL封禁日期 
+     * @return Date URL封禁日期
+     */
+    public String getDate() {
+        return this.Date;
+    }
+
+    /**
+     * Set URL封禁日期
+     * @param Date URL封禁日期
+     */
+    public void setDate(String Date) {
+        this.Date = Date;
+    }
+
+    public EnableCachesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public EnableCachesRequest(EnableCachesRequest source) {
+        if (source.Urls != null) {
+            this.Urls = new String[source.Urls.length];
+            for (int i = 0; i < source.Urls.length; i++) {
+                this.Urls[i] = new String(source.Urls[i]);
+            }
+        }
+        if (source.Date != null) {
+            this.Date = new String(source.Date);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "Urls.", this.Urls);
+        this.setParamSimple(map, prefix + "Date", this.Date);
 
     }
 }

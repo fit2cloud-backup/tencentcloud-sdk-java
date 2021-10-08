@@ -24,7 +24,6 @@ public class ModifyWatermarkTemplateResponse extends AbstractModel{
 
     /**
     * 图片水印地址，仅当 ImageTemplate.ImageContent 非空，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageUrl")
     @Expose
@@ -38,10 +37,8 @@ public class ModifyWatermarkTemplateResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 图片水印地址，仅当 ImageTemplate.ImageContent 非空，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 图片水印地址，仅当 ImageTemplate.ImageContent 非空，该字段有值。 
      * @return ImageUrl 图片水印地址，仅当 ImageTemplate.ImageContent 非空，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getImageUrl() {
         return this.ImageUrl;
@@ -49,9 +46,7 @@ public class ModifyWatermarkTemplateResponse extends AbstractModel{
 
     /**
      * Set 图片水印地址，仅当 ImageTemplate.ImageContent 非空，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImageUrl 图片水印地址，仅当 ImageTemplate.ImageContent 非空，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageUrl(String ImageUrl) {
         this.ImageUrl = ImageUrl;
@@ -72,6 +67,23 @@ public class ModifyWatermarkTemplateResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public ModifyWatermarkTemplateResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifyWatermarkTemplateResponse(ModifyWatermarkTemplateResponse source) {
+        if (source.ImageUrl != null) {
+            this.ImageUrl = new String(source.ImageUrl);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -49,7 +49,7 @@ UTC 格式，例如：2016-06-29T19:00:00Z。
     private String StartTime;
 
     /**
-    * 推流路径，与推流和播放地址中的AppName保持一致，默认为 live。不支持模糊匹配。
+    * 推流路径，与推流和播放地址中的 AppName 保持一致，默认为 live。不支持模糊匹配。
     */
     @SerializedName("AppName")
     @Expose
@@ -66,7 +66,7 @@ UTC 格式，例如：2016-06-29T19:00:00Z。
     /**
     * 分页大小。
 最大值：100。
-取值范围：1~100 之前的任意整数。
+取值范围：10~100 之前的任意整数。
 默认值：10。
     */
     @SerializedName("PageSize")
@@ -149,16 +149,16 @@ UTC 格式，例如：2016-06-29T19:00:00Z。
     }
 
     /**
-     * Get 推流路径，与推流和播放地址中的AppName保持一致，默认为 live。不支持模糊匹配。 
-     * @return AppName 推流路径，与推流和播放地址中的AppName保持一致，默认为 live。不支持模糊匹配。
+     * Get 推流路径，与推流和播放地址中的 AppName 保持一致，默认为 live。不支持模糊匹配。 
+     * @return AppName 推流路径，与推流和播放地址中的 AppName 保持一致，默认为 live。不支持模糊匹配。
      */
     public String getAppName() {
         return this.AppName;
     }
 
     /**
-     * Set 推流路径，与推流和播放地址中的AppName保持一致，默认为 live。不支持模糊匹配。
-     * @param AppName 推流路径，与推流和播放地址中的AppName保持一致，默认为 live。不支持模糊匹配。
+     * Set 推流路径，与推流和播放地址中的 AppName 保持一致，默认为 live。不支持模糊匹配。
+     * @param AppName 推流路径，与推流和播放地址中的 AppName 保持一致，默认为 live。不支持模糊匹配。
      */
     public void setAppName(String AppName) {
         this.AppName = AppName;
@@ -187,11 +187,11 @@ UTC 格式，例如：2016-06-29T19:00:00Z。
     /**
      * Get 分页大小。
 最大值：100。
-取值范围：1~100 之前的任意整数。
+取值范围：10~100 之前的任意整数。
 默认值：10。 
      * @return PageSize 分页大小。
 最大值：100。
-取值范围：1~100 之前的任意整数。
+取值范围：10~100 之前的任意整数。
 默认值：10。
      */
     public Long getPageSize() {
@@ -201,11 +201,11 @@ UTC 格式，例如：2016-06-29T19:00:00Z。
     /**
      * Set 分页大小。
 最大值：100。
-取值范围：1~100 之前的任意整数。
+取值范围：10~100 之前的任意整数。
 默认值：10。
      * @param PageSize 分页大小。
 最大值：100。
-取值范围：1~100 之前的任意整数。
+取值范围：10~100 之前的任意整数。
 默认值：10。
      */
     public void setPageSize(Long PageSize) {
@@ -227,6 +227,38 @@ UTC 格式，例如：2016-06-29T19:00:00Z。
     public void setStreamName(String StreamName) {
         this.StreamName = StreamName;
     }
+
+    public DescribeLiveStreamPublishedListRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeLiveStreamPublishedListRequest(DescribeLiveStreamPublishedListRequest source) {
+        if (source.DomainName != null) {
+            this.DomainName = new String(source.DomainName);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.AppName != null) {
+            this.AppName = new String(source.AppName);
+        }
+        if (source.PageNum != null) {
+            this.PageNum = new Long(source.PageNum);
+        }
+        if (source.PageSize != null) {
+            this.PageSize = new Long(source.PageSize);
+        }
+        if (source.StreamName != null) {
+            this.StreamName = new String(source.StreamName);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

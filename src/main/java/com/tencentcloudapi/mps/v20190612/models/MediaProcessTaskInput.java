@@ -58,6 +58,13 @@ public class MediaProcessTaskInput extends AbstractModel{
     private ImageSpriteTaskInput [] ImageSpriteTaskSet;
 
     /**
+    * 转自适应码流任务列表。
+    */
+    @SerializedName("AdaptiveDynamicStreamingTaskSet")
+    @Expose
+    private AdaptiveDynamicStreamingTaskInput [] AdaptiveDynamicStreamingTaskSet;
+
+    /**
      * Get 视频转码任务列表。 
      * @return TranscodeTaskSet 视频转码任务列表。
      */
@@ -138,6 +145,69 @@ public class MediaProcessTaskInput extends AbstractModel{
     }
 
     /**
+     * Get 转自适应码流任务列表。 
+     * @return AdaptiveDynamicStreamingTaskSet 转自适应码流任务列表。
+     */
+    public AdaptiveDynamicStreamingTaskInput [] getAdaptiveDynamicStreamingTaskSet() {
+        return this.AdaptiveDynamicStreamingTaskSet;
+    }
+
+    /**
+     * Set 转自适应码流任务列表。
+     * @param AdaptiveDynamicStreamingTaskSet 转自适应码流任务列表。
+     */
+    public void setAdaptiveDynamicStreamingTaskSet(AdaptiveDynamicStreamingTaskInput [] AdaptiveDynamicStreamingTaskSet) {
+        this.AdaptiveDynamicStreamingTaskSet = AdaptiveDynamicStreamingTaskSet;
+    }
+
+    public MediaProcessTaskInput() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public MediaProcessTaskInput(MediaProcessTaskInput source) {
+        if (source.TranscodeTaskSet != null) {
+            this.TranscodeTaskSet = new TranscodeTaskInput[source.TranscodeTaskSet.length];
+            for (int i = 0; i < source.TranscodeTaskSet.length; i++) {
+                this.TranscodeTaskSet[i] = new TranscodeTaskInput(source.TranscodeTaskSet[i]);
+            }
+        }
+        if (source.AnimatedGraphicTaskSet != null) {
+            this.AnimatedGraphicTaskSet = new AnimatedGraphicTaskInput[source.AnimatedGraphicTaskSet.length];
+            for (int i = 0; i < source.AnimatedGraphicTaskSet.length; i++) {
+                this.AnimatedGraphicTaskSet[i] = new AnimatedGraphicTaskInput(source.AnimatedGraphicTaskSet[i]);
+            }
+        }
+        if (source.SnapshotByTimeOffsetTaskSet != null) {
+            this.SnapshotByTimeOffsetTaskSet = new SnapshotByTimeOffsetTaskInput[source.SnapshotByTimeOffsetTaskSet.length];
+            for (int i = 0; i < source.SnapshotByTimeOffsetTaskSet.length; i++) {
+                this.SnapshotByTimeOffsetTaskSet[i] = new SnapshotByTimeOffsetTaskInput(source.SnapshotByTimeOffsetTaskSet[i]);
+            }
+        }
+        if (source.SampleSnapshotTaskSet != null) {
+            this.SampleSnapshotTaskSet = new SampleSnapshotTaskInput[source.SampleSnapshotTaskSet.length];
+            for (int i = 0; i < source.SampleSnapshotTaskSet.length; i++) {
+                this.SampleSnapshotTaskSet[i] = new SampleSnapshotTaskInput(source.SampleSnapshotTaskSet[i]);
+            }
+        }
+        if (source.ImageSpriteTaskSet != null) {
+            this.ImageSpriteTaskSet = new ImageSpriteTaskInput[source.ImageSpriteTaskSet.length];
+            for (int i = 0; i < source.ImageSpriteTaskSet.length; i++) {
+                this.ImageSpriteTaskSet[i] = new ImageSpriteTaskInput(source.ImageSpriteTaskSet[i]);
+            }
+        }
+        if (source.AdaptiveDynamicStreamingTaskSet != null) {
+            this.AdaptiveDynamicStreamingTaskSet = new AdaptiveDynamicStreamingTaskInput[source.AdaptiveDynamicStreamingTaskSet.length];
+            for (int i = 0; i < source.AdaptiveDynamicStreamingTaskSet.length; i++) {
+                this.AdaptiveDynamicStreamingTaskSet[i] = new AdaptiveDynamicStreamingTaskInput(source.AdaptiveDynamicStreamingTaskSet[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -146,6 +216,7 @@ public class MediaProcessTaskInput extends AbstractModel{
         this.setParamArrayObj(map, prefix + "SnapshotByTimeOffsetTaskSet.", this.SnapshotByTimeOffsetTaskSet);
         this.setParamArrayObj(map, prefix + "SampleSnapshotTaskSet.", this.SampleSnapshotTaskSet);
         this.setParamArrayObj(map, prefix + "ImageSpriteTaskSet.", this.ImageSpriteTaskSet);
+        this.setParamArrayObj(map, prefix + "AdaptiveDynamicStreamingTaskSet.", this.AdaptiveDynamicStreamingTaskSet);
 
     }
 }

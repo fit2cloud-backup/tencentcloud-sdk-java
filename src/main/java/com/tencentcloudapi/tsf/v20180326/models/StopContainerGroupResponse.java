@@ -25,7 +25,7 @@ public class StopContainerGroupResponse extends AbstractModel{
     /**
     * 停止操作是否成功。
 true：停止成功
-flase：停止失败
+false：停止失败
     */
     @SerializedName("Result")
     @Expose
@@ -41,10 +41,10 @@ flase：停止失败
     /**
      * Get 停止操作是否成功。
 true：停止成功
-flase：停止失败 
+false：停止失败 
      * @return Result 停止操作是否成功。
 true：停止成功
-flase：停止失败
+false：停止失败
      */
     public Boolean getResult() {
         return this.Result;
@@ -53,10 +53,10 @@ flase：停止失败
     /**
      * Set 停止操作是否成功。
 true：停止成功
-flase：停止失败
+false：停止失败
      * @param Result 停止操作是否成功。
 true：停止成功
-flase：停止失败
+false：停止失败
      */
     public void setResult(Boolean Result) {
         this.Result = Result;
@@ -77,6 +77,23 @@ flase：停止失败
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public StopContainerGroupResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public StopContainerGroupResponse(StopContainerGroupResponse source) {
+        if (source.Result != null) {
+            this.Result = new Boolean(source.Result);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

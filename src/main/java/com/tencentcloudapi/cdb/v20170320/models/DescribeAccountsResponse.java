@@ -37,6 +37,13 @@ public class DescribeAccountsResponse extends AbstractModel{
     private AccountInfo [] Items;
 
     /**
+    * 用户可设置实例最大连接数。
+    */
+    @SerializedName("MaxUserConnections")
+    @Expose
+    private Long MaxUserConnections;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -76,6 +83,22 @@ public class DescribeAccountsResponse extends AbstractModel{
     }
 
     /**
+     * Get 用户可设置实例最大连接数。 
+     * @return MaxUserConnections 用户可设置实例最大连接数。
+     */
+    public Long getMaxUserConnections() {
+        return this.MaxUserConnections;
+    }
+
+    /**
+     * Set 用户可设置实例最大连接数。
+     * @param MaxUserConnections 用户可设置实例最大连接数。
+     */
+    public void setMaxUserConnections(Long MaxUserConnections) {
+        this.MaxUserConnections = MaxUserConnections;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -91,12 +114,39 @@ public class DescribeAccountsResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public DescribeAccountsResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeAccountsResponse(DescribeAccountsResponse source) {
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
+        if (source.Items != null) {
+            this.Items = new AccountInfo[source.Items.length];
+            for (int i = 0; i < source.Items.length; i++) {
+                this.Items[i] = new AccountInfo(source.Items[i]);
+            }
+        }
+        if (source.MaxUserConnections != null) {
+            this.MaxUserConnections = new Long(source.MaxUserConnections);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
         this.setParamArrayObj(map, prefix + "Items.", this.Items);
+        this.setParamSimple(map, prefix + "MaxUserConnections", this.MaxUserConnections);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

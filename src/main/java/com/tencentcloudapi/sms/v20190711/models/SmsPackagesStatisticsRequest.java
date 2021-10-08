@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class SmsPackagesStatisticsRequest extends AbstractModel{
 
     /**
-    * 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/sms/smslist) 添加应用后生成的实际SdkAppid，示例如1400006666。
+    * 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/smsv2) 添加应用后生成的实际SdkAppid，示例如1400006666。
     */
     @SerializedName("SmsSdkAppid")
     @Expose
@@ -45,16 +45,16 @@ public class SmsPackagesStatisticsRequest extends AbstractModel{
     private Long Offset;
 
     /**
-     * Get 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/sms/smslist) 添加应用后生成的实际SdkAppid，示例如1400006666。 
-     * @return SmsSdkAppid 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/sms/smslist) 添加应用后生成的实际SdkAppid，示例如1400006666。
+     * Get 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/smsv2) 添加应用后生成的实际SdkAppid，示例如1400006666。 
+     * @return SmsSdkAppid 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/smsv2) 添加应用后生成的实际SdkAppid，示例如1400006666。
      */
     public String getSmsSdkAppid() {
         return this.SmsSdkAppid;
     }
 
     /**
-     * Set 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/sms/smslist) 添加应用后生成的实际SdkAppid，示例如1400006666。
-     * @param SmsSdkAppid 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/sms/smslist) 添加应用后生成的实际SdkAppid，示例如1400006666。
+     * Set 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/smsv2) 添加应用后生成的实际SdkAppid，示例如1400006666。
+     * @param SmsSdkAppid 短信SdkAppid在 [短信控制台](https://console.cloud.tencent.com/smsv2) 添加应用后生成的实际SdkAppid，示例如1400006666。
      */
     public void setSmsSdkAppid(String SmsSdkAppid) {
         this.SmsSdkAppid = SmsSdkAppid;
@@ -95,6 +95,26 @@ public class SmsPackagesStatisticsRequest extends AbstractModel{
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
+
+    public SmsPackagesStatisticsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SmsPackagesStatisticsRequest(SmsPackagesStatisticsRequest source) {
+        if (source.SmsSdkAppid != null) {
+            this.SmsSdkAppid = new String(source.SmsSdkAppid);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

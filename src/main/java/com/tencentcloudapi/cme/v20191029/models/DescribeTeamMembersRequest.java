@@ -37,7 +37,7 @@ public class DescribeTeamMembersRequest extends AbstractModel{
     private String TeamId;
 
     /**
-    * 成员 ID 列表，限指定30个指定成员。
+    * 成员 ID 列表，限指定30个指定成员。如不填，则返回指定团队下的所有成员。
     */
     @SerializedName("MemberIds")
     @Expose
@@ -97,16 +97,16 @@ public class DescribeTeamMembersRequest extends AbstractModel{
     }
 
     /**
-     * Get 成员 ID 列表，限指定30个指定成员。 
-     * @return MemberIds 成员 ID 列表，限指定30个指定成员。
+     * Get 成员 ID 列表，限指定30个指定成员。如不填，则返回指定团队下的所有成员。 
+     * @return MemberIds 成员 ID 列表，限指定30个指定成员。如不填，则返回指定团队下的所有成员。
      */
     public String [] getMemberIds() {
         return this.MemberIds;
     }
 
     /**
-     * Set 成员 ID 列表，限指定30个指定成员。
-     * @param MemberIds 成员 ID 列表，限指定30个指定成员。
+     * Set 成员 ID 列表，限指定30个指定成员。如不填，则返回指定团队下的所有成员。
+     * @param MemberIds 成员 ID 列表，限指定30个指定成员。如不填，则返回指定团队下的所有成员。
      */
     public void setMemberIds(String [] MemberIds) {
         this.MemberIds = MemberIds;
@@ -159,6 +159,38 @@ public class DescribeTeamMembersRequest extends AbstractModel{
     public void setOperator(String Operator) {
         this.Operator = Operator;
     }
+
+    public DescribeTeamMembersRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeTeamMembersRequest(DescribeTeamMembersRequest source) {
+        if (source.Platform != null) {
+            this.Platform = new String(source.Platform);
+        }
+        if (source.TeamId != null) {
+            this.TeamId = new String(source.TeamId);
+        }
+        if (source.MemberIds != null) {
+            this.MemberIds = new String[source.MemberIds.length];
+            for (int i = 0; i < source.MemberIds.length; i++) {
+                this.MemberIds[i] = new String(source.MemberIds[i]);
+            }
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Operator != null) {
+            this.Operator = new String(source.Operator);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

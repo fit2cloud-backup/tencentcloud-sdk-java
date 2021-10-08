@@ -30,6 +30,13 @@ public class CloseSecurityPolicyRequest extends AbstractModel{
     private String ProxyId;
 
     /**
+    * 安全组策略ID
+    */
+    @SerializedName("PolicyId")
+    @Expose
+    private String PolicyId;
+
+    /**
      * Get 通道ID 
      * @return ProxyId 通道ID
      */
@@ -46,10 +53,44 @@ public class CloseSecurityPolicyRequest extends AbstractModel{
     }
 
     /**
+     * Get 安全组策略ID 
+     * @return PolicyId 安全组策略ID
+     */
+    public String getPolicyId() {
+        return this.PolicyId;
+    }
+
+    /**
+     * Set 安全组策略ID
+     * @param PolicyId 安全组策略ID
+     */
+    public void setPolicyId(String PolicyId) {
+        this.PolicyId = PolicyId;
+    }
+
+    public CloseSecurityPolicyRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CloseSecurityPolicyRequest(CloseSecurityPolicyRequest source) {
+        if (source.ProxyId != null) {
+            this.ProxyId = new String(source.ProxyId);
+        }
+        if (source.PolicyId != null) {
+            this.PolicyId = new String(source.PolicyId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ProxyId", this.ProxyId);
+        this.setParamSimple(map, prefix + "PolicyId", this.PolicyId);
 
     }
 }

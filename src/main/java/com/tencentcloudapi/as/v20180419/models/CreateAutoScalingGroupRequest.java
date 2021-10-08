@@ -79,14 +79,14 @@ public class CreateAutoScalingGroupRequest extends AbstractModel{
     private String [] LoadBalancerIds;
 
     /**
-    * 项目ID
+    * 伸缩组内实例所属项目ID。该参数可以通过调用 [DescribeProject](https://cloud.tencent.com/document/api/378/4400) 的返回值中的`projectId`字段来获取。不填为默认项目。
     */
     @SerializedName("ProjectId")
     @Expose
     private Long ProjectId;
 
     /**
-    * 应用型负载均衡器列表，目前长度上限为20，LoadBalancerIds 和 ForwardLoadBalancers 二者同时最多只能指定一个
+    * 应用型负载均衡器列表，目前长度上限为50，LoadBalancerIds 和 ForwardLoadBalancers 二者同时最多只能指定一个
     */
     @SerializedName("ForwardLoadBalancers")
     @Expose
@@ -138,7 +138,7 @@ public class CreateAutoScalingGroupRequest extends AbstractModel{
     private String ZonesCheckPolicy;
 
     /**
-    * 标签描述列表。通过指定该参数可以支持绑定标签到伸缩组。同时绑定标签到相应的资源实例，
+    * 标签描述列表。通过指定该参数可以支持绑定标签到伸缩组。同时绑定标签到相应的资源实例。每个伸缩组最多支持30个标签。
     */
     @SerializedName("Tags")
     @Expose
@@ -172,6 +172,48 @@ public class CreateAutoScalingGroupRequest extends AbstractModel{
     @SerializedName("MultiZoneSubnetPolicy")
     @Expose
     private String MultiZoneSubnetPolicy;
+
+    /**
+    * 伸缩组实例健康检查类型，取值如下：<br><li>CVM：根据实例网络状态判断实例是否处于不健康状态，不健康的网络状态即发生实例 PING 不可达事件，详细判断标准可参考[实例健康检查](https://cloud.tencent.com/document/product/377/8553)<br><li>CLB：根据 CLB 的健康检查状态判断实例是否处于不健康状态，CLB健康检查原理可参考[健康检查](https://cloud.tencent.com/document/product/214/6097) <br>如果选择了`CLB`类型，伸缩组将同时检查实例网络状态与CLB健康检查状态，如果出现实例网络状态不健康，实例将被标记为 UNHEALTHY 状态；如果出现 CLB 健康检查状态异常，实例将被标记为CLB_UNHEALTHY 状态，如果两个异常状态同时出现，实例`HealthStatus`字段将返回 UNHEALTHY|CLB_UNHEALTHY。默认值：CLB
+    */
+    @SerializedName("HealthCheckType")
+    @Expose
+    private String HealthCheckType;
+
+    /**
+    * CLB健康检查宽限期，当扩容的实例进入`IN_SERVICE`后，在宽限期时间范围内将不会被标记为不健康`CLB_UNHEALTHY`。<br>默认值：0。取值范围[0, 7200]，单位：秒。
+    */
+    @SerializedName("LoadBalancerHealthCheckGracePeriod")
+    @Expose
+    private Long LoadBalancerHealthCheckGracePeriod;
+
+    /**
+    * 实例分配策略，取值包括 LAUNCH_CONFIGURATION 和 SPOT_MIXED，默认取 LAUNCH_CONFIGURATION。
+<br><li> LAUNCH_CONFIGURATION，代表传统的按照启动配置模式。
+<br><li> SPOT_MIXED，代表竞价混合模式。目前仅支持启动配置为按量计费模式时使用混合模式，混合模式下，伸缩组将根据设定扩容按量或竞价机型。使用混合模式时，关联的启动配置的计费类型不可被修改。
+    */
+    @SerializedName("InstanceAllocationPolicy")
+    @Expose
+    private String InstanceAllocationPolicy;
+
+    /**
+    * 竞价混合模式下，各计费类型实例的分配策略。
+仅当 InstanceAllocationPolicy 取 SPOT_MIXED 时可用。
+    */
+    @SerializedName("SpotMixedAllocationPolicy")
+    @Expose
+    private SpotMixedAllocationPolicy SpotMixedAllocationPolicy;
+
+    /**
+    * 容量重平衡功能，仅对伸缩组内的竞价实例有效。取值范围：
+<br><li> TRUE，开启该功能，当伸缩组内的竞价实例即将被竞价实例服务自动回收前，AS 主动发起竞价实例销毁流程，如果有配置过缩容 hook，则销毁前 hook 会生效。销毁流程启动后，AS 会异步开启一个扩容活动，用于补齐期望实例数。
+<br><li> FALSE，不开启该功能，则 AS 等待竞价实例被销毁后才会去扩容补齐伸缩组期望实例数。
+
+默认取 FALSE。
+    */
+    @SerializedName("CapacityRebalance")
+    @Expose
+    private Boolean CapacityRebalance;
 
     /**
      * Get 伸缩组名称，在您账号中必须唯一。名称仅支持中文、英文、数字、下划线、分隔符"-"、小数点，最大长度不能超55个字节。 
@@ -302,32 +344,32 @@ public class CreateAutoScalingGroupRequest extends AbstractModel{
     }
 
     /**
-     * Get 项目ID 
-     * @return ProjectId 项目ID
+     * Get 伸缩组内实例所属项目ID。该参数可以通过调用 [DescribeProject](https://cloud.tencent.com/document/api/378/4400) 的返回值中的`projectId`字段来获取。不填为默认项目。 
+     * @return ProjectId 伸缩组内实例所属项目ID。该参数可以通过调用 [DescribeProject](https://cloud.tencent.com/document/api/378/4400) 的返回值中的`projectId`字段来获取。不填为默认项目。
      */
     public Long getProjectId() {
         return this.ProjectId;
     }
 
     /**
-     * Set 项目ID
-     * @param ProjectId 项目ID
+     * Set 伸缩组内实例所属项目ID。该参数可以通过调用 [DescribeProject](https://cloud.tencent.com/document/api/378/4400) 的返回值中的`projectId`字段来获取。不填为默认项目。
+     * @param ProjectId 伸缩组内实例所属项目ID。该参数可以通过调用 [DescribeProject](https://cloud.tencent.com/document/api/378/4400) 的返回值中的`projectId`字段来获取。不填为默认项目。
      */
     public void setProjectId(Long ProjectId) {
         this.ProjectId = ProjectId;
     }
 
     /**
-     * Get 应用型负载均衡器列表，目前长度上限为20，LoadBalancerIds 和 ForwardLoadBalancers 二者同时最多只能指定一个 
-     * @return ForwardLoadBalancers 应用型负载均衡器列表，目前长度上限为20，LoadBalancerIds 和 ForwardLoadBalancers 二者同时最多只能指定一个
+     * Get 应用型负载均衡器列表，目前长度上限为50，LoadBalancerIds 和 ForwardLoadBalancers 二者同时最多只能指定一个 
+     * @return ForwardLoadBalancers 应用型负载均衡器列表，目前长度上限为50，LoadBalancerIds 和 ForwardLoadBalancers 二者同时最多只能指定一个
      */
     public ForwardLoadBalancer [] getForwardLoadBalancers() {
         return this.ForwardLoadBalancers;
     }
 
     /**
-     * Set 应用型负载均衡器列表，目前长度上限为20，LoadBalancerIds 和 ForwardLoadBalancers 二者同时最多只能指定一个
-     * @param ForwardLoadBalancers 应用型负载均衡器列表，目前长度上限为20，LoadBalancerIds 和 ForwardLoadBalancers 二者同时最多只能指定一个
+     * Set 应用型负载均衡器列表，目前长度上限为50，LoadBalancerIds 和 ForwardLoadBalancers 二者同时最多只能指定一个
+     * @param ForwardLoadBalancers 应用型负载均衡器列表，目前长度上限为50，LoadBalancerIds 和 ForwardLoadBalancers 二者同时最多只能指定一个
      */
     public void setForwardLoadBalancers(ForwardLoadBalancer [] ForwardLoadBalancers) {
         this.ForwardLoadBalancers = ForwardLoadBalancers;
@@ -454,16 +496,16 @@ public class CreateAutoScalingGroupRequest extends AbstractModel{
     }
 
     /**
-     * Get 标签描述列表。通过指定该参数可以支持绑定标签到伸缩组。同时绑定标签到相应的资源实例， 
-     * @return Tags 标签描述列表。通过指定该参数可以支持绑定标签到伸缩组。同时绑定标签到相应的资源实例，
+     * Get 标签描述列表。通过指定该参数可以支持绑定标签到伸缩组。同时绑定标签到相应的资源实例。每个伸缩组最多支持30个标签。 
+     * @return Tags 标签描述列表。通过指定该参数可以支持绑定标签到伸缩组。同时绑定标签到相应的资源实例。每个伸缩组最多支持30个标签。
      */
     public Tag [] getTags() {
         return this.Tags;
     }
 
     /**
-     * Set 标签描述列表。通过指定该参数可以支持绑定标签到伸缩组。同时绑定标签到相应的资源实例，
-     * @param Tags 标签描述列表。通过指定该参数可以支持绑定标签到伸缩组。同时绑定标签到相应的资源实例，
+     * Set 标签描述列表。通过指定该参数可以支持绑定标签到伸缩组。同时绑定标签到相应的资源实例。每个伸缩组最多支持30个标签。
+     * @param Tags 标签描述列表。通过指定该参数可以支持绑定标签到伸缩组。同时绑定标签到相应的资源实例。每个伸缩组最多支持30个标签。
      */
     public void setTags(Tag [] Tags) {
         this.Tags = Tags;
@@ -550,6 +592,215 @@ public class CreateAutoScalingGroupRequest extends AbstractModel{
     }
 
     /**
+     * Get 伸缩组实例健康检查类型，取值如下：<br><li>CVM：根据实例网络状态判断实例是否处于不健康状态，不健康的网络状态即发生实例 PING 不可达事件，详细判断标准可参考[实例健康检查](https://cloud.tencent.com/document/product/377/8553)<br><li>CLB：根据 CLB 的健康检查状态判断实例是否处于不健康状态，CLB健康检查原理可参考[健康检查](https://cloud.tencent.com/document/product/214/6097) <br>如果选择了`CLB`类型，伸缩组将同时检查实例网络状态与CLB健康检查状态，如果出现实例网络状态不健康，实例将被标记为 UNHEALTHY 状态；如果出现 CLB 健康检查状态异常，实例将被标记为CLB_UNHEALTHY 状态，如果两个异常状态同时出现，实例`HealthStatus`字段将返回 UNHEALTHY|CLB_UNHEALTHY。默认值：CLB 
+     * @return HealthCheckType 伸缩组实例健康检查类型，取值如下：<br><li>CVM：根据实例网络状态判断实例是否处于不健康状态，不健康的网络状态即发生实例 PING 不可达事件，详细判断标准可参考[实例健康检查](https://cloud.tencent.com/document/product/377/8553)<br><li>CLB：根据 CLB 的健康检查状态判断实例是否处于不健康状态，CLB健康检查原理可参考[健康检查](https://cloud.tencent.com/document/product/214/6097) <br>如果选择了`CLB`类型，伸缩组将同时检查实例网络状态与CLB健康检查状态，如果出现实例网络状态不健康，实例将被标记为 UNHEALTHY 状态；如果出现 CLB 健康检查状态异常，实例将被标记为CLB_UNHEALTHY 状态，如果两个异常状态同时出现，实例`HealthStatus`字段将返回 UNHEALTHY|CLB_UNHEALTHY。默认值：CLB
+     */
+    public String getHealthCheckType() {
+        return this.HealthCheckType;
+    }
+
+    /**
+     * Set 伸缩组实例健康检查类型，取值如下：<br><li>CVM：根据实例网络状态判断实例是否处于不健康状态，不健康的网络状态即发生实例 PING 不可达事件，详细判断标准可参考[实例健康检查](https://cloud.tencent.com/document/product/377/8553)<br><li>CLB：根据 CLB 的健康检查状态判断实例是否处于不健康状态，CLB健康检查原理可参考[健康检查](https://cloud.tencent.com/document/product/214/6097) <br>如果选择了`CLB`类型，伸缩组将同时检查实例网络状态与CLB健康检查状态，如果出现实例网络状态不健康，实例将被标记为 UNHEALTHY 状态；如果出现 CLB 健康检查状态异常，实例将被标记为CLB_UNHEALTHY 状态，如果两个异常状态同时出现，实例`HealthStatus`字段将返回 UNHEALTHY|CLB_UNHEALTHY。默认值：CLB
+     * @param HealthCheckType 伸缩组实例健康检查类型，取值如下：<br><li>CVM：根据实例网络状态判断实例是否处于不健康状态，不健康的网络状态即发生实例 PING 不可达事件，详细判断标准可参考[实例健康检查](https://cloud.tencent.com/document/product/377/8553)<br><li>CLB：根据 CLB 的健康检查状态判断实例是否处于不健康状态，CLB健康检查原理可参考[健康检查](https://cloud.tencent.com/document/product/214/6097) <br>如果选择了`CLB`类型，伸缩组将同时检查实例网络状态与CLB健康检查状态，如果出现实例网络状态不健康，实例将被标记为 UNHEALTHY 状态；如果出现 CLB 健康检查状态异常，实例将被标记为CLB_UNHEALTHY 状态，如果两个异常状态同时出现，实例`HealthStatus`字段将返回 UNHEALTHY|CLB_UNHEALTHY。默认值：CLB
+     */
+    public void setHealthCheckType(String HealthCheckType) {
+        this.HealthCheckType = HealthCheckType;
+    }
+
+    /**
+     * Get CLB健康检查宽限期，当扩容的实例进入`IN_SERVICE`后，在宽限期时间范围内将不会被标记为不健康`CLB_UNHEALTHY`。<br>默认值：0。取值范围[0, 7200]，单位：秒。 
+     * @return LoadBalancerHealthCheckGracePeriod CLB健康检查宽限期，当扩容的实例进入`IN_SERVICE`后，在宽限期时间范围内将不会被标记为不健康`CLB_UNHEALTHY`。<br>默认值：0。取值范围[0, 7200]，单位：秒。
+     */
+    public Long getLoadBalancerHealthCheckGracePeriod() {
+        return this.LoadBalancerHealthCheckGracePeriod;
+    }
+
+    /**
+     * Set CLB健康检查宽限期，当扩容的实例进入`IN_SERVICE`后，在宽限期时间范围内将不会被标记为不健康`CLB_UNHEALTHY`。<br>默认值：0。取值范围[0, 7200]，单位：秒。
+     * @param LoadBalancerHealthCheckGracePeriod CLB健康检查宽限期，当扩容的实例进入`IN_SERVICE`后，在宽限期时间范围内将不会被标记为不健康`CLB_UNHEALTHY`。<br>默认值：0。取值范围[0, 7200]，单位：秒。
+     */
+    public void setLoadBalancerHealthCheckGracePeriod(Long LoadBalancerHealthCheckGracePeriod) {
+        this.LoadBalancerHealthCheckGracePeriod = LoadBalancerHealthCheckGracePeriod;
+    }
+
+    /**
+     * Get 实例分配策略，取值包括 LAUNCH_CONFIGURATION 和 SPOT_MIXED，默认取 LAUNCH_CONFIGURATION。
+<br><li> LAUNCH_CONFIGURATION，代表传统的按照启动配置模式。
+<br><li> SPOT_MIXED，代表竞价混合模式。目前仅支持启动配置为按量计费模式时使用混合模式，混合模式下，伸缩组将根据设定扩容按量或竞价机型。使用混合模式时，关联的启动配置的计费类型不可被修改。 
+     * @return InstanceAllocationPolicy 实例分配策略，取值包括 LAUNCH_CONFIGURATION 和 SPOT_MIXED，默认取 LAUNCH_CONFIGURATION。
+<br><li> LAUNCH_CONFIGURATION，代表传统的按照启动配置模式。
+<br><li> SPOT_MIXED，代表竞价混合模式。目前仅支持启动配置为按量计费模式时使用混合模式，混合模式下，伸缩组将根据设定扩容按量或竞价机型。使用混合模式时，关联的启动配置的计费类型不可被修改。
+     */
+    public String getInstanceAllocationPolicy() {
+        return this.InstanceAllocationPolicy;
+    }
+
+    /**
+     * Set 实例分配策略，取值包括 LAUNCH_CONFIGURATION 和 SPOT_MIXED，默认取 LAUNCH_CONFIGURATION。
+<br><li> LAUNCH_CONFIGURATION，代表传统的按照启动配置模式。
+<br><li> SPOT_MIXED，代表竞价混合模式。目前仅支持启动配置为按量计费模式时使用混合模式，混合模式下，伸缩组将根据设定扩容按量或竞价机型。使用混合模式时，关联的启动配置的计费类型不可被修改。
+     * @param InstanceAllocationPolicy 实例分配策略，取值包括 LAUNCH_CONFIGURATION 和 SPOT_MIXED，默认取 LAUNCH_CONFIGURATION。
+<br><li> LAUNCH_CONFIGURATION，代表传统的按照启动配置模式。
+<br><li> SPOT_MIXED，代表竞价混合模式。目前仅支持启动配置为按量计费模式时使用混合模式，混合模式下，伸缩组将根据设定扩容按量或竞价机型。使用混合模式时，关联的启动配置的计费类型不可被修改。
+     */
+    public void setInstanceAllocationPolicy(String InstanceAllocationPolicy) {
+        this.InstanceAllocationPolicy = InstanceAllocationPolicy;
+    }
+
+    /**
+     * Get 竞价混合模式下，各计费类型实例的分配策略。
+仅当 InstanceAllocationPolicy 取 SPOT_MIXED 时可用。 
+     * @return SpotMixedAllocationPolicy 竞价混合模式下，各计费类型实例的分配策略。
+仅当 InstanceAllocationPolicy 取 SPOT_MIXED 时可用。
+     */
+    public SpotMixedAllocationPolicy getSpotMixedAllocationPolicy() {
+        return this.SpotMixedAllocationPolicy;
+    }
+
+    /**
+     * Set 竞价混合模式下，各计费类型实例的分配策略。
+仅当 InstanceAllocationPolicy 取 SPOT_MIXED 时可用。
+     * @param SpotMixedAllocationPolicy 竞价混合模式下，各计费类型实例的分配策略。
+仅当 InstanceAllocationPolicy 取 SPOT_MIXED 时可用。
+     */
+    public void setSpotMixedAllocationPolicy(SpotMixedAllocationPolicy SpotMixedAllocationPolicy) {
+        this.SpotMixedAllocationPolicy = SpotMixedAllocationPolicy;
+    }
+
+    /**
+     * Get 容量重平衡功能，仅对伸缩组内的竞价实例有效。取值范围：
+<br><li> TRUE，开启该功能，当伸缩组内的竞价实例即将被竞价实例服务自动回收前，AS 主动发起竞价实例销毁流程，如果有配置过缩容 hook，则销毁前 hook 会生效。销毁流程启动后，AS 会异步开启一个扩容活动，用于补齐期望实例数。
+<br><li> FALSE，不开启该功能，则 AS 等待竞价实例被销毁后才会去扩容补齐伸缩组期望实例数。
+
+默认取 FALSE。 
+     * @return CapacityRebalance 容量重平衡功能，仅对伸缩组内的竞价实例有效。取值范围：
+<br><li> TRUE，开启该功能，当伸缩组内的竞价实例即将被竞价实例服务自动回收前，AS 主动发起竞价实例销毁流程，如果有配置过缩容 hook，则销毁前 hook 会生效。销毁流程启动后，AS 会异步开启一个扩容活动，用于补齐期望实例数。
+<br><li> FALSE，不开启该功能，则 AS 等待竞价实例被销毁后才会去扩容补齐伸缩组期望实例数。
+
+默认取 FALSE。
+     */
+    public Boolean getCapacityRebalance() {
+        return this.CapacityRebalance;
+    }
+
+    /**
+     * Set 容量重平衡功能，仅对伸缩组内的竞价实例有效。取值范围：
+<br><li> TRUE，开启该功能，当伸缩组内的竞价实例即将被竞价实例服务自动回收前，AS 主动发起竞价实例销毁流程，如果有配置过缩容 hook，则销毁前 hook 会生效。销毁流程启动后，AS 会异步开启一个扩容活动，用于补齐期望实例数。
+<br><li> FALSE，不开启该功能，则 AS 等待竞价实例被销毁后才会去扩容补齐伸缩组期望实例数。
+
+默认取 FALSE。
+     * @param CapacityRebalance 容量重平衡功能，仅对伸缩组内的竞价实例有效。取值范围：
+<br><li> TRUE，开启该功能，当伸缩组内的竞价实例即将被竞价实例服务自动回收前，AS 主动发起竞价实例销毁流程，如果有配置过缩容 hook，则销毁前 hook 会生效。销毁流程启动后，AS 会异步开启一个扩容活动，用于补齐期望实例数。
+<br><li> FALSE，不开启该功能，则 AS 等待竞价实例被销毁后才会去扩容补齐伸缩组期望实例数。
+
+默认取 FALSE。
+     */
+    public void setCapacityRebalance(Boolean CapacityRebalance) {
+        this.CapacityRebalance = CapacityRebalance;
+    }
+
+    public CreateAutoScalingGroupRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateAutoScalingGroupRequest(CreateAutoScalingGroupRequest source) {
+        if (source.AutoScalingGroupName != null) {
+            this.AutoScalingGroupName = new String(source.AutoScalingGroupName);
+        }
+        if (source.LaunchConfigurationId != null) {
+            this.LaunchConfigurationId = new String(source.LaunchConfigurationId);
+        }
+        if (source.MaxSize != null) {
+            this.MaxSize = new Long(source.MaxSize);
+        }
+        if (source.MinSize != null) {
+            this.MinSize = new Long(source.MinSize);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.DefaultCooldown != null) {
+            this.DefaultCooldown = new Long(source.DefaultCooldown);
+        }
+        if (source.DesiredCapacity != null) {
+            this.DesiredCapacity = new Long(source.DesiredCapacity);
+        }
+        if (source.LoadBalancerIds != null) {
+            this.LoadBalancerIds = new String[source.LoadBalancerIds.length];
+            for (int i = 0; i < source.LoadBalancerIds.length; i++) {
+                this.LoadBalancerIds[i] = new String(source.LoadBalancerIds[i]);
+            }
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.ForwardLoadBalancers != null) {
+            this.ForwardLoadBalancers = new ForwardLoadBalancer[source.ForwardLoadBalancers.length];
+            for (int i = 0; i < source.ForwardLoadBalancers.length; i++) {
+                this.ForwardLoadBalancers[i] = new ForwardLoadBalancer(source.ForwardLoadBalancers[i]);
+            }
+        }
+        if (source.SubnetIds != null) {
+            this.SubnetIds = new String[source.SubnetIds.length];
+            for (int i = 0; i < source.SubnetIds.length; i++) {
+                this.SubnetIds[i] = new String(source.SubnetIds[i]);
+            }
+        }
+        if (source.TerminationPolicies != null) {
+            this.TerminationPolicies = new String[source.TerminationPolicies.length];
+            for (int i = 0; i < source.TerminationPolicies.length; i++) {
+                this.TerminationPolicies[i] = new String(source.TerminationPolicies[i]);
+            }
+        }
+        if (source.Zones != null) {
+            this.Zones = new String[source.Zones.length];
+            for (int i = 0; i < source.Zones.length; i++) {
+                this.Zones[i] = new String(source.Zones[i]);
+            }
+        }
+        if (source.RetryPolicy != null) {
+            this.RetryPolicy = new String(source.RetryPolicy);
+        }
+        if (source.ZonesCheckPolicy != null) {
+            this.ZonesCheckPolicy = new String(source.ZonesCheckPolicy);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.ServiceSettings != null) {
+            this.ServiceSettings = new ServiceSettings(source.ServiceSettings);
+        }
+        if (source.Ipv6AddressCount != null) {
+            this.Ipv6AddressCount = new Long(source.Ipv6AddressCount);
+        }
+        if (source.MultiZoneSubnetPolicy != null) {
+            this.MultiZoneSubnetPolicy = new String(source.MultiZoneSubnetPolicy);
+        }
+        if (source.HealthCheckType != null) {
+            this.HealthCheckType = new String(source.HealthCheckType);
+        }
+        if (source.LoadBalancerHealthCheckGracePeriod != null) {
+            this.LoadBalancerHealthCheckGracePeriod = new Long(source.LoadBalancerHealthCheckGracePeriod);
+        }
+        if (source.InstanceAllocationPolicy != null) {
+            this.InstanceAllocationPolicy = new String(source.InstanceAllocationPolicy);
+        }
+        if (source.SpotMixedAllocationPolicy != null) {
+            this.SpotMixedAllocationPolicy = new SpotMixedAllocationPolicy(source.SpotMixedAllocationPolicy);
+        }
+        if (source.CapacityRebalance != null) {
+            this.CapacityRebalance = new Boolean(source.CapacityRebalance);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -572,6 +823,11 @@ public class CreateAutoScalingGroupRequest extends AbstractModel{
         this.setParamObj(map, prefix + "ServiceSettings.", this.ServiceSettings);
         this.setParamSimple(map, prefix + "Ipv6AddressCount", this.Ipv6AddressCount);
         this.setParamSimple(map, prefix + "MultiZoneSubnetPolicy", this.MultiZoneSubnetPolicy);
+        this.setParamSimple(map, prefix + "HealthCheckType", this.HealthCheckType);
+        this.setParamSimple(map, prefix + "LoadBalancerHealthCheckGracePeriod", this.LoadBalancerHealthCheckGracePeriod);
+        this.setParamSimple(map, prefix + "InstanceAllocationPolicy", this.InstanceAllocationPolicy);
+        this.setParamObj(map, prefix + "SpotMixedAllocationPolicy.", this.SpotMixedAllocationPolicy);
+        this.setParamSimple(map, prefix + "CapacityRebalance", this.CapacityRebalance);
 
     }
 }

@@ -23,50 +23,67 @@ import java.util.HashMap;
 public class DescribeBaseMetricsRequest extends AbstractModel{
 
     /**
-    * 业务命名空间
+    * 业务命名空间，各个云产品的业务命名空间不同。如需获取业务命名空间，请前往各产品监控指标文档，例如云服务器的命名空间，可参见 [云服务器监控指标](https://cloud.tencent.com/document/product/248/6843)
     */
     @SerializedName("Namespace")
     @Expose
     private String Namespace;
 
     /**
-    * 指标名
+    * 指标名，各个云产品的指标名不同。如需获取指标名，请前往各产品监控指标文档，例如云服务器的指标名，可参见 [云服务器监控指标](https://cloud.tencent.com/document/product/248/6843)
     */
     @SerializedName("MetricName")
     @Expose
     private String MetricName;
 
     /**
-     * Get 业务命名空间 
-     * @return Namespace 业务命名空间
+     * Get 业务命名空间，各个云产品的业务命名空间不同。如需获取业务命名空间，请前往各产品监控指标文档，例如云服务器的命名空间，可参见 [云服务器监控指标](https://cloud.tencent.com/document/product/248/6843) 
+     * @return Namespace 业务命名空间，各个云产品的业务命名空间不同。如需获取业务命名空间，请前往各产品监控指标文档，例如云服务器的命名空间，可参见 [云服务器监控指标](https://cloud.tencent.com/document/product/248/6843)
      */
     public String getNamespace() {
         return this.Namespace;
     }
 
     /**
-     * Set 业务命名空间
-     * @param Namespace 业务命名空间
+     * Set 业务命名空间，各个云产品的业务命名空间不同。如需获取业务命名空间，请前往各产品监控指标文档，例如云服务器的命名空间，可参见 [云服务器监控指标](https://cloud.tencent.com/document/product/248/6843)
+     * @param Namespace 业务命名空间，各个云产品的业务命名空间不同。如需获取业务命名空间，请前往各产品监控指标文档，例如云服务器的命名空间，可参见 [云服务器监控指标](https://cloud.tencent.com/document/product/248/6843)
      */
     public void setNamespace(String Namespace) {
         this.Namespace = Namespace;
     }
 
     /**
-     * Get 指标名 
-     * @return MetricName 指标名
+     * Get 指标名，各个云产品的指标名不同。如需获取指标名，请前往各产品监控指标文档，例如云服务器的指标名，可参见 [云服务器监控指标](https://cloud.tencent.com/document/product/248/6843) 
+     * @return MetricName 指标名，各个云产品的指标名不同。如需获取指标名，请前往各产品监控指标文档，例如云服务器的指标名，可参见 [云服务器监控指标](https://cloud.tencent.com/document/product/248/6843)
      */
     public String getMetricName() {
         return this.MetricName;
     }
 
     /**
-     * Set 指标名
-     * @param MetricName 指标名
+     * Set 指标名，各个云产品的指标名不同。如需获取指标名，请前往各产品监控指标文档，例如云服务器的指标名，可参见 [云服务器监控指标](https://cloud.tencent.com/document/product/248/6843)
+     * @param MetricName 指标名，各个云产品的指标名不同。如需获取指标名，请前往各产品监控指标文档，例如云服务器的指标名，可参见 [云服务器监控指标](https://cloud.tencent.com/document/product/248/6843)
      */
     public void setMetricName(String MetricName) {
         this.MetricName = MetricName;
     }
+
+    public DescribeBaseMetricsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeBaseMetricsRequest(DescribeBaseMetricsRequest source) {
+        if (source.Namespace != null) {
+            this.Namespace = new String(source.Namespace);
+        }
+        if (source.MetricName != null) {
+            this.MetricName = new String(source.MetricName);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

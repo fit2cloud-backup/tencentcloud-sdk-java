@@ -27,6 +27,7 @@ public class DescribeOnlineRecordResponse extends AbstractModel{
 - AUTO: 房间内长时间没有音视频上行及白板操作导致自动停止录制
 - USER_CALL: 主动调用了停止录制接口
 - EXCEPTION: 录制异常结束
+- FORCE_STOP: 强制停止录制，一般是因为暂停超过90分钟或者录制总时长超过24小时。
     */
     @SerializedName("FinishReason")
     @Expose
@@ -115,6 +116,22 @@ public class DescribeOnlineRecordResponse extends AbstractModel{
     private VideoInfo [] VideoInfos;
 
     /**
+    * 回放URL，需配合信令播放器使用。此字段仅适用于`视频生成模式`
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ReplayUrl")
+    @Expose
+    private String ReplayUrl;
+
+    /**
+    * 视频流在录制过程中断流次数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Interrupts")
+    @Expose
+    private Interrupt [] Interrupts;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -125,11 +142,13 @@ public class DescribeOnlineRecordResponse extends AbstractModel{
      * Get 录制结束原因，
 - AUTO: 房间内长时间没有音视频上行及白板操作导致自动停止录制
 - USER_CALL: 主动调用了停止录制接口
-- EXCEPTION: 录制异常结束 
+- EXCEPTION: 录制异常结束
+- FORCE_STOP: 强制停止录制，一般是因为暂停超过90分钟或者录制总时长超过24小时。 
      * @return FinishReason 录制结束原因，
 - AUTO: 房间内长时间没有音视频上行及白板操作导致自动停止录制
 - USER_CALL: 主动调用了停止录制接口
 - EXCEPTION: 录制异常结束
+- FORCE_STOP: 强制停止录制，一般是因为暂停超过90分钟或者录制总时长超过24小时。
      */
     public String getFinishReason() {
         return this.FinishReason;
@@ -140,10 +159,12 @@ public class DescribeOnlineRecordResponse extends AbstractModel{
 - AUTO: 房间内长时间没有音视频上行及白板操作导致自动停止录制
 - USER_CALL: 主动调用了停止录制接口
 - EXCEPTION: 录制异常结束
+- FORCE_STOP: 强制停止录制，一般是因为暂停超过90分钟或者录制总时长超过24小时。
      * @param FinishReason 录制结束原因，
 - AUTO: 房间内长时间没有音视频上行及白板操作导致自动停止录制
 - USER_CALL: 主动调用了停止录制接口
 - EXCEPTION: 录制异常结束
+- FORCE_STOP: 强制停止录制，一般是因为暂停超过90分钟或者录制总时长超过24小时。
      */
     public void setFinishReason(String FinishReason) {
         this.FinishReason = FinishReason;
@@ -346,6 +367,46 @@ public class DescribeOnlineRecordResponse extends AbstractModel{
     }
 
     /**
+     * Get 回放URL，需配合信令播放器使用。此字段仅适用于`视频生成模式`
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ReplayUrl 回放URL，需配合信令播放器使用。此字段仅适用于`视频生成模式`
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getReplayUrl() {
+        return this.ReplayUrl;
+    }
+
+    /**
+     * Set 回放URL，需配合信令播放器使用。此字段仅适用于`视频生成模式`
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ReplayUrl 回放URL，需配合信令播放器使用。此字段仅适用于`视频生成模式`
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setReplayUrl(String ReplayUrl) {
+        this.ReplayUrl = ReplayUrl;
+    }
+
+    /**
+     * Get 视频流在录制过程中断流次数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Interrupts 视频流在录制过程中断流次数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Interrupt [] getInterrupts() {
+        return this.Interrupts;
+    }
+
+    /**
+     * Set 视频流在录制过程中断流次数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Interrupts 视频流在录制过程中断流次数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setInterrupts(Interrupt [] Interrupts) {
+        this.Interrupts = Interrupts;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -360,6 +421,71 @@ public class DescribeOnlineRecordResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeOnlineRecordResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeOnlineRecordResponse(DescribeOnlineRecordResponse source) {
+        if (source.FinishReason != null) {
+            this.FinishReason = new String(source.FinishReason);
+        }
+        if (source.TaskId != null) {
+            this.TaskId = new String(source.TaskId);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.RoomId != null) {
+            this.RoomId = new Long(source.RoomId);
+        }
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
+        if (source.RecordUserId != null) {
+            this.RecordUserId = new String(source.RecordUserId);
+        }
+        if (source.RecordStartTime != null) {
+            this.RecordStartTime = new Long(source.RecordStartTime);
+        }
+        if (source.RecordStopTime != null) {
+            this.RecordStopTime = new Long(source.RecordStopTime);
+        }
+        if (source.TotalTime != null) {
+            this.TotalTime = new Long(source.TotalTime);
+        }
+        if (source.ExceptionCnt != null) {
+            this.ExceptionCnt = new Long(source.ExceptionCnt);
+        }
+        if (source.OmittedDurations != null) {
+            this.OmittedDurations = new OmittedDuration[source.OmittedDurations.length];
+            for (int i = 0; i < source.OmittedDurations.length; i++) {
+                this.OmittedDurations[i] = new OmittedDuration(source.OmittedDurations[i]);
+            }
+        }
+        if (source.VideoInfos != null) {
+            this.VideoInfos = new VideoInfo[source.VideoInfos.length];
+            for (int i = 0; i < source.VideoInfos.length; i++) {
+                this.VideoInfos[i] = new VideoInfo(source.VideoInfos[i]);
+            }
+        }
+        if (source.ReplayUrl != null) {
+            this.ReplayUrl = new String(source.ReplayUrl);
+        }
+        if (source.Interrupts != null) {
+            this.Interrupts = new Interrupt[source.Interrupts.length];
+            for (int i = 0; i < source.Interrupts.length; i++) {
+                this.Interrupts[i] = new Interrupt(source.Interrupts[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -377,6 +503,8 @@ public class DescribeOnlineRecordResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "ExceptionCnt", this.ExceptionCnt);
         this.setParamArrayObj(map, prefix + "OmittedDurations.", this.OmittedDurations);
         this.setParamArrayObj(map, prefix + "VideoInfos.", this.VideoInfos);
+        this.setParamSimple(map, prefix + "ReplayUrl", this.ReplayUrl);
+        this.setParamArrayObj(map, prefix + "Interrupts.", this.Interrupts);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -37,21 +37,21 @@ public class DescribeTopicDetailRequest extends AbstractModel{
     private Long Limit;
 
     /**
-    * 目前只支持过滤TopicName ， 且只能填一个过滤值
+    * 目前只支持过滤TopicName ， 且只能填一个过滤值。
     */
     @SerializedName("Filters")
     @Expose
     private Filter [] Filters;
 
     /**
-    * 标签匹配
+    * 标签匹配。
     */
     @SerializedName("TagKey")
     @Expose
     private String TagKey;
 
     /**
-    * 精确匹配TopicName
+    * 精确匹配TopicName。
     */
     @SerializedName("TopicName")
     @Expose
@@ -90,52 +90,81 @@ public class DescribeTopicDetailRequest extends AbstractModel{
     }
 
     /**
-     * Get 目前只支持过滤TopicName ， 且只能填一个过滤值 
-     * @return Filters 目前只支持过滤TopicName ， 且只能填一个过滤值
+     * Get 目前只支持过滤TopicName ， 且只能填一个过滤值。 
+     * @return Filters 目前只支持过滤TopicName ， 且只能填一个过滤值。
      */
     public Filter [] getFilters() {
         return this.Filters;
     }
 
     /**
-     * Set 目前只支持过滤TopicName ， 且只能填一个过滤值
-     * @param Filters 目前只支持过滤TopicName ， 且只能填一个过滤值
+     * Set 目前只支持过滤TopicName ， 且只能填一个过滤值。
+     * @param Filters 目前只支持过滤TopicName ， 且只能填一个过滤值。
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;
     }
 
     /**
-     * Get 标签匹配 
-     * @return TagKey 标签匹配
+     * Get 标签匹配。 
+     * @return TagKey 标签匹配。
      */
     public String getTagKey() {
         return this.TagKey;
     }
 
     /**
-     * Set 标签匹配
-     * @param TagKey 标签匹配
+     * Set 标签匹配。
+     * @param TagKey 标签匹配。
      */
     public void setTagKey(String TagKey) {
         this.TagKey = TagKey;
     }
 
     /**
-     * Get 精确匹配TopicName 
-     * @return TopicName 精确匹配TopicName
+     * Get 精确匹配TopicName。 
+     * @return TopicName 精确匹配TopicName。
      */
     public String getTopicName() {
         return this.TopicName;
     }
 
     /**
-     * Set 精确匹配TopicName
-     * @param TopicName 精确匹配TopicName
+     * Set 精确匹配TopicName。
+     * @param TopicName 精确匹配TopicName。
      */
     public void setTopicName(String TopicName) {
         this.TopicName = TopicName;
     }
+
+    public DescribeTopicDetailRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeTopicDetailRequest(DescribeTopicDetailRequest source) {
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
+        }
+        if (source.TagKey != null) {
+            this.TagKey = new String(source.TagKey);
+        }
+        if (source.TopicName != null) {
+            this.TopicName = new String(source.TopicName);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

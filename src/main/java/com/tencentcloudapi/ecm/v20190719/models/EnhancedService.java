@@ -37,6 +37,13 @@ public class EnhancedService extends AbstractModel{
     private RunMonitorServiceEnabled MonitorService;
 
     /**
+    * 是否开通IP直通。若不指定该参数，则Linux镜像默认开通，windows镜像暂不支持IP直通。
+    */
+    @SerializedName("EIPDirectService")
+    @Expose
+    private RunEIPDirectServiceEnabled EIPDirectService;
+
+    /**
      * Get 是否开启云镜服务。 
      * @return SecurityService 是否开启云镜服务。
      */
@@ -69,11 +76,48 @@ public class EnhancedService extends AbstractModel{
     }
 
     /**
+     * Get 是否开通IP直通。若不指定该参数，则Linux镜像默认开通，windows镜像暂不支持IP直通。 
+     * @return EIPDirectService 是否开通IP直通。若不指定该参数，则Linux镜像默认开通，windows镜像暂不支持IP直通。
+     */
+    public RunEIPDirectServiceEnabled getEIPDirectService() {
+        return this.EIPDirectService;
+    }
+
+    /**
+     * Set 是否开通IP直通。若不指定该参数，则Linux镜像默认开通，windows镜像暂不支持IP直通。
+     * @param EIPDirectService 是否开通IP直通。若不指定该参数，则Linux镜像默认开通，windows镜像暂不支持IP直通。
+     */
+    public void setEIPDirectService(RunEIPDirectServiceEnabled EIPDirectService) {
+        this.EIPDirectService = EIPDirectService;
+    }
+
+    public EnhancedService() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public EnhancedService(EnhancedService source) {
+        if (source.SecurityService != null) {
+            this.SecurityService = new RunSecurityServiceEnabled(source.SecurityService);
+        }
+        if (source.MonitorService != null) {
+            this.MonitorService = new RunMonitorServiceEnabled(source.MonitorService);
+        }
+        if (source.EIPDirectService != null) {
+            this.EIPDirectService = new RunEIPDirectServiceEnabled(source.EIPDirectService);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "SecurityService.", this.SecurityService);
         this.setParamObj(map, prefix + "MonitorService.", this.MonitorService);
+        this.setParamObj(map, prefix + "EIPDirectService.", this.EIPDirectService);
 
     }
 }

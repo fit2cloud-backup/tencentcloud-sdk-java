@@ -58,6 +58,13 @@ public class UnbindRelateAcctRequest extends AbstractModel{
     private String ReservedMsg;
 
     /**
+    * STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+    */
+    @SerializedName("Profile")
+    @Expose
+    private String Profile;
+
+    /**
      * Get String(22)，商户号（签约客户号） 
      * @return MrchCode String(22)，商户号（签约客户号）
      */
@@ -138,6 +145,51 @@ public class UnbindRelateAcctRequest extends AbstractModel{
     }
 
     /**
+     * Get STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod" 
+     * @return Profile STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     */
+    public String getProfile() {
+        return this.Profile;
+    }
+
+    /**
+     * Set STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     * @param Profile STRING(12)，接入环境，默认接入沙箱环境。接入正式环境填"prod"
+     */
+    public void setProfile(String Profile) {
+        this.Profile = Profile;
+    }
+
+    public UnbindRelateAcctRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public UnbindRelateAcctRequest(UnbindRelateAcctRequest source) {
+        if (source.MrchCode != null) {
+            this.MrchCode = new String(source.MrchCode);
+        }
+        if (source.FunctionFlag != null) {
+            this.FunctionFlag = new String(source.FunctionFlag);
+        }
+        if (source.TranNetMemberCode != null) {
+            this.TranNetMemberCode = new String(source.TranNetMemberCode);
+        }
+        if (source.MemberAcctNo != null) {
+            this.MemberAcctNo = new String(source.MemberAcctNo);
+        }
+        if (source.ReservedMsg != null) {
+            this.ReservedMsg = new String(source.ReservedMsg);
+        }
+        if (source.Profile != null) {
+            this.Profile = new String(source.Profile);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -146,6 +198,7 @@ public class UnbindRelateAcctRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TranNetMemberCode", this.TranNetMemberCode);
         this.setParamSimple(map, prefix + "MemberAcctNo", this.MemberAcctNo);
         this.setParamSimple(map, prefix + "ReservedMsg", this.ReservedMsg);
+        this.setParamSimple(map, prefix + "Profile", this.Profile);
 
     }
 }

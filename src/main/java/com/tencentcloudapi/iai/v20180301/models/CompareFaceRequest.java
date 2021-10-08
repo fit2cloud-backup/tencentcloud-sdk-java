@@ -65,8 +65,14 @@ B 图片的 Url、Image必须提供一个，如果都提供，只使用 Url。
     private String UrlB;
 
     /**
-    * 人脸识别服务所用的算法模型版本。目前入参支持 “2.0”和“3.0“ 两个输入。 
-2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。 
+    * 人脸识别服务所用的算法模型版本。
+
+目前入参支持 “2.0”和“3.0“ 两个输入。
+
+2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。
+
+2020年11月26日后开通服务的账号仅支持输入“3.0”。
+
 不同算法模型版本对应的人脸识别算法不同，新版本的整体效果会优于旧版本，建议使用“3.0”版本。
     */
     @SerializedName("FaceModelVersion")
@@ -86,6 +92,13 @@ B 图片的 Url、Image必须提供一个，如果都提供，只使用 Url。
     @SerializedName("QualityControl")
     @Expose
     private Long QualityControl;
+
+    /**
+    * 是否开启图片旋转识别支持。0为不开启，1为开启。默认为0。本参数的作用为，当图片中的人脸被旋转且图片没有exif信息时，如果不开启图片旋转识别支持则无法正确检测、识别图片中的人脸。若您确认图片包含exif信息或者您确认输入图中人脸不会出现被旋转情况，请不要开启本参数。开启后，整体耗时将可能增加数百毫秒。
+    */
+    @SerializedName("NeedRotateDetection")
+    @Expose
+    private Long NeedRotateDetection;
 
     /**
      * Get A 图片 base64 数据，base64 编码后大小不可超过5M。
@@ -208,11 +221,23 @@ B 图片的 Url、Image必须提供一个，如果都提供，只使用 Url。
     }
 
     /**
-     * Get 人脸识别服务所用的算法模型版本。目前入参支持 “2.0”和“3.0“ 两个输入。 
-2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。 
+     * Get 人脸识别服务所用的算法模型版本。
+
+目前入参支持 “2.0”和“3.0“ 两个输入。
+
+2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。
+
+2020年11月26日后开通服务的账号仅支持输入“3.0”。
+
 不同算法模型版本对应的人脸识别算法不同，新版本的整体效果会优于旧版本，建议使用“3.0”版本。 
-     * @return FaceModelVersion 人脸识别服务所用的算法模型版本。目前入参支持 “2.0”和“3.0“ 两个输入。 
-2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。 
+     * @return FaceModelVersion 人脸识别服务所用的算法模型版本。
+
+目前入参支持 “2.0”和“3.0“ 两个输入。
+
+2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。
+
+2020年11月26日后开通服务的账号仅支持输入“3.0”。
+
 不同算法模型版本对应的人脸识别算法不同，新版本的整体效果会优于旧版本，建议使用“3.0”版本。
      */
     public String getFaceModelVersion() {
@@ -220,11 +245,23 @@ B 图片的 Url、Image必须提供一个，如果都提供，只使用 Url。
     }
 
     /**
-     * Set 人脸识别服务所用的算法模型版本。目前入参支持 “2.0”和“3.0“ 两个输入。 
-2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。 
+     * Set 人脸识别服务所用的算法模型版本。
+
+目前入参支持 “2.0”和“3.0“ 两个输入。
+
+2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。
+
+2020年11月26日后开通服务的账号仅支持输入“3.0”。
+
 不同算法模型版本对应的人脸识别算法不同，新版本的整体效果会优于旧版本，建议使用“3.0”版本。
-     * @param FaceModelVersion 人脸识别服务所用的算法模型版本。目前入参支持 “2.0”和“3.0“ 两个输入。 
-2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。 
+     * @param FaceModelVersion 人脸识别服务所用的算法模型版本。
+
+目前入参支持 “2.0”和“3.0“ 两个输入。
+
+2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。
+
+2020年11月26日后开通服务的账号仅支持输入“3.0”。
+
 不同算法模型版本对应的人脸识别算法不同，新版本的整体效果会优于旧版本，建议使用“3.0”版本。
      */
     public void setFaceModelVersion(String FaceModelVersion) {
@@ -276,6 +313,54 @@ B 图片的 Url、Image必须提供一个，如果都提供，只使用 Url。
     }
 
     /**
+     * Get 是否开启图片旋转识别支持。0为不开启，1为开启。默认为0。本参数的作用为，当图片中的人脸被旋转且图片没有exif信息时，如果不开启图片旋转识别支持则无法正确检测、识别图片中的人脸。若您确认图片包含exif信息或者您确认输入图中人脸不会出现被旋转情况，请不要开启本参数。开启后，整体耗时将可能增加数百毫秒。 
+     * @return NeedRotateDetection 是否开启图片旋转识别支持。0为不开启，1为开启。默认为0。本参数的作用为，当图片中的人脸被旋转且图片没有exif信息时，如果不开启图片旋转识别支持则无法正确检测、识别图片中的人脸。若您确认图片包含exif信息或者您确认输入图中人脸不会出现被旋转情况，请不要开启本参数。开启后，整体耗时将可能增加数百毫秒。
+     */
+    public Long getNeedRotateDetection() {
+        return this.NeedRotateDetection;
+    }
+
+    /**
+     * Set 是否开启图片旋转识别支持。0为不开启，1为开启。默认为0。本参数的作用为，当图片中的人脸被旋转且图片没有exif信息时，如果不开启图片旋转识别支持则无法正确检测、识别图片中的人脸。若您确认图片包含exif信息或者您确认输入图中人脸不会出现被旋转情况，请不要开启本参数。开启后，整体耗时将可能增加数百毫秒。
+     * @param NeedRotateDetection 是否开启图片旋转识别支持。0为不开启，1为开启。默认为0。本参数的作用为，当图片中的人脸被旋转且图片没有exif信息时，如果不开启图片旋转识别支持则无法正确检测、识别图片中的人脸。若您确认图片包含exif信息或者您确认输入图中人脸不会出现被旋转情况，请不要开启本参数。开启后，整体耗时将可能增加数百毫秒。
+     */
+    public void setNeedRotateDetection(Long NeedRotateDetection) {
+        this.NeedRotateDetection = NeedRotateDetection;
+    }
+
+    public CompareFaceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CompareFaceRequest(CompareFaceRequest source) {
+        if (source.ImageA != null) {
+            this.ImageA = new String(source.ImageA);
+        }
+        if (source.ImageB != null) {
+            this.ImageB = new String(source.ImageB);
+        }
+        if (source.UrlA != null) {
+            this.UrlA = new String(source.UrlA);
+        }
+        if (source.UrlB != null) {
+            this.UrlB = new String(source.UrlB);
+        }
+        if (source.FaceModelVersion != null) {
+            this.FaceModelVersion = new String(source.FaceModelVersion);
+        }
+        if (source.QualityControl != null) {
+            this.QualityControl = new Long(source.QualityControl);
+        }
+        if (source.NeedRotateDetection != null) {
+            this.NeedRotateDetection = new Long(source.NeedRotateDetection);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -285,6 +370,7 @@ B 图片的 Url、Image必须提供一个，如果都提供，只使用 Url。
         this.setParamSimple(map, prefix + "UrlB", this.UrlB);
         this.setParamSimple(map, prefix + "FaceModelVersion", this.FaceModelVersion);
         this.setParamSimple(map, prefix + "QualityControl", this.QualityControl);
+        this.setParamSimple(map, prefix + "NeedRotateDetection", this.NeedRotateDetection);
 
     }
 }

@@ -31,7 +31,6 @@ public class EditMediaTaskInput extends AbstractModel{
 
     /**
     * 输入的视频文件信息，当 InputType 为 File 时，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FileInfoSet")
     @Expose
@@ -39,7 +38,6 @@ public class EditMediaTaskInput extends AbstractModel{
 
     /**
     * 输入的流信息，当 InputType 为 Stream 时，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StreamInfoSet")
     @Expose
@@ -62,10 +60,8 @@ public class EditMediaTaskInput extends AbstractModel{
     }
 
     /**
-     * Get 输入的视频文件信息，当 InputType 为 File 时，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 输入的视频文件信息，当 InputType 为 File 时，该字段有值。 
      * @return FileInfoSet 输入的视频文件信息，当 InputType 为 File 时，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public EditMediaFileInfo [] getFileInfoSet() {
         return this.FileInfoSet;
@@ -73,19 +69,15 @@ public class EditMediaTaskInput extends AbstractModel{
 
     /**
      * Set 输入的视频文件信息，当 InputType 为 File 时，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FileInfoSet 输入的视频文件信息，当 InputType 为 File 时，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFileInfoSet(EditMediaFileInfo [] FileInfoSet) {
         this.FileInfoSet = FileInfoSet;
     }
 
     /**
-     * Get 输入的流信息，当 InputType 为 Stream 时，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 输入的流信息，当 InputType 为 Stream 时，该字段有值。 
      * @return StreamInfoSet 输入的流信息，当 InputType 为 Stream 时，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public EditMediaStreamInfo [] getStreamInfoSet() {
         return this.StreamInfoSet;
@@ -93,13 +85,37 @@ public class EditMediaTaskInput extends AbstractModel{
 
     /**
      * Set 输入的流信息，当 InputType 为 Stream 时，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StreamInfoSet 输入的流信息，当 InputType 为 Stream 时，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStreamInfoSet(EditMediaStreamInfo [] StreamInfoSet) {
         this.StreamInfoSet = StreamInfoSet;
     }
+
+    public EditMediaTaskInput() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public EditMediaTaskInput(EditMediaTaskInput source) {
+        if (source.InputType != null) {
+            this.InputType = new String(source.InputType);
+        }
+        if (source.FileInfoSet != null) {
+            this.FileInfoSet = new EditMediaFileInfo[source.FileInfoSet.length];
+            for (int i = 0; i < source.FileInfoSet.length; i++) {
+                this.FileInfoSet[i] = new EditMediaFileInfo(source.FileInfoSet[i]);
+            }
+        }
+        if (source.StreamInfoSet != null) {
+            this.StreamInfoSet = new EditMediaStreamInfo[source.StreamInfoSet.length];
+            for (int i = 0; i < source.StreamInfoSet.length; i++) {
+                this.StreamInfoSet[i] = new EditMediaStreamInfo(source.StreamInfoSet[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

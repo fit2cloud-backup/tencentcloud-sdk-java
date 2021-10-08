@@ -69,6 +69,7 @@ public class ModifySmsSignRequest extends AbstractModel{
     * 是否国际/港澳台短信：
 0：表示国内短信。
 1：表示国际/港澳台短信。
+注：需要和待修改签名International值保持一致，该参数不能直接修改国内签名到国际签名。
     */
     @SerializedName("International")
     @Expose
@@ -233,10 +234,12 @@ public class ModifySmsSignRequest extends AbstractModel{
     /**
      * Get 是否国际/港澳台短信：
 0：表示国内短信。
-1：表示国际/港澳台短信。 
+1：表示国际/港澳台短信。
+注：需要和待修改签名International值保持一致，该参数不能直接修改国内签名到国际签名。 
      * @return International 是否国际/港澳台短信：
 0：表示国内短信。
 1：表示国际/港澳台短信。
+注：需要和待修改签名International值保持一致，该参数不能直接修改国内签名到国际签名。
      */
     public Long getInternational() {
         return this.International;
@@ -246,9 +249,11 @@ public class ModifySmsSignRequest extends AbstractModel{
      * Set 是否国际/港澳台短信：
 0：表示国内短信。
 1：表示国际/港澳台短信。
+注：需要和待修改签名International值保持一致，该参数不能直接修改国内签名到国际签名。
      * @param International 是否国际/港澳台短信：
 0：表示国内短信。
 1：表示国际/港澳台短信。
+注：需要和待修改签名International值保持一致，该参数不能直接修改国内签名到国际签名。
      */
     public void setInternational(Long International) {
         this.International = International;
@@ -333,6 +338,44 @@ public class ModifySmsSignRequest extends AbstractModel{
     public void setRemark(String Remark) {
         this.Remark = Remark;
     }
+
+    public ModifySmsSignRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ModifySmsSignRequest(ModifySmsSignRequest source) {
+        if (source.SignId != null) {
+            this.SignId = new Long(source.SignId);
+        }
+        if (source.SignName != null) {
+            this.SignName = new String(source.SignName);
+        }
+        if (source.SignType != null) {
+            this.SignType = new Long(source.SignType);
+        }
+        if (source.DocumentType != null) {
+            this.DocumentType = new Long(source.DocumentType);
+        }
+        if (source.International != null) {
+            this.International = new Long(source.International);
+        }
+        if (source.UsedMethod != null) {
+            this.UsedMethod = new Long(source.UsedMethod);
+        }
+        if (source.ProofImage != null) {
+            this.ProofImage = new String(source.ProofImage);
+        }
+        if (source.CommissionImage != null) {
+            this.CommissionImage = new String(source.CommissionImage);
+        }
+        if (source.Remark != null) {
+            this.Remark = new String(source.Remark);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

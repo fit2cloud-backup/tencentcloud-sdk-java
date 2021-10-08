@@ -93,6 +93,20 @@ public class LoginWhiteLists extends AbstractModel{
     private String HostIp;
 
     /**
+    * 起始时间
+    */
+    @SerializedName("StartTime")
+    @Expose
+    private String StartTime;
+
+    /**
+    * 结束时间
+    */
+    @SerializedName("EndTime")
+    @Expose
+    private String EndTime;
+
+    /**
      * Get 记录ID 
      * @return Id 记录ID
      */
@@ -253,6 +267,88 @@ public class LoginWhiteLists extends AbstractModel{
     }
 
     /**
+     * Get 起始时间 
+     * @return StartTime 起始时间
+     */
+    public String getStartTime() {
+        return this.StartTime;
+    }
+
+    /**
+     * Set 起始时间
+     * @param StartTime 起始时间
+     */
+    public void setStartTime(String StartTime) {
+        this.StartTime = StartTime;
+    }
+
+    /**
+     * Get 结束时间 
+     * @return EndTime 结束时间
+     */
+    public String getEndTime() {
+        return this.EndTime;
+    }
+
+    /**
+     * Set 结束时间
+     * @param EndTime 结束时间
+     */
+    public void setEndTime(String EndTime) {
+        this.EndTime = EndTime;
+    }
+
+    public LoginWhiteLists() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public LoginWhiteLists(LoginWhiteLists source) {
+        if (source.Id != null) {
+            this.Id = new Long(source.Id);
+        }
+        if (source.Uuid != null) {
+            this.Uuid = new String(source.Uuid);
+        }
+        if (source.Places != null) {
+            this.Places = new Place[source.Places.length];
+            for (int i = 0; i < source.Places.length; i++) {
+                this.Places[i] = new Place(source.Places[i]);
+            }
+        }
+        if (source.UserName != null) {
+            this.UserName = new String(source.UserName);
+        }
+        if (source.SrcIp != null) {
+            this.SrcIp = new String(source.SrcIp);
+        }
+        if (source.IsGlobal != null) {
+            this.IsGlobal = new Boolean(source.IsGlobal);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.ModifyTime != null) {
+            this.ModifyTime = new String(source.ModifyTime);
+        }
+        if (source.MachineName != null) {
+            this.MachineName = new String(source.MachineName);
+        }
+        if (source.HostIp != null) {
+            this.HostIp = new String(source.HostIp);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -266,6 +362,8 @@ public class LoginWhiteLists extends AbstractModel{
         this.setParamSimple(map, prefix + "ModifyTime", this.ModifyTime);
         this.setParamSimple(map, prefix + "MachineName", this.MachineName);
         this.setParamSimple(map, prefix + "HostIp", this.HostIp);
+        this.setParamSimple(map, prefix + "StartTime", this.StartTime);
+        this.setParamSimple(map, prefix + "EndTime", this.EndTime);
 
     }
 }

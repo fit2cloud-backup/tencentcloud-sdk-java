@@ -44,6 +44,13 @@ public class TcrImageInfo extends AbstractModel{
     private String ImageVersion;
 
     /**
+    * 更新时间
+    */
+    @SerializedName("UpdateTime")
+    @Expose
+    private String UpdateTime;
+
+    /**
      * Get 哈希值 
      * @return Digest 哈希值
      */
@@ -92,12 +99,52 @@ public class TcrImageInfo extends AbstractModel{
     }
 
     /**
+     * Get 更新时间 
+     * @return UpdateTime 更新时间
+     */
+    public String getUpdateTime() {
+        return this.UpdateTime;
+    }
+
+    /**
+     * Set 更新时间
+     * @param UpdateTime 更新时间
+     */
+    public void setUpdateTime(String UpdateTime) {
+        this.UpdateTime = UpdateTime;
+    }
+
+    public TcrImageInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public TcrImageInfo(TcrImageInfo source) {
+        if (source.Digest != null) {
+            this.Digest = new String(source.Digest);
+        }
+        if (source.Size != null) {
+            this.Size = new Long(source.Size);
+        }
+        if (source.ImageVersion != null) {
+            this.ImageVersion = new String(source.ImageVersion);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Digest", this.Digest);
         this.setParamSimple(map, prefix + "Size", this.Size);
         this.setParamSimple(map, prefix + "ImageVersion", this.ImageVersion);
+        this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
 
     }
 }

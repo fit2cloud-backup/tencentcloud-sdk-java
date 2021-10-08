@@ -79,7 +79,7 @@ public class DescribeProIspPlaySumInfoListResponse extends AbstractModel{
     private ProIspPlaySumInfo [] DataInfoList;
 
     /**
-    * 平均带宽。
+    * 下载速度，单位：MB/s，计算方式：总流量/总时长。
     */
     @SerializedName("AvgFluxPerSecond")
     @Expose
@@ -221,16 +221,16 @@ public class DescribeProIspPlaySumInfoListResponse extends AbstractModel{
     }
 
     /**
-     * Get 平均带宽。 
-     * @return AvgFluxPerSecond 平均带宽。
+     * Get 下载速度，单位：MB/s，计算方式：总流量/总时长。 
+     * @return AvgFluxPerSecond 下载速度，单位：MB/s，计算方式：总流量/总时长。
      */
     public Float getAvgFluxPerSecond() {
         return this.AvgFluxPerSecond;
     }
 
     /**
-     * Set 平均带宽。
-     * @param AvgFluxPerSecond 平均带宽。
+     * Set 下载速度，单位：MB/s，计算方式：总流量/总时长。
+     * @param AvgFluxPerSecond 下载速度，单位：MB/s，计算方式：总流量/总时长。
      */
     public void setAvgFluxPerSecond(Float AvgFluxPerSecond) {
         this.AvgFluxPerSecond = AvgFluxPerSecond;
@@ -251,6 +251,50 @@ public class DescribeProIspPlaySumInfoListResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeProIspPlaySumInfoListResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeProIspPlaySumInfoListResponse(DescribeProIspPlaySumInfoListResponse source) {
+        if (source.TotalFlux != null) {
+            this.TotalFlux = new Float(source.TotalFlux);
+        }
+        if (source.TotalRequest != null) {
+            this.TotalRequest = new Long(source.TotalRequest);
+        }
+        if (source.StatType != null) {
+            this.StatType = new String(source.StatType);
+        }
+        if (source.PageSize != null) {
+            this.PageSize = new Long(source.PageSize);
+        }
+        if (source.PageNum != null) {
+            this.PageNum = new Long(source.PageNum);
+        }
+        if (source.TotalNum != null) {
+            this.TotalNum = new Long(source.TotalNum);
+        }
+        if (source.TotalPage != null) {
+            this.TotalPage = new Long(source.TotalPage);
+        }
+        if (source.DataInfoList != null) {
+            this.DataInfoList = new ProIspPlaySumInfo[source.DataInfoList.length];
+            for (int i = 0; i < source.DataInfoList.length; i++) {
+                this.DataInfoList[i] = new ProIspPlaySumInfo(source.DataInfoList[i]);
+            }
+        }
+        if (source.AvgFluxPerSecond != null) {
+            this.AvgFluxPerSecond = new Float(source.AvgFluxPerSecond);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

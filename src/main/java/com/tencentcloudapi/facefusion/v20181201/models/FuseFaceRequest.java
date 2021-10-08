@@ -37,7 +37,7 @@ public class FuseFaceRequest extends AbstractModel{
     private String ModelId;
 
     /**
-    * 返回图像方式（url 或 base64) ，二选一。url有效期为30天。
+    * 返回图像方式（url 或 base64) ，二选一。url有效期为7天。
     */
     @SerializedName("RspImgType")
     @Expose
@@ -67,8 +67,8 @@ public class FuseFaceRequest extends AbstractModel{
     private Long FuseFaceDegree;
 
     /**
-    * 0表示不需要鉴政，1表示需要鉴政。默认值为0。
-请注意，鉴政服务开启后，您需要根据返回结果自行判断是否调整您的业务逻辑。例如提示您的用户图片非法，请更换图片。
+    * 0表示不需要不适宜内容识别，1表示需要不适宜内容识别。默认值为0。
+请注意，不适宜内容识别服务开启后，您需要根据返回结果自行判断是否调整您的业务逻辑。例如提示您的用户图片非法，请更换图片。
     */
     @SerializedName("CelebrityIdentify")
     @Expose
@@ -107,16 +107,16 @@ public class FuseFaceRequest extends AbstractModel{
     }
 
     /**
-     * Get 返回图像方式（url 或 base64) ，二选一。url有效期为30天。 
-     * @return RspImgType 返回图像方式（url 或 base64) ，二选一。url有效期为30天。
+     * Get 返回图像方式（url 或 base64) ，二选一。url有效期为7天。 
+     * @return RspImgType 返回图像方式（url 或 base64) ，二选一。url有效期为7天。
      */
     public String getRspImgType() {
         return this.RspImgType;
     }
 
     /**
-     * Set 返回图像方式（url 或 base64) ，二选一。url有效期为30天。
-     * @param RspImgType 返回图像方式（url 或 base64) ，二选一。url有效期为30天。
+     * Set 返回图像方式（url 或 base64) ，二选一。url有效期为7天。
+     * @param RspImgType 返回图像方式（url 或 base64) ，二选一。url有效期为7天。
      */
     public void setRspImgType(String RspImgType) {
         this.RspImgType = RspImgType;
@@ -179,24 +179,59 @@ public class FuseFaceRequest extends AbstractModel{
     }
 
     /**
-     * Get 0表示不需要鉴政，1表示需要鉴政。默认值为0。
-请注意，鉴政服务开启后，您需要根据返回结果自行判断是否调整您的业务逻辑。例如提示您的用户图片非法，请更换图片。 
-     * @return CelebrityIdentify 0表示不需要鉴政，1表示需要鉴政。默认值为0。
-请注意，鉴政服务开启后，您需要根据返回结果自行判断是否调整您的业务逻辑。例如提示您的用户图片非法，请更换图片。
+     * Get 0表示不需要不适宜内容识别，1表示需要不适宜内容识别。默认值为0。
+请注意，不适宜内容识别服务开启后，您需要根据返回结果自行判断是否调整您的业务逻辑。例如提示您的用户图片非法，请更换图片。 
+     * @return CelebrityIdentify 0表示不需要不适宜内容识别，1表示需要不适宜内容识别。默认值为0。
+请注意，不适宜内容识别服务开启后，您需要根据返回结果自行判断是否调整您的业务逻辑。例如提示您的用户图片非法，请更换图片。
      */
     public Long getCelebrityIdentify() {
         return this.CelebrityIdentify;
     }
 
     /**
-     * Set 0表示不需要鉴政，1表示需要鉴政。默认值为0。
-请注意，鉴政服务开启后，您需要根据返回结果自行判断是否调整您的业务逻辑。例如提示您的用户图片非法，请更换图片。
-     * @param CelebrityIdentify 0表示不需要鉴政，1表示需要鉴政。默认值为0。
-请注意，鉴政服务开启后，您需要根据返回结果自行判断是否调整您的业务逻辑。例如提示您的用户图片非法，请更换图片。
+     * Set 0表示不需要不适宜内容识别，1表示需要不适宜内容识别。默认值为0。
+请注意，不适宜内容识别服务开启后，您需要根据返回结果自行判断是否调整您的业务逻辑。例如提示您的用户图片非法，请更换图片。
+     * @param CelebrityIdentify 0表示不需要不适宜内容识别，1表示需要不适宜内容识别。默认值为0。
+请注意，不适宜内容识别服务开启后，您需要根据返回结果自行判断是否调整您的业务逻辑。例如提示您的用户图片非法，请更换图片。
      */
     public void setCelebrityIdentify(Long CelebrityIdentify) {
         this.CelebrityIdentify = CelebrityIdentify;
     }
+
+    public FuseFaceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public FuseFaceRequest(FuseFaceRequest source) {
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
+        }
+        if (source.ModelId != null) {
+            this.ModelId = new String(source.ModelId);
+        }
+        if (source.RspImgType != null) {
+            this.RspImgType = new String(source.RspImgType);
+        }
+        if (source.MergeInfos != null) {
+            this.MergeInfos = new MergeInfo[source.MergeInfos.length];
+            for (int i = 0; i < source.MergeInfos.length; i++) {
+                this.MergeInfos[i] = new MergeInfo(source.MergeInfos[i]);
+            }
+        }
+        if (source.FuseProfileDegree != null) {
+            this.FuseProfileDegree = new Long(source.FuseProfileDegree);
+        }
+        if (source.FuseFaceDegree != null) {
+            this.FuseFaceDegree = new Long(source.FuseFaceDegree);
+        }
+        if (source.CelebrityIdentify != null) {
+            this.CelebrityIdentify = new Long(source.CelebrityIdentify);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

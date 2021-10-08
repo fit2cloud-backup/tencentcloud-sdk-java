@@ -23,27 +23,41 @@ import java.util.HashMap;
 public class DeleteModuleRequest extends AbstractModel{
 
     /**
-    * 模块ID。如：es-qn46snq8
+    * 模块ID。如：em-qn46snq8
     */
     @SerializedName("ModuleId")
     @Expose
     private String ModuleId;
 
     /**
-     * Get 模块ID。如：es-qn46snq8 
-     * @return ModuleId 模块ID。如：es-qn46snq8
+     * Get 模块ID。如：em-qn46snq8 
+     * @return ModuleId 模块ID。如：em-qn46snq8
      */
     public String getModuleId() {
         return this.ModuleId;
     }
 
     /**
-     * Set 模块ID。如：es-qn46snq8
-     * @param ModuleId 模块ID。如：es-qn46snq8
+     * Set 模块ID。如：em-qn46snq8
+     * @param ModuleId 模块ID。如：em-qn46snq8
      */
     public void setModuleId(String ModuleId) {
         this.ModuleId = ModuleId;
     }
+
+    public DeleteModuleRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeleteModuleRequest(DeleteModuleRequest source) {
+        if (source.ModuleId != null) {
+            this.ModuleId = new String(source.ModuleId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -58,6 +58,13 @@ public class CreateSubnetRequest extends AbstractModel{
     private Tag [] Tags;
 
     /**
+    * CDC实例ID。
+    */
+    @SerializedName("CdcId")
+    @Expose
+    private String CdcId;
+
+    /**
      * Get 待操作的VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。 
      * @return VpcId 待操作的VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
      */
@@ -138,6 +145,54 @@ public class CreateSubnetRequest extends AbstractModel{
     }
 
     /**
+     * Get CDC实例ID。 
+     * @return CdcId CDC实例ID。
+     */
+    public String getCdcId() {
+        return this.CdcId;
+    }
+
+    /**
+     * Set CDC实例ID。
+     * @param CdcId CDC实例ID。
+     */
+    public void setCdcId(String CdcId) {
+        this.CdcId = CdcId;
+    }
+
+    public CreateSubnetRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateSubnetRequest(CreateSubnetRequest source) {
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.SubnetName != null) {
+            this.SubnetName = new String(source.SubnetName);
+        }
+        if (source.CidrBlock != null) {
+            this.CidrBlock = new String(source.CidrBlock);
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.CdcId != null) {
+            this.CdcId = new String(source.CdcId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -146,6 +201,7 @@ public class CreateSubnetRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "CidrBlock", this.CidrBlock);
         this.setParamSimple(map, prefix + "Zone", this.Zone);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "CdcId", this.CdcId);
 
     }
 }

@@ -183,6 +183,14 @@ public class DescribeProductEventListEvents extends AbstractModel{
     private DescribeProductEventListEventsGroupInfo [] GroupInfo;
 
     /**
+    * 显示名称ViewName
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ViewName")
+    @Expose
+    private String ViewName;
+
+    /**
      * Get 事件ID
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return EventId 事件ID
@@ -583,6 +591,109 @@ public class DescribeProductEventListEvents extends AbstractModel{
     }
 
     /**
+     * Get 显示名称ViewName
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ViewName 显示名称ViewName
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getViewName() {
+        return this.ViewName;
+    }
+
+    /**
+     * Set 显示名称ViewName
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ViewName 显示名称ViewName
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setViewName(String ViewName) {
+        this.ViewName = ViewName;
+    }
+
+    public DescribeProductEventListEvents() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeProductEventListEvents(DescribeProductEventListEvents source) {
+        if (source.EventId != null) {
+            this.EventId = new Long(source.EventId);
+        }
+        if (source.EventCName != null) {
+            this.EventCName = new String(source.EventCName);
+        }
+        if (source.EventEName != null) {
+            this.EventEName = new String(source.EventEName);
+        }
+        if (source.EventName != null) {
+            this.EventName = new String(source.EventName);
+        }
+        if (source.ProductCName != null) {
+            this.ProductCName = new String(source.ProductCName);
+        }
+        if (source.ProductEName != null) {
+            this.ProductEName = new String(source.ProductEName);
+        }
+        if (source.ProductName != null) {
+            this.ProductName = new String(source.ProductName);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.InstanceName != null) {
+            this.InstanceName = new String(source.InstanceName);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
+        }
+        if (source.Region != null) {
+            this.Region = new String(source.Region);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.SupportAlarm != null) {
+            this.SupportAlarm = new Long(source.SupportAlarm);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new Long(source.StartTime);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new Long(source.UpdateTime);
+        }
+        if (source.Dimensions != null) {
+            this.Dimensions = new DescribeProductEventListEventsDimensions[source.Dimensions.length];
+            for (int i = 0; i < source.Dimensions.length; i++) {
+                this.Dimensions[i] = new DescribeProductEventListEventsDimensions(source.Dimensions[i]);
+            }
+        }
+        if (source.AdditionMsg != null) {
+            this.AdditionMsg = new DescribeProductEventListEventsDimensions[source.AdditionMsg.length];
+            for (int i = 0; i < source.AdditionMsg.length; i++) {
+                this.AdditionMsg[i] = new DescribeProductEventListEventsDimensions(source.AdditionMsg[i]);
+            }
+        }
+        if (source.IsAlarmConfig != null) {
+            this.IsAlarmConfig = new Long(source.IsAlarmConfig);
+        }
+        if (source.GroupInfo != null) {
+            this.GroupInfo = new DescribeProductEventListEventsGroupInfo[source.GroupInfo.length];
+            for (int i = 0; i < source.GroupInfo.length; i++) {
+                this.GroupInfo[i] = new DescribeProductEventListEventsGroupInfo(source.GroupInfo[i]);
+            }
+        }
+        if (source.ViewName != null) {
+            this.ViewName = new String(source.ViewName);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -606,6 +717,7 @@ public class DescribeProductEventListEvents extends AbstractModel{
         this.setParamArrayObj(map, prefix + "AdditionMsg.", this.AdditionMsg);
         this.setParamSimple(map, prefix + "IsAlarmConfig", this.IsAlarmConfig);
         this.setParamArrayObj(map, prefix + "GroupInfo.", this.GroupInfo);
+        this.setParamSimple(map, prefix + "ViewName", this.ViewName);
 
     }
 }

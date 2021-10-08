@@ -52,6 +52,14 @@ public class TopicInfo extends AbstractModel{
     private String CreateTime;
 
     /**
+    * 归属于cdn或ecdn
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Channel")
+    @Expose
+    private String Channel;
+
+    /**
      * Get 主题ID 
      * @return TopicId 主题ID
      */
@@ -120,6 +128,52 @@ public class TopicInfo extends AbstractModel{
     }
 
     /**
+     * Get 归属于cdn或ecdn
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Channel 归属于cdn或ecdn
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getChannel() {
+        return this.Channel;
+    }
+
+    /**
+     * Set 归属于cdn或ecdn
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Channel 归属于cdn或ecdn
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setChannel(String Channel) {
+        this.Channel = Channel;
+    }
+
+    public TopicInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public TopicInfo(TopicInfo source) {
+        if (source.TopicId != null) {
+            this.TopicId = new String(source.TopicId);
+        }
+        if (source.TopicName != null) {
+            this.TopicName = new String(source.TopicName);
+        }
+        if (source.Enabled != null) {
+            this.Enabled = new Long(source.Enabled);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.Channel != null) {
+            this.Channel = new String(source.Channel);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -127,6 +181,7 @@ public class TopicInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "TopicName", this.TopicName);
         this.setParamSimple(map, prefix + "Enabled", this.Enabled);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
+        this.setParamSimple(map, prefix + "Channel", this.Channel);
 
     }
 }

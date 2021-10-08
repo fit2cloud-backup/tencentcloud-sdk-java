@@ -23,26 +23,26 @@ import java.util.HashMap;
 public class DescribeWordSamplesRequest extends AbstractModel{
 
     /**
-    * <b>关键词应用场景过滤条件，可选值：</b>
-1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
-2. Recognition.Asr：通过语音识别技术，进行内容识别；
-3. Review.Ocr：通过光学字符识别技术，进行内容审核；
-4. Review.Asr：通过语音识别技术，进行内容审核；
-<b>可合并简写为：</b>
-5. Recognition：通过光学字符识别技术、语音识别技术，进行内容识别，等价于 1+2；
-6. Review：通过光学字符识别技术、语音识别技术，进行内容审核，等价于 3+4；
-可多选，元素间关系为 or，即关键词的应用场景包含该字段集合中任意元素的记录，均符合该条件。
-    */
-    @SerializedName("Usages")
-    @Expose
-    private String [] Usages;
-
-    /**
     * 关键词过滤条件，数组长度限制：100 个词。
     */
     @SerializedName("Keywords")
     @Expose
     private String [] Keywords;
+
+    /**
+    * <b>关键词应用场景过滤条件，可选值：</b>
+1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
+2. Recognition.Asr：通过音频识别技术，进行内容识别；
+3. Review.Ocr：通过光学字符识别技术，进行不适宜内容的识别；
+4. Review.Asr：通过音频识别技术，进行不适宜内容的识别；
+<b>可合并简写为：</b>
+5. Recognition：通过光学字符识别技术、音频识别技术，进行内容识别，等价于 1+2；
+6. Review：通过光学字符识别技术、音频识别技术，进行不适宜内容的识别，等价于 3+4；
+可多选，元素间关系为 or，即关键词的应用场景包含该字段集合中任意元素的记录，均符合该条件。
+    */
+    @SerializedName("Usages")
+    @Expose
+    private String [] Usages;
 
     /**
     * 标签过滤条件，数组长度限制：20 个词。
@@ -66,54 +66,6 @@ public class DescribeWordSamplesRequest extends AbstractModel{
     private Long Limit;
 
     /**
-     * Get <b>关键词应用场景过滤条件，可选值：</b>
-1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
-2. Recognition.Asr：通过语音识别技术，进行内容识别；
-3. Review.Ocr：通过光学字符识别技术，进行内容审核；
-4. Review.Asr：通过语音识别技术，进行内容审核；
-<b>可合并简写为：</b>
-5. Recognition：通过光学字符识别技术、语音识别技术，进行内容识别，等价于 1+2；
-6. Review：通过光学字符识别技术、语音识别技术，进行内容审核，等价于 3+4；
-可多选，元素间关系为 or，即关键词的应用场景包含该字段集合中任意元素的记录，均符合该条件。 
-     * @return Usages <b>关键词应用场景过滤条件，可选值：</b>
-1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
-2. Recognition.Asr：通过语音识别技术，进行内容识别；
-3. Review.Ocr：通过光学字符识别技术，进行内容审核；
-4. Review.Asr：通过语音识别技术，进行内容审核；
-<b>可合并简写为：</b>
-5. Recognition：通过光学字符识别技术、语音识别技术，进行内容识别，等价于 1+2；
-6. Review：通过光学字符识别技术、语音识别技术，进行内容审核，等价于 3+4；
-可多选，元素间关系为 or，即关键词的应用场景包含该字段集合中任意元素的记录，均符合该条件。
-     */
-    public String [] getUsages() {
-        return this.Usages;
-    }
-
-    /**
-     * Set <b>关键词应用场景过滤条件，可选值：</b>
-1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
-2. Recognition.Asr：通过语音识别技术，进行内容识别；
-3. Review.Ocr：通过光学字符识别技术，进行内容审核；
-4. Review.Asr：通过语音识别技术，进行内容审核；
-<b>可合并简写为：</b>
-5. Recognition：通过光学字符识别技术、语音识别技术，进行内容识别，等价于 1+2；
-6. Review：通过光学字符识别技术、语音识别技术，进行内容审核，等价于 3+4；
-可多选，元素间关系为 or，即关键词的应用场景包含该字段集合中任意元素的记录，均符合该条件。
-     * @param Usages <b>关键词应用场景过滤条件，可选值：</b>
-1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
-2. Recognition.Asr：通过语音识别技术，进行内容识别；
-3. Review.Ocr：通过光学字符识别技术，进行内容审核；
-4. Review.Asr：通过语音识别技术，进行内容审核；
-<b>可合并简写为：</b>
-5. Recognition：通过光学字符识别技术、语音识别技术，进行内容识别，等价于 1+2；
-6. Review：通过光学字符识别技术、语音识别技术，进行内容审核，等价于 3+4；
-可多选，元素间关系为 or，即关键词的应用场景包含该字段集合中任意元素的记录，均符合该条件。
-     */
-    public void setUsages(String [] Usages) {
-        this.Usages = Usages;
-    }
-
-    /**
      * Get 关键词过滤条件，数组长度限制：100 个词。 
      * @return Keywords 关键词过滤条件，数组长度限制：100 个词。
      */
@@ -127,6 +79,54 @@ public class DescribeWordSamplesRequest extends AbstractModel{
      */
     public void setKeywords(String [] Keywords) {
         this.Keywords = Keywords;
+    }
+
+    /**
+     * Get <b>关键词应用场景过滤条件，可选值：</b>
+1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
+2. Recognition.Asr：通过音频识别技术，进行内容识别；
+3. Review.Ocr：通过光学字符识别技术，进行不适宜内容的识别；
+4. Review.Asr：通过音频识别技术，进行不适宜内容的识别；
+<b>可合并简写为：</b>
+5. Recognition：通过光学字符识别技术、音频识别技术，进行内容识别，等价于 1+2；
+6. Review：通过光学字符识别技术、音频识别技术，进行不适宜内容的识别，等价于 3+4；
+可多选，元素间关系为 or，即关键词的应用场景包含该字段集合中任意元素的记录，均符合该条件。 
+     * @return Usages <b>关键词应用场景过滤条件，可选值：</b>
+1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
+2. Recognition.Asr：通过音频识别技术，进行内容识别；
+3. Review.Ocr：通过光学字符识别技术，进行不适宜内容的识别；
+4. Review.Asr：通过音频识别技术，进行不适宜内容的识别；
+<b>可合并简写为：</b>
+5. Recognition：通过光学字符识别技术、音频识别技术，进行内容识别，等价于 1+2；
+6. Review：通过光学字符识别技术、音频识别技术，进行不适宜内容的识别，等价于 3+4；
+可多选，元素间关系为 or，即关键词的应用场景包含该字段集合中任意元素的记录，均符合该条件。
+     */
+    public String [] getUsages() {
+        return this.Usages;
+    }
+
+    /**
+     * Set <b>关键词应用场景过滤条件，可选值：</b>
+1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
+2. Recognition.Asr：通过音频识别技术，进行内容识别；
+3. Review.Ocr：通过光学字符识别技术，进行不适宜内容的识别；
+4. Review.Asr：通过音频识别技术，进行不适宜内容的识别；
+<b>可合并简写为：</b>
+5. Recognition：通过光学字符识别技术、音频识别技术，进行内容识别，等价于 1+2；
+6. Review：通过光学字符识别技术、音频识别技术，进行不适宜内容的识别，等价于 3+4；
+可多选，元素间关系为 or，即关键词的应用场景包含该字段集合中任意元素的记录，均符合该条件。
+     * @param Usages <b>关键词应用场景过滤条件，可选值：</b>
+1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
+2. Recognition.Asr：通过音频识别技术，进行内容识别；
+3. Review.Ocr：通过光学字符识别技术，进行不适宜内容的识别；
+4. Review.Asr：通过音频识别技术，进行不适宜内容的识别；
+<b>可合并简写为：</b>
+5. Recognition：通过光学字符识别技术、音频识别技术，进行内容识别，等价于 1+2；
+6. Review：通过光学字符识别技术、音频识别技术，进行不适宜内容的识别，等价于 3+4；
+可多选，元素间关系为 or，即关键词的应用场景包含该字段集合中任意元素的记录，均符合该条件。
+     */
+    public void setUsages(String [] Usages) {
+        this.Usages = Usages;
     }
 
     /**
@@ -177,12 +177,47 @@ public class DescribeWordSamplesRequest extends AbstractModel{
         this.Limit = Limit;
     }
 
+    public DescribeWordSamplesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeWordSamplesRequest(DescribeWordSamplesRequest source) {
+        if (source.Keywords != null) {
+            this.Keywords = new String[source.Keywords.length];
+            for (int i = 0; i < source.Keywords.length; i++) {
+                this.Keywords[i] = new String(source.Keywords[i]);
+            }
+        }
+        if (source.Usages != null) {
+            this.Usages = new String[source.Usages.length];
+            for (int i = 0; i < source.Usages.length; i++) {
+                this.Usages[i] = new String(source.Usages[i]);
+            }
+        }
+        if (source.Tags != null) {
+            this.Tags = new String[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new String(source.Tags[i]);
+            }
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamArraySimple(map, prefix + "Usages.", this.Usages);
         this.setParamArraySimple(map, prefix + "Keywords.", this.Keywords);
+        this.setParamArraySimple(map, prefix + "Usages.", this.Usages);
         this.setParamArraySimple(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);

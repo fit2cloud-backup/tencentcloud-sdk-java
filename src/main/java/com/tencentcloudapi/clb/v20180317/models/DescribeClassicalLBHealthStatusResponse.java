@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeClassicalLBHealthStatusResponse extends AbstractModel{
 
     /**
-    * 后端健康状态列表
+    * 后端健康状态列表。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HealthList")
@@ -38,9 +38,9 @@ public class DescribeClassicalLBHealthStatusResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 后端健康状态列表
+     * Get 后端健康状态列表。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return HealthList 后端健康状态列表
+     * @return HealthList 后端健康状态列表。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public ClassicalHealth [] getHealthList() {
@@ -48,9 +48,9 @@ public class DescribeClassicalLBHealthStatusResponse extends AbstractModel{
     }
 
     /**
-     * Set 后端健康状态列表
+     * Set 后端健康状态列表。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param HealthList 后端健康状态列表
+     * @param HealthList 后端健康状态列表。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHealthList(ClassicalHealth [] HealthList) {
@@ -72,6 +72,26 @@ public class DescribeClassicalLBHealthStatusResponse extends AbstractModel{
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
     }
+
+    public DescribeClassicalLBHealthStatusResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeClassicalLBHealthStatusResponse(DescribeClassicalLBHealthStatusResponse source) {
+        if (source.HealthList != null) {
+            this.HealthList = new ClassicalHealth[source.HealthList.length];
+            for (int i = 0; i < source.HealthList.length; i++) {
+                this.HealthList[i] = new ClassicalHealth(source.HealthList[i]);
+            }
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

@@ -30,6 +30,13 @@ public class DescribeOnlineRecordCallbackResponse extends AbstractModel{
     private String Callback;
 
     /**
+    * 实时录制回调鉴权密钥
+    */
+    @SerializedName("CallbackKey")
+    @Expose
+    private String CallbackKey;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -53,6 +60,22 @@ public class DescribeOnlineRecordCallbackResponse extends AbstractModel{
     }
 
     /**
+     * Get 实时录制回调鉴权密钥 
+     * @return CallbackKey 实时录制回调鉴权密钥
+     */
+    public String getCallbackKey() {
+        return this.CallbackKey;
+    }
+
+    /**
+     * Set 实时录制回调鉴权密钥
+     * @param CallbackKey 实时录制回调鉴权密钥
+     */
+    public void setCallbackKey(String CallbackKey) {
+        this.CallbackKey = CallbackKey;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -68,11 +91,32 @@ public class DescribeOnlineRecordCallbackResponse extends AbstractModel{
         this.RequestId = RequestId;
     }
 
+    public DescribeOnlineRecordCallbackResponse() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeOnlineRecordCallbackResponse(DescribeOnlineRecordCallbackResponse source) {
+        if (source.Callback != null) {
+            this.Callback = new String(source.Callback);
+        }
+        if (source.CallbackKey != null) {
+            this.CallbackKey = new String(source.CallbackKey);
+        }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Callback", this.Callback);
+        this.setParamSimple(map, prefix + "CallbackKey", this.CallbackKey);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

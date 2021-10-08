@@ -23,50 +23,67 @@ import java.util.HashMap;
 public class DeleteListenerRequest extends AbstractModel{
 
     /**
-    * 负载均衡实例 ID
+    * 负载均衡实例ID。
     */
     @SerializedName("LoadBalancerId")
     @Expose
     private String LoadBalancerId;
 
     /**
-    * 要删除的监听器 ID
+    * 要删除的监听器ID。
     */
     @SerializedName("ListenerId")
     @Expose
     private String ListenerId;
 
     /**
-     * Get 负载均衡实例 ID 
-     * @return LoadBalancerId 负载均衡实例 ID
+     * Get 负载均衡实例ID。 
+     * @return LoadBalancerId 负载均衡实例ID。
      */
     public String getLoadBalancerId() {
         return this.LoadBalancerId;
     }
 
     /**
-     * Set 负载均衡实例 ID
-     * @param LoadBalancerId 负载均衡实例 ID
+     * Set 负载均衡实例ID。
+     * @param LoadBalancerId 负载均衡实例ID。
      */
     public void setLoadBalancerId(String LoadBalancerId) {
         this.LoadBalancerId = LoadBalancerId;
     }
 
     /**
-     * Get 要删除的监听器 ID 
-     * @return ListenerId 要删除的监听器 ID
+     * Get 要删除的监听器ID。 
+     * @return ListenerId 要删除的监听器ID。
      */
     public String getListenerId() {
         return this.ListenerId;
     }
 
     /**
-     * Set 要删除的监听器 ID
-     * @param ListenerId 要删除的监听器 ID
+     * Set 要删除的监听器ID。
+     * @param ListenerId 要删除的监听器ID。
      */
     public void setListenerId(String ListenerId) {
         this.ListenerId = ListenerId;
     }
+
+    public DeleteListenerRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DeleteListenerRequest(DeleteListenerRequest source) {
+        if (source.LoadBalancerId != null) {
+            this.LoadBalancerId = new String(source.LoadBalancerId);
+        }
+        if (source.ListenerId != null) {
+            this.ListenerId = new String(source.ListenerId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

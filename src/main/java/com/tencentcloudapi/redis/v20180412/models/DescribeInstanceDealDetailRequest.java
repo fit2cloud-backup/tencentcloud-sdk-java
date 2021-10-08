@@ -23,27 +23,44 @@ import java.util.HashMap;
 public class DescribeInstanceDealDetailRequest extends AbstractModel{
 
     /**
-    * 订单ID数组
+    * 订单交易ID数组，即 [CreateInstances](https://cloud.tencent.com/document/api/239/20026) 的输出参数DealId。
     */
     @SerializedName("DealIds")
     @Expose
     private String [] DealIds;
 
     /**
-     * Get 订单ID数组 
-     * @return DealIds 订单ID数组
+     * Get 订单交易ID数组，即 [CreateInstances](https://cloud.tencent.com/document/api/239/20026) 的输出参数DealId。 
+     * @return DealIds 订单交易ID数组，即 [CreateInstances](https://cloud.tencent.com/document/api/239/20026) 的输出参数DealId。
      */
     public String [] getDealIds() {
         return this.DealIds;
     }
 
     /**
-     * Set 订单ID数组
-     * @param DealIds 订单ID数组
+     * Set 订单交易ID数组，即 [CreateInstances](https://cloud.tencent.com/document/api/239/20026) 的输出参数DealId。
+     * @param DealIds 订单交易ID数组，即 [CreateInstances](https://cloud.tencent.com/document/api/239/20026) 的输出参数DealId。
      */
     public void setDealIds(String [] DealIds) {
         this.DealIds = DealIds;
     }
+
+    public DescribeInstanceDealDetailRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeInstanceDealDetailRequest(DescribeInstanceDealDetailRequest source) {
+        if (source.DealIds != null) {
+            this.DealIds = new String[source.DealIds.length];
+            for (int i = 0; i < source.DealIds.length; i++) {
+                this.DealIds[i] = new String(source.DealIds[i]);
+            }
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

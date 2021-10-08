@@ -130,6 +130,20 @@ STATIC：静态
     private String CustomerAddress;
 
     /**
+    * TencentBackupAddress，腾讯侧备用互联 IP
+    */
+    @SerializedName("TencentBackupAddress")
+    @Expose
+    private String TencentBackupAddress;
+
+    /**
+    * 高速上云服务ID
+    */
+    @SerializedName("CloudAttachId")
+    @Expose
+    private String CloudAttachId;
+
+    /**
      * Get 专线 ID，例如：dc-kd7d06of 
      * @return DirectConnectId 专线 ID，例如：dc-kd7d06of
      */
@@ -390,6 +404,100 @@ STATIC：静态
     }
 
     /**
+     * Get TencentBackupAddress，腾讯侧备用互联 IP 
+     * @return TencentBackupAddress TencentBackupAddress，腾讯侧备用互联 IP
+     */
+    public String getTencentBackupAddress() {
+        return this.TencentBackupAddress;
+    }
+
+    /**
+     * Set TencentBackupAddress，腾讯侧备用互联 IP
+     * @param TencentBackupAddress TencentBackupAddress，腾讯侧备用互联 IP
+     */
+    public void setTencentBackupAddress(String TencentBackupAddress) {
+        this.TencentBackupAddress = TencentBackupAddress;
+    }
+
+    /**
+     * Get 高速上云服务ID 
+     * @return CloudAttachId 高速上云服务ID
+     */
+    public String getCloudAttachId() {
+        return this.CloudAttachId;
+    }
+
+    /**
+     * Set 高速上云服务ID
+     * @param CloudAttachId 高速上云服务ID
+     */
+    public void setCloudAttachId(String CloudAttachId) {
+        this.CloudAttachId = CloudAttachId;
+    }
+
+    public CreateDirectConnectTunnelRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateDirectConnectTunnelRequest(CreateDirectConnectTunnelRequest source) {
+        if (source.DirectConnectId != null) {
+            this.DirectConnectId = new String(source.DirectConnectId);
+        }
+        if (source.DirectConnectTunnelName != null) {
+            this.DirectConnectTunnelName = new String(source.DirectConnectTunnelName);
+        }
+        if (source.DirectConnectOwnerAccount != null) {
+            this.DirectConnectOwnerAccount = new String(source.DirectConnectOwnerAccount);
+        }
+        if (source.NetworkType != null) {
+            this.NetworkType = new String(source.NetworkType);
+        }
+        if (source.NetworkRegion != null) {
+            this.NetworkRegion = new String(source.NetworkRegion);
+        }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.DirectConnectGatewayId != null) {
+            this.DirectConnectGatewayId = new String(source.DirectConnectGatewayId);
+        }
+        if (source.Bandwidth != null) {
+            this.Bandwidth = new Long(source.Bandwidth);
+        }
+        if (source.RouteType != null) {
+            this.RouteType = new String(source.RouteType);
+        }
+        if (source.BgpPeer != null) {
+            this.BgpPeer = new BgpPeer(source.BgpPeer);
+        }
+        if (source.RouteFilterPrefixes != null) {
+            this.RouteFilterPrefixes = new RouteFilterPrefix[source.RouteFilterPrefixes.length];
+            for (int i = 0; i < source.RouteFilterPrefixes.length; i++) {
+                this.RouteFilterPrefixes[i] = new RouteFilterPrefix(source.RouteFilterPrefixes[i]);
+            }
+        }
+        if (source.Vlan != null) {
+            this.Vlan = new Long(source.Vlan);
+        }
+        if (source.TencentAddress != null) {
+            this.TencentAddress = new String(source.TencentAddress);
+        }
+        if (source.CustomerAddress != null) {
+            this.CustomerAddress = new String(source.CustomerAddress);
+        }
+        if (source.TencentBackupAddress != null) {
+            this.TencentBackupAddress = new String(source.TencentBackupAddress);
+        }
+        if (source.CloudAttachId != null) {
+            this.CloudAttachId = new String(source.CloudAttachId);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -407,6 +515,8 @@ STATIC：静态
         this.setParamSimple(map, prefix + "Vlan", this.Vlan);
         this.setParamSimple(map, prefix + "TencentAddress", this.TencentAddress);
         this.setParamSimple(map, prefix + "CustomerAddress", this.CustomerAddress);
+        this.setParamSimple(map, prefix + "TencentBackupAddress", this.TencentBackupAddress);
+        this.setParamSimple(map, prefix + "CloudAttachId", this.CloudAttachId);
 
     }
 }

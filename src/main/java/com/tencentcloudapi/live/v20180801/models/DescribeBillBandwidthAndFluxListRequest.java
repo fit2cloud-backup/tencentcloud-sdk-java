@@ -30,7 +30,7 @@ public class DescribeBillBandwidthAndFluxListRequest extends AbstractModel{
     private String StartTime;
 
     /**
-    * 结束时间点，格式为yyyy-mm-dd HH:MM:SS，起始和结束时间跨度不支持超过31天。
+    * 结束时间点，格式为yyyy-mm-dd HH:MM:SS，起始和结束时间跨度不支持超过31天。支持最近3年的数据查询
     */
     @SerializedName("EndTime")
     @Expose
@@ -66,7 +66,7 @@ Oversea：则查询国外数据，
     private Long Granularity;
 
     /**
-    * 服务名称，可选值包括LVB(标准直播)，LEB(快直播)，默认值是LVB。
+    * 服务名称，可选值包括LVB(标准直播)，LEB(快直播)，不填则查LVB+LEB总值。
     */
     @SerializedName("ServiceName")
     @Expose
@@ -89,16 +89,16 @@ Oversea：则查询国外数据，
     }
 
     /**
-     * Get 结束时间点，格式为yyyy-mm-dd HH:MM:SS，起始和结束时间跨度不支持超过31天。 
-     * @return EndTime 结束时间点，格式为yyyy-mm-dd HH:MM:SS，起始和结束时间跨度不支持超过31天。
+     * Get 结束时间点，格式为yyyy-mm-dd HH:MM:SS，起始和结束时间跨度不支持超过31天。支持最近3年的数据查询 
+     * @return EndTime 结束时间点，格式为yyyy-mm-dd HH:MM:SS，起始和结束时间跨度不支持超过31天。支持最近3年的数据查询
      */
     public String getEndTime() {
         return this.EndTime;
     }
 
     /**
-     * Set 结束时间点，格式为yyyy-mm-dd HH:MM:SS，起始和结束时间跨度不支持超过31天。
-     * @param EndTime 结束时间点，格式为yyyy-mm-dd HH:MM:SS，起始和结束时间跨度不支持超过31天。
+     * Set 结束时间点，格式为yyyy-mm-dd HH:MM:SS，起始和结束时间跨度不支持超过31天。支持最近3年的数据查询
+     * @param EndTime 结束时间点，格式为yyyy-mm-dd HH:MM:SS，起始和结束时间跨度不支持超过31天。支持最近3年的数据查询
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
@@ -185,20 +185,52 @@ Oversea：则查询国外数据，
     }
 
     /**
-     * Get 服务名称，可选值包括LVB(标准直播)，LEB(快直播)，默认值是LVB。 
-     * @return ServiceName 服务名称，可选值包括LVB(标准直播)，LEB(快直播)，默认值是LVB。
+     * Get 服务名称，可选值包括LVB(标准直播)，LEB(快直播)，不填则查LVB+LEB总值。 
+     * @return ServiceName 服务名称，可选值包括LVB(标准直播)，LEB(快直播)，不填则查LVB+LEB总值。
      */
     public String getServiceName() {
         return this.ServiceName;
     }
 
     /**
-     * Set 服务名称，可选值包括LVB(标准直播)，LEB(快直播)，默认值是LVB。
-     * @param ServiceName 服务名称，可选值包括LVB(标准直播)，LEB(快直播)，默认值是LVB。
+     * Set 服务名称，可选值包括LVB(标准直播)，LEB(快直播)，不填则查LVB+LEB总值。
+     * @param ServiceName 服务名称，可选值包括LVB(标准直播)，LEB(快直播)，不填则查LVB+LEB总值。
      */
     public void setServiceName(String ServiceName) {
         this.ServiceName = ServiceName;
     }
+
+    public DescribeBillBandwidthAndFluxListRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeBillBandwidthAndFluxListRequest(DescribeBillBandwidthAndFluxListRequest source) {
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.PlayDomains != null) {
+            this.PlayDomains = new String[source.PlayDomains.length];
+            for (int i = 0; i < source.PlayDomains.length; i++) {
+                this.PlayDomains[i] = new String(source.PlayDomains[i]);
+            }
+        }
+        if (source.MainlandOrOversea != null) {
+            this.MainlandOrOversea = new String(source.MainlandOrOversea);
+        }
+        if (source.Granularity != null) {
+            this.Granularity = new Long(source.Granularity);
+        }
+        if (source.ServiceName != null) {
+            this.ServiceName = new String(source.ServiceName);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

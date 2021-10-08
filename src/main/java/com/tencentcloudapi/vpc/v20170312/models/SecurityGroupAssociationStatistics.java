@@ -37,7 +37,7 @@ public class SecurityGroupAssociationStatistics extends AbstractModel{
     private Long CVM;
 
     /**
-    * 数据库实例数。
+    * MySQL数据库实例数。
     */
     @SerializedName("CDB")
     @Expose
@@ -72,6 +72,13 @@ public class SecurityGroupAssociationStatistics extends AbstractModel{
     private InstanceStatistic [] InstanceStatistics;
 
     /**
+    * 所有资源的总计数（不包含被安全组引用数）。
+    */
+    @SerializedName("TotalCount")
+    @Expose
+    private Long TotalCount;
+
+    /**
      * Get 安全组实例ID。 
      * @return SecurityGroupId 安全组实例ID。
      */
@@ -104,16 +111,16 @@ public class SecurityGroupAssociationStatistics extends AbstractModel{
     }
 
     /**
-     * Get 数据库实例数。 
-     * @return CDB 数据库实例数。
+     * Get MySQL数据库实例数。 
+     * @return CDB MySQL数据库实例数。
      */
     public Long getCDB() {
         return this.CDB;
     }
 
     /**
-     * Set 数据库实例数。
-     * @param CDB 数据库实例数。
+     * Set MySQL数据库实例数。
+     * @param CDB MySQL数据库实例数。
      */
     public void setCDB(Long CDB) {
         this.CDB = CDB;
@@ -184,6 +191,60 @@ public class SecurityGroupAssociationStatistics extends AbstractModel{
     }
 
     /**
+     * Get 所有资源的总计数（不包含被安全组引用数）。 
+     * @return TotalCount 所有资源的总计数（不包含被安全组引用数）。
+     */
+    public Long getTotalCount() {
+        return this.TotalCount;
+    }
+
+    /**
+     * Set 所有资源的总计数（不包含被安全组引用数）。
+     * @param TotalCount 所有资源的总计数（不包含被安全组引用数）。
+     */
+    public void setTotalCount(Long TotalCount) {
+        this.TotalCount = TotalCount;
+    }
+
+    public SecurityGroupAssociationStatistics() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public SecurityGroupAssociationStatistics(SecurityGroupAssociationStatistics source) {
+        if (source.SecurityGroupId != null) {
+            this.SecurityGroupId = new String(source.SecurityGroupId);
+        }
+        if (source.CVM != null) {
+            this.CVM = new Long(source.CVM);
+        }
+        if (source.CDB != null) {
+            this.CDB = new Long(source.CDB);
+        }
+        if (source.ENI != null) {
+            this.ENI = new Long(source.ENI);
+        }
+        if (source.SG != null) {
+            this.SG = new Long(source.SG);
+        }
+        if (source.CLB != null) {
+            this.CLB = new Long(source.CLB);
+        }
+        if (source.InstanceStatistics != null) {
+            this.InstanceStatistics = new InstanceStatistic[source.InstanceStatistics.length];
+            for (int i = 0; i < source.InstanceStatistics.length; i++) {
+                this.InstanceStatistics[i] = new InstanceStatistic(source.InstanceStatistics[i]);
+            }
+        }
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -194,6 +255,7 @@ public class SecurityGroupAssociationStatistics extends AbstractModel{
         this.setParamSimple(map, prefix + "SG", this.SG);
         this.setParamSimple(map, prefix + "CLB", this.CLB);
         this.setParamArrayObj(map, prefix + "InstanceStatistics.", this.InstanceStatistics);
+        this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
 
     }
 }

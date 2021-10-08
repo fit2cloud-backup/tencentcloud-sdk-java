@@ -31,18 +31,18 @@ public class DescribeDiskOperationLogsRequest extends AbstractModel{
     private Filter [] Filters;
 
     /**
-    * 要查询的操作日志的起始时间，例如：“2019-11-22 00:00:00"
-    */
-    @SerializedName("BeginTime")
-    @Expose
-    private String BeginTime;
-
-    /**
     * 要查询的操作日志的截止时间，例如：“2019-11-22 23:59:59"
     */
     @SerializedName("EndTime")
     @Expose
     private String EndTime;
+
+    /**
+    * 要查询的操作日志的起始时间，例如：“2019-11-22 00:00:00"
+    */
+    @SerializedName("BeginTime")
+    @Expose
+    private String BeginTime;
 
     /**
      * Get 过滤条件。支持以下条件：
@@ -65,22 +65,6 @@ public class DescribeDiskOperationLogsRequest extends AbstractModel{
     }
 
     /**
-     * Get 要查询的操作日志的起始时间，例如：“2019-11-22 00:00:00" 
-     * @return BeginTime 要查询的操作日志的起始时间，例如：“2019-11-22 00:00:00"
-     */
-    public String getBeginTime() {
-        return this.BeginTime;
-    }
-
-    /**
-     * Set 要查询的操作日志的起始时间，例如：“2019-11-22 00:00:00"
-     * @param BeginTime 要查询的操作日志的起始时间，例如：“2019-11-22 00:00:00"
-     */
-    public void setBeginTime(String BeginTime) {
-        this.BeginTime = BeginTime;
-    }
-
-    /**
      * Get 要查询的操作日志的截止时间，例如：“2019-11-22 23:59:59" 
      * @return EndTime 要查询的操作日志的截止时间，例如：“2019-11-22 23:59:59"
      */
@@ -97,12 +81,51 @@ public class DescribeDiskOperationLogsRequest extends AbstractModel{
     }
 
     /**
+     * Get 要查询的操作日志的起始时间，例如：“2019-11-22 00:00:00" 
+     * @return BeginTime 要查询的操作日志的起始时间，例如：“2019-11-22 00:00:00"
+     */
+    public String getBeginTime() {
+        return this.BeginTime;
+    }
+
+    /**
+     * Set 要查询的操作日志的起始时间，例如：“2019-11-22 00:00:00"
+     * @param BeginTime 要查询的操作日志的起始时间，例如：“2019-11-22 00:00:00"
+     */
+    public void setBeginTime(String BeginTime) {
+        this.BeginTime = BeginTime;
+    }
+
+    public DescribeDiskOperationLogsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeDiskOperationLogsRequest(DescribeDiskOperationLogsRequest source) {
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.BeginTime != null) {
+            this.BeginTime = new String(source.BeginTime);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
-        this.setParamSimple(map, prefix + "BeginTime", this.BeginTime);
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
+        this.setParamSimple(map, prefix + "BeginTime", this.BeginTime);
 
     }
 }

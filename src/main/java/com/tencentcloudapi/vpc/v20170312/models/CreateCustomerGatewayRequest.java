@@ -37,6 +37,13 @@ public class CreateCustomerGatewayRequest extends AbstractModel{
     private String IpAddress;
 
     /**
+    * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
      * Get 对端网关名称，可任意命名，但不得超过60个字符。 
      * @return CustomerGatewayName 对端网关名称，可任意命名，但不得超过60个字符。
      */
@@ -69,11 +76,51 @@ public class CreateCustomerGatewayRequest extends AbstractModel{
     }
 
     /**
+     * Get 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}] 
+     * @return Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+     * @param Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    public CreateCustomerGatewayRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateCustomerGatewayRequest(CreateCustomerGatewayRequest source) {
+        if (source.CustomerGatewayName != null) {
+            this.CustomerGatewayName = new String(source.CustomerGatewayName);
+        }
+        if (source.IpAddress != null) {
+            this.IpAddress = new String(source.IpAddress);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "CustomerGatewayName", this.CustomerGatewayName);
         this.setParamSimple(map, prefix + "IpAddress", this.IpAddress);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

@@ -44,14 +44,14 @@ public class BinlogInfo extends AbstractModel{
     private String Date;
 
     /**
-    * 内网下载地址
+    * 下载地址
     */
     @SerializedName("IntranetUrl")
     @Expose
     private String IntranetUrl;
 
     /**
-    * 外网下载地址
+    * 下载地址
     */
     @SerializedName("InternetUrl")
     @Expose
@@ -127,32 +127,32 @@ public class BinlogInfo extends AbstractModel{
     }
 
     /**
-     * Get 内网下载地址 
-     * @return IntranetUrl 内网下载地址
+     * Get 下载地址 
+     * @return IntranetUrl 下载地址
      */
     public String getIntranetUrl() {
         return this.IntranetUrl;
     }
 
     /**
-     * Set 内网下载地址
-     * @param IntranetUrl 内网下载地址
+     * Set 下载地址
+     * @param IntranetUrl 下载地址
      */
     public void setIntranetUrl(String IntranetUrl) {
         this.IntranetUrl = IntranetUrl;
     }
 
     /**
-     * Get 外网下载地址 
-     * @return InternetUrl 外网下载地址
+     * Get 下载地址 
+     * @return InternetUrl 下载地址
      */
     public String getInternetUrl() {
         return this.InternetUrl;
     }
 
     /**
-     * Set 外网下载地址
-     * @param InternetUrl 外网下载地址
+     * Set 下载地址
+     * @param InternetUrl 下载地址
      */
     public void setInternetUrl(String InternetUrl) {
         this.InternetUrl = InternetUrl;
@@ -205,6 +205,41 @@ public class BinlogInfo extends AbstractModel{
     public void setBinlogFinishTime(String BinlogFinishTime) {
         this.BinlogFinishTime = BinlogFinishTime;
     }
+
+    public BinlogInfo() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public BinlogInfo(BinlogInfo source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.Size != null) {
+            this.Size = new Long(source.Size);
+        }
+        if (source.Date != null) {
+            this.Date = new String(source.Date);
+        }
+        if (source.IntranetUrl != null) {
+            this.IntranetUrl = new String(source.IntranetUrl);
+        }
+        if (source.InternetUrl != null) {
+            this.InternetUrl = new String(source.InternetUrl);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.BinlogStartTime != null) {
+            this.BinlogStartTime = new String(source.BinlogStartTime);
+        }
+        if (source.BinlogFinishTime != null) {
+            this.BinlogFinishTime = new String(source.BinlogFinishTime);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

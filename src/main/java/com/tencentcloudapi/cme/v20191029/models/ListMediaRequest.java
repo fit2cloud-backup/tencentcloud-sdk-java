@@ -30,14 +30,14 @@ public class ListMediaRequest extends AbstractModel{
     private String Platform;
 
     /**
-    * 素材分类路径，例如填写"/a/b"，则代表浏览该分类路径下的素材和子分类信息。
+    * 媒体分类路径，例如填写"/a/b"，则代表浏览该分类路径下的媒体和子分类信息。
     */
     @SerializedName("ClassPath")
     @Expose
     private String ClassPath;
 
     /**
-    * 素材和分类的归属者。
+    * 媒体和分类的归属者。
     */
     @SerializedName("Owner")
     @Expose
@@ -58,7 +58,7 @@ public class ListMediaRequest extends AbstractModel{
     private Long Limit;
 
     /**
-    * 操作者。填写用户的 Id，用于标识调用者及校验操作权限。
+    * 操作者。填写用户的 Id，用于标识调用者及校验对媒体的访问权限。
     */
     @SerializedName("Operator")
     @Expose
@@ -81,32 +81,32 @@ public class ListMediaRequest extends AbstractModel{
     }
 
     /**
-     * Get 素材分类路径，例如填写"/a/b"，则代表浏览该分类路径下的素材和子分类信息。 
-     * @return ClassPath 素材分类路径，例如填写"/a/b"，则代表浏览该分类路径下的素材和子分类信息。
+     * Get 媒体分类路径，例如填写"/a/b"，则代表浏览该分类路径下的媒体和子分类信息。 
+     * @return ClassPath 媒体分类路径，例如填写"/a/b"，则代表浏览该分类路径下的媒体和子分类信息。
      */
     public String getClassPath() {
         return this.ClassPath;
     }
 
     /**
-     * Set 素材分类路径，例如填写"/a/b"，则代表浏览该分类路径下的素材和子分类信息。
-     * @param ClassPath 素材分类路径，例如填写"/a/b"，则代表浏览该分类路径下的素材和子分类信息。
+     * Set 媒体分类路径，例如填写"/a/b"，则代表浏览该分类路径下的媒体和子分类信息。
+     * @param ClassPath 媒体分类路径，例如填写"/a/b"，则代表浏览该分类路径下的媒体和子分类信息。
      */
     public void setClassPath(String ClassPath) {
         this.ClassPath = ClassPath;
     }
 
     /**
-     * Get 素材和分类的归属者。 
-     * @return Owner 素材和分类的归属者。
+     * Get 媒体和分类的归属者。 
+     * @return Owner 媒体和分类的归属者。
      */
     public Entity getOwner() {
         return this.Owner;
     }
 
     /**
-     * Set 素材和分类的归属者。
-     * @param Owner 素材和分类的归属者。
+     * Set 媒体和分类的归属者。
+     * @param Owner 媒体和分类的归属者。
      */
     public void setOwner(Entity Owner) {
         this.Owner = Owner;
@@ -145,20 +145,49 @@ public class ListMediaRequest extends AbstractModel{
     }
 
     /**
-     * Get 操作者。填写用户的 Id，用于标识调用者及校验操作权限。 
-     * @return Operator 操作者。填写用户的 Id，用于标识调用者及校验操作权限。
+     * Get 操作者。填写用户的 Id，用于标识调用者及校验对媒体的访问权限。 
+     * @return Operator 操作者。填写用户的 Id，用于标识调用者及校验对媒体的访问权限。
      */
     public String getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 操作者。填写用户的 Id，用于标识调用者及校验操作权限。
-     * @param Operator 操作者。填写用户的 Id，用于标识调用者及校验操作权限。
+     * Set 操作者。填写用户的 Id，用于标识调用者及校验对媒体的访问权限。
+     * @param Operator 操作者。填写用户的 Id，用于标识调用者及校验对媒体的访问权限。
      */
     public void setOperator(String Operator) {
         this.Operator = Operator;
     }
+
+    public ListMediaRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ListMediaRequest(ListMediaRequest source) {
+        if (source.Platform != null) {
+            this.Platform = new String(source.Platform);
+        }
+        if (source.ClassPath != null) {
+            this.ClassPath = new String(source.ClassPath);
+        }
+        if (source.Owner != null) {
+            this.Owner = new Entity(source.Owner);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Operator != null) {
+            this.Operator = new String(source.Operator);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

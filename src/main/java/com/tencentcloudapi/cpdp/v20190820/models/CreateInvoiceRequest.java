@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class CreateInvoiceRequest extends AbstractModel{
 
     /**
-    * 开票平台ID。0：高灯
+    * 开票平台ID。0：高灯，1：票易通
     */
     @SerializedName("InvoicePlatformId")
     @Expose
@@ -65,7 +65,7 @@ public class CreateInvoiceRequest extends AbstractModel{
     private Long TaxAmount;
 
     /**
-    * 不含税总金额（单位为分）
+    * 不含税总金额（单位为分）。InvoicePlatformId 为1时，传默认值-1
     */
     @SerializedName("AmountWithoutTax")
     @Expose
@@ -246,16 +246,51 @@ public class CreateInvoiceRequest extends AbstractModel{
     private String Profile;
 
     /**
-     * Get 开票平台ID。0：高灯 
-     * @return InvoicePlatformId 开票平台ID。0：高灯
+    * 撤销部分商品。0-不撤销，1-撤销
+    */
+    @SerializedName("UndoPart")
+    @Expose
+    private Long UndoPart;
+
+    /**
+    * 订单下单时间（格式 YYYYMMDD）
+    */
+    @SerializedName("OrderDate")
+    @Expose
+    private String OrderDate;
+
+    /**
+    * 订单级别折扣（单位为分）
+    */
+    @SerializedName("Discount")
+    @Expose
+    private Long Discount;
+
+    /**
+    * 门店编码
+    */
+    @SerializedName("StoreNo")
+    @Expose
+    private String StoreNo;
+
+    /**
+    * 开票渠道。0：APP渠道，1：线下渠道，2：小程序渠道。不填默认为APP渠道
+    */
+    @SerializedName("InvoiceChannel")
+    @Expose
+    private Long InvoiceChannel;
+
+    /**
+     * Get 开票平台ID。0：高灯，1：票易通 
+     * @return InvoicePlatformId 开票平台ID。0：高灯，1：票易通
      */
     public Long getInvoicePlatformId() {
         return this.InvoicePlatformId;
     }
 
     /**
-     * Set 开票平台ID。0：高灯
-     * @param InvoicePlatformId 开票平台ID。0：高灯
+     * Set 开票平台ID。0：高灯，1：票易通
+     * @param InvoicePlatformId 开票平台ID。0：高灯，1：票易通
      */
     public void setInvoicePlatformId(Long InvoicePlatformId) {
         this.InvoicePlatformId = InvoicePlatformId;
@@ -342,16 +377,16 @@ public class CreateInvoiceRequest extends AbstractModel{
     }
 
     /**
-     * Get 不含税总金额（单位为分） 
-     * @return AmountWithoutTax 不含税总金额（单位为分）
+     * Get 不含税总金额（单位为分）。InvoicePlatformId 为1时，传默认值-1 
+     * @return AmountWithoutTax 不含税总金额（单位为分）。InvoicePlatformId 为1时，传默认值-1
      */
     public Long getAmountWithoutTax() {
         return this.AmountWithoutTax;
     }
 
     /**
-     * Set 不含税总金额（单位为分）
-     * @param AmountWithoutTax 不含税总金额（单位为分）
+     * Set 不含税总金额（单位为分）。InvoicePlatformId 为1时，传默认值-1
+     * @param AmountWithoutTax 不含税总金额（单位为分）。InvoicePlatformId 为1时，传默认值-1
      */
     public void setAmountWithoutTax(Long AmountWithoutTax) {
         this.AmountWithoutTax = AmountWithoutTax;
@@ -766,6 +801,208 @@ public class CreateInvoiceRequest extends AbstractModel{
     }
 
     /**
+     * Get 撤销部分商品。0-不撤销，1-撤销 
+     * @return UndoPart 撤销部分商品。0-不撤销，1-撤销
+     */
+    public Long getUndoPart() {
+        return this.UndoPart;
+    }
+
+    /**
+     * Set 撤销部分商品。0-不撤销，1-撤销
+     * @param UndoPart 撤销部分商品。0-不撤销，1-撤销
+     */
+    public void setUndoPart(Long UndoPart) {
+        this.UndoPart = UndoPart;
+    }
+
+    /**
+     * Get 订单下单时间（格式 YYYYMMDD） 
+     * @return OrderDate 订单下单时间（格式 YYYYMMDD）
+     */
+    public String getOrderDate() {
+        return this.OrderDate;
+    }
+
+    /**
+     * Set 订单下单时间（格式 YYYYMMDD）
+     * @param OrderDate 订单下单时间（格式 YYYYMMDD）
+     */
+    public void setOrderDate(String OrderDate) {
+        this.OrderDate = OrderDate;
+    }
+
+    /**
+     * Get 订单级别折扣（单位为分） 
+     * @return Discount 订单级别折扣（单位为分）
+     */
+    public Long getDiscount() {
+        return this.Discount;
+    }
+
+    /**
+     * Set 订单级别折扣（单位为分）
+     * @param Discount 订单级别折扣（单位为分）
+     */
+    public void setDiscount(Long Discount) {
+        this.Discount = Discount;
+    }
+
+    /**
+     * Get 门店编码 
+     * @return StoreNo 门店编码
+     */
+    public String getStoreNo() {
+        return this.StoreNo;
+    }
+
+    /**
+     * Set 门店编码
+     * @param StoreNo 门店编码
+     */
+    public void setStoreNo(String StoreNo) {
+        this.StoreNo = StoreNo;
+    }
+
+    /**
+     * Get 开票渠道。0：APP渠道，1：线下渠道，2：小程序渠道。不填默认为APP渠道 
+     * @return InvoiceChannel 开票渠道。0：APP渠道，1：线下渠道，2：小程序渠道。不填默认为APP渠道
+     */
+    public Long getInvoiceChannel() {
+        return this.InvoiceChannel;
+    }
+
+    /**
+     * Set 开票渠道。0：APP渠道，1：线下渠道，2：小程序渠道。不填默认为APP渠道
+     * @param InvoiceChannel 开票渠道。0：APP渠道，1：线下渠道，2：小程序渠道。不填默认为APP渠道
+     */
+    public void setInvoiceChannel(Long InvoiceChannel) {
+        this.InvoiceChannel = InvoiceChannel;
+    }
+
+    public CreateInvoiceRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateInvoiceRequest(CreateInvoiceRequest source) {
+        if (source.InvoicePlatformId != null) {
+            this.InvoicePlatformId = new Long(source.InvoicePlatformId);
+        }
+        if (source.TitleType != null) {
+            this.TitleType = new Long(source.TitleType);
+        }
+        if (source.BuyerTitle != null) {
+            this.BuyerTitle = new String(source.BuyerTitle);
+        }
+        if (source.OrderId != null) {
+            this.OrderId = new String(source.OrderId);
+        }
+        if (source.AmountHasTax != null) {
+            this.AmountHasTax = new Long(source.AmountHasTax);
+        }
+        if (source.TaxAmount != null) {
+            this.TaxAmount = new Long(source.TaxAmount);
+        }
+        if (source.AmountWithoutTax != null) {
+            this.AmountWithoutTax = new Long(source.AmountWithoutTax);
+        }
+        if (source.SellerTaxpayerNum != null) {
+            this.SellerTaxpayerNum = new String(source.SellerTaxpayerNum);
+        }
+        if (source.SellerName != null) {
+            this.SellerName = new String(source.SellerName);
+        }
+        if (source.SellerAddress != null) {
+            this.SellerAddress = new String(source.SellerAddress);
+        }
+        if (source.SellerPhone != null) {
+            this.SellerPhone = new String(source.SellerPhone);
+        }
+        if (source.SellerBankName != null) {
+            this.SellerBankName = new String(source.SellerBankName);
+        }
+        if (source.SellerBankAccount != null) {
+            this.SellerBankAccount = new String(source.SellerBankAccount);
+        }
+        if (source.BuyerTaxpayerNum != null) {
+            this.BuyerTaxpayerNum = new String(source.BuyerTaxpayerNum);
+        }
+        if (source.BuyerAddress != null) {
+            this.BuyerAddress = new String(source.BuyerAddress);
+        }
+        if (source.BuyerBankName != null) {
+            this.BuyerBankName = new String(source.BuyerBankName);
+        }
+        if (source.BuyerBankAccount != null) {
+            this.BuyerBankAccount = new String(source.BuyerBankAccount);
+        }
+        if (source.BuyerPhone != null) {
+            this.BuyerPhone = new String(source.BuyerPhone);
+        }
+        if (source.BuyerEmail != null) {
+            this.BuyerEmail = new String(source.BuyerEmail);
+        }
+        if (source.TakerPhone != null) {
+            this.TakerPhone = new String(source.TakerPhone);
+        }
+        if (source.InvoiceType != null) {
+            this.InvoiceType = new Long(source.InvoiceType);
+        }
+        if (source.CallbackUrl != null) {
+            this.CallbackUrl = new String(source.CallbackUrl);
+        }
+        if (source.Drawer != null) {
+            this.Drawer = new String(source.Drawer);
+        }
+        if (source.Payee != null) {
+            this.Payee = new String(source.Payee);
+        }
+        if (source.Checker != null) {
+            this.Checker = new String(source.Checker);
+        }
+        if (source.TerminalCode != null) {
+            this.TerminalCode = new String(source.TerminalCode);
+        }
+        if (source.LevyMethod != null) {
+            this.LevyMethod = new String(source.LevyMethod);
+        }
+        if (source.Deduction != null) {
+            this.Deduction = new Long(source.Deduction);
+        }
+        if (source.Remark != null) {
+            this.Remark = new String(source.Remark);
+        }
+        if (source.Items != null) {
+            this.Items = new CreateInvoiceItem[source.Items.length];
+            for (int i = 0; i < source.Items.length; i++) {
+                this.Items[i] = new CreateInvoiceItem(source.Items[i]);
+            }
+        }
+        if (source.Profile != null) {
+            this.Profile = new String(source.Profile);
+        }
+        if (source.UndoPart != null) {
+            this.UndoPart = new Long(source.UndoPart);
+        }
+        if (source.OrderDate != null) {
+            this.OrderDate = new String(source.OrderDate);
+        }
+        if (source.Discount != null) {
+            this.Discount = new Long(source.Discount);
+        }
+        if (source.StoreNo != null) {
+            this.StoreNo = new String(source.StoreNo);
+        }
+        if (source.InvoiceChannel != null) {
+            this.InvoiceChannel = new Long(source.InvoiceChannel);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -800,6 +1037,11 @@ public class CreateInvoiceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Remark", this.Remark);
         this.setParamArrayObj(map, prefix + "Items.", this.Items);
         this.setParamSimple(map, prefix + "Profile", this.Profile);
+        this.setParamSimple(map, prefix + "UndoPart", this.UndoPart);
+        this.setParamSimple(map, prefix + "OrderDate", this.OrderDate);
+        this.setParamSimple(map, prefix + "Discount", this.Discount);
+        this.setParamSimple(map, prefix + "StoreNo", this.StoreNo);
+        this.setParamSimple(map, prefix + "InvoiceChannel", this.InvoiceChannel);
 
     }
 }

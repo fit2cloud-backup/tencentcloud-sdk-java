@@ -100,6 +100,17 @@ public class RefundRequest extends AbstractModel{
     private RefundOutSubOrderRefundList [] SubOrderRefundList;
 
     /**
+    * 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+    */
+    @SerializedName("MidasEnvironment")
+    @Expose
+    private String MidasEnvironment;
+
+    /**
      * Get 用户ID，长度不小于5位， 仅支持字母和数字的组合 
      * @return UserId 用户ID，长度不小于5位， 仅支持字母和数字的组合
      */
@@ -276,6 +287,88 @@ public class RefundRequest extends AbstractModel{
     }
 
     /**
+     * Get 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release 
+     * @return MidasEnvironment 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+     */
+    public String getMidasEnvironment() {
+        return this.MidasEnvironment;
+    }
+
+    /**
+     * Set 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+     * @param MidasEnvironment 环境名:
+release: 现网环境
+sandbox: 沙箱环境
+development: 开发环境
+缺省: release
+     */
+    public void setMidasEnvironment(String MidasEnvironment) {
+        this.MidasEnvironment = MidasEnvironment;
+    }
+
+    public RefundRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public RefundRequest(RefundRequest source) {
+        if (source.UserId != null) {
+            this.UserId = new String(source.UserId);
+        }
+        if (source.RefundId != null) {
+            this.RefundId = new String(source.RefundId);
+        }
+        if (source.MidasAppId != null) {
+            this.MidasAppId = new String(source.MidasAppId);
+        }
+        if (source.TotalRefundAmt != null) {
+            this.TotalRefundAmt = new Long(source.TotalRefundAmt);
+        }
+        if (source.MidasSecretId != null) {
+            this.MidasSecretId = new String(source.MidasSecretId);
+        }
+        if (source.MidasSignature != null) {
+            this.MidasSignature = new String(source.MidasSignature);
+        }
+        if (source.OutTradeNo != null) {
+            this.OutTradeNo = new String(source.OutTradeNo);
+        }
+        if (source.MchRefundAmt != null) {
+            this.MchRefundAmt = new Long(source.MchRefundAmt);
+        }
+        if (source.TransactionId != null) {
+            this.TransactionId = new String(source.TransactionId);
+        }
+        if (source.PlatformRefundAmt != null) {
+            this.PlatformRefundAmt = new Long(source.PlatformRefundAmt);
+        }
+        if (source.SubOrderRefundList != null) {
+            this.SubOrderRefundList = new RefundOutSubOrderRefundList[source.SubOrderRefundList.length];
+            for (int i = 0; i < source.SubOrderRefundList.length; i++) {
+                this.SubOrderRefundList[i] = new RefundOutSubOrderRefundList(source.SubOrderRefundList[i]);
+            }
+        }
+        if (source.MidasEnvironment != null) {
+            this.MidasEnvironment = new String(source.MidasEnvironment);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -290,6 +383,7 @@ public class RefundRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TransactionId", this.TransactionId);
         this.setParamSimple(map, prefix + "PlatformRefundAmt", this.PlatformRefundAmt);
         this.setParamArrayObj(map, prefix + "SubOrderRefundList.", this.SubOrderRefundList);
+        this.setParamSimple(map, prefix + "MidasEnvironment", this.MidasEnvironment);
 
     }
 }

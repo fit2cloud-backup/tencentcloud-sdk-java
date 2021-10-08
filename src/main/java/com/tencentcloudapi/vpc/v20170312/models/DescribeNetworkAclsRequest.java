@@ -23,13 +23,6 @@ import java.util.HashMap;
 public class DescribeNetworkAclsRequest extends AbstractModel{
 
     /**
-    * 网络ACL实例ID数组。形如：[acl-12345678]。每次请求的实例的上限为100。参数不支持同时指定NetworkAclIds和Filters。
-    */
-    @SerializedName("NetworkAclIds")
-    @Expose
-    private String [] NetworkAclIds;
-
-    /**
     * 过滤条件，参数不支持同时指定NetworkAclIds和Filters。
 <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-12345678。</li>
 <li>network-acl-id - String - （过滤条件）网络ACL实例ID，形如：acl-12345678。</li>
@@ -38,6 +31,13 @@ public class DescribeNetworkAclsRequest extends AbstractModel{
     @SerializedName("Filters")
     @Expose
     private Filter [] Filters;
+
+    /**
+    * 网络ACL实例ID数组。形如：[acl-12345678]。每次请求的实例的上限为100。参数不支持同时指定NetworkAclIds和Filters。
+    */
+    @SerializedName("NetworkAclIds")
+    @Expose
+    private String [] NetworkAclIds;
 
     /**
     * 偏移量，默认为0。
@@ -52,22 +52,6 @@ public class DescribeNetworkAclsRequest extends AbstractModel{
     @SerializedName("Limit")
     @Expose
     private Long Limit;
-
-    /**
-     * Get 网络ACL实例ID数组。形如：[acl-12345678]。每次请求的实例的上限为100。参数不支持同时指定NetworkAclIds和Filters。 
-     * @return NetworkAclIds 网络ACL实例ID数组。形如：[acl-12345678]。每次请求的实例的上限为100。参数不支持同时指定NetworkAclIds和Filters。
-     */
-    public String [] getNetworkAclIds() {
-        return this.NetworkAclIds;
-    }
-
-    /**
-     * Set 网络ACL实例ID数组。形如：[acl-12345678]。每次请求的实例的上限为100。参数不支持同时指定NetworkAclIds和Filters。
-     * @param NetworkAclIds 网络ACL实例ID数组。形如：[acl-12345678]。每次请求的实例的上限为100。参数不支持同时指定NetworkAclIds和Filters。
-     */
-    public void setNetworkAclIds(String [] NetworkAclIds) {
-        this.NetworkAclIds = NetworkAclIds;
-    }
 
     /**
      * Get 过滤条件，参数不支持同时指定NetworkAclIds和Filters。
@@ -95,6 +79,22 @@ public class DescribeNetworkAclsRequest extends AbstractModel{
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;
+    }
+
+    /**
+     * Get 网络ACL实例ID数组。形如：[acl-12345678]。每次请求的实例的上限为100。参数不支持同时指定NetworkAclIds和Filters。 
+     * @return NetworkAclIds 网络ACL实例ID数组。形如：[acl-12345678]。每次请求的实例的上限为100。参数不支持同时指定NetworkAclIds和Filters。
+     */
+    public String [] getNetworkAclIds() {
+        return this.NetworkAclIds;
+    }
+
+    /**
+     * Set 网络ACL实例ID数组。形如：[acl-12345678]。每次请求的实例的上限为100。参数不支持同时指定NetworkAclIds和Filters。
+     * @param NetworkAclIds 网络ACL实例ID数组。形如：[acl-12345678]。每次请求的实例的上限为100。参数不支持同时指定NetworkAclIds和Filters。
+     */
+    public void setNetworkAclIds(String [] NetworkAclIds) {
+        this.NetworkAclIds = NetworkAclIds;
     }
 
     /**
@@ -129,12 +129,41 @@ public class DescribeNetworkAclsRequest extends AbstractModel{
         this.Limit = Limit;
     }
 
+    public DescribeNetworkAclsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeNetworkAclsRequest(DescribeNetworkAclsRequest source) {
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
+        }
+        if (source.NetworkAclIds != null) {
+            this.NetworkAclIds = new String[source.NetworkAclIds.length];
+            for (int i = 0; i < source.NetworkAclIds.length; i++) {
+                this.NetworkAclIds[i] = new String(source.NetworkAclIds[i]);
+            }
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+    }
+
+
     /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamArraySimple(map, prefix + "NetworkAclIds.", this.NetworkAclIds);
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
+        this.setParamArraySimple(map, prefix + "NetworkAclIds.", this.NetworkAclIds);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
 

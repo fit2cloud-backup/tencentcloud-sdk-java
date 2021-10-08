@@ -30,14 +30,14 @@ public class DescribeSlowLogTopSqlsRequest extends AbstractModel{
     private String InstanceId;
 
     /**
-    * 开始时间。
+    * 开始时间，如“2019-09-10 12:13:14”。
     */
     @SerializedName("StartTime")
     @Expose
     private String StartTime;
 
     /**
-    * 截止时间。
+    * 截止时间，如“2019-09-10 12:13:14”，截止时间与开始时间的间隔最大可为7天。
     */
     @SerializedName("EndTime")
     @Expose
@@ -72,6 +72,20 @@ public class DescribeSlowLogTopSqlsRequest extends AbstractModel{
     private Long Offset;
 
     /**
+    * 数据库名称数组。
+    */
+    @SerializedName("SchemaList")
+    @Expose
+    private SchemaItem [] SchemaList;
+
+    /**
+    * 服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 CynosDB  for MySQL，默认为"mysql"。
+    */
+    @SerializedName("Product")
+    @Expose
+    private String Product;
+
+    /**
      * Get 实例 ID 。 
      * @return InstanceId 实例 ID 。
      */
@@ -88,32 +102,32 @@ public class DescribeSlowLogTopSqlsRequest extends AbstractModel{
     }
 
     /**
-     * Get 开始时间。 
-     * @return StartTime 开始时间。
+     * Get 开始时间，如“2019-09-10 12:13:14”。 
+     * @return StartTime 开始时间，如“2019-09-10 12:13:14”。
      */
     public String getStartTime() {
         return this.StartTime;
     }
 
     /**
-     * Set 开始时间。
-     * @param StartTime 开始时间。
+     * Set 开始时间，如“2019-09-10 12:13:14”。
+     * @param StartTime 开始时间，如“2019-09-10 12:13:14”。
      */
     public void setStartTime(String StartTime) {
         this.StartTime = StartTime;
     }
 
     /**
-     * Get 截止时间。 
-     * @return EndTime 截止时间。
+     * Get 截止时间，如“2019-09-10 12:13:14”，截止时间与开始时间的间隔最大可为7天。 
+     * @return EndTime 截止时间，如“2019-09-10 12:13:14”，截止时间与开始时间的间隔最大可为7天。
      */
     public String getEndTime() {
         return this.EndTime;
     }
 
     /**
-     * Set 截止时间。
-     * @param EndTime 截止时间。
+     * Set 截止时间，如“2019-09-10 12:13:14”，截止时间与开始时间的间隔最大可为7天。
+     * @param EndTime 截止时间，如“2019-09-10 12:13:14”，截止时间与开始时间的间隔最大可为7天。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
@@ -184,6 +198,79 @@ public class DescribeSlowLogTopSqlsRequest extends AbstractModel{
     }
 
     /**
+     * Get 数据库名称数组。 
+     * @return SchemaList 数据库名称数组。
+     */
+    public SchemaItem [] getSchemaList() {
+        return this.SchemaList;
+    }
+
+    /**
+     * Set 数据库名称数组。
+     * @param SchemaList 数据库名称数组。
+     */
+    public void setSchemaList(SchemaItem [] SchemaList) {
+        this.SchemaList = SchemaList;
+    }
+
+    /**
+     * Get 服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 CynosDB  for MySQL，默认为"mysql"。 
+     * @return Product 服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 CynosDB  for MySQL，默认为"mysql"。
+     */
+    public String getProduct() {
+        return this.Product;
+    }
+
+    /**
+     * Set 服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 CynosDB  for MySQL，默认为"mysql"。
+     * @param Product 服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 CynosDB  for MySQL，默认为"mysql"。
+     */
+    public void setProduct(String Product) {
+        this.Product = Product;
+    }
+
+    public DescribeSlowLogTopSqlsRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeSlowLogTopSqlsRequest(DescribeSlowLogTopSqlsRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.SortBy != null) {
+            this.SortBy = new String(source.SortBy);
+        }
+        if (source.OrderBy != null) {
+            this.OrderBy = new String(source.OrderBy);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.SchemaList != null) {
+            this.SchemaList = new SchemaItem[source.SchemaList.length];
+            for (int i = 0; i < source.SchemaList.length; i++) {
+                this.SchemaList[i] = new SchemaItem(source.SchemaList[i]);
+            }
+        }
+        if (source.Product != null) {
+            this.Product = new String(source.Product);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -194,6 +281,8 @@ public class DescribeSlowLogTopSqlsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "OrderBy", this.OrderBy);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
+        this.setParamArrayObj(map, prefix + "SchemaList.", this.SchemaList);
+        this.setParamSimple(map, prefix + "Product", this.Product);
 
     }
 }

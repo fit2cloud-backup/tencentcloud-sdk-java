@@ -30,7 +30,7 @@ public class CreateFileSystemRequest extends AbstractModel{
     private String FileSystemName;
 
     /**
-    * 文件系统容量（byte），下限为1M，上限为1P，且必须是1M的整数倍
+    * 文件系统容量（byte），下限为1G，上限为1P，且必须是1G的整数倍
     */
     @SerializedName("CapacityQuota")
     @Expose
@@ -60,16 +60,16 @@ public class CreateFileSystemRequest extends AbstractModel{
     }
 
     /**
-     * Get 文件系统容量（byte），下限为1M，上限为1P，且必须是1M的整数倍 
-     * @return CapacityQuota 文件系统容量（byte），下限为1M，上限为1P，且必须是1M的整数倍
+     * Get 文件系统容量（byte），下限为1G，上限为1P，且必须是1G的整数倍 
+     * @return CapacityQuota 文件系统容量（byte），下限为1G，上限为1P，且必须是1G的整数倍
      */
     public Long getCapacityQuota() {
         return this.CapacityQuota;
     }
 
     /**
-     * Set 文件系统容量（byte），下限为1M，上限为1P，且必须是1M的整数倍
-     * @param CapacityQuota 文件系统容量（byte），下限为1M，上限为1P，且必须是1M的整数倍
+     * Set 文件系统容量（byte），下限为1G，上限为1P，且必须是1G的整数倍
+     * @param CapacityQuota 文件系统容量（byte），下限为1G，上限为1P，且必须是1G的整数倍
      */
     public void setCapacityQuota(Long CapacityQuota) {
         this.CapacityQuota = CapacityQuota;
@@ -90,6 +90,26 @@ public class CreateFileSystemRequest extends AbstractModel{
     public void setDescription(String Description) {
         this.Description = Description;
     }
+
+    public CreateFileSystemRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateFileSystemRequest(CreateFileSystemRequest source) {
+        if (source.FileSystemName != null) {
+            this.FileSystemName = new String(source.FileSystemName);
+        }
+        if (source.CapacityQuota != null) {
+            this.CapacityQuota = new Long(source.CapacityQuota);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

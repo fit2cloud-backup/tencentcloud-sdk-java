@@ -32,7 +32,8 @@ public class DescribeWatermarkTemplatesRequest extends AbstractModel{
     /**
     * 水印类型过滤条件，可选值：
 <li>image：图片水印；</li>
-<li>text：文字水印。</li>
+<li>text：文字水印；</li>
+<li>svg：SVG 水印。</li>
     */
     @SerializedName("Type")
     @Expose
@@ -80,10 +81,12 @@ public class DescribeWatermarkTemplatesRequest extends AbstractModel{
     /**
      * Get 水印类型过滤条件，可选值：
 <li>image：图片水印；</li>
-<li>text：文字水印。</li> 
+<li>text：文字水印；</li>
+<li>svg：SVG 水印。</li> 
      * @return Type 水印类型过滤条件，可选值：
 <li>image：图片水印；</li>
-<li>text：文字水印。</li>
+<li>text：文字水印；</li>
+<li>svg：SVG 水印。</li>
      */
     public String getType() {
         return this.Type;
@@ -92,10 +95,12 @@ public class DescribeWatermarkTemplatesRequest extends AbstractModel{
     /**
      * Set 水印类型过滤条件，可选值：
 <li>image：图片水印；</li>
-<li>text：文字水印。</li>
+<li>text：文字水印；</li>
+<li>svg：SVG 水印。</li>
      * @param Type 水印类型过滤条件，可选值：
 <li>image：图片水印；</li>
-<li>text：文字水印。</li>
+<li>text：文字水印；</li>
+<li>svg：SVG 水印。</li>
      */
     public void setType(String Type) {
         this.Type = Type;
@@ -156,6 +161,35 @@ public class DescribeWatermarkTemplatesRequest extends AbstractModel{
     public void setSubAppId(Long SubAppId) {
         this.SubAppId = SubAppId;
     }
+
+    public DescribeWatermarkTemplatesRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public DescribeWatermarkTemplatesRequest(DescribeWatermarkTemplatesRequest source) {
+        if (source.Definitions != null) {
+            this.Definitions = new Long[source.Definitions.length];
+            for (int i = 0; i < source.Definitions.length; i++) {
+                this.Definitions[i] = new Long(source.Definitions[i]);
+            }
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.SubAppId != null) {
+            this.SubAppId = new Long(source.SubAppId);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

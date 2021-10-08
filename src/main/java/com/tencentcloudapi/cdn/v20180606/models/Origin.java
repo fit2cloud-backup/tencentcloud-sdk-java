@@ -108,6 +108,30 @@ ip：IP 列表作为源站
     private String BackupServerName;
 
     /**
+    * 回源路径
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("BasePath")
+    @Expose
+    private String BasePath;
+
+    /**
+    * 回源路径重写规则配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PathRules")
+    @Expose
+    private PathRule [] PathRules;
+
+    /**
+    * 分路径回源配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PathBasedOrigin")
+    @Expose
+    private PathBasedOriginRule [] PathBasedOrigin;
+
+    /**
      * Get 主源站列表
 修改源站时，需要同时填充对应的 OriginType
 注意：此字段可能返回 null，表示取不到有效值。 
@@ -352,6 +376,122 @@ ip：IP 列表作为源站
     }
 
     /**
+     * Get 回源路径
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return BasePath 回源路径
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getBasePath() {
+        return this.BasePath;
+    }
+
+    /**
+     * Set 回源路径
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param BasePath 回源路径
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBasePath(String BasePath) {
+        this.BasePath = BasePath;
+    }
+
+    /**
+     * Get 回源路径重写规则配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PathRules 回源路径重写规则配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public PathRule [] getPathRules() {
+        return this.PathRules;
+    }
+
+    /**
+     * Set 回源路径重写规则配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PathRules 回源路径重写规则配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPathRules(PathRule [] PathRules) {
+        this.PathRules = PathRules;
+    }
+
+    /**
+     * Get 分路径回源配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PathBasedOrigin 分路径回源配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public PathBasedOriginRule [] getPathBasedOrigin() {
+        return this.PathBasedOrigin;
+    }
+
+    /**
+     * Set 分路径回源配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PathBasedOrigin 分路径回源配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPathBasedOrigin(PathBasedOriginRule [] PathBasedOrigin) {
+        this.PathBasedOrigin = PathBasedOrigin;
+    }
+
+    public Origin() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Origin(Origin source) {
+        if (source.Origins != null) {
+            this.Origins = new String[source.Origins.length];
+            for (int i = 0; i < source.Origins.length; i++) {
+                this.Origins[i] = new String(source.Origins[i]);
+            }
+        }
+        if (source.OriginType != null) {
+            this.OriginType = new String(source.OriginType);
+        }
+        if (source.ServerName != null) {
+            this.ServerName = new String(source.ServerName);
+        }
+        if (source.CosPrivateAccess != null) {
+            this.CosPrivateAccess = new String(source.CosPrivateAccess);
+        }
+        if (source.OriginPullProtocol != null) {
+            this.OriginPullProtocol = new String(source.OriginPullProtocol);
+        }
+        if (source.BackupOrigins != null) {
+            this.BackupOrigins = new String[source.BackupOrigins.length];
+            for (int i = 0; i < source.BackupOrigins.length; i++) {
+                this.BackupOrigins[i] = new String(source.BackupOrigins[i]);
+            }
+        }
+        if (source.BackupOriginType != null) {
+            this.BackupOriginType = new String(source.BackupOriginType);
+        }
+        if (source.BackupServerName != null) {
+            this.BackupServerName = new String(source.BackupServerName);
+        }
+        if (source.BasePath != null) {
+            this.BasePath = new String(source.BasePath);
+        }
+        if (source.PathRules != null) {
+            this.PathRules = new PathRule[source.PathRules.length];
+            for (int i = 0; i < source.PathRules.length; i++) {
+                this.PathRules[i] = new PathRule(source.PathRules[i]);
+            }
+        }
+        if (source.PathBasedOrigin != null) {
+            this.PathBasedOrigin = new PathBasedOriginRule[source.PathBasedOrigin.length];
+            for (int i = 0; i < source.PathBasedOrigin.length; i++) {
+                this.PathBasedOrigin[i] = new PathBasedOriginRule(source.PathBasedOrigin[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -363,6 +503,9 @@ ip：IP 列表作为源站
         this.setParamArraySimple(map, prefix + "BackupOrigins.", this.BackupOrigins);
         this.setParamSimple(map, prefix + "BackupOriginType", this.BackupOriginType);
         this.setParamSimple(map, prefix + "BackupServerName", this.BackupServerName);
+        this.setParamSimple(map, prefix + "BasePath", this.BasePath);
+        this.setParamArrayObj(map, prefix + "PathRules.", this.PathRules);
+        this.setParamArrayObj(map, prefix + "PathBasedOrigin.", this.PathBasedOrigin);
 
     }
 }

@@ -70,6 +70,13 @@ Url、Image必须提供一个，如果都提供，只使用 Url。
     private Long EyeEnlarging;
 
     /**
+    * 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
+    */
+    @SerializedName("RspImgType")
+    @Expose
+    private String RspImgType;
+
+    /**
      * Get 图片 base64 数据，base64 编码后大小不可超过5M。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。 
      * @return Image 图片 base64 数据，base64 编码后大小不可超过5M。 
@@ -186,6 +193,54 @@ Url、Image必须提供一个，如果都提供，只使用 Url。
     }
 
     /**
+     * Get 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。 
+     * @return RspImgType 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
+     */
+    public String getRspImgType() {
+        return this.RspImgType;
+    }
+
+    /**
+     * Set 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
+     * @param RspImgType 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
+     */
+    public void setRspImgType(String RspImgType) {
+        this.RspImgType = RspImgType;
+    }
+
+    public BeautifyPicRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public BeautifyPicRequest(BeautifyPicRequest source) {
+        if (source.Image != null) {
+            this.Image = new String(source.Image);
+        }
+        if (source.Url != null) {
+            this.Url = new String(source.Url);
+        }
+        if (source.Whitening != null) {
+            this.Whitening = new Long(source.Whitening);
+        }
+        if (source.Smoothing != null) {
+            this.Smoothing = new Long(source.Smoothing);
+        }
+        if (source.FaceLifting != null) {
+            this.FaceLifting = new Long(source.FaceLifting);
+        }
+        if (source.EyeEnlarging != null) {
+            this.EyeEnlarging = new Long(source.EyeEnlarging);
+        }
+        if (source.RspImgType != null) {
+            this.RspImgType = new String(source.RspImgType);
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -195,6 +250,7 @@ Url、Image必须提供一个，如果都提供，只使用 Url。
         this.setParamSimple(map, prefix + "Smoothing", this.Smoothing);
         this.setParamSimple(map, prefix + "FaceLifting", this.FaceLifting);
         this.setParamSimple(map, prefix + "EyeEnlarging", this.EyeEnlarging);
+        this.setParamSimple(map, prefix + "RspImgType", this.RspImgType);
 
     }
 }

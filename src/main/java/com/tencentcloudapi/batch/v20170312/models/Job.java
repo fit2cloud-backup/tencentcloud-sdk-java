@@ -79,6 +79,13 @@ public class Job extends AbstractModel{
     private String StateIfCreateCvmFailed;
 
     /**
+    * 标签列表。通过指定该参数可以支持绑定标签到作业。每个作业最多绑定10个标签。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
      * Get 任务信息 
      * @return Tasks 任务信息
      */
@@ -207,6 +214,72 @@ public class Job extends AbstractModel{
     }
 
     /**
+     * Get 标签列表。通过指定该参数可以支持绑定标签到作业。每个作业最多绑定10个标签。 
+     * @return Tags 标签列表。通过指定该参数可以支持绑定标签到作业。每个作业最多绑定10个标签。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 标签列表。通过指定该参数可以支持绑定标签到作业。每个作业最多绑定10个标签。
+     * @param Tags 标签列表。通过指定该参数可以支持绑定标签到作业。每个作业最多绑定10个标签。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    public Job() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Job(Job source) {
+        if (source.Tasks != null) {
+            this.Tasks = new Task[source.Tasks.length];
+            for (int i = 0; i < source.Tasks.length; i++) {
+                this.Tasks[i] = new Task(source.Tasks[i]);
+            }
+        }
+        if (source.JobName != null) {
+            this.JobName = new String(source.JobName);
+        }
+        if (source.JobDescription != null) {
+            this.JobDescription = new String(source.JobDescription);
+        }
+        if (source.Priority != null) {
+            this.Priority = new Long(source.Priority);
+        }
+        if (source.Dependences != null) {
+            this.Dependences = new Dependence[source.Dependences.length];
+            for (int i = 0; i < source.Dependences.length; i++) {
+                this.Dependences[i] = new Dependence(source.Dependences[i]);
+            }
+        }
+        if (source.Notifications != null) {
+            this.Notifications = new Notification[source.Notifications.length];
+            for (int i = 0; i < source.Notifications.length; i++) {
+                this.Notifications[i] = new Notification(source.Notifications[i]);
+            }
+        }
+        if (source.TaskExecutionDependOn != null) {
+            this.TaskExecutionDependOn = new String(source.TaskExecutionDependOn);
+        }
+        if (source.StateIfCreateCvmFailed != null) {
+            this.StateIfCreateCvmFailed = new String(source.StateIfCreateCvmFailed);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
@@ -218,6 +291,7 @@ public class Job extends AbstractModel{
         this.setParamArrayObj(map, prefix + "Notifications.", this.Notifications);
         this.setParamSimple(map, prefix + "TaskExecutionDependOn", this.TaskExecutionDependOn);
         this.setParamSimple(map, prefix + "StateIfCreateCvmFailed", this.StateIfCreateCvmFailed);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

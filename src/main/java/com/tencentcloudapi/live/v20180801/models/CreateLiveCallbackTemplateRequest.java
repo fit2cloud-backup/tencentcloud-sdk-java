@@ -23,8 +23,9 @@ import java.util.HashMap;
 public class CreateLiveCallbackTemplateRequest extends AbstractModel{
 
     /**
-    * 模板名称，非空的字符串。
+    * 模板名称。
 长度上限：255字节。
+仅支持中文、英文、数字、_、-。
     */
     @SerializedName("TemplateName")
     @Expose
@@ -33,13 +34,14 @@ public class CreateLiveCallbackTemplateRequest extends AbstractModel{
     /**
     * 描述信息。
 长度上限：1024字节。
+仅支持中文、英文、数字、_、-。
     */
     @SerializedName("Description")
     @Expose
     private String Description;
 
     /**
-    * 开播回调URL，
+    * 开播回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
     */
     @SerializedName("StreamBeginNotifyUrl")
@@ -47,7 +49,7 @@ public class CreateLiveCallbackTemplateRequest extends AbstractModel{
     private String StreamBeginNotifyUrl;
 
     /**
-    * 断流回调URL，
+    * 断流回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
     */
     @SerializedName("StreamEndNotifyUrl")
@@ -55,7 +57,7 @@ public class CreateLiveCallbackTemplateRequest extends AbstractModel{
     private String StreamEndNotifyUrl;
 
     /**
-    * 录制回调URL，
+    * 录制回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
     */
     @SerializedName("RecordNotifyUrl")
@@ -63,7 +65,7 @@ public class CreateLiveCallbackTemplateRequest extends AbstractModel{
     private String RecordNotifyUrl;
 
     /**
-    * 截图回调URL，
+    * 截图回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
     */
     @SerializedName("SnapshotNotifyUrl")
@@ -71,7 +73,7 @@ public class CreateLiveCallbackTemplateRequest extends AbstractModel{
     private String SnapshotNotifyUrl;
 
     /**
-    * 鉴黄回调URL，
+    * 鉴黄回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32741)。
     */
     @SerializedName("PornCensorshipNotifyUrl")
@@ -79,27 +81,39 @@ public class CreateLiveCallbackTemplateRequest extends AbstractModel{
     private String PornCensorshipNotifyUrl;
 
     /**
-    * 回调key，回调URL公用，鉴权回调说明详见回调格式文档
+    * 回调 Key，回调 URL 公用，回调签名详见事件消息通知文档。
+[事件消息通知](/document/product/267/32744)。
     */
     @SerializedName("CallbackKey")
     @Expose
     private String CallbackKey;
 
     /**
-     * Get 模板名称，非空的字符串。
-长度上限：255字节。 
-     * @return TemplateName 模板名称，非空的字符串。
+    * 参数已弃用。
+    */
+    @SerializedName("StreamMixNotifyUrl")
+    @Expose
+    private String StreamMixNotifyUrl;
+
+    /**
+     * Get 模板名称。
 长度上限：255字节。
+仅支持中文、英文、数字、_、-。 
+     * @return TemplateName 模板名称。
+长度上限：255字节。
+仅支持中文、英文、数字、_、-。
      */
     public String getTemplateName() {
         return this.TemplateName;
     }
 
     /**
-     * Set 模板名称，非空的字符串。
+     * Set 模板名称。
 长度上限：255字节。
-     * @param TemplateName 模板名称，非空的字符串。
+仅支持中文、英文、数字、_、-。
+     * @param TemplateName 模板名称。
 长度上限：255字节。
+仅支持中文、英文、数字、_、-。
      */
     public void setTemplateName(String TemplateName) {
         this.TemplateName = TemplateName;
@@ -107,9 +121,11 @@ public class CreateLiveCallbackTemplateRequest extends AbstractModel{
 
     /**
      * Get 描述信息。
-长度上限：1024字节。 
+长度上限：1024字节。
+仅支持中文、英文、数字、_、-。 
      * @return Description 描述信息。
 长度上限：1024字节。
+仅支持中文、英文、数字、_、-。
      */
     public String getDescription() {
         return this.Description;
@@ -118,17 +134,19 @@ public class CreateLiveCallbackTemplateRequest extends AbstractModel{
     /**
      * Set 描述信息。
 长度上限：1024字节。
+仅支持中文、英文、数字、_、-。
      * @param Description 描述信息。
 长度上限：1024字节。
+仅支持中文、英文、数字、_、-。
      */
     public void setDescription(String Description) {
         this.Description = Description;
     }
 
     /**
-     * Get 开播回调URL，
+     * Get 开播回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。 
-     * @return StreamBeginNotifyUrl 开播回调URL，
+     * @return StreamBeginNotifyUrl 开播回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
      */
     public String getStreamBeginNotifyUrl() {
@@ -136,9 +154,9 @@ public class CreateLiveCallbackTemplateRequest extends AbstractModel{
     }
 
     /**
-     * Set 开播回调URL，
+     * Set 开播回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
-     * @param StreamBeginNotifyUrl 开播回调URL，
+     * @param StreamBeginNotifyUrl 开播回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
      */
     public void setStreamBeginNotifyUrl(String StreamBeginNotifyUrl) {
@@ -146,9 +164,9 @@ public class CreateLiveCallbackTemplateRequest extends AbstractModel{
     }
 
     /**
-     * Get 断流回调URL，
+     * Get 断流回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。 
-     * @return StreamEndNotifyUrl 断流回调URL，
+     * @return StreamEndNotifyUrl 断流回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
      */
     public String getStreamEndNotifyUrl() {
@@ -156,9 +174,9 @@ public class CreateLiveCallbackTemplateRequest extends AbstractModel{
     }
 
     /**
-     * Set 断流回调URL，
+     * Set 断流回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
-     * @param StreamEndNotifyUrl 断流回调URL，
+     * @param StreamEndNotifyUrl 断流回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
      */
     public void setStreamEndNotifyUrl(String StreamEndNotifyUrl) {
@@ -166,9 +184,9 @@ public class CreateLiveCallbackTemplateRequest extends AbstractModel{
     }
 
     /**
-     * Get 录制回调URL，
+     * Get 录制回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。 
-     * @return RecordNotifyUrl 录制回调URL，
+     * @return RecordNotifyUrl 录制回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
      */
     public String getRecordNotifyUrl() {
@@ -176,9 +194,9 @@ public class CreateLiveCallbackTemplateRequest extends AbstractModel{
     }
 
     /**
-     * Set 录制回调URL，
+     * Set 录制回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
-     * @param RecordNotifyUrl 录制回调URL，
+     * @param RecordNotifyUrl 录制回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
      */
     public void setRecordNotifyUrl(String RecordNotifyUrl) {
@@ -186,9 +204,9 @@ public class CreateLiveCallbackTemplateRequest extends AbstractModel{
     }
 
     /**
-     * Get 截图回调URL，
+     * Get 截图回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。 
-     * @return SnapshotNotifyUrl 截图回调URL，
+     * @return SnapshotNotifyUrl 截图回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
      */
     public String getSnapshotNotifyUrl() {
@@ -196,9 +214,9 @@ public class CreateLiveCallbackTemplateRequest extends AbstractModel{
     }
 
     /**
-     * Set 截图回调URL，
+     * Set 截图回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
-     * @param SnapshotNotifyUrl 截图回调URL，
+     * @param SnapshotNotifyUrl 截图回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
      */
     public void setSnapshotNotifyUrl(String SnapshotNotifyUrl) {
@@ -206,9 +224,9 @@ public class CreateLiveCallbackTemplateRequest extends AbstractModel{
     }
 
     /**
-     * Get 鉴黄回调URL，
+     * Get 鉴黄回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32741)。 
-     * @return PornCensorshipNotifyUrl 鉴黄回调URL，
+     * @return PornCensorshipNotifyUrl 鉴黄回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32741)。
      */
     public String getPornCensorshipNotifyUrl() {
@@ -216,9 +234,9 @@ public class CreateLiveCallbackTemplateRequest extends AbstractModel{
     }
 
     /**
-     * Set 鉴黄回调URL，
+     * Set 鉴黄回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32741)。
-     * @param PornCensorshipNotifyUrl 鉴黄回调URL，
+     * @param PornCensorshipNotifyUrl 鉴黄回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32741)。
      */
     public void setPornCensorshipNotifyUrl(String PornCensorshipNotifyUrl) {
@@ -226,20 +244,78 @@ public class CreateLiveCallbackTemplateRequest extends AbstractModel{
     }
 
     /**
-     * Get 回调key，回调URL公用，鉴权回调说明详见回调格式文档 
-     * @return CallbackKey 回调key，回调URL公用，鉴权回调说明详见回调格式文档
+     * Get 回调 Key，回调 URL 公用，回调签名详见事件消息通知文档。
+[事件消息通知](/document/product/267/32744)。 
+     * @return CallbackKey 回调 Key，回调 URL 公用，回调签名详见事件消息通知文档。
+[事件消息通知](/document/product/267/32744)。
      */
     public String getCallbackKey() {
         return this.CallbackKey;
     }
 
     /**
-     * Set 回调key，回调URL公用，鉴权回调说明详见回调格式文档
-     * @param CallbackKey 回调key，回调URL公用，鉴权回调说明详见回调格式文档
+     * Set 回调 Key，回调 URL 公用，回调签名详见事件消息通知文档。
+[事件消息通知](/document/product/267/32744)。
+     * @param CallbackKey 回调 Key，回调 URL 公用，回调签名详见事件消息通知文档。
+[事件消息通知](/document/product/267/32744)。
      */
     public void setCallbackKey(String CallbackKey) {
         this.CallbackKey = CallbackKey;
     }
+
+    /**
+     * Get 参数已弃用。 
+     * @return StreamMixNotifyUrl 参数已弃用。
+     */
+    public String getStreamMixNotifyUrl() {
+        return this.StreamMixNotifyUrl;
+    }
+
+    /**
+     * Set 参数已弃用。
+     * @param StreamMixNotifyUrl 参数已弃用。
+     */
+    public void setStreamMixNotifyUrl(String StreamMixNotifyUrl) {
+        this.StreamMixNotifyUrl = StreamMixNotifyUrl;
+    }
+
+    public CreateLiveCallbackTemplateRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateLiveCallbackTemplateRequest(CreateLiveCallbackTemplateRequest source) {
+        if (source.TemplateName != null) {
+            this.TemplateName = new String(source.TemplateName);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.StreamBeginNotifyUrl != null) {
+            this.StreamBeginNotifyUrl = new String(source.StreamBeginNotifyUrl);
+        }
+        if (source.StreamEndNotifyUrl != null) {
+            this.StreamEndNotifyUrl = new String(source.StreamEndNotifyUrl);
+        }
+        if (source.RecordNotifyUrl != null) {
+            this.RecordNotifyUrl = new String(source.RecordNotifyUrl);
+        }
+        if (source.SnapshotNotifyUrl != null) {
+            this.SnapshotNotifyUrl = new String(source.SnapshotNotifyUrl);
+        }
+        if (source.PornCensorshipNotifyUrl != null) {
+            this.PornCensorshipNotifyUrl = new String(source.PornCensorshipNotifyUrl);
+        }
+        if (source.CallbackKey != null) {
+            this.CallbackKey = new String(source.CallbackKey);
+        }
+        if (source.StreamMixNotifyUrl != null) {
+            this.StreamMixNotifyUrl = new String(source.StreamMixNotifyUrl);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -253,6 +329,7 @@ public class CreateLiveCallbackTemplateRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SnapshotNotifyUrl", this.SnapshotNotifyUrl);
         this.setParamSimple(map, prefix + "PornCensorshipNotifyUrl", this.PornCensorshipNotifyUrl);
         this.setParamSimple(map, prefix + "CallbackKey", this.CallbackKey);
+        this.setParamSimple(map, prefix + "StreamMixNotifyUrl", this.StreamMixNotifyUrl);
 
     }
 }

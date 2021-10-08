@@ -23,27 +23,41 @@ import java.util.HashMap;
 public class TextCorrectionRequest extends AbstractModel{
 
     /**
-    * 待纠错的文本（仅支持UTF-8格式，不超过2000字）
+    * 待纠错的文本（仅支持UTF-8格式，不超过2000字符）
     */
     @SerializedName("Text")
     @Expose
     private String Text;
 
     /**
-     * Get 待纠错的文本（仅支持UTF-8格式，不超过2000字） 
-     * @return Text 待纠错的文本（仅支持UTF-8格式，不超过2000字）
+     * Get 待纠错的文本（仅支持UTF-8格式，不超过2000字符） 
+     * @return Text 待纠错的文本（仅支持UTF-8格式，不超过2000字符）
      */
     public String getText() {
         return this.Text;
     }
 
     /**
-     * Set 待纠错的文本（仅支持UTF-8格式，不超过2000字）
-     * @param Text 待纠错的文本（仅支持UTF-8格式，不超过2000字）
+     * Set 待纠错的文本（仅支持UTF-8格式，不超过2000字符）
+     * @param Text 待纠错的文本（仅支持UTF-8格式，不超过2000字符）
      */
     public void setText(String Text) {
         this.Text = Text;
     }
+
+    public TextCorrectionRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public TextCorrectionRequest(TextCorrectionRequest source) {
+        if (source.Text != null) {
+            this.Text = new String(source.Text);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.

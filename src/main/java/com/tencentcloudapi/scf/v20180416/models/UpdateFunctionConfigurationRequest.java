@@ -37,21 +37,21 @@ public class UpdateFunctionConfigurationRequest extends AbstractModel{
     private String Description;
 
     /**
-    * 函数运行时内存大小，默认为 128 M，可选范 128 M-1536 M
+    * 函数运行时内存大小，默认为 128 M，可选范64M、128 M-3072 M，以 128MB 为阶梯。
     */
     @SerializedName("MemorySize")
     @Expose
     private Long MemorySize;
 
     /**
-    * 函数最长执行时间，单位为秒，可选值范 1-300 秒，默认为 3 秒
+    * 函数最长执行时间，单位为秒，可选值范 1-900 秒，默认为 3 秒
     */
     @SerializedName("Timeout")
     @Expose
     private Long Timeout;
 
     /**
-    * 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，PHP5， PHP7，Golang1 和 Java8
+    * 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， PHP5， PHP7，Go1 ， Java8和CustomRuntime
     */
     @SerializedName("Runtime")
     @Expose
@@ -100,7 +100,7 @@ public class UpdateFunctionConfigurationRequest extends AbstractModel{
     private String ClsTopicId;
 
     /**
-    * 在更新时是否同步发布新版本，默认为：FALSE，不发布
+    * 在更新时是否同步发布新版本，默认为：FALSE，不发布新版本
     */
     @SerializedName("Publish")
     @Expose
@@ -128,11 +128,25 @@ public class UpdateFunctionConfigurationRequest extends AbstractModel{
     private DeadLetterConfig DeadLetterConfig;
 
     /**
-    * 是否开启Ons访问能力，TRUE 为开启，FALSE为关闭
+    * 公网访问配置
     */
-    @SerializedName("OnsEnable")
+    @SerializedName("PublicNetConfig")
     @Expose
-    private String OnsEnable;
+    private PublicNetConfigIn PublicNetConfig;
+
+    /**
+    * 文件系统配置入参，用于云函数绑定CFS文件系统
+    */
+    @SerializedName("CfsConfig")
+    @Expose
+    private CfsConfig CfsConfig;
+
+    /**
+    * 函数初始化执行超时时间
+    */
+    @SerializedName("InitTimeout")
+    @Expose
+    private Long InitTimeout;
 
     /**
      * Get 要修改的函数名称 
@@ -167,48 +181,48 @@ public class UpdateFunctionConfigurationRequest extends AbstractModel{
     }
 
     /**
-     * Get 函数运行时内存大小，默认为 128 M，可选范 128 M-1536 M 
-     * @return MemorySize 函数运行时内存大小，默认为 128 M，可选范 128 M-1536 M
+     * Get 函数运行时内存大小，默认为 128 M，可选范64M、128 M-3072 M，以 128MB 为阶梯。 
+     * @return MemorySize 函数运行时内存大小，默认为 128 M，可选范64M、128 M-3072 M，以 128MB 为阶梯。
      */
     public Long getMemorySize() {
         return this.MemorySize;
     }
 
     /**
-     * Set 函数运行时内存大小，默认为 128 M，可选范 128 M-1536 M
-     * @param MemorySize 函数运行时内存大小，默认为 128 M，可选范 128 M-1536 M
+     * Set 函数运行时内存大小，默认为 128 M，可选范64M、128 M-3072 M，以 128MB 为阶梯。
+     * @param MemorySize 函数运行时内存大小，默认为 128 M，可选范64M、128 M-3072 M，以 128MB 为阶梯。
      */
     public void setMemorySize(Long MemorySize) {
         this.MemorySize = MemorySize;
     }
 
     /**
-     * Get 函数最长执行时间，单位为秒，可选值范 1-300 秒，默认为 3 秒 
-     * @return Timeout 函数最长执行时间，单位为秒，可选值范 1-300 秒，默认为 3 秒
+     * Get 函数最长执行时间，单位为秒，可选值范 1-900 秒，默认为 3 秒 
+     * @return Timeout 函数最长执行时间，单位为秒，可选值范 1-900 秒，默认为 3 秒
      */
     public Long getTimeout() {
         return this.Timeout;
     }
 
     /**
-     * Set 函数最长执行时间，单位为秒，可选值范 1-300 秒，默认为 3 秒
-     * @param Timeout 函数最长执行时间，单位为秒，可选值范 1-300 秒，默认为 3 秒
+     * Set 函数最长执行时间，单位为秒，可选值范 1-900 秒，默认为 3 秒
+     * @param Timeout 函数最长执行时间，单位为秒，可选值范 1-900 秒，默认为 3 秒
      */
     public void setTimeout(Long Timeout) {
         this.Timeout = Timeout;
     }
 
     /**
-     * Get 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，PHP5， PHP7，Golang1 和 Java8 
-     * @return Runtime 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，PHP5， PHP7，Golang1 和 Java8
+     * Get 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， PHP5， PHP7，Go1 ， Java8和CustomRuntime 
+     * @return Runtime 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， PHP5， PHP7，Go1 ， Java8和CustomRuntime
      */
     public String getRuntime() {
         return this.Runtime;
     }
 
     /**
-     * Set 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，PHP5， PHP7，Golang1 和 Java8
-     * @param Runtime 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，PHP5， PHP7，Golang1 和 Java8
+     * Set 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， PHP5， PHP7，Go1 ， Java8和CustomRuntime
+     * @param Runtime 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， PHP5， PHP7，Go1 ， Java8和CustomRuntime
      */
     public void setRuntime(String Runtime) {
         this.Runtime = Runtime;
@@ -311,16 +325,16 @@ public class UpdateFunctionConfigurationRequest extends AbstractModel{
     }
 
     /**
-     * Get 在更新时是否同步发布新版本，默认为：FALSE，不发布 
-     * @return Publish 在更新时是否同步发布新版本，默认为：FALSE，不发布
+     * Get 在更新时是否同步发布新版本，默认为：FALSE，不发布新版本 
+     * @return Publish 在更新时是否同步发布新版本，默认为：FALSE，不发布新版本
      */
     public String getPublish() {
         return this.Publish;
     }
 
     /**
-     * Set 在更新时是否同步发布新版本，默认为：FALSE，不发布
-     * @param Publish 在更新时是否同步发布新版本，默认为：FALSE，不发布
+     * Set 在更新时是否同步发布新版本，默认为：FALSE，不发布新版本
+     * @param Publish 在更新时是否同步发布新版本，默认为：FALSE，不发布新版本
      */
     public void setPublish(String Publish) {
         this.Publish = Publish;
@@ -375,20 +389,120 @@ public class UpdateFunctionConfigurationRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否开启Ons访问能力，TRUE 为开启，FALSE为关闭 
-     * @return OnsEnable 是否开启Ons访问能力，TRUE 为开启，FALSE为关闭
+     * Get 公网访问配置 
+     * @return PublicNetConfig 公网访问配置
      */
-    public String getOnsEnable() {
-        return this.OnsEnable;
+    public PublicNetConfigIn getPublicNetConfig() {
+        return this.PublicNetConfig;
     }
 
     /**
-     * Set 是否开启Ons访问能力，TRUE 为开启，FALSE为关闭
-     * @param OnsEnable 是否开启Ons访问能力，TRUE 为开启，FALSE为关闭
+     * Set 公网访问配置
+     * @param PublicNetConfig 公网访问配置
      */
-    public void setOnsEnable(String OnsEnable) {
-        this.OnsEnable = OnsEnable;
+    public void setPublicNetConfig(PublicNetConfigIn PublicNetConfig) {
+        this.PublicNetConfig = PublicNetConfig;
     }
+
+    /**
+     * Get 文件系统配置入参，用于云函数绑定CFS文件系统 
+     * @return CfsConfig 文件系统配置入参，用于云函数绑定CFS文件系统
+     */
+    public CfsConfig getCfsConfig() {
+        return this.CfsConfig;
+    }
+
+    /**
+     * Set 文件系统配置入参，用于云函数绑定CFS文件系统
+     * @param CfsConfig 文件系统配置入参，用于云函数绑定CFS文件系统
+     */
+    public void setCfsConfig(CfsConfig CfsConfig) {
+        this.CfsConfig = CfsConfig;
+    }
+
+    /**
+     * Get 函数初始化执行超时时间 
+     * @return InitTimeout 函数初始化执行超时时间
+     */
+    public Long getInitTimeout() {
+        return this.InitTimeout;
+    }
+
+    /**
+     * Set 函数初始化执行超时时间
+     * @param InitTimeout 函数初始化执行超时时间
+     */
+    public void setInitTimeout(Long InitTimeout) {
+        this.InitTimeout = InitTimeout;
+    }
+
+    public UpdateFunctionConfigurationRequest() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public UpdateFunctionConfigurationRequest(UpdateFunctionConfigurationRequest source) {
+        if (source.FunctionName != null) {
+            this.FunctionName = new String(source.FunctionName);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.MemorySize != null) {
+            this.MemorySize = new Long(source.MemorySize);
+        }
+        if (source.Timeout != null) {
+            this.Timeout = new Long(source.Timeout);
+        }
+        if (source.Runtime != null) {
+            this.Runtime = new String(source.Runtime);
+        }
+        if (source.Environment != null) {
+            this.Environment = new Environment(source.Environment);
+        }
+        if (source.Namespace != null) {
+            this.Namespace = new String(source.Namespace);
+        }
+        if (source.VpcConfig != null) {
+            this.VpcConfig = new VpcConfig(source.VpcConfig);
+        }
+        if (source.Role != null) {
+            this.Role = new String(source.Role);
+        }
+        if (source.ClsLogsetId != null) {
+            this.ClsLogsetId = new String(source.ClsLogsetId);
+        }
+        if (source.ClsTopicId != null) {
+            this.ClsTopicId = new String(source.ClsTopicId);
+        }
+        if (source.Publish != null) {
+            this.Publish = new String(source.Publish);
+        }
+        if (source.L5Enable != null) {
+            this.L5Enable = new String(source.L5Enable);
+        }
+        if (source.Layers != null) {
+            this.Layers = new LayerVersionSimple[source.Layers.length];
+            for (int i = 0; i < source.Layers.length; i++) {
+                this.Layers[i] = new LayerVersionSimple(source.Layers[i]);
+            }
+        }
+        if (source.DeadLetterConfig != null) {
+            this.DeadLetterConfig = new DeadLetterConfig(source.DeadLetterConfig);
+        }
+        if (source.PublicNetConfig != null) {
+            this.PublicNetConfig = new PublicNetConfigIn(source.PublicNetConfig);
+        }
+        if (source.CfsConfig != null) {
+            this.CfsConfig = new CfsConfig(source.CfsConfig);
+        }
+        if (source.InitTimeout != null) {
+            this.InitTimeout = new Long(source.InitTimeout);
+        }
+    }
+
 
     /**
      * Internal implementation, normal users should not use it.
@@ -409,7 +523,9 @@ public class UpdateFunctionConfigurationRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "L5Enable", this.L5Enable);
         this.setParamArrayObj(map, prefix + "Layers.", this.Layers);
         this.setParamObj(map, prefix + "DeadLetterConfig.", this.DeadLetterConfig);
-        this.setParamSimple(map, prefix + "OnsEnable", this.OnsEnable);
+        this.setParamObj(map, prefix + "PublicNetConfig.", this.PublicNetConfig);
+        this.setParamObj(map, prefix + "CfsConfig.", this.CfsConfig);
+        this.setParamSimple(map, prefix + "InitTimeout", this.InitTimeout);
 
     }
 }

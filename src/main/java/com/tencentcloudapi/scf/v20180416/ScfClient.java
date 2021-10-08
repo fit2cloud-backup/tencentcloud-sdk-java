@@ -27,6 +27,7 @@ import com.tencentcloudapi.scf.v20180416.models.*;
 
 public class ScfClient extends AbstractClient{
     private static String endpoint = "scf.tencentcloudapi.com";
+    private static String service = "scf";
     private static String version = "2018-04-16";
 
     public ScfClient(Credential credential, String region) {
@@ -51,12 +52,35 @@ public class ScfClient extends AbstractClient{
      */
     public CopyFunctionResponse CopyFunction(CopyFunctionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CopyFunctionResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<CopyFunctionResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "CopyFunction"), type);
+                rspStr = this.internalRequest(req, "CopyFunction");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *为某个函数版本创建一个别名，您可以使用别名来标记特定的函数版本，如DEV/RELEASE版本，也可以随时修改别名指向的版本。
+一个别名必须指向一个主版本，此外还可以同时指向一个附加版本。调用函数时指定特定的别名，则请求会被发送到别名指向的版本上，您可以配置请求发送到主版本和附加版本的比例。
+     * @param req CreateAliasRequest
+     * @return CreateAliasResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateAliasResponse CreateAlias(CreateAliasRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateAliasResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateAliasResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateAlias");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -69,12 +93,14 @@ public class ScfClient extends AbstractClient{
      */
     public CreateFunctionResponse CreateFunction(CreateFunctionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateFunctionResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateFunctionResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "CreateFunction"), type);
+                rspStr = this.internalRequest(req, "CreateFunction");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -87,12 +113,14 @@ public class ScfClient extends AbstractClient{
      */
     public CreateNamespaceResponse CreateNamespace(CreateNamespaceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateNamespaceResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateNamespaceResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "CreateNamespace"), type);
+                rspStr = this.internalRequest(req, "CreateNamespace");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -105,12 +133,34 @@ public class ScfClient extends AbstractClient{
      */
     public CreateTriggerResponse CreateTrigger(CreateTriggerRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateTriggerResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateTriggerResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "CreateTrigger"), type);
+                rspStr = this.internalRequest(req, "CreateTrigger");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *删除一个函数版本的别名
+     * @param req DeleteAliasRequest
+     * @return DeleteAliasResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteAliasResponse DeleteAlias(DeleteAliasRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteAliasResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteAliasResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteAlias");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -123,12 +173,14 @@ public class ScfClient extends AbstractClient{
      */
     public DeleteFunctionResponse DeleteFunction(DeleteFunctionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteFunctionResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteFunctionResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DeleteFunction"), type);
+                rspStr = this.internalRequest(req, "DeleteFunction");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -141,30 +193,74 @@ public class ScfClient extends AbstractClient{
      */
     public DeleteLayerVersionResponse DeleteLayerVersion(DeleteLayerVersionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteLayerVersionResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteLayerVersionResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DeleteLayerVersion"), type);
+                rspStr = this.internalRequest(req, "DeleteLayerVersion");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
 
     /**
-     *该接口根据传入的参数创建命名空间。
+     *该接口根据传入的参数删除命名空间。
      * @param req DeleteNamespaceRequest
      * @return DeleteNamespaceResponse
      * @throws TencentCloudSDKException
      */
     public DeleteNamespaceResponse DeleteNamespace(DeleteNamespaceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteNamespaceResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteNamespaceResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DeleteNamespace"), type);
+                rspStr = this.internalRequest(req, "DeleteNamespace");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *删除函数版本的预置并发配置。
+     * @param req DeleteProvisionedConcurrencyConfigRequest
+     * @return DeleteProvisionedConcurrencyConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteProvisionedConcurrencyConfigResponse DeleteProvisionedConcurrencyConfig(DeleteProvisionedConcurrencyConfigRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteProvisionedConcurrencyConfigResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteProvisionedConcurrencyConfigResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteProvisionedConcurrencyConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *删除函数的最大独占配额配置。
+     * @param req DeleteReservedConcurrencyConfigRequest
+     * @return DeleteReservedConcurrencyConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteReservedConcurrencyConfigResponse DeleteReservedConcurrencyConfig(DeleteReservedConcurrencyConfigRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteReservedConcurrencyConfigResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteReservedConcurrencyConfigResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteReservedConcurrencyConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -177,12 +273,54 @@ public class ScfClient extends AbstractClient{
      */
     public DeleteTriggerResponse DeleteTrigger(DeleteTriggerRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteTriggerResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteTriggerResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "DeleteTrigger"), type);
+                rspStr = this.internalRequest(req, "DeleteTrigger");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取账户信息
+     * @param req GetAccountRequest
+     * @return GetAccountResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetAccountResponse GetAccount(GetAccountRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetAccountResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetAccountResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetAccount");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取别名的详细信息，包括名称、描述、版本、路由信息等。
+     * @param req GetAliasRequest
+     * @return GetAliasResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetAliasResponse GetAlias(GetAliasRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetAliasResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetAliasResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetAlias");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -195,12 +333,14 @@ public class ScfClient extends AbstractClient{
      */
     public GetFunctionResponse GetFunction(GetFunctionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetFunctionResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<GetFunctionResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "GetFunction"), type);
+                rspStr = this.internalRequest(req, "GetFunction");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -213,12 +353,34 @@ public class ScfClient extends AbstractClient{
      */
     public GetFunctionAddressResponse GetFunctionAddress(GetFunctionAddressRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetFunctionAddressResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<GetFunctionAddressResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "GetFunctionAddress"), type);
+                rspStr = this.internalRequest(req, "GetFunctionAddress");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取函数异步重试配置，包括重试次数和消息保留时间
+     * @param req GetFunctionEventInvokeConfigRequest
+     * @return GetFunctionEventInvokeConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetFunctionEventInvokeConfigResponse GetFunctionEventInvokeConfig(GetFunctionEventInvokeConfigRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetFunctionEventInvokeConfigResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetFunctionEventInvokeConfigResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetFunctionEventInvokeConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -231,12 +393,14 @@ public class ScfClient extends AbstractClient{
      */
     public GetFunctionLogsResponse GetFunctionLogs(GetFunctionLogsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetFunctionLogsResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<GetFunctionLogsResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "GetFunctionLogs"), type);
+                rspStr = this.internalRequest(req, "GetFunctionLogs");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -249,12 +413,54 @@ public class ScfClient extends AbstractClient{
      */
     public GetLayerVersionResponse GetLayerVersion(GetLayerVersionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetLayerVersionResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<GetLayerVersionResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "GetLayerVersion"), type);
+                rspStr = this.internalRequest(req, "GetLayerVersion");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取函数或函数某一版本的预置并发详情。
+     * @param req GetProvisionedConcurrencyConfigRequest
+     * @return GetProvisionedConcurrencyConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetProvisionedConcurrencyConfigResponse GetProvisionedConcurrencyConfig(GetProvisionedConcurrencyConfigRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetProvisionedConcurrencyConfigResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetProvisionedConcurrencyConfigResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetProvisionedConcurrencyConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取函数的最大独占配额详情。
+     * @param req GetReservedConcurrencyConfigRequest
+     * @return GetReservedConcurrencyConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetReservedConcurrencyConfigResponse GetReservedConcurrencyConfig(GetReservedConcurrencyConfigRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetReservedConcurrencyConfigResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetReservedConcurrencyConfigResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetReservedConcurrencyConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -267,12 +473,74 @@ public class ScfClient extends AbstractClient{
      */
     public InvokeResponse Invoke(InvokeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<InvokeResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<InvokeResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "Invoke"), type);
+                rspStr = this.internalRequest(req, "Invoke");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     * SCF同步调用函数接口
+     * @param req InvokeFunctionRequest
+     * @return InvokeFunctionResponse
+     * @throws TencentCloudSDKException
+     */
+    public InvokeFunctionResponse InvokeFunction(InvokeFunctionRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<InvokeFunctionResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<InvokeFunctionResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "InvokeFunction");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *返回一个函数下的全部别名，可以根据特定函数版本过滤。
+     * @param req ListAliasesRequest
+     * @return ListAliasesResponse
+     * @throws TencentCloudSDKException
+     */
+    public ListAliasesResponse ListAliases(ListAliasesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ListAliasesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ListAliasesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ListAliases");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *拉取函数异步事件列表
+     * @param req ListAsyncEventsRequest
+     * @return ListAsyncEventsResponse
+     * @throws TencentCloudSDKException
+     */
+    public ListAsyncEventsResponse ListAsyncEvents(ListAsyncEventsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ListAsyncEventsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ListAsyncEventsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ListAsyncEvents");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -285,12 +553,14 @@ public class ScfClient extends AbstractClient{
      */
     public ListFunctionsResponse ListFunctions(ListFunctionsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ListFunctionsResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ListFunctionsResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ListFunctions"), type);
+                rspStr = this.internalRequest(req, "ListFunctions");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -303,12 +573,14 @@ public class ScfClient extends AbstractClient{
      */
     public ListLayerVersionsResponse ListLayerVersions(ListLayerVersionsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ListLayerVersionsResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ListLayerVersionsResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ListLayerVersions"), type);
+                rspStr = this.internalRequest(req, "ListLayerVersions");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -321,12 +593,14 @@ public class ScfClient extends AbstractClient{
      */
     public ListLayersResponse ListLayers(ListLayersRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ListLayersResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ListLayersResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ListLayers"), type);
+                rspStr = this.internalRequest(req, "ListLayers");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -339,12 +613,34 @@ public class ScfClient extends AbstractClient{
      */
     public ListNamespacesResponse ListNamespaces(ListNamespacesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ListNamespacesResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ListNamespacesResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ListNamespaces"), type);
+                rspStr = this.internalRequest(req, "ListNamespaces");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取函数触发器列表
+     * @param req ListTriggersRequest
+     * @return ListTriggersResponse
+     * @throws TencentCloudSDKException
+     */
+    public ListTriggersResponse ListTriggers(ListTriggersRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ListTriggersResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ListTriggersResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ListTriggers");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -357,12 +653,14 @@ public class ScfClient extends AbstractClient{
      */
     public ListVersionByFunctionResponse ListVersionByFunction(ListVersionByFunctionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ListVersionByFunctionResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<ListVersionByFunctionResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "ListVersionByFunction"), type);
+                rspStr = this.internalRequest(req, "ListVersionByFunction");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -375,12 +673,14 @@ public class ScfClient extends AbstractClient{
      */
     public PublishLayerVersionResponse PublishLayerVersion(PublishLayerVersionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<PublishLayerVersionResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<PublishLayerVersionResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "PublishLayerVersion"), type);
+                rspStr = this.internalRequest(req, "PublishLayerVersion");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -393,12 +693,114 @@ public class ScfClient extends AbstractClient{
      */
     public PublishVersionResponse PublishVersion(PublishVersionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<PublishVersionResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<PublishVersionResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "PublishVersion"), type);
+                rspStr = this.internalRequest(req, "PublishVersion");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *设置函数某一非$LATEST版本的预置并发。
+     * @param req PutProvisionedConcurrencyConfigRequest
+     * @return PutProvisionedConcurrencyConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public PutProvisionedConcurrencyConfigResponse PutProvisionedConcurrencyConfig(PutProvisionedConcurrencyConfigRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<PutProvisionedConcurrencyConfigResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<PutProvisionedConcurrencyConfigResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "PutProvisionedConcurrencyConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *设置函数最大独占配额
+     * @param req PutReservedConcurrencyConfigRequest
+     * @return PutReservedConcurrencyConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public PutReservedConcurrencyConfigResponse PutReservedConcurrencyConfig(PutReservedConcurrencyConfigRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<PutReservedConcurrencyConfigResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<PutReservedConcurrencyConfigResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "PutReservedConcurrencyConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改账号并发限制配额
+     * @param req PutTotalConcurrencyConfigRequest
+     * @return PutTotalConcurrencyConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public PutTotalConcurrencyConfigResponse PutTotalConcurrencyConfig(PutTotalConcurrencyConfigRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<PutTotalConcurrencyConfigResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<PutTotalConcurrencyConfigResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "PutTotalConcurrencyConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *终止正在运行中的函数异步事件
+     * @param req TerminateAsyncEventRequest
+     * @return TerminateAsyncEventResponse
+     * @throws TencentCloudSDKException
+     */
+    public TerminateAsyncEventResponse TerminateAsyncEvent(TerminateAsyncEventRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<TerminateAsyncEventResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<TerminateAsyncEventResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "TerminateAsyncEvent");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *更新别名的配置
+     * @param req UpdateAliasRequest
+     * @return UpdateAliasResponse
+     * @throws TencentCloudSDKException
+     */
+    public UpdateAliasResponse UpdateAlias(UpdateAliasRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<UpdateAliasResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<UpdateAliasResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "UpdateAlias");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -411,12 +813,14 @@ public class ScfClient extends AbstractClient{
      */
     public UpdateFunctionCodeResponse UpdateFunctionCode(UpdateFunctionCodeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<UpdateFunctionCodeResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<UpdateFunctionCodeResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "UpdateFunctionCode"), type);
+                rspStr = this.internalRequest(req, "UpdateFunctionCode");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -429,12 +833,34 @@ public class ScfClient extends AbstractClient{
      */
     public UpdateFunctionConfigurationResponse UpdateFunctionConfiguration(UpdateFunctionConfigurationRequest req) throws TencentCloudSDKException{
         JsonResponseModel<UpdateFunctionConfigurationResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<UpdateFunctionConfigurationResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "UpdateFunctionConfiguration"), type);
+                rspStr = this.internalRequest(req, "UpdateFunctionConfiguration");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *更新函数的异步重试配置，包括重试次数和消息保留时间
+     * @param req UpdateFunctionEventInvokeConfigRequest
+     * @return UpdateFunctionEventInvokeConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public UpdateFunctionEventInvokeConfigResponse UpdateFunctionEventInvokeConfig(UpdateFunctionEventInvokeConfigRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<UpdateFunctionEventInvokeConfigResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<UpdateFunctionEventInvokeConfigResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "UpdateFunctionEventInvokeConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }
@@ -447,12 +873,14 @@ public class ScfClient extends AbstractClient{
      */
     public UpdateNamespaceResponse UpdateNamespace(UpdateNamespaceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<UpdateNamespaceResponse> rsp = null;
+        String rspStr = "";
         try {
                 Type type = new TypeToken<JsonResponseModel<UpdateNamespaceResponse>>() {
                 }.getType();
-                rsp  = gson.fromJson(this.internalRequest(req, "UpdateNamespace"), type);
+                rspStr = this.internalRequest(req, "UpdateNamespace");
+                rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException(e.getMessage());
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
         }
         return rsp.response;
     }

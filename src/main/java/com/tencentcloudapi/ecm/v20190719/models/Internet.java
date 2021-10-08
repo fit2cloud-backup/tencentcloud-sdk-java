@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class Internet extends AbstractModel{
 
     /**
-    * 实例的内网相关信息列表。
+    * 实例的内网相关信息列表。顺序为主网卡在前，辅助网卡按绑定先后顺序排列。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PrivateIPAddressSet")
@@ -31,7 +31,7 @@ public class Internet extends AbstractModel{
     private PrivateIPAddressInfo [] PrivateIPAddressSet;
 
     /**
-    * 实例的公网相关信息列表。
+    * 实例的公网相关信息列表。顺序为主网卡在前，辅助网卡按绑定先后顺序排列。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PublicIPAddressSet")
@@ -39,9 +39,17 @@ public class Internet extends AbstractModel{
     private PublicIPAddressInfo [] PublicIPAddressSet;
 
     /**
-     * Get 实例的内网相关信息列表。
+    * 实例网络相关信息。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("InstanceNetworkInfoSet")
+    @Expose
+    private InstanceNetworkInfo [] InstanceNetworkInfoSet;
+
+    /**
+     * Get 实例的内网相关信息列表。顺序为主网卡在前，辅助网卡按绑定先后顺序排列。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return PrivateIPAddressSet 实例的内网相关信息列表。
+     * @return PrivateIPAddressSet 实例的内网相关信息列表。顺序为主网卡在前，辅助网卡按绑定先后顺序排列。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public PrivateIPAddressInfo [] getPrivateIPAddressSet() {
@@ -49,9 +57,9 @@ public class Internet extends AbstractModel{
     }
 
     /**
-     * Set 实例的内网相关信息列表。
+     * Set 实例的内网相关信息列表。顺序为主网卡在前，辅助网卡按绑定先后顺序排列。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param PrivateIPAddressSet 实例的内网相关信息列表。
+     * @param PrivateIPAddressSet 实例的内网相关信息列表。顺序为主网卡在前，辅助网卡按绑定先后顺序排列。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPrivateIPAddressSet(PrivateIPAddressInfo [] PrivateIPAddressSet) {
@@ -59,9 +67,9 @@ public class Internet extends AbstractModel{
     }
 
     /**
-     * Get 实例的公网相关信息列表。
+     * Get 实例的公网相关信息列表。顺序为主网卡在前，辅助网卡按绑定先后顺序排列。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return PublicIPAddressSet 实例的公网相关信息列表。
+     * @return PublicIPAddressSet 实例的公网相关信息列表。顺序为主网卡在前，辅助网卡按绑定先后顺序排列。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public PublicIPAddressInfo [] getPublicIPAddressSet() {
@@ -69,9 +77,9 @@ public class Internet extends AbstractModel{
     }
 
     /**
-     * Set 实例的公网相关信息列表。
+     * Set 实例的公网相关信息列表。顺序为主网卡在前，辅助网卡按绑定先后顺序排列。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param PublicIPAddressSet 实例的公网相关信息列表。
+     * @param PublicIPAddressSet 实例的公网相关信息列表。顺序为主网卡在前，辅助网卡按绑定先后顺序排列。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPublicIPAddressSet(PublicIPAddressInfo [] PublicIPAddressSet) {
@@ -79,11 +87,61 @@ public class Internet extends AbstractModel{
     }
 
     /**
+     * Get 实例网络相关信息。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return InstanceNetworkInfoSet 实例网络相关信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public InstanceNetworkInfo [] getInstanceNetworkInfoSet() {
+        return this.InstanceNetworkInfoSet;
+    }
+
+    /**
+     * Set 实例网络相关信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param InstanceNetworkInfoSet 实例网络相关信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setInstanceNetworkInfoSet(InstanceNetworkInfo [] InstanceNetworkInfoSet) {
+        this.InstanceNetworkInfoSet = InstanceNetworkInfoSet;
+    }
+
+    public Internet() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public Internet(Internet source) {
+        if (source.PrivateIPAddressSet != null) {
+            this.PrivateIPAddressSet = new PrivateIPAddressInfo[source.PrivateIPAddressSet.length];
+            for (int i = 0; i < source.PrivateIPAddressSet.length; i++) {
+                this.PrivateIPAddressSet[i] = new PrivateIPAddressInfo(source.PrivateIPAddressSet[i]);
+            }
+        }
+        if (source.PublicIPAddressSet != null) {
+            this.PublicIPAddressSet = new PublicIPAddressInfo[source.PublicIPAddressSet.length];
+            for (int i = 0; i < source.PublicIPAddressSet.length; i++) {
+                this.PublicIPAddressSet[i] = new PublicIPAddressInfo(source.PublicIPAddressSet[i]);
+            }
+        }
+        if (source.InstanceNetworkInfoSet != null) {
+            this.InstanceNetworkInfoSet = new InstanceNetworkInfo[source.InstanceNetworkInfoSet.length];
+            for (int i = 0; i < source.InstanceNetworkInfoSet.length; i++) {
+                this.InstanceNetworkInfoSet[i] = new InstanceNetworkInfo(source.InstanceNetworkInfoSet[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "PrivateIPAddressSet.", this.PrivateIPAddressSet);
         this.setParamArrayObj(map, prefix + "PublicIPAddressSet.", this.PublicIPAddressSet);
+        this.setParamArrayObj(map, prefix + "InstanceNetworkInfoSet.", this.InstanceNetworkInfoSet);
 
     }
 }

@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class ClusterExtraArgs extends AbstractModel{
 
     /**
-    * kube-apiserver自定义参数
+    * kube-apiserver自定义参数，参数格式为["k1=v1", "k1=v2"]， 例如["max-requests-inflight=500","feature-gates=PodShareProcessNamespace=true,DynamicKubeletConfig=true"]
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("KubeAPIServer")
@@ -47,9 +47,17 @@ public class ClusterExtraArgs extends AbstractModel{
     private String [] KubeScheduler;
 
     /**
-     * Get kube-apiserver自定义参数
+    * etcd自定义参数，只支持独立集群
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Etcd")
+    @Expose
+    private String [] Etcd;
+
+    /**
+     * Get kube-apiserver自定义参数，参数格式为["k1=v1", "k1=v2"]， 例如["max-requests-inflight=500","feature-gates=PodShareProcessNamespace=true,DynamicKubeletConfig=true"]
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return KubeAPIServer kube-apiserver自定义参数
+     * @return KubeAPIServer kube-apiserver自定义参数，参数格式为["k1=v1", "k1=v2"]， 例如["max-requests-inflight=500","feature-gates=PodShareProcessNamespace=true,DynamicKubeletConfig=true"]
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getKubeAPIServer() {
@@ -57,9 +65,9 @@ public class ClusterExtraArgs extends AbstractModel{
     }
 
     /**
-     * Set kube-apiserver自定义参数
+     * Set kube-apiserver自定义参数，参数格式为["k1=v1", "k1=v2"]， 例如["max-requests-inflight=500","feature-gates=PodShareProcessNamespace=true,DynamicKubeletConfig=true"]
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param KubeAPIServer kube-apiserver自定义参数
+     * @param KubeAPIServer kube-apiserver自定义参数，参数格式为["k1=v1", "k1=v2"]， 例如["max-requests-inflight=500","feature-gates=PodShareProcessNamespace=true,DynamicKubeletConfig=true"]
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKubeAPIServer(String [] KubeAPIServer) {
@@ -107,12 +115,68 @@ public class ClusterExtraArgs extends AbstractModel{
     }
 
     /**
+     * Get etcd自定义参数，只支持独立集群
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Etcd etcd自定义参数，只支持独立集群
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getEtcd() {
+        return this.Etcd;
+    }
+
+    /**
+     * Set etcd自定义参数，只支持独立集群
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Etcd etcd自定义参数，只支持独立集群
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEtcd(String [] Etcd) {
+        this.Etcd = Etcd;
+    }
+
+    public ClusterExtraArgs() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public ClusterExtraArgs(ClusterExtraArgs source) {
+        if (source.KubeAPIServer != null) {
+            this.KubeAPIServer = new String[source.KubeAPIServer.length];
+            for (int i = 0; i < source.KubeAPIServer.length; i++) {
+                this.KubeAPIServer[i] = new String(source.KubeAPIServer[i]);
+            }
+        }
+        if (source.KubeControllerManager != null) {
+            this.KubeControllerManager = new String[source.KubeControllerManager.length];
+            for (int i = 0; i < source.KubeControllerManager.length; i++) {
+                this.KubeControllerManager[i] = new String(source.KubeControllerManager[i]);
+            }
+        }
+        if (source.KubeScheduler != null) {
+            this.KubeScheduler = new String[source.KubeScheduler.length];
+            for (int i = 0; i < source.KubeScheduler.length; i++) {
+                this.KubeScheduler[i] = new String(source.KubeScheduler[i]);
+            }
+        }
+        if (source.Etcd != null) {
+            this.Etcd = new String[source.Etcd.length];
+            for (int i = 0; i < source.Etcd.length; i++) {
+                this.Etcd[i] = new String(source.Etcd[i]);
+            }
+        }
+    }
+
+
+    /**
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "KubeAPIServer.", this.KubeAPIServer);
         this.setParamArraySimple(map, prefix + "KubeControllerManager.", this.KubeControllerManager);
         this.setParamArraySimple(map, prefix + "KubeScheduler.", this.KubeScheduler);
+        this.setParamArraySimple(map, prefix + "Etcd.", this.Etcd);
 
     }
 }
