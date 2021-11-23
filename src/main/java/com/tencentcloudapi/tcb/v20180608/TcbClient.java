@@ -539,6 +539,26 @@ public class TcbClient extends AbstractClient{
     }
 
     /**
+     *查询一键部署任务 （特定接口：外部查询使用）
+     * @param req DescribeCloudBaseRunOneClickTaskExternalRequest
+     * @return DescribeCloudBaseRunOneClickTaskExternalResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCloudBaseRunOneClickTaskExternalResponse DescribeCloudBaseRunOneClickTaskExternal(DescribeCloudBaseRunOneClickTaskExternalRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeCloudBaseRunOneClickTaskExternalResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeCloudBaseRunOneClickTaskExternalResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeCloudBaseRunOneClickTaskExternal");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *查询服务、版本和操作类型
      * @param req DescribeCloudBaseRunOperationTypesRequest
      * @return DescribeCloudBaseRunOperationTypesResponse
@@ -551,6 +571,26 @@ public class TcbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeCloudBaseRunOperationTypesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeCloudBaseRunOperationTypes");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询云应用服务版本容器列表
+     * @param req DescribeCloudBaseRunPodListRequest
+     * @return DescribeCloudBaseRunPodListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCloudBaseRunPodListResponse DescribeCloudBaseRunPodList(DescribeCloudBaseRunPodListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeCloudBaseRunPodListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeCloudBaseRunPodListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeCloudBaseRunPodList");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -591,6 +631,46 @@ public class TcbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeCloudBaseRunResourceForExtendResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeCloudBaseRunResourceForExtend");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询单个服务的详情，版本以及详情
+     * @param req DescribeCloudBaseRunServerRequest
+     * @return DescribeCloudBaseRunServerResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCloudBaseRunServerResponse DescribeCloudBaseRunServer(DescribeCloudBaseRunServerRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeCloudBaseRunServerResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeCloudBaseRunServerResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeCloudBaseRunServer");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询微信云托管服务域名
+     * @param req DescribeCloudBaseRunServerDomainNameRequest
+     * @return DescribeCloudBaseRunServerDomainNameResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCloudBaseRunServerDomainNameResponse DescribeCloudBaseRunServerDomainName(DescribeCloudBaseRunServerDomainNameRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeCloudBaseRunServerDomainNameResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeCloudBaseRunServerDomainNameResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeCloudBaseRunServerDomainName");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1274,6 +1354,26 @@ public class TcbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<ModifyCloudBaseRunServerFlowConfResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifyCloudBaseRunServerFlowConf");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改服务版本的副本数，环境变量
+     * @param req ModifyCloudBaseRunServerVersionRequest
+     * @return ModifyCloudBaseRunServerVersionResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyCloudBaseRunServerVersionResponse ModifyCloudBaseRunServerVersion(ModifyCloudBaseRunServerVersionRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyCloudBaseRunServerVersionResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyCloudBaseRunServerVersionResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyCloudBaseRunServerVersion");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

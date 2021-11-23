@@ -72,8 +72,32 @@ public enum VpcErrorCode {
     // 参数取值错误。
      INVALIDPARAMETERVALUE("InvalidParameterValue"),
      
+    // 该地址计费方式与其他地址冲突。
+     INVALIDPARAMETERVALUE_ADDRESSINTERNETCHARGETYPECONFLICT("InvalidParameterValue.AddressInternetChargeTypeConflict"),
+     
+    // 该IP地址现在不可用。
+     INVALIDPARAMETERVALUE_ADDRESSIPNOTAVAILABLE("InvalidParameterValue.AddressIpNotAvailable"),
+     
+    // IP地址未找到。
+     INVALIDPARAMETERVALUE_ADDRESSIPNOTFOUND("InvalidParameterValue.AddressIpNotFound"),
+     
+    // 该地址不可与此实例申请。
+     INVALIDPARAMETERVALUE_ADDRESSNOTAPPLICABLE("InvalidParameterValue.AddressNotApplicable"),
+     
+    // 该地址不是CalcIP。
+     INVALIDPARAMETERVALUE_ADDRESSNOTCALCIP("InvalidParameterValue.AddressNotCalcIP"),
+     
+    // 未找到该地址。
+     INVALIDPARAMETERVALUE_ADDRESSNOTFOUND("InvalidParameterValue.AddressNotFound"),
+     
     // 带宽超出限制。
      INVALIDPARAMETERVALUE_BANDWIDTHOUTOFRANGE("InvalidParameterValue.BandwidthOutOfRange"),
+     
+    // 该带宽包正在被使用。
+     INVALIDPARAMETERVALUE_BANDWIDTHPACKAGEINUSE("InvalidParameterValue.BandwidthPackageInUse"),
+     
+    // 未查询到该带宽包。
+     INVALIDPARAMETERVALUE_BANDWIDTHPACKAGENOTFOUND("InvalidParameterValue.BandwidthPackageNotFound"),
      
     // 选择带宽低于可允许的最小范围。
      INVALIDPARAMETERVALUE_BANDWIDTHTOOSMALL("InvalidParameterValue.BandwidthTooSmall"),
@@ -93,6 +117,9 @@ public enum VpcErrorCode {
     // 缺少参数。
      INVALIDPARAMETERVALUE_EMPTY("InvalidParameterValue.Empty"),
      
+    // 该实例的计费方式与其他实例不同。
+     INVALIDPARAMETERVALUE_INCONSISTENTINSTANCEINTERNETCHARGETYPE("InvalidParameterValue.InconsistentInstanceInternetChargeType"),
+     
     // 该实例不支持AnycastEIP。
      INVALIDPARAMETERVALUE_INSTANCEDOESNOTSUPPORTANYCAST("InvalidParameterValue.InstanceDoesNotSupportAnycast"),
      
@@ -108,6 +135,9 @@ public enum VpcErrorCode {
     // 由于该IP被禁用，无法绑定该实例。
      INVALIDPARAMETERVALUE_INSTANCENORMALPUBLICIPBLOCKED("InvalidParameterValue.InstanceNormalPublicIpBlocked"),
      
+    // 无效的带宽包计费方式。
+     INVALIDPARAMETERVALUE_INVALIDBANDWIDTHPACKAGECHARGETYPE("InvalidParameterValue.InvalidBandwidthPackageChargeType"),
+     
     // 传入的DedicatedClusterId有误。
      INVALIDPARAMETERVALUE_INVALIDDEDICATEDCLUSTERID("InvalidParameterValue.InvalidDedicatedClusterId"),
      
@@ -116,6 +146,9 @@ public enum VpcErrorCode {
      
     // 该实例状态无法完成操作。
      INVALIDPARAMETERVALUE_INVALIDINSTANCESTATE("InvalidParameterValue.InvalidInstanceState"),
+     
+    // 无效的IPv6地址。
+     INVALIDPARAMETERVALUE_INVALIDIPV6("InvalidParameterValue.InvalidIpv6"),
      
     // 该Tag不合法。
      INVALIDPARAMETERVALUE_INVALIDTAG("InvalidParameterValue.InvalidTag"),
@@ -129,11 +162,17 @@ public enum VpcErrorCode {
     // 入参格式不合法。
      INVALIDPARAMETERVALUE_MALFORMED("InvalidParameterValue.Malformed"),
      
+    // 集群类型不同的IP不可在同一请求中。
+     INVALIDPARAMETERVALUE_MIXEDADDRESSIPSETTYPE("InvalidParameterValue.MixedAddressIpSetType"),
+     
     // NAT网关的SNAT规则已经存在。
      INVALIDPARAMETERVALUE_NATSNATRULEEXISTS("InvalidParameterValue.NatSnatRuleExists"),
      
     // 探测目的IP与同一个私有网络内的同一个子网下的其他网络探测的探测目的IP相同。
      INVALIDPARAMETERVALUE_NETDETECTSAMEIP("InvalidParameterValue.NetDetectSameIp"),
+     
+    // 未找到网络接口ID，或私有IP地址未在网络接口配置。
+     INVALIDPARAMETERVALUE_NETWORKINTERFACENOTFOUND("InvalidParameterValue.NetworkInterfaceNotFound"),
      
     // 该操作仅对主网卡支持。
      INVALIDPARAMETERVALUE_ONLYSUPPORTEDFORMASTERNETWORKCARD("InvalidParameterValue.OnlySupportedForMasterNetworkCard"),
@@ -144,11 +183,26 @@ public enum VpcErrorCode {
     // 参数值是一个系统保留对象。
      INVALIDPARAMETERVALUE_RESERVED("InvalidParameterValue.Reserved"),
      
+    // 该资源已加入其他带宽包。
+     INVALIDPARAMETERVALUE_RESOURCEALREADYEXISTED("InvalidParameterValue.ResourceAlreadyExisted"),
+     
+    // 资源ID不正确。
+     INVALIDPARAMETERVALUE_RESOURCEIDMALFORMED("InvalidParameterValue.ResourceIdMalformed"),
+     
+    // 该资源不在此带宽包中。
+     INVALIDPARAMETERVALUE_RESOURCENOTEXISTED("InvalidParameterValue.ResourceNotExisted"),
+     
+    // 未查询到该资源。
+     INVALIDPARAMETERVALUE_RESOURCENOTFOUND("InvalidParameterValue.ResourceNotFound"),
+     
     // 子网CIDR冲突。
      INVALIDPARAMETERVALUE_SUBNETCONFLICT("InvalidParameterValue.SubnetConflict"),
      
     // 子网CIDR不合法。
      INVALIDPARAMETERVALUE_SUBNETRANGE("InvalidParameterValue.SubnetRange"),
+     
+    // 该标签和值不存在。
+     INVALIDPARAMETERVALUE_TAGNOTEXISTED("InvalidParameterValue.TagNotExisted"),
      
     // 无效参数值。参数值太长。
      INVALIDPARAMETERVALUE_TOOLONG("InvalidParameterValue.TooLong"),
@@ -270,6 +324,18 @@ public enum VpcErrorCode {
     // 接口不存在。
      UNSUPPORTEDOPERATION_ACTIONNOTFOUND("UnsupportedOperation.ActionNotFound"),
      
+    // 欠费状态不支持该操作。
+     UNSUPPORTEDOPERATION_ADDRESSIPINARREAR("UnsupportedOperation.AddressIpInArrear"),
+     
+    // 此付费模式的IP地址不支持该操作。
+     UNSUPPORTEDOPERATION_ADDRESSIPINTERNETCHARGETYPENOTPERMIT("UnsupportedOperation.AddressIpInternetChargeTypeNotPermit"),
+     
+    // 绑定此实例的IP地址不支持该操作。
+     UNSUPPORTEDOPERATION_ADDRESSIPNOTSUPPORTINSTANCE("UnsupportedOperation.AddressIpNotSupportInstance"),
+     
+    // 此IP地址状态不支持该操作。
+     UNSUPPORTEDOPERATION_ADDRESSIPSTATUSNOTPERMIT("UnsupportedOperation.AddressIpStatusNotPermit"),
+     
     // 资源不在指定的AppId下。
      UNSUPPORTEDOPERATION_APPIDMISMATCH("UnsupportedOperation.AppIdMismatch"),
      
@@ -281,6 +347,9 @@ public enum VpcErrorCode {
      
     // 当前云联网还有预付费带宽未到期，不支持主动删除。
      UNSUPPORTEDOPERATION_BANDWIDTHNOTEXPIRED("UnsupportedOperation.BandwidthNotExpired"),
+     
+    // 该带宽包不支持此操作。
+     UNSUPPORTEDOPERATION_BANDWIDTHPACKAGEIDNOTSUPPORTED("UnsupportedOperation.BandwidthPackageIdNotSupported"),
      
     // 已绑定EIP。
      UNSUPPORTEDOPERATION_BINDEIP("UnsupportedOperation.BindEIP"),
@@ -338,6 +407,12 @@ public enum VpcErrorCode {
      
     // 无效的实例状态。
      UNSUPPORTEDOPERATION_INVALIDINSTANCESTATE("UnsupportedOperation.InvalidInstanceState"),
+     
+    // 该计费方式不支持此操作。
+     UNSUPPORTEDOPERATION_INVALIDRESOURCEINTERNETCHARGETYPE("UnsupportedOperation.InvalidResourceInternetChargeType"),
+     
+    // 不支持加入此协议的带宽包。
+     UNSUPPORTEDOPERATION_INVALIDRESOURCEPROTOCOL("UnsupportedOperation.InvalidResourceProtocol"),
      
     // 资源状态不合法。
      UNSUPPORTEDOPERATION_INVALIDSTATE("UnsupportedOperation.InvalidState"),

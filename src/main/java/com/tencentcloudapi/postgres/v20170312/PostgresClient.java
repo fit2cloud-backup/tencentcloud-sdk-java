@@ -319,6 +319,26 @@ public class PostgresClient extends AbstractClient{
     }
 
     /**
+     *获取实例可修改参数列表
+     * @param req DescribeDBInstanceParametersRequest
+     * @return DescribeDBInstanceParametersResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeDBInstanceParametersResponse DescribeDBInstanceParameters(DescribeDBInstanceParametersRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeDBInstanceParametersResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeDBInstanceParametersResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeDBInstanceParameters");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口 (DescribeDBInstances) 用于查询一个或多个实例的详细信息。
      * @param req DescribeDBInstancesRequest
      * @return DescribeDBInstancesResponse
@@ -411,6 +431,26 @@ public class PostgresClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeOrdersResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeOrders");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取参数修改事件详情
+     * @param req DescribeParamsEventRequest
+     * @return DescribeParamsEventResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeParamsEventResponse DescribeParamsEvent(DescribeParamsEventRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeParamsEventResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeParamsEventResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeParamsEvent");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -739,6 +779,26 @@ public class PostgresClient extends AbstractClient{
     }
 
     /**
+     *批量修改参数
+     * @param req ModifyDBInstanceParametersRequest
+     * @return ModifyDBInstanceParametersResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyDBInstanceParametersResponse ModifyDBInstanceParameters(ModifyDBInstanceParametersRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyDBInstanceParametersResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyDBInstanceParametersResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyDBInstanceParameters");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口（ModifyDBInstanceReadOnlyGroup）用于修改实例所属的只读组
      * @param req ModifyDBInstanceReadOnlyGroupRequest
      * @return ModifyDBInstanceReadOnlyGroupResponse
@@ -751,6 +811,26 @@ public class PostgresClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<ModifyDBInstanceReadOnlyGroupResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifyDBInstanceReadOnlyGroup");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（ModifyDBInstanceSpec）用于调整实例规格，包括内存、磁盘。
+     * @param req ModifyDBInstanceSpecRequest
+     * @return ModifyDBInstanceSpecResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyDBInstanceSpecResponse ModifyDBInstanceSpec(ModifyDBInstanceSpecRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyDBInstanceSpecResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyDBInstanceSpecResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyDBInstanceSpec");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

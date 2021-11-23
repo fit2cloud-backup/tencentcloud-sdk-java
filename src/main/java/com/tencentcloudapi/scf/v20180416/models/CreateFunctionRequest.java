@@ -100,6 +100,13 @@ public class CreateFunctionRequest extends AbstractModel{
     private String Role;
 
     /**
+    * [在线依赖安装](https://cloud.tencent.com/document/product/583/37920)，TRUE 表示安装，默认值为 FALSE。仅支持 Node.js 函数。
+    */
+    @SerializedName("InstallDependency")
+    @Expose
+    private String InstallDependency;
+
+    /**
     * 函数日志投递到的CLS LogsetID
     */
     @SerializedName("ClsLogsetId")
@@ -182,6 +189,20 @@ public class CreateFunctionRequest extends AbstractModel{
     @SerializedName("TraceEnable")
     @Expose
     private String TraceEnable;
+
+    /**
+    * HTTP函数支持的访问协议。当前支持WebSockets协议，值为WS
+    */
+    @SerializedName("ProtocolType")
+    @Expose
+    private String ProtocolType;
+
+    /**
+    * HTTP函数配置ProtocolType访问协议，当前协议可配置的参数
+    */
+    @SerializedName("ProtocolParams")
+    @Expose
+    private ProtocolParams ProtocolParams;
 
     /**
      * Get 创建的函数名称，函数名称支持26个英文字母大小写、数字、连接符和下划线，第一个字符只能以字母开头，最后一个字符不能为连接符或者下划线，名称长度2-60 
@@ -357,6 +378,22 @@ public class CreateFunctionRequest extends AbstractModel{
      */
     public void setRole(String Role) {
         this.Role = Role;
+    }
+
+    /**
+     * Get [在线依赖安装](https://cloud.tencent.com/document/product/583/37920)，TRUE 表示安装，默认值为 FALSE。仅支持 Node.js 函数。 
+     * @return InstallDependency [在线依赖安装](https://cloud.tencent.com/document/product/583/37920)，TRUE 表示安装，默认值为 FALSE。仅支持 Node.js 函数。
+     */
+    public String getInstallDependency() {
+        return this.InstallDependency;
+    }
+
+    /**
+     * Set [在线依赖安装](https://cloud.tencent.com/document/product/583/37920)，TRUE 表示安装，默认值为 FALSE。仅支持 Node.js 函数。
+     * @param InstallDependency [在线依赖安装](https://cloud.tencent.com/document/product/583/37920)，TRUE 表示安装，默认值为 FALSE。仅支持 Node.js 函数。
+     */
+    public void setInstallDependency(String InstallDependency) {
+        this.InstallDependency = InstallDependency;
     }
 
     /**
@@ -551,6 +588,38 @@ public class CreateFunctionRequest extends AbstractModel{
         this.TraceEnable = TraceEnable;
     }
 
+    /**
+     * Get HTTP函数支持的访问协议。当前支持WebSockets协议，值为WS 
+     * @return ProtocolType HTTP函数支持的访问协议。当前支持WebSockets协议，值为WS
+     */
+    public String getProtocolType() {
+        return this.ProtocolType;
+    }
+
+    /**
+     * Set HTTP函数支持的访问协议。当前支持WebSockets协议，值为WS
+     * @param ProtocolType HTTP函数支持的访问协议。当前支持WebSockets协议，值为WS
+     */
+    public void setProtocolType(String ProtocolType) {
+        this.ProtocolType = ProtocolType;
+    }
+
+    /**
+     * Get HTTP函数配置ProtocolType访问协议，当前协议可配置的参数 
+     * @return ProtocolParams HTTP函数配置ProtocolType访问协议，当前协议可配置的参数
+     */
+    public ProtocolParams getProtocolParams() {
+        return this.ProtocolParams;
+    }
+
+    /**
+     * Set HTTP函数配置ProtocolType访问协议，当前协议可配置的参数
+     * @param ProtocolParams HTTP函数配置ProtocolType访问协议，当前协议可配置的参数
+     */
+    public void setProtocolParams(ProtocolParams ProtocolParams) {
+        this.ProtocolParams = ProtocolParams;
+    }
+
     public CreateFunctionRequest() {
     }
 
@@ -591,6 +660,9 @@ public class CreateFunctionRequest extends AbstractModel{
         }
         if (source.Role != null) {
             this.Role = new String(source.Role);
+        }
+        if (source.InstallDependency != null) {
+            this.InstallDependency = new String(source.InstallDependency);
         }
         if (source.ClsLogsetId != null) {
             this.ClsLogsetId = new String(source.ClsLogsetId);
@@ -634,6 +706,12 @@ public class CreateFunctionRequest extends AbstractModel{
         if (source.TraceEnable != null) {
             this.TraceEnable = new String(source.TraceEnable);
         }
+        if (source.ProtocolType != null) {
+            this.ProtocolType = new String(source.ProtocolType);
+        }
+        if (source.ProtocolParams != null) {
+            this.ProtocolParams = new ProtocolParams(source.ProtocolParams);
+        }
     }
 
 
@@ -652,6 +730,7 @@ public class CreateFunctionRequest extends AbstractModel{
         this.setParamObj(map, prefix + "VpcConfig.", this.VpcConfig);
         this.setParamSimple(map, prefix + "Namespace", this.Namespace);
         this.setParamSimple(map, prefix + "Role", this.Role);
+        this.setParamSimple(map, prefix + "InstallDependency", this.InstallDependency);
         this.setParamSimple(map, prefix + "ClsLogsetId", this.ClsLogsetId);
         this.setParamSimple(map, prefix + "ClsTopicId", this.ClsTopicId);
         this.setParamSimple(map, prefix + "Type", this.Type);
@@ -664,6 +743,8 @@ public class CreateFunctionRequest extends AbstractModel{
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "AsyncRunEnable", this.AsyncRunEnable);
         this.setParamSimple(map, prefix + "TraceEnable", this.TraceEnable);
+        this.setParamSimple(map, prefix + "ProtocolType", this.ProtocolType);
+        this.setParamObj(map, prefix + "ProtocolParams.", this.ProtocolParams);
 
     }
 }

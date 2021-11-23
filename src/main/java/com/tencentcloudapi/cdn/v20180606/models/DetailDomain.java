@@ -157,7 +157,7 @@ media：流媒体点播加速
     private FollowRedirect FollowRedirect;
 
     /**
-    * 自定义错误页面配置（功能灰度中，敬请期待）
+    * 自定义错误页面配置
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ErrorPage")
@@ -446,7 +446,7 @@ off：不支持
     private Ipv6Access Ipv6Access;
 
     /**
-    * 高级配置集合。
+    * 高级配置集合
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AdvanceSet")
@@ -454,7 +454,7 @@ off：不支持
     private AdvanceConfig [] AdvanceSet;
 
     /**
-    * 离线缓存
+    * 离线缓存（功能灰度中，尚未全量，请等待后续全量发布）
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OfflineCache")
@@ -462,7 +462,7 @@ off：不支持
     private OfflineCache OfflineCache;
 
     /**
-    * 合并回源
+    * 合并回源（白名单功能）
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OriginCombine")
@@ -500,6 +500,22 @@ off：不支持
     @SerializedName("WebSocket")
     @Expose
     private WebSocket WebSocket;
+
+    /**
+    * 远程鉴权配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RemoteAuthentication")
+    @Expose
+    private RemoteAuthentication RemoteAuthentication;
+
+    /**
+    * 共享CNAME配置（白名单功能）
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ShareCname")
+    @Expose
+    private ShareCname ShareCname;
 
     /**
      * Get 域名 ID 
@@ -834,9 +850,9 @@ media：流媒体点播加速
     }
 
     /**
-     * Get 自定义错误页面配置（功能灰度中，敬请期待）
+     * Get 自定义错误页面配置
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ErrorPage 自定义错误页面配置（功能灰度中，敬请期待）
+     * @return ErrorPage 自定义错误页面配置
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public ErrorPage getErrorPage() {
@@ -844,9 +860,9 @@ media：流媒体点播加速
     }
 
     /**
-     * Set 自定义错误页面配置（功能灰度中，敬请期待）
+     * Set 自定义错误页面配置
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ErrorPage 自定义错误页面配置（功能灰度中，敬请期待）
+     * @param ErrorPage 自定义错误页面配置
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setErrorPage(ErrorPage ErrorPage) {
@@ -1582,9 +1598,9 @@ off：不支持
     }
 
     /**
-     * Get 高级配置集合。
+     * Get 高级配置集合
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AdvanceSet 高级配置集合。
+     * @return AdvanceSet 高级配置集合
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public AdvanceConfig [] getAdvanceSet() {
@@ -1592,9 +1608,9 @@ off：不支持
     }
 
     /**
-     * Set 高级配置集合。
+     * Set 高级配置集合
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param AdvanceSet 高级配置集合。
+     * @param AdvanceSet 高级配置集合
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAdvanceSet(AdvanceConfig [] AdvanceSet) {
@@ -1602,9 +1618,9 @@ off：不支持
     }
 
     /**
-     * Get 离线缓存
+     * Get 离线缓存（功能灰度中，尚未全量，请等待后续全量发布）
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return OfflineCache 离线缓存
+     * @return OfflineCache 离线缓存（功能灰度中，尚未全量，请等待后续全量发布）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public OfflineCache getOfflineCache() {
@@ -1612,9 +1628,9 @@ off：不支持
     }
 
     /**
-     * Set 离线缓存
+     * Set 离线缓存（功能灰度中，尚未全量，请等待后续全量发布）
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param OfflineCache 离线缓存
+     * @param OfflineCache 离线缓存（功能灰度中，尚未全量，请等待后续全量发布）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOfflineCache(OfflineCache OfflineCache) {
@@ -1622,9 +1638,9 @@ off：不支持
     }
 
     /**
-     * Get 合并回源
+     * Get 合并回源（白名单功能）
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return OriginCombine 合并回源
+     * @return OriginCombine 合并回源（白名单功能）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public OriginCombine getOriginCombine() {
@@ -1632,9 +1648,9 @@ off：不支持
     }
 
     /**
-     * Set 合并回源
+     * Set 合并回源（白名单功能）
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param OriginCombine 合并回源
+     * @param OriginCombine 合并回源（白名单功能）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOriginCombine(OriginCombine OriginCombine) {
@@ -1719,6 +1735,46 @@ off：不支持
      */
     public void setWebSocket(WebSocket WebSocket) {
         this.WebSocket = WebSocket;
+    }
+
+    /**
+     * Get 远程鉴权配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RemoteAuthentication 远程鉴权配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public RemoteAuthentication getRemoteAuthentication() {
+        return this.RemoteAuthentication;
+    }
+
+    /**
+     * Set 远程鉴权配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RemoteAuthentication 远程鉴权配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRemoteAuthentication(RemoteAuthentication RemoteAuthentication) {
+        this.RemoteAuthentication = RemoteAuthentication;
+    }
+
+    /**
+     * Get 共享CNAME配置（白名单功能）
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ShareCname 共享CNAME配置（白名单功能）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ShareCname getShareCname() {
+        return this.ShareCname;
+    }
+
+    /**
+     * Set 共享CNAME配置（白名单功能）
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ShareCname 共享CNAME配置（白名单功能）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setShareCname(ShareCname ShareCname) {
+        this.ShareCname = ShareCname;
     }
 
     public DetailDomain() {
@@ -1912,6 +1968,12 @@ off：不支持
         if (source.WebSocket != null) {
             this.WebSocket = new WebSocket(source.WebSocket);
         }
+        if (source.RemoteAuthentication != null) {
+            this.RemoteAuthentication = new RemoteAuthentication(source.RemoteAuthentication);
+        }
+        if (source.ShareCname != null) {
+            this.ShareCname = new ShareCname(source.ShareCname);
+        }
     }
 
 
@@ -1977,6 +2039,8 @@ off：不支持
         this.setParamObj(map, prefix + "Quic.", this.Quic);
         this.setParamObj(map, prefix + "OssPrivateAccess.", this.OssPrivateAccess);
         this.setParamObj(map, prefix + "WebSocket.", this.WebSocket);
+        this.setParamObj(map, prefix + "RemoteAuthentication.", this.RemoteAuthentication);
+        this.setParamObj(map, prefix + "ShareCname.", this.ShareCname);
 
     }
 }

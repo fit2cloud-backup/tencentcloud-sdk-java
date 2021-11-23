@@ -23,13 +23,6 @@ import java.util.HashMap;
 public class Image extends AbstractModel{
 
     /**
-    * 镜像实例ID。
-    */
-    @SerializedName("ImageId")
-    @Expose
-    private String ImageId;
-
-    /**
     * 镜像名称。
     */
     @SerializedName("ImageName")
@@ -37,20 +30,11 @@ public class Image extends AbstractModel{
     private String ImageName;
 
     /**
-     * Get 镜像实例ID。 
-     * @return ImageId 镜像实例ID。
-     */
-    public String getImageId() {
-        return this.ImageId;
-    }
-
-    /**
-     * Set 镜像实例ID。
-     * @param ImageId 镜像实例ID。
-     */
-    public void setImageId(String ImageId) {
-        this.ImageId = ImageId;
-    }
+    * 镜像实例ID。
+    */
+    @SerializedName("ImageId")
+    @Expose
+    private String ImageId;
 
     /**
      * Get 镜像名称。 
@@ -68,6 +52,22 @@ public class Image extends AbstractModel{
         this.ImageName = ImageName;
     }
 
+    /**
+     * Get 镜像实例ID。 
+     * @return ImageId 镜像实例ID。
+     */
+    public String getImageId() {
+        return this.ImageId;
+    }
+
+    /**
+     * Set 镜像实例ID。
+     * @param ImageId 镜像实例ID。
+     */
+    public void setImageId(String ImageId) {
+        this.ImageId = ImageId;
+    }
+
     public Image() {
     }
 
@@ -76,11 +76,11 @@ public class Image extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public Image(Image source) {
-        if (source.ImageId != null) {
-            this.ImageId = new String(source.ImageId);
-        }
         if (source.ImageName != null) {
             this.ImageName = new String(source.ImageName);
+        }
+        if (source.ImageId != null) {
+            this.ImageId = new String(source.ImageId);
         }
     }
 
@@ -89,8 +89,8 @@ public class Image extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "ImageId", this.ImageId);
         this.setParamSimple(map, prefix + "ImageName", this.ImageName);
+        this.setParamSimple(map, prefix + "ImageId", this.ImageId);
 
     }
 }

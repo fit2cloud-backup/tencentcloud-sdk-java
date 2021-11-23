@@ -57,6 +57,9 @@ public enum CdnErrorCode {
     // 安全加速服务已停服，请重新购买套餐后开启。
      INTERNALERROR_SCDNUSERSUSPEND("InternalError.ScdnUserSuspend"),
      
+    // 内部数据错误，请重试或联系客服人员解决。
+     INTERNALERROR_SYSTEMDBERROR("InternalError.SystemDBError"),
+     
     // 内部服务错误，请联系腾讯云工程师进一步排查。
      INTERNALERROR_SYSTEMERROR("InternalError.SystemError"),
      
@@ -120,7 +123,7 @@ public enum CdnErrorCode {
     // 域名拥有特殊配置，需人工处理。
      INVALIDPARAMETER_CDNHOSTHASSPECIALCONFIG("InvalidParameter.CdnHostHasSpecialConfig"),
      
-    // 内部域名不允许接入。
+    // 该域名为内部域名，不可接入。
      INVALIDPARAMETER_CDNHOSTINTERNALHOST("InvalidParameter.CdnHostInternalHost"),
      
     // 错误的中间源配置。
@@ -222,6 +225,12 @@ public enum CdnErrorCode {
     // 参数错误。
      INVALIDPARAMETER_PARAMERROR("InvalidParameter.ParamError"),
      
+    // 域名所在平台不支持远程鉴权。
+     INVALIDPARAMETER_REMOTEAUTHINVALIDPLATFORM("InvalidParameter.RemoteAuthInvalidPlatform"),
+     
+    // 域名所在平台不支持使用https协议访问远程鉴权地址。
+     INVALIDPARAMETER_REMOTEAUTHINVALIDPROTOCOL("InvalidParameter.RemoteAuthInvalidProtocol"),
+     
     // 任务已过期,无法重试。
      INVALIDPARAMETER_SCDNLOGTASKEXPIRED("InvalidParameter.ScdnLogTaskExpired"),
      
@@ -257,6 +266,9 @@ public enum CdnErrorCode {
      
     // 该账号已经创建了太多主题。
      LIMITEXCEEDED_CDNCLSTOOMANYTOPICS("LimitExceeded.CdnClsTooManyTopics"),
+     
+    // 缓存配置规则数超出限制。
+     LIMITEXCEEDED_CDNCONFIGTOOMANYCACHERULES("LimitExceeded.CdnConfigTooManyCacheRules"),
      
     // 域名操作过于频繁。
      LIMITEXCEEDED_CDNHOSTOPTOOOFTEN("LimitExceeded.CdnHostOpTooOften"),
@@ -299,6 +311,9 @@ public enum CdnErrorCode {
      
     // 缺少参数错误。
      MISSINGPARAMETER("MissingParameter"),
+     
+    // 操作被拒绝。
+     OPERATIONDENIED("OperationDenied"),
      
     // 请求的次数超过了频率限制。
      REQUESTLIMITEXCEEDED("RequestLimitExceeded"),

@@ -23,11 +23,20 @@ import java.util.HashMap;
 public class EnableReplicaReadonlyResponse extends AbstractModel{
 
     /**
-    * 错误：ERROR，正确OK。
+    * 错误：ERROR，正确OK（已废弃）
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
     private String Status;
+
+    /**
+    * 任务ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TaskId")
+    @Expose
+    private Long TaskId;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -37,19 +46,43 @@ public class EnableReplicaReadonlyResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 错误：ERROR，正确OK。 
-     * @return Status 错误：ERROR，正确OK。
+     * Get 错误：ERROR，正确OK（已废弃）
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Status 错误：ERROR，正确OK（已废弃）
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 错误：ERROR，正确OK。
-     * @param Status 错误：ERROR，正确OK。
+     * Set 错误：ERROR，正确OK（已废弃）
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Status 错误：ERROR，正确OK（已废弃）
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(String Status) {
         this.Status = Status;
+    }
+
+    /**
+     * Get 任务ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TaskId 任务ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getTaskId() {
+        return this.TaskId;
+    }
+
+    /**
+     * Set 任务ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TaskId 任务ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTaskId(Long TaskId) {
+        this.TaskId = TaskId;
     }
 
     /**
@@ -79,6 +112,9 @@ public class EnableReplicaReadonlyResponse extends AbstractModel{
         if (source.Status != null) {
             this.Status = new String(source.Status);
         }
+        if (source.TaskId != null) {
+            this.TaskId = new Long(source.TaskId);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -90,6 +126,7 @@ public class EnableReplicaReadonlyResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Status", this.Status);
+        this.setParamSimple(map, prefix + "TaskId", this.TaskId);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -23,23 +23,23 @@ import java.util.HashMap;
 public class AddUserToGroupRequest extends AbstractModel{
 
     /**
-    * 添加的子用户 UID 和用户组 ID 关联关系
+    * 添加的子用户 UIN/UID 和用户组 ID 关联关系
     */
     @SerializedName("Info")
     @Expose
     private GroupIdOfUidInfo [] Info;
 
     /**
-     * Get 添加的子用户 UID 和用户组 ID 关联关系 
-     * @return Info 添加的子用户 UID 和用户组 ID 关联关系
+     * Get 添加的子用户 UIN/UID 和用户组 ID 关联关系 
+     * @return Info 添加的子用户 UIN/UID 和用户组 ID 关联关系
      */
     public GroupIdOfUidInfo [] getInfo() {
         return this.Info;
     }
 
     /**
-     * Set 添加的子用户 UID 和用户组 ID 关联关系
-     * @param Info 添加的子用户 UID 和用户组 ID 关联关系
+     * Set 添加的子用户 UIN/UID 和用户组 ID 关联关系
+     * @param Info 添加的子用户 UIN/UID 和用户组 ID 关联关系
      */
     public void setInfo(GroupIdOfUidInfo [] Info) {
         this.Info = Info;

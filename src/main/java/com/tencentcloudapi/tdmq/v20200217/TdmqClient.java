@@ -199,6 +199,126 @@ public class TdmqClient extends AbstractClient{
     }
 
     /**
+     *创建环境角色授权
+     * @param req CreateEnvironmentRoleRequest
+     * @return CreateEnvironmentRoleResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateEnvironmentRoleResponse CreateEnvironmentRole(CreateEnvironmentRoleRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateEnvironmentRoleResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateEnvironmentRoleResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateEnvironmentRole");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *此接口用于创建一个RocketMQ集群
+     * @param req CreateRocketMQClusterRequest
+     * @return CreateRocketMQClusterResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateRocketMQClusterResponse CreateRocketMQCluster(CreateRocketMQClusterRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateRocketMQClusterResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateRocketMQClusterResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateRocketMQCluster");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *创建RocketMQ消费组
+     * @param req CreateRocketMQGroupRequest
+     * @return CreateRocketMQGroupResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateRocketMQGroupResponse CreateRocketMQGroup(CreateRocketMQGroupRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateRocketMQGroupResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateRocketMQGroupResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateRocketMQGroup");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *创建RocketMQ命名空间
+     * @param req CreateRocketMQNamespaceRequest
+     * @return CreateRocketMQNamespaceResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateRocketMQNamespaceResponse CreateRocketMQNamespace(CreateRocketMQNamespaceRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateRocketMQNamespaceResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateRocketMQNamespaceResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateRocketMQNamespace");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *创建RocketMQ主题
+     * @param req CreateRocketMQTopicRequest
+     * @return CreateRocketMQTopicResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateRocketMQTopicResponse CreateRocketMQTopic(CreateRocketMQTopicRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateRocketMQTopicResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateRocketMQTopicResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateRocketMQTopic");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *创建角色
+     * @param req CreateRoleRequest
+     * @return CreateRoleResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateRoleResponse CreateRole(CreateRoleRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateRoleResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateRoleResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateRole");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *创建一个主题的订阅关系
      * @param req CreateSubscriptionRequest
      * @return CreateSubscriptionResponse
@@ -319,6 +439,26 @@ public class TdmqClient extends AbstractClient{
     }
 
     /**
+     *删除环境角色授权。
+     * @param req DeleteEnvironmentRolesRequest
+     * @return DeleteEnvironmentRolesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteEnvironmentRolesResponse DeleteEnvironmentRoles(DeleteEnvironmentRolesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteEnvironmentRolesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteEnvironmentRolesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteEnvironmentRoles");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *批量删除租户下的命名空间
      * @param req DeleteEnvironmentsRequest
      * @return DeleteEnvironmentsResponse
@@ -331,6 +471,106 @@ public class TdmqClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DeleteEnvironmentsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DeleteEnvironments");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *删除RocketMQ集群
+     * @param req DeleteRocketMQClusterRequest
+     * @return DeleteRocketMQClusterResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteRocketMQClusterResponse DeleteRocketMQCluster(DeleteRocketMQClusterRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteRocketMQClusterResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteRocketMQClusterResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteRocketMQCluster");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *删除RocketMQ消费组
+     * @param req DeleteRocketMQGroupRequest
+     * @return DeleteRocketMQGroupResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteRocketMQGroupResponse DeleteRocketMQGroup(DeleteRocketMQGroupRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteRocketMQGroupResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteRocketMQGroupResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteRocketMQGroup");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *删除RocketMQ命名空间
+     * @param req DeleteRocketMQNamespaceRequest
+     * @return DeleteRocketMQNamespaceResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteRocketMQNamespaceResponse DeleteRocketMQNamespace(DeleteRocketMQNamespaceRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteRocketMQNamespaceResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteRocketMQNamespaceResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteRocketMQNamespace");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *删除RocketMQ主题
+     * @param req DeleteRocketMQTopicRequest
+     * @return DeleteRocketMQTopicResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteRocketMQTopicResponse DeleteRocketMQTopic(DeleteRocketMQTopicRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteRocketMQTopicResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteRocketMQTopicResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteRocketMQTopic");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *删除角色，支持批量。
+     * @param req DeleteRolesRequest
+     * @return DeleteRolesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteRolesResponse DeleteRoles(DeleteRolesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteRolesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteRolesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteRoles");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -699,6 +939,126 @@ public class TdmqClient extends AbstractClient{
     }
 
     /**
+     *获取单个RocketMQ集群信息
+     * @param req DescribeRocketMQClusterRequest
+     * @return DescribeRocketMQClusterResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeRocketMQClusterResponse DescribeRocketMQCluster(DescribeRocketMQClusterRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeRocketMQClusterResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeRocketMQClusterResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeRocketMQCluster");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取RocketMQ集群列表
+     * @param req DescribeRocketMQClustersRequest
+     * @return DescribeRocketMQClustersResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeRocketMQClustersResponse DescribeRocketMQClusters(DescribeRocketMQClustersRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeRocketMQClustersResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeRocketMQClustersResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeRocketMQClusters");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取RocketMQ消费组列表
+     * @param req DescribeRocketMQGroupsRequest
+     * @return DescribeRocketMQGroupsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeRocketMQGroupsResponse DescribeRocketMQGroups(DescribeRocketMQGroupsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeRocketMQGroupsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeRocketMQGroupsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeRocketMQGroups");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取RocketMQ命名空间列表
+     * @param req DescribeRocketMQNamespacesRequest
+     * @return DescribeRocketMQNamespacesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeRocketMQNamespacesResponse DescribeRocketMQNamespaces(DescribeRocketMQNamespacesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeRocketMQNamespacesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeRocketMQNamespacesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeRocketMQNamespaces");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取RocketMQ主题列表
+     * @param req DescribeRocketMQTopicsRequest
+     * @return DescribeRocketMQTopicsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeRocketMQTopicsResponse DescribeRocketMQTopics(DescribeRocketMQTopicsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeRocketMQTopicsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeRocketMQTopicsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeRocketMQTopics");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取角色列表
+     * @param req DescribeRolesRequest
+     * @return DescribeRolesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeRolesResponse DescribeRoles(DescribeRolesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeRolesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeRolesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeRoles");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *查询指定环境和主题下的订阅者列表
      * @param req DescribeSubscriptionsRequest
      * @return DescribeSubscriptionsResponse
@@ -839,6 +1199,126 @@ public class TdmqClient extends AbstractClient{
     }
 
     /**
+     *修改环境角色授权。
+     * @param req ModifyEnvironmentRoleRequest
+     * @return ModifyEnvironmentRoleResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyEnvironmentRoleResponse ModifyEnvironmentRole(ModifyEnvironmentRoleRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyEnvironmentRoleResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyEnvironmentRoleResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyEnvironmentRole");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *更新RocketMQ集群信息
+     * @param req ModifyRocketMQClusterRequest
+     * @return ModifyRocketMQClusterResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyRocketMQClusterResponse ModifyRocketMQCluster(ModifyRocketMQClusterRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyRocketMQClusterResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyRocketMQClusterResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyRocketMQCluster");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *更新RocketMQ消费组信息
+     * @param req ModifyRocketMQGroupRequest
+     * @return ModifyRocketMQGroupResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyRocketMQGroupResponse ModifyRocketMQGroup(ModifyRocketMQGroupRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyRocketMQGroupResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyRocketMQGroupResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyRocketMQGroup");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *更新RocketMQ命名空间
+     * @param req ModifyRocketMQNamespaceRequest
+     * @return ModifyRocketMQNamespaceResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyRocketMQNamespaceResponse ModifyRocketMQNamespace(ModifyRocketMQNamespaceRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyRocketMQNamespaceResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyRocketMQNamespaceResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyRocketMQNamespace");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *更新RocketMQ主题信息
+     * @param req ModifyRocketMQTopicRequest
+     * @return ModifyRocketMQTopicResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyRocketMQTopicResponse ModifyRocketMQTopic(ModifyRocketMQTopicRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyRocketMQTopicResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyRocketMQTopicResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyRocketMQTopic");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *角色修改
+     * @param req ModifyRoleRequest
+     * @return ModifyRoleResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyRoleResponse ModifyRole(ModifyRoleRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyRoleResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyRoleResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyRole");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *修改主题备注和分区数
      * @param req ModifyTopicRequest
      * @return ModifyTopicResponse
@@ -940,6 +1420,8 @@ public class TdmqClient extends AbstractClient{
 
     /**
      *批量发送消息
+
+注意：TDMQ 批量发送消息的接口是在 TDMQ-HTTP 的服务侧将消息打包为一个 Batch，然后将该 Batch 在服务内部当作一次 TCP 请求发送出去。所以在使用过程中，用户还是按照单条消息发送的逻辑，每一条消息是一个独立的 HTTP 的请求，在 TDMQ-HTTP 的服务内部，会将多个 HTTP 的请求聚合为一个 Batch 发送到服务端。即，批量发送消息在使用上与发送单条消息是一致的，batch 的聚合是在 TDMQ-HTTP 的服务内部完成的。
      * @param req SendBatchMessagesRequest
      * @return SendBatchMessagesResponse
      * @throws TencentCloudSDKException

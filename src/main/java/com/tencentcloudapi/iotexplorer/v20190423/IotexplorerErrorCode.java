@@ -21,6 +21,9 @@ public enum IotexplorerErrorCode {
     // 存在其他升级任务。
      FAILEDOPERATION_OTHERUPDATETASKEXIST("FailedOperation.OtherUpdateTaskExist"),
      
+    // 产品尚未发布。
+     FAILEDOPERATION_PRODUCTNOTRELEASED("FailedOperation.ProductNotReleased"),
+     
     // 转发已经停止。
      FAILEDOPERATION_RULEALREADYDISABLED("FailedOperation.RuleAlreadyDisabled"),
      
@@ -89,6 +92,9 @@ public enum IotexplorerErrorCode {
      
     // 任务不存在。
      INVALIDPARAMETERVALUE_ERRORTASKNOTEXIST("InvalidParameterValue.ErrorTaskNotExist"),
+     
+    // 存失败，行为操作和转发错误行为数据目标不可为同一设备。
+     INVALIDPARAMETERVALUE_FAILACTIONHASSAMEDEVICE("InvalidParameterValue.FailActionHasSameDevice"),
      
     // 固件已经存在。
      INVALIDPARAMETERVALUE_FIRMWAREALREADYEXIST("InvalidParameterValue.FirmwareAlreadyExist"),
@@ -159,6 +165,9 @@ public enum IotexplorerErrorCode {
     // 消息类型非法。
      INVALIDPARAMETERVALUE_MSGTYPEINVALID("InvalidParameterValue.MsgTypeInvalid"),
      
+    // 操作不支持。
+     INVALIDPARAMETERVALUE_OPERATIONDENIED("InvalidParameterValue.OperationDenied"),
+     
     // 创建的产品名已存在。
      INVALIDPARAMETERVALUE_PRODUCTALREADYEXIST("InvalidParameterValue.ProductAlreadyExist"),
      
@@ -171,8 +180,14 @@ public enum IotexplorerErrorCode {
     // 项目参数错误。
      INVALIDPARAMETERVALUE_PROJECTPARMSERROR("InvalidParameterValue.ProjectParmsError"),
      
+    // 转发的topic格式错误。
+     INVALIDPARAMETERVALUE_REPUBLISHTOPICFORMATERROR("InvalidParameterValue.RepublishTopicFormatError"),
+     
     // 规则数量超过限制。
      INVALIDPARAMETERVALUE_RULENUMBERBEYONDLIMIT("InvalidParameterValue.RuleNumberBeyondLimit"),
+     
+    // 开始时间晚于结束时间。
+     INVALIDPARAMETERVALUE_STARTTIMELATERENDTIME("InvalidParameterValue.StartTimeLaterEndTime"),
      
     // Topic已存在。
      INVALIDPARAMETERVALUE_TOPICPOLICYALREADYEXIST("InvalidParameterValue.TopicPolicyAlreadyExist"),
@@ -194,6 +209,12 @@ public enum IotexplorerErrorCode {
      
     // 应用数量超出限制。
      LIMITEXCEEDED_APPLICATIONEXCEEDLIMIT("LimitExceeded.ApplicationExceedLimit"),
+     
+    // 量产超出限制。
+     LIMITEXCEEDED_BATCHPRODUCTIONEXCEEDLIMIT("LimitExceeded.BatchProductionExceedLimit"),
+     
+    // 量产为空。
+     LIMITEXCEEDED_BATCHPRODUCTIONNULL("LimitExceeded.BatchProductionNull"),
      
     // 设备数量超过限制。
      LIMITEXCEEDED_DEVICEEXCEEDLIMIT("LimitExceeded.DeviceExceedLimit"),
@@ -222,6 +243,15 @@ public enum IotexplorerErrorCode {
     // 物模型事件 Type 错误。
      MISSINGPARAMETER_MODELDEFINEEVENTTYPEERROR("MissingParameter.ModelDefineEventTypeError"),
      
+    // 已有量产进行，请等待量产完成。
+     RESOURCEINSUFFICIENT_BATCHPRODUCTIONISRUNNING("ResourceInsufficient.BatchProductionIsRunning"),
+     
+    // 量产不存在。
+     RESOURCENOTFOUND_BATCHPRODUCTIONNOTEXIST("ResourceNotFound.BatchProductionNotExist"),
+     
+    // 上传URL无法获取。
+     RESOURCENOTFOUND_CANNOTGETFROMURL("ResourceNotFound.CannotGetFromUrl"),
+     
     // 存在重复设备。
      RESOURCENOTFOUND_DEVICEDUPKEYEXIST("ResourceNotFound.DeviceDupKeyExist"),
      
@@ -233,6 +263,12 @@ public enum IotexplorerErrorCode {
      
     // 设备没有影子信息。
      RESOURCENOTFOUND_DEVICESHADOWNOTEXIST("ResourceNotFound.DeviceShadowNotExist"),
+     
+    // 围栏未绑定该设备。
+     RESOURCENOTFOUND_FENCEBINDNOTEXIST("ResourceNotFound.FenceBindNotExist"),
+     
+    // 围栏未创建或是已删除。
+     RESOURCENOTFOUND_FENCENOTEXIST("ResourceNotFound.FenceNotExist"),
      
     // 固件不存在。
      RESOURCENOTFOUND_FIRMWARENOTEXIST("ResourceNotFound.FirmwareNotExist"),
@@ -264,11 +300,17 @@ public enum IotexplorerErrorCode {
     // 项目不存在。
      RESOURCENOTFOUND_PROJECTNOTEXIST("ResourceNotFound.ProjectNotExist"),
      
+    // 位置空间未创建或是已删除。
+     RESOURCENOTFOUND_SPACENOTEXIST("ResourceNotFound.SpaceNotExist"),
+     
     // LoRa频点尚未创建或已被删除。
      RESOURCENOTFOUND_STUDIOLORAFREQNOTEXIST("ResourceNotFound.StudioLoRaFreqNotExist"),
      
     // 产品不存在。
      RESOURCENOTFOUND_STUDIOPRODUCTNOTEXIST("ResourceNotFound.StudioProductNotExist"),
+     
+    // Topic不存在。
+     RESOURCENOTFOUND_TOPICPOLICYNOTEXIST("ResourceNotFound.TopicPolicyNotExist"),
      
     // 规则不存在。
      RESOURCENOTFOUND_TOPICRULENOTEXIST("ResourceNotFound.TopicRuleNotExist"),
@@ -294,6 +336,9 @@ public enum IotexplorerErrorCode {
     // 项目ACL错误。
      UNAUTHORIZEDOPERATION_NOPERMISSIONTOPROJECT("UnauthorizedOperation.NoPermissionToProject"),
      
+    // 围栏ACL错误。
+     UNAUTHORIZEDOPERATION_NOPERMISSIONTOSTUDIOFENCE("UnauthorizedOperation.NoPermissionToStudioFence"),
+     
     // 实例ACL错误。
      UNAUTHORIZEDOPERATION_NOPERMISSIONTOSTUDIOINSTANCE("UnauthorizedOperation.NoPermissionToStudioInstance"),
      
@@ -312,6 +357,9 @@ public enum IotexplorerErrorCode {
     // 操作不支持。
      UNSUPPORTEDOPERATION("UnsupportedOperation"),
      
+    // 围栏下还存在绑定的设备。
+     UNSUPPORTEDOPERATION_BINDSEXISTUNDERFENCE("UnsupportedOperation.BindsExistUnderFence"),
+     
     // 创建的设备已经存在。
      UNSUPPORTEDOPERATION_DEVICEDUPKEYEXIST("UnsupportedOperation.DeviceDupKeyExist"),
      
@@ -323,6 +371,12 @@ public enum IotexplorerErrorCode {
      
     // 产品下还存在未删除的设备。
      UNSUPPORTEDOPERATION_DEVICESEXISTUNDERPRODUCT("UnsupportedOperation.DevicesExistUnderProduct"),
+     
+    // 存在重复围栏。
+     UNSUPPORTEDOPERATION_FENCEDUPKEYEXIST("UnsupportedOperation.FenceDupKeyExist"),
+     
+    // 位置空间下还存在未删除的围栏。
+     UNSUPPORTEDOPERATION_FENCEEXISTUNDERSPACE("UnsupportedOperation.FenceExistUnderSpace"),
      
     // 网关产品还绑定子产品，无法删除。
      UNSUPPORTEDOPERATION_GATEWAYPRODUCTHASBINDEDPRODUCT("UnsupportedOperation.GatewayProductHasBindedProduct"),
@@ -356,6 +410,9 @@ public enum IotexplorerErrorCode {
      
     // 存在重复项目。
      UNSUPPORTEDOPERATION_PROJECTDUPKEYEXIST("UnsupportedOperation.ProjectDupKeyExist"),
+     
+    // 存在重复位置空间。
+     UNSUPPORTEDOPERATION_SPACEDUPKEYEXIST("UnsupportedOperation.SpaceDupKeyExist"),
      
     // LoRa频点还被节点或网关使用。
      UNSUPPORTEDOPERATION_STUDIOLORAFREQINUSED("UnsupportedOperation.StudioLoRaFreqInUsed"),

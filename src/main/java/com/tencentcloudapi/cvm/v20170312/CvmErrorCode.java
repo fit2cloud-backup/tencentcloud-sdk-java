@@ -189,6 +189,9 @@ public enum CvmErrorCode {
     // 只能包含一个系统盘快照。
      INVALIDPARAMETER_DUPLICATESYSTEMSNAPSHOTS("InvalidParameter.DuplicateSystemSnapshots"),
      
+    // 该主机当前状态不支持该操作。
+     INVALIDPARAMETER_HOSTIDSTATUSNOTSUPPORT("InvalidParameter.HostIdStatusNotSupport"),
+     
     // 指定的hostName不符合规范。
      INVALIDPARAMETER_HOSTNAMEILLEGAL("InvalidParameter.HostNameIllegal"),
      
@@ -461,6 +464,9 @@ public enum CvmErrorCode {
      
     // 同样的任务正在运行。
      MUTEXOPERATION_TASKRUNNING("MutexOperation.TaskRunning"),
+     
+    // 不允许未配置部署网络的CHC安装云上镜像。
+     OPERATIONDENIED_CHCINSTALLCLOUDIMAGEWITHOUTDEPLOYNETWORK("OperationDenied.ChcInstallCloudImageWithoutDeployNetwork"),
      
     // 实例正在执行其他操作，请稍后再试。
      OPERATIONDENIED_INSTANCEOPERATIONINPROGRESS("OperationDenied.InstanceOperationInProgress"),

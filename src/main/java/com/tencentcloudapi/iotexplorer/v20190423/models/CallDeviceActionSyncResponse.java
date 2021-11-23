@@ -38,7 +38,7 @@ public class CallDeviceActionSyncResponse extends AbstractModel{
     private String OutputParams;
 
     /**
-    * 返回状态
+    * 返回状态，当设备不在线等部分情况，会通过该 Status 返回。
     */
     @SerializedName("Status")
     @Expose
@@ -88,16 +88,16 @@ public class CallDeviceActionSyncResponse extends AbstractModel{
     }
 
     /**
-     * Get 返回状态 
-     * @return Status 返回状态
+     * Get 返回状态，当设备不在线等部分情况，会通过该 Status 返回。 
+     * @return Status 返回状态，当设备不在线等部分情况，会通过该 Status 返回。
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 返回状态
-     * @param Status 返回状态
+     * Set 返回状态，当设备不在线等部分情况，会通过该 Status 返回。
+     * @param Status 返回状态，当设备不在线等部分情况，会通过该 Status 返回。
      */
     public void setStatus(String Status) {
         this.Status = Status;

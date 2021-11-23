@@ -39,7 +39,7 @@ public class TafClient extends AbstractClient{
     }
 
     /**
-     *DetectFraudKOL
+     *流量反欺诈-KOL欺诈识别
      * @param req DetectFraudKOLRequest
      * @return DetectFraudKOLResponse
      * @throws TencentCloudSDKException
@@ -161,7 +161,7 @@ public class TafClient extends AbstractClient{
     }
 
     /**
-     *SendTrafficSecuritySmsMessage
+     *流量安选产品，短信发送接口
      * @param req SendTrafficSecuritySmsMessageRequest
      * @return SendTrafficSecuritySmsMessageResponse
      * @throws TencentCloudSDKException

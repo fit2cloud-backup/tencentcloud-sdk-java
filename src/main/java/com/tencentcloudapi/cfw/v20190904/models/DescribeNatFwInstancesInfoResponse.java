@@ -31,7 +31,7 @@ public class DescribeNatFwInstancesInfoResponse extends AbstractModel{
     private NatInstanceInfo [] NatinsLst;
 
     /**
-    * 总共多少条数
+    * nat 防火墙个数
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Total")
@@ -66,9 +66,9 @@ public class DescribeNatFwInstancesInfoResponse extends AbstractModel{
     }
 
     /**
-     * Get 总共多少条数
+     * Get nat 防火墙个数
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Total 总共多少条数
+     * @return Total nat 防火墙个数
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotal() {
@@ -76,9 +76,9 @@ public class DescribeNatFwInstancesInfoResponse extends AbstractModel{
     }
 
     /**
-     * Set 总共多少条数
+     * Set nat 防火墙个数
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Total 总共多少条数
+     * @param Total nat 防火墙个数
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotal(Long Total) {

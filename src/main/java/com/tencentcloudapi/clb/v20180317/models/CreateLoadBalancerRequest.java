@@ -141,7 +141,9 @@ OPEN：公网属性， INTERNAL：内网属性。
     private ExclusiveCluster ExclusiveCluster;
 
     /**
-    * 创建性能独享型CLB，传SLA。
+    * 创建性能容量型 CLB 实例。
+<ul><li>若需要创建性能容量型 CLB 实例，则此参数必填，且取值为：SLA，表示创建按量计费模式下的默认性能保障规格的性能容量型实例。</li>
+<li>若需要创建共享型 CLB 实例，则无需填写此参数。</li></ul>
     */
     @SerializedName("SlaType")
     @Expose
@@ -189,6 +191,13 @@ OPEN：公网属性， INTERNAL：内网属性。
     @SerializedName("EipAddressId")
     @Expose
     private String EipAddressId;
+
+    /**
+    * Target是否放通来自CLB的流量。开启放通（true）：只验证CLB上的安全组；不开启放通（false）：需同时验证CLB和后端实例上的安全组。
+    */
+    @SerializedName("LoadBalancerPassToTarget")
+    @Expose
+    private Boolean LoadBalancerPassToTarget;
 
     /**
      * Get 负载均衡实例的网络类型：
@@ -471,16 +480,24 @@ OPEN：公网属性， INTERNAL：内网属性。
     }
 
     /**
-     * Get 创建性能独享型CLB，传SLA。 
-     * @return SlaType 创建性能独享型CLB，传SLA。
+     * Get 创建性能容量型 CLB 实例。
+<ul><li>若需要创建性能容量型 CLB 实例，则此参数必填，且取值为：SLA，表示创建按量计费模式下的默认性能保障规格的性能容量型实例。</li>
+<li>若需要创建共享型 CLB 实例，则无需填写此参数。</li></ul> 
+     * @return SlaType 创建性能容量型 CLB 实例。
+<ul><li>若需要创建性能容量型 CLB 实例，则此参数必填，且取值为：SLA，表示创建按量计费模式下的默认性能保障规格的性能容量型实例。</li>
+<li>若需要创建共享型 CLB 实例，则无需填写此参数。</li></ul>
      */
     public String getSlaType() {
         return this.SlaType;
     }
 
     /**
-     * Set 创建性能独享型CLB，传SLA。
-     * @param SlaType 创建性能独享型CLB，传SLA。
+     * Set 创建性能容量型 CLB 实例。
+<ul><li>若需要创建性能容量型 CLB 实例，则此参数必填，且取值为：SLA，表示创建按量计费模式下的默认性能保障规格的性能容量型实例。</li>
+<li>若需要创建共享型 CLB 实例，则无需填写此参数。</li></ul>
+     * @param SlaType 创建性能容量型 CLB 实例。
+<ul><li>若需要创建性能容量型 CLB 实例，则此参数必填，且取值为：SLA，表示创建按量计费模式下的默认性能保障规格的性能容量型实例。</li>
+<li>若需要创建共享型 CLB 实例，则无需填写此参数。</li></ul>
      */
     public void setSlaType(String SlaType) {
         this.SlaType = SlaType;
@@ -586,6 +603,22 @@ OPEN：公网属性， INTERNAL：内网属性。
         this.EipAddressId = EipAddressId;
     }
 
+    /**
+     * Get Target是否放通来自CLB的流量。开启放通（true）：只验证CLB上的安全组；不开启放通（false）：需同时验证CLB和后端实例上的安全组。 
+     * @return LoadBalancerPassToTarget Target是否放通来自CLB的流量。开启放通（true）：只验证CLB上的安全组；不开启放通（false）：需同时验证CLB和后端实例上的安全组。
+     */
+    public Boolean getLoadBalancerPassToTarget() {
+        return this.LoadBalancerPassToTarget;
+    }
+
+    /**
+     * Set Target是否放通来自CLB的流量。开启放通（true）：只验证CLB上的安全组；不开启放通（false）：需同时验证CLB和后端实例上的安全组。
+     * @param LoadBalancerPassToTarget Target是否放通来自CLB的流量。开启放通（true）：只验证CLB上的安全组；不开启放通（false）：需同时验证CLB和后端实例上的安全组。
+     */
+    public void setLoadBalancerPassToTarget(Boolean LoadBalancerPassToTarget) {
+        this.LoadBalancerPassToTarget = LoadBalancerPassToTarget;
+    }
+
     public CreateLoadBalancerRequest() {
     }
 
@@ -669,6 +702,9 @@ OPEN：公网属性， INTERNAL：内网属性。
         if (source.EipAddressId != null) {
             this.EipAddressId = new String(source.EipAddressId);
         }
+        if (source.LoadBalancerPassToTarget != null) {
+            this.LoadBalancerPassToTarget = new Boolean(source.LoadBalancerPassToTarget);
+        }
     }
 
 
@@ -699,6 +735,7 @@ OPEN：公网属性， INTERNAL：内网属性。
         this.setParamSimple(map, prefix + "ClusterTag", this.ClusterTag);
         this.setParamSimple(map, prefix + "SlaveZoneId", this.SlaveZoneId);
         this.setParamSimple(map, prefix + "EipAddressId", this.EipAddressId);
+        this.setParamSimple(map, prefix + "LoadBalancerPassToTarget", this.LoadBalancerPassToTarget);
 
     }
 }

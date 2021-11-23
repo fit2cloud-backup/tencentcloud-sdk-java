@@ -9,6 +9,9 @@ public enum ScfErrorCode {
     // 创建触发器失败。
      FAILEDOPERATION_APIGW("FailedOperation.Apigw"),
      
+    // 获取Apm InstanceId失败。
+     FAILEDOPERATION_APMCONFIGINSTANCEID("FailedOperation.ApmConfigInstanceId"),
+     
     // 当前异步事件状态不支持此操作，请稍后重试。
      FAILEDOPERATION_ASYNCEVENTSTATUS("FailedOperation.AsyncEventStatus"),
      
@@ -83,6 +86,12 @@ public enum ScfErrorCode {
      
     // 操作冲突。
      FAILEDOPERATION_OPERATIONCONFLICT("FailedOperation.OperationConflict"),
+     
+    // 创建定时预置任务失败。
+     FAILEDOPERATION_PROVISIONCREATETIMER("FailedOperation.ProvisionCreateTimer"),
+     
+    // 删除定时预置任务失败。
+     FAILEDOPERATION_PROVISIONDELETETIMER("FailedOperation.ProvisionDeleteTimer"),
      
     // 当前函数版本已有预置任务处于进行中，请稍后重试。
      FAILEDOPERATION_PROVISIONEDINPROGRESS("FailedOperation.ProvisionedInProgress"),
@@ -170,6 +179,15 @@ public enum ScfErrorCode {
      
     // ApiGateway参数错误。
      INVALIDPARAMETERVALUE_APIGATEWAY("InvalidParameterValue.ApiGateway"),
+     
+    // ApmConfig参数传入错误。
+     INVALIDPARAMETERVALUE_APMCONFIG("InvalidParameterValue.ApmConfig"),
+     
+    // ApmConfigInstanceId参数传入错误。
+     INVALIDPARAMETERVALUE_APMCONFIGINSTANCEID("InvalidParameterValue.ApmConfigInstanceId"),
+     
+    // ApmConfigRegion参数传入错误。
+     INVALIDPARAMETERVALUE_APMCONFIGREGION("InvalidParameterValue.ApmConfigRegion"),
      
     // 函数异步重试配置参数无效。
      INVALIDPARAMETERVALUE_ASYNCTRIGGERCONFIG("InvalidParameterValue.AsyncTriggerConfig"),
@@ -330,6 +348,18 @@ public enum ScfErrorCode {
     // ProtocolType参数传入错误。
      INVALIDPARAMETERVALUE_PROTOCOLTYPE("InvalidParameterValue.ProtocolType"),
      
+    // 定时预置的cron配置重复。
+     INVALIDPARAMETERVALUE_PROVISIONTRIGGERCRONCONFIGDUPLICATE("InvalidParameterValue.ProvisionTriggerCronConfigDuplicate"),
+     
+    // TriggerName参数传入错误。
+     INVALIDPARAMETERVALUE_PROVISIONTRIGGERNAME("InvalidParameterValue.ProvisionTriggerName"),
+     
+    // TriggerName重复。
+     INVALIDPARAMETERVALUE_PROVISIONTRIGGERNAMEDUPLICATE("InvalidParameterValue.ProvisionTriggerNameDuplicate"),
+     
+    // ProvisionType 参数传入错误。
+     INVALIDPARAMETERVALUE_PROVISIONTYPE("InvalidParameterValue.ProvisionType"),
+     
     // PublicNetConfig参数错误。
      INVALIDPARAMETERVALUE_PUBLICNETCONFIG("InvalidParameterValue.PublicNetConfig"),
      
@@ -372,11 +402,20 @@ public enum ScfErrorCode {
     // TraceEnable取值与规范不符，请修正后再试。
      INVALIDPARAMETERVALUE_TRACEENABLE("InvalidParameterValue.TraceEnable"),
      
+    // TriggerCronConfig参数传入错误。
+     INVALIDPARAMETERVALUE_TRIGGERCRONCONFIG("InvalidParameterValue.TriggerCronConfig"),
+     
+    // TriggerCronConfig参数定时触发间隔小于指定值。
+     INVALIDPARAMETERVALUE_TRIGGERCRONCONFIGTIMEINTERVAL("InvalidParameterValue.TriggerCronConfigTimeInterval"),
+     
     // TriggerDesc传入参数错误。
      INVALIDPARAMETERVALUE_TRIGGERDESC("InvalidParameterValue.TriggerDesc"),
      
     // TriggerName传入错误。
      INVALIDPARAMETERVALUE_TRIGGERNAME("InvalidParameterValue.TriggerName"),
+     
+    // TriggerProvisionedConcurrencyNum参数传入错误。
+     INVALIDPARAMETERVALUE_TRIGGERPROVISIONEDCONCURRENCYNUM("InvalidParameterValue.TriggerProvisionedConcurrencyNum"),
      
     // Type传入错误。
      INVALIDPARAMETERVALUE_TYPE("InvalidParameterValue.Type"),
@@ -440,6 +479,12 @@ public enum ScfErrorCode {
      
     // Offset超出限制。
      LIMITEXCEEDED_OFFSET("LimitExceeded.Offset"),
+     
+    // 定时预置数量超过最大限制。
+     LIMITEXCEEDED_PROVISIONTRIGGERACTION("LimitExceeded.ProvisionTriggerAction"),
+     
+    // 定时触发间隔小于最大限制。
+     LIMITEXCEEDED_PROVISIONTRIGGERINTERVAL("LimitExceeded.ProvisionTriggerInterval"),
      
     // 函数异步重试配置异步重试次数超过限制。
      LIMITEXCEEDED_RETRYNUM("LimitExceeded.RetryNum"),
@@ -545,6 +590,9 @@ public enum ScfErrorCode {
      
     // 获取cfs信息错误。
      RESOURCENOTFOUND_GETCFSNOTMATCH("ResourceNotFound.GetCfsNotMatch"),
+     
+    // 未找到指定的ImageConfig，请创建后再试。
+     RESOURCENOTFOUND_IMAGECONFIG("ResourceNotFound.ImageConfig"),
      
     // layer不存在。
      RESOURCENOTFOUND_LAYER("ResourceNotFound.Layer"),

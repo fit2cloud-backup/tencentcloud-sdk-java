@@ -51,6 +51,9 @@ public enum FaceidErrorCode {
     // 图片内容为空。
      FAILEDOPERATION_EMPTYIMAGEERROR("FailedOperation.EmptyImageError"),
      
+    // 加密失败。
+     FAILEDOPERATION_ENCRYPTSYSTEMERROR("FailedOperation.EncryptSystemError"),
+     
     // 文件存储失败，请稍后重试。
      FAILEDOPERATION_FILESAVEERROR("FailedOperation.FileSaveError"),
      
@@ -236,6 +239,9 @@ public enum FaceidErrorCode {
      
     // 帐号已欠费。
      UNAUTHORIZEDOPERATION_ARREARS("UnauthorizedOperation.Arrears"),
+     
+    // 计费状态异常。
+     UNAUTHORIZEDOPERATION_CHARGESTATUSEXCEPTION("UnauthorizedOperation.ChargeStatusException"),
      
     // 账号未实名。
      UNAUTHORIZEDOPERATION_NONAUTHORIZE("UnauthorizedOperation.NonAuthorize"),

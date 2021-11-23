@@ -37,14 +37,14 @@ public class ScdnAclGroup extends AbstractModel{
     private ScdnAclRule [] Configure;
 
     /**
-    * 规则行为，一般为refuse，重定向redirect
+    * 执行动作，intercept|redirect
     */
     @SerializedName("Result")
     @Expose
     private String Result;
 
     /**
-    * 规则是否生效中active|inactive
+    * 规则是否生效，active|inactive
     */
     @SerializedName("Status")
     @Expose
@@ -91,32 +91,32 @@ public class ScdnAclGroup extends AbstractModel{
     }
 
     /**
-     * Get 规则行为，一般为refuse，重定向redirect 
-     * @return Result 规则行为，一般为refuse，重定向redirect
+     * Get 执行动作，intercept|redirect 
+     * @return Result 执行动作，intercept|redirect
      */
     public String getResult() {
         return this.Result;
     }
 
     /**
-     * Set 规则行为，一般为refuse，重定向redirect
-     * @param Result 规则行为，一般为refuse，重定向redirect
+     * Set 执行动作，intercept|redirect
+     * @param Result 执行动作，intercept|redirect
      */
     public void setResult(String Result) {
         this.Result = Result;
     }
 
     /**
-     * Get 规则是否生效中active|inactive 
-     * @return Status 规则是否生效中active|inactive
+     * Get 规则是否生效，active|inactive 
+     * @return Status 规则是否生效，active|inactive
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 规则是否生效中active|inactive
-     * @param Status 规则是否生效中active|inactive
+     * Set 规则是否生效，active|inactive
+     * @param Status 规则是否生效，active|inactive
      */
     public void setStatus(String Status) {
         this.Status = Status;

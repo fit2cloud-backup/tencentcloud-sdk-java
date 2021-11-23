@@ -119,7 +119,7 @@ public class TrtcClient extends AbstractClient{
     }
 
     /**
-     *查询指定时间内的用户列表及用户通话质量数据，可查询14天内数据。DataType 不为null，查询实时数据时，查询起止时间不超过1个小时，每次查询用户不超过6个，支持跨天查询。DataType，UserIds为null时，默认查询6个用户，同时支持每页查询100以内用户个数（PageSize不超过100）。接口用于查询质量问题，不推荐作为计费使用。
+     *查询指定时间内的用户列表及用户通话质量数据，可查询14天内数据。DataType 不为null，查询起止时间不超过1个小时，查询用户不超过6个，支持跨天查询。DataType，UserIds为null时，查询起止时间不超过4个小时， 默认查询6个用户，同时支持每页查询100以内用户个数（PageSize不超过100）。接口用于查询质量问题，不推荐作为计费使用。
 **注意**：该接口只用于历史数据统计或核对数据使用，实时类关键业务逻辑不能使用。
      * @param req DescribeCallDetailRequest
      * @return DescribeCallDetailResponse
@@ -192,66 +192,6 @@ public class TrtcClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribePictureResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribePicture");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *查询sdkappid维度下每分钟实时网络状态，包括上行丢包与下行丢包。可查询24小时内数据，查询起止时间不低于1分钟，不超过1个小时。
-     * @param req DescribeRealtimeNetworkRequest
-     * @return DescribeRealtimeNetworkResponse
-     * @throws TencentCloudSDKException
-     */
-    public DescribeRealtimeNetworkResponse DescribeRealtimeNetwork(DescribeRealtimeNetworkRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeRealtimeNetworkResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeRealtimeNetworkResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeRealtimeNetwork");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *查询sdkappid维度下每分钟实时质量数据，包括：进房成功率，首帧秒开率，音频卡顿率，视频卡顿率。可查询24小时内数据，查询起止时间不低于1分钟，不超过1个小时。
-     * @param req DescribeRealtimeQualityRequest
-     * @return DescribeRealtimeQualityResponse
-     * @throws TencentCloudSDKException
-     */
-    public DescribeRealtimeQualityResponse DescribeRealtimeQuality(DescribeRealtimeQualityRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeRealtimeQualityResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeRealtimeQualityResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeRealtimeQuality");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     * 查询sdkappid维度下每分钟实时规模，可查询24小时内数据，查询起止时间不低于1分钟，不超过1个小时。
-     * @param req DescribeRealtimeScaleRequest
-     * @return DescribeRealtimeScaleResponse
-     * @throws TencentCloudSDKException
-     */
-    public DescribeRealtimeScaleResponse DescribeRealtimeScale(DescribeRealtimeScaleRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeRealtimeScaleResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeRealtimeScaleResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeRealtimeScale");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

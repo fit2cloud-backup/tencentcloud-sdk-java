@@ -279,6 +279,26 @@ public class CdnClient extends AbstractClient{
     }
 
     /**
+     *CC统计数据查询
+     * @param req DescribeCcDataRequest
+     * @return DescribeCcDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCcDataResponse DescribeCcData(DescribeCcDataRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeCcDataResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeCcDataResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeCcData");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *DescribeCdnData 用于查询 CDN 实时访问监控数据，支持以下指标查询：
 
 + 流量（单位为 byte）
@@ -392,6 +412,26 @@ public class CdnClient extends AbstractClient{
     }
 
     /**
+     *DDoS统计数据查询
+     * @param req DescribeDDoSDataRequest
+     * @return DescribeDDoSDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeDDoSDataResponse DescribeDDoSData(DescribeDDoSDataRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeDDoSDataResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeDDoSDataResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeDDoSData");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *DescribeDiagnoseReport 用于获取指定报告id的内容
      * @param req DescribeDiagnoseReportRequest
      * @return DescribeDiagnoseReportResponse
@@ -465,6 +505,26 @@ public class CdnClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeDomainsConfigResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeDomainsConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *DescribeEventLogData 用于查询事件日志统计曲线
+     * @param req DescribeEventLogDataRequest
+     * @return DescribeEventLogDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeEventLogDataResponse DescribeEventLogData(DescribeEventLogDataRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeEventLogDataResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeEventLogDataResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeEventLogData");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -707,6 +767,46 @@ public class CdnClient extends AbstractClient{
     }
 
     /**
+     *获取BOT统计数据列表
+     * @param req DescribeScdnBotDataRequest
+     * @return DescribeScdnBotDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeScdnBotDataResponse DescribeScdnBotData(DescribeScdnBotDataRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeScdnBotDataResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeScdnBotDataResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeScdnBotData");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询BOT会话记录列表
+     * @param req DescribeScdnBotRecordsRequest
+     * @return DescribeScdnBotRecordsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeScdnBotRecordsResponse DescribeScdnBotRecords(DescribeScdnBotRecordsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeScdnBotRecordsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeScdnBotRecordsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeScdnBotRecords");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *DescribeScdnConfig 用于查询指定 SCDN 加速域名的安全相关配置
      * @param req DescribeScdnConfigRequest
      * @return DescribeScdnConfigResponse
@@ -727,6 +827,26 @@ public class CdnClient extends AbstractClient{
     }
 
     /**
+     *查询在SCDN IP安全策略
+     * @param req DescribeScdnIpStrategyRequest
+     * @return DescribeScdnIpStrategyResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeScdnIpStrategyResponse DescribeScdnIpStrategy(DescribeScdnIpStrategyRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeScdnIpStrategyResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeScdnIpStrategyResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeScdnIpStrategy");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *获取SCDN的Top数据
      * @param req DescribeScdnTopDataRequest
      * @return DescribeScdnTopDataResponse
@@ -739,6 +859,37 @@ public class CdnClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeScdnTopDataResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeScdnTopData");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *DescribeTopData 通过入参 Metric 和 Filter 组合不同，可以查询以下排序数据：
+
++ 依据总流量、总请求数对访问 IP 排序，从大至小返回 TOP 100 IP
++ 依据总流量、总请求数对访问 Refer 排序，从大至小返回 TOP 100 Refer
++ 依据总流量、总请求数对访问 设备 排序，从大至小返回 设备类型
++ 依据总流量、总请求数对访问 操作系统 排序，从大至小返回 操作系统
++ 依据总流量、总请求数对访问 浏览器 排序，从大至小返回 浏览器
+
+注意：
++ 仅支持 90 天内数据查询，且从2021年09月20日开始有数据
++ 本接口为beta版，尚未正式全量发布
+
+     * @param req DescribeTopDataRequest
+     * @return DescribeTopDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeTopDataResponse DescribeTopData(DescribeTopDataRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeTopDataResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeTopDataResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeTopData");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -780,6 +931,26 @@ public class CdnClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeUrlViolationsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeUrlViolations");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *Waf统计数据查询
+     * @param req DescribeWafDataRequest
+     * @return DescribeWafDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeWafDataResponse DescribeWafData(DescribeWafDataRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeWafDataResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeWafDataResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeWafData");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1009,6 +1180,26 @@ public class CdnClient extends AbstractClient{
     }
 
     /**
+     *获取Bot攻击的Top数据列表
+     * @param req ListScdnTopBotDataRequest
+     * @return ListScdnTopBotDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public ListScdnTopBotDataResponse ListScdnTopBotData(ListScdnTopBotDataRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ListScdnTopBotDataResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ListScdnTopBotDataResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ListScdnTopBotData");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *获取Bot攻击的Top信息
      * @param req ListTopBotDataRequest
      * @return ListTopBotDataResponse
@@ -1041,6 +1232,26 @@ public class CdnClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<ListTopCcDataResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ListTopCcData");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *通过CLS日志计算Top信息。支持近7天的日志数据。
+     * @param req ListTopClsLogDataRequest
+     * @return ListTopClsLogDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public ListTopClsLogDataResponse ListTopClsLogData(ListTopClsLogDataRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ListTopClsLogDataResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ListTopClsLogDataResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ListTopClsLogData");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

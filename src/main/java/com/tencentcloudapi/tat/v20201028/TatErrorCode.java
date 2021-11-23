@@ -15,6 +15,9 @@ public enum TatErrorCode {
     // 参数取值错误。
      INVALIDPARAMETERVALUE("InvalidParameterValue"),
      
+    // Agent不支持此命令类型。
+     INVALIDPARAMETERVALUE_AGENTUNSUPPORTEDCOMMANDTYPE("InvalidParameterValue.AgentUnsupportedCommandType"),
+     
     // Command 内容无效。
      INVALIDPARAMETERVALUE_COMMANDCONTENTINVALID("InvalidParameterValue.CommandContentInvalid"),
      
@@ -45,6 +48,9 @@ public enum TatErrorCode {
     // 不合法的执行任务ID。
      INVALIDPARAMETERVALUE_INVALIDINVOCATIONTASKID("InvalidParameterValue.InvalidInvocationTaskId"),
      
+    // InvokerId 无效。
+     INVALIDPARAMETERVALUE_INVALIDINVOKERID("InvalidParameterValue.InvalidInvokerId"),
+     
     // 命令执行路径不合法。
      INVALIDPARAMETERVALUE_INVALIDWORKINGDIRECTORY("InvalidParameterValue.InvalidWorkingDirectory"),
      
@@ -53,6 +59,9 @@ public enum TatErrorCode {
      
     // 未提供 Parameters 信息。
      INVALIDPARAMETERVALUE_LACKOFPARAMETERS("InvalidParameterValue.LackOfParameters"),
+     
+    // 超过参数限制。
+     INVALIDPARAMETERVALUE_LIMITEXCEEDED("InvalidParameterValue.LimitExceeded"),
      
     // 未启用自定义参数功能。
      INVALIDPARAMETERVALUE_PARAMETERDISABLED("InvalidParameterValue.ParameterDisabled"),

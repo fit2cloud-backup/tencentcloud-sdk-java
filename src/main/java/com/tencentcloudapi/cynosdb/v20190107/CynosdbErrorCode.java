@@ -42,6 +42,9 @@ public enum CynosdbErrorCode {
     // 获取VPC失败。
      INTERNALERROR_GETVPCFAILED("InternalError.GetVpcFailed"),
      
+    // http请求执行异常。
+     INTERNALERROR_INTERNALHTTPSERVERERROR("InternalError.InternalHttpServerError"),
+     
     // 安全组查询实例失败。
      INTERNALERROR_LISTINSTANCEFAILED("InternalError.ListInstanceFailed"),
      
@@ -128,6 +131,9 @@ public enum CynosdbErrorCode {
      
     // 账号余额不足。
      OPERATIONDENIED_INSUFFICIENTBALANCEERROR("OperationDenied.InsufficientBalanceError"),
+     
+    // serverless集群当前状态{{1}}不允许该操作。
+     OPERATIONDENIED_SERVERLESSCLUSTERSTATUSDENIED("OperationDenied.ServerlessClusterStatusDenied"),
      
     // serverless实例当前状态{{1}}不允许该操作。
      OPERATIONDENIED_SERVERLESSINSTANCESTATUSDENIED("OperationDenied.ServerlessInstanceStatusDenied"),

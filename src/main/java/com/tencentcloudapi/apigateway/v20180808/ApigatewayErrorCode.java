@@ -291,7 +291,7 @@ public enum ApigatewayErrorCode {
     // API文档数量超出限制。
      LIMITEXCEEDED_APIDOCLIMITEXCEEDED("LimitExceeded.APIDocLimitExceeded"),
      
-    // 应用数量超过限制。
+    // 服务绑定的应用数量超过限制。
      LIMITEXCEEDED_APIAPPCOUNTLIMITEXCEEDED("LimitExceeded.ApiAppCountLimitExceeded"),
      
     // API数量超过限制。
@@ -390,6 +390,9 @@ public enum ApigatewayErrorCode {
     // 密钥已绑定使用计划。
      UNSUPPORTEDOPERATION_ALREADYBINDUSAGEPLAN("UnsupportedOperation.AlreadyBindUsagePlan"),
      
+    // 当前插件不支持绑定。
+     UNSUPPORTEDOPERATION_ATTACHPLUGIN("UnsupportedOperation.AttachPlugin"),
+     
     // 协议为HTTP时，不支持强制Https。
      UNSUPPORTEDOPERATION_FORCEHTTPS("UnsupportedOperation.ForceHttps"),
      
@@ -399,6 +402,9 @@ public enum ApigatewayErrorCode {
     // 不支持后端类型。
      UNSUPPORTEDOPERATION_INVALIDENDPOINTTYPE("UnsupportedOperation.InvalidEndpointType"),
      
+    // 当前实例状态，不支持当前操作。
+     UNSUPPORTEDOPERATION_INVALIDINSTANCESTATE("UnsupportedOperation.InvalidInstanceState"),
+     
     // 当前服务处于隔离中，暂不支持此操作。
      UNSUPPORTEDOPERATION_INVALIDSERVICETRADE("UnsupportedOperation.InvalidServiceTrade"),
      
@@ -407,6 +413,9 @@ public enum ApigatewayErrorCode {
      
     // 不支持修改EIAM类型授权API。
      UNSUPPORTEDOPERATION_MODIFYEIAMAUTHAPI("UnsupportedOperation.ModifyEIAMAuthApi"),
+     
+    // 网络类型不支持修改。
+     UNSUPPORTEDOPERATION_MODIFYNETTYPE("UnsupportedOperation.ModifyNetType"),
      
     // 前端协议类型不支持修改。
      UNSUPPORTEDOPERATION_MODIFYPROTOCOL("UnsupportedOperation.ModifyProtocol"),

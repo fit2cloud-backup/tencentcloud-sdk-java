@@ -119,6 +119,30 @@ public class Template extends AbstractModel{
     private Surgery Surgery;
 
     /**
+    * 心电图报告
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Electrocardiogram")
+    @Expose
+    private Electrocardiogram Electrocardiogram;
+
+    /**
+    * 内窥镜报告
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Endoscopy")
+    @Expose
+    private Endoscopy Endoscopy;
+
+    /**
+    * 处方单
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Prescription")
+    @Expose
+    private Prescription Prescription;
+
+    /**
      * Get 患者信息
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return PatientInfo 患者信息
@@ -358,6 +382,66 @@ public class Template extends AbstractModel{
         this.Surgery = Surgery;
     }
 
+    /**
+     * Get 心电图报告
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Electrocardiogram 心电图报告
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Electrocardiogram getElectrocardiogram() {
+        return this.Electrocardiogram;
+    }
+
+    /**
+     * Set 心电图报告
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Electrocardiogram 心电图报告
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setElectrocardiogram(Electrocardiogram Electrocardiogram) {
+        this.Electrocardiogram = Electrocardiogram;
+    }
+
+    /**
+     * Get 内窥镜报告
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Endoscopy 内窥镜报告
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Endoscopy getEndoscopy() {
+        return this.Endoscopy;
+    }
+
+    /**
+     * Set 内窥镜报告
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Endoscopy 内窥镜报告
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEndoscopy(Endoscopy Endoscopy) {
+        this.Endoscopy = Endoscopy;
+    }
+
+    /**
+     * Get 处方单
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Prescription 处方单
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Prescription getPrescription() {
+        return this.Prescription;
+    }
+
+    /**
+     * Set 处方单
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Prescription 处方单
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPrescription(Prescription Prescription) {
+        this.Prescription = Prescription;
+    }
+
     public Template() {
     }
 
@@ -402,6 +486,15 @@ public class Template extends AbstractModel{
         if (source.Surgery != null) {
             this.Surgery = new Surgery(source.Surgery);
         }
+        if (source.Electrocardiogram != null) {
+            this.Electrocardiogram = new Electrocardiogram(source.Electrocardiogram);
+        }
+        if (source.Endoscopy != null) {
+            this.Endoscopy = new Endoscopy(source.Endoscopy);
+        }
+        if (source.Prescription != null) {
+            this.Prescription = new Prescription(source.Prescription);
+        }
     }
 
 
@@ -421,6 +514,9 @@ public class Template extends AbstractModel{
         this.setParamObj(map, prefix + "MedicalRecordInfo.", this.MedicalRecordInfo);
         this.setParamObj(map, prefix + "Hospitalization.", this.Hospitalization);
         this.setParamObj(map, prefix + "Surgery.", this.Surgery);
+        this.setParamObj(map, prefix + "Electrocardiogram.", this.Electrocardiogram);
+        this.setParamObj(map, prefix + "Endoscopy.", this.Endoscopy);
+        this.setParamObj(map, prefix + "Prescription.", this.Prescription);
 
     }
 }

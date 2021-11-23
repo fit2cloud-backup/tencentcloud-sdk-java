@@ -312,7 +312,7 @@ public class LiveClient extends AbstractClient{
     }
 
     /**
-     *创建录制模板，成功返回模板id后，需要调用[CreateLiveRecordRule](/document/product/267/32615)接口，将模板id绑定到流进行使用。
+     *创建录制模板，数量上限：50，成功返回模板id后，需要调用[CreateLiveRecordRule](/document/product/267/32615)接口，将模板id绑定到流进行使用。
 <br>录制相关文档：[直播录制](/document/product/267/32739)。
      * @param req CreateLiveRecordTemplateRequest
      * @return CreateLiveRecordTemplateResponse
@@ -1157,7 +1157,7 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
 
     /**
      *查询直播域名 Referer 黑白名单配置。
-由于 Referer 信息包含在 http 协议中，在开启配置后，播放协议为 rtmp 或 webrtc 不会校验 Referer 配置，仍可正常播放。如需配置 Referer 鉴权建议使用 http-flv 或 http-hls 协议播放。
+由于 Referer 信息包含在 http 协议中，在开启配置后，播放协议为 rtmp 或 WebRTC 不会校验 Referer 配置，仍可正常播放。如需配置 Referer 鉴权建议使用 http-flv 或 http-hls 协议播放。
      * @param req DescribeLiveDomainRefererRequest
      * @return DescribeLiveDomainRefererResponse
      * @throws TencentCloudSDKException
@@ -2150,7 +2150,7 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
 
     /**
      *设置直播域名 Referer 黑白名单。
-由于 Referer 信息包含在 http 协议中，在开启配置后，播放协议为 rtmp 或 webrtc 不会校验 Referer 配置，仍可正常播放。如需配置 Referer 鉴权建议使用 http-flv 或 http-hls 协议播放。
+由于 Referer 信息包含在 http 协议中，在开启配置后，播放协议为 rtmp 或 WebRTC 不会校验 Referer 配置，仍可正常播放。如需配置 Referer 鉴权建议使用 http-flv 或 http-hls 协议播放。
      * @param req ModifyLiveDomainRefererRequest
      * @return ModifyLiveDomainRefererResponse
      * @throws TencentCloudSDKException
@@ -2212,7 +2212,7 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
     /**
      *更新直播拉流任务。 
 1. 不支持修改目标地址，如需推到新地址，请创建新任务。
-2. 不支持修改任务类型，如需更换，请创建新任务。
+2. 不支持修改拉流源类型，如需更换，请创建新任务。
      * @param req ModifyLivePullStreamTaskRequest
      * @return ModifyLivePullStreamTaskResponse
      * @throws TencentCloudSDKException
@@ -2412,7 +2412,7 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
     }
 
     /**
-     *提前结束录制，并中止运行中的录制任务。任务被成功终止后，本次任务将不再启动。
+     *提前结束录制，中止运行中的录制任务并生成录制文件。任务被成功终止后，本次任务将不再启动。
      * @param req StopRecordTaskRequest
      * @return StopRecordTaskResponse
      * @throws TencentCloudSDKException

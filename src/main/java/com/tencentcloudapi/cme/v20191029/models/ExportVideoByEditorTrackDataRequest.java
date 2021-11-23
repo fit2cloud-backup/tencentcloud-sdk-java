@@ -30,7 +30,7 @@ public class ExportVideoByEditorTrackDataRequest extends AbstractModel{
     private String Platform;
 
     /**
-    * 导出模板 Id，目前不支持自定义创建，只支持下面的预置模板 Id。
+    * 导出视频编码配置 Id，推荐优先使用下面的预置模板 Id，有其他需求可通过接口定制视频编码配置。
 <li>10：分辨率为 480P，输出视频格式为 MP4；</li>
 <li>11：分辨率为 720P，输出视频格式为 MP4；</li>
 <li>12：分辨率为 1080P，输出视频格式为 MP4。</li>
@@ -54,6 +54,15 @@ public class ExportVideoByEditorTrackDataRequest extends AbstractModel{
     @SerializedName("TrackData")
     @Expose
     private String TrackData;
+
+    /**
+    * 轨道数据对应的画布宽高比，配合视频编码配置中的视频短边尺寸，可决定导出画面的尺寸。例：
+<li>如果 AspectRatio 取值 16:9，视频编码配置选为12（短边1080），则导出尺寸为 1920 * 1080；</li>
+<li>如果 AspectRatio 取值 9:16，视频编码配置选为11（短边720），则导出尺寸为 720 *1280。</li>
+    */
+    @SerializedName("AspectRatio")
+    @Expose
+    private String AspectRatio;
 
     /**
     * 视频封面图片文件（如 jpeg, png 等）进行 Base64 编码后的字符串，仅支持 gif、jpeg、png 三种图片格式，原图片文件不能超过2 M大 小。
@@ -100,11 +109,11 @@ public class ExportVideoByEditorTrackDataRequest extends AbstractModel{
     }
 
     /**
-     * Get 导出模板 Id，目前不支持自定义创建，只支持下面的预置模板 Id。
+     * Get 导出视频编码配置 Id，推荐优先使用下面的预置模板 Id，有其他需求可通过接口定制视频编码配置。
 <li>10：分辨率为 480P，输出视频格式为 MP4；</li>
 <li>11：分辨率为 720P，输出视频格式为 MP4；</li>
 <li>12：分辨率为 1080P，输出视频格式为 MP4。</li> 
-     * @return Definition 导出模板 Id，目前不支持自定义创建，只支持下面的预置模板 Id。
+     * @return Definition 导出视频编码配置 Id，推荐优先使用下面的预置模板 Id，有其他需求可通过接口定制视频编码配置。
 <li>10：分辨率为 480P，输出视频格式为 MP4；</li>
 <li>11：分辨率为 720P，输出视频格式为 MP4；</li>
 <li>12：分辨率为 1080P，输出视频格式为 MP4。</li>
@@ -114,11 +123,11 @@ public class ExportVideoByEditorTrackDataRequest extends AbstractModel{
     }
 
     /**
-     * Set 导出模板 Id，目前不支持自定义创建，只支持下面的预置模板 Id。
+     * Set 导出视频编码配置 Id，推荐优先使用下面的预置模板 Id，有其他需求可通过接口定制视频编码配置。
 <li>10：分辨率为 480P，输出视频格式为 MP4；</li>
 <li>11：分辨率为 720P，输出视频格式为 MP4；</li>
 <li>12：分辨率为 1080P，输出视频格式为 MP4。</li>
-     * @param Definition 导出模板 Id，目前不支持自定义创建，只支持下面的预置模板 Id。
+     * @param Definition 导出视频编码配置 Id，推荐优先使用下面的预置模板 Id，有其他需求可通过接口定制视频编码配置。
 <li>10：分辨率为 480P，输出视频格式为 MP4；</li>
 <li>11：分辨率为 720P，输出视频格式为 MP4；</li>
 <li>12：分辨率为 1080P，输出视频格式为 MP4。</li>
@@ -165,6 +174,30 @@ public class ExportVideoByEditorTrackDataRequest extends AbstractModel{
      */
     public void setTrackData(String TrackData) {
         this.TrackData = TrackData;
+    }
+
+    /**
+     * Get 轨道数据对应的画布宽高比，配合视频编码配置中的视频短边尺寸，可决定导出画面的尺寸。例：
+<li>如果 AspectRatio 取值 16:9，视频编码配置选为12（短边1080），则导出尺寸为 1920 * 1080；</li>
+<li>如果 AspectRatio 取值 9:16，视频编码配置选为11（短边720），则导出尺寸为 720 *1280。</li> 
+     * @return AspectRatio 轨道数据对应的画布宽高比，配合视频编码配置中的视频短边尺寸，可决定导出画面的尺寸。例：
+<li>如果 AspectRatio 取值 16:9，视频编码配置选为12（短边1080），则导出尺寸为 1920 * 1080；</li>
+<li>如果 AspectRatio 取值 9:16，视频编码配置选为11（短边720），则导出尺寸为 720 *1280。</li>
+     */
+    public String getAspectRatio() {
+        return this.AspectRatio;
+    }
+
+    /**
+     * Set 轨道数据对应的画布宽高比，配合视频编码配置中的视频短边尺寸，可决定导出画面的尺寸。例：
+<li>如果 AspectRatio 取值 16:9，视频编码配置选为12（短边1080），则导出尺寸为 1920 * 1080；</li>
+<li>如果 AspectRatio 取值 9:16，视频编码配置选为11（短边720），则导出尺寸为 720 *1280。</li>
+     * @param AspectRatio 轨道数据对应的画布宽高比，配合视频编码配置中的视频短边尺寸，可决定导出画面的尺寸。例：
+<li>如果 AspectRatio 取值 16:9，视频编码配置选为12（短边1080），则导出尺寸为 1920 * 1080；</li>
+<li>如果 AspectRatio 取值 9:16，视频编码配置选为11（短边720），则导出尺寸为 720 *1280。</li>
+     */
+    public void setAspectRatio(String AspectRatio) {
+        this.AspectRatio = AspectRatio;
     }
 
     /**
@@ -251,6 +284,9 @@ public class ExportVideoByEditorTrackDataRequest extends AbstractModel{
         if (source.TrackData != null) {
             this.TrackData = new String(source.TrackData);
         }
+        if (source.AspectRatio != null) {
+            this.AspectRatio = new String(source.AspectRatio);
+        }
         if (source.CoverData != null) {
             this.CoverData = new String(source.CoverData);
         }
@@ -274,6 +310,7 @@ public class ExportVideoByEditorTrackDataRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Definition", this.Definition);
         this.setParamSimple(map, prefix + "ExportDestination", this.ExportDestination);
         this.setParamSimple(map, prefix + "TrackData", this.TrackData);
+        this.setParamSimple(map, prefix + "AspectRatio", this.AspectRatio);
         this.setParamSimple(map, prefix + "CoverData", this.CoverData);
         this.setParamObj(map, prefix + "CMEExportInfo.", this.CMEExportInfo);
         this.setParamObj(map, prefix + "VODExportInfo.", this.VODExportInfo);

@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeEnvironmentRolesRequest extends AbstractModel{
 
     /**
-    * 环境（命名空间）名称。
+    * 必填字段，环境（命名空间）名称。
     */
     @SerializedName("EnvironmentId")
     @Expose
@@ -44,7 +44,7 @@ public class DescribeEnvironmentRolesRequest extends AbstractModel{
     private Long Limit;
 
     /**
-    * Pulsar 集群的ID
+    * 必填字段，Pulsar 集群的ID
     */
     @SerializedName("ClusterId")
     @Expose
@@ -68,16 +68,16 @@ public class DescribeEnvironmentRolesRequest extends AbstractModel{
     private Filter [] Filters;
 
     /**
-     * Get 环境（命名空间）名称。 
-     * @return EnvironmentId 环境（命名空间）名称。
+     * Get 必填字段，环境（命名空间）名称。 
+     * @return EnvironmentId 必填字段，环境（命名空间）名称。
      */
     public String getEnvironmentId() {
         return this.EnvironmentId;
     }
 
     /**
-     * Set 环境（命名空间）名称。
-     * @param EnvironmentId 环境（命名空间）名称。
+     * Set 必填字段，环境（命名空间）名称。
+     * @param EnvironmentId 必填字段，环境（命名空间）名称。
      */
     public void setEnvironmentId(String EnvironmentId) {
         this.EnvironmentId = EnvironmentId;
@@ -116,16 +116,16 @@ public class DescribeEnvironmentRolesRequest extends AbstractModel{
     }
 
     /**
-     * Get Pulsar 集群的ID 
-     * @return ClusterId Pulsar 集群的ID
+     * Get 必填字段，Pulsar 集群的ID 
+     * @return ClusterId 必填字段，Pulsar 集群的ID
      */
     public String getClusterId() {
         return this.ClusterId;
     }
 
     /**
-     * Set Pulsar 集群的ID
-     * @param ClusterId Pulsar 集群的ID
+     * Set 必填字段，Pulsar 集群的ID
+     * @param ClusterId 必填字段，Pulsar 集群的ID
      */
     public void setClusterId(String ClusterId) {
         this.ClusterId = ClusterId;

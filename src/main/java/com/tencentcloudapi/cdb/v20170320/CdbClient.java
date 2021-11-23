@@ -720,6 +720,26 @@ public class CdbClient extends AbstractClient{
     }
 
     /**
+     *该接口用户查询当前地域用户设置的默认备份下载来源限制。
+     * @param req DescribeBackupDownloadRestrictionRequest
+     * @return DescribeBackupDownloadRestrictionResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeBackupDownloadRestrictionResponse DescribeBackupDownloadRestriction(DescribeBackupDownloadRestrictionRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeBackupDownloadRestrictionResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeBackupDownloadRestrictionResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeBackupDownloadRestriction");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口(DescribeBackupOverview)用于查询用户的备份概览。返回用户当前备份总个数、备份总的占用容量、赠送的免费容量、计费容量（容量单位为字节）。
      * @param req DescribeBackupOverviewRequest
      * @return DescribeBackupOverviewResponse
@@ -1185,6 +1205,7 @@ public class CdbClient extends AbstractClient{
 
     /**
      *根据检索条件查询实例错误日志详情。只能查询一个月之内的错误日志。
+使用时需要注意：可能存在单条错误日志太大，导致整个http请求的回包太大，进而引发接口超时。一旦发生超时，建议您缩小查询时的Limit参数值，从而降低包的大小，让接口能够及时返回内容。
      * @param req DescribeErrorLogDataRequest
      * @return DescribeErrorLogDataResponse
      * @throws TencentCloudSDKException
@@ -1384,7 +1405,8 @@ public class CdbClient extends AbstractClient{
     }
 
     /**
-     *条件检索实例的慢日志。只允许查看一个月之内的慢日志
+     *条件检索实例的慢日志。只允许查看一个月之内的慢日志。
+使用时需要注意：可能存在单条慢日志太大，导致整个http请求的回包太大，进而引发接口超时。一旦发生超时，建议您缩小查询时的Limit参数值，从而降低包的大小，让接口能够及时返回内容。
      * @param req DescribeSlowLogDataRequest
      * @return DescribeSlowLogDataResponse
      * @throws TencentCloudSDKException
@@ -1807,6 +1829,26 @@ public class CdbClient extends AbstractClient{
     }
 
     /**
+     *该接口用于修改用户当前地域的备份文件限制下载来源，可以设置内外网均可下载、仅内网可下载，或内网指定的vpc、ip可以下载。
+     * @param req ModifyBackupDownloadRestrictionRequest
+     * @return ModifyBackupDownloadRestrictionResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyBackupDownloadRestrictionResponse ModifyBackupDownloadRestriction(ModifyBackupDownloadRestrictionRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyBackupDownloadRestrictionResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyBackupDownloadRestrictionResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyBackupDownloadRestriction");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口(ModifyDBInstanceName)用于修改云数据库实例的名称。
      * @param req ModifyDBInstanceNameRequest
      * @return ModifyDBInstanceNameResponse
@@ -1999,26 +2041,6 @@ public class CdbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<ModifyRoReplicationDelayResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifyRoReplicationDelay");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *修改只读实例类型，可以将普通只读实例变为延迟只读实例，或者将延迟只读实例变为普通只读实例。
-     * @param req ModifyRoTypeRequest
-     * @return ModifyRoTypeResponse
-     * @throws TencentCloudSDKException
-     */
-    public ModifyRoTypeResponse ModifyRoType(ModifyRoTypeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyRoTypeResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyRoTypeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyRoType");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
