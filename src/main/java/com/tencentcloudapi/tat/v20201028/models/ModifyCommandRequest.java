@@ -51,21 +51,21 @@ public class ModifyCommandRequest extends AbstractModel{
     private String Content;
 
     /**
-    * 命令类型，目前仅支持取值：SHELL。
+    * 命令类型，目前支持取值：SHELL、POWERSHELL。
     */
     @SerializedName("CommandType")
     @Expose
     private String CommandType;
 
     /**
-    * 命令执行路径，默认：`/root`。
+    * 命令执行路径。
     */
     @SerializedName("WorkingDirectory")
     @Expose
     private String WorkingDirectory;
 
     /**
-    * 命令超时时间，默认60秒。取值范围[1, 86400]。
+    * 命令超时时间。取值范围[1, 86400]。
     */
     @SerializedName("Timeout")
     @Expose
@@ -85,11 +85,28 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
 
     /**
     * 在 CVM 或 Lighthouse 实例中执行命令的用户名称。
-使用最小权限执行命令是权限管理的最佳实践，建议您以普通用户身份执行云助手命令。默认情况下，在Linux实例中以root用户执行命令。
+使用最小权限执行命令是权限管理的最佳实践，建议您以普通用户身份执行云助手命令。Windows 实例当前仅支持以 System 用户执行命令。
     */
     @SerializedName("Username")
     @Expose
     private String Username;
+
+    /**
+    * 指定日志上传的cos bucket 地址，必须以https开头，如 https://BucketName-123454321.cos.ap-beijing.myqcloud.com。
+    */
+    @SerializedName("OutputCOSBucketUrl")
+    @Expose
+    private String OutputCOSBucketUrl;
+
+    /**
+    * 指定日志在cos bucket中的目录，目录命名有如下规则：
+1. 可用数字、中英文和可见字符的组合，长度最多为60。
+2. 用 / 分割路径，可快速创建子目录。
+3. 不允许连续 / ；不允许以 / 开头；不允许以..作为文件夹名称。
+    */
+    @SerializedName("OutputCOSKeyPrefix")
+    @Expose
+    private String OutputCOSKeyPrefix;
 
     /**
      * Get 命令ID。 
@@ -156,48 +173,48 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
     }
 
     /**
-     * Get 命令类型，目前仅支持取值：SHELL。 
-     * @return CommandType 命令类型，目前仅支持取值：SHELL。
+     * Get 命令类型，目前支持取值：SHELL、POWERSHELL。 
+     * @return CommandType 命令类型，目前支持取值：SHELL、POWERSHELL。
      */
     public String getCommandType() {
         return this.CommandType;
     }
 
     /**
-     * Set 命令类型，目前仅支持取值：SHELL。
-     * @param CommandType 命令类型，目前仅支持取值：SHELL。
+     * Set 命令类型，目前支持取值：SHELL、POWERSHELL。
+     * @param CommandType 命令类型，目前支持取值：SHELL、POWERSHELL。
      */
     public void setCommandType(String CommandType) {
         this.CommandType = CommandType;
     }
 
     /**
-     * Get 命令执行路径，默认：`/root`。 
-     * @return WorkingDirectory 命令执行路径，默认：`/root`。
+     * Get 命令执行路径。 
+     * @return WorkingDirectory 命令执行路径。
      */
     public String getWorkingDirectory() {
         return this.WorkingDirectory;
     }
 
     /**
-     * Set 命令执行路径，默认：`/root`。
-     * @param WorkingDirectory 命令执行路径，默认：`/root`。
+     * Set 命令执行路径。
+     * @param WorkingDirectory 命令执行路径。
      */
     public void setWorkingDirectory(String WorkingDirectory) {
         this.WorkingDirectory = WorkingDirectory;
     }
 
     /**
-     * Get 命令超时时间，默认60秒。取值范围[1, 86400]。 
-     * @return Timeout 命令超时时间，默认60秒。取值范围[1, 86400]。
+     * Get 命令超时时间。取值范围[1, 86400]。 
+     * @return Timeout 命令超时时间。取值范围[1, 86400]。
      */
     public Long getTimeout() {
         return this.Timeout;
     }
 
     /**
-     * Set 命令超时时间，默认60秒。取值范围[1, 86400]。
-     * @param Timeout 命令超时时间，默认60秒。取值范围[1, 86400]。
+     * Set 命令超时时间。取值范围[1, 86400]。
+     * @param Timeout 命令超时时间。取值范围[1, 86400]。
      */
     public void setTimeout(Long Timeout) {
         this.Timeout = Timeout;
@@ -241,9 +258,9 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
 
     /**
      * Get 在 CVM 或 Lighthouse 实例中执行命令的用户名称。
-使用最小权限执行命令是权限管理的最佳实践，建议您以普通用户身份执行云助手命令。默认情况下，在Linux实例中以root用户执行命令。 
+使用最小权限执行命令是权限管理的最佳实践，建议您以普通用户身份执行云助手命令。Windows 实例当前仅支持以 System 用户执行命令。 
      * @return Username 在 CVM 或 Lighthouse 实例中执行命令的用户名称。
-使用最小权限执行命令是权限管理的最佳实践，建议您以普通用户身份执行云助手命令。默认情况下，在Linux实例中以root用户执行命令。
+使用最小权限执行命令是权限管理的最佳实践，建议您以普通用户身份执行云助手命令。Windows 实例当前仅支持以 System 用户执行命令。
      */
     public String getUsername() {
         return this.Username;
@@ -251,12 +268,56 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
 
     /**
      * Set 在 CVM 或 Lighthouse 实例中执行命令的用户名称。
-使用最小权限执行命令是权限管理的最佳实践，建议您以普通用户身份执行云助手命令。默认情况下，在Linux实例中以root用户执行命令。
+使用最小权限执行命令是权限管理的最佳实践，建议您以普通用户身份执行云助手命令。Windows 实例当前仅支持以 System 用户执行命令。
      * @param Username 在 CVM 或 Lighthouse 实例中执行命令的用户名称。
-使用最小权限执行命令是权限管理的最佳实践，建议您以普通用户身份执行云助手命令。默认情况下，在Linux实例中以root用户执行命令。
+使用最小权限执行命令是权限管理的最佳实践，建议您以普通用户身份执行云助手命令。Windows 实例当前仅支持以 System 用户执行命令。
      */
     public void setUsername(String Username) {
         this.Username = Username;
+    }
+
+    /**
+     * Get 指定日志上传的cos bucket 地址，必须以https开头，如 https://BucketName-123454321.cos.ap-beijing.myqcloud.com。 
+     * @return OutputCOSBucketUrl 指定日志上传的cos bucket 地址，必须以https开头，如 https://BucketName-123454321.cos.ap-beijing.myqcloud.com。
+     */
+    public String getOutputCOSBucketUrl() {
+        return this.OutputCOSBucketUrl;
+    }
+
+    /**
+     * Set 指定日志上传的cos bucket 地址，必须以https开头，如 https://BucketName-123454321.cos.ap-beijing.myqcloud.com。
+     * @param OutputCOSBucketUrl 指定日志上传的cos bucket 地址，必须以https开头，如 https://BucketName-123454321.cos.ap-beijing.myqcloud.com。
+     */
+    public void setOutputCOSBucketUrl(String OutputCOSBucketUrl) {
+        this.OutputCOSBucketUrl = OutputCOSBucketUrl;
+    }
+
+    /**
+     * Get 指定日志在cos bucket中的目录，目录命名有如下规则：
+1. 可用数字、中英文和可见字符的组合，长度最多为60。
+2. 用 / 分割路径，可快速创建子目录。
+3. 不允许连续 / ；不允许以 / 开头；不允许以..作为文件夹名称。 
+     * @return OutputCOSKeyPrefix 指定日志在cos bucket中的目录，目录命名有如下规则：
+1. 可用数字、中英文和可见字符的组合，长度最多为60。
+2. 用 / 分割路径，可快速创建子目录。
+3. 不允许连续 / ；不允许以 / 开头；不允许以..作为文件夹名称。
+     */
+    public String getOutputCOSKeyPrefix() {
+        return this.OutputCOSKeyPrefix;
+    }
+
+    /**
+     * Set 指定日志在cos bucket中的目录，目录命名有如下规则：
+1. 可用数字、中英文和可见字符的组合，长度最多为60。
+2. 用 / 分割路径，可快速创建子目录。
+3. 不允许连续 / ；不允许以 / 开头；不允许以..作为文件夹名称。
+     * @param OutputCOSKeyPrefix 指定日志在cos bucket中的目录，目录命名有如下规则：
+1. 可用数字、中英文和可见字符的组合，长度最多为60。
+2. 用 / 分割路径，可快速创建子目录。
+3. 不允许连续 / ；不允许以 / 开头；不允许以..作为文件夹名称。
+     */
+    public void setOutputCOSKeyPrefix(String OutputCOSKeyPrefix) {
+        this.OutputCOSKeyPrefix = OutputCOSKeyPrefix;
     }
 
     public ModifyCommandRequest() {
@@ -294,6 +355,12 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
         if (source.Username != null) {
             this.Username = new String(source.Username);
         }
+        if (source.OutputCOSBucketUrl != null) {
+            this.OutputCOSBucketUrl = new String(source.OutputCOSBucketUrl);
+        }
+        if (source.OutputCOSKeyPrefix != null) {
+            this.OutputCOSKeyPrefix = new String(source.OutputCOSKeyPrefix);
+        }
     }
 
 
@@ -310,6 +377,8 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
         this.setParamSimple(map, prefix + "Timeout", this.Timeout);
         this.setParamSimple(map, prefix + "DefaultParameters", this.DefaultParameters);
         this.setParamSimple(map, prefix + "Username", this.Username);
+        this.setParamSimple(map, prefix + "OutputCOSBucketUrl", this.OutputCOSBucketUrl);
+        this.setParamSimple(map, prefix + "OutputCOSKeyPrefix", this.OutputCOSKeyPrefix);
 
     }
 }

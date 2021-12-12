@@ -143,6 +143,22 @@ public class Template extends AbstractModel{
     private Prescription Prescription;
 
     /**
+    * 免疫接种证明
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("VaccineCertificate")
+    @Expose
+    private VaccineCertificate VaccineCertificate;
+
+    /**
+    * OCR文本
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OcrText")
+    @Expose
+    private String OcrText;
+
+    /**
      * Get 患者信息
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return PatientInfo 患者信息
@@ -442,6 +458,46 @@ public class Template extends AbstractModel{
         this.Prescription = Prescription;
     }
 
+    /**
+     * Get 免疫接种证明
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return VaccineCertificate 免疫接种证明
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public VaccineCertificate getVaccineCertificate() {
+        return this.VaccineCertificate;
+    }
+
+    /**
+     * Set 免疫接种证明
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param VaccineCertificate 免疫接种证明
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setVaccineCertificate(VaccineCertificate VaccineCertificate) {
+        this.VaccineCertificate = VaccineCertificate;
+    }
+
+    /**
+     * Get OCR文本
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OcrText OCR文本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getOcrText() {
+        return this.OcrText;
+    }
+
+    /**
+     * Set OCR文本
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OcrText OCR文本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOcrText(String OcrText) {
+        this.OcrText = OcrText;
+    }
+
     public Template() {
     }
 
@@ -495,6 +551,12 @@ public class Template extends AbstractModel{
         if (source.Prescription != null) {
             this.Prescription = new Prescription(source.Prescription);
         }
+        if (source.VaccineCertificate != null) {
+            this.VaccineCertificate = new VaccineCertificate(source.VaccineCertificate);
+        }
+        if (source.OcrText != null) {
+            this.OcrText = new String(source.OcrText);
+        }
     }
 
 
@@ -517,6 +579,8 @@ public class Template extends AbstractModel{
         this.setParamObj(map, prefix + "Electrocardiogram.", this.Electrocardiogram);
         this.setParamObj(map, prefix + "Endoscopy.", this.Endoscopy);
         this.setParamObj(map, prefix + "Prescription.", this.Prescription);
+        this.setParamObj(map, prefix + "VaccineCertificate.", this.VaccineCertificate);
+        this.setParamSimple(map, prefix + "OcrText", this.OcrText);
 
     }
 }

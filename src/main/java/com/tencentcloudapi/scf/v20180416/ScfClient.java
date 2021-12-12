@@ -326,6 +326,26 @@ public class ScfClient extends AbstractClient{
     }
 
     /**
+     *获取函数异步执行事件状态，事件状态保留 3 * 24 小时（从事件完成开始计时）。
+     * @param req GetAsyncEventStatusRequest
+     * @return GetAsyncEventStatusResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetAsyncEventStatusResponse GetAsyncEventStatus(GetAsyncEventStatusRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetAsyncEventStatusResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetAsyncEventStatusResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetAsyncEventStatus");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *该接口获取某个函数的详细信息，包括名称、代码、处理方法、关联触发器和超时时间等字段。
      * @param req GetFunctionRequest
      * @return GetFunctionResponse
@@ -438,6 +458,26 @@ public class ScfClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<GetProvisionedConcurrencyConfigResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "GetProvisionedConcurrencyConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *该接口根据指定的查询条件返回函数单个请求运行状态。
+     * @param req GetRequestStatusRequest
+     * @return GetRequestStatusResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetRequestStatusResponse GetRequestStatus(GetRequestStatusRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetRequestStatusResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetRequestStatusResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetRequestStatus");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

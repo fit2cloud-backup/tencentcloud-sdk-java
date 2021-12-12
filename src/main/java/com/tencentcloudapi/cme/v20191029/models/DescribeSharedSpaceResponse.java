@@ -31,7 +31,6 @@ public class DescribeSharedSpaceResponse extends AbstractModel{
 
     /**
     * 各个共享空间对应的授权者信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AuthorizerSet")
     @Expose
@@ -61,10 +60,8 @@ public class DescribeSharedSpaceResponse extends AbstractModel{
     }
 
     /**
-     * Get 各个共享空间对应的授权者信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 各个共享空间对应的授权者信息。 
      * @return AuthorizerSet 各个共享空间对应的授权者信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Authorizer [] getAuthorizerSet() {
         return this.AuthorizerSet;
@@ -72,9 +69,7 @@ public class DescribeSharedSpaceResponse extends AbstractModel{
 
     /**
      * Set 各个共享空间对应的授权者信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AuthorizerSet 各个共享空间对应的授权者信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAuthorizerSet(Authorizer [] AuthorizerSet) {
         this.AuthorizerSet = AuthorizerSet;

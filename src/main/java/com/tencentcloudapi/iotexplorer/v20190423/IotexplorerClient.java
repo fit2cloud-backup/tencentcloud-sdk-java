@@ -919,6 +919,26 @@ public class IotexplorerClient extends AbstractClient{
     }
 
     /**
+     *无
+     * @param req GenSingleDeviceSignatureOfPublicRequest
+     * @return GenSingleDeviceSignatureOfPublicResponse
+     * @throws TencentCloudSDKException
+     */
+    public GenSingleDeviceSignatureOfPublicResponse GenSingleDeviceSignatureOfPublic(GenSingleDeviceSignatureOfPublicRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GenSingleDeviceSignatureOfPublicResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<GenSingleDeviceSignatureOfPublicResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GenSingleDeviceSignatureOfPublic");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *列出量产数据列表信息。
      * @param req GetBatchProductionsListRequest
      * @return GetBatchProductionsListResponse
@@ -991,6 +1011,26 @@ public class IotexplorerClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<GetDeviceLocationHistoryResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "GetDeviceLocationHistory");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *用于获取设备绑定的用户列表
+     * @param req GetFamilyDeviceUserListRequest
+     * @return GetFamilyDeviceUserListResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetFamilyDeviceUserListResponse GetFamilyDeviceUserList(GetFamilyDeviceUserListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetFamilyDeviceUserListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetFamilyDeviceUserListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetFamilyDeviceUserList");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1391,6 +1431,26 @@ public class IotexplorerClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<PublishMessageResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "PublishMessage");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *下发RRPC消息
+     * @param req PublishRRPCMessageRequest
+     * @return PublishRRPCMessageResponse
+     * @throws TencentCloudSDKException
+     */
+    public PublishRRPCMessageResponse PublishRRPCMessage(PublishRRPCMessageRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<PublishRRPCMessageResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<PublishRRPCMessageResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "PublishRRPCMessage");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

@@ -72,7 +72,7 @@ public class DBInstance extends AbstractModel{
     private String DBInstanceName;
 
     /**
-    * 实例状态，分别为：applying（申请中）、init(待初始化)、initing(初始化中)、running(运行中)、limited run（受限运行）、isolated（已隔离）、recycling（回收中）、recycled（已回收）、job running（任务执行中）、offline（下线）、migrating（迁移中）、expanding（扩容中）、waitSwitch（等待切换）、switching（切换中）、readonly（只读）、restarting（重启中）、
+    * 实例状态，分别为：applying（申请中）、init(待初始化)、initing(初始化中)、running(运行中)、limited run（受限运行）、isolated（已隔离）、recycling（回收中）、recycled（已回收）、job running（任务执行中）、offline（下线）、migrating（迁移中）、expanding（扩容中）、waitSwitch（等待切换）、switching（切换中）、readonly（只读）、restarting（重启中）、network changing（网络变更中）
     */
     @SerializedName("DBInstanceStatus")
     @Expose
@@ -128,7 +128,7 @@ public class DBInstance extends AbstractModel{
     private String DBCharset;
 
     /**
-    * PostgreSQL内核版本
+    * PostgreSQL主版本
     */
     @SerializedName("DBVersion")
     @Expose
@@ -252,6 +252,22 @@ public class DBInstance extends AbstractModel{
     private String OfflineTime;
 
     /**
+    * 数据库内核版本
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DBKernelVersion")
+    @Expose
+    private String DBKernelVersion;
+
+    /**
+    * 实例网络信息列表（此字段已废弃）
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("NetworkAccessList")
+    @Expose
+    private NetworkAccess [] NetworkAccessList;
+
+    /**
      * Get 实例所属地域，如: ap-guangzhou，对应RegionSet的Region字段 
      * @return Region 实例所属地域，如: ap-guangzhou，对应RegionSet的Region字段
      */
@@ -364,16 +380,16 @@ public class DBInstance extends AbstractModel{
     }
 
     /**
-     * Get 实例状态，分别为：applying（申请中）、init(待初始化)、initing(初始化中)、running(运行中)、limited run（受限运行）、isolated（已隔离）、recycling（回收中）、recycled（已回收）、job running（任务执行中）、offline（下线）、migrating（迁移中）、expanding（扩容中）、waitSwitch（等待切换）、switching（切换中）、readonly（只读）、restarting（重启中）、 
-     * @return DBInstanceStatus 实例状态，分别为：applying（申请中）、init(待初始化)、initing(初始化中)、running(运行中)、limited run（受限运行）、isolated（已隔离）、recycling（回收中）、recycled（已回收）、job running（任务执行中）、offline（下线）、migrating（迁移中）、expanding（扩容中）、waitSwitch（等待切换）、switching（切换中）、readonly（只读）、restarting（重启中）、
+     * Get 实例状态，分别为：applying（申请中）、init(待初始化)、initing(初始化中)、running(运行中)、limited run（受限运行）、isolated（已隔离）、recycling（回收中）、recycled（已回收）、job running（任务执行中）、offline（下线）、migrating（迁移中）、expanding（扩容中）、waitSwitch（等待切换）、switching（切换中）、readonly（只读）、restarting（重启中）、network changing（网络变更中） 
+     * @return DBInstanceStatus 实例状态，分别为：applying（申请中）、init(待初始化)、initing(初始化中)、running(运行中)、limited run（受限运行）、isolated（已隔离）、recycling（回收中）、recycled（已回收）、job running（任务执行中）、offline（下线）、migrating（迁移中）、expanding（扩容中）、waitSwitch（等待切换）、switching（切换中）、readonly（只读）、restarting（重启中）、network changing（网络变更中）
      */
     public String getDBInstanceStatus() {
         return this.DBInstanceStatus;
     }
 
     /**
-     * Set 实例状态，分别为：applying（申请中）、init(待初始化)、initing(初始化中)、running(运行中)、limited run（受限运行）、isolated（已隔离）、recycling（回收中）、recycled（已回收）、job running（任务执行中）、offline（下线）、migrating（迁移中）、expanding（扩容中）、waitSwitch（等待切换）、switching（切换中）、readonly（只读）、restarting（重启中）、
-     * @param DBInstanceStatus 实例状态，分别为：applying（申请中）、init(待初始化)、initing(初始化中)、running(运行中)、limited run（受限运行）、isolated（已隔离）、recycling（回收中）、recycled（已回收）、job running（任务执行中）、offline（下线）、migrating（迁移中）、expanding（扩容中）、waitSwitch（等待切换）、switching（切换中）、readonly（只读）、restarting（重启中）、
+     * Set 实例状态，分别为：applying（申请中）、init(待初始化)、initing(初始化中)、running(运行中)、limited run（受限运行）、isolated（已隔离）、recycling（回收中）、recycled（已回收）、job running（任务执行中）、offline（下线）、migrating（迁移中）、expanding（扩容中）、waitSwitch（等待切换）、switching（切换中）、readonly（只读）、restarting（重启中）、network changing（网络变更中）
+     * @param DBInstanceStatus 实例状态，分别为：applying（申请中）、init(待初始化)、initing(初始化中)、running(运行中)、limited run（受限运行）、isolated（已隔离）、recycling（回收中）、recycled（已回收）、job running（任务执行中）、offline（下线）、migrating（迁移中）、expanding（扩容中）、waitSwitch（等待切换）、switching（切换中）、readonly（只读）、restarting（重启中）、network changing（网络变更中）
      */
     public void setDBInstanceStatus(String DBInstanceStatus) {
         this.DBInstanceStatus = DBInstanceStatus;
@@ -492,16 +508,16 @@ public class DBInstance extends AbstractModel{
     }
 
     /**
-     * Get PostgreSQL内核版本 
-     * @return DBVersion PostgreSQL内核版本
+     * Get PostgreSQL主版本 
+     * @return DBVersion PostgreSQL主版本
      */
     public String getDBVersion() {
         return this.DBVersion;
     }
 
     /**
-     * Set PostgreSQL内核版本
-     * @param DBVersion PostgreSQL内核版本
+     * Set PostgreSQL主版本
+     * @param DBVersion PostgreSQL主版本
      */
     public void setDBVersion(String DBVersion) {
         this.DBVersion = DBVersion;
@@ -783,6 +799,46 @@ public class DBInstance extends AbstractModel{
         this.OfflineTime = OfflineTime;
     }
 
+    /**
+     * Get 数据库内核版本
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DBKernelVersion 数据库内核版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDBKernelVersion() {
+        return this.DBKernelVersion;
+    }
+
+    /**
+     * Set 数据库内核版本
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DBKernelVersion 数据库内核版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDBKernelVersion(String DBKernelVersion) {
+        this.DBKernelVersion = DBKernelVersion;
+    }
+
+    /**
+     * Get 实例网络信息列表（此字段已废弃）
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return NetworkAccessList 实例网络信息列表（此字段已废弃）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public NetworkAccess [] getNetworkAccessList() {
+        return this.NetworkAccessList;
+    }
+
+    /**
+     * Set 实例网络信息列表（此字段已废弃）
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param NetworkAccessList 实例网络信息列表（此字段已废弃）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setNetworkAccessList(NetworkAccess [] NetworkAccessList) {
+        this.NetworkAccessList = NetworkAccessList;
+    }
+
     public DBInstance() {
     }
 
@@ -893,6 +949,15 @@ public class DBInstance extends AbstractModel{
         if (source.OfflineTime != null) {
             this.OfflineTime = new String(source.OfflineTime);
         }
+        if (source.DBKernelVersion != null) {
+            this.DBKernelVersion = new String(source.DBKernelVersion);
+        }
+        if (source.NetworkAccessList != null) {
+            this.NetworkAccessList = new NetworkAccess[source.NetworkAccessList.length];
+            for (int i = 0; i < source.NetworkAccessList.length; i++) {
+                this.NetworkAccessList[i] = new NetworkAccess(source.NetworkAccessList[i]);
+            }
+        }
     }
 
 
@@ -932,6 +997,8 @@ public class DBInstance extends AbstractModel{
         this.setParamSimple(map, prefix + "ReadOnlyInstanceNum", this.ReadOnlyInstanceNum);
         this.setParamSimple(map, prefix + "StatusInReadonlyGroup", this.StatusInReadonlyGroup);
         this.setParamSimple(map, prefix + "OfflineTime", this.OfflineTime);
+        this.setParamSimple(map, prefix + "DBKernelVersion", this.DBKernelVersion);
+        this.setParamArrayObj(map, prefix + "NetworkAccessList.", this.NetworkAccessList);
 
     }
 }

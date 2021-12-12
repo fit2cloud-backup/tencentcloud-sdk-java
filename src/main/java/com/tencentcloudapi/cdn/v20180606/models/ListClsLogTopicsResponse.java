@@ -23,19 +23,27 @@ import java.util.HashMap;
 public class ListClsLogTopicsResponse extends AbstractModel{
 
     /**
-    * 日志集信息
+    * 上海区域日志集信息
     */
     @SerializedName("Logset")
     @Expose
     private LogSetInfo Logset;
 
     /**
-    * 日志主题信息列表
+    * 上海区域日志主题信息列表
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Topics")
     @Expose
     private TopicInfo [] Topics;
+
+    /**
+    * 其他区域日志集信息列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ExtraLogset")
+    @Expose
+    private ExtraLogset [] ExtraLogset;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -45,25 +53,25 @@ public class ListClsLogTopicsResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 日志集信息 
-     * @return Logset 日志集信息
+     * Get 上海区域日志集信息 
+     * @return Logset 上海区域日志集信息
      */
     public LogSetInfo getLogset() {
         return this.Logset;
     }
 
     /**
-     * Set 日志集信息
-     * @param Logset 日志集信息
+     * Set 上海区域日志集信息
+     * @param Logset 上海区域日志集信息
      */
     public void setLogset(LogSetInfo Logset) {
         this.Logset = Logset;
     }
 
     /**
-     * Get 日志主题信息列表
+     * Get 上海区域日志主题信息列表
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Topics 日志主题信息列表
+     * @return Topics 上海区域日志主题信息列表
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public TopicInfo [] getTopics() {
@@ -71,13 +79,33 @@ public class ListClsLogTopicsResponse extends AbstractModel{
     }
 
     /**
-     * Set 日志主题信息列表
+     * Set 上海区域日志主题信息列表
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Topics 日志主题信息列表
+     * @param Topics 上海区域日志主题信息列表
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTopics(TopicInfo [] Topics) {
         this.Topics = Topics;
+    }
+
+    /**
+     * Get 其他区域日志集信息列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ExtraLogset 其他区域日志集信息列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ExtraLogset [] getExtraLogset() {
+        return this.ExtraLogset;
+    }
+
+    /**
+     * Set 其他区域日志集信息列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ExtraLogset 其他区域日志集信息列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setExtraLogset(ExtraLogset [] ExtraLogset) {
+        this.ExtraLogset = ExtraLogset;
     }
 
     /**
@@ -113,6 +141,12 @@ public class ListClsLogTopicsResponse extends AbstractModel{
                 this.Topics[i] = new TopicInfo(source.Topics[i]);
             }
         }
+        if (source.ExtraLogset != null) {
+            this.ExtraLogset = new ExtraLogset[source.ExtraLogset.length];
+            for (int i = 0; i < source.ExtraLogset.length; i++) {
+                this.ExtraLogset[i] = new ExtraLogset(source.ExtraLogset[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -125,6 +159,7 @@ public class ListClsLogTopicsResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "Logset.", this.Logset);
         this.setParamArrayObj(map, prefix + "Topics.", this.Topics);
+        this.setParamArrayObj(map, prefix + "ExtraLogset.", this.ExtraLogset);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

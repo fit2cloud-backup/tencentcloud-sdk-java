@@ -1479,6 +1479,26 @@ public class TkeClient extends AbstractClient{
     }
 
     /**
+     *关闭集群删除保护
+     * @param req DisableClusterDeletionProtectionRequest
+     * @return DisableClusterDeletionProtectionResponse
+     * @throws TencentCloudSDKException
+     */
+    public DisableClusterDeletionProtectionResponse DisableClusterDeletionProtection(DisableClusterDeletionProtectionRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DisableClusterDeletionProtectionResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DisableClusterDeletionProtectionResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DisableClusterDeletionProtection");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *提供给附加了VPC-CNI能力的Global-Route集群关闭VPC-CNI
      * @param req DisableVpcCniNetworkTypeRequest
      * @return DisableVpcCniNetworkTypeResponse
@@ -1499,6 +1519,26 @@ public class TkeClient extends AbstractClient{
     }
 
     /**
+     *启用集群删除保护
+     * @param req EnableClusterDeletionProtectionRequest
+     * @return EnableClusterDeletionProtectionResponse
+     * @throws TencentCloudSDKException
+     */
+    public EnableClusterDeletionProtectionResponse EnableClusterDeletionProtection(EnableClusterDeletionProtectionRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<EnableClusterDeletionProtectionResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<EnableClusterDeletionProtectionResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "EnableClusterDeletionProtection");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *GR集群可以通过本接口附加vpc-cni容器网络插件，开启vpc-cni容器网络能力
      * @param req EnableVpcCniNetworkTypeRequest
      * @return EnableVpcCniNetworkTypeResponse
@@ -1511,6 +1551,46 @@ public class TkeClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<EnableVpcCniNetworkTypeResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "EnableVpcCniNetworkType");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *操作TKE集群的addon
+     * @param req ForwardApplicationRequestV3Request
+     * @return ForwardApplicationRequestV3Response
+     * @throws TencentCloudSDKException
+     */
+    public ForwardApplicationRequestV3Response ForwardApplicationRequestV3(ForwardApplicationRequestV3Request req) throws TencentCloudSDKException{
+        JsonResponseModel<ForwardApplicationRequestV3Response> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ForwardApplicationRequestV3Response>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ForwardApplicationRequestV3");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取TKE支持的App列表
+     * @param req GetTkeAppChartListRequest
+     * @return GetTkeAppChartListResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetTkeAppChartListResponse GetTkeAppChartList(GetTkeAppChartListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetTkeAppChartListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetTkeAppChartListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetTkeAppChartList");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1771,6 +1851,46 @@ public class TkeClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<RestartEKSContainerInstancesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "RestartEKSContainerInstances");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *缩容独立集群master节点
+     * @param req ScaleInClusterMasterRequest
+     * @return ScaleInClusterMasterResponse
+     * @throws TencentCloudSDKException
+     */
+    public ScaleInClusterMasterResponse ScaleInClusterMaster(ScaleInClusterMasterRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ScaleInClusterMasterResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ScaleInClusterMasterResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ScaleInClusterMaster");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *扩容独立集群master节点
+     * @param req ScaleOutClusterMasterRequest
+     * @return ScaleOutClusterMasterResponse
+     * @throws TencentCloudSDKException
+     */
+    public ScaleOutClusterMasterResponse ScaleOutClusterMaster(ScaleOutClusterMasterRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ScaleOutClusterMasterResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ScaleOutClusterMasterResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ScaleOutClusterMaster");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
