@@ -3,11 +3,17 @@ public enum SslErrorCode {
     // CAM签名/鉴权错误。
      AUTHFAILURE("AuthFailure"),
      
+    // 操作未授权。
+     AUTHFAILURE_UNAUTHORIZEDOPERATION("AuthFailure.UnauthorizedOperation"),
+     
     // 操作失败。
      FAILEDOPERATION("FailedOperation"),
      
     // 请检查是否有权限。
      FAILEDOPERATION_AUTHERROR("FailedOperation.AuthError"),
+     
+    // CAM鉴权出现错误。
+     FAILEDOPERATION_CAMAUTHORIZEDFAIL("FailedOperation.CAMAuthorizedFail"),
      
     // 取消订单失败。
      FAILEDOPERATION_CANCELORDERFAILED("FailedOperation.CancelOrderFailed"),
@@ -104,6 +110,9 @@ public enum SslErrorCode {
      
     // 内部错误。
      INTERNALERROR("InternalError"),
+     
+    // 后端服务响应错误。
+     INTERNALERROR_BACKENDRESPONSEERROR("InternalError.BackendResponseError"),
      
     // 参数错误。
      INVALIDPARAMETER("InvalidParameter"),

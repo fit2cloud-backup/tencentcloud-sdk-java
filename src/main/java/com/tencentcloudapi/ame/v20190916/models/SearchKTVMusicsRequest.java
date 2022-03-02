@@ -30,18 +30,29 @@ public class SearchKTVMusicsRequest extends AbstractModel{
     private String KeyWord;
 
     /**
-    * 分页游标
+    * 分页返回的起始偏移量，默认值：0。将返回第 Offset 到第 Offset+Limit-1 条。
+取值范围：Offset + Limit 不超过5000。
     */
     @SerializedName("Offset")
     @Expose
     private Long Offset;
 
     /**
-    * 分页页长
+    * 分页返回的起始偏移量，默认值：50。将返回第 Offset 到第 Offset+Limit-1 条。
     */
     @SerializedName("Limit")
     @Expose
     private Long Limit;
+
+    /**
+    * 排序方式。默认按照匹配度排序
+<li> Sort.Field 可选 CreateTime</li>
+<li> Sort.Order 可选 Desc </li>
+<li> 当 KeyWord 不为空时，Sort.Field 字段无效， 搜索结果将以匹配度排序。</li>
+    */
+    @SerializedName("Sort")
+    @Expose
+    private SortBy Sort;
 
     /**
      * Get 搜索关键词 
@@ -60,35 +71,67 @@ public class SearchKTVMusicsRequest extends AbstractModel{
     }
 
     /**
-     * Get 分页游标 
-     * @return Offset 分页游标
+     * Get 分页返回的起始偏移量，默认值：0。将返回第 Offset 到第 Offset+Limit-1 条。
+取值范围：Offset + Limit 不超过5000。 
+     * @return Offset 分页返回的起始偏移量，默认值：0。将返回第 Offset 到第 Offset+Limit-1 条。
+取值范围：Offset + Limit 不超过5000。
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 分页游标
-     * @param Offset 分页游标
+     * Set 分页返回的起始偏移量，默认值：0。将返回第 Offset 到第 Offset+Limit-1 条。
+取值范围：Offset + Limit 不超过5000。
+     * @param Offset 分页返回的起始偏移量，默认值：0。将返回第 Offset 到第 Offset+Limit-1 条。
+取值范围：Offset + Limit 不超过5000。
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get 分页页长 
-     * @return Limit 分页页长
+     * Get 分页返回的起始偏移量，默认值：50。将返回第 Offset 到第 Offset+Limit-1 条。 
+     * @return Limit 分页返回的起始偏移量，默认值：50。将返回第 Offset 到第 Offset+Limit-1 条。
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 分页页长
-     * @param Limit 分页页长
+     * Set 分页返回的起始偏移量，默认值：50。将返回第 Offset 到第 Offset+Limit-1 条。
+     * @param Limit 分页返回的起始偏移量，默认值：50。将返回第 Offset 到第 Offset+Limit-1 条。
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
+    }
+
+    /**
+     * Get 排序方式。默认按照匹配度排序
+<li> Sort.Field 可选 CreateTime</li>
+<li> Sort.Order 可选 Desc </li>
+<li> 当 KeyWord 不为空时，Sort.Field 字段无效， 搜索结果将以匹配度排序。</li> 
+     * @return Sort 排序方式。默认按照匹配度排序
+<li> Sort.Field 可选 CreateTime</li>
+<li> Sort.Order 可选 Desc </li>
+<li> 当 KeyWord 不为空时，Sort.Field 字段无效， 搜索结果将以匹配度排序。</li>
+     */
+    public SortBy getSort() {
+        return this.Sort;
+    }
+
+    /**
+     * Set 排序方式。默认按照匹配度排序
+<li> Sort.Field 可选 CreateTime</li>
+<li> Sort.Order 可选 Desc </li>
+<li> 当 KeyWord 不为空时，Sort.Field 字段无效， 搜索结果将以匹配度排序。</li>
+     * @param Sort 排序方式。默认按照匹配度排序
+<li> Sort.Field 可选 CreateTime</li>
+<li> Sort.Order 可选 Desc </li>
+<li> 当 KeyWord 不为空时，Sort.Field 字段无效， 搜索结果将以匹配度排序。</li>
+     */
+    public void setSort(SortBy Sort) {
+        this.Sort = Sort;
     }
 
     public SearchKTVMusicsRequest() {
@@ -108,6 +151,9 @@ public class SearchKTVMusicsRequest extends AbstractModel{
         if (source.Limit != null) {
             this.Limit = new Long(source.Limit);
         }
+        if (source.Sort != null) {
+            this.Sort = new SortBy(source.Sort);
+        }
     }
 
 
@@ -118,6 +164,7 @@ public class SearchKTVMusicsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "KeyWord", this.KeyWord);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamObj(map, prefix + "Sort.", this.Sort);
 
     }
 }

@@ -229,7 +229,9 @@ public class OcrClient extends AbstractClient{
 
 驾驶证副页：包括证号、姓名、档案编号、记录。
 
-另外，本接口还支持复印件、翻拍和PS告警功能。
+另外，本接口还支持复印件、翻拍和PS告警功能。同时支持识别交管12123APP发放的电子驾驶证正页。
+
+电子驾驶证正页：包括证号、姓名、性别、国籍、出生日期、初次领证日期、准驾车型、有效期开始时间、有效期截止时间、档案编号、状态、累积记分。
      * @param req DriverLicenseOCRRequest
      * @return DriverLicenseOCRResponse
      * @throws TencentCloudSDKException
@@ -893,7 +895,7 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持对中国大陆机动车车牌的自动定位和识别，返回地域编号和车牌号信息。
+     *本接口支持对中国大陆机动车车牌的自动定位和识别，返回地域编号和车牌号码与车牌颜色信息。
      * @param req LicensePlateOCRRequest
      * @return LicensePlateOCRResponse
      * @throws TencentCloudSDKException
@@ -1172,6 +1174,26 @@ public class OcrClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<RecognizeContainerOCRResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "RecognizeContainerOCR");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口支持粤康码识别，包括姓名、更新时间、健康码颜色，三个字段的识别结果输出。
+     * @param req RecognizeHealthCodeOCRRequest
+     * @return RecognizeHealthCodeOCRResponse
+     * @throws TencentCloudSDKException
+     */
+    public RecognizeHealthCodeOCRResponse RecognizeHealthCodeOCR(RecognizeHealthCodeOCRRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<RecognizeHealthCodeOCRResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<RecognizeHealthCodeOCRResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "RecognizeHealthCodeOCR");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

@@ -142,7 +142,22 @@ public class ClbClient extends AbstractClient{
     }
 
     /**
-     *克隆负载均衡实例，根据指定的负载均衡实例，复制出相同规则和绑定关系的负载均衡实例。
+     *克隆负载均衡实例，根据指定的负载均衡实例，复制出相同规则和绑定关系的负载均衡实例。克隆接口为异步操作，克隆的数据以调用CloneLoadBalancer时为准，如果调用CloneLoadBalancer后克隆CLB发生变化，变化规则不会克隆。
+
+限制说明：
+不支持基础网络和传统型负载均衡、IPv6和NAT64
+不支持包年包月CLB
+不支持监听器为 QUIC、端口段
+不支持后端类型为 目标组、SCF云函数
+个性化配置、重定向配置、安全组默认放通开关 将不会被克隆，须手工配置
+
+权限说明：
+调用克隆接口用户需要具有：CreateLoadBalancer、CreateLoadBalancerListeners、CreateListenerRules、BatchRegisterTargets、SetLoadBalancerSecurityGroups、ModifyLoadBalancerAttributes、SetLoadBalancerClsLog、DeleteLoadBalancer权限，其中DeleteLoadBalancer用于克隆失败回滚流程，如果没有该接口权限，克隆失败后可能会残留克隆失败的CLB数据。
+
+通过接口调用：
+BGP带宽包必须传带宽包id
+独占集群克隆必须传对应的参数，否则按共享型创建
+功能内测中，[申请开通](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=163&source=0&data_title=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20CLB&step=1)。
      * @param req CloneLoadBalancerRequest
      * @return CloneLoadBalancerResponse
      * @throws TencentCloudSDKException
@@ -226,6 +241,7 @@ public class ClbClient extends AbstractClient{
 
     /**
      *针对SnatPro负载均衡，这个接口用于添加SnatIp，如果负载均衡没有开启SnatPro，添加SnatIp后会自动开启。
+本接口为异步接口，接口返回成功后，需以得到的 RequestID 为入参，调用 DescribeTaskStatus 接口查询本次任务是否成功。
      * @param req CreateLoadBalancerSnatIpsRequest
      * @return CreateLoadBalancerSnatIpsResponse
      * @throws TencentCloudSDKException
@@ -370,6 +386,7 @@ public class ClbClient extends AbstractClient{
 
     /**
      *这个接口用于删除SnatPro的负载均衡的SnatIp。
+本接口为异步接口，接口返回成功后，需以得到的 RequestID 为入参，调用 DescribeTaskStatus 接口查询本次任务是否成功。
      * @param req DeleteLoadBalancerSnatIpsRequest
      * @return DeleteLoadBalancerSnatIpsResponse
      * @throws TencentCloudSDKException
@@ -673,6 +690,26 @@ public class ClbClient extends AbstractClient{
     }
 
     /**
+     *查询跨域2.0版本云联网后端子机和网卡信息。
+     * @param req DescribeCrossTargetsRequest
+     * @return DescribeCrossTargetsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCrossTargetsResponse DescribeCrossTargets(DescribeCrossTargetsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeCrossTargetsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeCrossTargetsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeCrossTargets");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *拉取配置绑定的 server 或 location，如果 domain 存在，结果将根据 domain 过滤。或拉取配置绑定的 loadbalancer。
      * @param req DescribeCustomizedConfigAssociateListRequest
      * @return DescribeCustomizedConfigAssociateListResponse
@@ -894,6 +931,26 @@ public class ClbClient extends AbstractClient{
     }
 
     /**
+     *查询用户在当前地域支持可用区列表和资源列表。
+     * @param req DescribeResourcesRequest
+     * @return DescribeResourcesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeResourcesResponse DescribeResources(DescribeResourcesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeResourcesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeResourcesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeResources");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *DescribeRewrite 接口可根据负载均衡实例ID，查询一个负载均衡实例下转发规则的重定向关系。如果不指定监听器ID或转发规则ID，则返回该负载均衡实例下的所有重定向关系。
      * @param req DescribeRewriteRequest
      * @return DescribeRewriteResponse
@@ -1076,6 +1133,27 @@ public class ClbClient extends AbstractClient{
     }
 
     /**
+     *本接口将传统型负载均衡迁移成(原应用型)负载均衡
+本接口为异步接口，接口成功返回后，可使用 DescribeLoadBalancers 接口查询负载均衡实例的状态（如创建中、正常），以确定是否创建成功。
+     * @param req MigrateClassicalLoadBalancersRequest
+     * @return MigrateClassicalLoadBalancersResponse
+     * @throws TencentCloudSDKException
+     */
+    public MigrateClassicalLoadBalancersResponse MigrateClassicalLoadBalancers(MigrateClassicalLoadBalancersRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<MigrateClassicalLoadBalancersResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<MigrateClassicalLoadBalancersResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "MigrateClassicalLoadBalancers");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *修改负载均衡的IP（client IP）封禁黑名单列表，一个转发规则最多支持封禁 2000000 个IP，及黑名单容量为 2000000。
 （接口灰度中，如需使用请提工单）
      * @param req ModifyBlockIPListRequest
@@ -1161,6 +1239,7 @@ public class ClbClient extends AbstractClient{
 
     /**
      *修改负载均衡实例的属性。支持修改负载均衡实例的名称、设置负载均衡的跨域属性。
+本接口为异步接口，接口返回成功后，需以得到的 RequestID 为入参，调用 DescribeTaskStatus 接口查询本次任务是否成功。
      * @param req ModifyLoadBalancerAttributesRequest
      * @return ModifyLoadBalancerAttributesResponse
      * @throws TencentCloudSDKException
@@ -1180,7 +1259,7 @@ public class ClbClient extends AbstractClient{
     }
 
     /**
-     *升、降配接口。支持共享型clb升级到性能保障型clb。支持性能保障型提升等级。支持性能保障降低规格。（不支持性能保障降级到共享型）。
+     *支持共享型clb升级到性能容量型clb（不支持性能保障降级到共享型）。
      * @param req ModifyLoadBalancerSlaRequest
      * @return ModifyLoadBalancerSlaResponse
      * @throws TencentCloudSDKException

@@ -9,6 +9,9 @@ public enum IotcloudErrorCode {
     // 绑定设备超过限制。
      FAILEDOPERATION_BINDDEVICEOVERLIMIT("FailedOperation.BindDeviceOverLimit"),
      
+    // 广播任务正在执行。
+     FAILEDOPERATION_BROADCASTTASKISRUNNING("FailedOperation.BroadcastTaskIsRunning"),
+     
     // 设备已经被禁用。
      FAILEDOPERATION_DEVICEALREADYDISABLED("FailedOperation.DeviceAlreadyDisabled"),
      
@@ -126,6 +129,9 @@ public enum IotcloudErrorCode {
     // 创建的产品名已存在。
      INVALIDPARAMETERVALUE_PRODUCTALREADYEXIST("InvalidParameterValue.ProductAlreadyExist"),
      
+    // 产品不是网关类型，无法绑定子产品。
+     INVALIDPARAMETERVALUE_PRODUCTISNOTGATEWAY("InvalidParameterValue.ProductIsNotGateway"),
+     
     // 产品类型不支持。
      INVALIDPARAMETERVALUE_PRODUCTTYPENOTSUPPORT("InvalidParameterValue.ProductTypeNotSupport"),
      
@@ -218,6 +224,9 @@ public enum IotcloudErrorCode {
      
     // 产品资源不存在。
      RESOURCENOTFOUND_PRODUCTRESOURCENOTEXIST("ResourceNotFound.ProductResourceNotExist"),
+     
+    // 资源文件不存在。
+     RESOURCENOTFOUND_RESOURCEFILENOTEXIST("ResourceNotFound.ResourceFileNotExist"),
      
     // 任务不存在。
      RESOURCENOTFOUND_TASKNOTEXIST("ResourceNotFound.TaskNotExist"),

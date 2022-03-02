@@ -240,7 +240,7 @@ public class CreateDBInstanceRequest extends AbstractModel{
     private Long Cpu;
 
     /**
-    * 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。
+    * 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。该值默认为0。
     */
     @SerializedName("AutoSyncFlag")
     @Expose
@@ -252,6 +252,13 @@ public class CreateDBInstanceRequest extends AbstractModel{
     @SerializedName("CageId")
     @Expose
     private String CageId;
+
+    /**
+    * 默认参数模板类型。支持值包括："HIGH_STABILITY" - 高稳定模板，"HIGH_PERFORMANCE" - 高性能模板。
+    */
+    @SerializedName("ParamTemplateType")
+    @Expose
+    private String ParamTemplateType;
 
     /**
     * 告警策略名数组，例如:["policy-uyoee9wg"]，AlarmPolicyList不为空时该参数无效。
@@ -764,16 +771,16 @@ public class CreateDBInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。 
-     * @return AutoSyncFlag 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。
+     * Get 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。该值默认为0。 
+     * @return AutoSyncFlag 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。该值默认为0。
      */
     public Long getAutoSyncFlag() {
         return this.AutoSyncFlag;
     }
 
     /**
-     * Set 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。
-     * @param AutoSyncFlag 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。
+     * Set 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。该值默认为0。
+     * @param AutoSyncFlag 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。该值默认为0。
      */
     public void setAutoSyncFlag(Long AutoSyncFlag) {
         this.AutoSyncFlag = AutoSyncFlag;
@@ -793,6 +800,22 @@ public class CreateDBInstanceRequest extends AbstractModel{
      */
     public void setCageId(String CageId) {
         this.CageId = CageId;
+    }
+
+    /**
+     * Get 默认参数模板类型。支持值包括："HIGH_STABILITY" - 高稳定模板，"HIGH_PERFORMANCE" - 高性能模板。 
+     * @return ParamTemplateType 默认参数模板类型。支持值包括："HIGH_STABILITY" - 高稳定模板，"HIGH_PERFORMANCE" - 高性能模板。
+     */
+    public String getParamTemplateType() {
+        return this.ParamTemplateType;
+    }
+
+    /**
+     * Set 默认参数模板类型。支持值包括："HIGH_STABILITY" - 高稳定模板，"HIGH_PERFORMANCE" - 高性能模板。
+     * @param ParamTemplateType 默认参数模板类型。支持值包括："HIGH_STABILITY" - 高稳定模板，"HIGH_PERFORMANCE" - 高性能模板。
+     */
+    public void setParamTemplateType(String ParamTemplateType) {
+        this.ParamTemplateType = ParamTemplateType;
     }
 
     /**
@@ -946,6 +969,9 @@ public class CreateDBInstanceRequest extends AbstractModel{
         if (source.CageId != null) {
             this.CageId = new String(source.CageId);
         }
+        if (source.ParamTemplateType != null) {
+            this.ParamTemplateType = new String(source.ParamTemplateType);
+        }
         if (source.AlarmPolicyIdList != null) {
             this.AlarmPolicyIdList = new String[source.AlarmPolicyIdList.length];
             for (int i = 0; i < source.AlarmPolicyIdList.length; i++) {
@@ -995,6 +1021,7 @@ public class CreateDBInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Cpu", this.Cpu);
         this.setParamSimple(map, prefix + "AutoSyncFlag", this.AutoSyncFlag);
         this.setParamSimple(map, prefix + "CageId", this.CageId);
+        this.setParamSimple(map, prefix + "ParamTemplateType", this.ParamTemplateType);
         this.setParamArraySimple(map, prefix + "AlarmPolicyIdList.", this.AlarmPolicyIdList);
         this.setParamSimple(map, prefix + "DryRun", this.DryRun);
 

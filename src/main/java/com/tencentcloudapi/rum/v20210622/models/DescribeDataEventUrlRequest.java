@@ -30,7 +30,7 @@ public class DescribeDataEventUrlRequest extends AbstractModel{
     private Long StartTime;
 
     /**
-    * 类型
+    * allcount：性能视图，day：14天数据，condition：条件列表，ckuv：获取uv趋势，ckpv：获取pv趋势，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图/ext1视图等等
     */
     @SerializedName("Type")
     @Expose
@@ -170,6 +170,13 @@ public class DescribeDataEventUrlRequest extends AbstractModel{
     private String Name;
 
     /**
+    * 环境
+    */
+    @SerializedName("Env")
+    @Expose
+    private String Env;
+
+    /**
      * Get 开始时间 
      * @return StartTime 开始时间
      */
@@ -186,16 +193,16 @@ public class DescribeDataEventUrlRequest extends AbstractModel{
     }
 
     /**
-     * Get 类型 
-     * @return Type 类型
+     * Get allcount：性能视图，day：14天数据，condition：条件列表，ckuv：获取uv趋势，ckpv：获取pv趋势，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图/ext1视图等等 
+     * @return Type allcount：性能视图，day：14天数据，condition：条件列表，ckuv：获取uv趋势，ckpv：获取pv趋势，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图/ext1视图等等
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set 类型
-     * @param Type 类型
+     * Set allcount：性能视图，day：14天数据，condition：条件列表，ckuv：获取uv趋势，ckpv：获取pv趋势，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图/ext1视图等等
+     * @param Type allcount：性能视图，day：14天数据，condition：条件列表，ckuv：获取uv趋势，ckpv：获取pv趋势，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图/ext1视图等等
      */
     public void setType(String Type) {
         this.Type = Type;
@@ -505,6 +512,22 @@ public class DescribeDataEventUrlRequest extends AbstractModel{
         this.Name = Name;
     }
 
+    /**
+     * Get 环境 
+     * @return Env 环境
+     */
+    public String getEnv() {
+        return this.Env;
+    }
+
+    /**
+     * Set 环境
+     * @param Env 环境
+     */
+    public void setEnv(String Env) {
+        this.Env = Env;
+    }
+
     public DescribeDataEventUrlRequest() {
     }
 
@@ -576,6 +599,9 @@ public class DescribeDataEventUrlRequest extends AbstractModel{
         if (source.Name != null) {
             this.Name = new String(source.Name);
         }
+        if (source.Env != null) {
+            this.Env = new String(source.Env);
+        }
     }
 
 
@@ -604,6 +630,7 @@ public class DescribeDataEventUrlRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Os", this.Os);
         this.setParamSimple(map, prefix + "Browser", this.Browser);
         this.setParamSimple(map, prefix + "Name", this.Name);
+        this.setParamSimple(map, prefix + "Env", this.Env);
 
     }
 }

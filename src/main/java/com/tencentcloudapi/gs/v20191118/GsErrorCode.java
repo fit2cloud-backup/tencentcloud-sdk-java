@@ -9,7 +9,7 @@ public enum GsErrorCode {
     // 请降低访问频率。
      FAILEDOPERATION_SLOWDOWN("FailedOperation.SlowDown"),
      
-    // 锁定机器超时或未调用TrylockWorker。
+    // 操作超时。
      FAILEDOPERATION_TIMEOUT("FailedOperation.Timeout"),
      
     // 请求太频繁。
@@ -36,8 +36,14 @@ public enum GsErrorCode {
     // 会话未找到。
      RESOURCENOTFOUND_SESSIONNOTFOUND("ResourceNotFound.SessionNotFound"),
      
+    // 访问并发实例失败。
+     RESOURCEUNAVAILABLE_ACCESSFAILED("ResourceUnavailable.AccessFailed"),
+     
     // 机器还在初始化中。
      RESOURCEUNAVAILABLE_INITIALIZATION("ResourceUnavailable.Initialization"),
+     
+    // 机器未运行。
+     UNSUPPORTEDOPERATION_NOTRUNNING("UnsupportedOperation.NotRunning"),
      
     // 退出游戏中。
      UNSUPPORTEDOPERATION_STOPPING("UnsupportedOperation.Stopping");

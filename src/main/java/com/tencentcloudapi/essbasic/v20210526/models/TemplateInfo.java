@@ -72,7 +72,7 @@ public class TemplateInfo extends AbstractModel{
     private Long CreatedOn;
 
     /**
-    * 模板类型：1-静默签；2-静默签授权；3-普通模版
+    * 模板类型：1-静默签；2-静默签授权；3-普通模板
     */
     @SerializedName("TemplateType")
     @Expose
@@ -84,6 +84,13 @@ public class TemplateInfo extends AbstractModel{
     @SerializedName("Recipients")
     @Expose
     private Recipient [] Recipients;
+
+    /**
+    * 是否是发起人
+    */
+    @SerializedName("IsPromoter")
+    @Expose
+    private Boolean IsPromoter;
 
     /**
      * Get 模板ID 
@@ -198,16 +205,16 @@ public class TemplateInfo extends AbstractModel{
     }
 
     /**
-     * Get 模板类型：1-静默签；2-静默签授权；3-普通模版 
-     * @return TemplateType 模板类型：1-静默签；2-静默签授权；3-普通模版
+     * Get 模板类型：1-静默签；2-静默签授权；3-普通模板 
+     * @return TemplateType 模板类型：1-静默签；2-静默签授权；3-普通模板
      */
     public Long getTemplateType() {
         return this.TemplateType;
     }
 
     /**
-     * Set 模板类型：1-静默签；2-静默签授权；3-普通模版
-     * @param TemplateType 模板类型：1-静默签；2-静默签授权；3-普通模版
+     * Set 模板类型：1-静默签；2-静默签授权；3-普通模板
+     * @param TemplateType 模板类型：1-静默签；2-静默签授权；3-普通模板
      */
     public void setTemplateType(Long TemplateType) {
         this.TemplateType = TemplateType;
@@ -227,6 +234,22 @@ public class TemplateInfo extends AbstractModel{
      */
     public void setRecipients(Recipient [] Recipients) {
         this.Recipients = Recipients;
+    }
+
+    /**
+     * Get 是否是发起人 
+     * @return IsPromoter 是否是发起人
+     */
+    public Boolean getIsPromoter() {
+        return this.IsPromoter;
+    }
+
+    /**
+     * Set 是否是发起人
+     * @param IsPromoter 是否是发起人
+     */
+    public void setIsPromoter(Boolean IsPromoter) {
+        this.IsPromoter = IsPromoter;
     }
 
     public TemplateInfo() {
@@ -273,6 +296,9 @@ public class TemplateInfo extends AbstractModel{
                 this.Recipients[i] = new Recipient(source.Recipients[i]);
             }
         }
+        if (source.IsPromoter != null) {
+            this.IsPromoter = new Boolean(source.IsPromoter);
+        }
     }
 
 
@@ -289,6 +315,7 @@ public class TemplateInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "CreatedOn", this.CreatedOn);
         this.setParamSimple(map, prefix + "TemplateType", this.TemplateType);
         this.setParamArrayObj(map, prefix + "Recipients.", this.Recipients);
+        this.setParamSimple(map, prefix + "IsPromoter", this.IsPromoter);
 
     }
 }

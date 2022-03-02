@@ -109,6 +109,29 @@ public class CbsClient extends AbstractClient{
     }
 
     /**
+     *本接口（CopySnapshotCrossRegions）用于快照跨地域复制。
+
+* 本接口为异步接口，当跨地域复制的请求下发成功后会返回一个新的快照ID，此时快照未立即复制到目标地域，可请求目标地域的[DescribeSnapshots](/document/product/362/15647)接口查询新快照的状态，判断是否复制完成。如果快照的状态为“NORMAL”，表示快照复制完成。
+* 本接口实现的快照跨地域复制操作将产生跨地域流量，预计2022年第三季度会针对此功能进行商业化计费；请留意后续站内信公告，避免产生预期外扣费。
+     * @param req CopySnapshotCrossRegionsRequest
+     * @return CopySnapshotCrossRegionsResponse
+     * @throws TencentCloudSDKException
+     */
+    public CopySnapshotCrossRegionsResponse CopySnapshotCrossRegions(CopySnapshotCrossRegionsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CopySnapshotCrossRegionsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CopySnapshotCrossRegionsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CopySnapshotCrossRegions");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口（CreateAutoSnapshotPolicy）用于创建定期快照策略。
 
 * 每个地域可创建的定期快照策略数量限制请参考文档[定期快照](/document/product/362/8191)。
@@ -310,7 +333,7 @@ public class CbsClient extends AbstractClient{
     /**
      *本接口（DescribeDiskStoragePool）查询用户的云硬盘独享集群列表。
 
-* 可以根据独享集群ID(CdcId)、集群区域名(zone)类型等信息来查询和过滤云硬盘独享集群详细信息，不同条件之间为与(AND)的关系，过滤信息详细请见过滤器`Filter`。
+* 可以根据独享集群ID(CdcId)、可用区(zone)等信息来查询和过滤云硬盘独享集群详细信息，不同的过滤条件之间为与(AND)的关系，过滤信息详细请见过滤器`Filter`。
 * 如果参数为空，返回当前用户一定数量（`Limit`所指定的数量，默认为20）的云硬盘独享集群列表。
      * @param req DescribeDiskStoragePoolRequest
      * @return DescribeDiskStoragePoolResponse
@@ -477,6 +500,30 @@ public class CbsClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<GetSnapOverviewResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "GetSnapOverview");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *重新初始化云硬盘至云硬盘初始创建时的状态。使用云硬盘的重新初始化功能时需要注意以下4点：
+1. 如果云硬盘是由快照创建的，则重新初始化会通过此快照重新回滚此云硬盘，即将云硬盘恢复为与快照一致的状态；
+2. 如果云硬盘不是通过快照创建的，则重新初始化会清空此云硬盘的数据；请在重新初始化云硬盘前检查并备份必要的数据；
+3. 当前仅未挂载的、非共享属性的数据盘云硬盘支持重新初始化；
+4. 当创建此云硬盘的原始快照被删除时，不再支持重新初始化此云硬盘。
+     * @param req InitializeDisksRequest
+     * @return InitializeDisksResponse
+     * @throws TencentCloudSDKException
+     */
+    public InitializeDisksResponse InitializeDisks(InitializeDisksRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<InitializeDisksResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<InitializeDisksResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "InitializeDisks");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

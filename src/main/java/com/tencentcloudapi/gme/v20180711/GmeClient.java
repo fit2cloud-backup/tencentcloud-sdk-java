@@ -189,6 +189,26 @@ public class GmeClient extends AbstractClient{
     }
 
     /**
+     *获取用户自定义送检信息
+     * @param req DescribeRealtimeScanConfigRequest
+     * @return DescribeRealtimeScanConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeRealtimeScanConfigResponse DescribeRealtimeScanConfig(DescribeRealtimeScanConfigRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeRealtimeScanConfigResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeRealtimeScanConfigResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeRealtimeScanConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *获取房间内用户信息
      * @param req DescribeRoomInfoRequest
      * @return DescribeRoomInfoResponse
@@ -300,7 +320,7 @@ public class GmeClient extends AbstractClient{
 <h4><b>接口功能说明：</b></h4>
 <li>支持对语音流或语音文件进行检测，判断其中是否包含违规内容。</li>
 <li>支持设置回调地址 Callback 获取检测结果，同时支持通过接口(查询语音检测结果)主动轮询获取检测结果。</li>
-<li>支持场景输入，包括：谩骂、色情、涉政等场景</li>
+<li>支持场景输入，包括：谩骂、色情等场景</li>
 <li>支持批量提交检测任务。检测任务列表最多支持100个。</li>
 </br>
 <h4><b>音频文件限制说明：</b></h4>
@@ -331,10 +351,8 @@ public class GmeClient extends AbstractClient{
 <td>
 <p>normal:正常文本</p>
 <p>porn:色情</p>
-<p>politics:涉政</p>
 <p>abuse:谩骂</p>
 <p>ad :广告</p>
-<p>terrorism:暴恐</p>
 <p>contraband :违禁</p>
 <p>customized:自定义词库。目前白名单开放，如有需要请<a href="https://cloud.tencent.com/apply/p/8809fjcik56">联系我们</a>。</p>
 </td>
@@ -446,9 +464,49 @@ public class GmeClient extends AbstractClient{
     }
 
     /**
-     *本接口用于识别涉黄、涉政等违规音频，成功会回调配置在应用的回调地址。回调示例如下：
+     *更新自定义送检房间号
+     * @param req UpdateScanRoomsRequest
+     * @return UpdateScanRoomsResponse
+     * @throws TencentCloudSDKException
+     */
+    public UpdateScanRoomsResponse UpdateScanRooms(UpdateScanRoomsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<UpdateScanRoomsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<UpdateScanRoomsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "UpdateScanRooms");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *更新自定义送检用户号
+     * @param req UpdateScanUsersRequest
+     * @return UpdateScanUsersResponse
+     * @throws TencentCloudSDKException
+     */
+    public UpdateScanUsersResponse UpdateScanUsers(UpdateScanUsersRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<UpdateScanUsersResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<UpdateScanUsersResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "UpdateScanUsers");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口用于识别涉黄等违规音频，成功会回调配置在应用的回调地址。回调示例如下：
 {"BizId":0,"FileId":"test_file_id","FileName":"test_file_name","FileUrl":"test_file_url","OpenId":"test_open_id","TimeStamp":"0000-00-00 00:00:00","Data":[{"Type":1,"Word":"xx"}]}
-Type表示过滤类型，1：政治，2：色情，3：谩骂
+Type表示过滤类型，1：色情，2：谩骂
      * @param req VoiceFilterRequest
      * @return VoiceFilterResponse
      * @throws TencentCloudSDKException

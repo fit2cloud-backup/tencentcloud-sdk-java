@@ -18,6 +18,9 @@ public enum CdbErrorCode {
     // 后端任务错误。
      CDBERROR_TASKERROR("CdbError.TaskError"),
      
+    // 操作失败。
+     FAILEDOPERATION("FailedOperation"),
+     
     // 异步任务状态异常。
      FAILEDOPERATION_ASYNCTASKSTATUSERROR("FailedOperation.AsyncTaskStatusError"),
      
@@ -42,6 +45,9 @@ public enum CdbErrorCode {
     // 删除审计失败。
      FAILEDOPERATION_DELETEAUDITFAILERROR("FailedOperation.DeleteAuditFailError"),
      
+    // 查询数据库代理失败。
+     FAILEDOPERATION_DESCRIBEPROXYGROUPERROR("FailedOperation.DescribeProxyGroupError"),
+     
     // 获取权限错误。
      FAILEDOPERATION_GETPRIVILEGEERROR("FailedOperation.GetPrivilegeError"),
      
@@ -57,14 +63,17 @@ public enum CdbErrorCode {
     // 不是延迟复制RO。
      FAILEDOPERATION_NOTDELAYRO("FailedOperation.NotDelayRo"),
      
-    // 调用后端接口开启延迟复制操作失败。
-     FAILEDOPERATION_OPERATIONREPLICATIONERROR("FailedOperation.OperationReplicationError"),
-     
     // 执行的权限修改操作非法。您可以参照产品文档，了解当前实例支持哪些权限修改操作，如有疑问，请您咨询客服进行处理。
      FAILEDOPERATION_PRIVILEGEDATAILLEGAL("FailedOperation.PrivilegeDataIllegal"),
      
+    // 数据库代理状态异常。
+     FAILEDOPERATION_PROXYGROUPSTATUSERROR("FailedOperation.ProxyGroupStatusError"),
+     
     // 查询日志失败。
      FAILEDOPERATION_QUERYLOGERROR("FailedOperation.QueryLogError"),
+     
+    // 代理创建中或则已存在，请勿重复创建。
+     FAILEDOPERATION_REPEATCREATEPROXYERROR("FailedOperation.RepeatCreateProxyError"),
      
     // 后台请求服务异常，请您联系客服解决。
      FAILEDOPERATION_RESPONSEVALUEERROR("FailedOperation.ResponseValueError"),
@@ -77,6 +86,9 @@ public enum CdbErrorCode {
      
     // 提交任务失败，请稍后重试。如果持续提交失败，请您联系客服进行处理。
      FAILEDOPERATION_SUBMITASYNCTASKERROR("FailedOperation.SubmitAsyncTaskError"),
+     
+    // 查询超时。
+     FAILEDOPERATION_TIMEOUTERROR("FailedOperation.TimeoutError"),
      
     // 类型错误，无法执行该操作。
      FAILEDOPERATION_TYPEINCONFLICT("FailedOperation.TypeInConflict"),
@@ -282,17 +294,8 @@ public enum CdbErrorCode {
     // 数据转换失败。
      INVALIDPARAMETERVALUE_DATACONVERTERROR("InvalidParameterValue.DataConvertError"),
      
-    // 指定时间点不能大于当前时间。
-     INVALIDPARAMETERVALUE_DUETIMEWRONG("InvalidParameterValue.DueTimeWrong"),
-     
     // 参数值无效。
      INVALIDPARAMETERVALUE_INVALIDPARAMETERVALUEERROR("InvalidParameterValue.InvalidParameterValueError"),
-     
-    // 源类型与目标类型一致。
-     INVALIDPARAMETERVALUE_SRCTYPEEQUALDSTTYPE("InvalidParameterValue.SrcTypeEqualDstType"),
-     
-    // 当前ro实例类型与操作实例类型不一致。
-     INVALIDPARAMETERVALUE_SRCTYPENOTEQUALDSTTYPE("InvalidParameterValue.SrcTypeNotEqualDstType"),
      
     // 账号用户名规则错误。
      INVALIDPARAMETERVALUE_USERNAMERULEERROR("InvalidParameterValue.UserNameRuleError"),
@@ -342,6 +345,9 @@ public enum CdbErrorCode {
     // 审计策略不存在。
      OPERATIONDENIED_AUDITPOLICYNOTEXISTERROR("OperationDenied.AuditPolicyNotExistError"),
      
+    // 审计策略数量超限。
+     OPERATIONDENIED_AUDITPOLICYOVERQUOTAERROR("OperationDenied.AuditPolicyOverQuotaError"),
+     
     // 审计规则删除失败。
      OPERATIONDENIED_AUDITRULEDELETEERROR("OperationDenied.AuditRuleDeleteError"),
      
@@ -359,6 +365,9 @@ public enum CdbErrorCode {
      
     // 审计任务冲突。
      OPERATIONDENIED_AUDITTASKCONFLICTERROR("OperationDenied.AuditTaskConflictError"),
+     
+    // 当前RO组有RO实例处于非法状态，不允许执行当前操作。
+     OPERATIONDENIED_CONFLICTROSTATUS("OperationDenied.ConflictRoStatus"),
      
     // 已开通安全审计,不支持规则审计。
      OPERATIONDENIED_DBBRAINPOLICYCONFLICT("OperationDenied.DBBrainPolicyConflict"),

@@ -38,7 +38,7 @@ public class CloneLoadBalancerRequest extends AbstractModel{
     private String LoadBalancerName;
 
     /**
-    * 负载均衡实例所属的项目 ID，可以通过 DescribeProject 接口获取。不传此参数则视为默认项目。
+    * 负载均衡实例所属的项目 ID，可以通过 [DescribeProject](https://cloud.tencent.com/document/product/378/4400) 接口获取。不传此参数则视为默认项目。
     */
     @SerializedName("ProjectId")
     @Expose
@@ -46,7 +46,7 @@ public class CloneLoadBalancerRequest extends AbstractModel{
 
     /**
     * 仅适用于公网负载均衡。设置跨可用区容灾时的主可用区ID，例如 100001 或 ap-guangzhou-1
-注：主可用区是需要承载流量的可用区，备可用区默认不承载流量，主可用区不可用时才使用备可用区，平台将为您自动选择最佳备可用区。可通过 DescribeMasterZones 接口查询一个地域的主可用区的列表。
+注：主可用区是需要承载流量的可用区，备可用区默认不承载流量，主可用区不可用时才使用备可用区，平台将为您自动选择最佳备可用区。
     */
     @SerializedName("MasterZoneId")
     @Expose
@@ -131,6 +131,13 @@ public class CloneLoadBalancerRequest extends AbstractModel{
     private String [] ClusterIds;
 
     /**
+    * 性能保障规格。
+    */
+    @SerializedName("SlaType")
+    @Expose
+    private String SlaType;
+
+    /**
     * Stgw独占集群的标签。
     */
     @SerializedName("ClusterTag")
@@ -188,16 +195,16 @@ public class CloneLoadBalancerRequest extends AbstractModel{
     }
 
     /**
-     * Get 负载均衡实例所属的项目 ID，可以通过 DescribeProject 接口获取。不传此参数则视为默认项目。 
-     * @return ProjectId 负载均衡实例所属的项目 ID，可以通过 DescribeProject 接口获取。不传此参数则视为默认项目。
+     * Get 负载均衡实例所属的项目 ID，可以通过 [DescribeProject](https://cloud.tencent.com/document/product/378/4400) 接口获取。不传此参数则视为默认项目。 
+     * @return ProjectId 负载均衡实例所属的项目 ID，可以通过 [DescribeProject](https://cloud.tencent.com/document/product/378/4400) 接口获取。不传此参数则视为默认项目。
      */
     public Long getProjectId() {
         return this.ProjectId;
     }
 
     /**
-     * Set 负载均衡实例所属的项目 ID，可以通过 DescribeProject 接口获取。不传此参数则视为默认项目。
-     * @param ProjectId 负载均衡实例所属的项目 ID，可以通过 DescribeProject 接口获取。不传此参数则视为默认项目。
+     * Set 负载均衡实例所属的项目 ID，可以通过 [DescribeProject](https://cloud.tencent.com/document/product/378/4400) 接口获取。不传此参数则视为默认项目。
+     * @param ProjectId 负载均衡实例所属的项目 ID，可以通过 [DescribeProject](https://cloud.tencent.com/document/product/378/4400) 接口获取。不传此参数则视为默认项目。
      */
     public void setProjectId(Long ProjectId) {
         this.ProjectId = ProjectId;
@@ -205,9 +212,9 @@ public class CloneLoadBalancerRequest extends AbstractModel{
 
     /**
      * Get 仅适用于公网负载均衡。设置跨可用区容灾时的主可用区ID，例如 100001 或 ap-guangzhou-1
-注：主可用区是需要承载流量的可用区，备可用区默认不承载流量，主可用区不可用时才使用备可用区，平台将为您自动选择最佳备可用区。可通过 DescribeMasterZones 接口查询一个地域的主可用区的列表。 
+注：主可用区是需要承载流量的可用区，备可用区默认不承载流量，主可用区不可用时才使用备可用区，平台将为您自动选择最佳备可用区。 
      * @return MasterZoneId 仅适用于公网负载均衡。设置跨可用区容灾时的主可用区ID，例如 100001 或 ap-guangzhou-1
-注：主可用区是需要承载流量的可用区，备可用区默认不承载流量，主可用区不可用时才使用备可用区，平台将为您自动选择最佳备可用区。可通过 DescribeMasterZones 接口查询一个地域的主可用区的列表。
+注：主可用区是需要承载流量的可用区，备可用区默认不承载流量，主可用区不可用时才使用备可用区，平台将为您自动选择最佳备可用区。
      */
     public String getMasterZoneId() {
         return this.MasterZoneId;
@@ -215,9 +222,9 @@ public class CloneLoadBalancerRequest extends AbstractModel{
 
     /**
      * Set 仅适用于公网负载均衡。设置跨可用区容灾时的主可用区ID，例如 100001 或 ap-guangzhou-1
-注：主可用区是需要承载流量的可用区，备可用区默认不承载流量，主可用区不可用时才使用备可用区，平台将为您自动选择最佳备可用区。可通过 DescribeMasterZones 接口查询一个地域的主可用区的列表。
+注：主可用区是需要承载流量的可用区，备可用区默认不承载流量，主可用区不可用时才使用备可用区，平台将为您自动选择最佳备可用区。
      * @param MasterZoneId 仅适用于公网负载均衡。设置跨可用区容灾时的主可用区ID，例如 100001 或 ap-guangzhou-1
-注：主可用区是需要承载流量的可用区，备可用区默认不承载流量，主可用区不可用时才使用备可用区，平台将为您自动选择最佳备可用区。可通过 DescribeMasterZones 接口查询一个地域的主可用区的列表。
+注：主可用区是需要承载流量的可用区，备可用区默认不承载流量，主可用区不可用时才使用备可用区，平台将为您自动选择最佳备可用区。
      */
     public void setMasterZoneId(String MasterZoneId) {
         this.MasterZoneId = MasterZoneId;
@@ -404,6 +411,22 @@ public class CloneLoadBalancerRequest extends AbstractModel{
     }
 
     /**
+     * Get 性能保障规格。 
+     * @return SlaType 性能保障规格。
+     */
+    public String getSlaType() {
+        return this.SlaType;
+    }
+
+    /**
+     * Set 性能保障规格。
+     * @param SlaType 性能保障规格。
+     */
+    public void setSlaType(String SlaType) {
+        this.SlaType = SlaType;
+    }
+
+    /**
      * Get Stgw独占集群的标签。 
      * @return ClusterTag Stgw独占集群的标签。
      */
@@ -513,6 +536,9 @@ public class CloneLoadBalancerRequest extends AbstractModel{
                 this.ClusterIds[i] = new String(source.ClusterIds[i]);
             }
         }
+        if (source.SlaType != null) {
+            this.SlaType = new String(source.SlaType);
+        }
         if (source.ClusterTag != null) {
             this.ClusterTag = new String(source.ClusterTag);
         }
@@ -547,6 +573,7 @@ public class CloneLoadBalancerRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SnatPro", this.SnatPro);
         this.setParamArrayObj(map, prefix + "SnatIps.", this.SnatIps);
         this.setParamArraySimple(map, prefix + "ClusterIds.", this.ClusterIds);
+        this.setParamSimple(map, prefix + "SlaType", this.SlaType);
         this.setParamSimple(map, prefix + "ClusterTag", this.ClusterTag);
         this.setParamArraySimple(map, prefix + "Zones.", this.Zones);
         this.setParamSimple(map, prefix + "EipAddressId", this.EipAddressId);

@@ -23,11 +23,34 @@ import java.util.HashMap;
 public class CreateNatFwInstanceResponse extends AbstractModel{
 
     /**
+    * 防火墙实例id
+    */
+    @SerializedName("CfwInsId")
+    @Expose
+    private String CfwInsId;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
+
+    /**
+     * Get 防火墙实例id 
+     * @return CfwInsId 防火墙实例id
+     */
+    public String getCfwInsId() {
+        return this.CfwInsId;
+    }
+
+    /**
+     * Set 防火墙实例id
+     * @param CfwInsId 防火墙实例id
+     */
+    public void setCfwInsId(String CfwInsId) {
+        this.CfwInsId = CfwInsId;
+    }
 
     /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
@@ -53,6 +76,9 @@ public class CreateNatFwInstanceResponse extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public CreateNatFwInstanceResponse(CreateNatFwInstanceResponse source) {
+        if (source.CfwInsId != null) {
+            this.CfwInsId = new String(source.CfwInsId);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -63,6 +89,7 @@ public class CreateNatFwInstanceResponse extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "CfwInsId", this.CfwInsId);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

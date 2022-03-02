@@ -30,18 +30,25 @@ public class GetVideoListByConRequest extends AbstractModel{
     private String DeviceId;
 
     /**
-    * 偏移量，默认0
+    * 偏移量
     */
     @SerializedName("Offset")
     @Expose
     private Long Offset;
 
     /**
-    * 限制量，默认200
+    * 限制量
     */
     @SerializedName("Limit")
     @Expose
     private Long Limit;
+
+    /**
+    * 通道唯一标识，对于NVR设备，多通道IPC设备，设备编码与通道编码不一致的IPC设备，此字段为必填
+    */
+    @SerializedName("ChannelId")
+    @Expose
+    private String ChannelId;
 
     /**
     * 0：查询指定日期的录像；1：查询最近一天的录像；默认0
@@ -52,18 +59,11 @@ public class GetVideoListByConRequest extends AbstractModel{
 
     /**
     * 指定某天。取值【YYYY-MM-DD】
-当LatestDay为空或为0时，本参数不允许为空。
+为空时默认查询最近一天的记录
     */
     @SerializedName("Date")
     @Expose
     private String Date;
-
-    /**
-    * 通道唯一标识
-    */
-    @SerializedName("ChannelId")
-    @Expose
-    private String ChannelId;
 
     /**
     * 1: 云端录制 2: 本地录制
@@ -89,35 +89,51 @@ public class GetVideoListByConRequest extends AbstractModel{
     }
 
     /**
-     * Get 偏移量，默认0 
-     * @return Offset 偏移量，默认0
+     * Get 偏移量 
+     * @return Offset 偏移量
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 偏移量，默认0
-     * @param Offset 偏移量，默认0
+     * Set 偏移量
+     * @param Offset 偏移量
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get 限制量，默认200 
-     * @return Limit 限制量，默认200
+     * Get 限制量 
+     * @return Limit 限制量
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 限制量，默认200
-     * @param Limit 限制量，默认200
+     * Set 限制量
+     * @param Limit 限制量
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
+    }
+
+    /**
+     * Get 通道唯一标识，对于NVR设备，多通道IPC设备，设备编码与通道编码不一致的IPC设备，此字段为必填 
+     * @return ChannelId 通道唯一标识，对于NVR设备，多通道IPC设备，设备编码与通道编码不一致的IPC设备，此字段为必填
+     */
+    public String getChannelId() {
+        return this.ChannelId;
+    }
+
+    /**
+     * Set 通道唯一标识，对于NVR设备，多通道IPC设备，设备编码与通道编码不一致的IPC设备，此字段为必填
+     * @param ChannelId 通道唯一标识，对于NVR设备，多通道IPC设备，设备编码与通道编码不一致的IPC设备，此字段为必填
+     */
+    public void setChannelId(String ChannelId) {
+        this.ChannelId = ChannelId;
     }
 
     /**
@@ -138,9 +154,9 @@ public class GetVideoListByConRequest extends AbstractModel{
 
     /**
      * Get 指定某天。取值【YYYY-MM-DD】
-当LatestDay为空或为0时，本参数不允许为空。 
+为空时默认查询最近一天的记录 
      * @return Date 指定某天。取值【YYYY-MM-DD】
-当LatestDay为空或为0时，本参数不允许为空。
+为空时默认查询最近一天的记录
      */
     public String getDate() {
         return this.Date;
@@ -148,28 +164,12 @@ public class GetVideoListByConRequest extends AbstractModel{
 
     /**
      * Set 指定某天。取值【YYYY-MM-DD】
-当LatestDay为空或为0时，本参数不允许为空。
+为空时默认查询最近一天的记录
      * @param Date 指定某天。取值【YYYY-MM-DD】
-当LatestDay为空或为0时，本参数不允许为空。
+为空时默认查询最近一天的记录
      */
     public void setDate(String Date) {
         this.Date = Date;
-    }
-
-    /**
-     * Get 通道唯一标识 
-     * @return ChannelId 通道唯一标识
-     */
-    public String getChannelId() {
-        return this.ChannelId;
-    }
-
-    /**
-     * Set 通道唯一标识
-     * @param ChannelId 通道唯一标识
-     */
-    public void setChannelId(String ChannelId) {
-        this.ChannelId = ChannelId;
     }
 
     /**
@@ -205,14 +205,14 @@ public class GetVideoListByConRequest extends AbstractModel{
         if (source.Limit != null) {
             this.Limit = new Long(source.Limit);
         }
+        if (source.ChannelId != null) {
+            this.ChannelId = new String(source.ChannelId);
+        }
         if (source.LatestDay != null) {
             this.LatestDay = new Long(source.LatestDay);
         }
         if (source.Date != null) {
             this.Date = new String(source.Date);
-        }
-        if (source.ChannelId != null) {
-            this.ChannelId = new String(source.ChannelId);
         }
         if (source.Type != null) {
             this.Type = new Long(source.Type);
@@ -227,9 +227,9 @@ public class GetVideoListByConRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "DeviceId", this.DeviceId);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamSimple(map, prefix + "ChannelId", this.ChannelId);
         this.setParamSimple(map, prefix + "LatestDay", this.LatestDay);
         this.setParamSimple(map, prefix + "Date", this.Date);
-        this.setParamSimple(map, prefix + "ChannelId", this.ChannelId);
         this.setParamSimple(map, prefix + "Type", this.Type);
 
     }

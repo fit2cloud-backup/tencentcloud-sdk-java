@@ -33,6 +33,9 @@ public enum EssbasicErrorCode {
     // 生成唯一ID错误。
      INTERNALERROR_GENERATEID("InternalError.GenerateId"),
      
+    // 系统错误。
+     INTERNALERROR_SYSTEM("InternalError.System"),
+     
     // 第三方错误。
      INTERNALERROR_THIRDPARTY("InternalError.ThirdParty"),
      
@@ -72,6 +75,9 @@ public enum EssbasicErrorCode {
     // 没有API权限。
      OPERATIONDENIED_NOAPIAUTH("OperationDenied.NoApiAuth"),
      
+    // 未通过个人实名。
+     OPERATIONDENIED_NOIDENTITYVERIFY("OperationDenied.NoIdentityVerify"),
+     
     // 用户与企业不对应。
      OPERATIONDENIED_USERNOTINORGANIZATION("OperationDenied.UserNotInOrganization"),
      
@@ -80,6 +86,9 @@ public enum EssbasicErrorCode {
      
     // 应用号不存在。
      RESOURCENOTFOUND_APPLICATION("ResourceNotFound.Application"),
+     
+    // 机构不存在。
+     RESOURCENOTFOUND_ORGANIZATION("ResourceNotFound.Organization"),
      
     // 模板不存在。
      RESOURCENOTFOUND_TEMPLATE("ResourceNotFound.Template"),

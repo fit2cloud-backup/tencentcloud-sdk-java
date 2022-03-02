@@ -259,6 +259,30 @@ public class InstanceAttributesResponse extends AbstractModel{
     private String DeleteRouteTimestamp;
 
     /**
+    * 剩余创建分区数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RemainingPartitions")
+    @Expose
+    private Long RemainingPartitions;
+
+    /**
+    * 剩余创建主题数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RemainingTopics")
+    @Expose
+    private Long RemainingTopics;
+
+    /**
+    * 动态硬盘扩容策略
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DynamicDiskConfig")
+    @Expose
+    private DynamicDiskConfig DynamicDiskConfig;
+
+    /**
      * Get 实例ID 
      * @return InstanceId 实例ID
      */
@@ -818,6 +842,66 @@ public class InstanceAttributesResponse extends AbstractModel{
         this.DeleteRouteTimestamp = DeleteRouteTimestamp;
     }
 
+    /**
+     * Get 剩余创建分区数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RemainingPartitions 剩余创建分区数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getRemainingPartitions() {
+        return this.RemainingPartitions;
+    }
+
+    /**
+     * Set 剩余创建分区数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RemainingPartitions 剩余创建分区数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRemainingPartitions(Long RemainingPartitions) {
+        this.RemainingPartitions = RemainingPartitions;
+    }
+
+    /**
+     * Get 剩余创建主题数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RemainingTopics 剩余创建主题数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getRemainingTopics() {
+        return this.RemainingTopics;
+    }
+
+    /**
+     * Set 剩余创建主题数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RemainingTopics 剩余创建主题数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRemainingTopics(Long RemainingTopics) {
+        this.RemainingTopics = RemainingTopics;
+    }
+
+    /**
+     * Get 动态硬盘扩容策略
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DynamicDiskConfig 动态硬盘扩容策略
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public DynamicDiskConfig getDynamicDiskConfig() {
+        return this.DynamicDiskConfig;
+    }
+
+    /**
+     * Set 动态硬盘扩容策略
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DynamicDiskConfig 动态硬盘扩容策略
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDynamicDiskConfig(DynamicDiskConfig DynamicDiskConfig) {
+        this.DynamicDiskConfig = DynamicDiskConfig;
+    }
+
     public InstanceAttributesResponse() {
     }
 
@@ -934,6 +1018,15 @@ public class InstanceAttributesResponse extends AbstractModel{
         if (source.DeleteRouteTimestamp != null) {
             this.DeleteRouteTimestamp = new String(source.DeleteRouteTimestamp);
         }
+        if (source.RemainingPartitions != null) {
+            this.RemainingPartitions = new Long(source.RemainingPartitions);
+        }
+        if (source.RemainingTopics != null) {
+            this.RemainingTopics = new Long(source.RemainingTopics);
+        }
+        if (source.DynamicDiskConfig != null) {
+            this.DynamicDiskConfig = new DynamicDiskConfig(source.DynamicDiskConfig);
+        }
     }
 
 
@@ -973,6 +1066,9 @@ public class InstanceAttributesResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "MaxConnection", this.MaxConnection);
         this.setParamSimple(map, prefix + "PublicNetwork", this.PublicNetwork);
         this.setParamSimple(map, prefix + "DeleteRouteTimestamp", this.DeleteRouteTimestamp);
+        this.setParamSimple(map, prefix + "RemainingPartitions", this.RemainingPartitions);
+        this.setParamSimple(map, prefix + "RemainingTopics", this.RemainingTopics);
+        this.setParamObj(map, prefix + "DynamicDiskConfig.", this.DynamicDiskConfig);
 
     }
 }

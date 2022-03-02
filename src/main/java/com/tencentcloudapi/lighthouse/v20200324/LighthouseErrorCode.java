@@ -1,5 +1,11 @@
 package com.tencentcloudapi.lighthouse.v20200324;
 public enum LighthouseErrorCode {
+    // CAM签名/鉴权错误。
+     AUTHFAILURE("AuthFailure"),
+     
+    // 操作失败。
+     FAILEDOPERATION("FailedOperation"),
+     
     // 创建镜像失败。
      FAILEDOPERATION_CREATEBLUEPRINTFAILED("FailedOperation.CreateBlueprintFailed"),
      
@@ -24,8 +30,14 @@ public enum LighthouseErrorCode {
     // 操作失败，不能创建自定义镜像。
      FAILEDOPERATION_UNABLETOCREATEBLUEPRINT("FailedOperation.UnableToCreateBlueprint"),
      
+    // 无法创建实例。
+     FAILEDOPERATION_UNABLETOCREATEINSTANCES("FailedOperation.UnableToCreateInstances"),
+     
     // 内部错误。
      INTERNALERROR("InternalError"),
+     
+    // 查询磁盘返回了不合法内容。
+     INTERNALERROR_DESCRIBEDISKSRETURNABLEERROR("InternalError.DescribeDisksReturnableError"),
      
     // 查询实例状态失败，请稍后重试。
      INTERNALERROR_DESCRIBEINSTANCESTATUS("InternalError.DescribeInstanceStatus"),
@@ -45,6 +57,9 @@ public enum LighthouseErrorCode {
     // 快照配额锁获取失败。
      INTERNALERROR_GETSNAPSHOTALLOCQUOTALOCKERROR("InternalError.GetSnapshotAllocQuotaLockError"),
      
+    // 无法找到此接口。
+     INTERNALERROR_INVALIDACTIONNOTFOUND("InternalError.InvalidActionNotFound"),
+     
     // 套餐价格错误。
      INTERNALERROR_INVALIDBUNDLEPRICE("InternalError.InvalidBundlePrice"),
      
@@ -54,8 +69,17 @@ public enum LighthouseErrorCode {
     // 请求出现错误。
      INTERNALERROR_REQUESTERROR("InternalError.RequestError"),
      
+    // 调用计费网关服务失败。
+     INTERNALERROR_TRADECALLBILLINGGATEWAYFAILED("InternalError.TradeCallBillingGatewayFailed"),
+     
     // 价格获取失败。
      INTERNALERROR_TRADEGETPRICEFAILED("InternalError.TradeGetPriceFailed"),
+     
+    // 参数错误。
+     INVALIDPARAMETER("InvalidParameter"),
+     
+    // 套餐和镜像不匹配。
+     INVALIDPARAMETER_BUNDLEANDBLUEPRINTNOTMATCH("InvalidParameter.BundleAndBlueprintNotMatch"),
      
     // 产品未定义的套餐 ID。
      INVALIDPARAMETER_BUNDLEIDNOTFOUND("InvalidParameter.BundleIdNotFound"),
@@ -138,6 +162,9 @@ public enum LighthouseErrorCode {
     // 镜像类型不合法。
      INVALIDPARAMETERVALUE_INVALIDBLUEPRINTTYPE("InvalidParameterValue.InvalidBlueprintType"),
      
+    // 非法的套餐参数。
+     INVALIDPARAMETERVALUE_INVALIDBUNDLE("InvalidParameterValue.InvalidBundle"),
+     
     // 控制台显示类型不合法。
      INVALIDPARAMETERVALUE_INVALIDCONSOLEDISPLAYTYPES("InvalidParameterValue.InvalidConsoleDisplayTypes"),
      
@@ -158,6 +185,9 @@ public enum LighthouseErrorCode {
      
     // 参数长度非法。
      INVALIDPARAMETERVALUE_INVALIDKEYPAIRNAMETOOLONG("InvalidParameterValue.InvalidKeyPairNameTooLong"),
+     
+    // 参数组合非法。
+     INVALIDPARAMETERVALUE_INVALIDPARAMETERCOMBINATION("InvalidParameterValue.InvalidParameterCombination"),
      
     // 参数中的密码不合法。
      INVALIDPARAMETERVALUE_INVALIDPASSWORD("InvalidParameterValue.InvalidPassword"),
@@ -201,8 +231,17 @@ public enum LighthouseErrorCode {
     // 非法的可用区。
      INVALIDPARAMETERVALUE_ZONEINVALID("InvalidParameterValue.ZoneInvalid"),
      
+    // 超过配额限制。
+     LIMITEXCEEDED("LimitExceeded"),
+     
+    // 实例挂载数据盘配额不足，无法挂载磁盘。
+     LIMITEXCEEDED_ATTACHDATADISKQUOTALIMITEXCEEDED("LimitExceeded.AttachDataDiskQuotaLimitExceeded"),
+     
     // 超过防火墙规则配额。
      LIMITEXCEEDED_FIREWALLRULESLIMITEXCEEDED("LimitExceeded.FirewallRulesLimitExceeded"),
+     
+    // 超过实例配额。
+     LIMITEXCEEDED_INSTANCEQUOTALIMITEXCEEDED("LimitExceeded.InstanceQuotaLimitExceeded"),
      
     // 超过密钥对配额。
      LIMITEXCEEDED_KEYPAIRLIMITEXCEEDED("LimitExceeded.KeyPairLimitExceeded"),
@@ -215,6 +254,15 @@ public enum LighthouseErrorCode {
      
     // 该实例不支持升级套餐操作。
      OPERATIONDENIED_BUNDLENOTSUPPORTMODIFY("OperationDenied.BundleNotSupportModify"),
+     
+    // 磁盘处于创建过程中。
+     OPERATIONDENIED_DISKCREATING("OperationDenied.DiskCreating"),
+     
+    // 磁盘正在操作过程中，请稍后重试。
+     OPERATIONDENIED_DISKOPERATIONINPROGRESS("OperationDenied.DiskOperationInProgress"),
+     
+    // 磁盘的云盘类型不支持该操作。
+     OPERATIONDENIED_DISKUSAGENOTSUPPORTOPERATION("OperationDenied.DiskUsageNotSupportOperation"),
      
     // 禁止对实例进行操作，实例在创建中，不允许进行该操作。
      OPERATIONDENIED_INSTANCECREATING("OperationDenied.InstanceCreating"),
@@ -236,6 +284,9 @@ public enum LighthouseErrorCode {
      
     // 指定的镜像不存在。请检查镜像的BlueprintId是否正确。
      RESOURCENOTFOUND_BLUEPRINTNOTFOUND("ResourceNotFound.BlueprintNotFound"),
+     
+    // 磁盘 ID 不存在。
+     RESOURCENOTFOUND_DISKIDNOTFOUND("ResourceNotFound.DiskIdNotFound"),
      
     // 磁盘不存在。
      RESOURCENOTFOUND_DISKNOTFOUND("ResourceNotFound.DiskNotFound"),
@@ -263,6 +314,18 @@ public enum LighthouseErrorCode {
      
     // 资源不可用。
      RESOURCEUNAVAILABLE("ResourceUnavailable"),
+     
+    // 镜像资源不可用。
+     RESOURCEUNAVAILABLE_BLUEPRINTUNAVAILABLE("ResourceUnavailable.BlueprintUnavailable"),
+     
+    // 套餐不可用。
+     RESOURCEUNAVAILABLE_BUNDLEUNAVAILABLE("ResourceUnavailable.BundleUnavailable"),
+     
+    // 套餐无可用配置。
+     RESOURCESSOLDOUT_PURCHASESOURCEHASNOBUNDLECONFIGS("ResourcesSoldOut.PurchaseSourceHasNoBundleConfigs"),
+     
+    // 套餐无可用配置。
+     RESOURCESSOLDOUT_ZONESHASNOBUNDLECONFIGS("ResourcesSoldOut.ZonesHasNoBundleConfigs"),
      
     // MFA 已过期。
      UNAUTHORIZEDOPERATION_MFAEXPIRED("UnauthorizedOperation.MFAExpired"),
@@ -311,6 +374,12 @@ public enum LighthouseErrorCode {
      
     // 实例已到期，不支持该操作。
      UNSUPPORTEDOPERATION_INSTANCEEXPIRED("UnsupportedOperation.InstanceExpired"),
+     
+    // LinuxUnix实例在创建时不支持设置密码。
+     UNSUPPORTEDOPERATION_INSTANCELINUXUNIXCREATINGNOTSUPPORTPASSWORD("UnsupportedOperation.InstanceLinuxUnixCreatingNotSupportPassword"),
+     
+    // 磁盘状态不支持该操作。
+     UNSUPPORTEDOPERATION_INVALIDDISKSTATE("UnsupportedOperation.InvalidDiskState"),
      
     // 不支持的操作，实例状态不合法。
      UNSUPPORTEDOPERATION_INVALIDINSTANCESTATE("UnsupportedOperation.InvalidInstanceState"),

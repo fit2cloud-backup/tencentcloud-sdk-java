@@ -59,6 +59,26 @@ public class CdbClient extends AbstractClient{
     }
 
     /**
+     *针对主实例申请创建数据库代理。
+     * @param req ApplyCDBProxyRequest
+     * @return ApplyCDBProxyResponse
+     * @throws TencentCloudSDKException
+     */
+    public ApplyCDBProxyResponse ApplyCDBProxy(ApplyCDBProxyRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ApplyCDBProxyResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ApplyCDBProxyResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ApplyCDBProxy");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口(AssociateSecurityGroups)用于安全组批量绑定实例。
      * @param req AssociateSecurityGroupsRequest
      * @return AssociateSecurityGroupsResponse
@@ -91,6 +111,26 @@ public class CdbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<BalanceRoGroupLoadResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "BalanceRoGroupLoad");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *关闭数据库代理
+     * @param req CloseCDBProxyRequest
+     * @return CloseCDBProxyResponse
+     * @throws TencentCloudSDKException
+     */
+    public CloseCDBProxyResponse CloseCDBProxy(CloseCDBProxyRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CloseCDBProxyResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CloseCDBProxyResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CloseCDBProxy");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -862,6 +902,26 @@ public class CdbClient extends AbstractClient{
     }
 
     /**
+     *查询数据库代理
+     * @param req DescribeCDBProxyRequest
+     * @return DescribeCDBProxyResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCDBProxyResponse DescribeCDBProxy(DescribeCDBProxyRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeCDBProxyResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeCDBProxyResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeCDBProxy");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口(DescribeCloneList) 用于查询用户实例的克隆任务列表。
      * @param req DescribeCloneListRequest
      * @return DescribeCloneListResponse
@@ -1265,6 +1325,26 @@ public class CdbClient extends AbstractClient{
     }
 
     /**
+     *该接口用于查询实例本地binlog保留策略。
+     * @param req DescribeLocalBinlogConfigRequest
+     * @return DescribeLocalBinlogConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeLocalBinlogConfigResponse DescribeLocalBinlogConfig(DescribeLocalBinlogConfigRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeLocalBinlogConfigResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeLocalBinlogConfigResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeLocalBinlogConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *该接口（DescribeParamTemplateInfo）用于查询参数模板详情，全地域公共参数Region均为ap-guangzhou。
      * @param req DescribeParamTemplateInfoRequest
      * @return DescribeParamTemplateInfoResponse
@@ -1285,7 +1365,7 @@ public class CdbClient extends AbstractClient{
     }
 
     /**
-     *该接口（DescribeParamTemplates）查询参数模板列表。
+     *该接口（DescribeParamTemplates）查询参数模板列表，全地域公共参数Region均为ap-guangzhou。
      * @param req DescribeParamTemplatesRequest
      * @return DescribeParamTemplatesResponse
      * @throws TencentCloudSDKException
@@ -1317,6 +1397,46 @@ public class CdbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeProjectSecurityGroupsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeProjectSecurityGroups");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取数据库代理连接池相关规格配置
+     * @param req DescribeProxyConnectionPoolConfRequest
+     * @return DescribeProxyConnectionPoolConfResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeProxyConnectionPoolConfResponse DescribeProxyConnectionPoolConf(DescribeProxyConnectionPoolConfRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeProxyConnectionPoolConfResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeProxyConnectionPoolConfResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeProxyConnectionPoolConf");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询代理规格配置
+     * @param req DescribeProxyCustomConfRequest
+     * @return DescribeProxyCustomConfResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeProxyCustomConfResponse DescribeProxyCustomConf(DescribeProxyCustomConfRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeProxyCustomConfResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeProxyCustomConfResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeProxyCustomConf");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1546,7 +1666,7 @@ public class CdbClient extends AbstractClient{
     }
 
     /**
-     *本接口(DescribeUploadedFiles)用于查询用户导入的SQL文件列表。
+     *本接口(DescribeUploadedFiles)用于查询用户导入的SQL文件列表，全地域公共参数Region均为ap-shanghai。
      * @param req DescribeUploadedFilesRequest
      * @return DescribeUploadedFilesResponse
      * @throws TencentCloudSDKException
@@ -1849,6 +1969,86 @@ public class CdbClient extends AbstractClient{
     }
 
     /**
+     *配置数据库代理读写分离
+     * @param req ModifyCDBProxyRequest
+     * @return ModifyCDBProxyResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyCDBProxyResponse ModifyCDBProxy(ModifyCDBProxyRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyCDBProxyResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyCDBProxyResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyCDBProxy");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *请求该接口配置数据库连接池；支持的连接池配置请求DescribeProxyConnectionPoolConf接口获取。
+     * @param req ModifyCDBProxyConnectionPoolRequest
+     * @return ModifyCDBProxyConnectionPoolResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyCDBProxyConnectionPoolResponse ModifyCDBProxyConnectionPool(ModifyCDBProxyConnectionPoolRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyCDBProxyConnectionPoolResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyCDBProxyConnectionPoolResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyCDBProxyConnectionPool");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改数据库代理描述
+     * @param req ModifyCDBProxyDescRequest
+     * @return ModifyCDBProxyDescResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyCDBProxyDescResponse ModifyCDBProxyDesc(ModifyCDBProxyDescRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyCDBProxyDescResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyCDBProxyDescResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyCDBProxyDesc");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改数据库代理VIP或端口
+     * @param req ModifyCDBProxyVipVPortRequest
+     * @return ModifyCDBProxyVipVPortResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyCDBProxyVipVPortResponse ModifyCDBProxyVipVPort(ModifyCDBProxyVipVPortRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyCDBProxyVipVPortResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyCDBProxyVipVPortResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyCDBProxyVipVPort");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口(ModifyDBInstanceName)用于修改云数据库实例的名称。
      * @param req ModifyDBInstanceNameRequest
      * @return ModifyDBInstanceNameResponse
@@ -1969,6 +2169,26 @@ public class CdbClient extends AbstractClient{
     }
 
     /**
+     *该接口用于修改实例本地binlog保留策略。
+     * @param req ModifyLocalBinlogConfigRequest
+     * @return ModifyLocalBinlogConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyLocalBinlogConfigResponse ModifyLocalBinlogConfig(ModifyLocalBinlogConfigRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyLocalBinlogConfigResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyLocalBinlogConfigResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyLocalBinlogConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *修改置放群组的名称或者描述
      * @param req ModifyNameOrDescByDpIdRequest
      * @return ModifyNameOrDescByDpIdResponse
@@ -2009,7 +2229,7 @@ public class CdbClient extends AbstractClient{
     }
 
     /**
-     *本接口（ModifyRoGroupInfo）用于更新云数据库只读组的信息。包括设置实例延迟超限剔除策略，设置只读实例读权重等。
+     *本接口（ModifyRoGroupInfo）用于更新云数据库只读组的信息。包括设置实例延迟超限剔除策略，设置只读实例读权重，设置复制延迟时间等。
      * @param req ModifyRoGroupInfoRequest
      * @return ModifyRoGroupInfoResponse
      * @throws TencentCloudSDKException
@@ -2021,26 +2241,6 @@ public class CdbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<ModifyRoGroupInfoResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifyRoGroupInfo");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *修改延迟只读实例的延迟复制时间。
-     * @param req ModifyRoReplicationDelayRequest
-     * @return ModifyRoReplicationDelayResponse
-     * @throws TencentCloudSDKException
-     */
-    public ModifyRoReplicationDelayResponse ModifyRoReplicationDelay(ModifyRoReplicationDelayRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyRoReplicationDelayResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyRoReplicationDelayResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyRoReplicationDelay");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -2135,6 +2335,26 @@ public class CdbClient extends AbstractClient{
     }
 
     /**
+     *查询代理详情
+     * @param req QueryCDBProxyRequest
+     * @return QueryCDBProxyResponse
+     * @throws TencentCloudSDKException
+     */
+    public QueryCDBProxyResponse QueryCDBProxy(QueryCDBProxyRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<QueryCDBProxyResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<QueryCDBProxyResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "QueryCDBProxy");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口（ReleaseIsolatedDBInstances）用于恢复已隔离云数据库实例。
      * @param req ReleaseIsolatedDBInstancesRequest
      * @return ReleaseIsolatedDBInstancesResponse
@@ -2147,6 +2367,26 @@ public class CdbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<ReleaseIsolatedDBInstancesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ReleaseIsolatedDBInstances");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *重新负载均衡数据库代理
+     * @param req ReloadBalanceProxyNodeRequest
+     * @return ReloadBalanceProxyNodeResponse
+     * @throws TencentCloudSDKException
+     */
+    public ReloadBalanceProxyNodeResponse ReloadBalanceProxyNode(ReloadBalanceProxyNodeRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ReloadBalanceProxyNodeResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ReloadBalanceProxyNodeResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ReloadBalanceProxyNode");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -2219,18 +2459,18 @@ public class CdbClient extends AbstractClient{
     }
 
     /**
-     *启动延迟只读实例的延迟复制。
-     * @param req StartDelayReplicationRequest
-     * @return StartDelayReplicationResponse
+     *开启 RO 复制，从主实例同步数据。
+     * @param req StartReplicationRequest
+     * @return StartReplicationResponse
      * @throws TencentCloudSDKException
      */
-    public StartDelayReplicationResponse StartDelayReplication(StartDelayReplicationRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<StartDelayReplicationResponse> rsp = null;
+    public StartReplicationResponse StartReplication(StartReplicationRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<StartReplicationResponse> rsp = null;
         String rspStr = "";
         try {
-                Type type = new TypeToken<JsonResponseModel<StartDelayReplicationResponse>>() {
+                Type type = new TypeToken<JsonResponseModel<StartReplicationResponse>>() {
                 }.getType();
-                rspStr = this.internalRequest(req, "StartDelayReplication");
+                rspStr = this.internalRequest(req, "StartReplication");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -2259,18 +2499,18 @@ public class CdbClient extends AbstractClient{
     }
 
     /**
-     *停止延迟只读实例的延迟复制。
-     * @param req StopDelayReplicationRequest
-     * @return StopDelayReplicationResponse
+     *停止 RO 复制，中断从主实例同步数据。
+     * @param req StopReplicationRequest
+     * @return StopReplicationResponse
      * @throws TencentCloudSDKException
      */
-    public StopDelayReplicationResponse StopDelayReplication(StopDelayReplicationRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<StopDelayReplicationResponse> rsp = null;
+    public StopReplicationResponse StopReplication(StopReplicationRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<StopReplicationResponse> rsp = null;
         String rspStr = "";
         try {
-                Type type = new TypeToken<JsonResponseModel<StopDelayReplicationResponse>>() {
+                Type type = new TypeToken<JsonResponseModel<StopReplicationResponse>>() {
                 }.getType();
-                rspStr = this.internalRequest(req, "StopDelayReplication");
+                rspStr = this.internalRequest(req, "StopReplication");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -2291,6 +2531,26 @@ public class CdbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<StopRollbackResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "StopRollback");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *数据库代理配置变更或则升级版本后手动发起立即切换
+     * @param req SwitchCDBProxyRequest
+     * @return SwitchCDBProxyResponse
+     * @throws TencentCloudSDKException
+     */
+    public SwitchCDBProxyResponse SwitchCDBProxy(SwitchCDBProxyRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<SwitchCDBProxyResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<SwitchCDBProxyResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "SwitchCDBProxy");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -2351,6 +2611,46 @@ public class CdbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<SwitchForUpgradeResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "SwitchForUpgrade");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *调整数据库代理配置
+     * @param req UpgradeCDBProxyRequest
+     * @return UpgradeCDBProxyResponse
+     * @throws TencentCloudSDKException
+     */
+    public UpgradeCDBProxyResponse UpgradeCDBProxy(UpgradeCDBProxyRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<UpgradeCDBProxyResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<UpgradeCDBProxyResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "UpgradeCDBProxy");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *升级数据库代理版本
+     * @param req UpgradeCDBProxyVersionRequest
+     * @return UpgradeCDBProxyVersionResponse
+     * @throws TencentCloudSDKException
+     */
+    public UpgradeCDBProxyVersionResponse UpgradeCDBProxyVersion(UpgradeCDBProxyVersionRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<UpgradeCDBProxyVersionResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<UpgradeCDBProxyVersionResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "UpgradeCDBProxyVersion");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

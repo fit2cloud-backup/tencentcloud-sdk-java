@@ -30,13 +30,6 @@ public class CreateInstancesRequest extends AbstractModel{
     private String SpecCode;
 
     /**
-    * PostgreSQL主版本，目前支持：9.3、9.5、10、11、12、13以及9.3.5、9.5.4、10.4、11.8、12.4版本。
-    */
-    @SerializedName("DBVersion")
-    @Expose
-    private String DBVersion;
-
-    /**
     * 实例容量大小，单位：GB。
     */
     @SerializedName("Storage")
@@ -91,6 +84,13 @@ public class CreateInstancesRequest extends AbstractModel{
     @SerializedName("ProjectId")
     @Expose
     private Long ProjectId;
+
+    /**
+    * PostgreSQL版本。当输入该参数时，会基于此版本创建对应的最新内核版本号实例
+    */
+    @SerializedName("DBVersion")
+    @Expose
+    private String DBVersion;
 
     /**
     * 实例计费类型。目前支持：PREPAID（预付费，即包年包月），POSTPAID_BY_HOUR（后付费，即按量计费）。
@@ -170,6 +170,27 @@ public class CreateInstancesRequest extends AbstractModel{
     private String [] SecurityGroupIds;
 
     /**
+    * PostgreSQL主要版本。目前支持10，11，12，13这几个版本。当输入该参数时，会基于此版本创建对应的最新内核版本号实例
+    */
+    @SerializedName("DBMajorVersion")
+    @Expose
+    private String DBMajorVersion;
+
+    /**
+    * PostgreSQL内核版本。当输入该参数时，会创建该内核版本号实例
+    */
+    @SerializedName("DBKernelVersion")
+    @Expose
+    private String DBKernelVersion;
+
+    /**
+    * 实例节点信息，购买跨可用区实例时填写。
+    */
+    @SerializedName("DBNodeSet")
+    @Expose
+    private DBNode [] DBNodeSet;
+
+    /**
      * Get 售卖规格ID。该参数可以通过调用DescribeProductConfig的返回值中的SpecCode字段来获取。 
      * @return SpecCode 售卖规格ID。该参数可以通过调用DescribeProductConfig的返回值中的SpecCode字段来获取。
      */
@@ -183,22 +204,6 @@ public class CreateInstancesRequest extends AbstractModel{
      */
     public void setSpecCode(String SpecCode) {
         this.SpecCode = SpecCode;
-    }
-
-    /**
-     * Get PostgreSQL主版本，目前支持：9.3、9.5、10、11、12、13以及9.3.5、9.5.4、10.4、11.8、12.4版本。 
-     * @return DBVersion PostgreSQL主版本，目前支持：9.3、9.5、10、11、12、13以及9.3.5、9.5.4、10.4、11.8、12.4版本。
-     */
-    public String getDBVersion() {
-        return this.DBVersion;
-    }
-
-    /**
-     * Set PostgreSQL主版本，目前支持：9.3、9.5、10、11、12、13以及9.3.5、9.5.4、10.4、11.8、12.4版本。
-     * @param DBVersion PostgreSQL主版本，目前支持：9.3、9.5、10、11、12、13以及9.3.5、9.5.4、10.4、11.8、12.4版本。
-     */
-    public void setDBVersion(String DBVersion) {
-        this.DBVersion = DBVersion;
     }
 
     /**
@@ -327,6 +332,22 @@ public class CreateInstancesRequest extends AbstractModel{
      */
     public void setProjectId(Long ProjectId) {
         this.ProjectId = ProjectId;
+    }
+
+    /**
+     * Get PostgreSQL版本。当输入该参数时，会基于此版本创建对应的最新内核版本号实例 
+     * @return DBVersion PostgreSQL版本。当输入该参数时，会基于此版本创建对应的最新内核版本号实例
+     */
+    public String getDBVersion() {
+        return this.DBVersion;
+    }
+
+    /**
+     * Set PostgreSQL版本。当输入该参数时，会基于此版本创建对应的最新内核版本号实例
+     * @param DBVersion PostgreSQL版本。当输入该参数时，会基于此版本创建对应的最新内核版本号实例
+     */
+    public void setDBVersion(String DBVersion) {
+        this.DBVersion = DBVersion;
     }
 
     /**
@@ -505,6 +526,54 @@ public class CreateInstancesRequest extends AbstractModel{
         this.SecurityGroupIds = SecurityGroupIds;
     }
 
+    /**
+     * Get PostgreSQL主要版本。目前支持10，11，12，13这几个版本。当输入该参数时，会基于此版本创建对应的最新内核版本号实例 
+     * @return DBMajorVersion PostgreSQL主要版本。目前支持10，11，12，13这几个版本。当输入该参数时，会基于此版本创建对应的最新内核版本号实例
+     */
+    public String getDBMajorVersion() {
+        return this.DBMajorVersion;
+    }
+
+    /**
+     * Set PostgreSQL主要版本。目前支持10，11，12，13这几个版本。当输入该参数时，会基于此版本创建对应的最新内核版本号实例
+     * @param DBMajorVersion PostgreSQL主要版本。目前支持10，11，12，13这几个版本。当输入该参数时，会基于此版本创建对应的最新内核版本号实例
+     */
+    public void setDBMajorVersion(String DBMajorVersion) {
+        this.DBMajorVersion = DBMajorVersion;
+    }
+
+    /**
+     * Get PostgreSQL内核版本。当输入该参数时，会创建该内核版本号实例 
+     * @return DBKernelVersion PostgreSQL内核版本。当输入该参数时，会创建该内核版本号实例
+     */
+    public String getDBKernelVersion() {
+        return this.DBKernelVersion;
+    }
+
+    /**
+     * Set PostgreSQL内核版本。当输入该参数时，会创建该内核版本号实例
+     * @param DBKernelVersion PostgreSQL内核版本。当输入该参数时，会创建该内核版本号实例
+     */
+    public void setDBKernelVersion(String DBKernelVersion) {
+        this.DBKernelVersion = DBKernelVersion;
+    }
+
+    /**
+     * Get 实例节点信息，购买跨可用区实例时填写。 
+     * @return DBNodeSet 实例节点信息，购买跨可用区实例时填写。
+     */
+    public DBNode [] getDBNodeSet() {
+        return this.DBNodeSet;
+    }
+
+    /**
+     * Set 实例节点信息，购买跨可用区实例时填写。
+     * @param DBNodeSet 实例节点信息，购买跨可用区实例时填写。
+     */
+    public void setDBNodeSet(DBNode [] DBNodeSet) {
+        this.DBNodeSet = DBNodeSet;
+    }
+
     public CreateInstancesRequest() {
     }
 
@@ -515,9 +584,6 @@ public class CreateInstancesRequest extends AbstractModel{
     public CreateInstancesRequest(CreateInstancesRequest source) {
         if (source.SpecCode != null) {
             this.SpecCode = new String(source.SpecCode);
-        }
-        if (source.DBVersion != null) {
-            this.DBVersion = new String(source.DBVersion);
         }
         if (source.Storage != null) {
             this.Storage = new Long(source.Storage);
@@ -542,6 +608,9 @@ public class CreateInstancesRequest extends AbstractModel{
         }
         if (source.ProjectId != null) {
             this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.DBVersion != null) {
+            this.DBVersion = new String(source.DBVersion);
         }
         if (source.InstanceChargeType != null) {
             this.InstanceChargeType = new String(source.InstanceChargeType);
@@ -585,6 +654,18 @@ public class CreateInstancesRequest extends AbstractModel{
                 this.SecurityGroupIds[i] = new String(source.SecurityGroupIds[i]);
             }
         }
+        if (source.DBMajorVersion != null) {
+            this.DBMajorVersion = new String(source.DBMajorVersion);
+        }
+        if (source.DBKernelVersion != null) {
+            this.DBKernelVersion = new String(source.DBKernelVersion);
+        }
+        if (source.DBNodeSet != null) {
+            this.DBNodeSet = new DBNode[source.DBNodeSet.length];
+            for (int i = 0; i < source.DBNodeSet.length; i++) {
+                this.DBNodeSet[i] = new DBNode(source.DBNodeSet[i]);
+            }
+        }
     }
 
 
@@ -593,7 +674,6 @@ public class CreateInstancesRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "SpecCode", this.SpecCode);
-        this.setParamSimple(map, prefix + "DBVersion", this.DBVersion);
         this.setParamSimple(map, prefix + "Storage", this.Storage);
         this.setParamSimple(map, prefix + "InstanceCount", this.InstanceCount);
         this.setParamSimple(map, prefix + "Period", this.Period);
@@ -602,6 +682,7 @@ public class CreateInstancesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "AdminName", this.AdminName);
         this.setParamSimple(map, prefix + "AdminPassword", this.AdminPassword);
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
+        this.setParamSimple(map, prefix + "DBVersion", this.DBVersion);
         this.setParamSimple(map, prefix + "InstanceChargeType", this.InstanceChargeType);
         this.setParamSimple(map, prefix + "AutoVoucher", this.AutoVoucher);
         this.setParamArraySimple(map, prefix + "VoucherIds.", this.VoucherIds);
@@ -613,6 +694,9 @@ public class CreateInstancesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "NeedSupportIpv6", this.NeedSupportIpv6);
         this.setParamArrayObj(map, prefix + "TagList.", this.TagList);
         this.setParamArraySimple(map, prefix + "SecurityGroupIds.", this.SecurityGroupIds);
+        this.setParamSimple(map, prefix + "DBMajorVersion", this.DBMajorVersion);
+        this.setParamSimple(map, prefix + "DBKernelVersion", this.DBKernelVersion);
+        this.setParamArrayObj(map, prefix + "DBNodeSet.", this.DBNodeSet);
 
     }
 }

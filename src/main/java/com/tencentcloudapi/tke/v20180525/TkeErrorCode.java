@@ -75,6 +75,9 @@ public enum TkeErrorCode {
     // 存在云服务器在CVM侧查询不到。
      INTERNALERROR_CVMNUMBERNOTMATCH("InternalError.CvmNumberNotMatch"),
      
+    // cvm状态不正常。
+     INTERNALERROR_CVMSTATUS("InternalError.CvmStatus"),
+     
     // db错误。
      INTERNALERROR_DB("InternalError.Db"),
      
@@ -165,6 +168,9 @@ public enum TkeErrorCode {
     // 路由表不存在。
      INTERNALERROR_ROUTETABLENOTFOUND("InternalError.RouteTableNotFound"),
      
+    // 已有相同任务执行中。
+     INTERNALERROR_TASKALREADYRUNNING("InternalError.TaskAlreadyRunning"),
+     
     // 创建任务失败。
      INTERNALERROR_TASKCREATEFAILED("InternalError.TaskCreateFailed"),
      
@@ -227,6 +233,9 @@ public enum TkeErrorCode {
      
     // 下一跳地址已关联CIDR。
      INVALIDPARAMETER_GATEWAYALREADYASSOCIATEDCIDR("InvalidParameter.GatewayAlreadyAssociatedCidr"),
+     
+    // 无效的私有CIDR网段。
+     INVALIDPARAMETER_INVALIDPRIVATENETWORKCIDR("InvalidParameter.InvalidPrivateNetworkCIDR"),
      
     // 参数错误。
      INVALIDPARAMETER_PARAM("InvalidParameter.Param"),

@@ -99,6 +99,26 @@ public class DbbrainClient extends AbstractClient{
     }
 
     /**
+     *创建中断会话的任务。
+     * @param req CreateKillTaskRequest
+     * @return CreateKillTaskResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateKillTaskResponse CreateKillTask(CreateKillTaskRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateKillTaskResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateKillTaskResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateKillTask");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *创建邮件配置。其中入参ProfileType表示所创建配置的类型，ProfileType 取值包括：dbScan_mail_configuration（数据库巡检邮件配置）、scheduler_mail_configuration（定期生成健康报告的邮件发送配置）。Region统一选择广州，和实例所属地域无关。
      * @param req CreateMailProfileRequest
      * @return CreateMailProfileResponse
@@ -111,6 +131,26 @@ public class DbbrainClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<CreateMailProfileResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "CreateMailProfile");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *创建中止所有代理节点连接会话的异步任务。当前仅支持 Redis。得到的返回值为异步任务 id，可以作为参数传入接口 DescribeProxySessionKillTasks 查询kill会话任务执行状态。
+     * @param req CreateProxySessionKillTaskRequest
+     * @return CreateProxySessionKillTaskResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateProxySessionKillTaskResponse CreateProxySessionKillTask(CreateProxySessionKillTaskRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateProxySessionKillTaskResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateProxySessionKillTaskResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateProxySessionKillTask");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -231,6 +271,26 @@ public class DbbrainClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeDBDiagEventResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeDBDiagEvent");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取指定时间段内的诊断事件列表，支持依据风险等级、实例ID等条件过滤。
+     * @param req DescribeDBDiagEventsRequest
+     * @return DescribeDBDiagEventsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeDBDiagEventsResponse DescribeDBDiagEvents(DescribeDBDiagEventsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeDBDiagEventsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeDBDiagEventsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeDBDiagEvents");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -371,6 +431,26 @@ public class DbbrainClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeMySqlProcessListResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeMySqlProcessList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *用于查询 redis 执行 kill 会话任务后代理节点的执行结果，入参异步任务 ID 从接口 CreateProxySessionKillTask 调用成功后取得。当前 product 只支持：redis。
+     * @param req DescribeProxySessionKillTasksRequest
+     * @return DescribeProxySessionKillTasksResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeProxySessionKillTasksResponse DescribeProxySessionKillTasks(DescribeProxySessionKillTasksRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeProxySessionKillTasksResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeProxySessionKillTasksResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeProxySessionKillTasks");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

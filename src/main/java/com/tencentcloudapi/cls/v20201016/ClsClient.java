@@ -79,7 +79,7 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
-     *该接口用户创建告警通知模板。
+     *该接口用户创建通知渠道组。
      * @param req CreateAlarmNoticeRequest
      * @return CreateAlarmNoticeResponse
      * @throws TencentCloudSDKException
@@ -91,46 +91,6 @@ public class ClsClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<CreateAlarmNoticeResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "CreateAlarmNotice");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *本接口用于创建离线上下文任务
-     * @param req CreateAsyncContextTaskRequest
-     * @return CreateAsyncContextTaskResponse
-     * @throws TencentCloudSDKException
-     */
-    public CreateAsyncContextTaskResponse CreateAsyncContextTask(CreateAsyncContextTaskRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateAsyncContextTaskResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateAsyncContextTaskResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateAsyncContextTask");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *本接口用于创建离线检索任务
-     * @param req CreateAsyncSearchTaskRequest
-     * @return CreateAsyncSearchTaskResponse
-     * @throws TencentCloudSDKException
-     */
-    public CreateAsyncSearchTaskResponse CreateAsyncSearchTask(CreateAsyncSearchTaskRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateAsyncSearchTaskResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateAsyncSearchTaskResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateAsyncSearchTask");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -151,6 +111,26 @@ public class ClsClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<CreateConfigResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "CreateConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口用于创建投递任务
+     * @param req CreateConsumerRequest
+     * @return CreateConsumerResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateConsumerResponse CreateConsumer(CreateConsumerRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateConsumerResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateConsumerResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateConsumer");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -299,7 +279,7 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
-     *该接口用于删除告警通知模板
+     *该接口用于删除通知渠道组
      * @param req DeleteAlarmNoticeRequest
      * @return DeleteAlarmNoticeResponse
      * @throws TencentCloudSDKException
@@ -311,46 +291,6 @@ public class ClsClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DeleteAlarmNoticeResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DeleteAlarmNotice");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *本接口用于删除离线上下文任务
-     * @param req DeleteAsyncContextTaskRequest
-     * @return DeleteAsyncContextTaskResponse
-     * @throws TencentCloudSDKException
-     */
-    public DeleteAsyncContextTaskResponse DeleteAsyncContextTask(DeleteAsyncContextTaskRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteAsyncContextTaskResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteAsyncContextTaskResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteAsyncContextTask");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *本接口用于删除离线检索任务
-     * @param req DeleteAsyncSearchTaskRequest
-     * @return DeleteAsyncSearchTaskResponse
-     * @throws TencentCloudSDKException
-     */
-    public DeleteAsyncSearchTaskResponse DeleteAsyncSearchTask(DeleteAsyncSearchTaskRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteAsyncSearchTaskResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteAsyncSearchTaskResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteAsyncSearchTask");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -399,6 +339,26 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
+     *本接口用于删除投递配置
+     * @param req DeleteConsumerRequest
+     * @return DeleteConsumerResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteConsumerResponse DeleteConsumer(DeleteConsumerRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteConsumerResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteConsumerResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteConsumer");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口用于删除日志下载任务
      * @param req DeleteExportRequest
      * @return DeleteExportResponse
@@ -419,7 +379,7 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
-     *本接口用于日志主题的索引配置
+     *本接口用于删除日志主题的索引配置，删除索引配置后将无法检索和查询采集到的日志。
      * @param req DeleteIndexRequest
      * @return DeleteIndexResponse
      * @throws TencentCloudSDKException
@@ -519,7 +479,7 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
-     *该接口用于获取告警通知模板列表
+     *该接口用于获取通知渠道组列表
      * @param req DescribeAlarmNoticesRequest
      * @return DescribeAlarmNoticesResponse
      * @throws TencentCloudSDKException
@@ -539,7 +499,7 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
-     *本接口用于获取告警策略。
+     *本接口用于获取告警策略列表。
      * @param req DescribeAlarmsRequest
      * @return DescribeAlarmsResponse
      * @throws TencentCloudSDKException
@@ -551,86 +511,6 @@ public class ClsClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeAlarmsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeAlarms");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *本接口用户获取离线上下文任务的结果
-     * @param req DescribeAsyncContextResultRequest
-     * @return DescribeAsyncContextResultResponse
-     * @throws TencentCloudSDKException
-     */
-    public DescribeAsyncContextResultResponse DescribeAsyncContextResult(DescribeAsyncContextResultRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAsyncContextResultResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAsyncContextResultResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAsyncContextResult");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *本接口用于获取离线上下文任务列表
-     * @param req DescribeAsyncContextTasksRequest
-     * @return DescribeAsyncContextTasksResponse
-     * @throws TencentCloudSDKException
-     */
-    public DescribeAsyncContextTasksResponse DescribeAsyncContextTasks(DescribeAsyncContextTasksRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAsyncContextTasksResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAsyncContextTasksResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAsyncContextTasks");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *本接口用户获取离线检索任务的结果
-     * @param req DescribeAsyncSearchResultRequest
-     * @return DescribeAsyncSearchResultResponse
-     * @throws TencentCloudSDKException
-     */
-    public DescribeAsyncSearchResultResponse DescribeAsyncSearchResult(DescribeAsyncSearchResultRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAsyncSearchResultResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAsyncSearchResultResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAsyncSearchResult");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *本接口用户获取离线检索任务列表
-     * @param req DescribeAsyncSearchTasksRequest
-     * @return DescribeAsyncSearchTasksResponse
-     * @throws TencentCloudSDKException
-     */
-    public DescribeAsyncSearchTasksResponse DescribeAsyncSearchTasks(DescribeAsyncSearchTasksRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAsyncSearchTasksResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAsyncSearchTasksResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAsyncSearchTasks");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -671,6 +551,26 @@ public class ClsClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeConfigsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeConfigs");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口用于获取投递配置
+     * @param req DescribeConsumerRequest
+     * @return DescribeConsumerResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeConsumerResponse DescribeConsumer(DescribeConsumerRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeConsumerResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeConsumerResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeConsumer");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -959,7 +859,7 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
-     *该接口用于修改告警通知模板。
+     *该接口用于修改通知渠道组
      * @param req ModifyAlarmNoticeRequest
      * @return ModifyAlarmNoticeResponse
      * @throws TencentCloudSDKException
@@ -991,6 +891,26 @@ public class ClsClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<ModifyConfigResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifyConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口用于修改投递任务
+     * @param req ModifyConsumerRequest
+     * @return ModifyConsumerResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyConsumerResponse ModifyConsumer(ModifyConsumerRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyConsumerResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyConsumerResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyConsumer");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1120,7 +1040,7 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
-     *本接口用于搜索日志
+     *本接口用于检索分析日志, 该接口除受默认接口请求频率限制外，针对单个日志主题，查询并发数不能超过15。
      * @param req SearchLogRequest
      * @return SearchLogResponse
      * @throws TencentCloudSDKException

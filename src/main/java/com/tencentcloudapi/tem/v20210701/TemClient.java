@@ -119,6 +119,29 @@ public class TemClient extends AbstractClient{
     }
 
     /**
+     *服务删除
+  - 停止当前运行服务
+  - 删除服务相关资源
+  - 删除服务
+     * @param req DeleteApplicationRequest
+     * @return DeleteApplicationResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteApplicationResponse DeleteApplication(DeleteApplicationRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteApplicationResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteApplicationResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteApplication");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *删除 Ingress 规则
      * @param req DeleteIngressRequest
      * @return DeleteIngressResponse
@@ -379,6 +402,26 @@ public class TemClient extends AbstractClient{
     }
 
     /**
+     *服务重启
+     * @param req RestartApplicationRequest
+     * @return RestartApplicationResponse
+     * @throws TencentCloudSDKException
+     */
+    public RestartApplicationResponse RestartApplication(RestartApplicationRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<RestartApplicationResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<RestartApplicationResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "RestartApplication");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *重启应用实例
      * @param req RestartApplicationPodRequest
      * @return RestartApplicationPodResponse
@@ -431,6 +474,46 @@ public class TemClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<RevertDeployApplicationResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "RevertDeployApplication");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *更新应用部署版本
+     * @param req RollingUpdateApplicationByVersionRequest
+     * @return RollingUpdateApplicationByVersionResponse
+     * @throws TencentCloudSDKException
+     */
+    public RollingUpdateApplicationByVersionResponse RollingUpdateApplicationByVersion(RollingUpdateApplicationByVersionRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<RollingUpdateApplicationByVersionResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<RollingUpdateApplicationByVersionResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "RollingUpdateApplicationByVersion");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *服务停止
+     * @param req StopApplicationRequest
+     * @return StopApplicationResponse
+     * @throws TencentCloudSDKException
+     */
+    public StopApplicationResponse StopApplication(StopApplicationRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<StopApplicationResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<StopApplicationResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "StopApplication");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

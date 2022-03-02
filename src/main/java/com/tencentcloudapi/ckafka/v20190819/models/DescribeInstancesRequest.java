@@ -58,11 +58,18 @@ public class DescribeInstancesRequest extends AbstractModel{
     private Long Limit;
 
     /**
-    * 匹配标签key值。
+    * 已废弃。匹配标签key值。
     */
     @SerializedName("TagKey")
     @Expose
     private String TagKey;
+
+    /**
+    * 私有网络Id
+    */
+    @SerializedName("VpcId")
+    @Expose
+    private String VpcId;
 
     /**
      * Get （过滤条件）按照实例ID过滤 
@@ -145,19 +152,35 @@ public class DescribeInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 匹配标签key值。 
-     * @return TagKey 匹配标签key值。
+     * Get 已废弃。匹配标签key值。 
+     * @return TagKey 已废弃。匹配标签key值。
      */
     public String getTagKey() {
         return this.TagKey;
     }
 
     /**
-     * Set 匹配标签key值。
-     * @param TagKey 匹配标签key值。
+     * Set 已废弃。匹配标签key值。
+     * @param TagKey 已废弃。匹配标签key值。
      */
     public void setTagKey(String TagKey) {
         this.TagKey = TagKey;
+    }
+
+    /**
+     * Get 私有网络Id 
+     * @return VpcId 私有网络Id
+     */
+    public String getVpcId() {
+        return this.VpcId;
+    }
+
+    /**
+     * Set 私有网络Id
+     * @param VpcId 私有网络Id
+     */
+    public void setVpcId(String VpcId) {
+        this.VpcId = VpcId;
     }
 
     public DescribeInstancesRequest() {
@@ -189,6 +212,9 @@ public class DescribeInstancesRequest extends AbstractModel{
         if (source.TagKey != null) {
             this.TagKey = new String(source.TagKey);
         }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
     }
 
 
@@ -202,6 +228,7 @@ public class DescribeInstancesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "TagKey", this.TagKey);
+        this.setParamSimple(map, prefix + "VpcId", this.VpcId);
 
     }
 }

@@ -23,11 +23,12 @@ import java.util.HashMap;
 public class CreateComplianceTaskRequest extends AbstractModel{
 
     /**
-    * 指定要扫描的资产类型列表。若不填，对所有资产触发扫描。
+    * 指定要扫描的资产类型列表。
 ASSET_CONTAINER, 容器
 ASSET_IMAGE, 镜像
 ASSET_HOST, 主机
 ASSET_K8S, K8S资产
+AssetTypeSet, PolicySetId, PeriodTaskId三个参数，必须要给其中一个参数填写有效的值。
     */
     @SerializedName("AssetTypeSet")
     @Expose
@@ -48,32 +49,36 @@ ASSET_K8S, K8S资产
     private Long PeriodTaskId;
 
     /**
-     * Get 指定要扫描的资产类型列表。若不填，对所有资产触发扫描。
-ASSET_CONTAINER, 容器
-ASSET_IMAGE, 镜像
-ASSET_HOST, 主机
-ASSET_K8S, K8S资产 
-     * @return AssetTypeSet 指定要扫描的资产类型列表。若不填，对所有资产触发扫描。
+     * Get 指定要扫描的资产类型列表。
 ASSET_CONTAINER, 容器
 ASSET_IMAGE, 镜像
 ASSET_HOST, 主机
 ASSET_K8S, K8S资产
+AssetTypeSet, PolicySetId, PeriodTaskId三个参数，必须要给其中一个参数填写有效的值。 
+     * @return AssetTypeSet 指定要扫描的资产类型列表。
+ASSET_CONTAINER, 容器
+ASSET_IMAGE, 镜像
+ASSET_HOST, 主机
+ASSET_K8S, K8S资产
+AssetTypeSet, PolicySetId, PeriodTaskId三个参数，必须要给其中一个参数填写有效的值。
      */
     public String [] getAssetTypeSet() {
         return this.AssetTypeSet;
     }
 
     /**
-     * Set 指定要扫描的资产类型列表。若不填，对所有资产触发扫描。
+     * Set 指定要扫描的资产类型列表。
 ASSET_CONTAINER, 容器
 ASSET_IMAGE, 镜像
 ASSET_HOST, 主机
 ASSET_K8S, K8S资产
-     * @param AssetTypeSet 指定要扫描的资产类型列表。若不填，对所有资产触发扫描。
+AssetTypeSet, PolicySetId, PeriodTaskId三个参数，必须要给其中一个参数填写有效的值。
+     * @param AssetTypeSet 指定要扫描的资产类型列表。
 ASSET_CONTAINER, 容器
 ASSET_IMAGE, 镜像
 ASSET_HOST, 主机
 ASSET_K8S, K8S资产
+AssetTypeSet, PolicySetId, PeriodTaskId三个参数，必须要给其中一个参数填写有效的值。
      */
     public void setAssetTypeSet(String [] AssetTypeSet) {
         this.AssetTypeSet = AssetTypeSet;

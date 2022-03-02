@@ -42,6 +42,12 @@ public enum CkafkaErrorCode {
     // zone不支持。
      INVALIDPARAMETERVALUE_ZONENOTSUPPORT("InvalidParameterValue.ZoneNotSupport"),
      
+    // 路由数超过限制。
+     LIMITEXCEEDED_ROUTEOVERLIMIT("LimitExceeded.RouteOverLimit"),
+     
+    // SASL路由超过限制。
+     LIMITEXCEEDED_ROUTESASLOVERLIMIT("LimitExceeded.RouteSASLOverLimit"),
+     
     // 操作被拒绝。
      OPERATIONDENIED("OperationDenied"),
      
@@ -50,6 +56,12 @@ public enum CkafkaErrorCode {
      
     // 资源被占用。
      RESOURCEINUSE("ResourceInUse"),
+     
+    // 资源不足。
+     RESOURCEINSUFFICIENT("ResourceInsufficient"),
+     
+    // 资源不存在。
+     RESOURCENOTFOUND("ResourceNotFound"),
      
     // 资源不可用。
      RESOURCEUNAVAILABLE("ResourceUnavailable"),

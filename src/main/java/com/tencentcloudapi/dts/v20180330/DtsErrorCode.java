@@ -1,5 +1,8 @@
 package com.tencentcloudapi.dts.v20180330;
 public enum DtsErrorCode {
+    // 鉴权失败，当前用户不允许执行该操作。
+     AUTHFAILURE_UNAUTHORIZEDOPERATIONERROR("AuthFailure.UnauthorizedOperationError"),
+     
     // 禁止该操作。
      FAILEDOPERATION_NOTALLOWOPERATION("FailedOperation.NotAllowOperation"),
      
@@ -14,6 +17,9 @@ public enum DtsErrorCode {
      
     // 添加异步任务失败。
      INTERNALERROR_ADDTASKERROR("InternalError.AddTaskError"),
+     
+    // 内部调度系统错误。
+     INTERNALERROR_CELERYERROR("InternalError.CeleryError"),
      
     // cgw系统错误。
      INTERNALERROR_CGWSYSTEMERROR("InternalError.CgwSystemError"),
@@ -30,8 +36,17 @@ public enum DtsErrorCode {
     // 通信协议错误。
      INTERNALERROR_PROTOCOLERROR("InternalError.ProtocolError"),
      
+    // 内部错误。
+     INTERNALERROR_UNDEFINEDERROR("InternalError.UndefinedError"),
+     
+    // 未知的内部错误。
+     INTERNALERROR_UNKNOWNERROR("InternalError.UnknownError"),
+     
     // 参数错误。
      INVALIDPARAMETER("InvalidParameter"),
+     
+    // 参数值错误。
+     INVALIDPARAMETER_BIZINVALIDPARAMETERVALUEERROR("InvalidParameter.BizInvalidParameterValueError"),
      
     // 实例不存在。
      INVALIDPARAMETER_INSTANCENOTFOUND("InvalidParameter.InstanceNotFound"),
@@ -45,11 +60,20 @@ public enum DtsErrorCode {
     // 操作被拒绝。
      OPERATIONDENIED("OperationDenied"),
      
+    // 任务操作失败。
+     OPERATIONDENIED_JOBOPERATIONDENIEDERROR("OperationDenied.JobOperationDeniedError"),
+     
+    // 数据迁移服务不支持当前迁移类型。
+     OPERATIONDENIED_MIGRATESERVICESUPPORTERROR("OperationDenied.MigrateServiceSupportError"),
+     
     // 该操作不能执行。
      OPERATIONDENIED_OPERATIONDENIED("OperationDenied.OperationDenied"),
      
     // 资源不存在。
      RESOURCENOTFOUND("ResourceNotFound"),
+     
+    // 未找到资源。
+     RESOURCENOTFOUND_BIZRESOURCENOTFOUNDERROR("ResourceNotFound.BizResourceNotFoundError"),
      
     // 迁移任务不存在。
      RESOURCENOTFOUND_JOBNOTEXIST("ResourceNotFound.JobNotExist"),

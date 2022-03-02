@@ -44,7 +44,7 @@ public class DescribeDataPerformancePageRequest extends AbstractModel{
     private Long EndTime;
 
     /**
-    * ["pagepv", "allcount"]
+    * pagepv：性能视图，allcount：性能视图，falls：页面加载瀑布图，samp：首屏时间，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
     */
     @SerializedName("Type")
     @Expose
@@ -170,6 +170,13 @@ public class DescribeDataPerformancePageRequest extends AbstractModel{
     private String CostType;
 
     /**
+    * 环境变量
+    */
+    @SerializedName("Env")
+    @Expose
+    private String Env;
+
+    /**
      * Get 项目ID 
      * @return ID 项目ID
      */
@@ -218,16 +225,16 @@ public class DescribeDataPerformancePageRequest extends AbstractModel{
     }
 
     /**
-     * Get ["pagepv", "allcount"] 
-     * @return Type ["pagepv", "allcount"]
+     * Get pagepv：性能视图，allcount：性能视图，falls：页面加载瀑布图，samp：首屏时间，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等 
+     * @return Type pagepv：性能视图，allcount：性能视图，falls：页面加载瀑布图，samp：首屏时间，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set ["pagepv", "allcount"]
-     * @param Type ["pagepv", "allcount"]
+     * Set pagepv：性能视图，allcount：性能视图，falls：页面加载瀑布图，samp：首屏时间，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
+     * @param Type pagepv：性能视图，allcount：性能视图，falls：页面加载瀑布图，samp：首屏时间，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
      */
     public void setType(String Type) {
         this.Type = Type;
@@ -505,6 +512,22 @@ public class DescribeDataPerformancePageRequest extends AbstractModel{
         this.CostType = CostType;
     }
 
+    /**
+     * Get 环境变量 
+     * @return Env 环境变量
+     */
+    public String getEnv() {
+        return this.Env;
+    }
+
+    /**
+     * Set 环境变量
+     * @param Env 环境变量
+     */
+    public void setEnv(String Env) {
+        this.Env = Env;
+    }
+
     public DescribeDataPerformancePageRequest() {
     }
 
@@ -576,6 +599,9 @@ public class DescribeDataPerformancePageRequest extends AbstractModel{
         if (source.CostType != null) {
             this.CostType = new String(source.CostType);
         }
+        if (source.Env != null) {
+            this.Env = new String(source.Env);
+        }
     }
 
 
@@ -604,6 +630,7 @@ public class DescribeDataPerformancePageRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Brand", this.Brand);
         this.setParamSimple(map, prefix + "From", this.From);
         this.setParamSimple(map, prefix + "CostType", this.CostType);
+        this.setParamSimple(map, prefix + "Env", this.Env);
 
     }
 }

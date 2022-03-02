@@ -240,6 +240,41 @@ public class DeployContainerGroupRequest extends AbstractModel{
     private String RepoType;
 
     /**
+    * 数据卷信息-废弃，请用VolumeInfoList参数
+    */
+    @SerializedName("VolumeInfos")
+    @Expose
+    private VolumeInfo VolumeInfos;
+
+    /**
+    * 数据卷挂载点信息-废弃，请用VolumeMountInfoList参数
+    */
+    @SerializedName("VolumeMountInfos")
+    @Expose
+    private VolumeMountInfo VolumeMountInfos;
+
+    /**
+    * 数据卷信息，list
+    */
+    @SerializedName("VolumeInfoList")
+    @Expose
+    private VolumeInfo [] VolumeInfoList;
+
+    /**
+    * 数据卷挂载点信息，list
+    */
+    @SerializedName("VolumeMountInfoList")
+    @Expose
+    private VolumeMountInfo [] VolumeMountInfoList;
+
+    /**
+    * 是否清除数据卷信息，默认false
+    */
+    @SerializedName("VolumeClean")
+    @Expose
+    private Boolean VolumeClean;
+
+    /**
      * Get 部署组ID，分组唯一标识 
      * @return GroupId 部署组ID，分组唯一标识
      */
@@ -735,6 +770,86 @@ public class DeployContainerGroupRequest extends AbstractModel{
         this.RepoType = RepoType;
     }
 
+    /**
+     * Get 数据卷信息-废弃，请用VolumeInfoList参数 
+     * @return VolumeInfos 数据卷信息-废弃，请用VolumeInfoList参数
+     */
+    public VolumeInfo getVolumeInfos() {
+        return this.VolumeInfos;
+    }
+
+    /**
+     * Set 数据卷信息-废弃，请用VolumeInfoList参数
+     * @param VolumeInfos 数据卷信息-废弃，请用VolumeInfoList参数
+     */
+    public void setVolumeInfos(VolumeInfo VolumeInfos) {
+        this.VolumeInfos = VolumeInfos;
+    }
+
+    /**
+     * Get 数据卷挂载点信息-废弃，请用VolumeMountInfoList参数 
+     * @return VolumeMountInfos 数据卷挂载点信息-废弃，请用VolumeMountInfoList参数
+     */
+    public VolumeMountInfo getVolumeMountInfos() {
+        return this.VolumeMountInfos;
+    }
+
+    /**
+     * Set 数据卷挂载点信息-废弃，请用VolumeMountInfoList参数
+     * @param VolumeMountInfos 数据卷挂载点信息-废弃，请用VolumeMountInfoList参数
+     */
+    public void setVolumeMountInfos(VolumeMountInfo VolumeMountInfos) {
+        this.VolumeMountInfos = VolumeMountInfos;
+    }
+
+    /**
+     * Get 数据卷信息，list 
+     * @return VolumeInfoList 数据卷信息，list
+     */
+    public VolumeInfo [] getVolumeInfoList() {
+        return this.VolumeInfoList;
+    }
+
+    /**
+     * Set 数据卷信息，list
+     * @param VolumeInfoList 数据卷信息，list
+     */
+    public void setVolumeInfoList(VolumeInfo [] VolumeInfoList) {
+        this.VolumeInfoList = VolumeInfoList;
+    }
+
+    /**
+     * Get 数据卷挂载点信息，list 
+     * @return VolumeMountInfoList 数据卷挂载点信息，list
+     */
+    public VolumeMountInfo [] getVolumeMountInfoList() {
+        return this.VolumeMountInfoList;
+    }
+
+    /**
+     * Set 数据卷挂载点信息，list
+     * @param VolumeMountInfoList 数据卷挂载点信息，list
+     */
+    public void setVolumeMountInfoList(VolumeMountInfo [] VolumeMountInfoList) {
+        this.VolumeMountInfoList = VolumeMountInfoList;
+    }
+
+    /**
+     * Get 是否清除数据卷信息，默认false 
+     * @return VolumeClean 是否清除数据卷信息，默认false
+     */
+    public Boolean getVolumeClean() {
+        return this.VolumeClean;
+    }
+
+    /**
+     * Set 是否清除数据卷信息，默认false
+     * @param VolumeClean 是否清除数据卷信息，默认false
+     */
+    public void setVolumeClean(Boolean VolumeClean) {
+        this.VolumeClean = VolumeClean;
+    }
+
     public DeployContainerGroupRequest() {
     }
 
@@ -839,6 +954,27 @@ public class DeployContainerGroupRequest extends AbstractModel{
         if (source.RepoType != null) {
             this.RepoType = new String(source.RepoType);
         }
+        if (source.VolumeInfos != null) {
+            this.VolumeInfos = new VolumeInfo(source.VolumeInfos);
+        }
+        if (source.VolumeMountInfos != null) {
+            this.VolumeMountInfos = new VolumeMountInfo(source.VolumeMountInfos);
+        }
+        if (source.VolumeInfoList != null) {
+            this.VolumeInfoList = new VolumeInfo[source.VolumeInfoList.length];
+            for (int i = 0; i < source.VolumeInfoList.length; i++) {
+                this.VolumeInfoList[i] = new VolumeInfo(source.VolumeInfoList[i]);
+            }
+        }
+        if (source.VolumeMountInfoList != null) {
+            this.VolumeMountInfoList = new VolumeMountInfo[source.VolumeMountInfoList.length];
+            for (int i = 0; i < source.VolumeMountInfoList.length; i++) {
+                this.VolumeMountInfoList[i] = new VolumeMountInfo(source.VolumeMountInfoList[i]);
+            }
+        }
+        if (source.VolumeClean != null) {
+            this.VolumeClean = new Boolean(source.VolumeClean);
+        }
     }
 
 
@@ -877,6 +1013,11 @@ public class DeployContainerGroupRequest extends AbstractModel{
         this.setParamObj(map, prefix + "SchedulingStrategy.", this.SchedulingStrategy);
         this.setParamSimple(map, prefix + "IncrementalDeployment", this.IncrementalDeployment);
         this.setParamSimple(map, prefix + "RepoType", this.RepoType);
+        this.setParamObj(map, prefix + "VolumeInfos.", this.VolumeInfos);
+        this.setParamObj(map, prefix + "VolumeMountInfos.", this.VolumeMountInfos);
+        this.setParamArrayObj(map, prefix + "VolumeInfoList.", this.VolumeInfoList);
+        this.setParamArrayObj(map, prefix + "VolumeMountInfoList.", this.VolumeMountInfoList);
+        this.setParamSimple(map, prefix + "VolumeClean", this.VolumeClean);
 
     }
 }

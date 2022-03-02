@@ -39,6 +39,46 @@ public class AmeClient extends AbstractClient{
     }
 
     /**
+     *根据 Id 列表查询歌曲的详细信息，包含基础信息及播放信息。
+     * @param req BatchDescribeKTVMusicDetailsRequest
+     * @return BatchDescribeKTVMusicDetailsResponse
+     * @throws TencentCloudSDKException
+     */
+    public BatchDescribeKTVMusicDetailsResponse BatchDescribeKTVMusicDetails(BatchDescribeKTVMusicDetailsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<BatchDescribeKTVMusicDetailsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<BatchDescribeKTVMusicDetailsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "BatchDescribeKTVMusicDetails");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *创建机器人，支持进入 RTC 房间，播放直播互动曲库歌曲。
+     * @param req CreateKTVRobotRequest
+     * @return CreateKTVRobotResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateKTVRobotResponse CreateKTVRobot(CreateKTVRobotRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateKTVRobotResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateKTVRobotResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateKTVRobot");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *获取授权项目信息列表
      * @param req DescribeAuthInfoRequest
      * @return DescribeAuthInfoResponse
@@ -199,6 +239,109 @@ public class AmeClient extends AbstractClient{
     }
 
     /**
+     *查询机器人列表，支持 Id、状态等过滤条件。
+     * @param req DescribeKTVRobotsRequest
+     * @return DescribeKTVRobotsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeKTVRobotsResponse DescribeKTVRobots(DescribeKTVRobotsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeKTVRobotsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeKTVRobotsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeKTVRobots");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取直播互动曲库歌手分类信息
+     * @param req DescribeKTVSingerCategoriesRequest
+     * @return DescribeKTVSingerCategoriesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeKTVSingerCategoriesResponse DescribeKTVSingerCategories(DescribeKTVSingerCategoriesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeKTVSingerCategoriesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeKTVSingerCategoriesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeKTVSingerCategories");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *根据歌手id，返回该歌手下歌曲列表。
+
+
+
+     * @param req DescribeKTVSingerMusicsRequest
+     * @return DescribeKTVSingerMusicsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeKTVSingerMusicsResponse DescribeKTVSingerMusics(DescribeKTVSingerMusicsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeKTVSingerMusicsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeKTVSingerMusicsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeKTVSingerMusics");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *根据过滤条件，返回匹配的歌手列表。
+     * @param req DescribeKTVSingersRequest
+     * @return DescribeKTVSingersResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeKTVSingersResponse DescribeKTVSingers(DescribeKTVSingersRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeKTVSingersResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeKTVSingersResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeKTVSingers");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取直播互动曲库歌曲的周榜和月榜
+     * @param req DescribeKTVTopListRequest
+     * @return DescribeKTVTopListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeKTVTopListResponse DescribeKTVTopList(DescribeKTVTopListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeKTVTopListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeKTVTopListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeKTVTopList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *根据接口的模式及歌曲ID来取得歌词信息或者波形图信息。
      * @param req DescribeLyricRequest
      * @return DescribeLyricResponse
@@ -339,6 +482,26 @@ public class AmeClient extends AbstractClient{
     }
 
     /**
+     *销毁机器人，机器人退出 RTC 房间。
+     * @param req DestroyKTVRobotRequest
+     * @return DestroyKTVRobotResponse
+     * @throws TencentCloudSDKException
+     */
+    public DestroyKTVRobotResponse DestroyKTVRobot(DestroyKTVRobotRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DestroyKTVRobotResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DestroyKTVRobotResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DestroyKTVRobot");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *根据资源方，需要变更的参数，请求该接口进行变更，为空的参数默认为无变更
      * @param req ModifyMusicOnShelvesRequest
      * @return ModifyMusicOnShelvesResponse
@@ -411,6 +574,26 @@ public class AmeClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<SearchKTVMusicsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "SearchKTVMusics");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *下发操作机器人指令，支持播放、暂停、恢复、歌单设置等操作指令，实现对机器人行为的控制。
+     * @param req SyncKTVRobotCommandRequest
+     * @return SyncKTVRobotCommandResponse
+     * @throws TencentCloudSDKException
+     */
+    public SyncKTVRobotCommandResponse SyncKTVRobotCommand(SyncKTVRobotCommandRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<SyncKTVRobotCommandResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<SyncKTVRobotCommandResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "SyncKTVRobotCommand");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

@@ -6,6 +6,9 @@ public enum EmrErrorCode {
     // 重复的订单，请检查emr控制台。
      FAILEDOPERATION_DUPLICATEORDERNOTALLOWED("FailedOperation.DuplicateOrderNotAllowed"),
      
+    // 操作失败，不支持pod。
+     FAILEDOPERATION_NOTSUPPORTPOD("FailedOperation.NotSupportPod"),
+     
     // 内部错误。
      INTERNALERROR("InternalError"),
      
@@ -72,6 +75,9 @@ public enum EmrErrorCode {
     // 展示策略错误。
      INVALIDPARAMETER_DISPLAYSTRATEGYNOTMATCH("InvalidParameter.DisplayStrategyNotMatch"),
      
+    // 参数错误。
+     INVALIDPARAMETER_HALESSMASTERCOUNT("InvalidParameter.HALessMasterCount"),
+     
     // Common节点数量无效。
      INVALIDPARAMETER_INCORRECTCOMMONCOUNT("InvalidParameter.IncorrectCommonCount"),
      
@@ -95,6 +101,9 @@ public enum EmrErrorCode {
      
     // 无效参数，ClusterId。
      INVALIDPARAMETER_INVALIDCLUSTERID("InvalidParameter.InvalidClusterId"),
+     
+    // 参数错误。
+     INVALIDPARAMETER_INVALIDCOMMONDISKTYPE("InvalidParameter.InvalidCommonDiskType"),
      
     // 无效的组件。
      INVALIDPARAMETER_INVALIDCOMPONENT("InvalidParameter.InvalidComponent"),
@@ -132,6 +141,9 @@ public enum EmrErrorCode {
     // 无效的集群保留策略。
      INVALIDPARAMETER_INVALIDINSTANCEPOLICY("InvalidParameter.InvalidInstancePolicy"),
      
+    // 无效的机型。
+     INVALIDPARAMETER_INVALIDINSTANCETYPE("InvalidParameter.InvalidInstanceType"),
+     
     // 无效的流程任务。
      INVALIDPARAMETER_INVALIDJOBFLOW("InvalidParameter.InvalidJobFlow"),
      
@@ -140,6 +152,9 @@ public enum EmrErrorCode {
      
     // 无效的登录设置。
      INVALIDPARAMETER_INVALIDLOGINSETTING("InvalidParameter.InvalidLoginSetting"),
+     
+    // 参数错误。
+     INVALIDPARAMETER_INVALIDMASTERDISKTYPE("InvalidParameter.InvalidMasterDiskType"),
      
     // 无效的元数据表类型。
      INVALIDPARAMETER_INVALIDMETATYPE("InvalidParameter.InvalidMetaType"),

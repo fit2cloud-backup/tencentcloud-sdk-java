@@ -58,7 +58,7 @@ public class CreateClusterRequest extends AbstractModel{
     private Long ComputeNodeCount;
 
     /**
-    * 调度器类型。目前仅支持SGE调度器。
+    * 调度器类型。<br><li>SGE：SGE调度器。
     */
     @SerializedName("SchedulerType")
     @Expose
@@ -111,7 +111,7 @@ false（默认）：发送正常请求，通过检查后直接创建实例
     private Boolean DryRun;
 
     /**
-    * 域名字服务类型。目前仅支持NIS域名字服务。
+    * 域名字服务类型。<br><li>NIS：NIS域名字服务。
     */
     @SerializedName("AccountType")
     @Expose
@@ -123,6 +123,13 @@ false（默认）：发送正常请求，通过检查后直接创建实例
     @SerializedName("ClusterName")
     @Expose
     private String ClusterName;
+
+    /**
+    * 集群存储选项
+    */
+    @SerializedName("StorageOption")
+    @Expose
+    private StorageOption StorageOption;
 
     /**
      * Get 集群中实例所在的位置。 
@@ -205,16 +212,16 @@ false（默认）：发送正常请求，通过检查后直接创建实例
     }
 
     /**
-     * Get 调度器类型。目前仅支持SGE调度器。 
-     * @return SchedulerType 调度器类型。目前仅支持SGE调度器。
+     * Get 调度器类型。<br><li>SGE：SGE调度器。 
+     * @return SchedulerType 调度器类型。<br><li>SGE：SGE调度器。
      */
     public String getSchedulerType() {
         return this.SchedulerType;
     }
 
     /**
-     * Set 调度器类型。目前仅支持SGE调度器。
-     * @param SchedulerType 调度器类型。目前仅支持SGE调度器。
+     * Set 调度器类型。<br><li>SGE：SGE调度器。
+     * @param SchedulerType 调度器类型。<br><li>SGE：SGE调度器。
      */
     public void setSchedulerType(String SchedulerType) {
         this.SchedulerType = SchedulerType;
@@ -333,16 +340,16 @@ false（默认）：发送正常请求，通过检查后直接创建实例
     }
 
     /**
-     * Get 域名字服务类型。目前仅支持NIS域名字服务。 
-     * @return AccountType 域名字服务类型。目前仅支持NIS域名字服务。
+     * Get 域名字服务类型。<br><li>NIS：NIS域名字服务。 
+     * @return AccountType 域名字服务类型。<br><li>NIS：NIS域名字服务。
      */
     public String getAccountType() {
         return this.AccountType;
     }
 
     /**
-     * Set 域名字服务类型。目前仅支持NIS域名字服务。
-     * @param AccountType 域名字服务类型。目前仅支持NIS域名字服务。
+     * Set 域名字服务类型。<br><li>NIS：NIS域名字服务。
+     * @param AccountType 域名字服务类型。<br><li>NIS：NIS域名字服务。
      */
     public void setAccountType(String AccountType) {
         this.AccountType = AccountType;
@@ -362,6 +369,22 @@ false（默认）：发送正常请求，通过检查后直接创建实例
      */
     public void setClusterName(String ClusterName) {
         this.ClusterName = ClusterName;
+    }
+
+    /**
+     * Get 集群存储选项 
+     * @return StorageOption 集群存储选项
+     */
+    public StorageOption getStorageOption() {
+        return this.StorageOption;
+    }
+
+    /**
+     * Set 集群存储选项
+     * @param StorageOption 集群存储选项
+     */
+    public void setStorageOption(StorageOption StorageOption) {
+        this.StorageOption = StorageOption;
     }
 
     public CreateClusterRequest() {
@@ -417,6 +440,9 @@ false（默认）：发送正常请求，通过检查后直接创建实例
         if (source.ClusterName != null) {
             this.ClusterName = new String(source.ClusterName);
         }
+        if (source.StorageOption != null) {
+            this.StorageOption = new StorageOption(source.StorageOption);
+        }
     }
 
 
@@ -438,6 +464,7 @@ false（默认）：发送正常请求，通过检查后直接创建实例
         this.setParamSimple(map, prefix + "DryRun", this.DryRun);
         this.setParamSimple(map, prefix + "AccountType", this.AccountType);
         this.setParamSimple(map, prefix + "ClusterName", this.ClusterName);
+        this.setParamObj(map, prefix + "StorageOption.", this.StorageOption);
 
     }
 }

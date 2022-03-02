@@ -276,7 +276,7 @@ public class InstanceInfo extends AbstractModel{
     private Boolean EnableHotWarmMode;
 
     /**
-    * 冷节点规格<li>ES.S1.SMALL2：1核2G</li><li>ES.S1.MEDIUM4：2核4G</li><li>ES.S1.MEDIUM8：2核8G</li><li>ES.S1.LARGE16：4核16G</li><li>ES.S1.2XLARGE32：8核32G</li><li>ES.S1.4XLARGE32：16核32G</li><li>ES.S1.4XLARGE64：16核64G</li>
+    * 温节点规格<li>ES.S1.SMALL2：1核2G</li><li>ES.S1.MEDIUM4：2核4G</li><li>ES.S1.MEDIUM8：2核8G</li><li>ES.S1.LARGE16：4核16G</li><li>ES.S1.2XLARGE32：8核32G</li><li>ES.S1.4XLARGE32：16核32G</li><li>ES.S1.4XLARGE64：16核64G</li>
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WarmNodeType")
@@ -284,7 +284,7 @@ public class InstanceInfo extends AbstractModel{
     private String WarmNodeType;
 
     /**
-    * 冷节点个数
+    * 温节点个数
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WarmNodeNum")
@@ -292,7 +292,7 @@ public class InstanceInfo extends AbstractModel{
     private Long WarmNodeNum;
 
     /**
-    * 冷节点CPU核数
+    * 温节点CPU核数
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WarmCpuNum")
@@ -300,7 +300,7 @@ public class InstanceInfo extends AbstractModel{
     private Long WarmCpuNum;
 
     /**
-    * 冷节点内存内存大小，单位GB
+    * 温节点内存内存大小，单位GB
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WarmMemSize")
@@ -308,7 +308,7 @@ public class InstanceInfo extends AbstractModel{
     private Long WarmMemSize;
 
     /**
-    * 冷节点磁盘类型
+    * 温节点磁盘类型
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WarmDiskType")
@@ -316,7 +316,7 @@ public class InstanceInfo extends AbstractModel{
     private String WarmDiskType;
 
     /**
-    * 冷节点磁盘大小，单位GB
+    * 温节点磁盘大小，单位GB
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WarmDiskSize")
@@ -457,6 +457,126 @@ public class InstanceInfo extends AbstractModel{
     @SerializedName("SecurityGroups")
     @Expose
     private String [] SecurityGroups;
+
+    /**
+    * 冷节点规格<li>ES.S1.SMALL2：1核2G</li><li>ES.S1.MEDIUM4：2核4G</li><li>ES.S1.MEDIUM8：2核8G</li><li>ES.S1.LARGE16：4核16G</li><li>ES.S1.2XLARGE32：8核32G</li><li>ES.S1.4XLARGE32：16核32G</li><li>ES.S1.4XLARGE64：16核64G</li>
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ColdNodeType")
+    @Expose
+    private String ColdNodeType;
+
+    /**
+    * 冷节点个数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ColdNodeNum")
+    @Expose
+    private Long ColdNodeNum;
+
+    /**
+    * 冷节点CPU核数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ColdCpuNum")
+    @Expose
+    private Long ColdCpuNum;
+
+    /**
+    * 冷节点内存大小，单位GB
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ColdMemSize")
+    @Expose
+    private Long ColdMemSize;
+
+    /**
+    * 冷节点磁盘类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ColdDiskType")
+    @Expose
+    private String ColdDiskType;
+
+    /**
+    * 冷节点磁盘大小，单位GB
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ColdDiskSize")
+    @Expose
+    private Long ColdDiskSize;
+
+    /**
+    * 冻节点规格<li>ES.S1.SMALL2：1核2G</li><li>ES.S1.MEDIUM4：2核4G</li><li>ES.S1.MEDIUM8：2核8G</li><li>ES.S1.LARGE16：4核16G</li><li>ES.S1.2XLARGE32：8核32G</li><li>ES.S1.4XLARGE32：16核32G</li><li>ES.S1.4XLARGE64：16核64G</li>
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FrozenNodeType")
+    @Expose
+    private String FrozenNodeType;
+
+    /**
+    * 冻节点个数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FrozenNodeNum")
+    @Expose
+    private Long FrozenNodeNum;
+
+    /**
+    * 冻节点CPU核数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FrozenCpuNum")
+    @Expose
+    private Long FrozenCpuNum;
+
+    /**
+    * 冻节点内存大小，单位GB
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FrozenMemSize")
+    @Expose
+    private Long FrozenMemSize;
+
+    /**
+    * 冻节点磁盘类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FrozenDiskType")
+    @Expose
+    private String FrozenDiskType;
+
+    /**
+    * 冻节点磁盘大小，单位GB
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FrozenDiskSize")
+    @Expose
+    private Long FrozenDiskSize;
+
+    /**
+    * 集群健康状态 -1 未知；0 Green; 1 Yellow; 2 Red
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("HealthStatus")
+    @Expose
+    private Long HealthStatus;
+
+    /**
+    * https集群内网url
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EsPrivateUrl")
+    @Expose
+    private String EsPrivateUrl;
+
+    /**
+    * https集群内网域名
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EsPrivateDomain")
+    @Expose
+    private String EsPrivateDomain;
 
     /**
      * Get 实例ID 
@@ -1039,9 +1159,9 @@ public class InstanceInfo extends AbstractModel{
     }
 
     /**
-     * Get 冷节点规格<li>ES.S1.SMALL2：1核2G</li><li>ES.S1.MEDIUM4：2核4G</li><li>ES.S1.MEDIUM8：2核8G</li><li>ES.S1.LARGE16：4核16G</li><li>ES.S1.2XLARGE32：8核32G</li><li>ES.S1.4XLARGE32：16核32G</li><li>ES.S1.4XLARGE64：16核64G</li>
+     * Get 温节点规格<li>ES.S1.SMALL2：1核2G</li><li>ES.S1.MEDIUM4：2核4G</li><li>ES.S1.MEDIUM8：2核8G</li><li>ES.S1.LARGE16：4核16G</li><li>ES.S1.2XLARGE32：8核32G</li><li>ES.S1.4XLARGE32：16核32G</li><li>ES.S1.4XLARGE64：16核64G</li>
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return WarmNodeType 冷节点规格<li>ES.S1.SMALL2：1核2G</li><li>ES.S1.MEDIUM4：2核4G</li><li>ES.S1.MEDIUM8：2核8G</li><li>ES.S1.LARGE16：4核16G</li><li>ES.S1.2XLARGE32：8核32G</li><li>ES.S1.4XLARGE32：16核32G</li><li>ES.S1.4XLARGE64：16核64G</li>
+     * @return WarmNodeType 温节点规格<li>ES.S1.SMALL2：1核2G</li><li>ES.S1.MEDIUM4：2核4G</li><li>ES.S1.MEDIUM8：2核8G</li><li>ES.S1.LARGE16：4核16G</li><li>ES.S1.2XLARGE32：8核32G</li><li>ES.S1.4XLARGE32：16核32G</li><li>ES.S1.4XLARGE64：16核64G</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getWarmNodeType() {
@@ -1049,9 +1169,9 @@ public class InstanceInfo extends AbstractModel{
     }
 
     /**
-     * Set 冷节点规格<li>ES.S1.SMALL2：1核2G</li><li>ES.S1.MEDIUM4：2核4G</li><li>ES.S1.MEDIUM8：2核8G</li><li>ES.S1.LARGE16：4核16G</li><li>ES.S1.2XLARGE32：8核32G</li><li>ES.S1.4XLARGE32：16核32G</li><li>ES.S1.4XLARGE64：16核64G</li>
+     * Set 温节点规格<li>ES.S1.SMALL2：1核2G</li><li>ES.S1.MEDIUM4：2核4G</li><li>ES.S1.MEDIUM8：2核8G</li><li>ES.S1.LARGE16：4核16G</li><li>ES.S1.2XLARGE32：8核32G</li><li>ES.S1.4XLARGE32：16核32G</li><li>ES.S1.4XLARGE64：16核64G</li>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param WarmNodeType 冷节点规格<li>ES.S1.SMALL2：1核2G</li><li>ES.S1.MEDIUM4：2核4G</li><li>ES.S1.MEDIUM8：2核8G</li><li>ES.S1.LARGE16：4核16G</li><li>ES.S1.2XLARGE32：8核32G</li><li>ES.S1.4XLARGE32：16核32G</li><li>ES.S1.4XLARGE64：16核64G</li>
+     * @param WarmNodeType 温节点规格<li>ES.S1.SMALL2：1核2G</li><li>ES.S1.MEDIUM4：2核4G</li><li>ES.S1.MEDIUM8：2核8G</li><li>ES.S1.LARGE16：4核16G</li><li>ES.S1.2XLARGE32：8核32G</li><li>ES.S1.4XLARGE32：16核32G</li><li>ES.S1.4XLARGE64：16核64G</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWarmNodeType(String WarmNodeType) {
@@ -1059,9 +1179,9 @@ public class InstanceInfo extends AbstractModel{
     }
 
     /**
-     * Get 冷节点个数
+     * Get 温节点个数
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return WarmNodeNum 冷节点个数
+     * @return WarmNodeNum 温节点个数
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getWarmNodeNum() {
@@ -1069,9 +1189,9 @@ public class InstanceInfo extends AbstractModel{
     }
 
     /**
-     * Set 冷节点个数
+     * Set 温节点个数
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param WarmNodeNum 冷节点个数
+     * @param WarmNodeNum 温节点个数
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWarmNodeNum(Long WarmNodeNum) {
@@ -1079,9 +1199,9 @@ public class InstanceInfo extends AbstractModel{
     }
 
     /**
-     * Get 冷节点CPU核数
+     * Get 温节点CPU核数
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return WarmCpuNum 冷节点CPU核数
+     * @return WarmCpuNum 温节点CPU核数
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getWarmCpuNum() {
@@ -1089,9 +1209,9 @@ public class InstanceInfo extends AbstractModel{
     }
 
     /**
-     * Set 冷节点CPU核数
+     * Set 温节点CPU核数
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param WarmCpuNum 冷节点CPU核数
+     * @param WarmCpuNum 温节点CPU核数
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWarmCpuNum(Long WarmCpuNum) {
@@ -1099,9 +1219,9 @@ public class InstanceInfo extends AbstractModel{
     }
 
     /**
-     * Get 冷节点内存内存大小，单位GB
+     * Get 温节点内存内存大小，单位GB
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return WarmMemSize 冷节点内存内存大小，单位GB
+     * @return WarmMemSize 温节点内存内存大小，单位GB
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getWarmMemSize() {
@@ -1109,9 +1229,9 @@ public class InstanceInfo extends AbstractModel{
     }
 
     /**
-     * Set 冷节点内存内存大小，单位GB
+     * Set 温节点内存内存大小，单位GB
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param WarmMemSize 冷节点内存内存大小，单位GB
+     * @param WarmMemSize 温节点内存内存大小，单位GB
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWarmMemSize(Long WarmMemSize) {
@@ -1119,9 +1239,9 @@ public class InstanceInfo extends AbstractModel{
     }
 
     /**
-     * Get 冷节点磁盘类型
+     * Get 温节点磁盘类型
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return WarmDiskType 冷节点磁盘类型
+     * @return WarmDiskType 温节点磁盘类型
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getWarmDiskType() {
@@ -1129,9 +1249,9 @@ public class InstanceInfo extends AbstractModel{
     }
 
     /**
-     * Set 冷节点磁盘类型
+     * Set 温节点磁盘类型
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param WarmDiskType 冷节点磁盘类型
+     * @param WarmDiskType 温节点磁盘类型
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWarmDiskType(String WarmDiskType) {
@@ -1139,9 +1259,9 @@ public class InstanceInfo extends AbstractModel{
     }
 
     /**
-     * Get 冷节点磁盘大小，单位GB
+     * Get 温节点磁盘大小，单位GB
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return WarmDiskSize 冷节点磁盘大小，单位GB
+     * @return WarmDiskSize 温节点磁盘大小，单位GB
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getWarmDiskSize() {
@@ -1149,9 +1269,9 @@ public class InstanceInfo extends AbstractModel{
     }
 
     /**
-     * Set 冷节点磁盘大小，单位GB
+     * Set 温节点磁盘大小，单位GB
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param WarmDiskSize 冷节点磁盘大小，单位GB
+     * @param WarmDiskSize 温节点磁盘大小，单位GB
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWarmDiskSize(Long WarmDiskSize) {
@@ -1494,6 +1614,306 @@ public class InstanceInfo extends AbstractModel{
         this.SecurityGroups = SecurityGroups;
     }
 
+    /**
+     * Get 冷节点规格<li>ES.S1.SMALL2：1核2G</li><li>ES.S1.MEDIUM4：2核4G</li><li>ES.S1.MEDIUM8：2核8G</li><li>ES.S1.LARGE16：4核16G</li><li>ES.S1.2XLARGE32：8核32G</li><li>ES.S1.4XLARGE32：16核32G</li><li>ES.S1.4XLARGE64：16核64G</li>
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ColdNodeType 冷节点规格<li>ES.S1.SMALL2：1核2G</li><li>ES.S1.MEDIUM4：2核4G</li><li>ES.S1.MEDIUM8：2核8G</li><li>ES.S1.LARGE16：4核16G</li><li>ES.S1.2XLARGE32：8核32G</li><li>ES.S1.4XLARGE32：16核32G</li><li>ES.S1.4XLARGE64：16核64G</li>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getColdNodeType() {
+        return this.ColdNodeType;
+    }
+
+    /**
+     * Set 冷节点规格<li>ES.S1.SMALL2：1核2G</li><li>ES.S1.MEDIUM4：2核4G</li><li>ES.S1.MEDIUM8：2核8G</li><li>ES.S1.LARGE16：4核16G</li><li>ES.S1.2XLARGE32：8核32G</li><li>ES.S1.4XLARGE32：16核32G</li><li>ES.S1.4XLARGE64：16核64G</li>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ColdNodeType 冷节点规格<li>ES.S1.SMALL2：1核2G</li><li>ES.S1.MEDIUM4：2核4G</li><li>ES.S1.MEDIUM8：2核8G</li><li>ES.S1.LARGE16：4核16G</li><li>ES.S1.2XLARGE32：8核32G</li><li>ES.S1.4XLARGE32：16核32G</li><li>ES.S1.4XLARGE64：16核64G</li>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setColdNodeType(String ColdNodeType) {
+        this.ColdNodeType = ColdNodeType;
+    }
+
+    /**
+     * Get 冷节点个数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ColdNodeNum 冷节点个数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getColdNodeNum() {
+        return this.ColdNodeNum;
+    }
+
+    /**
+     * Set 冷节点个数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ColdNodeNum 冷节点个数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setColdNodeNum(Long ColdNodeNum) {
+        this.ColdNodeNum = ColdNodeNum;
+    }
+
+    /**
+     * Get 冷节点CPU核数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ColdCpuNum 冷节点CPU核数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getColdCpuNum() {
+        return this.ColdCpuNum;
+    }
+
+    /**
+     * Set 冷节点CPU核数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ColdCpuNum 冷节点CPU核数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setColdCpuNum(Long ColdCpuNum) {
+        this.ColdCpuNum = ColdCpuNum;
+    }
+
+    /**
+     * Get 冷节点内存大小，单位GB
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ColdMemSize 冷节点内存大小，单位GB
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getColdMemSize() {
+        return this.ColdMemSize;
+    }
+
+    /**
+     * Set 冷节点内存大小，单位GB
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ColdMemSize 冷节点内存大小，单位GB
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setColdMemSize(Long ColdMemSize) {
+        this.ColdMemSize = ColdMemSize;
+    }
+
+    /**
+     * Get 冷节点磁盘类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ColdDiskType 冷节点磁盘类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getColdDiskType() {
+        return this.ColdDiskType;
+    }
+
+    /**
+     * Set 冷节点磁盘类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ColdDiskType 冷节点磁盘类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setColdDiskType(String ColdDiskType) {
+        this.ColdDiskType = ColdDiskType;
+    }
+
+    /**
+     * Get 冷节点磁盘大小，单位GB
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ColdDiskSize 冷节点磁盘大小，单位GB
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getColdDiskSize() {
+        return this.ColdDiskSize;
+    }
+
+    /**
+     * Set 冷节点磁盘大小，单位GB
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ColdDiskSize 冷节点磁盘大小，单位GB
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setColdDiskSize(Long ColdDiskSize) {
+        this.ColdDiskSize = ColdDiskSize;
+    }
+
+    /**
+     * Get 冻节点规格<li>ES.S1.SMALL2：1核2G</li><li>ES.S1.MEDIUM4：2核4G</li><li>ES.S1.MEDIUM8：2核8G</li><li>ES.S1.LARGE16：4核16G</li><li>ES.S1.2XLARGE32：8核32G</li><li>ES.S1.4XLARGE32：16核32G</li><li>ES.S1.4XLARGE64：16核64G</li>
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FrozenNodeType 冻节点规格<li>ES.S1.SMALL2：1核2G</li><li>ES.S1.MEDIUM4：2核4G</li><li>ES.S1.MEDIUM8：2核8G</li><li>ES.S1.LARGE16：4核16G</li><li>ES.S1.2XLARGE32：8核32G</li><li>ES.S1.4XLARGE32：16核32G</li><li>ES.S1.4XLARGE64：16核64G</li>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getFrozenNodeType() {
+        return this.FrozenNodeType;
+    }
+
+    /**
+     * Set 冻节点规格<li>ES.S1.SMALL2：1核2G</li><li>ES.S1.MEDIUM4：2核4G</li><li>ES.S1.MEDIUM8：2核8G</li><li>ES.S1.LARGE16：4核16G</li><li>ES.S1.2XLARGE32：8核32G</li><li>ES.S1.4XLARGE32：16核32G</li><li>ES.S1.4XLARGE64：16核64G</li>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FrozenNodeType 冻节点规格<li>ES.S1.SMALL2：1核2G</li><li>ES.S1.MEDIUM4：2核4G</li><li>ES.S1.MEDIUM8：2核8G</li><li>ES.S1.LARGE16：4核16G</li><li>ES.S1.2XLARGE32：8核32G</li><li>ES.S1.4XLARGE32：16核32G</li><li>ES.S1.4XLARGE64：16核64G</li>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFrozenNodeType(String FrozenNodeType) {
+        this.FrozenNodeType = FrozenNodeType;
+    }
+
+    /**
+     * Get 冻节点个数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FrozenNodeNum 冻节点个数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getFrozenNodeNum() {
+        return this.FrozenNodeNum;
+    }
+
+    /**
+     * Set 冻节点个数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FrozenNodeNum 冻节点个数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFrozenNodeNum(Long FrozenNodeNum) {
+        this.FrozenNodeNum = FrozenNodeNum;
+    }
+
+    /**
+     * Get 冻节点CPU核数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FrozenCpuNum 冻节点CPU核数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getFrozenCpuNum() {
+        return this.FrozenCpuNum;
+    }
+
+    /**
+     * Set 冻节点CPU核数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FrozenCpuNum 冻节点CPU核数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFrozenCpuNum(Long FrozenCpuNum) {
+        this.FrozenCpuNum = FrozenCpuNum;
+    }
+
+    /**
+     * Get 冻节点内存大小，单位GB
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FrozenMemSize 冻节点内存大小，单位GB
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getFrozenMemSize() {
+        return this.FrozenMemSize;
+    }
+
+    /**
+     * Set 冻节点内存大小，单位GB
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FrozenMemSize 冻节点内存大小，单位GB
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFrozenMemSize(Long FrozenMemSize) {
+        this.FrozenMemSize = FrozenMemSize;
+    }
+
+    /**
+     * Get 冻节点磁盘类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FrozenDiskType 冻节点磁盘类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getFrozenDiskType() {
+        return this.FrozenDiskType;
+    }
+
+    /**
+     * Set 冻节点磁盘类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FrozenDiskType 冻节点磁盘类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFrozenDiskType(String FrozenDiskType) {
+        this.FrozenDiskType = FrozenDiskType;
+    }
+
+    /**
+     * Get 冻节点磁盘大小，单位GB
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FrozenDiskSize 冻节点磁盘大小，单位GB
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getFrozenDiskSize() {
+        return this.FrozenDiskSize;
+    }
+
+    /**
+     * Set 冻节点磁盘大小，单位GB
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FrozenDiskSize 冻节点磁盘大小，单位GB
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFrozenDiskSize(Long FrozenDiskSize) {
+        this.FrozenDiskSize = FrozenDiskSize;
+    }
+
+    /**
+     * Get 集群健康状态 -1 未知；0 Green; 1 Yellow; 2 Red
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return HealthStatus 集群健康状态 -1 未知；0 Green; 1 Yellow; 2 Red
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getHealthStatus() {
+        return this.HealthStatus;
+    }
+
+    /**
+     * Set 集群健康状态 -1 未知；0 Green; 1 Yellow; 2 Red
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param HealthStatus 集群健康状态 -1 未知；0 Green; 1 Yellow; 2 Red
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setHealthStatus(Long HealthStatus) {
+        this.HealthStatus = HealthStatus;
+    }
+
+    /**
+     * Get https集群内网url
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EsPrivateUrl https集群内网url
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getEsPrivateUrl() {
+        return this.EsPrivateUrl;
+    }
+
+    /**
+     * Set https集群内网url
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EsPrivateUrl https集群内网url
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEsPrivateUrl(String EsPrivateUrl) {
+        this.EsPrivateUrl = EsPrivateUrl;
+    }
+
+    /**
+     * Get https集群内网域名
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EsPrivateDomain https集群内网域名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getEsPrivateDomain() {
+        return this.EsPrivateDomain;
+    }
+
+    /**
+     * Set https集群内网域名
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EsPrivateDomain https集群内网域名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEsPrivateDomain(String EsPrivateDomain) {
+        this.EsPrivateDomain = EsPrivateDomain;
+    }
+
     public InstanceInfo() {
     }
 
@@ -1691,6 +2111,51 @@ public class InstanceInfo extends AbstractModel{
                 this.SecurityGroups[i] = new String(source.SecurityGroups[i]);
             }
         }
+        if (source.ColdNodeType != null) {
+            this.ColdNodeType = new String(source.ColdNodeType);
+        }
+        if (source.ColdNodeNum != null) {
+            this.ColdNodeNum = new Long(source.ColdNodeNum);
+        }
+        if (source.ColdCpuNum != null) {
+            this.ColdCpuNum = new Long(source.ColdCpuNum);
+        }
+        if (source.ColdMemSize != null) {
+            this.ColdMemSize = new Long(source.ColdMemSize);
+        }
+        if (source.ColdDiskType != null) {
+            this.ColdDiskType = new String(source.ColdDiskType);
+        }
+        if (source.ColdDiskSize != null) {
+            this.ColdDiskSize = new Long(source.ColdDiskSize);
+        }
+        if (source.FrozenNodeType != null) {
+            this.FrozenNodeType = new String(source.FrozenNodeType);
+        }
+        if (source.FrozenNodeNum != null) {
+            this.FrozenNodeNum = new Long(source.FrozenNodeNum);
+        }
+        if (source.FrozenCpuNum != null) {
+            this.FrozenCpuNum = new Long(source.FrozenCpuNum);
+        }
+        if (source.FrozenMemSize != null) {
+            this.FrozenMemSize = new Long(source.FrozenMemSize);
+        }
+        if (source.FrozenDiskType != null) {
+            this.FrozenDiskType = new String(source.FrozenDiskType);
+        }
+        if (source.FrozenDiskSize != null) {
+            this.FrozenDiskSize = new Long(source.FrozenDiskSize);
+        }
+        if (source.HealthStatus != null) {
+            this.HealthStatus = new Long(source.HealthStatus);
+        }
+        if (source.EsPrivateUrl != null) {
+            this.EsPrivateUrl = new String(source.EsPrivateUrl);
+        }
+        if (source.EsPrivateDomain != null) {
+            this.EsPrivateDomain = new String(source.EsPrivateDomain);
+        }
     }
 
 
@@ -1757,6 +2222,21 @@ public class InstanceInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Jdk", this.Jdk);
         this.setParamSimple(map, prefix + "Protocol", this.Protocol);
         this.setParamArraySimple(map, prefix + "SecurityGroups.", this.SecurityGroups);
+        this.setParamSimple(map, prefix + "ColdNodeType", this.ColdNodeType);
+        this.setParamSimple(map, prefix + "ColdNodeNum", this.ColdNodeNum);
+        this.setParamSimple(map, prefix + "ColdCpuNum", this.ColdCpuNum);
+        this.setParamSimple(map, prefix + "ColdMemSize", this.ColdMemSize);
+        this.setParamSimple(map, prefix + "ColdDiskType", this.ColdDiskType);
+        this.setParamSimple(map, prefix + "ColdDiskSize", this.ColdDiskSize);
+        this.setParamSimple(map, prefix + "FrozenNodeType", this.FrozenNodeType);
+        this.setParamSimple(map, prefix + "FrozenNodeNum", this.FrozenNodeNum);
+        this.setParamSimple(map, prefix + "FrozenCpuNum", this.FrozenCpuNum);
+        this.setParamSimple(map, prefix + "FrozenMemSize", this.FrozenMemSize);
+        this.setParamSimple(map, prefix + "FrozenDiskType", this.FrozenDiskType);
+        this.setParamSimple(map, prefix + "FrozenDiskSize", this.FrozenDiskSize);
+        this.setParamSimple(map, prefix + "HealthStatus", this.HealthStatus);
+        this.setParamSimple(map, prefix + "EsPrivateUrl", this.EsPrivateUrl);
+        this.setParamSimple(map, prefix + "EsPrivateDomain", this.EsPrivateDomain);
 
     }
 }

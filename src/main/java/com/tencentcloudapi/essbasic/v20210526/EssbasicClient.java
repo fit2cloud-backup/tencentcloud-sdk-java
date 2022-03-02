@@ -60,7 +60,7 @@ public class EssbasicClient extends AbstractClient{
     }
 
     /**
-     *接口（CreateFlowsByTemplates）用于使用多个模板批量创建流程
+     *接口（CreateFlowsByTemplates）用于使用多个模板批量创建流程。当前可批量发起合同（流程）数量最大为20个。
      * @param req CreateFlowsByTemplatesRequest
      * @return CreateFlowsByTemplatesResponse
      * @throws TencentCloudSDKException
@@ -80,7 +80,7 @@ public class EssbasicClient extends AbstractClient{
     }
 
     /**
-     *根据流程Id批量创建签署参与者签署H5链接
+     *创建参与者签署短链
      * @param req CreateSignUrlsRequest
      * @return CreateSignUrlsResponse
      * @throws TencentCloudSDKException
@@ -92,6 +92,26 @@ public class EssbasicClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<CreateSignUrlsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "CreateSignUrls");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *此接口（DescribeFlowDetailInfo）用于查询合同(流程)的详细信息。
+     * @param req DescribeFlowDetailInfoRequest
+     * @return DescribeFlowDetailInfoResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeFlowDetailInfoResponse DescribeFlowDetailInfo(DescribeFlowDetailInfoRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeFlowDetailInfoResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeFlowDetailInfoResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeFlowDetailInfo");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -161,7 +181,55 @@ public class EssbasicClient extends AbstractClient{
     }
 
     /**
+     *此接口（GetDownloadFlowUrl）用于创建电子签批量下载地址，支持客户合同（流程）按照自定义文件夹形式 分类下载。
+当前接口限制最多合同（流程）50个.
+
+     * @param req GetDownloadFlowUrlRequest
+     * @return GetDownloadFlowUrlResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetDownloadFlowUrlResponse GetDownloadFlowUrl(GetDownloadFlowUrlRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetDownloadFlowUrlResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetDownloadFlowUrlResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetDownloadFlowUrl");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *此接口（OperateChannelTemplate）用于渠道侧将模板库中的模板对合作企业进行查询和设置, 其中包括可见性的修改以及对合作企业的设置.
+1、同步标识=select时：
+返回渠道侧模板库当前模板的属性.
+2、同步标识=update或者delete时：
+对渠道子客进行模板库中模板授权,修改操作
+     * @param req OperateChannelTemplateRequest
+     * @return OperateChannelTemplateResponse
+     * @throws TencentCloudSDKException
+     */
+    public OperateChannelTemplateResponse OperateChannelTemplate(OperateChannelTemplateRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<OperateChannelTemplateResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<OperateChannelTemplateResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "OperateChannelTemplate");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *该接口 (PrepareFlows) 用于创建待发起文件
+用户通过该接口进入流程发起的确认页面，进行发起信息二次确认， 如果确认则进行正常发起。
+目前该接口只支持B2C。
      * @param req PrepareFlowsRequest
      * @return PrepareFlowsResponse
      * @throws TencentCloudSDKException

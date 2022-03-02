@@ -1,5 +1,8 @@
 package com.tencentcloudapi.iotexplorer.v20190423;
 public enum IotexplorerErrorCode {
+    // CAM签名/鉴权错误。
+     AUTHFAILURE("AuthFailure"),
+     
     // 操作失败。
      FAILEDOPERATION("FailedOperation"),
      
@@ -30,6 +33,9 @@ public enum IotexplorerErrorCode {
     // 该规则已被启用。
      FAILEDOPERATION_RULEALREADYENABLED("FailedOperation.RuleAlreadyEnabled"),
      
+    // 部分产品已经被绑定。
+     FAILEDOPERATION_SOMEPRODUCTISALREADYBINDED("FailedOperation.SomeProductIsAlreadyBinded"),
+     
     // 超过时间。
      FAILEDOPERATION_TIMEOUT("FailedOperation.Timeout"),
      
@@ -48,6 +54,9 @@ public enum IotexplorerErrorCode {
     // 内部DB错误。
      INTERNALERROR_INTERNALSERVEREXCEPTIONDB("InternalError.InternalServerExceptionDB"),
      
+    // 调用超时。
+     INTERNALERROR_TIMEOUT("InternalError.Timeout"),
+     
     // 参数错误。
      INVALIDPARAMETER("InvalidParameter"),
      
@@ -56,6 +65,9 @@ public enum IotexplorerErrorCode {
      
     // 固件已存在。
      INVALIDPARAMETER_FIRMWAREALREADYEXIST("InvalidParameter.FirmwareAlreadyExist"),
+     
+    // 产品不是网关类型，无法绑定子产品。
+     INVALIDPARAMETER_PRODUCTISNOTGATEWAY("InvalidParameter.ProductIsNotGateway"),
      
     // 参数取值错误。
      INVALIDPARAMETERVALUE("InvalidParameterValue"),
@@ -86,6 +98,12 @@ public enum IotexplorerErrorCode {
      
     // 创建的设备名已存在。
      INVALIDPARAMETERVALUE_DEVICEALREADYEXIST("InvalidParameterValue.DeviceAlreadyExist"),
+     
+    // 设备未绑定任何网关设备。
+     INVALIDPARAMETERVALUE_DEVICEHASNOTBINDGATEWAY("InvalidParameterValue.DeviceHasNotBindGateway"),
+     
+    // 设备不是网关类型。
+     INVALIDPARAMETERVALUE_DEVICEISNOTGATEWAY("InvalidParameterValue.DeviceIsNotGateway"),
      
     // 设备名称非法。
      INVALIDPARAMETERVALUE_DEVICENAMEINVALID("InvalidParameterValue.DeviceNameInvalid"),
@@ -177,6 +195,9 @@ public enum IotexplorerErrorCode {
     // 产品ID非法。
      INVALIDPARAMETERVALUE_PRODUCTIDINVALID("InvalidParameterValue.ProductIDInvalid"),
      
+    // 产品不是网关类型，无法绑定子产品。
+     INVALIDPARAMETERVALUE_PRODUCTISNOTGATEWAY("InvalidParameterValue.ProductIsNotGateway"),
+     
     // 产品参数错误。
      INVALIDPARAMETERVALUE_PRODUCTPARMSERROR("InvalidParameterValue.ProductParmsError"),
      
@@ -219,6 +240,9 @@ public enum IotexplorerErrorCode {
     // 量产为空。
      LIMITEXCEEDED_BATCHPRODUCTIONNULL("LimitExceeded.BatchProductionNull"),
      
+    // 绑定的产品数量超过限制。
+     LIMITEXCEEDED_BINDPRODUCTSEXCEEDLIMIT("LimitExceeded.BindProductsExceedLimit"),
+     
     // 设备数量超过限制。
      LIMITEXCEEDED_DEVICEEXCEEDLIMIT("LimitExceeded.DeviceExceedLimit"),
      
@@ -243,6 +267,9 @@ public enum IotexplorerErrorCode {
     // 物模型超出限制。
      LIMITEXCEEDED_THINGMODELEXCEEDLIMIT("LimitExceeded.ThingModelExceedLimit"),
      
+    // Topic数量超出限制。
+     LIMITEXCEEDED_TOPICPOLICYEXCEEDLIMIT("LimitExceeded.TopicPolicyExceedLimit"),
+     
     // 物模型事件 Type 错误。
      MISSINGPARAMETER_MODELDEFINEEVENTTYPEERROR("MissingParameter.ModelDefineEventTypeError"),
      
@@ -260,6 +287,9 @@ public enum IotexplorerErrorCode {
      
     // 固件不存在。
      RESOURCENOTFOUND_DEVICEHASNOFIRMWARE("ResourceNotFound.DeviceHasNoFirmware"),
+     
+    // 设备未绑定家庭。
+     RESOURCENOTFOUND_DEVICENOTBIND("ResourceNotFound.DeviceNotBind"),
      
     // 设备不存在。
      RESOURCENOTFOUND_DEVICENOTEXIST("ResourceNotFound.DeviceNotExist"),
@@ -321,6 +351,9 @@ public enum IotexplorerErrorCode {
     // 未授权操作。
      UNAUTHORIZEDOPERATION("UnauthorizedOperation"),
      
+    // APP对产品没有权限。
+     UNAUTHORIZEDOPERATION_APPNOPERMISSIONTOSTUDIOPRODUCT("UnauthorizedOperation.APPNoPermissionToStudioProduct"),
+     
     // App无权限。
      UNAUTHORIZEDOPERATION_APPNOPERMISSION("UnauthorizedOperation.AppNoPermission"),
      
@@ -332,6 +365,9 @@ public enum IotexplorerErrorCode {
      
     // 该设备下仍有绑定的设备。
      UNAUTHORIZEDOPERATION_GATEWAYHASBINDEDDEVICES("UnauthorizedOperation.GatewayHasBindedDevices"),
+     
+    // 此家庭无权操作。
+     UNAUTHORIZEDOPERATION_NOPERMISSIONTOFAMILY("UnauthorizedOperation.NoPermissionToFamily"),
      
     // 实例ACL错误。
      UNAUTHORIZEDOPERATION_NOPERMISSIONTOINSTANCE("UnauthorizedOperation.NoPermissionToInstance"),
@@ -372,8 +408,14 @@ public enum IotexplorerErrorCode {
     // 设备ota升级中。
      UNSUPPORTEDOPERATION_DEVICEOTATASKINPROGRESS("UnsupportedOperation.DeviceOtaTaskInProgress"),
      
+    // 设备类型错误。
+     UNSUPPORTEDOPERATION_DEVICETYPE("UnsupportedOperation.DeviceType"),
+     
     // 产品下还存在未删除的设备。
      UNSUPPORTEDOPERATION_DEVICESEXISTUNDERPRODUCT("UnsupportedOperation.DevicesExistUnderProduct"),
+     
+    // 网关产品下存在设备绑定了子设备。
+     UNSUPPORTEDOPERATION_EXISTBINDEDDEVICESUNDERGATEWAYPRODUCT("UnsupportedOperation.ExistBindedDevicesUnderGatewayProduct"),
      
     // 存在重复围栏。
      UNSUPPORTEDOPERATION_FENCEDUPKEYEXIST("UnsupportedOperation.FenceDupKeyExist"),
@@ -416,6 +458,9 @@ public enum IotexplorerErrorCode {
      
     // 存在重复位置空间。
      UNSUPPORTEDOPERATION_SPACEDUPKEYEXIST("UnsupportedOperation.SpaceDupKeyExist"),
+     
+    // 人员库名称已存在。
+     UNSUPPORTEDOPERATION_STAFFPOOLDUPNAMEEXIST("UnsupportedOperation.StaffPoolDupNameExist"),
      
     // LoRa频点还被节点或网关使用。
      UNSUPPORTEDOPERATION_STUDIOLORAFREQINUSED("UnsupportedOperation.StudioLoRaFreqInUsed"),

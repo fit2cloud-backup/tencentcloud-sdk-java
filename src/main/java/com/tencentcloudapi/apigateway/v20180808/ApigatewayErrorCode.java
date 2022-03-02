@@ -51,6 +51,9 @@ public enum ApigatewayErrorCode {
     // Apis 证书为空，请上传证书。
      FAILEDOPERATION_CERTIFICATEISNULL("FailedOperation.CertificateIsNull"),
      
+    // 调用CLS服务失败。
+     FAILEDOPERATION_CLSERROR("FailedOperation.ClsError"),
+     
     // API文档操作失败。
      FAILEDOPERATION_CODINGERROR("FailedOperation.CodingError"),
      
@@ -111,6 +114,9 @@ public enum ApigatewayErrorCode {
     // 默认的二级域名输入错误。
      FAILEDOPERATION_NETSUBDOMAINERROR("FailedOperation.NetSubDomainError"),
      
+    // 操作后端通道失败。
+     FAILEDOPERATION_OPERATEUPSTREAM("FailedOperation.OperateUpstream"),
+     
     // 设置路径映射错误。
      FAILEDOPERATION_PATHMAPPINGSETERROR("FailedOperation.PathMappingSetError"),
      
@@ -147,6 +153,9 @@ public enum ApigatewayErrorCode {
     // CAuth内部请求错误，请稍后重试。若无法解决，请联系智能客服或提交工单。
      INTERNALERROR_CAUTHEXCEPTION("InternalError.CauthException"),
      
+    // CLB内部请求错误，请稍后重试。若无法解决，请联系智能客服或提交工单。
+     INTERNALERROR_CLBEXCEPTION("InternalError.ClbException"),
+     
     // oss内部请求错误，请稍后重试。若无法解决，请联系智能客服或提交工单。
      INTERNALERROR_OSSEXCEPTION("InternalError.OssException"),
      
@@ -161,6 +170,12 @@ public enum ApigatewayErrorCode {
      
     // 参数错误。
      INVALIDPARAMETER("InvalidParameter"),
+     
+    // 基础版服务不能绑定插件。
+     INVALIDPARAMETER_BASICSERVICENOTALLOWATTACHPLUGIN("InvalidParameter.BasicServiceNotAllowAttachPlugin"),
+     
+    // 当前绑定插件和已有插件冲突。
+     INVALIDPARAMETER_DUPLICATEPLUGINCONFIG("InvalidParameter.DuplicatePluginConfig"),
      
     // 参数格式错误。
      INVALIDPARAMETER_FORMATERROR("InvalidParameter.FormatError"),
@@ -267,6 +282,9 @@ public enum ApigatewayErrorCode {
     // URL参数错误。
      INVALIDPARAMETERVALUE_INVALIDURL("InvalidParameterValue.InvalidUrl"),
      
+    // 无效vpc信息。
+     INVALIDPARAMETERVALUE_INVALIDVPCCONFIG("InvalidParameterValue.InvalidVpcConfig"),
+     
     // 方法错误。WEBSOCKET类型的后端服务，前端方法需要配置为GET。
      INVALIDPARAMETERVALUE_INVALIDWSMETHOD("InvalidParameterValue.InvalidWSMethod"),
      
@@ -296,6 +314,9 @@ public enum ApigatewayErrorCode {
      
     // API文档数量超出限制。
      LIMITEXCEEDED_APIDOCLIMITEXCEEDED("LimitExceeded.APIDocLimitExceeded"),
+     
+    // 访问密钥数量超出限制。
+     LIMITEXCEEDED_ACCESSKEYCOUNTINUSAGEPLANLIMITEXCEEDED("LimitExceeded.AccessKeyCountInUsagePlanLimitExceeded"),
      
     // 服务绑定的应用数量超过限制。
      LIMITEXCEEDED_APIAPPCOUNTLIMITEXCEEDED("LimitExceeded.ApiAppCountLimitExceeded"),
@@ -405,6 +426,12 @@ public enum ApigatewayErrorCode {
     // 当前插件不支持绑定。
      UNSUPPORTEDOPERATION_ATTACHPLUGIN("UnsupportedOperation.AttachPlugin"),
      
+    // 基础版服务不能创建超过一个API。
+     UNSUPPORTEDOPERATION_BASICSERVICENOMOREAPI("UnsupportedOperation.BasicServiceNoMoreApi"),
+     
+    // 日志检索起始时间间隔。
+     UNSUPPORTEDOPERATION_CLSSEARCHTIME("UnsupportedOperation.ClsSearchTime"),
+     
     // 协议为HTTP时，不支持强制Https。
      UNSUPPORTEDOPERATION_FORCEHTTPS("UnsupportedOperation.ForceHttps"),
      
@@ -461,6 +488,9 @@ public enum ApigatewayErrorCode {
      
     // 服务使用中，不能被删除。
      UNSUPPORTEDOPERATION_UNSUPPORTEDDELETESERVICE("UnsupportedOperation.UnsupportedDeleteService"),
+     
+    // 当前VPC通道存在绑定关系，不支持当前操作。
+     UNSUPPORTEDOPERATION_UNSUPPORTEDDELETEUPSTREAM("UnsupportedOperation.UnsupportedDeleteUpstream"),
      
     // 不支持网络类型。
      UNSUPPORTEDOPERATION_UNSUPPORTEDNETTYPE("UnsupportedOperation.UnsupportedNetType"),

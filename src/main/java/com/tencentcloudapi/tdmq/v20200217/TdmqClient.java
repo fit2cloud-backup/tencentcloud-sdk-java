@@ -1279,18 +1279,38 @@ public class TdmqClient extends AbstractClient{
     }
 
     /**
-     *获取生产者列表，仅显示在线的生产者
-     * @param req DescribeProducersRequest
-     * @return DescribeProducersResponse
+     *获取消息生产概览信息
+     * @param req DescribePublisherSummaryRequest
+     * @return DescribePublisherSummaryResponse
      * @throws TencentCloudSDKException
      */
-    public DescribeProducersResponse DescribeProducers(DescribeProducersRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeProducersResponse> rsp = null;
+    public DescribePublisherSummaryResponse DescribePublisherSummary(DescribePublisherSummaryRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribePublisherSummaryResponse> rsp = null;
         String rspStr = "";
         try {
-                Type type = new TypeToken<JsonResponseModel<DescribeProducersResponse>>() {
+                Type type = new TypeToken<JsonResponseModel<DescribePublisherSummaryResponse>>() {
                 }.getType();
-                rspStr = this.internalRequest(req, "DescribeProducers");
+                rspStr = this.internalRequest(req, "DescribePublisherSummary");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取生产者信息列表
+     * @param req DescribePublishersRequest
+     * @return DescribePublishersResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribePublishersResponse DescribePublishers(DescribePublishersRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribePublishersResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribePublishersResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribePublishers");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

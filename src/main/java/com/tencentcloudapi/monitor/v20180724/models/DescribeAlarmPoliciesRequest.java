@@ -71,6 +71,8 @@ public class DescribeAlarmPoliciesRequest extends AbstractModel{
 具体也可以参考下方的示例 2。
 
 不同云产品参数示例详见 [维度信息Dimensions列表](https://cloud.tencent.com/document/product/248/50397)
+
+注意：如果NeedCorrespondence传入1，即需要返回策略与实例对应关系，请传入不多于20个告警对象维度，否则容易请求超时
     */
     @SerializedName("Dimensions")
     @Expose
@@ -154,6 +156,13 @@ public class DescribeAlarmPoliciesRequest extends AbstractModel{
     @SerializedName("InstanceGroupId")
     @Expose
     private Long InstanceGroupId;
+
+    /**
+    * 是否需要策略与入参过滤维度参数的对应关系，1：是  0：否，默认为0
+    */
+    @SerializedName("NeedCorrespondence")
+    @Expose
+    private Long NeedCorrespondence;
 
     /**
      * Get 固定值，为"monitor" 
@@ -260,12 +269,16 @@ public class DescribeAlarmPoliciesRequest extends AbstractModel{
 `[ {"Dimensions": {"unInstanceId": "ins-qr8d555g"}}, {"Dimensions": {"unInstanceId": "ins-qr8d555h"}} ]`
 具体也可以参考下方的示例 2。
 
-不同云产品参数示例详见 [维度信息Dimensions列表](https://cloud.tencent.com/document/product/248/50397) 
+不同云产品参数示例详见 [维度信息Dimensions列表](https://cloud.tencent.com/document/product/248/50397)
+
+注意：如果NeedCorrespondence传入1，即需要返回策略与实例对应关系，请传入不多于20个告警对象维度，否则容易请求超时 
      * @return Dimensions 告警对象列表，JSON 字符串。外层数组，对应多个实例，内层为对象的维度。例如“云服务器-基础监控”可写为：
 `[ {"Dimensions": {"unInstanceId": "ins-qr8d555g"}}, {"Dimensions": {"unInstanceId": "ins-qr8d555h"}} ]`
 具体也可以参考下方的示例 2。
 
 不同云产品参数示例详见 [维度信息Dimensions列表](https://cloud.tencent.com/document/product/248/50397)
+
+注意：如果NeedCorrespondence传入1，即需要返回策略与实例对应关系，请传入不多于20个告警对象维度，否则容易请求超时
      */
     public String getDimensions() {
         return this.Dimensions;
@@ -277,11 +290,15 @@ public class DescribeAlarmPoliciesRequest extends AbstractModel{
 具体也可以参考下方的示例 2。
 
 不同云产品参数示例详见 [维度信息Dimensions列表](https://cloud.tencent.com/document/product/248/50397)
+
+注意：如果NeedCorrespondence传入1，即需要返回策略与实例对应关系，请传入不多于20个告警对象维度，否则容易请求超时
      * @param Dimensions 告警对象列表，JSON 字符串。外层数组，对应多个实例，内层为对象的维度。例如“云服务器-基础监控”可写为：
 `[ {"Dimensions": {"unInstanceId": "ins-qr8d555g"}}, {"Dimensions": {"unInstanceId": "ins-qr8d555h"}} ]`
 具体也可以参考下方的示例 2。
 
 不同云产品参数示例详见 [维度信息Dimensions列表](https://cloud.tencent.com/document/product/248/50397)
+
+注意：如果NeedCorrespondence传入1，即需要返回策略与实例对应关系，请传入不多于20个告警对象维度，否则容易请求超时
      */
     public void setDimensions(String Dimensions) {
         this.Dimensions = Dimensions;
@@ -471,6 +488,22 @@ public class DescribeAlarmPoliciesRequest extends AbstractModel{
         this.InstanceGroupId = InstanceGroupId;
     }
 
+    /**
+     * Get 是否需要策略与入参过滤维度参数的对应关系，1：是  0：否，默认为0 
+     * @return NeedCorrespondence 是否需要策略与入参过滤维度参数的对应关系，1：是  0：否，默认为0
+     */
+    public Long getNeedCorrespondence() {
+        return this.NeedCorrespondence;
+    }
+
+    /**
+     * Set 是否需要策略与入参过滤维度参数的对应关系，1：是  0：否，默认为0
+     * @param NeedCorrespondence 是否需要策略与入参过滤维度参数的对应关系，1：是  0：否，默认为0
+     */
+    public void setNeedCorrespondence(Long NeedCorrespondence) {
+        this.NeedCorrespondence = NeedCorrespondence;
+    }
+
     public DescribeAlarmPoliciesRequest() {
     }
 
@@ -560,6 +593,9 @@ public class DescribeAlarmPoliciesRequest extends AbstractModel{
         if (source.InstanceGroupId != null) {
             this.InstanceGroupId = new Long(source.InstanceGroupId);
         }
+        if (source.NeedCorrespondence != null) {
+            this.NeedCorrespondence = new Long(source.NeedCorrespondence);
+        }
     }
 
 
@@ -585,6 +621,7 @@ public class DescribeAlarmPoliciesRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "Enable.", this.Enable);
         this.setParamSimple(map, prefix + "NotBindingNoticeRule", this.NotBindingNoticeRule);
         this.setParamSimple(map, prefix + "InstanceGroupId", this.InstanceGroupId);
+        this.setParamSimple(map, prefix + "NeedCorrespondence", this.NeedCorrespondence);
 
     }
 }
