@@ -57,6 +57,9 @@ public enum DcdbErrorCode {
     // 实例安全组信息更新失败。
      FAILEDOPERATION_UPDATEINSTANCEINFOFAILED("FailedOperation.UpdateInstanceInfoFailed"),
      
+    // 用户未实名认证。
+     FAILEDOPERATION_USERNOTAUTHED("FailedOperation.UserNotAuthed"),
+     
     // VPC更新路由失败。
      FAILEDOPERATION_VPCUPDATEROUTEFAILED("FailedOperation.VpcUpdateRouteFailed"),
      
@@ -105,6 +108,9 @@ public enum DcdbErrorCode {
     // 拉圈安全组详情失败。
      INTERNALERROR_GETSECURITYGROUPDETAILFAILED("InternalError.GetSecurityGroupDetailFailed"),
      
+    // 查询慢日志DB失败。
+     INTERNALERROR_GETSLOWLOGFAILED("InternalError.GetSlowLogFailed"),
+     
     // 查询虚拟私有网络子网信息失败。
      INTERNALERROR_GETSUBNETFAILED("InternalError.GetSubnetFailed"),
      
@@ -147,9 +153,6 @@ public enum DcdbErrorCode {
     // 操作读DB数据错误。
      INTERNALERROR_QUERYDATABASEFAILED("InternalError.QueryDatabaseFailed"),
      
-    // 查询订单信息失败。
-     INTERNALERROR_QUERYORDERFAILED("InternalError.QueryOrderFailed"),
-     
     // 查询价格失败。
      INTERNALERROR_QUERYPRICEFAILED("InternalError.QueryPriceFailed"),
      
@@ -177,9 +180,6 @@ public enum DcdbErrorCode {
     // 入参校验失败。
      INVALIDPARAMETER_CHECKPARAMNOTPASS("InvalidParameter.CheckParamNotPass"),
      
-    // 未指定需要查询的订单ID。
-     INVALIDPARAMETER_DEALNAMENOTGIVEN("InvalidParameter.DealNameNotGiven"),
-     
     // 找不到指定的流程信息。
      INVALIDPARAMETER_FLOWNOTFOUND("InvalidParameter.FlowNotFound"),
      
@@ -188,6 +188,9 @@ public enum DcdbErrorCode {
      
     // 非法参数。
      INVALIDPARAMETER_ILLEGALPARAMETERERROR("InvalidParameter.IllegalParameterError"),
+     
+    // 错误的时间参数。
+     INVALIDPARAMETER_ILLEGALTIME("InvalidParameter.IllegalTime"),
      
     // 未找到请求的实例。
      INVALIDPARAMETER_INSTANCENOTFOUND("InvalidParameter.InstanceNotFound"),
@@ -212,6 +215,9 @@ public enum DcdbErrorCode {
      
     // 找不到指定的虚拟私有网络。
      INVALIDPARAMETER_VPCNOTFOUND("InvalidParameter.VpcNotFound"),
+     
+    // 可用区信息错误。
+     INVALIDPARAMETER_ZONEIDILLEGAL("InvalidParameter.ZoneIdIllegal"),
      
     // 想要创建的账号已经存在。
      INVALIDPARAMETERVALUE_ACCOUNTALREADYEXISTS("InvalidParameterValue.AccountAlreadyExists"),
@@ -254,9 +260,6 @@ public enum DcdbErrorCode {
      
     // 指定的账号不存在。
      RESOURCENOTFOUND_ACCOUNTDOESNOTEXIST("ResourceNotFound.AccountDoesNotExist"),
-     
-    // 实例不存在。
-     RESOURCENOTFOUND_INSTANCENOTFOUND("ResourceNotFound.InstanceNotFound"),
      
     // 找不到指定的数据库实例。
      RESOURCENOTFOUND_NOINSTANCEFOUND("ResourceNotFound.NoInstanceFound"),

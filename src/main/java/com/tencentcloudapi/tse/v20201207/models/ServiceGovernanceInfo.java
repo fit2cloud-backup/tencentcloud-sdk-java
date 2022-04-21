@@ -44,6 +44,27 @@ public class ServiceGovernanceInfo extends AbstractModel{
     private VpcInfo [] VpcInfos;
 
     /**
+    * 当前实例鉴权是否开启
+    */
+    @SerializedName("AuthOpen")
+    @Expose
+    private Boolean AuthOpen;
+
+    /**
+    * 该实例支持的功能，鉴权就是 Auth
+    */
+    @SerializedName("Features")
+    @Expose
+    private String [] Features;
+
+    /**
+    * 主账户名默认为 polaris，该值为主账户的默认密码
+    */
+    @SerializedName("MainPassword")
+    @Expose
+    private String MainPassword;
+
+    /**
      * Get 引擎所在的地域 
      * @return EngineRegion 引擎所在的地域
      */
@@ -91,6 +112,54 @@ public class ServiceGovernanceInfo extends AbstractModel{
         this.VpcInfos = VpcInfos;
     }
 
+    /**
+     * Get 当前实例鉴权是否开启 
+     * @return AuthOpen 当前实例鉴权是否开启
+     */
+    public Boolean getAuthOpen() {
+        return this.AuthOpen;
+    }
+
+    /**
+     * Set 当前实例鉴权是否开启
+     * @param AuthOpen 当前实例鉴权是否开启
+     */
+    public void setAuthOpen(Boolean AuthOpen) {
+        this.AuthOpen = AuthOpen;
+    }
+
+    /**
+     * Get 该实例支持的功能，鉴权就是 Auth 
+     * @return Features 该实例支持的功能，鉴权就是 Auth
+     */
+    public String [] getFeatures() {
+        return this.Features;
+    }
+
+    /**
+     * Set 该实例支持的功能，鉴权就是 Auth
+     * @param Features 该实例支持的功能，鉴权就是 Auth
+     */
+    public void setFeatures(String [] Features) {
+        this.Features = Features;
+    }
+
+    /**
+     * Get 主账户名默认为 polaris，该值为主账户的默认密码 
+     * @return MainPassword 主账户名默认为 polaris，该值为主账户的默认密码
+     */
+    public String getMainPassword() {
+        return this.MainPassword;
+    }
+
+    /**
+     * Set 主账户名默认为 polaris，该值为主账户的默认密码
+     * @param MainPassword 主账户名默认为 polaris，该值为主账户的默认密码
+     */
+    public void setMainPassword(String MainPassword) {
+        this.MainPassword = MainPassword;
+    }
+
     public ServiceGovernanceInfo() {
     }
 
@@ -114,6 +183,18 @@ public class ServiceGovernanceInfo extends AbstractModel{
                 this.VpcInfos[i] = new VpcInfo(source.VpcInfos[i]);
             }
         }
+        if (source.AuthOpen != null) {
+            this.AuthOpen = new Boolean(source.AuthOpen);
+        }
+        if (source.Features != null) {
+            this.Features = new String[source.Features.length];
+            for (int i = 0; i < source.Features.length; i++) {
+                this.Features[i] = new String(source.Features[i]);
+            }
+        }
+        if (source.MainPassword != null) {
+            this.MainPassword = new String(source.MainPassword);
+        }
     }
 
 
@@ -124,6 +205,9 @@ public class ServiceGovernanceInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "EngineRegion", this.EngineRegion);
         this.setParamArrayObj(map, prefix + "BoundK8SInfos.", this.BoundK8SInfos);
         this.setParamArrayObj(map, prefix + "VpcInfos.", this.VpcInfos);
+        this.setParamSimple(map, prefix + "AuthOpen", this.AuthOpen);
+        this.setParamArraySimple(map, prefix + "Features.", this.Features);
+        this.setParamSimple(map, prefix + "MainPassword", this.MainPassword);
 
     }
 }

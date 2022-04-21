@@ -51,6 +51,27 @@ public class DescribeKTVMusicDetailResponse extends AbstractModel{
     private KTVMusicDefinitionInfo [] DefinitionInfoSet;
 
     /**
+    * 音高数据文件下载地址
+    */
+    @SerializedName("MidiJsonUrl")
+    @Expose
+    private String MidiJsonUrl;
+
+    /**
+    * 副歌片段数据列表
+    */
+    @SerializedName("ChorusClipSet")
+    @Expose
+    private ChorusClip [] ChorusClipSet;
+
+    /**
+    * 前奏间隔，单位：毫秒；注：若参数返回为0则无人声部分
+    */
+    @SerializedName("PreludeInterval")
+    @Expose
+    private Long PreludeInterval;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -122,6 +143,54 @@ public class DescribeKTVMusicDetailResponse extends AbstractModel{
     }
 
     /**
+     * Get 音高数据文件下载地址 
+     * @return MidiJsonUrl 音高数据文件下载地址
+     */
+    public String getMidiJsonUrl() {
+        return this.MidiJsonUrl;
+    }
+
+    /**
+     * Set 音高数据文件下载地址
+     * @param MidiJsonUrl 音高数据文件下载地址
+     */
+    public void setMidiJsonUrl(String MidiJsonUrl) {
+        this.MidiJsonUrl = MidiJsonUrl;
+    }
+
+    /**
+     * Get 副歌片段数据列表 
+     * @return ChorusClipSet 副歌片段数据列表
+     */
+    public ChorusClip [] getChorusClipSet() {
+        return this.ChorusClipSet;
+    }
+
+    /**
+     * Set 副歌片段数据列表
+     * @param ChorusClipSet 副歌片段数据列表
+     */
+    public void setChorusClipSet(ChorusClip [] ChorusClipSet) {
+        this.ChorusClipSet = ChorusClipSet;
+    }
+
+    /**
+     * Get 前奏间隔，单位：毫秒；注：若参数返回为0则无人声部分 
+     * @return PreludeInterval 前奏间隔，单位：毫秒；注：若参数返回为0则无人声部分
+     */
+    public Long getPreludeInterval() {
+        return this.PreludeInterval;
+    }
+
+    /**
+     * Set 前奏间隔，单位：毫秒；注：若参数返回为0则无人声部分
+     * @param PreludeInterval 前奏间隔，单位：毫秒；注：若参数返回为0则无人声部分
+     */
+    public void setPreludeInterval(Long PreludeInterval) {
+        this.PreludeInterval = PreludeInterval;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -160,6 +229,18 @@ public class DescribeKTVMusicDetailResponse extends AbstractModel{
                 this.DefinitionInfoSet[i] = new KTVMusicDefinitionInfo(source.DefinitionInfoSet[i]);
             }
         }
+        if (source.MidiJsonUrl != null) {
+            this.MidiJsonUrl = new String(source.MidiJsonUrl);
+        }
+        if (source.ChorusClipSet != null) {
+            this.ChorusClipSet = new ChorusClip[source.ChorusClipSet.length];
+            for (int i = 0; i < source.ChorusClipSet.length; i++) {
+                this.ChorusClipSet[i] = new ChorusClip(source.ChorusClipSet[i]);
+            }
+        }
+        if (source.PreludeInterval != null) {
+            this.PreludeInterval = new Long(source.PreludeInterval);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -174,6 +255,9 @@ public class DescribeKTVMusicDetailResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "PlayToken", this.PlayToken);
         this.setParamSimple(map, prefix + "LyricsUrl", this.LyricsUrl);
         this.setParamArrayObj(map, prefix + "DefinitionInfoSet.", this.DefinitionInfoSet);
+        this.setParamSimple(map, prefix + "MidiJsonUrl", this.MidiJsonUrl);
+        this.setParamArrayObj(map, prefix + "ChorusClipSet.", this.ChorusClipSet);
+        this.setParamSimple(map, prefix + "PreludeInterval", this.PreludeInterval);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

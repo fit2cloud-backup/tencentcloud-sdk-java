@@ -37,11 +37,18 @@ public class CreateSnapshotRequest extends AbstractModel{
     private String SnapshotName;
 
     /**
-    * 快照的到期时间，到期后该快照将会自动删除
+    * 快照的到期时间，到期后该快照将会自动删除,需要传入UTC时间下的ISO-8601标准时间格式,例如:2022-01-08T09:47:55+00:00
     */
     @SerializedName("Deadline")
     @Expose
     private String Deadline;
+
+    /**
+    * 云硬盘备份点ID。传入此参数时，将通过备份点创建快照。
+    */
+    @SerializedName("DiskBackupId")
+    @Expose
+    private String DiskBackupId;
 
     /**
      * Get 需要创建快照的云硬盘ID，可通过[DescribeDisks](/document/product/362/16315)接口查询。 
@@ -76,19 +83,35 @@ public class CreateSnapshotRequest extends AbstractModel{
     }
 
     /**
-     * Get 快照的到期时间，到期后该快照将会自动删除 
-     * @return Deadline 快照的到期时间，到期后该快照将会自动删除
+     * Get 快照的到期时间，到期后该快照将会自动删除,需要传入UTC时间下的ISO-8601标准时间格式,例如:2022-01-08T09:47:55+00:00 
+     * @return Deadline 快照的到期时间，到期后该快照将会自动删除,需要传入UTC时间下的ISO-8601标准时间格式,例如:2022-01-08T09:47:55+00:00
      */
     public String getDeadline() {
         return this.Deadline;
     }
 
     /**
-     * Set 快照的到期时间，到期后该快照将会自动删除
-     * @param Deadline 快照的到期时间，到期后该快照将会自动删除
+     * Set 快照的到期时间，到期后该快照将会自动删除,需要传入UTC时间下的ISO-8601标准时间格式,例如:2022-01-08T09:47:55+00:00
+     * @param Deadline 快照的到期时间，到期后该快照将会自动删除,需要传入UTC时间下的ISO-8601标准时间格式,例如:2022-01-08T09:47:55+00:00
      */
     public void setDeadline(String Deadline) {
         this.Deadline = Deadline;
+    }
+
+    /**
+     * Get 云硬盘备份点ID。传入此参数时，将通过备份点创建快照。 
+     * @return DiskBackupId 云硬盘备份点ID。传入此参数时，将通过备份点创建快照。
+     */
+    public String getDiskBackupId() {
+        return this.DiskBackupId;
+    }
+
+    /**
+     * Set 云硬盘备份点ID。传入此参数时，将通过备份点创建快照。
+     * @param DiskBackupId 云硬盘备份点ID。传入此参数时，将通过备份点创建快照。
+     */
+    public void setDiskBackupId(String DiskBackupId) {
+        this.DiskBackupId = DiskBackupId;
     }
 
     public CreateSnapshotRequest() {
@@ -108,6 +131,9 @@ public class CreateSnapshotRequest extends AbstractModel{
         if (source.Deadline != null) {
             this.Deadline = new String(source.Deadline);
         }
+        if (source.DiskBackupId != null) {
+            this.DiskBackupId = new String(source.DiskBackupId);
+        }
     }
 
 
@@ -118,6 +144,7 @@ public class CreateSnapshotRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "DiskId", this.DiskId);
         this.setParamSimple(map, prefix + "SnapshotName", this.SnapshotName);
         this.setParamSimple(map, prefix + "Deadline", this.Deadline);
+        this.setParamSimple(map, prefix + "DiskBackupId", this.DiskBackupId);
 
     }
 }

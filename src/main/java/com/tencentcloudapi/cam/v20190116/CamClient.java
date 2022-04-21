@@ -279,6 +279,26 @@ public class CamClient extends AbstractClient{
     }
 
     /**
+     *创建用户OIDC配置。只能创建一个用户OIDC身份提供商，并且创建用户OIDC配置之后会自动关闭用户SAML SSO身份提供商。
+     * @param req CreateUserOIDCConfigRequest
+     * @return CreateUserOIDCConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateUserOIDCConfigResponse CreateUserOIDCConfig(CreateUserOIDCConfigRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateUserOIDCConfigResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateUserOIDCConfigResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateUserOIDCConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *创建用户SAML配置
      * @param req CreateUserSAMLConfigRequest
      * @return CreateUserSAMLConfigResponse
@@ -499,7 +519,7 @@ public class CamClient extends AbstractClient{
     }
 
     /**
-     *查询安全设置
+     *查询用户安全设置
      * @param req DescribeSafeAuthFlagRequest
      * @return DescribeSafeAuthFlagResponse
      * @throws TencentCloudSDKException
@@ -571,6 +591,26 @@ public class CamClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeSubAccountsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeSubAccounts");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询用户OIDC配置
+     * @param req DescribeUserOIDCConfigRequest
+     * @return DescribeUserOIDCConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeUserOIDCConfigResponse DescribeUserOIDCConfig(DescribeUserOIDCConfigRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeUserOIDCConfigResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeUserOIDCConfigResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeUserOIDCConfig");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -651,6 +691,26 @@ public class CamClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DetachUserPolicyResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DetachUserPolicy");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *禁用用户SSO
+     * @param req DisableUserSSORequest
+     * @return DisableUserSSOResponse
+     * @throws TencentCloudSDKException
+     */
+    public DisableUserSSOResponse DisableUserSSO(DisableUserSSORequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DisableUserSSOResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DisableUserSSOResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DisableUserSSO");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -779,6 +839,26 @@ public class CamClient extends AbstractClient{
     }
 
     /**
+     *获取角色权限边界
+     * @param req GetRolePermissionBoundaryRequest
+     * @return GetRolePermissionBoundaryResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetRolePermissionBoundaryResponse GetRolePermissionBoundary(GetRolePermissionBoundaryRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetRolePermissionBoundaryResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetRolePermissionBoundaryResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetRolePermissionBoundary");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *查询SAML身份提供商详情
      * @param req GetSAMLProviderRequest
      * @return GetSAMLProviderResponse
@@ -859,6 +939,46 @@ public class CamClient extends AbstractClient{
     }
 
     /**
+     *获取用户AppId
+     * @param req GetUserAppIdRequest
+     * @return GetUserAppIdResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetUserAppIdResponse GetUserAppId(GetUserAppIdRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetUserAppIdResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetUserAppIdResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetUserAppId");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取用户权限边界
+     * @param req GetUserPermissionBoundaryRequest
+     * @return GetUserPermissionBoundaryResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetUserPermissionBoundaryResponse GetUserPermissionBoundary(GetUserPermissionBoundaryRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetUserPermissionBoundaryResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetUserPermissionBoundaryResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetUserPermissionBoundary");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *列出指定CAM用户的访问密钥
      * @param req ListAccessKeysRequest
      * @return ListAccessKeysResponse
@@ -911,6 +1031,26 @@ public class CamClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<ListAttachedRolePoliciesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ListAttachedRolePolicies");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *列出用户关联的策略（包括随组关联）
+     * @param req ListAttachedUserAllPoliciesRequest
+     * @return ListAttachedUserAllPoliciesResponse
+     * @throws TencentCloudSDKException
+     */
+    public ListAttachedUserAllPoliciesResponse ListAttachedUserAllPolicies(ListAttachedUserAllPoliciesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ListAttachedUserAllPoliciesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ListAttachedUserAllPoliciesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ListAttachedUserAllPolicies");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1392,6 +1532,26 @@ public class CamClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<UpdateUserResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "UpdateUser");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改用户OIDC配置
+     * @param req UpdateUserOIDCConfigRequest
+     * @return UpdateUserOIDCConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public UpdateUserOIDCConfigResponse UpdateUserOIDCConfig(UpdateUserOIDCConfigRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<UpdateUserOIDCConfigResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<UpdateUserOIDCConfigResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "UpdateUserOIDCConfig");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

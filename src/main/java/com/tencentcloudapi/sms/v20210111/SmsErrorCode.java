@@ -33,7 +33,7 @@ public enum SmsErrorCode {
     // 此模板 ID 未提交申请或不存在，不能进行修改操作，请检查您的 TemplateId是否填写正确。
      FAILEDOPERATION_MISSINGTEMPLATETOMODIFY("FailedOperation.MissingTemplateToModify"),
      
-    // 非企业认证无法使用签名及模版相关接口，您可以[ 变更实名认证模式](https://cloud.tencent.com/document/product/378/34075)，变更为企业认证用户后，约1小时左右生效。
+    // 非企业认证无法使用签名及模板相关接口，您可以[ 变更实名认证模式](https://cloud.tencent.com/document/product/378/34075)，变更为企业认证用户后，约1小时左右生效。
      FAILEDOPERATION_NOTENTERPRISECERTIFICATION("FailedOperation.NotEnterpriseCertification"),
      
     // 其他错误，一般是由于参数携带不符合要求导致，请参考API接口说明，如有需要请联系 [腾讯云短信小助手](https://cloud.tencent.com/document/product/382/3773#.E6.8A.80.E6.9C.AF.E4.BA.A4.E6.B5.81)。
@@ -42,7 +42,7 @@ public enum SmsErrorCode {
     // 未知错误，如有需要请联系 [腾讯云短信小助手](https://cloud.tencent.com/document/product/382/3773#.E6.8A.80.E6.9C.AF.E4.BA.A4.E6.B5.81)。
      FAILEDOPERATION_PARAMETERSOTHERERROR("FailedOperation.ParametersOtherError"),
      
-    // 手机号在黑名单库中，通常是用户退订或者命中运营商黑名单导致的，可联系 [腾讯云短信小助手](https://cloud.tencent.com/document/product/382/3773#.E6.8A.80.E6.9C.AF.E4.BA.A4.E6.B5.81) 解决。
+    // 手机号在免打扰名单库中，通常是用户退订或者命中运营商免打扰名单导致的，可联系 [腾讯云短信小助手](https://cloud.tencent.com/document/product/382/3773#.E6.8A.80.E6.9C.AF.E4.BA.A4.E6.B5.81) 解决。
      FAILEDOPERATION_PHONENUMBERINBLACKLIST("FailedOperation.PhoneNumberInBlacklist"),
      
     // 号码解析失败，请检查号码是否符合 E.164 标准。
@@ -54,7 +54,7 @@ public enum SmsErrorCode {
     // 签名个数达到最大值。
      FAILEDOPERATION_SIGNNUMBERLIMIT("FailedOperation.SignNumberLimit"),
      
-    // 签名未审批或格式错误。（1）可登陆 [短信控制台](https://console.cloud.tencent.com/smsv2)，核查签名是否已审批并且审批通过；（2）核查是否符合格式规范，签名只能由中英文、数字组成，要求2 - 12个字，若存在疑问可联系 [腾讯云短信小助手](https://cloud.tencent.com/document/product/382/3773#.E6.8A.80.E6.9C.AF.E4.BA.A4.E6.B5.81)。
+    // 签名未审批或格式错误。（1）可登录 [短信控制台](https://console.cloud.tencent.com/smsv2)，核查签名是否已审批并且审批通过；（2）核查是否符合格式规范，签名只能由中英文、数字组成，要求2 - 12个字，若存在疑问可联系 [腾讯云短信小助手](https://cloud.tencent.com/document/product/382/3773#.E6.8A.80.E6.9C.AF.E4.BA.A4.E6.B5.81)。
      FAILEDOPERATION_SIGNATUREINCORRECTORUNAPPROVED("FailedOperation.SignatureIncorrectOrUnapproved"),
      
     // 此模板已经通过审核，无法再次进行修改。
@@ -68,6 +68,12 @@ public enum SmsErrorCode {
      
     // 模板个数达到最大值。
      FAILEDOPERATION_TEMPLATENUMBERLIMIT("FailedOperation.TemplateNumberLimit"),
+     
+    // 请求内容与审核通过的模板内容不匹配。请检查请求中模板参数的个数是否与申请的模板一致。若存在疑问可联系 [腾讯云短信小助手](https://cloud.tencent.com/document/product/382/3773#.E6.8A.80.E6.9C.AF.E4.BA.A4.E6.B5.81)。
+     FAILEDOPERATION_TEMPLATEPARAMSETNOTMATCHAPPROVEDTEMPLATE("FailedOperation.TemplateParamSetNotMatchApprovedTemplate"),
+     
+    // 模板未审批或不存在。可登陆 [短信控制台](https://console.cloud.tencent.com/smsv2)，核查模板是否已审批并审批通过。若存在疑问可联系 [腾讯云短信小助手](https://cloud.tencent.com/document/product/382/3773#.E6.8A.80.E6.9C.AF.E4.BA.A4.E6.B5.81)。
+     FAILEDOPERATION_TEMPLATEUNAPPROVEDORNOTEXIST("FailedOperation.TemplateUnapprovedOrNotExist"),
      
     // 解析用户参数失败，可联系 [腾讯云短信小助手](https://cloud.tencent.com/document/product/382/3773#.E6.8A.80.E6.9C.AF.E4.BA.A4.E6.B5.81)。
      INTERNALERROR_JSONPARSEFAIL("InternalError.JsonParseFail"),
@@ -159,7 +165,7 @@ public enum SmsErrorCode {
     // 已存在相同的待审核签名。
      INVALIDPARAMETERVALUE_SIGNEXISTANDUNAPPROVED("InvalidParameterValue.SignExistAndUnapproved"),
      
-    // 验证码模板参数格式错误，验证码类模版，模版变量只能传入0 - 6位（包括6位）纯数字。
+    // 验证码模板参数格式错误，验证码类模板，模板变量只能传入0 - 6位（包括6位）纯数字。
      INVALIDPARAMETERVALUE_TEMPLATEPARAMETERFORMATERROR("InvalidParameterValue.TemplateParameterFormatError"),
      
     // 单个模板变量字符数超过12个，企业认证用户不限制单个变量值字数，您可以 [变更实名认证模式](https://cloud.tencent.com/document/product/378/34075)，变更为企业认证用户后，该限制变更约1小时左右生效。
@@ -168,19 +174,19 @@ public enum SmsErrorCode {
     // 模板内容存在敏感词，请参考[正文模板审核标准](https://cloud.tencent.com/document/product/382/39023)。
      INVALIDPARAMETERVALUE_TEMPLATEWITHDIRTYWORDS("InvalidParameterValue.TemplateWithDirtyWords"),
      
-    // 业务短信国家/地区日下发条数超过设定的上限，可自行到控制台调整短信频率限制策略。
+    // 业务短信国家/地区日下发条数超过设定的上限，可自行到控制台应用管理>基础配置下调整国际港澳台短信发送限制。
      LIMITEXCEEDED_APPCOUNTRYORREGIONDAILYLIMIT("LimitExceeded.AppCountryOrRegionDailyLimit"),
      
-    // 业务短信国家/地区在黑名单中，可自行到控制台调整短信限制策略。
+    // 业务短信国家/地区不在国际港澳台短信发送限制设置的列表中而禁发，可自行到控制台应用管理>基础配置下调整国际港澳台短信发送限制。
      LIMITEXCEEDED_APPCOUNTRYORREGIONINBLACKLIST("LimitExceeded.AppCountryOrRegionInBlacklist"),
      
     // 业务短信日下发条数超过设定的上限 ，可自行到控制台调整短信频率限制策略。
      LIMITEXCEEDED_APPDAILYLIMIT("LimitExceeded.AppDailyLimit"),
      
-    // 业务短信国际/港澳台日下发条数超过设定的上限，可自行到控制台调整短信频率限制策略。
+    // 业务短信国际/港澳台日下发条数超过设定的上限，可自行到控制台应用管理>基础配置下调整发送总量阈值。
      LIMITEXCEEDED_APPGLOBALDAILYLIMIT("LimitExceeded.AppGlobalDailyLimit"),
      
-    // 业务短信中国大陆日下发条数超过设定的上限，可自行到控制台调整短信频率限制策略。
+    // 业务短信中国大陆日下发条数超过设定的上限，可自行到控制台应用管理>基础配置下调整发送总量阈值。
      LIMITEXCEEDED_APPMAINLANDCHINADAILYLIMIT("LimitExceeded.AppMainlandChinaDailyLimit"),
      
     // 短信日下发条数超过设定的上限 (国际/港澳台)，如需调整限制，可联系 [腾讯云短信小助手](https://cloud.tencent.com/document/product/382/3773)。
@@ -231,8 +237,14 @@ public enum SmsErrorCode {
     // 不支持该请求。
      UNSUPPORTEDOPERATION_("UnsupportedOperation."),
      
-    // 群发请求里既有国内手机号也有国际手机号。请排查是否存在（1）使用国内签名或模板却发送短信到国际手机号；（2）使用国际签名或模板却发送短信到国内手机号；
+    // 国内短信模板不支持发送国际/港澳台手机号。发送国际/港澳台手机号请使用国际/港澳台短信正文模板。
+     UNSUPPORTEDOPERATION_CHINESEMAINLANDTEMPLATETOGLOBALPHONE("UnsupportedOperation.ChineseMainlandTemplateToGlobalPhone"),
+     
+    // 群发请求里既有国内手机号也有国际手机号。请排查是否存在（1）使用国内签名或模板却发送短信到国际手机号；（2）使用国际签名或模板却发送短信到国内手机号。
      UNSUPPORTEDOPERATION_CONTAINDOMESTICANDINTERNATIONALPHONENUMBER("UnsupportedOperation.ContainDomesticAndInternationalPhoneNumber"),
+     
+    // 国际/港澳台短信模板不支持发送国内手机号。发送国内手机号请使用国内短信正文模板。
+     UNSUPPORTEDOPERATION_GLOBALTEMPLATETOCHINESEMAINLANDPHONE("UnsupportedOperation.GlobalTemplateToChineseMainlandPhone"),
      
     // 不支持该地区短信下发。
      UNSUPPORTEDOPERATION_UNSUPORTEDREGION("UnsupportedOperation.UnsuportedRegion");

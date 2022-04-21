@@ -37,7 +37,7 @@ public class DeployStrategyConf extends AbstractModel{
     private Long BetaBatchNum;
 
     /**
-    * 分批策略：0-全自动，1-全手动，2-beta分批，beta批一定是手动的
+    * 分批策略：0-全自动，1-全手动，2-beta分批，beta批一定是手动的，3-首次发布
     */
     @SerializedName("DeployStrategyType")
     @Expose
@@ -49,6 +49,20 @@ public class DeployStrategyConf extends AbstractModel{
     @SerializedName("BatchInterval")
     @Expose
     private Long BatchInterval;
+
+    /**
+    * 最小可用实例数
+    */
+    @SerializedName("MinAvailable")
+    @Expose
+    private Long MinAvailable;
+
+    /**
+    * 是否强制发布
+    */
+    @SerializedName("Force")
+    @Expose
+    private Boolean Force;
 
     /**
      * Get 总分批数 
@@ -83,16 +97,16 @@ public class DeployStrategyConf extends AbstractModel{
     }
 
     /**
-     * Get 分批策略：0-全自动，1-全手动，2-beta分批，beta批一定是手动的 
-     * @return DeployStrategyType 分批策略：0-全自动，1-全手动，2-beta分批，beta批一定是手动的
+     * Get 分批策略：0-全自动，1-全手动，2-beta分批，beta批一定是手动的，3-首次发布 
+     * @return DeployStrategyType 分批策略：0-全自动，1-全手动，2-beta分批，beta批一定是手动的，3-首次发布
      */
     public Long getDeployStrategyType() {
         return this.DeployStrategyType;
     }
 
     /**
-     * Set 分批策略：0-全自动，1-全手动，2-beta分批，beta批一定是手动的
-     * @param DeployStrategyType 分批策略：0-全自动，1-全手动，2-beta分批，beta批一定是手动的
+     * Set 分批策略：0-全自动，1-全手动，2-beta分批，beta批一定是手动的，3-首次发布
+     * @param DeployStrategyType 分批策略：0-全自动，1-全手动，2-beta分批，beta批一定是手动的，3-首次发布
      */
     public void setDeployStrategyType(Long DeployStrategyType) {
         this.DeployStrategyType = DeployStrategyType;
@@ -112,6 +126,38 @@ public class DeployStrategyConf extends AbstractModel{
      */
     public void setBatchInterval(Long BatchInterval) {
         this.BatchInterval = BatchInterval;
+    }
+
+    /**
+     * Get 最小可用实例数 
+     * @return MinAvailable 最小可用实例数
+     */
+    public Long getMinAvailable() {
+        return this.MinAvailable;
+    }
+
+    /**
+     * Set 最小可用实例数
+     * @param MinAvailable 最小可用实例数
+     */
+    public void setMinAvailable(Long MinAvailable) {
+        this.MinAvailable = MinAvailable;
+    }
+
+    /**
+     * Get 是否强制发布 
+     * @return Force 是否强制发布
+     */
+    public Boolean getForce() {
+        return this.Force;
+    }
+
+    /**
+     * Set 是否强制发布
+     * @param Force 是否强制发布
+     */
+    public void setForce(Boolean Force) {
+        this.Force = Force;
     }
 
     public DeployStrategyConf() {
@@ -134,6 +180,12 @@ public class DeployStrategyConf extends AbstractModel{
         if (source.BatchInterval != null) {
             this.BatchInterval = new Long(source.BatchInterval);
         }
+        if (source.MinAvailable != null) {
+            this.MinAvailable = new Long(source.MinAvailable);
+        }
+        if (source.Force != null) {
+            this.Force = new Boolean(source.Force);
+        }
     }
 
 
@@ -145,6 +197,8 @@ public class DeployStrategyConf extends AbstractModel{
         this.setParamSimple(map, prefix + "BetaBatchNum", this.BetaBatchNum);
         this.setParamSimple(map, prefix + "DeployStrategyType", this.DeployStrategyType);
         this.setParamSimple(map, prefix + "BatchInterval", this.BatchInterval);
+        this.setParamSimple(map, prefix + "MinAvailable", this.MinAvailable);
+        this.setParamSimple(map, prefix + "Force", this.Force);
 
     }
 }

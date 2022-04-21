@@ -30,7 +30,7 @@ public class DescribePrivateZoneRecordListRequest extends AbstractModel{
     private String ZoneId;
 
     /**
-    * 过滤参数
+    * 过滤参数（支持使用Value、RecordType过滤）
     */
     @SerializedName("Filters")
     @Expose
@@ -44,7 +44,7 @@ public class DescribePrivateZoneRecordListRequest extends AbstractModel{
     private Long Offset;
 
     /**
-    * 分页限制数目， 最大100，默认20
+    * 分页限制数目， 最大200，默认20
     */
     @SerializedName("Limit")
     @Expose
@@ -67,16 +67,16 @@ public class DescribePrivateZoneRecordListRequest extends AbstractModel{
     }
 
     /**
-     * Get 过滤参数 
-     * @return Filters 过滤参数
+     * Get 过滤参数（支持使用Value、RecordType过滤） 
+     * @return Filters 过滤参数（支持使用Value、RecordType过滤）
      */
     public Filter [] getFilters() {
         return this.Filters;
     }
 
     /**
-     * Set 过滤参数
-     * @param Filters 过滤参数
+     * Set 过滤参数（支持使用Value、RecordType过滤）
+     * @param Filters 过滤参数（支持使用Value、RecordType过滤）
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;
@@ -99,16 +99,16 @@ public class DescribePrivateZoneRecordListRequest extends AbstractModel{
     }
 
     /**
-     * Get 分页限制数目， 最大100，默认20 
-     * @return Limit 分页限制数目， 最大100，默认20
+     * Get 分页限制数目， 最大200，默认20 
+     * @return Limit 分页限制数目， 最大200，默认20
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 分页限制数目， 最大100，默认20
-     * @param Limit 分页限制数目， 最大100，默认20
+     * Set 分页限制数目， 最大200，默认20
+     * @param Limit 分页限制数目， 最大200，默认20
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;

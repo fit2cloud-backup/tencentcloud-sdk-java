@@ -23,23 +23,23 @@ import java.util.HashMap;
 public class GetSecurityLastUsedRequest extends AbstractModel{
 
     /**
-    * 查询密钥ID列表
+    * 查询密钥ID列表。最多支持10个。
     */
     @SerializedName("SecretIdList")
     @Expose
     private String [] SecretIdList;
 
     /**
-     * Get 查询密钥ID列表 
-     * @return SecretIdList 查询密钥ID列表
+     * Get 查询密钥ID列表。最多支持10个。 
+     * @return SecretIdList 查询密钥ID列表。最多支持10个。
      */
     public String [] getSecretIdList() {
         return this.SecretIdList;
     }
 
     /**
-     * Set 查询密钥ID列表
-     * @param SecretIdList 查询密钥ID列表
+     * Set 查询密钥ID列表。最多支持10个。
+     * @param SecretIdList 查询密钥ID列表。最多支持10个。
      */
     public void setSecretIdList(String [] SecretIdList) {
         this.SecretIdList = SecretIdList;

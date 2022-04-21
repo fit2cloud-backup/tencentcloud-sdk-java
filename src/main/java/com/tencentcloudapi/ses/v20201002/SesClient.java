@@ -100,7 +100,7 @@ public class SesClient extends AbstractClient{
 
     /**
      *创建模板，该模板可以是TXT或者HTML，请注意如果HTML不要包含外部文件的CSS。模板中的变量使用 {{变量名}} 表示。
-注意：模版需要审核通过才可以使用。
+注意：模板需要审核通过才可以使用。
      * @param req CreateEmailTemplateRequest
      * @return CreateEmailTemplateResponse
      * @throws TencentCloudSDKException
@@ -112,6 +112,66 @@ public class SesClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<CreateEmailTemplateResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "CreateEmailTemplate");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *创建收件人列表，收件人列表是发送批量邮件的目标邮件地址列表。创建列表后，需要上传收件人邮箱地址。之后创建发送任务，关联列表，便可以实现批量发送邮件的功能
+     * @param req CreateReceiverRequest
+     * @return CreateReceiverResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateReceiverResponse CreateReceiver(CreateReceiverRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateReceiverResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateReceiverResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateReceiver");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *在创建完收件人列表后，向这个收件人列表中批量增加收件人邮箱地址，一次最大支持10W，异步完成处理。收件人列表只可以上传一次，不可追加上传。数据量比较大的时候，上传可能需要一点时间，可以通过查询收件人列表了解上传状态和上传数量
+     * @param req CreateReceiverDetailRequest
+     * @return CreateReceiverDetailResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateReceiverDetailResponse CreateReceiverDetail(CreateReceiverDetailRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateReceiverDetailResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateReceiverDetailResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateReceiverDetail");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *添加收件人地址附带模板参数
+     * @param req CreateReceiverDetailWithDataRequest
+     * @return CreateReceiverDetailWithDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateReceiverDetailWithDataResponse CreateReceiverDetailWithData(CreateReceiverDetailWithDataRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateReceiverDetailWithDataResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateReceiverDetailWithDataResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateReceiverDetailWithData");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -180,7 +240,7 @@ public class SesClient extends AbstractClient{
     }
 
     /**
-     *删除发信模版
+     *删除发信模板
      * @param req DeleteEmailTemplateRequest
      * @return DeleteEmailTemplateResponse
      * @throws TencentCloudSDKException
@@ -192,6 +252,26 @@ public class SesClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DeleteEmailTemplateResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DeleteEmailTemplate");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *根据收件id删除收件人列表,同时删除列表中的所有收件邮箱
+     * @param req DeleteReceiverRequest
+     * @return DeleteReceiverResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteReceiverResponse DeleteReceiver(DeleteReceiverRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteReceiverResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteReceiverResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteReceiver");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -240,7 +320,8 @@ public class SesClient extends AbstractClient{
     }
 
     /**
-     *获取邮件发送状态。仅支持查询180天之内的数据
+     *获取邮件发送状态。仅支持查询30天之内的数据
+默认接口请求频率限制：1次/秒
      * @param req GetSendEmailStatusRequest
      * @return GetSendEmailStatusResponse
      * @throws TencentCloudSDKException
@@ -352,6 +433,46 @@ public class SesClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<ListEmailTemplatesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ListEmailTemplates");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *根据条件查询收件人列表，支持分页，模糊查询，状态查询
+     * @param req ListReceiversRequest
+     * @return ListReceiversResponse
+     * @throws TencentCloudSDKException
+     */
+    public ListReceiversResponse ListReceivers(ListReceiversRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ListReceiversResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ListReceiversResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ListReceivers");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *分页查询批量发送邮件任务，包含即时发送任务，定时发送任务，周期重复发送任务，查询发送情况，包括请求数量，已发数量，缓存数量，任务状态等信息
+     * @param req ListSendTasksRequest
+     * @return ListSendTasksResponse
+     * @throws TencentCloudSDKException
+     */
+    public ListSendTasksResponse ListSendTasks(ListSendTasksRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ListSendTasksResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ListSendTasksResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ListSendTasks");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

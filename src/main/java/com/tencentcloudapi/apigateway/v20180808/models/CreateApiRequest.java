@@ -345,6 +345,13 @@ public class CreateApiRequest extends AbstractModel{
     private Boolean IsBase64Encoded;
 
     /**
+    * 事件总线ID。
+    */
+    @SerializedName("EventBusId")
+    @Expose
+    private String EventBusId;
+
+    /**
     * scf函数类型。当后端类型是SCF时生效。支持事件触发(EVENT)，http直通云函数(HTTP)。
     */
     @SerializedName("ServiceScfFunctionType")
@@ -378,6 +385,13 @@ public class CreateApiRequest extends AbstractModel{
     @SerializedName("EIAMAppId")
     @Expose
     private String EIAMAppId;
+
+    /**
+    * 资源的Owner
+    */
+    @SerializedName("Owner")
+    @Expose
+    private String Owner;
 
     /**
      * Get API 所在的服务唯一 ID。 
@@ -1116,6 +1130,22 @@ public class CreateApiRequest extends AbstractModel{
     }
 
     /**
+     * Get 事件总线ID。 
+     * @return EventBusId 事件总线ID。
+     */
+    public String getEventBusId() {
+        return this.EventBusId;
+    }
+
+    /**
+     * Set 事件总线ID。
+     * @param EventBusId 事件总线ID。
+     */
+    public void setEventBusId(String EventBusId) {
+        this.EventBusId = EventBusId;
+    }
+
+    /**
      * Get scf函数类型。当后端类型是SCF时生效。支持事件触发(EVENT)，http直通云函数(HTTP)。 
      * @return ServiceScfFunctionType scf函数类型。当后端类型是SCF时生效。支持事件触发(EVENT)，http直通云函数(HTTP)。
      */
@@ -1193,6 +1223,22 @@ public class CreateApiRequest extends AbstractModel{
      */
     public void setEIAMAppId(String EIAMAppId) {
         this.EIAMAppId = EIAMAppId;
+    }
+
+    /**
+     * Get 资源的Owner 
+     * @return Owner 资源的Owner
+     */
+    public String getOwner() {
+        return this.Owner;
+    }
+
+    /**
+     * Set 资源的Owner
+     * @param Owner 资源的Owner
+     */
+    public void setOwner(String Owner) {
+        this.Owner = Owner;
     }
 
     public CreateApiRequest() {
@@ -1359,6 +1405,9 @@ public class CreateApiRequest extends AbstractModel{
         if (source.IsBase64Encoded != null) {
             this.IsBase64Encoded = new Boolean(source.IsBase64Encoded);
         }
+        if (source.EventBusId != null) {
+            this.EventBusId = new String(source.EventBusId);
+        }
         if (source.ServiceScfFunctionType != null) {
             this.ServiceScfFunctionType = new String(source.ServiceScfFunctionType);
         }
@@ -1373,6 +1422,9 @@ public class CreateApiRequest extends AbstractModel{
         }
         if (source.EIAMAppId != null) {
             this.EIAMAppId = new String(source.EIAMAppId);
+        }
+        if (source.Owner != null) {
+            this.Owner = new String(source.Owner);
         }
     }
 
@@ -1427,11 +1479,13 @@ public class CreateApiRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TargetNamespaceId", this.TargetNamespaceId);
         this.setParamSimple(map, prefix + "UserType", this.UserType);
         this.setParamSimple(map, prefix + "IsBase64Encoded", this.IsBase64Encoded);
+        this.setParamSimple(map, prefix + "EventBusId", this.EventBusId);
         this.setParamSimple(map, prefix + "ServiceScfFunctionType", this.ServiceScfFunctionType);
         this.setParamSimple(map, prefix + "EIAMAppType", this.EIAMAppType);
         this.setParamSimple(map, prefix + "EIAMAuthType", this.EIAMAuthType);
         this.setParamSimple(map, prefix + "TokenTimeout", this.TokenTimeout);
         this.setParamSimple(map, prefix + "EIAMAppId", this.EIAMAppId);
+        this.setParamSimple(map, prefix + "Owner", this.Owner);
 
     }
 }

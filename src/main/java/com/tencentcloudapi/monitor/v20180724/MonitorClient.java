@@ -59,6 +59,26 @@ public class MonitorClient extends AbstractClient{
     }
 
     /**
+     *策略绑定标签
+     * @param req BindingPolicyTagRequest
+     * @return BindingPolicyTagResponse
+     * @throws TencentCloudSDKException
+     */
+    public BindingPolicyTagResponse BindingPolicyTag(BindingPolicyTagRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<BindingPolicyTagResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<BindingPolicyTagResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "BindingPolicyTag");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *创建通知模板
      * @param req CreateAlarmNoticeRequest
      * @return CreateAlarmNoticeResponse
@@ -79,7 +99,7 @@ public class MonitorClient extends AbstractClient{
     }
 
     /**
-     *创建告警策略
+     *创建云监控告警策略
      * @param req CreateAlarmPolicyRequest
      * @return CreateAlarmPolicyResponse
      * @throws TencentCloudSDKException
@@ -547,6 +567,26 @@ public class MonitorClient extends AbstractClient{
     }
 
     /**
+     *获取条件模板列表
+     * @param req DescribeConditionsTemplateListRequest
+     * @return DescribeConditionsTemplateListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeConditionsTemplateListResponse DescribeConditionsTemplateList(DescribeConditionsTemplateListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeConditionsTemplateListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeConditionsTemplateListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeConditionsTemplateList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *云监控支持多种类型的监控，此接口列出支持的所有类型
      * @param req DescribeMonitorTypesRequest
      * @return DescribeMonitorTypesResponse
@@ -647,7 +687,7 @@ public class MonitorClient extends AbstractClient{
     }
 
     /**
-     *查询云监控产品列表
+     *查询云监控产品列表，支持云服务器CVM、云数据库、云消息队列、负载均衡、容器服务、专线等云产品。
      * @param req DescribeProductListRequest
      * @return DescribeProductListResponse
      * @throws TencentCloudSDKException
@@ -659,6 +699,30 @@ public class MonitorClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeProductListResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeProductList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口 (DescribePrometheusInstances) 用于查询一个或多个实例的详细信息。
+<ul>
+<li>可以根据实例ID、实例名称或者实例状态等信息来查询实例的详细信息</li>
+<li>如果参数为空，返回当前用户一定数量（Limit所指定的数量，默认为20）的实例。</li>
+</ul>
+     * @param req DescribePrometheusInstancesRequest
+     * @return DescribePrometheusInstancesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribePrometheusInstancesResponse DescribePrometheusInstances(DescribePrometheusInstancesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribePrometheusInstancesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribePrometheusInstancesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribePrometheusInstances");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

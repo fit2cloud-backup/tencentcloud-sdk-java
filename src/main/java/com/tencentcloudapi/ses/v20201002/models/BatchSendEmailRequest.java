@@ -53,7 +53,7 @@ public class BatchSendEmailRequest extends AbstractModel{
     private Long TaskType;
 
     /**
-    * 邮件的“回复”电子邮件地址。可以填写您能收到邮件的邮箱地址，可以是个人邮箱。如果不填，收件人将会回复到腾讯云。
+    * 邮件的“回复”电子邮件地址。可以填写您能收到邮件的邮箱地址，可以是个人邮箱。如果不填，收件人将会回复到腾讯云
     */
     @SerializedName("ReplyToAddresses")
     @Expose
@@ -67,14 +67,14 @@ public class BatchSendEmailRequest extends AbstractModel{
     private Template Template;
 
     /**
-    * 使用API直接发送内容时，填写的邮件内容
+    * 使用API直接发送内容时，填写的邮件内容（暂未支持）
     */
     @SerializedName("Simple")
     @Expose
     private Simple Simple;
 
     /**
-    * 需要发送附件时，填写附件相关参数。
+    * 需要发送附件时，填写附件相关参数（暂未支持）
     */
     @SerializedName("Attachments")
     @Expose
@@ -93,6 +93,20 @@ public class BatchSendEmailRequest extends AbstractModel{
     @SerializedName("TimedParam")
     @Expose
     private TimedEmailParam TimedParam;
+
+    /**
+    * 退订选项 1: 加入退订链接 0: 不加入退订链接
+    */
+    @SerializedName("Unsubscribe")
+    @Expose
+    private String Unsubscribe;
+
+    /**
+    * 是否添加广告标识 0:不添加 1:添加到subject前面，2:添加到subject后面
+    */
+    @SerializedName("ADLocation")
+    @Expose
+    private Long ADLocation;
 
     /**
      * Get 发信邮件地址。请填写发件人邮箱地址，例如：noreply@mail.qcloud.com。如需填写发件人说明，请按照
@@ -167,16 +181,16 @@ public class BatchSendEmailRequest extends AbstractModel{
     }
 
     /**
-     * Get 邮件的“回复”电子邮件地址。可以填写您能收到邮件的邮箱地址，可以是个人邮箱。如果不填，收件人将会回复到腾讯云。 
-     * @return ReplyToAddresses 邮件的“回复”电子邮件地址。可以填写您能收到邮件的邮箱地址，可以是个人邮箱。如果不填，收件人将会回复到腾讯云。
+     * Get 邮件的“回复”电子邮件地址。可以填写您能收到邮件的邮箱地址，可以是个人邮箱。如果不填，收件人将会回复到腾讯云 
+     * @return ReplyToAddresses 邮件的“回复”电子邮件地址。可以填写您能收到邮件的邮箱地址，可以是个人邮箱。如果不填，收件人将会回复到腾讯云
      */
     public String getReplyToAddresses() {
         return this.ReplyToAddresses;
     }
 
     /**
-     * Set 邮件的“回复”电子邮件地址。可以填写您能收到邮件的邮箱地址，可以是个人邮箱。如果不填，收件人将会回复到腾讯云。
-     * @param ReplyToAddresses 邮件的“回复”电子邮件地址。可以填写您能收到邮件的邮箱地址，可以是个人邮箱。如果不填，收件人将会回复到腾讯云。
+     * Set 邮件的“回复”电子邮件地址。可以填写您能收到邮件的邮箱地址，可以是个人邮箱。如果不填，收件人将会回复到腾讯云
+     * @param ReplyToAddresses 邮件的“回复”电子邮件地址。可以填写您能收到邮件的邮箱地址，可以是个人邮箱。如果不填，收件人将会回复到腾讯云
      */
     public void setReplyToAddresses(String ReplyToAddresses) {
         this.ReplyToAddresses = ReplyToAddresses;
@@ -199,32 +213,32 @@ public class BatchSendEmailRequest extends AbstractModel{
     }
 
     /**
-     * Get 使用API直接发送内容时，填写的邮件内容 
-     * @return Simple 使用API直接发送内容时，填写的邮件内容
+     * Get 使用API直接发送内容时，填写的邮件内容（暂未支持） 
+     * @return Simple 使用API直接发送内容时，填写的邮件内容（暂未支持）
      */
     public Simple getSimple() {
         return this.Simple;
     }
 
     /**
-     * Set 使用API直接发送内容时，填写的邮件内容
-     * @param Simple 使用API直接发送内容时，填写的邮件内容
+     * Set 使用API直接发送内容时，填写的邮件内容（暂未支持）
+     * @param Simple 使用API直接发送内容时，填写的邮件内容（暂未支持）
      */
     public void setSimple(Simple Simple) {
         this.Simple = Simple;
     }
 
     /**
-     * Get 需要发送附件时，填写附件相关参数。 
-     * @return Attachments 需要发送附件时，填写附件相关参数。
+     * Get 需要发送附件时，填写附件相关参数（暂未支持） 
+     * @return Attachments 需要发送附件时，填写附件相关参数（暂未支持）
      */
     public Attachment [] getAttachments() {
         return this.Attachments;
     }
 
     /**
-     * Set 需要发送附件时，填写附件相关参数。
-     * @param Attachments 需要发送附件时，填写附件相关参数。
+     * Set 需要发送附件时，填写附件相关参数（暂未支持）
+     * @param Attachments 需要发送附件时，填写附件相关参数（暂未支持）
      */
     public void setAttachments(Attachment [] Attachments) {
         this.Attachments = Attachments;
@@ -260,6 +274,38 @@ public class BatchSendEmailRequest extends AbstractModel{
      */
     public void setTimedParam(TimedEmailParam TimedParam) {
         this.TimedParam = TimedParam;
+    }
+
+    /**
+     * Get 退订选项 1: 加入退订链接 0: 不加入退订链接 
+     * @return Unsubscribe 退订选项 1: 加入退订链接 0: 不加入退订链接
+     */
+    public String getUnsubscribe() {
+        return this.Unsubscribe;
+    }
+
+    /**
+     * Set 退订选项 1: 加入退订链接 0: 不加入退订链接
+     * @param Unsubscribe 退订选项 1: 加入退订链接 0: 不加入退订链接
+     */
+    public void setUnsubscribe(String Unsubscribe) {
+        this.Unsubscribe = Unsubscribe;
+    }
+
+    /**
+     * Get 是否添加广告标识 0:不添加 1:添加到subject前面，2:添加到subject后面 
+     * @return ADLocation 是否添加广告标识 0:不添加 1:添加到subject前面，2:添加到subject后面
+     */
+    public Long getADLocation() {
+        return this.ADLocation;
+    }
+
+    /**
+     * Set 是否添加广告标识 0:不添加 1:添加到subject前面，2:添加到subject后面
+     * @param ADLocation 是否添加广告标识 0:不添加 1:添加到subject前面，2:添加到subject后面
+     */
+    public void setADLocation(Long ADLocation) {
+        this.ADLocation = ADLocation;
     }
 
     public BatchSendEmailRequest() {
@@ -303,6 +349,12 @@ public class BatchSendEmailRequest extends AbstractModel{
         if (source.TimedParam != null) {
             this.TimedParam = new TimedEmailParam(source.TimedParam);
         }
+        if (source.Unsubscribe != null) {
+            this.Unsubscribe = new String(source.Unsubscribe);
+        }
+        if (source.ADLocation != null) {
+            this.ADLocation = new Long(source.ADLocation);
+        }
     }
 
 
@@ -320,6 +372,8 @@ public class BatchSendEmailRequest extends AbstractModel{
         this.setParamArrayObj(map, prefix + "Attachments.", this.Attachments);
         this.setParamObj(map, prefix + "CycleParam.", this.CycleParam);
         this.setParamObj(map, prefix + "TimedParam.", this.TimedParam);
+        this.setParamSimple(map, prefix + "Unsubscribe", this.Unsubscribe);
+        this.setParamSimple(map, prefix + "ADLocation", this.ADLocation);
 
     }
 }

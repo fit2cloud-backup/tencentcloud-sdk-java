@@ -31,9 +31,11 @@ public class AddCdnDomainRequest extends AbstractModel{
 
     /**
     * 加速域名业务类型
-web：静态加速
-download：下载加速
-media：流媒体点播加速
+web：网页小文件
+download：下载大文件
+media：音视频点播
+hybrid:  动静加速
+dynamic:  动态加速
     */
     @SerializedName("ServiceType")
     @Expose
@@ -262,7 +264,7 @@ global：全球加速
     private OfflineCache OfflineCache;
 
     /**
-    * QUIC正在内测中，请先提交内测申请，详情请前往QUIC产品文档。
+    * Quic访问（收费服务，详见计费说明和产品文档）
     */
     @SerializedName("Quic")
     @Expose
@@ -283,6 +285,20 @@ global：全球加速
     private OssPrivateAccess OssPrivateAccess;
 
     /**
+    * 华为云对象存储回源鉴权
+    */
+    @SerializedName("HwPrivateAccess")
+    @Expose
+    private HwPrivateAccess HwPrivateAccess;
+
+    /**
+    * 七牛云对象存储回源鉴权
+    */
+    @SerializedName("QnPrivateAccess")
+    @Expose
+    private QnPrivateAccess QnPrivateAccess;
+
+    /**
      * Get 域名 
      * @return Domain 域名
      */
@@ -300,13 +316,17 @@ global：全球加速
 
     /**
      * Get 加速域名业务类型
-web：静态加速
-download：下载加速
-media：流媒体点播加速 
+web：网页小文件
+download：下载大文件
+media：音视频点播
+hybrid:  动静加速
+dynamic:  动态加速 
      * @return ServiceType 加速域名业务类型
-web：静态加速
-download：下载加速
-media：流媒体点播加速
+web：网页小文件
+download：下载大文件
+media：音视频点播
+hybrid:  动静加速
+dynamic:  动态加速
      */
     public String getServiceType() {
         return this.ServiceType;
@@ -314,13 +334,17 @@ media：流媒体点播加速
 
     /**
      * Set 加速域名业务类型
-web：静态加速
-download：下载加速
-media：流媒体点播加速
+web：网页小文件
+download：下载大文件
+media：音视频点播
+hybrid:  动静加速
+dynamic:  动态加速
      * @param ServiceType 加速域名业务类型
-web：静态加速
-download：下载加速
-media：流媒体点播加速
+web：网页小文件
+download：下载大文件
+media：音视频点播
+hybrid:  动静加速
+dynamic:  动态加速
      */
     public void setServiceType(String ServiceType) {
         this.ServiceType = ServiceType;
@@ -843,16 +867,16 @@ global：全球加速
     }
 
     /**
-     * Get QUIC正在内测中，请先提交内测申请，详情请前往QUIC产品文档。 
-     * @return Quic QUIC正在内测中，请先提交内测申请，详情请前往QUIC产品文档。
+     * Get Quic访问（收费服务，详见计费说明和产品文档） 
+     * @return Quic Quic访问（收费服务，详见计费说明和产品文档）
      */
     public Quic getQuic() {
         return this.Quic;
     }
 
     /**
-     * Set QUIC正在内测中，请先提交内测申请，详情请前往QUIC产品文档。
-     * @param Quic QUIC正在内测中，请先提交内测申请，详情请前往QUIC产品文档。
+     * Set Quic访问（收费服务，详见计费说明和产品文档）
+     * @param Quic Quic访问（收费服务，详见计费说明和产品文档）
      */
     public void setQuic(Quic Quic) {
         this.Quic = Quic;
@@ -888,6 +912,38 @@ global：全球加速
      */
     public void setOssPrivateAccess(OssPrivateAccess OssPrivateAccess) {
         this.OssPrivateAccess = OssPrivateAccess;
+    }
+
+    /**
+     * Get 华为云对象存储回源鉴权 
+     * @return HwPrivateAccess 华为云对象存储回源鉴权
+     */
+    public HwPrivateAccess getHwPrivateAccess() {
+        return this.HwPrivateAccess;
+    }
+
+    /**
+     * Set 华为云对象存储回源鉴权
+     * @param HwPrivateAccess 华为云对象存储回源鉴权
+     */
+    public void setHwPrivateAccess(HwPrivateAccess HwPrivateAccess) {
+        this.HwPrivateAccess = HwPrivateAccess;
+    }
+
+    /**
+     * Get 七牛云对象存储回源鉴权 
+     * @return QnPrivateAccess 七牛云对象存储回源鉴权
+     */
+    public QnPrivateAccess getQnPrivateAccess() {
+        return this.QnPrivateAccess;
+    }
+
+    /**
+     * Set 七牛云对象存储回源鉴权
+     * @param QnPrivateAccess 七牛云对象存储回源鉴权
+     */
+    public void setQnPrivateAccess(QnPrivateAccess QnPrivateAccess) {
+        this.QnPrivateAccess = QnPrivateAccess;
     }
 
     public AddCdnDomainRequest() {
@@ -1009,6 +1065,12 @@ global：全球加速
         if (source.OssPrivateAccess != null) {
             this.OssPrivateAccess = new OssPrivateAccess(source.OssPrivateAccess);
         }
+        if (source.HwPrivateAccess != null) {
+            this.HwPrivateAccess = new HwPrivateAccess(source.HwPrivateAccess);
+        }
+        if (source.QnPrivateAccess != null) {
+            this.QnPrivateAccess = new QnPrivateAccess(source.QnPrivateAccess);
+        }
     }
 
 
@@ -1052,6 +1114,8 @@ global：全球加速
         this.setParamObj(map, prefix + "Quic.", this.Quic);
         this.setParamObj(map, prefix + "AwsPrivateAccess.", this.AwsPrivateAccess);
         this.setParamObj(map, prefix + "OssPrivateAccess.", this.OssPrivateAccess);
+        this.setParamObj(map, prefix + "HwPrivateAccess.", this.HwPrivateAccess);
+        this.setParamObj(map, prefix + "QnPrivateAccess.", this.QnPrivateAccess);
 
     }
 }

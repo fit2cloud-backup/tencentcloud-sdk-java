@@ -30,7 +30,7 @@ public class CreateTaskRequest extends AbstractModel{
     private Task Task;
 
     /**
-    * 数据库名称。任务在执行前均会USE该数据库， 除了首次建库时，其他情况建议均添加上。
+    * 数据库名称。如果SQL语句中有数据库名称，优先使用SQL语句中的数据库，否则使用该参数指定的数据库（注：当提交建库sql时，该字段传空字符串）。
     */
     @SerializedName("DatabaseName")
     @Expose
@@ -42,6 +42,13 @@ public class CreateTaskRequest extends AbstractModel{
     @SerializedName("DatasourceConnectionName")
     @Expose
     private String DatasourceConnectionName;
+
+    /**
+    * 数据引擎名称，不填提交到默认集群
+    */
+    @SerializedName("DataEngineName")
+    @Expose
+    private String DataEngineName;
 
     /**
      * Get 计算任务，该参数中包含任务类型及其相关配置信息 
@@ -60,16 +67,16 @@ public class CreateTaskRequest extends AbstractModel{
     }
 
     /**
-     * Get 数据库名称。任务在执行前均会USE该数据库， 除了首次建库时，其他情况建议均添加上。 
-     * @return DatabaseName 数据库名称。任务在执行前均会USE该数据库， 除了首次建库时，其他情况建议均添加上。
+     * Get 数据库名称。如果SQL语句中有数据库名称，优先使用SQL语句中的数据库，否则使用该参数指定的数据库（注：当提交建库sql时，该字段传空字符串）。 
+     * @return DatabaseName 数据库名称。如果SQL语句中有数据库名称，优先使用SQL语句中的数据库，否则使用该参数指定的数据库（注：当提交建库sql时，该字段传空字符串）。
      */
     public String getDatabaseName() {
         return this.DatabaseName;
     }
 
     /**
-     * Set 数据库名称。任务在执行前均会USE该数据库， 除了首次建库时，其他情况建议均添加上。
-     * @param DatabaseName 数据库名称。任务在执行前均会USE该数据库， 除了首次建库时，其他情况建议均添加上。
+     * Set 数据库名称。如果SQL语句中有数据库名称，优先使用SQL语句中的数据库，否则使用该参数指定的数据库（注：当提交建库sql时，该字段传空字符串）。
+     * @param DatabaseName 数据库名称。如果SQL语句中有数据库名称，优先使用SQL语句中的数据库，否则使用该参数指定的数据库（注：当提交建库sql时，该字段传空字符串）。
      */
     public void setDatabaseName(String DatabaseName) {
         this.DatabaseName = DatabaseName;
@@ -91,6 +98,22 @@ public class CreateTaskRequest extends AbstractModel{
         this.DatasourceConnectionName = DatasourceConnectionName;
     }
 
+    /**
+     * Get 数据引擎名称，不填提交到默认集群 
+     * @return DataEngineName 数据引擎名称，不填提交到默认集群
+     */
+    public String getDataEngineName() {
+        return this.DataEngineName;
+    }
+
+    /**
+     * Set 数据引擎名称，不填提交到默认集群
+     * @param DataEngineName 数据引擎名称，不填提交到默认集群
+     */
+    public void setDataEngineName(String DataEngineName) {
+        this.DataEngineName = DataEngineName;
+    }
+
     public CreateTaskRequest() {
     }
 
@@ -108,6 +131,9 @@ public class CreateTaskRequest extends AbstractModel{
         if (source.DatasourceConnectionName != null) {
             this.DatasourceConnectionName = new String(source.DatasourceConnectionName);
         }
+        if (source.DataEngineName != null) {
+            this.DataEngineName = new String(source.DataEngineName);
+        }
     }
 
 
@@ -118,6 +144,7 @@ public class CreateTaskRequest extends AbstractModel{
         this.setParamObj(map, prefix + "Task.", this.Task);
         this.setParamSimple(map, prefix + "DatabaseName", this.DatabaseName);
         this.setParamSimple(map, prefix + "DatasourceConnectionName", this.DatasourceConnectionName);
+        this.setParamSimple(map, prefix + "DataEngineName", this.DataEngineName);
 
     }
 }

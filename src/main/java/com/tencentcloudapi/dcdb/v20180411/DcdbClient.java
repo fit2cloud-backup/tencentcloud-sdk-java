@@ -39,6 +39,26 @@ public class DcdbClient extends AbstractClient{
     }
 
     /**
+     *解隔离DCDB后付费实例
+     * @param req ActiveHourDCDBInstanceRequest
+     * @return ActiveHourDCDBInstanceResponse
+     * @throws TencentCloudSDKException
+     */
+    public ActiveHourDCDBInstanceResponse ActiveHourDCDBInstance(ActiveHourDCDBInstanceRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ActiveHourDCDBInstanceResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ActiveHourDCDBInstanceResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ActiveHourDCDBInstance");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口 (AssociateSecurityGroups) 用于安全组批量绑定云资源。
      * @param req AssociateSecurityGroupsRequest
      * @return AssociateSecurityGroupsResponse
@@ -200,6 +220,26 @@ public class DcdbClient extends AbstractClient{
     }
 
     /**
+     *创建DCDB后付费实例
+     * @param req CreateHourDCDBInstanceRequest
+     * @return CreateHourDCDBInstanceResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateHourDCDBInstanceResponse CreateHourDCDBInstance(CreateHourDCDBInstanceRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateHourDCDBInstanceResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateHourDCDBInstanceResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateHourDCDBInstance");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口（DeleteAccount）用于删除云数据库账号。用户名+host唯一确定一个账号。
      * @param req DeleteAccountRequest
      * @return DeleteAccountResponse
@@ -301,18 +341,18 @@ public class DcdbClient extends AbstractClient{
     }
 
     /**
-     *本接口（DescribeDBSecurityGroups）用于查询实例安全组信息
-     * @param req DescribeDBSecurityGroupsRequest
-     * @return DescribeDBSecurityGroupsResponse
+     *本接口(DescribeDBSlowLogs)用于查询慢查询日志列表。
+     * @param req DescribeDBSlowLogsRequest
+     * @return DescribeDBSlowLogsResponse
      * @throws TencentCloudSDKException
      */
-    public DescribeDBSecurityGroupsResponse DescribeDBSecurityGroups(DescribeDBSecurityGroupsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDBSecurityGroupsResponse> rsp = null;
+    public DescribeDBSlowLogsResponse DescribeDBSlowLogs(DescribeDBSlowLogsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeDBSlowLogsResponse> rsp = null;
         String rspStr = "";
         try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDBSecurityGroupsResponse>>() {
+                Type type = new TypeToken<JsonResponseModel<DescribeDBSlowLogsResponse>>() {
                 }.getType();
-                rspStr = this.internalRequest(req, "DescribeDBSecurityGroups");
+                rspStr = this.internalRequest(req, "DescribeDBSlowLogs");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -562,6 +602,26 @@ public class DcdbClient extends AbstractClient{
     }
 
     /**
+     *本接口(DescribeFileDownloadUrl)用于获取数据库指定备份或日志文件的下载连接。
+     * @param req DescribeFileDownloadUrlRequest
+     * @return DescribeFileDownloadUrlResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeFileDownloadUrlResponse DescribeFileDownloadUrl(DescribeFileDownloadUrlRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeFileDownloadUrlResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeFileDownloadUrlResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeFileDownloadUrl");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口（DescribeFlow）用于查询流程状态
      * @param req DescribeFlowRequest
      * @return DescribeFlowResponse
@@ -574,26 +634,6 @@ public class DcdbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeFlowResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeFlow");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *本接口（DescribeOrders）用于查询分布式数据库订单信息。传入订单ID来查询订单关联的分布式数据库实例，和对应的任务流程ID。
-     * @param req DescribeOrdersRequest
-     * @return DescribeOrdersResponse
-     * @throws TencentCloudSDKException
-     */
-    public DescribeOrdersResponse DescribeOrders(DescribeOrdersRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeOrdersResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeOrdersResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeOrders");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -823,6 +863,26 @@ public class DcdbClient extends AbstractClient{
     }
 
     /**
+     *隔离DCDB后付费实例
+     * @param req IsolateHourDCDBInstanceRequest
+     * @return IsolateHourDCDBInstanceResponse
+     * @throws TencentCloudSDKException
+     */
+    public IsolateHourDCDBInstanceResponse IsolateHourDCDBInstance(IsolateHourDCDBInstanceRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<IsolateHourDCDBInstanceResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<IsolateHourDCDBInstanceResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "IsolateHourDCDBInstance");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口（KillSession）用于杀死指定会话。
      * @param req KillSessionRequest
      * @return KillSessionResponse
@@ -1022,6 +1082,26 @@ public class DcdbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<ResetAccountPasswordResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ResetAccountPassword");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口(SwitchDBInstanceHA)用于实例主备切换。
+     * @param req SwitchDBInstanceHARequest
+     * @return SwitchDBInstanceHAResponse
+     * @throws TencentCloudSDKException
+     */
+    public SwitchDBInstanceHAResponse SwitchDBInstanceHA(SwitchDBInstanceHARequest req) throws TencentCloudSDKException{
+        JsonResponseModel<SwitchDBInstanceHAResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<SwitchDBInstanceHAResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "SwitchDBInstanceHA");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

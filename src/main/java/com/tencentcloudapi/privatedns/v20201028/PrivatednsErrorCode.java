@@ -120,8 +120,17 @@ public enum PrivatednsErrorCode {
     // 参数取值错误。
      INVALIDPARAMETERVALUE("InvalidParameterValue"),
      
+    // 内部保留域名，不支持创建。
+     INVALIDPARAMETERVALUE_RESERVEDDOMAIN("InvalidParameterValue.ReservedDomain"),
+     
     // 超过配额限制。
      LIMITEXCEEDED("LimitExceeded"),
+     
+    // 超过自定义TLD额度。
+     LIMITEXCEEDED_TLDOUTOFLIMIT("LimitExceeded.TldOutOfLimit"),
+     
+    // 使用自定义TLD的私有域超过总额度。
+     LIMITEXCEEDED_TLDOUTOFRANGE("LimitExceeded.TldOutOfRange"),
      
     // 缺少参数错误。
      MISSINGPARAMETER("MissingParameter"),
@@ -147,6 +156,9 @@ public enum PrivatednsErrorCode {
     // 资源不可用。
      RESOURCEUNAVAILABLE("ResourceUnavailable"),
      
+    // TLD增值包已过期。
+     RESOURCEUNAVAILABLE_TLDPACKAGEEXPIRED("ResourceUnavailable.TldPackageExpired"),
+     
     // 资源售罄。
      RESOURCESSOLDOUT("ResourcesSoldOut"),
      
@@ -169,7 +181,10 @@ public enum PrivatednsErrorCode {
      UNSUPPORTEDOPERATION_ACCOUNTNOTBOUND("UnsupportedOperation.AccountNotBound"),
      
     // 存在绑定的VPC资源。
-     UNSUPPORTEDOPERATION_EXISTBOUNDVPC("UnsupportedOperation.ExistBoundVpc");
+     UNSUPPORTEDOPERATION_EXISTBOUNDVPC("UnsupportedOperation.ExistBoundVpc"),
+     
+    // 接口调用超过限频。
+     UNSUPPORTEDOPERATION_FREQUENCYLIMIT("UnsupportedOperation.FrequencyLimit");
      
     private String value;
     private PrivatednsErrorCode (String value){

@@ -215,6 +215,38 @@ public class OverseaConfig extends AbstractModel{
     private VideoSeek VideoSeek;
 
     /**
+    * 回源S3私有鉴权。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AwsPrivateAccess")
+    @Expose
+    private AwsPrivateAccess AwsPrivateAccess;
+
+    /**
+    * 回源OSS私有鉴权。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OssPrivateAccess")
+    @Expose
+    private OssPrivateAccess OssPrivateAccess;
+
+    /**
+    * 华为云对象存储鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("HwPrivateAccess")
+    @Expose
+    private HwPrivateAccess HwPrivateAccess;
+
+    /**
+    * 七牛云对象存储鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("QnPrivateAccess")
+    @Expose
+    private QnPrivateAccess QnPrivateAccess;
+
+    /**
      * Get 时间戳防盗链配置。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return Authentication 时间戳防盗链配置。
@@ -694,6 +726,86 @@ public class OverseaConfig extends AbstractModel{
         this.VideoSeek = VideoSeek;
     }
 
+    /**
+     * Get 回源S3私有鉴权。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AwsPrivateAccess 回源S3私有鉴权。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AwsPrivateAccess getAwsPrivateAccess() {
+        return this.AwsPrivateAccess;
+    }
+
+    /**
+     * Set 回源S3私有鉴权。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AwsPrivateAccess 回源S3私有鉴权。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAwsPrivateAccess(AwsPrivateAccess AwsPrivateAccess) {
+        this.AwsPrivateAccess = AwsPrivateAccess;
+    }
+
+    /**
+     * Get 回源OSS私有鉴权。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OssPrivateAccess 回源OSS私有鉴权。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public OssPrivateAccess getOssPrivateAccess() {
+        return this.OssPrivateAccess;
+    }
+
+    /**
+     * Set 回源OSS私有鉴权。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OssPrivateAccess 回源OSS私有鉴权。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOssPrivateAccess(OssPrivateAccess OssPrivateAccess) {
+        this.OssPrivateAccess = OssPrivateAccess;
+    }
+
+    /**
+     * Get 华为云对象存储鉴权
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return HwPrivateAccess 华为云对象存储鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public HwPrivateAccess getHwPrivateAccess() {
+        return this.HwPrivateAccess;
+    }
+
+    /**
+     * Set 华为云对象存储鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param HwPrivateAccess 华为云对象存储鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setHwPrivateAccess(HwPrivateAccess HwPrivateAccess) {
+        this.HwPrivateAccess = HwPrivateAccess;
+    }
+
+    /**
+     * Get 七牛云对象存储鉴权
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return QnPrivateAccess 七牛云对象存储鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public QnPrivateAccess getQnPrivateAccess() {
+        return this.QnPrivateAccess;
+    }
+
+    /**
+     * Set 七牛云对象存储鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param QnPrivateAccess 七牛云对象存储鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setQnPrivateAccess(QnPrivateAccess QnPrivateAccess) {
+        this.QnPrivateAccess = QnPrivateAccess;
+    }
+
     public OverseaConfig() {
     }
 
@@ -774,6 +886,18 @@ public class OverseaConfig extends AbstractModel{
         if (source.VideoSeek != null) {
             this.VideoSeek = new VideoSeek(source.VideoSeek);
         }
+        if (source.AwsPrivateAccess != null) {
+            this.AwsPrivateAccess = new AwsPrivateAccess(source.AwsPrivateAccess);
+        }
+        if (source.OssPrivateAccess != null) {
+            this.OssPrivateAccess = new OssPrivateAccess(source.OssPrivateAccess);
+        }
+        if (source.HwPrivateAccess != null) {
+            this.HwPrivateAccess = new HwPrivateAccess(source.HwPrivateAccess);
+        }
+        if (source.QnPrivateAccess != null) {
+            this.QnPrivateAccess = new QnPrivateAccess(source.QnPrivateAccess);
+        }
     }
 
 
@@ -805,6 +929,10 @@ public class OverseaConfig extends AbstractModel{
         this.setParamSimple(map, prefix + "ServiceType", this.ServiceType);
         this.setParamObj(map, prefix + "StatusCodeCache.", this.StatusCodeCache);
         this.setParamObj(map, prefix + "VideoSeek.", this.VideoSeek);
+        this.setParamObj(map, prefix + "AwsPrivateAccess.", this.AwsPrivateAccess);
+        this.setParamObj(map, prefix + "OssPrivateAccess.", this.OssPrivateAccess);
+        this.setParamObj(map, prefix + "HwPrivateAccess.", this.HwPrivateAccess);
+        this.setParamObj(map, prefix + "QnPrivateAccess.", this.QnPrivateAccess);
 
     }
 }

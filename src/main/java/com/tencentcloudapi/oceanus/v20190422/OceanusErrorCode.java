@@ -6,8 +6,17 @@ public enum OceanusErrorCode {
     // 未授权操作。
      AUTHFAILURE_UNAUTHORIZEDOPERATION("AuthFailure.UnauthorizedOperation"),
      
+    // 操作失败。
+     FAILEDOPERATION("FailedOperation"),
+     
     // 重复的作业名。
      FAILEDOPERATION_DUPLICATEDJOBNAME("FailedOperation.DuplicatedJobName"),
+     
+    // 语法检查失败。
+     FAILEDOPERATION_GRAMMARCHECKFAILURE("FailedOperation.GrammarCheckFailure"),
+     
+    // SQL解析失败。
+     FAILEDOPERATION_PARSESQL("FailedOperation.ParseSql"),
      
     // 用户未实名验证。
      FAILEDOPERATION_USERNOTAUTHENTICATED("FailedOperation.UserNotAuthenticated"),
@@ -17,6 +26,9 @@ public enum OceanusErrorCode {
      
     // COS 服务访问错误。
      INTERNALERROR_COSCLIENT("InternalError.COSClient"),
+     
+    // CAM 网关错误。
+     INTERNALERROR_CAMCGWERROR("InternalError.CamCgwError"),
      
     // 数据库异常。
      INTERNALERROR_DB("InternalError.DB"),
@@ -41,9 +53,6 @@ public enum OceanusErrorCode {
      
     // 内部错误。
      INTERNALERROR_STSNEWCLIENT("InternalError.StsNewClient"),
-     
-    // 系统错误。
-     INTERNALERROR_SYSTEMERROR("InternalError.SystemError"),
      
     // AppId资源不匹配。
      INVALIDPARAMETER_APPIDRESOURCENOTMATCH("InvalidParameter.AppIdResourceNotMatch"),
@@ -99,6 +108,9 @@ public enum OceanusErrorCode {
     // 作业名称已存在。
      INVALIDPARAMETERVALUE_JOBNAMEEXISTED("InvalidParameterValue.JobNameExisted"),
      
+    // 集群模式与作业类型不匹配。
+     INVALIDPARAMETERVALUE_JOBTYPECOMBINEWITHCLUSTERTYPE("InvalidParameterValue.JobTypeCombineWithClusterType"),
+     
     // SQL作业不能指定EntrypointClass，JAR作业则必须指定。
      INVALIDPARAMETERVALUE_JOBTYPECOMBINEWITHENTRYPOINTCLASS("InvalidParameterValue.JobTypeCombineWithEntrypointClass"),
      
@@ -113,6 +125,9 @@ public enum OceanusErrorCode {
      
     // 不支持的复合类型。
      INVALIDPARAMETERVALUE_UNSUPPORTEDCOMPOSITE("InvalidParameterValue.UnSupportedComposite"),
+     
+    // 未知停止类型错误。
+     INVALIDPARAMETERVALUE_UNKNOWNSTOPTYPE("InvalidParameterValue.UnknownStopType"),
      
     // 超过配额限制。
      LIMITEXCEEDED("LimitExceeded"),
@@ -171,6 +186,9 @@ public enum OceanusErrorCode {
     // 检查资源位置是否存在错误。
      RESOURCEUNAVAILABLE_CHECKRESOURCELOCEXISTS("ResourceUnavailable.CheckResourceLocExists"),
      
+    // 集群处于非运行状态。
+     RESOURCEUNAVAILABLE_CLUSTER("ResourceUnavailable.Cluster"),
+     
     // 群集组状态错误。
      RESOURCEUNAVAILABLE_CLUSTERGROUPSTATUS("ResourceUnavailable.ClusterGroupStatus"),
      
@@ -200,6 +218,9 @@ public enum OceanusErrorCode {
      
     // Checkpoint 时间间隔，错误。
      UNSUPPORTEDOPERATION_INVALIDCHECKPOINTINTERVALERROR("UnsupportedOperation.InvalidCheckpointIntervalError"),
+     
+    // 权限拦截,没有进入权限。
+     UNSUPPORTEDOPERATION_NOPERMISSIONACCESS("UnsupportedOperation.NoPermissionAccess"),
      
     // 不支持的启动模式。
      UNSUPPORTEDOPERATION_UNSUPPORTEDSTARTMODE("UnsupportedOperation.UnsupportedStartMode");

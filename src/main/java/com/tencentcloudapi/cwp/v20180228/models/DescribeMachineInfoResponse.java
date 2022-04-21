@@ -104,7 +104,7 @@ public class DescribeMachineInfoResponse extends AbstractModel{
     private String ProVersionOpenDate;
 
     /**
-    * 云主机类型。
+    * 云服务器类型。
 <li>CVM: 腾讯云服务器</li>
 <li>BM: 黑石物理机</li>
 <li>ECM: 边缘计算服务器</li>
@@ -165,6 +165,13 @@ public class DescribeMachineInfoResponse extends AbstractModel{
     @SerializedName("HasAssetScan")
     @Expose
     private Long HasAssetScan;
+
+    /**
+    * 防护版本 BASIC_VERSION 基础版, PRO_VERSION 专业版 Flagship 旗舰版.
+    */
+    @SerializedName("ProtectType")
+    @Expose
+    private String ProtectType;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -366,13 +373,13 @@ public class DescribeMachineInfoResponse extends AbstractModel{
     }
 
     /**
-     * Get 云主机类型。
+     * Get 云服务器类型。
 <li>CVM: 腾讯云服务器</li>
 <li>BM: 黑石物理机</li>
 <li>ECM: 边缘计算服务器</li>
 <li>LH: 轻量应用服务器</li>
 <li>Other: 混合云机器</li> 
-     * @return MachineType 云主机类型。
+     * @return MachineType 云服务器类型。
 <li>CVM: 腾讯云服务器</li>
 <li>BM: 黑石物理机</li>
 <li>ECM: 边缘计算服务器</li>
@@ -384,13 +391,13 @@ public class DescribeMachineInfoResponse extends AbstractModel{
     }
 
     /**
-     * Set 云主机类型。
+     * Set 云服务器类型。
 <li>CVM: 腾讯云服务器</li>
 <li>BM: 黑石物理机</li>
 <li>ECM: 边缘计算服务器</li>
 <li>LH: 轻量应用服务器</li>
 <li>Other: 混合云机器</li>
-     * @param MachineType 云主机类型。
+     * @param MachineType 云服务器类型。
 <li>CVM: 腾讯云服务器</li>
 <li>BM: 黑石物理机</li>
 <li>ECM: 边缘计算服务器</li>
@@ -522,6 +529,22 @@ public class DescribeMachineInfoResponse extends AbstractModel{
     }
 
     /**
+     * Get 防护版本 BASIC_VERSION 基础版, PRO_VERSION 专业版 Flagship 旗舰版. 
+     * @return ProtectType 防护版本 BASIC_VERSION 基础版, PRO_VERSION 专业版 Flagship 旗舰版.
+     */
+    public String getProtectType() {
+        return this.ProtectType;
+    }
+
+    /**
+     * Set 防护版本 BASIC_VERSION 基础版, PRO_VERSION 专业版 Flagship 旗舰版.
+     * @param ProtectType 防护版本 BASIC_VERSION 基础版, PRO_VERSION 专业版 Flagship 旗舰版.
+     */
+    public void setProtectType(String ProtectType) {
+        this.ProtectType = ProtectType;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -602,6 +625,9 @@ public class DescribeMachineInfoResponse extends AbstractModel{
         if (source.HasAssetScan != null) {
             this.HasAssetScan = new Long(source.HasAssetScan);
         }
+        if (source.ProtectType != null) {
+            this.ProtectType = new String(source.ProtectType);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -631,6 +657,7 @@ public class DescribeMachineInfoResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "AgentVersion", this.AgentVersion);
         this.setParamSimple(map, prefix + "ProVersionDeadline", this.ProVersionDeadline);
         this.setParamSimple(map, prefix + "HasAssetScan", this.HasAssetScan);
+        this.setParamSimple(map, prefix + "ProtectType", this.ProtectType);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

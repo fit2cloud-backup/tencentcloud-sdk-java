@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class RefundTlinxOrderRequest extends AbstractModel{
 
     /**
-    * 收单系统分配的开放ID
+    * 使用门店OpenId
     */
     @SerializedName("OpenId")
     @Expose
     private String OpenId;
 
     /**
-    * 收单系统分配的密钥
+    * 使用门店OpenKey
     */
     @SerializedName("OpenKey")
     @Expose
@@ -65,7 +65,7 @@ public class RefundTlinxOrderRequest extends AbstractModel{
     private String RefundAmount;
 
     /**
-    * 主管密码，对密码进行sha1加密，默认为123456
+    * 主管密码，对密码进行SHA-1加密，默认为123456
     */
     @SerializedName("ShopPassword")
     @Expose
@@ -86,32 +86,32 @@ public class RefundTlinxOrderRequest extends AbstractModel{
     private String Profile;
 
     /**
-     * Get 收单系统分配的开放ID 
-     * @return OpenId 收单系统分配的开放ID
+     * Get 使用门店OpenId 
+     * @return OpenId 使用门店OpenId
      */
     public String getOpenId() {
         return this.OpenId;
     }
 
     /**
-     * Set 收单系统分配的开放ID
-     * @param OpenId 收单系统分配的开放ID
+     * Set 使用门店OpenId
+     * @param OpenId 使用门店OpenId
      */
     public void setOpenId(String OpenId) {
         this.OpenId = OpenId;
     }
 
     /**
-     * Get 收单系统分配的密钥 
-     * @return OpenKey 收单系统分配的密钥
+     * Get 使用门店OpenKey 
+     * @return OpenKey 使用门店OpenKey
      */
     public String getOpenKey() {
         return this.OpenKey;
     }
 
     /**
-     * Set 收单系统分配的密钥
-     * @param OpenKey 收单系统分配的密钥
+     * Set 使用门店OpenKey
+     * @param OpenKey 使用门店OpenKey
      */
     public void setOpenKey(String OpenKey) {
         this.OpenKey = OpenKey;
@@ -182,16 +182,16 @@ public class RefundTlinxOrderRequest extends AbstractModel{
     }
 
     /**
-     * Get 主管密码，对密码进行sha1加密，默认为123456 
-     * @return ShopPassword 主管密码，对密码进行sha1加密，默认为123456
+     * Get 主管密码，对密码进行SHA-1加密，默认为123456 
+     * @return ShopPassword 主管密码，对密码进行SHA-1加密，默认为123456
      */
     public String getShopPassword() {
         return this.ShopPassword;
     }
 
     /**
-     * Set 主管密码，对密码进行sha1加密，默认为123456
-     * @param ShopPassword 主管密码，对密码进行sha1加密，默认为123456
+     * Set 主管密码，对密码进行SHA-1加密，默认为123456
+     * @param ShopPassword 主管密码，对密码进行SHA-1加密，默认为123456
      */
     public void setShopPassword(String ShopPassword) {
         this.ShopPassword = ShopPassword;

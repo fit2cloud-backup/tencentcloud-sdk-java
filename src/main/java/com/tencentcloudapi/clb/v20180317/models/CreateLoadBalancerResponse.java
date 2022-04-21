@@ -24,10 +24,20 @@ public class CreateLoadBalancerResponse extends AbstractModel{
 
     /**
     * 由负载均衡实例唯一 ID 组成的数组。
+存在某些场景，如创建出现延迟时，此字段可能返回为空；此时可以根据接口返回的RequestId或DealName参数，通过DescribeTaskStatus接口查询创建的资源ID。
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LoadBalancerIds")
     @Expose
     private String [] LoadBalancerIds;
+
+    /**
+    * 订单号。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DealName")
+    @Expose
+    private String DealName;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -37,8 +47,12 @@ public class CreateLoadBalancerResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 由负载均衡实例唯一 ID 组成的数组。 
+     * Get 由负载均衡实例唯一 ID 组成的数组。
+存在某些场景，如创建出现延迟时，此字段可能返回为空；此时可以根据接口返回的RequestId或DealName参数，通过DescribeTaskStatus接口查询创建的资源ID。
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return LoadBalancerIds 由负载均衡实例唯一 ID 组成的数组。
+存在某些场景，如创建出现延迟时，此字段可能返回为空；此时可以根据接口返回的RequestId或DealName参数，通过DescribeTaskStatus接口查询创建的资源ID。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getLoadBalancerIds() {
         return this.LoadBalancerIds;
@@ -46,10 +60,34 @@ public class CreateLoadBalancerResponse extends AbstractModel{
 
     /**
      * Set 由负载均衡实例唯一 ID 组成的数组。
+存在某些场景，如创建出现延迟时，此字段可能返回为空；此时可以根据接口返回的RequestId或DealName参数，通过DescribeTaskStatus接口查询创建的资源ID。
+注意：此字段可能返回 null，表示取不到有效值。
      * @param LoadBalancerIds 由负载均衡实例唯一 ID 组成的数组。
+存在某些场景，如创建出现延迟时，此字段可能返回为空；此时可以根据接口返回的RequestId或DealName参数，通过DescribeTaskStatus接口查询创建的资源ID。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLoadBalancerIds(String [] LoadBalancerIds) {
         this.LoadBalancerIds = LoadBalancerIds;
+    }
+
+    /**
+     * Get 订单号。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DealName 订单号。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDealName() {
+        return this.DealName;
+    }
+
+    /**
+     * Set 订单号。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DealName 订单号。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDealName(String DealName) {
+        this.DealName = DealName;
     }
 
     /**
@@ -82,6 +120,9 @@ public class CreateLoadBalancerResponse extends AbstractModel{
                 this.LoadBalancerIds[i] = new String(source.LoadBalancerIds[i]);
             }
         }
+        if (source.DealName != null) {
+            this.DealName = new String(source.DealName);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -93,6 +134,7 @@ public class CreateLoadBalancerResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "LoadBalancerIds.", this.LoadBalancerIds);
+        this.setParamSimple(map, prefix + "DealName", this.DealName);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

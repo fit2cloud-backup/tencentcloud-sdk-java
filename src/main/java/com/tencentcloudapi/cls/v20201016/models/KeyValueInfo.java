@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class KeyValueInfo extends AbstractModel{
 
     /**
-    * 需要配置键值或者元字段索引的字段
+    * 需要配置键值或者元字段索引的字段，元字段Key无需额外添加`__TAG__.`前缀，与上传日志时对应的字段Key一致即可，腾讯云控制台展示时将自动添加`__TAG__.`前缀
     */
     @SerializedName("Key")
     @Expose
@@ -37,16 +37,16 @@ public class KeyValueInfo extends AbstractModel{
     private ValueInfo Value;
 
     /**
-     * Get 需要配置键值或者元字段索引的字段 
-     * @return Key 需要配置键值或者元字段索引的字段
+     * Get 需要配置键值或者元字段索引的字段，元字段Key无需额外添加`__TAG__.`前缀，与上传日志时对应的字段Key一致即可，腾讯云控制台展示时将自动添加`__TAG__.`前缀 
+     * @return Key 需要配置键值或者元字段索引的字段，元字段Key无需额外添加`__TAG__.`前缀，与上传日志时对应的字段Key一致即可，腾讯云控制台展示时将自动添加`__TAG__.`前缀
      */
     public String getKey() {
         return this.Key;
     }
 
     /**
-     * Set 需要配置键值或者元字段索引的字段
-     * @param Key 需要配置键值或者元字段索引的字段
+     * Set 需要配置键值或者元字段索引的字段，元字段Key无需额外添加`__TAG__.`前缀，与上传日志时对应的字段Key一致即可，腾讯云控制台展示时将自动添加`__TAG__.`前缀
+     * @param Key 需要配置键值或者元字段索引的字段，元字段Key无需额外添加`__TAG__.`前缀，与上传日志时对应的字段Key一致即可，腾讯云控制台展示时将自动添加`__TAG__.`前缀
      */
     public void setKey(String Key) {
         this.Key = Key;

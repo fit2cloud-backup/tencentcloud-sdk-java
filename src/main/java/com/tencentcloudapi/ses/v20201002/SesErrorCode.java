@@ -1,5 +1,8 @@
 package com.tencentcloudapi.ses.v20201002;
 public enum SesErrorCode {
+    // 操作失败。
+     FAILEDOPERATION("FailedOperation"),
+     
     // 附件太大，请参考单个附件以及附件总量大小限制。
      FAILEDOPERATION_ATTACHCONTENTTOOLARGE("FailedOperation.AttachContentToolarge"),
      
@@ -12,7 +15,7 @@ public enum SesErrorCode {
     // 超出当日总量发送限制。
      FAILEDOPERATION_EXCEEDSENDLIMIT("FailedOperation.ExceedSendLimit"),
      
-    // 超出最大模版数量限制。
+    // 超出最大模板数量限制。
      FAILEDOPERATION_EXCEEDTEMPLATELIMIT("FailedOperation.ExceedTemplateLimit"),
      
     // 触发频率控制，短时间内对同一地址发送过多邮件。
@@ -57,13 +60,16 @@ public enum SesErrorCode {
     // 协议检查错误，请检查协议是否正确。
      FAILEDOPERATION_PROTOCOLCHECKERR("FailedOperation.ProtocolCheckErr"),
      
+    // 收件人已退订。
+     FAILEDOPERATION_RECEIVERHASUNSUBSCRIBED("FailedOperation.ReceiverHasUnsubscribed"),
+     
     // 您的发送遇到问题，请联系腾讯云提交工单沟通原因并解决。
      FAILEDOPERATION_SENDEMAILERR("FailedOperation.SendEmailErr"),
      
     // 临时性错误，请求未生效，请重试。
      FAILEDOPERATION_SERVICENOTAVAILABLE("FailedOperation.ServiceNotAvailable"),
      
-    // 模版内容太大，请减少模版内容。
+    // 模板内容太大，请减少模板内容。
      FAILEDOPERATION_TEMPLATECONTENTTOOLARGE("FailedOperation.TemplateContentToolarge"),
      
     // 因触发了某些规则导致临时Block。
@@ -78,7 +84,7 @@ public enum SesErrorCode {
     // 不支持的邮箱类型。
      FAILEDOPERATION_UNSUPPORTMAILTYPE("FailedOperation.UnsupportMailType"),
      
-    // 未开通自定义发送权限，必须使用模版发送。
+    // 未开通自定义发送权限，必须使用模板发送。
      FAILEDOPERATION_WITHOUTPERMISSION("FailedOperation.WithOutPermission"),
      
     // TemplateData字段格式不正确，请保持为json格式。
@@ -120,28 +126,40 @@ public enum SesErrorCode {
     // 该域名还没有创建，请先新建发信域名。
      INVALIDPARAMETERVALUE_NOTEXISTDOMAIN("InvalidParameterValue.NotExistDomain"),
      
+    // 收件人列表描述不合法，描述不可包含特殊字符，字符长度范围:1~300。
+     INVALIDPARAMETERVALUE_RECEIVERDESCILLEGAL("InvalidParameterValue.ReceiverDescIllegal"),
+     
+    // 收件人列表名字不合法，请检查字符内容及大小。
+     INVALIDPARAMETERVALUE_RECEIVERNAMEILLEGAL("InvalidParameterValue.ReceiverNameIllegal"),
+     
     // 该域名已经创建过了，请勿重复创建。
      INVALIDPARAMETERVALUE_REPEATCREATION("InvalidParameterValue.RepeatCreation"),
      
     // 该邮件地址已经创建过了，请勿重复创建。
      INVALIDPARAMETERVALUE_REPEATEMAILADDRESS("InvalidParameterValue.RepeatEmailAddress"),
      
-    // 模版资源为空。
+    // 收件人列表名称重复。
+     INVALIDPARAMETERVALUE_REPEATRECEIVERNAME("InvalidParameterValue.RepeatReceiverName"),
+     
+    // 邮件主题长度必须为1-100。
+     INVALIDPARAMETERVALUE_SUBJECTLENGTHERROR("InvalidParameterValue.SubjectLengthError"),
+     
+    // 模板资源为空。
      INVALIDPARAMETERVALUE_TEMPLATECONTENTISNULL("InvalidParameterValue.TemplateContentIsNULL"),
      
-    // 模版内容错误，请检查base64内容是否正确。
+    // 模板内容错误，请检查base64内容是否正确。
      INVALIDPARAMETERVALUE_TEMPLATECONTENTISWRONG("InvalidParameterValue.TemplateContentIsWrong"),
      
     // 变量设置必须为json格式。
      INVALIDPARAMETERVALUE_TEMPLATEDATAERROR("InvalidParameterValue.TemplateDataError"),
      
-    // 模版名字不合法，请检查字符内容及大小。
+    // 模板名字不合法，请检查字符内容及大小。
      INVALIDPARAMETERVALUE_TEMPLATENAMEILLEGAL("InvalidParameterValue.TemplateNameIllegal"),
      
-    // 模版名字不能为空。
+    // 模板名字不能为空。
      INVALIDPARAMETERVALUE_TEMPLATENAMEISNULL("InvalidParameterValue.TemplateNameIsNULL"),
      
-    // 不存在该模版，请先创建模版。
+    // 不存在该模板，请先创建模板。
      INVALIDPARAMETERVALUE_TEMPLATENOTEXIST("InvalidParameterValue.TemplateNotExist"),
      
     // 搜索日期错误，请检查日期及格式是否有效。
@@ -150,11 +168,23 @@ public enum SesErrorCode {
     // 超过配额限制。
      LIMITEXCEEDED("LimitExceeded"),
      
+    // 收件人地址数量超过限制。
+     LIMITEXCEEDED_EXCEEDRECEIVERDETAILLIMIT("LimitExceeded.ExceedReceiverDetailLimit"),
+     
+    // 收件人列表数量超过限制。
+     LIMITEXCEEDED_EXCEEDRECEIVERLIMIT("LimitExceeded.ExceedReceiverLimit"),
+     
     // 缺少参数错误。
      MISSINGPARAMETER("MissingParameter"),
      
     // 周期发送任务需选择开始时间和间隔时间。
      MISSINGPARAMETER_CYCLEPARAMNECESSARY("MissingParameter.CycleParamNecessary"),
+     
+    // 收件人地址必须传。
+     MISSINGPARAMETER_EMAILSNECESSARY("MissingParameter.EmailsNecessary"),
+     
+    // 收件人列表Id必传。
+     MISSINGPARAMETER_RECEIVERIDNECESSARY("MissingParameter.ReceiverIdNecessary"),
      
     // 发件地址、收件人列表,发件模板必须传。
      MISSINGPARAMETER_SENDPARAMNECESSARY("MissingParameter.SendParamNecessary"),
@@ -173,6 +203,9 @@ public enum SesErrorCode {
      
     // 超出最大发信地址限制。
      OPERATIONDENIED_EXCEEDSENDERLIMIT("OperationDenied.ExceedSenderLimit"),
+     
+    // 收件人列表正在被操作，请稍后操作。
+     OPERATIONDENIED_RECEIVERISOPERATING("OperationDenied.ReceiverIsOperating"),
      
     // 收件人列表不存在。
      OPERATIONDENIED_RECEIVERNOTEXIST("OperationDenied.ReceiverNotExist"),

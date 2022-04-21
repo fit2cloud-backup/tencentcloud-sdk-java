@@ -3,8 +3,77 @@ public enum TkeErrorCode {
     // 操作失败。
      FAILEDOPERATION("FailedOperation"),
      
+    // 账户未通过认证。
+     FAILEDOPERATION_ACCOUNTUSERNOTAUTHENTICATED("FailedOperation.AccountUserNotAuthenticated"),
+     
+    // 伸缩组资源创建报错。
+     FAILEDOPERATION_ASCOMMON("FailedOperation.AsCommon"),
+     
+    // 无该接口CAM权限。
+     FAILEDOPERATION_CAMNOAUTH("FailedOperation.CamNoAuth"),
+     
+    // 集群未找到。
+     FAILEDOPERATION_CLUSTERNOTFOUND("FailedOperation.ClusterNotFound"),
+     
+    // 集群状态错误。
+     FAILEDOPERATION_CLUSTERSTATE("FailedOperation.ClusterState"),
+     
+    // 集群节点版本过低。
+     FAILEDOPERATION_CLUSTERUPGRADENODEVERSION("FailedOperation.ClusterUpgradeNodeVersion"),
+     
+    // 内部HTTP客户端错误。
+     FAILEDOPERATION_COMPONENTCLIENTHTTP("FailedOperation.ComponentClientHttp"),
+     
+    // 内部HTTP解包失败。
+     FAILEDOPERATION_COMPONENTCLIENTUNPACK("FailedOperation.ComponentClientUnpack"),
+     
+    // 请求(http请求)其他云服务失败。
+     FAILEDOPERATION_COMPONENTCLINETHTTP("FailedOperation.ComponentClinetHttp"),
+     
+    // cvm创建节点报错。
+     FAILEDOPERATION_CVMCOMMON("FailedOperation.CvmCommon"),
+     
+    // CVM 和 VPC ID 不匹配。
+     FAILEDOPERATION_CVMVPCIDNOTMATCH("FailedOperation.CvmVpcidNotMatch"),
+     
+    // db错误。
+     FAILEDOPERATION_DB("FailedOperation.Db"),
+     
+    // 记录未找到。
+     FAILEDOPERATION_DBRECORDNOTFOUND("FailedOperation.DbRecordNotFound"),
+     
+    // 连接用户Kubernetes集群失败。
+     FAILEDOPERATION_KUBECLIENTCONNECTION("FailedOperation.KubeClientConnection"),
+     
+    // KubernetesAPI错误。
+     FAILEDOPERATION_KUBECOMMON("FailedOperation.KubeCommon"),
+     
+    // 创建集群Client出错。
+     FAILEDOPERATION_KUBERNETESCREATEOPERATIONERROR("FailedOperation.KubernetesCreateOperationError"),
+     
+    // 镜像OS不支持。
+     FAILEDOPERATION_OSNOTSUPPORT("FailedOperation.OsNotSupport"),
+     
+    // 参数错误。
+     FAILEDOPERATION_PARAM("FailedOperation.Param"),
+     
+    // 超过配额限制。
+     FAILEDOPERATION_QUOTAMAXCLSLIMIT("FailedOperation.QuotaMaxClsLimit"),
+     
+    // 超过配额限制。
+     FAILEDOPERATION_QUOTAMAXNODLIMIT("FailedOperation.QuotaMaxNodLimit"),
+     
+    // 安全组配额不足。
+     FAILEDOPERATION_QUOTAUSGLIMIT("FailedOperation.QuotaUSGLimit"),
+     
     // 子账户RBAC权限不足。
      FAILEDOPERATION_RBACFORBIDDEN("FailedOperation.RBACForbidden"),
+     
+    // 已有相同任务执行中。
+     FAILEDOPERATION_TASKALREADYRUNNING("FailedOperation.TaskAlreadyRunning"),
+     
+    // 询价错误。
+     FAILEDOPERATION_TRADECOMMON("FailedOperation.TradeCommon"),
      
     // 内部错误。
      INTERNALERROR("InternalError"),
@@ -74,6 +143,9 @@ public enum TkeErrorCode {
      
     // 存在云服务器在CVM侧查询不到。
      INTERNALERROR_CVMNUMBERNOTMATCH("InternalError.CvmNumberNotMatch"),
+     
+    // cvm状态不正常。
+     INTERNALERROR_CVMSTATUS("InternalError.CvmStatus"),
      
     // db错误。
      INTERNALERROR_DB("InternalError.Db"),
@@ -165,6 +237,9 @@ public enum TkeErrorCode {
     // 路由表不存在。
      INTERNALERROR_ROUTETABLENOTFOUND("InternalError.RouteTableNotFound"),
      
+    // 已有相同任务执行中。
+     INTERNALERROR_TASKALREADYRUNNING("InternalError.TaskAlreadyRunning"),
+     
     // 创建任务失败。
      INTERNALERROR_TASKCREATEFAILED("InternalError.TaskCreateFailed"),
      
@@ -173,6 +248,12 @@ public enum TkeErrorCode {
      
     // 任务未找到。
      INTERNALERROR_TASKNOTFOUND("InternalError.TaskNotFound"),
+     
+    // 询价错误。
+     INTERNALERROR_TRADECOMMON("InternalError.TradeCommon"),
+     
+    // 账户余额不足。
+     INTERNALERROR_TRADEINSUFFICIENTBALANCE("InternalError.TradeInsufficientBalance"),
      
     // 内部错误。
      INTERNALERROR_UNEXCEPTEDINTERNAL("InternalError.UnexceptedInternal"),
@@ -228,6 +309,9 @@ public enum TkeErrorCode {
     // 下一跳地址已关联CIDR。
      INVALIDPARAMETER_GATEWAYALREADYASSOCIATEDCIDR("InvalidParameter.GatewayAlreadyAssociatedCidr"),
      
+    // 无效的私有CIDR网段。
+     INVALIDPARAMETER_INVALIDPRIVATENETWORKCIDR("InvalidParameter.InvalidPrivateNetworkCIDR"),
+     
     // 参数错误。
      INVALIDPARAMETER_PARAM("InvalidParameter.Param"),
      
@@ -281,6 +365,9 @@ public enum TkeErrorCode {
      
     // 资源不可用。
      RESOURCEUNAVAILABLE("ResourceUnavailable"),
+     
+    // 集群状态异常。
+     RESOURCEUNAVAILABLE_CLUSTERINABNORMALSTAT("ResourceUnavailable.ClusterInAbnormalStat"),
      
     // 集群状态不支持该操作。
      RESOURCEUNAVAILABLE_CLUSTERSTATE("ResourceUnavailable.ClusterState"),

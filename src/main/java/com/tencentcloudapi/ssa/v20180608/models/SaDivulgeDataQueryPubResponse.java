@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class SaDivulgeDataQueryPubResponse extends AbstractModel{
 
     /**
-    * 结果
+    * 自定义泄露事件列表
     */
     @SerializedName("Data")
     @Expose
@@ -37,16 +37,16 @@ public class SaDivulgeDataQueryPubResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 结果 
-     * @return Data 结果
+     * Get 自定义泄露事件列表 
+     * @return Data 自定义泄露事件列表
      */
     public SaDivulgeDataQueryPubList getData() {
         return this.Data;
     }
 
     /**
-     * Set 结果
-     * @param Data 结果
+     * Set 自定义泄露事件列表
+     * @param Data 自定义泄露事件列表
      */
     public void setData(SaDivulgeDataQueryPubList Data) {
         this.Data = Data;

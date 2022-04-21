@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeAutoScalingInstancesRequest extends AbstractModel{
 
     /**
-    * 待查询云服务器（CVM）的实例ID。参数不支持同时指定InstanceIds和Filters。
+    * 待查询云服务器（CVM）的实例ID。每次请求的上限为100。参数不支持同时指定InstanceIds和Filters。
     */
     @SerializedName("InstanceIds")
     @Expose
@@ -54,16 +54,16 @@ public class DescribeAutoScalingInstancesRequest extends AbstractModel{
     private Long Limit;
 
     /**
-     * Get 待查询云服务器（CVM）的实例ID。参数不支持同时指定InstanceIds和Filters。 
-     * @return InstanceIds 待查询云服务器（CVM）的实例ID。参数不支持同时指定InstanceIds和Filters。
+     * Get 待查询云服务器（CVM）的实例ID。每次请求的上限为100。参数不支持同时指定InstanceIds和Filters。 
+     * @return InstanceIds 待查询云服务器（CVM）的实例ID。每次请求的上限为100。参数不支持同时指定InstanceIds和Filters。
      */
     public String [] getInstanceIds() {
         return this.InstanceIds;
     }
 
     /**
-     * Set 待查询云服务器（CVM）的实例ID。参数不支持同时指定InstanceIds和Filters。
-     * @param InstanceIds 待查询云服务器（CVM）的实例ID。参数不支持同时指定InstanceIds和Filters。
+     * Set 待查询云服务器（CVM）的实例ID。每次请求的上限为100。参数不支持同时指定InstanceIds和Filters。
+     * @param InstanceIds 待查询云服务器（CVM）的实例ID。每次请求的上限为100。参数不支持同时指定InstanceIds和Filters。
      */
     public void setInstanceIds(String [] InstanceIds) {
         this.InstanceIds = InstanceIds;

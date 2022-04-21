@@ -37,11 +37,25 @@ public class ModifyIndexRequest extends AbstractModel{
     private Boolean Status;
 
     /**
-    * 索引规则，Rule和Effective两个必须有一个参数存在
+    * 索引规则
     */
     @SerializedName("Rule")
     @Expose
     private RuleInfo Rule;
+
+    /**
+    * 全文索引系统预置字段标记，默认false。  false:不包含系统预置字段， true:包含系统预置字段
+    */
+    @SerializedName("IncludeInternalFields")
+    @Expose
+    private Boolean IncludeInternalFields;
+
+    /**
+    * 元数据相关标志位，默认为0。 0：全文索引包括开启键值索引的元数据字段， 1：全文索引包括所有元数据字段，2：全文索引不包括元数据字段。
+    */
+    @SerializedName("MetadataFlag")
+    @Expose
+    private Long MetadataFlag;
 
     /**
      * Get 日志主题ID 
@@ -76,19 +90,51 @@ public class ModifyIndexRequest extends AbstractModel{
     }
 
     /**
-     * Get 索引规则，Rule和Effective两个必须有一个参数存在 
-     * @return Rule 索引规则，Rule和Effective两个必须有一个参数存在
+     * Get 索引规则 
+     * @return Rule 索引规则
      */
     public RuleInfo getRule() {
         return this.Rule;
     }
 
     /**
-     * Set 索引规则，Rule和Effective两个必须有一个参数存在
-     * @param Rule 索引规则，Rule和Effective两个必须有一个参数存在
+     * Set 索引规则
+     * @param Rule 索引规则
      */
     public void setRule(RuleInfo Rule) {
         this.Rule = Rule;
+    }
+
+    /**
+     * Get 全文索引系统预置字段标记，默认false。  false:不包含系统预置字段， true:包含系统预置字段 
+     * @return IncludeInternalFields 全文索引系统预置字段标记，默认false。  false:不包含系统预置字段， true:包含系统预置字段
+     */
+    public Boolean getIncludeInternalFields() {
+        return this.IncludeInternalFields;
+    }
+
+    /**
+     * Set 全文索引系统预置字段标记，默认false。  false:不包含系统预置字段， true:包含系统预置字段
+     * @param IncludeInternalFields 全文索引系统预置字段标记，默认false。  false:不包含系统预置字段， true:包含系统预置字段
+     */
+    public void setIncludeInternalFields(Boolean IncludeInternalFields) {
+        this.IncludeInternalFields = IncludeInternalFields;
+    }
+
+    /**
+     * Get 元数据相关标志位，默认为0。 0：全文索引包括开启键值索引的元数据字段， 1：全文索引包括所有元数据字段，2：全文索引不包括元数据字段。 
+     * @return MetadataFlag 元数据相关标志位，默认为0。 0：全文索引包括开启键值索引的元数据字段， 1：全文索引包括所有元数据字段，2：全文索引不包括元数据字段。
+     */
+    public Long getMetadataFlag() {
+        return this.MetadataFlag;
+    }
+
+    /**
+     * Set 元数据相关标志位，默认为0。 0：全文索引包括开启键值索引的元数据字段， 1：全文索引包括所有元数据字段，2：全文索引不包括元数据字段。
+     * @param MetadataFlag 元数据相关标志位，默认为0。 0：全文索引包括开启键值索引的元数据字段， 1：全文索引包括所有元数据字段，2：全文索引不包括元数据字段。
+     */
+    public void setMetadataFlag(Long MetadataFlag) {
+        this.MetadataFlag = MetadataFlag;
     }
 
     public ModifyIndexRequest() {
@@ -108,6 +154,12 @@ public class ModifyIndexRequest extends AbstractModel{
         if (source.Rule != null) {
             this.Rule = new RuleInfo(source.Rule);
         }
+        if (source.IncludeInternalFields != null) {
+            this.IncludeInternalFields = new Boolean(source.IncludeInternalFields);
+        }
+        if (source.MetadataFlag != null) {
+            this.MetadataFlag = new Long(source.MetadataFlag);
+        }
     }
 
 
@@ -118,6 +170,8 @@ public class ModifyIndexRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TopicId", this.TopicId);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamObj(map, prefix + "Rule.", this.Rule);
+        this.setParamSimple(map, prefix + "IncludeInternalFields", this.IncludeInternalFields);
+        this.setParamSimple(map, prefix + "MetadataFlag", this.MetadataFlag);
 
     }
 }

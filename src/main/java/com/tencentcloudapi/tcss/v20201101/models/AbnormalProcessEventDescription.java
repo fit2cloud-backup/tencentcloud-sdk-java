@@ -52,7 +52,7 @@ public class AbnormalProcessEventDescription extends AbstractModel{
     private AbnormalProcessChildRuleInfo MatchRule;
 
     /**
-    * 命中规则名字
+    * 命中规则名称，PROXY_TOOL：代理软件，TRANSFER_CONTROL：横向渗透，ATTACK_CMD：恶意命令，REVERSE_SHELL：反弹shell，FILELESS：无文件程序执行，RISK_CMD：高危命令，ABNORMAL_CHILD_PROC：敏感服务异常子进程启动，USER_DEFINED_RULE：用户自定义规则
     */
     @SerializedName("RuleName")
     @Expose
@@ -64,6 +64,22 @@ public class AbnormalProcessEventDescription extends AbstractModel{
     @SerializedName("RuleId")
     @Expose
     private String RuleId;
+
+    /**
+    * 事件最后一次处理的时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OperationTime")
+    @Expose
+    private String OperationTime;
+
+    /**
+    * 命中策略名称：SYSTEM_DEFINED_RULE （系统策略）或  用户自定义的策略名字
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("GroupName")
+    @Expose
+    private String GroupName;
 
     /**
      * Get 事件规则 
@@ -134,16 +150,16 @@ public class AbnormalProcessEventDescription extends AbstractModel{
     }
 
     /**
-     * Get 命中规则名字 
-     * @return RuleName 命中规则名字
+     * Get 命中规则名称，PROXY_TOOL：代理软件，TRANSFER_CONTROL：横向渗透，ATTACK_CMD：恶意命令，REVERSE_SHELL：反弹shell，FILELESS：无文件程序执行，RISK_CMD：高危命令，ABNORMAL_CHILD_PROC：敏感服务异常子进程启动，USER_DEFINED_RULE：用户自定义规则 
+     * @return RuleName 命中规则名称，PROXY_TOOL：代理软件，TRANSFER_CONTROL：横向渗透，ATTACK_CMD：恶意命令，REVERSE_SHELL：反弹shell，FILELESS：无文件程序执行，RISK_CMD：高危命令，ABNORMAL_CHILD_PROC：敏感服务异常子进程启动，USER_DEFINED_RULE：用户自定义规则
      */
     public String getRuleName() {
         return this.RuleName;
     }
 
     /**
-     * Set 命中规则名字
-     * @param RuleName 命中规则名字
+     * Set 命中规则名称，PROXY_TOOL：代理软件，TRANSFER_CONTROL：横向渗透，ATTACK_CMD：恶意命令，REVERSE_SHELL：反弹shell，FILELESS：无文件程序执行，RISK_CMD：高危命令，ABNORMAL_CHILD_PROC：敏感服务异常子进程启动，USER_DEFINED_RULE：用户自定义规则
+     * @param RuleName 命中规则名称，PROXY_TOOL：代理软件，TRANSFER_CONTROL：横向渗透，ATTACK_CMD：恶意命令，REVERSE_SHELL：反弹shell，FILELESS：无文件程序执行，RISK_CMD：高危命令，ABNORMAL_CHILD_PROC：敏感服务异常子进程启动，USER_DEFINED_RULE：用户自定义规则
      */
     public void setRuleName(String RuleName) {
         this.RuleName = RuleName;
@@ -163,6 +179,46 @@ public class AbnormalProcessEventDescription extends AbstractModel{
      */
     public void setRuleId(String RuleId) {
         this.RuleId = RuleId;
+    }
+
+    /**
+     * Get 事件最后一次处理的时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OperationTime 事件最后一次处理的时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getOperationTime() {
+        return this.OperationTime;
+    }
+
+    /**
+     * Set 事件最后一次处理的时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OperationTime 事件最后一次处理的时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOperationTime(String OperationTime) {
+        this.OperationTime = OperationTime;
+    }
+
+    /**
+     * Get 命中策略名称：SYSTEM_DEFINED_RULE （系统策略）或  用户自定义的策略名字
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return GroupName 命中策略名称：SYSTEM_DEFINED_RULE （系统策略）或  用户自定义的策略名字
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getGroupName() {
+        return this.GroupName;
+    }
+
+    /**
+     * Set 命中策略名称：SYSTEM_DEFINED_RULE （系统策略）或  用户自定义的策略名字
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param GroupName 命中策略名称：SYSTEM_DEFINED_RULE （系统策略）或  用户自定义的策略名字
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setGroupName(String GroupName) {
+        this.GroupName = GroupName;
     }
 
     public AbnormalProcessEventDescription() {
@@ -191,6 +247,12 @@ public class AbnormalProcessEventDescription extends AbstractModel{
         if (source.RuleId != null) {
             this.RuleId = new String(source.RuleId);
         }
+        if (source.OperationTime != null) {
+            this.OperationTime = new String(source.OperationTime);
+        }
+        if (source.GroupName != null) {
+            this.GroupName = new String(source.GroupName);
+        }
     }
 
 
@@ -204,6 +266,8 @@ public class AbnormalProcessEventDescription extends AbstractModel{
         this.setParamObj(map, prefix + "MatchRule.", this.MatchRule);
         this.setParamSimple(map, prefix + "RuleName", this.RuleName);
         this.setParamSimple(map, prefix + "RuleId", this.RuleId);
+        this.setParamSimple(map, prefix + "OperationTime", this.OperationTime);
+        this.setParamSimple(map, prefix + "GroupName", this.GroupName);
 
     }
 }

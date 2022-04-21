@@ -79,7 +79,7 @@ public class ModifyTopicAttributesRequest extends AbstractModel{
     private Long SegmentMs;
 
     /**
-    * 主题消息最大值，单位为 Byte，最大值为8388608Byte（即8MB）。
+    * 主题消息最大值，单位为 Byte，最大值为12582912Byte（即12MB）。
     */
     @SerializedName("MaxMessageBytes")
     @Expose
@@ -119,6 +119,27 @@ public class ModifyTopicAttributesRequest extends AbstractModel{
     @SerializedName("RetentionBytes")
     @Expose
     private Long RetentionBytes;
+
+    /**
+    * 标签列表
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
+    * 生产限流，单位 MB/s
+    */
+    @SerializedName("QuotaProducerByteRate")
+    @Expose
+    private Long QuotaProducerByteRate;
+
+    /**
+    * 消费限流，单位 MB/s
+    */
+    @SerializedName("QuotaConsumerByteRate")
+    @Expose
+    private Long QuotaConsumerByteRate;
 
     /**
      * Get 实例 ID。 
@@ -249,16 +270,16 @@ public class ModifyTopicAttributesRequest extends AbstractModel{
     }
 
     /**
-     * Get 主题消息最大值，单位为 Byte，最大值为8388608Byte（即8MB）。 
-     * @return MaxMessageBytes 主题消息最大值，单位为 Byte，最大值为8388608Byte（即8MB）。
+     * Get 主题消息最大值，单位为 Byte，最大值为12582912Byte（即12MB）。 
+     * @return MaxMessageBytes 主题消息最大值，单位为 Byte，最大值为12582912Byte（即12MB）。
      */
     public Long getMaxMessageBytes() {
         return this.MaxMessageBytes;
     }
 
     /**
-     * Set 主题消息最大值，单位为 Byte，最大值为8388608Byte（即8MB）。
-     * @param MaxMessageBytes 主题消息最大值，单位为 Byte，最大值为8388608Byte（即8MB）。
+     * Set 主题消息最大值，单位为 Byte，最大值为12582912Byte（即12MB）。
+     * @param MaxMessageBytes 主题消息最大值，单位为 Byte，最大值为12582912Byte（即12MB）。
      */
     public void setMaxMessageBytes(Long MaxMessageBytes) {
         this.MaxMessageBytes = MaxMessageBytes;
@@ -344,6 +365,54 @@ public class ModifyTopicAttributesRequest extends AbstractModel{
         this.RetentionBytes = RetentionBytes;
     }
 
+    /**
+     * Get 标签列表 
+     * @return Tags 标签列表
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 标签列表
+     * @param Tags 标签列表
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
+     * Get 生产限流，单位 MB/s 
+     * @return QuotaProducerByteRate 生产限流，单位 MB/s
+     */
+    public Long getQuotaProducerByteRate() {
+        return this.QuotaProducerByteRate;
+    }
+
+    /**
+     * Set 生产限流，单位 MB/s
+     * @param QuotaProducerByteRate 生产限流，单位 MB/s
+     */
+    public void setQuotaProducerByteRate(Long QuotaProducerByteRate) {
+        this.QuotaProducerByteRate = QuotaProducerByteRate;
+    }
+
+    /**
+     * Get 消费限流，单位 MB/s 
+     * @return QuotaConsumerByteRate 消费限流，单位 MB/s
+     */
+    public Long getQuotaConsumerByteRate() {
+        return this.QuotaConsumerByteRate;
+    }
+
+    /**
+     * Set 消费限流，单位 MB/s
+     * @param QuotaConsumerByteRate 消费限流，单位 MB/s
+     */
+    public void setQuotaConsumerByteRate(Long QuotaConsumerByteRate) {
+        this.QuotaConsumerByteRate = QuotaConsumerByteRate;
+    }
+
     public ModifyTopicAttributesRequest() {
     }
 
@@ -397,6 +466,18 @@ public class ModifyTopicAttributesRequest extends AbstractModel{
         if (source.RetentionBytes != null) {
             this.RetentionBytes = new Long(source.RetentionBytes);
         }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.QuotaProducerByteRate != null) {
+            this.QuotaProducerByteRate = new Long(source.QuotaProducerByteRate);
+        }
+        if (source.QuotaConsumerByteRate != null) {
+            this.QuotaConsumerByteRate = new Long(source.QuotaConsumerByteRate);
+        }
     }
 
 
@@ -418,6 +499,9 @@ public class ModifyTopicAttributesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "EnableAclRule", this.EnableAclRule);
         this.setParamSimple(map, prefix + "AclRuleName", this.AclRuleName);
         this.setParamSimple(map, prefix + "RetentionBytes", this.RetentionBytes);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "QuotaProducerByteRate", this.QuotaProducerByteRate);
+        this.setParamSimple(map, prefix + "QuotaConsumerByteRate", this.QuotaConsumerByteRate);
 
     }
 }

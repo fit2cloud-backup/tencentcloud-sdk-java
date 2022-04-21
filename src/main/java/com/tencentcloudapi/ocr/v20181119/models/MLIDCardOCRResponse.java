@@ -55,6 +55,7 @@ public class MLIDCardOCRResponse extends AbstractModel{
 -9103	证照翻拍告警
 -9102	证照复印件告警
 -9106       证件遮挡告警
+-9107       模糊图片告警
     */
     @SerializedName("Warn")
     @Expose
@@ -68,14 +69,12 @@ public class MLIDCardOCRResponse extends AbstractModel{
     private String Image;
 
     /**
-    * 扩展字段：
+    * 此字段为扩展字段。
+返回字段识别结果的置信度，格式如下
 {
-    ID:{
-        Confidence:0.9999
-    },
-    Name:{
-        Confidence:0.9996
-    }
+  字段名:{
+    Confidence:0.9999
+  }
 }
     */
     @SerializedName("AdvancedInfo")
@@ -178,11 +177,13 @@ MyKid 儿童卡
      * Get 告警码
 -9103	证照翻拍告警
 -9102	证照复印件告警
--9106       证件遮挡告警 
+-9106       证件遮挡告警
+-9107       模糊图片告警 
      * @return Warn 告警码
 -9103	证照翻拍告警
 -9102	证照复印件告警
 -9106       证件遮挡告警
+-9107       模糊图片告警
      */
     public Long [] getWarn() {
         return this.Warn;
@@ -193,10 +194,12 @@ MyKid 儿童卡
 -9103	证照翻拍告警
 -9102	证照复印件告警
 -9106       证件遮挡告警
+-9107       模糊图片告警
      * @param Warn 告警码
 -9103	证照翻拍告警
 -9102	证照复印件告警
 -9106       证件遮挡告警
+-9107       模糊图片告警
      */
     public void setWarn(Long [] Warn) {
         this.Warn = Warn;
@@ -219,23 +222,19 @@ MyKid 儿童卡
     }
 
     /**
-     * Get 扩展字段：
+     * Get 此字段为扩展字段。
+返回字段识别结果的置信度，格式如下
 {
-    ID:{
-        Confidence:0.9999
-    },
-    Name:{
-        Confidence:0.9996
-    }
+  字段名:{
+    Confidence:0.9999
+  }
 } 
-     * @return AdvancedInfo 扩展字段：
+     * @return AdvancedInfo 此字段为扩展字段。
+返回字段识别结果的置信度，格式如下
 {
-    ID:{
-        Confidence:0.9999
-    },
-    Name:{
-        Confidence:0.9996
-    }
+  字段名:{
+    Confidence:0.9999
+  }
 }
      */
     public String getAdvancedInfo() {
@@ -243,23 +242,19 @@ MyKid 儿童卡
     }
 
     /**
-     * Set 扩展字段：
+     * Set 此字段为扩展字段。
+返回字段识别结果的置信度，格式如下
 {
-    ID:{
-        Confidence:0.9999
-    },
-    Name:{
-        Confidence:0.9996
-    }
+  字段名:{
+    Confidence:0.9999
+  }
 }
-     * @param AdvancedInfo 扩展字段：
+     * @param AdvancedInfo 此字段为扩展字段。
+返回字段识别结果的置信度，格式如下
 {
-    ID:{
-        Confidence:0.9999
-    },
-    Name:{
-        Confidence:0.9996
-    }
+  字段名:{
+    Confidence:0.9999
+  }
 }
      */
     public void setAdvancedInfo(String AdvancedInfo) {

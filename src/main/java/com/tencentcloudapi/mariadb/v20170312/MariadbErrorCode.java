@@ -90,11 +90,17 @@ public enum MariadbErrorCode {
     // 查询独享集群信息失败。
      INTERNALERROR_FENCEERROR("InternalError.FenceError"),
      
+    // 获取监控数据失败。
+     INTERNALERROR_FETCHMETRICDATAFAILED("InternalError.FetchMetricDataFailed"),
+     
     // 获取数据库实例参数失败。
      INTERNALERROR_GETDBCONFIGFAILED("InternalError.GetDbConfigFailed"),
      
     // 获取数据库列表失败。
      INTERNALERROR_GETDBLISTFAILED("InternalError.GetDbListFailed"),
+     
+    // 获取数据库对象失败。
+     INTERNALERROR_GETDBOBJECTFAILED("InternalError.GetDbObjectFailed"),
      
     // 获取实例详情失败。
      INTERNALERROR_GETINSTANCEDETAILFAILED("InternalError.GetInstanceDetailFailed"),
@@ -113,6 +119,9 @@ public enum MariadbErrorCode {
      
     // 查询虚拟私有网络子网信息失败。
      INTERNALERROR_GETSUBNETFAILED("InternalError.GetSubnetFailed"),
+     
+    // 获取表结构失败。
+     INTERNALERROR_GETTABLEINFOFAILED("InternalError.GetTableInfoFailed"),
      
     // 获取账号列表失败。
      INTERNALERROR_GETUSERLISTFAILED("InternalError.GetUserListFailed"),
@@ -156,9 +165,6 @@ public enum MariadbErrorCode {
     // 操作读DB数据错误。
      INTERNALERROR_QUERYDATABASEFAILED("InternalError.QueryDatabaseFailed"),
      
-    // 查询订单信息失败。
-     INTERNALERROR_QUERYORDERFAILED("InternalError.QueryOrderFailed"),
-     
     // 查询价格失败。
      INTERNALERROR_QUERYPRICEFAILED("InternalError.QueryPriceFailed"),
      
@@ -189,11 +195,8 @@ public enum MariadbErrorCode {
     // 密码包含了非法字符。
      INVALIDPARAMETER_CHARACTERERROR("InvalidParameter.CharacterError"),
      
-    // 参数检测为通过。
+    // 入参校验失败。
      INVALIDPARAMETER_CHECKPARAMNOTPASS("InvalidParameter.CheckParamNotPass"),
-     
-    // 未指定需要查询的订单ID。
-     INVALIDPARAMETER_DEALNAMENOTGIVEN("InvalidParameter.DealNameNotGiven"),
      
     // 找不到指定的流程信息。
      INVALIDPARAMETER_FLOWNOTFOUND("InvalidParameter.FlowNotFound"),
@@ -234,6 +237,9 @@ public enum MariadbErrorCode {
     // 找不到指定的虚拟私有网络。
      INVALIDPARAMETER_VPCNOTFOUND("InvalidParameter.VpcNotFound"),
      
+    // 可用区信息错误。
+     INVALIDPARAMETER_ZONEIDILLEGAL("InvalidParameter.ZoneIdIllegal"),
+     
     // 想要创建的账号已经存在。
      INVALIDPARAMETERVALUE_ACCOUNTALREADYEXISTS("InvalidParameterValue.AccountAlreadyExists"),
      
@@ -254,6 +260,9 @@ public enum MariadbErrorCode {
      
     // 初始化数据库实例参数错误。
      INVALIDPARAMETERVALUE_ILLEGALINITPARAM("InvalidParameterValue.IllegalInitParam"),
+     
+    // 非法实例ID。
+     INVALIDPARAMETERVALUE_ILLEGALINSTANCEID("InvalidParameterValue.IllegalInstanceId"),
      
     // 修改log保存天数时过小或过大。
      INVALIDPARAMETERVALUE_ILLEGALLOGSAVEDAYS("InvalidParameterValue.IllegalLogSaveDays"),
@@ -287,9 +296,6 @@ public enum MariadbErrorCode {
      
     // 指定的账号不存在。
      RESOURCENOTFOUND_ACCOUNTDOESNOTEXIST("ResourceNotFound.AccountDoesNotExist"),
-     
-    // 实例不存在。
-     RESOURCENOTFOUND_INSTANCENOTFOUND("ResourceNotFound.InstanceNotFound"),
      
     // 找不到指定的数据库实例。
      RESOURCENOTFOUND_NOINSTANCEFOUND("ResourceNotFound.NoInstanceFound"),

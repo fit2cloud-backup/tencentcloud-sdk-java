@@ -72,11 +72,18 @@ public class CheckProxyCreateRequest extends AbstractModel{
     private String NetworkType;
 
     /**
-    * 通道组类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道。
+    * 通道套餐类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道，CrossBorder表示跨境通道。
     */
     @SerializedName("PackageType")
     @Expose
     private String PackageType;
+
+    /**
+    * 支持Http3的开关，其中：0，表示不需要支持Http3接入；1，表示需要支持Http3接入。注意：如果开启了Http3的功能，那么该通道就不再支持TCP/UDP接入的功能。该功能的启停无法在通道创建完毕后再修改。
+    */
+    @SerializedName("Http3Supported")
+    @Expose
+    private Long Http3Supported;
 
     /**
      * Get 通道的接入(加速)区域。取值可通过接口DescribeAccessRegionsByDestRegion获取到 
@@ -191,19 +198,35 @@ public class CheckProxyCreateRequest extends AbstractModel{
     }
 
     /**
-     * Get 通道组类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道。 
-     * @return PackageType 通道组类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道。
+     * Get 通道套餐类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道，CrossBorder表示跨境通道。 
+     * @return PackageType 通道套餐类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道，CrossBorder表示跨境通道。
      */
     public String getPackageType() {
         return this.PackageType;
     }
 
     /**
-     * Set 通道组类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道。
-     * @param PackageType 通道组类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道。
+     * Set 通道套餐类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道，CrossBorder表示跨境通道。
+     * @param PackageType 通道套餐类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道，CrossBorder表示跨境通道。
      */
     public void setPackageType(String PackageType) {
         this.PackageType = PackageType;
+    }
+
+    /**
+     * Get 支持Http3的开关，其中：0，表示不需要支持Http3接入；1，表示需要支持Http3接入。注意：如果开启了Http3的功能，那么该通道就不再支持TCP/UDP接入的功能。该功能的启停无法在通道创建完毕后再修改。 
+     * @return Http3Supported 支持Http3的开关，其中：0，表示不需要支持Http3接入；1，表示需要支持Http3接入。注意：如果开启了Http3的功能，那么该通道就不再支持TCP/UDP接入的功能。该功能的启停无法在通道创建完毕后再修改。
+     */
+    public Long getHttp3Supported() {
+        return this.Http3Supported;
+    }
+
+    /**
+     * Set 支持Http3的开关，其中：0，表示不需要支持Http3接入；1，表示需要支持Http3接入。注意：如果开启了Http3的功能，那么该通道就不再支持TCP/UDP接入的功能。该功能的启停无法在通道创建完毕后再修改。
+     * @param Http3Supported 支持Http3的开关，其中：0，表示不需要支持Http3接入；1，表示需要支持Http3接入。注意：如果开启了Http3的功能，那么该通道就不再支持TCP/UDP接入的功能。该功能的启停无法在通道创建完毕后再修改。
+     */
+    public void setHttp3Supported(Long Http3Supported) {
+        this.Http3Supported = Http3Supported;
     }
 
     public CheckProxyCreateRequest() {
@@ -238,6 +261,9 @@ public class CheckProxyCreateRequest extends AbstractModel{
         if (source.PackageType != null) {
             this.PackageType = new String(source.PackageType);
         }
+        if (source.Http3Supported != null) {
+            this.Http3Supported = new Long(source.Http3Supported);
+        }
     }
 
 
@@ -253,6 +279,7 @@ public class CheckProxyCreateRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "IPAddressVersion", this.IPAddressVersion);
         this.setParamSimple(map, prefix + "NetworkType", this.NetworkType);
         this.setParamSimple(map, prefix + "PackageType", this.PackageType);
+        this.setParamSimple(map, prefix + "Http3Supported", this.Http3Supported);
 
     }
 }

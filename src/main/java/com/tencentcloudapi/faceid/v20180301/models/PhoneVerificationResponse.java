@@ -25,15 +25,13 @@ public class PhoneVerificationResponse extends AbstractModel{
     /**
     * 认证结果码:
 收费结果码
-0: 认证通过
--4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）
--5: 手机号未实名
+0: 三要素信息一致
+-4: 三要素信息不一致
 不收费结果码
 -6: 手机号码不合法
 -7: 身份证号码有误
 -8: 姓名校验不通过
 -9: 没有记录
--10: 认证未通过
 -11: 验证中心服务繁忙
     */
     @SerializedName("Result")
@@ -48,6 +46,14 @@ public class PhoneVerificationResponse extends AbstractModel{
     private String Description;
 
     /**
+    * 运营商名称。
+取值范围为["","移动","电信","联通"]
+    */
+    @SerializedName("Isp")
+    @Expose
+    private String Isp;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -57,27 +63,23 @@ public class PhoneVerificationResponse extends AbstractModel{
     /**
      * Get 认证结果码:
 收费结果码
-0: 认证通过
--4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）
--5: 手机号未实名
+0: 三要素信息一致
+-4: 三要素信息不一致
 不收费结果码
 -6: 手机号码不合法
 -7: 身份证号码有误
 -8: 姓名校验不通过
 -9: 没有记录
--10: 认证未通过
 -11: 验证中心服务繁忙 
      * @return Result 认证结果码:
 收费结果码
-0: 认证通过
--4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）
--5: 手机号未实名
+0: 三要素信息一致
+-4: 三要素信息不一致
 不收费结果码
 -6: 手机号码不合法
 -7: 身份证号码有误
 -8: 姓名校验不通过
 -9: 没有记录
--10: 认证未通过
 -11: 验证中心服务繁忙
      */
     public String getResult() {
@@ -87,27 +89,23 @@ public class PhoneVerificationResponse extends AbstractModel{
     /**
      * Set 认证结果码:
 收费结果码
-0: 认证通过
--4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）
--5: 手机号未实名
+0: 三要素信息一致
+-4: 三要素信息不一致
 不收费结果码
 -6: 手机号码不合法
 -7: 身份证号码有误
 -8: 姓名校验不通过
 -9: 没有记录
--10: 认证未通过
 -11: 验证中心服务繁忙
      * @param Result 认证结果码:
 收费结果码
-0: 认证通过
--4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）
--5: 手机号未实名
+0: 三要素信息一致
+-4: 三要素信息不一致
 不收费结果码
 -6: 手机号码不合法
 -7: 身份证号码有误
 -8: 姓名校验不通过
 -9: 没有记录
--10: 认证未通过
 -11: 验证中心服务繁忙
      */
     public void setResult(String Result) {
@@ -128,6 +126,26 @@ public class PhoneVerificationResponse extends AbstractModel{
      */
     public void setDescription(String Description) {
         this.Description = Description;
+    }
+
+    /**
+     * Get 运营商名称。
+取值范围为["","移动","电信","联通"] 
+     * @return Isp 运营商名称。
+取值范围为["","移动","电信","联通"]
+     */
+    public String getIsp() {
+        return this.Isp;
+    }
+
+    /**
+     * Set 运营商名称。
+取值范围为["","移动","电信","联通"]
+     * @param Isp 运营商名称。
+取值范围为["","移动","电信","联通"]
+     */
+    public void setIsp(String Isp) {
+        this.Isp = Isp;
     }
 
     /**
@@ -160,6 +178,9 @@ public class PhoneVerificationResponse extends AbstractModel{
         if (source.Description != null) {
             this.Description = new String(source.Description);
         }
+        if (source.Isp != null) {
+            this.Isp = new String(source.Isp);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -172,6 +193,7 @@ public class PhoneVerificationResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Result", this.Result);
         this.setParamSimple(map, prefix + "Description", this.Description);
+        this.setParamSimple(map, prefix + "Isp", this.Isp);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -12,6 +12,12 @@ public enum SoeErrorCode {
     // 操作失败。
      FAILEDOPERATION("FailedOperation"),
      
+    // 会话缓存保存失败，请重新初始化。
+     FAILEDOPERATION_ERRORGETSESSION("FailedOperation.ErrorGetSession"),
+     
+    // 获取用户信息失败。
+     FAILEDOPERATION_ERRORGETUSER("FailedOperation.ErrorGetUser"),
+     
     // 评测时间超出限制，请检查音频时间是否过长后重试。
      FAILEDOPERATION_EVALUATETIMEOUT("FailedOperation.EvaluateTimeout"),
      
@@ -47,6 +53,9 @@ public enum SoeErrorCode {
      
     // 用户信息缓存保存失败，请稍后重试。
      FAILEDOPERATION_FAILEDSETUSER("FailedOperation.FailedSetUser"),
+     
+    // 服务内部错误，请稍后重试或联系我们。
+     FAILEDOPERATION_INTERNALSERVERERROR("FailedOperation.InternalServerError"),
      
     // 引擎参数错误，请稍后重试。
      FAILEDOPERATION_INVALIDPARAMETERVALUE("FailedOperation.InvalidParameterValue"),
@@ -237,6 +246,9 @@ public enum SoeErrorCode {
     // 表单中没有文件。
      INVALIDPARAMETERVALUE_NODOCINLIST("InvalidParameterValue.NoDocInList"),
      
+    // 参数值无效，请检查ScoreCoeff参数输入是否在限制内。
+     INVALIDPARAMETERVALUE_PARAMETERINVALID("InvalidParameterValue.ParameterInvalid"),
+     
     // 请求参数RefText无效或参考文本为空，请检查RefText是否为空。
      INVALIDPARAMETERVALUE_REFTEXTEMPTY("InvalidParameterValue.RefTextEmpty"),
      
@@ -248,6 +260,9 @@ public enum SoeErrorCode {
      
     // 请求参数RefText包含OOV词汇，请使用指定发音或联系我们处理。
      INVALIDPARAMETERVALUE_REFTEXTOOV("InvalidParameterValue.RefTextOOV"),
+     
+    // 请检查参考文本中是否包含大量多音字，可通过发音描述块指定标准发音解决。
+     INVALIDPARAMETERVALUE_REFTEXTPOLYPHONICLIMITEXCEEDED("InvalidParameterValue.RefTextPolyphonicLimitExceeded"),
      
     // 输入文本为空。
      INVALIDPARAMETERVALUE_REFTXTEMPTY("InvalidParameterValue.RefTxtEmpty"),

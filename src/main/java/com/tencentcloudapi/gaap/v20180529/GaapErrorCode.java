@@ -1,7 +1,13 @@
 package com.tencentcloudapi.gaap.v20180529;
 public enum GaapErrorCode {
+    // CAM签名/鉴权错误。
+     AUTHFAILURE("AuthFailure"),
+     
     // 非企业认证客户。
      AUTHFAILURE_NOTENTERPRISEAUTHORIZATION("AuthFailure.NotEnterpriseAuthorization"),
+     
+    // 子账户未授权操作。
+     AUTHFAILURE_UNAUTHORIZEDOPERATION("AuthFailure.UnauthorizedOperation"),
      
     // 操作失败。
      FAILEDOPERATION("FailedOperation"),
@@ -59,6 +65,12 @@ public enum GaapErrorCode {
      
     // 监听器当前状态无法支持该操作。
      FAILEDOPERATION_LISTENERSTATUSERROR("FailedOperation.ListenerStatusError"),
+     
+    // 加速通道在升级中，暂不支持配置变更，请提工单申请。
+     FAILEDOPERATION_MIGRATION("FailedOperation.Migration"),
+     
+    // 该通道为非标通道，限制所有写操作。
+     FAILEDOPERATION_NONSTANDARDPROXY("FailedOperation.NonStandardProxy"),
      
     // 仅支持Version2.0的通道。
      FAILEDOPERATION_NOTSUPPORTOLDVERSIONPROXY("FailedOperation.NotSupportOldVersionProxy"),
@@ -138,6 +150,12 @@ public enum GaapErrorCode {
     // 监听器端口已存在。
      INVALIDPARAMETERVALUE_DUPLICATEDLISTENERPORT("InvalidParameterValue.DuplicatedListenerPort"),
      
+    // 无法同时开启所设置的特性。
+     INVALIDPARAMETERVALUE_FEATURECONFLICT("InvalidParameterValue.FeatureConflict"),
+     
+    // 资源已被录入封禁黑名单。
+     INVALIDPARAMETERVALUE_HITBANBLACKLIST("InvalidParameterValue.HitBanBlacklist"),
+     
     // header黑名单限制。
      INVALIDPARAMETERVALUE_HITBLACKLIST("InvalidParameterValue.HitBlacklist"),
      
@@ -162,8 +180,17 @@ public enum GaapErrorCode {
     // 未找到或无权限访问该标签
      INVALIDPARAMETERVALUE_INVALIDTAGS("InvalidParameterValue.InvalidTags"),
      
+    // 该域名被封禁，无法添加。
+     INVALIDPARAMETERVALUE_L7DOMAINHITBANBLACKLIST("InvalidParameterValue.L7DomainHitBanBlacklist"),
+     
     // 项目不属于该用户。
      INVALIDPARAMETERVALUE_PROJECTIDNOTBELONG("InvalidParameterValue.ProjectIdNotBelong"),
+     
+    // 该通道组下无法支持该通道所需的特性。
+     INVALIDPARAMETERVALUE_PROXYANDGROUPFEATURECONFLICT("InvalidParameterValue.ProxyAndGroupFeatureConflict"),
+     
+    // 该地区不支持通道所设置的特性。
+     INVALIDPARAMETERVALUE_PROXYANDREGIONFEATURECONFLICT("InvalidParameterValue.ProxyAndRegionFeatureConflict"),
      
     // 源站不属于该用户。
      INVALIDPARAMETERVALUE_REALSERVERNOTBELONG("InvalidParameterValue.RealServerNotBelong"),
@@ -191,6 +218,9 @@ public enum GaapErrorCode {
      
     // 未授权操作。
      UNAUTHORIZEDOPERATION("UnauthorizedOperation"),
+     
+    // 跨境通道的联通带宽处于隔离中。
+     UNAUTHORIZEDOPERATION_CROSSBORDERINISOLATING("UnauthorizedOperation.CrossBorderInIsolating"),
      
     // 未知参数错误。
      UNKNOWNPARAMETER("UnknownParameter"),

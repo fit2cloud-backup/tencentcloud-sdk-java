@@ -33,6 +33,9 @@ public enum CvmErrorCode {
     // 请求不支持`EMR`的实例`ins-xxxxxxxx`。
      FAILEDOPERATION_INVALIDINSTANCEAPPLICATIONROLEEMR("FailedOperation.InvalidInstanceApplicationRoleEmr"),
      
+    // 子网可用IP已耗尽。
+     FAILEDOPERATION_NOAVAILABLEIPADDRESSCOUNTINSUBNET("FailedOperation.NoAvailableIpAddressCountInSubnet"),
+     
     // 当前实例没有弹性IP
      FAILEDOPERATION_NOTFOUNDEIP("FailedOperation.NotFoundEIP"),
      
@@ -44,6 +47,9 @@ public enum CvmErrorCode {
      
     // 促销期内购买的实例不允许调整配置或计费模式。
      FAILEDOPERATION_PROMOTIONALPERIORESTRICTION("FailedOperation.PromotionalPerioRestriction"),
+     
+    // 暂无法在此国家/地区提供该服务。
+     FAILEDOPERATION_PROMOTIONALREGIONRESTRICTION("FailedOperation.PromotionalRegionRestriction"),
      
     // 镜像共享失败。
      FAILEDOPERATION_QIMAGESHAREFAILED("FailedOperation.QImageShareFailed"),
@@ -74,6 +80,9 @@ public enum CvmErrorCode {
      
     // 表示当前创建的实例个数超过了该账户允许购买的剩余配额数。
      INSTANCESQUOTALIMITEXCEEDED("InstancesQuotaLimitExceeded"),
+     
+    // 内部错误。
+     INTERNALERROR("InternalError"),
      
     // 内部错误
      INTERNALERROR_TRADEUNKNOWNERROR("InternalError.TradeUnknownError"),
@@ -198,8 +207,14 @@ public enum CvmErrorCode {
     // 当前接口不支持实例镜像。
      INVALIDPARAMETER_INSTANCEIMAGENOTSUPPORT("InvalidParameter.InstanceImageNotSupport"),
      
+    // 云盘资源售罄。
+     INVALIDPARAMETER_INVALIDCLOUDDISKSOLDOUT("InvalidParameter.InvalidCloudDiskSoldOut"),
+     
     // 参数依赖不正确。
      INVALIDPARAMETER_INVALIDDEPENDENCE("InvalidParameter.InvalidDependence"),
+     
+    // 当前操作不支持该类型实例。
+     INVALIDPARAMETER_INVALIDINSTANCENOTSUPPORTED("InvalidParameter.InvalidInstanceNotSupported"),
      
     // 指定的私有网络ip格式不正确。
      INVALIDPARAMETER_INVALIDIPFORMAT("InvalidParameter.InvalidIpFormat"),
@@ -218,6 +233,9 @@ public enum CvmErrorCode {
      
     // 不支持同时指定密钥登陆和保持镜像登陆方式。
      INVALIDPARAMETER_PARAMETERCONFLICT("InvalidParameter.ParameterConflict"),
+     
+    // 不支持设置登陆密码。
+     INVALIDPARAMETER_PASSWORDNOTSUPPORTED("InvalidParameter.PasswordNotSupported"),
      
     // 指定的快照不存在。
      INVALIDPARAMETER_SNAPSHOTNOTFOUND("InvalidParameter.SnapshotNotFound"),
@@ -258,6 +276,9 @@ public enum CvmErrorCode {
     // 核心计数不合法。
      INVALIDPARAMETERVALUE_CORECOUNTVALUE("InvalidParameterValue.CoreCountValue"),
      
+    // 置放群组ID格式错误。
+     INVALIDPARAMETERVALUE_DISASTERRECOVERGROUPIDMALFORMED("InvalidParameterValue.DisasterRecoverGroupIdMalformed"),
+     
     // 参数值重复。
      INVALIDPARAMETERVALUE_DUPLICATE("InvalidParameterValue.Duplicate"),
      
@@ -272,6 +293,12 @@ public enum CvmErrorCode {
      
     // HostName参数值不合法
      INVALIDPARAMETERVALUE_ILLEGALHOSTNAME("InvalidParameterValue.IllegalHostName"),
+     
+    // 传参格式不对。
+     INVALIDPARAMETERVALUE_INCORRECTFORMAT("InvalidParameterValue.IncorrectFormat"),
+     
+    // 不支持操作不同计费方式的实例。
+     INVALIDPARAMETERVALUE_INSTANCENOTSUPPORTEDMIXPRICINGMODEL("InvalidParameterValue.InstanceNotSupportedMixPricingModel"),
      
     // 指定机型不存在
      INVALIDPARAMETERVALUE_INSTANCETYPENOTFOUND("InvalidParameterValue.InstanceTypeNotFound"),
@@ -291,6 +318,9 @@ public enum CvmErrorCode {
     // 无效的appid。
      INVALIDPARAMETERVALUE_INVALIDAPPIDFORMAT("InvalidParameterValue.InvalidAppIdFormat"),
      
+    // 不支持转为非GPU或其他类型GPU实例。
+     INVALIDPARAMETERVALUE_INVALIDGPUFAMILYCHANGE("InvalidParameterValue.InvalidGPUFamilyChange"),
+     
     // 镜像ID不支持指定的实例机型。
      INVALIDPARAMETERVALUE_INVALIDIMAGEFORGIVENINSTANCETYPE("InvalidParameterValue.InvalidImageForGivenInstanceType"),
      
@@ -300,17 +330,38 @@ public enum CvmErrorCode {
     // 镜像不允许执行该操作
      INVALIDPARAMETERVALUE_INVALIDIMAGEID("InvalidParameterValue.InvalidImageId"),
      
+    // 镜像无法用于重装当前实例。
+     INVALIDPARAMETERVALUE_INVALIDIMAGEIDFORRETSETINSTANCE("InvalidParameterValue.InvalidImageIdForRetsetInstance"),
+     
     // 当前地域不支持指定镜像所包含的操作系统。
      INVALIDPARAMETERVALUE_INVALIDIMAGEOSNAME("InvalidParameterValue.InvalidImageOsName"),
      
     // 镜像被其他操作占用，请检查，并稍后重试。
      INVALIDPARAMETERVALUE_INVALIDIMAGESTATE("InvalidParameterValue.InvalidImageState"),
      
+    // 该实例配置来自免费升配活动，暂不支持3个月内进行降配。
+     INVALIDPARAMETERVALUE_INVALIDINSTANCESOURCE("InvalidParameterValue.InvalidInstanceSource"),
+     
     // IP地址不符合规范
      INVALIDPARAMETERVALUE_INVALIDIPFORMAT("InvalidParameterValue.InvalidIpFormat"),
      
+    // 实例启动模板描述格式错误。
+     INVALIDPARAMETERVALUE_INVALIDLAUNCHTEMPLATEDESCRIPTION("InvalidParameterValue.InvalidLaunchTemplateDescription"),
+     
+    // 实例启动模板名称格式错误。
+     INVALIDPARAMETERVALUE_INVALIDLAUNCHTEMPLATENAME("InvalidParameterValue.InvalidLaunchTemplateName"),
+     
+    // 实例启动模板描述格式错误。
+     INVALIDPARAMETERVALUE_INVALIDLAUNCHTEMPLATEVERSIONDESCRIPTION("InvalidParameterValue.InvalidLaunchTemplateVersionDescription"),
+     
     // 参数值错误。
      INVALIDPARAMETERVALUE_INVALIDPARAMETERVALUELIMIT("InvalidParameterValue.InvalidParameterValueLimit"),
+     
+    // 无效密码。指定的密码不符合密码复杂度限制。例如密码长度不符合限制等。
+     INVALIDPARAMETERVALUE_INVALIDPASSWORD("InvalidParameterValue.InvalidPassword"),
+     
+    // Region ID不可用。
+     INVALIDPARAMETERVALUE_INVALIDREGION("InvalidParameterValue.InvalidRegion"),
      
     // 时间格式不合法。
      INVALIDPARAMETERVALUE_INVALIDTIMEFORMAT("InvalidParameterValue.InvalidTimeFormat"),
@@ -327,11 +378,32 @@ public enum CvmErrorCode {
     // 指定的密钥不支持当前操作。
      INVALIDPARAMETERVALUE_KEYPAIRNOTSUPPORTED("InvalidParameterValue.KeyPairNotSupported"),
      
+    // 不支持删除默认启动模板版本。
+     INVALIDPARAMETERVALUE_LAUNCHTEMPLATEDEFAULTVERSION("InvalidParameterValue.LaunchTemplateDefaultVersion"),
+     
+    // 实例启动模板ID格式错误。
+     INVALIDPARAMETERVALUE_LAUNCHTEMPLATEIDMALFORMED("InvalidParameterValue.LaunchTemplateIdMalformed"),
+     
     // 实例启动模板ID不存在。
      INVALIDPARAMETERVALUE_LAUNCHTEMPLATEIDNOTEXISTED("InvalidParameterValue.LaunchTemplateIdNotExisted"),
      
+    // 实例启动模板和版本ID组合不存在。
+     INVALIDPARAMETERVALUE_LAUNCHTEMPLATEIDVERNOTEXISTED("InvalidParameterValue.LaunchTemplateIdVerNotExisted"),
+     
+    // 指定的实例启动模板id不存在。
+     INVALIDPARAMETERVALUE_LAUNCHTEMPLATEIDVERSETALREADY("InvalidParameterValue.LaunchTemplateIdVerSetAlready"),
+     
+    // 实例启动模板未找到。
+     INVALIDPARAMETERVALUE_LAUNCHTEMPLATENOTFOUND("InvalidParameterValue.LaunchTemplateNotFound"),
+     
+    // 无效的实例启动模板版本号。
+     INVALIDPARAMETERVALUE_LAUNCHTEMPLATEVERSION("InvalidParameterValue.LaunchTemplateVersion"),
+     
     // 参数值数量超过限制。
      INVALIDPARAMETERVALUE_LIMITEXCEEDED("InvalidParameterValue.LimitExceeded"),
+     
+    // 本地盘的限制范围。
+     INVALIDPARAMETERVALUE_LOCALDISKSIZERANGE("InvalidParameterValue.LocalDiskSizeRange"),
      
     // 参数值必须为开启DHCP的VPC
      INVALIDPARAMETERVALUE_MUSTDHCPENABLEDVPC("InvalidParameterValue.MustDhcpEnabledVpc"),
@@ -366,8 +438,14 @@ public enum CvmErrorCode {
     // VPC ID`xxx`不合要求，请提供规范的Vpc ID， 类似vpc-xxxxxxxx，字母x代表小写字符或者数字。
      INVALIDPARAMETERVALUE_VPCIDMALFORMED("InvalidParameterValue.VpcIdMalformed"),
      
+    // 指定的VpcId不存在。
+     INVALIDPARAMETERVALUE_VPCIDNOTEXIST("InvalidParameterValue.VpcIdNotExist"),
+     
     // VPC网络与实例不在同一可用区
      INVALIDPARAMETERVALUE_VPCIDZONEIDNOTMATCH("InvalidParameterValue.VpcIdZoneIdNotMatch"),
+     
+    // 该VPC不支持ipv6。
+     INVALIDPARAMETERVALUE_VPCNOTSUPPORTIPV6ADDRESS("InvalidParameterValue.VpcNotSupportIpv6Address"),
      
     // 请求不支持该可用区
      INVALIDPARAMETERVALUE_ZONENOTSUPPORTED("InvalidParameterValue.ZoneNotSupported"),
@@ -426,11 +504,20 @@ public enum CvmErrorCode {
     // IP数量超过网卡上限。
      LIMITEXCEEDED_IPV6ADDRESSNUM("LimitExceeded.IPv6AddressNum"),
      
+    // 实例指定的弹性网卡数目超过了实例弹性网卡数目配额。
+     LIMITEXCEEDED_INSTANCEENINUMLIMIT("LimitExceeded.InstanceEniNumLimit"),
+     
     // 当前配额不足够生产指定数量的实例
      LIMITEXCEEDED_INSTANCEQUOTA("LimitExceeded.InstanceQuota"),
      
     // 目标实例规格不支持当前规格的外网带宽上限，不支持调整。具体可参考[公网网络带宽上限](https://cloud.tencent.com/document/product/213/12523)。
      LIMITEXCEEDED_INSTANCETYPEBANDWIDTH("LimitExceeded.InstanceTypeBandwidth"),
+     
+    // 实例启动模板数量超限。
+     LIMITEXCEEDED_LAUNCHTEMPLATEQUOTA("LimitExceeded.LaunchTemplateQuota"),
+     
+    // 实例启动模板版本数量超限。
+     LIMITEXCEEDED_LAUNCHTEMPLATEVERSIONQUOTA("LimitExceeded.LaunchTemplateVersionQuota"),
      
     // 预付费实例已购买数量已达到最大配额，请提升配额后重试。
      LIMITEXCEEDED_PREPAYQUOTA("LimitExceeded.PrepayQuota"),
@@ -495,6 +582,9 @@ public enum CvmErrorCode {
     // 指定的实例类型库存不足。
      RESOURCEINSUFFICIENT_SPECIFIEDINSTANCETYPE("ResourceInsufficient.SpecifiedInstanceType"),
      
+    // 指定的实例类型在选择的可用区已售罄。
+     RESOURCEINSUFFICIENT_ZONESOLDOUTFORSPECIFIEDINSTANCE("ResourceInsufficient.ZoneSoldOutForSpecifiedInstance"),
+     
     // 高性能计算集群不存在。
      RESOURCENOTFOUND_HPCCLUSTER("ResourceNotFound.HpcCluster"),
      
@@ -543,8 +633,17 @@ public enum CvmErrorCode {
     // 无权操作指定的资源，请正确配置CAM策略。
      UNAUTHORIZEDOPERATION_PERMISSIONDENIED("UnauthorizedOperation.PermissionDenied"),
      
+    // 未知参数错误。
+     UNKNOWNPARAMETER("UnknownParameter"),
+     
+    // 操作不支持。
+     UNSUPPORTEDOPERATION("UnsupportedOperation"),
+     
     // 指定的实例付费模式或者网络付费模式不支持共享带宽包
      UNSUPPORTEDOPERATION_BANDWIDTHPACKAGEIDNOTSUPPORTED("UnsupportedOperation.BandwidthPackageIdNotSupported"),
+     
+    // 异构机型不支持跨机型调整。
+     UNSUPPORTEDOPERATION_HETEROGENEOUSCHANGEINSTANCEFAMILY("UnsupportedOperation.HeterogeneousChangeInstanceFamily"),
      
     // IPv6实例不支持VPC迁移
      UNSUPPORTEDOPERATION_IPV6NOTSUPPORTVPCMIGRATE("UnsupportedOperation.IPv6NotSupportVpcMigrate"),
@@ -552,8 +651,14 @@ public enum CvmErrorCode {
     // 请求不支持该实例计费模式
      UNSUPPORTEDOPERATION_INSTANCECHARGETYPE("UnsupportedOperation.InstanceChargeType"),
      
+    // 不支持混合付费模式。
+     UNSUPPORTEDOPERATION_INSTANCEMIXEDPRICINGMODEL("UnsupportedOperation.InstanceMixedPricingModel"),
+     
     // 请求不支持操作系统为`Xserver windows2012cndatacenterx86_64`的实例`ins-xxxxxx` 。
      UNSUPPORTEDOPERATION_INSTANCEOSWINDOWS("UnsupportedOperation.InstanceOsWindows"),
+     
+    // 该子机处于封禁状态，请联系相关人员处理。
+     UNSUPPORTEDOPERATION_INSTANCESTATEBANNING("UnsupportedOperation.InstanceStateBanning"),
      
     // 请求不支持永久故障的实例。
      UNSUPPORTEDOPERATION_INSTANCESTATECORRUPTED("UnsupportedOperation.InstanceStateCorrupted"),
@@ -569,6 +674,9 @@ public enum CvmErrorCode {
      
     // 不支持状态为 `EXIT_SERVICE_LIVE_MIGRATE`.的实例 `ins-xxxxxx` 。
      UNSUPPORTEDOPERATION_INSTANCESTATEEXITSERVICELIVEMIGRATE("UnsupportedOperation.InstanceStateExitServiceLiveMigrate"),
+     
+    // 操作不支持已冻结的实例。
+     UNSUPPORTEDOPERATION_INSTANCESTATEFREEZING("UnsupportedOperation.InstanceStateFreezing"),
      
     // 请求不支持正在隔离状态的实例。
      UNSUPPORTEDOPERATION_INSTANCESTATEISOLATING("UnsupportedOperation.InstanceStateIsolating"),
@@ -606,8 +714,17 @@ public enum CvmErrorCode {
     // 请求不支持正在销毁的实例
      UNSUPPORTEDOPERATION_INSTANCESTATETERMINATING("UnsupportedOperation.InstanceStateTerminating"),
      
+    // 不支持已启用销毁保护的实例，请先到设置实例销毁保护，关闭实例销毁保护，然后重试。
+     UNSUPPORTEDOPERATION_INSTANCESPROTECTED("UnsupportedOperation.InstancesProtected"),
+     
+    // 不支持调整数据盘。
+     UNSUPPORTEDOPERATION_INVALIDDATADISK("UnsupportedOperation.InvalidDataDisk"),
+     
     // 不支持指定的磁盘
      UNSUPPORTEDOPERATION_INVALIDDISK("UnsupportedOperation.InvalidDisk"),
+     
+    // 不支持已经设置了释放时间的实例，请在实例详情页撤销实例定时销毁后再试。
+     UNSUPPORTEDOPERATION_INVALIDINSTANCENOTSUPPORTEDPROTECTEDINSTANCE("UnsupportedOperation.InvalidInstanceNotSupportedProtectedInstance"),
      
     // 当前操作只支持国际版用户。
      UNSUPPORTEDOPERATION_INVALIDPERMISSIONNONINTERNATIONALACCOUNT("UnsupportedOperation.InvalidPermissionNonInternationalAccount"),
@@ -621,11 +738,17 @@ public enum CvmErrorCode {
     // 机型数据盘全为本地盘不支持跨机型调整。
      UNSUPPORTEDOPERATION_LOCALDATADISKCHANGEINSTANCEFAMILY("UnsupportedOperation.LocalDataDiskChangeInstanceFamily"),
      
+    // 不支持正在本地盘转云盘的磁盘，请稍后发起请求。
+     UNSUPPORTEDOPERATION_LOCALDISKMIGRATINGTOCLOUDDISK("UnsupportedOperation.LocalDiskMigratingToCloudDisk"),
+     
     // 绑定负载均衡的实例，不支持修改vpc属性。
      UNSUPPORTEDOPERATION_MODIFYVPCWITHCLB("UnsupportedOperation.ModifyVPCWithCLB"),
      
     // 该实例类型不支持竞价计费
      UNSUPPORTEDOPERATION_NOINSTANCETYPESUPPORTSPOT("UnsupportedOperation.NoInstanceTypeSupportSpot"),
+     
+    // 当前实例不是FPGA机型。
+     UNSUPPORTEDOPERATION_NOTFPGAINSTANCE("UnsupportedOperation.NotFpgaInstance"),
      
     // 针对当前实例设置定时任务失败。
      UNSUPPORTEDOPERATION_NOTSUPPORTIMPORTINSTANCESACTIONTIMER("UnsupportedOperation.NotSupportImportInstancesActionTimer"),
@@ -665,6 +788,9 @@ public enum CvmErrorCode {
      
     // 目标机型是SA3, 不支持变配。
      UNSUPPORTEDOPERATION_UNSUPPORTEDCHANGEINSTANCEFAMILYTOSA3("UnsupportedOperation.UnsupportedChangeInstanceFamilyToSA3"),
+     
+    // 不支持实例变配到此类型机型。
+     UNSUPPORTEDOPERATION_UNSUPPORTEDCHANGEINSTANCETOTHISINSTANCEFAMILY("UnsupportedOperation.UnsupportedChangeInstanceToThisInstanceFamily"),
      
     // 请求不支持国际版账号
      UNSUPPORTEDOPERATION_UNSUPPORTEDINTERNATIONALUSER("UnsupportedOperation.UnsupportedInternationalUser"),

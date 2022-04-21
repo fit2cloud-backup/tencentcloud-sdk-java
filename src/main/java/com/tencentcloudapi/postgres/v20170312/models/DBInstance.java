@@ -128,7 +128,7 @@ public class DBInstance extends AbstractModel{
     private String DBCharset;
 
     /**
-    * PostgreSQL主版本
+    * PostgreSQL版本
     */
     @SerializedName("DBVersion")
     @Expose
@@ -266,6 +266,30 @@ public class DBInstance extends AbstractModel{
     @SerializedName("NetworkAccessList")
     @Expose
     private NetworkAccess [] NetworkAccessList;
+
+    /**
+    * PostgreSQL主要版本
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DBMajorVersion")
+    @Expose
+    private String DBMajorVersion;
+
+    /**
+    * 实例的节点信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DBNodeSet")
+    @Expose
+    private DBNode [] DBNodeSet;
+
+    /**
+    * 实例是否支持TDE数据加密  0：不支持，1：支持
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IsSupportTDE")
+    @Expose
+    private Long IsSupportTDE;
 
     /**
      * Get 实例所属地域，如: ap-guangzhou，对应RegionSet的Region字段 
@@ -508,16 +532,16 @@ public class DBInstance extends AbstractModel{
     }
 
     /**
-     * Get PostgreSQL主版本 
-     * @return DBVersion PostgreSQL主版本
+     * Get PostgreSQL版本 
+     * @return DBVersion PostgreSQL版本
      */
     public String getDBVersion() {
         return this.DBVersion;
     }
 
     /**
-     * Set PostgreSQL主版本
-     * @param DBVersion PostgreSQL主版本
+     * Set PostgreSQL版本
+     * @param DBVersion PostgreSQL版本
      */
     public void setDBVersion(String DBVersion) {
         this.DBVersion = DBVersion;
@@ -839,6 +863,66 @@ public class DBInstance extends AbstractModel{
         this.NetworkAccessList = NetworkAccessList;
     }
 
+    /**
+     * Get PostgreSQL主要版本
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DBMajorVersion PostgreSQL主要版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDBMajorVersion() {
+        return this.DBMajorVersion;
+    }
+
+    /**
+     * Set PostgreSQL主要版本
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DBMajorVersion PostgreSQL主要版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDBMajorVersion(String DBMajorVersion) {
+        this.DBMajorVersion = DBMajorVersion;
+    }
+
+    /**
+     * Get 实例的节点信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DBNodeSet 实例的节点信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public DBNode [] getDBNodeSet() {
+        return this.DBNodeSet;
+    }
+
+    /**
+     * Set 实例的节点信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DBNodeSet 实例的节点信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDBNodeSet(DBNode [] DBNodeSet) {
+        this.DBNodeSet = DBNodeSet;
+    }
+
+    /**
+     * Get 实例是否支持TDE数据加密  0：不支持，1：支持
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IsSupportTDE 实例是否支持TDE数据加密  0：不支持，1：支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getIsSupportTDE() {
+        return this.IsSupportTDE;
+    }
+
+    /**
+     * Set 实例是否支持TDE数据加密  0：不支持，1：支持
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IsSupportTDE 实例是否支持TDE数据加密  0：不支持，1：支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIsSupportTDE(Long IsSupportTDE) {
+        this.IsSupportTDE = IsSupportTDE;
+    }
+
     public DBInstance() {
     }
 
@@ -958,6 +1042,18 @@ public class DBInstance extends AbstractModel{
                 this.NetworkAccessList[i] = new NetworkAccess(source.NetworkAccessList[i]);
             }
         }
+        if (source.DBMajorVersion != null) {
+            this.DBMajorVersion = new String(source.DBMajorVersion);
+        }
+        if (source.DBNodeSet != null) {
+            this.DBNodeSet = new DBNode[source.DBNodeSet.length];
+            for (int i = 0; i < source.DBNodeSet.length; i++) {
+                this.DBNodeSet[i] = new DBNode(source.DBNodeSet[i]);
+            }
+        }
+        if (source.IsSupportTDE != null) {
+            this.IsSupportTDE = new Long(source.IsSupportTDE);
+        }
     }
 
 
@@ -999,6 +1095,9 @@ public class DBInstance extends AbstractModel{
         this.setParamSimple(map, prefix + "OfflineTime", this.OfflineTime);
         this.setParamSimple(map, prefix + "DBKernelVersion", this.DBKernelVersion);
         this.setParamArrayObj(map, prefix + "NetworkAccessList.", this.NetworkAccessList);
+        this.setParamSimple(map, prefix + "DBMajorVersion", this.DBMajorVersion);
+        this.setParamArrayObj(map, prefix + "DBNodeSet.", this.DBNodeSet);
+        this.setParamSimple(map, prefix + "IsSupportTDE", this.IsSupportTDE);
 
     }
 }

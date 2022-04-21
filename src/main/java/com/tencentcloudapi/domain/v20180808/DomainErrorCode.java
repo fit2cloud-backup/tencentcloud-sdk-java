@@ -45,11 +45,14 @@ public enum DomainErrorCode {
     // 修改 DNS 失败，请输入正确的 DNS 服务器地址。
      FAILEDOPERATION_SETDOMAINDNSFAILED("FailedOperation.SetDomainDnsFailed"),
      
-    // 模板数量超过最大值50个。
+    // 信息模板超过可用数量上限，建议删除已有模板后重试。
      FAILEDOPERATION_TEMPLATEMAXNUMFAILED("FailedOperation.TemplateMaxNumFailed"),
      
     // 上传图片操作失败。
      FAILEDOPERATION_UPLOADIMAGEFAILED("FailedOperation.UploadImageFailed"),
+     
+    // 当前用户未在官网进行实名操作。
+     FAILEDOPERATION_VERIFYUINISREALNAME("FailedOperation.VerifyUinIsRealname"),
      
     // 内部错误。
      INTERNALERROR("InternalError"),
@@ -140,6 +143,9 @@ public enum DomainErrorCode {
      
     // 邮编为空或者不合法。
      INVALIDPARAMETER_ZIPCODEISINVALID("InvalidParameter.ZipCodeIsInvalid"),
+     
+    // 请求频率超过限制。
+     LIMITEXCEEDED_REQUESTLIMIT("LimitExceeded.RequestLimit"),
      
     // 缺少参数错误。
      MISSINGPARAMETER("MissingParameter"),

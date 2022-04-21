@@ -281,6 +281,27 @@ public class Disk extends AbstractModel{
     private String CreateTime;
 
     /**
+    * 销毁云盘时删除关联的非永久保留快照。0 表示非永久快照不随云盘销毁而销毁，1表示非永久快照随云盘销毁而销毁，默认取0。快照是否永久保留可以通过DescribeSnapshots接口返回的快照详情的IsPermanent字段来判断，true表示永久快照，false表示非永久快照。
+    */
+    @SerializedName("DeleteSnapshot")
+    @Expose
+    private Long DeleteSnapshot;
+
+    /**
+    * 云硬盘备份点已使用的数量。
+    */
+    @SerializedName("DiskBackupCount")
+    @Expose
+    private Long DiskBackupCount;
+
+    /**
+    * 云硬盘挂载实例的类型。取值范围：<br><li>CVM<br><li>EKS
+    */
+    @SerializedName("InstanceType")
+    @Expose
+    private String InstanceType;
+
+    /**
      * Get 云盘是否与挂载的实例一起销毁。<br><li>true:销毁实例时会同时销毁云盘，只支持按小时后付费云盘。<br><li>false：销毁实例时不销毁云盘。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return DeleteWithInstance 云盘是否与挂载的实例一起销毁。<br><li>true:销毁实例时会同时销毁云盘，只支持按小时后付费云盘。<br><li>false：销毁实例时不销毁云盘。
@@ -892,6 +913,54 @@ public class Disk extends AbstractModel{
         this.CreateTime = CreateTime;
     }
 
+    /**
+     * Get 销毁云盘时删除关联的非永久保留快照。0 表示非永久快照不随云盘销毁而销毁，1表示非永久快照随云盘销毁而销毁，默认取0。快照是否永久保留可以通过DescribeSnapshots接口返回的快照详情的IsPermanent字段来判断，true表示永久快照，false表示非永久快照。 
+     * @return DeleteSnapshot 销毁云盘时删除关联的非永久保留快照。0 表示非永久快照不随云盘销毁而销毁，1表示非永久快照随云盘销毁而销毁，默认取0。快照是否永久保留可以通过DescribeSnapshots接口返回的快照详情的IsPermanent字段来判断，true表示永久快照，false表示非永久快照。
+     */
+    public Long getDeleteSnapshot() {
+        return this.DeleteSnapshot;
+    }
+
+    /**
+     * Set 销毁云盘时删除关联的非永久保留快照。0 表示非永久快照不随云盘销毁而销毁，1表示非永久快照随云盘销毁而销毁，默认取0。快照是否永久保留可以通过DescribeSnapshots接口返回的快照详情的IsPermanent字段来判断，true表示永久快照，false表示非永久快照。
+     * @param DeleteSnapshot 销毁云盘时删除关联的非永久保留快照。0 表示非永久快照不随云盘销毁而销毁，1表示非永久快照随云盘销毁而销毁，默认取0。快照是否永久保留可以通过DescribeSnapshots接口返回的快照详情的IsPermanent字段来判断，true表示永久快照，false表示非永久快照。
+     */
+    public void setDeleteSnapshot(Long DeleteSnapshot) {
+        this.DeleteSnapshot = DeleteSnapshot;
+    }
+
+    /**
+     * Get 云硬盘备份点已使用的数量。 
+     * @return DiskBackupCount 云硬盘备份点已使用的数量。
+     */
+    public Long getDiskBackupCount() {
+        return this.DiskBackupCount;
+    }
+
+    /**
+     * Set 云硬盘备份点已使用的数量。
+     * @param DiskBackupCount 云硬盘备份点已使用的数量。
+     */
+    public void setDiskBackupCount(Long DiskBackupCount) {
+        this.DiskBackupCount = DiskBackupCount;
+    }
+
+    /**
+     * Get 云硬盘挂载实例的类型。取值范围：<br><li>CVM<br><li>EKS 
+     * @return InstanceType 云硬盘挂载实例的类型。取值范围：<br><li>CVM<br><li>EKS
+     */
+    public String getInstanceType() {
+        return this.InstanceType;
+    }
+
+    /**
+     * Set 云硬盘挂载实例的类型。取值范围：<br><li>CVM<br><li>EKS
+     * @param InstanceType 云硬盘挂载实例的类型。取值范围：<br><li>CVM<br><li>EKS
+     */
+    public void setInstanceType(String InstanceType) {
+        this.InstanceType = InstanceType;
+    }
+
     public Disk() {
     }
 
@@ -1014,6 +1083,15 @@ public class Disk extends AbstractModel{
         if (source.CreateTime != null) {
             this.CreateTime = new String(source.CreateTime);
         }
+        if (source.DeleteSnapshot != null) {
+            this.DeleteSnapshot = new Long(source.DeleteSnapshot);
+        }
+        if (source.DiskBackupCount != null) {
+            this.DiskBackupCount = new Long(source.DiskBackupCount);
+        }
+        if (source.InstanceType != null) {
+            this.InstanceType = new String(source.InstanceType);
+        }
     }
 
 
@@ -1056,6 +1134,9 @@ public class Disk extends AbstractModel{
         this.setParamSimple(map, prefix + "ReturnFailCode", this.ReturnFailCode);
         this.setParamSimple(map, prefix + "Shareable", this.Shareable);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
+        this.setParamSimple(map, prefix + "DeleteSnapshot", this.DeleteSnapshot);
+        this.setParamSimple(map, prefix + "DiskBackupCount", this.DiskBackupCount);
+        this.setParamSimple(map, prefix + "InstanceType", this.InstanceType);
 
     }
 }

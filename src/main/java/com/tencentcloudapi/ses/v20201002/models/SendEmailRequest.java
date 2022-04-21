@@ -23,9 +23,9 @@ import java.util.HashMap;
 public class SendEmailRequest extends AbstractModel{
 
     /**
-    * 发信邮件地址。请填写发件人邮箱地址，例如：noreply@mail.qcloud.com。如需填写发件人说明，请按照 
-发信人 <邮件地址> 的方式填写，例如：
-腾讯云团队 <noreply@mail.qcloud.com>
+    * 发信邮件地址。请填写发件人邮箱地址，例如：noreply@mail.qcloud.com
+如需填写发件人说明，请按照如下方式： 
+别名 <邮箱地址>
     */
     @SerializedName("FromEmailAddress")
     @Expose
@@ -74,24 +74,38 @@ public class SendEmailRequest extends AbstractModel{
     private Attachment [] Attachments;
 
     /**
-     * Get 发信邮件地址。请填写发件人邮箱地址，例如：noreply@mail.qcloud.com。如需填写发件人说明，请按照 
-发信人 <邮件地址> 的方式填写，例如：
-腾讯云团队 <noreply@mail.qcloud.com> 
-     * @return FromEmailAddress 发信邮件地址。请填写发件人邮箱地址，例如：noreply@mail.qcloud.com。如需填写发件人说明，请按照 
-发信人 <邮件地址> 的方式填写，例如：
-腾讯云团队 <noreply@mail.qcloud.com>
+    * 退订选项 1: 加入退订链接 0: 不加入退订链接
+    */
+    @SerializedName("Unsubscribe")
+    @Expose
+    private String Unsubscribe;
+
+    /**
+    * 邮件触发类型 0:非触发类，默认类型，营销类邮件、非即时类邮件等选择此类型  1:触发类，验证码等即时发送类邮件，若邮件超过一定大小，系统会自动选择非触发类型通道
+    */
+    @SerializedName("TriggerType")
+    @Expose
+    private Long TriggerType;
+
+    /**
+     * Get 发信邮件地址。请填写发件人邮箱地址，例如：noreply@mail.qcloud.com
+如需填写发件人说明，请按照如下方式： 
+别名 <邮箱地址> 
+     * @return FromEmailAddress 发信邮件地址。请填写发件人邮箱地址，例如：noreply@mail.qcloud.com
+如需填写发件人说明，请按照如下方式： 
+别名 <邮箱地址>
      */
     public String getFromEmailAddress() {
         return this.FromEmailAddress;
     }
 
     /**
-     * Set 发信邮件地址。请填写发件人邮箱地址，例如：noreply@mail.qcloud.com。如需填写发件人说明，请按照 
-发信人 <邮件地址> 的方式填写，例如：
-腾讯云团队 <noreply@mail.qcloud.com>
-     * @param FromEmailAddress 发信邮件地址。请填写发件人邮箱地址，例如：noreply@mail.qcloud.com。如需填写发件人说明，请按照 
-发信人 <邮件地址> 的方式填写，例如：
-腾讯云团队 <noreply@mail.qcloud.com>
+     * Set 发信邮件地址。请填写发件人邮箱地址，例如：noreply@mail.qcloud.com
+如需填写发件人说明，请按照如下方式： 
+别名 <邮箱地址>
+     * @param FromEmailAddress 发信邮件地址。请填写发件人邮箱地址，例如：noreply@mail.qcloud.com
+如需填写发件人说明，请按照如下方式： 
+别名 <邮箱地址>
      */
     public void setFromEmailAddress(String FromEmailAddress) {
         this.FromEmailAddress = FromEmailAddress;
@@ -193,6 +207,38 @@ public class SendEmailRequest extends AbstractModel{
         this.Attachments = Attachments;
     }
 
+    /**
+     * Get 退订选项 1: 加入退订链接 0: 不加入退订链接 
+     * @return Unsubscribe 退订选项 1: 加入退订链接 0: 不加入退订链接
+     */
+    public String getUnsubscribe() {
+        return this.Unsubscribe;
+    }
+
+    /**
+     * Set 退订选项 1: 加入退订链接 0: 不加入退订链接
+     * @param Unsubscribe 退订选项 1: 加入退订链接 0: 不加入退订链接
+     */
+    public void setUnsubscribe(String Unsubscribe) {
+        this.Unsubscribe = Unsubscribe;
+    }
+
+    /**
+     * Get 邮件触发类型 0:非触发类，默认类型，营销类邮件、非即时类邮件等选择此类型  1:触发类，验证码等即时发送类邮件，若邮件超过一定大小，系统会自动选择非触发类型通道 
+     * @return TriggerType 邮件触发类型 0:非触发类，默认类型，营销类邮件、非即时类邮件等选择此类型  1:触发类，验证码等即时发送类邮件，若邮件超过一定大小，系统会自动选择非触发类型通道
+     */
+    public Long getTriggerType() {
+        return this.TriggerType;
+    }
+
+    /**
+     * Set 邮件触发类型 0:非触发类，默认类型，营销类邮件、非即时类邮件等选择此类型  1:触发类，验证码等即时发送类邮件，若邮件超过一定大小，系统会自动选择非触发类型通道
+     * @param TriggerType 邮件触发类型 0:非触发类，默认类型，营销类邮件、非即时类邮件等选择此类型  1:触发类，验证码等即时发送类邮件，若邮件超过一定大小，系统会自动选择非触发类型通道
+     */
+    public void setTriggerType(Long TriggerType) {
+        this.TriggerType = TriggerType;
+    }
+
     public SendEmailRequest() {
     }
 
@@ -228,6 +274,12 @@ public class SendEmailRequest extends AbstractModel{
                 this.Attachments[i] = new Attachment(source.Attachments[i]);
             }
         }
+        if (source.Unsubscribe != null) {
+            this.Unsubscribe = new String(source.Unsubscribe);
+        }
+        if (source.TriggerType != null) {
+            this.TriggerType = new Long(source.TriggerType);
+        }
     }
 
 
@@ -242,6 +294,8 @@ public class SendEmailRequest extends AbstractModel{
         this.setParamObj(map, prefix + "Template.", this.Template);
         this.setParamObj(map, prefix + "Simple.", this.Simple);
         this.setParamArrayObj(map, prefix + "Attachments.", this.Attachments);
+        this.setParamSimple(map, prefix + "Unsubscribe", this.Unsubscribe);
+        this.setParamSimple(map, prefix + "TriggerType", this.TriggerType);
 
     }
 }

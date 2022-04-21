@@ -22,6 +22,52 @@ import java.util.HashMap;
 
 public class DescribeAssetImageRegistryDetailRequest extends AbstractModel{
 
+    /**
+    * 仓库列表id
+    */
+    @SerializedName("Id")
+    @Expose
+    private Long Id;
+
+    /**
+    * 镜像ID
+    */
+    @SerializedName("ImageId")
+    @Expose
+    private String ImageId;
+
+    /**
+     * Get 仓库列表id 
+     * @return Id 仓库列表id
+     */
+    public Long getId() {
+        return this.Id;
+    }
+
+    /**
+     * Set 仓库列表id
+     * @param Id 仓库列表id
+     */
+    public void setId(Long Id) {
+        this.Id = Id;
+    }
+
+    /**
+     * Get 镜像ID 
+     * @return ImageId 镜像ID
+     */
+    public String getImageId() {
+        return this.ImageId;
+    }
+
+    /**
+     * Set 镜像ID
+     * @param ImageId 镜像ID
+     */
+    public void setImageId(String ImageId) {
+        this.ImageId = ImageId;
+    }
+
     public DescribeAssetImageRegistryDetailRequest() {
     }
 
@@ -30,6 +76,12 @@ public class DescribeAssetImageRegistryDetailRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public DescribeAssetImageRegistryDetailRequest(DescribeAssetImageRegistryDetailRequest source) {
+        if (source.Id != null) {
+            this.Id = new Long(source.Id);
+        }
+        if (source.ImageId != null) {
+            this.ImageId = new String(source.ImageId);
+        }
     }
 
 
@@ -37,6 +89,8 @@ public class DescribeAssetImageRegistryDetailRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "Id", this.Id);
+        this.setParamSimple(map, prefix + "ImageId", this.ImageId);
 
     }
 }

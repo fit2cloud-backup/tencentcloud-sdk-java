@@ -229,7 +229,9 @@ public class OcrClient extends AbstractClient{
 
 驾驶证副页：包括证号、姓名、档案编号、记录。
 
-另外，本接口还支持复印件、翻拍和PS告警功能。
+另外，本接口还支持复印件、翻拍和PS告警功能。同时支持识别交管12123APP发放的电子驾驶证正页。
+
+电子驾驶证正页：包括证号、姓名、性别、国籍、出生日期、初次领证日期、准驾车型、有效期开始时间、有效期截止时间、档案编号、状态、累积记分。
      * @param req DriverLicenseOCRRequest
      * @return DriverLicenseOCRResponse
      * @throws TencentCloudSDKException
@@ -893,7 +895,7 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持对中国大陆机动车车牌的自动定位和识别，返回地域编号和车牌号信息。
+     *本接口支持对中国大陆机动车车牌的自动定位和识别，返回地域编号和车牌号码与车牌颜色信息。
      * @param req LicensePlateOCRRequest
      * @return LicensePlateOCRResponse
      * @throws TencentCloudSDKException
@@ -1180,6 +1182,26 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
+     *本接口支持深圳粤康码、上海随申码、北京健康宝的识别，包括持码人姓名、持码人身份证号、健康码更新时间、健康码颜色、核酸检测结果、核酸检测间隔时长、核酸检测时间，七个字段的识别结果输出。不同省市健康码显示的字段信息有所不同，上述字段的识别结果可能为空，以图片上的具体信息为准。
+     * @param req RecognizeHealthCodeOCRRequest
+     * @return RecognizeHealthCodeOCRResponse
+     * @throws TencentCloudSDKException
+     */
+    public RecognizeHealthCodeOCRResponse RecognizeHealthCodeOCR(RecognizeHealthCodeOCRRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<RecognizeHealthCodeOCRResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<RecognizeHealthCodeOCRResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "RecognizeHealthCodeOCR");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口支持网约车行程单关键字段的识别，包括行程起止日期、上车时间、起点、终点、里程、金额等字段。
      * @param req RecognizeOnlineTaxiItineraryOCRRequest
      * @return RecognizeOnlineTaxiItineraryOCRResponse
@@ -1234,6 +1256,26 @@ public class OcrClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<RecognizeThaiIDCardOCRResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "RecognizeThaiIDCardOCR");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口支持通信大数据行程卡识别，包括行程卡颜色、更新时间、途经地、存在中高风险地区的城市、电话号码，五个字段的识别结果输出。
+     * @param req RecognizeTravelCardOCRRequest
+     * @return RecognizeTravelCardOCRResponse
+     * @throws TencentCloudSDKException
+     */
+    public RecognizeTravelCardOCRResponse RecognizeTravelCardOCR(RecognizeTravelCardOCRRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<RecognizeTravelCardOCRResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<RecognizeTravelCardOCRResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "RecognizeTravelCardOCR");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1488,7 +1530,7 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持增值税发票的准确性核验，您可以通过输入增值税发票的关键字段提供所需的验证信息，接口返回真实的票面相关信息，包括发票代码、发票号码、开票日期、金额、消费类型、购方名称、购方税号、销方名称、销方税号等多个常用字段。支持多种发票类型核验，包括增值税专用发票、增值税普通发票（含电子普通发票、卷式发票、通行费发票）、机动车销售统一发票、货物运输业增值税专用发票、二手车销售统一发票。
+     *本接口支持增值税发票的准确性核验，您可以通过输入增值税发票的关键字段提供所需的验证信息，接口返回真实的票面相关信息，包括发票代码、发票号码、开票日期、金额、消费类型、购方名称、购方税号、销方名称、销方税号等多个常用字段。支持多种发票类型核验，包括增值税专用发票、增值税普通发票（含电子普通发票、卷式发票、通行费发票）、全电发票、机动车销售统一发票、货物运输业增值税专用发票、二手车销售统一发票。
      * @param req VatInvoiceVerifyRequest
      * @return VatInvoiceVerifyResponse
      * @throws TencentCloudSDKException

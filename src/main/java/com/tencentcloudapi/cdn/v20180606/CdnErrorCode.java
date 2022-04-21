@@ -51,6 +51,9 @@ public enum CdnErrorCode {
     // 内部服务错误，请联系腾讯云工程师进一步排查。
      INTERNALERROR_PROXYSERVER("InternalError.ProxyServer"),
      
+    // 内部服务错误，请联系腾讯云工程师进一步排查。
+     INTERNALERROR_ROUTEERROR("InternalError.RouteError"),
+     
     // SCDN服务未生效，请购买或续费SCDN套餐后重试。
      INTERNALERROR_SCDNUSERNOPACKAGE("InternalError.ScdnUserNoPackage"),
      
@@ -68,6 +71,15 @@ public enum CdnErrorCode {
      
     // 参数错误。
      INVALIDPARAMETER("InvalidParameter"),
+     
+    // 域名启用 HTTPS 配置需保持访问端口配置-443端口为开启状态。
+     INVALIDPARAMETER_ACCESSPORTOPENEDHTTPS("InvalidParameter.AccessPortOpenedHttps"),
+     
+    // 请删除域名的限流管理配置后再切换加速区域。
+     INVALIDPARAMETER_BANDLIMITREQUIREDMAINLAND("InvalidParameter.BandLimitRequiredMainland"),
+     
+    // 源站类型为COS源或第三方对象存储的域名，用量封顶-超出阈值的处理方式仅支持访问返回404，请修改该配置后重试。
+     INVALIDPARAMETER_BANDWIDTHALERTCOUNTERMEASURECONFLICTORIGINTYPE("InvalidParameter.BandwidthAlertCounterMeasureConflictOriginType"),
      
     // 域名状态不合法。
      INVALIDPARAMETER_CDNSTATUSINVALIDDOMAIN("InvalidParameter.CDNStatusInvalidDomain"),
@@ -134,6 +146,9 @@ public enum CdnErrorCode {
      
     // 域名状态不合法。
      INVALIDPARAMETER_CDNHOSTINVALIDSTATUS("InvalidParameter.CdnHostInvalidStatus"),
+     
+    // 该域名为COS访问域名，无法接入，如需启动加速服务，请前往COS控制台启用默认 CDN 加速域。
+     INVALIDPARAMETER_CDNHOSTISCOSDEFAULTACCESS("InvalidParameter.CdnHostIsCosDefaultAccess"),
      
     // 域名太长。
      INVALIDPARAMETER_CDNHOSTTOOLONGHOST("InvalidParameter.CdnHostTooLongHost"),
@@ -224,6 +239,9 @@ public enum CdnErrorCode {
      
     // 参数错误。
      INVALIDPARAMETER_PARAMERROR("InvalidParameter.ParamError"),
+     
+    // 正则子模式超出上限。
+     INVALIDPARAMETER_PATHREGEXTOOMANYSUBPATTERN("InvalidParameter.PathRegexTooManySubPattern"),
      
     // 域名所在平台不支持远程鉴权。
      INVALIDPARAMETER_REMOTEAUTHINVALIDPLATFORM("InvalidParameter.RemoteAuthInvalidPlatform"),
@@ -333,6 +351,9 @@ public enum CdnErrorCode {
     // 资源不存在。
      RESOURCENOTFOUND("ResourceNotFound"),
      
+    // 标签键不存在。
+     RESOURCENOTFOUND_CAMTAGKEYNOTEXIST("ResourceNotFound.CamTagKeyNotExist"),
+     
     // 账号下无此域名，请确认后重试。
      RESOURCENOTFOUND_CDNHOSTNOTEXISTS("ResourceNotFound.CdnHostNotExists"),
      
@@ -390,6 +411,9 @@ public enum CdnErrorCode {
     // SCDN服务未生效，请购买或续费SCDN套餐后重试。
      RESOURCEUNAVAILABLE_SCDNUSERNOPACKAGE("ResourceUnavailable.ScdnUserNoPackage"),
      
+    // SCDN服务未生效，请购买或续费SCDN套餐后重试。
+     RESOURCEUNAVAILABLE_SCDNUSERSUSPEND("ResourceUnavailable.ScdnUserSuspend"),
+     
     // 未授权操作。
      UNAUTHORIZEDOPERATION("UnauthorizedOperation"),
      
@@ -407,6 +431,9 @@ public enum CdnErrorCode {
      
     // 域名在内部系统已存在，请提工单处理。
      UNAUTHORIZEDOPERATION_CDNHOSTEXISTSININTERNAL("UnauthorizedOperation.CdnHostExistsInInternal"),
+     
+    // 域名现存在风险，不可接入。
+     UNAUTHORIZEDOPERATION_CDNHOSTINICPBLACKLIST("UnauthorizedOperation.CdnHostInIcpBlacklist"),
      
     // 该域名属于其他账号，您没有权限接入。
      UNAUTHORIZEDOPERATION_CDNHOSTISOWNEDBYOTHER("UnauthorizedOperation.CdnHostIsOwnedByOther"),
@@ -462,6 +489,12 @@ public enum CdnErrorCode {
     // 内部服务错误，请联系腾讯云工程师进一步排查。
      UNAUTHORIZEDOPERATION_CSRFERROR("UnauthorizedOperation.CsrfError"),
      
+    // 鉴权域名为空。
+     UNAUTHORIZEDOPERATION_DOMAINEMPTY("UnauthorizedOperation.DomainEmpty"),
+     
+    // 请前往CDN控制台进行操作。
+     UNAUTHORIZEDOPERATION_ECDNMIGRATEDCDN("UnauthorizedOperation.EcdnMigratedCdn"),
+     
     // 未授权的操作。
      UNAUTHORIZEDOPERATION_NOPERMISSION("UnauthorizedOperation.NoPermission"),
      
@@ -470,6 +503,9 @@ public enum CdnErrorCode {
      
     // 操作超出调用频次限制。
      UNAUTHORIZEDOPERATION_OPERATIONTOOOFTEN("UnauthorizedOperation.OperationTooOften"),
+     
+    // 未授权操作。
+     UNAUTHORIZEDOPERATION_UNKNOWN("UnauthorizedOperation.Unknown"),
      
     // 未知参数错误。
      UNKNOWNPARAMETER("UnknownParameter"),

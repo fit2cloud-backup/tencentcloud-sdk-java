@@ -101,7 +101,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *增加模版对象中的IP地址、协议端口、IP地址组、协议端口组。当前仅支持北京、泰国、北美地域请求。
+     *增加模板对象中的IP地址、协议端口、IP地址组、协议端口组。当前仅支持北京、泰国、北美地域请求。
      * @param req AddTemplateMemberRequest
      * @return AddTemplateMemberResponse
      * @throws TencentCloudSDKException
@@ -432,6 +432,7 @@ public class VpcClient extends AbstractClient{
 
     /**
      *本接口（AttachNetworkInterface）用于弹性网卡绑定云服务器。
+* 一个弹性网卡请至少绑定一个安全组，如需绑定请参见<a href="https://cloud.tencent.com/document/product/215/43132">弹性网卡绑定安全组</a>。
 * 一个云服务器可以绑定多个弹性网卡，但只能绑定一个主网卡。更多限制信息详见<a href="https://cloud.tencent.com/document/product/576/18527">弹性网卡使用限制</a>。
 * 一个弹性网卡只能同时绑定一个云服务器。
 * 只有运行中或者已关机状态的云服务器才能绑定弹性网卡，查看云服务器状态详见<a href="https://cloud.tencent.com/document/api/213/9452#InstanceStatus">腾讯云服务器信息</a>。
@@ -562,7 +563,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（CreateAddressTemplate）用于创建IP地址模版
+     *本接口（CreateAddressTemplate）用于创建IP地址模板。
      * @param req CreateAddressTemplateRequest
      * @return CreateAddressTemplateResponse
      * @throws TencentCloudSDKException
@@ -582,7 +583,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（CreateAddressTemplateGroup）用于创建IP地址模版集合
+     *本接口（CreateAddressTemplateGroup）用于创建IP地址模板集合
      * @param req CreateAddressTemplateGroupRequest
      * @return CreateAddressTemplateGroupResponse
      * @throws TencentCloudSDKException
@@ -1300,7 +1301,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *创建终端节点服务。
+     *本接口(CreateVpcEndPointService)用于创建终端节点服务。
      * @param req CreateVpcEndPointServiceRequest
      * @return CreateVpcEndPointServiceResponse
      * @throws TencentCloudSDKException
@@ -1394,6 +1395,46 @@ public class VpcClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<CreateVpnGatewayRoutesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "CreateVpnGatewayRoutes");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *创建SSL-VPN-CLIENT
+     * @param req CreateVpnGatewaySslClientRequest
+     * @return CreateVpnGatewaySslClientResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateVpnGatewaySslClientResponse CreateVpnGatewaySslClient(CreateVpnGatewaySslClientRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateVpnGatewaySslClientResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateVpnGatewaySslClientResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateVpnGatewaySslClient");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *创建 Server端
+     * @param req CreateVpnGatewaySslServerRequest
+     * @return CreateVpnGatewaySslServerResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateVpnGatewaySslServerResponse CreateVpnGatewaySslServer(CreateVpnGatewaySslServerRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateVpnGatewaySslServerResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateVpnGatewaySslServerResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateVpnGatewaySslServer");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1942,7 +1983,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *删除模版对象中的IP地址、协议端口、IP地址组、协议端口组。当前仅支持北京、泰国、北美地域请求。
+     *删除模板对象中的IP地址、协议端口、IP地址组、协议端口组。当前仅支持北京、泰国、北美地域请求。
      * @param req DeleteTemplateMemberRequest
      * @return DeleteTemplateMemberResponse
      * @throws TencentCloudSDKException
@@ -2098,6 +2139,46 @@ public class VpcClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DeleteVpnGatewayRoutesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DeleteVpnGatewayRoutes");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *删除SSL-VPN-CLIENT
+     * @param req DeleteVpnGatewaySslClientRequest
+     * @return DeleteVpnGatewaySslClientResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteVpnGatewaySslClientResponse DeleteVpnGatewaySslClient(DeleteVpnGatewaySslClientRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteVpnGatewaySslClientResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteVpnGatewaySslClientResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteVpnGatewaySslClient");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *删除SSL-VPN-SERVER 实例
+     * @param req DeleteVpnGatewaySslServerRequest
+     * @return DeleteVpnGatewaySslServerResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteVpnGatewaySslServerResponse DeleteVpnGatewaySslServer(DeleteVpnGatewaySslServerRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteVpnGatewaySslServerResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteVpnGatewaySslServerResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteVpnGatewaySslServer");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -2400,6 +2481,29 @@ public class VpcClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeClassicLinkInstancesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeClassicLinkInstances");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（DescribeCrossBorderCcnRegionBandwidthLimits）用于获取要锁定的限速实例列表。
+该接口一般用来封禁地域间限速的云联网实例下的限速实例, 目前联通内部运营系统通过云API调用, 如果是出口限速, 一般使用更粗的云联网实例粒度封禁（DescribeTenantCcns）
+如有需要, 可以封禁任意限速实例, 可接入到内部运营系统
+
+     * @param req DescribeCrossBorderCcnRegionBandwidthLimitsRequest
+     * @return DescribeCrossBorderCcnRegionBandwidthLimitsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCrossBorderCcnRegionBandwidthLimitsResponse DescribeCrossBorderCcnRegionBandwidthLimits(DescribeCrossBorderCcnRegionBandwidthLimitsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeCrossBorderCcnRegionBandwidthLimitsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeCrossBorderCcnRegionBandwidthLimitsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeCrossBorderCcnRegionBandwidthLimits");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -3193,6 +3297,28 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
+     *本接口（DescribeTenantCcns）用于获取要锁定的云联网实例列表。
+该接口一般用来封禁出口限速的云联网实例, 目前联通内部运营系统通过云API调用, 因为出口限速无法按地域间封禁, 只能按更粗的云联网实例粒度封禁, 如果是地域间限速, 一般可以通过更细的限速实例粒度封禁（DescribeCrossBorderCcnRegionBandwidthLimits）
+如有需要, 可以封禁任意云联网实例, 可接入到内部运营系统
+     * @param req DescribeTenantCcnsRequest
+     * @return DescribeTenantCcnsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeTenantCcnsResponse DescribeTenantCcns(DescribeTenantCcnsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeTenantCcnsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeTenantCcnsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeTenantCcns");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *查询终端节点列表。
      * @param req DescribeVpcEndPointRequest
      * @return DescribeVpcEndPointResponse
@@ -3484,6 +3610,46 @@ LimitTypes取值范围：
     }
 
     /**
+     *查询SSL-VPN-CLIENT 列表
+     * @param req DescribeVpnGatewaySslClientsRequest
+     * @return DescribeVpnGatewaySslClientsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeVpnGatewaySslClientsResponse DescribeVpnGatewaySslClients(DescribeVpnGatewaySslClientsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeVpnGatewaySslClientsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeVpnGatewaySslClientsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeVpnGatewaySslClients");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询SSL-VPN SERVER 列表信息
+     * @param req DescribeVpnGatewaySslServersRequest
+     * @return DescribeVpnGatewaySslServersResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeVpnGatewaySslServersResponse DescribeVpnGatewaySslServers(DescribeVpnGatewaySslServersRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeVpnGatewaySslServersResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeVpnGatewaySslServersResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeVpnGatewaySslServers");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口（DescribeVpnGateways）用于查询VPN网关列表。
      * @param req DescribeVpnGatewaysRequest
      * @return DescribeVpnGatewaysResponse
@@ -3620,6 +3786,26 @@ LimitTypes取值范围：
                 Type type = new TypeToken<JsonResponseModel<DisableRoutesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DisableRoutes");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *禁用SSL-VPN-CLIENT 证书
+     * @param req DisableVpnGatewaySslClientCertRequest
+     * @return DisableVpnGatewaySslClientCertResponse
+     * @throws TencentCloudSDKException
+     */
+    public DisableVpnGatewaySslClientCertResponse DisableVpnGatewaySslClientCert(DisableVpnGatewaySslClientCertRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DisableVpnGatewaySslClientCertResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DisableVpnGatewaySslClientCertResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DisableVpnGatewaySslClientCert");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -3794,6 +3980,26 @@ LimitTypes取值范围：
     }
 
     /**
+     *下载SSL-VPN-CLIENT 客户端证书
+     * @param req DownloadVpnGatewaySslClientCertRequest
+     * @return DownloadVpnGatewaySslClientCertResponse
+     * @throws TencentCloudSDKException
+     */
+    public DownloadVpnGatewaySslClientCertResponse DownloadVpnGatewaySslClientCert(DownloadVpnGatewaySslClientCertRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DownloadVpnGatewaySslClientCertResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DownloadVpnGatewaySslClientCertResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DownloadVpnGatewaySslClientCert");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口（EnableCcnRoutes）用于启用已经加入云联网（CCN）的路由。<br />
 本接口会校验启用后，是否与已有路由冲突，如果冲突，则无法启用，失败处理。路由冲突时，需要先禁用与之冲突的路由，才能启用该路由。
      * @param req EnableCcnRoutesRequest
@@ -3868,6 +4074,26 @@ LimitTypes取值范围：
                 Type type = new TypeToken<JsonResponseModel<EnableVpcEndPointConnectResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "EnableVpcEndPointConnect");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *启用SSL-VPN-CLIENT 证书
+     * @param req EnableVpnGatewaySslClientCertRequest
+     * @return EnableVpnGatewaySslClientCertResponse
+     * @throws TencentCloudSDKException
+     */
+    public EnableVpnGatewaySslClientCertResponse EnableVpnGatewaySslClientCert(EnableVpnGatewaySslClientCertRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<EnableVpnGatewaySslClientCertResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<EnableVpnGatewaySslClientCertResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "EnableVpnGatewaySslClientCert");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -4010,6 +4236,54 @@ LimitTypes取值范围：
                 Type type = new TypeToken<JsonResponseModel<InquiryPriceResetVpnGatewayInternetMaxBandwidthResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "InquiryPriceResetVpnGatewayInternetMaxBandwidth");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（LockCcnBandwidths）用户锁定云联网限速实例。
+该接口一般用来封禁地域间限速的云联网实例下的限速实例, 目前联通内部运营系统通过云API调用, 如果是出口限速, 一般使用更粗的云联网实例粒度封禁（LockCcns）。
+如有需要, 可以封禁任意限速实例, 可接入到内部运营系统。
+     * @param req LockCcnBandwidthsRequest
+     * @return LockCcnBandwidthsResponse
+     * @throws TencentCloudSDKException
+     */
+    public LockCcnBandwidthsResponse LockCcnBandwidths(LockCcnBandwidthsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<LockCcnBandwidthsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<LockCcnBandwidthsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "LockCcnBandwidths");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（LockCcns）用于锁定云联网实例
+
+该接口一般用来封禁出口限速的云联网实例, 目前联通内部运营系统通过云API调用, 因为出口限速无法按地域间封禁, 只能按更粗的云联网实例粒度封禁, 如果是地域间限速, 一般可以通过更细的限速实例粒度封禁（LockCcnBandwidths）
+
+如有需要, 可以封禁任意限速实例, 可接入到内部运营系统
+
+
+     * @param req LockCcnsRequest
+     * @return LockCcnsResponse
+     * @throws TencentCloudSDKException
+     */
+    public LockCcnsResponse LockCcns(LockCcnsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<LockCcnsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<LockCcnsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "LockCcns");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -4628,7 +4902,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *修改弹性网卡服务质量
+     *修改弹性网卡服务质量。
      * @param req ModifyNetworkInterfaceQosRequest
      * @return ModifyNetworkInterfaceQosResponse
      * @throws TencentCloudSDKException
@@ -4803,7 +5077,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *修改模版对象中的IP地址、协议端口、IP地址组、协议端口组。当前仅支持北京、泰国、北美地域请求。
+     *修改模板对象中的IP地址、协议端口、IP地址组、协议端口组。当前仅支持北京、泰国、北美地域请求。
      * @param req ModifyTemplateMemberRequest
      * @return ModifyTemplateMemberResponse
      * @throws TencentCloudSDKException
@@ -4985,7 +5259,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *路由表列表页操作增加“发布到云联网”，用于发布路由到云联网。
+     *本接口（NotifyRoutes）用于路由表列表页操作增加“发布到云联网”，发布路由到云联网。
      * @param req NotifyRoutesRequest
      * @return NotifyRoutesResponse
      * @throws TencentCloudSDKException
@@ -5471,6 +5745,54 @@ LimitTypes取值范围：
                 Type type = new TypeToken<JsonResponseModel<UnassignPrivateIpAddressesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "UnassignPrivateIpAddresses");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（UnlockCcnBandwidths）用户解锁云联网限速实例。
+该接口一般用来封禁地域间限速的云联网实例下的限速实例, 目前联通内部运营系统通过云API调用, 如果是出口限速, 一般使用更粗的云联网实例粒度封禁（SecurityUnlockCcns）。
+如有需要, 可以封禁任意限速实例, 可接入到内部运营系统。
+     * @param req UnlockCcnBandwidthsRequest
+     * @return UnlockCcnBandwidthsResponse
+     * @throws TencentCloudSDKException
+     */
+    public UnlockCcnBandwidthsResponse UnlockCcnBandwidths(UnlockCcnBandwidthsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<UnlockCcnBandwidthsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<UnlockCcnBandwidthsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "UnlockCcnBandwidths");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（UnlockCcns）用于解锁云联网实例
+
+该接口一般用来解封禁出口限速的云联网实例, 目前联通内部运营系统通过云API调用, 因为出口限速无法按地域间解封禁, 只能按更粗的云联网实例粒度解封禁, 如果是地域间限速, 一般可以通过更细的限速实例粒度解封禁（UnlockCcnBandwidths）
+
+如有需要, 可以封禁任意限速实例, 可接入到内部运营系统
+
+
+     * @param req UnlockCcnsRequest
+     * @return UnlockCcnsResponse
+     * @throws TencentCloudSDKException
+     */
+    public UnlockCcnsResponse UnlockCcns(UnlockCcnsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<UnlockCcnsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<UnlockCcnsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "UnlockCcns");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

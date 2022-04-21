@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class ServiceConfig extends AbstractModel{
 
     /**
-    * 后端类型。启用vpc时生效，目前支持的类型为clb和vpc通道
+    * 后端类型。启用vpc时生效，目前支持的类型为clb, cvm和upstream
     */
     @SerializedName("Product")
     @Expose
@@ -58,16 +58,32 @@ public class ServiceConfig extends AbstractModel{
     private String Method;
 
     /**
-     * Get 后端类型。启用vpc时生效，目前支持的类型为clb和vpc通道 
-     * @return Product 后端类型。启用vpc时生效，目前支持的类型为clb和vpc通道
+    * 当绑定vpc通道才需要
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UpstreamId")
+    @Expose
+    private String UpstreamId;
+
+    /**
+    * API后端COS配置。如果 ServiceType 是 COS，则此参数必传。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CosConfig")
+    @Expose
+    private CosConfig CosConfig;
+
+    /**
+     * Get 后端类型。启用vpc时生效，目前支持的类型为clb, cvm和upstream 
+     * @return Product 后端类型。启用vpc时生效，目前支持的类型为clb, cvm和upstream
      */
     public String getProduct() {
         return this.Product;
     }
 
     /**
-     * Set 后端类型。启用vpc时生效，目前支持的类型为clb和vpc通道
-     * @param Product 后端类型。启用vpc时生效，目前支持的类型为clb和vpc通道
+     * Set 后端类型。启用vpc时生效，目前支持的类型为clb, cvm和upstream
+     * @param Product 后端类型。启用vpc时生效，目前支持的类型为clb, cvm和upstream
      */
     public void setProduct(String Product) {
         this.Product = Product;
@@ -137,6 +153,46 @@ public class ServiceConfig extends AbstractModel{
         this.Method = Method;
     }
 
+    /**
+     * Get 当绑定vpc通道才需要
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UpstreamId 当绑定vpc通道才需要
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getUpstreamId() {
+        return this.UpstreamId;
+    }
+
+    /**
+     * Set 当绑定vpc通道才需要
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UpstreamId 当绑定vpc通道才需要
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUpstreamId(String UpstreamId) {
+        this.UpstreamId = UpstreamId;
+    }
+
+    /**
+     * Get API后端COS配置。如果 ServiceType 是 COS，则此参数必传。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CosConfig API后端COS配置。如果 ServiceType 是 COS，则此参数必传。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public CosConfig getCosConfig() {
+        return this.CosConfig;
+    }
+
+    /**
+     * Set API后端COS配置。如果 ServiceType 是 COS，则此参数必传。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CosConfig API后端COS配置。如果 ServiceType 是 COS，则此参数必传。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCosConfig(CosConfig CosConfig) {
+        this.CosConfig = CosConfig;
+    }
+
     public ServiceConfig() {
     }
 
@@ -160,6 +216,12 @@ public class ServiceConfig extends AbstractModel{
         if (source.Method != null) {
             this.Method = new String(source.Method);
         }
+        if (source.UpstreamId != null) {
+            this.UpstreamId = new String(source.UpstreamId);
+        }
+        if (source.CosConfig != null) {
+            this.CosConfig = new CosConfig(source.CosConfig);
+        }
     }
 
 
@@ -172,6 +234,8 @@ public class ServiceConfig extends AbstractModel{
         this.setParamSimple(map, prefix + "Url", this.Url);
         this.setParamSimple(map, prefix + "Path", this.Path);
         this.setParamSimple(map, prefix + "Method", this.Method);
+        this.setParamSimple(map, prefix + "UpstreamId", this.UpstreamId);
+        this.setParamObj(map, prefix + "CosConfig.", this.CosConfig);
 
     }
 }

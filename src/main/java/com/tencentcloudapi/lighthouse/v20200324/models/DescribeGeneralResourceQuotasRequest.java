@@ -23,23 +23,78 @@ import java.util.HashMap;
 public class DescribeGeneralResourceQuotasRequest extends AbstractModel{
 
     /**
-    * 资源名列表，取值为：USER_KEY_PAIR、INSTANCE、SNAPSHOT。
+    * 资源名列表，可取值:
+- GENERAL_BUNDLE_INSTANCE 通用型套餐实例
+- STORAGE_BUNDLE_INSTANCE 存储型套餐实例 
+- ENTERPRISE_BUNDLE_INSTANCE 企业型套餐实例 
+- EXCLUSIVE_BUNDLE_INSTANCE 专属型套餐实例
+- BEFAST_BUNDLE_INSTANCE 蜂驰型套餐实例
+- USER_KEY_PAIR 密钥对
+- SNAPSHOT 快照
+- BLUEPRINT 自定义镜像
+- FREE_BLUEPRINT 免费自定义镜像
+- DATA_DISK 数据盘
+- FIREWALL_RULE 防火墙规则
     */
     @SerializedName("ResourceNames")
     @Expose
     private String [] ResourceNames;
 
     /**
-     * Get 资源名列表，取值为：USER_KEY_PAIR、INSTANCE、SNAPSHOT。 
-     * @return ResourceNames 资源名列表，取值为：USER_KEY_PAIR、INSTANCE、SNAPSHOT。
+     * Get 资源名列表，可取值:
+- GENERAL_BUNDLE_INSTANCE 通用型套餐实例
+- STORAGE_BUNDLE_INSTANCE 存储型套餐实例 
+- ENTERPRISE_BUNDLE_INSTANCE 企业型套餐实例 
+- EXCLUSIVE_BUNDLE_INSTANCE 专属型套餐实例
+- BEFAST_BUNDLE_INSTANCE 蜂驰型套餐实例
+- USER_KEY_PAIR 密钥对
+- SNAPSHOT 快照
+- BLUEPRINT 自定义镜像
+- FREE_BLUEPRINT 免费自定义镜像
+- DATA_DISK 数据盘
+- FIREWALL_RULE 防火墙规则 
+     * @return ResourceNames 资源名列表，可取值:
+- GENERAL_BUNDLE_INSTANCE 通用型套餐实例
+- STORAGE_BUNDLE_INSTANCE 存储型套餐实例 
+- ENTERPRISE_BUNDLE_INSTANCE 企业型套餐实例 
+- EXCLUSIVE_BUNDLE_INSTANCE 专属型套餐实例
+- BEFAST_BUNDLE_INSTANCE 蜂驰型套餐实例
+- USER_KEY_PAIR 密钥对
+- SNAPSHOT 快照
+- BLUEPRINT 自定义镜像
+- FREE_BLUEPRINT 免费自定义镜像
+- DATA_DISK 数据盘
+- FIREWALL_RULE 防火墙规则
      */
     public String [] getResourceNames() {
         return this.ResourceNames;
     }
 
     /**
-     * Set 资源名列表，取值为：USER_KEY_PAIR、INSTANCE、SNAPSHOT。
-     * @param ResourceNames 资源名列表，取值为：USER_KEY_PAIR、INSTANCE、SNAPSHOT。
+     * Set 资源名列表，可取值:
+- GENERAL_BUNDLE_INSTANCE 通用型套餐实例
+- STORAGE_BUNDLE_INSTANCE 存储型套餐实例 
+- ENTERPRISE_BUNDLE_INSTANCE 企业型套餐实例 
+- EXCLUSIVE_BUNDLE_INSTANCE 专属型套餐实例
+- BEFAST_BUNDLE_INSTANCE 蜂驰型套餐实例
+- USER_KEY_PAIR 密钥对
+- SNAPSHOT 快照
+- BLUEPRINT 自定义镜像
+- FREE_BLUEPRINT 免费自定义镜像
+- DATA_DISK 数据盘
+- FIREWALL_RULE 防火墙规则
+     * @param ResourceNames 资源名列表，可取值:
+- GENERAL_BUNDLE_INSTANCE 通用型套餐实例
+- STORAGE_BUNDLE_INSTANCE 存储型套餐实例 
+- ENTERPRISE_BUNDLE_INSTANCE 企业型套餐实例 
+- EXCLUSIVE_BUNDLE_INSTANCE 专属型套餐实例
+- BEFAST_BUNDLE_INSTANCE 蜂驰型套餐实例
+- USER_KEY_PAIR 密钥对
+- SNAPSHOT 快照
+- BLUEPRINT 自定义镜像
+- FREE_BLUEPRINT 免费自定义镜像
+- DATA_DISK 数据盘
+- FIREWALL_RULE 防火墙规则
      */
     public void setResourceNames(String [] ResourceNames) {
         this.ResourceNames = ResourceNames;

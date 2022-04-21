@@ -120,7 +120,7 @@ NOTIFY_AND_AUTO_RENEW：表示通知即将过期，而且自动续费 。
 
     /**
     * 实例状态。取值范围： 
-<li>PENDING：表示创建中</li><li>LAUNCH_FAILED：表示创建失败</li><li>RUNNING：表示运行中</li><li>STOPPED：表示关机</li><li>STARTING：表示开机中</li><li>STOPPING：表示关机中</li><li>REBOOTING：表示重启中</li><li>SHUTDOWN：表示停止待销毁</li><li>TERMINATING：表示销毁中</li>
+<li>PENDING：表示创建中</li><li>LAUNCH_FAILED：表示创建失败</li><li>RUNNING：表示运行中</li><li>STOPPED：表示关机</li><li>STARTING：表示开机中</li><li>STOPPING：表示关机中</li><li>REBOOTING：表示重启中</li><li>SHUTDOWN：表示停止待销毁</li><li>TERMINATING：表示销毁中</li><li>DELETING：表示删除中</li><li>FREEZING：表示冻结中</li>
     */
     @SerializedName("InstanceState")
     @Expose
@@ -213,6 +213,21 @@ FAILED：表示操作失败
     @SerializedName("Zone")
     @Expose
     private String Zone;
+
+    /**
+    * 实例绑定的标签列表。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
+    * 实例封禁状态。取值范围：
+<li>NORMAL实例正常。</li><li>NETWORK_RESTRICT：网络封禁。</li>
+    */
+    @SerializedName("InstanceRestrictState")
+    @Expose
+    private String InstanceRestrictState;
 
     /**
      * Get 实例 ID。 
@@ -444,9 +459,9 @@ NOTIFY_AND_AUTO_RENEW：表示通知即将过期，而且自动续费 。
 
     /**
      * Get 实例状态。取值范围： 
-<li>PENDING：表示创建中</li><li>LAUNCH_FAILED：表示创建失败</li><li>RUNNING：表示运行中</li><li>STOPPED：表示关机</li><li>STARTING：表示开机中</li><li>STOPPING：表示关机中</li><li>REBOOTING：表示重启中</li><li>SHUTDOWN：表示停止待销毁</li><li>TERMINATING：表示销毁中</li> 
+<li>PENDING：表示创建中</li><li>LAUNCH_FAILED：表示创建失败</li><li>RUNNING：表示运行中</li><li>STOPPED：表示关机</li><li>STARTING：表示开机中</li><li>STOPPING：表示关机中</li><li>REBOOTING：表示重启中</li><li>SHUTDOWN：表示停止待销毁</li><li>TERMINATING：表示销毁中</li><li>DELETING：表示删除中</li><li>FREEZING：表示冻结中</li> 
      * @return InstanceState 实例状态。取值范围： 
-<li>PENDING：表示创建中</li><li>LAUNCH_FAILED：表示创建失败</li><li>RUNNING：表示运行中</li><li>STOPPED：表示关机</li><li>STARTING：表示开机中</li><li>STOPPING：表示关机中</li><li>REBOOTING：表示重启中</li><li>SHUTDOWN：表示停止待销毁</li><li>TERMINATING：表示销毁中</li>
+<li>PENDING：表示创建中</li><li>LAUNCH_FAILED：表示创建失败</li><li>RUNNING：表示运行中</li><li>STOPPED：表示关机</li><li>STARTING：表示开机中</li><li>STOPPING：表示关机中</li><li>REBOOTING：表示重启中</li><li>SHUTDOWN：表示停止待销毁</li><li>TERMINATING：表示销毁中</li><li>DELETING：表示删除中</li><li>FREEZING：表示冻结中</li>
      */
     public String getInstanceState() {
         return this.InstanceState;
@@ -454,9 +469,9 @@ NOTIFY_AND_AUTO_RENEW：表示通知即将过期，而且自动续费 。
 
     /**
      * Set 实例状态。取值范围： 
-<li>PENDING：表示创建中</li><li>LAUNCH_FAILED：表示创建失败</li><li>RUNNING：表示运行中</li><li>STOPPED：表示关机</li><li>STARTING：表示开机中</li><li>STOPPING：表示关机中</li><li>REBOOTING：表示重启中</li><li>SHUTDOWN：表示停止待销毁</li><li>TERMINATING：表示销毁中</li>
+<li>PENDING：表示创建中</li><li>LAUNCH_FAILED：表示创建失败</li><li>RUNNING：表示运行中</li><li>STOPPED：表示关机</li><li>STARTING：表示开机中</li><li>STOPPING：表示关机中</li><li>REBOOTING：表示重启中</li><li>SHUTDOWN：表示停止待销毁</li><li>TERMINATING：表示销毁中</li><li>DELETING：表示删除中</li><li>FREEZING：表示冻结中</li>
      * @param InstanceState 实例状态。取值范围： 
-<li>PENDING：表示创建中</li><li>LAUNCH_FAILED：表示创建失败</li><li>RUNNING：表示运行中</li><li>STOPPED：表示关机</li><li>STARTING：表示开机中</li><li>STOPPING：表示关机中</li><li>REBOOTING：表示重启中</li><li>SHUTDOWN：表示停止待销毁</li><li>TERMINATING：表示销毁中</li>
+<li>PENDING：表示创建中</li><li>LAUNCH_FAILED：表示创建失败</li><li>RUNNING：表示运行中</li><li>STOPPED：表示关机</li><li>STARTING：表示开机中</li><li>STOPPING：表示关机中</li><li>REBOOTING：表示重启中</li><li>SHUTDOWN：表示停止待销毁</li><li>TERMINATING：表示销毁中</li><li>DELETING：表示删除中</li><li>FREEZING：表示冻结中</li>
      */
     public void setInstanceState(String InstanceState) {
         this.InstanceState = InstanceState;
@@ -682,6 +697,42 @@ FAILED：表示操作失败
         this.Zone = Zone;
     }
 
+    /**
+     * Get 实例绑定的标签列表。 
+     * @return Tags 实例绑定的标签列表。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 实例绑定的标签列表。
+     * @param Tags 实例绑定的标签列表。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
+     * Get 实例封禁状态。取值范围：
+<li>NORMAL实例正常。</li><li>NETWORK_RESTRICT：网络封禁。</li> 
+     * @return InstanceRestrictState 实例封禁状态。取值范围：
+<li>NORMAL实例正常。</li><li>NETWORK_RESTRICT：网络封禁。</li>
+     */
+    public String getInstanceRestrictState() {
+        return this.InstanceRestrictState;
+    }
+
+    /**
+     * Set 实例封禁状态。取值范围：
+<li>NORMAL实例正常。</li><li>NETWORK_RESTRICT：网络封禁。</li>
+     * @param InstanceRestrictState 实例封禁状态。取值范围：
+<li>NORMAL实例正常。</li><li>NETWORK_RESTRICT：网络封禁。</li>
+     */
+    public void setInstanceRestrictState(String InstanceRestrictState) {
+        this.InstanceRestrictState = InstanceRestrictState;
+    }
+
     public Instance() {
     }
 
@@ -771,6 +822,15 @@ FAILED：表示操作失败
         if (source.Zone != null) {
             this.Zone = new String(source.Zone);
         }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.InstanceRestrictState != null) {
+            this.InstanceRestrictState = new String(source.InstanceRestrictState);
+        }
     }
 
 
@@ -803,6 +863,8 @@ FAILED：表示操作失败
         this.setParamSimple(map, prefix + "Platform", this.Platform);
         this.setParamSimple(map, prefix + "OsName", this.OsName);
         this.setParamSimple(map, prefix + "Zone", this.Zone);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "InstanceRestrictState", this.InstanceRestrictState);
 
     }
 }

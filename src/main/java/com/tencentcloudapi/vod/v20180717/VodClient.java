@@ -412,6 +412,28 @@ public class VodClient extends AbstractClient{
     }
 
     /**
+     *该接口用于开通某地域的存储。
+  1. 用户开通点播业务时，系统默认为用户开通了部分地域的存储，用户如果需要开通其它地域的存储，可以通过该接口进行开通。
+  2. 通过 DescribeStorageRegions 接口可以查询到所有存储地域及已经开通的地域。
+     * @param req CreateStorageRegionRequest
+     * @return CreateStorageRegionResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateStorageRegionResponse CreateStorageRegion(CreateStorageRegionRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateStorageRegionResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateStorageRegionResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateStorageRegion");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *该接口用于创建点播子应用。
      * @param req CreateSubAppIdRequest
      * @return CreateSubAppIdResponse
@@ -1340,6 +1362,29 @@ public class VodClient extends AbstractClient{
     }
 
     /**
+     *该接口用于查询媒体文件按指定时间粒度统计的播放数据
+* 可以查询最近一年的播放统计数据。
+* 时间粒度为小时，结束时间和起始时间的跨度最大为7天。
+* 时间粒度为天，结束时间和起始时间的跨度最大为90天。
+     * @param req DescribeMediaPlayStatDetailsRequest
+     * @return DescribeMediaPlayStatDetailsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeMediaPlayStatDetailsResponse DescribeMediaPlayStatDetails(DescribeMediaPlayStatDetailsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeMediaPlayStatDetailsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeMediaPlayStatDetailsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeMediaPlayStatDetails");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *该接口返回查询时间范围内每天使用的视频处理用量信息。
    1. 可以查询最近365天内的视频处理统计数据。
    2. 查询时间跨度不超过90天。
@@ -1524,6 +1569,29 @@ public class VodClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeStorageDetailsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeStorageDetails");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *该接口用于：
+  1. 查询点播可开通的所有存储园区列表。
+  2. 查询已经开通的园区列表。
+  3. 查询默认使用的存储园区。
+     * @param req DescribeStorageRegionsRequest
+     * @return DescribeStorageRegionsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeStorageRegionsResponse DescribeStorageRegions(DescribeStorageRegionsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeStorageRegionsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeStorageRegionsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeStorageRegions");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1955,6 +2023,26 @@ public class VodClient extends AbstractClient{
     }
 
     /**
+     *该接口用于设置默认的存储地域。上传文件时如果没有指定地域，将上传到默认地域。
+     * @param req ModifyDefaultStorageRegionRequest
+     * @return ModifyDefaultStorageRegionResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyDefaultStorageRegionResponse ModifyDefaultStorageRegion(ModifyDefaultStorageRegionRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyDefaultStorageRegionResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyDefaultStorageRegionResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyDefaultStorageRegion");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *腾讯云点播为客户提供了媒体上传、媒体管理、媒体处理等等服务，在这些服务执行过程或执行结束时，腾讯云点播也提供各种对应的事件通知，方便开发者感知服务处理状态，并做下一步的业务操作。
 
 开发者可以通过调用本接口来实现：
@@ -2032,6 +2120,38 @@ public class VodClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<ModifyMediaInfoResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifyMediaInfo");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改媒体文件的存储类型。
+当媒体文件的存储类型为标准存储时，可以修改为以下类型：
+<li>低频存储</li>
+<li>归档存储</li>
+<li>深度归档存储</li>
+当媒体文件的当前存储类型为低频存储时，可以修改为以下类型：
+<li>标准存储</li>
+<li>归档存储</li>
+<li>深度归档存储</li>
+当媒体文件的当前存储类型为归档存储时，可以修改为以下类型：
+<li>标准存储</li>
+当媒体文件的当前存储类型为深度归档存储时，可以修改为以下类型：
+<li>标准存储</li>
+     * @param req ModifyMediaStorageClassRequest
+     * @return ModifyMediaStorageClassResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyMediaStorageClassResponse ModifyMediaStorageClass(ModifyMediaStorageClassRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyMediaStorageClassResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyMediaStorageClassResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyMediaStorageClass");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -2282,6 +2402,33 @@ public class VodClient extends AbstractClient{
     }
 
     /**
+     *对点播中的图片文件发起处理任务，功能包括：
+
+1. 智能识别（令人反感的信息、不安全的信息、不适宜的信息）;
+
+><li>图片文件大小支持：文件 < 5M；</li>
+><li>图片文件分辨率支持：建议分辨率大于256x256，否则可能会影响识别效果；</li>
+><li>图片文件支持格式：PNG、JPG、JPEG、BMP、GIF、WEBP格式。</li>
+
+     * @param req ProcessImageRequest
+     * @return ProcessImageResponse
+     * @throws TencentCloudSDKException
+     */
+    public ProcessImageResponse ProcessImage(ProcessImageRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ProcessImageResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ProcessImageResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ProcessImage");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *对点播中的音视频媒体发起处理任务，功能包括：
 1. 视频转码（带水印）；
 2. 视频转动图；
@@ -2290,9 +2437,9 @@ public class VodClient extends AbstractClient{
 5. 对视频截图雪碧图；
 6. 对视频截取一张图做封面；
 7. 对视频转自适应码流（并加密）；
-8. 智能内容审核（鉴黄、鉴恐、鉴政）；
+8. 智能识别（令人反感的信息、不安全的信息、不适宜的信息）；
 9. 智能内容分析（标签、分类、封面、按帧标签）；
-10. 智能内容识别（视频片头片尾、人脸、文本全文、文本关键词、语音全文、语音关键词、物体）。
+10. 内容识别（视频片头片尾、人脸、文本全文、文本关键词、语音全文、语音关键词、物体）。
 
 如使用事件通知，事件通知的类型为 [任务流状态变更](https://cloud.tencent.com/document/product/266/9636)。
      * @param req ProcessMediaRequest

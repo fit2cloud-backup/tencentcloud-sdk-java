@@ -30,6 +30,12 @@ public enum EsErrorCode {
     // 用户未实名认证。
      FAILEDOPERATION_NOTAUTHENTICATED("FailedOperation.NotAuthenticated"),
      
+    // 不支持在滚动重启扩容计算资源同时扩容磁盘数量。
+     FAILEDOPERATION_UNSUPPORTRESETNODETYPEANDSCALEOUTDISK("FailedOperation.UnsupportResetNodeTypeAndScaleoutDisk"),
+     
+    // 不支持滚动缩容计算资源同时修改磁盘大小。
+     FAILEDOPERATION_UNSUPPORTRESETSCALEDOWNANDMODIFYDISK("FailedOperation.UnsupportResetScaledownAndModifyDisk"),
+     
     // 不支持反向调节节点配置和磁盘容量。
      FAILEDOPERATION_UNSUPPORTREVERSEREGULATIONNODETYPEANDDISK("FailedOperation.UnsupportReverseRegulationNodeTypeAndDisk"),
      
@@ -47,6 +53,9 @@ public enum EsErrorCode {
      
     // 账户余额不足。
      RESOURCEINSUFFICIENT_BALANCE("ResourceInsufficient.Balance"),
+     
+    // 隐藏可用区专用主节点资源不足。
+     RESOURCEINSUFFICIENT_HIDDENZONE("ResourceInsufficient.HiddenZone"),
      
     // 子网剩余ip数量不足。
      RESOURCEINSUFFICIENT_SUBNET("ResourceInsufficient.Subnet"),

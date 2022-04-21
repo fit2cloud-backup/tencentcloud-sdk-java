@@ -30,7 +30,7 @@ public class SpecItemInfo extends AbstractModel{
     private String SpecCode;
 
     /**
-    * PostgreSQL的内核版本编号
+    * PostgreSQL的版本编号
     */
     @SerializedName("Version")
     @Expose
@@ -93,6 +93,30 @@ public class SpecItemInfo extends AbstractModel{
     private String Type;
 
     /**
+    * PostgreSQL的主要版本编号
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MajorVersion")
+    @Expose
+    private String MajorVersion;
+
+    /**
+    * PostgreSQL的内核版本编号
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("KernelVersion")
+    @Expose
+    private String KernelVersion;
+
+    /**
+    * 是否支持TDE数据加密功能，0-不支持，1-支持
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IsSupportTDE")
+    @Expose
+    private Long IsSupportTDE;
+
+    /**
      * Get 规格ID 
      * @return SpecCode 规格ID
      */
@@ -109,16 +133,16 @@ public class SpecItemInfo extends AbstractModel{
     }
 
     /**
-     * Get PostgreSQL的内核版本编号 
-     * @return Version PostgreSQL的内核版本编号
+     * Get PostgreSQL的版本编号 
+     * @return Version PostgreSQL的版本编号
      */
     public String getVersion() {
         return this.Version;
     }
 
     /**
-     * Set PostgreSQL的内核版本编号
-     * @param Version PostgreSQL的内核版本编号
+     * Set PostgreSQL的版本编号
+     * @param Version PostgreSQL的版本编号
      */
     public void setVersion(String Version) {
         this.Version = Version;
@@ -252,6 +276,66 @@ public class SpecItemInfo extends AbstractModel{
         this.Type = Type;
     }
 
+    /**
+     * Get PostgreSQL的主要版本编号
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MajorVersion PostgreSQL的主要版本编号
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getMajorVersion() {
+        return this.MajorVersion;
+    }
+
+    /**
+     * Set PostgreSQL的主要版本编号
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MajorVersion PostgreSQL的主要版本编号
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMajorVersion(String MajorVersion) {
+        this.MajorVersion = MajorVersion;
+    }
+
+    /**
+     * Get PostgreSQL的内核版本编号
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return KernelVersion PostgreSQL的内核版本编号
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getKernelVersion() {
+        return this.KernelVersion;
+    }
+
+    /**
+     * Set PostgreSQL的内核版本编号
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param KernelVersion PostgreSQL的内核版本编号
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setKernelVersion(String KernelVersion) {
+        this.KernelVersion = KernelVersion;
+    }
+
+    /**
+     * Get 是否支持TDE数据加密功能，0-不支持，1-支持
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IsSupportTDE 是否支持TDE数据加密功能，0-不支持，1-支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getIsSupportTDE() {
+        return this.IsSupportTDE;
+    }
+
+    /**
+     * Set 是否支持TDE数据加密功能，0-不支持，1-支持
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IsSupportTDE 是否支持TDE数据加密功能，0-不支持，1-支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIsSupportTDE(Long IsSupportTDE) {
+        this.IsSupportTDE = IsSupportTDE;
+    }
+
     public SpecItemInfo() {
     }
 
@@ -290,6 +374,15 @@ public class SpecItemInfo extends AbstractModel{
         if (source.Type != null) {
             this.Type = new String(source.Type);
         }
+        if (source.MajorVersion != null) {
+            this.MajorVersion = new String(source.MajorVersion);
+        }
+        if (source.KernelVersion != null) {
+            this.KernelVersion = new String(source.KernelVersion);
+        }
+        if (source.IsSupportTDE != null) {
+            this.IsSupportTDE = new Long(source.IsSupportTDE);
+        }
     }
 
 
@@ -307,6 +400,9 @@ public class SpecItemInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Qps", this.Qps);
         this.setParamSimple(map, prefix + "Pid", this.Pid);
         this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamSimple(map, prefix + "MajorVersion", this.MajorVersion);
+        this.setParamSimple(map, prefix + "KernelVersion", this.KernelVersion);
+        this.setParamSimple(map, prefix + "IsSupportTDE", this.IsSupportTDE);
 
     }
 }

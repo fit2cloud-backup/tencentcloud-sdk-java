@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class AgentDealElem extends AbstractModel{
 
     /**
-    * 订单自增 ID
+    * 订单自增 ID【请勿依赖该字段作为唯一标识】
     */
     @SerializedName("DealId")
     @Expose
     private String DealId;
 
     /**
-    * 订单号
+    * 订单号【订单唯一键】
     */
     @SerializedName("DealName")
     @Expose
@@ -171,7 +171,7 @@ public class AgentDealElem extends AbstractModel{
     private String BigDealId;
 
     /**
-    * 客户类型（new：新拓；old：存量；assign：指派）
+    * 客户类型（new：自拓；old：官网；assign：指派；direct：直销；direct_newopp：直销(新商机)）
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClientType")
@@ -243,32 +243,32 @@ public class AgentDealElem extends AbstractModel{
     private String UpdateTime;
 
     /**
-     * Get 订单自增 ID 
-     * @return DealId 订单自增 ID
+     * Get 订单自增 ID【请勿依赖该字段作为唯一标识】 
+     * @return DealId 订单自增 ID【请勿依赖该字段作为唯一标识】
      */
     public String getDealId() {
         return this.DealId;
     }
 
     /**
-     * Set 订单自增 ID
-     * @param DealId 订单自增 ID
+     * Set 订单自增 ID【请勿依赖该字段作为唯一标识】
+     * @param DealId 订单自增 ID【请勿依赖该字段作为唯一标识】
      */
     public void setDealId(String DealId) {
         this.DealId = DealId;
     }
 
     /**
-     * Get 订单号 
-     * @return DealName 订单号
+     * Get 订单号【订单唯一键】 
+     * @return DealName 订单号【订单唯一键】
      */
     public String getDealName() {
         return this.DealName;
     }
 
     /**
-     * Set 订单号
-     * @param DealName 订单号
+     * Set 订单号【订单唯一键】
+     * @param DealName 订单号【订单唯一键】
      */
     public void setDealName(String DealName) {
         this.DealName = DealName;
@@ -607,9 +607,9 @@ public class AgentDealElem extends AbstractModel{
     }
 
     /**
-     * Get 客户类型（new：新拓；old：存量；assign：指派）
+     * Get 客户类型（new：自拓；old：官网；assign：指派；direct：直销；direct_newopp：直销(新商机)）
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ClientType 客户类型（new：新拓；old：存量；assign：指派）
+     * @return ClientType 客户类型（new：自拓；old：官网；assign：指派；direct：直销；direct_newopp：直销(新商机)）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClientType() {
@@ -617,9 +617,9 @@ public class AgentDealElem extends AbstractModel{
     }
 
     /**
-     * Set 客户类型（new：新拓；old：存量；assign：指派）
+     * Set 客户类型（new：自拓；old：官网；assign：指派；direct：直销；direct_newopp：直销(新商机)）
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ClientType 客户类型（new：新拓；old：存量；assign：指派）
+     * @param ClientType 客户类型（new：自拓；old：官网；assign：指派；direct：直销；direct_newopp：直销(新商机)）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClientType(String ClientType) {

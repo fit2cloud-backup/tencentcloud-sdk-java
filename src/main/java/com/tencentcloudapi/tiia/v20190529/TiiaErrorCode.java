@@ -3,6 +3,9 @@ public enum TiiaErrorCode {
     // 认证失败。
      AUTHFAILURE_INVALIDAUTHORIZATION("AuthFailure.InvalidAuthorization"),
      
+    // 余额不足，开通失败，请充值后再开通。
+     FAILEDOPERATION_BALANCEINSUFFICIENT("FailedOperation.BalanceInsufficient"),
+     
     // 文件下载失败。
      FAILEDOPERATION_DOWNLOADERROR("FailedOperation.DownLoadError"),
      
@@ -14,6 +17,9 @@ public enum TiiaErrorCode {
      
     // 图片删除失败。
      FAILEDOPERATION_IMAGEDELETEFAILED("FailedOperation.ImageDeleteFailed"),
+     
+    // 图片下载错误。
+     FAILEDOPERATION_IMAGEDOWNLOADERROR("FailedOperation.ImageDownloadError"),
      
     // 超出Entity数量限制。
      FAILEDOPERATION_IMAGEENTITYCOUNTEXCEED("FailedOperation.ImageEntityCountExceed"),
@@ -74,6 +80,9 @@ public enum TiiaErrorCode {
      
     // 服务未开通。
      FAILEDOPERATION_UNOPENERROR("FailedOperation.UnOpenError"),
+     
+    // 未知错误。
+     FAILEDOPERATION_UNKNOWN("FailedOperation.Unknown"),
      
     // 参数取值错误。
      INVALIDPARAMETER_INVALIDPARAMETER("InvalidParameter.InvalidParameter"),
@@ -141,6 +150,9 @@ public enum TiiaErrorCode {
     // 标签值长度过长。
      INVALIDPARAMETERVALUE_TAGSVALUESIZEEXCEED("InvalidParameterValue.TagsValueSizeExceed"),
      
+    // URL格式不合法。
+     INVALIDPARAMETERVALUE_URLILLEGAL("InvalidParameterValue.UrlIllegal"),
+     
     // 文件太大。
      LIMITEXCEEDED_TOOLARGEFILEERROR("LimitExceeded.TooLargeFileError"),
      
@@ -149,6 +161,9 @@ public enum TiiaErrorCode {
      
     // 账号已欠费。
      RESOURCEUNAVAILABLE_INARREARS("ResourceUnavailable.InArrears"),
+     
+    // 服务正在开通中，请稍等。
+     RESOURCEUNAVAILABLE_ISOPENING("ResourceUnavailable.IsOpening"),
      
     // 计费状态未知，请确认是否已在控制台开通服务。
      RESOURCEUNAVAILABLE_NOTEXIST("ResourceUnavailable.NotExist"),

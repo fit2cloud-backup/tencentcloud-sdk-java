@@ -69,6 +69,9 @@ public enum AsErrorCode {
     // 无效的参数组合。
      INVALIDPARAMETER_INVALIDCOMBINATION("InvalidParameter.InvalidCombination"),
      
+    // 指定的负载均衡器在当前伸缩组中没有找到。
+     INVALIDPARAMETER_LOADBALANCERNOTINAUTOSCALINGGROUP("InvalidParameter.LoadBalancerNotInAutoScalingGroup"),
+     
     // 参数缺失，两种参数之中必须指定其中一个。
      INVALIDPARAMETER_MUSTONEPARAMETER("InvalidParameter.MustOneParameter"),
      
@@ -168,9 +171,6 @@ public enum AsErrorCode {
     // 指定的通知组 ID 不是数值字符串格式。
      INVALIDPARAMETERVALUE_INVALIDNOTIFICATIONUSERGROUPID("InvalidParameterValue.InvalidNotificationUserGroupId"),
      
-    // 指定的PAI域名类型不支持。
-     INVALIDPARAMETERVALUE_INVALIDPAIDOMAINNAMETYPE("InvalidParameterValue.InvalidPaiDomainNameType"),
-     
     // 定时任务ID无效。
      INVALIDPARAMETERVALUE_INVALIDSCHEDULEDACTIONID("InvalidParameterValue.InvalidScheduledActionId"),
      
@@ -228,6 +228,9 @@ public enum AsErrorCode {
     // 子网信息不合法。
      INVALIDPARAMETERVALUE_SUBNETIDS("InvalidParameterValue.SubnetIds"),
      
+    // 负载均衡器四层监听器的后端端口重复。
+     INVALIDPARAMETERVALUE_TARGETPORTDUPLICATED("InvalidParameterValue.TargetPortDuplicated"),
+     
     // 指定的阈值不在有效范围。
      INVALIDPARAMETERVALUE_THRESHOLDOUTOFRANGE("InvalidParameterValue.ThresholdOutOfRange"),
      
@@ -236,6 +239,9 @@ public enum AsErrorCode {
      
     // 取值过多。
      INVALIDPARAMETERVALUE_TOOLONG("InvalidParameterValue.TooLong"),
+     
+    // 输入参数值的长度小于最小值。
+     INVALIDPARAMETERVALUE_TOOSHORT("InvalidParameterValue.TooShort"),
      
     // UserData格式错误。
      INVALIDPARAMETERVALUE_USERDATAFORMATERROR("InvalidParameterValue.UserDataFormatError"),
@@ -254,6 +260,9 @@ public enum AsErrorCode {
      
     // 超过配额限制。
      LIMITEXCEEDED("LimitExceeded"),
+     
+    // 绑定指定的负载均衡器后，伸缩组绑定的负载均衡器总数超过了最大值。
+     LIMITEXCEEDED_AFTERATTACHLBLIMITEXCEEDED("LimitExceeded.AfterAttachLbLimitExceeded"),
      
     // 伸缩组数量超过限制。
      LIMITEXCEEDED_AUTOSCALINGGROUPLIMITEXCEEDED("LimitExceeded.AutoScalingGroupLimitExceeded"),
@@ -342,6 +351,9 @@ public enum AsErrorCode {
     // 找不到指定负载均衡器。
      RESOURCENOTFOUND_LOADBALANCERNOTFOUND("ResourceNotFound.LoadBalancerNotFound"),
      
+    // 指定的负载均衡器在当前伸缩组中没有找到。
+     RESOURCENOTFOUND_LOADBALANCERNOTINAUTOSCALINGGROUP("ResourceNotFound.LoadBalancerNotInAutoScalingGroup"),
+     
     // 指定的Location不存在。
      RESOURCENOTFOUND_LOCATIONNOTFOUND("ResourceNotFound.LocationNotFound"),
      
@@ -386,6 +398,9 @@ public enum AsErrorCode {
      
     // CLB实例的后端地域与AS服务所在地域不一致。
      RESOURCEUNAVAILABLE_LBBACKENDREGIONINCONSISTENT("ResourceUnavailable.LbBackendRegionInconsistent"),
+     
+    // 负载均衡器项目不一致。
+     RESOURCEUNAVAILABLE_LBPROJECTINCONSISTENT("ResourceUnavailable.LbProjectInconsistent"),
      
     // 负载均衡器VPC与伸缩组不一致。
      RESOURCEUNAVAILABLE_LBVPCINCONSISTENT("ResourceUnavailable.LbVpcInconsistent"),

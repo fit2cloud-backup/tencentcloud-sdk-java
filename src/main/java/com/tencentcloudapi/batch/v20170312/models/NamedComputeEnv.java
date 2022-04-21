@@ -90,7 +90,7 @@ public class NamedComputeEnv extends AbstractModel{
     */
     @SerializedName("Notifications")
     @Expose
-    private Notification Notifications;
+    private Notification [] Notifications;
 
     /**
     * 非活跃节点处理策略，默认“RECREATE”，即对于实例创建失败或异常退还的计算节点，定期重新创建实例资源。
@@ -100,7 +100,7 @@ public class NamedComputeEnv extends AbstractModel{
     private String ActionIfComputeNodeInactive;
 
     /**
-    * 对于实例创建失败或异常退还的计算节点，定期重新创建实例资源的最大重试次数，最大值11，如果不设置的话，系统会设置一个默认值，当前为7
+    * 对于实例创建失败或异常退还的计算节点，定期重新创建实例资源的最大重试次数，最大值100，如果不设置的话，系统会设置一个默认值，当前为7
     */
     @SerializedName("ResourceMaxRetryCount")
     @Expose
@@ -112,6 +112,16 @@ public class NamedComputeEnv extends AbstractModel{
     @SerializedName("Tags")
     @Expose
     private Tag [] Tags;
+
+    /**
+    * 表示通知信息的通知目标类型。
+取值范围：CMQ，TDMQ_CMQ。
+CMQ:表示向腾讯云CMQ发送消息。
+TDMQ_CMQ：表示向腾讯云TDMQ_CMQ发送消息。<br/>默认值为CMQ。<br/>注：腾讯云计划于2022年6月前正式下线消息队列 CMQ，建议使用TDMQ_CMQ。参考文档：[CMQ迁移到TDMQ_CMQ](https://cloud.tencent.com/document/product/406/60860)
+    */
+    @SerializedName("NotificationTarget")
+    @Expose
+    private String NotificationTarget;
 
     /**
      * Get 计算环境名称 
@@ -261,7 +271,7 @@ public class NamedComputeEnv extends AbstractModel{
      * Get 通知信息 
      * @return Notifications 通知信息
      */
-    public Notification getNotifications() {
+    public Notification [] getNotifications() {
         return this.Notifications;
     }
 
@@ -269,7 +279,7 @@ public class NamedComputeEnv extends AbstractModel{
      * Set 通知信息
      * @param Notifications 通知信息
      */
-    public void setNotifications(Notification Notifications) {
+    public void setNotifications(Notification [] Notifications) {
         this.Notifications = Notifications;
     }
 
@@ -290,16 +300,16 @@ public class NamedComputeEnv extends AbstractModel{
     }
 
     /**
-     * Get 对于实例创建失败或异常退还的计算节点，定期重新创建实例资源的最大重试次数，最大值11，如果不设置的话，系统会设置一个默认值，当前为7 
-     * @return ResourceMaxRetryCount 对于实例创建失败或异常退还的计算节点，定期重新创建实例资源的最大重试次数，最大值11，如果不设置的话，系统会设置一个默认值，当前为7
+     * Get 对于实例创建失败或异常退还的计算节点，定期重新创建实例资源的最大重试次数，最大值100，如果不设置的话，系统会设置一个默认值，当前为7 
+     * @return ResourceMaxRetryCount 对于实例创建失败或异常退还的计算节点，定期重新创建实例资源的最大重试次数，最大值100，如果不设置的话，系统会设置一个默认值，当前为7
      */
     public Long getResourceMaxRetryCount() {
         return this.ResourceMaxRetryCount;
     }
 
     /**
-     * Set 对于实例创建失败或异常退还的计算节点，定期重新创建实例资源的最大重试次数，最大值11，如果不设置的话，系统会设置一个默认值，当前为7
-     * @param ResourceMaxRetryCount 对于实例创建失败或异常退还的计算节点，定期重新创建实例资源的最大重试次数，最大值11，如果不设置的话，系统会设置一个默认值，当前为7
+     * Set 对于实例创建失败或异常退还的计算节点，定期重新创建实例资源的最大重试次数，最大值100，如果不设置的话，系统会设置一个默认值，当前为7
+     * @param ResourceMaxRetryCount 对于实例创建失败或异常退还的计算节点，定期重新创建实例资源的最大重试次数，最大值100，如果不设置的话，系统会设置一个默认值，当前为7
      */
     public void setResourceMaxRetryCount(Long ResourceMaxRetryCount) {
         this.ResourceMaxRetryCount = ResourceMaxRetryCount;
@@ -319,6 +329,34 @@ public class NamedComputeEnv extends AbstractModel{
      */
     public void setTags(Tag [] Tags) {
         this.Tags = Tags;
+    }
+
+    /**
+     * Get 表示通知信息的通知目标类型。
+取值范围：CMQ，TDMQ_CMQ。
+CMQ:表示向腾讯云CMQ发送消息。
+TDMQ_CMQ：表示向腾讯云TDMQ_CMQ发送消息。<br/>默认值为CMQ。<br/>注：腾讯云计划于2022年6月前正式下线消息队列 CMQ，建议使用TDMQ_CMQ。参考文档：[CMQ迁移到TDMQ_CMQ](https://cloud.tencent.com/document/product/406/60860) 
+     * @return NotificationTarget 表示通知信息的通知目标类型。
+取值范围：CMQ，TDMQ_CMQ。
+CMQ:表示向腾讯云CMQ发送消息。
+TDMQ_CMQ：表示向腾讯云TDMQ_CMQ发送消息。<br/>默认值为CMQ。<br/>注：腾讯云计划于2022年6月前正式下线消息队列 CMQ，建议使用TDMQ_CMQ。参考文档：[CMQ迁移到TDMQ_CMQ](https://cloud.tencent.com/document/product/406/60860)
+     */
+    public String getNotificationTarget() {
+        return this.NotificationTarget;
+    }
+
+    /**
+     * Set 表示通知信息的通知目标类型。
+取值范围：CMQ，TDMQ_CMQ。
+CMQ:表示向腾讯云CMQ发送消息。
+TDMQ_CMQ：表示向腾讯云TDMQ_CMQ发送消息。<br/>默认值为CMQ。<br/>注：腾讯云计划于2022年6月前正式下线消息队列 CMQ，建议使用TDMQ_CMQ。参考文档：[CMQ迁移到TDMQ_CMQ](https://cloud.tencent.com/document/product/406/60860)
+     * @param NotificationTarget 表示通知信息的通知目标类型。
+取值范围：CMQ，TDMQ_CMQ。
+CMQ:表示向腾讯云CMQ发送消息。
+TDMQ_CMQ：表示向腾讯云TDMQ_CMQ发送消息。<br/>默认值为CMQ。<br/>注：腾讯云计划于2022年6月前正式下线消息队列 CMQ，建议使用TDMQ_CMQ。参考文档：[CMQ迁移到TDMQ_CMQ](https://cloud.tencent.com/document/product/406/60860)
+     */
+    public void setNotificationTarget(String NotificationTarget) {
+        this.NotificationTarget = NotificationTarget;
     }
 
     public NamedComputeEnv() {
@@ -366,7 +404,10 @@ public class NamedComputeEnv extends AbstractModel{
             this.AgentRunningMode = new AgentRunningMode(source.AgentRunningMode);
         }
         if (source.Notifications != null) {
-            this.Notifications = new Notification(source.Notifications);
+            this.Notifications = new Notification[source.Notifications.length];
+            for (int i = 0; i < source.Notifications.length; i++) {
+                this.Notifications[i] = new Notification(source.Notifications[i]);
+            }
         }
         if (source.ActionIfComputeNodeInactive != null) {
             this.ActionIfComputeNodeInactive = new String(source.ActionIfComputeNodeInactive);
@@ -379,6 +420,9 @@ public class NamedComputeEnv extends AbstractModel{
             for (int i = 0; i < source.Tags.length; i++) {
                 this.Tags[i] = new Tag(source.Tags[i]);
             }
+        }
+        if (source.NotificationTarget != null) {
+            this.NotificationTarget = new String(source.NotificationTarget);
         }
     }
 
@@ -396,10 +440,11 @@ public class NamedComputeEnv extends AbstractModel{
         this.setParamArrayObj(map, prefix + "Authentications.", this.Authentications);
         this.setParamArrayObj(map, prefix + "InputMappings.", this.InputMappings);
         this.setParamObj(map, prefix + "AgentRunningMode.", this.AgentRunningMode);
-        this.setParamObj(map, prefix + "Notifications.", this.Notifications);
+        this.setParamArrayObj(map, prefix + "Notifications.", this.Notifications);
         this.setParamSimple(map, prefix + "ActionIfComputeNodeInactive", this.ActionIfComputeNodeInactive);
         this.setParamSimple(map, prefix + "ResourceMaxRetryCount", this.ResourceMaxRetryCount);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "NotificationTarget", this.NotificationTarget);
 
     }
 }

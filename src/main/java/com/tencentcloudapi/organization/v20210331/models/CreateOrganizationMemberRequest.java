@@ -30,21 +30,21 @@ public class CreateOrganizationMemberRequest extends AbstractModel{
     private String Name;
 
     /**
-    * 关系策略
+    * 关系策略  取值：Financial
     */
     @SerializedName("PolicyType")
     @Expose
     private String PolicyType;
 
     /**
-    * 关系权限
+    * 关系权限 取值：1-查看账单、2-查看余额、3-资金划拨、4-合并出账、5-开票 ，1、2 默认必须
     */
     @SerializedName("PermissionIds")
     @Expose
     private Long [] PermissionIds;
 
     /**
-    * 需要调节的节点
+    * 成员所属部门的节点ID
     */
     @SerializedName("NodeId")
     @Expose
@@ -72,6 +72,20 @@ public class CreateOrganizationMemberRequest extends AbstractModel{
     private Long RecordId;
 
     /**
+    * 代付者Uin
+    */
+    @SerializedName("PayUin")
+    @Expose
+    private String PayUin;
+
+    /**
+    * 管理身份
+    */
+    @SerializedName("IdentityRoleID")
+    @Expose
+    private Long [] IdentityRoleID;
+
+    /**
      * Get 名称 
      * @return Name 名称
      */
@@ -88,48 +102,48 @@ public class CreateOrganizationMemberRequest extends AbstractModel{
     }
 
     /**
-     * Get 关系策略 
-     * @return PolicyType 关系策略
+     * Get 关系策略  取值：Financial 
+     * @return PolicyType 关系策略  取值：Financial
      */
     public String getPolicyType() {
         return this.PolicyType;
     }
 
     /**
-     * Set 关系策略
-     * @param PolicyType 关系策略
+     * Set 关系策略  取值：Financial
+     * @param PolicyType 关系策略  取值：Financial
      */
     public void setPolicyType(String PolicyType) {
         this.PolicyType = PolicyType;
     }
 
     /**
-     * Get 关系权限 
-     * @return PermissionIds 关系权限
+     * Get 关系权限 取值：1-查看账单、2-查看余额、3-资金划拨、4-合并出账、5-开票 ，1、2 默认必须 
+     * @return PermissionIds 关系权限 取值：1-查看账单、2-查看余额、3-资金划拨、4-合并出账、5-开票 ，1、2 默认必须
      */
     public Long [] getPermissionIds() {
         return this.PermissionIds;
     }
 
     /**
-     * Set 关系权限
-     * @param PermissionIds 关系权限
+     * Set 关系权限 取值：1-查看账单、2-查看余额、3-资金划拨、4-合并出账、5-开票 ，1、2 默认必须
+     * @param PermissionIds 关系权限 取值：1-查看账单、2-查看余额、3-资金划拨、4-合并出账、5-开票 ，1、2 默认必须
      */
     public void setPermissionIds(Long [] PermissionIds) {
         this.PermissionIds = PermissionIds;
     }
 
     /**
-     * Get 需要调节的节点 
-     * @return NodeId 需要调节的节点
+     * Get 成员所属部门的节点ID 
+     * @return NodeId 成员所属部门的节点ID
      */
     public Long getNodeId() {
         return this.NodeId;
     }
 
     /**
-     * Set 需要调节的节点
-     * @param NodeId 需要调节的节点
+     * Set 成员所属部门的节点ID
+     * @param NodeId 成员所属部门的节点ID
      */
     public void setNodeId(Long NodeId) {
         this.NodeId = NodeId;
@@ -183,6 +197,38 @@ public class CreateOrganizationMemberRequest extends AbstractModel{
         this.RecordId = RecordId;
     }
 
+    /**
+     * Get 代付者Uin 
+     * @return PayUin 代付者Uin
+     */
+    public String getPayUin() {
+        return this.PayUin;
+    }
+
+    /**
+     * Set 代付者Uin
+     * @param PayUin 代付者Uin
+     */
+    public void setPayUin(String PayUin) {
+        this.PayUin = PayUin;
+    }
+
+    /**
+     * Get 管理身份 
+     * @return IdentityRoleID 管理身份
+     */
+    public Long [] getIdentityRoleID() {
+        return this.IdentityRoleID;
+    }
+
+    /**
+     * Set 管理身份
+     * @param IdentityRoleID 管理身份
+     */
+    public void setIdentityRoleID(Long [] IdentityRoleID) {
+        this.IdentityRoleID = IdentityRoleID;
+    }
+
     public CreateOrganizationMemberRequest() {
     }
 
@@ -215,6 +261,15 @@ public class CreateOrganizationMemberRequest extends AbstractModel{
         if (source.RecordId != null) {
             this.RecordId = new Long(source.RecordId);
         }
+        if (source.PayUin != null) {
+            this.PayUin = new String(source.PayUin);
+        }
+        if (source.IdentityRoleID != null) {
+            this.IdentityRoleID = new Long[source.IdentityRoleID.length];
+            for (int i = 0; i < source.IdentityRoleID.length; i++) {
+                this.IdentityRoleID[i] = new Long(source.IdentityRoleID[i]);
+            }
+        }
     }
 
 
@@ -229,6 +284,8 @@ public class CreateOrganizationMemberRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "AccountName", this.AccountName);
         this.setParamSimple(map, prefix + "Remark", this.Remark);
         this.setParamSimple(map, prefix + "RecordId", this.RecordId);
+        this.setParamSimple(map, prefix + "PayUin", this.PayUin);
+        this.setParamArraySimple(map, prefix + "IdentityRoleID.", this.IdentityRoleID);
 
     }
 }

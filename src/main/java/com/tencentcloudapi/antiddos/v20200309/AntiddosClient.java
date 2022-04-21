@@ -119,6 +119,86 @@ public class AntiddosClient extends AbstractClient{
     }
 
     /**
+     *新增CC精准防护策略
+     * @param req CreateCCPrecisionPolicyRequest
+     * @return CreateCCPrecisionPolicyResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateCCPrecisionPolicyResponse CreateCCPrecisionPolicy(CreateCCPrecisionPolicyRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateCCPrecisionPolicyResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateCCPrecisionPolicyResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateCCPrecisionPolicy");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *新增CC频率限制策略
+     * @param req CreateCCReqLimitPolicyRequest
+     * @return CreateCCReqLimitPolicyResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateCCReqLimitPolicyResponse CreateCCReqLimitPolicy(CreateCCReqLimitPolicyRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateCCReqLimitPolicyResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateCCReqLimitPolicyResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateCCReqLimitPolicy");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *新建CC四层黑白名单
+     * @param req CreateCcBlackWhiteIpListRequest
+     * @return CreateCcBlackWhiteIpListResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateCcBlackWhiteIpListResponse CreateCcBlackWhiteIpList(CreateCcBlackWhiteIpListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateCcBlackWhiteIpListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateCcBlackWhiteIpListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateCcBlackWhiteIpList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *新建cc防护的地域封禁配置
+     * @param req CreateCcGeoIPBlockConfigRequest
+     * @return CreateCcGeoIPBlockConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateCcGeoIPBlockConfigResponse CreateCcGeoIPBlockConfig(CreateCcGeoIPBlockConfigRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateCcGeoIPBlockConfigResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateCcGeoIPBlockConfigResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateCcGeoIPBlockConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *设置DDoS防护的AI防护开关
      * @param req CreateDDoSAIRequest
      * @return CreateDDoSAIResponse
@@ -131,6 +211,46 @@ public class AntiddosClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<CreateDDoSAIResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "CreateDDoSAI");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *添加DDoS防护的IP网段黑白名单
+     * @param req CreateDDoSBlackWhiteIpListRequest
+     * @return CreateDDoSBlackWhiteIpListResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateDDoSBlackWhiteIpListResponse CreateDDoSBlackWhiteIpList(CreateDDoSBlackWhiteIpListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateDDoSBlackWhiteIpListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateDDoSBlackWhiteIpListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateDDoSBlackWhiteIpList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *配置DDoS连接抑制选项
+     * @param req CreateDDoSConnectLimitRequest
+     * @return CreateDDoSConnectLimitResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateDDoSConnectLimitResponse CreateDDoSConnectLimit(CreateDDoSConnectLimitRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateDDoSConnectLimitResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateDDoSConnectLimitResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateDDoSConnectLimit");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -259,6 +379,46 @@ public class AntiddosClient extends AbstractClient{
     }
 
     /**
+     *添加DDoS防护的端口acl策略
+     * @param req CreatePortAclConfigRequest
+     * @return CreatePortAclConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreatePortAclConfigResponse CreatePortAclConfig(CreatePortAclConfigRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreatePortAclConfigResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreatePortAclConfigResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreatePortAclConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *批量添加DDoS防护的端口acl策略
+     * @param req CreatePortAclConfigListRequest
+     * @return CreatePortAclConfigListResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreatePortAclConfigListResponse CreatePortAclConfigList(CreatePortAclConfigListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreatePortAclConfigListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreatePortAclConfigListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreatePortAclConfigList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *设置DDoS防护的协议封禁配置
      * @param req CreateProtocolBlockConfigRequest
      * @return CreateProtocolBlockConfigResponse
@@ -359,6 +519,146 @@ public class AntiddosClient extends AbstractClient{
     }
 
     /**
+     *删除CC分级策略
+     * @param req DeleteCCLevelPolicyRequest
+     * @return DeleteCCLevelPolicyResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteCCLevelPolicyResponse DeleteCCLevelPolicy(DeleteCCLevelPolicyRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteCCLevelPolicyResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteCCLevelPolicyResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteCCLevelPolicy");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *删除CC精准防护策略
+     * @param req DeleteCCPrecisionPolicyRequest
+     * @return DeleteCCPrecisionPolicyResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteCCPrecisionPolicyResponse DeleteCCPrecisionPolicy(DeleteCCPrecisionPolicyRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteCCPrecisionPolicyResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteCCPrecisionPolicyResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteCCPrecisionPolicy");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *删除CC频率限制策略
+     * @param req DeleteCCRequestLimitPolicyRequest
+     * @return DeleteCCRequestLimitPolicyResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteCCRequestLimitPolicyResponse DeleteCCRequestLimitPolicy(DeleteCCRequestLimitPolicyRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteCCRequestLimitPolicyResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteCCRequestLimitPolicyResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteCCRequestLimitPolicy");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *删除CC清洗阈值策略
+     * @param req DeleteCCThresholdPolicyRequest
+     * @return DeleteCCThresholdPolicyResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteCCThresholdPolicyResponse DeleteCCThresholdPolicy(DeleteCCThresholdPolicyRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteCCThresholdPolicyResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteCCThresholdPolicyResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteCCThresholdPolicy");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *删除CC四层黑白名单
+     * @param req DeleteCcBlackWhiteIpListRequest
+     * @return DeleteCcBlackWhiteIpListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteCcBlackWhiteIpListResponse DeleteCcBlackWhiteIpList(DeleteCcBlackWhiteIpListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteCcBlackWhiteIpListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteCcBlackWhiteIpListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteCcBlackWhiteIpList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *删除CC防护的区域封禁配置
+     * @param req DeleteCcGeoIPBlockConfigRequest
+     * @return DeleteCcGeoIPBlockConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteCcGeoIPBlockConfigResponse DeleteCcGeoIPBlockConfig(DeleteCcGeoIPBlockConfigRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteCcGeoIPBlockConfigResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteCcGeoIPBlockConfigResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteCcGeoIPBlockConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *删除DDoS防护的IP网段黑白名单
+     * @param req DeleteDDoSBlackWhiteIpListRequest
+     * @return DeleteDDoSBlackWhiteIpListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteDDoSBlackWhiteIpListResponse DeleteDDoSBlackWhiteIpList(DeleteDDoSBlackWhiteIpListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteDDoSBlackWhiteIpListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteDDoSBlackWhiteIpListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteDDoSBlackWhiteIpList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *删除DDoS防护的区域封禁配置
      * @param req DeleteDDoSGeoIPBlockConfigRequest
      * @return DeleteDDoSGeoIPBlockConfigResponse
@@ -411,6 +711,26 @@ public class AntiddosClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DeletePacketFilterConfigResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DeletePacketFilterConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *删除DDoS防护的端口acl策略
+     * @param req DeletePortAclConfigRequest
+     * @return DeletePortAclConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeletePortAclConfigResponse DeletePortAclConfig(DeletePortAclConfigRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeletePortAclConfigResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeletePortAclConfigResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeletePortAclConfig");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -519,6 +839,106 @@ public class AntiddosClient extends AbstractClient{
     }
 
     /**
+     *获取CC防护等级列表
+     * @param req DescribeCCLevelListRequest
+     * @return DescribeCCLevelListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCCLevelListResponse DescribeCCLevelList(DescribeCCLevelListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeCCLevelListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeCCLevelListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeCCLevelList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取CC分级策略
+     * @param req DescribeCCLevelPolicyRequest
+     * @return DescribeCCLevelPolicyResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCCLevelPolicyResponse DescribeCCLevelPolicy(DescribeCCLevelPolicyRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeCCLevelPolicyResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeCCLevelPolicyResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeCCLevelPolicy");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取CC精准防护列表
+     * @param req DescribeCCPrecisionPlyListRequest
+     * @return DescribeCCPrecisionPlyListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCCPrecisionPlyListResponse DescribeCCPrecisionPlyList(DescribeCCPrecisionPlyListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeCCPrecisionPlyListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeCCPrecisionPlyListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeCCPrecisionPlyList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取CC频率限制策略列表
+     * @param req DescribeCCReqLimitPolicyListRequest
+     * @return DescribeCCReqLimitPolicyListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCCReqLimitPolicyListResponse DescribeCCReqLimitPolicyList(DescribeCCReqLimitPolicyListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeCCReqLimitPolicyListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeCCReqLimitPolicyListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeCCReqLimitPolicyList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取CC清洗阈值列表
+     * @param req DescribeCCThresholdListRequest
+     * @return DescribeCCThresholdListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCCThresholdListResponse DescribeCCThresholdList(DescribeCCThresholdListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeCCThresholdListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeCCThresholdListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeCCThresholdList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *获取CC攻击指标数据，包括总请求峰值(QPS)和攻击请求(QPS)以及总请求次数和攻击请求次数
      * @param req DescribeCCTrendRequest
      * @return DescribeCCTrendResponse
@@ -531,6 +951,86 @@ public class AntiddosClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeCCTrendResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeCCTrend");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取CC四层黑白名单列表
+     * @param req DescribeCcBlackWhiteIpListRequest
+     * @return DescribeCcBlackWhiteIpListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCcBlackWhiteIpListResponse DescribeCcBlackWhiteIpList(DescribeCcBlackWhiteIpListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeCcBlackWhiteIpListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeCcBlackWhiteIpListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeCcBlackWhiteIpList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取CC防护的区域封禁配置列表
+     * @param req DescribeCcGeoIPBlockConfigListRequest
+     * @return DescribeCcGeoIPBlockConfigListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCcGeoIPBlockConfigListResponse DescribeCcGeoIPBlockConfigList(DescribeCcGeoIPBlockConfigListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeCcGeoIPBlockConfigListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeCcGeoIPBlockConfigListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeCcGeoIPBlockConfigList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取DDoS防护的IP网段黑白名单
+     * @param req DescribeDDoSBlackWhiteIpListRequest
+     * @return DescribeDDoSBlackWhiteIpListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeDDoSBlackWhiteIpListResponse DescribeDDoSBlackWhiteIpList(DescribeDDoSBlackWhiteIpListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeDDoSBlackWhiteIpListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeDDoSBlackWhiteIpListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeDDoSBlackWhiteIpList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取DDoS连接抑制配置列表
+     * @param req DescribeDDoSConnectLimitListRequest
+     * @return DescribeDDoSConnectLimitListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeDDoSConnectLimitListResponse DescribeDDoSConnectLimitList(DescribeDDoSConnectLimitListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeDDoSConnectLimitListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeDDoSConnectLimitListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeDDoSConnectLimitList");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -781,6 +1281,26 @@ public class AntiddosClient extends AbstractClient{
     }
 
     /**
+     *获取DDoS防护的端口acl策略列表
+     * @param req DescribeListPortAclListRequest
+     * @return DescribeListPortAclListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeListPortAclListResponse DescribeListPortAclList(DescribeListPortAclListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeListPortAclListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeListPortAclListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeListPortAclList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *获取防护阈值配置列表，包括DDoS的AI、等级、CC阈值开关等
      * @param req DescribeListProtectThresholdConfigRequest
      * @return DescribeListProtectThresholdConfigResponse
@@ -881,6 +1401,126 @@ public class AntiddosClient extends AbstractClient{
     }
 
     /**
+     *修改CC防护等级
+     * @param req ModifyCCLevelPolicyRequest
+     * @return ModifyCCLevelPolicyResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyCCLevelPolicyResponse ModifyCCLevelPolicy(ModifyCCLevelPolicyRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyCCLevelPolicyResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyCCLevelPolicyResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyCCLevelPolicy");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改CC精准防护策略
+     * @param req ModifyCCPrecisionPolicyRequest
+     * @return ModifyCCPrecisionPolicyResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyCCPrecisionPolicyResponse ModifyCCPrecisionPolicy(ModifyCCPrecisionPolicyRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyCCPrecisionPolicyResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyCCPrecisionPolicyResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyCCPrecisionPolicy");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改CC频率限制策略
+     * @param req ModifyCCReqLimitPolicyRequest
+     * @return ModifyCCReqLimitPolicyResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyCCReqLimitPolicyResponse ModifyCCReqLimitPolicy(ModifyCCReqLimitPolicyRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyCCReqLimitPolicyResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyCCReqLimitPolicyResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyCCReqLimitPolicy");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改CC清洗阈值
+     * @param req ModifyCCThresholdPolicyRequest
+     * @return ModifyCCThresholdPolicyResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyCCThresholdPolicyResponse ModifyCCThresholdPolicy(ModifyCCThresholdPolicyRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyCCThresholdPolicyResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyCCThresholdPolicyResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyCCThresholdPolicy");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改CC四层黑白名单
+     * @param req ModifyCcBlackWhiteIpListRequest
+     * @return ModifyCcBlackWhiteIpListResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyCcBlackWhiteIpListResponse ModifyCcBlackWhiteIpList(ModifyCcBlackWhiteIpListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyCcBlackWhiteIpListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyCcBlackWhiteIpListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyCcBlackWhiteIpList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改DDoS黑白名单列表
+     * @param req ModifyDDoSBlackWhiteIpListRequest
+     * @return ModifyDDoSBlackWhiteIpListResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyDDoSBlackWhiteIpListResponse ModifyDDoSBlackWhiteIpList(ModifyDDoSBlackWhiteIpListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyDDoSBlackWhiteIpListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyDDoSBlackWhiteIpListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyDDoSBlackWhiteIpList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *修改DDoS防护的区域封禁配置
      * @param req ModifyDDoSGeoIPBlockConfigRequest
      * @return ModifyDDoSGeoIPBlockConfigResponse
@@ -901,6 +1541,26 @@ public class AntiddosClient extends AbstractClient{
     }
 
     /**
+     *读取或修改DDoS的防护等级
+     * @param req ModifyDDoSLevelRequest
+     * @return ModifyDDoSLevelResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyDDoSLevelResponse ModifyDDoSLevel(ModifyDDoSLevelRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyDDoSLevelResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyDDoSLevelResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyDDoSLevel");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *修改DDoS防护的访问限速配置
      * @param req ModifyDDoSSpeedLimitConfigRequest
      * @return ModifyDDoSSpeedLimitConfigResponse
@@ -913,6 +1573,26 @@ public class AntiddosClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<ModifyDDoSSpeedLimitConfigResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifyDDoSSpeedLimitConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改DDoS清洗阈值
+     * @param req ModifyDDoSThresholdRequest
+     * @return ModifyDDoSThresholdResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyDDoSThresholdResponse ModifyDDoSThreshold(ModifyDDoSThresholdRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyDDoSThresholdResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyDDoSThresholdResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyDDoSThreshold");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -993,6 +1673,26 @@ public class AntiddosClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<ModifyPacketFilterConfigResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifyPacketFilterConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改DDoS防护的端口acl策略
+     * @param req ModifyPortAclConfigRequest
+     * @return ModifyPortAclConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyPortAclConfigResponse ModifyPortAclConfig(ModifyPortAclConfigRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyPortAclConfigResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyPortAclConfigResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyPortAclConfig");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

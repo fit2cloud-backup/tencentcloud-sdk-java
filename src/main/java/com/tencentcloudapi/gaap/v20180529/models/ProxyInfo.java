@@ -90,7 +90,8 @@ CLOSED表示已关闭；
 ADJUSTING表示配置变更中；
 ISOLATING表示隔离中；
 ISOLATED表示已隔离；
-CLONING表示复制中。
+CLONING表示复制中；
+RECOVERING表示通道维护中。
     */
     @SerializedName("Status")
     @Expose
@@ -251,7 +252,8 @@ CLONING表示复制中。
     private String NetworkType;
 
     /**
-    * 通道套餐类型：Thunder表示标准通道，Accelerator表示游戏加速器通道。
+    * 通道套餐类型：Thunder表示标准通道，Accelerator表示银牌加速通道，
+CrossBorder表示跨境通道。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PackageType")
@@ -273,6 +275,24 @@ CLONING表示复制中。
     @SerializedName("IPList")
     @Expose
     private IPDetail [] IPList;
+
+    /**
+    * 支持Http3协议的标识，其中：
+0表示关闭；
+1表示启用。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Http3Supported")
+    @Expose
+    private Long Http3Supported;
+
+    /**
+    * 是否在封禁黑名单中，其中：0表示不在黑名单中，1表示在黑名单中。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("InBanBlacklist")
+    @Expose
+    private Long InBanBlacklist;
 
     /**
      * Get （旧参数，请使用ProxyId）通道实例ID。
@@ -417,7 +437,8 @@ CLOSED表示已关闭；
 ADJUSTING表示配置变更中；
 ISOLATING表示隔离中；
 ISOLATED表示已隔离；
-CLONING表示复制中。 
+CLONING表示复制中；
+RECOVERING表示通道维护中。 
      * @return Status 通道状态。其中：
 RUNNING表示运行中；
 CREATING表示创建中；
@@ -428,7 +449,8 @@ CLOSED表示已关闭；
 ADJUSTING表示配置变更中；
 ISOLATING表示隔离中；
 ISOLATED表示已隔离；
-CLONING表示复制中。
+CLONING表示复制中；
+RECOVERING表示通道维护中。
      */
     public String getStatus() {
         return this.Status;
@@ -445,7 +467,8 @@ CLOSED表示已关闭；
 ADJUSTING表示配置变更中；
 ISOLATING表示隔离中；
 ISOLATED表示已隔离；
-CLONING表示复制中。
+CLONING表示复制中；
+RECOVERING表示通道维护中。
      * @param Status 通道状态。其中：
 RUNNING表示运行中；
 CREATING表示创建中；
@@ -456,7 +479,8 @@ CLOSED表示已关闭；
 ADJUSTING表示配置变更中；
 ISOLATING表示隔离中；
 ISOLATED表示已隔离；
-CLONING表示复制中。
+CLONING表示复制中；
+RECOVERING表示通道维护中。
      */
     public void setStatus(String Status) {
         this.Status = Status;
@@ -839,9 +863,11 @@ CLONING表示复制中。
     }
 
     /**
-     * Get 通道套餐类型：Thunder表示标准通道，Accelerator表示游戏加速器通道。
+     * Get 通道套餐类型：Thunder表示标准通道，Accelerator表示银牌加速通道，
+CrossBorder表示跨境通道。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return PackageType 通道套餐类型：Thunder表示标准通道，Accelerator表示游戏加速器通道。
+     * @return PackageType 通道套餐类型：Thunder表示标准通道，Accelerator表示银牌加速通道，
+CrossBorder表示跨境通道。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPackageType() {
@@ -849,9 +875,11 @@ CLONING表示复制中。
     }
 
     /**
-     * Set 通道套餐类型：Thunder表示标准通道，Accelerator表示游戏加速器通道。
+     * Set 通道套餐类型：Thunder表示标准通道，Accelerator表示银牌加速通道，
+CrossBorder表示跨境通道。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param PackageType 通道套餐类型：Thunder表示标准通道，Accelerator表示游戏加速器通道。
+     * @param PackageType 通道套餐类型：Thunder表示标准通道，Accelerator表示银牌加速通道，
+CrossBorder表示跨境通道。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPackageType(String PackageType) {
@@ -896,6 +924,54 @@ CLONING表示复制中。
      */
     public void setIPList(IPDetail [] IPList) {
         this.IPList = IPList;
+    }
+
+    /**
+     * Get 支持Http3协议的标识，其中：
+0表示关闭；
+1表示启用。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Http3Supported 支持Http3协议的标识，其中：
+0表示关闭；
+1表示启用。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getHttp3Supported() {
+        return this.Http3Supported;
+    }
+
+    /**
+     * Set 支持Http3协议的标识，其中：
+0表示关闭；
+1表示启用。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Http3Supported 支持Http3协议的标识，其中：
+0表示关闭；
+1表示启用。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setHttp3Supported(Long Http3Supported) {
+        this.Http3Supported = Http3Supported;
+    }
+
+    /**
+     * Get 是否在封禁黑名单中，其中：0表示不在黑名单中，1表示在黑名单中。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return InBanBlacklist 是否在封禁黑名单中，其中：0表示不在黑名单中，1表示在黑名单中。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getInBanBlacklist() {
+        return this.InBanBlacklist;
+    }
+
+    /**
+     * Set 是否在封禁黑名单中，其中：0表示不在黑名单中，1表示在黑名单中。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param InBanBlacklist 是否在封禁黑名单中，其中：0表示不在黑名单中，1表示在黑名单中。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setInBanBlacklist(Long InBanBlacklist) {
+        this.InBanBlacklist = InBanBlacklist;
     }
 
     public ProxyInfo() {
@@ -1017,6 +1093,12 @@ CLONING表示复制中。
                 this.IPList[i] = new IPDetail(source.IPList[i]);
             }
         }
+        if (source.Http3Supported != null) {
+            this.Http3Supported = new Long(source.Http3Supported);
+        }
+        if (source.InBanBlacklist != null) {
+            this.InBanBlacklist = new Long(source.InBanBlacklist);
+        }
     }
 
 
@@ -1056,6 +1138,8 @@ CLONING表示复制中。
         this.setParamSimple(map, prefix + "PackageType", this.PackageType);
         this.setParamSimple(map, prefix + "BanStatus", this.BanStatus);
         this.setParamArrayObj(map, prefix + "IPList.", this.IPList);
+        this.setParamSimple(map, prefix + "Http3Supported", this.Http3Supported);
+        this.setParamSimple(map, prefix + "InBanBlacklist", this.InBanBlacklist);
 
     }
 }

@@ -1,5 +1,14 @@
 package com.tencentcloudapi.hcm.v20181106;
 public enum HcmErrorCode {
+    // 计费次数统计失败。
+     FAILEDOPERATION_CHARGECOUNTERROR("FailedOperation.ChargeCountError"),
+     
+    // 引擎请求失败。
+     INTERNALERROR_ENGINEREQUESTFAILED("InternalError.EngineRequestFailed"),
+     
+    // 引擎识别失败。
+     INTERNALERROR_ENGINERESULTERROR("InternalError.EngineResultError"),
+     
     // 初始化参数错误。
      INTERNALERROR_INITIALPARAMETERERROR("InternalError.InitialParameterError"),
      

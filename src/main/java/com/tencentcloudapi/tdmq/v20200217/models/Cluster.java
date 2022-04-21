@@ -73,7 +73,7 @@ public class Cluster extends AbstractModel{
     private String HealthyInfo;
 
     /**
-    * 集群状态，0:创建中，1:正常，2:删除中，3:已删除，5:创建失败，6: 删除失败
+    * 集群状态，0:创建中，1:正常，2:销毁中，3:已删除，4: 隔离中，5:创建失败，6: 删除失败
     */
     @SerializedName("Status")
     @Expose
@@ -219,6 +219,16 @@ public class Cluster extends AbstractModel{
     private Tag [] Tags;
 
     /**
+    * 计费模式：
+0: 按量计费
+1: 包年包月
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PayMode")
+    @Expose
+    private Long PayMode;
+
+    /**
      * Get 集群Id。 
      * @return ClusterId 集群Id。
      */
@@ -335,16 +345,16 @@ public class Cluster extends AbstractModel{
     }
 
     /**
-     * Get 集群状态，0:创建中，1:正常，2:删除中，3:已删除，5:创建失败，6: 删除失败 
-     * @return Status 集群状态，0:创建中，1:正常，2:删除中，3:已删除，5:创建失败，6: 删除失败
+     * Get 集群状态，0:创建中，1:正常，2:销毁中，3:已删除，4: 隔离中，5:创建失败，6: 删除失败 
+     * @return Status 集群状态，0:创建中，1:正常，2:销毁中，3:已删除，4: 隔离中，5:创建失败，6: 删除失败
      */
     public Long getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 集群状态，0:创建中，1:正常，2:删除中，3:已删除，5:创建失败，6: 删除失败
-     * @param Status 集群状态，0:创建中，1:正常，2:删除中，3:已删除，5:创建失败，6: 删除失败
+     * Set 集群状态，0:创建中，1:正常，2:销毁中，3:已删除，4: 隔离中，5:创建失败，6: 删除失败
+     * @param Status 集群状态，0:创建中，1:正常，2:销毁中，3:已删除，4: 隔离中，5:创建失败，6: 删除失败
      */
     public void setStatus(Long Status) {
         this.Status = Status;
@@ -690,6 +700,34 @@ public class Cluster extends AbstractModel{
         this.Tags = Tags;
     }
 
+    /**
+     * Get 计费模式：
+0: 按量计费
+1: 包年包月
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PayMode 计费模式：
+0: 按量计费
+1: 包年包月
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getPayMode() {
+        return this.PayMode;
+    }
+
+    /**
+     * Set 计费模式：
+0: 按量计费
+1: 包年包月
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PayMode 计费模式：
+0: 按量计费
+1: 包年包月
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPayMode(Long PayMode) {
+        this.PayMode = PayMode;
+    }
+
     public Cluster() {
     }
 
@@ -779,6 +817,9 @@ public class Cluster extends AbstractModel{
                 this.Tags[i] = new Tag(source.Tags[i]);
             }
         }
+        if (source.PayMode != null) {
+            this.PayMode = new Long(source.PayMode);
+        }
     }
 
 
@@ -812,6 +853,7 @@ public class Cluster extends AbstractModel{
         this.setParamSimple(map, prefix + "MaxMessageDelayInSeconds", this.MaxMessageDelayInSeconds);
         this.setParamSimple(map, prefix + "PublicAccessEnabled", this.PublicAccessEnabled);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "PayMode", this.PayMode);
 
     }
 }

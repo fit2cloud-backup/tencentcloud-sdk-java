@@ -2759,6 +2759,26 @@ public class CwpClient extends AbstractClient{
     }
 
     /**
+     *获取安全事件统计
+     * @param req DescribeSecurityEventStatRequest
+     * @return DescribeSecurityEventStatResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeSecurityEventStatResponse DescribeSecurityEventStat(DescribeSecurityEventStatRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeSecurityEventStatResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeSecurityEventStatResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeSecurityEventStat");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *获取安全概览相关事件统计数据接口
      * @param req DescribeSecurityEventsCntRequest
      * @return DescribeSecurityEventsCntResponse
@@ -3759,7 +3779,7 @@ public class CwpClient extends AbstractClient{
     }
 
     /**
-     * 用于设置新增主机自动开通专业版配置。
+     * 用于设置新增主机自动开通专业防护配置。
      * @param req ModifyAutoOpenProVersionConfigRequest
      * @return ModifyAutoOpenProVersionConfigResponse
      * @throws TencentCloudSDKException

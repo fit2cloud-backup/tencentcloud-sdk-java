@@ -23,8 +23,7 @@ import java.util.HashMap;
 public class ServerCert extends AbstractModel{
 
     /**
-    * 服务器证书 ID
-在 SSL 证书管理进行证书托管时自动生成
+    * 服务器证书 ID 在 SSL 证书管理进行证书托管时自动生成
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CertId")
@@ -85,11 +84,17 @@ public class ServerCert extends AbstractModel{
     private String Message;
 
     /**
-     * Get 服务器证书 ID
-在 SSL 证书管理进行证书托管时自动生成
+    * 证书来源
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("From")
+    @Expose
+    private String From;
+
+    /**
+     * Get 服务器证书 ID 在 SSL 证书管理进行证书托管时自动生成
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CertId 服务器证书 ID
-在 SSL 证书管理进行证书托管时自动生成
+     * @return CertId 服务器证书 ID 在 SSL 证书管理进行证书托管时自动生成
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCertId() {
@@ -97,11 +102,9 @@ public class ServerCert extends AbstractModel{
     }
 
     /**
-     * Set 服务器证书 ID
-在 SSL 证书管理进行证书托管时自动生成
+     * Set 服务器证书 ID 在 SSL 证书管理进行证书托管时自动生成
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param CertId 服务器证书 ID
-在 SSL 证书管理进行证书托管时自动生成
+     * @param CertId 服务器证书 ID 在 SSL 证书管理进行证书托管时自动生成
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCertId(String CertId) {
@@ -248,6 +251,26 @@ public class ServerCert extends AbstractModel{
         this.Message = Message;
     }
 
+    /**
+     * Get 证书来源
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return From 证书来源
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getFrom() {
+        return this.From;
+    }
+
+    /**
+     * Set 证书来源
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param From 证书来源
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFrom(String From) {
+        this.From = From;
+    }
+
     public ServerCert() {
     }
 
@@ -277,6 +300,9 @@ public class ServerCert extends AbstractModel{
         if (source.Message != null) {
             this.Message = new String(source.Message);
         }
+        if (source.From != null) {
+            this.From = new String(source.From);
+        }
     }
 
 
@@ -291,6 +317,7 @@ public class ServerCert extends AbstractModel{
         this.setParamSimple(map, prefix + "ExpireTime", this.ExpireTime);
         this.setParamSimple(map, prefix + "DeployTime", this.DeployTime);
         this.setParamSimple(map, prefix + "Message", this.Message);
+        this.setParamSimple(map, prefix + "From", this.From);
 
     }
 }

@@ -30,7 +30,7 @@ public class DescribeVirusTaskListResponse extends AbstractModel{
     private VirusTaskInfo [] List;
 
     /**
-    * 总数量
+    * 总数量(容器任务数量)
     */
     @SerializedName("TotalCount")
     @Expose
@@ -60,16 +60,16 @@ public class DescribeVirusTaskListResponse extends AbstractModel{
     }
 
     /**
-     * Get 总数量 
-     * @return TotalCount 总数量
+     * Get 总数量(容器任务数量) 
+     * @return TotalCount 总数量(容器任务数量)
      */
     public Long getTotalCount() {
         return this.TotalCount;
     }
 
     /**
-     * Set 总数量
-     * @param TotalCount 总数量
+     * Set 总数量(容器任务数量)
+     * @param TotalCount 总数量(容器任务数量)
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;

@@ -198,7 +198,7 @@ public class CreateDBInstanceRequest extends AbstractModel{
     private String DeployGroupId;
 
     /**
-    * 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间在当天内唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
+    * 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间在48小时内唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
     */
     @SerializedName("ClientToken")
     @Expose
@@ -240,7 +240,7 @@ public class CreateDBInstanceRequest extends AbstractModel{
     private Long Cpu;
 
     /**
-    * 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。
+    * 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。该值默认为0。
     */
     @SerializedName("AutoSyncFlag")
     @Expose
@@ -252,6 +252,13 @@ public class CreateDBInstanceRequest extends AbstractModel{
     @SerializedName("CageId")
     @Expose
     private String CageId;
+
+    /**
+    * 默认参数模板类型。支持值包括："HIGH_STABILITY" - 高稳定模板，"HIGH_PERFORMANCE" - 高性能模板。
+    */
+    @SerializedName("ParamTemplateType")
+    @Expose
+    private String ParamTemplateType;
 
     /**
     * 告警策略名数组，例如:["policy-uyoee9wg"]，AlarmPolicyList不为空时该参数无效。
@@ -266,6 +273,13 @@ public class CreateDBInstanceRequest extends AbstractModel{
     @SerializedName("DryRun")
     @Expose
     private Boolean DryRun;
+
+    /**
+    * 指定实例的IP列表。仅支持主实例指定，按实例顺序，不足则按未指定处理。
+    */
+    @SerializedName("Vips")
+    @Expose
+    private String [] Vips;
 
     /**
      * Get 实例内存大小，单位：MB，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的内存规格。 
@@ -668,16 +682,16 @@ public class CreateDBInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间在当天内唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。 
-     * @return ClientToken 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间在当天内唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
+     * Get 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间在48小时内唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。 
+     * @return ClientToken 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间在48小时内唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
      */
     public String getClientToken() {
         return this.ClientToken;
     }
 
     /**
-     * Set 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间在当天内唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
-     * @param ClientToken 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间在当天内唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
+     * Set 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间在48小时内唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
+     * @param ClientToken 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间在48小时内唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
      */
     public void setClientToken(String ClientToken) {
         this.ClientToken = ClientToken;
@@ -764,16 +778,16 @@ public class CreateDBInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。 
-     * @return AutoSyncFlag 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。
+     * Get 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。该值默认为0。 
+     * @return AutoSyncFlag 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。该值默认为0。
      */
     public Long getAutoSyncFlag() {
         return this.AutoSyncFlag;
     }
 
     /**
-     * Set 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。
-     * @param AutoSyncFlag 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。
+     * Set 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。该值默认为0。
+     * @param AutoSyncFlag 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。该值默认为0。
      */
     public void setAutoSyncFlag(Long AutoSyncFlag) {
         this.AutoSyncFlag = AutoSyncFlag;
@@ -793,6 +807,22 @@ public class CreateDBInstanceRequest extends AbstractModel{
      */
     public void setCageId(String CageId) {
         this.CageId = CageId;
+    }
+
+    /**
+     * Get 默认参数模板类型。支持值包括："HIGH_STABILITY" - 高稳定模板，"HIGH_PERFORMANCE" - 高性能模板。 
+     * @return ParamTemplateType 默认参数模板类型。支持值包括："HIGH_STABILITY" - 高稳定模板，"HIGH_PERFORMANCE" - 高性能模板。
+     */
+    public String getParamTemplateType() {
+        return this.ParamTemplateType;
+    }
+
+    /**
+     * Set 默认参数模板类型。支持值包括："HIGH_STABILITY" - 高稳定模板，"HIGH_PERFORMANCE" - 高性能模板。
+     * @param ParamTemplateType 默认参数模板类型。支持值包括："HIGH_STABILITY" - 高稳定模板，"HIGH_PERFORMANCE" - 高性能模板。
+     */
+    public void setParamTemplateType(String ParamTemplateType) {
+        this.ParamTemplateType = ParamTemplateType;
     }
 
     /**
@@ -825,6 +855,22 @@ public class CreateDBInstanceRequest extends AbstractModel{
      */
     public void setDryRun(Boolean DryRun) {
         this.DryRun = DryRun;
+    }
+
+    /**
+     * Get 指定实例的IP列表。仅支持主实例指定，按实例顺序，不足则按未指定处理。 
+     * @return Vips 指定实例的IP列表。仅支持主实例指定，按实例顺序，不足则按未指定处理。
+     */
+    public String [] getVips() {
+        return this.Vips;
+    }
+
+    /**
+     * Set 指定实例的IP列表。仅支持主实例指定，按实例顺序，不足则按未指定处理。
+     * @param Vips 指定实例的IP列表。仅支持主实例指定，按实例顺序，不足则按未指定处理。
+     */
+    public void setVips(String [] Vips) {
+        this.Vips = Vips;
     }
 
     public CreateDBInstanceRequest() {
@@ -946,6 +992,9 @@ public class CreateDBInstanceRequest extends AbstractModel{
         if (source.CageId != null) {
             this.CageId = new String(source.CageId);
         }
+        if (source.ParamTemplateType != null) {
+            this.ParamTemplateType = new String(source.ParamTemplateType);
+        }
         if (source.AlarmPolicyIdList != null) {
             this.AlarmPolicyIdList = new String[source.AlarmPolicyIdList.length];
             for (int i = 0; i < source.AlarmPolicyIdList.length; i++) {
@@ -954,6 +1003,12 @@ public class CreateDBInstanceRequest extends AbstractModel{
         }
         if (source.DryRun != null) {
             this.DryRun = new Boolean(source.DryRun);
+        }
+        if (source.Vips != null) {
+            this.Vips = new String[source.Vips.length];
+            for (int i = 0; i < source.Vips.length; i++) {
+                this.Vips[i] = new String(source.Vips[i]);
+            }
         }
     }
 
@@ -995,8 +1050,10 @@ public class CreateDBInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Cpu", this.Cpu);
         this.setParamSimple(map, prefix + "AutoSyncFlag", this.AutoSyncFlag);
         this.setParamSimple(map, prefix + "CageId", this.CageId);
+        this.setParamSimple(map, prefix + "ParamTemplateType", this.ParamTemplateType);
         this.setParamArraySimple(map, prefix + "AlarmPolicyIdList.", this.AlarmPolicyIdList);
         this.setParamSimple(map, prefix + "DryRun", this.DryRun);
+        this.setParamArraySimple(map, prefix + "Vips.", this.Vips);
 
     }
 }

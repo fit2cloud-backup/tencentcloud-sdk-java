@@ -198,6 +198,14 @@ public class UpdateDomainConfigRequest extends AbstractModel{
     private MaxAge MaxAge;
 
     /**
+    * 地域属性特殊配置
+适用于域名境内加速、境外加速配置不一致场景
+    */
+    @SerializedName("SpecificConfig")
+    @Expose
+    private SpecificConfig SpecificConfig;
+
+    /**
     * 域名业务类型
 web：静态加速
 download：下载加速
@@ -206,14 +214,6 @@ media：流媒体点播加速
     @SerializedName("ServiceType")
     @Expose
     private String ServiceType;
-
-    /**
-    * 地域属性特殊配置
-适用于域名境内加速、境外加速配置不一致场景
-    */
-    @SerializedName("SpecificConfig")
-    @Expose
-    private SpecificConfig SpecificConfig;
 
     /**
     * 域名加速区域
@@ -304,7 +304,14 @@ global：全球加速
     private OriginCombine OriginCombine;
 
     /**
-    * QUIC正在内测中，请先提交内测申请，详情请前往QUIC产品文档。
+    * POST请求传输配置
+    */
+    @SerializedName("PostMaxSize")
+    @Expose
+    private PostSize PostMaxSize;
+
+    /**
+    * Quic访问（收费服务，详见计费说明和产品文档）
     */
     @SerializedName("Quic")
     @Expose
@@ -337,6 +344,20 @@ global：全球加速
     @SerializedName("ShareCname")
     @Expose
     private ShareCname ShareCname;
+
+    /**
+    * 华为云对象存储回源鉴权
+    */
+    @SerializedName("HwPrivateAccess")
+    @Expose
+    private HwPrivateAccess HwPrivateAccess;
+
+    /**
+    * 七牛云对象存储回源鉴权
+    */
+    @SerializedName("QnPrivateAccess")
+    @Expose
+    private QnPrivateAccess QnPrivateAccess;
 
     /**
      * Get 域名 
@@ -739,6 +760,26 @@ global：全球加速
     }
 
     /**
+     * Get 地域属性特殊配置
+适用于域名境内加速、境外加速配置不一致场景 
+     * @return SpecificConfig 地域属性特殊配置
+适用于域名境内加速、境外加速配置不一致场景
+     */
+    public SpecificConfig getSpecificConfig() {
+        return this.SpecificConfig;
+    }
+
+    /**
+     * Set 地域属性特殊配置
+适用于域名境内加速、境外加速配置不一致场景
+     * @param SpecificConfig 地域属性特殊配置
+适用于域名境内加速、境外加速配置不一致场景
+     */
+    public void setSpecificConfig(SpecificConfig SpecificConfig) {
+        this.SpecificConfig = SpecificConfig;
+    }
+
+    /**
      * Get 域名业务类型
 web：静态加速
 download：下载加速
@@ -764,26 +805,6 @@ media：流媒体点播加速
      */
     public void setServiceType(String ServiceType) {
         this.ServiceType = ServiceType;
-    }
-
-    /**
-     * Get 地域属性特殊配置
-适用于域名境内加速、境外加速配置不一致场景 
-     * @return SpecificConfig 地域属性特殊配置
-适用于域名境内加速、境外加速配置不一致场景
-     */
-    public SpecificConfig getSpecificConfig() {
-        return this.SpecificConfig;
-    }
-
-    /**
-     * Set 地域属性特殊配置
-适用于域名境内加速、境外加速配置不一致场景
-     * @param SpecificConfig 地域属性特殊配置
-适用于域名境内加速、境外加速配置不一致场景
-     */
-    public void setSpecificConfig(SpecificConfig SpecificConfig) {
-        this.SpecificConfig = SpecificConfig;
     }
 
     /**
@@ -995,16 +1016,32 @@ global：全球加速
     }
 
     /**
-     * Get QUIC正在内测中，请先提交内测申请，详情请前往QUIC产品文档。 
-     * @return Quic QUIC正在内测中，请先提交内测申请，详情请前往QUIC产品文档。
+     * Get POST请求传输配置 
+     * @return PostMaxSize POST请求传输配置
+     */
+    public PostSize getPostMaxSize() {
+        return this.PostMaxSize;
+    }
+
+    /**
+     * Set POST请求传输配置
+     * @param PostMaxSize POST请求传输配置
+     */
+    public void setPostMaxSize(PostSize PostMaxSize) {
+        this.PostMaxSize = PostMaxSize;
+    }
+
+    /**
+     * Get Quic访问（收费服务，详见计费说明和产品文档） 
+     * @return Quic Quic访问（收费服务，详见计费说明和产品文档）
      */
     public Quic getQuic() {
         return this.Quic;
     }
 
     /**
-     * Set QUIC正在内测中，请先提交内测申请，详情请前往QUIC产品文档。
-     * @param Quic QUIC正在内测中，请先提交内测申请，详情请前往QUIC产品文档。
+     * Set Quic访问（收费服务，详见计费说明和产品文档）
+     * @param Quic Quic访问（收费服务，详见计费说明和产品文档）
      */
     public void setQuic(Quic Quic) {
         this.Quic = Quic;
@@ -1072,6 +1109,38 @@ global：全球加速
      */
     public void setShareCname(ShareCname ShareCname) {
         this.ShareCname = ShareCname;
+    }
+
+    /**
+     * Get 华为云对象存储回源鉴权 
+     * @return HwPrivateAccess 华为云对象存储回源鉴权
+     */
+    public HwPrivateAccess getHwPrivateAccess() {
+        return this.HwPrivateAccess;
+    }
+
+    /**
+     * Set 华为云对象存储回源鉴权
+     * @param HwPrivateAccess 华为云对象存储回源鉴权
+     */
+    public void setHwPrivateAccess(HwPrivateAccess HwPrivateAccess) {
+        this.HwPrivateAccess = HwPrivateAccess;
+    }
+
+    /**
+     * Get 七牛云对象存储回源鉴权 
+     * @return QnPrivateAccess 七牛云对象存储回源鉴权
+     */
+    public QnPrivateAccess getQnPrivateAccess() {
+        return this.QnPrivateAccess;
+    }
+
+    /**
+     * Set 七牛云对象存储回源鉴权
+     * @param QnPrivateAccess 七牛云对象存储回源鉴权
+     */
+    public void setQnPrivateAccess(QnPrivateAccess QnPrivateAccess) {
+        this.QnPrivateAccess = QnPrivateAccess;
     }
 
     public UpdateDomainConfigRequest() {
@@ -1157,11 +1226,11 @@ global：全球加速
         if (source.MaxAge != null) {
             this.MaxAge = new MaxAge(source.MaxAge);
         }
-        if (source.ServiceType != null) {
-            this.ServiceType = new String(source.ServiceType);
-        }
         if (source.SpecificConfig != null) {
             this.SpecificConfig = new SpecificConfig(source.SpecificConfig);
+        }
+        if (source.ServiceType != null) {
+            this.ServiceType = new String(source.ServiceType);
         }
         if (source.Area != null) {
             this.Area = new String(source.Area);
@@ -1202,6 +1271,9 @@ global：全球加速
         if (source.OriginCombine != null) {
             this.OriginCombine = new OriginCombine(source.OriginCombine);
         }
+        if (source.PostMaxSize != null) {
+            this.PostMaxSize = new PostSize(source.PostMaxSize);
+        }
         if (source.Quic != null) {
             this.Quic = new Quic(source.Quic);
         }
@@ -1216,6 +1288,12 @@ global：全球加速
         }
         if (source.ShareCname != null) {
             this.ShareCname = new ShareCname(source.ShareCname);
+        }
+        if (source.HwPrivateAccess != null) {
+            this.HwPrivateAccess = new HwPrivateAccess(source.HwPrivateAccess);
+        }
+        if (source.QnPrivateAccess != null) {
+            this.QnPrivateAccess = new QnPrivateAccess(source.QnPrivateAccess);
         }
     }
 
@@ -1249,8 +1327,8 @@ global：全球加速
         this.setParamObj(map, prefix + "ForceRedirect.", this.ForceRedirect);
         this.setParamObj(map, prefix + "Referer.", this.Referer);
         this.setParamObj(map, prefix + "MaxAge.", this.MaxAge);
-        this.setParamSimple(map, prefix + "ServiceType", this.ServiceType);
         this.setParamObj(map, prefix + "SpecificConfig.", this.SpecificConfig);
+        this.setParamSimple(map, prefix + "ServiceType", this.ServiceType);
         this.setParamSimple(map, prefix + "Area", this.Area);
         this.setParamObj(map, prefix + "OriginPullTimeout.", this.OriginPullTimeout);
         this.setParamObj(map, prefix + "AwsPrivateAccess.", this.AwsPrivateAccess);
@@ -1263,11 +1341,14 @@ global：全球加速
         this.setParamObj(map, prefix + "Ipv6Access.", this.Ipv6Access);
         this.setParamObj(map, prefix + "OfflineCache.", this.OfflineCache);
         this.setParamObj(map, prefix + "OriginCombine.", this.OriginCombine);
+        this.setParamObj(map, prefix + "PostMaxSize.", this.PostMaxSize);
         this.setParamObj(map, prefix + "Quic.", this.Quic);
         this.setParamObj(map, prefix + "OssPrivateAccess.", this.OssPrivateAccess);
         this.setParamObj(map, prefix + "WebSocket.", this.WebSocket);
         this.setParamObj(map, prefix + "RemoteAuthentication.", this.RemoteAuthentication);
         this.setParamObj(map, prefix + "ShareCname.", this.ShareCname);
+        this.setParamObj(map, prefix + "HwPrivateAccess.", this.HwPrivateAccess);
+        this.setParamObj(map, prefix + "QnPrivateAccess.", this.QnPrivateAccess);
 
     }
 }

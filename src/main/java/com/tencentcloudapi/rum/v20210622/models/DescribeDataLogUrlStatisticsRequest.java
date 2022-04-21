@@ -30,7 +30,7 @@ public class DescribeDataLogUrlStatisticsRequest extends AbstractModel{
     private Long StartTime;
 
     /**
-    * "analysis", "compare", "samp", "version", "ext3","nettype", "platform","isp","region","device","browser","ext1","ext2"
+    * analysis：异常分析，compare：异常列表对比，allcount：性能视图，condition：条件列表，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图/ext1视图等等
     */
     @SerializedName("Type")
     @Expose
@@ -163,6 +163,13 @@ public class DescribeDataLogUrlStatisticsRequest extends AbstractModel{
     private String Browser;
 
     /**
+    * 环境区分
+    */
+    @SerializedName("Env")
+    @Expose
+    private String Env;
+
+    /**
      * Get 开始时间 
      * @return StartTime 开始时间
      */
@@ -179,16 +186,16 @@ public class DescribeDataLogUrlStatisticsRequest extends AbstractModel{
     }
 
     /**
-     * Get "analysis", "compare", "samp", "version", "ext3","nettype", "platform","isp","region","device","browser","ext1","ext2" 
-     * @return Type "analysis", "compare", "samp", "version", "ext3","nettype", "platform","isp","region","device","browser","ext1","ext2"
+     * Get analysis：异常分析，compare：异常列表对比，allcount：性能视图，condition：条件列表，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图/ext1视图等等 
+     * @return Type analysis：异常分析，compare：异常列表对比，allcount：性能视图，condition：条件列表，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图/ext1视图等等
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set "analysis", "compare", "samp", "version", "ext3","nettype", "platform","isp","region","device","browser","ext1","ext2"
-     * @param Type "analysis", "compare", "samp", "version", "ext3","nettype", "platform","isp","region","device","browser","ext1","ext2"
+     * Set analysis：异常分析，compare：异常列表对比，allcount：性能视图，condition：条件列表，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图/ext1视图等等
+     * @param Type analysis：异常分析，compare：异常列表对比，allcount：性能视图，condition：条件列表，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图/ext1视图等等
      */
     public void setType(String Type) {
         this.Type = Type;
@@ -482,6 +489,22 @@ public class DescribeDataLogUrlStatisticsRequest extends AbstractModel{
         this.Browser = Browser;
     }
 
+    /**
+     * Get 环境区分 
+     * @return Env 环境区分
+     */
+    public String getEnv() {
+        return this.Env;
+    }
+
+    /**
+     * Set 环境区分
+     * @param Env 环境区分
+     */
+    public void setEnv(String Env) {
+        this.Env = Env;
+    }
+
     public DescribeDataLogUrlStatisticsRequest() {
     }
 
@@ -550,6 +573,9 @@ public class DescribeDataLogUrlStatisticsRequest extends AbstractModel{
         if (source.Browser != null) {
             this.Browser = new String(source.Browser);
         }
+        if (source.Env != null) {
+            this.Env = new String(source.Env);
+        }
     }
 
 
@@ -577,6 +603,7 @@ public class DescribeDataLogUrlStatisticsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "IsAbroad", this.IsAbroad);
         this.setParamSimple(map, prefix + "Os", this.Os);
         this.setParamSimple(map, prefix + "Browser", this.Browser);
+        this.setParamSimple(map, prefix + "Env", this.Env);
 
     }
 }

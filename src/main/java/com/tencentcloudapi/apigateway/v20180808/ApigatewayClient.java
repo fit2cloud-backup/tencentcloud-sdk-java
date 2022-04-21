@@ -304,7 +304,7 @@ API 网关中每个服务都会提供一个默认的域名供用户调用，但�
 
     /**
      *本接口（CreateService）用于创建服务。
-API 网关使用的最大单元为服务，每个服务中可创建多个 API 接口。每个服务有一个默认域名供客户调用，用户也可绑定自定义域名到此服务中。
+API 网关使用的最大单元为服务，每个服务中可创建多个 API 接口。每个服务有一个默认域名供客户调用，用户也可绑定自定义域名到此服务中。 
      * @param req CreateServiceRequest
      * @return CreateServiceResponse
      * @throws TencentCloudSDKException
@@ -316,6 +316,26 @@ API 网关使用的最大单元为服务，每个服务中可创建多个 API �
                 Type type = new TypeToken<JsonResponseModel<CreateServiceResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "CreateService");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *用于创建创建后端通道
+     * @param req CreateUpstreamRequest
+     * @return CreateUpstreamResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateUpstreamResponse CreateUpstream(CreateUpstreamRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateUpstreamResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateUpstreamResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateUpstream");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -498,6 +518,26 @@ API 网关使用的最大单元为服务，每个服务中可创建多个 API �
                 Type type = new TypeToken<JsonResponseModel<DeleteServiceSubDomainMappingResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DeleteServiceSubDomainMapping");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *删除后端通道，需要注意有API绑定时，不允许删除
+     * @param req DeleteUpstreamRequest
+     * @return DeleteUpstreamResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteUpstreamResponse DeleteUpstream(DeleteUpstreamRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteUpstreamResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteUpstreamResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteUpstream");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -770,7 +810,7 @@ API 网关使用的最大单元为服务，每个服务中可创建多个 API �
 
     /**
      *本接口（DescribeApiKeysStatus）用于查询密钥列表。
-当用户创建了多个密钥对时，可使用本接口查询一个或多个 API 密钥信息，本接口不会显示密钥 Key。
+当用户创建了多个密钥对时，可使用本接口查询一个或多个 API 密钥信息。
      * @param req DescribeApiKeysStatusRequest
      * @return DescribeApiKeysStatusResponse
      * @throws TencentCloudSDKException
@@ -1216,6 +1256,46 @@ API 网关可绑定自定义域名到服务，用于服务调用。此接口用�
     }
 
     /**
+     *查询后端通道所绑定的API列表
+     * @param req DescribeUpstreamBindApisRequest
+     * @return DescribeUpstreamBindApisResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeUpstreamBindApisResponse DescribeUpstreamBindApis(DescribeUpstreamBindApisRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeUpstreamBindApisResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeUpstreamBindApisResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeUpstreamBindApis");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询后端通道列表详情
+     * @param req DescribeUpstreamsRequest
+     * @return DescribeUpstreamsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeUpstreamsResponse DescribeUpstreams(DescribeUpstreamsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeUpstreamsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeUpstreamsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeUpstreams");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口（DescribeUsagePlan）用于查询一个使用计划的详细信息，包括名称、QPS、创建时间绑定的环境等。
      * @param req DescribeUsagePlanRequest
      * @return DescribeUsagePlanResponse
@@ -1590,6 +1670,26 @@ API 网关可绑定自定义域名到服务，用于服务调用。此接口用�
                 Type type = new TypeToken<JsonResponseModel<ModifySubDomainResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifySubDomain");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改后端通道
+     * @param req ModifyUpstreamRequest
+     * @return ModifyUpstreamResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyUpstreamResponse ModifyUpstream(ModifyUpstreamRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyUpstreamResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyUpstreamResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyUpstream");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

@@ -15,6 +15,9 @@ public enum CynosdbErrorCode {
     // 创建流程{{1}}失败，请稍后重试。如果持续不成功，请联系客服进行处理。
      FAILEDOPERATION_FLOWCREATEERROR("FailedOperation.FlowCreateError"),
      
+    // Flow不存在。
+     FAILEDOPERATION_FLOWNOTFOUNDERROR("FailedOperation.FlowNotFoundError"),
+     
     // 获取备份策略失败，请稍后重试。如果持续不成功，请联系客服进行处理。
      FAILEDOPERATION_GETBACKUPSTRATEGYERROR("FailedOperation.GetBackupStrategyError"),
      
@@ -23,6 +26,9 @@ public enum CynosdbErrorCode {
      
     // 操作失败{{1}}，请稍后重试。如果持续不成功，请联系客服进行处理。
      FAILEDOPERATION_OPERATIONFAILEDERROR("FailedOperation.OperationFailedError"),
+     
+    // 规格信息{{1}}查询失败。
+     FAILEDOPERATION_QUERYSPECBYSPECCODEERROR("FailedOperation.QuerySpecBySpecCodeError"),
      
     // 创建并支付订单失败，请稍后重试。如果持续不成功，请联系客服进行处理。
      FAILEDOPERATION_TRADECREATEORDERERROR("FailedOperation.TradeCreateOrderError"),
@@ -48,6 +54,9 @@ public enum CynosdbErrorCode {
     // 安全组查询实例失败。
      INTERNALERROR_LISTINSTANCEFAILED("InternalError.ListInstanceFailed"),
      
+    // 操作外网失败。
+     INTERNALERROR_OPERATEWANFAIL("InternalError.OperateWanFail"),
+     
     // 操作不支持。
      INTERNALERROR_OPERATIONNOTSUPPORT("InternalError.OperationNotSupport"),
      
@@ -66,14 +75,32 @@ public enum CynosdbErrorCode {
     // 当前实例不可隔离。
      INVALIDPARAMETER_ISOLATENOTALLOWED("InvalidParameter.IsolateNotAllowed"),
      
+    // 参数取值错误。
+     INVALIDPARAMETERVALUE("InvalidParameterValue"),
+     
+    // 账号已存在。
+     INVALIDPARAMETERVALUE_ACCOUNTALREADYEXISTERROR("InvalidParameterValue.AccountAlreadyExistError"),
+     
+    // 账号已存在。
+     INVALIDPARAMETERVALUE_ACCOUNTEXIST("InvalidParameterValue.AccountExist"),
+     
+    // 实例{{1}}不存在账号{{2}}。
+     INVALIDPARAMETERVALUE_ACCOUNTNOTEXISTERROR("InvalidParameterValue.AccountNotExistError"),
+     
     // 未查询到集群。
      INVALIDPARAMETERVALUE_CLUSTERNOTFOUND("InvalidParameterValue.ClusterNotFound"),
      
     // 不支持的实例类型。
      INVALIDPARAMETERVALUE_DBTYPENOTFOUND("InvalidParameterValue.DBTypeNotFound"),
      
+    // 集群类型必须为serverless。
+     INVALIDPARAMETERVALUE_DBMODENOTSERVERLESSERROR("InvalidParameterValue.DbModeNotServerlessError"),
+     
     // 未查询到订单id。
      INVALIDPARAMETERVALUE_DEALNAMENOTFOUND("InvalidParameterValue.DealNameNotFound"),
+     
+    // 任务流ID不存在。
+     INVALIDPARAMETERVALUE_FLOWNOTFOUND("InvalidParameterValue.FlowNotFound"),
      
     // 实例名称字符非法。
      INVALIDPARAMETERVALUE_ILLEGALINSTANCENAME("InvalidParameterValue.IllegalInstanceName"),
@@ -86,6 +113,9 @@ public enum CynosdbErrorCode {
      
     // 实例不存在。
      INVALIDPARAMETERVALUE_INSTANCENOTFOUND("InvalidParameterValue.InstanceNotFound"),
+     
+    // 内置账号不允许操作。
+     INVALIDPARAMETERVALUE_INTERNALACCOUNT("InvalidParameterValue.InternalAccount"),
      
     // 实例版本非法。
      INVALIDPARAMETERVALUE_INVALIDDBVERSION("InvalidParameterValue.InvalidDBVersion"),
@@ -108,6 +138,9 @@ public enum CynosdbErrorCode {
     // 参数错误。
      INVALIDPARAMETERVALUE_PARAMERROR("InvalidParameterValue.ParamError"),
      
+    // 预付费类型不允许该操作。
+     INVALIDPARAMETERVALUE_PREPAYPAYMODEERROR("InvalidParameterValue.PrePayPayModeError"),
+     
     // 所选地域和可用区不可用。
      INVALIDPARAMETERVALUE_REGIONZONEUNAVAILABLE("InvalidParameterValue.RegionZoneUnavailable"),
      
@@ -129,6 +162,9 @@ public enum CynosdbErrorCode {
     // 集群{{1}}当前状态不允许该操作。
      OPERATIONDENIED_CLUSTERSTATUSDENIEDERROR("OperationDenied.ClusterStatusDeniedError"),
      
+    // 实例{{1}}当前状态不允许该操作。
+     OPERATIONDENIED_INSTANCESTATUSDENIEDERROR("OperationDenied.InstanceStatusDeniedError"),
+     
     // 账号余额不足。
      OPERATIONDENIED_INSUFFICIENTBALANCEERROR("OperationDenied.InsufficientBalanceError"),
      
@@ -138,14 +174,23 @@ public enum CynosdbErrorCode {
     // serverless实例当前状态{{1}}不允许该操作。
      OPERATIONDENIED_SERVERLESSINSTANCESTATUSDENIED("OperationDenied.ServerlessInstanceStatusDenied"),
      
+    // 任务冲突检查不通过。
+     OPERATIONDENIED_TASKCONFLICTERROR("OperationDenied.TaskConflictError"),
+     
     // 用户未进行实名认证，请先进行实名认证才可购买。
      OPERATIONDENIED_USERNOTAUTHENTICATEDERROR("OperationDenied.UserNotAuthenticatedError"),
+     
+    // Serverless不支持该版本{{1}}。
+     OPERATIONDENIED_VERSIONNOTSUPPORTERROR("OperationDenied.VersionNotSupportError"),
      
     // 集群{{1}}不存在。
      RESOURCENOTFOUND_CLUSTERNOTFOUNDERROR("ResourceNotFound.ClusterNotFoundError"),
      
     // 实例{{1}}不存在。
      RESOURCENOTFOUND_INSTANCENOTFOUNDERROR("ResourceNotFound.InstanceNotFoundError"),
+     
+    // 参数{{1}}对应资源不存在。
+     RESOURCENOTFOUND_RESOURCEERROR("ResourceNotFound.ResourceError"),
      
     // 锁定实例失败，暂时不可操作。
      RESOURCEUNAVAILABLE_INSTANCELOCKFAIL("ResourceUnavailable.InstanceLockFail"),

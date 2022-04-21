@@ -121,6 +121,27 @@ public class CreateJobConfigRequest extends AbstractModel{
     private String ClsTopicId;
 
     /**
+    * 日志采集类型 2：CLS；3：COS
+    */
+    @SerializedName("LogCollectType")
+    @Expose
+    private Long LogCollectType;
+
+    /**
+    * pyflink作业运行时使用的python版本
+    */
+    @SerializedName("PythonVersion")
+    @Expose
+    private String PythonVersion;
+
+    /**
+    * 工作空间 SerialId
+    */
+    @SerializedName("WorkSpaceId")
+    @Expose
+    private String WorkSpaceId;
+
+    /**
      * Get 作业Id 
      * @return JobId 作业Id
      */
@@ -344,6 +365,54 @@ public class CreateJobConfigRequest extends AbstractModel{
         this.ClsTopicId = ClsTopicId;
     }
 
+    /**
+     * Get 日志采集类型 2：CLS；3：COS 
+     * @return LogCollectType 日志采集类型 2：CLS；3：COS
+     */
+    public Long getLogCollectType() {
+        return this.LogCollectType;
+    }
+
+    /**
+     * Set 日志采集类型 2：CLS；3：COS
+     * @param LogCollectType 日志采集类型 2：CLS；3：COS
+     */
+    public void setLogCollectType(Long LogCollectType) {
+        this.LogCollectType = LogCollectType;
+    }
+
+    /**
+     * Get pyflink作业运行时使用的python版本 
+     * @return PythonVersion pyflink作业运行时使用的python版本
+     */
+    public String getPythonVersion() {
+        return this.PythonVersion;
+    }
+
+    /**
+     * Set pyflink作业运行时使用的python版本
+     * @param PythonVersion pyflink作业运行时使用的python版本
+     */
+    public void setPythonVersion(String PythonVersion) {
+        this.PythonVersion = PythonVersion;
+    }
+
+    /**
+     * Get 工作空间 SerialId 
+     * @return WorkSpaceId 工作空间 SerialId
+     */
+    public String getWorkSpaceId() {
+        return this.WorkSpaceId;
+    }
+
+    /**
+     * Set 工作空间 SerialId
+     * @param WorkSpaceId 工作空间 SerialId
+     */
+    public void setWorkSpaceId(String WorkSpaceId) {
+        this.WorkSpaceId = WorkSpaceId;
+    }
+
     public CreateJobConfigRequest() {
     }
 
@@ -400,6 +469,15 @@ public class CreateJobConfigRequest extends AbstractModel{
         if (source.ClsTopicId != null) {
             this.ClsTopicId = new String(source.ClsTopicId);
         }
+        if (source.LogCollectType != null) {
+            this.LogCollectType = new Long(source.LogCollectType);
+        }
+        if (source.PythonVersion != null) {
+            this.PythonVersion = new String(source.PythonVersion);
+        }
+        if (source.WorkSpaceId != null) {
+            this.WorkSpaceId = new String(source.WorkSpaceId);
+        }
     }
 
 
@@ -421,6 +499,9 @@ public class CreateJobConfigRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TaskManagerSpec", this.TaskManagerSpec);
         this.setParamSimple(map, prefix + "ClsLogsetId", this.ClsLogsetId);
         this.setParamSimple(map, prefix + "ClsTopicId", this.ClsTopicId);
+        this.setParamSimple(map, prefix + "LogCollectType", this.LogCollectType);
+        this.setParamSimple(map, prefix + "PythonVersion", this.PythonVersion);
+        this.setParamSimple(map, prefix + "WorkSpaceId", this.WorkSpaceId);
 
     }
 }

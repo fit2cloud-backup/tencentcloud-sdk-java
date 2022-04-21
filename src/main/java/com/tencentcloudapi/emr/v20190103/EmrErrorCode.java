@@ -6,6 +6,9 @@ public enum EmrErrorCode {
     // 重复的订单，请检查emr控制台。
      FAILEDOPERATION_DUPLICATEORDERNOTALLOWED("FailedOperation.DuplicateOrderNotAllowed"),
      
+    // 操作失败，不支持pod。
+     FAILEDOPERATION_NOTSUPPORTPOD("FailedOperation.NotSupportPod"),
+     
     // 内部错误。
      INTERNALERROR("InternalError"),
      
@@ -72,14 +75,14 @@ public enum EmrErrorCode {
     // 展示策略错误。
      INVALIDPARAMETER_DISPLAYSTRATEGYNOTMATCH("InvalidParameter.DisplayStrategyNotMatch"),
      
+    // 参数错误。
+     INVALIDPARAMETER_HALESSMASTERCOUNT("InvalidParameter.HALessMasterCount"),
+     
     // Common节点数量无效。
      INVALIDPARAMETER_INCORRECTCOMMONCOUNT("InvalidParameter.IncorrectCommonCount"),
      
     // Master节点数量无效。
      INVALIDPARAMETER_INCORRECTMASTERCOUNT("InvalidParameter.IncorrectMasterCount"),
-     
-    // core节点的数量不能超过20。
-     INVALIDPARAMETER_INVAILDCORECOUNT("InvalidParameter.InvaildCoreCount"),
      
     // 无效参数，AppId。
      INVALIDPARAMETER_INVALIDAPPID("InvalidParameter.InvalidAppId"),
@@ -96,11 +99,17 @@ public enum EmrErrorCode {
     // 无效参数，ClusterId。
      INVALIDPARAMETER_INVALIDCLUSTERID("InvalidParameter.InvalidClusterId"),
      
+    // 参数错误。
+     INVALIDPARAMETER_INVALIDCOMMONDISKTYPE("InvalidParameter.InvalidCommonDiskType"),
+     
     // 无效的组件。
      INVALIDPARAMETER_INVALIDCOMPONENT("InvalidParameter.InvalidComponent"),
      
     // Core节点数量无效。
      INVALIDPARAMETER_INVALIDCORECOUNT("InvalidParameter.InvalidCoreCount"),
+     
+    // CosFileUri参数值无效。
+     INVALIDPARAMETER_INVALIDCOSFILEURI("InvalidParameter.InvalidCosFileURI"),
      
     // 扩容数量必须大于0。
      INVALIDPARAMETER_INVALIDCOUNT("InvalidParameter.InvalidCount"),
@@ -132,6 +141,9 @@ public enum EmrErrorCode {
     // 无效的集群保留策略。
      INVALIDPARAMETER_INVALIDINSTANCEPOLICY("InvalidParameter.InvalidInstancePolicy"),
      
+    // 无效的机型。
+     INVALIDPARAMETER_INVALIDINSTANCETYPE("InvalidParameter.InvalidInstanceType"),
+     
     // 无效的流程任务。
      INVALIDPARAMETER_INVALIDJOBFLOW("InvalidParameter.InvalidJobFlow"),
      
@@ -140,6 +152,9 @@ public enum EmrErrorCode {
      
     // 无效的登录设置。
      INVALIDPARAMETER_INVALIDLOGINSETTING("InvalidParameter.InvalidLoginSetting"),
+     
+    // 参数错误。
+     INVALIDPARAMETER_INVALIDMASTERDISKTYPE("InvalidParameter.InvalidMasterDiskType"),
      
     // 无效的元数据表类型。
      INVALIDPARAMETER_INVALIDMETATYPE("InvalidParameter.InvalidMetaType"),
@@ -203,6 +218,9 @@ public enum EmrErrorCode {
      
     // 无效的高可用参数。
      INVALIDPARAMETER_INVALIDSUPPORTHA("InvalidParameter.InvalidSupportHA"),
+     
+    // 参数错误。
+     INVALIDPARAMETER_INVALIDTAGSGROUP("InvalidParameter.InvalidTagsGroup"),
      
     // task的数量不能超过20。
      INVALIDPARAMETER_INVALIDTASKCOUNT("InvalidParameter.InvalidTaskCount"),
@@ -294,11 +312,8 @@ public enum EmrErrorCode {
     // 当前资源规格不存在默认规格。
      RESOURCEUNAVAILABLE_RESOURCESPECNOTDEFAULTSPEC("ResourceUnavailable.ResourceSpecNotDefaultSpec"),
      
-    // 当前资源规格不存在默认规格。
-     RESOURCEUNAVAILABLE_RESOURCESPEC_NOTDEFAULTSPEC("ResourceUnavailable.ResourceSpec_NotDefaultSpec"),
-     
     // 资源售罄。
-     RESOURCESSOLDOUT_("ResourcesSoldOut."),
+     RESOURCESSOLDOUT("ResourcesSoldOut"),
      
     // CBS资源售罄。
      RESOURCESSOLDOUT_CBSSOLDOUT("ResourcesSoldOut.CbsSoldOut"),

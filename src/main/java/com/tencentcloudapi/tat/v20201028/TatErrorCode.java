@@ -18,6 +18,9 @@ public enum TatErrorCode {
     // 参数冲突。
      INVALIDPARAMETER_CONFLICTPARAMETER("InvalidParameter.ConflictParameter"),
      
+    // 无效用户名。
+     INVALIDPARAMETER_INVALIDUSERNAME("InvalidParameter.InvalidUsername"),
+     
     // 参数取值错误。
      INVALIDPARAMETERVALUE("InvalidParameterValue"),
      
@@ -44,6 +47,9 @@ public enum TatErrorCode {
      
     // 命令内容无效。
      INVALIDPARAMETERVALUE_INVALIDCONTENT("InvalidParameterValue.InvalidContent"),
+     
+    // Crontab 表达式无效。
+     INVALIDPARAMETERVALUE_INVALIDCRONEXPRESSION("InvalidParameterValue.InvalidCronExpression"),
      
     // Filter 无效。
      INVALIDPARAMETERVALUE_INVALIDFILTER("InvalidParameterValue.InvalidFilter"),

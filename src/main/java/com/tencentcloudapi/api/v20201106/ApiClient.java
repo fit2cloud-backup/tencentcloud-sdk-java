@@ -39,7 +39,27 @@ public class ApiClient extends AbstractClient{
     }
 
     /**
-     *本接口(DescribeRegions)用于查询各个产品支持地域信息，当前只支持cvm。
+     *本接口(DescribeProducts)用于查询各个支持地域列表查询的产品信息。
+     * @param req DescribeProductsRequest
+     * @return DescribeProductsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeProductsResponse DescribeProducts(DescribeProductsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeProductsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeProductsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeProducts");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口(DescribeRegions)用于查询各个产品支持地域信息。
      * @param req DescribeRegionsRequest
      * @return DescribeRegionsResponse
      * @throws TencentCloudSDKException
@@ -59,7 +79,7 @@ public class ApiClient extends AbstractClient{
     }
 
     /**
-     *本接口(DescribeZones)用于查询产品可用区信息，当前只支持cvm。
+     *本接口(DescribeZones)用于查询产品可用区信息。
      * @param req DescribeZonesRequest
      * @return DescribeZonesResponse
      * @throws TencentCloudSDKException

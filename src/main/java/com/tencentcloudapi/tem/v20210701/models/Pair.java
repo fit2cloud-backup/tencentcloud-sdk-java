@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class Pair extends AbstractModel{
 
     /**
-    * 建
+    * 键
     */
     @SerializedName("Key")
     @Expose
@@ -37,16 +37,40 @@ public class Pair extends AbstractModel{
     private String Value;
 
     /**
-     * Get 建 
-     * @return Key 建
+    * 类型，default 为自定义，reserved 为系统变量，referenced 为引用配置项
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Type")
+    @Expose
+    private String Type;
+
+    /**
+    * 配置名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Config")
+    @Expose
+    private String Config;
+
+    /**
+    * 加密配置名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Secret")
+    @Expose
+    private String Secret;
+
+    /**
+     * Get 键 
+     * @return Key 键
      */
     public String getKey() {
         return this.Key;
     }
 
     /**
-     * Set 建
-     * @param Key 建
+     * Set 键
+     * @param Key 键
      */
     public void setKey(String Key) {
         this.Key = Key;
@@ -68,6 +92,66 @@ public class Pair extends AbstractModel{
         this.Value = Value;
     }
 
+    /**
+     * Get 类型，default 为自定义，reserved 为系统变量，referenced 为引用配置项
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Type 类型，default 为自定义，reserved 为系统变量，referenced 为引用配置项
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getType() {
+        return this.Type;
+    }
+
+    /**
+     * Set 类型，default 为自定义，reserved 为系统变量，referenced 为引用配置项
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Type 类型，default 为自定义，reserved 为系统变量，referenced 为引用配置项
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setType(String Type) {
+        this.Type = Type;
+    }
+
+    /**
+     * Get 配置名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Config 配置名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getConfig() {
+        return this.Config;
+    }
+
+    /**
+     * Set 配置名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Config 配置名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setConfig(String Config) {
+        this.Config = Config;
+    }
+
+    /**
+     * Get 加密配置名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Secret 加密配置名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSecret() {
+        return this.Secret;
+    }
+
+    /**
+     * Set 加密配置名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Secret 加密配置名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSecret(String Secret) {
+        this.Secret = Secret;
+    }
+
     public Pair() {
     }
 
@@ -82,6 +166,15 @@ public class Pair extends AbstractModel{
         if (source.Value != null) {
             this.Value = new String(source.Value);
         }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.Config != null) {
+            this.Config = new String(source.Config);
+        }
+        if (source.Secret != null) {
+            this.Secret = new String(source.Secret);
+        }
     }
 
 
@@ -91,6 +184,9 @@ public class Pair extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Key", this.Key);
         this.setParamSimple(map, prefix + "Value", this.Value);
+        this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamSimple(map, prefix + "Config", this.Config);
+        this.setParamSimple(map, prefix + "Secret", this.Secret);
 
     }
 }

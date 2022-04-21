@@ -93,7 +93,7 @@ public class CreateTopicRequest extends AbstractModel{
     private Long UncleanLeaderElectionEnable;
 
     /**
-    * 可消息选。保留时间，单位ms，当前最小值为60000ms
+    * 可选参数。消息保留时间，单位ms，当前最小值为60000ms
     */
     @SerializedName("RetentionMs")
     @Expose
@@ -105,6 +105,13 @@ public class CreateTopicRequest extends AbstractModel{
     @SerializedName("SegmentMs")
     @Expose
     private Long SegmentMs;
+
+    /**
+    * 主题消息最大值，单位为 Byte，最小值1024Byte(即1KB)，最大值为8388608Byte（即8MB）。
+    */
+    @SerializedName("MaxMessageBytes")
+    @Expose
+    private Long MaxMessageBytes;
 
     /**
     * 预设ACL规则, 1:打开  0:关闭，默认不打开
@@ -126,6 +133,13 @@ public class CreateTopicRequest extends AbstractModel{
     @SerializedName("RetentionBytes")
     @Expose
     private Long RetentionBytes;
+
+    /**
+    * 标签列表
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
 
     /**
      * Get 实例Id 
@@ -288,16 +302,16 @@ public class CreateTopicRequest extends AbstractModel{
     }
 
     /**
-     * Get 可消息选。保留时间，单位ms，当前最小值为60000ms 
-     * @return RetentionMs 可消息选。保留时间，单位ms，当前最小值为60000ms
+     * Get 可选参数。消息保留时间，单位ms，当前最小值为60000ms 
+     * @return RetentionMs 可选参数。消息保留时间，单位ms，当前最小值为60000ms
      */
     public Long getRetentionMs() {
         return this.RetentionMs;
     }
 
     /**
-     * Set 可消息选。保留时间，单位ms，当前最小值为60000ms
-     * @param RetentionMs 可消息选。保留时间，单位ms，当前最小值为60000ms
+     * Set 可选参数。消息保留时间，单位ms，当前最小值为60000ms
+     * @param RetentionMs 可选参数。消息保留时间，单位ms，当前最小值为60000ms
      */
     public void setRetentionMs(Long RetentionMs) {
         this.RetentionMs = RetentionMs;
@@ -317,6 +331,22 @@ public class CreateTopicRequest extends AbstractModel{
      */
     public void setSegmentMs(Long SegmentMs) {
         this.SegmentMs = SegmentMs;
+    }
+
+    /**
+     * Get 主题消息最大值，单位为 Byte，最小值1024Byte(即1KB)，最大值为8388608Byte（即8MB）。 
+     * @return MaxMessageBytes 主题消息最大值，单位为 Byte，最小值1024Byte(即1KB)，最大值为8388608Byte（即8MB）。
+     */
+    public Long getMaxMessageBytes() {
+        return this.MaxMessageBytes;
+    }
+
+    /**
+     * Set 主题消息最大值，单位为 Byte，最小值1024Byte(即1KB)，最大值为8388608Byte（即8MB）。
+     * @param MaxMessageBytes 主题消息最大值，单位为 Byte，最小值1024Byte(即1KB)，最大值为8388608Byte（即8MB）。
+     */
+    public void setMaxMessageBytes(Long MaxMessageBytes) {
+        this.MaxMessageBytes = MaxMessageBytes;
     }
 
     /**
@@ -367,6 +397,22 @@ public class CreateTopicRequest extends AbstractModel{
         this.RetentionBytes = RetentionBytes;
     }
 
+    /**
+     * Get 标签列表 
+     * @return Tags 标签列表
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 标签列表
+     * @param Tags 标签列表
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
     public CreateTopicRequest() {
     }
 
@@ -414,6 +460,9 @@ public class CreateTopicRequest extends AbstractModel{
         if (source.SegmentMs != null) {
             this.SegmentMs = new Long(source.SegmentMs);
         }
+        if (source.MaxMessageBytes != null) {
+            this.MaxMessageBytes = new Long(source.MaxMessageBytes);
+        }
         if (source.EnableAclRule != null) {
             this.EnableAclRule = new Long(source.EnableAclRule);
         }
@@ -422,6 +471,12 @@ public class CreateTopicRequest extends AbstractModel{
         }
         if (source.RetentionBytes != null) {
             this.RetentionBytes = new Long(source.RetentionBytes);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
         }
     }
 
@@ -442,9 +497,11 @@ public class CreateTopicRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "UncleanLeaderElectionEnable", this.UncleanLeaderElectionEnable);
         this.setParamSimple(map, prefix + "RetentionMs", this.RetentionMs);
         this.setParamSimple(map, prefix + "SegmentMs", this.SegmentMs);
+        this.setParamSimple(map, prefix + "MaxMessageBytes", this.MaxMessageBytes);
         this.setParamSimple(map, prefix + "EnableAclRule", this.EnableAclRule);
         this.setParamSimple(map, prefix + "AclRuleName", this.AclRuleName);
         this.setParamSimple(map, prefix + "RetentionBytes", this.RetentionBytes);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

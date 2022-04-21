@@ -37,6 +37,13 @@ public class ModifyClusterParamRequest extends AbstractModel{
     private ParamItem [] ParamList;
 
     /**
+    * 维护期间执行-yes,立即执行-no
+    */
+    @SerializedName("IsInMaintainPeriod")
+    @Expose
+    private String IsInMaintainPeriod;
+
+    /**
      * Get 集群ID 
      * @return ClusterId 集群ID
      */
@@ -68,6 +75,22 @@ public class ModifyClusterParamRequest extends AbstractModel{
         this.ParamList = ParamList;
     }
 
+    /**
+     * Get 维护期间执行-yes,立即执行-no 
+     * @return IsInMaintainPeriod 维护期间执行-yes,立即执行-no
+     */
+    public String getIsInMaintainPeriod() {
+        return this.IsInMaintainPeriod;
+    }
+
+    /**
+     * Set 维护期间执行-yes,立即执行-no
+     * @param IsInMaintainPeriod 维护期间执行-yes,立即执行-no
+     */
+    public void setIsInMaintainPeriod(String IsInMaintainPeriod) {
+        this.IsInMaintainPeriod = IsInMaintainPeriod;
+    }
+
     public ModifyClusterParamRequest() {
     }
 
@@ -85,6 +108,9 @@ public class ModifyClusterParamRequest extends AbstractModel{
                 this.ParamList[i] = new ParamItem(source.ParamList[i]);
             }
         }
+        if (source.IsInMaintainPeriod != null) {
+            this.IsInMaintainPeriod = new String(source.IsInMaintainPeriod);
+        }
     }
 
 
@@ -94,6 +120,7 @@ public class ModifyClusterParamRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
         this.setParamArrayObj(map, prefix + "ParamList.", this.ParamList);
+        this.setParamSimple(map, prefix + "IsInMaintainPeriod", this.IsInMaintainPeriod);
 
     }
 }

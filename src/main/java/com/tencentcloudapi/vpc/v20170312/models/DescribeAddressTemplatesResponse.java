@@ -30,7 +30,7 @@ public class DescribeAddressTemplatesResponse extends AbstractModel{
     private Long TotalCount;
 
     /**
-    * IP地址模版。
+    * IP地址模板。
     */
     @SerializedName("AddressTemplateSet")
     @Expose
@@ -60,16 +60,16 @@ public class DescribeAddressTemplatesResponse extends AbstractModel{
     }
 
     /**
-     * Get IP地址模版。 
-     * @return AddressTemplateSet IP地址模版。
+     * Get IP地址模板。 
+     * @return AddressTemplateSet IP地址模板。
      */
     public AddressTemplate [] getAddressTemplateSet() {
         return this.AddressTemplateSet;
     }
 
     /**
-     * Set IP地址模版。
-     * @param AddressTemplateSet IP地址模版。
+     * Set IP地址模板。
+     * @param AddressTemplateSet IP地址模板。
      */
     public void setAddressTemplateSet(AddressTemplate [] AddressTemplateSet) {
         this.AddressTemplateSet = AddressTemplateSet;

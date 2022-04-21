@@ -156,6 +156,20 @@ public class CreateCloneInstanceRequest extends AbstractModel{
     private Boolean DryRun;
 
     /**
+    * 金融围拢 ID 。
+    */
+    @SerializedName("CageId")
+    @Expose
+    private String CageId;
+
+    /**
+    * 项目ID，默认项目ID0
+    */
+    @SerializedName("ProjectId")
+    @Expose
+    private Long ProjectId;
+
+    /**
      * Get 克隆源实例Id。 
      * @return InstanceId 克隆源实例Id。
      */
@@ -459,6 +473,38 @@ public class CreateCloneInstanceRequest extends AbstractModel{
         this.DryRun = DryRun;
     }
 
+    /**
+     * Get 金融围拢 ID 。 
+     * @return CageId 金融围拢 ID 。
+     */
+    public String getCageId() {
+        return this.CageId;
+    }
+
+    /**
+     * Set 金融围拢 ID 。
+     * @param CageId 金融围拢 ID 。
+     */
+    public void setCageId(String CageId) {
+        this.CageId = CageId;
+    }
+
+    /**
+     * Get 项目ID，默认项目ID0 
+     * @return ProjectId 项目ID，默认项目ID0
+     */
+    public Long getProjectId() {
+        return this.ProjectId;
+    }
+
+    /**
+     * Set 项目ID，默认项目ID0
+     * @param ProjectId 项目ID，默认项目ID0
+     */
+    public void setProjectId(Long ProjectId) {
+        this.ProjectId = ProjectId;
+    }
+
     public CreateCloneInstanceRequest() {
     }
 
@@ -530,6 +576,12 @@ public class CreateCloneInstanceRequest extends AbstractModel{
         if (source.DryRun != null) {
             this.DryRun = new Boolean(source.DryRun);
         }
+        if (source.CageId != null) {
+            this.CageId = new String(source.CageId);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
     }
 
 
@@ -556,6 +608,8 @@ public class CreateCloneInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "InstanceNodes", this.InstanceNodes);
         this.setParamSimple(map, prefix + "DeployGroupId", this.DeployGroupId);
         this.setParamSimple(map, prefix + "DryRun", this.DryRun);
+        this.setParamSimple(map, prefix + "CageId", this.CageId);
+        this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
 
     }
 }

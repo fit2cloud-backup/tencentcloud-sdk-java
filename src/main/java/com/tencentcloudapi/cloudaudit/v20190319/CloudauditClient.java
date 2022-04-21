@@ -63,6 +63,26 @@ public class CloudauditClient extends AbstractClient{
     }
 
     /**
+     *创建跟踪集
+     * @param req CreateAuditTrackRequest
+     * @return CreateAuditTrackResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateAuditTrackResponse CreateAuditTrack(CreateAuditTrackRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateAuditTrackResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateAuditTrackResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateAuditTrack");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *删除跟踪集
      * @param req DeleteAuditRequest
      * @return DeleteAuditResponse
@@ -83,6 +103,26 @@ public class CloudauditClient extends AbstractClient{
     }
 
     /**
+     *删除云审计跟踪集
+     * @param req DeleteAuditTrackRequest
+     * @return DeleteAuditTrackResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteAuditTrackResponse DeleteAuditTrack(DeleteAuditTrackRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteAuditTrackResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteAuditTrackResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteAuditTrack");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *查询跟踪集详情
      * @param req DescribeAuditRequest
      * @return DescribeAuditResponse
@@ -95,6 +135,26 @@ public class CloudauditClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeAuditResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeAudit");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询云审计跟踪集列表
+     * @param req DescribeAuditTracksRequest
+     * @return DescribeAuditTracksResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeAuditTracksResponse DescribeAuditTracks(DescribeAuditTracksRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeAuditTracksResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeAuditTracksResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeAuditTracks");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -255,6 +315,26 @@ public class CloudauditClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<LookUpEventsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "LookUpEvents");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改云审计跟踪
+     * @param req ModifyAuditTrackRequest
+     * @return ModifyAuditTrackResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyAuditTrackResponse ModifyAuditTrack(ModifyAuditTrackRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyAuditTrackResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyAuditTrackResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyAuditTrack");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

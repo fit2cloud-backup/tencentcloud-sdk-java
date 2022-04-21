@@ -180,6 +180,50 @@ public class Deal extends AbstractModel{
     private String PayMode;
 
     /**
+    * 交易类型
+modifyNetworkMode 调整带宽模式
+modifyNetworkSize 调整带宽大小
+refund 退款
+downgrade 降配
+upgrade 升配
+renew 续费
+purchase 购买
+preMoveOut 包年包月迁出资源
+preMoveIn 包年包月迁入资源
+preToPost 预付费转后付费
+postMoveOut 按量计费迁出资源
+postMoveIn 按量计费迁入资源
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Action")
+    @Expose
+    private String Action;
+
+    /**
+    * 产品编码中文名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ProductName")
+    @Expose
+    private String ProductName;
+
+    /**
+    * 子产品编码中文名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SubProductName")
+    @Expose
+    private String SubProductName;
+
+    /**
+    * 订单对应的资源id, 查询参数Limit超过200，将返回null
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ResourceId")
+    @Expose
+    private String [] ResourceId;
+
+    /**
      * Get 订单号 
      * @return OrderId 订单号
      */
@@ -543,6 +587,134 @@ public class Deal extends AbstractModel{
         this.PayMode = PayMode;
     }
 
+    /**
+     * Get 交易类型
+modifyNetworkMode 调整带宽模式
+modifyNetworkSize 调整带宽大小
+refund 退款
+downgrade 降配
+upgrade 升配
+renew 续费
+purchase 购买
+preMoveOut 包年包月迁出资源
+preMoveIn 包年包月迁入资源
+preToPost 预付费转后付费
+postMoveOut 按量计费迁出资源
+postMoveIn 按量计费迁入资源
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Action 交易类型
+modifyNetworkMode 调整带宽模式
+modifyNetworkSize 调整带宽大小
+refund 退款
+downgrade 降配
+upgrade 升配
+renew 续费
+purchase 购买
+preMoveOut 包年包月迁出资源
+preMoveIn 包年包月迁入资源
+preToPost 预付费转后付费
+postMoveOut 按量计费迁出资源
+postMoveIn 按量计费迁入资源
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAction() {
+        return this.Action;
+    }
+
+    /**
+     * Set 交易类型
+modifyNetworkMode 调整带宽模式
+modifyNetworkSize 调整带宽大小
+refund 退款
+downgrade 降配
+upgrade 升配
+renew 续费
+purchase 购买
+preMoveOut 包年包月迁出资源
+preMoveIn 包年包月迁入资源
+preToPost 预付费转后付费
+postMoveOut 按量计费迁出资源
+postMoveIn 按量计费迁入资源
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Action 交易类型
+modifyNetworkMode 调整带宽模式
+modifyNetworkSize 调整带宽大小
+refund 退款
+downgrade 降配
+upgrade 升配
+renew 续费
+purchase 购买
+preMoveOut 包年包月迁出资源
+preMoveIn 包年包月迁入资源
+preToPost 预付费转后付费
+postMoveOut 按量计费迁出资源
+postMoveIn 按量计费迁入资源
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAction(String Action) {
+        this.Action = Action;
+    }
+
+    /**
+     * Get 产品编码中文名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ProductName 产品编码中文名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getProductName() {
+        return this.ProductName;
+    }
+
+    /**
+     * Set 产品编码中文名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ProductName 产品编码中文名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setProductName(String ProductName) {
+        this.ProductName = ProductName;
+    }
+
+    /**
+     * Get 子产品编码中文名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SubProductName 子产品编码中文名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSubProductName() {
+        return this.SubProductName;
+    }
+
+    /**
+     * Set 子产品编码中文名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SubProductName 子产品编码中文名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSubProductName(String SubProductName) {
+        this.SubProductName = SubProductName;
+    }
+
+    /**
+     * Get 订单对应的资源id, 查询参数Limit超过200，将返回null
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ResourceId 订单对应的资源id, 查询参数Limit超过200，将返回null
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getResourceId() {
+        return this.ResourceId;
+    }
+
+    /**
+     * Set 订单对应的资源id, 查询参数Limit超过200，将返回null
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ResourceId 订单对应的资源id, 查询参数Limit超过200，将返回null
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setResourceId(String [] ResourceId) {
+        this.ResourceId = ResourceId;
+    }
+
     public Deal() {
     }
 
@@ -620,6 +792,21 @@ public class Deal extends AbstractModel{
         if (source.PayMode != null) {
             this.PayMode = new String(source.PayMode);
         }
+        if (source.Action != null) {
+            this.Action = new String(source.Action);
+        }
+        if (source.ProductName != null) {
+            this.ProductName = new String(source.ProductName);
+        }
+        if (source.SubProductName != null) {
+            this.SubProductName = new String(source.SubProductName);
+        }
+        if (source.ResourceId != null) {
+            this.ResourceId = new String[source.ResourceId.length];
+            for (int i = 0; i < source.ResourceId.length; i++) {
+                this.ResourceId[i] = new String(source.ResourceId[i]);
+            }
+        }
     }
 
 
@@ -649,6 +836,10 @@ public class Deal extends AbstractModel{
         this.setParamSimple(map, prefix + "Formula", this.Formula);
         this.setParamSimple(map, prefix + "RefReturnDeals", this.RefReturnDeals);
         this.setParamSimple(map, prefix + "PayMode", this.PayMode);
+        this.setParamSimple(map, prefix + "Action", this.Action);
+        this.setParamSimple(map, prefix + "ProductName", this.ProductName);
+        this.setParamSimple(map, prefix + "SubProductName", this.SubProductName);
+        this.setParamArraySimple(map, prefix + "ResourceId.", this.ResourceId);
 
     }
 }
