@@ -228,15 +228,14 @@ public class LiveClient extends AbstractClient{
     }
 
     /**
-     *创建直播拉流任务。支持将外部已有的点播文件，或者直播源拉取过来转推到直播系统。
+     *创建直播拉流任务。支持将外部已有的点播文件，或者直播源拉取过来转推到指定的目标地址。
 注意：
 1. 默认支持任务数上限20个，如有特殊需求，可通过提单到售后进行评估增加上限。
-2. 目前仅支持推流到腾讯云直播，暂不支持推到第三方。
-3. 源流视频编码目前只支持: H264, H265。其他编码格式建议先进行转码处理。
-4. 源流音频编码目前只支持: AAC。其他编码格式建议先进行转码处理。
-5. 过期不用的任务需自行清理，未清理的过期任务也会占用上限额度，如需要自动清理过期任务，可提单给售后进行配置。
-6. 拉流转推功能为计费增值服务，计费规则详情可参见[计费文档](https://cloud.tencent.com/document/product/267/53308)。
-7. 拉流转推功能仅提供内容拉取与推送服务，请确保内容已获得授权并符合内容传播相关的法律法规。若内容有侵权或违规相关问题，云直播会停止相关的功能服务并保留追究法律责任的权利。
+2. 源流视频编码目前只支持: H264, H265。其他编码格式建议先进行转码处理。
+3. 源流音频编码目前只支持: AAC。其他编码格式建议先进行转码处理。
+4. 可在控制台开启过期自动清理，避免过期任务占用任务数额度。
+5. 拉流转推功能为计费增值服务，计费规则详情可参见[计费文档](https://cloud.tencent.com/document/product/267/53308)。
+6. 拉流转推功能仅提供内容拉取与推送服务，请确保内容已获得授权并符合内容传播相关的法律法规。若内容有侵权或违规相关问题，云直播会停止相关的功能服务并保留追究法律责任的权利。
      * @param req CreateLivePullStreamTaskRequest
      * @return CreateLivePullStreamTaskResponse
      * @throws TencentCloudSDKException
@@ -397,7 +396,7 @@ public class LiveClient extends AbstractClient{
     }
 
     /**
-     *创建转码模板，成功返回模板id后，需要调用[CreateLiveTranscodeRule](/document/product/267/32647)接口，将返回的模板id绑定到流使用。
+     *创建转码模板，数量上限：50，成功返回模板id后，需要调用[CreateLiveTranscodeRule](/document/product/267/32647)接口，将返回的模板id绑定到流使用。
 <br>转码相关文档：[直播转封装及转码](/document/product/267/32736)。
      * @param req CreateLiveTranscodeTemplateRequest
      * @return CreateLiveTranscodeTemplateResponse
@@ -470,7 +469,7 @@ public class LiveClient extends AbstractClient{
 1. 断流会结束当前录制并生成录制文件。在结束时间到达之前任务仍然有效，期间只要正常推流都会正常录制，与是否多次推、断流无关。
 2. 使用上避免创建时间段相互重叠的录制任务。若同一条流当前存在多个时段重叠的任务，为避免重复录制系统将启动最多3个录制任务。
 3. 创建的录制任务记录在平台侧只保留3个月。
-4. 当前录制任务管理API（CreateRecordTask/StopRecordTask/DeleteRecordTask）与旧API（CreateLiveRecord/StopLiveRecord/DeleteLiveRecord）不兼容，两套接口不能混用。
+4. 当前录制任务管理API（[CreateRecordTask](https://cloud.tencent.com/document/product/267/45983)/[StopRecordTask](https://cloud.tencent.com/document/product/267/45981)/[DeleteRecordTask](https://cloud.tencent.com/document/product/267/45982)）与旧API（CreateLiveRecord/StopLiveRecord/DeleteLiveRecord）不兼容，两套接口不能混用。
 5. 避免 创建录制任务 与 推流 操作同时进行，可能导致因录制任务未生效而引起任务延迟启动问题，两者操作间隔建议大于3秒。
      * @param req CreateRecordTaskRequest
      * @return CreateRecordTaskResponse
@@ -881,7 +880,7 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
     }
 
     /**
-     *海外分区直播计费带宽和流量数据查询。
+     *海外分区直播播放带宽和流量数据查询。
      * @param req DescribeAreaBillBandwidthAndFluxListRequest
      * @return DescribeAreaBillBandwidthAndFluxListResponse
      * @throws TencentCloudSDKException
@@ -901,7 +900,7 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
     }
 
     /**
-     *直播计费带宽和流量数据查询。
+     *直播播放带宽和流量数据查询。
      * @param req DescribeBillBandwidthAndFluxListRequest
      * @return DescribeBillBandwidthAndFluxListResponse
      * @throws TencentCloudSDKException
@@ -1585,6 +1584,26 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
     }
 
     /**
+     *提供给客户对账，按天统计，维度：推流域名、时移文件时长（累加）、配置天数（不累加）、时移总时长（累加）。
+     * @param req DescribeLiveTimeShiftBillInfoListRequest
+     * @return DescribeLiveTimeShiftBillInfoListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeLiveTimeShiftBillInfoListResponse DescribeLiveTimeShiftBillInfoList(DescribeLiveTimeShiftBillInfoListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeLiveTimeShiftBillInfoListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeLiveTimeShiftBillInfoListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeLiveTimeShiftBillInfoList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *支持查询某天或某段时间的转码详细信息。
      * @param req DescribeLiveTranscodeDetailInfoRequest
      * @return DescribeLiveTranscodeDetailInfoResponse
@@ -2080,6 +2099,7 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
 
     /**
      *断开推流连接，但可以重新推流。
+注：对已经不活跃的流，调用该断流接口时，接口返回成功。
      * @param req DropLiveStreamRequest
      * @return DropLiveStreamResponse
      * @throws TencentCloudSDKException

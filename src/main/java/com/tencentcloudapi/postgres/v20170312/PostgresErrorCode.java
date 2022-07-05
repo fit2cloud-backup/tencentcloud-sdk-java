@@ -15,6 +15,9 @@ public enum PostgresErrorCode {
     // 操作失败。
      FAILEDOPERATION("FailedOperation"),
      
+    // 申请资源标签的配额失败。
+     FAILEDOPERATION_ALLOCATEQUOTASERROR("FailedOperation.AllocateQuotasError"),
+     
     // 访问基础网络服务失败，请稍后重试。如果持续不成功，请联系客服进行处理。
      FAILEDOPERATION_BASENETWORKACCESSERROR("FailedOperation.BaseNetworkAccessError"),
      
@@ -44,6 +47,9 @@ public enum PostgresErrorCode {
      
     // 管控元数据库访问失败，请稍后重试。如果持续不成功，请联系客服进行处理。
      FAILEDOPERATION_DATABASEACCESSERROR("FailedOperation.DatabaseAccessError"),
+     
+    // 数据操作失败，请联系客服进行处理。
+     FAILEDOPERATION_DATABASEAFFECTEDERROR("FailedOperation.DatabaseAffectedError"),
      
     // VPC删除路由失败。
      FAILEDOPERATION_DELETEALLROUTE("FailedOperation.DeleteAllRoute"),
@@ -95,6 +101,12 @@ public enum PostgresErrorCode {
      
     // 修改只读组配置失败。
      FAILEDOPERATION_MODIFYROGROUPERROR("FailedOperation.ModifyROGroupError"),
+     
+    // 不符合资源所拥有的网络数量要求。
+     FAILEDOPERATION_NETWORKNUMLIMITERROR("FailedOperation.NetworkNumLimitError"),
+     
+    // 操作超过频率限制，请稍后重试。如果持续不成功，请联系客服进行处理。
+     FAILEDOPERATION_OPERATEFREQUENCYLIMITEDERROR("FailedOperation.OperateFrequencyLimitedError"),
      
     // 访问管控服务失败，请稍后重试。如果持续不成功，请联系客服进行处理。
      FAILEDOPERATION_OSSACCESSERROR("FailedOperation.OssAccessError"),
@@ -149,6 +161,9 @@ public enum PostgresErrorCode {
      
     // 只读实例已在其他只读组。
      FAILEDOPERATION_ROINSTANCEHASINROGROUPERROR("FailedOperation.ROInstanceHasInROGroupError"),
+     
+    // Serverless实例不支持此操作。
+     FAILEDOPERATION_SERVERLESSNOTSUPPORTEDERROR("FailedOperation.ServerlessNotSupportedError"),
      
     // 访问内部服务失败，请稍后重试。如果持续不成功，请联系客服进行处理。
      FAILEDOPERATION_SERVICEACCESSERROR("FailedOperation.ServiceAccessError"),
@@ -216,6 +231,12 @@ public enum PostgresErrorCode {
     // 管控系统元数据访问异常，请联系客服处理。
      INTERNALERROR_INSTANCEDATAERROR("InternalError.InstanceDataError"),
      
+    // 请求执行异常。
+     INTERNALERROR_INTERNALHTTPSERVERERROR("InternalError.InternalHttpServerError"),
+     
+    // 后台数据解析失败，请联系客服进行处理。
+     INTERNALERROR_MARSHALERROR("InternalError.MarshalError"),
+     
     // 系统错误。出现这种错误时，请联系客服支持。
      INTERNALERROR_SYSTEMERROR("InternalError.SystemError"),
      
@@ -233,9 +254,6 @@ public enum PostgresErrorCode {
      
     // 实例状态错误。
      INVALIDINSTANCESTATUS("InvalidInstanceStatus"),
-     
-    // 计费相关错误，订单类型ID无效。
-     INVALIDORDERNUM("InvalidOrderNum"),
      
     // 参数错误。
      INVALIDPARAMETER("InvalidParameter"),
@@ -378,12 +396,6 @@ public enum PostgresErrorCode {
     // PID参数输入错误。
      INVALIDPID("InvalidPid"),
      
-    // 计费相关错误，不允许对当前实例进行对应的新购/续费/配置变更操作。
-     INVALIDTRADEOPERATE("InvalidTradeOperate"),
-     
-    // 计费相关错误，输入的代金券无效。
-     INVALIDVOUCHERID("InvalidVoucherId"),
-     
     // 超过配额限制。
      LIMITEXCEEDED("LimitExceeded"),
      
@@ -401,6 +413,9 @@ public enum PostgresErrorCode {
      
     // 您没有权限操作当前资源。
      OPERATIONDENIED_INSTANCEACCESSDENIEDERROR("OperationDenied.InstanceAccessDeniedError"),
+     
+    // 不支持ipv6。
+     OPERATIONDENIED_INSTANCEIPV6NOTSUPPORTEDERROR("OperationDenied.InstanceIpv6NotSupportedError"),
      
     // 实例状态限制当前操作。
      OPERATIONDENIED_INSTANCESTATUSDENIEDERROR("OperationDenied.InstanceStatusDeniedError"),
@@ -423,6 +438,12 @@ public enum PostgresErrorCode {
     // 只读组状态限制当前操作。
      OPERATIONDENIED_ROGROUPSTATUSERROR("OperationDenied.ROGroupStatusError"),
      
+    // 只读实例不支持ipv6。
+     OPERATIONDENIED_ROINSTANCEIPV6NOTSUPPORTEDERROR("OperationDenied.ROInstanceIpv6NotSupportedError"),
+     
+    // 只读实例状态限制当前操作。
+     OPERATIONDENIED_ROINSTANCESTATUSLIMITOPERROR("OperationDenied.ROInstanceStatusLimitOpError"),
+     
     // 只读节点总数不能超过上限值。
      OPERATIONDENIED_ROINSTANCECOUNTEXEEDERROR("OperationDenied.RoInstanceCountExeedError"),
      
@@ -443,9 +464,6 @@ public enum PostgresErrorCode {
      
     // 当前地域购买此规格的实例没有足够的资源。
      RESOURCEINSUFFICIENT_RESOURCENOTENOUGH("ResourceInsufficient.ResourceNotEnough"),
-     
-    // 资源不存在。
-     RESOURCENOTFOUND("ResourceNotFound"),
      
     // 实例不存在。
      RESOURCENOTFOUND_INSTANCENOTFOUNDERROR("ResourceNotFound.InstanceNotFoundError"),
@@ -473,6 +491,9 @@ public enum PostgresErrorCode {
      
     // 未知参数错误。
      UNKNOWNPARAMETER("UnknownParameter"),
+     
+    // 操作不支持。
+     UNSUPPORTEDOPERATION("UnsupportedOperation"),
      
     // VPC相关错误。
      VPCERROR("VpcError");

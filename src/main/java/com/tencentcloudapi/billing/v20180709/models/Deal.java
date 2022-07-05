@@ -200,6 +200,30 @@ postMoveIn 按量计费迁入资源
     private String Action;
 
     /**
+    * 产品编码中文名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ProductName")
+    @Expose
+    private String ProductName;
+
+    /**
+    * 子产品编码中文名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SubProductName")
+    @Expose
+    private String SubProductName;
+
+    /**
+    * 订单对应的资源id, 查询参数Limit超过200，将返回null
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ResourceId")
+    @Expose
+    private String [] ResourceId;
+
+    /**
      * Get 订单号 
      * @return OrderId 订单号
      */
@@ -631,6 +655,66 @@ postMoveIn 按量计费迁入资源
         this.Action = Action;
     }
 
+    /**
+     * Get 产品编码中文名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ProductName 产品编码中文名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getProductName() {
+        return this.ProductName;
+    }
+
+    /**
+     * Set 产品编码中文名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ProductName 产品编码中文名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setProductName(String ProductName) {
+        this.ProductName = ProductName;
+    }
+
+    /**
+     * Get 子产品编码中文名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SubProductName 子产品编码中文名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSubProductName() {
+        return this.SubProductName;
+    }
+
+    /**
+     * Set 子产品编码中文名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SubProductName 子产品编码中文名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSubProductName(String SubProductName) {
+        this.SubProductName = SubProductName;
+    }
+
+    /**
+     * Get 订单对应的资源id, 查询参数Limit超过200，将返回null
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ResourceId 订单对应的资源id, 查询参数Limit超过200，将返回null
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getResourceId() {
+        return this.ResourceId;
+    }
+
+    /**
+     * Set 订单对应的资源id, 查询参数Limit超过200，将返回null
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ResourceId 订单对应的资源id, 查询参数Limit超过200，将返回null
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setResourceId(String [] ResourceId) {
+        this.ResourceId = ResourceId;
+    }
+
     public Deal() {
     }
 
@@ -711,6 +795,18 @@ postMoveIn 按量计费迁入资源
         if (source.Action != null) {
             this.Action = new String(source.Action);
         }
+        if (source.ProductName != null) {
+            this.ProductName = new String(source.ProductName);
+        }
+        if (source.SubProductName != null) {
+            this.SubProductName = new String(source.SubProductName);
+        }
+        if (source.ResourceId != null) {
+            this.ResourceId = new String[source.ResourceId.length];
+            for (int i = 0; i < source.ResourceId.length; i++) {
+                this.ResourceId[i] = new String(source.ResourceId[i]);
+            }
+        }
     }
 
 
@@ -741,6 +837,9 @@ postMoveIn 按量计费迁入资源
         this.setParamSimple(map, prefix + "RefReturnDeals", this.RefReturnDeals);
         this.setParamSimple(map, prefix + "PayMode", this.PayMode);
         this.setParamSimple(map, prefix + "Action", this.Action);
+        this.setParamSimple(map, prefix + "ProductName", this.ProductName);
+        this.setParamSimple(map, prefix + "SubProductName", this.SubProductName);
+        this.setParamArraySimple(map, prefix + "ResourceId.", this.ResourceId);
 
     }
 }

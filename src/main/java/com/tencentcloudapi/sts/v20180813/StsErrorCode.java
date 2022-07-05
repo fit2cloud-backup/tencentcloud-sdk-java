@@ -66,11 +66,17 @@ public enum StsErrorCode {
     // 临时Code无效。
      INVALIDPARAMETER_TEMPCODENOTAVALIABLE("InvalidParameter.TempCodeNotAvaliable"),
      
+    // WebIdentityToken参数错误。
+     INVALIDPARAMETER_WEBIDENTITYTOKENERROR("InvalidParameter.WebIdentityTokenError"),
+     
     // 账号对应的角色不存在。
      RESOURCENOTFOUND_ROLENOTFOUND("ResourceNotFound.RoleNotFound"),
      
     // 未授权操作。
-     UNAUTHORIZEDOPERATION("UnauthorizedOperation");
+     UNAUTHORIZEDOPERATION("UnauthorizedOperation"),
+     
+    // 操作不支持。
+     UNSUPPORTEDOPERATION("UnsupportedOperation");
      
     private String value;
     private StsErrorCode (String value){

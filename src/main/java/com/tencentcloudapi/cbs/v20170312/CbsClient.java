@@ -183,6 +183,7 @@ public class CbsClient extends AbstractClient{
 
 * 只有具有快照能力的云硬盘才能创建快照。云硬盘是否具有快照能力可由[DescribeDisks](/document/product/362/16315)接口查询，见SnapshotAbility字段。
 * 可创建快照数量限制见[产品使用限制](https://cloud.tencent.com/doc/product/362/5145)。
+* 当前支持将备份点转化为普通快照，转化之后可能会收取快照使用费用，备份点不保留，其占用的备份点配额也将被释放。
      * @param req CreateSnapshotRequest
      * @return CreateSnapshotResponse
      * @throws TencentCloudSDKException
@@ -833,7 +834,7 @@ public class CbsClient extends AbstractClient{
 
 * 不再使用的云盘，可通过本接口主动退还。
 * 本接口支持退还预付费云盘和按小时后付费云盘。按小时后付费云盘可直接退还，预付费云盘需符合退还规则。
-* 支持批量操作，每次请求批量云硬盘的上限为50。如果批量云盘存在不允许操作的，请求会以特定错误码返回。
+* 支持批量操作，每次请求批量云硬盘的上限为100。如果批量云盘存在不允许操作的，请求会以特定错误码返回。
      * @param req TerminateDisksRequest
      * @return TerminateDisksResponse
      * @throws TencentCloudSDKException

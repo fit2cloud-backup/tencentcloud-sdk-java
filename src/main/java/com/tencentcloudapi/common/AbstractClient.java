@@ -61,7 +61,7 @@ import com.google.gson.JsonSyntaxException;
 public abstract class AbstractClient {
 
   public static final int HTTP_RSP_OK = 200;
-  public static final String SDK_VERSION = "SDK_JAVA_3.1.459";
+  public static final String SDK_VERSION = "SDK_JAVA_3.1.544";
 
   private Credential credential;
   private ClientProfile profile;
@@ -382,7 +382,7 @@ public abstract class AbstractClient {
       log.info(msg);
       throw new TencentCloudSDKException(msg, "", e.getClass().getName());
     }
-    if (errResp !=null  && errResp.response != null && errResp.response.error != null) {
+    if (errResp.response.error != null) {
       throw new TencentCloudSDKException(
           errResp.response.error.message,
           errResp.response.requestId,

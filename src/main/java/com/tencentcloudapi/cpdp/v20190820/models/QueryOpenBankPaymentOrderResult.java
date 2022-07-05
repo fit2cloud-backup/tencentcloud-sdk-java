@@ -51,9 +51,9 @@ public class QueryOpenBankPaymentOrderResult extends AbstractModel{
     private String ThirdPayOrderId;
 
     /**
-    * INIT：初始化
+    * 订单状态。
+INIT：初始化
 PAYING：支付中
-DEDUCTED：扣款成功
 ACCEPTED：支付受理成功
 SUCCESS：支付成功
 CLOSED：关单
@@ -119,12 +119,36 @@ OPENBANK_PAYMENT
     private OpenBankRedirectInfo RedirectInfo;
 
     /**
-    * 第三方渠道返回信息，见渠道特殊说明
+    * 第三方渠道返回信息，见渠道特殊说明,详情见附录-复杂类型。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExternalReturnData")
     @Expose
     private String ExternalReturnData;
+
+    /**
+    * 银行复核指引。当TENPAY下OPENBANT_PAYMENT时，下单受理成功是返回。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("BankApprovalGuideInfo")
+    @Expose
+    private OpenBankApprovalGuideInfo BankApprovalGuideInfo;
+
+    /**
+    * 手续费金额
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FeeAmount")
+    @Expose
+    private Long FeeAmount;
+
+    /**
+    * 手续费费率
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FeeRate")
+    @Expose
+    private Long FeeRate;
 
     /**
      * Get 渠道商户号。外部接入平台入驻云企付平台下发 
@@ -191,17 +215,17 @@ OPENBANK_PAYMENT
     }
 
     /**
-     * Get INIT：初始化
+     * Get 订单状态。
+INIT：初始化
 PAYING：支付中
-DEDUCTED：扣款成功
 ACCEPTED：支付受理成功
 SUCCESS：支付成功
 CLOSED：关单
 PAY_FAIL：支付失败
 REVOKE：退票 
-     * @return OrderStatus INIT：初始化
+     * @return OrderStatus 订单状态。
+INIT：初始化
 PAYING：支付中
-DEDUCTED：扣款成功
 ACCEPTED：支付受理成功
 SUCCESS：支付成功
 CLOSED：关单
@@ -213,17 +237,17 @@ REVOKE：退票
     }
 
     /**
-     * Set INIT：初始化
+     * Set 订单状态。
+INIT：初始化
 PAYING：支付中
-DEDUCTED：扣款成功
 ACCEPTED：支付受理成功
 SUCCESS：支付成功
 CLOSED：关单
 PAY_FAIL：支付失败
 REVOKE：退票
-     * @param OrderStatus INIT：初始化
+     * @param OrderStatus 订单状态。
+INIT：初始化
 PAYING：支付中
-DEDUCTED：扣款成功
 ACCEPTED：支付受理成功
 SUCCESS：支付成功
 CLOSED：关单
@@ -367,9 +391,9 @@ OPENBANK_PAYMENT
     }
 
     /**
-     * Get 第三方渠道返回信息，见渠道特殊说明
+     * Get 第三方渠道返回信息，见渠道特殊说明,详情见附录-复杂类型。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ExternalReturnData 第三方渠道返回信息，见渠道特殊说明
+     * @return ExternalReturnData 第三方渠道返回信息，见渠道特殊说明,详情见附录-复杂类型。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getExternalReturnData() {
@@ -377,13 +401,73 @@ OPENBANK_PAYMENT
     }
 
     /**
-     * Set 第三方渠道返回信息，见渠道特殊说明
+     * Set 第三方渠道返回信息，见渠道特殊说明,详情见附录-复杂类型。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ExternalReturnData 第三方渠道返回信息，见渠道特殊说明
+     * @param ExternalReturnData 第三方渠道返回信息，见渠道特殊说明,详情见附录-复杂类型。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExternalReturnData(String ExternalReturnData) {
         this.ExternalReturnData = ExternalReturnData;
+    }
+
+    /**
+     * Get 银行复核指引。当TENPAY下OPENBANT_PAYMENT时，下单受理成功是返回。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return BankApprovalGuideInfo 银行复核指引。当TENPAY下OPENBANT_PAYMENT时，下单受理成功是返回。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public OpenBankApprovalGuideInfo getBankApprovalGuideInfo() {
+        return this.BankApprovalGuideInfo;
+    }
+
+    /**
+     * Set 银行复核指引。当TENPAY下OPENBANT_PAYMENT时，下单受理成功是返回。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param BankApprovalGuideInfo 银行复核指引。当TENPAY下OPENBANT_PAYMENT时，下单受理成功是返回。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBankApprovalGuideInfo(OpenBankApprovalGuideInfo BankApprovalGuideInfo) {
+        this.BankApprovalGuideInfo = BankApprovalGuideInfo;
+    }
+
+    /**
+     * Get 手续费金额
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FeeAmount 手续费金额
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getFeeAmount() {
+        return this.FeeAmount;
+    }
+
+    /**
+     * Set 手续费金额
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FeeAmount 手续费金额
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFeeAmount(Long FeeAmount) {
+        this.FeeAmount = FeeAmount;
+    }
+
+    /**
+     * Get 手续费费率
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FeeRate 手续费费率
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getFeeRate() {
+        return this.FeeRate;
+    }
+
+    /**
+     * Set 手续费费率
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FeeRate 手续费费率
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFeeRate(Long FeeRate) {
+        this.FeeRate = FeeRate;
     }
 
     public QueryOpenBankPaymentOrderResult() {
@@ -433,6 +517,15 @@ OPENBANK_PAYMENT
         if (source.ExternalReturnData != null) {
             this.ExternalReturnData = new String(source.ExternalReturnData);
         }
+        if (source.BankApprovalGuideInfo != null) {
+            this.BankApprovalGuideInfo = new OpenBankApprovalGuideInfo(source.BankApprovalGuideInfo);
+        }
+        if (source.FeeAmount != null) {
+            this.FeeAmount = new Long(source.FeeAmount);
+        }
+        if (source.FeeRate != null) {
+            this.FeeRate = new Long(source.FeeRate);
+        }
     }
 
 
@@ -453,6 +546,9 @@ OPENBANK_PAYMENT
         this.setParamSimple(map, prefix + "Attachment", this.Attachment);
         this.setParamObj(map, prefix + "RedirectInfo.", this.RedirectInfo);
         this.setParamSimple(map, prefix + "ExternalReturnData", this.ExternalReturnData);
+        this.setParamObj(map, prefix + "BankApprovalGuideInfo.", this.BankApprovalGuideInfo);
+        this.setParamSimple(map, prefix + "FeeAmount", this.FeeAmount);
+        this.setParamSimple(map, prefix + "FeeRate", this.FeeRate);
 
     }
 }

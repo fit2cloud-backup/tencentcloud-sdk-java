@@ -135,6 +135,20 @@ public class CreateJobConfigRequest extends AbstractModel{
     private String PythonVersion;
 
     /**
+    * 工作空间 SerialId
+    */
+    @SerializedName("WorkSpaceId")
+    @Expose
+    private String WorkSpaceId;
+
+    /**
+    * 日志级别
+    */
+    @SerializedName("LogLevel")
+    @Expose
+    private String LogLevel;
+
+    /**
      * Get 作业Id 
      * @return JobId 作业Id
      */
@@ -390,6 +404,38 @@ public class CreateJobConfigRequest extends AbstractModel{
         this.PythonVersion = PythonVersion;
     }
 
+    /**
+     * Get 工作空间 SerialId 
+     * @return WorkSpaceId 工作空间 SerialId
+     */
+    public String getWorkSpaceId() {
+        return this.WorkSpaceId;
+    }
+
+    /**
+     * Set 工作空间 SerialId
+     * @param WorkSpaceId 工作空间 SerialId
+     */
+    public void setWorkSpaceId(String WorkSpaceId) {
+        this.WorkSpaceId = WorkSpaceId;
+    }
+
+    /**
+     * Get 日志级别 
+     * @return LogLevel 日志级别
+     */
+    public String getLogLevel() {
+        return this.LogLevel;
+    }
+
+    /**
+     * Set 日志级别
+     * @param LogLevel 日志级别
+     */
+    public void setLogLevel(String LogLevel) {
+        this.LogLevel = LogLevel;
+    }
+
     public CreateJobConfigRequest() {
     }
 
@@ -452,6 +498,12 @@ public class CreateJobConfigRequest extends AbstractModel{
         if (source.PythonVersion != null) {
             this.PythonVersion = new String(source.PythonVersion);
         }
+        if (source.WorkSpaceId != null) {
+            this.WorkSpaceId = new String(source.WorkSpaceId);
+        }
+        if (source.LogLevel != null) {
+            this.LogLevel = new String(source.LogLevel);
+        }
     }
 
 
@@ -475,6 +527,8 @@ public class CreateJobConfigRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ClsTopicId", this.ClsTopicId);
         this.setParamSimple(map, prefix + "LogCollectType", this.LogCollectType);
         this.setParamSimple(map, prefix + "PythonVersion", this.PythonVersion);
+        this.setParamSimple(map, prefix + "WorkSpaceId", this.WorkSpaceId);
+        this.setParamSimple(map, prefix + "LogLevel", this.LogLevel);
 
     }
 }

@@ -39,6 +39,27 @@ public class EmrClient extends AbstractClient{
     }
 
     /**
+     *该接口支持安装了OpenLdap组件的集群。
+新增用户列表（用户管理）。
+     * @param req AddUsersForUserManagerRequest
+     * @return AddUsersForUserManagerResponse
+     * @throws TencentCloudSDKException
+     */
+    public AddUsersForUserManagerResponse AddUsersForUserManager(AddUsersForUserManagerRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<AddUsersForUserManagerResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<AddUsersForUserManagerResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "AddUsersForUserManager");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *创建EMR集群实例
      * @param req CreateInstanceRequest
      * @return CreateInstanceResponse
@@ -139,6 +160,26 @@ public class EmrClient extends AbstractClient{
     }
 
     /**
+     *EMR集群实例列表查询
+     * @param req DescribeInstancesListRequest
+     * @return DescribeInstancesListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeInstancesListResponse DescribeInstancesList(DescribeInstancesListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeInstancesListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeInstancesListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeInstancesList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *查询流程任务
      * @param req DescribeJobFlowRequest
      * @return DescribeJobFlowResponse
@@ -151,6 +192,47 @@ public class EmrClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeJobFlowResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeJobFlow");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取yarn资源调度页面的数据
+     * @param req DescribeResourceScheduleRequest
+     * @return DescribeResourceScheduleResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeResourceScheduleResponse DescribeResourceSchedule(DescribeResourceScheduleRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeResourceScheduleResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeResourceScheduleResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeResourceSchedule");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *该接口支持安装了OpenLdap组件的集群。
+批量导出用户。对于kerberos集群，如果需要kertab文件下载地址，可以将NeedKeytabInfo设置为true；注意SupportDownLoadKeyTab为true，但是DownLoadKeyTabUrl为空字符串，表示keytab文件在后台没有准备好（正在生成）。
+     * @param req DescribeUsersForUserManagerRequest
+     * @return DescribeUsersForUserManagerResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeUsersForUserManagerResponse DescribeUsersForUserManager(DescribeUsersForUserManagerRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeUsersForUserManagerResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeUsersForUserManagerResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeUsersForUserManager");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -251,6 +333,66 @@ public class EmrClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<InquiryPriceUpdateInstanceResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "InquiryPriceUpdateInstance");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *刷新动态资源池
+     * @param req ModifyResourcePoolsRequest
+     * @return ModifyResourcePoolsResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyResourcePoolsResponse ModifyResourcePools(ModifyResourcePoolsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyResourcePoolsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyResourcePoolsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyResourcePools");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改yarn资源调度的资源配置
+     * @param req ModifyResourceScheduleConfigRequest
+     * @return ModifyResourceScheduleConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyResourceScheduleConfigResponse ModifyResourceScheduleConfig(ModifyResourceScheduleConfigRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyResourceScheduleConfigResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyResourceScheduleConfigResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyResourceScheduleConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改了yarn的资源调度器，点击部署生效
+     * @param req ModifyResourceSchedulerRequest
+     * @return ModifyResourceSchedulerResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyResourceSchedulerResponse ModifyResourceScheduler(ModifyResourceSchedulerRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyResourceSchedulerResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyResourceSchedulerResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyResourceScheduler");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

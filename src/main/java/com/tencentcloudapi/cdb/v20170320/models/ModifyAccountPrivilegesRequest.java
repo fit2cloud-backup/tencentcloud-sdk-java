@@ -37,8 +37,8 @@ public class ModifyAccountPrivilegesRequest extends AbstractModel{
     private Account [] Accounts;
 
     /**
-    * 全局权限。其中，GlobalPrivileges 中权限的可选值为："SELECT","INSERT","UPDATE","DELETE","CREATE", "PROCESS", "DROP","REFERENCES","INDEX","ALTER","SHOW DATABASES","CREATE TEMPORARY TABLES","LOCK TABLES","EXECUTE","CREATE VIEW","SHOW VIEW","CREATE ROUTINE","ALTER ROUTINE","EVENT","TRIGGER","CREATE USER","RELOAD","REPLICATION CLIENT","REPLICATION SLAVE","UPDATE"。
-注意，不传该参数表示清除该权限。
+    * 全局权限。其中，GlobalPrivileges 中权限的可选值为："SELECT","INSERT","UPDATE","DELETE","CREATE", "PROCESS", "DROP","REFERENCES","INDEX","ALTER","SHOW DATABASES","CREATE TEMPORARY TABLES","LOCK TABLES","EXECUTE","CREATE VIEW","SHOW VIEW","CREATE ROUTINE","ALTER ROUTINE","EVENT","TRIGGER","CREATE USER","RELOAD","REPLICATION CLIENT","REPLICATION SLAVE"。
+注意，ModifyAction为空时，不传该参数表示清除该权限。
     */
     @SerializedName("GlobalPrivileges")
     @Expose
@@ -46,7 +46,7 @@ public class ModifyAccountPrivilegesRequest extends AbstractModel{
 
     /**
     * 数据库的权限。Privileges 权限的可选值为："SELECT","INSERT","UPDATE","DELETE","CREATE",	"DROP","REFERENCES","INDEX","ALTER","CREATE TEMPORARY TABLES","LOCK TABLES","EXECUTE","CREATE VIEW","SHOW VIEW","CREATE ROUTINE","ALTER ROUTINE","EVENT","TRIGGER"。
-注意，不传该参数表示清除该权限。
+注意，ModifyAction为空时，不传该参数表示清除该权限。
     */
     @SerializedName("DatabasePrivileges")
     @Expose
@@ -54,7 +54,7 @@ public class ModifyAccountPrivilegesRequest extends AbstractModel{
 
     /**
     * 数据库中表的权限。Privileges 权限的可选值为：权限的可选值为："SELECT","INSERT","UPDATE","DELETE","CREATE",	"DROP","REFERENCES","INDEX","ALTER","CREATE VIEW","SHOW VIEW", "TRIGGER"。
-注意，不传该参数表示清除该权限。
+注意，ModifyAction为空时，不传该参数表示清除该权限。
     */
     @SerializedName("TablePrivileges")
     @Expose
@@ -62,14 +62,14 @@ public class ModifyAccountPrivilegesRequest extends AbstractModel{
 
     /**
     * 数据库表中列的权限。Privileges 权限的可选值为："SELECT","INSERT","UPDATE","REFERENCES"。
-注意，不传该参数表示清除该权限。
+注意，ModifyAction为空时，不传该参数表示清除该权限。
     */
     @SerializedName("ColumnPrivileges")
     @Expose
     private ColumnPrivilege [] ColumnPrivileges;
 
     /**
-    * 该参数不为空时，为批量修改权限。可选值为：grant，revoke。
+    * 该参数不为空时，为批量修改权限。可选值为：grant - 授予权限，revoke - 回收权限。
     */
     @SerializedName("ModifyAction")
     @Expose
@@ -108,20 +108,20 @@ public class ModifyAccountPrivilegesRequest extends AbstractModel{
     }
 
     /**
-     * Get 全局权限。其中，GlobalPrivileges 中权限的可选值为："SELECT","INSERT","UPDATE","DELETE","CREATE", "PROCESS", "DROP","REFERENCES","INDEX","ALTER","SHOW DATABASES","CREATE TEMPORARY TABLES","LOCK TABLES","EXECUTE","CREATE VIEW","SHOW VIEW","CREATE ROUTINE","ALTER ROUTINE","EVENT","TRIGGER","CREATE USER","RELOAD","REPLICATION CLIENT","REPLICATION SLAVE","UPDATE"。
-注意，不传该参数表示清除该权限。 
-     * @return GlobalPrivileges 全局权限。其中，GlobalPrivileges 中权限的可选值为："SELECT","INSERT","UPDATE","DELETE","CREATE", "PROCESS", "DROP","REFERENCES","INDEX","ALTER","SHOW DATABASES","CREATE TEMPORARY TABLES","LOCK TABLES","EXECUTE","CREATE VIEW","SHOW VIEW","CREATE ROUTINE","ALTER ROUTINE","EVENT","TRIGGER","CREATE USER","RELOAD","REPLICATION CLIENT","REPLICATION SLAVE","UPDATE"。
-注意，不传该参数表示清除该权限。
+     * Get 全局权限。其中，GlobalPrivileges 中权限的可选值为："SELECT","INSERT","UPDATE","DELETE","CREATE", "PROCESS", "DROP","REFERENCES","INDEX","ALTER","SHOW DATABASES","CREATE TEMPORARY TABLES","LOCK TABLES","EXECUTE","CREATE VIEW","SHOW VIEW","CREATE ROUTINE","ALTER ROUTINE","EVENT","TRIGGER","CREATE USER","RELOAD","REPLICATION CLIENT","REPLICATION SLAVE"。
+注意，ModifyAction为空时，不传该参数表示清除该权限。 
+     * @return GlobalPrivileges 全局权限。其中，GlobalPrivileges 中权限的可选值为："SELECT","INSERT","UPDATE","DELETE","CREATE", "PROCESS", "DROP","REFERENCES","INDEX","ALTER","SHOW DATABASES","CREATE TEMPORARY TABLES","LOCK TABLES","EXECUTE","CREATE VIEW","SHOW VIEW","CREATE ROUTINE","ALTER ROUTINE","EVENT","TRIGGER","CREATE USER","RELOAD","REPLICATION CLIENT","REPLICATION SLAVE"。
+注意，ModifyAction为空时，不传该参数表示清除该权限。
      */
     public String [] getGlobalPrivileges() {
         return this.GlobalPrivileges;
     }
 
     /**
-     * Set 全局权限。其中，GlobalPrivileges 中权限的可选值为："SELECT","INSERT","UPDATE","DELETE","CREATE", "PROCESS", "DROP","REFERENCES","INDEX","ALTER","SHOW DATABASES","CREATE TEMPORARY TABLES","LOCK TABLES","EXECUTE","CREATE VIEW","SHOW VIEW","CREATE ROUTINE","ALTER ROUTINE","EVENT","TRIGGER","CREATE USER","RELOAD","REPLICATION CLIENT","REPLICATION SLAVE","UPDATE"。
-注意，不传该参数表示清除该权限。
-     * @param GlobalPrivileges 全局权限。其中，GlobalPrivileges 中权限的可选值为："SELECT","INSERT","UPDATE","DELETE","CREATE", "PROCESS", "DROP","REFERENCES","INDEX","ALTER","SHOW DATABASES","CREATE TEMPORARY TABLES","LOCK TABLES","EXECUTE","CREATE VIEW","SHOW VIEW","CREATE ROUTINE","ALTER ROUTINE","EVENT","TRIGGER","CREATE USER","RELOAD","REPLICATION CLIENT","REPLICATION SLAVE","UPDATE"。
-注意，不传该参数表示清除该权限。
+     * Set 全局权限。其中，GlobalPrivileges 中权限的可选值为："SELECT","INSERT","UPDATE","DELETE","CREATE", "PROCESS", "DROP","REFERENCES","INDEX","ALTER","SHOW DATABASES","CREATE TEMPORARY TABLES","LOCK TABLES","EXECUTE","CREATE VIEW","SHOW VIEW","CREATE ROUTINE","ALTER ROUTINE","EVENT","TRIGGER","CREATE USER","RELOAD","REPLICATION CLIENT","REPLICATION SLAVE"。
+注意，ModifyAction为空时，不传该参数表示清除该权限。
+     * @param GlobalPrivileges 全局权限。其中，GlobalPrivileges 中权限的可选值为："SELECT","INSERT","UPDATE","DELETE","CREATE", "PROCESS", "DROP","REFERENCES","INDEX","ALTER","SHOW DATABASES","CREATE TEMPORARY TABLES","LOCK TABLES","EXECUTE","CREATE VIEW","SHOW VIEW","CREATE ROUTINE","ALTER ROUTINE","EVENT","TRIGGER","CREATE USER","RELOAD","REPLICATION CLIENT","REPLICATION SLAVE"。
+注意，ModifyAction为空时，不传该参数表示清除该权限。
      */
     public void setGlobalPrivileges(String [] GlobalPrivileges) {
         this.GlobalPrivileges = GlobalPrivileges;
@@ -129,9 +129,9 @@ public class ModifyAccountPrivilegesRequest extends AbstractModel{
 
     /**
      * Get 数据库的权限。Privileges 权限的可选值为："SELECT","INSERT","UPDATE","DELETE","CREATE",	"DROP","REFERENCES","INDEX","ALTER","CREATE TEMPORARY TABLES","LOCK TABLES","EXECUTE","CREATE VIEW","SHOW VIEW","CREATE ROUTINE","ALTER ROUTINE","EVENT","TRIGGER"。
-注意，不传该参数表示清除该权限。 
+注意，ModifyAction为空时，不传该参数表示清除该权限。 
      * @return DatabasePrivileges 数据库的权限。Privileges 权限的可选值为："SELECT","INSERT","UPDATE","DELETE","CREATE",	"DROP","REFERENCES","INDEX","ALTER","CREATE TEMPORARY TABLES","LOCK TABLES","EXECUTE","CREATE VIEW","SHOW VIEW","CREATE ROUTINE","ALTER ROUTINE","EVENT","TRIGGER"。
-注意，不传该参数表示清除该权限。
+注意，ModifyAction为空时，不传该参数表示清除该权限。
      */
     public DatabasePrivilege [] getDatabasePrivileges() {
         return this.DatabasePrivileges;
@@ -139,9 +139,9 @@ public class ModifyAccountPrivilegesRequest extends AbstractModel{
 
     /**
      * Set 数据库的权限。Privileges 权限的可选值为："SELECT","INSERT","UPDATE","DELETE","CREATE",	"DROP","REFERENCES","INDEX","ALTER","CREATE TEMPORARY TABLES","LOCK TABLES","EXECUTE","CREATE VIEW","SHOW VIEW","CREATE ROUTINE","ALTER ROUTINE","EVENT","TRIGGER"。
-注意，不传该参数表示清除该权限。
+注意，ModifyAction为空时，不传该参数表示清除该权限。
      * @param DatabasePrivileges 数据库的权限。Privileges 权限的可选值为："SELECT","INSERT","UPDATE","DELETE","CREATE",	"DROP","REFERENCES","INDEX","ALTER","CREATE TEMPORARY TABLES","LOCK TABLES","EXECUTE","CREATE VIEW","SHOW VIEW","CREATE ROUTINE","ALTER ROUTINE","EVENT","TRIGGER"。
-注意，不传该参数表示清除该权限。
+注意，ModifyAction为空时，不传该参数表示清除该权限。
      */
     public void setDatabasePrivileges(DatabasePrivilege [] DatabasePrivileges) {
         this.DatabasePrivileges = DatabasePrivileges;
@@ -149,9 +149,9 @@ public class ModifyAccountPrivilegesRequest extends AbstractModel{
 
     /**
      * Get 数据库中表的权限。Privileges 权限的可选值为：权限的可选值为："SELECT","INSERT","UPDATE","DELETE","CREATE",	"DROP","REFERENCES","INDEX","ALTER","CREATE VIEW","SHOW VIEW", "TRIGGER"。
-注意，不传该参数表示清除该权限。 
+注意，ModifyAction为空时，不传该参数表示清除该权限。 
      * @return TablePrivileges 数据库中表的权限。Privileges 权限的可选值为：权限的可选值为："SELECT","INSERT","UPDATE","DELETE","CREATE",	"DROP","REFERENCES","INDEX","ALTER","CREATE VIEW","SHOW VIEW", "TRIGGER"。
-注意，不传该参数表示清除该权限。
+注意，ModifyAction为空时，不传该参数表示清除该权限。
      */
     public TablePrivilege [] getTablePrivileges() {
         return this.TablePrivileges;
@@ -159,9 +159,9 @@ public class ModifyAccountPrivilegesRequest extends AbstractModel{
 
     /**
      * Set 数据库中表的权限。Privileges 权限的可选值为：权限的可选值为："SELECT","INSERT","UPDATE","DELETE","CREATE",	"DROP","REFERENCES","INDEX","ALTER","CREATE VIEW","SHOW VIEW", "TRIGGER"。
-注意，不传该参数表示清除该权限。
+注意，ModifyAction为空时，不传该参数表示清除该权限。
      * @param TablePrivileges 数据库中表的权限。Privileges 权限的可选值为：权限的可选值为："SELECT","INSERT","UPDATE","DELETE","CREATE",	"DROP","REFERENCES","INDEX","ALTER","CREATE VIEW","SHOW VIEW", "TRIGGER"。
-注意，不传该参数表示清除该权限。
+注意，ModifyAction为空时，不传该参数表示清除该权限。
      */
     public void setTablePrivileges(TablePrivilege [] TablePrivileges) {
         this.TablePrivileges = TablePrivileges;
@@ -169,9 +169,9 @@ public class ModifyAccountPrivilegesRequest extends AbstractModel{
 
     /**
      * Get 数据库表中列的权限。Privileges 权限的可选值为："SELECT","INSERT","UPDATE","REFERENCES"。
-注意，不传该参数表示清除该权限。 
+注意，ModifyAction为空时，不传该参数表示清除该权限。 
      * @return ColumnPrivileges 数据库表中列的权限。Privileges 权限的可选值为："SELECT","INSERT","UPDATE","REFERENCES"。
-注意，不传该参数表示清除该权限。
+注意，ModifyAction为空时，不传该参数表示清除该权限。
      */
     public ColumnPrivilege [] getColumnPrivileges() {
         return this.ColumnPrivileges;
@@ -179,25 +179,25 @@ public class ModifyAccountPrivilegesRequest extends AbstractModel{
 
     /**
      * Set 数据库表中列的权限。Privileges 权限的可选值为："SELECT","INSERT","UPDATE","REFERENCES"。
-注意，不传该参数表示清除该权限。
+注意，ModifyAction为空时，不传该参数表示清除该权限。
      * @param ColumnPrivileges 数据库表中列的权限。Privileges 权限的可选值为："SELECT","INSERT","UPDATE","REFERENCES"。
-注意，不传该参数表示清除该权限。
+注意，ModifyAction为空时，不传该参数表示清除该权限。
      */
     public void setColumnPrivileges(ColumnPrivilege [] ColumnPrivileges) {
         this.ColumnPrivileges = ColumnPrivileges;
     }
 
     /**
-     * Get 该参数不为空时，为批量修改权限。可选值为：grant，revoke。 
-     * @return ModifyAction 该参数不为空时，为批量修改权限。可选值为：grant，revoke。
+     * Get 该参数不为空时，为批量修改权限。可选值为：grant - 授予权限，revoke - 回收权限。 
+     * @return ModifyAction 该参数不为空时，为批量修改权限。可选值为：grant - 授予权限，revoke - 回收权限。
      */
     public String getModifyAction() {
         return this.ModifyAction;
     }
 
     /**
-     * Set 该参数不为空时，为批量修改权限。可选值为：grant，revoke。
-     * @param ModifyAction 该参数不为空时，为批量修改权限。可选值为：grant，revoke。
+     * Set 该参数不为空时，为批量修改权限。可选值为：grant - 授予权限，revoke - 回收权限。
+     * @param ModifyAction 该参数不为空时，为批量修改权限。可选值为：grant - 授予权限，revoke - 回收权限。
      */
     public void setModifyAction(String ModifyAction) {
         this.ModifyAction = ModifyAction;

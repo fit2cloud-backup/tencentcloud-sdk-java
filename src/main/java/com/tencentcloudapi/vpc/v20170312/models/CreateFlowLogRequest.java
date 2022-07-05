@@ -30,7 +30,7 @@ public class CreateFlowLogRequest extends AbstractModel{
     private String FlowLogName;
 
     /**
-    * 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE|CCN
+    * 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE|CCN|NAT|DCG
     */
     @SerializedName("ResourceType")
     @Expose
@@ -93,6 +93,13 @@ public class CreateFlowLogRequest extends AbstractModel{
     private FlowLogStorage FlowLogStorage;
 
     /**
+    * 流日志存储ID对应的地域，不传递默认为本地域。
+    */
+    @SerializedName("CloudLogRegion")
+    @Expose
+    private String CloudLogRegion;
+
+    /**
      * Get 流日志实例名字 
      * @return FlowLogName 流日志实例名字
      */
@@ -109,16 +116,16 @@ public class CreateFlowLogRequest extends AbstractModel{
     }
 
     /**
-     * Get 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE|CCN 
-     * @return ResourceType 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE|CCN
+     * Get 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE|CCN|NAT|DCG 
+     * @return ResourceType 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE|CCN|NAT|DCG
      */
     public String getResourceType() {
         return this.ResourceType;
     }
 
     /**
-     * Set 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE|CCN
-     * @param ResourceType 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE|CCN
+     * Set 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE|CCN|NAT|DCG
+     * @param ResourceType 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE|CCN|NAT|DCG
      */
     public void setResourceType(String ResourceType) {
         this.ResourceType = ResourceType;
@@ -252,6 +259,22 @@ public class CreateFlowLogRequest extends AbstractModel{
         this.FlowLogStorage = FlowLogStorage;
     }
 
+    /**
+     * Get 流日志存储ID对应的地域，不传递默认为本地域。 
+     * @return CloudLogRegion 流日志存储ID对应的地域，不传递默认为本地域。
+     */
+    public String getCloudLogRegion() {
+        return this.CloudLogRegion;
+    }
+
+    /**
+     * Set 流日志存储ID对应的地域，不传递默认为本地域。
+     * @param CloudLogRegion 流日志存储ID对应的地域，不传递默认为本地域。
+     */
+    public void setCloudLogRegion(String CloudLogRegion) {
+        this.CloudLogRegion = CloudLogRegion;
+    }
+
     public CreateFlowLogRequest() {
     }
 
@@ -293,6 +316,9 @@ public class CreateFlowLogRequest extends AbstractModel{
         if (source.FlowLogStorage != null) {
             this.FlowLogStorage = new FlowLogStorage(source.FlowLogStorage);
         }
+        if (source.CloudLogRegion != null) {
+            this.CloudLogRegion = new String(source.CloudLogRegion);
+        }
     }
 
 
@@ -310,6 +336,7 @@ public class CreateFlowLogRequest extends AbstractModel{
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "StorageType", this.StorageType);
         this.setParamObj(map, prefix + "FlowLogStorage.", this.FlowLogStorage);
+        this.setParamSimple(map, prefix + "CloudLogRegion", this.CloudLogRegion);
 
     }
 }

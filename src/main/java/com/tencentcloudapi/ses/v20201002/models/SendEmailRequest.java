@@ -46,7 +46,7 @@ public class SendEmailRequest extends AbstractModel{
     private String Subject;
 
     /**
-    * 邮件的“回复”电子邮件地址。可以填写您能收到邮件的邮箱地址，可以是个人邮箱。如果不填，收件人将会回复到腾讯云。
+    * 邮件的“回复”电子邮件地址。可以填写您能收到邮件的邮箱地址，可以是个人邮箱。如果不填，收件人的回复邮件将会发送失败。
     */
     @SerializedName("ReplyToAddresses")
     @Expose
@@ -60,7 +60,7 @@ public class SendEmailRequest extends AbstractModel{
     private Template Template;
 
     /**
-    * 使用API直接发送内容时，填写的邮件内容
+    * 已废弃
     */
     @SerializedName("Simple")
     @Expose
@@ -79,6 +79,13 @@ public class SendEmailRequest extends AbstractModel{
     @SerializedName("Unsubscribe")
     @Expose
     private String Unsubscribe;
+
+    /**
+    * 邮件触发类型 0:非触发类，默认类型，营销类邮件、非即时类邮件等选择此类型  1:触发类，验证码等即时发送类邮件，若邮件超过一定大小，系统会自动选择非触发类型通道
+    */
+    @SerializedName("TriggerType")
+    @Expose
+    private Long TriggerType;
 
     /**
      * Get 发信邮件地址。请填写发件人邮箱地址，例如：noreply@mail.qcloud.com
@@ -137,16 +144,16 @@ public class SendEmailRequest extends AbstractModel{
     }
 
     /**
-     * Get 邮件的“回复”电子邮件地址。可以填写您能收到邮件的邮箱地址，可以是个人邮箱。如果不填，收件人将会回复到腾讯云。 
-     * @return ReplyToAddresses 邮件的“回复”电子邮件地址。可以填写您能收到邮件的邮箱地址，可以是个人邮箱。如果不填，收件人将会回复到腾讯云。
+     * Get 邮件的“回复”电子邮件地址。可以填写您能收到邮件的邮箱地址，可以是个人邮箱。如果不填，收件人的回复邮件将会发送失败。 
+     * @return ReplyToAddresses 邮件的“回复”电子邮件地址。可以填写您能收到邮件的邮箱地址，可以是个人邮箱。如果不填，收件人的回复邮件将会发送失败。
      */
     public String getReplyToAddresses() {
         return this.ReplyToAddresses;
     }
 
     /**
-     * Set 邮件的“回复”电子邮件地址。可以填写您能收到邮件的邮箱地址，可以是个人邮箱。如果不填，收件人将会回复到腾讯云。
-     * @param ReplyToAddresses 邮件的“回复”电子邮件地址。可以填写您能收到邮件的邮箱地址，可以是个人邮箱。如果不填，收件人将会回复到腾讯云。
+     * Set 邮件的“回复”电子邮件地址。可以填写您能收到邮件的邮箱地址，可以是个人邮箱。如果不填，收件人的回复邮件将会发送失败。
+     * @param ReplyToAddresses 邮件的“回复”电子邮件地址。可以填写您能收到邮件的邮箱地址，可以是个人邮箱。如果不填，收件人的回复邮件将会发送失败。
      */
     public void setReplyToAddresses(String ReplyToAddresses) {
         this.ReplyToAddresses = ReplyToAddresses;
@@ -169,16 +176,16 @@ public class SendEmailRequest extends AbstractModel{
     }
 
     /**
-     * Get 使用API直接发送内容时，填写的邮件内容 
-     * @return Simple 使用API直接发送内容时，填写的邮件内容
+     * Get 已废弃 
+     * @return Simple 已废弃
      */
     public Simple getSimple() {
         return this.Simple;
     }
 
     /**
-     * Set 使用API直接发送内容时，填写的邮件内容
-     * @param Simple 使用API直接发送内容时，填写的邮件内容
+     * Set 已废弃
+     * @param Simple 已废弃
      */
     public void setSimple(Simple Simple) {
         this.Simple = Simple;
@@ -214,6 +221,22 @@ public class SendEmailRequest extends AbstractModel{
      */
     public void setUnsubscribe(String Unsubscribe) {
         this.Unsubscribe = Unsubscribe;
+    }
+
+    /**
+     * Get 邮件触发类型 0:非触发类，默认类型，营销类邮件、非即时类邮件等选择此类型  1:触发类，验证码等即时发送类邮件，若邮件超过一定大小，系统会自动选择非触发类型通道 
+     * @return TriggerType 邮件触发类型 0:非触发类，默认类型，营销类邮件、非即时类邮件等选择此类型  1:触发类，验证码等即时发送类邮件，若邮件超过一定大小，系统会自动选择非触发类型通道
+     */
+    public Long getTriggerType() {
+        return this.TriggerType;
+    }
+
+    /**
+     * Set 邮件触发类型 0:非触发类，默认类型，营销类邮件、非即时类邮件等选择此类型  1:触发类，验证码等即时发送类邮件，若邮件超过一定大小，系统会自动选择非触发类型通道
+     * @param TriggerType 邮件触发类型 0:非触发类，默认类型，营销类邮件、非即时类邮件等选择此类型  1:触发类，验证码等即时发送类邮件，若邮件超过一定大小，系统会自动选择非触发类型通道
+     */
+    public void setTriggerType(Long TriggerType) {
+        this.TriggerType = TriggerType;
     }
 
     public SendEmailRequest() {
@@ -254,6 +277,9 @@ public class SendEmailRequest extends AbstractModel{
         if (source.Unsubscribe != null) {
             this.Unsubscribe = new String(source.Unsubscribe);
         }
+        if (source.TriggerType != null) {
+            this.TriggerType = new Long(source.TriggerType);
+        }
     }
 
 
@@ -269,6 +295,7 @@ public class SendEmailRequest extends AbstractModel{
         this.setParamObj(map, prefix + "Simple.", this.Simple);
         this.setParamArrayObj(map, prefix + "Attachments.", this.Attachments);
         this.setParamSimple(map, prefix + "Unsubscribe", this.Unsubscribe);
+        this.setParamSimple(map, prefix + "TriggerType", this.TriggerType);
 
     }
 }

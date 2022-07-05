@@ -93,6 +93,9 @@ public enum ApigatewayErrorCode {
     // 该域名未配置cname到默认域名，或者解析未生效。
      FAILEDOPERATION_DOMAINRESOLVEERROR("FailedOperation.DomainResolveError"),
      
+    // EIAM返回错误。
+     FAILEDOPERATION_EIAMERROR("FailedOperation.EIAMError"),
+     
     // 事件总线绑定/解绑失败。
      FAILEDOPERATION_EBERROR("FailedOperation.EbError"),
      
@@ -419,6 +422,9 @@ public enum ApigatewayErrorCode {
      
     // 操作不支持。
      UNSUPPORTEDOPERATION("UnsupportedOperation"),
+     
+    // 账号余额不足
+     UNSUPPORTEDOPERATION_ACCOUNTARREARS("UnsupportedOperation.AccountArrears"),
      
     // 密钥已绑定使用计划。
      UNSUPPORTEDOPERATION_ALREADYBINDUSAGEPLAN("UnsupportedOperation.AlreadyBindUsagePlan"),

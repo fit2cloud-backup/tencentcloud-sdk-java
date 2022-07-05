@@ -22,6 +22,39 @@ import java.util.HashMap;
 
 public class CreateSchedulingDomainRequest extends AbstractModel{
 
+    /**
+    * 代表是否混合云本地化的产品。
+hybrid: 宙斯盾本地化
+不填写：其他
+    */
+    @SerializedName("Product")
+    @Expose
+    private String Product;
+
+    /**
+     * Get 代表是否混合云本地化的产品。
+hybrid: 宙斯盾本地化
+不填写：其他 
+     * @return Product 代表是否混合云本地化的产品。
+hybrid: 宙斯盾本地化
+不填写：其他
+     */
+    public String getProduct() {
+        return this.Product;
+    }
+
+    /**
+     * Set 代表是否混合云本地化的产品。
+hybrid: 宙斯盾本地化
+不填写：其他
+     * @param Product 代表是否混合云本地化的产品。
+hybrid: 宙斯盾本地化
+不填写：其他
+     */
+    public void setProduct(String Product) {
+        this.Product = Product;
+    }
+
     public CreateSchedulingDomainRequest() {
     }
 
@@ -30,6 +63,9 @@ public class CreateSchedulingDomainRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public CreateSchedulingDomainRequest(CreateSchedulingDomainRequest source) {
+        if (source.Product != null) {
+            this.Product = new String(source.Product);
+        }
     }
 
 
@@ -37,6 +73,7 @@ public class CreateSchedulingDomainRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "Product", this.Product);
 
     }
 }

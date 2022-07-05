@@ -23,21 +23,21 @@ import java.util.HashMap;
 public class DescribeAddrTemplateListResponse extends AbstractModel{
 
     /**
-    * 模版总数
+    * 模板总数
     */
     @SerializedName("Total")
     @Expose
     private Long Total;
 
     /**
-    * 模版列表数据
+    * 模板列表数据
     */
     @SerializedName("Data")
     @Expose
     private TemplateListInfo [] Data;
 
     /**
-    * 模版名称列表
+    * 模板名称列表
     */
     @SerializedName("NameList")
     @Expose
@@ -51,48 +51,48 @@ public class DescribeAddrTemplateListResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 模版总数 
-     * @return Total 模版总数
+     * Get 模板总数 
+     * @return Total 模板总数
      */
     public Long getTotal() {
         return this.Total;
     }
 
     /**
-     * Set 模版总数
-     * @param Total 模版总数
+     * Set 模板总数
+     * @param Total 模板总数
      */
     public void setTotal(Long Total) {
         this.Total = Total;
     }
 
     /**
-     * Get 模版列表数据 
-     * @return Data 模版列表数据
+     * Get 模板列表数据 
+     * @return Data 模板列表数据
      */
     public TemplateListInfo [] getData() {
         return this.Data;
     }
 
     /**
-     * Set 模版列表数据
-     * @param Data 模版列表数据
+     * Set 模板列表数据
+     * @param Data 模板列表数据
      */
     public void setData(TemplateListInfo [] Data) {
         this.Data = Data;
     }
 
     /**
-     * Get 模版名称列表 
-     * @return NameList 模版名称列表
+     * Get 模板名称列表 
+     * @return NameList 模板名称列表
      */
     public String [] getNameList() {
         return this.NameList;
     }
 
     /**
-     * Set 模版名称列表
-     * @param NameList 模版名称列表
+     * Set 模板名称列表
+     * @param NameList 模板名称列表
      */
     public void setNameList(String [] NameList) {
         this.NameList = NameList;

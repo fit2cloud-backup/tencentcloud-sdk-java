@@ -23,18 +23,25 @@ import java.util.HashMap;
 public class InquiryPriceUpgradeDBInstanceResponse extends AbstractModel{
 
     /**
-    * 总费用，打折前的
+    * 刊例价费用
     */
     @SerializedName("OriginalPrice")
     @Expose
     private Long OriginalPrice;
 
     /**
-    * 实际需要付款金额
+    * 折后实际付款金额
     */
     @SerializedName("Price")
     @Expose
     private Long Price;
+
+    /**
+    * 币种。例如，CNY：人民币。
+    */
+    @SerializedName("Currency")
+    @Expose
+    private String Currency;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -44,35 +51,51 @@ public class InquiryPriceUpgradeDBInstanceResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 总费用，打折前的 
-     * @return OriginalPrice 总费用，打折前的
+     * Get 刊例价费用 
+     * @return OriginalPrice 刊例价费用
      */
     public Long getOriginalPrice() {
         return this.OriginalPrice;
     }
 
     /**
-     * Set 总费用，打折前的
-     * @param OriginalPrice 总费用，打折前的
+     * Set 刊例价费用
+     * @param OriginalPrice 刊例价费用
      */
     public void setOriginalPrice(Long OriginalPrice) {
         this.OriginalPrice = OriginalPrice;
     }
 
     /**
-     * Get 实际需要付款金额 
-     * @return Price 实际需要付款金额
+     * Get 折后实际付款金额 
+     * @return Price 折后实际付款金额
      */
     public Long getPrice() {
         return this.Price;
     }
 
     /**
-     * Set 实际需要付款金额
-     * @param Price 实际需要付款金额
+     * Set 折后实际付款金额
+     * @param Price 折后实际付款金额
      */
     public void setPrice(Long Price) {
         this.Price = Price;
+    }
+
+    /**
+     * Get 币种。例如，CNY：人民币。 
+     * @return Currency 币种。例如，CNY：人民币。
+     */
+    public String getCurrency() {
+        return this.Currency;
+    }
+
+    /**
+     * Set 币种。例如，CNY：人民币。
+     * @param Currency 币种。例如，CNY：人民币。
+     */
+    public void setCurrency(String Currency) {
+        this.Currency = Currency;
     }
 
     /**
@@ -105,6 +128,9 @@ public class InquiryPriceUpgradeDBInstanceResponse extends AbstractModel{
         if (source.Price != null) {
             this.Price = new Long(source.Price);
         }
+        if (source.Currency != null) {
+            this.Currency = new String(source.Currency);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -117,6 +143,7 @@ public class InquiryPriceUpgradeDBInstanceResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "OriginalPrice", this.OriginalPrice);
         this.setParamSimple(map, prefix + "Price", this.Price);
+        this.setParamSimple(map, prefix + "Currency", this.Currency);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

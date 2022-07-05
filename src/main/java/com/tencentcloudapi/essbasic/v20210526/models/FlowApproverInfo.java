@@ -23,67 +23,101 @@ import java.util.HashMap;
 public class FlowApproverInfo extends AbstractModel{
 
     /**
-    * 签署人姓名
+    * 签署人姓名，最大长度50个字符
     */
     @SerializedName("Name")
     @Expose
     private String Name;
 
     /**
-    * 经办人身份证号
+    * 经办人身份证件类型
+1.ID_CARD 居民身份证
+2.HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证
+3.HONGKONG_AND_MACAO 港澳居民来往内地通行证
+    */
+    @SerializedName("IdCardType")
+    @Expose
+    private String IdCardType;
+
+    /**
+    * 经办人证件号
     */
     @SerializedName("IdCardNumber")
     @Expose
     private String IdCardNumber;
 
     /**
-    * 签署人手机号，脱敏显示
+    * 签署人手机号，脱敏显示。大陆手机号为11位，暂不支持海外手机号。
     */
     @SerializedName("Mobile")
     @Expose
     private String Mobile;
 
     /**
-    * 签署完前端跳转的url，暂未使用
+    * 企业签署方工商营业执照上的企业名称，签署方为非发起方企业场景下必传，最大长度64个字符；
     */
-    @SerializedName("JumpUrl")
+    @SerializedName("OrganizationName")
     @Expose
-    private String JumpUrl;
+    private String OrganizationName;
 
     /**
-    * 签署截止时间
+    * 指定签署人非渠道企业下员工，在ApproverType为ORGANIZATION时指定。
+默认为false，即签署人位于同一个渠道应用号下；
     */
-    @SerializedName("Deadline")
+    @SerializedName("NotChannelOrganization")
     @Expose
-    private Long Deadline;
+    private Boolean NotChannelOrganization;
 
     /**
-    * 签署完回调url
-    */
-    @SerializedName("CallbackUrl")
-    @Expose
-    private String CallbackUrl;
-
-    /**
-    * 签署人类型，PERSON和ORGANIZATION
-    */
-    @SerializedName("ApproverType")
-    @Expose
-    private String ApproverType;
-
-    /**
-    * 用户侧第三方id
+    * 用户侧第三方id，最大长度64个字符
     */
     @SerializedName("OpenId")
     @Expose
     private String OpenId;
 
     /**
-    * 合同的强制预览时间：3~300s，未指定则按合同页数计算
+    * 企业签署方在同一渠道下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符；
     */
-    @SerializedName("PreReadTime")
+    @SerializedName("OrganizationOpenId")
     @Expose
-    private Long PreReadTime;
+    private String OrganizationOpenId;
+
+    /**
+    * 签署人类型，PERSON-个人；ORGANIZATION-企业；
+ENTERPRISESERVER-企业静默签;
+注：ENTERPRISESERVER 类型仅用于使用文件创建签署流程（ChannelCreateFlowByFiles）接口；并且仅能指定发起方企业签署方为静默签署；
+    */
+    @SerializedName("ApproverType")
+    @Expose
+    private String ApproverType;
+
+    /**
+    * 签署流程签署人在模板中对应的签署人Id；在非单方签署、以及非B2C签署的场景下必传，用于指定当前签署方在签署流程中的位置；
+    */
+    @SerializedName("RecipientId")
+    @Expose
+    private String RecipientId;
+
+    /**
+    * 签署截止时间，默认一年
+    */
+    @SerializedName("Deadline")
+    @Expose
+    private Long Deadline;
+
+    /**
+    * 签署完回调url，最大长度1000个字符
+    */
+    @SerializedName("CallbackUrl")
+    @Expose
+    private String CallbackUrl;
+
+    /**
+    * 使用PDF文件直接发起合同时，签署人指定的签署控件
+    */
+    @SerializedName("SignComponents")
+    @Expose
+    private Component [] SignComponents;
 
     /**
     * 个人签署方指定签署控件类型，目前仅支持：OCR_ESIGN(AI智慧手写签名)
@@ -93,168 +127,249 @@ public class FlowApproverInfo extends AbstractModel{
     private String [] ComponentLimitType;
 
     /**
-    * 流程签署人在模板中对应的签署人Id；在非单方签署、以及非B2C签署的场景下必传，用于指定当前签署方在流程中的位置；
+    * 合同的强制预览时间：3~300s，未指定则按合同页数计算
     */
-    @SerializedName("RecipientId")
+    @SerializedName("PreReadTime")
     @Expose
-    private String RecipientId;
+    private Long PreReadTime;
 
     /**
-    * 企业签署方工商营业执照上的企业名称，签署方为非发起方企业场景下必传；
+    * 签署完前端跳转的url，暂未使用
     */
-    @SerializedName("OrganizationName")
+    @SerializedName("JumpUrl")
     @Expose
-    private String OrganizationName;
+    private String JumpUrl;
 
     /**
-    * 企业签署方在同一渠道下的其他合作企业OpenId，签署方为非发起方企业场景下必传；
-    */
-    @SerializedName("OrganizationOpenId")
-    @Expose
-    private String OrganizationOpenId;
-
-    /**
-     * Get 签署人姓名 
-     * @return Name 签署人姓名
+     * Get 签署人姓名，最大长度50个字符 
+     * @return Name 签署人姓名，最大长度50个字符
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 签署人姓名
-     * @param Name 签署人姓名
+     * Set 签署人姓名，最大长度50个字符
+     * @param Name 签署人姓名，最大长度50个字符
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 经办人身份证号 
-     * @return IdCardNumber 经办人身份证号
+     * Get 经办人身份证件类型
+1.ID_CARD 居民身份证
+2.HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证
+3.HONGKONG_AND_MACAO 港澳居民来往内地通行证 
+     * @return IdCardType 经办人身份证件类型
+1.ID_CARD 居民身份证
+2.HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证
+3.HONGKONG_AND_MACAO 港澳居民来往内地通行证
+     */
+    public String getIdCardType() {
+        return this.IdCardType;
+    }
+
+    /**
+     * Set 经办人身份证件类型
+1.ID_CARD 居民身份证
+2.HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证
+3.HONGKONG_AND_MACAO 港澳居民来往内地通行证
+     * @param IdCardType 经办人身份证件类型
+1.ID_CARD 居民身份证
+2.HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证
+3.HONGKONG_AND_MACAO 港澳居民来往内地通行证
+     */
+    public void setIdCardType(String IdCardType) {
+        this.IdCardType = IdCardType;
+    }
+
+    /**
+     * Get 经办人证件号 
+     * @return IdCardNumber 经办人证件号
      */
     public String getIdCardNumber() {
         return this.IdCardNumber;
     }
 
     /**
-     * Set 经办人身份证号
-     * @param IdCardNumber 经办人身份证号
+     * Set 经办人证件号
+     * @param IdCardNumber 经办人证件号
      */
     public void setIdCardNumber(String IdCardNumber) {
         this.IdCardNumber = IdCardNumber;
     }
 
     /**
-     * Get 签署人手机号，脱敏显示 
-     * @return Mobile 签署人手机号，脱敏显示
+     * Get 签署人手机号，脱敏显示。大陆手机号为11位，暂不支持海外手机号。 
+     * @return Mobile 签署人手机号，脱敏显示。大陆手机号为11位，暂不支持海外手机号。
      */
     public String getMobile() {
         return this.Mobile;
     }
 
     /**
-     * Set 签署人手机号，脱敏显示
-     * @param Mobile 签署人手机号，脱敏显示
+     * Set 签署人手机号，脱敏显示。大陆手机号为11位，暂不支持海外手机号。
+     * @param Mobile 签署人手机号，脱敏显示。大陆手机号为11位，暂不支持海外手机号。
      */
     public void setMobile(String Mobile) {
         this.Mobile = Mobile;
     }
 
     /**
-     * Get 签署完前端跳转的url，暂未使用 
-     * @return JumpUrl 签署完前端跳转的url，暂未使用
+     * Get 企业签署方工商营业执照上的企业名称，签署方为非发起方企业场景下必传，最大长度64个字符； 
+     * @return OrganizationName 企业签署方工商营业执照上的企业名称，签署方为非发起方企业场景下必传，最大长度64个字符；
      */
-    public String getJumpUrl() {
-        return this.JumpUrl;
+    public String getOrganizationName() {
+        return this.OrganizationName;
     }
 
     /**
-     * Set 签署完前端跳转的url，暂未使用
-     * @param JumpUrl 签署完前端跳转的url，暂未使用
+     * Set 企业签署方工商营业执照上的企业名称，签署方为非发起方企业场景下必传，最大长度64个字符；
+     * @param OrganizationName 企业签署方工商营业执照上的企业名称，签署方为非发起方企业场景下必传，最大长度64个字符；
      */
-    public void setJumpUrl(String JumpUrl) {
-        this.JumpUrl = JumpUrl;
+    public void setOrganizationName(String OrganizationName) {
+        this.OrganizationName = OrganizationName;
     }
 
     /**
-     * Get 签署截止时间 
-     * @return Deadline 签署截止时间
+     * Get 指定签署人非渠道企业下员工，在ApproverType为ORGANIZATION时指定。
+默认为false，即签署人位于同一个渠道应用号下； 
+     * @return NotChannelOrganization 指定签署人非渠道企业下员工，在ApproverType为ORGANIZATION时指定。
+默认为false，即签署人位于同一个渠道应用号下；
      */
-    public Long getDeadline() {
-        return this.Deadline;
+    public Boolean getNotChannelOrganization() {
+        return this.NotChannelOrganization;
     }
 
     /**
-     * Set 签署截止时间
-     * @param Deadline 签署截止时间
+     * Set 指定签署人非渠道企业下员工，在ApproverType为ORGANIZATION时指定。
+默认为false，即签署人位于同一个渠道应用号下；
+     * @param NotChannelOrganization 指定签署人非渠道企业下员工，在ApproverType为ORGANIZATION时指定。
+默认为false，即签署人位于同一个渠道应用号下；
      */
-    public void setDeadline(Long Deadline) {
-        this.Deadline = Deadline;
+    public void setNotChannelOrganization(Boolean NotChannelOrganization) {
+        this.NotChannelOrganization = NotChannelOrganization;
     }
 
     /**
-     * Get 签署完回调url 
-     * @return CallbackUrl 签署完回调url
-     */
-    public String getCallbackUrl() {
-        return this.CallbackUrl;
-    }
-
-    /**
-     * Set 签署完回调url
-     * @param CallbackUrl 签署完回调url
-     */
-    public void setCallbackUrl(String CallbackUrl) {
-        this.CallbackUrl = CallbackUrl;
-    }
-
-    /**
-     * Get 签署人类型，PERSON和ORGANIZATION 
-     * @return ApproverType 签署人类型，PERSON和ORGANIZATION
-     */
-    public String getApproverType() {
-        return this.ApproverType;
-    }
-
-    /**
-     * Set 签署人类型，PERSON和ORGANIZATION
-     * @param ApproverType 签署人类型，PERSON和ORGANIZATION
-     */
-    public void setApproverType(String ApproverType) {
-        this.ApproverType = ApproverType;
-    }
-
-    /**
-     * Get 用户侧第三方id 
-     * @return OpenId 用户侧第三方id
+     * Get 用户侧第三方id，最大长度64个字符 
+     * @return OpenId 用户侧第三方id，最大长度64个字符
      */
     public String getOpenId() {
         return this.OpenId;
     }
 
     /**
-     * Set 用户侧第三方id
-     * @param OpenId 用户侧第三方id
+     * Set 用户侧第三方id，最大长度64个字符
+     * @param OpenId 用户侧第三方id，最大长度64个字符
      */
     public void setOpenId(String OpenId) {
         this.OpenId = OpenId;
     }
 
     /**
-     * Get 合同的强制预览时间：3~300s，未指定则按合同页数计算 
-     * @return PreReadTime 合同的强制预览时间：3~300s，未指定则按合同页数计算
+     * Get 企业签署方在同一渠道下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符； 
+     * @return OrganizationOpenId 企业签署方在同一渠道下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符；
      */
-    public Long getPreReadTime() {
-        return this.PreReadTime;
+    public String getOrganizationOpenId() {
+        return this.OrganizationOpenId;
     }
 
     /**
-     * Set 合同的强制预览时间：3~300s，未指定则按合同页数计算
-     * @param PreReadTime 合同的强制预览时间：3~300s，未指定则按合同页数计算
+     * Set 企业签署方在同一渠道下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符；
+     * @param OrganizationOpenId 企业签署方在同一渠道下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符；
      */
-    public void setPreReadTime(Long PreReadTime) {
-        this.PreReadTime = PreReadTime;
+    public void setOrganizationOpenId(String OrganizationOpenId) {
+        this.OrganizationOpenId = OrganizationOpenId;
+    }
+
+    /**
+     * Get 签署人类型，PERSON-个人；ORGANIZATION-企业；
+ENTERPRISESERVER-企业静默签;
+注：ENTERPRISESERVER 类型仅用于使用文件创建签署流程（ChannelCreateFlowByFiles）接口；并且仅能指定发起方企业签署方为静默签署； 
+     * @return ApproverType 签署人类型，PERSON-个人；ORGANIZATION-企业；
+ENTERPRISESERVER-企业静默签;
+注：ENTERPRISESERVER 类型仅用于使用文件创建签署流程（ChannelCreateFlowByFiles）接口；并且仅能指定发起方企业签署方为静默签署；
+     */
+    public String getApproverType() {
+        return this.ApproverType;
+    }
+
+    /**
+     * Set 签署人类型，PERSON-个人；ORGANIZATION-企业；
+ENTERPRISESERVER-企业静默签;
+注：ENTERPRISESERVER 类型仅用于使用文件创建签署流程（ChannelCreateFlowByFiles）接口；并且仅能指定发起方企业签署方为静默签署；
+     * @param ApproverType 签署人类型，PERSON-个人；ORGANIZATION-企业；
+ENTERPRISESERVER-企业静默签;
+注：ENTERPRISESERVER 类型仅用于使用文件创建签署流程（ChannelCreateFlowByFiles）接口；并且仅能指定发起方企业签署方为静默签署；
+     */
+    public void setApproverType(String ApproverType) {
+        this.ApproverType = ApproverType;
+    }
+
+    /**
+     * Get 签署流程签署人在模板中对应的签署人Id；在非单方签署、以及非B2C签署的场景下必传，用于指定当前签署方在签署流程中的位置； 
+     * @return RecipientId 签署流程签署人在模板中对应的签署人Id；在非单方签署、以及非B2C签署的场景下必传，用于指定当前签署方在签署流程中的位置；
+     */
+    public String getRecipientId() {
+        return this.RecipientId;
+    }
+
+    /**
+     * Set 签署流程签署人在模板中对应的签署人Id；在非单方签署、以及非B2C签署的场景下必传，用于指定当前签署方在签署流程中的位置；
+     * @param RecipientId 签署流程签署人在模板中对应的签署人Id；在非单方签署、以及非B2C签署的场景下必传，用于指定当前签署方在签署流程中的位置；
+     */
+    public void setRecipientId(String RecipientId) {
+        this.RecipientId = RecipientId;
+    }
+
+    /**
+     * Get 签署截止时间，默认一年 
+     * @return Deadline 签署截止时间，默认一年
+     */
+    public Long getDeadline() {
+        return this.Deadline;
+    }
+
+    /**
+     * Set 签署截止时间，默认一年
+     * @param Deadline 签署截止时间，默认一年
+     */
+    public void setDeadline(Long Deadline) {
+        this.Deadline = Deadline;
+    }
+
+    /**
+     * Get 签署完回调url，最大长度1000个字符 
+     * @return CallbackUrl 签署完回调url，最大长度1000个字符
+     */
+    public String getCallbackUrl() {
+        return this.CallbackUrl;
+    }
+
+    /**
+     * Set 签署完回调url，最大长度1000个字符
+     * @param CallbackUrl 签署完回调url，最大长度1000个字符
+     */
+    public void setCallbackUrl(String CallbackUrl) {
+        this.CallbackUrl = CallbackUrl;
+    }
+
+    /**
+     * Get 使用PDF文件直接发起合同时，签署人指定的签署控件 
+     * @return SignComponents 使用PDF文件直接发起合同时，签署人指定的签署控件
+     */
+    public Component [] getSignComponents() {
+        return this.SignComponents;
+    }
+
+    /**
+     * Set 使用PDF文件直接发起合同时，签署人指定的签署控件
+     * @param SignComponents 使用PDF文件直接发起合同时，签署人指定的签署控件
+     */
+    public void setSignComponents(Component [] SignComponents) {
+        this.SignComponents = SignComponents;
     }
 
     /**
@@ -274,51 +389,35 @@ public class FlowApproverInfo extends AbstractModel{
     }
 
     /**
-     * Get 流程签署人在模板中对应的签署人Id；在非单方签署、以及非B2C签署的场景下必传，用于指定当前签署方在流程中的位置； 
-     * @return RecipientId 流程签署人在模板中对应的签署人Id；在非单方签署、以及非B2C签署的场景下必传，用于指定当前签署方在流程中的位置；
+     * Get 合同的强制预览时间：3~300s，未指定则按合同页数计算 
+     * @return PreReadTime 合同的强制预览时间：3~300s，未指定则按合同页数计算
      */
-    public String getRecipientId() {
-        return this.RecipientId;
+    public Long getPreReadTime() {
+        return this.PreReadTime;
     }
 
     /**
-     * Set 流程签署人在模板中对应的签署人Id；在非单方签署、以及非B2C签署的场景下必传，用于指定当前签署方在流程中的位置；
-     * @param RecipientId 流程签署人在模板中对应的签署人Id；在非单方签署、以及非B2C签署的场景下必传，用于指定当前签署方在流程中的位置；
+     * Set 合同的强制预览时间：3~300s，未指定则按合同页数计算
+     * @param PreReadTime 合同的强制预览时间：3~300s，未指定则按合同页数计算
      */
-    public void setRecipientId(String RecipientId) {
-        this.RecipientId = RecipientId;
+    public void setPreReadTime(Long PreReadTime) {
+        this.PreReadTime = PreReadTime;
     }
 
     /**
-     * Get 企业签署方工商营业执照上的企业名称，签署方为非发起方企业场景下必传； 
-     * @return OrganizationName 企业签署方工商营业执照上的企业名称，签署方为非发起方企业场景下必传；
+     * Get 签署完前端跳转的url，暂未使用 
+     * @return JumpUrl 签署完前端跳转的url，暂未使用
      */
-    public String getOrganizationName() {
-        return this.OrganizationName;
+    public String getJumpUrl() {
+        return this.JumpUrl;
     }
 
     /**
-     * Set 企业签署方工商营业执照上的企业名称，签署方为非发起方企业场景下必传；
-     * @param OrganizationName 企业签署方工商营业执照上的企业名称，签署方为非发起方企业场景下必传；
+     * Set 签署完前端跳转的url，暂未使用
+     * @param JumpUrl 签署完前端跳转的url，暂未使用
      */
-    public void setOrganizationName(String OrganizationName) {
-        this.OrganizationName = OrganizationName;
-    }
-
-    /**
-     * Get 企业签署方在同一渠道下的其他合作企业OpenId，签署方为非发起方企业场景下必传； 
-     * @return OrganizationOpenId 企业签署方在同一渠道下的其他合作企业OpenId，签署方为非发起方企业场景下必传；
-     */
-    public String getOrganizationOpenId() {
-        return this.OrganizationOpenId;
-    }
-
-    /**
-     * Set 企业签署方在同一渠道下的其他合作企业OpenId，签署方为非发起方企业场景下必传；
-     * @param OrganizationOpenId 企业签署方在同一渠道下的其他合作企业OpenId，签署方为非发起方企业场景下必传；
-     */
-    public void setOrganizationOpenId(String OrganizationOpenId) {
-        this.OrganizationOpenId = OrganizationOpenId;
+    public void setJumpUrl(String JumpUrl) {
+        this.JumpUrl = JumpUrl;
     }
 
     public FlowApproverInfo() {
@@ -332,14 +431,32 @@ public class FlowApproverInfo extends AbstractModel{
         if (source.Name != null) {
             this.Name = new String(source.Name);
         }
+        if (source.IdCardType != null) {
+            this.IdCardType = new String(source.IdCardType);
+        }
         if (source.IdCardNumber != null) {
             this.IdCardNumber = new String(source.IdCardNumber);
         }
         if (source.Mobile != null) {
             this.Mobile = new String(source.Mobile);
         }
-        if (source.JumpUrl != null) {
-            this.JumpUrl = new String(source.JumpUrl);
+        if (source.OrganizationName != null) {
+            this.OrganizationName = new String(source.OrganizationName);
+        }
+        if (source.NotChannelOrganization != null) {
+            this.NotChannelOrganization = new Boolean(source.NotChannelOrganization);
+        }
+        if (source.OpenId != null) {
+            this.OpenId = new String(source.OpenId);
+        }
+        if (source.OrganizationOpenId != null) {
+            this.OrganizationOpenId = new String(source.OrganizationOpenId);
+        }
+        if (source.ApproverType != null) {
+            this.ApproverType = new String(source.ApproverType);
+        }
+        if (source.RecipientId != null) {
+            this.RecipientId = new String(source.RecipientId);
         }
         if (source.Deadline != null) {
             this.Deadline = new Long(source.Deadline);
@@ -347,14 +464,11 @@ public class FlowApproverInfo extends AbstractModel{
         if (source.CallbackUrl != null) {
             this.CallbackUrl = new String(source.CallbackUrl);
         }
-        if (source.ApproverType != null) {
-            this.ApproverType = new String(source.ApproverType);
-        }
-        if (source.OpenId != null) {
-            this.OpenId = new String(source.OpenId);
-        }
-        if (source.PreReadTime != null) {
-            this.PreReadTime = new Long(source.PreReadTime);
+        if (source.SignComponents != null) {
+            this.SignComponents = new Component[source.SignComponents.length];
+            for (int i = 0; i < source.SignComponents.length; i++) {
+                this.SignComponents[i] = new Component(source.SignComponents[i]);
+            }
         }
         if (source.ComponentLimitType != null) {
             this.ComponentLimitType = new String[source.ComponentLimitType.length];
@@ -362,14 +476,11 @@ public class FlowApproverInfo extends AbstractModel{
                 this.ComponentLimitType[i] = new String(source.ComponentLimitType[i]);
             }
         }
-        if (source.RecipientId != null) {
-            this.RecipientId = new String(source.RecipientId);
+        if (source.PreReadTime != null) {
+            this.PreReadTime = new Long(source.PreReadTime);
         }
-        if (source.OrganizationName != null) {
-            this.OrganizationName = new String(source.OrganizationName);
-        }
-        if (source.OrganizationOpenId != null) {
-            this.OrganizationOpenId = new String(source.OrganizationOpenId);
+        if (source.JumpUrl != null) {
+            this.JumpUrl = new String(source.JumpUrl);
         }
     }
 
@@ -379,18 +490,21 @@ public class FlowApproverInfo extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Name", this.Name);
+        this.setParamSimple(map, prefix + "IdCardType", this.IdCardType);
         this.setParamSimple(map, prefix + "IdCardNumber", this.IdCardNumber);
         this.setParamSimple(map, prefix + "Mobile", this.Mobile);
-        this.setParamSimple(map, prefix + "JumpUrl", this.JumpUrl);
+        this.setParamSimple(map, prefix + "OrganizationName", this.OrganizationName);
+        this.setParamSimple(map, prefix + "NotChannelOrganization", this.NotChannelOrganization);
+        this.setParamSimple(map, prefix + "OpenId", this.OpenId);
+        this.setParamSimple(map, prefix + "OrganizationOpenId", this.OrganizationOpenId);
+        this.setParamSimple(map, prefix + "ApproverType", this.ApproverType);
+        this.setParamSimple(map, prefix + "RecipientId", this.RecipientId);
         this.setParamSimple(map, prefix + "Deadline", this.Deadline);
         this.setParamSimple(map, prefix + "CallbackUrl", this.CallbackUrl);
-        this.setParamSimple(map, prefix + "ApproverType", this.ApproverType);
-        this.setParamSimple(map, prefix + "OpenId", this.OpenId);
-        this.setParamSimple(map, prefix + "PreReadTime", this.PreReadTime);
+        this.setParamArrayObj(map, prefix + "SignComponents.", this.SignComponents);
         this.setParamArraySimple(map, prefix + "ComponentLimitType.", this.ComponentLimitType);
-        this.setParamSimple(map, prefix + "RecipientId", this.RecipientId);
-        this.setParamSimple(map, prefix + "OrganizationName", this.OrganizationName);
-        this.setParamSimple(map, prefix + "OrganizationOpenId", this.OrganizationOpenId);
+        this.setParamSimple(map, prefix + "PreReadTime", this.PreReadTime);
+        this.setParamSimple(map, prefix + "JumpUrl", this.JumpUrl);
 
     }
 }

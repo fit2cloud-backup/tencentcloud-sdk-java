@@ -105,11 +105,18 @@ public class CreateApplicationRequest extends AbstractModel{
     private String DeployMode;
 
     /**
-    * 是否启用调用链功能
+    * 是否开启 Java 应用的 APM 自动上报功能，1 表示启用；0 表示关闭
     */
     @SerializedName("EnableTracing")
     @Expose
     private Long EnableTracing;
+
+    /**
+    * 使用默认镜像服务额外参数
+    */
+    @SerializedName("UseDefaultImageServiceParameters")
+    @Expose
+    private UseDefaultRepoParameters UseDefaultImageServiceParameters;
 
     /**
      * Get 应用名 
@@ -308,19 +315,35 @@ public class CreateApplicationRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否启用调用链功能 
-     * @return EnableTracing 是否启用调用链功能
+     * Get 是否开启 Java 应用的 APM 自动上报功能，1 表示启用；0 表示关闭 
+     * @return EnableTracing 是否开启 Java 应用的 APM 自动上报功能，1 表示启用；0 表示关闭
      */
     public Long getEnableTracing() {
         return this.EnableTracing;
     }
 
     /**
-     * Set 是否启用调用链功能
-     * @param EnableTracing 是否启用调用链功能
+     * Set 是否开启 Java 应用的 APM 自动上报功能，1 表示启用；0 表示关闭
+     * @param EnableTracing 是否开启 Java 应用的 APM 自动上报功能，1 表示启用；0 表示关闭
      */
     public void setEnableTracing(Long EnableTracing) {
         this.EnableTracing = EnableTracing;
+    }
+
+    /**
+     * Get 使用默认镜像服务额外参数 
+     * @return UseDefaultImageServiceParameters 使用默认镜像服务额外参数
+     */
+    public UseDefaultRepoParameters getUseDefaultImageServiceParameters() {
+        return this.UseDefaultImageServiceParameters;
+    }
+
+    /**
+     * Set 使用默认镜像服务额外参数
+     * @param UseDefaultImageServiceParameters 使用默认镜像服务额外参数
+     */
+    public void setUseDefaultImageServiceParameters(UseDefaultRepoParameters UseDefaultImageServiceParameters) {
+        this.UseDefaultImageServiceParameters = UseDefaultImageServiceParameters;
     }
 
     public CreateApplicationRequest() {
@@ -370,6 +393,9 @@ public class CreateApplicationRequest extends AbstractModel{
         if (source.EnableTracing != null) {
             this.EnableTracing = new Long(source.EnableTracing);
         }
+        if (source.UseDefaultImageServiceParameters != null) {
+            this.UseDefaultImageServiceParameters = new UseDefaultRepoParameters(source.UseDefaultImageServiceParameters);
+        }
     }
 
 
@@ -389,6 +415,7 @@ public class CreateApplicationRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "CodingLanguage", this.CodingLanguage);
         this.setParamSimple(map, prefix + "DeployMode", this.DeployMode);
         this.setParamSimple(map, prefix + "EnableTracing", this.EnableTracing);
+        this.setParamObj(map, prefix + "UseDefaultImageServiceParameters.", this.UseDefaultImageServiceParameters);
 
     }
 }

@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class CreateContentReviewTemplateRequest extends AbstractModel{
 
     /**
-    * 智能识别结果是否进入智能识别墙（对识别结果进行人工复核）的开关。
+    * 音视频审核结果是否进入音视频审核墙（对识别结果进行人工复核）的开关。
 <li>ON：是；</li>
 <li>OFF：否。</li>
     */
@@ -32,14 +32,21 @@ public class CreateContentReviewTemplateRequest extends AbstractModel{
     private String ReviewWallSwitch;
 
     /**
-    * 内容智能识别模板名称，长度限制：64 个字符。
+    * <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+    */
+    @SerializedName("SubAppId")
+    @Expose
+    private Long SubAppId;
+
+    /**
+    * 内容审核模板名称，长度限制：64 个字符。
     */
     @SerializedName("Name")
     @Expose
     private String Name;
 
     /**
-    * 内容智能识别模板描述信息，长度限制：256 个字符。
+    * 内容审核模板描述信息，长度限制：256 个字符。
     */
     @SerializedName("Comment")
     @Expose
@@ -76,7 +83,7 @@ public class CreateContentReviewTemplateRequest extends AbstractModel{
     private ProhibitedConfigureInfo ProhibitedConfigure;
 
     /**
-    * 用户自定义内容智能识别控制参数。
+    * 用户自定义内容审核控制参数。
     */
     @SerializedName("UserDefineConfigure")
     @Expose
@@ -90,17 +97,10 @@ public class CreateContentReviewTemplateRequest extends AbstractModel{
     private Float ScreenshotInterval;
 
     /**
-    * 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-    */
-    @SerializedName("SubAppId")
-    @Expose
-    private Long SubAppId;
-
-    /**
-     * Get 智能识别结果是否进入智能识别墙（对识别结果进行人工复核）的开关。
+     * Get 音视频审核结果是否进入音视频审核墙（对识别结果进行人工复核）的开关。
 <li>ON：是；</li>
 <li>OFF：否。</li> 
-     * @return ReviewWallSwitch 智能识别结果是否进入智能识别墙（对识别结果进行人工复核）的开关。
+     * @return ReviewWallSwitch 音视频审核结果是否进入音视频审核墙（对识别结果进行人工复核）的开关。
 <li>ON：是；</li>
 <li>OFF：否。</li>
      */
@@ -109,10 +109,10 @@ public class CreateContentReviewTemplateRequest extends AbstractModel{
     }
 
     /**
-     * Set 智能识别结果是否进入智能识别墙（对识别结果进行人工复核）的开关。
+     * Set 音视频审核结果是否进入音视频审核墙（对识别结果进行人工复核）的开关。
 <li>ON：是；</li>
 <li>OFF：否。</li>
-     * @param ReviewWallSwitch 智能识别结果是否进入智能识别墙（对识别结果进行人工复核）的开关。
+     * @param ReviewWallSwitch 音视频审核结果是否进入音视频审核墙（对识别结果进行人工复核）的开关。
 <li>ON：是；</li>
 <li>OFF：否。</li>
      */
@@ -121,32 +121,48 @@ public class CreateContentReviewTemplateRequest extends AbstractModel{
     }
 
     /**
-     * Get 内容智能识别模板名称，长度限制：64 个字符。 
-     * @return Name 内容智能识别模板名称，长度限制：64 个字符。
+     * Get <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b> 
+     * @return SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     */
+    public Long getSubAppId() {
+        return this.SubAppId;
+    }
+
+    /**
+     * Set <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     * @param SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     */
+    public void setSubAppId(Long SubAppId) {
+        this.SubAppId = SubAppId;
+    }
+
+    /**
+     * Get 内容审核模板名称，长度限制：64 个字符。 
+     * @return Name 内容审核模板名称，长度限制：64 个字符。
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 内容智能识别模板名称，长度限制：64 个字符。
-     * @param Name 内容智能识别模板名称，长度限制：64 个字符。
+     * Set 内容审核模板名称，长度限制：64 个字符。
+     * @param Name 内容审核模板名称，长度限制：64 个字符。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 内容智能识别模板描述信息，长度限制：256 个字符。 
-     * @return Comment 内容智能识别模板描述信息，长度限制：256 个字符。
+     * Get 内容审核模板描述信息，长度限制：256 个字符。 
+     * @return Comment 内容审核模板描述信息，长度限制：256 个字符。
      */
     public String getComment() {
         return this.Comment;
     }
 
     /**
-     * Set 内容智能识别模板描述信息，长度限制：256 个字符。
-     * @param Comment 内容智能识别模板描述信息，长度限制：256 个字符。
+     * Set 内容审核模板描述信息，长度限制：256 个字符。
+     * @param Comment 内容审核模板描述信息，长度限制：256 个字符。
      */
     public void setComment(String Comment) {
         this.Comment = Comment;
@@ -225,16 +241,16 @@ public class CreateContentReviewTemplateRequest extends AbstractModel{
     }
 
     /**
-     * Get 用户自定义内容智能识别控制参数。 
-     * @return UserDefineConfigure 用户自定义内容智能识别控制参数。
+     * Get 用户自定义内容审核控制参数。 
+     * @return UserDefineConfigure 用户自定义内容审核控制参数。
      */
     public UserDefineConfigureInfo getUserDefineConfigure() {
         return this.UserDefineConfigure;
     }
 
     /**
-     * Set 用户自定义内容智能识别控制参数。
-     * @param UserDefineConfigure 用户自定义内容智能识别控制参数。
+     * Set 用户自定义内容审核控制参数。
+     * @param UserDefineConfigure 用户自定义内容审核控制参数。
      */
     public void setUserDefineConfigure(UserDefineConfigureInfo UserDefineConfigure) {
         this.UserDefineConfigure = UserDefineConfigure;
@@ -256,22 +272,6 @@ public class CreateContentReviewTemplateRequest extends AbstractModel{
         this.ScreenshotInterval = ScreenshotInterval;
     }
 
-    /**
-     * Get 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。 
-     * @return SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-     */
-    public Long getSubAppId() {
-        return this.SubAppId;
-    }
-
-    /**
-     * Set 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-     * @param SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-     */
-    public void setSubAppId(Long SubAppId) {
-        this.SubAppId = SubAppId;
-    }
-
     public CreateContentReviewTemplateRequest() {
     }
 
@@ -282,6 +282,9 @@ public class CreateContentReviewTemplateRequest extends AbstractModel{
     public CreateContentReviewTemplateRequest(CreateContentReviewTemplateRequest source) {
         if (source.ReviewWallSwitch != null) {
             this.ReviewWallSwitch = new String(source.ReviewWallSwitch);
+        }
+        if (source.SubAppId != null) {
+            this.SubAppId = new Long(source.SubAppId);
         }
         if (source.Name != null) {
             this.Name = new String(source.Name);
@@ -307,9 +310,6 @@ public class CreateContentReviewTemplateRequest extends AbstractModel{
         if (source.ScreenshotInterval != null) {
             this.ScreenshotInterval = new Float(source.ScreenshotInterval);
         }
-        if (source.SubAppId != null) {
-            this.SubAppId = new Long(source.SubAppId);
-        }
     }
 
 
@@ -318,6 +318,7 @@ public class CreateContentReviewTemplateRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ReviewWallSwitch", this.ReviewWallSwitch);
+        this.setParamSimple(map, prefix + "SubAppId", this.SubAppId);
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Comment", this.Comment);
         this.setParamObj(map, prefix + "PornConfigure.", this.PornConfigure);
@@ -326,7 +327,6 @@ public class CreateContentReviewTemplateRequest extends AbstractModel{
         this.setParamObj(map, prefix + "ProhibitedConfigure.", this.ProhibitedConfigure);
         this.setParamObj(map, prefix + "UserDefineConfigure.", this.UserDefineConfigure);
         this.setParamSimple(map, prefix + "ScreenshotInterval", this.ScreenshotInterval);
-        this.setParamSimple(map, prefix + "SubAppId", this.SubAppId);
 
     }
 }

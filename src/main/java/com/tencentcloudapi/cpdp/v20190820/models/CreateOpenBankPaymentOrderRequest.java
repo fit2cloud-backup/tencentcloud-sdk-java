@@ -30,19 +30,22 @@ public class CreateOpenBankPaymentOrderRequest extends AbstractModel{
     private String ChannelMerchantId;
 
     /**
-    * 渠道名称。
+    * 渠道名称。详见附录-云企付枚举类说明-ChannelName。
 __TENPAY__: 商企付
 __WECHAT__: 微信支付
 __ALIPAY__: 支付宝
+__WECHAT__: 微信支付
     */
     @SerializedName("ChannelName")
     @Expose
     private String ChannelName;
 
     /**
-    * 付款方式。如
+    * 付款方式。详见附录-云企付枚举类说明-PaymentMethod。
 __EBANK_PAYMENT__:B2B EBank付款
 __OPENBANK_PAYMENT__:B2C  openbank付款
+__SAFT_ISV__:支付宝安心发
+__TRANS_TO_CHANGE__: 微信支付转账到零钱v2
     */
     @SerializedName("PaymentMethod")
     @Expose
@@ -107,16 +110,14 @@ __FREEZE__:担保支付
     private String ExpireTime;
 
     /**
-    * 前端成功回调URL。条件可选
-当付款方式PaymentMethod为EBANK_PAYMENT时必填
+    * 前端成功回调URL。条件可选。
     */
     @SerializedName("FrontUrl")
     @Expose
     private String FrontUrl;
 
     /**
-    * 前端刷新 URL。条件可选
-当付款方式PaymentMethod为EBANK_PAYMENT时必填
+    * 前端刷新 URL。条件可选。
     */
     @SerializedName("RefreshUrl")
     @Expose
@@ -194,52 +195,64 @@ __sandbox__:沙箱环境
     }
 
     /**
-     * Get 渠道名称。
-__TENPAY__: 商企付
-__WECHAT__: 微信支付
-__ALIPAY__: 支付宝 
-     * @return ChannelName 渠道名称。
+     * Get 渠道名称。详见附录-云企付枚举类说明-ChannelName。
 __TENPAY__: 商企付
 __WECHAT__: 微信支付
 __ALIPAY__: 支付宝
+__WECHAT__: 微信支付 
+     * @return ChannelName 渠道名称。详见附录-云企付枚举类说明-ChannelName。
+__TENPAY__: 商企付
+__WECHAT__: 微信支付
+__ALIPAY__: 支付宝
+__WECHAT__: 微信支付
      */
     public String getChannelName() {
         return this.ChannelName;
     }
 
     /**
-     * Set 渠道名称。
+     * Set 渠道名称。详见附录-云企付枚举类说明-ChannelName。
 __TENPAY__: 商企付
 __WECHAT__: 微信支付
 __ALIPAY__: 支付宝
-     * @param ChannelName 渠道名称。
+__WECHAT__: 微信支付
+     * @param ChannelName 渠道名称。详见附录-云企付枚举类说明-ChannelName。
 __TENPAY__: 商企付
 __WECHAT__: 微信支付
 __ALIPAY__: 支付宝
+__WECHAT__: 微信支付
      */
     public void setChannelName(String ChannelName) {
         this.ChannelName = ChannelName;
     }
 
     /**
-     * Get 付款方式。如
-__EBANK_PAYMENT__:B2B EBank付款
-__OPENBANK_PAYMENT__:B2C  openbank付款 
-     * @return PaymentMethod 付款方式。如
+     * Get 付款方式。详见附录-云企付枚举类说明-PaymentMethod。
 __EBANK_PAYMENT__:B2B EBank付款
 __OPENBANK_PAYMENT__:B2C  openbank付款
+__SAFT_ISV__:支付宝安心发
+__TRANS_TO_CHANGE__: 微信支付转账到零钱v2 
+     * @return PaymentMethod 付款方式。详见附录-云企付枚举类说明-PaymentMethod。
+__EBANK_PAYMENT__:B2B EBank付款
+__OPENBANK_PAYMENT__:B2C  openbank付款
+__SAFT_ISV__:支付宝安心发
+__TRANS_TO_CHANGE__: 微信支付转账到零钱v2
      */
     public String getPaymentMethod() {
         return this.PaymentMethod;
     }
 
     /**
-     * Set 付款方式。如
+     * Set 付款方式。详见附录-云企付枚举类说明-PaymentMethod。
 __EBANK_PAYMENT__:B2B EBank付款
 __OPENBANK_PAYMENT__:B2C  openbank付款
-     * @param PaymentMethod 付款方式。如
+__SAFT_ISV__:支付宝安心发
+__TRANS_TO_CHANGE__: 微信支付转账到零钱v2
+     * @param PaymentMethod 付款方式。详见附录-云企付枚举类说明-PaymentMethod。
 __EBANK_PAYMENT__:B2B EBank付款
 __OPENBANK_PAYMENT__:B2C  openbank付款
+__SAFT_ISV__:支付宝安心发
+__TRANS_TO_CHANGE__: 微信支付转账到零钱v2
      */
     public void setPaymentMethod(String PaymentMethod) {
         this.PaymentMethod = PaymentMethod;
@@ -382,40 +395,32 @@ __FREEZE__:担保支付
     }
 
     /**
-     * Get 前端成功回调URL。条件可选
-当付款方式PaymentMethod为EBANK_PAYMENT时必填 
-     * @return FrontUrl 前端成功回调URL。条件可选
-当付款方式PaymentMethod为EBANK_PAYMENT时必填
+     * Get 前端成功回调URL。条件可选。 
+     * @return FrontUrl 前端成功回调URL。条件可选。
      */
     public String getFrontUrl() {
         return this.FrontUrl;
     }
 
     /**
-     * Set 前端成功回调URL。条件可选
-当付款方式PaymentMethod为EBANK_PAYMENT时必填
-     * @param FrontUrl 前端成功回调URL。条件可选
-当付款方式PaymentMethod为EBANK_PAYMENT时必填
+     * Set 前端成功回调URL。条件可选。
+     * @param FrontUrl 前端成功回调URL。条件可选。
      */
     public void setFrontUrl(String FrontUrl) {
         this.FrontUrl = FrontUrl;
     }
 
     /**
-     * Get 前端刷新 URL。条件可选
-当付款方式PaymentMethod为EBANK_PAYMENT时必填 
-     * @return RefreshUrl 前端刷新 URL。条件可选
-当付款方式PaymentMethod为EBANK_PAYMENT时必填
+     * Get 前端刷新 URL。条件可选。 
+     * @return RefreshUrl 前端刷新 URL。条件可选。
      */
     public String getRefreshUrl() {
         return this.RefreshUrl;
     }
 
     /**
-     * Set 前端刷新 URL。条件可选
-当付款方式PaymentMethod为EBANK_PAYMENT时必填
-     * @param RefreshUrl 前端刷新 URL。条件可选
-当付款方式PaymentMethod为EBANK_PAYMENT时必填
+     * Set 前端刷新 URL。条件可选。
+     * @param RefreshUrl 前端刷新 URL。条件可选。
      */
     public void setRefreshUrl(String RefreshUrl) {
         this.RefreshUrl = RefreshUrl;

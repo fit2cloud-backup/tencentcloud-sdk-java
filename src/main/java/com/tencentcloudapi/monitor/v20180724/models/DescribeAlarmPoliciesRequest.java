@@ -165,6 +165,20 @@ public class DescribeAlarmPoliciesRequest extends AbstractModel{
     private Long NeedCorrespondence;
 
     /**
+    * 按照触发任务（例如弹性伸缩）过滤策略。最多10个
+    */
+    @SerializedName("TriggerTasks")
+    @Expose
+    private AlarmPolicyTriggerTask [] TriggerTasks;
+
+    /**
+    * 根据一键告警策略筛选 不传展示全部策略 ONECLICK=展示一键告警策略 NOT_ONECLICK=展示非一键告警策略
+    */
+    @SerializedName("OneClickPolicyType")
+    @Expose
+    private String [] OneClickPolicyType;
+
+    /**
      * Get 固定值，为"monitor" 
      * @return Module 固定值，为"monitor"
      */
@@ -504,6 +518,38 @@ public class DescribeAlarmPoliciesRequest extends AbstractModel{
         this.NeedCorrespondence = NeedCorrespondence;
     }
 
+    /**
+     * Get 按照触发任务（例如弹性伸缩）过滤策略。最多10个 
+     * @return TriggerTasks 按照触发任务（例如弹性伸缩）过滤策略。最多10个
+     */
+    public AlarmPolicyTriggerTask [] getTriggerTasks() {
+        return this.TriggerTasks;
+    }
+
+    /**
+     * Set 按照触发任务（例如弹性伸缩）过滤策略。最多10个
+     * @param TriggerTasks 按照触发任务（例如弹性伸缩）过滤策略。最多10个
+     */
+    public void setTriggerTasks(AlarmPolicyTriggerTask [] TriggerTasks) {
+        this.TriggerTasks = TriggerTasks;
+    }
+
+    /**
+     * Get 根据一键告警策略筛选 不传展示全部策略 ONECLICK=展示一键告警策略 NOT_ONECLICK=展示非一键告警策略 
+     * @return OneClickPolicyType 根据一键告警策略筛选 不传展示全部策略 ONECLICK=展示一键告警策略 NOT_ONECLICK=展示非一键告警策略
+     */
+    public String [] getOneClickPolicyType() {
+        return this.OneClickPolicyType;
+    }
+
+    /**
+     * Set 根据一键告警策略筛选 不传展示全部策略 ONECLICK=展示一键告警策略 NOT_ONECLICK=展示非一键告警策略
+     * @param OneClickPolicyType 根据一键告警策略筛选 不传展示全部策略 ONECLICK=展示一键告警策略 NOT_ONECLICK=展示非一键告警策略
+     */
+    public void setOneClickPolicyType(String [] OneClickPolicyType) {
+        this.OneClickPolicyType = OneClickPolicyType;
+    }
+
     public DescribeAlarmPoliciesRequest() {
     }
 
@@ -596,6 +642,18 @@ public class DescribeAlarmPoliciesRequest extends AbstractModel{
         if (source.NeedCorrespondence != null) {
             this.NeedCorrespondence = new Long(source.NeedCorrespondence);
         }
+        if (source.TriggerTasks != null) {
+            this.TriggerTasks = new AlarmPolicyTriggerTask[source.TriggerTasks.length];
+            for (int i = 0; i < source.TriggerTasks.length; i++) {
+                this.TriggerTasks[i] = new AlarmPolicyTriggerTask(source.TriggerTasks[i]);
+            }
+        }
+        if (source.OneClickPolicyType != null) {
+            this.OneClickPolicyType = new String[source.OneClickPolicyType.length];
+            for (int i = 0; i < source.OneClickPolicyType.length; i++) {
+                this.OneClickPolicyType[i] = new String(source.OneClickPolicyType[i]);
+            }
+        }
     }
 
 
@@ -622,6 +680,8 @@ public class DescribeAlarmPoliciesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "NotBindingNoticeRule", this.NotBindingNoticeRule);
         this.setParamSimple(map, prefix + "InstanceGroupId", this.InstanceGroupId);
         this.setParamSimple(map, prefix + "NeedCorrespondence", this.NeedCorrespondence);
+        this.setParamArrayObj(map, prefix + "TriggerTasks.", this.TriggerTasks);
+        this.setParamArraySimple(map, prefix + "OneClickPolicyType.", this.OneClickPolicyType);
 
     }
 }

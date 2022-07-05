@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class ClusterBasicSettings extends AbstractModel{
 
     /**
-    * 集群系统。centos7.2x86_64 或者 ubuntu16.04.1 LTSx86_64，默认取值为ubuntu16.04.1 LTSx86_64
+    * 集群操作系统，支持设置公共镜像(字段传相应镜像ID)和自定义镜像(字段传相应镜像Name)，详情参考：https://cloud.tencent.com/document/product/457/68289
     */
     @SerializedName("ClusterOs")
     @Expose
@@ -79,7 +79,7 @@ public class ClusterBasicSettings extends AbstractModel{
     private String OsCustomizeType;
 
     /**
-    * 是否开启节点的默认安全组(默认: 否，Aphla特性)
+    * 是否开启节点的默认安全组(默认: 否，Alpha特性)
     */
     @SerializedName("NeedWorkSecurityGroup")
     @Expose
@@ -93,16 +93,30 @@ public class ClusterBasicSettings extends AbstractModel{
     private String SubnetId;
 
     /**
-     * Get 集群系统。centos7.2x86_64 或者 ubuntu16.04.1 LTSx86_64，默认取值为ubuntu16.04.1 LTSx86_64 
-     * @return ClusterOs 集群系统。centos7.2x86_64 或者 ubuntu16.04.1 LTSx86_64，默认取值为ubuntu16.04.1 LTSx86_64
+    * 集群等级，针对托管集群生效
+    */
+    @SerializedName("ClusterLevel")
+    @Expose
+    private String ClusterLevel;
+
+    /**
+    * 自动变配集群等级，针对托管集群生效
+    */
+    @SerializedName("AutoUpgradeClusterLevel")
+    @Expose
+    private AutoUpgradeClusterLevel AutoUpgradeClusterLevel;
+
+    /**
+     * Get 集群操作系统，支持设置公共镜像(字段传相应镜像ID)和自定义镜像(字段传相应镜像Name)，详情参考：https://cloud.tencent.com/document/product/457/68289 
+     * @return ClusterOs 集群操作系统，支持设置公共镜像(字段传相应镜像ID)和自定义镜像(字段传相应镜像Name)，详情参考：https://cloud.tencent.com/document/product/457/68289
      */
     public String getClusterOs() {
         return this.ClusterOs;
     }
 
     /**
-     * Set 集群系统。centos7.2x86_64 或者 ubuntu16.04.1 LTSx86_64，默认取值为ubuntu16.04.1 LTSx86_64
-     * @param ClusterOs 集群系统。centos7.2x86_64 或者 ubuntu16.04.1 LTSx86_64，默认取值为ubuntu16.04.1 LTSx86_64
+     * Set 集群操作系统，支持设置公共镜像(字段传相应镜像ID)和自定义镜像(字段传相应镜像Name)，详情参考：https://cloud.tencent.com/document/product/457/68289
+     * @param ClusterOs 集群操作系统，支持设置公共镜像(字段传相应镜像ID)和自定义镜像(字段传相应镜像Name)，详情参考：https://cloud.tencent.com/document/product/457/68289
      */
     public void setClusterOs(String ClusterOs) {
         this.ClusterOs = ClusterOs;
@@ -221,16 +235,16 @@ public class ClusterBasicSettings extends AbstractModel{
     }
 
     /**
-     * Get 是否开启节点的默认安全组(默认: 否，Aphla特性) 
-     * @return NeedWorkSecurityGroup 是否开启节点的默认安全组(默认: 否，Aphla特性)
+     * Get 是否开启节点的默认安全组(默认: 否，Alpha特性) 
+     * @return NeedWorkSecurityGroup 是否开启节点的默认安全组(默认: 否，Alpha特性)
      */
     public Boolean getNeedWorkSecurityGroup() {
         return this.NeedWorkSecurityGroup;
     }
 
     /**
-     * Set 是否开启节点的默认安全组(默认: 否，Aphla特性)
-     * @param NeedWorkSecurityGroup 是否开启节点的默认安全组(默认: 否，Aphla特性)
+     * Set 是否开启节点的默认安全组(默认: 否，Alpha特性)
+     * @param NeedWorkSecurityGroup 是否开启节点的默认安全组(默认: 否，Alpha特性)
      */
     public void setNeedWorkSecurityGroup(Boolean NeedWorkSecurityGroup) {
         this.NeedWorkSecurityGroup = NeedWorkSecurityGroup;
@@ -250,6 +264,38 @@ public class ClusterBasicSettings extends AbstractModel{
      */
     public void setSubnetId(String SubnetId) {
         this.SubnetId = SubnetId;
+    }
+
+    /**
+     * Get 集群等级，针对托管集群生效 
+     * @return ClusterLevel 集群等级，针对托管集群生效
+     */
+    public String getClusterLevel() {
+        return this.ClusterLevel;
+    }
+
+    /**
+     * Set 集群等级，针对托管集群生效
+     * @param ClusterLevel 集群等级，针对托管集群生效
+     */
+    public void setClusterLevel(String ClusterLevel) {
+        this.ClusterLevel = ClusterLevel;
+    }
+
+    /**
+     * Get 自动变配集群等级，针对托管集群生效 
+     * @return AutoUpgradeClusterLevel 自动变配集群等级，针对托管集群生效
+     */
+    public AutoUpgradeClusterLevel getAutoUpgradeClusterLevel() {
+        return this.AutoUpgradeClusterLevel;
+    }
+
+    /**
+     * Set 自动变配集群等级，针对托管集群生效
+     * @param AutoUpgradeClusterLevel 自动变配集群等级，针对托管集群生效
+     */
+    public void setAutoUpgradeClusterLevel(AutoUpgradeClusterLevel AutoUpgradeClusterLevel) {
+        this.AutoUpgradeClusterLevel = AutoUpgradeClusterLevel;
     }
 
     public ClusterBasicSettings() {
@@ -293,6 +339,12 @@ public class ClusterBasicSettings extends AbstractModel{
         if (source.SubnetId != null) {
             this.SubnetId = new String(source.SubnetId);
         }
+        if (source.ClusterLevel != null) {
+            this.ClusterLevel = new String(source.ClusterLevel);
+        }
+        if (source.AutoUpgradeClusterLevel != null) {
+            this.AutoUpgradeClusterLevel = new AutoUpgradeClusterLevel(source.AutoUpgradeClusterLevel);
+        }
     }
 
 
@@ -310,6 +362,8 @@ public class ClusterBasicSettings extends AbstractModel{
         this.setParamSimple(map, prefix + "OsCustomizeType", this.OsCustomizeType);
         this.setParamSimple(map, prefix + "NeedWorkSecurityGroup", this.NeedWorkSecurityGroup);
         this.setParamSimple(map, prefix + "SubnetId", this.SubnetId);
+        this.setParamSimple(map, prefix + "ClusterLevel", this.ClusterLevel);
+        this.setParamObj(map, prefix + "AutoUpgradeClusterLevel.", this.AutoUpgradeClusterLevel);
 
     }
 }

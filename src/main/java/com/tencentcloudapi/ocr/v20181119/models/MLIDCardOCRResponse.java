@@ -69,14 +69,12 @@ public class MLIDCardOCRResponse extends AbstractModel{
     private String Image;
 
     /**
-    * 扩展字段：
+    * 此字段为扩展字段。
+返回字段识别结果的置信度，格式如下
 {
-    ID:{
-        Confidence:0.9999
-    },
-    Name:{
-        Confidence:0.9996
-    }
+  字段名:{
+    Confidence:0.9999
+  }
 }
     */
     @SerializedName("AdvancedInfo")
@@ -98,7 +96,7 @@ MyKid 儿童卡
     private String Type;
 
     /**
-    * 出生日期（目前该字段仅支持IKAD劳工证）
+    * 出生日期（目前该字段仅支持IKAD劳工证、MyKad 身份证）
     */
     @SerializedName("Birthday")
     @Expose
@@ -224,23 +222,19 @@ MyKid 儿童卡
     }
 
     /**
-     * Get 扩展字段：
+     * Get 此字段为扩展字段。
+返回字段识别结果的置信度，格式如下
 {
-    ID:{
-        Confidence:0.9999
-    },
-    Name:{
-        Confidence:0.9996
-    }
+  字段名:{
+    Confidence:0.9999
+  }
 } 
-     * @return AdvancedInfo 扩展字段：
+     * @return AdvancedInfo 此字段为扩展字段。
+返回字段识别结果的置信度，格式如下
 {
-    ID:{
-        Confidence:0.9999
-    },
-    Name:{
-        Confidence:0.9996
-    }
+  字段名:{
+    Confidence:0.9999
+  }
 }
      */
     public String getAdvancedInfo() {
@@ -248,23 +242,19 @@ MyKid 儿童卡
     }
 
     /**
-     * Set 扩展字段：
+     * Set 此字段为扩展字段。
+返回字段识别结果的置信度，格式如下
 {
-    ID:{
-        Confidence:0.9999
-    },
-    Name:{
-        Confidence:0.9996
-    }
+  字段名:{
+    Confidence:0.9999
+  }
 }
-     * @param AdvancedInfo 扩展字段：
+     * @param AdvancedInfo 此字段为扩展字段。
+返回字段识别结果的置信度，格式如下
 {
-    ID:{
-        Confidence:0.9999
-    },
-    Name:{
-        Confidence:0.9996
-    }
+  字段名:{
+    Confidence:0.9999
+  }
 }
      */
     public void setAdvancedInfo(String AdvancedInfo) {
@@ -316,16 +306,16 @@ MyKid 儿童卡
     }
 
     /**
-     * Get 出生日期（目前该字段仅支持IKAD劳工证） 
-     * @return Birthday 出生日期（目前该字段仅支持IKAD劳工证）
+     * Get 出生日期（目前该字段仅支持IKAD劳工证、MyKad 身份证） 
+     * @return Birthday 出生日期（目前该字段仅支持IKAD劳工证、MyKad 身份证）
      */
     public String getBirthday() {
         return this.Birthday;
     }
 
     /**
-     * Set 出生日期（目前该字段仅支持IKAD劳工证）
-     * @param Birthday 出生日期（目前该字段仅支持IKAD劳工证）
+     * Set 出生日期（目前该字段仅支持IKAD劳工证、MyKad 身份证）
+     * @param Birthday 出生日期（目前该字段仅支持IKAD劳工证、MyKad 身份证）
      */
     public void setBirthday(String Birthday) {
         this.Birthday = Birthday;

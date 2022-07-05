@@ -30,6 +30,13 @@ public class DescribeWxCloudBaseRunEnvsRequest extends AbstractModel{
     private String WxAppId;
 
     /**
+    * 是否查询全地域
+    */
+    @SerializedName("AllRegions")
+    @Expose
+    private Boolean AllRegions;
+
+    /**
      * Get wx应用Id 
      * @return WxAppId wx应用Id
      */
@@ -45,6 +52,22 @@ public class DescribeWxCloudBaseRunEnvsRequest extends AbstractModel{
         this.WxAppId = WxAppId;
     }
 
+    /**
+     * Get 是否查询全地域 
+     * @return AllRegions 是否查询全地域
+     */
+    public Boolean getAllRegions() {
+        return this.AllRegions;
+    }
+
+    /**
+     * Set 是否查询全地域
+     * @param AllRegions 是否查询全地域
+     */
+    public void setAllRegions(Boolean AllRegions) {
+        this.AllRegions = AllRegions;
+    }
+
     public DescribeWxCloudBaseRunEnvsRequest() {
     }
 
@@ -56,6 +79,9 @@ public class DescribeWxCloudBaseRunEnvsRequest extends AbstractModel{
         if (source.WxAppId != null) {
             this.WxAppId = new String(source.WxAppId);
         }
+        if (source.AllRegions != null) {
+            this.AllRegions = new Boolean(source.AllRegions);
+        }
     }
 
 
@@ -64,6 +90,7 @@ public class DescribeWxCloudBaseRunEnvsRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "WxAppId", this.WxAppId);
+        this.setParamSimple(map, prefix + "AllRegions", this.AllRegions);
 
     }
 }

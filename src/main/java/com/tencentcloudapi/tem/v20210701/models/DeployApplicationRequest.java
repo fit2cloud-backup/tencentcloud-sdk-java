@@ -255,14 +255,14 @@ public class DeployApplicationRequest extends AbstractModel{
     private DeployStrategyConf DeployStrategyConf;
 
     /**
-    * 弹性策略
+    * 弹性策略（已弃用，请使用弹性伸缩策略组合相关接口）
     */
     @SerializedName("HorizontalAutoscaler")
     @Expose
     private HorizontalAutoscaler [] HorizontalAutoscaler;
 
     /**
-    * 定时弹性策略
+    * 定时弹性策略（已弃用，请使用弹性伸缩策略组合相关接口）
     */
     @SerializedName("CronHorizontalAutoscaler")
     @Expose
@@ -295,6 +295,33 @@ public class DeployApplicationRequest extends AbstractModel{
     @SerializedName("StartupProbe")
     @Expose
     private HealthCheckConfig StartupProbe;
+
+    /**
+    * 操作系统版本；
+当选择openjdk时，可选参数：
+- ALPINE
+- CENTOS
+当选择konajdk时，可选参数：
+- ALPINE
+- TENCENTOS
+    */
+    @SerializedName("OsFlavour")
+    @Expose
+    private String OsFlavour;
+
+    /**
+    * 是否开启prometheus 业务指标监控
+    */
+    @SerializedName("EnablePrometheusConf")
+    @Expose
+    private EnablePrometheusConf EnablePrometheusConf;
+
+    /**
+    * 1：开始apm采集；0：关闭apm采集
+    */
+    @SerializedName("EnableTracing")
+    @Expose
+    private Long EnableTracing;
 
     /**
      * Get 应用ID 
@@ -841,32 +868,32 @@ public class DeployApplicationRequest extends AbstractModel{
     }
 
     /**
-     * Get 弹性策略 
-     * @return HorizontalAutoscaler 弹性策略
+     * Get 弹性策略（已弃用，请使用弹性伸缩策略组合相关接口） 
+     * @return HorizontalAutoscaler 弹性策略（已弃用，请使用弹性伸缩策略组合相关接口）
      */
     public HorizontalAutoscaler [] getHorizontalAutoscaler() {
         return this.HorizontalAutoscaler;
     }
 
     /**
-     * Set 弹性策略
-     * @param HorizontalAutoscaler 弹性策略
+     * Set 弹性策略（已弃用，请使用弹性伸缩策略组合相关接口）
+     * @param HorizontalAutoscaler 弹性策略（已弃用，请使用弹性伸缩策略组合相关接口）
      */
     public void setHorizontalAutoscaler(HorizontalAutoscaler [] HorizontalAutoscaler) {
         this.HorizontalAutoscaler = HorizontalAutoscaler;
     }
 
     /**
-     * Get 定时弹性策略 
-     * @return CronHorizontalAutoscaler 定时弹性策略
+     * Get 定时弹性策略（已弃用，请使用弹性伸缩策略组合相关接口） 
+     * @return CronHorizontalAutoscaler 定时弹性策略（已弃用，请使用弹性伸缩策略组合相关接口）
      */
     public CronHorizontalAutoscaler [] getCronHorizontalAutoscaler() {
         return this.CronHorizontalAutoscaler;
     }
 
     /**
-     * Set 定时弹性策略
-     * @param CronHorizontalAutoscaler 定时弹性策略
+     * Set 定时弹性策略（已弃用，请使用弹性伸缩策略组合相关接口）
+     * @param CronHorizontalAutoscaler 定时弹性策略（已弃用，请使用弹性伸缩策略组合相关接口）
      */
     public void setCronHorizontalAutoscaler(CronHorizontalAutoscaler [] CronHorizontalAutoscaler) {
         this.CronHorizontalAutoscaler = CronHorizontalAutoscaler;
@@ -934,6 +961,78 @@ public class DeployApplicationRequest extends AbstractModel{
      */
     public void setStartupProbe(HealthCheckConfig StartupProbe) {
         this.StartupProbe = StartupProbe;
+    }
+
+    /**
+     * Get 操作系统版本；
+当选择openjdk时，可选参数：
+- ALPINE
+- CENTOS
+当选择konajdk时，可选参数：
+- ALPINE
+- TENCENTOS 
+     * @return OsFlavour 操作系统版本；
+当选择openjdk时，可选参数：
+- ALPINE
+- CENTOS
+当选择konajdk时，可选参数：
+- ALPINE
+- TENCENTOS
+     */
+    public String getOsFlavour() {
+        return this.OsFlavour;
+    }
+
+    /**
+     * Set 操作系统版本；
+当选择openjdk时，可选参数：
+- ALPINE
+- CENTOS
+当选择konajdk时，可选参数：
+- ALPINE
+- TENCENTOS
+     * @param OsFlavour 操作系统版本；
+当选择openjdk时，可选参数：
+- ALPINE
+- CENTOS
+当选择konajdk时，可选参数：
+- ALPINE
+- TENCENTOS
+     */
+    public void setOsFlavour(String OsFlavour) {
+        this.OsFlavour = OsFlavour;
+    }
+
+    /**
+     * Get 是否开启prometheus 业务指标监控 
+     * @return EnablePrometheusConf 是否开启prometheus 业务指标监控
+     */
+    public EnablePrometheusConf getEnablePrometheusConf() {
+        return this.EnablePrometheusConf;
+    }
+
+    /**
+     * Set 是否开启prometheus 业务指标监控
+     * @param EnablePrometheusConf 是否开启prometheus 业务指标监控
+     */
+    public void setEnablePrometheusConf(EnablePrometheusConf EnablePrometheusConf) {
+        this.EnablePrometheusConf = EnablePrometheusConf;
+    }
+
+    /**
+     * Get 1：开始apm采集；0：关闭apm采集 
+     * @return EnableTracing 1：开始apm采集；0：关闭apm采集
+     */
+    public Long getEnableTracing() {
+        return this.EnableTracing;
+    }
+
+    /**
+     * Set 1：开始apm采集；0：关闭apm采集
+     * @param EnableTracing 1：开始apm采集；0：关闭apm采集
+     */
+    public void setEnableTracing(Long EnableTracing) {
+        this.EnableTracing = EnableTracing;
     }
 
     public DeployApplicationRequest() {
@@ -1085,6 +1184,15 @@ public class DeployApplicationRequest extends AbstractModel{
         if (source.StartupProbe != null) {
             this.StartupProbe = new HealthCheckConfig(source.StartupProbe);
         }
+        if (source.OsFlavour != null) {
+            this.OsFlavour = new String(source.OsFlavour);
+        }
+        if (source.EnablePrometheusConf != null) {
+            this.EnablePrometheusConf = new EnablePrometheusConf(source.EnablePrometheusConf);
+        }
+        if (source.EnableTracing != null) {
+            this.EnableTracing = new Long(source.EnableTracing);
+        }
     }
 
 
@@ -1130,6 +1238,9 @@ public class DeployApplicationRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ConfEdited", this.ConfEdited);
         this.setParamSimple(map, prefix + "SpeedUp", this.SpeedUp);
         this.setParamObj(map, prefix + "StartupProbe.", this.StartupProbe);
+        this.setParamSimple(map, prefix + "OsFlavour", this.OsFlavour);
+        this.setParamObj(map, prefix + "EnablePrometheusConf.", this.EnablePrometheusConf);
+        this.setParamSimple(map, prefix + "EnableTracing", this.EnableTracing);
 
     }
 }

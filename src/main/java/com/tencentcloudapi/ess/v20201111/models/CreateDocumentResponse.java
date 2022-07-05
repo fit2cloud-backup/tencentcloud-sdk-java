@@ -23,11 +23,19 @@ import java.util.HashMap;
 public class CreateDocumentResponse extends AbstractModel{
 
     /**
-    * 返回的电子文档ID
+    * 签署流程电子文档ID
     */
     @SerializedName("DocumentId")
     @Expose
     private String DocumentId;
+
+    /**
+    * 签署流程文件的预览地址, 5分钟内有效。仅当NeedPreview为true 时返回
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PreviewFileUrl")
+    @Expose
+    private String PreviewFileUrl;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -37,19 +45,39 @@ public class CreateDocumentResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 返回的电子文档ID 
-     * @return DocumentId 返回的电子文档ID
+     * Get 签署流程电子文档ID 
+     * @return DocumentId 签署流程电子文档ID
      */
     public String getDocumentId() {
         return this.DocumentId;
     }
 
     /**
-     * Set 返回的电子文档ID
-     * @param DocumentId 返回的电子文档ID
+     * Set 签署流程电子文档ID
+     * @param DocumentId 签署流程电子文档ID
      */
     public void setDocumentId(String DocumentId) {
         this.DocumentId = DocumentId;
+    }
+
+    /**
+     * Get 签署流程文件的预览地址, 5分钟内有效。仅当NeedPreview为true 时返回
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PreviewFileUrl 签署流程文件的预览地址, 5分钟内有效。仅当NeedPreview为true 时返回
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getPreviewFileUrl() {
+        return this.PreviewFileUrl;
+    }
+
+    /**
+     * Set 签署流程文件的预览地址, 5分钟内有效。仅当NeedPreview为true 时返回
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PreviewFileUrl 签署流程文件的预览地址, 5分钟内有效。仅当NeedPreview为true 时返回
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPreviewFileUrl(String PreviewFileUrl) {
+        this.PreviewFileUrl = PreviewFileUrl;
     }
 
     /**
@@ -79,6 +107,9 @@ public class CreateDocumentResponse extends AbstractModel{
         if (source.DocumentId != null) {
             this.DocumentId = new String(source.DocumentId);
         }
+        if (source.PreviewFileUrl != null) {
+            this.PreviewFileUrl = new String(source.PreviewFileUrl);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -90,6 +121,7 @@ public class CreateDocumentResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "DocumentId", this.DocumentId);
+        this.setParamSimple(map, prefix + "PreviewFileUrl", this.PreviewFileUrl);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

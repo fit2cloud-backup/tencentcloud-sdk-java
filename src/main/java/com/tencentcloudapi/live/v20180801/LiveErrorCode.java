@@ -27,6 +27,9 @@ public enum LiveErrorCode {
     // 2天内有产生流量，域名处于锁定期间，2天内无流量产生才允许删除域名。
      FAILEDOPERATION_DELETEDOMAININLOCKEDTIME("FailedOperation.DeleteDomainInLockedTime"),
      
+    // 配置域名规则失败。
+     FAILEDOPERATION_DOMAINGSLBFAIL("FailedOperation.DomainGslbFail"),
+     
     // 无法获取水印 url。
      FAILEDOPERATION_GETPICTUREURLERROR("FailedOperation.GetPictureUrlError"),
      
@@ -318,6 +321,9 @@ public enum LiveErrorCode {
     // 错误的VodFileName。
      INVALIDPARAMETER_INVALIDVODFILENAME("InvalidParameter.InvalidVodFileName"),
      
+    // 水印参数有误。
+     INVALIDPARAMETER_INVALIDWATERMARK("InvalidParameter.InvalidWatermark"),
+     
     // 当月不允许添加已删除的小程序域名。
      INVALIDPARAMETER_MPHOSTDELETE("InvalidParameter.MpHostDelete"),
      
@@ -390,6 +396,12 @@ public enum LiveErrorCode {
     // 域名不存在或不匹配。
      RESOURCENOTFOUND_DOMAINNOTEXIST("ResourceNotFound.DomainNotExist"),
      
+    // 用户被禁用。
+     RESOURCENOTFOUND_FORBIDSERVICE("ResourceNotFound.ForbidService"),
+     
+    // 用户服务被冻结。
+     RESOURCENOTFOUND_FREEZESERVICE("ResourceNotFound.FreezeService"),
+     
     // 用户不支持此接口。
      RESOURCENOTFOUND_INVALIDUSER("ResourceNotFound.InvalidUser"),
      
@@ -407,6 +419,9 @@ public enum LiveErrorCode {
      
     // TaskId 不存在。
      RESOURCENOTFOUND_TASKID("ResourceNotFound.TaskId"),
+     
+    // 用户主动停服。
+     RESOURCENOTFOUND_USERDISABLESERVICE("ResourceNotFound.UserDisableService"),
      
     // 用户未注册直播。
      RESOURCENOTFOUND_USERNOTEXIST("ResourceNotFound.UserNotExist"),

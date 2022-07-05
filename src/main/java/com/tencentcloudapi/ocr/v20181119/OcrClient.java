@@ -616,56 +616,42 @@ public class OcrClient extends AbstractClient{
           <td>适用于快速文本识别场景，准召率有一定损失，价格更优惠</td>
           <td>适用于所有通用场景的印刷体识别</td>
           <td>适用于文字较多、长串数字、小字、模糊字、倾斜文本等困难场景</td>
-          
-          
         </tr>
         <tr>
           <td>识别准确率</td>
           <td>91%</td>
           <td>96%</td>
           <td>99%</td>
-          
-          
         </tr>
         <tr>
           <td>价格</td>
           <td>低</td>
           <td>中</td>
           <td>高</td>
-          
-          
         </tr>
         <tr>
           <td>支持的语言</td>
           <td>中文、英文、中英文</td>
           <td>中文、英文、中英文、日语、韩语、西班牙语、法语、德语、葡萄牙语、越南语、马来语、俄语、意大利语、荷兰语、瑞典语、芬兰语、丹麦语、挪威语、匈牙利语、泰语</td>  
           <td>中文、英文、中英文</td>
-          
-          
         </tr>
         <tr>
           <td>自动语言检测</td>
           <td>支持</td>
           <td>支持</td>  
           <td>支持</td>
-          
-          
         </tr>
         <tr>
           <td>返回文本行坐标</td>
           <td>支持</td>
           <td>支持</td>
           <td>支持</td>
-          
-          
         </tr>
         <tr>
           <td>自动旋转纠正</td>
           <td>支持旋转识别，返回角度信息</td>
           <td>支持旋转识别，返回角度信息</td>
           <td>支持旋转识别，返回角度信息</td>
-          
-         
         </tr>
       </tbody>
     </table>
@@ -998,7 +984,7 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持多张、多类型票据的混合识别，系统自动实现分割、分类和识别，同时支持自选需要识别的票据类型。目前已支持增值税发票、增值税发票（卷票）、定额发票、通用机打发票、购车发票、火车票、出租车发票、机票行程单、汽车票、轮船票、过路过桥费发票共11种票据。
+     *本接口支持 单张、多张、多类型 票据的混合识别，同时支持自选需要识别的票据类型，已支持票种包括：增值税发票（专票、普票、卷票）、全电发票、非税发票、定额发票、通用机打发票、购车发票、火车票、出租车发票、机票行程单、汽车票、轮船票、过路过桥费发票共14种标准报销发票，并支持其他类发票的识别。
      * @param req MixedInvoiceOCRRequest
      * @return MixedInvoiceOCRResponse
      * @throws TencentCloudSDKException
@@ -1182,7 +1168,7 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持粤康码识别，包括姓名、更新时间、健康码颜色，三个字段的识别结果输出。
+     *本接口支持北京、上海、广东、江苏、吉林、黑龙江、天津、辽宁、浙江、河南、四川、贵州、山东、安徽、福建、江西、湖南等省份健康码的识别，包括持码人姓名、持码人身份证号、健康码更新时间、健康码颜色、核酸检测结果、核酸检测间隔时长、核酸检测时间，疫苗接种信息，八个字段的识别结果输出。不同省市健康码显示的字段信息有所不同，上述字段的识别结果可能为空，以图片上具体展示的信息为准。
      * @param req RecognizeHealthCodeOCRRequest
      * @return RecognizeHealthCodeOCRResponse
      * @throws TencentCloudSDKException
@@ -1194,6 +1180,26 @@ public class OcrClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<RecognizeHealthCodeOCRResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "RecognizeHealthCodeOCR");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *印尼身份证识别
+     * @param req RecognizeIndonesiaIDCardOCRRequest
+     * @return RecognizeIndonesiaIDCardOCRResponse
+     * @throws TencentCloudSDKException
+     */
+    public RecognizeIndonesiaIDCardOCRResponse RecognizeIndonesiaIDCardOCR(RecognizeIndonesiaIDCardOCRRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<RecognizeIndonesiaIDCardOCRResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<RecognizeIndonesiaIDCardOCRResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "RecognizeIndonesiaIDCardOCR");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1214,6 +1220,46 @@ public class OcrClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<RecognizeOnlineTaxiItineraryOCRResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "RecognizeOnlineTaxiItineraryOCR");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *菲律宾驾驶证识别
+     * @param req RecognizePhilippinesDrivingLicenseOCRRequest
+     * @return RecognizePhilippinesDrivingLicenseOCRResponse
+     * @throws TencentCloudSDKException
+     */
+    public RecognizePhilippinesDrivingLicenseOCRResponse RecognizePhilippinesDrivingLicenseOCR(RecognizePhilippinesDrivingLicenseOCRRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<RecognizePhilippinesDrivingLicenseOCRResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<RecognizePhilippinesDrivingLicenseOCRResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "RecognizePhilippinesDrivingLicenseOCR");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *菲律宾VoteID识别
+     * @param req RecognizePhilippinesVoteIDOCRRequest
+     * @return RecognizePhilippinesVoteIDOCRResponse
+     * @throws TencentCloudSDKException
+     */
+    public RecognizePhilippinesVoteIDOCRResponse RecognizePhilippinesVoteIDOCR(RecognizePhilippinesVoteIDOCRRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<RecognizePhilippinesVoteIDOCRResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<RecognizePhilippinesVoteIDOCRResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "RecognizePhilippinesVoteIDOCR");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1256,6 +1302,26 @@ public class OcrClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<RecognizeThaiIDCardOCRResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "RecognizeThaiIDCardOCR");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口支持通信大数据行程卡识别，包括行程卡颜色、更新时间、途经地、存在中高风险地区的城市、电话号码，五个字段的识别结果输出。
+     * @param req RecognizeTravelCardOCRRequest
+     * @return RecognizeTravelCardOCRResponse
+     * @throws TencentCloudSDKException
+     */
+    public RecognizeTravelCardOCRResponse RecognizeTravelCardOCR(RecognizeTravelCardOCRRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<RecognizeTravelCardOCRResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<RecognizeTravelCardOCRResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "RecognizeTravelCardOCR");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1325,7 +1391,7 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *印章识别已支持各类印章，包括发票章，财务章等，适用于公文，票据等场景。
+     *本接口支持各类印章识别，包括发票章，财务章等，适用于公文，票据等场景。
      * @param req SealOCRRequest
      * @return SealOCRResponse
      * @throws TencentCloudSDKException
@@ -1510,7 +1576,7 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持增值税发票的准确性核验，您可以通过输入增值税发票的关键字段提供所需的验证信息，接口返回真实的票面相关信息，包括发票代码、发票号码、开票日期、金额、消费类型、购方名称、购方税号、销方名称、销方税号等多个常用字段。支持多种发票类型核验，包括增值税专用发票、增值税普通发票（含电子普通发票、卷式发票、通行费发票）、机动车销售统一发票、货物运输业增值税专用发票、二手车销售统一发票。
+     *本接口支持增值税发票的准确性核验，您可以通过输入增值税发票的关键字段提供所需的验证信息，接口返回真实的票面相关信息，包括发票代码、发票号码、开票日期、金额、消费类型、购方名称、购方税号、销方名称、销方税号等多个常用字段。支持多种发票类型核验，包括增值税专用发票、增值税普通发票（含电子普通发票、卷式发票、通行费发票）、全电发票、机动车销售统一发票、货物运输业增值税专用发票、二手车销售统一发票。
      * @param req VatInvoiceVerifyRequest
      * @return VatInvoiceVerifyResponse
      * @throws TencentCloudSDKException
@@ -1522,6 +1588,26 @@ public class OcrClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<VatInvoiceVerifyResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "VatInvoiceVerify");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口支持增值税发票的准确性核验，您可以通过输入增值税发票的关键字段提供所需的验证信息，接口返回真实的票面相关信息，包括发票代码、发票号码、开票日期、金额、消费类型、购方名称、购方税号、销方名称、销方税号等多个常用字段。支持多种发票类型核验，包括增值税专用发票、增值税普通发票（含电子普通发票、卷式发票、通行费发票）、全电发票、机动车销售统一发票、货物运输业增值税专用发票、二手车销售统一发票。
+     * @param req VatInvoiceVerifyNewRequest
+     * @return VatInvoiceVerifyNewResponse
+     * @throws TencentCloudSDKException
+     */
+    public VatInvoiceVerifyNewResponse VatInvoiceVerifyNew(VatInvoiceVerifyNewRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<VatInvoiceVerifyNewResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<VatInvoiceVerifyNewResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "VatInvoiceVerifyNew");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1702,7 +1788,7 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持市面上主流版式电子运单的识别，包括收件人和寄件人的姓名、电话、地址以及运单号等字段。
+     *本接口支持市面上主流版式电子运单的识别，包括收件人和寄件人的姓名、电话、地址以及运单号等字段，精度均处于业界领先水平，识别准确率达到99%以上。
      * @param req WaybillOCRRequest
      * @return WaybillOCRResponse
      * @throws TencentCloudSDKException

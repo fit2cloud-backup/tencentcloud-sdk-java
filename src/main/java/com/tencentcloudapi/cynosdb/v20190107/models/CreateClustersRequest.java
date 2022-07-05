@@ -53,7 +53,7 @@ public class CreateClustersRequest extends AbstractModel{
 
     /**
     * 数据库版本，取值范围: 
-<li> MYSQL可选值：5.7 </li>
+<li> MYSQL可选值：5.7，8.0 </li>
     */
     @SerializedName("DbVersion")
     @Expose
@@ -91,7 +91,7 @@ public class CreateClustersRequest extends AbstractModel{
     private Long Storage;
 
     /**
-    * 集群名称
+    * 集群名称，长度小于64个字符，每个字符取值范围：大/小写字母，数字，特殊符号（'-','_','.'）
     */
     @SerializedName("ClusterName")
     @Expose
@@ -119,7 +119,7 @@ public class CreateClustersRequest extends AbstractModel{
     private Long PayMode;
 
     /**
-    * 购买个数，目前只支持传1（不传默认为1）
+    * 购买集群数，可选值范围[1,50]，默认为1
     */
     @SerializedName("Count")
     @Expose
@@ -187,7 +187,7 @@ timeRollback，时间点回档
     private Long TimeSpan;
 
     /**
-    * 包年包月购买时长单位
+    * 包年包月购买时长单位，['s','d','m','y']
     */
     @SerializedName("TimeUnit")
     @Expose
@@ -386,9 +386,9 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
 
     /**
      * Get 数据库版本，取值范围: 
-<li> MYSQL可选值：5.7 </li> 
+<li> MYSQL可选值：5.7，8.0 </li> 
      * @return DbVersion 数据库版本，取值范围: 
-<li> MYSQL可选值：5.7 </li>
+<li> MYSQL可选值：5.7，8.0 </li>
      */
     public String getDbVersion() {
         return this.DbVersion;
@@ -396,9 +396,9 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
 
     /**
      * Set 数据库版本，取值范围: 
-<li> MYSQL可选值：5.7 </li>
+<li> MYSQL可选值：5.7，8.0 </li>
      * @param DbVersion 数据库版本，取值范围: 
-<li> MYSQL可选值：5.7 </li>
+<li> MYSQL可选值：5.7，8.0 </li>
      */
     public void setDbVersion(String DbVersion) {
         this.DbVersion = DbVersion;
@@ -481,16 +481,16 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
     }
 
     /**
-     * Get 集群名称 
-     * @return ClusterName 集群名称
+     * Get 集群名称，长度小于64个字符，每个字符取值范围：大/小写字母，数字，特殊符号（'-','_','.'） 
+     * @return ClusterName 集群名称，长度小于64个字符，每个字符取值范围：大/小写字母，数字，特殊符号（'-','_','.'）
      */
     public String getClusterName() {
         return this.ClusterName;
     }
 
     /**
-     * Set 集群名称
-     * @param ClusterName 集群名称
+     * Set 集群名称，长度小于64个字符，每个字符取值范围：大/小写字母，数字，特殊符号（'-','_','.'）
+     * @param ClusterName 集群名称，长度小于64个字符，每个字符取值范围：大/小写字母，数字，特殊符号（'-','_','.'）
      */
     public void setClusterName(String ClusterName) {
         this.ClusterName = ClusterName;
@@ -545,16 +545,16 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
     }
 
     /**
-     * Get 购买个数，目前只支持传1（不传默认为1） 
-     * @return Count 购买个数，目前只支持传1（不传默认为1）
+     * Get 购买集群数，可选值范围[1,50]，默认为1 
+     * @return Count 购买集群数，可选值范围[1,50]，默认为1
      */
     public Long getCount() {
         return this.Count;
     }
 
     /**
-     * Set 购买个数，目前只支持传1（不传默认为1）
-     * @param Count 购买个数，目前只支持传1（不传默认为1）
+     * Set 购买集群数，可选值范围[1,50]，默认为1
+     * @param Count 购买集群数，可选值范围[1,50]，默认为1
      */
     public void setCount(Long Count) {
         this.Count = Count;
@@ -709,16 +709,16 @@ timeRollback，时间点回档
     }
 
     /**
-     * Get 包年包月购买时长单位 
-     * @return TimeUnit 包年包月购买时长单位
+     * Get 包年包月购买时长单位，['s','d','m','y'] 
+     * @return TimeUnit 包年包月购买时长单位，['s','d','m','y']
      */
     public String getTimeUnit() {
         return this.TimeUnit;
     }
 
     /**
-     * Set 包年包月购买时长单位
-     * @param TimeUnit 包年包月购买时长单位
+     * Set 包年包月购买时长单位，['s','d','m','y']
+     * @param TimeUnit 包年包月购买时长单位，['s','d','m','y']
      */
     public void setTimeUnit(String TimeUnit) {
         this.TimeUnit = TimeUnit;

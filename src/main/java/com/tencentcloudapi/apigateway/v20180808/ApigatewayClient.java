@@ -324,7 +324,7 @@ API 网关使用的最大单元为服务，每个服务中可创建多个 API �
     }
 
     /**
-     *用于创建创建VPC通道
+     *用于创建创建后端通道
      * @param req CreateUpstreamRequest
      * @return CreateUpstreamResponse
      * @throws TencentCloudSDKException
@@ -526,7 +526,7 @@ API 网关使用的最大单元为服务，每个服务中可创建多个 API �
     }
 
     /**
-     *删除VPC通道，需要注意有api绑定时，不允许删除
+     *删除后端通道，需要注意有API绑定时，不允许删除
      * @param req DeleteUpstreamRequest
      * @return DeleteUpstreamResponse
      * @throws TencentCloudSDKException
@@ -810,7 +810,7 @@ API 网关使用的最大单元为服务，每个服务中可创建多个 API �
 
     /**
      *本接口（DescribeApiKeysStatus）用于查询密钥列表。
-当用户创建了多个密钥对时，可使用本接口查询一个或多个 API 密钥信息，本接口不会显示密钥 Key。
+当用户创建了多个密钥对时，可使用本接口查询一个或多个 API 密钥信息。
      * @param req DescribeApiKeysStatusRequest
      * @return DescribeApiKeysStatusResponse
      * @throws TencentCloudSDKException
@@ -903,6 +903,26 @@ API 网关使用的最大单元为服务，每个服务中可创建多个 API �
                 Type type = new TypeToken<JsonResponseModel<DescribeExclusiveInstancesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeExclusiveInstances");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询专享实例列表（新）
+     * @param req DescribeExclusiveInstancesStatusRequest
+     * @return DescribeExclusiveInstancesStatusResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeExclusiveInstancesStatusResponse DescribeExclusiveInstancesStatus(DescribeExclusiveInstancesStatusRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeExclusiveInstancesStatusResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeExclusiveInstancesStatusResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeExclusiveInstancesStatus");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1256,7 +1276,7 @@ API 网关可绑定自定义域名到服务，用于服务调用。此接口用�
     }
 
     /**
-     *查询VPC通道绑定的api列表
+     *查询后端通道所绑定的API列表
      * @param req DescribeUpstreamBindApisRequest
      * @return DescribeUpstreamBindApisResponse
      * @throws TencentCloudSDKException
@@ -1276,7 +1296,7 @@ API 网关可绑定自定义域名到服务，用于服务调用。此接口用�
     }
 
     /**
-     *查询VPC通道列表详情
+     *查询后端通道列表详情
      * @param req DescribeUpstreamsRequest
      * @return DescribeUpstreamsResponse
      * @throws TencentCloudSDKException
@@ -1678,7 +1698,7 @@ API 网关可绑定自定义域名到服务，用于服务调用。此接口用�
     }
 
     /**
-     *修改VPC通道
+     *修改后端通道
      * @param req ModifyUpstreamRequest
      * @return ModifyUpstreamResponse
      * @throws TencentCloudSDKException

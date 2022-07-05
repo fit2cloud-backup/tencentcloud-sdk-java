@@ -86,6 +86,18 @@ public class InstanceInfo extends AbstractModel{
     private Long Status;
 
     /**
+    * 自动续费标识。取值范围：
+RENEW_FLAG_AUTO：自动续费  
+RENEW_FLAG_MANUAL：不自动续费
+默认取值：
+RENEW_FLAG_DEFAULT：不自动续费
+若该参数指定为 RENEW_FLAG_AUTO，在账户余额充足的情况下，实例到期后将按月自动续费。
+    */
+    @SerializedName("RenewFlag")
+    @Expose
+    private String RenewFlag;
+
+    /**
     * 实例计费模式。取值范围：  PREPAID：表示预付费，即包年包月  POSTPAID_BY_HOUR：表示后付费，即按量计费  CDHPAID：CDH付费，即只对CDH计费，不对CDH上的实例计费。
     */
     @SerializedName("ChargeType")
@@ -98,13 +110,6 @@ public class InstanceInfo extends AbstractModel{
     @SerializedName("ChargePeriod")
     @Expose
     private Long ChargePeriod;
-
-    /**
-    * 自动续费标识。取值范围：  NOTIFY_AND_AUTO_RENEW：通知过期且自动续费  NOTIFY_AND_MANUAL_RENEW：通知过期不自动续费  DISABLE_NOTIFY_AND_MANUAL_RENEW：不通知过期不自动续费  默认取值：NOTIFY_AND_AUTO_RENEW。若该参数指定为NOTIFY_AND_AUTO_RENEW，在账户余额充足的情况下，实例到期后将按月自动续费。
-    */
-    @SerializedName("RenewFlag")
-    @Expose
-    private String RenewFlag;
 
     /**
     * 节点规格<li>ES.S1.SMALL2：1核2G</li><li>ES.S1.MEDIUM4：2核4G</li><li>ES.S1.MEDIUM8：2核8G</li><li>ES.S1.LARGE16：4核16G</li><li>ES.S1.2XLARGE32：8核32G</li><li>ES.S1.4XLARGE32：16核32G</li><li>ES.S1.4XLARGE64：16核64G</li>
@@ -579,6 +584,14 @@ public class InstanceInfo extends AbstractModel{
     private String EsPrivateDomain;
 
     /**
+    * 集群的配置组信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EsConfigSets")
+    @Expose
+    private EsConfigSetInfo [] EsConfigSets;
+
+    /**
      * Get 实例ID 
      * @return InstanceId 实例ID
      */
@@ -723,6 +736,42 @@ public class InstanceInfo extends AbstractModel{
     }
 
     /**
+     * Get 自动续费标识。取值范围：
+RENEW_FLAG_AUTO：自动续费  
+RENEW_FLAG_MANUAL：不自动续费
+默认取值：
+RENEW_FLAG_DEFAULT：不自动续费
+若该参数指定为 RENEW_FLAG_AUTO，在账户余额充足的情况下，实例到期后将按月自动续费。 
+     * @return RenewFlag 自动续费标识。取值范围：
+RENEW_FLAG_AUTO：自动续费  
+RENEW_FLAG_MANUAL：不自动续费
+默认取值：
+RENEW_FLAG_DEFAULT：不自动续费
+若该参数指定为 RENEW_FLAG_AUTO，在账户余额充足的情况下，实例到期后将按月自动续费。
+     */
+    public String getRenewFlag() {
+        return this.RenewFlag;
+    }
+
+    /**
+     * Set 自动续费标识。取值范围：
+RENEW_FLAG_AUTO：自动续费  
+RENEW_FLAG_MANUAL：不自动续费
+默认取值：
+RENEW_FLAG_DEFAULT：不自动续费
+若该参数指定为 RENEW_FLAG_AUTO，在账户余额充足的情况下，实例到期后将按月自动续费。
+     * @param RenewFlag 自动续费标识。取值范围：
+RENEW_FLAG_AUTO：自动续费  
+RENEW_FLAG_MANUAL：不自动续费
+默认取值：
+RENEW_FLAG_DEFAULT：不自动续费
+若该参数指定为 RENEW_FLAG_AUTO，在账户余额充足的情况下，实例到期后将按月自动续费。
+     */
+    public void setRenewFlag(String RenewFlag) {
+        this.RenewFlag = RenewFlag;
+    }
+
+    /**
      * Get 实例计费模式。取值范围：  PREPAID：表示预付费，即包年包月  POSTPAID_BY_HOUR：表示后付费，即按量计费  CDHPAID：CDH付费，即只对CDH计费，不对CDH上的实例计费。 
      * @return ChargeType 实例计费模式。取值范围：  PREPAID：表示预付费，即包年包月  POSTPAID_BY_HOUR：表示后付费，即按量计费  CDHPAID：CDH付费，即只对CDH计费，不对CDH上的实例计费。
      */
@@ -752,22 +801,6 @@ public class InstanceInfo extends AbstractModel{
      */
     public void setChargePeriod(Long ChargePeriod) {
         this.ChargePeriod = ChargePeriod;
-    }
-
-    /**
-     * Get 自动续费标识。取值范围：  NOTIFY_AND_AUTO_RENEW：通知过期且自动续费  NOTIFY_AND_MANUAL_RENEW：通知过期不自动续费  DISABLE_NOTIFY_AND_MANUAL_RENEW：不通知过期不自动续费  默认取值：NOTIFY_AND_AUTO_RENEW。若该参数指定为NOTIFY_AND_AUTO_RENEW，在账户余额充足的情况下，实例到期后将按月自动续费。 
-     * @return RenewFlag 自动续费标识。取值范围：  NOTIFY_AND_AUTO_RENEW：通知过期且自动续费  NOTIFY_AND_MANUAL_RENEW：通知过期不自动续费  DISABLE_NOTIFY_AND_MANUAL_RENEW：不通知过期不自动续费  默认取值：NOTIFY_AND_AUTO_RENEW。若该参数指定为NOTIFY_AND_AUTO_RENEW，在账户余额充足的情况下，实例到期后将按月自动续费。
-     */
-    public String getRenewFlag() {
-        return this.RenewFlag;
-    }
-
-    /**
-     * Set 自动续费标识。取值范围：  NOTIFY_AND_AUTO_RENEW：通知过期且自动续费  NOTIFY_AND_MANUAL_RENEW：通知过期不自动续费  DISABLE_NOTIFY_AND_MANUAL_RENEW：不通知过期不自动续费  默认取值：NOTIFY_AND_AUTO_RENEW。若该参数指定为NOTIFY_AND_AUTO_RENEW，在账户余额充足的情况下，实例到期后将按月自动续费。
-     * @param RenewFlag 自动续费标识。取值范围：  NOTIFY_AND_AUTO_RENEW：通知过期且自动续费  NOTIFY_AND_MANUAL_RENEW：通知过期不自动续费  DISABLE_NOTIFY_AND_MANUAL_RENEW：不通知过期不自动续费  默认取值：NOTIFY_AND_AUTO_RENEW。若该参数指定为NOTIFY_AND_AUTO_RENEW，在账户余额充足的情况下，实例到期后将按月自动续费。
-     */
-    public void setRenewFlag(String RenewFlag) {
-        this.RenewFlag = RenewFlag;
     }
 
     /**
@@ -1914,6 +1947,26 @@ public class InstanceInfo extends AbstractModel{
         this.EsPrivateDomain = EsPrivateDomain;
     }
 
+    /**
+     * Get 集群的配置组信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EsConfigSets 集群的配置组信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public EsConfigSetInfo [] getEsConfigSets() {
+        return this.EsConfigSets;
+    }
+
+    /**
+     * Set 集群的配置组信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EsConfigSets 集群的配置组信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEsConfigSets(EsConfigSetInfo [] EsConfigSets) {
+        this.EsConfigSets = EsConfigSets;
+    }
+
     public InstanceInfo() {
     }
 
@@ -1949,14 +2002,14 @@ public class InstanceInfo extends AbstractModel{
         if (source.Status != null) {
             this.Status = new Long(source.Status);
         }
+        if (source.RenewFlag != null) {
+            this.RenewFlag = new String(source.RenewFlag);
+        }
         if (source.ChargeType != null) {
             this.ChargeType = new String(source.ChargeType);
         }
         if (source.ChargePeriod != null) {
             this.ChargePeriod = new Long(source.ChargePeriod);
-        }
-        if (source.RenewFlag != null) {
-            this.RenewFlag = new String(source.RenewFlag);
         }
         if (source.NodeType != null) {
             this.NodeType = new String(source.NodeType);
@@ -2156,6 +2209,12 @@ public class InstanceInfo extends AbstractModel{
         if (source.EsPrivateDomain != null) {
             this.EsPrivateDomain = new String(source.EsPrivateDomain);
         }
+        if (source.EsConfigSets != null) {
+            this.EsConfigSets = new EsConfigSetInfo[source.EsConfigSets.length];
+            for (int i = 0; i < source.EsConfigSets.length; i++) {
+                this.EsConfigSets[i] = new EsConfigSetInfo(source.EsConfigSets[i]);
+            }
+        }
     }
 
 
@@ -2172,9 +2231,9 @@ public class InstanceInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "VpcUid", this.VpcUid);
         this.setParamSimple(map, prefix + "SubnetUid", this.SubnetUid);
         this.setParamSimple(map, prefix + "Status", this.Status);
+        this.setParamSimple(map, prefix + "RenewFlag", this.RenewFlag);
         this.setParamSimple(map, prefix + "ChargeType", this.ChargeType);
         this.setParamSimple(map, prefix + "ChargePeriod", this.ChargePeriod);
-        this.setParamSimple(map, prefix + "RenewFlag", this.RenewFlag);
         this.setParamSimple(map, prefix + "NodeType", this.NodeType);
         this.setParamSimple(map, prefix + "NodeNum", this.NodeNum);
         this.setParamSimple(map, prefix + "CpuNum", this.CpuNum);
@@ -2237,6 +2296,7 @@ public class InstanceInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "HealthStatus", this.HealthStatus);
         this.setParamSimple(map, prefix + "EsPrivateUrl", this.EsPrivateUrl);
         this.setParamSimple(map, prefix + "EsPrivateDomain", this.EsPrivateDomain);
+        this.setParamArrayObj(map, prefix + "EsConfigSets.", this.EsConfigSets);
 
     }
 }

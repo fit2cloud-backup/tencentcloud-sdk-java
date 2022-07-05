@@ -3,8 +3,149 @@ public enum TkeErrorCode {
     // 操作失败。
      FAILEDOPERATION("FailedOperation"),
      
+    // 获取用户认证信息失败。
+     FAILEDOPERATION_ACCOUNTCOMMON("FailedOperation.AccountCommon"),
+     
+    // 账户未通过认证。
+     FAILEDOPERATION_ACCOUNTUSERNOTAUTHENTICATED("FailedOperation.AccountUserNotAuthenticated"),
+     
+    // 伸缩组资源创建报错。
+     FAILEDOPERATION_ASCOMMON("FailedOperation.AsCommon"),
+     
+    // CLB 未知错误。
+     FAILEDOPERATION_CLBUNEXPECTEDERROR("FailedOperation.CLBUnexpectedError"),
+     
+    // CVM未知错误。
+     FAILEDOPERATION_CVMUNEXPECTEDERROR("FailedOperation.CVMUnexpectedError"),
+     
+    // 无该接口CAM权限。
+     FAILEDOPERATION_CAMNOAUTH("FailedOperation.CamNoAuth"),
+     
+    // 集群未找到。
+     FAILEDOPERATION_CLUSTERNOTFOUND("FailedOperation.ClusterNotFound"),
+     
+    // 集群状态错误。
+     FAILEDOPERATION_CLUSTERSTATE("FailedOperation.ClusterState"),
+     
+    // 集群节点版本过低。
+     FAILEDOPERATION_CLUSTERUPGRADENODEVERSION("FailedOperation.ClusterUpgradeNodeVersion"),
+     
+    // 内部Client错误。
+     FAILEDOPERATION_COMPONENTCLIENTCOMMON("FailedOperation.ComponentClientCommon"),
+     
+    // 内部HTTP客户端错误。
+     FAILEDOPERATION_COMPONENTCLIENTHTTP("FailedOperation.ComponentClientHttp"),
+     
+    // 内部HTTP解包失败。
+     FAILEDOPERATION_COMPONENTCLIENTUNPACK("FailedOperation.ComponentClientUnpack"),
+     
+    // 请求(http请求)其他云服务失败。
+     FAILEDOPERATION_COMPONENTCLINETHTTP("FailedOperation.ComponentClinetHttp"),
+     
+    // 创建CLS采集配置失败。
+     FAILEDOPERATION_CREATECLSCONFIG("FailedOperation.CreateClsConfig"),
+     
+    // 创建CLS日志集失败。
+     FAILEDOPERATION_CREATECLSLOGSET("FailedOperation.CreateClsLogSet"),
+     
+    // 创建 CLS 主题失败。
+     FAILEDOPERATION_CREATECLSTOPIC("FailedOperation.CreateClsTopic"),
+     
+    // cvm创建节点报错。
+     FAILEDOPERATION_CVMCOMMON("FailedOperation.CvmCommon"),
+     
+    // 存在云服务器在CVM侧查询不到。
+     FAILEDOPERATION_CVMNUMBERNOTMATCH("FailedOperation.CvmNumberNotMatch"),
+     
+    // CVM 和 VPC ID 不匹配。
+     FAILEDOPERATION_CVMVPCIDNOTMATCH("FailedOperation.CvmVpcidNotMatch"),
+     
+    // db错误。
+     FAILEDOPERATION_DB("FailedOperation.Db"),
+     
+    // 记录未找到。
+     FAILEDOPERATION_DBRECORDNOTFOUND("FailedOperation.DbRecordNotFound"),
+     
+    // 获得安全组配额失败。
+     FAILEDOPERATION_DFWGETUSGQUOTA("FailedOperation.DfwGetUSGQuota"),
+     
+    // 查询主题集失败。
+     FAILEDOPERATION_GETCLSLOGSET("FailedOperation.GetClsLogSet"),
+     
+    // 获取CLS机器组失败。
+     FAILEDOPERATION_GETCLSMACHINEGROUP("FailedOperation.GetClsMachineGroup"),
+     
+    // 通过配置文件创建集群Client错误。
+     FAILEDOPERATION_KUBECLIENTCONF("FailedOperation.KubeClientConf"),
+     
+    // 连接用户Kubernetes集群失败。
+     FAILEDOPERATION_KUBECLIENTCONNECTION("FailedOperation.KubeClientConnection"),
+     
+    // KubernetesAPI错误。
+     FAILEDOPERATION_KUBECOMMON("FailedOperation.KubeCommon"),
+     
+    // Kubernetes client建立失败。
+     FAILEDOPERATION_KUBERNETESCLIENTBUILDERROR("FailedOperation.KubernetesClientBuildError"),
+     
+    // 创建集群Client出错。
+     FAILEDOPERATION_KUBERNETESCREATEOPERATIONERROR("FailedOperation.KubernetesCreateOperationError"),
+     
+    // Kubernetes Delete 操作错误。
+     FAILEDOPERATION_KUBERNETESDELETEOPERATIONERROR("FailedOperation.KubernetesDeleteOperationError"),
+     
+    // 获取Kubernetes资源失败。
+     FAILEDOPERATION_KUBERNETESGETOPERATIONERROR("FailedOperation.KubernetesGetOperationError"),
+     
+    // Kubernetes未知错误。
+     FAILEDOPERATION_KUBERNETESINTERNAL("FailedOperation.KubernetesInternal"),
+     
+    // Kubernetes patch 操作失败。
+     FAILEDOPERATION_KUBERNETESPATCHOPERATIONERROR("FailedOperation.KubernetesPatchOperationError"),
+     
+    // 底层调用CLB未知错误。
+     FAILEDOPERATION_LBCOMMON("FailedOperation.LbCommon"),
+     
+    // 修改CLS索引失败。
+     FAILEDOPERATION_MODIFYCLSINDEX("FailedOperation.ModifyClsIndex"),
+     
+    // 网络扩展错误。
+     FAILEDOPERATION_NETWORKSCALEERROR("FailedOperation.NetworkScaleError"),
+     
+    // 镜像OS不支持。
+     FAILEDOPERATION_OSNOTSUPPORT("FailedOperation.OsNotSupport"),
+     
+    // 参数错误。
+     FAILEDOPERATION_PARAM("FailedOperation.Param"),
+     
+    // 超过配额限制。
+     FAILEDOPERATION_QUOTAMAXCLSLIMIT("FailedOperation.QuotaMaxClsLimit"),
+     
+    // 超过配额限制。
+     FAILEDOPERATION_QUOTAMAXNODLIMIT("FailedOperation.QuotaMaxNodLimit"),
+     
+    // 安全组配额不足。
+     FAILEDOPERATION_QUOTAUSGLIMIT("FailedOperation.QuotaUSGLimit"),
+     
     // 子账户RBAC权限不足。
      FAILEDOPERATION_RBACFORBIDDEN("FailedOperation.RBACForbidden"),
+     
+    // 已有相同任务执行中。
+     FAILEDOPERATION_TASKALREADYRUNNING("FailedOperation.TaskAlreadyRunning"),
+     
+    // 询价错误。
+     FAILEDOPERATION_TRADECOMMON("FailedOperation.TradeCommon"),
+     
+    // VPC未知错误。
+     FAILEDOPERATION_VPCUNEXPECTEDERROR("FailedOperation.VPCUnexpectedError"),
+     
+    // VPC报错。
+     FAILEDOPERATION_VPCCOMMON("FailedOperation.VpcCommon"),
+     
+    // 未发现vpc记录。
+     FAILEDOPERATION_VPCRECODRNOTFOUND("FailedOperation.VpcRecodrNotFound"),
+     
+    // 白名单错误。
+     FAILEDOPERATION_WHITELISTUNEXPECTEDERROR("FailedOperation.WhitelistUnexpectedError"),
      
     // 内部错误。
      INTERNALERROR("InternalError"),
@@ -132,6 +273,9 @@ public enum TkeErrorCode {
     // Kubernetes未知错误。
      INTERNALERROR_KUBERNETESINTERNAL("InternalError.KubernetesInternal"),
      
+    // Kubernetes Patch操作失败。
+     INTERNALERROR_KUBERNETESPATCHOPERATIONERROR("InternalError.KubernetesPatchOperationError"),
+     
     // 底层调用CLB未知错误。
      INTERNALERROR_LBCOMMON("InternalError.LbCommon"),
      
@@ -180,6 +324,12 @@ public enum TkeErrorCode {
     // 任务未找到。
      INTERNALERROR_TASKNOTFOUND("InternalError.TaskNotFound"),
      
+    // 询价错误。
+     INTERNALERROR_TRADECOMMON("InternalError.TradeCommon"),
+     
+    // 账户余额不足。
+     INTERNALERROR_TRADEINSUFFICIENTBALANCE("InternalError.TradeInsufficientBalance"),
+     
     // 内部错误。
      INTERNALERROR_UNEXCEPTEDINTERNAL("InternalError.UnexceptedInternal"),
      
@@ -197,6 +347,9 @@ public enum TkeErrorCode {
      
     // 未发现vpc记录。
      INTERNALERROR_VPCRECODRNOTFOUND("InternalError.VpcRecodrNotFound"),
+     
+    // VstationError。
+     INTERNALERROR_VSTATIONERROR("InternalError.VstationError"),
      
     // 白名单未知错误。
      INTERNALERROR_WHITELISTUNEXPECTEDERROR("InternalError.WhitelistUnexpectedError"),
@@ -237,6 +390,9 @@ public enum TkeErrorCode {
     // 无效的私有CIDR网段。
      INVALIDPARAMETER_INVALIDPRIVATENETWORKCIDR("InvalidParameter.InvalidPrivateNetworkCIDR"),
      
+    // 镜像OS不支持。
+     INVALIDPARAMETER_OSNOTSUPPORT("InvalidParameter.OsNotSupport"),
+     
     // 参数错误。
      INVALIDPARAMETER_PARAM("InvalidParameter.Param"),
      
@@ -267,6 +423,9 @@ public enum TkeErrorCode {
     // 资源被占用。
      RESOURCEINUSE("ResourceInUse"),
      
+    // 资源已存在。
+     RESOURCEINUSE_RESOURCEEXISTALREADY("ResourceInUse.ResourceExistAlready"),
+     
     // 资源不足。
      RESOURCEINSUFFICIENT("ResourceInsufficient"),
      
@@ -290,6 +449,9 @@ public enum TkeErrorCode {
      
     // 资源不可用。
      RESOURCEUNAVAILABLE("ResourceUnavailable"),
+     
+    // 集群状态异常。
+     RESOURCEUNAVAILABLE_CLUSTERINABNORMALSTAT("ResourceUnavailable.ClusterInAbnormalStat"),
      
     // 集群状态不支持该操作。
      RESOURCEUNAVAILABLE_CLUSTERSTATE("ResourceUnavailable.ClusterState"),

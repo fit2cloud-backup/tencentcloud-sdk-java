@@ -58,6 +58,13 @@ public class ModifyNetworkConfigRequest extends AbstractModel{
     private String SubnetId;
 
     /**
+    * 原VIP保留时间，单位：天，注：需要最新版SDK，否则原VIP立即释放，查看SDK版本，详见 [SDK中心](https://cloud.tencent.com/document/sdk)
+    */
+    @SerializedName("Recycle")
+    @Expose
+    private Long Recycle;
+
+    /**
      * Get 实例ID 
      * @return InstanceId 实例ID
      */
@@ -137,6 +144,22 @@ public class ModifyNetworkConfigRequest extends AbstractModel{
         this.SubnetId = SubnetId;
     }
 
+    /**
+     * Get 原VIP保留时间，单位：天，注：需要最新版SDK，否则原VIP立即释放，查看SDK版本，详见 [SDK中心](https://cloud.tencent.com/document/sdk) 
+     * @return Recycle 原VIP保留时间，单位：天，注：需要最新版SDK，否则原VIP立即释放，查看SDK版本，详见 [SDK中心](https://cloud.tencent.com/document/sdk)
+     */
+    public Long getRecycle() {
+        return this.Recycle;
+    }
+
+    /**
+     * Set 原VIP保留时间，单位：天，注：需要最新版SDK，否则原VIP立即释放，查看SDK版本，详见 [SDK中心](https://cloud.tencent.com/document/sdk)
+     * @param Recycle 原VIP保留时间，单位：天，注：需要最新版SDK，否则原VIP立即释放，查看SDK版本，详见 [SDK中心](https://cloud.tencent.com/document/sdk)
+     */
+    public void setRecycle(Long Recycle) {
+        this.Recycle = Recycle;
+    }
+
     public ModifyNetworkConfigRequest() {
     }
 
@@ -160,6 +183,9 @@ public class ModifyNetworkConfigRequest extends AbstractModel{
         if (source.SubnetId != null) {
             this.SubnetId = new String(source.SubnetId);
         }
+        if (source.Recycle != null) {
+            this.Recycle = new Long(source.Recycle);
+        }
     }
 
 
@@ -172,6 +198,7 @@ public class ModifyNetworkConfigRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Vip", this.Vip);
         this.setParamSimple(map, prefix + "VpcId", this.VpcId);
         this.setParamSimple(map, prefix + "SubnetId", this.SubnetId);
+        this.setParamSimple(map, prefix + "Recycle", this.Recycle);
 
     }
 }

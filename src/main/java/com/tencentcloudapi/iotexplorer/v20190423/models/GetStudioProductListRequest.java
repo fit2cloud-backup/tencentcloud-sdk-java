@@ -37,14 +37,14 @@ public class GetStudioProductListRequest extends AbstractModel{
     private String DevStatus;
 
     /**
-    * Offset
+    * 偏移量
     */
     @SerializedName("Offset")
     @Expose
     private Long Offset;
 
     /**
-    * Limit
+    * 数量限制
     */
     @SerializedName("Limit")
     @Expose
@@ -83,32 +83,32 @@ public class GetStudioProductListRequest extends AbstractModel{
     }
 
     /**
-     * Get Offset 
-     * @return Offset Offset
+     * Get 偏移量 
+     * @return Offset 偏移量
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set Offset
-     * @param Offset Offset
+     * Set 偏移量
+     * @param Offset 偏移量
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get Limit 
-     * @return Limit Limit
+     * Get 数量限制 
+     * @return Limit 数量限制
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set Limit
-     * @param Limit Limit
+     * Set 数量限制
+     * @param Limit 数量限制
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;

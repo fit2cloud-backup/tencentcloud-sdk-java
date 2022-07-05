@@ -23,21 +23,28 @@ import java.util.HashMap;
 public class ModifyAIRecognitionTemplateRequest extends AbstractModel{
 
     /**
-    * 视频内容识别模板唯一标识。
+    * 音视频内容识别模板唯一标识。
     */
     @SerializedName("Definition")
     @Expose
     private Long Definition;
 
     /**
-    * 视频内容识别模板名称，长度限制：64 个字符。
+    * <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+    */
+    @SerializedName("SubAppId")
+    @Expose
+    private Long SubAppId;
+
+    /**
+    * 音视频内容识别模板名称，长度限制：64 个字符。
     */
     @SerializedName("Name")
     @Expose
     private String Name;
 
     /**
-    * 视频内容识别模板描述信息，长度限制：256 个字符。
+    * 音视频内容识别模板描述信息，长度限制：256 个字符。
     */
     @SerializedName("Comment")
     @Expose
@@ -107,55 +114,64 @@ public class ModifyAIRecognitionTemplateRequest extends AbstractModel{
     private Float ScreenshotInterval;
 
     /**
-    * 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-    */
-    @SerializedName("SubAppId")
-    @Expose
-    private Long SubAppId;
-
-    /**
-     * Get 视频内容识别模板唯一标识。 
-     * @return Definition 视频内容识别模板唯一标识。
+     * Get 音视频内容识别模板唯一标识。 
+     * @return Definition 音视频内容识别模板唯一标识。
      */
     public Long getDefinition() {
         return this.Definition;
     }
 
     /**
-     * Set 视频内容识别模板唯一标识。
-     * @param Definition 视频内容识别模板唯一标识。
+     * Set 音视频内容识别模板唯一标识。
+     * @param Definition 音视频内容识别模板唯一标识。
      */
     public void setDefinition(Long Definition) {
         this.Definition = Definition;
     }
 
     /**
-     * Get 视频内容识别模板名称，长度限制：64 个字符。 
-     * @return Name 视频内容识别模板名称，长度限制：64 个字符。
+     * Get <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b> 
+     * @return SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     */
+    public Long getSubAppId() {
+        return this.SubAppId;
+    }
+
+    /**
+     * Set <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     * @param SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     */
+    public void setSubAppId(Long SubAppId) {
+        this.SubAppId = SubAppId;
+    }
+
+    /**
+     * Get 音视频内容识别模板名称，长度限制：64 个字符。 
+     * @return Name 音视频内容识别模板名称，长度限制：64 个字符。
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 视频内容识别模板名称，长度限制：64 个字符。
-     * @param Name 视频内容识别模板名称，长度限制：64 个字符。
+     * Set 音视频内容识别模板名称，长度限制：64 个字符。
+     * @param Name 音视频内容识别模板名称，长度限制：64 个字符。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 视频内容识别模板描述信息，长度限制：256 个字符。 
-     * @return Comment 视频内容识别模板描述信息，长度限制：256 个字符。
+     * Get 音视频内容识别模板描述信息，长度限制：256 个字符。 
+     * @return Comment 音视频内容识别模板描述信息，长度限制：256 个字符。
      */
     public String getComment() {
         return this.Comment;
     }
 
     /**
-     * Set 视频内容识别模板描述信息，长度限制：256 个字符。
-     * @param Comment 视频内容识别模板描述信息，长度限制：256 个字符。
+     * Set 音视频内容识别模板描述信息，长度限制：256 个字符。
+     * @param Comment 音视频内容识别模板描述信息，长度限制：256 个字符。
      */
     public void setComment(String Comment) {
         this.Comment = Comment;
@@ -305,22 +321,6 @@ public class ModifyAIRecognitionTemplateRequest extends AbstractModel{
         this.ScreenshotInterval = ScreenshotInterval;
     }
 
-    /**
-     * Get 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。 
-     * @return SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-     */
-    public Long getSubAppId() {
-        return this.SubAppId;
-    }
-
-    /**
-     * Set 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-     * @param SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-     */
-    public void setSubAppId(Long SubAppId) {
-        this.SubAppId = SubAppId;
-    }
-
     public ModifyAIRecognitionTemplateRequest() {
     }
 
@@ -331,6 +331,9 @@ public class ModifyAIRecognitionTemplateRequest extends AbstractModel{
     public ModifyAIRecognitionTemplateRequest(ModifyAIRecognitionTemplateRequest source) {
         if (source.Definition != null) {
             this.Definition = new Long(source.Definition);
+        }
+        if (source.SubAppId != null) {
+            this.SubAppId = new Long(source.SubAppId);
         }
         if (source.Name != null) {
             this.Name = new String(source.Name);
@@ -365,9 +368,6 @@ public class ModifyAIRecognitionTemplateRequest extends AbstractModel{
         if (source.ScreenshotInterval != null) {
             this.ScreenshotInterval = new Float(source.ScreenshotInterval);
         }
-        if (source.SubAppId != null) {
-            this.SubAppId = new Long(source.SubAppId);
-        }
     }
 
 
@@ -376,6 +376,7 @@ public class ModifyAIRecognitionTemplateRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Definition", this.Definition);
+        this.setParamSimple(map, prefix + "SubAppId", this.SubAppId);
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Comment", this.Comment);
         this.setParamObj(map, prefix + "HeadTailConfigure.", this.HeadTailConfigure);
@@ -387,7 +388,6 @@ public class ModifyAIRecognitionTemplateRequest extends AbstractModel{
         this.setParamObj(map, prefix + "AsrWordsConfigure.", this.AsrWordsConfigure);
         this.setParamObj(map, prefix + "ObjectConfigure.", this.ObjectConfigure);
         this.setParamSimple(map, prefix + "ScreenshotInterval", this.ScreenshotInterval);
-        this.setParamSimple(map, prefix + "SubAppId", this.SubAppId);
 
     }
 }

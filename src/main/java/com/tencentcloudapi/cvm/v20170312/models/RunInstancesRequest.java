@@ -205,11 +205,25 @@ false（默认）：发送正常请求，通过检查后直接创建实例
     private LaunchTemplate LaunchTemplate;
 
     /**
+    * 指定专用集群创建。
+    */
+    @SerializedName("DedicatedClusterId")
+    @Expose
+    private String DedicatedClusterId;
+
+    /**
     * 指定CHC物理服务器来创建CHC云主机。
     */
     @SerializedName("ChcIds")
     @Expose
     private String [] ChcIds;
+
+    /**
+    * 实例销毁保护标志，表示是否允许通过api接口删除实例。取值范围：<br><li>TRUE：表示开启实例保护，不允许通过api接口删除实例<br><li>FALSE：表示关闭实例保护，允许通过api接口删除实例<br><br>默认取值：FALSE。
+    */
+    @SerializedName("DisableApiTermination")
+    @Expose
+    private Boolean DisableApiTermination;
 
     /**
      * Get 实例[计费类型](https://cloud.tencent.com/document/product/213/2180)。<br><li>PREPAID：预付费，即包年包月<br><li>POSTPAID_BY_HOUR：按小时后付费<br><li>CDHPAID：独享子机（基于专用宿主机创建，宿主机部分的资源不收费）<br><li>SPOTPAID：竞价付费<br><li>CDCPAID：专用集群付费<br>默认值：POSTPAID_BY_HOUR。 
@@ -640,6 +654,22 @@ false（默认）：发送正常请求，通过检查后直接创建实例
     }
 
     /**
+     * Get 指定专用集群创建。 
+     * @return DedicatedClusterId 指定专用集群创建。
+     */
+    public String getDedicatedClusterId() {
+        return this.DedicatedClusterId;
+    }
+
+    /**
+     * Set 指定专用集群创建。
+     * @param DedicatedClusterId 指定专用集群创建。
+     */
+    public void setDedicatedClusterId(String DedicatedClusterId) {
+        this.DedicatedClusterId = DedicatedClusterId;
+    }
+
+    /**
      * Get 指定CHC物理服务器来创建CHC云主机。 
      * @return ChcIds 指定CHC物理服务器来创建CHC云主机。
      */
@@ -653,6 +683,22 @@ false（默认）：发送正常请求，通过检查后直接创建实例
      */
     public void setChcIds(String [] ChcIds) {
         this.ChcIds = ChcIds;
+    }
+
+    /**
+     * Get 实例销毁保护标志，表示是否允许通过api接口删除实例。取值范围：<br><li>TRUE：表示开启实例保护，不允许通过api接口删除实例<br><li>FALSE：表示关闭实例保护，允许通过api接口删除实例<br><br>默认取值：FALSE。 
+     * @return DisableApiTermination 实例销毁保护标志，表示是否允许通过api接口删除实例。取值范围：<br><li>TRUE：表示开启实例保护，不允许通过api接口删除实例<br><li>FALSE：表示关闭实例保护，允许通过api接口删除实例<br><br>默认取值：FALSE。
+     */
+    public Boolean getDisableApiTermination() {
+        return this.DisableApiTermination;
+    }
+
+    /**
+     * Set 实例销毁保护标志，表示是否允许通过api接口删除实例。取值范围：<br><li>TRUE：表示开启实例保护，不允许通过api接口删除实例<br><li>FALSE：表示关闭实例保护，允许通过api接口删除实例<br><br>默认取值：FALSE。
+     * @param DisableApiTermination 实例销毁保护标志，表示是否允许通过api接口删除实例。取值范围：<br><li>TRUE：表示开启实例保护，不允许通过api接口删除实例<br><li>FALSE：表示关闭实例保护，允许通过api接口删除实例<br><br>默认取值：FALSE。
+     */
+    public void setDisableApiTermination(Boolean DisableApiTermination) {
+        this.DisableApiTermination = DisableApiTermination;
     }
 
     public RunInstancesRequest() {
@@ -750,11 +796,17 @@ false（默认）：发送正常请求，通过检查后直接创建实例
         if (source.LaunchTemplate != null) {
             this.LaunchTemplate = new LaunchTemplate(source.LaunchTemplate);
         }
+        if (source.DedicatedClusterId != null) {
+            this.DedicatedClusterId = new String(source.DedicatedClusterId);
+        }
         if (source.ChcIds != null) {
             this.ChcIds = new String[source.ChcIds.length];
             for (int i = 0; i < source.ChcIds.length; i++) {
                 this.ChcIds[i] = new String(source.ChcIds[i]);
             }
+        }
+        if (source.DisableApiTermination != null) {
+            this.DisableApiTermination = new Boolean(source.DisableApiTermination);
         }
     }
 
@@ -788,7 +840,9 @@ false（默认）：发送正常请求，通过检查后直接创建实例
         this.setParamSimple(map, prefix + "CamRoleName", this.CamRoleName);
         this.setParamSimple(map, prefix + "HpcClusterId", this.HpcClusterId);
         this.setParamObj(map, prefix + "LaunchTemplate.", this.LaunchTemplate);
+        this.setParamSimple(map, prefix + "DedicatedClusterId", this.DedicatedClusterId);
         this.setParamArraySimple(map, prefix + "ChcIds.", this.ChcIds);
+        this.setParamSimple(map, prefix + "DisableApiTermination", this.DisableApiTermination);
 
     }
 }

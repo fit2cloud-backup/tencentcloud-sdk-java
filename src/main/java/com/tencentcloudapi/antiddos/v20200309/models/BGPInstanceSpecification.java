@@ -54,6 +54,54 @@ public class BGPInstanceSpecification extends AbstractModel{
     private Long AutoRenewFlag;
 
     /**
+    * 联合产品标记，0代表普通高防包，1代表联合高防包
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UnionPackFlag")
+    @Expose
+    private Long UnionPackFlag;
+
+    /**
+    * 业务带宽
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ServiceBandWidth")
+    @Expose
+    private Long ServiceBandWidth;
+
+    /**
+    * 战斗服版本标记，0表示普通高防包，1表示战斗服高防包
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("BattleEditionFlag")
+    @Expose
+    private Long BattleEditionFlag;
+
+    /**
+    * 渠道版标记，0表示普通高防包，1表示渠道版高防包
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ChannelEditionFlag")
+    @Expose
+    private Long ChannelEditionFlag;
+
+    /**
+    * 高防包企业版标记，0表示普通高防包；1表示企业版高防包
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EnterpriseFlag")
+    @Expose
+    private Long EnterpriseFlag;
+
+    /**
+    * 高防包企业版弹性阈值，0表示未开启；大于0为弹性防护阈值
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ElasticLimit")
+    @Expose
+    private Long ElasticLimit;
+
+    /**
      * Get 保底防护峰值，单位Gbps 
      * @return ProtectBandwidth 保底防护峰值，单位Gbps
      */
@@ -129,6 +177,126 @@ public class BGPInstanceSpecification extends AbstractModel{
         this.AutoRenewFlag = AutoRenewFlag;
     }
 
+    /**
+     * Get 联合产品标记，0代表普通高防包，1代表联合高防包
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UnionPackFlag 联合产品标记，0代表普通高防包，1代表联合高防包
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getUnionPackFlag() {
+        return this.UnionPackFlag;
+    }
+
+    /**
+     * Set 联合产品标记，0代表普通高防包，1代表联合高防包
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UnionPackFlag 联合产品标记，0代表普通高防包，1代表联合高防包
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUnionPackFlag(Long UnionPackFlag) {
+        this.UnionPackFlag = UnionPackFlag;
+    }
+
+    /**
+     * Get 业务带宽
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ServiceBandWidth 业务带宽
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getServiceBandWidth() {
+        return this.ServiceBandWidth;
+    }
+
+    /**
+     * Set 业务带宽
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ServiceBandWidth 业务带宽
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setServiceBandWidth(Long ServiceBandWidth) {
+        this.ServiceBandWidth = ServiceBandWidth;
+    }
+
+    /**
+     * Get 战斗服版本标记，0表示普通高防包，1表示战斗服高防包
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return BattleEditionFlag 战斗服版本标记，0表示普通高防包，1表示战斗服高防包
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getBattleEditionFlag() {
+        return this.BattleEditionFlag;
+    }
+
+    /**
+     * Set 战斗服版本标记，0表示普通高防包，1表示战斗服高防包
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param BattleEditionFlag 战斗服版本标记，0表示普通高防包，1表示战斗服高防包
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBattleEditionFlag(Long BattleEditionFlag) {
+        this.BattleEditionFlag = BattleEditionFlag;
+    }
+
+    /**
+     * Get 渠道版标记，0表示普通高防包，1表示渠道版高防包
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ChannelEditionFlag 渠道版标记，0表示普通高防包，1表示渠道版高防包
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getChannelEditionFlag() {
+        return this.ChannelEditionFlag;
+    }
+
+    /**
+     * Set 渠道版标记，0表示普通高防包，1表示渠道版高防包
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ChannelEditionFlag 渠道版标记，0表示普通高防包，1表示渠道版高防包
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setChannelEditionFlag(Long ChannelEditionFlag) {
+        this.ChannelEditionFlag = ChannelEditionFlag;
+    }
+
+    /**
+     * Get 高防包企业版标记，0表示普通高防包；1表示企业版高防包
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EnterpriseFlag 高防包企业版标记，0表示普通高防包；1表示企业版高防包
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getEnterpriseFlag() {
+        return this.EnterpriseFlag;
+    }
+
+    /**
+     * Set 高防包企业版标记，0表示普通高防包；1表示企业版高防包
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EnterpriseFlag 高防包企业版标记，0表示普通高防包；1表示企业版高防包
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEnterpriseFlag(Long EnterpriseFlag) {
+        this.EnterpriseFlag = EnterpriseFlag;
+    }
+
+    /**
+     * Get 高防包企业版弹性阈值，0表示未开启；大于0为弹性防护阈值
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ElasticLimit 高防包企业版弹性阈值，0表示未开启；大于0为弹性防护阈值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getElasticLimit() {
+        return this.ElasticLimit;
+    }
+
+    /**
+     * Set 高防包企业版弹性阈值，0表示未开启；大于0为弹性防护阈值
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ElasticLimit 高防包企业版弹性阈值，0表示未开启；大于0为弹性防护阈值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setElasticLimit(Long ElasticLimit) {
+        this.ElasticLimit = ElasticLimit;
+    }
+
     public BGPInstanceSpecification() {
     }
 
@@ -149,6 +317,24 @@ public class BGPInstanceSpecification extends AbstractModel{
         if (source.AutoRenewFlag != null) {
             this.AutoRenewFlag = new Long(source.AutoRenewFlag);
         }
+        if (source.UnionPackFlag != null) {
+            this.UnionPackFlag = new Long(source.UnionPackFlag);
+        }
+        if (source.ServiceBandWidth != null) {
+            this.ServiceBandWidth = new Long(source.ServiceBandWidth);
+        }
+        if (source.BattleEditionFlag != null) {
+            this.BattleEditionFlag = new Long(source.BattleEditionFlag);
+        }
+        if (source.ChannelEditionFlag != null) {
+            this.ChannelEditionFlag = new Long(source.ChannelEditionFlag);
+        }
+        if (source.EnterpriseFlag != null) {
+            this.EnterpriseFlag = new Long(source.EnterpriseFlag);
+        }
+        if (source.ElasticLimit != null) {
+            this.ElasticLimit = new Long(source.ElasticLimit);
+        }
     }
 
 
@@ -160,6 +346,12 @@ public class BGPInstanceSpecification extends AbstractModel{
         this.setParamSimple(map, prefix + "ProtectCountLimit", this.ProtectCountLimit);
         this.setParamSimple(map, prefix + "ProtectIPNumberLimit", this.ProtectIPNumberLimit);
         this.setParamSimple(map, prefix + "AutoRenewFlag", this.AutoRenewFlag);
+        this.setParamSimple(map, prefix + "UnionPackFlag", this.UnionPackFlag);
+        this.setParamSimple(map, prefix + "ServiceBandWidth", this.ServiceBandWidth);
+        this.setParamSimple(map, prefix + "BattleEditionFlag", this.BattleEditionFlag);
+        this.setParamSimple(map, prefix + "ChannelEditionFlag", this.ChannelEditionFlag);
+        this.setParamSimple(map, prefix + "EnterpriseFlag", this.EnterpriseFlag);
+        this.setParamSimple(map, prefix + "ElasticLimit", this.ElasticLimit);
 
     }
 }

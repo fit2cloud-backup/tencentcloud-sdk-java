@@ -51,6 +51,9 @@ public enum VodErrorCode {
     // 操作失败：上传文件到 cos 失败。
      FAILEDOPERATION_UPLOADCOSFAIL("FailedOperation.UploadCosFail"),
      
+    // 用户已经停服。
+     FAILEDOPERATION_USERSTATUSINAVLID("FailedOperation.UserStatusInavlid"),
+     
     // 内部错误。
      INTERNALERROR("InternalError"),
      
@@ -156,7 +159,7 @@ public enum VodErrorCode {
     // 参数值错误：裁剪时间段太长。
      INVALIDPARAMETERVALUE_CLIPDURATION("InvalidParameterValue.ClipDuration"),
      
-    // 无效的音频/视频编编码格式。
+    // 无效的音频/视频编码格式。
      INVALIDPARAMETERVALUE_CODEC("InvalidParameterValue.Codec"),
      
     // 参数值错误：ColumnCount。
@@ -312,6 +315,9 @@ public enum VodErrorCode {
     // 参数错误：图片水印模板。
      INVALIDPARAMETERVALUE_IMAGETEMPLATE("InvalidParameterValue.ImageTemplate"),
      
+    // 参数值错误：Interval 无效。
+     INVALIDPARAMETERVALUE_INTERVAL("InvalidParameterValue.Interval"),
+     
     // 参数错误：无效的操作类型。
      INVALIDPARAMETERVALUE_INVALIDOPERATIONTYPE("InvalidParameterValue.InvalidOperationType"),
      
@@ -354,6 +360,9 @@ public enum VodErrorCode {
     // Names数组中元素过多。
      INVALIDPARAMETERVALUE_NAMES("InvalidParameterValue.Names"),
      
+    // 参数错误：文件不支持解冻。
+     INVALIDPARAMETERVALUE_NOTRESTORABLE("InvalidParameterValue.NotRestorable"),
+     
     // 参数值错误：物体库参数非法。
      INVALIDPARAMETERVALUE_OBJECTLIBRARY("InvalidParameterValue.ObjectLibrary"),
      
@@ -365,6 +374,9 @@ public enum VodErrorCode {
      
     // 参数值错误：Operation 无效。
      INVALIDPARAMETERVALUE_OPERATION("InvalidParameterValue.Operation"),
+     
+    // 参数值错误：文件原存储类型异常。
+     INVALIDPARAMETERVALUE_ORIGINALSTORAGECLASS("InvalidParameterValue.OriginalStorageClass"),
      
     // 参数值错误：ParentId 无效。
      INVALIDPARAMETERVALUE_PARENTID("InvalidParameterValue.ParentId"),
@@ -392,6 +404,12 @@ public enum VodErrorCode {
      
     // 无效的ResolutionAdaptive。
      INVALIDPARAMETERVALUE_RESOLUTIONADAPTIVE("InvalidParameterValue.ResolutionAdaptive"),
+     
+    // 参数错误：解冻天数错误。
+     INVALIDPARAMETERVALUE_RESTOREDAY("InvalidParameterValue.RestoreDay"),
+     
+    // 参数错误：不支持的解冻模式。
+     INVALIDPARAMETERVALUE_RESTORETIER("InvalidParameterValue.RestoreTier"),
      
     // 参数值错误：ReviewConfidence 参数取值非法。
      INVALIDPARAMETERVALUE_REVIEWCONFIDENCE("InvalidParameterValue.ReviewConfidence"),
@@ -449,6 +467,9 @@ public enum VodErrorCode {
      
     // 参数值错误：人工确认结果取值非法。
      INVALIDPARAMETERVALUE_STATUS("InvalidParameterValue.Status"),
+     
+    // 参数值错误：目标存储类型不在可选值中。
+     INVALIDPARAMETERVALUE_STORAGECLASS("InvalidParameterValue.StorageClass"),
      
     // 参数值错误：存储地域。
      INVALIDPARAMETERVALUE_STORAGEREGION("InvalidParameterValue.StorageRegion"),
@@ -522,6 +543,15 @@ public enum VodErrorCode {
     // 去重识别码一天内重复，请求被去重。
      INVALIDPARAMETERVALUE_UNIQUEIDENTIFIER("InvalidParameterValue.UniqueIdentifier"),
      
+    // 参数值错误：文件不支持该解冻方式。
+     INVALIDPARAMETERVALUE_UNSUPPORTEDRESTORETIER("InvalidParameterValue.UnsupportedRestoreTier"),
+     
+    // 参数值错误：不支持的目标存储类型，深度归档只支持部分园区。
+     INVALIDPARAMETERVALUE_UNSUPPORTEDSTORAGECLASS("InvalidParameterValue.UnsupportedStorageClass"),
+     
+    // 参数值错误：不支持的存储类型转换。
+     INVALIDPARAMETERVALUE_UNSUPPORTEDTRANSITION("InvalidParameterValue.UnsupportedTransition"),
+     
     // 参数错误：无效的Url。
      INVALIDPARAMETERVALUE_URL("InvalidParameterValue.Url"),
      
@@ -567,6 +597,9 @@ public enum VodErrorCode {
     // 超过限制值：模板数超限。
      LIMITEXCEEDED_TOOMUCHTEMPLATE("LimitExceeded.TooMuchTemplate"),
      
+    // 缺少参数错误。
+     MISSINGPARAMETER("MissingParameter"),
+     
     // 资源不存在。
      RESOURCENOTFOUND("ResourceNotFound"),
      
@@ -590,6 +623,9 @@ public enum VodErrorCode {
      
     // 资源不存在：关键词。
      RESOURCENOTFOUND_WORD("ResourceNotFound.Word"),
+     
+    // 资源不可用。
+     RESOURCEUNAVAILABLE("ResourceUnavailable"),
      
     // 参数错误：不支持MasterPlaylist的M3u8。
      RESOURCEUNAVAILABLE_MASTERPLAYLIST("ResourceUnavailable.MasterPlaylist"),

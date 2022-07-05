@@ -31,12 +31,28 @@ public class ConsumerContent extends AbstractModel{
     private Boolean EnableTag;
 
     /**
-    * 需要投递的元数据列表，目前仅支持：__SOURCE__，__FILENAME__和__TIMESTAMP__
+    * 需要投递的元数据列表，目前仅支持：\_\_SOURCE\_\_，\_\_FILENAME\_\_和\_\_TIMESTAMP\_\_
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MetaFields")
     @Expose
     private String [] MetaFields;
+
+    /**
+    * 当EnableTag为true时，必须填写TagJsonNotTiled字段，TagJsonNotTiled用于标识tag信息是否json平铺，TagJsonNotTiled为true时不平铺，false时平铺
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TagJsonNotTiled")
+    @Expose
+    private Boolean TagJsonNotTiled;
+
+    /**
+    * 投递时间戳精度，可选项 [1:秒；2:毫秒] ，默认是秒
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TimestampAccuracy")
+    @Expose
+    private Long TimestampAccuracy;
 
     /**
      * Get 是否投递 TAG 信息
@@ -59,9 +75,9 @@ public class ConsumerContent extends AbstractModel{
     }
 
     /**
-     * Get 需要投递的元数据列表，目前仅支持：__SOURCE__，__FILENAME__和__TIMESTAMP__
+     * Get 需要投递的元数据列表，目前仅支持：\_\_SOURCE\_\_，\_\_FILENAME\_\_和\_\_TIMESTAMP\_\_
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return MetaFields 需要投递的元数据列表，目前仅支持：__SOURCE__，__FILENAME__和__TIMESTAMP__
+     * @return MetaFields 需要投递的元数据列表，目前仅支持：\_\_SOURCE\_\_，\_\_FILENAME\_\_和\_\_TIMESTAMP\_\_
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getMetaFields() {
@@ -69,13 +85,53 @@ public class ConsumerContent extends AbstractModel{
     }
 
     /**
-     * Set 需要投递的元数据列表，目前仅支持：__SOURCE__，__FILENAME__和__TIMESTAMP__
+     * Set 需要投递的元数据列表，目前仅支持：\_\_SOURCE\_\_，\_\_FILENAME\_\_和\_\_TIMESTAMP\_\_
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param MetaFields 需要投递的元数据列表，目前仅支持：__SOURCE__，__FILENAME__和__TIMESTAMP__
+     * @param MetaFields 需要投递的元数据列表，目前仅支持：\_\_SOURCE\_\_，\_\_FILENAME\_\_和\_\_TIMESTAMP\_\_
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMetaFields(String [] MetaFields) {
         this.MetaFields = MetaFields;
+    }
+
+    /**
+     * Get 当EnableTag为true时，必须填写TagJsonNotTiled字段，TagJsonNotTiled用于标识tag信息是否json平铺，TagJsonNotTiled为true时不平铺，false时平铺
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TagJsonNotTiled 当EnableTag为true时，必须填写TagJsonNotTiled字段，TagJsonNotTiled用于标识tag信息是否json平铺，TagJsonNotTiled为true时不平铺，false时平铺
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getTagJsonNotTiled() {
+        return this.TagJsonNotTiled;
+    }
+
+    /**
+     * Set 当EnableTag为true时，必须填写TagJsonNotTiled字段，TagJsonNotTiled用于标识tag信息是否json平铺，TagJsonNotTiled为true时不平铺，false时平铺
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TagJsonNotTiled 当EnableTag为true时，必须填写TagJsonNotTiled字段，TagJsonNotTiled用于标识tag信息是否json平铺，TagJsonNotTiled为true时不平铺，false时平铺
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTagJsonNotTiled(Boolean TagJsonNotTiled) {
+        this.TagJsonNotTiled = TagJsonNotTiled;
+    }
+
+    /**
+     * Get 投递时间戳精度，可选项 [1:秒；2:毫秒] ，默认是秒
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TimestampAccuracy 投递时间戳精度，可选项 [1:秒；2:毫秒] ，默认是秒
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getTimestampAccuracy() {
+        return this.TimestampAccuracy;
+    }
+
+    /**
+     * Set 投递时间戳精度，可选项 [1:秒；2:毫秒] ，默认是秒
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TimestampAccuracy 投递时间戳精度，可选项 [1:秒；2:毫秒] ，默认是秒
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTimestampAccuracy(Long TimestampAccuracy) {
+        this.TimestampAccuracy = TimestampAccuracy;
     }
 
     public ConsumerContent() {
@@ -95,6 +151,12 @@ public class ConsumerContent extends AbstractModel{
                 this.MetaFields[i] = new String(source.MetaFields[i]);
             }
         }
+        if (source.TagJsonNotTiled != null) {
+            this.TagJsonNotTiled = new Boolean(source.TagJsonNotTiled);
+        }
+        if (source.TimestampAccuracy != null) {
+            this.TimestampAccuracy = new Long(source.TimestampAccuracy);
+        }
     }
 
 
@@ -104,6 +166,8 @@ public class ConsumerContent extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "EnableTag", this.EnableTag);
         this.setParamArraySimple(map, prefix + "MetaFields.", this.MetaFields);
+        this.setParamSimple(map, prefix + "TagJsonNotTiled", this.TagJsonNotTiled);
+        this.setParamSimple(map, prefix + "TimestampAccuracy", this.TimestampAccuracy);
 
     }
 }

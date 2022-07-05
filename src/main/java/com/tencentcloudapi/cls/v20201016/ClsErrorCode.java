@@ -12,6 +12,9 @@ public enum ClsErrorCode {
     // 检索日志触发最大条数限制。
      FAILEDOPERATION_GETLOGREACHLIMIT("FailedOperation.GetlogReachLimit"),
      
+    // 低频不支持配置kv和tag索引。
+     FAILEDOPERATION_INVALIDINDEXRULEFORSEARCHLOW("FailedOperation.InValidIndexRuleForSearchLow"),
+     
     // 该告警策略状态异常，请检查下日志主题ID是否都存在。
      FAILEDOPERATION_INVALIDALARM("FailedOperation.InvalidAlarm"),
      
@@ -81,6 +84,12 @@ public enum ClsErrorCode {
     // 无效的Content。
      INVALIDPARAMETER_CONTENT("InvalidParameter.Content"),
      
+    // 数据库唯一键冲突。
+     INVALIDPARAMETER_DBDUPLICATION("InvalidParameter.DbDuplication"),
+     
+    // 导出任务已经存在。
+     INVALIDPARAMETER_EXPORTCONFLICT("InvalidParameter.ExportConflict"),
+     
     // 低频不支持配置kv和tag索引。
      INVALIDPARAMETER_INVALIDINDEXRULEFORSEARCHLOW("InvalidParameter.InValidIndexRuleForSearchLow"),
      
@@ -127,7 +136,7 @@ public enum ClsErrorCode {
      LIMITEXCEEDED_MACHINEGROUPIP("LimitExceeded.MachineGroupIp"),
      
     // 机器组Label超过限制。
-     LIMITEXCEEDED_MACHINEGROUPLABELS("LimitExceeded.MachineGroupLabels"),
+     LIMITEXCEEDED_MACHINEGROUPIPLABELS("LimitExceeded.MachineGroupIpLabels"),
      
     // 分区超过限制。
      LIMITEXCEEDED_PARTITION("LimitExceeded.Partition"),

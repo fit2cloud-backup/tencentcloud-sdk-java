@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class DescribeFlowDetailInfoRequest extends AbstractModel{
 
     /**
-    * 应用信息
+    * 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
     */
     @SerializedName("Agent")
     @Expose
     private Agent Agent;
 
     /**
-    * 合同(流程)编号数组
+    * 合同(流程)编号数组，最多支持100个。
     */
     @SerializedName("FlowIds")
     @Expose
@@ -44,32 +44,32 @@ public class DescribeFlowDetailInfoRequest extends AbstractModel{
     private UserInfo Operator;
 
     /**
-     * Get 应用信息 
-     * @return Agent 应用信息
+     * Get 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。 
+     * @return Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 应用信息
-     * @param Agent 应用信息
+     * Set 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+     * @param Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
     }
 
     /**
-     * Get 合同(流程)编号数组 
-     * @return FlowIds 合同(流程)编号数组
+     * Get 合同(流程)编号数组，最多支持100个。 
+     * @return FlowIds 合同(流程)编号数组，最多支持100个。
      */
     public String [] getFlowIds() {
         return this.FlowIds;
     }
 
     /**
-     * Set 合同(流程)编号数组
-     * @param FlowIds 合同(流程)编号数组
+     * Set 合同(流程)编号数组，最多支持100个。
+     * @param FlowIds 合同(流程)编号数组，最多支持100个。
      */
     public void setFlowIds(String [] FlowIds) {
         this.FlowIds = FlowIds;

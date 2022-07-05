@@ -39,7 +39,27 @@ public class CdnClient extends AbstractClient{
     }
 
     /**
-     *AddCdnDomain 用于新增内容分发网络加速域名。
+     *AddCLSTopicDomains 用于新增域名到某日志主题下
+     * @param req AddCLSTopicDomainsRequest
+     * @return AddCLSTopicDomainsResponse
+     * @throws TencentCloudSDKException
+     */
+    public AddCLSTopicDomainsResponse AddCLSTopicDomains(AddCLSTopicDomainsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<AddCLSTopicDomainsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<AddCLSTopicDomainsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "AddCLSTopicDomains");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *AddCdnDomain 用于新增内容分发网络加速域名。1分钟内最多可新增100个域名。
      * @param req AddCdnDomainRequest
      * @return AddCdnDomainResponse
      * @throws TencentCloudSDKException
@@ -729,7 +749,6 @@ public class CdnClient extends AbstractClient{
 
     /**
      *DescribePushTasks  用于查询预热任务提交历史记录及执行进度。
-接口灰度中，暂未全量开放，敬请期待。
      * @param req DescribePushTasksRequest
      * @return DescribePushTasksResponse
      * @throws TencentCloudSDKException
@@ -900,7 +919,7 @@ public class CdnClient extends AbstractClient{
     }
 
     /**
-     *DescribeTrafficPackages 用于查询中国境内 CDN 流量包详情。
+     *DescribeTrafficPackages 用于查询 CDN 流量包详情。
      * @param req DescribeTrafficPackagesRequest
      * @return DescribeTrafficPackagesResponse
      * @throws TencentCloudSDKException
@@ -1371,7 +1390,7 @@ public class CdnClient extends AbstractClient{
 
     /**
      *PurgePathCache 用于批量提交目录刷新，根据域名的加速区域进行对应区域的刷新。
-默认情况下境内、境外加速区域每日目录刷新额度为各 100 条，每次最多可提交 20 条。
+默认情况下境内、境外加速区域每日目录刷新额度为各 100 条，每次最多可提交 500 条。
      * @param req PurgePathCacheRequest
      * @return PurgePathCacheResponse
      * @throws TencentCloudSDKException
@@ -1413,7 +1432,7 @@ public class CdnClient extends AbstractClient{
 
     /**
      *PushUrlsCache 用于将指定 URL 资源列表加载至 CDN 节点，支持指定加速区域预热。
-默认情况下境内、境外每日预热 URL 限额为各 1000 条，每次最多可提交 20 条。注意：中国境外区域预热，资源默认加载至中国境外边缘节点，所产生的边缘层流量会计入计费流量。
+默认情况下境内、境外每日预热 URL 限额为各 1000 条，每次最多可提交 500 条。注意：中国境外区域预热，资源默认加载至中国境外边缘节点，所产生的边缘层流量会计入计费流量。
      * @param req PushUrlsCacheRequest
      * @return PushUrlsCacheResponse
      * @throws TencentCloudSDKException

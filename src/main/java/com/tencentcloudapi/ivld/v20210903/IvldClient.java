@@ -39,7 +39,7 @@ public class IvldClient extends AbstractClient{
     }
 
     /**
-     *增加自定义人脸图片，每个自定义人物最多可包含5张人脸图片
+     *增加自定义人脸图片，每个自定义人物最多可包含10张人脸图片
 
 请注意，与创建自定义人物一样，图片数据优先级优于图片URL优先级
      * @param req AddCustomPersonImageRequest
@@ -265,6 +265,30 @@ Bucket的格式参考为 `bucketName-123456.cos.ap-shanghai.myqcloud.com`
     }
 
     /**
+     *删除任务信息
+
+请注意，本接口**不会**删除媒资文件
+
+只有已完成(成功或者失败)的任务可以删除，**正在执行中的任务不支持删除**
+     * @param req DeleteTaskRequest
+     * @return DeleteTaskResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteTaskResponse DeleteTask(DeleteTaskRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteTaskResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteTaskResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteTask");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *批量描述自定义人物分类信息
      * @param req DescribeCustomCategoriesRequest
      * @return DescribeCustomCategoriesResponse
@@ -461,11 +485,13 @@ Bucket的格式参考为 `bucketName-123456.cos.ap-shanghai.myqcloud.com`
     /**
      *将URL指向的媒资视频文件导入系统之中。
 
-**请注意，本接口为异步接口**。接口返回MediaId仅代表导入视频任务发起，不代表任务完成，您可调用读接口(DescribeMedia/DescribeMedias)接口查询MediaId对应的媒资文件的状态。
+**请注意，本接口为异步接口**。接口返回MediaId仅代表导入视频任务发起，不代表任务完成，您可调用读接口(DescribeMedia/DescribeMedias)接口查询MediaId
 
-当前URL只支持COS地址，其形式为`https://${Bucket}-${AppId}.cos.${Region}.myqcloud.com/${ObjectKey}`，其中`${Bucket}`为您的COS桶名称，Region为COS桶所在[可用区](https://cloud.tencent.com/document/product/213/6091)，`${ObjectKey}`为指向存储在COS桶内的待分析的视频的[ObjectKey](https://cloud.tencent.com/document/product/436/13324)
+URL字段推荐您使用COS地址，其形式为`https://${Bucket}-${AppId}.cos.${Region}.myqcloud.com/${ObjectKey}`，其中`${Bucket}`为您的COS桶名称，Region为COS桶所在[可用区](https://cloud.tencent.com/document/product/213/6091)，`${ObjectKey}`为指向存储在COS桶内的待分析的视频的[ObjectKey](https://cloud.tencent.com/document/product/436/13324)
 
-分析完成后，本产品将在您的`${Bucket}`桶内创建名为`${ObjectKey}-${task-start-time}`的目录(`task-start-time`形式为1970-01-01T08:08:08)并将分析结果将回传回该目录，也即，结构化分析结果(包括图片，JSON等数据)将会写回`https://${Bucket}-${AppId}.cos.${Region}.myqcloud.com/${ObjectKey}-${task-start-time}`目录
+另外，目前产品也支持使用外部URL地址，但是当传入URL为非COS地址时，需要您指定额外的WriteBackCosPath以供产品回写结果数据。
+
+分析完成后，本产品将在您的`${Bucket}`桶内创建名为`${ObjectKey}_${task-create-time}`的目录(`task-create-time`形式为1970-01-01T08:08:08)并将分析结果将回传回该目录，也即，结构化分析结果(包括图片，JSON等数据)将会写回`https://${Bucket}-${AppId}.cos.${Region}.myqcloud.com/${ObjectKey}_${task-create-time}`目录
 
      * @param req ImportMediaRequest
      * @return ImportMediaResponse
@@ -478,6 +504,80 @@ Bucket的格式参考为 `bucketName-123456.cos.ap-shanghai.myqcloud.com`
                 Type type = new TypeToken<JsonResponseModel<ImportMediaResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ImportMedia");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *用户设置对应事件的回调地址
+
+### 回调事件消息通知协议
+
+#### 网络协议
+- 回调接口协议目前仅支持http/https协议；
+- 请求：HTTP POST 请求，包体内容为 JSON，每一种消息的具体包体内容参见后文。
+- 应答：HTTP STATUS CODE = 200，服务端忽略应答包具体内容，为了协议友好，建议客户应答内容携带 JSON： `{"code":0}`
+
+#### 通知可靠性
+
+事件通知服务具备重试能力，事件通知失败后会总计重试3次；
+为了避免重试对您的服务器以及网络带宽造成冲击，请保持正常回包。触发重试条件如下：
+- 长时间（5 秒）未回包应答。
+- 应答 HTTP STATUS 不为200。
+
+
+#### 回调接口协议
+
+##### 分析任务完成消息回调
+| 参数名称 | 必选 | 类型 | 描述 |
+|---------|---------|---------|---------|
+| EventType | 是 | int | 回调时间类型，1-任务分析完成，2-媒资导入完成 |
+| TaskId | 是 | String | 任务ID |
+| TaskStatus | 是 | [TaskStatus](/document/product/1509/65063#TaskInfo) | 任务执行状态 |
+| FailedReason | 是 | String | 若任务失败，该字段为失败原因 |
+
+
+##### 导入媒资完成消息回调
+| 参数名称 | 必选 | 类型 | 描述 |
+|---------|---------|---------|---------|
+| EventType | 是 | int | 回调时间类型，1-任务分析完成，2-媒资导入完成 |
+| MediaId | 是 | String | 媒资ID |
+| MediaStatus | 是 | [MediaStatus](/document/product/1509/65063#MediaInfo) | 媒资导入状态|
+| FailedReason | 是 | String | 若任务失败，该字段为失败原因 |
+     * @param req ModifyCallbackRequest
+     * @return ModifyCallbackResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyCallbackResponse ModifyCallback(ModifyCallbackRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyCallbackResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyCallbackResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyCallback");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询用户回调设置
+     * @param req QueryCallbackRequest
+     * @return QueryCallbackResponse
+     * @throws TencentCloudSDKException
+     */
+    public QueryCallbackResponse QueryCallback(QueryCallbackRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<QueryCallbackResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<QueryCallbackResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "QueryCallback");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

@@ -266,6 +266,30 @@ public class AlarmPolicy extends AbstractModel{
     private String FilterDimensionsParam;
 
     /**
+    * 是否为一键告警策略
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IsOneClick")
+    @Expose
+    private Long IsOneClick;
+
+    /**
+    * 一键告警策略是否开启
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OneClickStatus")
+    @Expose
+    private Long OneClickStatus;
+
+    /**
+    * 高级指标数量
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AdvancedMetricNumber")
+    @Expose
+    private Long AdvancedMetricNumber;
+
+    /**
      * Get 告警策略 ID
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return PolicyId 告警策略 ID
@@ -877,6 +901,66 @@ public class AlarmPolicy extends AbstractModel{
         this.FilterDimensionsParam = FilterDimensionsParam;
     }
 
+    /**
+     * Get 是否为一键告警策略
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IsOneClick 是否为一键告警策略
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getIsOneClick() {
+        return this.IsOneClick;
+    }
+
+    /**
+     * Set 是否为一键告警策略
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IsOneClick 是否为一键告警策略
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIsOneClick(Long IsOneClick) {
+        this.IsOneClick = IsOneClick;
+    }
+
+    /**
+     * Get 一键告警策略是否开启
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OneClickStatus 一键告警策略是否开启
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getOneClickStatus() {
+        return this.OneClickStatus;
+    }
+
+    /**
+     * Set 一键告警策略是否开启
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OneClickStatus 一键告警策略是否开启
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOneClickStatus(Long OneClickStatus) {
+        this.OneClickStatus = OneClickStatus;
+    }
+
+    /**
+     * Get 高级指标数量
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AdvancedMetricNumber 高级指标数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getAdvancedMetricNumber() {
+        return this.AdvancedMetricNumber;
+    }
+
+    /**
+     * Set 高级指标数量
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AdvancedMetricNumber 高级指标数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAdvancedMetricNumber(Long AdvancedMetricNumber) {
+        this.AdvancedMetricNumber = AdvancedMetricNumber;
+    }
+
     public AlarmPolicy() {
     }
 
@@ -990,6 +1074,15 @@ public class AlarmPolicy extends AbstractModel{
         if (source.FilterDimensionsParam != null) {
             this.FilterDimensionsParam = new String(source.FilterDimensionsParam);
         }
+        if (source.IsOneClick != null) {
+            this.IsOneClick = new Long(source.IsOneClick);
+        }
+        if (source.OneClickStatus != null) {
+            this.OneClickStatus = new Long(source.OneClickStatus);
+        }
+        if (source.AdvancedMetricNumber != null) {
+            this.AdvancedMetricNumber = new Long(source.AdvancedMetricNumber);
+        }
     }
 
 
@@ -1027,6 +1120,9 @@ public class AlarmPolicy extends AbstractModel{
         this.setParamSimple(map, prefix + "OriginId", this.OriginId);
         this.setParamArrayObj(map, prefix + "TagInstances.", this.TagInstances);
         this.setParamSimple(map, prefix + "FilterDimensionsParam", this.FilterDimensionsParam);
+        this.setParamSimple(map, prefix + "IsOneClick", this.IsOneClick);
+        this.setParamSimple(map, prefix + "OneClickStatus", this.OneClickStatus);
+        this.setParamSimple(map, prefix + "AdvancedMetricNumber", this.AdvancedMetricNumber);
 
     }
 }

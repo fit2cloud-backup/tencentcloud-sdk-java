@@ -964,6 +964,26 @@ public class DcdbClient extends AbstractClient{
     }
 
     /**
+     *本接口（ModifyDBInstanceName）用于修改实例名字
+     * @param req ModifyDBInstanceNameRequest
+     * @return ModifyDBInstanceNameResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyDBInstanceNameResponse ModifyDBInstanceName(ModifyDBInstanceNameRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyDBInstanceNameResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyDBInstanceNameResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyDBInstanceName");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口（ModifyDBInstanceSecurityGroups）用于修改云数据库安全组
      * @param req ModifyDBInstanceSecurityGroupsRequest
      * @return ModifyDBInstanceSecurityGroupsResponse
@@ -1142,6 +1162,26 @@ public class DcdbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<SwitchDBInstanceHAResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "SwitchDBInstanceHA");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（IsolateDedicatedDBInstance）用于销毁已隔离的独享分布式数据库实例。
+     * @param req TerminateDedicatedDBInstanceRequest
+     * @return TerminateDedicatedDBInstanceResponse
+     * @throws TencentCloudSDKException
+     */
+    public TerminateDedicatedDBInstanceResponse TerminateDedicatedDBInstance(TerminateDedicatedDBInstanceRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<TerminateDedicatedDBInstanceResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<TerminateDedicatedDBInstanceResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "TerminateDedicatedDBInstance");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

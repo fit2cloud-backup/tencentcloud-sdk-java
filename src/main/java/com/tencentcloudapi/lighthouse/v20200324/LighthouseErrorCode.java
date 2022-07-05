@@ -24,6 +24,9 @@ public enum LighthouseErrorCode {
     // 对实例的操作失败。
      FAILEDOPERATION_INSTANCEOPERATIONFAILED("FailedOperation.InstanceOperationFailed"),
      
+    // 退还资源失败。
+     FAILEDOPERATION_ISOLATERESOURCESFAILED("FailedOperation.IsolateResourcesFailed"),
+     
     // 快照操作失败。
      FAILEDOPERATION_SNAPSHOTOPERATIONFAILED("FailedOperation.SnapshotOperationFailed"),
      
@@ -53,6 +56,9 @@ public enum LighthouseErrorCode {
      
     // 查询实例流量包错误。
      INTERNALERROR_DESCRIBEINSTANCESTRAFFICPACKAGESFAILED("InternalError.DescribeInstancesTrafficPackagesFailed"),
+     
+    // 查询资源返回了不符合要求内容。
+     INTERNALERROR_DESCRIBERESOURCESRETURNABLEERROR("InternalError.DescribeResourcesReturnableError"),
      
     // 快照配额锁获取失败。
      INTERNALERROR_GETSNAPSHOTALLOCQUOTALOCKERROR("InternalError.GetSnapshotAllocQuotaLockError"),
@@ -131,6 +137,9 @@ public enum LighthouseErrorCode {
      
     // 云联网实例ID格式非法。
      INVALIDPARAMETERVALUE_CCNIDMALFORMED("InvalidParameterValue.CcnIdMalformed"),
+     
+    // 磁盘名称长度超出限制。
+     INVALIDPARAMETERVALUE_DISKNAMETOOLONG("InvalidParameterValue.DiskNameTooLong"),
      
     // 磁盘大小发生改变。
      INVALIDPARAMETERVALUE_DISKSIZENOTMATCH("InvalidParameterValue.DiskSizeNotMatch"),
@@ -243,6 +252,9 @@ public enum LighthouseErrorCode {
     // 超过实例配额。
      LIMITEXCEEDED_INSTANCEQUOTALIMITEXCEEDED("LimitExceeded.InstanceQuotaLimitExceeded"),
      
+    // 退还资源数量超出限制。
+     LIMITEXCEEDED_ISOLATERESOURCESLIMITEXCEEDED("LimitExceeded.IsolateResourcesLimitExceeded"),
+     
     // 超过密钥对配额。
      LIMITEXCEEDED_KEYPAIRLIMITEXCEEDED("LimitExceeded.KeyPairLimitExceeded"),
      
@@ -297,6 +309,9 @@ public enum LighthouseErrorCode {
     // 防火墙规则不存在。
      RESOURCENOTFOUND_FIREWALLRULESNOTFOUND("ResourceNotFound.FirewallRulesNotFound"),
      
+    // 实例不存在挂载的数据盘。
+     RESOURCENOTFOUND_INSTANCEDATADISKNOTFOUND("ResourceNotFound.InstanceDataDiskNotFound"),
+     
     // 实例 ID 不存在。
      RESOURCENOTFOUND_INSTANCEIDNOTFOUND("ResourceNotFound.InstanceIdNotFound"),
      
@@ -332,6 +347,12 @@ public enum LighthouseErrorCode {
      
     // MFA 不存在。
      UNAUTHORIZEDOPERATION_MFANOTFOUND("UnauthorizedOperation.MFANotFound"),
+     
+    // 无权限。
+     UNAUTHORIZEDOPERATION_NOPERMISSION("UnauthorizedOperation.NoPermission"),
+     
+    // 未知参数错误。
+     UNKNOWNPARAMETER("UnknownParameter"),
      
     // 操作不支持。
      UNSUPPORTEDOPERATION("UnsupportedOperation"),
@@ -408,8 +429,14 @@ public enum LighthouseErrorCode {
     // 重新申请关联云联网失败。请检查云联网状态并稍后再试。
      UNSUPPORTEDOPERATION_RESETATTACHCCNFAILED("UnsupportedOperation.ResetAttachCcnFailed"),
      
+    // 资源不支持退换。
+     UNSUPPORTEDOPERATION_RESOURCENOTRETURNABLE("UnsupportedOperation.ResourceNotReturnable"),
+     
     // 快照忙。
      UNSUPPORTEDOPERATION_SNAPSHOTBUSY("UnsupportedOperation.SnapshotBusy"),
+     
+    // 系统忙。
+     UNSUPPORTEDOPERATION_SYSTEMBUSY("UnsupportedOperation.SystemBusy"),
      
     // Windows实例不支持绑定密钥对。
      UNSUPPORTEDOPERATION_WINDOWSNOTALLOWTOASSOCIATEKEYPAIR("UnsupportedOperation.WindowsNotAllowToAssociateKeyPair");

@@ -30,7 +30,7 @@ public class ModifyBackupConfigRequest extends AbstractModel{
     private String InstanceId;
 
     /**
-    * 备份文件的保留时间，单位为天。最小值为7天，最大值为732天。
+    * 备份文件的保留时间，单位为天。最小值为7天，最大值为1830天。
     */
     @SerializedName("ExpireDays")
     @Expose
@@ -51,7 +51,7 @@ public class ModifyBackupConfigRequest extends AbstractModel{
     private String BackupMethod;
 
     /**
-    * binlog的保留时间，单位为天。最小值为7天，最大值为732天。该值的设置不能大于备份文件的保留时间。
+    * binlog的保留时间，单位为天。最小值为7天，最大值为1830天。该值的设置不能大于备份文件的保留时间。
     */
     @SerializedName("BinlogExpireDays")
     @Expose
@@ -63,6 +63,48 @@ public class ModifyBackupConfigRequest extends AbstractModel{
     @SerializedName("BackupTimeWindow")
     @Expose
     private CommonTimeWindow BackupTimeWindow;
+
+    /**
+    * 定期保留开关，off - 不开启定期保留策略，on - 开启定期保留策略，默认为off
+    */
+    @SerializedName("EnableBackupPeriodSave")
+    @Expose
+    private String EnableBackupPeriodSave;
+
+    /**
+    * 长期保留开关,该字段功能暂未上线，可忽略。off - 不开启长期保留策略，on - 开启长期保留策略，默认为off，如果开启，则BackupPeriodSaveDays，BackupPeriodSaveInterval，BackupPeriodSaveCount参数无效
+    */
+    @SerializedName("EnableBackupPeriodLongTermSave")
+    @Expose
+    private String EnableBackupPeriodLongTermSave;
+
+    /**
+    * 定期保留最长天数，最小值：90，最大值：3650，默认值：1080
+    */
+    @SerializedName("BackupPeriodSaveDays")
+    @Expose
+    private Long BackupPeriodSaveDays;
+
+    /**
+    * 定期保留策略周期，可取值：weekly - 周，monthly - 月， quarterly - 季度，yearly - 年，默认为monthly
+    */
+    @SerializedName("BackupPeriodSaveInterval")
+    @Expose
+    private String BackupPeriodSaveInterval;
+
+    /**
+    * 定期保留的备份数量，最小值为1，最大值不超过定期保留策略周期内常规备份个数，默认值为1
+    */
+    @SerializedName("BackupPeriodSaveCount")
+    @Expose
+    private Long BackupPeriodSaveCount;
+
+    /**
+    * 定期保留策略周期起始日期，格式：YYYY-MM-dd HH:mm:ss
+    */
+    @SerializedName("StartBackupPeriodSaveDate")
+    @Expose
+    private String StartBackupPeriodSaveDate;
 
     /**
      * Get 实例 ID，格式如：cdb-c1nl9rpv。与云数据库控制台页面中显示的实例ID相同。 
@@ -81,16 +123,16 @@ public class ModifyBackupConfigRequest extends AbstractModel{
     }
 
     /**
-     * Get 备份文件的保留时间，单位为天。最小值为7天，最大值为732天。 
-     * @return ExpireDays 备份文件的保留时间，单位为天。最小值为7天，最大值为732天。
+     * Get 备份文件的保留时间，单位为天。最小值为7天，最大值为1830天。 
+     * @return ExpireDays 备份文件的保留时间，单位为天。最小值为7天，最大值为1830天。
      */
     public Long getExpireDays() {
         return this.ExpireDays;
     }
 
     /**
-     * Set 备份文件的保留时间，单位为天。最小值为7天，最大值为732天。
-     * @param ExpireDays 备份文件的保留时间，单位为天。最小值为7天，最大值为732天。
+     * Set 备份文件的保留时间，单位为天。最小值为7天，最大值为1830天。
+     * @param ExpireDays 备份文件的保留时间，单位为天。最小值为7天，最大值为1830天。
      */
     public void setExpireDays(Long ExpireDays) {
         this.ExpireDays = ExpireDays;
@@ -129,16 +171,16 @@ public class ModifyBackupConfigRequest extends AbstractModel{
     }
 
     /**
-     * Get binlog的保留时间，单位为天。最小值为7天，最大值为732天。该值的设置不能大于备份文件的保留时间。 
-     * @return BinlogExpireDays binlog的保留时间，单位为天。最小值为7天，最大值为732天。该值的设置不能大于备份文件的保留时间。
+     * Get binlog的保留时间，单位为天。最小值为7天，最大值为1830天。该值的设置不能大于备份文件的保留时间。 
+     * @return BinlogExpireDays binlog的保留时间，单位为天。最小值为7天，最大值为1830天。该值的设置不能大于备份文件的保留时间。
      */
     public Long getBinlogExpireDays() {
         return this.BinlogExpireDays;
     }
 
     /**
-     * Set binlog的保留时间，单位为天。最小值为7天，最大值为732天。该值的设置不能大于备份文件的保留时间。
-     * @param BinlogExpireDays binlog的保留时间，单位为天。最小值为7天，最大值为732天。该值的设置不能大于备份文件的保留时间。
+     * Set binlog的保留时间，单位为天。最小值为7天，最大值为1830天。该值的设置不能大于备份文件的保留时间。
+     * @param BinlogExpireDays binlog的保留时间，单位为天。最小值为7天，最大值为1830天。该值的设置不能大于备份文件的保留时间。
      */
     public void setBinlogExpireDays(Long BinlogExpireDays) {
         this.BinlogExpireDays = BinlogExpireDays;
@@ -158,6 +200,102 @@ public class ModifyBackupConfigRequest extends AbstractModel{
      */
     public void setBackupTimeWindow(CommonTimeWindow BackupTimeWindow) {
         this.BackupTimeWindow = BackupTimeWindow;
+    }
+
+    /**
+     * Get 定期保留开关，off - 不开启定期保留策略，on - 开启定期保留策略，默认为off 
+     * @return EnableBackupPeriodSave 定期保留开关，off - 不开启定期保留策略，on - 开启定期保留策略，默认为off
+     */
+    public String getEnableBackupPeriodSave() {
+        return this.EnableBackupPeriodSave;
+    }
+
+    /**
+     * Set 定期保留开关，off - 不开启定期保留策略，on - 开启定期保留策略，默认为off
+     * @param EnableBackupPeriodSave 定期保留开关，off - 不开启定期保留策略，on - 开启定期保留策略，默认为off
+     */
+    public void setEnableBackupPeriodSave(String EnableBackupPeriodSave) {
+        this.EnableBackupPeriodSave = EnableBackupPeriodSave;
+    }
+
+    /**
+     * Get 长期保留开关,该字段功能暂未上线，可忽略。off - 不开启长期保留策略，on - 开启长期保留策略，默认为off，如果开启，则BackupPeriodSaveDays，BackupPeriodSaveInterval，BackupPeriodSaveCount参数无效 
+     * @return EnableBackupPeriodLongTermSave 长期保留开关,该字段功能暂未上线，可忽略。off - 不开启长期保留策略，on - 开启长期保留策略，默认为off，如果开启，则BackupPeriodSaveDays，BackupPeriodSaveInterval，BackupPeriodSaveCount参数无效
+     */
+    public String getEnableBackupPeriodLongTermSave() {
+        return this.EnableBackupPeriodLongTermSave;
+    }
+
+    /**
+     * Set 长期保留开关,该字段功能暂未上线，可忽略。off - 不开启长期保留策略，on - 开启长期保留策略，默认为off，如果开启，则BackupPeriodSaveDays，BackupPeriodSaveInterval，BackupPeriodSaveCount参数无效
+     * @param EnableBackupPeriodLongTermSave 长期保留开关,该字段功能暂未上线，可忽略。off - 不开启长期保留策略，on - 开启长期保留策略，默认为off，如果开启，则BackupPeriodSaveDays，BackupPeriodSaveInterval，BackupPeriodSaveCount参数无效
+     */
+    public void setEnableBackupPeriodLongTermSave(String EnableBackupPeriodLongTermSave) {
+        this.EnableBackupPeriodLongTermSave = EnableBackupPeriodLongTermSave;
+    }
+
+    /**
+     * Get 定期保留最长天数，最小值：90，最大值：3650，默认值：1080 
+     * @return BackupPeriodSaveDays 定期保留最长天数，最小值：90，最大值：3650，默认值：1080
+     */
+    public Long getBackupPeriodSaveDays() {
+        return this.BackupPeriodSaveDays;
+    }
+
+    /**
+     * Set 定期保留最长天数，最小值：90，最大值：3650，默认值：1080
+     * @param BackupPeriodSaveDays 定期保留最长天数，最小值：90，最大值：3650，默认值：1080
+     */
+    public void setBackupPeriodSaveDays(Long BackupPeriodSaveDays) {
+        this.BackupPeriodSaveDays = BackupPeriodSaveDays;
+    }
+
+    /**
+     * Get 定期保留策略周期，可取值：weekly - 周，monthly - 月， quarterly - 季度，yearly - 年，默认为monthly 
+     * @return BackupPeriodSaveInterval 定期保留策略周期，可取值：weekly - 周，monthly - 月， quarterly - 季度，yearly - 年，默认为monthly
+     */
+    public String getBackupPeriodSaveInterval() {
+        return this.BackupPeriodSaveInterval;
+    }
+
+    /**
+     * Set 定期保留策略周期，可取值：weekly - 周，monthly - 月， quarterly - 季度，yearly - 年，默认为monthly
+     * @param BackupPeriodSaveInterval 定期保留策略周期，可取值：weekly - 周，monthly - 月， quarterly - 季度，yearly - 年，默认为monthly
+     */
+    public void setBackupPeriodSaveInterval(String BackupPeriodSaveInterval) {
+        this.BackupPeriodSaveInterval = BackupPeriodSaveInterval;
+    }
+
+    /**
+     * Get 定期保留的备份数量，最小值为1，最大值不超过定期保留策略周期内常规备份个数，默认值为1 
+     * @return BackupPeriodSaveCount 定期保留的备份数量，最小值为1，最大值不超过定期保留策略周期内常规备份个数，默认值为1
+     */
+    public Long getBackupPeriodSaveCount() {
+        return this.BackupPeriodSaveCount;
+    }
+
+    /**
+     * Set 定期保留的备份数量，最小值为1，最大值不超过定期保留策略周期内常规备份个数，默认值为1
+     * @param BackupPeriodSaveCount 定期保留的备份数量，最小值为1，最大值不超过定期保留策略周期内常规备份个数，默认值为1
+     */
+    public void setBackupPeriodSaveCount(Long BackupPeriodSaveCount) {
+        this.BackupPeriodSaveCount = BackupPeriodSaveCount;
+    }
+
+    /**
+     * Get 定期保留策略周期起始日期，格式：YYYY-MM-dd HH:mm:ss 
+     * @return StartBackupPeriodSaveDate 定期保留策略周期起始日期，格式：YYYY-MM-dd HH:mm:ss
+     */
+    public String getStartBackupPeriodSaveDate() {
+        return this.StartBackupPeriodSaveDate;
+    }
+
+    /**
+     * Set 定期保留策略周期起始日期，格式：YYYY-MM-dd HH:mm:ss
+     * @param StartBackupPeriodSaveDate 定期保留策略周期起始日期，格式：YYYY-MM-dd HH:mm:ss
+     */
+    public void setStartBackupPeriodSaveDate(String StartBackupPeriodSaveDate) {
+        this.StartBackupPeriodSaveDate = StartBackupPeriodSaveDate;
     }
 
     public ModifyBackupConfigRequest() {
@@ -186,6 +324,24 @@ public class ModifyBackupConfigRequest extends AbstractModel{
         if (source.BackupTimeWindow != null) {
             this.BackupTimeWindow = new CommonTimeWindow(source.BackupTimeWindow);
         }
+        if (source.EnableBackupPeriodSave != null) {
+            this.EnableBackupPeriodSave = new String(source.EnableBackupPeriodSave);
+        }
+        if (source.EnableBackupPeriodLongTermSave != null) {
+            this.EnableBackupPeriodLongTermSave = new String(source.EnableBackupPeriodLongTermSave);
+        }
+        if (source.BackupPeriodSaveDays != null) {
+            this.BackupPeriodSaveDays = new Long(source.BackupPeriodSaveDays);
+        }
+        if (source.BackupPeriodSaveInterval != null) {
+            this.BackupPeriodSaveInterval = new String(source.BackupPeriodSaveInterval);
+        }
+        if (source.BackupPeriodSaveCount != null) {
+            this.BackupPeriodSaveCount = new Long(source.BackupPeriodSaveCount);
+        }
+        if (source.StartBackupPeriodSaveDate != null) {
+            this.StartBackupPeriodSaveDate = new String(source.StartBackupPeriodSaveDate);
+        }
     }
 
 
@@ -199,6 +355,12 @@ public class ModifyBackupConfigRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "BackupMethod", this.BackupMethod);
         this.setParamSimple(map, prefix + "BinlogExpireDays", this.BinlogExpireDays);
         this.setParamObj(map, prefix + "BackupTimeWindow.", this.BackupTimeWindow);
+        this.setParamSimple(map, prefix + "EnableBackupPeriodSave", this.EnableBackupPeriodSave);
+        this.setParamSimple(map, prefix + "EnableBackupPeriodLongTermSave", this.EnableBackupPeriodLongTermSave);
+        this.setParamSimple(map, prefix + "BackupPeriodSaveDays", this.BackupPeriodSaveDays);
+        this.setParamSimple(map, prefix + "BackupPeriodSaveInterval", this.BackupPeriodSaveInterval);
+        this.setParamSimple(map, prefix + "BackupPeriodSaveCount", this.BackupPeriodSaveCount);
+        this.setParamSimple(map, prefix + "StartBackupPeriodSaveDate", this.StartBackupPeriodSaveDate);
 
     }
 }

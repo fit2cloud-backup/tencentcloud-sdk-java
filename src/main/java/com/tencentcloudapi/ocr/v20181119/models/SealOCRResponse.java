@@ -44,6 +44,13 @@ public class SealOCRResponse extends AbstractModel{
     private String [] OtherTexts;
 
     /**
+    * 全部印章信息
+    */
+    @SerializedName("SealInfos")
+    @Expose
+    private SealInfo [] SealInfos;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -99,6 +106,22 @@ public class SealOCRResponse extends AbstractModel{
     }
 
     /**
+     * Get 全部印章信息 
+     * @return SealInfos 全部印章信息
+     */
+    public SealInfo [] getSealInfos() {
+        return this.SealInfos;
+    }
+
+    /**
+     * Set 全部印章信息
+     * @param SealInfos 全部印章信息
+     */
+    public void setSealInfos(SealInfo [] SealInfos) {
+        this.SealInfos = SealInfos;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -134,6 +157,12 @@ public class SealOCRResponse extends AbstractModel{
                 this.OtherTexts[i] = new String(source.OtherTexts[i]);
             }
         }
+        if (source.SealInfos != null) {
+            this.SealInfos = new SealInfo[source.SealInfos.length];
+            for (int i = 0; i < source.SealInfos.length; i++) {
+                this.SealInfos[i] = new SealInfo(source.SealInfos[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -147,6 +176,7 @@ public class SealOCRResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "SealBody", this.SealBody);
         this.setParamObj(map, prefix + "Location.", this.Location);
         this.setParamArraySimple(map, prefix + "OtherTexts.", this.OtherTexts);
+        this.setParamArrayObj(map, prefix + "SealInfos.", this.SealInfos);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

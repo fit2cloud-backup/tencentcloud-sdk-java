@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class ModifyAccountParamsRequest extends AbstractModel{
 
     /**
-    * 集群id
+    * 集群id，不超过32个字符
     */
     @SerializedName("ClusterId")
     @Expose
@@ -37,23 +37,23 @@ public class ModifyAccountParamsRequest extends AbstractModel{
     private InputAccount Account;
 
     /**
-    * 数据库表权限数组,当前仅支持参数：max_user_connections
+    * 数据库表权限数组,当前仅支持参数：max_user_connections，max_user_connections不能大于10240
     */
     @SerializedName("AccountParams")
     @Expose
     private AccountParam [] AccountParams;
 
     /**
-     * Get 集群id 
-     * @return ClusterId 集群id
+     * Get 集群id，不超过32个字符 
+     * @return ClusterId 集群id，不超过32个字符
      */
     public String getClusterId() {
         return this.ClusterId;
     }
 
     /**
-     * Set 集群id
-     * @param ClusterId 集群id
+     * Set 集群id，不超过32个字符
+     * @param ClusterId 集群id，不超过32个字符
      */
     public void setClusterId(String ClusterId) {
         this.ClusterId = ClusterId;
@@ -76,16 +76,16 @@ public class ModifyAccountParamsRequest extends AbstractModel{
     }
 
     /**
-     * Get 数据库表权限数组,当前仅支持参数：max_user_connections 
-     * @return AccountParams 数据库表权限数组,当前仅支持参数：max_user_connections
+     * Get 数据库表权限数组,当前仅支持参数：max_user_connections，max_user_connections不能大于10240 
+     * @return AccountParams 数据库表权限数组,当前仅支持参数：max_user_connections，max_user_connections不能大于10240
      */
     public AccountParam [] getAccountParams() {
         return this.AccountParams;
     }
 
     /**
-     * Set 数据库表权限数组,当前仅支持参数：max_user_connections
-     * @param AccountParams 数据库表权限数组,当前仅支持参数：max_user_connections
+     * Set 数据库表权限数组,当前仅支持参数：max_user_connections，max_user_connections不能大于10240
+     * @param AccountParams 数据库表权限数组,当前仅支持参数：max_user_connections，max_user_connections不能大于10240
      */
     public void setAccountParams(AccountParam [] AccountParams) {
         this.AccountParams = AccountParams;

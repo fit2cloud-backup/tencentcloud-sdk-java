@@ -51,7 +51,7 @@ public class CreateSubscribeRequest extends AbstractModel{
     private Long Count;
 
     /**
-    * 是否自动续费，默认为0，1表示自动续费。小时计费实例设置该标识无效。
+    * 是否自动续费，0表示不自动续费，1表示自动续费，默认为0。小时计费实例设置该标识无效。
     */
     @SerializedName("AutoRenew")
     @Expose
@@ -63,6 +63,13 @@ public class CreateSubscribeRequest extends AbstractModel{
     @SerializedName("Tags")
     @Expose
     private TagItem [] Tags;
+
+    /**
+    * 用户自定义实例名
+    */
+    @SerializedName("Name")
+    @Expose
+    private String Name;
 
     /**
      * Get 订阅的数据库类型，目前支持的有 mysql 
@@ -129,16 +136,16 @@ public class CreateSubscribeRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否自动续费，默认为0，1表示自动续费。小时计费实例设置该标识无效。 
-     * @return AutoRenew 是否自动续费，默认为0，1表示自动续费。小时计费实例设置该标识无效。
+     * Get 是否自动续费，0表示不自动续费，1表示自动续费，默认为0。小时计费实例设置该标识无效。 
+     * @return AutoRenew 是否自动续费，0表示不自动续费，1表示自动续费，默认为0。小时计费实例设置该标识无效。
      */
     public Long getAutoRenew() {
         return this.AutoRenew;
     }
 
     /**
-     * Set 是否自动续费，默认为0，1表示自动续费。小时计费实例设置该标识无效。
-     * @param AutoRenew 是否自动续费，默认为0，1表示自动续费。小时计费实例设置该标识无效。
+     * Set 是否自动续费，0表示不自动续费，1表示自动续费，默认为0。小时计费实例设置该标识无效。
+     * @param AutoRenew 是否自动续费，0表示不自动续费，1表示自动续费，默认为0。小时计费实例设置该标识无效。
      */
     public void setAutoRenew(Long AutoRenew) {
         this.AutoRenew = AutoRenew;
@@ -158,6 +165,22 @@ public class CreateSubscribeRequest extends AbstractModel{
      */
     public void setTags(TagItem [] Tags) {
         this.Tags = Tags;
+    }
+
+    /**
+     * Get 用户自定义实例名 
+     * @return Name 用户自定义实例名
+     */
+    public String getName() {
+        return this.Name;
+    }
+
+    /**
+     * Set 用户自定义实例名
+     * @param Name 用户自定义实例名
+     */
+    public void setName(String Name) {
+        this.Name = Name;
     }
 
     public CreateSubscribeRequest() {
@@ -189,6 +212,9 @@ public class CreateSubscribeRequest extends AbstractModel{
                 this.Tags[i] = new TagItem(source.Tags[i]);
             }
         }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
     }
 
 
@@ -202,6 +228,7 @@ public class CreateSubscribeRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Count", this.Count);
         this.setParamSimple(map, prefix + "AutoRenew", this.AutoRenew);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "Name", this.Name);
 
     }
 }

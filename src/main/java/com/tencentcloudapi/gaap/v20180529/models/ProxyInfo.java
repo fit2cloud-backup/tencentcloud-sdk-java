@@ -90,7 +90,9 @@ CLOSED表示已关闭；
 ADJUSTING表示配置变更中；
 ISOLATING表示隔离中；
 ISOLATED表示已隔离；
-CLONING表示复制中。
+CLONING表示复制中；
+RECOVERING表示通道维护中；
+MOVING表示迁移中。
     */
     @SerializedName("Status")
     @Expose
@@ -243,7 +245,7 @@ CLONING表示复制中。
     private String IPAddressVersion;
 
     /**
-    * 网络类型：normal表示常规BGP，cn2表示精品BGP，triple表示三网
+    * 网络类型：normal表示常规BGP，cn2表示精品BGP，triple表示三网，secure_eip表示定制安全EIP
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NetworkType")
@@ -436,7 +438,9 @@ CLOSED表示已关闭；
 ADJUSTING表示配置变更中；
 ISOLATING表示隔离中；
 ISOLATED表示已隔离；
-CLONING表示复制中。 
+CLONING表示复制中；
+RECOVERING表示通道维护中；
+MOVING表示迁移中。 
      * @return Status 通道状态。其中：
 RUNNING表示运行中；
 CREATING表示创建中；
@@ -447,7 +451,9 @@ CLOSED表示已关闭；
 ADJUSTING表示配置变更中；
 ISOLATING表示隔离中；
 ISOLATED表示已隔离；
-CLONING表示复制中。
+CLONING表示复制中；
+RECOVERING表示通道维护中；
+MOVING表示迁移中。
      */
     public String getStatus() {
         return this.Status;
@@ -464,7 +470,9 @@ CLOSED表示已关闭；
 ADJUSTING表示配置变更中；
 ISOLATING表示隔离中；
 ISOLATED表示已隔离；
-CLONING表示复制中。
+CLONING表示复制中；
+RECOVERING表示通道维护中；
+MOVING表示迁移中。
      * @param Status 通道状态。其中：
 RUNNING表示运行中；
 CREATING表示创建中；
@@ -475,7 +483,9 @@ CLOSED表示已关闭；
 ADJUSTING表示配置变更中；
 ISOLATING表示隔离中；
 ISOLATED表示已隔离；
-CLONING表示复制中。
+CLONING表示复制中；
+RECOVERING表示通道维护中；
+MOVING表示迁移中。
      */
     public void setStatus(String Status) {
         this.Status = Status;
@@ -838,9 +848,9 @@ CLONING表示复制中。
     }
 
     /**
-     * Get 网络类型：normal表示常规BGP，cn2表示精品BGP，triple表示三网
+     * Get 网络类型：normal表示常规BGP，cn2表示精品BGP，triple表示三网，secure_eip表示定制安全EIP
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return NetworkType 网络类型：normal表示常规BGP，cn2表示精品BGP，triple表示三网
+     * @return NetworkType 网络类型：normal表示常规BGP，cn2表示精品BGP，triple表示三网，secure_eip表示定制安全EIP
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNetworkType() {
@@ -848,9 +858,9 @@ CLONING表示复制中。
     }
 
     /**
-     * Set 网络类型：normal表示常规BGP，cn2表示精品BGP，triple表示三网
+     * Set 网络类型：normal表示常规BGP，cn2表示精品BGP，triple表示三网，secure_eip表示定制安全EIP
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param NetworkType 网络类型：normal表示常规BGP，cn2表示精品BGP，triple表示三网
+     * @param NetworkType 网络类型：normal表示常规BGP，cn2表示精品BGP，triple表示三网，secure_eip表示定制安全EIP
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNetworkType(String NetworkType) {

@@ -39,6 +39,26 @@ public class DnspodClient extends AbstractClient{
     }
 
     /**
+     *DNSPod商品下单
+     * @param req CreateDealRequest
+     * @return CreateDealResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateDealResponse CreateDeal(CreateDealRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateDealResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateDealResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateDeal");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *添加域名
 
      * @param req CreateDomainRequest
@@ -302,6 +322,26 @@ public class DnspodClient extends AbstractClient{
     }
 
     /**
+     *统计各个域名的解析量，帮助您了解流量情况、时间段分布。支持查看近 3 个月内的统计情况
+     * @param req DescribeDomainAnalyticsRequest
+     * @return DescribeDomainAnalyticsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeDomainAnalyticsResponse DescribeDomainAnalytics(DescribeDomainAnalyticsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeDomainAnalyticsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeDomainAnalyticsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeDomainAnalytics");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *获取域名列表
      * @param req DescribeDomainListRequest
      * @return DescribeDomainListResponse
@@ -462,6 +502,26 @@ public class DnspodClient extends AbstractClient{
     }
 
     /**
+     *统计子域名的解析量，帮助您了解流量情况、时间段分布。支持查看近 3 个月内的统计情况。仅付费套餐域名可用。
+     * @param req DescribeSubdomainAnalyticsRequest
+     * @return DescribeSubdomainAnalyticsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeSubdomainAnalyticsResponse DescribeSubdomainAnalytics(DescribeSubdomainAnalyticsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeSubdomainAnalyticsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeSubdomainAnalyticsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeSubdomainAnalytics");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *获取帐户信息
      * @param req DescribeUserDetailRequest
      * @return DescribeUserDetailResponse
@@ -603,6 +663,26 @@ public class DnspodClient extends AbstractClient{
     }
 
     /**
+     * DNS 解析套餐自动续费设置
+     * @param req ModifyPackageAutoRenewRequest
+     * @return ModifyPackageAutoRenewResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyPackageAutoRenewResponse ModifyPackageAutoRenew(ModifyPackageAutoRenewRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyPackageAutoRenewResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyPackageAutoRenewResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyPackageAutoRenew");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *修改记录
      * @param req ModifyRecordRequest
      * @return ModifyRecordResponse
@@ -695,6 +775,46 @@ public class DnspodClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<ModifySubdomainStatusResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifySubdomainStatus");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *增值服务自动续费设置
+     * @param req ModifyVasAutoRenewStatusRequest
+     * @return ModifyVasAutoRenewStatusResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyVasAutoRenewStatusResponse ModifyVasAutoRenewStatus(ModifyVasAutoRenewStatusRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyVasAutoRenewStatusResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyVasAutoRenewStatusResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyVasAutoRenewStatus");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *DNSPod商品余额支付
+     * @param req PayOrderWithBalanceRequest
+     * @return PayOrderWithBalanceResponse
+     * @throws TencentCloudSDKException
+     */
+    public PayOrderWithBalanceResponse PayOrderWithBalance(PayOrderWithBalanceRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<PayOrderWithBalanceResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<PayOrderWithBalanceResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "PayOrderWithBalance");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

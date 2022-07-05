@@ -15,6 +15,15 @@ public enum ScfErrorCode {
     // 当前异步事件状态不支持此操作，请稍后重试。
      FAILEDOPERATION_ASYNCEVENTSTATUS("FailedOperation.AsyncEventStatus"),
      
+    // 登录信息验证失败，token 验证失败。
+     FAILEDOPERATION_AUTHFAILURE("FailedOperation.AuthFailure"),
+     
+    // 请求role信息失败。
+     FAILEDOPERATION_CALLROLEFAILED("FailedOperation.CallRoleFailed"),
+     
+    // CopyAsyncRun 传参异常。
+     FAILEDOPERATION_COPYASYNCRUN("FailedOperation.CopyAsyncRun"),
+     
     // 复制函数失败。
      FAILEDOPERATION_COPYFAILED("FailedOperation.CopyFailed"),
      
@@ -72,6 +81,9 @@ public enum ScfErrorCode {
     // 获取函数代码地址失败。
      FAILEDOPERATION_GETFUNCTIONADDRESS("FailedOperation.GetFunctionAddress"),
      
+    // InstanceNotFound 实例不存在。
+     FAILEDOPERATION_INSTANCENOTFOUND("FailedOperation.InstanceNotFound"),
+     
     // 当前账号或命名空间处于欠费状态，请在可用时重试。
      FAILEDOPERATION_INSUFFICIENTBALANCE("FailedOperation.InsufficientBalance"),
      
@@ -93,6 +105,12 @@ public enum ScfErrorCode {
     // 删除定时预置任务失败。
      FAILEDOPERATION_PROVISIONDELETETIMER("FailedOperation.ProvisionDeleteTimer"),
      
+    // 预置超过可用。
+     FAILEDOPERATION_PROVISIONEDEXCEEDAVAILABLE("FailedOperation.ProvisionedExceedAvailable"),
+     
+    // 预置超限。
+     FAILEDOPERATION_PROVISIONEDEXCEEDRESERVED("FailedOperation.ProvisionedExceedReserved"),
+     
     // 当前函数版本已有预置任务处于进行中，请稍后重试。
      FAILEDOPERATION_PROVISIONEDINPROGRESS("FailedOperation.ProvisionedInProgress"),
      
@@ -105,8 +123,14 @@ public enum ScfErrorCode {
     // 角色不存在。
      FAILEDOPERATION_QCSROLENOTFOUND("FailedOperation.QcsRoleNotFound"),
      
+    // ReservedExceedTotal 总保留超限。
+     FAILEDOPERATION_RESERVEDEXCEEDTOTAL("FailedOperation.ReservedExceedTotal"),
+     
     // 当前函数已有保留并发设置任务处于进行中，请稍后重试。
      FAILEDOPERATION_RESERVEDINPROGRESS("FailedOperation.ReservedInProgress"),
+     
+    // ServiceClosed 请确认后再操作。
+     FAILEDOPERATION_SERVICECLOSED("FailedOperation.ServiceClosed"),
      
     // Topic不存在。
      FAILEDOPERATION_TOPICNOTEXIST("FailedOperation.TopicNotExist"),
@@ -159,8 +183,17 @@ public enum ScfErrorCode {
     // FunctionName取值与规范不符，请修正后再试。可参考：https://tencentcs.com/5jXKFnBW。
      INVALIDPARAMETER_FUNCTIONNAME("InvalidParameter.FunctionName"),
      
+    // 创建函数传参异常。
+     INVALIDPARAMETER_PARAMERROR("InvalidParameter.ParamError"),
+     
     // 请求参数不合法。
      INVALIDPARAMETER_PAYLOAD("InvalidParameter.Payload"),
+     
+    // 请求大小超限。
+     INVALIDPARAMETER_REQUESTTOOLARGE("InvalidParameter.RequestTooLarge"),
+     
+    // RoleCheck 传参有误。
+     INVALIDPARAMETER_ROLECHECK("InvalidParameter.RoleCheck"),
      
     // RoutingConfig参数传入错误。
      INVALIDPARAMETER_ROUTINGCONFIG("InvalidParameter.RoutingConfig"),
@@ -191,6 +224,9 @@ public enum ScfErrorCode {
      
     // Args 参数值有误。
      INVALIDPARAMETERVALUE_ARGS("InvalidParameterValue.Args"),
+     
+    // AsyncRunEnable 取值不正确。
+     INVALIDPARAMETERVALUE_ASYNCRUNENABLE("InvalidParameterValue.AsyncRunEnable"),
      
     // 函数异步重试配置参数无效。
      INVALIDPARAMETERVALUE_ASYNCTRIGGERCONFIG("InvalidParameterValue.AsyncTriggerConfig"),
@@ -264,11 +300,20 @@ public enum ScfErrorCode {
     // 默认Namespace无法创建。
      INVALIDPARAMETERVALUE_DEFAULTNAMESPACE("InvalidParameterValue.DefaultNamespace"),
      
+    // DemoID  对应的函数模板 ，code 参数值有误，请确认后重试。
+     INVALIDPARAMETERVALUE_DEMO("InvalidParameterValue.Demo"),
+     
+    // DemoId 不存在。
+     INVALIDPARAMETERVALUE_DEMOID("InvalidParameterValue.DemoId"),
+     
     // Description传入错误。
      INVALIDPARAMETERVALUE_DESCRIPTION("InvalidParameterValue.Description"),
      
     // 环境变量DNS[OS_NAMESERVER]配置有误。
      INVALIDPARAMETERVALUE_DNSINFO("InvalidParameterValue.DnsInfo"),
+     
+    // DynamicEnabled 参数传入错误。
+     INVALIDPARAMETERVALUE_DYNAMICENABLED("InvalidParameterValue.DynamicEnabled"),
      
     // EipConfig参数错误。
      INVALIDPARAMETERVALUE_EIPCONFIG("InvalidParameterValue.EipConfig"),
@@ -294,6 +339,12 @@ public enum ScfErrorCode {
     // 函数不存在。
      INVALIDPARAMETERVALUE_FUNCTIONNAME("InvalidParameterValue.FunctionName"),
      
+    // 请求 id 传参错误。
+     INVALIDPARAMETERVALUE_FUNCTIONREQUESTID("InvalidParameterValue.FunctionRequestId"),
+     
+    // FunctionType参数错误。
+     INVALIDPARAMETERVALUE_FUNCTIONTYPE("InvalidParameterValue.FunctionType"),
+     
     // GitBranch不符合规范。
      INVALIDPARAMETERVALUE_GITBRANCH("InvalidParameterValue.GitBranch"),
      
@@ -306,11 +357,17 @@ public enum ScfErrorCode {
     // GitPassword不符合规范。
      INVALIDPARAMETERVALUE_GITPASSWORD("InvalidParameterValue.GitPassword"),
      
+    // GitPasswordSecret 传参有误。
+     INVALIDPARAMETERVALUE_GITPASSWORDSECRET("InvalidParameterValue.GitPasswordSecret"),
+     
     // GitUrl不符合规范。
      INVALIDPARAMETERVALUE_GITURL("InvalidParameterValue.GitUrl"),
      
     // GitUserName不符合规范。
      INVALIDPARAMETERVALUE_GITUSERNAME("InvalidParameterValue.GitUserName"),
+     
+    // GitUserNameSecret 传参有误。
+     INVALIDPARAMETERVALUE_GITUSERNAMESECRET("InvalidParameterValue.GitUserNameSecret"),
      
     // Handler传入错误。
      INVALIDPARAMETERVALUE_HANDLER("InvalidParameterValue.Handler"),
@@ -318,11 +375,17 @@ public enum ScfErrorCode {
     // IdleTimeOut参数传入错误。
      INVALIDPARAMETERVALUE_IDLETIMEOUT("InvalidParameterValue.IdleTimeOut"),
      
+    // ImageType 参数值有误。
+     INVALIDPARAMETERVALUE_IMAGETYPE("InvalidParameterValue.ImageType"),
+     
     // imageUri 传入有误。
      INVALIDPARAMETERVALUE_IMAGEURI("InvalidParameterValue.ImageUri"),
      
     // InlineZipFile非法。
      INVALIDPARAMETERVALUE_INLINEZIPFILE("InvalidParameterValue.InlineZipFile"),
+     
+    // InstanceConcurrencyConfig 参数传入错误。
+     INVALIDPARAMETERVALUE_INSTANCECONCURRENCYCONFIG("InvalidParameterValue.InstanceConcurrencyConfig"),
      
     // InvokeType取值与规范不符，请修正后再试。
      INVALIDPARAMETERVALUE_INVOKETYPE("InvalidParameterValue.InvokeType"),
@@ -341,6 +404,9 @@ public enum ScfErrorCode {
      
     // 参数超出长度限制。
      INVALIDPARAMETERVALUE_LIMITEXCEEDED("InvalidParameterValue.LimitExceeded"),
+     
+    // MaxConcurrency 参数传入错误。
+     INVALIDPARAMETERVALUE_MAXCONCURRENCY("InvalidParameterValue.MaxConcurrency"),
      
     // Memory取值与规范不符，请修正后再试。可参考：https://tencentcs.com/5jXKFnBW。
      INVALIDPARAMETERVALUE_MEMORY("InvalidParameterValue.Memory"),
@@ -398,6 +464,9 @@ public enum ScfErrorCode {
      
     // 不支持的函数版本。
      INVALIDPARAMETERVALUE_QUALIFIER("InvalidParameterValue.Qualifier"),
+     
+    // 查询版本详情，版本参数传入错误。
+     INVALIDPARAMETERVALUE_QUERYVERSION("InvalidParameterValue.QueryVersion"),
      
     // 企业版镜像实例ID[RegistryId]传值错误。
      INVALIDPARAMETERVALUE_REGISTRYID("InvalidParameterValue.RegistryId"),
@@ -510,6 +579,9 @@ public enum ScfErrorCode {
     // layer数量超出最大限制。
      LIMITEXCEEDED_LAYERS("LimitExceeded.Layers"),
      
+    // 动态扩容最大值超限。
+     LIMITEXCEEDED_MAXCAPACITY("LimitExceeded.MaxCapacity"),
+     
     // 内存超出最大限制。
      LIMITEXCEEDED_MEMORY("LimitExceeded.Memory"),
      
@@ -527,6 +599,9 @@ public enum ScfErrorCode {
      
     // 定时触发间隔小于最大限制。
      LIMITEXCEEDED_PROVISIONTRIGGERINTERVAL("LimitExceeded.ProvisionTriggerInterval"),
+     
+    // 配额超限。
+     LIMITEXCEEDED_QUOTA("LimitExceeded.Quota"),
      
     // 函数异步重试配置异步重试次数超过限制。
      LIMITEXCEEDED_RETRYNUM("LimitExceeded.RetryNum"),
@@ -602,6 +677,9 @@ public enum ScfErrorCode {
      
     // 指定的cfs下未找到您所指定的挂载点。
      RESOURCENOTFOUND_CFSMOUNTINSNOTMATCH("ResourceNotFound.CfsMountInsNotMatch"),
+     
+    // CfsProtocolError 参数异常。
+     RESOURCENOTFOUND_CFSPROTOCOLERROR("ResourceNotFound.CfsProtocolError"),
      
     // 检测cfs状态为不可用。
      RESOURCENOTFOUND_CFSSTATUSERROR("ResourceNotFound.CfsStatusError"),
@@ -716,6 +794,9 @@ public enum ScfErrorCode {
      
     // 资源还有别名绑定，不支持当前操作，请解绑别名后重试。
      UNSUPPORTEDOPERATION_ALIASBIND("UnsupportedOperation.AliasBind"),
+     
+    // 指定的配置AsyncRunEnable暂不支持，请修正后再试。
+     UNSUPPORTEDOPERATION_ASYNCRUNENABLE("UnsupportedOperation.AsyncRunEnable"),
      
     // Cdn不支持。
      UNSUPPORTEDOPERATION_CDN("UnsupportedOperation.Cdn"),

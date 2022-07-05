@@ -79,6 +79,34 @@ public class EnvInfo extends AbstractModel{
     private String ConfigInternetServiceIp;
 
     /**
+    * 规格ID
+    */
+    @SerializedName("SpecId")
+    @Expose
+    private String SpecId;
+
+    /**
+    * 环境的节点数
+    */
+    @SerializedName("EnvReplica")
+    @Expose
+    private Long EnvReplica;
+
+    /**
+    * 环境运行的节点数
+    */
+    @SerializedName("RunningCount")
+    @Expose
+    private Long RunningCount;
+
+    /**
+    * 环境别名
+    */
+    @SerializedName("AliasEnvName")
+    @Expose
+    private String AliasEnvName;
+
+    /**
      * Get 环境名称 
      * @return EnvName 环境名称
      */
@@ -206,6 +234,70 @@ public class EnvInfo extends AbstractModel{
         this.ConfigInternetServiceIp = ConfigInternetServiceIp;
     }
 
+    /**
+     * Get 规格ID 
+     * @return SpecId 规格ID
+     */
+    public String getSpecId() {
+        return this.SpecId;
+    }
+
+    /**
+     * Set 规格ID
+     * @param SpecId 规格ID
+     */
+    public void setSpecId(String SpecId) {
+        this.SpecId = SpecId;
+    }
+
+    /**
+     * Get 环境的节点数 
+     * @return EnvReplica 环境的节点数
+     */
+    public Long getEnvReplica() {
+        return this.EnvReplica;
+    }
+
+    /**
+     * Set 环境的节点数
+     * @param EnvReplica 环境的节点数
+     */
+    public void setEnvReplica(Long EnvReplica) {
+        this.EnvReplica = EnvReplica;
+    }
+
+    /**
+     * Get 环境运行的节点数 
+     * @return RunningCount 环境运行的节点数
+     */
+    public Long getRunningCount() {
+        return this.RunningCount;
+    }
+
+    /**
+     * Set 环境运行的节点数
+     * @param RunningCount 环境运行的节点数
+     */
+    public void setRunningCount(Long RunningCount) {
+        this.RunningCount = RunningCount;
+    }
+
+    /**
+     * Get 环境别名 
+     * @return AliasEnvName 环境别名
+     */
+    public String getAliasEnvName() {
+        return this.AliasEnvName;
+    }
+
+    /**
+     * Set 环境别名
+     * @param AliasEnvName 环境别名
+     */
+    public void setAliasEnvName(String AliasEnvName) {
+        this.AliasEnvName = AliasEnvName;
+    }
+
     public EnvInfo() {
     }
 
@@ -241,6 +333,18 @@ public class EnvInfo extends AbstractModel{
         if (source.ConfigInternetServiceIp != null) {
             this.ConfigInternetServiceIp = new String(source.ConfigInternetServiceIp);
         }
+        if (source.SpecId != null) {
+            this.SpecId = new String(source.SpecId);
+        }
+        if (source.EnvReplica != null) {
+            this.EnvReplica = new Long(source.EnvReplica);
+        }
+        if (source.RunningCount != null) {
+            this.RunningCount = new Long(source.RunningCount);
+        }
+        if (source.AliasEnvName != null) {
+            this.AliasEnvName = new String(source.AliasEnvName);
+        }
     }
 
 
@@ -256,6 +360,10 @@ public class EnvInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "ConfigServiceIp", this.ConfigServiceIp);
         this.setParamSimple(map, prefix + "EnableConfigInternet", this.EnableConfigInternet);
         this.setParamSimple(map, prefix + "ConfigInternetServiceIp", this.ConfigInternetServiceIp);
+        this.setParamSimple(map, prefix + "SpecId", this.SpecId);
+        this.setParamSimple(map, prefix + "EnvReplica", this.EnvReplica);
+        this.setParamSimple(map, prefix + "RunningCount", this.RunningCount);
+        this.setParamSimple(map, prefix + "AliasEnvName", this.AliasEnvName);
 
     }
 }

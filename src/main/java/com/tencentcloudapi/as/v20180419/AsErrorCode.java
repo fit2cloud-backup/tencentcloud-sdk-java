@@ -171,9 +171,6 @@ public enum AsErrorCode {
     // 指定的通知组 ID 不是数值字符串格式。
      INVALIDPARAMETERVALUE_INVALIDNOTIFICATIONUSERGROUPID("InvalidParameterValue.InvalidNotificationUserGroupId"),
      
-    // 指定的PAI域名类型不支持。
-     INVALIDPARAMETERVALUE_INVALIDPAIDOMAINNAMETYPE("InvalidParameterValue.InvalidPaiDomainNameType"),
-     
     // 定时任务ID无效。
      INVALIDPARAMETERVALUE_INVALIDSCHEDULEDACTIONID("InvalidParameterValue.InvalidScheduledActionId"),
      
@@ -354,6 +351,9 @@ public enum AsErrorCode {
     // 找不到指定负载均衡器。
      RESOURCENOTFOUND_LOADBALANCERNOTFOUND("ResourceNotFound.LoadBalancerNotFound"),
      
+    // 指定的负载均衡器在当前伸缩组中没有找到。
+     RESOURCENOTFOUND_LOADBALANCERNOTINAUTOSCALINGGROUP("ResourceNotFound.LoadBalancerNotInAutoScalingGroup"),
+     
     // 指定的Location不存在。
      RESOURCENOTFOUND_LOCATIONNOTFOUND("ResourceNotFound.LocationNotFound"),
      
@@ -383,6 +383,9 @@ public enum AsErrorCode {
      
     // 实例和伸缩组Vpc不一致。
      RESOURCEUNAVAILABLE_CVMVPCINCONSISTENT("ResourceUnavailable.CvmVpcInconsistent"),
+     
+    // 实例无法添加至伸缩组。
+     RESOURCEUNAVAILABLE_INSTANCECANNOTATTACH("ResourceUnavailable.InstanceCannotAttach"),
      
     // 指定的实例正在活动中。
      RESOURCEUNAVAILABLE_INSTANCEINOPERATION("ResourceUnavailable.InstanceInOperation"),
@@ -421,7 +424,10 @@ public enum AsErrorCode {
      RESOURCEUNAVAILABLE_TDMQCMQTOPICHASNOSUBSCRIBER("ResourceUnavailable.TDMQCMQTopicHasNoSubscriber"),
      
     // 指定的可用区不可用。
-     RESOURCEUNAVAILABLE_ZONEUNAVAILABLE("ResourceUnavailable.ZoneUnavailable");
+     RESOURCEUNAVAILABLE_ZONEUNAVAILABLE("ResourceUnavailable.ZoneUnavailable"),
+     
+    // 操作不支持。
+     UNSUPPORTEDOPERATION("UnsupportedOperation");
      
     private String value;
     private AsErrorCode (String value){

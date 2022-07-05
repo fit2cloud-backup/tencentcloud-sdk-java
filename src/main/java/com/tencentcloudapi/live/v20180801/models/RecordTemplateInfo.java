@@ -80,7 +80,7 @@ public class RecordTemplateInfo extends AbstractModel{
     private Long IsDelayLive;
 
     /**
-    * HLS 录制定制参数
+    * HLS 录制定制参数。
     */
     @SerializedName("HlsSpecialParam")
     @Expose
@@ -92,6 +92,22 @@ public class RecordTemplateInfo extends AbstractModel{
     @SerializedName("Mp3Param")
     @Expose
     private RecordParam Mp3Param;
+
+    /**
+    * 是否去除水印。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RemoveWatermark")
+    @Expose
+    private Boolean RemoveWatermark;
+
+    /**
+    * FLV 录制定制参数。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FlvSpecialParam")
+    @Expose
+    private FlvSpecialParam FlvSpecialParam;
 
     /**
      * Get 模板 ID。 
@@ -226,16 +242,16 @@ public class RecordTemplateInfo extends AbstractModel{
     }
 
     /**
-     * Get HLS 录制定制参数 
-     * @return HlsSpecialParam HLS 录制定制参数
+     * Get HLS 录制定制参数。 
+     * @return HlsSpecialParam HLS 录制定制参数。
      */
     public HlsSpecialParam getHlsSpecialParam() {
         return this.HlsSpecialParam;
     }
 
     /**
-     * Set HLS 录制定制参数
-     * @param HlsSpecialParam HLS 录制定制参数
+     * Set HLS 录制定制参数。
+     * @param HlsSpecialParam HLS 录制定制参数。
      */
     public void setHlsSpecialParam(HlsSpecialParam HlsSpecialParam) {
         this.HlsSpecialParam = HlsSpecialParam;
@@ -255,6 +271,46 @@ public class RecordTemplateInfo extends AbstractModel{
      */
     public void setMp3Param(RecordParam Mp3Param) {
         this.Mp3Param = Mp3Param;
+    }
+
+    /**
+     * Get 是否去除水印。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RemoveWatermark 是否去除水印。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getRemoveWatermark() {
+        return this.RemoveWatermark;
+    }
+
+    /**
+     * Set 是否去除水印。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RemoveWatermark 是否去除水印。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRemoveWatermark(Boolean RemoveWatermark) {
+        this.RemoveWatermark = RemoveWatermark;
+    }
+
+    /**
+     * Get FLV 录制定制参数。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FlvSpecialParam FLV 录制定制参数。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public FlvSpecialParam getFlvSpecialParam() {
+        return this.FlvSpecialParam;
+    }
+
+    /**
+     * Set FLV 录制定制参数。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FlvSpecialParam FLV 录制定制参数。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFlvSpecialParam(FlvSpecialParam FlvSpecialParam) {
+        this.FlvSpecialParam = FlvSpecialParam;
     }
 
     public RecordTemplateInfo() {
@@ -295,6 +351,12 @@ public class RecordTemplateInfo extends AbstractModel{
         if (source.Mp3Param != null) {
             this.Mp3Param = new RecordParam(source.Mp3Param);
         }
+        if (source.RemoveWatermark != null) {
+            this.RemoveWatermark = new Boolean(source.RemoveWatermark);
+        }
+        if (source.FlvSpecialParam != null) {
+            this.FlvSpecialParam = new FlvSpecialParam(source.FlvSpecialParam);
+        }
     }
 
 
@@ -312,6 +374,8 @@ public class RecordTemplateInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "IsDelayLive", this.IsDelayLive);
         this.setParamObj(map, prefix + "HlsSpecialParam.", this.HlsSpecialParam);
         this.setParamObj(map, prefix + "Mp3Param.", this.Mp3Param);
+        this.setParamSimple(map, prefix + "RemoveWatermark", this.RemoveWatermark);
+        this.setParamObj(map, prefix + "FlvSpecialParam.", this.FlvSpecialParam);
 
     }
 }

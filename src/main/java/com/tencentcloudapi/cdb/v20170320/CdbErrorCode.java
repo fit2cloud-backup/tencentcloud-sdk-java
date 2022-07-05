@@ -3,6 +3,9 @@ public enum CdbErrorCode {
     // CAM签名/鉴权错误。
      AUTHFAILURE("AuthFailure"),
      
+    // 子账号无权限。
+     AUTHFAILURE_SUBACCOUNTDENIED("AuthFailure.SubAccountDenied"),
+     
     // 后端错误或者流程错误。
      CDBERROR("CdbError"),
      
@@ -23,6 +26,9 @@ public enum CdbErrorCode {
      
     // 异步任务状态异常。
      FAILEDOPERATION_ASYNCTASKSTATUSERROR("FailedOperation.AsyncTaskStatusError"),
+     
+    // 审计不存在。
+     FAILEDOPERATION_AUDITCONFIGNOTEXIST("FailedOperation.AuditConfigNotExist"),
      
     // 实例互斥操作锁定失败,请稍后重试。
      FAILEDOPERATION_CDBINSTANCELOCKFAILERROR("FailedOperation.CdbInstanceLockFailError"),
@@ -219,6 +225,9 @@ public enum CdbErrorCode {
     // 交易系统错误。
      INTERNALERROR_TRADEERROR("InternalError.TradeError"),
      
+    // 操作失败。
+     INTERNALERROR_TRANSACTIONBEGINERROR("InternalError.TransactionBeginError"),
+     
     // 未知错误。
      INTERNALERROR_UNDEFINEDERROR("InternalError.UndefinedError"),
      
@@ -333,6 +342,12 @@ public enum CdbErrorCode {
     // 不支持的操作。
      OPERATIONDENIED_ACTIONNOTSUPPORT("OperationDenied.ActionNotSupport"),
      
+    // 已开启安全审计，至少保留一个全审计。
+     OPERATIONDENIED_ATLEASTALLRULEAUDITPOLICYERROR("OperationDenied.AtLeastAllRuleAuditPolicyError"),
+     
+    // 至少保留一个审计策略。
+     OPERATIONDENIED_ATLEASTAUDITPOLICYERROR("OperationDenied.AtLeastAuditPolicyError"),
+     
     // 审计日志文件数超过最大限制数。
      OPERATIONDENIED_AUDITFILEOVERQUOTAERROR("OperationDenied.AuditFileOverQuotaError"),
      
@@ -369,6 +384,9 @@ public enum CdbErrorCode {
     // 当前RO组有RO实例处于非法状态，不允许执行当前操作。
      OPERATIONDENIED_CONFLICTROSTATUS("OperationDenied.ConflictRoStatus"),
      
+    // 当前只读组配置正在变更中，请勿重复发起请求。
+     OPERATIONDENIED_CONFLICTSTATUS("OperationDenied.ConflictStatus"),
+     
     // 已开通安全审计,不支持规则审计。
      OPERATIONDENIED_DBBRAINPOLICYCONFLICT("OperationDenied.DBBrainPolicyConflict"),
      
@@ -380,6 +398,9 @@ public enum CdbErrorCode {
      
     // 该实例无此功能权限。
      OPERATIONDENIED_FUNCTIONDENIED("OperationDenied.FunctionDenied"),
+     
+    // 当前类型实例不支持该操作。
+     OPERATIONDENIED_INSTTYPENOTSUPPORT("OperationDenied.InstTypeNotSupport"),
      
     // 实例锁冲突，请稍后重试。
      OPERATIONDENIED_INSTANCELOCKERCONFLICT("OperationDenied.InstanceLockerConflict"),
@@ -407,6 +428,9 @@ public enum CdbErrorCode {
      
     // 资源配额超限。
      OPERATIONDENIED_OVERQUOTA("OperationDenied.OverQuota"),
+     
+    // 数据库代理升级任务中，不允许该操作。
+     OPERATIONDENIED_PROXYUPGRADETASKSTATUSERROR("OperationDenied.ProxyUpgradeTaskStatusError"),
      
     // 结果集超过限制，请缩小检索范围。
      OPERATIONDENIED_RESULTOVERLIMIT("OperationDenied.ResultOverLimit"),

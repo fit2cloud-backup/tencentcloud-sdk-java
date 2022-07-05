@@ -39,6 +39,67 @@ public class EssbasicClient extends AbstractClient{
     }
 
     /**
+     *此接口（ChannelCancelMultiFlowSignQRCode）用于取消一码多扫二维码。该接口对传入的二维码ID，若还在有效期内，可以提前失效。
+     * @param req ChannelCancelMultiFlowSignQRCodeRequest
+     * @return ChannelCancelMultiFlowSignQRCodeResponse
+     * @throws TencentCloudSDKException
+     */
+    public ChannelCancelMultiFlowSignQRCodeResponse ChannelCancelMultiFlowSignQRCode(ChannelCancelMultiFlowSignQRCodeRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ChannelCancelMultiFlowSignQRCodeResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ChannelCancelMultiFlowSignQRCodeResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ChannelCancelMultiFlowSignQRCode");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *接口（ChannelCreateFlowByFiles）用于渠道版通过文件创建签署流程。此接口不可直接使用，需要运营申请
+     * @param req ChannelCreateFlowByFilesRequest
+     * @return ChannelCreateFlowByFilesResponse
+     * @throws TencentCloudSDKException
+     */
+    public ChannelCreateFlowByFilesResponse ChannelCreateFlowByFiles(ChannelCreateFlowByFilesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ChannelCreateFlowByFilesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ChannelCreateFlowByFilesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ChannelCreateFlowByFiles");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *此接口（ChannelCreateMultiFlowSignQRCode）用于创建一码多扫签署流程二维码。
+适用的模版仅限于B2C（1、无序签署，2、顺序签署时B静默签署，3、顺序签署时B非首位签署）、单C的模版，且模版中发起方没有填写控件。
+     * @param req ChannelCreateMultiFlowSignQRCodeRequest
+     * @return ChannelCreateMultiFlowSignQRCodeResponse
+     * @throws TencentCloudSDKException
+     */
+    public ChannelCreateMultiFlowSignQRCodeResponse ChannelCreateMultiFlowSignQRCode(ChannelCreateMultiFlowSignQRCodeRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ChannelCreateMultiFlowSignQRCodeResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ChannelCreateMultiFlowSignQRCodeResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ChannelCreateMultiFlowSignQRCode");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *此接口（CreateConsoleLoginUrl）用于创建电子签控制台登录链接。若企业未激活，调用同步企业信息、同步经办人信息
 
      * @param req CreateConsoleLoginUrlRequest
@@ -60,7 +121,7 @@ public class EssbasicClient extends AbstractClient{
     }
 
     /**
-     *接口（CreateFlowsByTemplates）用于使用多个模板批量创建流程。当前可批量发起合同（流程）数量最大为20个。
+     *接口（CreateFlowsByTemplates）用于使用多个模板批量创建签署流程。当前可批量发起合同（签署流程）数量最大为20个。
      * @param req CreateFlowsByTemplatesRequest
      * @return CreateFlowsByTemplatesResponse
      * @throws TencentCloudSDKException
@@ -72,6 +133,26 @@ public class EssbasicClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<CreateFlowsByTemplatesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "CreateFlowsByTemplates");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *渠道通过图片为子客代创建印章，图片最大5m；此接口不可直接使用，需要运营申请
+     * @param req CreateSealByImageRequest
+     * @return CreateSealByImageResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateSealByImageResponse CreateSealByImage(CreateSealByImageRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateSealByImageResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateSealByImageResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateSealByImage");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -100,7 +181,7 @@ public class EssbasicClient extends AbstractClient{
     }
 
     /**
-     *此接口（DescribeFlowDetailInfo）用于查询合同(流程)的详细信息。
+     *此接口（DescribeFlowDetailInfo）用于查询合同(签署流程)的详细信息。
      * @param req DescribeFlowDetailInfoRequest
      * @return DescribeFlowDetailInfoResponse
      * @throws TencentCloudSDKException
@@ -120,7 +201,8 @@ public class EssbasicClient extends AbstractClient{
     }
 
     /**
-     *根据流程信息批量获取资源下载链接
+     *根据签署流程信息批量获取资源下载链接，可直接下载
+限制：只能下载合作企业授权过的、单方签署的签署流程文件（若合作企业与渠道是同一企业，可以下载所有签署流程文件）
      * @param req DescribeResourceUrlsByFlowsRequest
      * @return DescribeResourceUrlsByFlowsResponse
      * @throws TencentCloudSDKException
@@ -181,7 +263,7 @@ public class EssbasicClient extends AbstractClient{
     }
 
     /**
-     *此接口（GetDownloadFlowUrl）用于创建电子签批量下载地址，支持客户合同（流程）按照自定义文件夹形式 分类下载。
+     *此接口（GetDownloadFlowUrl）用于创建电子签批量下载地址，让合作企业进入控制台直接下载，支持客户合同（流程）按照自定义文件夹形式 分类下载。
 当前接口限制最多合同（流程）50个.
 
      * @param req GetDownloadFlowUrlRequest
@@ -228,8 +310,8 @@ public class EssbasicClient extends AbstractClient{
 
     /**
      *该接口 (PrepareFlows) 用于创建待发起文件
-用户通过该接口进入流程发起的确认页面，进行发起信息二次确认， 如果确认则进行正常发起。
-目前该接口只支持B2C。
+用户通过该接口进入签署流程发起的确认页面，进行发起信息二次确认， 如果确认则进行正常发起。
+目前该接口只支持B2C，不建议使用。
      * @param req PrepareFlowsRequest
      * @return PrepareFlowsResponse
      * @throws TencentCloudSDKException
@@ -281,6 +363,27 @@ public class EssbasicClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<SyncProxyOrganizationOperatorsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "SyncProxyOrganizationOperators");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *此接口（UploadFiles）用于文件上传。
+调用时需要设置Domain 为 file.ess.tencent.cn
+     * @param req UploadFilesRequest
+     * @return UploadFilesResponse
+     * @throws TencentCloudSDKException
+     */
+    public UploadFilesResponse UploadFiles(UploadFilesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<UploadFilesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<UploadFilesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "UploadFiles");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

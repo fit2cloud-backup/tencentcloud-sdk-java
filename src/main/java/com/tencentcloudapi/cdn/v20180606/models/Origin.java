@@ -35,13 +35,21 @@ public class Origin extends AbstractModel{
     * 主源站类型
 入参支持以下几种类型：
 domain：域名类型
+domainv6：域名解析V6类型
 cos：对象存储源站
 ip：IP 列表作为源站
 ipv6：源站列表为一个单独的 IPv6 地址
 ip_ipv6：源站列表为多个 IPv4 地址和IPv6 地址
 ip_domain: 支持IP和域名形式源站混填（白名单功能）
+ip_domainv6：源站列表为多个 IPv4 地址以及域名解析v6地址
 ipv6_domain: 源站列表为多个 IPv6 地址以及域名
+ipv6_domainv6：源站列表为多个 IPv6 地址以及域名解析v6地址
+domain_domainv6：源站列表为多个域名解析v4 地址以及域名解析v6地址
 ip_ipv6_domain：源站列表为多个 IPv4 地址IPv6 地址以及域名
+ip_ipv6_domainv6：源站列表为多个 IPv4 地址IPv6 地址以及域名解析v6地址
+ip_domain_domainv6：源站列表为多个 IPv4 地址域名解析v4 地址以及域名解析v6地址
+ipv6_domain_domainv6：源站列表为多个 域名解析v4 地址IPv6 地址以及域名解析v6地址
+ip_ipv6_domain_domainv6：源站列表为多个 IPv4 地址IPv6 地址 域名解析v4 地址以及域名解析v6地址
 出参增加以下几种类型：
 image：数据万象源站
 ftp：历史 FTP 托管源源站，现已不维护
@@ -54,7 +62,8 @@ IPv6 功能目前尚未全量，需要先申请试用
     private String OriginType;
 
     /**
-    * 回主源站时 Host 头部，不填充则默认为加速域名
+    * 当源站类型为cos或者第三方存储加速时,ServerName字段必填
+回主源站时 Host 头部，不填充则默认为加速域名
 若接入的是泛域名，则回源 Host 默认为访问时的子域名
 注意：此字段可能返回 null，表示取不到有效值。
     */
@@ -64,7 +73,7 @@ IPv6 功能目前尚未全量，需要先申请试用
 
     /**
     * OriginType 为对象存储（COS）时，可以指定是否允许访问私有 bucket
-注意：需要先授权 CDN 访问该私有 Bucket 的权限后，才可开启此配置。
+注意：需要先授权 CDN 访问该私有 Bucket 的权限后，才可开启此配置。取值范围: on/off
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CosPrivateAccess")
@@ -148,6 +157,14 @@ ip_ipv6_domain：源站列表为多个 IPv4 地址IPv6 地址以及域名
     private AdvanceHttps AdvanceHttps;
 
     /**
+    * 对象存储回源厂商
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OriginCompany")
+    @Expose
+    private String OriginCompany;
+
+    /**
      * Get 主源站列表
 修改源站时，需要同时填充对应的 OriginType
 注意：此字段可能返回 null，表示取不到有效值。 
@@ -175,13 +192,21 @@ ip_ipv6_domain：源站列表为多个 IPv4 地址IPv6 地址以及域名
      * Get 主源站类型
 入参支持以下几种类型：
 domain：域名类型
+domainv6：域名解析V6类型
 cos：对象存储源站
 ip：IP 列表作为源站
 ipv6：源站列表为一个单独的 IPv6 地址
 ip_ipv6：源站列表为多个 IPv4 地址和IPv6 地址
 ip_domain: 支持IP和域名形式源站混填（白名单功能）
+ip_domainv6：源站列表为多个 IPv4 地址以及域名解析v6地址
 ipv6_domain: 源站列表为多个 IPv6 地址以及域名
+ipv6_domainv6：源站列表为多个 IPv6 地址以及域名解析v6地址
+domain_domainv6：源站列表为多个域名解析v4 地址以及域名解析v6地址
 ip_ipv6_domain：源站列表为多个 IPv4 地址IPv6 地址以及域名
+ip_ipv6_domainv6：源站列表为多个 IPv4 地址IPv6 地址以及域名解析v6地址
+ip_domain_domainv6：源站列表为多个 IPv4 地址域名解析v4 地址以及域名解析v6地址
+ipv6_domain_domainv6：源站列表为多个 域名解析v4 地址IPv6 地址以及域名解析v6地址
+ip_ipv6_domain_domainv6：源站列表为多个 IPv4 地址IPv6 地址 域名解析v4 地址以及域名解析v6地址
 出参增加以下几种类型：
 image：数据万象源站
 ftp：历史 FTP 托管源源站，现已不维护
@@ -191,13 +216,21 @@ IPv6 功能目前尚未全量，需要先申请试用
      * @return OriginType 主源站类型
 入参支持以下几种类型：
 domain：域名类型
+domainv6：域名解析V6类型
 cos：对象存储源站
 ip：IP 列表作为源站
 ipv6：源站列表为一个单独的 IPv6 地址
 ip_ipv6：源站列表为多个 IPv4 地址和IPv6 地址
 ip_domain: 支持IP和域名形式源站混填（白名单功能）
+ip_domainv6：源站列表为多个 IPv4 地址以及域名解析v6地址
 ipv6_domain: 源站列表为多个 IPv6 地址以及域名
+ipv6_domainv6：源站列表为多个 IPv6 地址以及域名解析v6地址
+domain_domainv6：源站列表为多个域名解析v4 地址以及域名解析v6地址
 ip_ipv6_domain：源站列表为多个 IPv4 地址IPv6 地址以及域名
+ip_ipv6_domainv6：源站列表为多个 IPv4 地址IPv6 地址以及域名解析v6地址
+ip_domain_domainv6：源站列表为多个 IPv4 地址域名解析v4 地址以及域名解析v6地址
+ipv6_domain_domainv6：源站列表为多个 域名解析v4 地址IPv6 地址以及域名解析v6地址
+ip_ipv6_domain_domainv6：源站列表为多个 IPv4 地址IPv6 地址 域名解析v4 地址以及域名解析v6地址
 出参增加以下几种类型：
 image：数据万象源站
 ftp：历史 FTP 托管源源站，现已不维护
@@ -213,13 +246,21 @@ IPv6 功能目前尚未全量，需要先申请试用
      * Set 主源站类型
 入参支持以下几种类型：
 domain：域名类型
+domainv6：域名解析V6类型
 cos：对象存储源站
 ip：IP 列表作为源站
 ipv6：源站列表为一个单独的 IPv6 地址
 ip_ipv6：源站列表为多个 IPv4 地址和IPv6 地址
 ip_domain: 支持IP和域名形式源站混填（白名单功能）
+ip_domainv6：源站列表为多个 IPv4 地址以及域名解析v6地址
 ipv6_domain: 源站列表为多个 IPv6 地址以及域名
+ipv6_domainv6：源站列表为多个 IPv6 地址以及域名解析v6地址
+domain_domainv6：源站列表为多个域名解析v4 地址以及域名解析v6地址
 ip_ipv6_domain：源站列表为多个 IPv4 地址IPv6 地址以及域名
+ip_ipv6_domainv6：源站列表为多个 IPv4 地址IPv6 地址以及域名解析v6地址
+ip_domain_domainv6：源站列表为多个 IPv4 地址域名解析v4 地址以及域名解析v6地址
+ipv6_domain_domainv6：源站列表为多个 域名解析v4 地址IPv6 地址以及域名解析v6地址
+ip_ipv6_domain_domainv6：源站列表为多个 IPv4 地址IPv6 地址 域名解析v4 地址以及域名解析v6地址
 出参增加以下几种类型：
 image：数据万象源站
 ftp：历史 FTP 托管源源站，现已不维护
@@ -229,13 +270,21 @@ IPv6 功能目前尚未全量，需要先申请试用
      * @param OriginType 主源站类型
 入参支持以下几种类型：
 domain：域名类型
+domainv6：域名解析V6类型
 cos：对象存储源站
 ip：IP 列表作为源站
 ipv6：源站列表为一个单独的 IPv6 地址
 ip_ipv6：源站列表为多个 IPv4 地址和IPv6 地址
 ip_domain: 支持IP和域名形式源站混填（白名单功能）
+ip_domainv6：源站列表为多个 IPv4 地址以及域名解析v6地址
 ipv6_domain: 源站列表为多个 IPv6 地址以及域名
+ipv6_domainv6：源站列表为多个 IPv6 地址以及域名解析v6地址
+domain_domainv6：源站列表为多个域名解析v4 地址以及域名解析v6地址
 ip_ipv6_domain：源站列表为多个 IPv4 地址IPv6 地址以及域名
+ip_ipv6_domainv6：源站列表为多个 IPv4 地址IPv6 地址以及域名解析v6地址
+ip_domain_domainv6：源站列表为多个 IPv4 地址域名解析v4 地址以及域名解析v6地址
+ipv6_domain_domainv6：源站列表为多个 域名解析v4 地址IPv6 地址以及域名解析v6地址
+ip_ipv6_domain_domainv6：源站列表为多个 IPv4 地址IPv6 地址 域名解析v4 地址以及域名解析v6地址
 出参增加以下几种类型：
 image：数据万象源站
 ftp：历史 FTP 托管源源站，现已不维护
@@ -248,10 +297,12 @@ IPv6 功能目前尚未全量，需要先申请试用
     }
 
     /**
-     * Get 回主源站时 Host 头部，不填充则默认为加速域名
+     * Get 当源站类型为cos或者第三方存储加速时,ServerName字段必填
+回主源站时 Host 头部，不填充则默认为加速域名
 若接入的是泛域名，则回源 Host 默认为访问时的子域名
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ServerName 回主源站时 Host 头部，不填充则默认为加速域名
+     * @return ServerName 当源站类型为cos或者第三方存储加速时,ServerName字段必填
+回主源站时 Host 头部，不填充则默认为加速域名
 若接入的是泛域名，则回源 Host 默认为访问时的子域名
 注意：此字段可能返回 null，表示取不到有效值。
      */
@@ -260,10 +311,12 @@ IPv6 功能目前尚未全量，需要先申请试用
     }
 
     /**
-     * Set 回主源站时 Host 头部，不填充则默认为加速域名
+     * Set 当源站类型为cos或者第三方存储加速时,ServerName字段必填
+回主源站时 Host 头部，不填充则默认为加速域名
 若接入的是泛域名，则回源 Host 默认为访问时的子域名
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ServerName 回主源站时 Host 头部，不填充则默认为加速域名
+     * @param ServerName 当源站类型为cos或者第三方存储加速时,ServerName字段必填
+回主源站时 Host 头部，不填充则默认为加速域名
 若接入的是泛域名，则回源 Host 默认为访问时的子域名
 注意：此字段可能返回 null，表示取不到有效值。
      */
@@ -273,10 +326,10 @@ IPv6 功能目前尚未全量，需要先申请试用
 
     /**
      * Get OriginType 为对象存储（COS）时，可以指定是否允许访问私有 bucket
-注意：需要先授权 CDN 访问该私有 Bucket 的权限后，才可开启此配置。
+注意：需要先授权 CDN 访问该私有 Bucket 的权限后，才可开启此配置。取值范围: on/off
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return CosPrivateAccess OriginType 为对象存储（COS）时，可以指定是否允许访问私有 bucket
-注意：需要先授权 CDN 访问该私有 Bucket 的权限后，才可开启此配置。
+注意：需要先授权 CDN 访问该私有 Bucket 的权限后，才可开启此配置。取值范围: on/off
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCosPrivateAccess() {
@@ -285,10 +338,10 @@ IPv6 功能目前尚未全量，需要先申请试用
 
     /**
      * Set OriginType 为对象存储（COS）时，可以指定是否允许访问私有 bucket
-注意：需要先授权 CDN 访问该私有 Bucket 的权限后，才可开启此配置。
+注意：需要先授权 CDN 访问该私有 Bucket 的权限后，才可开启此配置。取值范围: on/off
 注意：此字段可能返回 null，表示取不到有效值。
      * @param CosPrivateAccess OriginType 为对象存储（COS）时，可以指定是否允许访问私有 bucket
-注意：需要先授权 CDN 访问该私有 Bucket 的权限后，才可开启此配置。
+注意：需要先授权 CDN 访问该私有 Bucket 的权限后，才可开启此配置。取值范围: on/off
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCosPrivateAccess(String CosPrivateAccess) {
@@ -503,6 +556,26 @@ ip_ipv6_domain：源站列表为多个 IPv4 地址IPv6 地址以及域名
         this.AdvanceHttps = AdvanceHttps;
     }
 
+    /**
+     * Get 对象存储回源厂商
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OriginCompany 对象存储回源厂商
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getOriginCompany() {
+        return this.OriginCompany;
+    }
+
+    /**
+     * Set 对象存储回源厂商
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OriginCompany 对象存储回源厂商
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOriginCompany(String OriginCompany) {
+        this.OriginCompany = OriginCompany;
+    }
+
     public Origin() {
     }
 
@@ -559,6 +632,9 @@ ip_ipv6_domain：源站列表为多个 IPv4 地址IPv6 地址以及域名
         if (source.AdvanceHttps != null) {
             this.AdvanceHttps = new AdvanceHttps(source.AdvanceHttps);
         }
+        if (source.OriginCompany != null) {
+            this.OriginCompany = new String(source.OriginCompany);
+        }
     }
 
 
@@ -578,6 +654,7 @@ ip_ipv6_domain：源站列表为多个 IPv4 地址IPv6 地址以及域名
         this.setParamArrayObj(map, prefix + "PathRules.", this.PathRules);
         this.setParamArrayObj(map, prefix + "PathBasedOrigin.", this.PathBasedOrigin);
         this.setParamObj(map, prefix + "AdvanceHttps.", this.AdvanceHttps);
+        this.setParamSimple(map, prefix + "OriginCompany", this.OriginCompany);
 
     }
 }

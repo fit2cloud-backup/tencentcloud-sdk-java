@@ -177,7 +177,7 @@ public class CreateDBInstanceRequest extends AbstractModel{
     private RoGroup RoGroup;
 
     /**
-    * 实例名称。
+    * 实例名称。一次购买多个实例命名会用后缀数字区分，例instnaceName=db，goodsNum=3，实例命名分别为db1，db2，db3。
     */
     @SerializedName("InstanceName")
     @Expose
@@ -198,7 +198,7 @@ public class CreateDBInstanceRequest extends AbstractModel{
     private String DeployGroupId;
 
     /**
-    * 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间在当天内唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
+    * 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间在48小时内唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
     */
     @SerializedName("ClientToken")
     @Expose
@@ -273,6 +273,20 @@ public class CreateDBInstanceRequest extends AbstractModel{
     @SerializedName("DryRun")
     @Expose
     private Boolean DryRun;
+
+    /**
+    * 实例引擎类型，默认为"InnoDB"，支持值包括："InnoDB"，"RocksDB"。
+    */
+    @SerializedName("EngineType")
+    @Expose
+    private String EngineType;
+
+    /**
+    * 指定实例的IP列表。仅支持主实例指定，按实例顺序，不足则按未指定处理。
+    */
+    @SerializedName("Vips")
+    @Expose
+    private String [] Vips;
 
     /**
      * Get 实例内存大小，单位：MB，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的内存规格。 
@@ -627,16 +641,16 @@ public class CreateDBInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 实例名称。 
-     * @return InstanceName 实例名称。
+     * Get 实例名称。一次购买多个实例命名会用后缀数字区分，例instnaceName=db，goodsNum=3，实例命名分别为db1，db2，db3。 
+     * @return InstanceName 实例名称。一次购买多个实例命名会用后缀数字区分，例instnaceName=db，goodsNum=3，实例命名分别为db1，db2，db3。
      */
     public String getInstanceName() {
         return this.InstanceName;
     }
 
     /**
-     * Set 实例名称。
-     * @param InstanceName 实例名称。
+     * Set 实例名称。一次购买多个实例命名会用后缀数字区分，例instnaceName=db，goodsNum=3，实例命名分别为db1，db2，db3。
+     * @param InstanceName 实例名称。一次购买多个实例命名会用后缀数字区分，例instnaceName=db，goodsNum=3，实例命名分别为db1，db2，db3。
      */
     public void setInstanceName(String InstanceName) {
         this.InstanceName = InstanceName;
@@ -675,16 +689,16 @@ public class CreateDBInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间在当天内唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。 
-     * @return ClientToken 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间在当天内唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
+     * Get 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间在48小时内唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。 
+     * @return ClientToken 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间在48小时内唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
      */
     public String getClientToken() {
         return this.ClientToken;
     }
 
     /**
-     * Set 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间在当天内唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
-     * @param ClientToken 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间在当天内唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
+     * Set 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间在48小时内唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
+     * @param ClientToken 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间在48小时内唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
      */
     public void setClientToken(String ClientToken) {
         this.ClientToken = ClientToken;
@@ -850,6 +864,38 @@ public class CreateDBInstanceRequest extends AbstractModel{
         this.DryRun = DryRun;
     }
 
+    /**
+     * Get 实例引擎类型，默认为"InnoDB"，支持值包括："InnoDB"，"RocksDB"。 
+     * @return EngineType 实例引擎类型，默认为"InnoDB"，支持值包括："InnoDB"，"RocksDB"。
+     */
+    public String getEngineType() {
+        return this.EngineType;
+    }
+
+    /**
+     * Set 实例引擎类型，默认为"InnoDB"，支持值包括："InnoDB"，"RocksDB"。
+     * @param EngineType 实例引擎类型，默认为"InnoDB"，支持值包括："InnoDB"，"RocksDB"。
+     */
+    public void setEngineType(String EngineType) {
+        this.EngineType = EngineType;
+    }
+
+    /**
+     * Get 指定实例的IP列表。仅支持主实例指定，按实例顺序，不足则按未指定处理。 
+     * @return Vips 指定实例的IP列表。仅支持主实例指定，按实例顺序，不足则按未指定处理。
+     */
+    public String [] getVips() {
+        return this.Vips;
+    }
+
+    /**
+     * Set 指定实例的IP列表。仅支持主实例指定，按实例顺序，不足则按未指定处理。
+     * @param Vips 指定实例的IP列表。仅支持主实例指定，按实例顺序，不足则按未指定处理。
+     */
+    public void setVips(String [] Vips) {
+        this.Vips = Vips;
+    }
+
     public CreateDBInstanceRequest() {
     }
 
@@ -981,6 +1027,15 @@ public class CreateDBInstanceRequest extends AbstractModel{
         if (source.DryRun != null) {
             this.DryRun = new Boolean(source.DryRun);
         }
+        if (source.EngineType != null) {
+            this.EngineType = new String(source.EngineType);
+        }
+        if (source.Vips != null) {
+            this.Vips = new String[source.Vips.length];
+            for (int i = 0; i < source.Vips.length; i++) {
+                this.Vips[i] = new String(source.Vips[i]);
+            }
+        }
     }
 
 
@@ -1024,6 +1079,8 @@ public class CreateDBInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ParamTemplateType", this.ParamTemplateType);
         this.setParamArraySimple(map, prefix + "AlarmPolicyIdList.", this.AlarmPolicyIdList);
         this.setParamSimple(map, prefix + "DryRun", this.DryRun);
+        this.setParamSimple(map, prefix + "EngineType", this.EngineType);
+        this.setParamArraySimple(map, prefix + "Vips.", this.Vips);
 
     }
 }

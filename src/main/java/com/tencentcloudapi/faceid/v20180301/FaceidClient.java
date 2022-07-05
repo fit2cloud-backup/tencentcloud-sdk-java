@@ -139,7 +139,7 @@ public class FaceidClient extends AbstractClient{
     }
 
     /**
-     *传入身份证人像面照片，识别身份证照片上的信息，并将姓名、身份证号、身份证人像照片与公安权威库的证件照进行比对，是否属于同一个人，从而验证身份证信息的真实性。
+     *传入身份证人像面照片，识别身份证照片上的信息，并将姓名、身份证号、身份证人像照片与权威库的证件照进行比对，是否属于同一个人，从而验证身份证信息的真实性。
      * @param req CheckIdCardInformationRequest
      * @return CheckIdCardInformationResponse
      * @throws TencentCloudSDKException
@@ -241,7 +241,7 @@ public class FaceidClient extends AbstractClient{
     }
 
     /**
-     *本接口用于校验手机号、姓名和身份证号的真实性和一致性，入参支持MD5加密传输。
+     *本接口用于校验手机号、姓名和身份证号的真实性和一致性，入参支持明文、MD5和SHA256加密传输。
      * @param req EncryptedPhoneVerificationRequest
      * @return EncryptedPhoneVerificationResponse
      * @throws TencentCloudSDKException
@@ -522,7 +522,7 @@ public class FaceidClient extends AbstractClient{
     }
 
     /**
-     *传入照片和身份信息，判断该照片与公安权威库的证件照是否属于同一个人。
+     *传入照片和身份信息，判断该照片与权威库的证件照是否属于同一个人。
      * @param req ImageRecognitionRequest
      * @return ImageRecognitionResponse
      * @throws TencentCloudSDKException
@@ -582,7 +582,7 @@ public class FaceidClient extends AbstractClient{
     }
 
     /**
-     *传入视频和身份信息，先判断视频中是否为真人，判断为真人后，再判断该视频中的人与公安权威库的证件照是否属于同一个人。
+     *传入视频和身份信息，先判断视频中是否为真人，判断为真人后，再判断该视频中的人与权威库的证件照是否属于同一个人。
      * @param req LivenessRecognitionRequest
      * @return LivenessRecognitionResponse
      * @throws TencentCloudSDKException
@@ -654,6 +654,26 @@ public class FaceidClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<MobileStatusResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "MobileStatus");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *解析SDK获取到的证件NFC数据，接口传入SDK返回的ReqId，返回证件信息（个别字段为特定证件类型特有）。SDK生成的ReqId五分钟内有效，重复查询仅收一次费。支持身份证类证件（二代身份证、港澳居住证、台湾居住证、外国人永居证）以及旅行类证件（港澳通行证、台湾通行证、台胞证、回乡证）的NFC识别及核验。
+     * @param req ParseNfcDataRequest
+     * @return ParseNfcDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public ParseNfcDataResponse ParseNfcData(ParseNfcDataRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ParseNfcDataResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ParseNfcDataResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ParseNfcData");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

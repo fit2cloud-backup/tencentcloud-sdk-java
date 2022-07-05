@@ -37,7 +37,7 @@ public class DescribeTaskListRequest extends AbstractModel{
     private String InstanceName;
 
     /**
-    * 分页大小
+    * 分页大小,默认20，上限不大于100
     */
     @SerializedName("Limit")
     @Expose
@@ -86,6 +86,20 @@ public class DescribeTaskListRequest extends AbstractModel{
     private Long [] TaskStatus;
 
     /**
+    * 任务状态
+    */
+    @SerializedName("Result")
+    @Expose
+    private Long [] Result;
+
+    /**
+    * 操作者Uin
+    */
+    @SerializedName("OperatorUin")
+    @Expose
+    private Long [] OperatorUin;
+
+    /**
      * Get 实例Id 
      * @return InstanceId 实例Id
      */
@@ -118,16 +132,16 @@ public class DescribeTaskListRequest extends AbstractModel{
     }
 
     /**
-     * Get 分页大小 
-     * @return Limit 分页大小
+     * Get 分页大小,默认20，上限不大于100 
+     * @return Limit 分页大小,默认20，上限不大于100
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 分页大小
-     * @param Limit 分页大小
+     * Set 分页大小,默认20，上限不大于100
+     * @param Limit 分页大小,默认20，上限不大于100
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
@@ -229,6 +243,38 @@ public class DescribeTaskListRequest extends AbstractModel{
         this.TaskStatus = TaskStatus;
     }
 
+    /**
+     * Get 任务状态 
+     * @return Result 任务状态
+     */
+    public Long [] getResult() {
+        return this.Result;
+    }
+
+    /**
+     * Set 任务状态
+     * @param Result 任务状态
+     */
+    public void setResult(Long [] Result) {
+        this.Result = Result;
+    }
+
+    /**
+     * Get 操作者Uin 
+     * @return OperatorUin 操作者Uin
+     */
+    public Long [] getOperatorUin() {
+        return this.OperatorUin;
+    }
+
+    /**
+     * Set 操作者Uin
+     * @param OperatorUin 操作者Uin
+     */
+    public void setOperatorUin(Long [] OperatorUin) {
+        this.OperatorUin = OperatorUin;
+    }
+
     public DescribeTaskListRequest() {
     }
 
@@ -273,6 +319,18 @@ public class DescribeTaskListRequest extends AbstractModel{
                 this.TaskStatus[i] = new Long(source.TaskStatus[i]);
             }
         }
+        if (source.Result != null) {
+            this.Result = new Long[source.Result.length];
+            for (int i = 0; i < source.Result.length; i++) {
+                this.Result[i] = new Long(source.Result[i]);
+            }
+        }
+        if (source.OperatorUin != null) {
+            this.OperatorUin = new Long[source.OperatorUin.length];
+            for (int i = 0; i < source.OperatorUin.length; i++) {
+                this.OperatorUin[i] = new Long(source.OperatorUin[i]);
+            }
+        }
     }
 
 
@@ -289,6 +347,8 @@ public class DescribeTaskListRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "BeginTime", this.BeginTime);
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
         this.setParamArraySimple(map, prefix + "TaskStatus.", this.TaskStatus);
+        this.setParamArraySimple(map, prefix + "Result.", this.Result);
+        this.setParamArraySimple(map, prefix + "OperatorUin.", this.OperatorUin);
 
     }
 }

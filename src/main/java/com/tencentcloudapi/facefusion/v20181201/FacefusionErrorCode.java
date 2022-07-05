@@ -15,6 +15,9 @@ public enum FacefusionErrorCode {
     // 人脸检测失败。
      FAILEDOPERATION_FACEDETECTFAILED("FailedOperation.FaceDetectFailed"),
      
+    // 人脸出框，无法使用。
+     FAILEDOPERATION_FACEEXCEEDBORDER("FailedOperation.FaceExceedBorder"),
+     
     // 人脸提特征失败。
      FAILEDOPERATION_FACEFEATUREFAILED("FailedOperation.FaceFeatureFailed"),
      
@@ -84,6 +87,9 @@ public enum FacefusionErrorCode {
     // 图片上传失败。
      FAILEDOPERATION_IMAGEUPLOADFAILED("FailedOperation.ImageUploadFailed"),
      
+    // 服务内部错误。
+     FAILEDOPERATION_INNERERROR("FailedOperation.InnerError"),
+     
     // 素材条数超过上限。
      FAILEDOPERATION_MATERIALVALUEEXCEED("FailedOperation.MaterialValueExceed"),
      
@@ -101,6 +107,9 @@ public enum FacefusionErrorCode {
      
     // 后端服务超时。
      FAILEDOPERATION_REQUESTTIMEOUT("FailedOperation.RequestTimeout"),
+     
+    // RPC请求失败，一般为算法微服务故障。
+     FAILEDOPERATION_RPCFAIL("FailedOperation.RpcFail"),
      
     // 系统内部错误。
      FAILEDOPERATION_SERVERERROR("FailedOperation.ServerError"),
@@ -125,6 +134,9 @@ public enum FacefusionErrorCode {
      
     // 人脸检测-图片没有人脸。
      INVALIDPARAMETERVALUE_NOFACEINPHOTO("InvalidParameterValue.NoFaceInPhoto"),
+     
+    // 参数字段或者值有误。
+     INVALIDPARAMETERVALUE_PARAMETERVALUEERROR("InvalidParameterValue.ParameterValueError"),
      
     // 资源正在发货中。
      RESOURCEUNAVAILABLE_DELIVERING("ResourceUnavailable.Delivering"),

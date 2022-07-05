@@ -12,6 +12,9 @@ public enum VpcErrorCode {
     // 地址没有弹性网卡信息。
      FAILEDOPERATION_ADDRESSENIINFONOTFOUND("FailedOperation.AddressEniInfoNotFound"),
      
+    // 不支持的地域。
+     FAILEDOPERATION_INVALIDREGION("FailedOperation.InvalidRegion"),
+     
     // 网络探测超时，请稍后重试。
      FAILEDOPERATION_NETDETECTTIMEOUT("FailedOperation.NetDetectTimeOut"),
      
@@ -20,9 +23,6 @@ public enum VpcErrorCode {
      
     // 创建Ckafka路由失败，请稍后重试。
      INTERNALERROR_CREATECKAFKAROUTEERROR("InternalError.CreateCkafkaRouteError"),
-     
-    // 网络探测超时，请稍后重试。
-     INTERNALERROR_NETDETECTTIMEOUT("InternalError.NetDetectTimeOut"),
      
     // 操作内部错误。
      INTERNALSERVERERROR("InternalServerError"),
@@ -144,6 +144,9 @@ public enum VpcErrorCode {
     // 目的网段不在对端VPC的CIDR范围内。
      INVALIDPARAMETERVALUE_CIDRNOTINPEERVPC("InvalidParameterValue.CidrNotInPeerVpc"),
      
+    // 指定CIDR不在SSL-VPN所属私有网络CIDR内。
+     INVALIDPARAMETERVALUE_CIDRNOTINSSLVPNVPC("InvalidParameterValue.CidrNotInSslVpnVpc"),
+     
     // 非法入参组合。
      INVALIDPARAMETERVALUE_COMBINATION("InvalidParameterValue.Combination"),
      
@@ -152,6 +155,9 @@ public enum VpcErrorCode {
      
     // 参数值存在重复。
      INVALIDPARAMETERVALUE_DUPLICATEPARA("InvalidParameterValue.DuplicatePara"),
+     
+    // 值超过上限。
+     INVALIDPARAMETERVALUE_EIPBRANDWIDTHOUTINVALID("InvalidParameterValue.EIPBrandWidthOutInvalid"),
      
     // 缺少参数。
      INVALIDPARAMETERVALUE_EMPTY("InvalidParameterValue.Empty"),
@@ -167,6 +173,9 @@ public enum VpcErrorCode {
      
     // 该实例已有WanIP。
      INVALIDPARAMETERVALUE_INSTANCEHASWANIP("InvalidParameterValue.InstanceHasWanIP"),
+     
+    // 实例ID错误。
+     INVALIDPARAMETERVALUE_INSTANCEIDMALFORMED("InvalidParameterValue.InstanceIdMalformed"),
      
     // 该实例没有CalcIP，无法完成请求。
      INVALIDPARAMETERVALUE_INSTANCENOCALCIP("InvalidParameterValue.InstanceNoCalcIP"),
@@ -218,6 +227,9 @@ public enum VpcErrorCode {
      
     // 集群类型不同的IP不可在同一请求中。
      INVALIDPARAMETERVALUE_MIXEDADDRESSIPSETTYPE("InvalidParameterValue.MixedAddressIpSetType"),
+     
+    // NAT网关的SNAT转换规则不存在。
+     INVALIDPARAMETERVALUE_NATGATEWAYSNATRULENOTEXISTS("InvalidParameterValue.NatGatewaySnatRuleNotExists"),
      
     // NAT网关的SNAT规则已经存在。
      INVALIDPARAMETERVALUE_NATSNATRULEEXISTS("InvalidParameterValue.NatSnatRuleExists"),
@@ -273,8 +285,41 @@ public enum VpcErrorCode {
     // 子网CIDR不合法。
      INVALIDPARAMETERVALUE_SUBNETRANGE("InvalidParameterValue.SubnetRange"),
      
+    // 标签键重复。
+     INVALIDPARAMETERVALUE_TAGDUPLICATEKEY("InvalidParameterValue.TagDuplicateKey"),
+     
+    // 重复的标签资源类型。
+     INVALIDPARAMETERVALUE_TAGDUPLICATERESOURCETYPE("InvalidParameterValue.TagDuplicateResourceType"),
+     
+    // 标签键无效。
+     INVALIDPARAMETERVALUE_TAGINVALIDKEY("InvalidParameterValue.TagInvalidKey"),
+     
+    // 标签键长度无效。
+     INVALIDPARAMETERVALUE_TAGINVALIDKEYLEN("InvalidParameterValue.TagInvalidKeyLen"),
+     
+    // 标签值无效。
+     INVALIDPARAMETERVALUE_TAGINVALIDVAL("InvalidParameterValue.TagInvalidVal"),
+     
+    // 标签键不存在。
+     INVALIDPARAMETERVALUE_TAGKEYNOTEXISTS("InvalidParameterValue.TagKeyNotExists"),
+     
+    // 标签没有分配配额。
+     INVALIDPARAMETERVALUE_TAGNOTALLOCATEDQUOTA("InvalidParameterValue.TagNotAllocatedQuota"),
+     
     // 该标签和值不存在。
      INVALIDPARAMETERVALUE_TAGNOTEXISTED("InvalidParameterValue.TagNotExisted"),
+     
+    // 不支持的标签。
+     INVALIDPARAMETERVALUE_TAGNOTSUPPORTTAG("InvalidParameterValue.TagNotSupportTag"),
+     
+    // '标签资源格式错误。
+     INVALIDPARAMETERVALUE_TAGRESOURCEFORMATERROR("InvalidParameterValue.TagResourceFormatError"),
+     
+    // 标签时间戳超配。
+     INVALIDPARAMETERVALUE_TAGTIMESTAMPEXCEEDED("InvalidParameterValue.TagTimestampExceeded"),
+     
+    // 标签值不存在。
+     INVALIDPARAMETERVALUE_TAGVALNOTEXISTS("InvalidParameterValue.TagValNotExists"),
      
     // 无效参数值。参数值太长。
      INVALIDPARAMETERVALUE_TOOLONG("InvalidParameterValue.TooLong"),
@@ -330,11 +375,20 @@ public enum VpcErrorCode {
     // 超过配额限制。
      LIMITEXCEEDED("LimitExceeded"),
      
+    // 账号退还配额超过限制。
+     LIMITEXCEEDED_ACCOUNTRETURNQUOTA("LimitExceeded.AccountReturnQuota"),
+     
     // 分配IP地址数量达到上限。
      LIMITEXCEEDED_ADDRESS("LimitExceeded.Address"),
      
     // 租户申请的弹性IP超过上限。
      LIMITEXCEEDED_ADDRESSQUOTALIMITEXCEEDED("LimitExceeded.AddressQuotaLimitExceeded"),
+     
+    // 带宽包配额超过限制。
+     LIMITEXCEEDED_BANDWIDTHPACKAGEQUOTA("LimitExceeded.BandwidthPackageQuota"),
+     
+    // 超过更换IP配额。
+     LIMITEXCEEDED_CHANGEADDRESSQUOTA("LimitExceeded.ChangeAddressQuota"),
      
     // VPC分配网段数量达到上限。
      LIMITEXCEEDED_CIDRBLOCK("LimitExceeded.CidrBlock"),
@@ -342,11 +396,26 @@ public enum VpcErrorCode {
     // 租户每天申请的弹性IP超过上限。
      LIMITEXCEEDED_DAILYALLOCATEADDRESSQUOTALIMITEXCEEDED("LimitExceeded.DailyAllocateAddressQuotaLimitExceeded"),
      
+    // 超过每日更换IP配额。
+     LIMITEXCEEDED_DAILYCHANGEADDRESSQUOTA("LimitExceeded.DailyChangeAddressQuota"),
+     
+    // 实例绑定的弹性IP超过配额。
+     LIMITEXCEEDED_INSTANCEADDRESSQUOTA("LimitExceeded.InstanceAddressQuota"),
+     
+    // 修改地址网络计费模式配额超过限制。
+     LIMITEXCEEDED_MODIFYADDRESSINTERNETCHARGETYPEQUOTA("LimitExceeded.ModifyAddressInternetChargeTypeQuota"),
+     
+    // 每月地址找回配额超过限制。
+     LIMITEXCEEDED_MONTHLYADDRESSRECOVERYQUOTA("LimitExceeded.MonthlyAddressRecoveryQuota"),
+     
     // NAT网关数量已达到上限。
      LIMITEXCEEDED_NATGATEWAYLIMITEXCEEDED("LimitExceeded.NatGatewayLimitExceeded"),
      
     // 私有网络创建的NAT网关超过上限。
      LIMITEXCEEDED_NATGATEWAYPERVPCLIMITEXCEEDED("LimitExceeded.NatGatewayPerVpcLimitExceeded"),
+     
+    // 过滤参数名称超过限制。
+     LIMITEXCEEDED_NUMBEROFFILTERS("LimitExceeded.NumberOfFilters"),
      
     // NAT网关绑定的弹性IP超过上限。
      LIMITEXCEEDED_PUBLICIPADDRESSPERNATGATEWAYLIMITEXCEEDED("LimitExceeded.PublicIpAddressPerNatGatewayLimitExceeded"),
@@ -356,6 +425,24 @@ public enum VpcErrorCode {
      
     // 子网分配子网段数量达到上限。
      LIMITEXCEEDED_SUBNETCIDRBLOCK("LimitExceeded.SubnetCidrBlock"),
+     
+    // 标签键已达到上限。
+     LIMITEXCEEDED_TAGKEYEXCEEDED("LimitExceeded.TagKeyExceeded"),
+     
+    // 每个资源的标签键已达到上限。
+     LIMITEXCEEDED_TAGKEYPERRESOURCEEXCEEDED("LimitExceeded.TagKeyPerResourceExceeded"),
+     
+    // 没有足够的标签配额。
+     LIMITEXCEEDED_TAGNOTENOUGHQUOTA("LimitExceeded.TagNotEnoughQuota"),
+     
+    // 标签配额已满，无法创建资源。
+     LIMITEXCEEDED_TAGQUOTA("LimitExceeded.TagQuota"),
+     
+    // 标签配额已达到上限。
+     LIMITEXCEEDED_TAGQUOTAEXCEEDED("LimitExceeded.TagQuotaExceeded"),
+     
+    // 标签键的数目已达到上限。
+     LIMITEXCEEDED_TAGTAGSEXCEEDED("LimitExceeded.TagTagsExceeded"),
      
     // 缺少参数错误。
      MISSINGPARAMETER("MissingParameter"),
@@ -389,6 +476,9 @@ public enum VpcErrorCode {
      
     // 绑定关系不存在。
      UNAUTHORIZEDOPERATION_ATTACHMENTNOTFOUND("UnauthorizedOperation.AttachmentNotFound"),
+     
+    // 未授权的用户。
+     UNAUTHORIZEDOPERATION_INVALIDACCOUNT("UnauthorizedOperation.InvalidAccount"),
      
     // 账号未实名。
      UNAUTHORIZEDOPERATION_NOREALNAMEAUTHENTICATION("UnauthorizedOperation.NoRealNameAuthentication"),
@@ -456,6 +546,9 @@ public enum VpcErrorCode {
     // 实例未关联CCN。
      UNSUPPORTEDOPERATION_CCNNOTATTACHED("UnsupportedOperation.CcnNotAttached"),
      
+    // 跨账号场景下不支持自驾云账号实例 关联普通账号云联网。
+     UNSUPPORTEDOPERATION_CCNORDINARYACCOUNTREFUSEATTACH("UnsupportedOperation.CcnOrdinaryAccountRefuseAttach"),
+     
     // 指定的路由表不存在。
      UNSUPPORTEDOPERATION_CCNROUTETABLENOTEXIST("UnsupportedOperation.CcnRouteTableNotExist"),
      
@@ -473,6 +566,12 @@ public enum VpcErrorCode {
      
     // 指定的VPC未发现专线网关。
      UNSUPPORTEDOPERATION_DCGATEWAYSNOTFOUNDINVPC("UnsupportedOperation.DcGatewaysNotFoundInVpc"),
+     
+    // 禁止删除默认路由表。
+     UNSUPPORTEDOPERATION_DELDEFAULTROUTE("UnsupportedOperation.DelDefaultRoute"),
+     
+    // 禁止删除已关联子网的路由表。
+     UNSUPPORTEDOPERATION_DELROUTEWITHSUBNET("UnsupportedOperation.DelRouteWithSubnet"),
      
     // 专线网关正在更新BGP Community属性。
      UNSUPPORTEDOPERATION_DIRECTCONNECTGATEWAYISUPDATINGCOMMUNITY("UnsupportedOperation.DirectConnectGatewayIsUpdatingCommunity"),
@@ -507,6 +606,9 @@ public enum VpcErrorCode {
     // 用户配置的实例和路由表不匹配。
      UNSUPPORTEDOPERATION_INSTANCEANDRTBNOTMATCH("UnsupportedOperation.InstanceAndRtbNotMatch"),
      
+    // 跨账号场景下不支持普通账号实例关联自驾云账号云联网。
+     UNSUPPORTEDOPERATION_INSTANCEORDINARYACCOUNTREFUSEATTACH("UnsupportedOperation.InstanceOrdinaryAccountRefuseAttach"),
+     
     // 该地址绑定的实例状态不支持此操作。
      UNSUPPORTEDOPERATION_INSTANCESTATENOTSUPPORTED("UnsupportedOperation.InstanceStateNotSupported"),
      
@@ -534,6 +636,9 @@ public enum VpcErrorCode {
     // 资源状态不合法。
      UNSUPPORTEDOPERATION_INVALIDSTATE("UnsupportedOperation.InvalidState"),
      
+    // 当前状态不支持发布至云联网，请重试。
+     UNSUPPORTEDOPERATION_INVALIDSTATUSNOTIFYCCN("UnsupportedOperation.InvalidStatusNotifyCcn"),
+     
     // 关联当前云联网的实例的账号存在不是金融云账号。
      UNSUPPORTEDOPERATION_ISNOTFINANCEACCOUNT("UnsupportedOperation.IsNotFinanceAccount"),
      
@@ -546,6 +651,9 @@ public enum VpcErrorCode {
     // 资源互斥操作任务正在执行。
      UNSUPPORTEDOPERATION_MUTEXOPERATIONTASKRUNNING("UnsupportedOperation.MutexOperationTaskRunning"),
      
+    // SNAT/DNAT转换规则所指定的内网IP已绑定了其他的规则，无法重复绑定。
+     UNSUPPORTEDOPERATION_NATGATEWAYRULEPIPEXISTS("UnsupportedOperation.NatGatewayRulePipExists"),
+     
     // NAT网关类型不支持SNAT规则。
      UNSUPPORTEDOPERATION_NATGATEWAYTYPENOTSUPPORTSNAT("UnsupportedOperation.NatGatewayTypeNotSupportSNAT"),
      
@@ -555,11 +663,20 @@ public enum VpcErrorCode {
     // 指定的子网不支持创建本地网关类型的路由。
      UNSUPPORTEDOPERATION_NORMALSUBNETNOTSUPPORTLOCALGATEWAY("UnsupportedOperation.NormalSubnetNotSupportLocalGateway"),
      
+    // 当前实例已被封禁，无法进行此操作。
+     UNSUPPORTEDOPERATION_NOTLOCKEDINSTANCEOPERATION("UnsupportedOperation.NotLockedInstanceOperation"),
+     
     // 当前云联网实例未处于申请中状态，无法进行操作。
      UNSUPPORTEDOPERATION_NOTPENDINGCCNINSTANCE("UnsupportedOperation.NotPendingCcnInstance"),
      
     // 当前云联网为非后付费类型，无法进行此操作。
      UNSUPPORTEDOPERATION_NOTPOSTPAIDCCNOPERATION("UnsupportedOperation.NotPostpaidCcnOperation"),
+     
+    // 不支持删除默认路由表。
+     UNSUPPORTEDOPERATION_NOTSUPPORTDELETEDEFAULTROUTETABLE("UnsupportedOperation.NotSupportDeleteDefaultRouteTable"),
+     
+    // 当前云联网不支持更新路由发布。
+     UNSUPPORTEDOPERATION_NOTSUPPORTEDUPDATECCNROUTEPUBLISH("UnsupportedOperation.NotSupportedUpdateCcnRoutePublish"),
      
     // 指定的路由策略不支持发布或撤销至云联网。
      UNSUPPORTEDOPERATION_NOTIFYCCN("UnsupportedOperation.NotifyCcn"),
@@ -585,14 +702,32 @@ public enum VpcErrorCode {
     // 绑定NAT网关的弹性IP不是按流量计费的。
      UNSUPPORTEDOPERATION_PUBLICIPADDRESSNOTBILLEDBYTRAFFIC("UnsupportedOperation.PublicIpAddressNotBilledByTraffic"),
      
+    // 当前账号不能在该地域使用产品。
+     UNSUPPORTEDOPERATION_PURCHASELIMIT("UnsupportedOperation.PurchaseLimit"),
+     
     // 输入的资源ID与IP绑定的资源不匹配，请检查。
      UNSUPPORTEDOPERATION_RESOURCEMISMATCH("UnsupportedOperation.ResourceMismatch"),
      
     // 指定的终端节点服务所创建的终端节点不支持绑定安全组。
      UNSUPPORTEDOPERATION_SPECIALENDPOINTSERVICE("UnsupportedOperation.SpecialEndPointService"),
      
+    // 中继网卡不支持该操作。
+     UNSUPPORTEDOPERATION_SUBENINOTSUPPORTTRUNKING("UnsupportedOperation.SubEniNotSupportTrunking"),
+     
     // 系统路由，禁止操作。
      UNSUPPORTEDOPERATION_SYSTEMROUTE("UnsupportedOperation.SystemRoute"),
+     
+    // 标签正在分配中。
+     UNSUPPORTEDOPERATION_TAGALLOCATE("UnsupportedOperation.TagAllocate"),
+     
+    // 标签正在释放中。
+     UNSUPPORTEDOPERATION_TAGFREE("UnsupportedOperation.TagFree"),
+     
+    // 标签没有权限。
+     UNSUPPORTEDOPERATION_TAGNOTPERMIT("UnsupportedOperation.TagNotPermit"),
+     
+    // 不支持使用系统预留的标签键。
+     UNSUPPORTEDOPERATION_TAGSYSTEMRESERVEDTAGKEY("UnsupportedOperation.TagSystemReservedTagKey"),
      
     // 账号ID不存在。
      UNSUPPORTEDOPERATION_UINNOTFOUND("UnsupportedOperation.UinNotFound"),
@@ -614,6 +749,9 @@ public enum VpcErrorCode {
      
     // 指定机型不支持弹性网卡。
      UNSUPPORTEDOPERATION_UNSUPPORTEDINSTANCEFAMILY("UnsupportedOperation.UnsupportedInstanceFamily"),
+     
+    // 暂无法在此国家/地区提供该服务。
+     UNSUPPORTEDOPERATION_UNSUPPORTEDREGION("UnsupportedOperation.UnsupportedRegion"),
      
     // 当前用户付费类型不支持创建所选付费类型的云联网。
      UNSUPPORTEDOPERATION_USERANDCCNCHARGETYPENOTMATCH("UnsupportedOperation.UserAndCcnChargeTypeNotMatch"),

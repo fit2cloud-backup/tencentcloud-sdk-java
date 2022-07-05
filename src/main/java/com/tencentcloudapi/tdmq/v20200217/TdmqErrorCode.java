@@ -102,6 +102,9 @@ public enum TdmqErrorCode {
     // 发送消息失败。
      FAILEDOPERATION_SENDMSGFAILED("FailedOperation.SendMsgFailed"),
      
+    // 设置消息保留策略失败。
+     FAILEDOPERATION_SETRETENTIONPOLICY("FailedOperation.SetRetentionPolicy"),
+     
     // 设置消息TTL失败。
      FAILEDOPERATION_SETTTL("FailedOperation.SetTTL"),
      
@@ -182,6 +185,12 @@ public enum TdmqErrorCode {
      
     // 实例下命名空间数量超过限额。
      LIMITEXCEEDED_NAMESPACES("LimitExceeded.Namespaces"),
+     
+    // 超过剩余额度，请重新调整。
+     LIMITEXCEEDED_RETENTIONSIZE("LimitExceeded.RetentionSize"),
+     
+    // 超过保留时间限制，请重新调整。
+     LIMITEXCEEDED_RETENTIONTIME("LimitExceeded.RetentionTime"),
      
     // 实例下订阅者数量超过限制。
      LIMITEXCEEDED_SUBSCRIPTIONS("LimitExceeded.Subscriptions"),

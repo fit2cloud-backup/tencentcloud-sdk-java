@@ -27,7 +27,7 @@ public class DescribeOrdersResponse extends AbstractModel{
     */
     @SerializedName("TotalCount")
     @Expose
-    private Long [] TotalCount;
+    private Long TotalCount;
 
     /**
     * 订单信息列表。
@@ -47,7 +47,7 @@ public class DescribeOrdersResponse extends AbstractModel{
      * Get 返回的订单数量。 
      * @return TotalCount 返回的订单数量。
      */
-    public Long [] getTotalCount() {
+    public Long getTotalCount() {
         return this.TotalCount;
     }
 
@@ -55,7 +55,7 @@ public class DescribeOrdersResponse extends AbstractModel{
      * Set 返回的订单数量。
      * @param TotalCount 返回的订单数量。
      */
-    public void setTotalCount(Long [] TotalCount) {
+    public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
@@ -100,10 +100,7 @@ public class DescribeOrdersResponse extends AbstractModel{
      */
     public DescribeOrdersResponse(DescribeOrdersResponse source) {
         if (source.TotalCount != null) {
-            this.TotalCount = new Long[source.TotalCount.length];
-            for (int i = 0; i < source.TotalCount.length; i++) {
-                this.TotalCount[i] = new Long(source.TotalCount[i]);
-            }
+            this.TotalCount = new Long(source.TotalCount);
         }
         if (source.Deals != null) {
             this.Deals = new Deal[source.Deals.length];
@@ -121,7 +118,7 @@ public class DescribeOrdersResponse extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamArraySimple(map, prefix + "TotalCount.", this.TotalCount);
+        this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
         this.setParamArrayObj(map, prefix + "Deals.", this.Deals);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 

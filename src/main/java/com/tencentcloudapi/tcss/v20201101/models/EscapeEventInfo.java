@@ -50,10 +50,7 @@ public class EscapeEventInfo extends AbstractModel{
     private String ImageName;
 
     /**
-    * 状态
-     EVENT_UNDEAL:事件未处理
-     EVENT_DEALED:事件已经处理
-     EVENT_INGNORE：事件忽略
+    * 状态，EVENT_UNDEAL:未处理，EVENT_DEALED:已处理，EVENT_INGNORE:忽略
     */
     @SerializedName("Status")
     @Expose
@@ -143,6 +140,59 @@ MountNamespace逃逸、
     private String LatestFoundTime;
 
     /**
+    * 节点IP
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("NodeIP")
+    @Expose
+    private String NodeIP;
+
+    /**
+    * 主机IP
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("HostID")
+    @Expose
+    private String HostID;
+
+    /**
+    * 网络状态
+未隔离  	NORMAL
+已隔离		ISOLATED
+隔离中		ISOLATING
+隔离失败	ISOLATE_FAILED
+解除隔离中  RESTORING
+解除隔离失败 RESTORE_FAILED
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ContainerNetStatus")
+    @Expose
+    private String ContainerNetStatus;
+
+    /**
+    * 容器子状态
+"AGENT_OFFLINE"       //Agent离线
+"NODE_DESTROYED"      //节点已销毁
+"CONTAINER_EXITED"    //容器已退出
+"CONTAINER_DESTROYED" //容器已销毁
+"SHARED_HOST"         // 容器与主机共享网络
+"RESOURCE_LIMIT"      //隔离操作资源超限
+"UNKNOW"              // 原因未知
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ContainerNetSubStatus")
+    @Expose
+    private String ContainerNetSubStatus;
+
+    /**
+    * 容器隔离操作来源
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ContainerIsolateOperationSrc")
+    @Expose
+    private String ContainerIsolateOperationSrc;
+
+    /**
      * Get 事件类型
    ESCAPE_HOST_ACESS_FILE:宿主机文件访问逃逸
    ESCAPE_MOUNT_NAMESPACE:MountNamespace逃逸
@@ -215,28 +265,16 @@ MountNamespace逃逸、
     }
 
     /**
-     * Get 状态
-     EVENT_UNDEAL:事件未处理
-     EVENT_DEALED:事件已经处理
-     EVENT_INGNORE：事件忽略 
-     * @return Status 状态
-     EVENT_UNDEAL:事件未处理
-     EVENT_DEALED:事件已经处理
-     EVENT_INGNORE：事件忽略
+     * Get 状态，EVENT_UNDEAL:未处理，EVENT_DEALED:已处理，EVENT_INGNORE:忽略 
+     * @return Status 状态，EVENT_UNDEAL:未处理，EVENT_DEALED:已处理，EVENT_INGNORE:忽略
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 状态
-     EVENT_UNDEAL:事件未处理
-     EVENT_DEALED:事件已经处理
-     EVENT_INGNORE：事件忽略
-     * @param Status 状态
-     EVENT_UNDEAL:事件未处理
-     EVENT_DEALED:事件已经处理
-     EVENT_INGNORE：事件忽略
+     * Set 状态，EVENT_UNDEAL:未处理，EVENT_DEALED:已处理，EVENT_INGNORE:忽略
+     * @param Status 状态，EVENT_UNDEAL:未处理，EVENT_DEALED:已处理，EVENT_INGNORE:忽略
      */
     public void setStatus(String Status) {
         this.Status = Status;
@@ -442,6 +480,158 @@ MountNamespace逃逸、
         this.LatestFoundTime = LatestFoundTime;
     }
 
+    /**
+     * Get 节点IP
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return NodeIP 节点IP
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getNodeIP() {
+        return this.NodeIP;
+    }
+
+    /**
+     * Set 节点IP
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param NodeIP 节点IP
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setNodeIP(String NodeIP) {
+        this.NodeIP = NodeIP;
+    }
+
+    /**
+     * Get 主机IP
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return HostID 主机IP
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getHostID() {
+        return this.HostID;
+    }
+
+    /**
+     * Set 主机IP
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param HostID 主机IP
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setHostID(String HostID) {
+        this.HostID = HostID;
+    }
+
+    /**
+     * Get 网络状态
+未隔离  	NORMAL
+已隔离		ISOLATED
+隔离中		ISOLATING
+隔离失败	ISOLATE_FAILED
+解除隔离中  RESTORING
+解除隔离失败 RESTORE_FAILED
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ContainerNetStatus 网络状态
+未隔离  	NORMAL
+已隔离		ISOLATED
+隔离中		ISOLATING
+隔离失败	ISOLATE_FAILED
+解除隔离中  RESTORING
+解除隔离失败 RESTORE_FAILED
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getContainerNetStatus() {
+        return this.ContainerNetStatus;
+    }
+
+    /**
+     * Set 网络状态
+未隔离  	NORMAL
+已隔离		ISOLATED
+隔离中		ISOLATING
+隔离失败	ISOLATE_FAILED
+解除隔离中  RESTORING
+解除隔离失败 RESTORE_FAILED
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ContainerNetStatus 网络状态
+未隔离  	NORMAL
+已隔离		ISOLATED
+隔离中		ISOLATING
+隔离失败	ISOLATE_FAILED
+解除隔离中  RESTORING
+解除隔离失败 RESTORE_FAILED
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setContainerNetStatus(String ContainerNetStatus) {
+        this.ContainerNetStatus = ContainerNetStatus;
+    }
+
+    /**
+     * Get 容器子状态
+"AGENT_OFFLINE"       //Agent离线
+"NODE_DESTROYED"      //节点已销毁
+"CONTAINER_EXITED"    //容器已退出
+"CONTAINER_DESTROYED" //容器已销毁
+"SHARED_HOST"         // 容器与主机共享网络
+"RESOURCE_LIMIT"      //隔离操作资源超限
+"UNKNOW"              // 原因未知
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ContainerNetSubStatus 容器子状态
+"AGENT_OFFLINE"       //Agent离线
+"NODE_DESTROYED"      //节点已销毁
+"CONTAINER_EXITED"    //容器已退出
+"CONTAINER_DESTROYED" //容器已销毁
+"SHARED_HOST"         // 容器与主机共享网络
+"RESOURCE_LIMIT"      //隔离操作资源超限
+"UNKNOW"              // 原因未知
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getContainerNetSubStatus() {
+        return this.ContainerNetSubStatus;
+    }
+
+    /**
+     * Set 容器子状态
+"AGENT_OFFLINE"       //Agent离线
+"NODE_DESTROYED"      //节点已销毁
+"CONTAINER_EXITED"    //容器已退出
+"CONTAINER_DESTROYED" //容器已销毁
+"SHARED_HOST"         // 容器与主机共享网络
+"RESOURCE_LIMIT"      //隔离操作资源超限
+"UNKNOW"              // 原因未知
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ContainerNetSubStatus 容器子状态
+"AGENT_OFFLINE"       //Agent离线
+"NODE_DESTROYED"      //节点已销毁
+"CONTAINER_EXITED"    //容器已退出
+"CONTAINER_DESTROYED" //容器已销毁
+"SHARED_HOST"         // 容器与主机共享网络
+"RESOURCE_LIMIT"      //隔离操作资源超限
+"UNKNOW"              // 原因未知
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setContainerNetSubStatus(String ContainerNetSubStatus) {
+        this.ContainerNetSubStatus = ContainerNetSubStatus;
+    }
+
+    /**
+     * Get 容器隔离操作来源
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ContainerIsolateOperationSrc 容器隔离操作来源
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getContainerIsolateOperationSrc() {
+        return this.ContainerIsolateOperationSrc;
+    }
+
+    /**
+     * Set 容器隔离操作来源
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ContainerIsolateOperationSrc 容器隔离操作来源
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setContainerIsolateOperationSrc(String ContainerIsolateOperationSrc) {
+        this.ContainerIsolateOperationSrc = ContainerIsolateOperationSrc;
+    }
+
     public EscapeEventInfo() {
     }
 
@@ -495,6 +685,21 @@ MountNamespace逃逸、
         if (source.LatestFoundTime != null) {
             this.LatestFoundTime = new String(source.LatestFoundTime);
         }
+        if (source.NodeIP != null) {
+            this.NodeIP = new String(source.NodeIP);
+        }
+        if (source.HostID != null) {
+            this.HostID = new String(source.HostID);
+        }
+        if (source.ContainerNetStatus != null) {
+            this.ContainerNetStatus = new String(source.ContainerNetStatus);
+        }
+        if (source.ContainerNetSubStatus != null) {
+            this.ContainerNetSubStatus = new String(source.ContainerNetSubStatus);
+        }
+        if (source.ContainerIsolateOperationSrc != null) {
+            this.ContainerIsolateOperationSrc = new String(source.ContainerIsolateOperationSrc);
+        }
     }
 
 
@@ -517,6 +722,11 @@ MountNamespace逃逸、
         this.setParamSimple(map, prefix + "Description", this.Description);
         this.setParamSimple(map, prefix + "EventCount", this.EventCount);
         this.setParamSimple(map, prefix + "LatestFoundTime", this.LatestFoundTime);
+        this.setParamSimple(map, prefix + "NodeIP", this.NodeIP);
+        this.setParamSimple(map, prefix + "HostID", this.HostID);
+        this.setParamSimple(map, prefix + "ContainerNetStatus", this.ContainerNetStatus);
+        this.setParamSimple(map, prefix + "ContainerNetSubStatus", this.ContainerNetSubStatus);
+        this.setParamSimple(map, prefix + "ContainerIsolateOperationSrc", this.ContainerIsolateOperationSrc);
 
     }
 }

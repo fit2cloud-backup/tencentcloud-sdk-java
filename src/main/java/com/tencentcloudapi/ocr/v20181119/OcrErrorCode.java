@@ -6,6 +6,9 @@ public enum OcrErrorCode {
     // 今日次数达到限制。
      FAILEDOPERATION_COUNTLIMITERROR("FailedOperation.CountLimitError"),
      
+    // 数据源查询失败。
+     FAILEDOPERATION_DATASOURCEQUERYFAILED("FailedOperation.DataSourceQueryFailed"),
+     
     // 检测失败。
      FAILEDOPERATION_DETECTFAILED("FailedOperation.DetectFailed"),
      
@@ -84,14 +87,35 @@ public enum OcrErrorCode {
     // 参数值错误。
      INVALIDPARAMETERVALUE_INVALIDPARAMETERVALUELIMIT("InvalidParameterValue.InvalidParameterValueLimit"),
      
+    // 开票金额或校验码参数值错误。
+     INVALIDPARAMETERVALUE_PRICEORVERIFICATIONPARAMETERVALUELIMIT("InvalidParameterValue.PriceOrVerificationParameterValueLimit"),
+     
+    // 发票代码参数值错误。
+     INVALIDPARAMETERVALUE_TICKETCODEPARAMETERVALUELIMIT("InvalidParameterValue.TicketCodeParameterValueLimit"),
+     
+    // 开票日期参数值错误。
+     INVALIDPARAMETERVALUE_TICKETDATEPARAMETERVALUELIMIT("InvalidParameterValue.TicketDateParameterValueLimit"),
+     
+    // 发票号码参数值错误。
+     INVALIDPARAMETERVALUE_TICKETSNPARAMETERVALUELIMIT("InvalidParameterValue.TicketSnParameterValueLimit"),
+     
     // 文件内容太大。
      LIMITEXCEEDED_TOOLARGEFILEERROR("LimitExceeded.TooLargeFileError"),
+     
+    // 请求的次数超过了频率限制。
+     REQUESTLIMITEXCEEDED("RequestLimitExceeded"),
+     
+    // 地区编码不存在。
+     RESOURCENOTFOUND_NOAREACODE("ResourceNotFound.NoAreaCode"),
      
     // 发票不存在。
      RESOURCENOTFOUND_NOINVOICE("ResourceNotFound.NoInvoice"),
      
     // 不支持当天发票查询。
      RESOURCENOTFOUND_NOTSUPPORTCURRENTINVOICEQUERY("ResourceNotFound.NotSupportCurrentInvoiceQuery"),
+     
+    // 税务局网络异常，请稍后访问。
+     RESOURCEUNAVAILABLE_TAXNETWORKERROR("ResourceUnavailable.TaxNetworkError"),
      
     // 计费状态异常。
      RESOURCESSOLDOUT_CHARGESTATUSEXCEPTION("ResourcesSoldOut.ChargeStatusException");

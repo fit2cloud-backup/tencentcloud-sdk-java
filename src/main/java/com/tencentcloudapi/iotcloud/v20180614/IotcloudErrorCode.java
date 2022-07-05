@@ -117,6 +117,9 @@ public enum IotcloudErrorCode {
     // State JSON对象超过大小限制，最大为 8k。
      INVALIDPARAMETERVALUE_JSONSIZEEXCEEDLIMIT("InvalidParameterValue.JSONSizeExceedLimit"),
      
+    // 修改规则的操作被禁止。
+     INVALIDPARAMETERVALUE_OPERATIONDENIED("InvalidParameterValue.OperationDenied"),
+     
     // 请求中缺少关键字段信息。
      INVALIDPARAMETERVALUE_PARAMINCOMPLETE("InvalidParameterValue.ParamIncomplete"),
      
@@ -266,6 +269,9 @@ public enum IotcloudErrorCode {
      
     // 该产品类型只能创建LoRa设备。
      UNAUTHORIZEDOPERATION_PRODUCTCANTHAVENOTLORADEVICE("UnauthorizedOperation.ProductCantHaveNotLoRaDevice"),
+     
+    // 产品禁用了该功能。
+     UNAUTHORIZEDOPERATION_PRODUCTISFORBIDDEN("UnauthorizedOperation.ProductIsForbidden"),
      
     // 产品不支持密钥认证。
      UNAUTHORIZEDOPERATION_PRODUCTNOTSUPPORTPSK("UnauthorizedOperation.ProductNotSupportPSK"),

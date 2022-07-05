@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeCcGeoIPBlockConfigListRequest extends AbstractModel{
 
     /**
-    * 大禹子产品代号（bgpip-multip：表示高防包；bgpip：表示高防ip）
+    * 大禹子产品代号（bgpip-multip：表示高防包；bgpip：表示高防IP）
     */
     @SerializedName("Business")
     @Expose
@@ -44,44 +44,44 @@ public class DescribeCcGeoIPBlockConfigListRequest extends AbstractModel{
     private Long Limit;
 
     /**
-    * 指定特定实例Id
+    * 指定特定实例ID
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
 
     /**
-    * Ip地址，普通高防ip要传该字段
+    * IP地址，普通高防IP要传该字段
     */
     @SerializedName("Ip")
     @Expose
     private String Ip;
 
     /**
-    * 域名，普通高防ip要传该字段
+    * 域名，普通高防IP要传该字段
     */
     @SerializedName("Domain")
     @Expose
     private String Domain;
 
     /**
-    * 协议，普通高防ip要传该字段
+    * 协议，普通高防IP要传该字段
     */
     @SerializedName("Protocol")
     @Expose
     private String Protocol;
 
     /**
-     * Get 大禹子产品代号（bgpip-multip：表示高防包；bgpip：表示高防ip） 
-     * @return Business 大禹子产品代号（bgpip-multip：表示高防包；bgpip：表示高防ip）
+     * Get 大禹子产品代号（bgpip-multip：表示高防包；bgpip：表示高防IP） 
+     * @return Business 大禹子产品代号（bgpip-multip：表示高防包；bgpip：表示高防IP）
      */
     public String getBusiness() {
         return this.Business;
     }
 
     /**
-     * Set 大禹子产品代号（bgpip-multip：表示高防包；bgpip：表示高防ip）
-     * @param Business 大禹子产品代号（bgpip-multip：表示高防包；bgpip：表示高防ip）
+     * Set 大禹子产品代号（bgpip-multip：表示高防包；bgpip：表示高防IP）
+     * @param Business 大禹子产品代号（bgpip-multip：表示高防包；bgpip：表示高防IP）
      */
     public void setBusiness(String Business) {
         this.Business = Business;
@@ -120,64 +120,64 @@ public class DescribeCcGeoIPBlockConfigListRequest extends AbstractModel{
     }
 
     /**
-     * Get 指定特定实例Id 
-     * @return InstanceId 指定特定实例Id
+     * Get 指定特定实例ID 
+     * @return InstanceId 指定特定实例ID
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 指定特定实例Id
-     * @param InstanceId 指定特定实例Id
+     * Set 指定特定实例ID
+     * @param InstanceId 指定特定实例ID
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get Ip地址，普通高防ip要传该字段 
-     * @return Ip Ip地址，普通高防ip要传该字段
+     * Get IP地址，普通高防IP要传该字段 
+     * @return Ip IP地址，普通高防IP要传该字段
      */
     public String getIp() {
         return this.Ip;
     }
 
     /**
-     * Set Ip地址，普通高防ip要传该字段
-     * @param Ip Ip地址，普通高防ip要传该字段
+     * Set IP地址，普通高防IP要传该字段
+     * @param Ip IP地址，普通高防IP要传该字段
      */
     public void setIp(String Ip) {
         this.Ip = Ip;
     }
 
     /**
-     * Get 域名，普通高防ip要传该字段 
-     * @return Domain 域名，普通高防ip要传该字段
+     * Get 域名，普通高防IP要传该字段 
+     * @return Domain 域名，普通高防IP要传该字段
      */
     public String getDomain() {
         return this.Domain;
     }
 
     /**
-     * Set 域名，普通高防ip要传该字段
-     * @param Domain 域名，普通高防ip要传该字段
+     * Set 域名，普通高防IP要传该字段
+     * @param Domain 域名，普通高防IP要传该字段
      */
     public void setDomain(String Domain) {
         this.Domain = Domain;
     }
 
     /**
-     * Get 协议，普通高防ip要传该字段 
-     * @return Protocol 协议，普通高防ip要传该字段
+     * Get 协议，普通高防IP要传该字段 
+     * @return Protocol 协议，普通高防IP要传该字段
      */
     public String getProtocol() {
         return this.Protocol;
     }
 
     /**
-     * Set 协议，普通高防ip要传该字段
-     * @param Protocol 协议，普通高防ip要传该字段
+     * Set 协议，普通高防IP要传该字段
+     * @param Protocol 协议，普通高防IP要传该字段
      */
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;

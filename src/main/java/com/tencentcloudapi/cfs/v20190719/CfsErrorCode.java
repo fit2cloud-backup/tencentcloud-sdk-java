@@ -39,6 +39,9 @@ public enum CfsErrorCode {
     // 参数错误。
      INVALIDPARAMETER("InvalidParameter"),
      
+    // 快照策略未找到。
+     INVALIDPARAMETER_AUTOPOLICYNOTFOUND("InvalidParameter.AutoPolicyNotFound"),
+     
     // 用于保证请求幂等性的字符串长度超过限制（不能超过64字节）。
      INVALIDPARAMETERVALUE_CLIENTTOKENLIMITEXCEEDED("InvalidParameterValue.ClientTokenLimitExceeded"),
      
@@ -119,6 +122,12 @@ public enum CfsErrorCode {
      
     // 标签键不能为空。
      INVALIDPARAMETERVALUE_INVALIDTAGKEY("InvalidParameterValue.InvalidTagKey"),
+     
+    // 标签值为空或字符无效。
+     INVALIDPARAMETERVALUE_INVALIDTAGVALUE("InvalidParameterValue.InvalidTagValue"),
+     
+    // 无效的容量值。
+     INVALIDPARAMETERVALUE_INVALIDTURBOCAPACITY("InvalidParameterValue.InvalidTurboCapacity"),
      
     // 用户权限设置错误。
      INVALIDPARAMETERVALUE_INVALIDUSERPERMISSION("InvalidParameterValue.InvalidUserPermission"),
@@ -218,6 +227,9 @@ public enum CfsErrorCode {
      
     // 该资源的标签个数达到最大限制。
      RESOURCEINSUFFICIENT_TAGLIMITEXCEEDED("ResourceInsufficient.TagLimitExceeded"),
+     
+    // 标签限额不足。
+     RESOURCEINSUFFICIENT_TAGQUOTASEXCEEDED("ResourceInsufficient.TagQuotasExceeded"),
      
     // 资源不存在。
      RESOURCENOTFOUND("ResourceNotFound"),

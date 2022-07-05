@@ -23,7 +23,11 @@ import java.util.HashMap;
 public class FlowCreateApprover extends AbstractModel{
 
     /**
-    * 签署方类型 (0为企业/1为个人)
+    * 参与者类型：
+0：企业
+1：个人
+3：企业静默签署
+注：类型为3（企业静默签署）时，此接口会默认完成该签署方的签署。
     */
     @SerializedName("ApproverType")
     @Expose
@@ -35,15 +39,6 @@ public class FlowCreateApprover extends AbstractModel{
     @SerializedName("OrganizationName")
     @Expose
     private String OrganizationName;
-
-    /**
-    * 是否需要签署
-- `false`: 不需要签署
--  `true`:  需要签署
-    */
-    @SerializedName("Required")
-    @Expose
-    private Boolean Required;
 
     /**
     * 签署方经办人姓名
@@ -60,7 +55,9 @@ public class FlowCreateApprover extends AbstractModel{
     private String ApproverMobile;
 
     /**
-    * 签署方经办人证件类型，ID_CARD表示身份证
+    * 签署方经办人证件类型ID_CARD 身份证
+HONGKONG_AND_MACAO 港澳居民来往内地通行证
+HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证(格式同居民身份证)
     */
     @SerializedName("ApproverIdCardType")
     @Expose
@@ -81,11 +78,18 @@ public class FlowCreateApprover extends AbstractModel{
     private String RecipientId;
 
     /**
-    * 签署方经办人的用户ID,和签署方经办人姓名+手机号+证件必须有一个
+    * 签署意愿确认渠道,WEIXINAPP:人脸识别
     */
-    @SerializedName("UserId")
+    @SerializedName("VerifyChannel")
     @Expose
-    private String UserId;
+    private String [] VerifyChannel;
+
+    /**
+    * 是否发送短信，sms--短信通知，none--不通知，默认为sms
+    */
+    @SerializedName("NotifyType")
+    @Expose
+    private String NotifyType;
 
     /**
     * 签署前置条件：是否需要阅读全文，默认为不需要
@@ -102,23 +106,46 @@ public class FlowCreateApprover extends AbstractModel{
     private Long PreReadTime;
 
     /**
-    * 是否发送短信，sms--短信通知，none--不通知，默认为sms
+    * 签署方经办人的用户ID,和签署方经办人姓名+手机号+证件必须有一个
     */
-    @SerializedName("NotifyType")
+    @SerializedName("UserId")
     @Expose
-    private String NotifyType;
+    private String UserId;
 
     /**
-     * Get 签署方类型 (0为企业/1为个人) 
-     * @return ApproverType 签署方类型 (0为企业/1为个人)
+    * 当前只支持true，默认为true
+    */
+    @SerializedName("Required")
+    @Expose
+    private Boolean Required;
+
+    /**
+     * Get 参与者类型：
+0：企业
+1：个人
+3：企业静默签署
+注：类型为3（企业静默签署）时，此接口会默认完成该签署方的签署。 
+     * @return ApproverType 参与者类型：
+0：企业
+1：个人
+3：企业静默签署
+注：类型为3（企业静默签署）时，此接口会默认完成该签署方的签署。
      */
     public Long getApproverType() {
         return this.ApproverType;
     }
 
     /**
-     * Set 签署方类型 (0为企业/1为个人)
-     * @param ApproverType 签署方类型 (0为企业/1为个人)
+     * Set 参与者类型：
+0：企业
+1：个人
+3：企业静默签署
+注：类型为3（企业静默签署）时，此接口会默认完成该签署方的签署。
+     * @param ApproverType 参与者类型：
+0：企业
+1：个人
+3：企业静默签署
+注：类型为3（企业静默签署）时，此接口会默认完成该签署方的签署。
      */
     public void setApproverType(Long ApproverType) {
         this.ApproverType = ApproverType;
@@ -138,30 +165,6 @@ public class FlowCreateApprover extends AbstractModel{
      */
     public void setOrganizationName(String OrganizationName) {
         this.OrganizationName = OrganizationName;
-    }
-
-    /**
-     * Get 是否需要签署
-- `false`: 不需要签署
--  `true`:  需要签署 
-     * @return Required 是否需要签署
-- `false`: 不需要签署
--  `true`:  需要签署
-     */
-    public Boolean getRequired() {
-        return this.Required;
-    }
-
-    /**
-     * Set 是否需要签署
-- `false`: 不需要签署
--  `true`:  需要签署
-     * @param Required 是否需要签署
-- `false`: 不需要签署
--  `true`:  需要签署
-     */
-    public void setRequired(Boolean Required) {
-        this.Required = Required;
     }
 
     /**
@@ -197,16 +200,24 @@ public class FlowCreateApprover extends AbstractModel{
     }
 
     /**
-     * Get 签署方经办人证件类型，ID_CARD表示身份证 
-     * @return ApproverIdCardType 签署方经办人证件类型，ID_CARD表示身份证
+     * Get 签署方经办人证件类型ID_CARD 身份证
+HONGKONG_AND_MACAO 港澳居民来往内地通行证
+HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证(格式同居民身份证) 
+     * @return ApproverIdCardType 签署方经办人证件类型ID_CARD 身份证
+HONGKONG_AND_MACAO 港澳居民来往内地通行证
+HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证(格式同居民身份证)
      */
     public String getApproverIdCardType() {
         return this.ApproverIdCardType;
     }
 
     /**
-     * Set 签署方经办人证件类型，ID_CARD表示身份证
-     * @param ApproverIdCardType 签署方经办人证件类型，ID_CARD表示身份证
+     * Set 签署方经办人证件类型ID_CARD 身份证
+HONGKONG_AND_MACAO 港澳居民来往内地通行证
+HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证(格式同居民身份证)
+     * @param ApproverIdCardType 签署方经办人证件类型ID_CARD 身份证
+HONGKONG_AND_MACAO 港澳居民来往内地通行证
+HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证(格式同居民身份证)
      */
     public void setApproverIdCardType(String ApproverIdCardType) {
         this.ApproverIdCardType = ApproverIdCardType;
@@ -245,19 +256,35 @@ public class FlowCreateApprover extends AbstractModel{
     }
 
     /**
-     * Get 签署方经办人的用户ID,和签署方经办人姓名+手机号+证件必须有一个 
-     * @return UserId 签署方经办人的用户ID,和签署方经办人姓名+手机号+证件必须有一个
+     * Get 签署意愿确认渠道,WEIXINAPP:人脸识别 
+     * @return VerifyChannel 签署意愿确认渠道,WEIXINAPP:人脸识别
      */
-    public String getUserId() {
-        return this.UserId;
+    public String [] getVerifyChannel() {
+        return this.VerifyChannel;
     }
 
     /**
-     * Set 签署方经办人的用户ID,和签署方经办人姓名+手机号+证件必须有一个
-     * @param UserId 签署方经办人的用户ID,和签署方经办人姓名+手机号+证件必须有一个
+     * Set 签署意愿确认渠道,WEIXINAPP:人脸识别
+     * @param VerifyChannel 签署意愿确认渠道,WEIXINAPP:人脸识别
      */
-    public void setUserId(String UserId) {
-        this.UserId = UserId;
+    public void setVerifyChannel(String [] VerifyChannel) {
+        this.VerifyChannel = VerifyChannel;
+    }
+
+    /**
+     * Get 是否发送短信，sms--短信通知，none--不通知，默认为sms 
+     * @return NotifyType 是否发送短信，sms--短信通知，none--不通知，默认为sms
+     */
+    public String getNotifyType() {
+        return this.NotifyType;
+    }
+
+    /**
+     * Set 是否发送短信，sms--短信通知，none--不通知，默认为sms
+     * @param NotifyType 是否发送短信，sms--短信通知，none--不通知，默认为sms
+     */
+    public void setNotifyType(String NotifyType) {
+        this.NotifyType = NotifyType;
     }
 
     /**
@@ -293,19 +320,35 @@ public class FlowCreateApprover extends AbstractModel{
     }
 
     /**
-     * Get 是否发送短信，sms--短信通知，none--不通知，默认为sms 
-     * @return NotifyType 是否发送短信，sms--短信通知，none--不通知，默认为sms
+     * Get 签署方经办人的用户ID,和签署方经办人姓名+手机号+证件必须有一个 
+     * @return UserId 签署方经办人的用户ID,和签署方经办人姓名+手机号+证件必须有一个
      */
-    public String getNotifyType() {
-        return this.NotifyType;
+    public String getUserId() {
+        return this.UserId;
     }
 
     /**
-     * Set 是否发送短信，sms--短信通知，none--不通知，默认为sms
-     * @param NotifyType 是否发送短信，sms--短信通知，none--不通知，默认为sms
+     * Set 签署方经办人的用户ID,和签署方经办人姓名+手机号+证件必须有一个
+     * @param UserId 签署方经办人的用户ID,和签署方经办人姓名+手机号+证件必须有一个
      */
-    public void setNotifyType(String NotifyType) {
-        this.NotifyType = NotifyType;
+    public void setUserId(String UserId) {
+        this.UserId = UserId;
+    }
+
+    /**
+     * Get 当前只支持true，默认为true 
+     * @return Required 当前只支持true，默认为true
+     */
+    public Boolean getRequired() {
+        return this.Required;
+    }
+
+    /**
+     * Set 当前只支持true，默认为true
+     * @param Required 当前只支持true，默认为true
+     */
+    public void setRequired(Boolean Required) {
+        this.Required = Required;
     }
 
     public FlowCreateApprover() {
@@ -322,9 +365,6 @@ public class FlowCreateApprover extends AbstractModel{
         if (source.OrganizationName != null) {
             this.OrganizationName = new String(source.OrganizationName);
         }
-        if (source.Required != null) {
-            this.Required = new Boolean(source.Required);
-        }
         if (source.ApproverName != null) {
             this.ApproverName = new String(source.ApproverName);
         }
@@ -340,8 +380,14 @@ public class FlowCreateApprover extends AbstractModel{
         if (source.RecipientId != null) {
             this.RecipientId = new String(source.RecipientId);
         }
-        if (source.UserId != null) {
-            this.UserId = new String(source.UserId);
+        if (source.VerifyChannel != null) {
+            this.VerifyChannel = new String[source.VerifyChannel.length];
+            for (int i = 0; i < source.VerifyChannel.length; i++) {
+                this.VerifyChannel[i] = new String(source.VerifyChannel[i]);
+            }
+        }
+        if (source.NotifyType != null) {
+            this.NotifyType = new String(source.NotifyType);
         }
         if (source.IsFullText != null) {
             this.IsFullText = new Boolean(source.IsFullText);
@@ -349,8 +395,11 @@ public class FlowCreateApprover extends AbstractModel{
         if (source.PreReadTime != null) {
             this.PreReadTime = new Long(source.PreReadTime);
         }
-        if (source.NotifyType != null) {
-            this.NotifyType = new String(source.NotifyType);
+        if (source.UserId != null) {
+            this.UserId = new String(source.UserId);
+        }
+        if (source.Required != null) {
+            this.Required = new Boolean(source.Required);
         }
     }
 
@@ -361,16 +410,17 @@ public class FlowCreateApprover extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ApproverType", this.ApproverType);
         this.setParamSimple(map, prefix + "OrganizationName", this.OrganizationName);
-        this.setParamSimple(map, prefix + "Required", this.Required);
         this.setParamSimple(map, prefix + "ApproverName", this.ApproverName);
         this.setParamSimple(map, prefix + "ApproverMobile", this.ApproverMobile);
         this.setParamSimple(map, prefix + "ApproverIdCardType", this.ApproverIdCardType);
         this.setParamSimple(map, prefix + "ApproverIdCardNumber", this.ApproverIdCardNumber);
         this.setParamSimple(map, prefix + "RecipientId", this.RecipientId);
-        this.setParamSimple(map, prefix + "UserId", this.UserId);
+        this.setParamArraySimple(map, prefix + "VerifyChannel.", this.VerifyChannel);
+        this.setParamSimple(map, prefix + "NotifyType", this.NotifyType);
         this.setParamSimple(map, prefix + "IsFullText", this.IsFullText);
         this.setParamSimple(map, prefix + "PreReadTime", this.PreReadTime);
-        this.setParamSimple(map, prefix + "NotifyType", this.NotifyType);
+        this.setParamSimple(map, prefix + "UserId", this.UserId);
+        this.setParamSimple(map, prefix + "Required", this.Required);
 
     }
 }

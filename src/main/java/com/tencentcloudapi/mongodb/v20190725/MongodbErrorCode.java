@@ -21,6 +21,9 @@ public enum MongodbErrorCode {
     // 当前实例不支持设置参数。
      INVALIDPARAMETER_CURRENTINSTANCENOTSUPPORTMODIFYPARAMS("InvalidParameter.CurrentInstanceNotSupportModifyParams"),
      
+    // 无效Vip信息。
+     INVALIDPARAMETER_INVALIDVIP("InvalidParameter.InvalidVip"),
+     
     // 当前子帐号无权执行该操作。
      INVALIDPARAMETER_PERMISSIONDENIED("InvalidParameter.PermissionDenied"),
      
@@ -155,6 +158,9 @@ public enum MongodbErrorCode {
      
     // 资源不存在。
      RESOURCENOTFOUND("ResourceNotFound"),
+     
+    // 操作不支持。
+     UNSUPPORTEDOPERATION("UnsupportedOperation"),
      
     // 当前版本不支持该操作。
      UNSUPPORTEDOPERATION_VERSIONNOTSUPPORT("UnsupportedOperation.VersionNotSupport");

@@ -528,6 +528,30 @@ off：不支持
     private RuleEngine RuleEngine;
 
     /**
+    * 主域名
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ParentHost")
+    @Expose
+    private String ParentHost;
+
+    /**
+    * 华为云对象存储回源鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("HwPrivateAccess")
+    @Expose
+    private HwPrivateAccess HwPrivateAccess;
+
+    /**
+    * 七牛云对象存储回源鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("QnPrivateAccess")
+    @Expose
+    private QnPrivateAccess QnPrivateAccess;
+
+    /**
      * Get 域名 ID 
      * @return ResourceId 域名 ID
      */
@@ -1815,6 +1839,66 @@ off：不支持
         this.RuleEngine = RuleEngine;
     }
 
+    /**
+     * Get 主域名
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ParentHost 主域名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getParentHost() {
+        return this.ParentHost;
+    }
+
+    /**
+     * Set 主域名
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ParentHost 主域名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setParentHost(String ParentHost) {
+        this.ParentHost = ParentHost;
+    }
+
+    /**
+     * Get 华为云对象存储回源鉴权
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return HwPrivateAccess 华为云对象存储回源鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public HwPrivateAccess getHwPrivateAccess() {
+        return this.HwPrivateAccess;
+    }
+
+    /**
+     * Set 华为云对象存储回源鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param HwPrivateAccess 华为云对象存储回源鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setHwPrivateAccess(HwPrivateAccess HwPrivateAccess) {
+        this.HwPrivateAccess = HwPrivateAccess;
+    }
+
+    /**
+     * Get 七牛云对象存储回源鉴权
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return QnPrivateAccess 七牛云对象存储回源鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public QnPrivateAccess getQnPrivateAccess() {
+        return this.QnPrivateAccess;
+    }
+
+    /**
+     * Set 七牛云对象存储回源鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param QnPrivateAccess 七牛云对象存储回源鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setQnPrivateAccess(QnPrivateAccess QnPrivateAccess) {
+        this.QnPrivateAccess = QnPrivateAccess;
+    }
+
     public DetailDomain() {
     }
 
@@ -2015,6 +2099,15 @@ off：不支持
         if (source.RuleEngine != null) {
             this.RuleEngine = new RuleEngine(source.RuleEngine);
         }
+        if (source.ParentHost != null) {
+            this.ParentHost = new String(source.ParentHost);
+        }
+        if (source.HwPrivateAccess != null) {
+            this.HwPrivateAccess = new HwPrivateAccess(source.HwPrivateAccess);
+        }
+        if (source.QnPrivateAccess != null) {
+            this.QnPrivateAccess = new QnPrivateAccess(source.QnPrivateAccess);
+        }
     }
 
 
@@ -2083,6 +2176,9 @@ off：不支持
         this.setParamObj(map, prefix + "RemoteAuthentication.", this.RemoteAuthentication);
         this.setParamObj(map, prefix + "ShareCname.", this.ShareCname);
         this.setParamObj(map, prefix + "RuleEngine.", this.RuleEngine);
+        this.setParamSimple(map, prefix + "ParentHost", this.ParentHost);
+        this.setParamObj(map, prefix + "HwPrivateAccess.", this.HwPrivateAccess);
+        this.setParamObj(map, prefix + "QnPrivateAccess.", this.QnPrivateAccess);
 
     }
 }

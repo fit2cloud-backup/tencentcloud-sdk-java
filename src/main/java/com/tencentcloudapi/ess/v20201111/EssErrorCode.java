@@ -1,5 +1,8 @@
 package com.tencentcloudapi.ess.v20201111;
 public enum EssErrorCode {
+    // CAM签名/鉴权错误。
+     AUTHFAILURE("AuthFailure"),
+     
     // DryRun 操作，代表请求将会是成功的，只是多传了 DryRun 参数。
      DRYRUNOPERATION("DryRunOperation"),
      
@@ -15,7 +18,16 @@ public enum EssErrorCode {
     // 流程已关联文档。
      FAILEDOPERATION_FLOWHASDOCUMENT("FailedOperation.FlowHasDocument"),
      
-    // 模版无资源信息。
+    // 发起签署存在填写控件。
+     FAILEDOPERATION_QRCODECREATORSIGNCOMPONENTS("FailedOperation.QrCodeCreatorSignComponents"),
+     
+    // 模板签署人不存在。
+     FAILEDOPERATION_QRCODESIGNUSERS("FailedOperation.QrCodeSignUsers"),
+     
+    // 一码多人二维码模板有误。
+     FAILEDOPERATION_QRCODETEMPLATEID("FailedOperation.QrCodeTemplateId"),
+     
+    // 模板无资源信息。
      FAILEDOPERATION_TEMPLATEHASNORESOURCE("FailedOperation.TemplateHasNoResource"),
      
     // 内部错误。
@@ -26,6 +38,9 @@ public enum EssErrorCode {
      
     // 数据库异常。
      INTERNALERROR_DB("InternalError.Db"),
+     
+    // 数据库新增记录出错。
+     INTERNALERROR_DBINSERT("InternalError.DbInsert"),
      
     // 内部错误,数据库查询失败,请稍后重试。
      INTERNALERROR_DBREAD("InternalError.DbRead"),
@@ -87,11 +102,14 @@ public enum EssErrorCode {
     // 验证码不正确。
      INVALIDPARAMETER_INVALIDVERIFYCODE("InvalidParameter.InvalidVerifyCode"),
      
+    // 手机号不正确。
+     INVALIDPARAMETER_MOBILE("InvalidParameter.Mobile"),
+     
+    // 名字不正确。
+     INVALIDPARAMETER_NAME("InvalidParameter.Name"),
+     
     // 参数错误。
      INVALIDPARAMETER_PARAMERROR("InvalidParameter.ParamError"),
-     
-    // 参数Status不正确。
-     INVALIDPARAMETER_STATUS("InvalidParameter.Status"),
      
     // 参数取值错误。
      INVALIDPARAMETERVALUE("InvalidParameterValue"),
@@ -105,6 +123,9 @@ public enum EssErrorCode {
     // 缺少参数错误。
      MISSINGPARAMETER("MissingParameter"),
      
+    // 缺少签署控件参数。
+     MISSINGPARAMETER_SIGNCOMPONENTS("MissingParameter.SignComponents"),
+     
     // 操作被拒绝。
      OPERATIONDENIED("OperationDenied"),
      
@@ -113,6 +134,9 @@ public enum EssErrorCode {
      
     // 未通过个人实名认证。
      OPERATIONDENIED_NOIDENTITYVERIFY("OperationDenied.NoIdentityVerify"),
+     
+    // 用户未登录,请先登录后再操作。
+     OPERATIONDENIED_NOLOGIN("OperationDenied.NoLogin"),
      
     // 流程配额不足。
      OPERATIONDENIED_NOQUOTA("OperationDenied.NoQuota"),

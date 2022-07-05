@@ -23,39 +23,32 @@ import java.util.HashMap;
 public class CreateDocumentRequest extends AbstractModel{
 
     /**
-    * 无
-    */
-    @SerializedName("Operator")
-    @Expose
-    private UserInfo Operator;
-
-    /**
-    * 用户上传的模版ID
-    */
-    @SerializedName("TemplateId")
-    @Expose
-    private String TemplateId;
-
-    /**
-    * 流程ID
+    * 签署流程编号,由CreateFlow接口返回
     */
     @SerializedName("FlowId")
     @Expose
     private String FlowId;
 
     /**
-    * 文件名列表
+    * 用户上传的模板ID
+    */
+    @SerializedName("TemplateId")
+    @Expose
+    private String TemplateId;
+
+    /**
+    * 文件名列表,单个文件名最大长度200个字符
     */
     @SerializedName("FileNames")
     @Expose
     private String [] FileNames;
 
     /**
-    * 内容控件信息数组
+    * 无
     */
-    @SerializedName("FormFields")
+    @SerializedName("Operator")
     @Expose
-    private FormField [] FormFields;
+    private UserInfo Operator;
 
     /**
     * 应用相关信息
@@ -65,11 +58,74 @@ public class CreateDocumentRequest extends AbstractModel{
     private Agent Agent;
 
     /**
-    * 客户端Token，保持接口幂等性
+    * 内容控件信息数组
+    */
+    @SerializedName("FormFields")
+    @Expose
+    private FormField [] FormFields;
+
+    /**
+    * 是否需要生成预览文件 默认不生成；
+预览链接有效期300秒；
+    */
+    @SerializedName("NeedPreview")
+    @Expose
+    private Boolean NeedPreview;
+
+    /**
+    * 客户端Token，保持接口幂等性,最大长度64个字符
     */
     @SerializedName("ClientToken")
     @Expose
     private String ClientToken;
+
+    /**
+     * Get 签署流程编号,由CreateFlow接口返回 
+     * @return FlowId 签署流程编号,由CreateFlow接口返回
+     */
+    public String getFlowId() {
+        return this.FlowId;
+    }
+
+    /**
+     * Set 签署流程编号,由CreateFlow接口返回
+     * @param FlowId 签署流程编号,由CreateFlow接口返回
+     */
+    public void setFlowId(String FlowId) {
+        this.FlowId = FlowId;
+    }
+
+    /**
+     * Get 用户上传的模板ID 
+     * @return TemplateId 用户上传的模板ID
+     */
+    public String getTemplateId() {
+        return this.TemplateId;
+    }
+
+    /**
+     * Set 用户上传的模板ID
+     * @param TemplateId 用户上传的模板ID
+     */
+    public void setTemplateId(String TemplateId) {
+        this.TemplateId = TemplateId;
+    }
+
+    /**
+     * Get 文件名列表,单个文件名最大长度200个字符 
+     * @return FileNames 文件名列表,单个文件名最大长度200个字符
+     */
+    public String [] getFileNames() {
+        return this.FileNames;
+    }
+
+    /**
+     * Set 文件名列表,单个文件名最大长度200个字符
+     * @param FileNames 文件名列表,单个文件名最大长度200个字符
+     */
+    public void setFileNames(String [] FileNames) {
+        this.FileNames = FileNames;
+    }
 
     /**
      * Get 无 
@@ -85,70 +141,6 @@ public class CreateDocumentRequest extends AbstractModel{
      */
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
-    }
-
-    /**
-     * Get 用户上传的模版ID 
-     * @return TemplateId 用户上传的模版ID
-     */
-    public String getTemplateId() {
-        return this.TemplateId;
-    }
-
-    /**
-     * Set 用户上传的模版ID
-     * @param TemplateId 用户上传的模版ID
-     */
-    public void setTemplateId(String TemplateId) {
-        this.TemplateId = TemplateId;
-    }
-
-    /**
-     * Get 流程ID 
-     * @return FlowId 流程ID
-     */
-    public String getFlowId() {
-        return this.FlowId;
-    }
-
-    /**
-     * Set 流程ID
-     * @param FlowId 流程ID
-     */
-    public void setFlowId(String FlowId) {
-        this.FlowId = FlowId;
-    }
-
-    /**
-     * Get 文件名列表 
-     * @return FileNames 文件名列表
-     */
-    public String [] getFileNames() {
-        return this.FileNames;
-    }
-
-    /**
-     * Set 文件名列表
-     * @param FileNames 文件名列表
-     */
-    public void setFileNames(String [] FileNames) {
-        this.FileNames = FileNames;
-    }
-
-    /**
-     * Get 内容控件信息数组 
-     * @return FormFields 内容控件信息数组
-     */
-    public FormField [] getFormFields() {
-        return this.FormFields;
-    }
-
-    /**
-     * Set 内容控件信息数组
-     * @param FormFields 内容控件信息数组
-     */
-    public void setFormFields(FormField [] FormFields) {
-        this.FormFields = FormFields;
     }
 
     /**
@@ -168,16 +160,52 @@ public class CreateDocumentRequest extends AbstractModel{
     }
 
     /**
-     * Get 客户端Token，保持接口幂等性 
-     * @return ClientToken 客户端Token，保持接口幂等性
+     * Get 内容控件信息数组 
+     * @return FormFields 内容控件信息数组
+     */
+    public FormField [] getFormFields() {
+        return this.FormFields;
+    }
+
+    /**
+     * Set 内容控件信息数组
+     * @param FormFields 内容控件信息数组
+     */
+    public void setFormFields(FormField [] FormFields) {
+        this.FormFields = FormFields;
+    }
+
+    /**
+     * Get 是否需要生成预览文件 默认不生成；
+预览链接有效期300秒； 
+     * @return NeedPreview 是否需要生成预览文件 默认不生成；
+预览链接有效期300秒；
+     */
+    public Boolean getNeedPreview() {
+        return this.NeedPreview;
+    }
+
+    /**
+     * Set 是否需要生成预览文件 默认不生成；
+预览链接有效期300秒；
+     * @param NeedPreview 是否需要生成预览文件 默认不生成；
+预览链接有效期300秒；
+     */
+    public void setNeedPreview(Boolean NeedPreview) {
+        this.NeedPreview = NeedPreview;
+    }
+
+    /**
+     * Get 客户端Token，保持接口幂等性,最大长度64个字符 
+     * @return ClientToken 客户端Token，保持接口幂等性,最大长度64个字符
      */
     public String getClientToken() {
         return this.ClientToken;
     }
 
     /**
-     * Set 客户端Token，保持接口幂等性
-     * @param ClientToken 客户端Token，保持接口幂等性
+     * Set 客户端Token，保持接口幂等性,最大长度64个字符
+     * @param ClientToken 客户端Token，保持接口幂等性,最大长度64个字符
      */
     public void setClientToken(String ClientToken) {
         this.ClientToken = ClientToken;
@@ -191,14 +219,11 @@ public class CreateDocumentRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public CreateDocumentRequest(CreateDocumentRequest source) {
-        if (source.Operator != null) {
-            this.Operator = new UserInfo(source.Operator);
+        if (source.FlowId != null) {
+            this.FlowId = new String(source.FlowId);
         }
         if (source.TemplateId != null) {
             this.TemplateId = new String(source.TemplateId);
-        }
-        if (source.FlowId != null) {
-            this.FlowId = new String(source.FlowId);
         }
         if (source.FileNames != null) {
             this.FileNames = new String[source.FileNames.length];
@@ -206,14 +231,20 @@ public class CreateDocumentRequest extends AbstractModel{
                 this.FileNames[i] = new String(source.FileNames[i]);
             }
         }
+        if (source.Operator != null) {
+            this.Operator = new UserInfo(source.Operator);
+        }
+        if (source.Agent != null) {
+            this.Agent = new Agent(source.Agent);
+        }
         if (source.FormFields != null) {
             this.FormFields = new FormField[source.FormFields.length];
             for (int i = 0; i < source.FormFields.length; i++) {
                 this.FormFields[i] = new FormField(source.FormFields[i]);
             }
         }
-        if (source.Agent != null) {
-            this.Agent = new Agent(source.Agent);
+        if (source.NeedPreview != null) {
+            this.NeedPreview = new Boolean(source.NeedPreview);
         }
         if (source.ClientToken != null) {
             this.ClientToken = new String(source.ClientToken);
@@ -225,12 +256,13 @@ public class CreateDocumentRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamObj(map, prefix + "Operator.", this.Operator);
-        this.setParamSimple(map, prefix + "TemplateId", this.TemplateId);
         this.setParamSimple(map, prefix + "FlowId", this.FlowId);
+        this.setParamSimple(map, prefix + "TemplateId", this.TemplateId);
         this.setParamArraySimple(map, prefix + "FileNames.", this.FileNames);
-        this.setParamArrayObj(map, prefix + "FormFields.", this.FormFields);
+        this.setParamObj(map, prefix + "Operator.", this.Operator);
         this.setParamObj(map, prefix + "Agent.", this.Agent);
+        this.setParamArrayObj(map, prefix + "FormFields.", this.FormFields);
+        this.setParamSimple(map, prefix + "NeedPreview", this.NeedPreview);
         this.setParamSimple(map, prefix + "ClientToken", this.ClientToken);
 
     }

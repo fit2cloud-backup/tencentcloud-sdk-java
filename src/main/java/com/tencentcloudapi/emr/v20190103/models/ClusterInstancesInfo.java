@@ -338,6 +338,46 @@ public class ClusterInstancesInfo extends AbstractModel{
     private String SubnetName;
 
     /**
+    * 集群依赖关系
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ClusterExternalServiceInfo")
+    @Expose
+    private ClusterExternalServiceInfo [] ClusterExternalServiceInfo;
+
+    /**
+    * 集群vpcid 字符串类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UniqVpcId")
+    @Expose
+    private String UniqVpcId;
+
+    /**
+    * 子网id 字符串类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UniqSubnetId")
+    @Expose
+    private String UniqSubnetId;
+
+    /**
+    * 节点信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TopologyInfoList")
+    @Expose
+    private TopologyInfo [] TopologyInfoList;
+
+    /**
+    * 是否是跨AZ集群
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IsMultiZoneCluster")
+    @Expose
+    private Boolean IsMultiZoneCluster;
+
+    /**
      * Get ID号
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return Id ID号
@@ -1165,6 +1205,106 @@ public class ClusterInstancesInfo extends AbstractModel{
         this.SubnetName = SubnetName;
     }
 
+    /**
+     * Get 集群依赖关系
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ClusterExternalServiceInfo 集群依赖关系
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ClusterExternalServiceInfo [] getClusterExternalServiceInfo() {
+        return this.ClusterExternalServiceInfo;
+    }
+
+    /**
+     * Set 集群依赖关系
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ClusterExternalServiceInfo 集群依赖关系
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setClusterExternalServiceInfo(ClusterExternalServiceInfo [] ClusterExternalServiceInfo) {
+        this.ClusterExternalServiceInfo = ClusterExternalServiceInfo;
+    }
+
+    /**
+     * Get 集群vpcid 字符串类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UniqVpcId 集群vpcid 字符串类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getUniqVpcId() {
+        return this.UniqVpcId;
+    }
+
+    /**
+     * Set 集群vpcid 字符串类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UniqVpcId 集群vpcid 字符串类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUniqVpcId(String UniqVpcId) {
+        this.UniqVpcId = UniqVpcId;
+    }
+
+    /**
+     * Get 子网id 字符串类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UniqSubnetId 子网id 字符串类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getUniqSubnetId() {
+        return this.UniqSubnetId;
+    }
+
+    /**
+     * Set 子网id 字符串类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UniqSubnetId 子网id 字符串类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUniqSubnetId(String UniqSubnetId) {
+        this.UniqSubnetId = UniqSubnetId;
+    }
+
+    /**
+     * Get 节点信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TopologyInfoList 节点信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public TopologyInfo [] getTopologyInfoList() {
+        return this.TopologyInfoList;
+    }
+
+    /**
+     * Set 节点信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TopologyInfoList 节点信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTopologyInfoList(TopologyInfo [] TopologyInfoList) {
+        this.TopologyInfoList = TopologyInfoList;
+    }
+
+    /**
+     * Get 是否是跨AZ集群
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IsMultiZoneCluster 是否是跨AZ集群
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getIsMultiZoneCluster() {
+        return this.IsMultiZoneCluster;
+    }
+
+    /**
+     * Set 是否是跨AZ集群
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IsMultiZoneCluster 是否是跨AZ集群
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIsMultiZoneCluster(Boolean IsMultiZoneCluster) {
+        this.IsMultiZoneCluster = IsMultiZoneCluster;
+    }
+
     public ClusterInstancesInfo() {
     }
 
@@ -1284,6 +1424,27 @@ public class ClusterInstancesInfo extends AbstractModel{
         if (source.SubnetName != null) {
             this.SubnetName = new String(source.SubnetName);
         }
+        if (source.ClusterExternalServiceInfo != null) {
+            this.ClusterExternalServiceInfo = new ClusterExternalServiceInfo[source.ClusterExternalServiceInfo.length];
+            for (int i = 0; i < source.ClusterExternalServiceInfo.length; i++) {
+                this.ClusterExternalServiceInfo[i] = new ClusterExternalServiceInfo(source.ClusterExternalServiceInfo[i]);
+            }
+        }
+        if (source.UniqVpcId != null) {
+            this.UniqVpcId = new String(source.UniqVpcId);
+        }
+        if (source.UniqSubnetId != null) {
+            this.UniqSubnetId = new String(source.UniqSubnetId);
+        }
+        if (source.TopologyInfoList != null) {
+            this.TopologyInfoList = new TopologyInfo[source.TopologyInfoList.length];
+            for (int i = 0; i < source.TopologyInfoList.length; i++) {
+                this.TopologyInfoList[i] = new TopologyInfo(source.TopologyInfoList[i]);
+            }
+        }
+        if (source.IsMultiZoneCluster != null) {
+            this.IsMultiZoneCluster = new Boolean(source.IsMultiZoneCluster);
+        }
     }
 
 
@@ -1327,6 +1488,11 @@ public class ClusterInstancesInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "DisplayName", this.DisplayName);
         this.setParamSimple(map, prefix + "VpcName", this.VpcName);
         this.setParamSimple(map, prefix + "SubnetName", this.SubnetName);
+        this.setParamArrayObj(map, prefix + "ClusterExternalServiceInfo.", this.ClusterExternalServiceInfo);
+        this.setParamSimple(map, prefix + "UniqVpcId", this.UniqVpcId);
+        this.setParamSimple(map, prefix + "UniqSubnetId", this.UniqSubnetId);
+        this.setParamArrayObj(map, prefix + "TopologyInfoList.", this.TopologyInfoList);
+        this.setParamSimple(map, prefix + "IsMultiZoneCluster", this.IsMultiZoneCluster);
 
     }
 }

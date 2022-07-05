@@ -42,6 +42,9 @@ public enum TrtcErrorCode {
     // 接口错误。
      INTERNALERROR_INTERFACEERR("InternalError.InterfaceErr"),
      
+    // 内部错误，请重试。
+     INTERNALERROR_INTERNALERROR("InternalError.InternalError"),
+     
     // 不支持的方法。
      INTERNALERROR_METHODERR("InternalError.MethodErr"),
      
@@ -86,6 +89,9 @@ public enum TrtcErrorCode {
      
     // PageSize超过100。
      INVALIDPARAMETER_PAGESIZEOVERSIZE("InvalidParameter.PageSizeOversize"),
+     
+    // 待操作的图片未找到。
+     INVALIDPARAMETER_PICTURENOTFOUND("InvalidParameter.PictureNotFound"),
      
     // 自定义布局参数错误。
      INVALIDPARAMETER_PRESETLAYOUTCONFIG("InvalidParameter.PresetLayoutConfig"),
@@ -206,6 +212,9 @@ public enum TrtcErrorCode {
      
     // EncodeParams中缺少视频输出参数。
      MISSINGPARAMETER_VIDEOENCODEPARAMS("MissingParameter.VideoEncodeParams"),
+     
+    // 资源不足。
+     RESOURCEINSUFFICIENT_REQUESTREJECTION("ResourceInsufficient.RequestRejection"),
      
     // 没有操作SdkAppId的权限。
      UNAUTHORIZEDOPERATION_SDKAPPID("UnauthorizedOperation.SdkAppId"),

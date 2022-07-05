@@ -106,6 +106,22 @@ public class TaskInfo extends AbstractModel{
     private String MediaName;
 
     /**
+    * 媒资自定义标签
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Label")
+    @Expose
+    private String Label;
+
+    /**
+    * 任务分析完成后的后调地址
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CallbackURL")
+    @Expose
+    private String CallbackURL;
+
+    /**
      * Get 任务ID 
      * @return TaskId 任务ID
      */
@@ -305,6 +321,46 @@ public class TaskInfo extends AbstractModel{
         this.MediaName = MediaName;
     }
 
+    /**
+     * Get 媒资自定义标签
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Label 媒资自定义标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getLabel() {
+        return this.Label;
+    }
+
+    /**
+     * Set 媒资自定义标签
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Label 媒资自定义标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLabel(String Label) {
+        this.Label = Label;
+    }
+
+    /**
+     * Get 任务分析完成后的后调地址
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CallbackURL 任务分析完成后的后调地址
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCallbackURL() {
+        return this.CallbackURL;
+    }
+
+    /**
+     * Set 任务分析完成后的后调地址
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CallbackURL 任务分析完成后的后调地址
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCallbackURL(String CallbackURL) {
+        this.CallbackURL = CallbackURL;
+    }
+
     public TaskInfo() {
     }
 
@@ -346,6 +402,12 @@ public class TaskInfo extends AbstractModel{
         if (source.MediaName != null) {
             this.MediaName = new String(source.MediaName);
         }
+        if (source.Label != null) {
+            this.Label = new String(source.Label);
+        }
+        if (source.CallbackURL != null) {
+            this.CallbackURL = new String(source.CallbackURL);
+        }
     }
 
 
@@ -364,6 +426,8 @@ public class TaskInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "FailedReason", this.FailedReason);
         this.setParamObj(map, prefix + "MediaPreknownInfo.", this.MediaPreknownInfo);
         this.setParamSimple(map, prefix + "MediaName", this.MediaName);
+        this.setParamSimple(map, prefix + "Label", this.Label);
+        this.setParamSimple(map, prefix + "CallbackURL", this.CallbackURL);
 
     }
 }

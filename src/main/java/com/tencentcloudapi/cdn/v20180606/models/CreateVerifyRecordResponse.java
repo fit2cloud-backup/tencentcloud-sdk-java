@@ -44,6 +44,30 @@ public class CreateVerifyRecordResponse extends AbstractModel{
     private String RecordType;
 
     /**
+    * 文件验证 URL 指引
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FileVerifyUrl")
+    @Expose
+    private String FileVerifyUrl;
+
+    /**
+    * 文件校验域名列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FileVerifyDomains")
+    @Expose
+    private String [] FileVerifyDomains;
+
+    /**
+    * 文件校验文件名
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FileVerifyName")
+    @Expose
+    private String FileVerifyName;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -99,6 +123,66 @@ public class CreateVerifyRecordResponse extends AbstractModel{
     }
 
     /**
+     * Get 文件验证 URL 指引
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FileVerifyUrl 文件验证 URL 指引
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getFileVerifyUrl() {
+        return this.FileVerifyUrl;
+    }
+
+    /**
+     * Set 文件验证 URL 指引
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FileVerifyUrl 文件验证 URL 指引
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFileVerifyUrl(String FileVerifyUrl) {
+        this.FileVerifyUrl = FileVerifyUrl;
+    }
+
+    /**
+     * Get 文件校验域名列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FileVerifyDomains 文件校验域名列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getFileVerifyDomains() {
+        return this.FileVerifyDomains;
+    }
+
+    /**
+     * Set 文件校验域名列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FileVerifyDomains 文件校验域名列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFileVerifyDomains(String [] FileVerifyDomains) {
+        this.FileVerifyDomains = FileVerifyDomains;
+    }
+
+    /**
+     * Get 文件校验文件名
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FileVerifyName 文件校验文件名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getFileVerifyName() {
+        return this.FileVerifyName;
+    }
+
+    /**
+     * Set 文件校验文件名
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FileVerifyName 文件校验文件名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFileVerifyName(String FileVerifyName) {
+        this.FileVerifyName = FileVerifyName;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -131,6 +215,18 @@ public class CreateVerifyRecordResponse extends AbstractModel{
         if (source.RecordType != null) {
             this.RecordType = new String(source.RecordType);
         }
+        if (source.FileVerifyUrl != null) {
+            this.FileVerifyUrl = new String(source.FileVerifyUrl);
+        }
+        if (source.FileVerifyDomains != null) {
+            this.FileVerifyDomains = new String[source.FileVerifyDomains.length];
+            for (int i = 0; i < source.FileVerifyDomains.length; i++) {
+                this.FileVerifyDomains[i] = new String(source.FileVerifyDomains[i]);
+            }
+        }
+        if (source.FileVerifyName != null) {
+            this.FileVerifyName = new String(source.FileVerifyName);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -144,6 +240,9 @@ public class CreateVerifyRecordResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "SubDomain", this.SubDomain);
         this.setParamSimple(map, prefix + "Record", this.Record);
         this.setParamSimple(map, prefix + "RecordType", this.RecordType);
+        this.setParamSimple(map, prefix + "FileVerifyUrl", this.FileVerifyUrl);
+        this.setParamArraySimple(map, prefix + "FileVerifyDomains.", this.FileVerifyDomains);
+        this.setParamSimple(map, prefix + "FileVerifyName", this.FileVerifyName);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

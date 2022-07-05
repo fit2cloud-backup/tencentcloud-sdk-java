@@ -608,12 +608,20 @@ public class LighthouseClient extends AbstractClient{
     }
 
     /**
-     *本接口（DescribeInstanceVncUrl）用于查询实例管理终端地址，获取的地址可用于实例的 VNC 登录。
+     *本接口 ( DescribeInstanceVncUrl ) 用于查询实例管理终端地址，获取的地址可用于实例的 VNC 登录。
 
-* 处于 RUNNING 状态的机器可使用此功能。
+* 处于 `STOPPED` 状态的机器无法使用此功能。
 * 管理终端地址的有效期为 15 秒，调用接口成功后如果 15 秒内不使用该链接进行访问，管理终端地址自动失效，您需要重新查询。
 * 管理终端地址一旦被访问，将自动失效，您需要重新查询。
 * 如果连接断开，每分钟内重新连接的次数不能超过 30 次。
+* 参数 `InstanceVncUrl` ：调用接口成功后会返回的 `InstanceVncUrl` 的值。
+获取到 `InstanceVncUrl` 后，您需要在链接 `https://img.qcloud.com/qcloud/app/active_vnc/index.html?` 末尾加上参数 `InstanceVncUrl=xxxx`。
+ 最后组成的 URL 格式如下：
+
+```
+https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F%2Fbjvnc.qcloud.com%3A26789%2Fvnc%3Fs%3DaHpjWnRVMFNhYmxKdDM5MjRHNlVTSVQwajNUSW0wb2tBbmFtREFCTmFrcy8vUUNPMG0wSHZNOUUxRm5PMmUzWmFDcWlOdDJIbUJxSTZDL0RXcHZxYnZZMmRkWWZWcEZia2lyb09XMzdKNmM9
+```
+
      * @param req DescribeInstanceVncUrlRequest
      * @return DescribeInstanceVncUrlResponse
      * @throws TencentCloudSDKException
@@ -1044,7 +1052,7 @@ public class LighthouseClient extends AbstractClient{
     }
 
     /**
-     *本接口（InquirePriceCreateInstances）用于续费实例询价。
+     *本接口（InquirePriceRenewInstances）用于续费实例询价。
      * @param req InquirePriceRenewInstancesRequest
      * @return InquirePriceRenewInstancesResponse
      * @throws TencentCloudSDKException
@@ -1056,6 +1064,30 @@ public class LighthouseClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<InquirePriceRenewInstancesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "InquirePriceRenewInstances");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口(IsolateInstances)用于退还一个或多个轻量应用服务器实例。
+* 只有状态为 RUNNING 或 STOPPED 的实例才可以进行此操作。
+* 接口调用成功后，实例会进入SHUTDOWN 状态。
+* 支持批量操作。每次请求批量资源（包括实例与数据盘）的上限为 20。
+* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 DescribeInstances 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
+     * @param req IsolateInstancesRequest
+     * @return IsolateInstancesResponse
+     * @throws TencentCloudSDKException
+     */
+    public IsolateInstancesResponse IsolateInstances(IsolateInstancesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<IsolateInstancesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<IsolateInstancesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "IsolateInstances");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1291,6 +1323,29 @@ public class LighthouseClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<RebootInstancesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "RebootInstances");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口(RenewInstances)用于续费一个或多个轻量应用服务器实例。
+* 只有状态为 RUNNING，STOPPED 或 SHUTDOWN 的实例才可以进行此操作。
+* 支持批量操作。每次请求批量实例的上限为 100。
+* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 DescribeInstances 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
+     * @param req RenewInstancesRequest
+     * @return RenewInstancesResponse
+     * @throws TencentCloudSDKException
+     */
+    public RenewInstancesResponse RenewInstances(RenewInstancesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<RenewInstancesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<RenewInstancesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "RenewInstances");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

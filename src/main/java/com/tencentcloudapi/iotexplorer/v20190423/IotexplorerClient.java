@@ -1099,7 +1099,7 @@ public class IotexplorerClient extends AbstractClient{
     }
 
     /**
-     *本接口（GetCOSURL）用于获取固件存储在COS的URL 
+     *本接口（GetCOSURL）用于获取固件COS存储的上传请求URL地址
      * @param req GetCOSURLRequest
      * @return GetCOSURLResponse
      * @throws TencentCloudSDKException
@@ -1579,6 +1579,26 @@ public class IotexplorerClient extends AbstractClient{
     }
 
     /**
+     *发布广播消息
+     * @param req PublishBroadcastMessageRequest
+     * @return PublishBroadcastMessageResponse
+     * @throws TencentCloudSDKException
+     */
+    public PublishBroadcastMessageResponse PublishBroadcastMessage(PublishBroadcastMessageRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<PublishBroadcastMessageResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<PublishBroadcastMessageResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "PublishBroadcastMessage");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口（PublishMessage）用于使用自定义透传协议进行设备远控
      * @param req PublishMessageRequest
      * @return PublishMessageResponse
@@ -1779,7 +1799,7 @@ public class IotexplorerClient extends AbstractClient{
     }
 
     /**
-     *本接口（UploadFirmware）用于上传设备固件至平台
+     *本接口（UploadFirmware）用于创建设备固件版本信息，在平台用于固件版本升级、固件资源下发等。
      * @param req UploadFirmwareRequest
      * @return UploadFirmwareResponse
      * @throws TencentCloudSDKException

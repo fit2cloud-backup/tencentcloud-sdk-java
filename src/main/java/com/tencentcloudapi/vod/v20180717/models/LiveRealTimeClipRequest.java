@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class LiveRealTimeClipRequest extends AbstractModel{
 
     /**
-    * 推流[直播码](https://cloud.tencent.com/document/product/267/5959)。
+    * 推流直播码。
     */
     @SerializedName("StreamId")
     @Expose
@@ -42,6 +42,13 @@ public class LiveRealTimeClipRequest extends AbstractModel{
     @SerializedName("EndTime")
     @Expose
     private String EndTime;
+
+    /**
+    * <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+    */
+    @SerializedName("SubAppId")
+    @Expose
+    private Long SubAppId;
 
     /**
     * 是否固化。0 不固化，1 固化。默认不固化。
@@ -86,23 +93,16 @@ public class LiveRealTimeClipRequest extends AbstractModel{
     private String ExtInfo;
 
     /**
-    * 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-    */
-    @SerializedName("SubAppId")
-    @Expose
-    private Long SubAppId;
-
-    /**
-     * Get 推流[直播码](https://cloud.tencent.com/document/product/267/5959)。 
-     * @return StreamId 推流[直播码](https://cloud.tencent.com/document/product/267/5959)。
+     * Get 推流直播码。 
+     * @return StreamId 推流直播码。
      */
     public String getStreamId() {
         return this.StreamId;
     }
 
     /**
-     * Set 推流[直播码](https://cloud.tencent.com/document/product/267/5959)。
-     * @param StreamId 推流[直播码](https://cloud.tencent.com/document/product/267/5959)。
+     * Set 推流直播码。
+     * @param StreamId 推流直播码。
      */
     public void setStreamId(String StreamId) {
         this.StreamId = StreamId;
@@ -138,6 +138,22 @@ public class LiveRealTimeClipRequest extends AbstractModel{
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
+    }
+
+    /**
+     * Get <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b> 
+     * @return SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     */
+    public Long getSubAppId() {
+        return this.SubAppId;
+    }
+
+    /**
+     * Set <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     * @param SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     */
+    public void setSubAppId(Long SubAppId) {
+        this.SubAppId = SubAppId;
     }
 
     /**
@@ -236,22 +252,6 @@ public class LiveRealTimeClipRequest extends AbstractModel{
         this.ExtInfo = ExtInfo;
     }
 
-    /**
-     * Get 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。 
-     * @return SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-     */
-    public Long getSubAppId() {
-        return this.SubAppId;
-    }
-
-    /**
-     * Set 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-     * @param SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-     */
-    public void setSubAppId(Long SubAppId) {
-        this.SubAppId = SubAppId;
-    }
-
     public LiveRealTimeClipRequest() {
     }
 
@@ -268,6 +268,9 @@ public class LiveRealTimeClipRequest extends AbstractModel{
         }
         if (source.EndTime != null) {
             this.EndTime = new String(source.EndTime);
+        }
+        if (source.SubAppId != null) {
+            this.SubAppId = new Long(source.SubAppId);
         }
         if (source.IsPersistence != null) {
             this.IsPersistence = new Long(source.IsPersistence);
@@ -287,9 +290,6 @@ public class LiveRealTimeClipRequest extends AbstractModel{
         if (source.ExtInfo != null) {
             this.ExtInfo = new String(source.ExtInfo);
         }
-        if (source.SubAppId != null) {
-            this.SubAppId = new Long(source.SubAppId);
-        }
     }
 
 
@@ -300,13 +300,13 @@ public class LiveRealTimeClipRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "StreamId", this.StreamId);
         this.setParamSimple(map, prefix + "StartTime", this.StartTime);
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
+        this.setParamSimple(map, prefix + "SubAppId", this.SubAppId);
         this.setParamSimple(map, prefix + "IsPersistence", this.IsPersistence);
         this.setParamSimple(map, prefix + "ExpireTime", this.ExpireTime);
         this.setParamSimple(map, prefix + "Procedure", this.Procedure);
         this.setParamSimple(map, prefix + "MetaDataRequired", this.MetaDataRequired);
         this.setParamSimple(map, prefix + "Host", this.Host);
         this.setParamSimple(map, prefix + "ExtInfo", this.ExtInfo);
-        this.setParamSimple(map, prefix + "SubAppId", this.SubAppId);
 
     }
 }

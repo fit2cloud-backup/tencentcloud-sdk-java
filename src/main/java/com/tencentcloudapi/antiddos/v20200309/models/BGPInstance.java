@@ -126,6 +126,20 @@ public class BGPInstance extends AbstractModel{
     private Long CCEnable;
 
     /**
+    * 资源关联标签
+    */
+    @SerializedName("TagInfoList")
+    @Expose
+    private TagInfo [] TagInfoList;
+
+    /**
+    * 新版本1ip高防包
+    */
+    @SerializedName("IpCountNewFlag")
+    @Expose
+    private Long IpCountNewFlag;
+
+    /**
      * Get 资产实例的详细信息 
      * @return InstanceDetail 资产实例的详细信息
      */
@@ -381,6 +395,38 @@ public class BGPInstance extends AbstractModel{
         this.CCEnable = CCEnable;
     }
 
+    /**
+     * Get 资源关联标签 
+     * @return TagInfoList 资源关联标签
+     */
+    public TagInfo [] getTagInfoList() {
+        return this.TagInfoList;
+    }
+
+    /**
+     * Set 资源关联标签
+     * @param TagInfoList 资源关联标签
+     */
+    public void setTagInfoList(TagInfo [] TagInfoList) {
+        this.TagInfoList = TagInfoList;
+    }
+
+    /**
+     * Get 新版本1ip高防包 
+     * @return IpCountNewFlag 新版本1ip高防包
+     */
+    public Long getIpCountNewFlag() {
+        return this.IpCountNewFlag;
+    }
+
+    /**
+     * Set 新版本1ip高防包
+     * @param IpCountNewFlag 新版本1ip高防包
+     */
+    public void setIpCountNewFlag(Long IpCountNewFlag) {
+        this.IpCountNewFlag = IpCountNewFlag;
+    }
+
     public BGPInstance() {
     }
 
@@ -431,6 +477,15 @@ public class BGPInstance extends AbstractModel{
         if (source.CCEnable != null) {
             this.CCEnable = new Long(source.CCEnable);
         }
+        if (source.TagInfoList != null) {
+            this.TagInfoList = new TagInfo[source.TagInfoList.length];
+            for (int i = 0; i < source.TagInfoList.length; i++) {
+                this.TagInfoList[i] = new TagInfo(source.TagInfoList[i]);
+            }
+        }
+        if (source.IpCountNewFlag != null) {
+            this.IpCountNewFlag = new Long(source.IpCountNewFlag);
+        }
     }
 
 
@@ -451,6 +506,8 @@ public class BGPInstance extends AbstractModel{
         this.setParamSimple(map, prefix + "BoundStatus", this.BoundStatus);
         this.setParamSimple(map, prefix + "DDoSLevel", this.DDoSLevel);
         this.setParamSimple(map, prefix + "CCEnable", this.CCEnable);
+        this.setParamArrayObj(map, prefix + "TagInfoList.", this.TagInfoList);
+        this.setParamSimple(map, prefix + "IpCountNewFlag", this.IpCountNewFlag);
 
     }
 }

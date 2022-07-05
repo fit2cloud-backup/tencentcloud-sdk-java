@@ -6,11 +6,17 @@ public enum OceanusErrorCode {
     // 未授权操作。
      AUTHFAILURE_UNAUTHORIZEDOPERATION("AuthFailure.UnauthorizedOperation"),
      
+    // 操作失败。
+     FAILEDOPERATION("FailedOperation"),
+     
     // 重复的作业名。
      FAILEDOPERATION_DUPLICATEDJOBNAME("FailedOperation.DuplicatedJobName"),
      
     // 语法检查失败。
      FAILEDOPERATION_GRAMMARCHECKFAILURE("FailedOperation.GrammarCheckFailure"),
+     
+    // SQL解析失败。
+     FAILEDOPERATION_PARSESQL("FailedOperation.ParseSql"),
      
     // 用户未实名验证。
      FAILEDOPERATION_USERNOTAUTHENTICATED("FailedOperation.UserNotAuthenticated"),
@@ -32,6 +38,9 @@ public enum OceanusErrorCode {
      
     // 无法更新作业错误。
      INTERNALERROR_FAILEDTOUPDATEJOB("InternalError.FailedToUpdateJob"),
+     
+    // 作业实例没找到。
+     INTERNALERROR_JOBINSTANCENOTFOUND("InternalError.JobInstanceNotFound"),
      
     // 内部错误。
      INTERNALERROR_LOGICERROR("InternalError.LogicError"),
@@ -71,6 +80,9 @@ public enum OceanusErrorCode {
      
     // ResourceIds非法。
      INVALIDPARAMETER_INVALIDRESOURCEIDS("InvalidParameter.InvalidResourceIds"),
+     
+    // 创建作业配置错误。
+     INVALIDPARAMETER_JOBCONFIGLOGCOLLECTPARAMERROR("InvalidParameter.JobConfigLogCollectParamError"),
      
     // MaxParallelism 过大。
      INVALIDPARAMETER_MAXPARALLELISMTOOLARGE("InvalidParameter.MaxParallelismTooLarge"),
@@ -122,6 +134,9 @@ public enum OceanusErrorCode {
      
     // 不支持的复合类型。
      INVALIDPARAMETERVALUE_UNSUPPORTEDCOMPOSITE("InvalidParameterValue.UnSupportedComposite"),
+     
+    // 未知停止类型错误。
+     INVALIDPARAMETERVALUE_UNKNOWNSTOPTYPE("InvalidParameterValue.UnknownStopType"),
      
     // 超过配额限制。
      LIMITEXCEEDED("LimitExceeded"),
@@ -212,6 +227,9 @@ public enum OceanusErrorCode {
      
     // Checkpoint 时间间隔，错误。
      UNSUPPORTEDOPERATION_INVALIDCHECKPOINTINTERVALERROR("UnsupportedOperation.InvalidCheckpointIntervalError"),
+     
+    // 权限拦截,没有进入权限。
+     UNSUPPORTEDOPERATION_NOPERMISSIONACCESS("UnsupportedOperation.NoPermissionAccess"),
      
     // 不支持的启动模式。
      UNSUPPORTEDOPERATION_UNSUPPORTEDSTARTMODE("UnsupportedOperation.UnsupportedStartMode");

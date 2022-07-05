@@ -51,6 +51,9 @@ public enum TsfErrorCode {
     // 部署组查询失败。
      FAILEDOPERATION_GROUPQUERYFAILD("FailedOperation.GroupQueryFaild"),
      
+    // 机器实例删除失败。
+     FAILEDOPERATION_INSTANCEDELETEFAILED("FailedOperation.InstanceDeleteFailed"),
+     
     // 查询机器实例部分失败。
      FAILEDOPERATION_INSTANCEQUERYFAILED("FailedOperation.InstanceQueryFailed"),
      
@@ -126,11 +129,14 @@ public enum TsfErrorCode {
     // TKE 集群查询失败。
      FAILEDOPERATION_TKECLUSTERQUERYFAILED("FailedOperation.TkeClusterQueryFailed"),
      
+    // TSF应用性能管理业务日志配置解析规则查询失败。
+     FAILEDOPERATION_TSFAPMBUSILOGCFGSCHEMAQUERYERROR("FailedOperation.TsfApmBusiLogCfgSchemaQueryError"),
+     
+    // TSF应用性能管理业务日志配置数据库写入失败。
+     FAILEDOPERATION_TSFAPMBUSILOGCFGWRITEERROR("FailedOperation.TsfApmBusiLogCfgWriteError"),
+     
     // TSF应用性能管理CTSDB客户端调用失败。
      FAILEDOPERATION_TSFAPMCTSDBCLIENTREQUESTERROR("FailedOperation.TsfApmCtsdbClientRequestError"),
-     
-    // resource服务错误。
-     FAILEDOPERATION_TSFASRESOURCESERVERERROR("FailedOperation.TsfAsResourceServerError"),
      
     // ctsdb数据库请求失败。
      FAILEDOPERATION_TSFCMONITORCTSDBCLIENTREQUESTFAIL("FailedOperation.TsfCmonitorCtsdbClientRequestFail"),
@@ -140,6 +146,9 @@ public enum TsfErrorCode {
      
     // TSF权限模块异常，请联系系统管理员。。
      FAILEDOPERATION_TSFPRIVILEGEERROR("FailedOperation.TsfPrivilegeError"),
+     
+    // 模块未处理异常。
+     FAILEDOPERATION_UNHANDLEDEXCEPTION("FailedOperation.UnhandledException"),
      
     // 应用操作请求MASTER FEIGN失败。
      INTERNALERROR_APPLICATIONMASTERFEIGNERROR("InternalError.ApplicationMasterFeignError"),
@@ -176,6 +185,9 @@ public enum TsfErrorCode {
      
     // 连接TKE服务失败。
      INTERNALERROR_CONTAINERGROUPKUBERNETECONNECTERROR("InternalError.ContainergroupKuberneteConnectError"),
+     
+    // Kubernetes deployment 未找到。
+     INTERNALERROR_CONTAINERGROUPKUBERNETEDEPLOYMENTNOTFOUND("InternalError.ContainergroupKuberneteDeploymentNotfound"),
      
     // 容器应用SQL错误。
      INTERNALERROR_CONTAINERGROUPSQLFAILED("InternalError.ContainergroupSqlFailed"),
@@ -219,7 +231,7 @@ public enum TsfErrorCode {
     // 创建kubernetes命名空间失败。
      INTERNALERROR_KUBERNETESAPICREATENAMESPACESERROR("InternalError.KubernetesApiCreateNamespacesError"),
      
-    // 创建kubernetes秘钥失败。
+    // 创建kubernetes密钥失败。
      INTERNALERROR_KUBERNETESAPICREATESECRETERROR("InternalError.KubernetesApiCreateSecretError"),
      
     // kubernetes api 调用失败。
@@ -239,6 +251,15 @@ public enum TsfErrorCode {
      
     // 调用 TKE 接口失败，%s。
      INTERNALERROR_TKEAPIFAILEDOPERATION("InternalError.TkeApiFailedOperation"),
+     
+    // TSF应用性能管理业务日志配置与应用关联处理错误。
+     INTERNALERROR_TSFAPMBUSILOGCFGAPPRELATIONMASTERERROR("InternalError.TsfApmBusiLogCfgAppRelationMasterError"),
+     
+    // TSF应用性能管理调用tsf-ms模块失败。
+     INTERNALERROR_TSFAPMCALLTSFMSFAILED("InternalError.TsfApmCallTsfMsFailed"),
+     
+    // TSF应用性能管理通用异常。
+     INTERNALERROR_TSFAPMCOMMONERROR("InternalError.TsfApmCommonError"),
      
     // TSF应用性能管理ES客户端响应状态异常。
      INTERNALERROR_TSFAPMESRESPONSESTATUSEXCEPTION("InternalError.TsfApmEsResponseStatusException"),
@@ -263,6 +284,9 @@ public enum TsfErrorCode {
      
     // TSF MASTER 实例状态异常。
      INVALIDPARAMETER_CVMCAEMASTERUNKNOWNINSTANCESTATUS("InvalidParameter.CvmCaeMasterUnknownInstanceStatus"),
+     
+    // 未找到 TCR 实例或命名空间。
+     INVALIDPARAMETER_IMAGEREPOTCRNAMESPACENOTFOUND("InvalidParameter.ImagerepoTcrNamespaceNotFound"),
      
     // 参数错误。
      INVALIDPARAMETER_KUBERNETESPARAMERROR("InvalidParameter.KubernetesParamError"),
@@ -342,6 +366,15 @@ public enum TsfErrorCode {
     // TSF应用性能管理业务日志配置与应用关联参数错误。
      INVALIDPARAMETER_TSFAPMBUSILOGCFGAPPRELATIONPARAMERROR("InvalidParameter.TsfApmBusiLogCfgAppRelationParamError"),
      
+    // TSF应用性能管理业务日志配置云账户参数错误。
+     INVALIDPARAMETER_TSFAPMBUSILOGCFGCLOUDPARAMERROR("InvalidParameter.TsfApmBusiLogCfgCloudParamError"),
+     
+    // TSF应用性能管理业务日志配置标识参数错误。
+     INVALIDPARAMETER_TSFAPMBUSILOGCFGIDPARAMERROR("InvalidParameter.TsfApmBusiLogCfgIdParamError"),
+     
+    // TSF应用性能管理业务日志配置数目参数错误。
+     INVALIDPARAMETER_TSFAPMBUSILOGCFGLIMITPARAMERROR("InvalidParameter.TsfApmBusiLogCfgLimitParamError"),
+     
     // TSF应用性能管理业务日志搜索请求参数错误。
      INVALIDPARAMETER_TSFAPMBUSILOGSEARCHREQUESTPARAMERROR("InvalidParameter.TsfApmBusiLogSearchRequestParamError"),
      
@@ -362,9 +395,6 @@ public enum TsfErrorCode {
      
     // 参数取值错误。
      INVALIDPARAMETERVALUE("InvalidParameterValue"),
-     
-    // 所属应用ID不能为空。
-     INVALIDPARAMETERVALUE_APPLICATIONIDNULL("InvalidParameterValue.ApplicationIdNull"),
      
     // 无效的微服务类型。
      INVALIDPARAMETERVALUE_APPLICATIONMICROTYPEINVALID("InvalidParameterValue.ApplicationMicroTypeInvalid"),
@@ -468,6 +498,9 @@ public enum TsfErrorCode {
     // 内存 limit 和 request 不能同时为空。
      INVALIDPARAMETERVALUE_CONTAINERGROUPINVALIDMEMINFO("InvalidParameterValue.ContainergroupInvalidMemInfo"),
      
+    // limit最大数量，默认 20, 最大值 50。
+     INVALIDPARAMETERVALUE_CONTAINERGROUPLIMITVALUEINVALID("InvalidParameterValue.ContainergroupLimitValueInvalid"),
+     
     // 集群内存资源不足。
      INVALIDPARAMETERVALUE_CONTAINERGROUPMEMLIMITOVER("InvalidParameterValue.ContainergroupMemlimitOver"),
      
@@ -482,6 +515,12 @@ public enum TsfErrorCode {
      
     // 协议值非法,限定:TCP/UDP。
      INVALIDPARAMETERVALUE_CONTAINERGROUPPROTOCOLINVALID("InvalidParameterValue.ContainergroupProtocolInvalid"),
+     
+    // 公网访问方式下，协议需要一致。
+     INVALIDPARAMETERVALUE_CONTAINERGROUPPROTOCOLMIXERROR("InvalidParameterValue.ContainergroupProtocolMixError"),
+     
+    // 协议不能为空。
+     INVALIDPARAMETERVALUE_CONTAINERGROUPPROTOCOLNULL("InvalidParameterValue.ContainergroupProtocolNull"),
      
     // 协议端口不能为空。
      INVALIDPARAMETERVALUE_CONTAINERGROUPPROTOCOLPORTSNULL("InvalidParameterValue.ContainergroupProtocolPortsNull"),
@@ -537,6 +576,9 @@ public enum TsfErrorCode {
     // 文件配置项名称不合规。
      INVALIDPARAMETERVALUE_FILECONFIGNAMEINVALID("InvalidParameterValue.FileConfigNameInvalid"),
      
+    // 无法获取文件配置项或无权限访问。
+     INVALIDPARAMETERVALUE_FILECONFIGNOTEXISTSORPERMISSIONDENIED("InvalidParameterValue.FileConfigNotExistsOrPermissionDenied"),
+     
     // 同一部署组禁止配置文件重复(文件路径+文件名)。
      INVALIDPARAMETERVALUE_FILECONFIGPATHEXISTS("InvalidParameterValue.FileConfigPathExists"),
      
@@ -558,6 +600,9 @@ public enum TsfErrorCode {
     // 部署组的集群未绑定该命名空间。
      INVALIDPARAMETERVALUE_GROUPCLUSTERNAMESPACENOTBOUND("InvalidParameterValue.GroupClusterNamespaceNotBound"),
      
+    // 创建分组， 集群类型不匹配。
+     INVALIDPARAMETERVALUE_GROUPCLUSTERTYPEMISMATCH("InvalidParameterValue.GroupClusterTypeMismatch"),
+     
     // 删除分组，集群类型不匹配。
      INVALIDPARAMETERVALUE_GROUPDELETECLUSTERTYPEMISMATCH("InvalidParameterValue.GroupDeleteClusterTypeMismatch"),
      
@@ -570,9 +615,6 @@ public enum TsfErrorCode {
     // 部署组名不能大于50个字符。
      INVALIDPARAMETERVALUE_GROUPNAMELENGTH("InvalidParameterValue.GroupNameLength"),
      
-    // 部署组名不能为空。
-     INVALIDPARAMETERVALUE_GROUPNAMENULL("InvalidParameterValue.GroupNameNull"),
-     
     // 部署组名称格式不正确,只能包含小写字母、数字及分隔符("-"),且必须以小写字母开头，数字或小写字母结尾。
      INVALIDPARAMETERVALUE_GROUPNAMEREGXMISMATCH("InvalidParameterValue.GroupNameRegxMismatch"),
      
@@ -581,9 +623,6 @@ public enum TsfErrorCode {
      
     // 分组无效的分业参数。
      INVALIDPARAMETERVALUE_GROUPPAGELIMITINVALID("InvalidParameterValue.GroupPageLimitInvalid"),
-     
-    // 程序包不能为空。
-     INVALIDPARAMETERVALUE_GROUPPKGNULL("InvalidParameterValue.GroupPkgNull"),
      
     // 无效的部署组状态过滤字段。
      INVALIDPARAMETERVALUE_GROUPSTATUSINVALID("InvalidParameterValue.GroupStatusInvalid"),
@@ -602,6 +641,9 @@ public enum TsfErrorCode {
      
     // 重装系统，无效的镜像id。
      INVALIDPARAMETERVALUE_INSTANCEINVALIDIMAGE("InvalidParameterValue.InstanceInvalidImage"),
+     
+    // 参数 %s 取值错误。
+     INVALIDPARAMETERVALUE_INVALIDPARAMETER("InvalidParameterValue.InvalidParameter"),
      
     // 参数格式异常。
      INVALIDPARAMETERVALUE_INVALIDPARAMETERFORMAT("InvalidParameterValue.InvalidParameterFormat"),
@@ -720,6 +762,9 @@ public enum TsfErrorCode {
     // 应用类型不能为空。
      MISSINGPARAMETER_APPLICATIONTYPENULL("MissingParameter.ApplicationTypeNull"),
      
+    // 集群ID未填写。
+     MISSINGPARAMETER_CLUSTERIDREQUIRED("MissingParameter.ClusterIdRequired"),
+     
     // 集群所属子网不能为空。
      MISSINGPARAMETER_CLUSTERSUBNETREQUIRED("MissingParameter.ClusterSubnetRequired"),
      
@@ -752,6 +797,9 @@ public enum TsfErrorCode {
      
     // 分组ID不能为空。
      MISSINGPARAMETER_GROUPIDNULL("MissingParameter.GroupIdNull"),
+     
+    // 分组所属命名空间不能为空。
+     MISSINGPARAMETER_GROUPNAMESPACENULL("MissingParameter.GroupNamespaceNull"),
      
     // 命名空间ID不能为空。
      MISSINGPARAMETER_NAMESPACEIDREQUIRED("MissingParameter.NamespaceIdRequired"),
@@ -791,9 +839,6 @@ public enum TsfErrorCode {
      
     // 限流规则已存在，请检查规则名和规则配置。
      RESOURCEINUSE_RATELIMITRULEEXISTERROR("ResourceInUse.RatelimitRuleExistError"),
-     
-    // 实例数已达上限。
-     RESOURCEINSUFFICIENT_INSTANCEEXCESSLIMIT("ResourceInsufficient.InstanceExcessLimit"),
      
     // 仓库空间达到上限。
      RESOURCEINSUFFICIENT_PACKAGESPACEFULL("ResourceInsufficient.PackageSpaceFull"),
@@ -839,6 +884,9 @@ public enum TsfErrorCode {
      
     // 无法获取机器信息。
      RESOURCENOTFOUND_INSTANCENOTEXIST("ResourceNotFound.InstanceNotExist"),
+     
+    // [%s]模块未提供该接口[%s]。。
+     RESOURCENOTFOUND_INTERFACENOTFOUND("ResourceNotFound.InterfaceNotFound"),
      
     // 无法找到License服务器。
      RESOURCENOTFOUND_LICENSESERVERNOTFOUND("ResourceNotFound.LicenseServerNotFound"),

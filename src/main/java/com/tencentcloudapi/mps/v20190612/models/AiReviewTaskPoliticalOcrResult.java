@@ -30,7 +30,7 @@ public class AiReviewTaskPoliticalOcrResult extends AbstractModel{
     private String Status;
 
     /**
-    * 错误码，空字符串表示成功，其他值表示失败，取值请参考 [视频处理类错误码](https://cloud.tencent.com/document/product/862/50369#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
+    * 错误码，空字符串表示成功，其他值表示失败，取值请参考 [媒体处理类错误码](https://cloud.tencent.com/document/product/862/50369#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
     */
     @SerializedName("ErrCodeExt")
     @Expose
@@ -51,14 +51,14 @@ public class AiReviewTaskPoliticalOcrResult extends AbstractModel{
     private String Message;
 
     /**
-    * 内容审核 Ocr 文字鉴政任务输入。
+    * 内容审核 Ocr 文字敏感任务输入。
     */
     @SerializedName("Input")
     @Expose
     private AiReviewPoliticalOcrTaskInput Input;
 
     /**
-    * 内容审核 Ocr 文字鉴政任务输出。
+    * 内容审核 Ocr 文字敏感任务输出。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Output")
@@ -82,16 +82,16 @@ public class AiReviewTaskPoliticalOcrResult extends AbstractModel{
     }
 
     /**
-     * Get 错误码，空字符串表示成功，其他值表示失败，取值请参考 [视频处理类错误码](https://cloud.tencent.com/document/product/862/50369#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。 
-     * @return ErrCodeExt 错误码，空字符串表示成功，其他值表示失败，取值请参考 [视频处理类错误码](https://cloud.tencent.com/document/product/862/50369#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
+     * Get 错误码，空字符串表示成功，其他值表示失败，取值请参考 [媒体处理类错误码](https://cloud.tencent.com/document/product/862/50369#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。 
+     * @return ErrCodeExt 错误码，空字符串表示成功，其他值表示失败，取值请参考 [媒体处理类错误码](https://cloud.tencent.com/document/product/862/50369#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
      */
     public String getErrCodeExt() {
         return this.ErrCodeExt;
     }
 
     /**
-     * Set 错误码，空字符串表示成功，其他值表示失败，取值请参考 [视频处理类错误码](https://cloud.tencent.com/document/product/862/50369#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
-     * @param ErrCodeExt 错误码，空字符串表示成功，其他值表示失败，取值请参考 [视频处理类错误码](https://cloud.tencent.com/document/product/862/50369#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
+     * Set 错误码，空字符串表示成功，其他值表示失败，取值请参考 [媒体处理类错误码](https://cloud.tencent.com/document/product/862/50369#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
+     * @param ErrCodeExt 错误码，空字符串表示成功，其他值表示失败，取值请参考 [媒体处理类错误码](https://cloud.tencent.com/document/product/862/50369#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
      */
     public void setErrCodeExt(String ErrCodeExt) {
         this.ErrCodeExt = ErrCodeExt;
@@ -130,25 +130,25 @@ public class AiReviewTaskPoliticalOcrResult extends AbstractModel{
     }
 
     /**
-     * Get 内容审核 Ocr 文字鉴政任务输入。 
-     * @return Input 内容审核 Ocr 文字鉴政任务输入。
+     * Get 内容审核 Ocr 文字敏感任务输入。 
+     * @return Input 内容审核 Ocr 文字敏感任务输入。
      */
     public AiReviewPoliticalOcrTaskInput getInput() {
         return this.Input;
     }
 
     /**
-     * Set 内容审核 Ocr 文字鉴政任务输入。
-     * @param Input 内容审核 Ocr 文字鉴政任务输入。
+     * Set 内容审核 Ocr 文字敏感任务输入。
+     * @param Input 内容审核 Ocr 文字敏感任务输入。
      */
     public void setInput(AiReviewPoliticalOcrTaskInput Input) {
         this.Input = Input;
     }
 
     /**
-     * Get 内容审核 Ocr 文字鉴政任务输出。
+     * Get 内容审核 Ocr 文字敏感任务输出。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Output 内容审核 Ocr 文字鉴政任务输出。
+     * @return Output 内容审核 Ocr 文字敏感任务输出。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public AiReviewPoliticalOcrTaskOutput getOutput() {
@@ -156,9 +156,9 @@ public class AiReviewTaskPoliticalOcrResult extends AbstractModel{
     }
 
     /**
-     * Set 内容审核 Ocr 文字鉴政任务输出。
+     * Set 内容审核 Ocr 文字敏感任务输出。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Output 内容审核 Ocr 文字鉴政任务输出。
+     * @param Output 内容审核 Ocr 文字敏感任务输出。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOutput(AiReviewPoliticalOcrTaskOutput Output) {

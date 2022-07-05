@@ -15,7 +15,7 @@ public enum FaceidErrorCode {
     // 脸离屏幕太右。
      FAILEDOPERATION_ACTIONFACERIGHT("FailedOperation.ActionFaceRight"),
      
-    // 未检测到第一个动作。
+    // 未检测到动作配合。
      FAILEDOPERATION_ACTIONFIRSTACTION("FailedOperation.ActionFirstAction"),
      
     // 光线太暗。
@@ -192,7 +192,7 @@ public enum FaceidErrorCode {
     // 内部未知错误。
      FAILEDOPERATION_UNKNOWN("FailedOperation.UnKnown"),
      
-    // 该用户未注册E证通，请先注册并跟公安库核验。
+    // 该用户未注册E证通，请先注册并跟权威库核验。
      FAILEDOPERATION_UNREGISTEREDEID("FailedOperation.UnregisteredEid"),
      
     // 认证不通过。

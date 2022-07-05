@@ -9,6 +9,12 @@ public enum IotexplorerErrorCode {
     // 动作消息不可达。
      FAILEDOPERATION_ACTIONUNREACHABLE("FailedOperation.ActionUnreachable"),
      
+    // 广播任务正在执行。
+     FAILEDOPERATION_BROADCASTTASKISRUNNING("FailedOperation.BroadcastTaskIsRunning"),
+     
+    // 设备已经被禁用。
+     FAILEDOPERATION_DEVICEALREADYDISABLED("FailedOperation.DeviceAlreadyDisabled"),
+     
     // 设备已为目标升级版本。
      FAILEDOPERATION_DEVICEFIRMWAREISUPDATED("FailedOperation.DeviceFirmwareIsUpdated"),
      
@@ -27,6 +33,9 @@ public enum IotexplorerErrorCode {
     // 产品尚未发布。
      FAILEDOPERATION_PRODUCTNOTRELEASED("FailedOperation.ProductNotReleased"),
      
+    // RRPC接口未收到设备端响应。
+     FAILEDOPERATION_RRPCTIMEOUT("FailedOperation.RRPCTimeout"),
+     
     // 转发已经停止。
      FAILEDOPERATION_RULEALREADYDISABLED("FailedOperation.RuleAlreadyDisabled"),
      
@@ -43,7 +52,13 @@ public enum IotexplorerErrorCode {
      INTERNALERROR("InternalError"),
      
     // DB操作错误。
+     INTERNALERROR_DBOPERATIONERROR("InternalError.DBOperationError"),
+     
+    // DB操作错误。
      INTERNALERROR_DBOPERTAIONERROR("InternalError.DBOpertaionError"),
+     
+    // 内部LoRaServer错误。
+     INTERNALERROR_INTERNALLORASERVERERROR("InternalError.InternalLoRaServerError"),
      
     // 内部RPC错误。
      INTERNALERROR_INTERNALRPCERROR("InternalError.InternalRPCError"),
@@ -189,6 +204,9 @@ public enum IotexplorerErrorCode {
     // 操作不支持。
      INVALIDPARAMETERVALUE_OPERATIONDENIED("InvalidParameterValue.OperationDenied"),
      
+    // 消息Payload超出限制。
+     INVALIDPARAMETERVALUE_PAYLOADOVERLIMIT("InvalidParameterValue.PayloadOverLimit"),
+     
     // 创建的产品名已存在。
      INVALIDPARAMETERVALUE_PRODUCTALREADYEXIST("InvalidParameterValue.ProductAlreadyExist"),
      
@@ -209,6 +227,9 @@ public enum IotexplorerErrorCode {
      
     // 规则数量超过限制。
      INVALIDPARAMETERVALUE_RULENUMBERBEYONDLIMIT("InvalidParameterValue.RuleNumberBeyondLimit"),
+     
+    // 二进制数据格式只可利用 * 将数据进行转发。
+     INVALIDPARAMETERVALUE_SELECTKEYFROMBINARYPAYLOAD("InvalidParameterValue.SelectKeyFromBinaryPayload"),
      
     // 开始时间晚于结束时间。
      INVALIDPARAMETERVALUE_STARTTIMELATERENDTIME("InvalidParameterValue.StartTimeLaterEndTime"),
@@ -414,6 +435,9 @@ public enum IotexplorerErrorCode {
     // 产品下还存在未删除的设备。
      UNSUPPORTEDOPERATION_DEVICESEXISTUNDERPRODUCT("UnsupportedOperation.DevicesExistUnderProduct"),
      
+    // 该项目下存在物联使能SaaS服务。
+     UNSUPPORTEDOPERATION_ENABLESAASSERVICEEXISTUNDERPROJECT("UnsupportedOperation.EnableSaasServiceExistUnderProject"),
+     
     // 网关产品下存在设备绑定了子设备。
      UNSUPPORTEDOPERATION_EXISTBINDEDDEVICESUNDERGATEWAYPRODUCT("UnsupportedOperation.ExistBindedDevicesUnderGatewayProduct"),
      
@@ -464,6 +488,9 @@ public enum IotexplorerErrorCode {
      
     // LoRa频点还被节点或网关使用。
      UNSUPPORTEDOPERATION_STUDIOLORAFREQINUSED("UnsupportedOperation.StudioLoRaFreqInUsed"),
+     
+    // 账户有未支付订单。
+     UNSUPPORTEDOPERATION_UNPAIDORDER("UnsupportedOperation.UnpaidOrder"),
      
     // 存在重复VPN。
      UNSUPPORTEDOPERATION_VPNDUPKEYEXIST("UnsupportedOperation.VPNDupKeyExist");

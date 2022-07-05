@@ -49,8 +49,8 @@ global：预热全球节点
     private String Area;
 
     /**
-    * 填写"middle"或不填充时预热至中间层节点。
-注意：中国境外区域预热，资源默认加载至中国境外边缘节点，所产生的边缘层流量会计入计费流量。
+    * 中国境内区域默认预热至中间层节点，中国境外区域默认预热至边缘节点。预热至边缘产生的边缘层流量会计入计费流量。
+填写"middle"或不填充时，可指定预热至中间层节点。
     */
     @SerializedName("Layer")
     @Expose
@@ -66,6 +66,15 @@ global：预热全球节点
     @SerializedName("ParseM3U8")
     @Expose
     private Boolean ParseM3U8;
+
+    /**
+    * 是否关闭Range回源
+注意事项：
+此功能灰度发布中，敬请期待
+    */
+    @SerializedName("DisableRange")
+    @Expose
+    private Boolean DisableRange;
 
     /**
      * Get URL 列表，需要包含协议头部 http:// 或 https:// 
@@ -136,20 +145,20 @@ global：预热全球节点
     }
 
     /**
-     * Get 填写"middle"或不填充时预热至中间层节点。
-注意：中国境外区域预热，资源默认加载至中国境外边缘节点，所产生的边缘层流量会计入计费流量。 
-     * @return Layer 填写"middle"或不填充时预热至中间层节点。
-注意：中国境外区域预热，资源默认加载至中国境外边缘节点，所产生的边缘层流量会计入计费流量。
+     * Get 中国境内区域默认预热至中间层节点，中国境外区域默认预热至边缘节点。预热至边缘产生的边缘层流量会计入计费流量。
+填写"middle"或不填充时，可指定预热至中间层节点。 
+     * @return Layer 中国境内区域默认预热至中间层节点，中国境外区域默认预热至边缘节点。预热至边缘产生的边缘层流量会计入计费流量。
+填写"middle"或不填充时，可指定预热至中间层节点。
      */
     public String getLayer() {
         return this.Layer;
     }
 
     /**
-     * Set 填写"middle"或不填充时预热至中间层节点。
-注意：中国境外区域预热，资源默认加载至中国境外边缘节点，所产生的边缘层流量会计入计费流量。
-     * @param Layer 填写"middle"或不填充时预热至中间层节点。
-注意：中国境外区域预热，资源默认加载至中国境外边缘节点，所产生的边缘层流量会计入计费流量。
+     * Set 中国境内区域默认预热至中间层节点，中国境外区域默认预热至边缘节点。预热至边缘产生的边缘层流量会计入计费流量。
+填写"middle"或不填充时，可指定预热至中间层节点。
+     * @param Layer 中国境内区域默认预热至中间层节点，中国境外区域默认预热至边缘节点。预热至边缘产生的边缘层流量会计入计费流量。
+填写"middle"或不填充时，可指定预热至中间层节点。
      */
     public void setLayer(String Layer) {
         this.Layer = Layer;
@@ -187,6 +196,30 @@ global：预热全球节点
         this.ParseM3U8 = ParseM3U8;
     }
 
+    /**
+     * Get 是否关闭Range回源
+注意事项：
+此功能灰度发布中，敬请期待 
+     * @return DisableRange 是否关闭Range回源
+注意事项：
+此功能灰度发布中，敬请期待
+     */
+    public Boolean getDisableRange() {
+        return this.DisableRange;
+    }
+
+    /**
+     * Set 是否关闭Range回源
+注意事项：
+此功能灰度发布中，敬请期待
+     * @param DisableRange 是否关闭Range回源
+注意事项：
+此功能灰度发布中，敬请期待
+     */
+    public void setDisableRange(Boolean DisableRange) {
+        this.DisableRange = DisableRange;
+    }
+
     public PushUrlsCacheRequest() {
     }
 
@@ -213,6 +246,9 @@ global：预热全球节点
         if (source.ParseM3U8 != null) {
             this.ParseM3U8 = new Boolean(source.ParseM3U8);
         }
+        if (source.DisableRange != null) {
+            this.DisableRange = new Boolean(source.DisableRange);
+        }
     }
 
 
@@ -225,6 +261,7 @@ global：预热全球节点
         this.setParamSimple(map, prefix + "Area", this.Area);
         this.setParamSimple(map, prefix + "Layer", this.Layer);
         this.setParamSimple(map, prefix + "ParseM3U8", this.ParseM3U8);
+        this.setParamSimple(map, prefix + "DisableRange", this.DisableRange);
 
     }
 }

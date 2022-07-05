@@ -59,6 +59,26 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
+     *关闭Kafka协议消费
+     * @param req CloseKafkaConsumerRequest
+     * @return CloseKafkaConsumerResponse
+     * @throws TencentCloudSDKException
+     */
+    public CloseKafkaConsumerResponse CloseKafkaConsumer(CloseKafkaConsumerRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CloseKafkaConsumerResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CloseKafkaConsumerResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CloseKafkaConsumer");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口用于创建告警策略。
      * @param req CreateAlarmRequest
      * @return CreateAlarmResponse
@@ -79,7 +99,7 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
-     *该接口用户创建通知渠道组。
+     *该接口用于创建通知渠道组。
      * @param req CreateAlarmNoticeRequest
      * @return CreateAlarmNoticeResponse
      * @throws TencentCloudSDKException
@@ -119,6 +139,26 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
+     *本接口用于创建特殊采集配置任务
+     * @param req CreateConfigExtraRequest
+     * @return CreateConfigExtraResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateConfigExtraResponse CreateConfigExtra(CreateConfigExtraRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateConfigExtraResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateConfigExtraResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateConfigExtra");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口用于创建投递任务
      * @param req CreateConsumerRequest
      * @return CreateConsumerResponse
@@ -139,7 +179,7 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
-     *本接口用于创建日志下载任务
+     *本接口仅创建下载任务，任务返回的下载地址，请用户调用DescribeExports查看任务列表。其中有下载地址CosPath参数。参考文档https://cloud.tencent.com/document/product/614/56449
      * @param req CreateExportRequest
      * @return CreateExportResponse
      * @throws TencentCloudSDKException
@@ -219,7 +259,7 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
-     *创建新的投递规则，客户如果使用此接口，需要自行处理CLS对指定bucket的写权限。
+     *创建新的投递规则，【！！！注意】使用此接口，需要检查是否配置了投递COS的角色和权限。如果没有配置，请参考文档投递权限查看和配置https://cloud.tencent.com/document/product/614/71623。
      * @param req CreateShipperRequest
      * @return CreateShipperResponse
      * @throws TencentCloudSDKException
@@ -311,6 +351,26 @@ public class ClsClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DeleteConfigResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DeleteConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口用于删除特殊采集规则配置
+     * @param req DeleteConfigExtraRequest
+     * @return DeleteConfigExtraResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteConfigExtraResponse DeleteConfigExtra(DeleteConfigExtraRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteConfigExtraResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteConfigExtraResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteConfigExtra");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -519,6 +579,26 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
+     *本接口用于获取特殊采集配置
+     * @param req DescribeConfigExtrasRequest
+     * @return DescribeConfigExtrasResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeConfigExtrasResponse DescribeConfigExtras(DescribeConfigExtrasRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeConfigExtrasResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeConfigExtrasResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeConfigExtras");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *获取采集规则配置所绑定的机器组
      * @param req DescribeConfigMachineGroupsRequest
      * @return DescribeConfigMachineGroupsResponse
@@ -631,6 +711,26 @@ public class ClsClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeLogContextResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeLogContext");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口用于构建直方图
+     * @param req DescribeLogHistogramRequest
+     * @return DescribeLogHistogramResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeLogHistogramResponse DescribeLogHistogram(DescribeLogHistogramRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeLogHistogramResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeLogHistogramResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeLogHistogram");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -899,6 +999,26 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
+     *本接口用于修改特殊采集配置任务
+     * @param req ModifyConfigExtraRequest
+     * @return ModifyConfigExtraResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyConfigExtraResponse ModifyConfigExtra(ModifyConfigExtraRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyConfigExtraResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyConfigExtraResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyConfigExtra");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口用于修改投递任务
      * @param req ModifyConsumerRequest
      * @return ModifyConsumerResponse
@@ -1020,6 +1140,26 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
+     *打开Kafka协议消费功能
+     * @param req OpenKafkaConsumerRequest
+     * @return OpenKafkaConsumerResponse
+     * @throws TencentCloudSDKException
+     */
+    public OpenKafkaConsumerResponse OpenKafkaConsumer(OpenKafkaConsumerRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<OpenKafkaConsumerResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<OpenKafkaConsumerResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "OpenKafkaConsumer");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *重试失败的投递任务
      * @param req RetryShipperTaskRequest
      * @return RetryShipperTaskResponse
@@ -1080,7 +1220,14 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
-     *## 功能描述
+     *## 提示
+为了保障您日志数据的可靠性以及更高效地使用日志服务，建议您使用CLS优化后的接口[上传结构化日志](https://cloud.tencent.com/document/api/614/16873)上传日志。
+
+同时我们给此接口专门优化定制了多个语言版本的SDK供您选择，SDK提供统一的异步发送、资源控制、自动重试、优雅关闭、感知上报等功能，使上报日志功能更完善，详情请参考[SDK采集](https://cloud.tencent.com/document/product/614/67157)。
+
+同时云API上传日志接口也支持同步上传日志数据，如果您选继续使用此接口请参考下文。
+
+## 功能描述
 
 本接口用于将日志写入到指定的日志主题。
 
@@ -1094,7 +1241,6 @@ public class ClsClient extends AbstractClient{
 
 系统根据携带的哈希值（X-CLS-HashKey）将数据写入到符合范围要求的目标分区。例如，可以将某个日志源端通过 hashkey 与某个主题分区强绑定，这样可以保证数据在该分区上写入和消费是严格保序的。
 
-此外日志服务还为用户提供以下两种不同的日志上传模式：
                  
 
 #### 输入参数(pb二进制流，位于body中)

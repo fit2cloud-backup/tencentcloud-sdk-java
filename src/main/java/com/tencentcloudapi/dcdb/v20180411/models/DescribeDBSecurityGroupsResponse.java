@@ -43,7 +43,7 @@ public class DescribeDBSecurityGroupsResponse extends AbstractModel{
     */
     @SerializedName("VPort")
     @Expose
-    private Long VPort;
+    private String VPort;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -94,7 +94,7 @@ public class DescribeDBSecurityGroupsResponse extends AbstractModel{
      * @return VPort 实例端口
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public Long getVPort() {
+    public String getVPort() {
         return this.VPort;
     }
 
@@ -104,7 +104,7 @@ public class DescribeDBSecurityGroupsResponse extends AbstractModel{
      * @param VPort 实例端口
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public void setVPort(Long VPort) {
+    public void setVPort(String VPort) {
         this.VPort = VPort;
     }
 
@@ -142,7 +142,7 @@ public class DescribeDBSecurityGroupsResponse extends AbstractModel{
             this.VIP = new String(source.VIP);
         }
         if (source.VPort != null) {
-            this.VPort = new Long(source.VPort);
+            this.VPort = new String(source.VPort);
         }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);

@@ -12,6 +12,9 @@ public enum OrganizationErrorCode {
     // 账号实名认证超过上限。
      FAILEDOPERATION_CREATEMEMBERAUTHOVERLIMIT("FailedOperation.CreateMemberAuthOverLimit"),
      
+    // 创建测试失败。
+     FAILEDOPERATION_CREATEPOLICY("FailedOperation.CreatePolicy"),
+     
     // 创建已成功。
      FAILEDOPERATION_CREATERECORDALREADYSUCCESS("FailedOperation.CreateRecordAlreadySuccess"),
      
@@ -23,6 +26,9 @@ public enum OrganizationErrorCode {
      
     // 名字已经被使用。
      FAILEDOPERATION_MEMBERNAMEUSED("FailedOperation.MemberNameUsed"),
+     
+    // 成员授权策略名已存在。
+     FAILEDOPERATION_MEMBERPOLICYNAMEEXIST("FailedOperation.MemberPolicyNameExist"),
      
     // 操作计费侧成员权限错误。
      FAILEDOPERATION_OPERATEBILLINGPERMISSIONERR("FailedOperation.OperateBillingPermissionErr"),
@@ -63,14 +69,26 @@ public enum OrganizationErrorCode {
     // 成员超过上限。
      LIMITEXCEEDED_ORGANIZATIONMEMBEROVERLIMIT("LimitExceeded.OrganizationMemberOverLimit"),
      
+    // 成员可授权身份不存在。
+     RESOURCENOTFOUND_MEMBERIDENTITYNOTEXIST("ResourceNotFound.MemberIdentityNotExist"),
+     
     // 成员不存在。
      RESOURCENOTFOUND_MEMBERNOTEXIST("ResourceNotFound.MemberNotExist"),
      
     // 组织成员策略不存在。
      RESOURCENOTFOUND_MEMBERPOLICYNOTEXIST("ResourceNotFound.MemberPolicyNotExist"),
      
+    // 组织节点不在。
+     RESOURCENOTFOUND_ORGANIZATIONNODENOTEXIST("ResourceNotFound.OrganizationNodeNotExist"),
+     
     // 企业组织不存在。
      RESOURCENOTFOUND_ORGANIZATIONNOTEXIST("ResourceNotFound.OrganizationNotExist"),
+     
+    // 集团服务不存在。
+     RESOURCENOTFOUND_ORGANIZATIONSERVICENOTEXIST("ResourceNotFound.OrganizationServiceNotExist"),
+     
+    // 操作不支持。
+     UNSUPPORTEDOPERATION("UnsupportedOperation"),
      
     // 不允许添加代付关系。
      UNSUPPORTEDOPERATION_ADDDELEGATEPAYERNOTALLOW("UnsupportedOperation.AddDelegatePayerNotAllow"),
@@ -90,6 +108,9 @@ public enum OrganizationErrorCode {
     // 成员存在优惠继承。
      UNSUPPORTEDOPERATION_MEMBERDISCOUNTINHERITEXISTED("UnsupportedOperation.MemberDiscountInheritExisted"),
      
+    // 成员存在账户级优惠。
+     UNSUPPORTEDOPERATION_MEMBEREXISTACCOUNTLEVELDISCOUNTINHERIT("UnsupportedOperation.MemberExistAccountLevelDiscountInherit"),
+     
     // 成员是代理商或代客。
      UNSUPPORTEDOPERATION_MEMBERISAGENT("UnsupportedOperation.MemberIsAgent"),
      
@@ -100,7 +121,10 @@ public enum OrganizationErrorCode {
      UNSUPPORTEDOPERATION_OWNERDISCOUNTINHERITEXISTED("UnsupportedOperation.OwnerDiscountInheritExisted"),
      
     // 代付者欠费且未开通信用账户。
-     UNSUPPORTEDOPERATION_PAYERARREARSANDNOCREDITACCOUNT("UnsupportedOperation.PayerArrearsAndNoCreditAccount");
+     UNSUPPORTEDOPERATION_PAYERARREARSANDNOCREDITACCOUNT("UnsupportedOperation.PayerArrearsAndNoCreditAccount"),
+     
+    // 代付者存在账户级优惠。
+     UNSUPPORTEDOPERATION_PAYEREXISTACCOUNTLEVELDISCOUNTINHERIT("UnsupportedOperation.PayerExistAccountLevelDiscountInherit");
      
     private String value;
     private OrganizationErrorCode (String value){

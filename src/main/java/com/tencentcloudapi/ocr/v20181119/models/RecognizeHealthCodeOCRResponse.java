@@ -23,25 +23,60 @@ import java.util.HashMap;
 public class RecognizeHealthCodeOCRResponse extends AbstractModel{
 
     /**
-    * 持码人姓名
+    * 持码人姓名，如：王*（允许返回空值）
     */
     @SerializedName("Name")
     @Expose
     private String Name;
 
     /**
-    * 健康码更新时间，格式为：XXXX-XX-XX XX:XX:XX
+    * 持码人身份证号，如：11**************01（允许返回空值）
+    */
+    @SerializedName("IDNumber")
+    @Expose
+    private String IDNumber;
+
+    /**
+    * 健康码更新时间（允许返回空值）
     */
     @SerializedName("Time")
     @Expose
     private String Time;
 
     /**
-    * 健康码颜色：绿色、黄色、红色
+    * 健康码颜色：绿色、黄色、红色（允许返回空值）
     */
     @SerializedName("Color")
     @Expose
     private String Color;
+
+    /**
+    * 核酸检测间隔时长（允许返回空值）
+    */
+    @SerializedName("TestingInterval")
+    @Expose
+    private String TestingInterval;
+
+    /**
+    * 核酸检测结果：阴性、阳性、暂无核酸检测记录（允许返回空值）
+    */
+    @SerializedName("TestingResult")
+    @Expose
+    private String TestingResult;
+
+    /**
+    * 核酸检测时间（允许返回空值）
+    */
+    @SerializedName("TestingTime")
+    @Expose
+    private String TestingTime;
+
+    /**
+    * 疫苗接种信息，返回接种针数或接种情况（允许返回空值）
+    */
+    @SerializedName("Vaccination")
+    @Expose
+    private String Vaccination;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -51,51 +86,131 @@ public class RecognizeHealthCodeOCRResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 持码人姓名 
-     * @return Name 持码人姓名
+     * Get 持码人姓名，如：王*（允许返回空值） 
+     * @return Name 持码人姓名，如：王*（允许返回空值）
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 持码人姓名
-     * @param Name 持码人姓名
+     * Set 持码人姓名，如：王*（允许返回空值）
+     * @param Name 持码人姓名，如：王*（允许返回空值）
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 健康码更新时间，格式为：XXXX-XX-XX XX:XX:XX 
-     * @return Time 健康码更新时间，格式为：XXXX-XX-XX XX:XX:XX
+     * Get 持码人身份证号，如：11**************01（允许返回空值） 
+     * @return IDNumber 持码人身份证号，如：11**************01（允许返回空值）
+     */
+    public String getIDNumber() {
+        return this.IDNumber;
+    }
+
+    /**
+     * Set 持码人身份证号，如：11**************01（允许返回空值）
+     * @param IDNumber 持码人身份证号，如：11**************01（允许返回空值）
+     */
+    public void setIDNumber(String IDNumber) {
+        this.IDNumber = IDNumber;
+    }
+
+    /**
+     * Get 健康码更新时间（允许返回空值） 
+     * @return Time 健康码更新时间（允许返回空值）
      */
     public String getTime() {
         return this.Time;
     }
 
     /**
-     * Set 健康码更新时间，格式为：XXXX-XX-XX XX:XX:XX
-     * @param Time 健康码更新时间，格式为：XXXX-XX-XX XX:XX:XX
+     * Set 健康码更新时间（允许返回空值）
+     * @param Time 健康码更新时间（允许返回空值）
      */
     public void setTime(String Time) {
         this.Time = Time;
     }
 
     /**
-     * Get 健康码颜色：绿色、黄色、红色 
-     * @return Color 健康码颜色：绿色、黄色、红色
+     * Get 健康码颜色：绿色、黄色、红色（允许返回空值） 
+     * @return Color 健康码颜色：绿色、黄色、红色（允许返回空值）
      */
     public String getColor() {
         return this.Color;
     }
 
     /**
-     * Set 健康码颜色：绿色、黄色、红色
-     * @param Color 健康码颜色：绿色、黄色、红色
+     * Set 健康码颜色：绿色、黄色、红色（允许返回空值）
+     * @param Color 健康码颜色：绿色、黄色、红色（允许返回空值）
      */
     public void setColor(String Color) {
         this.Color = Color;
+    }
+
+    /**
+     * Get 核酸检测间隔时长（允许返回空值） 
+     * @return TestingInterval 核酸检测间隔时长（允许返回空值）
+     */
+    public String getTestingInterval() {
+        return this.TestingInterval;
+    }
+
+    /**
+     * Set 核酸检测间隔时长（允许返回空值）
+     * @param TestingInterval 核酸检测间隔时长（允许返回空值）
+     */
+    public void setTestingInterval(String TestingInterval) {
+        this.TestingInterval = TestingInterval;
+    }
+
+    /**
+     * Get 核酸检测结果：阴性、阳性、暂无核酸检测记录（允许返回空值） 
+     * @return TestingResult 核酸检测结果：阴性、阳性、暂无核酸检测记录（允许返回空值）
+     */
+    public String getTestingResult() {
+        return this.TestingResult;
+    }
+
+    /**
+     * Set 核酸检测结果：阴性、阳性、暂无核酸检测记录（允许返回空值）
+     * @param TestingResult 核酸检测结果：阴性、阳性、暂无核酸检测记录（允许返回空值）
+     */
+    public void setTestingResult(String TestingResult) {
+        this.TestingResult = TestingResult;
+    }
+
+    /**
+     * Get 核酸检测时间（允许返回空值） 
+     * @return TestingTime 核酸检测时间（允许返回空值）
+     */
+    public String getTestingTime() {
+        return this.TestingTime;
+    }
+
+    /**
+     * Set 核酸检测时间（允许返回空值）
+     * @param TestingTime 核酸检测时间（允许返回空值）
+     */
+    public void setTestingTime(String TestingTime) {
+        this.TestingTime = TestingTime;
+    }
+
+    /**
+     * Get 疫苗接种信息，返回接种针数或接种情况（允许返回空值） 
+     * @return Vaccination 疫苗接种信息，返回接种针数或接种情况（允许返回空值）
+     */
+    public String getVaccination() {
+        return this.Vaccination;
+    }
+
+    /**
+     * Set 疫苗接种信息，返回接种针数或接种情况（允许返回空值）
+     * @param Vaccination 疫苗接种信息，返回接种针数或接种情况（允许返回空值）
+     */
+    public void setVaccination(String Vaccination) {
+        this.Vaccination = Vaccination;
     }
 
     /**
@@ -125,11 +240,26 @@ public class RecognizeHealthCodeOCRResponse extends AbstractModel{
         if (source.Name != null) {
             this.Name = new String(source.Name);
         }
+        if (source.IDNumber != null) {
+            this.IDNumber = new String(source.IDNumber);
+        }
         if (source.Time != null) {
             this.Time = new String(source.Time);
         }
         if (source.Color != null) {
             this.Color = new String(source.Color);
+        }
+        if (source.TestingInterval != null) {
+            this.TestingInterval = new String(source.TestingInterval);
+        }
+        if (source.TestingResult != null) {
+            this.TestingResult = new String(source.TestingResult);
+        }
+        if (source.TestingTime != null) {
+            this.TestingTime = new String(source.TestingTime);
+        }
+        if (source.Vaccination != null) {
+            this.Vaccination = new String(source.Vaccination);
         }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
@@ -142,8 +272,13 @@ public class RecognizeHealthCodeOCRResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Name", this.Name);
+        this.setParamSimple(map, prefix + "IDNumber", this.IDNumber);
         this.setParamSimple(map, prefix + "Time", this.Time);
         this.setParamSimple(map, prefix + "Color", this.Color);
+        this.setParamSimple(map, prefix + "TestingInterval", this.TestingInterval);
+        this.setParamSimple(map, prefix + "TestingResult", this.TestingResult);
+        this.setParamSimple(map, prefix + "TestingTime", this.TestingTime);
+        this.setParamSimple(map, prefix + "Vaccination", this.Vaccination);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

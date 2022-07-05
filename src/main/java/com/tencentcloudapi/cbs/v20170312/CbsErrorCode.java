@@ -90,6 +90,9 @@ public enum CbsErrorCode {
     // 输入的`SnapshotId`不存在。
      INVALIDSNAPSHOTID_NOTFOUND("InvalidSnapshotId.NotFound"),
      
+    // 定期快照策略数量已达到上限。
+     LIMITEXCEEDED_AUTOSNAPSHOTPOLICYOUTOFQUOTA("LimitExceeded.AutoSnapshotPolicyOutOfQuota"),
+     
     // 实例挂载云盘数量超过限制。
      LIMITEXCEEDED_INSTANCEATTACHEDDISK("LimitExceeded.InstanceAttachedDisk"),
      
@@ -167,6 +170,9 @@ public enum CbsErrorCode {
      
     // 没有支付权限。
      UNAUTHORIZEDOPERATION_NOTHAVEPAYMENTRIGHT("UnauthorizedOperation.NotHavePaymentRight"),
+     
+    // 授权角色不存在。
+     UNAUTHORIZEDOPERATION_ROLENOTEXISTS("UnauthorizedOperation.RoleNotExists"),
      
     // 操作不支持。
      UNSUPPORTEDOPERATION("UnsupportedOperation"),

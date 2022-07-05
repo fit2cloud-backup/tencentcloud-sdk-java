@@ -37,7 +37,7 @@ public class CreateGroupRequest extends AbstractModel{
     private String GroupName;
 
     /**
-    * 该库的容量限制。
+    * 图库可容纳的最大图片数量。
     */
     @SerializedName("MaxCapacity")
     @Expose
@@ -51,18 +51,18 @@ public class CreateGroupRequest extends AbstractModel{
     private String Brief;
 
     /**
-    * 该库的访问限频 ，默认10。
+    * 访问限制默认为10qps，如需扩容请联系[在线客服](https://cloud.tencent.com/online-service)申请。
     */
     @SerializedName("MaxQps")
     @Expose
     private Long MaxQps;
 
     /**
-    * 图库类型， 默认为通用。
-类型： 
-1: 通用图库，以用户输入图提取特征。
-2: 灰度图库，输入图和搜索图均转为灰度图提取特征。
-3: 针对电商（通用品类）和logo优化。
+    * 图库类型，对应不同服务类型，默认为4。1～3为历史版本，不推荐。
+参数值：
+4：在自建图库中搜索相同原图，可支持裁剪、翻转、调色、加水印后的图片搜索，适用于图片版权保护、原图查询等场景。
+5：在自建图库中搜索相同或相似的商品图片，适用于商品分类、检索、推荐等电商场景。
+6：在自建图片库中搜索与输入图片高度相似的图片，适用于相似图案、logo、纹理等图像元素的搜索。
     */
     @SerializedName("GroupType")
     @Expose
@@ -101,16 +101,16 @@ public class CreateGroupRequest extends AbstractModel{
     }
 
     /**
-     * Get 该库的容量限制。 
-     * @return MaxCapacity 该库的容量限制。
+     * Get 图库可容纳的最大图片数量。 
+     * @return MaxCapacity 图库可容纳的最大图片数量。
      */
     public Long getMaxCapacity() {
         return this.MaxCapacity;
     }
 
     /**
-     * Set 该库的容量限制。
-     * @param MaxCapacity 该库的容量限制。
+     * Set 图库可容纳的最大图片数量。
+     * @param MaxCapacity 图库可容纳的最大图片数量。
      */
     public void setMaxCapacity(Long MaxCapacity) {
         this.MaxCapacity = MaxCapacity;
@@ -133,48 +133,48 @@ public class CreateGroupRequest extends AbstractModel{
     }
 
     /**
-     * Get 该库的访问限频 ，默认10。 
-     * @return MaxQps 该库的访问限频 ，默认10。
+     * Get 访问限制默认为10qps，如需扩容请联系[在线客服](https://cloud.tencent.com/online-service)申请。 
+     * @return MaxQps 访问限制默认为10qps，如需扩容请联系[在线客服](https://cloud.tencent.com/online-service)申请。
      */
     public Long getMaxQps() {
         return this.MaxQps;
     }
 
     /**
-     * Set 该库的访问限频 ，默认10。
-     * @param MaxQps 该库的访问限频 ，默认10。
+     * Set 访问限制默认为10qps，如需扩容请联系[在线客服](https://cloud.tencent.com/online-service)申请。
+     * @param MaxQps 访问限制默认为10qps，如需扩容请联系[在线客服](https://cloud.tencent.com/online-service)申请。
      */
     public void setMaxQps(Long MaxQps) {
         this.MaxQps = MaxQps;
     }
 
     /**
-     * Get 图库类型， 默认为通用。
-类型： 
-1: 通用图库，以用户输入图提取特征。
-2: 灰度图库，输入图和搜索图均转为灰度图提取特征。
-3: 针对电商（通用品类）和logo优化。 
-     * @return GroupType 图库类型， 默认为通用。
-类型： 
-1: 通用图库，以用户输入图提取特征。
-2: 灰度图库，输入图和搜索图均转为灰度图提取特征。
-3: 针对电商（通用品类）和logo优化。
+     * Get 图库类型，对应不同服务类型，默认为4。1～3为历史版本，不推荐。
+参数值：
+4：在自建图库中搜索相同原图，可支持裁剪、翻转、调色、加水印后的图片搜索，适用于图片版权保护、原图查询等场景。
+5：在自建图库中搜索相同或相似的商品图片，适用于商品分类、检索、推荐等电商场景。
+6：在自建图片库中搜索与输入图片高度相似的图片，适用于相似图案、logo、纹理等图像元素的搜索。 
+     * @return GroupType 图库类型，对应不同服务类型，默认为4。1～3为历史版本，不推荐。
+参数值：
+4：在自建图库中搜索相同原图，可支持裁剪、翻转、调色、加水印后的图片搜索，适用于图片版权保护、原图查询等场景。
+5：在自建图库中搜索相同或相似的商品图片，适用于商品分类、检索、推荐等电商场景。
+6：在自建图片库中搜索与输入图片高度相似的图片，适用于相似图案、logo、纹理等图像元素的搜索。
      */
     public Long getGroupType() {
         return this.GroupType;
     }
 
     /**
-     * Set 图库类型， 默认为通用。
-类型： 
-1: 通用图库，以用户输入图提取特征。
-2: 灰度图库，输入图和搜索图均转为灰度图提取特征。
-3: 针对电商（通用品类）和logo优化。
-     * @param GroupType 图库类型， 默认为通用。
-类型： 
-1: 通用图库，以用户输入图提取特征。
-2: 灰度图库，输入图和搜索图均转为灰度图提取特征。
-3: 针对电商（通用品类）和logo优化。
+     * Set 图库类型，对应不同服务类型，默认为4。1～3为历史版本，不推荐。
+参数值：
+4：在自建图库中搜索相同原图，可支持裁剪、翻转、调色、加水印后的图片搜索，适用于图片版权保护、原图查询等场景。
+5：在自建图库中搜索相同或相似的商品图片，适用于商品分类、检索、推荐等电商场景。
+6：在自建图片库中搜索与输入图片高度相似的图片，适用于相似图案、logo、纹理等图像元素的搜索。
+     * @param GroupType 图库类型，对应不同服务类型，默认为4。1～3为历史版本，不推荐。
+参数值：
+4：在自建图库中搜索相同原图，可支持裁剪、翻转、调色、加水印后的图片搜索，适用于图片版权保护、原图查询等场景。
+5：在自建图库中搜索相同或相似的商品图片，适用于商品分类、检索、推荐等电商场景。
+6：在自建图片库中搜索与输入图片高度相似的图片，适用于相似图案、logo、纹理等图像元素的搜索。
      */
     public void setGroupType(Long GroupType) {
         this.GroupType = GroupType;

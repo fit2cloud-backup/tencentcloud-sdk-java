@@ -22,6 +22,29 @@ import java.util.HashMap;
 
 public class DescribeSupportedHsmRequest extends AbstractModel{
 
+    /**
+    * Hsm类型，可选值all、virtulization、GHSM、EHSM、SHSM
+    */
+    @SerializedName("HsmType")
+    @Expose
+    private String HsmType;
+
+    /**
+     * Get Hsm类型，可选值all、virtulization、GHSM、EHSM、SHSM 
+     * @return HsmType Hsm类型，可选值all、virtulization、GHSM、EHSM、SHSM
+     */
+    public String getHsmType() {
+        return this.HsmType;
+    }
+
+    /**
+     * Set Hsm类型，可选值all、virtulization、GHSM、EHSM、SHSM
+     * @param HsmType Hsm类型，可选值all、virtulization、GHSM、EHSM、SHSM
+     */
+    public void setHsmType(String HsmType) {
+        this.HsmType = HsmType;
+    }
+
     public DescribeSupportedHsmRequest() {
     }
 
@@ -30,6 +53,9 @@ public class DescribeSupportedHsmRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public DescribeSupportedHsmRequest(DescribeSupportedHsmRequest source) {
+        if (source.HsmType != null) {
+            this.HsmType = new String(source.HsmType);
+        }
     }
 
 
@@ -37,6 +63,7 @@ public class DescribeSupportedHsmRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "HsmType", this.HsmType);
 
     }
 }

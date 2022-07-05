@@ -84,9 +84,6 @@ public enum EmrErrorCode {
     // Master节点数量无效。
      INVALIDPARAMETER_INCORRECTMASTERCOUNT("InvalidParameter.IncorrectMasterCount"),
      
-    // core节点的数量不能超过20。
-     INVALIDPARAMETER_INVAILDCORECOUNT("InvalidParameter.InvaildCoreCount"),
-     
     // 无效参数，AppId。
      INVALIDPARAMETER_INVALIDAPPID("InvalidParameter.InvalidAppId"),
      
@@ -95,6 +92,9 @@ public enum EmrErrorCode {
      
     // 无效的引导脚本。
      INVALIDPARAMETER_INVALIDBOOTSTRAPACTION("InvalidParameter.InvalidBootstrapAction"),
+     
+    // 无效的ClickHouse集群。
+     INVALIDPARAMETER_INVALIDCLICKHOUSECLUSTER("InvalidParameter.InvalidClickHouseCluster"),
      
     // 无效的ClientToken。
      INVALIDPARAMETER_INVALIDCLIENTTOKEN("InvalidParameter.InvalidClientToken"),
@@ -110,6 +110,9 @@ public enum EmrErrorCode {
      
     // Core节点数量无效。
      INVALIDPARAMETER_INVALIDCORECOUNT("InvalidParameter.InvalidCoreCount"),
+     
+    // CosFileUri参数值无效。
+     INVALIDPARAMETER_INVALIDCOSFILEURI("InvalidParameter.InvalidCosFileURI"),
      
     // 扩容数量必须大于0。
      INVALIDPARAMETER_INVALIDCOUNT("InvalidParameter.InvalidCount"),
@@ -219,6 +222,9 @@ public enum EmrErrorCode {
     // 无效的高可用参数。
      INVALIDPARAMETER_INVALIDSUPPORTHA("InvalidParameter.InvalidSupportHA"),
      
+    // 参数错误。
+     INVALIDPARAMETER_INVALIDTAGSGROUP("InvalidParameter.InvalidTagsGroup"),
+     
     // task的数量不能超过20。
      INVALIDPARAMETER_INVALIDTASKCOUNT("InvalidParameter.InvalidTaskCount"),
      
@@ -309,11 +315,8 @@ public enum EmrErrorCode {
     // 当前资源规格不存在默认规格。
      RESOURCEUNAVAILABLE_RESOURCESPECNOTDEFAULTSPEC("ResourceUnavailable.ResourceSpecNotDefaultSpec"),
      
-    // 当前资源规格不存在默认规格。
-     RESOURCEUNAVAILABLE_RESOURCESPEC_NOTDEFAULTSPEC("ResourceUnavailable.ResourceSpec_NotDefaultSpec"),
-     
     // 资源售罄。
-     RESOURCESSOLDOUT_("ResourcesSoldOut."),
+     RESOURCESSOLDOUT("ResourcesSoldOut"),
      
     // CBS资源售罄。
      RESOURCESSOLDOUT_CBSSOLDOUT("ResourcesSoldOut.CbsSoldOut"),

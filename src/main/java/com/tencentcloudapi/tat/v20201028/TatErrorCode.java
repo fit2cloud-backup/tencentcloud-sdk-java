@@ -18,6 +18,9 @@ public enum TatErrorCode {
     // 参数冲突。
      INVALIDPARAMETER_CONFLICTPARAMETER("InvalidParameter.ConflictParameter"),
      
+    // 无效用户名。
+     INVALIDPARAMETER_INVALIDUSERNAME("InvalidParameter.InvalidUsername"),
+     
     // 参数取值错误。
      INVALIDPARAMETERVALUE("InvalidParameterValue"),
      
@@ -69,6 +72,9 @@ public enum TatErrorCode {
     // OutputCOSKeyPrefix 无效。
      INVALIDPARAMETERVALUE_INVALIDOUTPUTCOSKEYPREFIX("InvalidParameterValue.InvalidOutputCOSKeyPrefix"),
      
+    // 用户名不合法。
+     INVALIDPARAMETERVALUE_INVALIDUSERNAME("InvalidParameterValue.InvalidUsername"),
+     
     // 命令执行路径不合法。
      INVALIDPARAMETERVALUE_INVALIDWORKINGDIRECTORY("InvalidParameterValue.InvalidWorkingDirectory"),
      
@@ -114,6 +120,9 @@ public enum TatErrorCode {
     // 超过配额限制。
      LIMITEXCEEDED("LimitExceeded"),
      
+    // 填写的 Filter 取值过多。
+     LIMITEXCEEDED_FILTERVALUEEXCEEDED("LimitExceeded.FilterValueExceeded"),
+     
     // 缺少参数错误。
      MISSINGPARAMETER("MissingParameter"),
      
@@ -143,6 +152,9 @@ public enum TatErrorCode {
      
     // 实例未处于运行中。
      RESOURCEUNAVAILABLE_INSTANCESTATENOTRUNNING("ResourceUnavailable.InstanceStateNotRunning"),
+     
+    // Lighthouse 尚不支持指定的地域。
+     RESOURCEUNAVAILABLE_LIGHTHOUSEUNSUPPORTEDREGION("ResourceUnavailable.LighthouseUnsupportedRegion"),
      
     // CAM鉴权失败。
      UNAUTHORIZEDOPERATION_CAMAUTHFAILED("UnauthorizedOperation.CamAuthFailed"),

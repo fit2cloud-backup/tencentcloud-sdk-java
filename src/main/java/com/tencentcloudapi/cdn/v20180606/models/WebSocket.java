@@ -25,14 +25,14 @@ public class WebSocket extends AbstractModel{
     /**
     * WebSocket 超时配置开关, 开关为off时，平台仍支持WebSocket连接，此时超时时间默认为15秒，若需要调整超时时间，将开关置为on.
 
-* WebSocket 为内测功能,如需使用,请联系腾讯云工程师开白.
+* WebSocket 为ECDN产品功能，如需使用请通过ECDN域名配置.
     */
     @SerializedName("Switch")
     @Expose
     private String Switch;
 
     /**
-    * 设置超时时间，单位为秒，最大超时时间65秒。
+    * 设置超时时间，单位为秒，最大超时时间300秒。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Timeout")
@@ -42,10 +42,10 @@ public class WebSocket extends AbstractModel{
     /**
      * Get WebSocket 超时配置开关, 开关为off时，平台仍支持WebSocket连接，此时超时时间默认为15秒，若需要调整超时时间，将开关置为on.
 
-* WebSocket 为内测功能,如需使用,请联系腾讯云工程师开白. 
+* WebSocket 为ECDN产品功能，如需使用请通过ECDN域名配置. 
      * @return Switch WebSocket 超时配置开关, 开关为off时，平台仍支持WebSocket连接，此时超时时间默认为15秒，若需要调整超时时间，将开关置为on.
 
-* WebSocket 为内测功能,如需使用,请联系腾讯云工程师开白.
+* WebSocket 为ECDN产品功能，如需使用请通过ECDN域名配置.
      */
     public String getSwitch() {
         return this.Switch;
@@ -54,19 +54,19 @@ public class WebSocket extends AbstractModel{
     /**
      * Set WebSocket 超时配置开关, 开关为off时，平台仍支持WebSocket连接，此时超时时间默认为15秒，若需要调整超时时间，将开关置为on.
 
-* WebSocket 为内测功能,如需使用,请联系腾讯云工程师开白.
+* WebSocket 为ECDN产品功能，如需使用请通过ECDN域名配置.
      * @param Switch WebSocket 超时配置开关, 开关为off时，平台仍支持WebSocket连接，此时超时时间默认为15秒，若需要调整超时时间，将开关置为on.
 
-* WebSocket 为内测功能,如需使用,请联系腾讯云工程师开白.
+* WebSocket 为ECDN产品功能，如需使用请通过ECDN域名配置.
      */
     public void setSwitch(String Switch) {
         this.Switch = Switch;
     }
 
     /**
-     * Get 设置超时时间，单位为秒，最大超时时间65秒。
+     * Get 设置超时时间，单位为秒，最大超时时间300秒。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Timeout 设置超时时间，单位为秒，最大超时时间65秒。
+     * @return Timeout 设置超时时间，单位为秒，最大超时时间300秒。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTimeout() {
@@ -74,9 +74,9 @@ public class WebSocket extends AbstractModel{
     }
 
     /**
-     * Set 设置超时时间，单位为秒，最大超时时间65秒。
+     * Set 设置超时时间，单位为秒，最大超时时间300秒。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Timeout 设置超时时间，单位为秒，最大超时时间65秒。
+     * @param Timeout 设置超时时间，单位为秒，最大超时时间300秒。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTimeout(Long Timeout) {

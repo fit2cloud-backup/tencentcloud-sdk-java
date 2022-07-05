@@ -176,6 +176,31 @@ public class BGPIPInstance extends AbstractModel{
     private Long V6Flag;
 
     /**
+    * 是否渠道版高防IP，是为1，否为0
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("BGPIPChannelFlag")
+    @Expose
+    private Long BGPIPChannelFlag;
+
+    /**
+    * 资源关联标签
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TagInfoList")
+    @Expose
+    private TagInfo [] TagInfoList;
+
+    /**
+    * 资产实例所属的全力防护套餐包详情，
+注意：当资产实例不是全力防护套餐包的实例时，此字段为null
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AnycastOutPackRelation")
+    @Expose
+    private AnycastOutPackRelation AnycastOutPackRelation;
+
+    /**
      * Get 资产实例的详细信息 
      * @return InstanceDetail 资产实例的详细信息
      */
@@ -559,6 +584,70 @@ public class BGPIPInstance extends AbstractModel{
         this.V6Flag = V6Flag;
     }
 
+    /**
+     * Get 是否渠道版高防IP，是为1，否为0
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return BGPIPChannelFlag 是否渠道版高防IP，是为1，否为0
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getBGPIPChannelFlag() {
+        return this.BGPIPChannelFlag;
+    }
+
+    /**
+     * Set 是否渠道版高防IP，是为1，否为0
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param BGPIPChannelFlag 是否渠道版高防IP，是为1，否为0
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBGPIPChannelFlag(Long BGPIPChannelFlag) {
+        this.BGPIPChannelFlag = BGPIPChannelFlag;
+    }
+
+    /**
+     * Get 资源关联标签
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TagInfoList 资源关联标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public TagInfo [] getTagInfoList() {
+        return this.TagInfoList;
+    }
+
+    /**
+     * Set 资源关联标签
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TagInfoList 资源关联标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTagInfoList(TagInfo [] TagInfoList) {
+        this.TagInfoList = TagInfoList;
+    }
+
+    /**
+     * Get 资产实例所属的全力防护套餐包详情，
+注意：当资产实例不是全力防护套餐包的实例时，此字段为null
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AnycastOutPackRelation 资产实例所属的全力防护套餐包详情，
+注意：当资产实例不是全力防护套餐包的实例时，此字段为null
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AnycastOutPackRelation getAnycastOutPackRelation() {
+        return this.AnycastOutPackRelation;
+    }
+
+    /**
+     * Set 资产实例所属的全力防护套餐包详情，
+注意：当资产实例不是全力防护套餐包的实例时，此字段为null
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AnycastOutPackRelation 资产实例所属的全力防护套餐包详情，
+注意：当资产实例不是全力防护套餐包的实例时，此字段为null
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAnycastOutPackRelation(AnycastOutPackRelation AnycastOutPackRelation) {
+        this.AnycastOutPackRelation = AnycastOutPackRelation;
+    }
+
     public BGPIPInstance() {
     }
 
@@ -624,6 +713,18 @@ public class BGPIPInstance extends AbstractModel{
         if (source.V6Flag != null) {
             this.V6Flag = new Long(source.V6Flag);
         }
+        if (source.BGPIPChannelFlag != null) {
+            this.BGPIPChannelFlag = new Long(source.BGPIPChannelFlag);
+        }
+        if (source.TagInfoList != null) {
+            this.TagInfoList = new TagInfo[source.TagInfoList.length];
+            for (int i = 0; i < source.TagInfoList.length; i++) {
+                this.TagInfoList[i] = new TagInfo(source.TagInfoList[i]);
+            }
+        }
+        if (source.AnycastOutPackRelation != null) {
+            this.AnycastOutPackRelation = new AnycastOutPackRelation(source.AnycastOutPackRelation);
+        }
     }
 
 
@@ -650,6 +751,9 @@ public class BGPIPInstance extends AbstractModel{
         this.setParamSimple(map, prefix + "Domain", this.Domain);
         this.setParamSimple(map, prefix + "DamDDoSStatus", this.DamDDoSStatus);
         this.setParamSimple(map, prefix + "V6Flag", this.V6Flag);
+        this.setParamSimple(map, prefix + "BGPIPChannelFlag", this.BGPIPChannelFlag);
+        this.setParamArrayObj(map, prefix + "TagInfoList.", this.TagInfoList);
+        this.setParamObj(map, prefix + "AnycastOutPackRelation.", this.AnycastOutPackRelation);
 
     }
 }

@@ -39,7 +39,7 @@ public class SesClient extends AbstractClient{
     }
 
     /**
-     *您可以通过此API批量发送TEXT或者HTML邮件，适用于营销类、通知类邮件。默认仅支持使用模板发送邮件，如需发送自定义内容，请单独联系商务开通此功能。批量发送之前，需先创建收件人列表，和收件人地址，并通过收件人列表id来进行发送。批量发送任务支持定时发送和周期重复发送，定时发送需传TimedParam，周期重复发送需传CycleParam
+     *您可以通过此API批量发送TEXT或者HTML邮件，适用于营销类、通知类邮件。默认仅支持使用模板发送邮件。批量发送之前，需先创建收件人列表，和收件人地址，并通过收件人列表id来进行发送。批量发送任务支持定时发送和周期重复发送，定时发送需传TimedParam，周期重复发送需传CycleParam
      * @param req BatchSendEmailRequest
      * @return BatchSendEmailResponse
      * @throws TencentCloudSDKException
@@ -160,6 +160,26 @@ public class SesClient extends AbstractClient{
     }
 
     /**
+     *添加收件人地址附带模板参数，使用本接口在添加收件人地址的同时传入模板参数，使每一个收件人地址在发信的时候使用的模板变量取值不同。用户首先调用创建收件人列表接口-CreateReceiver后，然后调用本接口传入收件人地址和发信时的模板参数，最后使用批量发送邮件接口-BatchSendEmail，即可完成批量发信。需要注意的是在使用本接口后BatchSendEmail接口中的Template参数不需再传。用户也可以在控制台上邮件发送-收件人列表菜单中，通过导入文件的方式，导入收件人地址和模板变量和参数值。
+     * @param req CreateReceiverDetailWithDataRequest
+     * @return CreateReceiverDetailWithDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateReceiverDetailWithDataResponse CreateReceiverDetailWithData(CreateReceiverDetailWithDataRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateReceiverDetailWithDataResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateReceiverDetailWithDataResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateReceiverDetailWithData");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *邮箱被拉黑之后，用户如果确认收件邮箱有效或者已经处于激活状态，可以从腾讯云地址库中删除该黑名单之后继续投递。
      * @param req DeleteBlackListRequest
      * @return DeleteBlackListResponse
@@ -240,6 +260,26 @@ public class SesClient extends AbstractClient{
     }
 
     /**
+     *根据收件id删除收件人列表,同时删除列表中的所有收件邮箱
+     * @param req DeleteReceiverRequest
+     * @return DeleteReceiverResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteReceiverResponse DeleteReceiver(DeleteReceiverRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteReceiverResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteReceiverResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteReceiver");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *获取某个发信域名的配置详情
      * @param req GetEmailIdentityRequest
      * @return GetEmailIdentityResponse
@@ -281,6 +321,7 @@ public class SesClient extends AbstractClient{
 
     /**
      *获取邮件发送状态。仅支持查询30天之内的数据
+默认接口请求频率限制：1次/秒
      * @param req GetSendEmailStatusRequest
      * @return GetSendEmailStatusResponse
      * @throws TencentCloudSDKException
@@ -440,7 +481,7 @@ public class SesClient extends AbstractClient{
     }
 
     /**
-     *您可以通过此API发送TEXT或者HTML邮件，适用于触发类邮件（验证码、交易类）。默认仅支持使用模板发送邮件，如需发送自定义内容，请单独联系商务开通此功能。
+     *您可以通过此API发送HTML或者TEXT邮件，适用于触发类邮件（验证码、交易类）。默认仅支持使用模板发送邮件。
      * @param req SendEmailRequest
      * @return SendEmailResponse
      * @throws TencentCloudSDKException

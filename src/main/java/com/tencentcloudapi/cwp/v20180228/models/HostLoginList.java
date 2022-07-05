@@ -70,7 +70,7 @@ public class HostLoginList extends AbstractModel{
     private String SrcIp;
 
     /**
-    * 1:正常登录；2异地登录； 5已加白
+    * 1:正常登录；2异地登录； 5已加白； 14：已处理；15：已忽略。
     */
     @SerializedName("Status")
     @Expose
@@ -165,6 +165,14 @@ public class HostLoginList extends AbstractModel{
     @SerializedName("Location")
     @Expose
     private String Location;
+
+    /**
+    * 主机quuid
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Quuid")
+    @Expose
+    private String Quuid;
 
     /**
      * Get 记录Id 
@@ -283,16 +291,16 @@ public class HostLoginList extends AbstractModel{
     }
 
     /**
-     * Get 1:正常登录；2异地登录； 5已加白 
-     * @return Status 1:正常登录；2异地登录； 5已加白
+     * Get 1:正常登录；2异地登录； 5已加白； 14：已处理；15：已忽略。 
+     * @return Status 1:正常登录；2异地登录； 5已加白； 14：已处理；15：已忽略。
      */
     public Long getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 1:正常登录；2异地登录； 5已加白
-     * @param Status 1:正常登录；2异地登录； 5已加白
+     * Set 1:正常登录；2异地登录； 5已加白； 14：已处理；15：已忽略。
+     * @param Status 1:正常登录；2异地登录； 5已加白； 14：已处理；15：已忽略。
      */
     public void setStatus(Long Status) {
         this.Status = Status;
@@ -526,6 +534,26 @@ public class HostLoginList extends AbstractModel{
         this.Location = Location;
     }
 
+    /**
+     * Get 主机quuid
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Quuid 主机quuid
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getQuuid() {
+        return this.Quuid;
+    }
+
+    /**
+     * Set 主机quuid
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Quuid 主机quuid
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setQuuid(String Quuid) {
+        this.Quuid = Quuid;
+    }
+
     public HostLoginList() {
     }
 
@@ -588,6 +616,9 @@ public class HostLoginList extends AbstractModel{
         if (source.Location != null) {
             this.Location = new String(source.Location);
         }
+        if (source.Quuid != null) {
+            this.Quuid = new String(source.Quuid);
+        }
     }
 
 
@@ -613,6 +644,7 @@ public class HostLoginList extends AbstractModel{
         this.setParamSimple(map, prefix + "IsRiskSrcIp", this.IsRiskSrcIp);
         this.setParamSimple(map, prefix + "RiskLevel", this.RiskLevel);
         this.setParamSimple(map, prefix + "Location", this.Location);
+        this.setParamSimple(map, prefix + "Quuid", this.Quuid);
 
     }
 }

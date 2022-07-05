@@ -39,6 +39,14 @@ public class DescribeDeviceBindGatewayResponse extends AbstractModel{
     private String GatewayDeviceName;
 
     /**
+    * 网关产品名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("GatewayName")
+    @Expose
+    private String GatewayName;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -86,6 +94,26 @@ public class DescribeDeviceBindGatewayResponse extends AbstractModel{
     }
 
     /**
+     * Get 网关产品名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return GatewayName 网关产品名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getGatewayName() {
+        return this.GatewayName;
+    }
+
+    /**
+     * Set 网关产品名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param GatewayName 网关产品名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setGatewayName(String GatewayName) {
+        this.GatewayName = GatewayName;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -115,6 +143,9 @@ public class DescribeDeviceBindGatewayResponse extends AbstractModel{
         if (source.GatewayDeviceName != null) {
             this.GatewayDeviceName = new String(source.GatewayDeviceName);
         }
+        if (source.GatewayName != null) {
+            this.GatewayName = new String(source.GatewayName);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -127,6 +158,7 @@ public class DescribeDeviceBindGatewayResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "GatewayProductId", this.GatewayProductId);
         this.setParamSimple(map, prefix + "GatewayDeviceName", this.GatewayDeviceName);
+        this.setParamSimple(map, prefix + "GatewayName", this.GatewayName);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

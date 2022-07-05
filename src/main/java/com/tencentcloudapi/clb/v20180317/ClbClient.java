@@ -151,9 +151,6 @@ public class ClbClient extends AbstractClient{
 不支持后端类型为 目标组、SCF云函数
 个性化配置、重定向配置、安全组默认放通开关 将不会被克隆，须手工配置
 
-权限说明：
-调用克隆接口用户需要具有：CreateLoadBalancer、CreateLoadBalancerListeners、CreateListenerRules、BatchRegisterTargets、SetLoadBalancerSecurityGroups、ModifyLoadBalancerAttributes、SetLoadBalancerClsLog、DeleteLoadBalancer权限，其中DeleteLoadBalancer用于克隆失败回滚流程，如果没有该接口权限，克隆失败后可能会残留克隆失败的CLB数据。
-
 通过接口调用：
 BGP带宽包必须传带宽包id
 独占集群克隆必须传对应的参数，否则按共享型创建
@@ -1251,6 +1248,26 @@ BGP带宽包必须传带宽包id
                 Type type = new TypeToken<JsonResponseModel<ModifyLoadBalancerAttributesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifyLoadBalancerAttributes");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改IPv6FullChain负载均衡7层监听器支持混绑IPv4/IPv6目标特性。
+     * @param req ModifyLoadBalancerMixIpTargetRequest
+     * @return ModifyLoadBalancerMixIpTargetResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyLoadBalancerMixIpTargetResponse ModifyLoadBalancerMixIpTarget(ModifyLoadBalancerMixIpTargetRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyLoadBalancerMixIpTargetResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyLoadBalancerMixIpTargetResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyLoadBalancerMixIpTarget");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
