@@ -200,26 +200,6 @@ public class DcdbClient extends AbstractClient{
     }
 
     /**
-     *创建独享集群DCDB实例
-     * @param req CreateDedicatedClusterDCDBInstanceRequest
-     * @return CreateDedicatedClusterDCDBInstanceResponse
-     * @throws TencentCloudSDKException
-     */
-    public CreateDedicatedClusterDCDBInstanceResponse CreateDedicatedClusterDCDBInstance(CreateDedicatedClusterDCDBInstanceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateDedicatedClusterDCDBInstanceResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateDedicatedClusterDCDBInstanceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateDedicatedClusterDCDBInstance");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
      *创建DCDB后付费实例
      * @param req CreateHourDCDBInstanceRequest
      * @return CreateHourDCDBInstanceResponse
@@ -903,6 +883,26 @@ public class DcdbClient extends AbstractClient{
     }
 
     /**
+     *本接口（IsolateDedicatedDBInstance）用于隔离独享云数据库实例。
+     * @param req IsolateDedicatedDBInstanceRequest
+     * @return IsolateDedicatedDBInstanceResponse
+     * @throws TencentCloudSDKException
+     */
+    public IsolateDedicatedDBInstanceResponse IsolateDedicatedDBInstance(IsolateDedicatedDBInstanceRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<IsolateDedicatedDBInstanceResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<IsolateDedicatedDBInstanceResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "IsolateDedicatedDBInstance");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *隔离DCDB后付费实例
      * @param req IsolateHourDCDBInstanceRequest
      * @return IsolateHourDCDBInstanceResponse
@@ -956,6 +956,31 @@ public class DcdbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<ModifyAccountDescriptionResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifyAccountDescription");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口(ModifyAccountPrivileges)用于修改云数据库的账户的权限信息。
+
+**注意**
+- 系统保留库："mysql"，只开放["SELECT"]权限
+- 只读账号授予读写权限会报错
+- 不传该参数表示保留现有权限，如需清除，请在复杂类型Privileges字段传空数组
+     * @param req ModifyAccountPrivilegesRequest
+     * @return ModifyAccountPrivilegesResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyAccountPrivilegesResponse ModifyAccountPrivileges(ModifyAccountPrivilegesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyAccountPrivilegesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyAccountPrivilegesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyAccountPrivileges");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1056,6 +1081,66 @@ public class DcdbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<ModifyDBSyncModeResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifyDBSyncMode");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（ModifyInstanceNetwork）用于修改实例所属网络。
+     * @param req ModifyInstanceNetworkRequest
+     * @return ModifyInstanceNetworkResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyInstanceNetworkResponse ModifyInstanceNetwork(ModifyInstanceNetworkRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyInstanceNetworkResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyInstanceNetworkResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyInstanceNetwork");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（ModifyInstanceVip）用于修改实例Vip
+     * @param req ModifyInstanceVipRequest
+     * @return ModifyInstanceVipResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyInstanceVipResponse ModifyInstanceVip(ModifyInstanceVipRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyInstanceVipResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyInstanceVipResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyInstanceVip");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（ModifyInstanceVport）用于修改实例VPORT
+     * @param req ModifyInstanceVportRequest
+     * @return ModifyInstanceVportResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyInstanceVportResponse ModifyInstanceVport(ModifyInstanceVportRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyInstanceVportResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyInstanceVportResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyInstanceVport");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1170,7 +1255,7 @@ public class DcdbClient extends AbstractClient{
     }
 
     /**
-     *本接口（IsolateDedicatedDBInstance）用于销毁已隔离的独享分布式数据库实例。
+     *本接口（TerminateDedicatedDBInstance）用于销毁已隔离的独享分布式数据库实例。
      * @param req TerminateDedicatedDBInstanceRequest
      * @return TerminateDedicatedDBInstanceResponse
      * @throws TencentCloudSDKException

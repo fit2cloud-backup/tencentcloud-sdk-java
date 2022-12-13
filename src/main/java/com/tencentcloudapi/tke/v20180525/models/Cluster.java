@@ -180,6 +180,22 @@ public class Cluster extends AbstractModel{
     private Boolean AutoUpgradeClusterLevel;
 
     /**
+    * 是否开启QGPU共享
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("QGPUShareEnable")
+    @Expose
+    private Boolean QGPUShareEnable;
+
+    /**
+    * 运行时版本
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RuntimeVersion")
+    @Expose
+    private String RuntimeVersion;
+
+    /**
      * Get 集群ID 
      * @return ClusterId 集群ID
      */
@@ -555,6 +571,46 @@ public class Cluster extends AbstractModel{
         this.AutoUpgradeClusterLevel = AutoUpgradeClusterLevel;
     }
 
+    /**
+     * Get 是否开启QGPU共享
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return QGPUShareEnable 是否开启QGPU共享
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getQGPUShareEnable() {
+        return this.QGPUShareEnable;
+    }
+
+    /**
+     * Set 是否开启QGPU共享
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param QGPUShareEnable 是否开启QGPU共享
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setQGPUShareEnable(Boolean QGPUShareEnable) {
+        this.QGPUShareEnable = QGPUShareEnable;
+    }
+
+    /**
+     * Get 运行时版本
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RuntimeVersion 运行时版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getRuntimeVersion() {
+        return this.RuntimeVersion;
+    }
+
+    /**
+     * Set 运行时版本
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RuntimeVersion 运行时版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRuntimeVersion(String RuntimeVersion) {
+        this.RuntimeVersion = RuntimeVersion;
+    }
+
     public Cluster() {
     }
 
@@ -629,6 +685,12 @@ public class Cluster extends AbstractModel{
         if (source.AutoUpgradeClusterLevel != null) {
             this.AutoUpgradeClusterLevel = new Boolean(source.AutoUpgradeClusterLevel);
         }
+        if (source.QGPUShareEnable != null) {
+            this.QGPUShareEnable = new Boolean(source.QGPUShareEnable);
+        }
+        if (source.RuntimeVersion != null) {
+            this.RuntimeVersion = new String(source.RuntimeVersion);
+        }
     }
 
 
@@ -657,6 +719,8 @@ public class Cluster extends AbstractModel{
         this.setParamSimple(map, prefix + "EnableExternalNode", this.EnableExternalNode);
         this.setParamSimple(map, prefix + "ClusterLevel", this.ClusterLevel);
         this.setParamSimple(map, prefix + "AutoUpgradeClusterLevel", this.AutoUpgradeClusterLevel);
+        this.setParamSimple(map, prefix + "QGPUShareEnable", this.QGPUShareEnable);
+        this.setParamSimple(map, prefix + "RuntimeVersion", this.RuntimeVersion);
 
     }
 }

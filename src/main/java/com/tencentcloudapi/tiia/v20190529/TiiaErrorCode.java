@@ -36,6 +36,9 @@ public enum TiiaErrorCode {
     // 超出图库限制。
      FAILEDOPERATION_IMAGENUMEXCEED("FailedOperation.ImageNumExceed"),
      
+    // 图片分辨率过大。
+     FAILEDOPERATION_IMAGERESOLUTIONEXCEED("FailedOperation.ImageResolutionExceed"),
+     
     // 未查询到结果。
      FAILEDOPERATION_IMAGESEARCHINVALID("FailedOperation.ImageSearchInvalid"),
      
@@ -53,6 +56,12 @@ public enum TiiaErrorCode {
      
     // 调用计费返回失败。
      FAILEDOPERATION_INVOKECHARGEERROR("FailedOperation.InvokeChargeError"),
+     
+    // 图片中没有人体。
+     FAILEDOPERATION_NOBODYINPHOTO("FailedOperation.NoBodyInPhoto"),
+     
+    // 未检测到目标。
+     FAILEDOPERATION_NOOBJECTDETECTED("FailedOperation.NoObjectDetected"),
      
     // 参数为空。
      FAILEDOPERATION_PARAMETEREMPTY("FailedOperation.ParameterEmpty"),
@@ -84,6 +93,9 @@ public enum TiiaErrorCode {
     // 未知错误。
      FAILEDOPERATION_UNKNOWN("FailedOperation.Unknown"),
      
+    // 不支持的图片格式。
+     INVALIDPARAMETER_IMAGEFORMATNOTSUPPORT("InvalidParameter.ImageFormatNotSupport"),
+     
     // 参数取值错误。
      INVALIDPARAMETER_INVALIDPARAMETER("InvalidParameter.InvalidParameter"),
      
@@ -104,6 +116,9 @@ public enum TiiaErrorCode {
      
     // Filter参数过长。
      INVALIDPARAMETERVALUE_FILTERSIZEEXCEED("InvalidParameterValue.FilterSizeExceed"),
+     
+    // 图片为空。
+     INVALIDPARAMETERVALUE_IMAGEEMPTY("InvalidParameterValue.ImageEmpty"),
      
     // 图库ID已存在。
      INVALIDPARAMETERVALUE_IMAGEGROUPIDALREADYEXIST("InvalidParameterValue.ImageGroupIdAlreadyExist"),
@@ -129,10 +144,7 @@ public enum TiiaErrorCode {
     // 返回数量不在合法范围内。
      INVALIDPARAMETERVALUE_LIMITEXCEED("InvalidParameterValue.LimitExceed"),
      
-    // 图片中未检测到人脸。
-     INVALIDPARAMETERVALUE_NOFACEINPHOTO("InvalidParameterValue.NoFaceInPhoto"),
-     
-    // 图片已经存在。
+    // 图片名称重复。
      INVALIDPARAMETERVALUE_PICNAMEALREADYEXIST("InvalidParameterValue.PicNameAlreadyExist"),
      
     // 图片名称为空。
@@ -158,6 +170,9 @@ public enum TiiaErrorCode {
      
     // 必选参数为空。
      MISSINGPARAMETER_ERRORPARAMETEREMPTY("MissingParameter.ErrorParameterEmpty"),
+     
+    // 请求的次数超过了频率限制。
+     REQUESTLIMITEXCEEDED("RequestLimitExceeded"),
      
     // 账号已欠费。
      RESOURCEUNAVAILABLE_INARREARS("ResourceUnavailable.InArrears"),

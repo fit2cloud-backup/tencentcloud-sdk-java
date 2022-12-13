@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class SignUrlInfo extends AbstractModel{
 
     /**
-    * 签署链接
+    * 签署链接，过期时间为30天
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SignUrl")
@@ -31,7 +31,7 @@ public class SignUrlInfo extends AbstractModel{
     private String SignUrl;
 
     /**
-    * 链接失效时间,默认30分钟
+    * 合同过期时间
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Deadline")
@@ -121,9 +121,17 @@ PERSON 自然人
     private String OpenId;
 
     /**
-     * Get 签署链接
+    * 合同组签署链接对应的合同组id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FlowGroupId")
+    @Expose
+    private String FlowGroupId;
+
+    /**
+     * Get 签署链接，过期时间为30天
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return SignUrl 签署链接
+     * @return SignUrl 签署链接，过期时间为30天
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSignUrl() {
@@ -131,9 +139,9 @@ PERSON 自然人
     }
 
     /**
-     * Set 签署链接
+     * Set 签署链接，过期时间为30天
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param SignUrl 签署链接
+     * @param SignUrl 签署链接，过期时间为30天
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSignUrl(String SignUrl) {
@@ -141,9 +149,9 @@ PERSON 自然人
     }
 
     /**
-     * Get 链接失效时间,默认30分钟
+     * Get 合同过期时间
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Deadline 链接失效时间,默认30分钟
+     * @return Deadline 合同过期时间
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDeadline() {
@@ -151,9 +159,9 @@ PERSON 自然人
     }
 
     /**
-     * Set 链接失效时间,默认30分钟
+     * Set 合同过期时间
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Deadline 链接失效时间,默认30分钟
+     * @param Deadline 合同过期时间
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeadline(Long Deadline) {
@@ -368,6 +376,26 @@ PERSON 自然人
         this.OpenId = OpenId;
     }
 
+    /**
+     * Get 合同组签署链接对应的合同组id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FlowGroupId 合同组签署链接对应的合同组id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getFlowGroupId() {
+        return this.FlowGroupId;
+    }
+
+    /**
+     * Set 合同组签署链接对应的合同组id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FlowGroupId 合同组签署链接对应的合同组id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFlowGroupId(String FlowGroupId) {
+        this.FlowGroupId = FlowGroupId;
+    }
+
     public SignUrlInfo() {
     }
 
@@ -412,6 +440,9 @@ PERSON 自然人
         if (source.OpenId != null) {
             this.OpenId = new String(source.OpenId);
         }
+        if (source.FlowGroupId != null) {
+            this.FlowGroupId = new String(source.FlowGroupId);
+        }
     }
 
 
@@ -431,6 +462,7 @@ PERSON 自然人
         this.setParamSimple(map, prefix + "IdCardNumber", this.IdCardNumber);
         this.setParamSimple(map, prefix + "FlowId", this.FlowId);
         this.setParamSimple(map, prefix + "OpenId", this.OpenId);
+        this.setParamSimple(map, prefix + "FlowGroupId", this.FlowGroupId);
 
     }
 }

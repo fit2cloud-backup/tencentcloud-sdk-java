@@ -37,7 +37,10 @@ public class DescribeTimingL7AnalysisDataRequest extends AbstractModel{
     private String EndTime;
 
     /**
-    * 时序类访问流量指标
+    * 指标列表，支持的指标
+l7Flow_outFlux: 访问流量
+l7Flow_request: 访问请求数
+l7Flow_outBandwidth: 访问带宽
     */
     @SerializedName("MetricNames")
     @Expose
@@ -63,6 +66,15 @@ public class DescribeTimingL7AnalysisDataRequest extends AbstractModel{
     @SerializedName("Filters")
     @Expose
     private Filter [] Filters;
+
+    /**
+    * 加速区域，取值有：
+<li>mainland：中国大陆境内;</li>
+<li>overseas：全球（不含中国大陆）。</li>
+    */
+    @SerializedName("Area")
+    @Expose
+    private String Area;
 
     /**
      * Get RFC3339标准，客户端时间 
@@ -97,16 +109,28 @@ public class DescribeTimingL7AnalysisDataRequest extends AbstractModel{
     }
 
     /**
-     * Get 时序类访问流量指标 
-     * @return MetricNames 时序类访问流量指标
+     * Get 指标列表，支持的指标
+l7Flow_outFlux: 访问流量
+l7Flow_request: 访问请求数
+l7Flow_outBandwidth: 访问带宽 
+     * @return MetricNames 指标列表，支持的指标
+l7Flow_outFlux: 访问流量
+l7Flow_request: 访问请求数
+l7Flow_outBandwidth: 访问带宽
      */
     public String [] getMetricNames() {
         return this.MetricNames;
     }
 
     /**
-     * Set 时序类访问流量指标
-     * @param MetricNames 时序类访问流量指标
+     * Set 指标列表，支持的指标
+l7Flow_outFlux: 访问流量
+l7Flow_request: 访问请求数
+l7Flow_outBandwidth: 访问带宽
+     * @param MetricNames 指标列表，支持的指标
+l7Flow_outFlux: 访问流量
+l7Flow_request: 访问请求数
+l7Flow_outBandwidth: 访问带宽
      */
     public void setMetricNames(String [] MetricNames) {
         this.MetricNames = MetricNames;
@@ -160,6 +184,30 @@ public class DescribeTimingL7AnalysisDataRequest extends AbstractModel{
         this.Filters = Filters;
     }
 
+    /**
+     * Get 加速区域，取值有：
+<li>mainland：中国大陆境内;</li>
+<li>overseas：全球（不含中国大陆）。</li> 
+     * @return Area 加速区域，取值有：
+<li>mainland：中国大陆境内;</li>
+<li>overseas：全球（不含中国大陆）。</li>
+     */
+    public String getArea() {
+        return this.Area;
+    }
+
+    /**
+     * Set 加速区域，取值有：
+<li>mainland：中国大陆境内;</li>
+<li>overseas：全球（不含中国大陆）。</li>
+     * @param Area 加速区域，取值有：
+<li>mainland：中国大陆境内;</li>
+<li>overseas：全球（不含中国大陆）。</li>
+     */
+    public void setArea(String Area) {
+        this.Area = Area;
+    }
+
     public DescribeTimingL7AnalysisDataRequest() {
     }
 
@@ -195,6 +243,9 @@ public class DescribeTimingL7AnalysisDataRequest extends AbstractModel{
                 this.Filters[i] = new Filter(source.Filters[i]);
             }
         }
+        if (source.Area != null) {
+            this.Area = new String(source.Area);
+        }
     }
 
 
@@ -208,6 +259,7 @@ public class DescribeTimingL7AnalysisDataRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Interval", this.Interval);
         this.setParamArraySimple(map, prefix + "ZoneIds.", this.ZoneIds);
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
+        this.setParamSimple(map, prefix + "Area", this.Area);
 
     }
 }

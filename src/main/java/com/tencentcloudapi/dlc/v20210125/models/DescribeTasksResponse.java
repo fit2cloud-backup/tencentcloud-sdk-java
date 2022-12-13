@@ -37,6 +37,14 @@ public class DescribeTasksResponse extends AbstractModel{
     private Long TotalCount;
 
     /**
+    * 任务概览信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TasksOverview")
+    @Expose
+    private TasksOverview TasksOverview;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -76,6 +84,26 @@ public class DescribeTasksResponse extends AbstractModel{
     }
 
     /**
+     * Get 任务概览信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TasksOverview 任务概览信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public TasksOverview getTasksOverview() {
+        return this.TasksOverview;
+    }
+
+    /**
+     * Set 任务概览信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TasksOverview 任务概览信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTasksOverview(TasksOverview TasksOverview) {
+        this.TasksOverview = TasksOverview;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -108,6 +136,9 @@ public class DescribeTasksResponse extends AbstractModel{
         if (source.TotalCount != null) {
             this.TotalCount = new Long(source.TotalCount);
         }
+        if (source.TasksOverview != null) {
+            this.TasksOverview = new TasksOverview(source.TasksOverview);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -120,6 +151,7 @@ public class DescribeTasksResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "TaskList.", this.TaskList);
         this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
+        this.setParamObj(map, prefix + "TasksOverview.", this.TasksOverview);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

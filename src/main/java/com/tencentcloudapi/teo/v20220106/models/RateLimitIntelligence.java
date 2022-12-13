@@ -23,7 +23,9 @@ import java.util.HashMap;
 public class RateLimitIntelligence extends AbstractModel{
 
     /**
-    * 功能开关
+    * 功能开关。
+1. on 开启
+2. off 关闭
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Switch")
@@ -31,7 +33,9 @@ public class RateLimitIntelligence extends AbstractModel{
     private String Switch;
 
     /**
-    * 执行动作 monitor(观察), alg(挑战)
+    * 执行动作 
+1. monitor(观察)
+2. alg(挑战)
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Action")
@@ -39,9 +43,13 @@ public class RateLimitIntelligence extends AbstractModel{
     private String Action;
 
     /**
-     * Get 功能开关
+     * Get 功能开关。
+1. on 开启
+2. off 关闭
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Switch 功能开关
+     * @return Switch 功能开关。
+1. on 开启
+2. off 关闭
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSwitch() {
@@ -49,9 +57,13 @@ public class RateLimitIntelligence extends AbstractModel{
     }
 
     /**
-     * Set 功能开关
+     * Set 功能开关。
+1. on 开启
+2. off 关闭
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Switch 功能开关
+     * @param Switch 功能开关。
+1. on 开启
+2. off 关闭
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSwitch(String Switch) {
@@ -59,9 +71,13 @@ public class RateLimitIntelligence extends AbstractModel{
     }
 
     /**
-     * Get 执行动作 monitor(观察), alg(挑战)
+     * Get 执行动作 
+1. monitor(观察)
+2. alg(挑战)
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Action 执行动作 monitor(观察), alg(挑战)
+     * @return Action 执行动作 
+1. monitor(观察)
+2. alg(挑战)
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAction() {
@@ -69,9 +85,13 @@ public class RateLimitIntelligence extends AbstractModel{
     }
 
     /**
-     * Set 执行动作 monitor(观察), alg(挑战)
+     * Set 执行动作 
+1. monitor(观察)
+2. alg(挑战)
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Action 执行动作 monitor(观察), alg(挑战)
+     * @param Action 执行动作 
+1. monitor(观察)
+2. alg(挑战)
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAction(String Action) {

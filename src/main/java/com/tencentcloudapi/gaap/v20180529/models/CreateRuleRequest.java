@@ -51,7 +51,7 @@ public class CreateRuleRequest extends AbstractModel{
     private String RealServerType;
 
     /**
-    * 规则转发源站调度策略，支持轮询（rr），加权轮询（wrr），最小连接数（lc）。
+    * 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数。
     */
     @SerializedName("Scheduler")
     @Expose
@@ -87,7 +87,7 @@ public class CreateRuleRequest extends AbstractModel{
     private String ForwardHost;
 
     /**
-    * 服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。
+    * 服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。创建HTTP监听器转发规则时，SNI功能默认关闭。
     */
     @SerializedName("ServerNameIndicationSwitch")
     @Expose
@@ -99,6 +99,13 @@ public class CreateRuleRequest extends AbstractModel{
     @SerializedName("ServerNameIndication")
     @Expose
     private String ServerNameIndication;
+
+    /**
+    * HTTP强制跳转HTTPS。输入当前规则对应的域名与地址。
+    */
+    @SerializedName("ForcedRedirect")
+    @Expose
+    private String ForcedRedirect;
 
     /**
      * Get 7层监听器ID 
@@ -165,16 +172,16 @@ public class CreateRuleRequest extends AbstractModel{
     }
 
     /**
-     * Get 规则转发源站调度策略，支持轮询（rr），加权轮询（wrr），最小连接数（lc）。 
-     * @return Scheduler 规则转发源站调度策略，支持轮询（rr），加权轮询（wrr），最小连接数（lc）。
+     * Get 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数。 
+     * @return Scheduler 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数。
      */
     public String getScheduler() {
         return this.Scheduler;
     }
 
     /**
-     * Set 规则转发源站调度策略，支持轮询（rr），加权轮询（wrr），最小连接数（lc）。
-     * @param Scheduler 规则转发源站调度策略，支持轮询（rr），加权轮询（wrr），最小连接数（lc）。
+     * Set 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数。
+     * @param Scheduler 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数。
      */
     public void setScheduler(String Scheduler) {
         this.Scheduler = Scheduler;
@@ -249,16 +256,16 @@ public class CreateRuleRequest extends AbstractModel{
     }
 
     /**
-     * Get 服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。 
-     * @return ServerNameIndicationSwitch 服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。
+     * Get 服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。创建HTTP监听器转发规则时，SNI功能默认关闭。 
+     * @return ServerNameIndicationSwitch 服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。创建HTTP监听器转发规则时，SNI功能默认关闭。
      */
     public String getServerNameIndicationSwitch() {
         return this.ServerNameIndicationSwitch;
     }
 
     /**
-     * Set 服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。
-     * @param ServerNameIndicationSwitch 服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。
+     * Set 服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。创建HTTP监听器转发规则时，SNI功能默认关闭。
+     * @param ServerNameIndicationSwitch 服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。创建HTTP监听器转发规则时，SNI功能默认关闭。
      */
     public void setServerNameIndicationSwitch(String ServerNameIndicationSwitch) {
         this.ServerNameIndicationSwitch = ServerNameIndicationSwitch;
@@ -278,6 +285,22 @@ public class CreateRuleRequest extends AbstractModel{
      */
     public void setServerNameIndication(String ServerNameIndication) {
         this.ServerNameIndication = ServerNameIndication;
+    }
+
+    /**
+     * Get HTTP强制跳转HTTPS。输入当前规则对应的域名与地址。 
+     * @return ForcedRedirect HTTP强制跳转HTTPS。输入当前规则对应的域名与地址。
+     */
+    public String getForcedRedirect() {
+        return this.ForcedRedirect;
+    }
+
+    /**
+     * Set HTTP强制跳转HTTPS。输入当前规则对应的域名与地址。
+     * @param ForcedRedirect HTTP强制跳转HTTPS。输入当前规则对应的域名与地址。
+     */
+    public void setForcedRedirect(String ForcedRedirect) {
+        this.ForcedRedirect = ForcedRedirect;
     }
 
     public CreateRuleRequest() {
@@ -321,6 +344,9 @@ public class CreateRuleRequest extends AbstractModel{
         if (source.ServerNameIndication != null) {
             this.ServerNameIndication = new String(source.ServerNameIndication);
         }
+        if (source.ForcedRedirect != null) {
+            this.ForcedRedirect = new String(source.ForcedRedirect);
+        }
     }
 
 
@@ -339,6 +365,7 @@ public class CreateRuleRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ForwardHost", this.ForwardHost);
         this.setParamSimple(map, prefix + "ServerNameIndicationSwitch", this.ServerNameIndicationSwitch);
         this.setParamSimple(map, prefix + "ServerNameIndication", this.ServerNameIndication);
+        this.setParamSimple(map, prefix + "ForcedRedirect", this.ForcedRedirect);
 
     }
 }

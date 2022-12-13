@@ -3,11 +3,23 @@ public enum TseErrorCode {
     // 未授权操作错误。
      AUTHFAILURE_UNAUTHORIZEDOPERATION("AuthFailure.UnauthorizedOperation"),
      
+    // 操作失败。
+     FAILEDOPERATION("FailedOperation"),
+     
     // 创建内部错误。
      INTERNALERROR_CREATEERROR("InternalError.CreateError"),
      
     // 获取凭证失败。
      INTERNALERROR_GETCREDENTIAL("InternalError.GetCredential"),
+     
+    // 角色获取错误。
+     INTERNALERROR_GETROLEERROR("InternalError.GetRoleError"),
+     
+    // 内部服务调用异常。
+     INTERNALERROR_IOERROR("InternalError.IOError"),
+     
+    // 服务内部错误。
+     INTERNALERROR_INTERNALERROR("InternalError.InternalError"),
      
     // 操作失败。
      INTERNALERROR_OPERATIONFAILED("InternalError.OperationFailed"),
@@ -30,11 +42,20 @@ public enum TseErrorCode {
     // 访问VPC内部错误。
      INTERNALERROR_VPCFAILURE("InternalError.VPCFailure"),
      
+    // 旧实例不支持此操作。
+     INVALIDPARAMETERVALUE_ACTION("InvalidParameterValue.Action"),
+     
     // 请求格式不正确。
      INVALIDPARAMETERVALUE_BADREQUESTFORMAT("InvalidParameterValue.BadRequestFormat"),
      
     // 无效请求参数导致创建失败。
      INVALIDPARAMETERVALUE_CREATEERROR("InvalidParameterValue.CreateError"),
+     
+    // 无效的参数值。
+     INVALIDPARAMETERVALUE_INVALIDPARAMETERVALUE("InvalidParameterValue.InvalidParameterValue"),
+     
+    // 无效请求参数导致操作失败。
+     INVALIDPARAMETERVALUE_OPERATIONFAILED("InvalidParameterValue.OperationFailed"),
      
     // 无效请求参数，查询失败。
      INVALIDPARAMETERVALUE_QUERYERROR("InvalidParameterValue.QueryError"),
@@ -48,11 +69,20 @@ public enum TseErrorCode {
     // 缺失参数导致创建失败。
      MISSINGPARAMETER_CREATEERROR("MissingParameter.CreateError"),
      
+    // 缺失参数导致更新失败。
+     MISSINGPARAMETER_UPDATEERROR("MissingParameter.UpdateError"),
+     
     // 操作被拒绝。
      OPERATIONDENIED("OperationDenied"),
      
     // 资源不存在。
      RESOURCENOTFOUND("ResourceNotFound"),
+     
+    // 实例不存在。
+     RESOURCENOTFOUND_INSTANCENOTFOUND("ResourceNotFound.InstanceNotFound"),
+     
+    // 资源不存在。
+     RESOURCENOTFOUND_RESOURCENOTFOUND("ResourceNotFound.ResourceNotFound"),
      
     // 未授权操作。
      UNAUTHORIZEDOPERATION("UnauthorizedOperation"),

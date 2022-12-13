@@ -3,6 +3,9 @@ public enum EmrErrorCode {
     // 操作失败。
      FAILEDOPERATION("FailedOperation"),
      
+    // 操作失败。
+     FAILEDOPERATION_CHECKIFSUPPORTPODSTRETCH("FailedOperation.CheckIfSupportPodStretch"),
+     
     // 重复的订单，请检查emr控制台。
      FAILEDOPERATION_DUPLICATEORDERNOTALLOWED("FailedOperation.DuplicateOrderNotAllowed"),
      
@@ -41,6 +44,9 @@ public enum EmrErrorCode {
      
     // 内部服务调用异常。
      INTERNALERROR_CVMERROR("InternalError.CvmError"),
+     
+    // 调用EKS报错。
+     INTERNALERROR_EKSERROR("InternalError.EKSError"),
      
     // 内部服务调用异常。
      INTERNALERROR_KMSERROR("InternalError.KmsError"),
@@ -159,6 +165,9 @@ public enum EmrErrorCode {
     // 参数错误。
      INVALIDPARAMETER_INVALIDMASTERDISKTYPE("InvalidParameter.InvalidMasterDiskType"),
      
+    // 无效的元数据库URL。
+     INVALIDPARAMETER_INVALIDMETADATAJDBCURL("InvalidParameter.InvalidMetaDataJdbcUrl"),
+     
     // 无效的元数据表类型。
      INVALIDPARAMETER_INVALIDMETATYPE("InvalidParameter.InvalidMetaType"),
      
@@ -191,6 +200,9 @@ public enum EmrErrorCode {
      
     // 无效的资源规格。
      INVALIDPARAMETER_INVALIDRESOURCESPEC("InvalidParameter.InvalidResourceSpec"),
+     
+    // 该EMR版本不支持开启安全模式。
+     INVALIDPARAMETER_INVALIDSECURITYSUPPORT("InvalidParameter.InvalidSecuritySupport"),
      
     // 无效的安全组ID。
      INVALIDPARAMETER_INVALIDSERCURITYGRPUPID("InvalidParameter.InvalidSercurityGrpupId"),
@@ -290,6 +302,9 @@ public enum EmrErrorCode {
      
     // 不支持或售罄的节点规格。
      RESOURCEINSUFFICIENT_INSTANCEINSUFFICIENT("ResourceInsufficient.InstanceInsufficient"),
+     
+    // 资源不存在。
+     RESOURCENOTFOUND_CDBINFONOTFOUND("ResourceNotFound.CDBInfoNotFound"),
      
     // 无法找到该实例。
      RESOURCENOTFOUND_CLUSTERNOTFOUND("ResourceNotFound.ClusterNotFound"),

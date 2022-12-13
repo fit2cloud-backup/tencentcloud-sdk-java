@@ -1319,6 +1319,46 @@ public class TdmqClient extends AbstractClient{
     }
 
     /**
+     *RabbitMQ专享版查询节点列表
+     * @param req DescribeRabbitMQNodeListRequest
+     * @return DescribeRabbitMQNodeListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeRabbitMQNodeListResponse DescribeRabbitMQNodeList(DescribeRabbitMQNodeListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeRabbitMQNodeListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeRabbitMQNodeListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeRabbitMQNodeList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询用户已购的RabbitMQ专享实例列表
+     * @param req DescribeRabbitMQVipInstancesRequest
+     * @return DescribeRabbitMQVipInstancesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeRabbitMQVipInstancesResponse DescribeRabbitMQVipInstances(DescribeRabbitMQVipInstancesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeRabbitMQVipInstancesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeRabbitMQVipInstancesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeRabbitMQVipInstances");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *获取单个RocketMQ集群信息
      * @param req DescribeRocketMQClusterRequest
      * @return DescribeRocketMQClusterResponse
@@ -1411,6 +1451,26 @@ public class TdmqClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeRocketMQTopicsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeRocketMQTopics");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询用户已购的RocketMQ专享实例列表
+     * @param req DescribeRocketMQVipInstancesRequest
+     * @return DescribeRocketMQVipInstancesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeRocketMQVipInstancesResponse DescribeRocketMQVipInstances(DescribeRocketMQVipInstancesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeRocketMQVipInstancesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeRocketMQVipInstancesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeRocketMQVipInstances");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1819,7 +1879,7 @@ public class TdmqClient extends AbstractClient{
     }
 
     /**
-     *接收发送到指定 topic 中的消息，当 Topic 中没有消息但还去尝试调用该接口时，会抛出 ReceiveTimeout 的异常。
+     *当前 ReceiveMessage 接口只支持 Partitioned 类型的 Topic。该接口用于接收发送到指定 Partitioned Topic 中的消息，当 Partitioned Topic 中没有消息但还去尝试调用该接口时，会抛出 ReceiveTimeout 的异常。
 
 如何使用 BatchReceivePolicy：
 

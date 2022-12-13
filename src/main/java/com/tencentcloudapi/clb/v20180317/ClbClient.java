@@ -81,7 +81,7 @@ public class ClbClient extends AbstractClient{
     }
 
     /**
-     *批量解绑四七层后端服务。批量解绑的资源数量上限为500。
+     *批量解绑四七层后端服务。批量解绑的资源数量上限为500。只支持VPC网络负载均衡。
      * @param req BatchDeregisterTargetsRequest
      * @return BatchDeregisterTargetsResponse
      * @throws TencentCloudSDKException
@@ -122,7 +122,7 @@ public class ClbClient extends AbstractClient{
     }
 
     /**
-     *批量绑定虚拟主机或弹性网卡，支持跨域绑定，支持四层、七层（TCP、UDP、HTTP、HTTPS）协议绑定。批量绑定的资源数量上限为500。
+     *批量绑定虚拟主机或弹性网卡，支持跨域绑定，支持四层、七层（TCP、UDP、HTTP、HTTPS）协议绑定。批量绑定的资源数量上限为500。只支持VPC网络负载均衡。
      * @param req BatchRegisterTargetsRequest
      * @return BatchRegisterTargetsResponse
      * @throws TencentCloudSDKException
@@ -759,6 +759,26 @@ BGP带宽包必须传带宽包id
                 Type type = new TypeToken<JsonResponseModel<DescribeExclusiveClustersResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeExclusiveClusters");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *闲置实例是指创建超过7天后付费实例，且没有创建规则或创建规则没有绑定子机的负载均衡实例。
+     * @param req DescribeIdleLoadBalancersRequest
+     * @return DescribeIdleLoadBalancersResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeIdleLoadBalancersResponse DescribeIdleLoadBalancers(DescribeIdleLoadBalancersRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeIdleLoadBalancersResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeIdleLoadBalancersResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeIdleLoadBalancers");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

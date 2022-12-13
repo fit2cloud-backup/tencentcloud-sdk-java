@@ -59,26 +59,6 @@ public class CdbClient extends AbstractClient{
     }
 
     /**
-     *针对主实例申请创建数据库代理。
-     * @param req ApplyCDBProxyRequest
-     * @return ApplyCDBProxyResponse
-     * @throws TencentCloudSDKException
-     */
-    public ApplyCDBProxyResponse ApplyCDBProxy(ApplyCDBProxyRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ApplyCDBProxyResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<ApplyCDBProxyResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ApplyCDBProxy");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
      *本接口(AssociateSecurityGroups)用于安全组批量绑定实例。
      * @param req AssociateSecurityGroupsRequest
      * @return AssociateSecurityGroupsResponse
@@ -922,6 +902,26 @@ public class CdbClient extends AbstractClient{
     }
 
     /**
+     *本接口(DescribeCdbZoneConfig)用于查询云数据库各地域可售卖的规格配置。
+     * @param req DescribeCdbZoneConfigRequest
+     * @return DescribeCdbZoneConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCdbZoneConfigResponse DescribeCdbZoneConfig(DescribeCdbZoneConfigRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeCdbZoneConfigResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeCdbZoneConfigResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeCdbZoneConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口(DescribeCloneList) 用于查询用户实例的克隆任务列表。
      * @param req DescribeCloneListRequest
      * @return DescribeCloneListResponse
@@ -1136,26 +1136,6 @@ public class CdbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeDBSwitchRecordsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeDBSwitchRecords");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *本接口(DescribeDBZoneConfig)用于查询可创建的云数据库各地域可售卖的规格配置。
-     * @param req DescribeDBZoneConfigRequest
-     * @return DescribeDBZoneConfigResponse
-     * @throws TencentCloudSDKException
-     */
-    public DescribeDBZoneConfigResponse DescribeDBZoneConfig(DescribeDBZoneConfigRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDBZoneConfigResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDBZoneConfigResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDBZoneConfig");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1706,7 +1686,7 @@ public class CdbClient extends AbstractClient{
     }
 
     /**
-     *本接口(InitDBInstances)用于初始化云数据库实例，包括初始化密码、默认字符集、实例端口号等
+     *本接口(InitDBInstances)用于初始化云数据库实例，包括初始化密码、默认字符集、实例端口号等。该接口已经废弃，在发货接口CreateDBInstance、CreateDBInstanceHour可以直接使用参数Password设置密码，使用参数ParamList设置字符集，使用参数Port设置端口号。
      * @param req InitDBInstancesRequest
      * @return InitDBInstancesResponse
      * @throws TencentCloudSDKException
@@ -1969,26 +1949,6 @@ public class CdbClient extends AbstractClient{
     }
 
     /**
-     *配置数据库代理读写分离
-     * @param req ModifyCDBProxyRequest
-     * @return ModifyCDBProxyResponse
-     * @throws TencentCloudSDKException
-     */
-    public ModifyCDBProxyResponse ModifyCDBProxy(ModifyCDBProxyRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyCDBProxyResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyCDBProxyResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyCDBProxy");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
      *请求该接口配置数据库连接池；支持的连接池配置请求DescribeProxyConnectionPoolConf接口获取。
      * @param req ModifyCDBProxyConnectionPoolRequest
      * @return ModifyCDBProxyConnectionPoolResponse
@@ -2141,6 +2101,26 @@ public class CdbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<ModifyInstanceParamResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifyInstanceParam");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口(ModifyInstancePasswordComplexity)用于修改云数据库实例的密码复杂度。
+     * @param req ModifyInstancePasswordComplexityRequest
+     * @return ModifyInstancePasswordComplexityResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyInstancePasswordComplexityResponse ModifyInstancePasswordComplexity(ModifyInstancePasswordComplexityRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyInstancePasswordComplexityResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyInstancePasswordComplexityResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyInstancePasswordComplexity");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

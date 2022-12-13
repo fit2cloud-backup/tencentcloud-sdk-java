@@ -9,8 +9,14 @@ public enum OceanusErrorCode {
     // 操作失败。
      FAILEDOPERATION("FailedOperation"),
      
+    // 数据库连接失败，请检查参数是否填写正确。
+     FAILEDOPERATION_DATASOURCECONNECTIONFAILED("FailedOperation.DataSourceConnectionFailed"),
+     
     // 重复的作业名。
      FAILEDOPERATION_DUPLICATEDJOBNAME("FailedOperation.DuplicatedJobName"),
+     
+    // 查询资源关联标签失败。
+     FAILEDOPERATION_GETRESOURCETAGSBYRESOURCEIDS("FailedOperation.GetResourceTagsByResourceIds"),
      
     // 语法检查失败。
      FAILEDOPERATION_GRAMMARCHECKFAILURE("FailedOperation.GrammarCheckFailure"),
@@ -23,6 +29,9 @@ public enum OceanusErrorCode {
      
     // 内部错误。
      INTERNALERROR("InternalError"),
+     
+    // CLS接口错误。
+     INTERNALERROR_CLS("InternalError.CLS"),
      
     // COS 服务访问错误。
      INTERNALERROR_COSCLIENT("InternalError.COSClient"),
@@ -59,6 +68,9 @@ public enum OceanusErrorCode {
      
     // 系统错误。
      INTERNALERROR_SYSTEMERROR("InternalError.SystemError"),
+     
+    // 参数错误。
+     INVALIDPARAMETER("InvalidParameter"),
      
     // AppId资源不匹配。
      INVALIDPARAMETER_APPIDRESOURCENOTMATCH("InvalidParameter.AppIdResourceNotMatch"),
@@ -102,6 +114,9 @@ public enum OceanusErrorCode {
     // 集群Id指定错误，为空或者不存在。
      INVALIDPARAMETERVALUE_CLUSTERID("InvalidParameterValue.ClusterId"),
      
+    // 群集Id报错。
+     INVALIDPARAMETERVALUE_CLUSTERIDS("InvalidParameterValue.ClusterIds"),
+     
     // CU内存规格不匹配。
      INVALIDPARAMETERVALUE_CUMEM("InvalidParameterValue.CuMem"),
      
@@ -122,6 +137,9 @@ public enum OceanusErrorCode {
      
     // SQL作业不能指定EntrypointClass，JAR作业则必须指定。
      INVALIDPARAMETERVALUE_JOBTYPECOMBINEWITHENTRYPOINTCLASS("InvalidParameterValue.JobTypeCombineWithEntrypointClass"),
+     
+    // OrderType值错误。
+     INVALIDPARAMETERVALUE_ORDERTYPE("InvalidParameterValue.OrderType"),
      
     // 未找到资源ID。
      INVALIDPARAMETERVALUE_RESOURCEIDSNOTFOUND("InvalidParameterValue.ResourceIdsNotFound"),
@@ -213,6 +231,9 @@ public enum OceanusErrorCode {
     // 找不到JobId的正在运行的作业实例。
      RESOURCEUNAVAILABLE_NORUNNINGJOBINSTANCESFOUNDFORJOBID("ResourceUnavailable.NoRunningJobInstancesFoundForJobId"),
      
+    // 不允许删除错误。
+     RESOURCEUNAVAILABLE_NOTALLOWEDTOBEDELETED("ResourceUnavailable.NotAllowedToBeDeleted"),
+     
     // 不允许停止或暂停错误。
      RESOURCEUNAVAILABLE_NOTALLOWEDTOBESTOPORPAUSE("ResourceUnavailable.NotAllowedToBeStopOrPause"),
      
@@ -221,6 +242,9 @@ public enum OceanusErrorCode {
      
     // cos上的程序包不存在。
      RESOURCEUNAVAILABLE_RESOURCELOCNOTEXISTS("ResourceUnavailable.ResourceLocNotExists"),
+     
+    // 未授权操作。
+     UNAUTHORIZEDOPERATION("UnauthorizedOperation"),
      
     // 操作不支持。
      UNSUPPORTEDOPERATION("UnsupportedOperation"),

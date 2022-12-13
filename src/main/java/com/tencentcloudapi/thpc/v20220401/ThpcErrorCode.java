@@ -15,6 +15,9 @@ public enum ThpcErrorCode {
     // 不支持该参数值。
      INVALIDPARAMETERVALUE_NOTSUPPORTED("InvalidParameterValue.NotSupported"),
      
+    // 字段不支持此值。
+     INVALIDPARAMETERVALUE_PARAMETERSNOTSUPPORTED("InvalidParameterValue.ParametersNotSupported"),
+     
     // 参数值过大。
      INVALIDPARAMETERVALUE_TOOLARGE("InvalidParameterValue.TooLarge"),
      
@@ -30,8 +33,14 @@ public enum ThpcErrorCode {
     // 资源不足。
      RESOURCEINSUFFICIENT("ResourceInsufficient"),
      
+    // 无法找到弹性伸缩组ID。
+     RESOURCENOTFOUND_AUTOSCALINGGROUPID("ResourceNotFound.AutoScalingGroupId"),
+     
     // 集群不存在。
      RESOURCENOTFOUND_CLUSTERID("ResourceNotFound.ClusterId"),
+     
+    // 无法找到镜像ID。
+     RESOURCENOTFOUND_IMAGEID("ResourceNotFound.ImageId"),
      
     // 无法找到ID对应的弹性伸缩启动配置。
      RESOURCENOTFOUND_LAUNCHCONFIGURATIONID("ResourceNotFound.LaunchConfigurationId"),
@@ -42,11 +51,20 @@ public enum ThpcErrorCode {
     // 该伸缩组已绑定集群，请更换伸缩组。
      UNSUPPORTEDOPERATION_AUTOSCALINGGROUPALREADYBINDED("UnsupportedOperation.AutoScalingGroupAlreadyBinded"),
      
+    // 弹性伸缩类型不支持此操作。
+     UNSUPPORTEDOPERATION_AUTOSCALINGTYPE("UnsupportedOperation.AutoScalingType"),
+     
     // 该集群当前状态不支持该操作。
      UNSUPPORTEDOPERATION_CLUSTERSTATUSNOTSUPPORT("UnsupportedOperation.ClusterStatusNotSupport"),
      
     // 类型节点不支持当前操作。
-     UNSUPPORTEDOPERATION_INVALIDNODEROLE("UnsupportedOperation.InvalidNodeRole");
+     UNSUPPORTEDOPERATION_INVALIDNODEROLE("UnsupportedOperation.InvalidNodeRole"),
+     
+    // 节点状态不支持此操作。
+     UNSUPPORTEDOPERATION_NODESTATUSNOTSUPPORT("UnsupportedOperation.NodeStatusNotSupport"),
+     
+    // vpc冲突，不支持当前操作。
+     UNSUPPORTEDOPERATION_VPCIDCONFLICT("UnsupportedOperation.VpcIdConflict");
      
     private String value;
     private ThpcErrorCode (String value){

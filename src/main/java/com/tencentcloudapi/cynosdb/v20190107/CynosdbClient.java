@@ -59,6 +59,26 @@ public class CynosdbClient extends AbstractClient{
     }
 
     /**
+     *增加从可用区
+     * @param req AddClusterSlaveZoneRequest
+     * @return AddClusterSlaveZoneResponse
+     * @throws TencentCloudSDKException
+     */
+    public AddClusterSlaveZoneResponse AddClusterSlaveZone(AddClusterSlaveZoneRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<AddClusterSlaveZoneResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<AddClusterSlaveZoneResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "AddClusterSlaveZone");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口（AddInstances）用于集群添加实例
      * @param req AddInstancesRequest
      * @return AddInstancesResponse
@@ -119,6 +139,46 @@ public class CynosdbClient extends AbstractClient{
     }
 
     /**
+     *本接口(CreateAuditLogFile)用于创建云数据库实例的审计日志文件。
+     * @param req CreateAuditLogFileRequest
+     * @return CreateAuditLogFileResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateAuditLogFileResponse CreateAuditLogFile(CreateAuditLogFileRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateAuditLogFileResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateAuditLogFileResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateAuditLogFile");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *为集群创建手动备份
+     * @param req CreateBackupRequest
+     * @return CreateBackupResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateBackupResponse CreateBackup(CreateBackupRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateBackupResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateBackupResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateBackup");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *创建集群
      * @param req CreateClustersRequest
      * @return CreateClustersResponse
@@ -131,6 +191,46 @@ public class CynosdbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<CreateClustersResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "CreateClusters");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口(DeleteAuditLogFile)用于删除云数据库实例的审计日志文件。
+     * @param req DeleteAuditLogFileRequest
+     * @return DeleteAuditLogFileResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteAuditLogFileResponse DeleteAuditLogFile(DeleteAuditLogFileRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteAuditLogFileResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteAuditLogFileResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteAuditLogFile");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *为集群删除手动备份，无法删除自动备份
+     * @param req DeleteBackupRequest
+     * @return DeleteBackupResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteBackupResponse DeleteBackup(DeleteBackupRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteBackupResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteBackupResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteBackup");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -171,6 +271,46 @@ public class CynosdbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeAccountsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeAccounts");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口(DescribeAuditLogFiles)用于查询云数据库实例的审计日志文件。
+     * @param req DescribeAuditLogFilesRequest
+     * @return DescribeAuditLogFilesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeAuditLogFilesResponse DescribeAuditLogFiles(DescribeAuditLogFilesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeAuditLogFilesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeAuditLogFilesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeAuditLogFiles");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口(DescribeAuditLogs)用于查询数据库审计日志。
+     * @param req DescribeAuditLogsRequest
+     * @return DescribeAuditLogsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeAuditLogsResponse DescribeAuditLogs(DescribeAuditLogsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeAuditLogsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeAuditLogsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeAuditLogs");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -359,6 +499,26 @@ public class CynosdbClient extends AbstractClient{
     }
 
     /**
+     *本接口（DescribeClusterParams）用于查询集群参数
+     * @param req DescribeClusterParamsRequest
+     * @return DescribeClusterParamsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeClusterParamsResponse DescribeClusterParams(DescribeClusterParamsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeClusterParamsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeClusterParamsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeClusterParams");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *查询集群列表
      * @param req DescribeClustersRequest
      * @return DescribeClustersResponse
@@ -491,6 +651,26 @@ public class CynosdbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeMaintainPeriodResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeMaintainPeriod");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询用户指定产品下的所有参数模板信息
+     * @param req DescribeParamTemplatesRequest
+     * @return DescribeParamTemplatesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeParamTemplatesResponse DescribeParamTemplates(DescribeParamTemplatesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeParamTemplatesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeParamTemplatesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeParamTemplates");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -639,6 +819,46 @@ public class CynosdbClient extends AbstractClient{
     }
 
     /**
+     *查询新购集群价格
+     * @param req InquirePriceCreateRequest
+     * @return InquirePriceCreateResponse
+     * @throws TencentCloudSDKException
+     */
+    public InquirePriceCreateResponse InquirePriceCreate(InquirePriceCreateRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<InquirePriceCreateResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<InquirePriceCreateResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "InquirePriceCreate");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询续费集群价格
+     * @param req InquirePriceRenewRequest
+     * @return InquirePriceRenewResponse
+     * @throws TencentCloudSDKException
+     */
+    public InquirePriceRenewResponse InquirePriceRenew(InquirePriceRenewRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<InquirePriceRenewResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<InquirePriceRenewResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "InquirePriceRenew");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *隔离集群
      * @param req IsolateClusterRequest
      * @return IsolateClusterResponse
@@ -779,6 +999,46 @@ public class CynosdbClient extends AbstractClient{
     }
 
     /**
+     *修改从可用区
+     * @param req ModifyClusterSlaveZoneRequest
+     * @return ModifyClusterSlaveZoneResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyClusterSlaveZoneResponse ModifyClusterSlaveZone(ModifyClusterSlaveZoneRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyClusterSlaveZoneResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyClusterSlaveZoneResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyClusterSlaveZone");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *升级预付费存储
+     * @param req ModifyClusterStorageRequest
+     * @return ModifyClusterStorageResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyClusterStorageResponse ModifyClusterStorage(ModifyClusterStorageRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyClusterStorageResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyClusterStorageResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyClusterStorage");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口(ModifyDBInstanceSecurityGroups)用于修改实例绑定的安全组。
      * @param req ModifyDBInstanceSecurityGroupsRequest
      * @return ModifyDBInstanceSecurityGroupsResponse
@@ -899,6 +1159,46 @@ public class CynosdbClient extends AbstractClient{
     }
 
     /**
+     *删除从可用区
+     * @param req RemoveClusterSlaveZoneRequest
+     * @return RemoveClusterSlaveZoneResponse
+     * @throws TencentCloudSDKException
+     */
+    public RemoveClusterSlaveZoneResponse RemoveClusterSlaveZone(RemoveClusterSlaveZoneRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<RemoveClusterSlaveZoneResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<RemoveClusterSlaveZoneResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "RemoveClusterSlaveZone");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口(ResetAccountPassword)用于重置实例的数据库账号密码。
+     * @param req ResetAccountPasswordRequest
+     * @return ResetAccountPasswordResponse
+     * @throws TencentCloudSDKException
+     */
+    public ResetAccountPasswordResponse ResetAccountPassword(ResetAccountPasswordRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ResetAccountPasswordResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ResetAccountPasswordResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ResetAccountPassword");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *恢复serverless集群
      * @param req ResumeServerlessRequest
      * @return ResumeServerlessResponse
@@ -959,6 +1259,46 @@ public class CynosdbClient extends AbstractClient{
     }
 
     /**
+     *本接口(SearchClusterDatabases)搜索集群database列表
+     * @param req SearchClusterDatabasesRequest
+     * @return SearchClusterDatabasesResponse
+     * @throws TencentCloudSDKException
+     */
+    public SearchClusterDatabasesResponse SearchClusterDatabases(SearchClusterDatabasesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<SearchClusterDatabasesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<SearchClusterDatabasesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "SearchClusterDatabases");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口(SearchClusterTables)搜索集群数据表列表
+     * @param req SearchClusterTablesRequest
+     * @return SearchClusterTablesResponse
+     * @throws TencentCloudSDKException
+     */
+    public SearchClusterTablesResponse SearchClusterTables(SearchClusterTablesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<SearchClusterTablesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<SearchClusterTablesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "SearchClusterTables");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *SetRenewFlag设置实例的自动续费功能
      * @param req SetRenewFlagRequest
      * @return SetRenewFlagResponse
@@ -971,6 +1311,46 @@ public class CynosdbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<SetRenewFlagResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "SetRenewFlag");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *切换到从可用区
+     * @param req SwitchClusterZoneRequest
+     * @return SwitchClusterZoneResponse
+     * @throws TencentCloudSDKException
+     */
+    public SwitchClusterZoneResponse SwitchClusterZone(SwitchClusterZoneRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<SwitchClusterZoneResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<SwitchClusterZoneResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "SwitchClusterZone");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口(SwitchProxyVpc)更换数据库代理vpc
+     * @param req SwitchProxyVpcRequest
+     * @return SwitchProxyVpcResponse
+     * @throws TencentCloudSDKException
+     */
+    public SwitchProxyVpcResponse SwitchProxyVpc(SwitchProxyVpcRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<SwitchProxyVpcResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<SwitchProxyVpcResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "SwitchProxyVpc");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

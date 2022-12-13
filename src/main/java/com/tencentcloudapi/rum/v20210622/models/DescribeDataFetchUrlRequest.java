@@ -184,6 +184,27 @@ public class DescribeDataFetchUrlRequest extends AbstractModel{
     private String Env;
 
     /**
+    * httpcode响应码
+    */
+    @SerializedName("Status")
+    @Expose
+    private String Status;
+
+    /**
+    * retcode
+    */
+    @SerializedName("Ret")
+    @Expose
+    private String Ret;
+
+    /**
+    * 网络状态
+    */
+    @SerializedName("NetStatus")
+    @Expose
+    private String NetStatus;
+
+    /**
      * Get 开始时间 
      * @return StartTime 开始时间
      */
@@ -551,6 +572,54 @@ public class DescribeDataFetchUrlRequest extends AbstractModel{
         this.Env = Env;
     }
 
+    /**
+     * Get httpcode响应码 
+     * @return Status httpcode响应码
+     */
+    public String getStatus() {
+        return this.Status;
+    }
+
+    /**
+     * Set httpcode响应码
+     * @param Status httpcode响应码
+     */
+    public void setStatus(String Status) {
+        this.Status = Status;
+    }
+
+    /**
+     * Get retcode 
+     * @return Ret retcode
+     */
+    public String getRet() {
+        return this.Ret;
+    }
+
+    /**
+     * Set retcode
+     * @param Ret retcode
+     */
+    public void setRet(String Ret) {
+        this.Ret = Ret;
+    }
+
+    /**
+     * Get 网络状态 
+     * @return NetStatus 网络状态
+     */
+    public String getNetStatus() {
+        return this.NetStatus;
+    }
+
+    /**
+     * Set 网络状态
+     * @param NetStatus 网络状态
+     */
+    public void setNetStatus(String NetStatus) {
+        this.NetStatus = NetStatus;
+    }
+
     public DescribeDataFetchUrlRequest() {
     }
 
@@ -628,6 +697,15 @@ public class DescribeDataFetchUrlRequest extends AbstractModel{
         if (source.Env != null) {
             this.Env = new String(source.Env);
         }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.Ret != null) {
+            this.Ret = new String(source.Ret);
+        }
+        if (source.NetStatus != null) {
+            this.NetStatus = new String(source.NetStatus);
+        }
     }
 
 
@@ -658,6 +736,9 @@ public class DescribeDataFetchUrlRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "CostType", this.CostType);
         this.setParamSimple(map, prefix + "Url", this.Url);
         this.setParamSimple(map, prefix + "Env", this.Env);
+        this.setParamSimple(map, prefix + "Status", this.Status);
+        this.setParamSimple(map, prefix + "Ret", this.Ret);
+        this.setParamSimple(map, prefix + "NetStatus", this.NetStatus);
 
     }
 }

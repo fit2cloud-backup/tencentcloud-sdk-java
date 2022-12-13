@@ -124,7 +124,8 @@ public class VatInvoice extends AbstractModel{
 11：增值税普通发票（卷式），
 14：增值税电子（通行费）发票，
 15：二手车销售统一发票，
-32：深圳区块链发票
+32：深圳区块链发票，
+102：通用机打电子发票
     */
     @SerializedName("Type")
     @Expose
@@ -139,7 +140,7 @@ public class VatInvoice extends AbstractModel{
 
     /**
     * 是否作废（红冲）是否作废（红冲）
-Y: 已作废 N：未作废 H：红冲
+Y：已作废，N：未作废，H：红冲，HP：部分红冲，HF：全额红冲
     */
     @SerializedName("IsAbandoned")
     @Expose
@@ -195,6 +196,20 @@ Y: 有清单 N：无清单
     @SerializedName("Items")
     @Expose
     private VatInvoiceItem [] Items;
+
+    /**
+    * 所属税局
+    */
+    @SerializedName("TaxBureau")
+    @Expose
+    private String TaxBureau;
+
+    /**
+    * 通行费标志:Y、是;N、否
+    */
+    @SerializedName("TrafficFreeFlag")
+    @Expose
+    private String TrafficFreeFlag;
 
     /**
      * Get 发票代码 
@@ -415,7 +430,8 @@ Y: 有清单 N：无清单
 11：增值税普通发票（卷式），
 14：增值税电子（通行费）发票，
 15：二手车销售统一发票，
-32：深圳区块链发票 
+32：深圳区块链发票，
+102：通用机打电子发票 
      * @return Type 票种类型
 01：增值税专用发票，
 02：货运运输业增值税专用发票，
@@ -426,7 +442,8 @@ Y: 有清单 N：无清单
 11：增值税普通发票（卷式），
 14：增值税电子（通行费）发票，
 15：二手车销售统一发票，
-32：深圳区块链发票
+32：深圳区块链发票，
+102：通用机打电子发票
      */
     public String getType() {
         return this.Type;
@@ -443,7 +460,8 @@ Y: 有清单 N：无清单
 11：增值税普通发票（卷式），
 14：增值税电子（通行费）发票，
 15：二手车销售统一发票，
-32：深圳区块链发票
+32：深圳区块链发票，
+102：通用机打电子发票
      * @param Type 票种类型
 01：增值税专用发票，
 02：货运运输业增值税专用发票，
@@ -454,7 +472,8 @@ Y: 有清单 N：无清单
 11：增值税普通发票（卷式），
 14：增值税电子（通行费）发票，
 15：二手车销售统一发票，
-32：深圳区块链发票
+32：深圳区块链发票，
+102：通用机打电子发票
      */
     public void setType(String Type) {
         this.Type = Type;
@@ -478,9 +497,9 @@ Y: 有清单 N：无清单
 
     /**
      * Get 是否作废（红冲）是否作废（红冲）
-Y: 已作废 N：未作废 H：红冲 
+Y：已作废，N：未作废，H：红冲，HP：部分红冲，HF：全额红冲 
      * @return IsAbandoned 是否作废（红冲）是否作废（红冲）
-Y: 已作废 N：未作废 H：红冲
+Y：已作废，N：未作废，H：红冲，HP：部分红冲，HF：全额红冲
      */
     public String getIsAbandoned() {
         return this.IsAbandoned;
@@ -488,9 +507,9 @@ Y: 已作废 N：未作废 H：红冲
 
     /**
      * Set 是否作废（红冲）是否作废（红冲）
-Y: 已作废 N：未作废 H：红冲
+Y：已作废，N：未作废，H：红冲，HP：部分红冲，HF：全额红冲
      * @param IsAbandoned 是否作废（红冲）是否作废（红冲）
-Y: 已作废 N：未作废 H：红冲
+Y：已作废，N：未作废，H：红冲，HP：部分红冲，HF：全额红冲
      */
     public void setIsAbandoned(String IsAbandoned) {
         this.IsAbandoned = IsAbandoned;
@@ -616,6 +635,38 @@ Y: 有清单 N：无清单
         this.Items = Items;
     }
 
+    /**
+     * Get 所属税局 
+     * @return TaxBureau 所属税局
+     */
+    public String getTaxBureau() {
+        return this.TaxBureau;
+    }
+
+    /**
+     * Set 所属税局
+     * @param TaxBureau 所属税局
+     */
+    public void setTaxBureau(String TaxBureau) {
+        this.TaxBureau = TaxBureau;
+    }
+
+    /**
+     * Get 通行费标志:Y、是;N、否 
+     * @return TrafficFreeFlag 通行费标志:Y、是;N、否
+     */
+    public String getTrafficFreeFlag() {
+        return this.TrafficFreeFlag;
+    }
+
+    /**
+     * Set 通行费标志:Y、是;N、否
+     * @param TrafficFreeFlag 通行费标志:Y、是;N、否
+     */
+    public void setTrafficFreeFlag(String TrafficFreeFlag) {
+        this.TrafficFreeFlag = TrafficFreeFlag;
+    }
+
     public VatInvoice() {
     }
 
@@ -696,6 +747,12 @@ Y: 有清单 N：无清单
                 this.Items[i] = new VatInvoiceItem(source.Items[i]);
             }
         }
+        if (source.TaxBureau != null) {
+            this.TaxBureau = new String(source.TaxBureau);
+        }
+        if (source.TrafficFreeFlag != null) {
+            this.TrafficFreeFlag = new String(source.TrafficFreeFlag);
+        }
     }
 
 
@@ -726,6 +783,8 @@ Y: 有清单 N：无清单
         this.setParamSimple(map, prefix + "TaxAmount", this.TaxAmount);
         this.setParamSimple(map, prefix + "AmountWithTax", this.AmountWithTax);
         this.setParamArrayObj(map, prefix + "Items.", this.Items);
+        this.setParamSimple(map, prefix + "TaxBureau", this.TaxBureau);
+        this.setParamSimple(map, prefix + "TrafficFreeFlag", this.TrafficFreeFlag);
 
     }
 }

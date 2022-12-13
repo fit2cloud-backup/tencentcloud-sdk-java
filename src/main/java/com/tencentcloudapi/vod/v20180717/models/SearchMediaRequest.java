@@ -109,14 +109,6 @@ public class SearchMediaRequest extends AbstractModel{
     private String [] StreamIds;
 
     /**
-    * 直播录制文件的唯一标识。匹配集合中的任意元素。
-<li>数组长度限制：10。</li>
-    */
-    @SerializedName("Vids")
-    @Expose
-    private String [] Vids;
-
-    /**
     * 匹配创建时间在此时间段内的文件。
 <li>包含所指定的头尾时间点。</li>
     */
@@ -195,6 +187,23 @@ public class SearchMediaRequest extends AbstractModel{
     private String [] StorageClasses;
 
     /**
+    * TRTC 应用 ID 集合。匹配集合中的任意元素。
+<li>数组长度限制：10。</li>
+    */
+    @SerializedName("TrtcSdkAppIds")
+    @Expose
+    private Long [] TrtcSdkAppIds;
+
+    /**
+    * TRTC 房间 ID 集合。匹配集合中的任意元素。
+<li>单个房间 ID 长度限制：64个字符；</li>
+<li>数组长度限制：10。</li>
+    */
+    @SerializedName("TrtcRoomIds")
+    @Expose
+    private String [] TrtcRoomIds;
+
+    /**
     * （不推荐：应使用 Names、NamePrefixes 或 Descriptions 替代）
 搜索文本，模糊匹配媒体文件名称或描述信息，匹配项越多，匹配度越高，排序越优先。长度限制：64个字符。
     */
@@ -219,14 +228,6 @@ public class SearchMediaRequest extends AbstractModel{
     private String StreamId;
 
     /**
-    * （不推荐：应使用 Vids 替代）
-直播录制文件的唯一标识。
-    */
-    @SerializedName("Vid")
-    @Expose
-    private String Vid;
-
-    /**
     * （不推荐：应使用 CreateTime 替代）
 创建时间的开始时间。
 <li>大于等于开始时间。</li>
@@ -247,6 +248,20 @@ public class SearchMediaRequest extends AbstractModel{
     @SerializedName("EndTime")
     @Expose
     private String EndTime;
+
+    /**
+    * 该字段已无效。
+    */
+    @SerializedName("Vids")
+    @Expose
+    private String [] Vids;
+
+    /**
+    * 该字段已无效。
+    */
+    @SerializedName("Vid")
+    @Expose
+    private String Vid;
 
     /**
      * Get <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b> 
@@ -473,26 +488,6 @@ public class SearchMediaRequest extends AbstractModel{
     }
 
     /**
-     * Get 直播录制文件的唯一标识。匹配集合中的任意元素。
-<li>数组长度限制：10。</li> 
-     * @return Vids 直播录制文件的唯一标识。匹配集合中的任意元素。
-<li>数组长度限制：10。</li>
-     */
-    public String [] getVids() {
-        return this.Vids;
-    }
-
-    /**
-     * Set 直播录制文件的唯一标识。匹配集合中的任意元素。
-<li>数组长度限制：10。</li>
-     * @param Vids 直播录制文件的唯一标识。匹配集合中的任意元素。
-<li>数组长度限制：10。</li>
-     */
-    public void setVids(String [] Vids) {
-        this.Vids = Vids;
-    }
-
-    /**
      * Get 匹配创建时间在此时间段内的文件。
 <li>包含所指定的头尾时间点。</li> 
      * @return CreateTime 匹配创建时间在此时间段内的文件。
@@ -709,6 +704,50 @@ public class SearchMediaRequest extends AbstractModel{
     }
 
     /**
+     * Get TRTC 应用 ID 集合。匹配集合中的任意元素。
+<li>数组长度限制：10。</li> 
+     * @return TrtcSdkAppIds TRTC 应用 ID 集合。匹配集合中的任意元素。
+<li>数组长度限制：10。</li>
+     */
+    public Long [] getTrtcSdkAppIds() {
+        return this.TrtcSdkAppIds;
+    }
+
+    /**
+     * Set TRTC 应用 ID 集合。匹配集合中的任意元素。
+<li>数组长度限制：10。</li>
+     * @param TrtcSdkAppIds TRTC 应用 ID 集合。匹配集合中的任意元素。
+<li>数组长度限制：10。</li>
+     */
+    public void setTrtcSdkAppIds(Long [] TrtcSdkAppIds) {
+        this.TrtcSdkAppIds = TrtcSdkAppIds;
+    }
+
+    /**
+     * Get TRTC 房间 ID 集合。匹配集合中的任意元素。
+<li>单个房间 ID 长度限制：64个字符；</li>
+<li>数组长度限制：10。</li> 
+     * @return TrtcRoomIds TRTC 房间 ID 集合。匹配集合中的任意元素。
+<li>单个房间 ID 长度限制：64个字符；</li>
+<li>数组长度限制：10。</li>
+     */
+    public String [] getTrtcRoomIds() {
+        return this.TrtcRoomIds;
+    }
+
+    /**
+     * Set TRTC 房间 ID 集合。匹配集合中的任意元素。
+<li>单个房间 ID 长度限制：64个字符；</li>
+<li>数组长度限制：10。</li>
+     * @param TrtcRoomIds TRTC 房间 ID 集合。匹配集合中的任意元素。
+<li>单个房间 ID 长度限制：64个字符；</li>
+<li>数组长度限制：10。</li>
+     */
+    public void setTrtcRoomIds(String [] TrtcRoomIds) {
+        this.TrtcRoomIds = TrtcRoomIds;
+    }
+
+    /**
      * Get （不推荐：应使用 Names、NamePrefixes 或 Descriptions 替代）
 搜索文本，模糊匹配媒体文件名称或描述信息，匹配项越多，匹配度越高，排序越优先。长度限制：64个字符。 
      * @return Text （不推荐：应使用 Names、NamePrefixes 或 Descriptions 替代）
@@ -766,26 +805,6 @@ public class SearchMediaRequest extends AbstractModel{
      */
     public void setStreamId(String StreamId) {
         this.StreamId = StreamId;
-    }
-
-    /**
-     * Get （不推荐：应使用 Vids 替代）
-直播录制文件的唯一标识。 
-     * @return Vid （不推荐：应使用 Vids 替代）
-直播录制文件的唯一标识。
-     */
-    public String getVid() {
-        return this.Vid;
-    }
-
-    /**
-     * Set （不推荐：应使用 Vids 替代）
-直播录制文件的唯一标识。
-     * @param Vid （不推荐：应使用 Vids 替代）
-直播录制文件的唯一标识。
-     */
-    public void setVid(String Vid) {
-        this.Vid = Vid;
     }
 
     /**
@@ -850,6 +869,38 @@ public class SearchMediaRequest extends AbstractModel{
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
+    }
+
+    /**
+     * Get 该字段已无效。 
+     * @return Vids 该字段已无效。
+     */
+    public String [] getVids() {
+        return this.Vids;
+    }
+
+    /**
+     * Set 该字段已无效。
+     * @param Vids 该字段已无效。
+     */
+    public void setVids(String [] Vids) {
+        this.Vids = Vids;
+    }
+
+    /**
+     * Get 该字段已无效。 
+     * @return Vid 该字段已无效。
+     */
+    public String getVid() {
+        return this.Vid;
+    }
+
+    /**
+     * Set 该字段已无效。
+     * @param Vid 该字段已无效。
+     */
+    public void setVid(String Vid) {
+        this.Vid = Vid;
     }
 
     public SearchMediaRequest() {
@@ -917,12 +968,6 @@ public class SearchMediaRequest extends AbstractModel{
                 this.StreamIds[i] = new String(source.StreamIds[i]);
             }
         }
-        if (source.Vids != null) {
-            this.Vids = new String[source.Vids.length];
-            for (int i = 0; i < source.Vids.length; i++) {
-                this.Vids[i] = new String(source.Vids[i]);
-            }
-        }
         if (source.CreateTime != null) {
             this.CreateTime = new TimeRange(source.CreateTime);
         }
@@ -956,6 +1001,18 @@ public class SearchMediaRequest extends AbstractModel{
                 this.StorageClasses[i] = new String(source.StorageClasses[i]);
             }
         }
+        if (source.TrtcSdkAppIds != null) {
+            this.TrtcSdkAppIds = new Long[source.TrtcSdkAppIds.length];
+            for (int i = 0; i < source.TrtcSdkAppIds.length; i++) {
+                this.TrtcSdkAppIds[i] = new Long(source.TrtcSdkAppIds[i]);
+            }
+        }
+        if (source.TrtcRoomIds != null) {
+            this.TrtcRoomIds = new String[source.TrtcRoomIds.length];
+            for (int i = 0; i < source.TrtcRoomIds.length; i++) {
+                this.TrtcRoomIds[i] = new String(source.TrtcRoomIds[i]);
+            }
+        }
         if (source.Text != null) {
             this.Text = new String(source.Text);
         }
@@ -965,14 +1022,20 @@ public class SearchMediaRequest extends AbstractModel{
         if (source.StreamId != null) {
             this.StreamId = new String(source.StreamId);
         }
-        if (source.Vid != null) {
-            this.Vid = new String(source.Vid);
-        }
         if (source.StartTime != null) {
             this.StartTime = new String(source.StartTime);
         }
         if (source.EndTime != null) {
             this.EndTime = new String(source.EndTime);
+        }
+        if (source.Vids != null) {
+            this.Vids = new String[source.Vids.length];
+            for (int i = 0; i < source.Vids.length; i++) {
+                this.Vids[i] = new String(source.Vids[i]);
+            }
+        }
+        if (source.Vid != null) {
+            this.Vid = new String(source.Vid);
         }
     }
 
@@ -991,7 +1054,6 @@ public class SearchMediaRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "Categories.", this.Categories);
         this.setParamArraySimple(map, prefix + "SourceTypes.", this.SourceTypes);
         this.setParamArraySimple(map, prefix + "StreamIds.", this.StreamIds);
-        this.setParamArraySimple(map, prefix + "Vids.", this.Vids);
         this.setParamObj(map, prefix + "CreateTime.", this.CreateTime);
         this.setParamObj(map, prefix + "ExpireTime.", this.ExpireTime);
         this.setParamObj(map, prefix + "Sort.", this.Sort);
@@ -1000,12 +1062,15 @@ public class SearchMediaRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "Filters.", this.Filters);
         this.setParamArraySimple(map, prefix + "StorageRegions.", this.StorageRegions);
         this.setParamArraySimple(map, prefix + "StorageClasses.", this.StorageClasses);
+        this.setParamArraySimple(map, prefix + "TrtcSdkAppIds.", this.TrtcSdkAppIds);
+        this.setParamArraySimple(map, prefix + "TrtcRoomIds.", this.TrtcRoomIds);
         this.setParamSimple(map, prefix + "Text", this.Text);
         this.setParamSimple(map, prefix + "SourceType", this.SourceType);
         this.setParamSimple(map, prefix + "StreamId", this.StreamId);
-        this.setParamSimple(map, prefix + "Vid", this.Vid);
         this.setParamSimple(map, prefix + "StartTime", this.StartTime);
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
+        this.setParamArraySimple(map, prefix + "Vids.", this.Vids);
+        this.setParamSimple(map, prefix + "Vid", this.Vid);
 
     }
 }

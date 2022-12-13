@@ -23,15 +23,17 @@ import java.util.HashMap;
 public class ClientIp extends AbstractModel{
 
     /**
-    * 客户端IP头部配置开关
-注意：此字段可能返回 null，表示取不到有效值。
+    * 配置开关，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li>
     */
     @SerializedName("Switch")
     @Expose
     private String Switch;
 
     /**
-    * 回源客户端IP请求头名称
+    * 回源时，存放客户端IP的请求头名称。
+为空则使用默认值：X-Forwarded-IP。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HeaderName")
@@ -39,29 +41,35 @@ public class ClientIp extends AbstractModel{
     private String HeaderName;
 
     /**
-     * Get 客户端IP头部配置开关
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Switch 客户端IP头部配置开关
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 配置开关，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li> 
+     * @return Switch 配置开关，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li>
      */
     public String getSwitch() {
         return this.Switch;
     }
 
     /**
-     * Set 客户端IP头部配置开关
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Switch 客户端IP头部配置开关
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 配置开关，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li>
+     * @param Switch 配置开关，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li>
      */
     public void setSwitch(String Switch) {
         this.Switch = Switch;
     }
 
     /**
-     * Get 回源客户端IP请求头名称
+     * Get 回源时，存放客户端IP的请求头名称。
+为空则使用默认值：X-Forwarded-IP。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return HeaderName 回源客户端IP请求头名称
+     * @return HeaderName 回源时，存放客户端IP的请求头名称。
+为空则使用默认值：X-Forwarded-IP。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHeaderName() {
@@ -69,9 +77,11 @@ public class ClientIp extends AbstractModel{
     }
 
     /**
-     * Set 回源客户端IP请求头名称
+     * Set 回源时，存放客户端IP的请求头名称。
+为空则使用默认值：X-Forwarded-IP。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param HeaderName 回源客户端IP请求头名称
+     * @param HeaderName 回源时，存放客户端IP的请求头名称。
+为空则使用默认值：X-Forwarded-IP。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHeaderName(String HeaderName) {

@@ -234,6 +234,9 @@ public enum ApigatewayErrorCode {
     // 参数后端地址取值错误。
      INVALIDPARAMETERVALUE_INVALIDIPADDRESS("InvalidParameterValue.InvalidIPAddress"),
      
+    // 参数请求配额总数取值错误。
+     INVALIDPARAMETERVALUE_INVALIDMAXREQUESTNUM("InvalidParameterValue.InvalidMaxRequestNum"),
+     
     // 方法错误。仅支持 ANY, BEGIN, GET, POST, DELETE, HEAD, PUT, OPTIONS, TRACE, PATCH，请修改后重新操作。
      INVALIDPARAMETERVALUE_INVALIDMETHOD("InvalidParameterValue.InvalidMethod"),
      
@@ -311,6 +314,9 @@ public enum ApigatewayErrorCode {
      
     // 参数取值错误，不在参数范围内。
      INVALIDPARAMETERVALUE_RANGEEXCEEDED("InvalidParameterValue.RangeExceeded"),
+     
+    // 参数取值错误。
+     INVALIDPARAMETERVALUE_UNSUPPORTEDPARAMETER("InvalidParameterValue.UnsupportedParameter"),
      
     // 超过配额限制。
      LIMITEXCEEDED("LimitExceeded"),

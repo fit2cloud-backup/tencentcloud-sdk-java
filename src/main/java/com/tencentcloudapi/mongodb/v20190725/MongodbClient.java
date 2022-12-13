@@ -140,6 +140,26 @@ public class MongodbClient extends AbstractClient{
     }
 
     /**
+     *本接口(DescribeAccountUsers)用于获取当前实例的全部账号列表。
+     * @param req DescribeAccountUsersRequest
+     * @return DescribeAccountUsersResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeAccountUsersResponse DescribeAccountUsers(DescribeAccountUsersRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeAccountUsersResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeAccountUsersResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeAccountUsers");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *查询异步任务状态接口
      * @param req DescribeAsyncRequestInfoRequest
      * @return DescribeAsyncRequestInfoResponse
@@ -152,28 +172,6 @@ public class MongodbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeAsyncRequestInfoResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeAsyncRequestInfo");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *备份下载功能已调整，此接口即将下线
-
-本接口（DescribeBackupAccess）用于获取备份文件的下载授权，具体的备份文件信息可通过查询实例备份列表（DescribeDBBackups）接口获取
-     * @param req DescribeBackupAccessRequest
-     * @return DescribeBackupAccessResponse
-     * @throws TencentCloudSDKException
-     */
-    public DescribeBackupAccessResponse DescribeBackupAccess(DescribeBackupAccessRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeBackupAccessResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeBackupAccessResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeBackupAccess");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -274,6 +272,26 @@ public class MongodbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeDBInstanceDealResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeDBInstanceDeal");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口用于查询节点的属性，包括节点所在可用区、节点名称、地址、角色、状态、主从延迟、优先级、投票权、标签等属性。
+     * @param req DescribeDBInstanceNodePropertyRequest
+     * @return DescribeDBInstanceNodePropertyResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeDBInstanceNodePropertyResponse DescribeDBInstanceNodeProperty(DescribeDBInstanceNodePropertyRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeDBInstanceNodePropertyResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeDBInstanceNodePropertyResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeDBInstanceNodeProperty");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -422,7 +440,7 @@ public class MongodbClient extends AbstractClient{
     }
 
     /**
-     *本接口用于创建数据库实例询价。本接口参数中必须传入region参数，否则无法通过校验。本接口仅允许针对购买限制范围内的实例配置进行询价。
+     *本接口（InquirePriceCreateDBInstances）用于创建数据库实例询价。本接口参数中必须传入region参数，否则无法通过校验。本接口仅允许针对购买限制范围内的实例配置进行询价。
      * @param req InquirePriceCreateDBInstancesRequest
      * @return InquirePriceCreateDBInstancesResponse
      * @throws TencentCloudSDKException
@@ -674,6 +692,26 @@ public class MongodbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<SetAccountUserPrivilegeResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "SetAccountUserPrivilege");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（TerminateDBInstances）可将包年包月实例退还隔离。
+     * @param req TerminateDBInstancesRequest
+     * @return TerminateDBInstancesResponse
+     * @throws TencentCloudSDKException
+     */
+    public TerminateDBInstancesResponse TerminateDBInstances(TerminateDBInstancesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<TerminateDBInstancesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<TerminateDBInstancesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "TerminateDBInstances");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

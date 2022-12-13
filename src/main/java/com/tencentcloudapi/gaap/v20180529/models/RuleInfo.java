@@ -58,7 +58,7 @@ public class RuleInfo extends AbstractModel{
     private String RealServerType;
 
     /**
-    * 转发源站策略
+    * 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。
     */
     @SerializedName("Scheduler")
     @Expose
@@ -126,6 +126,14 @@ public class RuleInfo extends AbstractModel{
     @SerializedName("ServerNameIndication")
     @Expose
     private String ServerNameIndication;
+
+    /**
+    * 强转HTTPS指示，当传递值为https:时表示强转为https
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ForcedRedirect")
+    @Expose
+    private String ForcedRedirect;
 
     /**
      * Get 规则信息 
@@ -208,16 +216,16 @@ public class RuleInfo extends AbstractModel{
     }
 
     /**
-     * Get 转发源站策略 
-     * @return Scheduler 转发源站策略
+     * Get 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。 
+     * @return Scheduler 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。
      */
     public String getScheduler() {
         return this.Scheduler;
     }
 
     /**
-     * Set 转发源站策略
-     * @param Scheduler 转发源站策略
+     * Set 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。
+     * @param Scheduler 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。
      */
     public void setScheduler(String Scheduler) {
         this.Scheduler = Scheduler;
@@ -379,6 +387,26 @@ public class RuleInfo extends AbstractModel{
         this.ServerNameIndication = ServerNameIndication;
     }
 
+    /**
+     * Get 强转HTTPS指示，当传递值为https:时表示强转为https
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ForcedRedirect 强转HTTPS指示，当传递值为https:时表示强转为https
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getForcedRedirect() {
+        return this.ForcedRedirect;
+    }
+
+    /**
+     * Set 强转HTTPS指示，当传递值为https:时表示强转为https
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ForcedRedirect 强转HTTPS指示，当传递值为https:时表示强转为https
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setForcedRedirect(String ForcedRedirect) {
+        this.ForcedRedirect = ForcedRedirect;
+    }
+
     public RuleInfo() {
     }
 
@@ -432,6 +460,9 @@ public class RuleInfo extends AbstractModel{
         if (source.ServerNameIndication != null) {
             this.ServerNameIndication = new String(source.ServerNameIndication);
         }
+        if (source.ForcedRedirect != null) {
+            this.ForcedRedirect = new String(source.ForcedRedirect);
+        }
     }
 
 
@@ -453,6 +484,7 @@ public class RuleInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "ForwardHost", this.ForwardHost);
         this.setParamSimple(map, prefix + "ServerNameIndicationSwitch", this.ServerNameIndicationSwitch);
         this.setParamSimple(map, prefix + "ServerNameIndication", this.ServerNameIndication);
+        this.setParamSimple(map, prefix + "ForcedRedirect", this.ForcedRedirect);
 
     }
 }

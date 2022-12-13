@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class DescribeWhiteBoxKeyDetailsResponse extends AbstractModel{
 
     /**
-    * 白盒密钥信息列表
+    * 白盒密钥信息列表。
     */
     @SerializedName("KeyInfos")
     @Expose
     private WhiteboxKeyInfo [] KeyInfos;
 
     /**
-    * key总数量
+    * 白盒密钥总数。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TotalCount")
@@ -45,25 +45,25 @@ public class DescribeWhiteBoxKeyDetailsResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 白盒密钥信息列表 
-     * @return KeyInfos 白盒密钥信息列表
+     * Get 白盒密钥信息列表。 
+     * @return KeyInfos 白盒密钥信息列表。
      */
     public WhiteboxKeyInfo [] getKeyInfos() {
         return this.KeyInfos;
     }
 
     /**
-     * Set 白盒密钥信息列表
-     * @param KeyInfos 白盒密钥信息列表
+     * Set 白盒密钥信息列表。
+     * @param KeyInfos 白盒密钥信息列表。
      */
     public void setKeyInfos(WhiteboxKeyInfo [] KeyInfos) {
         this.KeyInfos = KeyInfos;
     }
 
     /**
-     * Get key总数量
+     * Get 白盒密钥总数。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TotalCount key总数量
+     * @return TotalCount 白盒密钥总数。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotalCount() {
@@ -71,9 +71,9 @@ public class DescribeWhiteBoxKeyDetailsResponse extends AbstractModel{
     }
 
     /**
-     * Set key总数量
+     * Set 白盒密钥总数。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param TotalCount key总数量
+     * @param TotalCount 白盒密钥总数。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotalCount(Long TotalCount) {

@@ -34,7 +34,7 @@ public class CreateOpenBankPaymentOrderRequest extends AbstractModel{
 __TENPAY__: 商企付
 __WECHAT__: 微信支付
 __ALIPAY__: 支付宝
-__WECHAT__: 微信支付
+__HUIFU__: 汇付斗拱
     */
     @SerializedName("ChannelName")
     @Expose
@@ -46,6 +46,8 @@ __EBANK_PAYMENT__:B2B EBank付款
 __OPENBANK_PAYMENT__:B2C  openbank付款
 __SAFT_ISV__:支付宝安心发
 __TRANS_TO_CHANGE__: 微信支付转账到零钱v2
+__TRANS_TO_CHANGE_V3__: 微信支付转账到零钱v3
+__ONLINEBANK__: 汇付网银
     */
     @SerializedName("PaymentMethod")
     @Expose
@@ -162,6 +164,20 @@ __SHARE_BY_API__：后续调用分润接口决定分润金额
     private OpenBankProfitShareInfo [] ProfitShareInfoList;
 
     /**
+    * 商企付-担保支付（PaymentMode为 FREEZE ）时需设置该参数
+    */
+    @SerializedName("SettlementRulesInfo")
+    @Expose
+    private OpenBankSettlementRulesInfo SettlementRulesInfo;
+
+    /**
+    * 底层支付渠道特殊字段，若无特殊说明时，可以为空
+    */
+    @SerializedName("ExternalPaymentData")
+    @Expose
+    private String ExternalPaymentData;
+
+    /**
     * 备注信息。
     */
     @SerializedName("Remark")
@@ -199,12 +215,12 @@ __sandbox__:沙箱环境
 __TENPAY__: 商企付
 __WECHAT__: 微信支付
 __ALIPAY__: 支付宝
-__WECHAT__: 微信支付 
+__HUIFU__: 汇付斗拱 
      * @return ChannelName 渠道名称。详见附录-云企付枚举类说明-ChannelName。
 __TENPAY__: 商企付
 __WECHAT__: 微信支付
 __ALIPAY__: 支付宝
-__WECHAT__: 微信支付
+__HUIFU__: 汇付斗拱
      */
     public String getChannelName() {
         return this.ChannelName;
@@ -215,12 +231,12 @@ __WECHAT__: 微信支付
 __TENPAY__: 商企付
 __WECHAT__: 微信支付
 __ALIPAY__: 支付宝
-__WECHAT__: 微信支付
+__HUIFU__: 汇付斗拱
      * @param ChannelName 渠道名称。详见附录-云企付枚举类说明-ChannelName。
 __TENPAY__: 商企付
 __WECHAT__: 微信支付
 __ALIPAY__: 支付宝
-__WECHAT__: 微信支付
+__HUIFU__: 汇付斗拱
      */
     public void setChannelName(String ChannelName) {
         this.ChannelName = ChannelName;
@@ -231,12 +247,16 @@ __WECHAT__: 微信支付
 __EBANK_PAYMENT__:B2B EBank付款
 __OPENBANK_PAYMENT__:B2C  openbank付款
 __SAFT_ISV__:支付宝安心发
-__TRANS_TO_CHANGE__: 微信支付转账到零钱v2 
+__TRANS_TO_CHANGE__: 微信支付转账到零钱v2
+__TRANS_TO_CHANGE_V3__: 微信支付转账到零钱v3
+__ONLINEBANK__: 汇付网银 
      * @return PaymentMethod 付款方式。详见附录-云企付枚举类说明-PaymentMethod。
 __EBANK_PAYMENT__:B2B EBank付款
 __OPENBANK_PAYMENT__:B2C  openbank付款
 __SAFT_ISV__:支付宝安心发
 __TRANS_TO_CHANGE__: 微信支付转账到零钱v2
+__TRANS_TO_CHANGE_V3__: 微信支付转账到零钱v3
+__ONLINEBANK__: 汇付网银
      */
     public String getPaymentMethod() {
         return this.PaymentMethod;
@@ -248,11 +268,15 @@ __EBANK_PAYMENT__:B2B EBank付款
 __OPENBANK_PAYMENT__:B2C  openbank付款
 __SAFT_ISV__:支付宝安心发
 __TRANS_TO_CHANGE__: 微信支付转账到零钱v2
+__TRANS_TO_CHANGE_V3__: 微信支付转账到零钱v3
+__ONLINEBANK__: 汇付网银
      * @param PaymentMethod 付款方式。详见附录-云企付枚举类说明-PaymentMethod。
 __EBANK_PAYMENT__:B2B EBank付款
 __OPENBANK_PAYMENT__:B2C  openbank付款
 __SAFT_ISV__:支付宝安心发
 __TRANS_TO_CHANGE__: 微信支付转账到零钱v2
+__TRANS_TO_CHANGE_V3__: 微信支付转账到零钱v3
+__ONLINEBANK__: 汇付网银
      */
     public void setPaymentMethod(String PaymentMethod) {
         this.PaymentMethod = PaymentMethod;
@@ -519,6 +543,38 @@ __SHARE_BY_API__：后续调用分润接口决定分润金额
     }
 
     /**
+     * Get 商企付-担保支付（PaymentMode为 FREEZE ）时需设置该参数 
+     * @return SettlementRulesInfo 商企付-担保支付（PaymentMode为 FREEZE ）时需设置该参数
+     */
+    public OpenBankSettlementRulesInfo getSettlementRulesInfo() {
+        return this.SettlementRulesInfo;
+    }
+
+    /**
+     * Set 商企付-担保支付（PaymentMode为 FREEZE ）时需设置该参数
+     * @param SettlementRulesInfo 商企付-担保支付（PaymentMode为 FREEZE ）时需设置该参数
+     */
+    public void setSettlementRulesInfo(OpenBankSettlementRulesInfo SettlementRulesInfo) {
+        this.SettlementRulesInfo = SettlementRulesInfo;
+    }
+
+    /**
+     * Get 底层支付渠道特殊字段，若无特殊说明时，可以为空 
+     * @return ExternalPaymentData 底层支付渠道特殊字段，若无特殊说明时，可以为空
+     */
+    public String getExternalPaymentData() {
+        return this.ExternalPaymentData;
+    }
+
+    /**
+     * Set 底层支付渠道特殊字段，若无特殊说明时，可以为空
+     * @param ExternalPaymentData 底层支付渠道特殊字段，若无特殊说明时，可以为空
+     */
+    public void setExternalPaymentData(String ExternalPaymentData) {
+        this.ExternalPaymentData = ExternalPaymentData;
+    }
+
+    /**
      * Get 备注信息。 
      * @return Remark 备注信息。
      */
@@ -627,6 +683,12 @@ __sandbox__:沙箱环境
                 this.ProfitShareInfoList[i] = new OpenBankProfitShareInfo(source.ProfitShareInfoList[i]);
             }
         }
+        if (source.SettlementRulesInfo != null) {
+            this.SettlementRulesInfo = new OpenBankSettlementRulesInfo(source.SettlementRulesInfo);
+        }
+        if (source.ExternalPaymentData != null) {
+            this.ExternalPaymentData = new String(source.ExternalPaymentData);
+        }
         if (source.Remark != null) {
             this.Remark = new String(source.Remark);
         }
@@ -658,6 +720,8 @@ __sandbox__:沙箱环境
         this.setParamSimple(map, prefix + "Attachment", this.Attachment);
         this.setParamSimple(map, prefix + "ProfitShareFlag", this.ProfitShareFlag);
         this.setParamArrayObj(map, prefix + "ProfitShareInfoList.", this.ProfitShareInfoList);
+        this.setParamObj(map, prefix + "SettlementRulesInfo.", this.SettlementRulesInfo);
+        this.setParamSimple(map, prefix + "ExternalPaymentData", this.ExternalPaymentData);
         this.setParamSimple(map, prefix + "Remark", this.Remark);
         this.setParamSimple(map, prefix + "Environment", this.Environment);
 

@@ -33,6 +33,9 @@ public enum CvmErrorCode {
     // 查询退换价格失败，找不到付款订单，请检查设备 `ins-xxxxxxx` 是否已过期。
      FAILEDOPERATION_INQUIRYREFUNDPRICEFAILED("FailedOperation.InquiryRefundPriceFailed"),
      
+    // 镜像状态繁忙，请稍后重试。
+     FAILEDOPERATION_INVALIDIMAGESTATE("FailedOperation.InvalidImageState"),
+     
     // 请求不支持`EMR`的实例`ins-xxxxxxxx`。
      FAILEDOPERATION_INVALIDINSTANCEAPPLICATIONROLEEMR("FailedOperation.InvalidInstanceApplicationRoleEmr"),
      
@@ -216,6 +219,9 @@ public enum CvmErrorCode {
     // 当前接口不支持实例镜像。
      INVALIDPARAMETER_INSTANCEIMAGENOTSUPPORT("InvalidParameter.InstanceImageNotSupport"),
      
+    // 不支持设置公网带宽相关信息。
+     INVALIDPARAMETER_INTERNETACCESSIBLENOTSUPPORTED("InvalidParameter.InternetAccessibleNotSupported"),
+     
     // 云盘资源售罄。
      INVALIDPARAMETER_INVALIDCLOUDDISKSOLDOUT("InvalidParameter.InvalidCloudDiskSoldOut"),
      
@@ -243,7 +249,7 @@ public enum CvmErrorCode {
     // 不支持同时指定密钥登陆和保持镜像登陆方式。
      INVALIDPARAMETER_PARAMETERCONFLICT("InvalidParameter.ParameterConflict"),
      
-    // 不支持设置登陆密码。
+    // 不支持设置登录密码。
      INVALIDPARAMETER_PASSWORDNOTSUPPORTED("InvalidParameter.PasswordNotSupported"),
      
     // 指定的快照不存在。
@@ -278,6 +284,9 @@ public enum CvmErrorCode {
      
     // 请确认指定的带宽包是否存在。
      INVALIDPARAMETERVALUE_BANDWIDTHPACKAGEIDNOTFOUND("InvalidParameterValue.BandwidthPackageIdNotFound"),
+     
+    // 实例为基础网络实例，目标实例规格仅支持私有网络，不支持调整。
+     INVALIDPARAMETERVALUE_BASICNETWORKINSTANCEFAMILY("InvalidParameterValue.BasicNetworkInstanceFamily"),
      
     // 请确认存储桶是否存在。
      INVALIDPARAMETERVALUE_BUCKETNOTFOUND("InvalidParameterValue.BucketNotFound"),
@@ -323,6 +332,9 @@ public enum CvmErrorCode {
      
     // 传参格式不对。
      INVALIDPARAMETERVALUE_INCORRECTFORMAT("InvalidParameterValue.IncorrectFormat"),
+     
+    // 实例ID不合要求，请提供规范的实例ID，类似ins-xxxxxxxx，字母x代表小写字符或数字。
+     INVALIDPARAMETERVALUE_INSTANCEIDMALFORMED("InvalidParameterValue.InstanceIdMalformed"),
      
     // 不支持操作不同计费方式的实例。
      INVALIDPARAMETERVALUE_INSTANCENOTSUPPORTEDMIXPRICINGMODEL("InvalidParameterValue.InstanceNotSupportedMixPricingModel"),
@@ -540,11 +552,17 @@ public enum CvmErrorCode {
     // 指定置放群组配额不足。
      LIMITEXCEEDED_DISASTERRECOVERGROUP("LimitExceeded.DisasterRecoverGroup"),
      
+    // 特定实例包含的某个ENI的EIP数量已超过目标实例类型的EIP允许的最大值，请删除部分EIP后重试。
+     LIMITEXCEEDED_EIPNUMLIMIT("LimitExceeded.EipNumLimit"),
+     
     // 特定实例当前ENI数量已超过目标实例类型的ENI允许的最大值，需删除部分ENI后重试。
      LIMITEXCEEDED_ENINUMLIMIT("LimitExceeded.EniNumLimit"),
      
     // 正在运行中的镜像导出任务已达上限，请等待已有任务完成后，再次发起重试。
      LIMITEXCEEDED_EXPORTIMAGETASKLIMITEXCEEDED("LimitExceeded.ExportImageTaskLimitExceeded"),
+     
+    // 已达创建高性能计算集群数的上限。
+     LIMITEXCEEDED_HPCCLUSTERQUOTA("LimitExceeded.HpcClusterQuota"),
      
     // IP数量超过网卡上限。
      LIMITEXCEEDED_IPV6ADDRESSNUM("LimitExceeded.IPv6AddressNum"),
@@ -617,6 +635,9 @@ public enum CvmErrorCode {
      
     // 资源被占用。
      RESOURCEINUSE("ResourceInUse"),
+     
+    // 高性能计算集群使用中。
+     RESOURCEINUSE_HPCCLUSTER("ResourceInUse.HpcCluster"),
      
     // 该可用区已售罄
      RESOURCEINSUFFICIENT_AVAILABILITYZONESOLDOUT("ResourceInsufficient.AvailabilityZoneSoldOut"),
@@ -696,6 +717,15 @@ public enum CvmErrorCode {
     // 指定的实例付费模式或者网络付费模式不支持共享带宽包
      UNSUPPORTEDOPERATION_BANDWIDTHPACKAGEIDNOTSUPPORTED("UnsupportedOperation.BandwidthPackageIdNotSupported"),
      
+    // 所选择的边缘可用区不支持云盘操作。
+     UNSUPPORTEDOPERATION_EDGEZONENOTSUPPORTCLOUDDISK("UnsupportedOperation.EdgeZoneNotSupportCloudDisk"),
+     
+    // 云服务器绑定了弹性网卡，请解绑弹性网卡后再切换私有网络。
+     UNSUPPORTEDOPERATION_ELASTICNETWORKINTERFACE("UnsupportedOperation.ElasticNetworkInterface"),
+     
+    // 不支持加密镜像。
+     UNSUPPORTEDOPERATION_ENCRYPTEDIMAGESNOTSUPPORTED("UnsupportedOperation.EncryptedImagesNotSupported"),
+     
     // 异构机型不支持跨机型调整。
      UNSUPPORTEDOPERATION_HETEROGENEOUSCHANGEINSTANCEFAMILY("UnsupportedOperation.HeterogeneousChangeInstanceFamily"),
      
@@ -710,6 +740,9 @@ public enum CvmErrorCode {
      
     // 不支持混合付费模式。
      UNSUPPORTEDOPERATION_INSTANCEMIXEDPRICINGMODEL("UnsupportedOperation.InstanceMixedPricingModel"),
+     
+    // 中心可用区和边缘可用区实例不能混用批量操作。
+     UNSUPPORTEDOPERATION_INSTANCEMIXEDZONETYPE("UnsupportedOperation.InstanceMixedZoneType"),
      
     // 请求不支持操作系统为`Xserver windows2012cndatacenterx86_64`的实例`ins-xxxxxx` 。
      UNSUPPORTEDOPERATION_INSTANCEOSWINDOWS("UnsupportedOperation.InstanceOsWindows"),
@@ -737,6 +770,9 @@ public enum CvmErrorCode {
      
     // 请求不支持正在隔离状态的实例。
      UNSUPPORTEDOPERATION_INSTANCESTATEISOLATING("UnsupportedOperation.InstanceStateIsolating"),
+     
+    // 不支持操作创建失败的实例。
+     UNSUPPORTEDOPERATION_INSTANCESTATELAUNCHFAILED("UnsupportedOperation.InstanceStateLaunchFailed"),
      
     // 请求不支持创建未完成的实例
      UNSUPPORTEDOPERATION_INSTANCESTATEPENDING("UnsupportedOperation.InstanceStatePending"),
@@ -774,11 +810,17 @@ public enum CvmErrorCode {
     // 不支持已启用销毁保护的实例，请先到设置实例销毁保护，关闭实例销毁保护，然后重试。
      UNSUPPORTEDOPERATION_INSTANCESPROTECTED("UnsupportedOperation.InstancesProtected"),
      
+    // 用户创建高性能集群配额已达上限。
+     UNSUPPORTEDOPERATION_INSUFFICIENTCLUSTERQUOTA("UnsupportedOperation.InsufficientClusterQuota"),
+     
     // 不支持调整数据盘。
      UNSUPPORTEDOPERATION_INVALIDDATADISK("UnsupportedOperation.InvalidDataDisk"),
      
     // 不支持指定的磁盘
      UNSUPPORTEDOPERATION_INVALIDDISK("UnsupportedOperation.InvalidDisk"),
+     
+    // 不支持带有云硬盘备份点。
+     UNSUPPORTEDOPERATION_INVALIDDISKBACKUPQUOTA("UnsupportedOperation.InvalidDiskBackupQuota"),
      
     // 镜像许可类型与实例不符，请选择其他镜像。
      UNSUPPORTEDOPERATION_INVALIDIMAGELICENSETYPEFORRESET("UnsupportedOperation.InvalidImageLicenseTypeForReset"),
@@ -792,6 +834,9 @@ public enum CvmErrorCode {
     // 指定的地域不支持加密盘。
      UNSUPPORTEDOPERATION_INVALIDREGIONDISKENCRYPT("UnsupportedOperation.InvalidRegionDiskEncrypt"),
      
+    // 该可用区不可售卖。
+     UNSUPPORTEDOPERATION_INVALIDZONE("UnsupportedOperation.InvalidZone"),
+     
     // 密钥不支持Windows操作系统
      UNSUPPORTEDOPERATION_KEYPAIRUNSUPPORTEDWINDOWS("UnsupportedOperation.KeyPairUnsupportedWindows"),
      
@@ -804,11 +849,17 @@ public enum CvmErrorCode {
     // 从市场镜像创建的自定义镜像不支持导出。
      UNSUPPORTEDOPERATION_MARKETIMAGEEXPORTUNSUPPORTED("UnsupportedOperation.MarketImageExportUnsupported"),
      
+    // 不支持修改系统盘的加密属性，例如使用非加密镜像重装加密系统盘。
+     UNSUPPORTEDOPERATION_MODIFYENCRYPTIONNOTSUPPORTED("UnsupportedOperation.ModifyEncryptionNotSupported"),
+     
     // 绑定负载均衡的实例，不支持修改vpc属性。
      UNSUPPORTEDOPERATION_MODIFYVPCWITHCLB("UnsupportedOperation.ModifyVPCWithCLB"),
      
     // 该实例类型不支持竞价计费
      UNSUPPORTEDOPERATION_NOINSTANCETYPESUPPORTSPOT("UnsupportedOperation.NoInstanceTypeSupportSpot"),
+     
+    // 不支持物理网络的实例。
+     UNSUPPORTEDOPERATION_NOVPCNETWORK("UnsupportedOperation.NoVpcNetwork"),
      
     // 当前实例不是FPGA机型。
      UNSUPPORTEDOPERATION_NOTFPGAINSTANCE("UnsupportedOperation.NotFpgaInstance"),
@@ -831,6 +882,12 @@ public enum CvmErrorCode {
     // 当前镜像不支持对该实例的重装操作。
      UNSUPPORTEDOPERATION_RAWLOCALDISKINSREINSTALLTOQCOW2("UnsupportedOperation.RawLocalDiskInsReinstalltoQcow2"),
      
+    // 实例使用商业操作系统，不支持退还。
+     UNSUPPORTEDOPERATION_REDHATINSTANCETERMINATEUNSUPPORTED("UnsupportedOperation.RedHatInstanceTerminateUnsupported"),
+     
+    // 请求不支持操作系统为RedHat的实例。
+     UNSUPPORTEDOPERATION_REDHATINSTANCEUNSUPPORTED("UnsupportedOperation.RedHatInstanceUnsupported"),
+     
     // 不支持该地域
      UNSUPPORTEDOPERATION_REGION("UnsupportedOperation.Region"),
      
@@ -852,6 +909,9 @@ public enum CvmErrorCode {
     // 不支持关机不收费特性
      UNSUPPORTEDOPERATION_STOPPEDMODESTOPCHARGING("UnsupportedOperation.StoppedModeStopCharging"),
      
+    // 不支持关机不收费机器做同类型变配操作。
+     UNSUPPORTEDOPERATION_STOPPEDMODESTOPCHARGINGSAMEFAMILY("UnsupportedOperation.StoppedModeStopChargingSameFamily"),
+     
     // 该机型为包销机型，RenewFlag的值只允许设置为NOTIFY_AND_AUTO_RENEW。
      UNSUPPORTEDOPERATION_UNDERWRITINGINSTANCETYPEONLYSUPPORTAUTORENEW("UnsupportedOperation.UnderwritingInstanceTypeOnlySupportAutoRenew"),
      
@@ -860,9 +920,6 @@ public enum CvmErrorCode {
      
     // 非ARM机型不支持调整到ARM机型。
      UNSUPPORTEDOPERATION_UNSUPPORTEDCHANGEINSTANCEFAMILYTOARM("UnsupportedOperation.UnsupportedChangeInstanceFamilyToARM"),
-     
-    // 目标机型是SA3, 不支持变配。
-     UNSUPPORTEDOPERATION_UNSUPPORTEDCHANGEINSTANCEFAMILYTOSA3("UnsupportedOperation.UnsupportedChangeInstanceFamilyToSA3"),
      
     // 不支持实例变配到此类型机型。
      UNSUPPORTEDOPERATION_UNSUPPORTEDCHANGEINSTANCETOTHISINSTANCEFAMILY("UnsupportedOperation.UnsupportedChangeInstanceToThisInstanceFamily"),

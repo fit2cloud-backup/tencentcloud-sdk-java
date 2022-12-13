@@ -79,7 +79,7 @@ public class InstanceInfo extends AbstractModel{
     private String SubnetUid;
 
     /**
-    * 实例状态，0:处理中,1:正常,-1停止,-2:销毁中,-3:已销毁
+    * 实例状态，0:处理中,1:正常,-1停止,-2:销毁中,-3:已销毁, 2:创建集群时初始化中
     */
     @SerializedName("Status")
     @Expose
@@ -592,6 +592,54 @@ RENEW_FLAG_DEFAULT：不自动续费
     private EsConfigSetInfo [] EsConfigSets;
 
     /**
+    * 集群可维护时间段
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OperationDuration")
+    @Expose
+    private OperationDuration OperationDuration;
+
+    /**
+    * web节点列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OptionalWebServiceInfos")
+    @Expose
+    private OptionalWebServiceInfo [] OptionalWebServiceInfos;
+
+    /**
+    * 自治索引开关
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AutoIndexEnabled")
+    @Expose
+    private Boolean AutoIndexEnabled;
+
+    /**
+    * 是否支持存储计算分离
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EnableHybridStorage")
+    @Expose
+    private Boolean EnableHybridStorage;
+
+    /**
+    * 流程进度
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ProcessPercent")
+    @Expose
+    private Float ProcessPercent;
+
+    /**
+    * Kibana的altering外网告警策略<li>OPEN：开启</li><li>CLOSE：关闭
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("KibanaAlteringPublicAccess")
+    @Expose
+    private String KibanaAlteringPublicAccess;
+
+    /**
      * Get 实例ID 
      * @return InstanceId 实例ID
      */
@@ -720,16 +768,16 @@ RENEW_FLAG_DEFAULT：不自动续费
     }
 
     /**
-     * Get 实例状态，0:处理中,1:正常,-1停止,-2:销毁中,-3:已销毁 
-     * @return Status 实例状态，0:处理中,1:正常,-1停止,-2:销毁中,-3:已销毁
+     * Get 实例状态，0:处理中,1:正常,-1停止,-2:销毁中,-3:已销毁, 2:创建集群时初始化中 
+     * @return Status 实例状态，0:处理中,1:正常,-1停止,-2:销毁中,-3:已销毁, 2:创建集群时初始化中
      */
     public Long getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 实例状态，0:处理中,1:正常,-1停止,-2:销毁中,-3:已销毁
-     * @param Status 实例状态，0:处理中,1:正常,-1停止,-2:销毁中,-3:已销毁
+     * Set 实例状态，0:处理中,1:正常,-1停止,-2:销毁中,-3:已销毁, 2:创建集群时初始化中
+     * @param Status 实例状态，0:处理中,1:正常,-1停止,-2:销毁中,-3:已销毁, 2:创建集群时初始化中
      */
     public void setStatus(Long Status) {
         this.Status = Status;
@@ -1967,6 +2015,126 @@ RENEW_FLAG_DEFAULT：不自动续费
         this.EsConfigSets = EsConfigSets;
     }
 
+    /**
+     * Get 集群可维护时间段
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OperationDuration 集群可维护时间段
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public OperationDuration getOperationDuration() {
+        return this.OperationDuration;
+    }
+
+    /**
+     * Set 集群可维护时间段
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OperationDuration 集群可维护时间段
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOperationDuration(OperationDuration OperationDuration) {
+        this.OperationDuration = OperationDuration;
+    }
+
+    /**
+     * Get web节点列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OptionalWebServiceInfos web节点列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public OptionalWebServiceInfo [] getOptionalWebServiceInfos() {
+        return this.OptionalWebServiceInfos;
+    }
+
+    /**
+     * Set web节点列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OptionalWebServiceInfos web节点列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOptionalWebServiceInfos(OptionalWebServiceInfo [] OptionalWebServiceInfos) {
+        this.OptionalWebServiceInfos = OptionalWebServiceInfos;
+    }
+
+    /**
+     * Get 自治索引开关
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AutoIndexEnabled 自治索引开关
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getAutoIndexEnabled() {
+        return this.AutoIndexEnabled;
+    }
+
+    /**
+     * Set 自治索引开关
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AutoIndexEnabled 自治索引开关
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAutoIndexEnabled(Boolean AutoIndexEnabled) {
+        this.AutoIndexEnabled = AutoIndexEnabled;
+    }
+
+    /**
+     * Get 是否支持存储计算分离
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EnableHybridStorage 是否支持存储计算分离
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getEnableHybridStorage() {
+        return this.EnableHybridStorage;
+    }
+
+    /**
+     * Set 是否支持存储计算分离
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EnableHybridStorage 是否支持存储计算分离
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEnableHybridStorage(Boolean EnableHybridStorage) {
+        this.EnableHybridStorage = EnableHybridStorage;
+    }
+
+    /**
+     * Get 流程进度
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ProcessPercent 流程进度
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Float getProcessPercent() {
+        return this.ProcessPercent;
+    }
+
+    /**
+     * Set 流程进度
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ProcessPercent 流程进度
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setProcessPercent(Float ProcessPercent) {
+        this.ProcessPercent = ProcessPercent;
+    }
+
+    /**
+     * Get Kibana的altering外网告警策略<li>OPEN：开启</li><li>CLOSE：关闭
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return KibanaAlteringPublicAccess Kibana的altering外网告警策略<li>OPEN：开启</li><li>CLOSE：关闭
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getKibanaAlteringPublicAccess() {
+        return this.KibanaAlteringPublicAccess;
+    }
+
+    /**
+     * Set Kibana的altering外网告警策略<li>OPEN：开启</li><li>CLOSE：关闭
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param KibanaAlteringPublicAccess Kibana的altering外网告警策略<li>OPEN：开启</li><li>CLOSE：关闭
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setKibanaAlteringPublicAccess(String KibanaAlteringPublicAccess) {
+        this.KibanaAlteringPublicAccess = KibanaAlteringPublicAccess;
+    }
+
     public InstanceInfo() {
     }
 
@@ -2215,6 +2383,27 @@ RENEW_FLAG_DEFAULT：不自动续费
                 this.EsConfigSets[i] = new EsConfigSetInfo(source.EsConfigSets[i]);
             }
         }
+        if (source.OperationDuration != null) {
+            this.OperationDuration = new OperationDuration(source.OperationDuration);
+        }
+        if (source.OptionalWebServiceInfos != null) {
+            this.OptionalWebServiceInfos = new OptionalWebServiceInfo[source.OptionalWebServiceInfos.length];
+            for (int i = 0; i < source.OptionalWebServiceInfos.length; i++) {
+                this.OptionalWebServiceInfos[i] = new OptionalWebServiceInfo(source.OptionalWebServiceInfos[i]);
+            }
+        }
+        if (source.AutoIndexEnabled != null) {
+            this.AutoIndexEnabled = new Boolean(source.AutoIndexEnabled);
+        }
+        if (source.EnableHybridStorage != null) {
+            this.EnableHybridStorage = new Boolean(source.EnableHybridStorage);
+        }
+        if (source.ProcessPercent != null) {
+            this.ProcessPercent = new Float(source.ProcessPercent);
+        }
+        if (source.KibanaAlteringPublicAccess != null) {
+            this.KibanaAlteringPublicAccess = new String(source.KibanaAlteringPublicAccess);
+        }
     }
 
 
@@ -2297,6 +2486,12 @@ RENEW_FLAG_DEFAULT：不自动续费
         this.setParamSimple(map, prefix + "EsPrivateUrl", this.EsPrivateUrl);
         this.setParamSimple(map, prefix + "EsPrivateDomain", this.EsPrivateDomain);
         this.setParamArrayObj(map, prefix + "EsConfigSets.", this.EsConfigSets);
+        this.setParamObj(map, prefix + "OperationDuration.", this.OperationDuration);
+        this.setParamArrayObj(map, prefix + "OptionalWebServiceInfos.", this.OptionalWebServiceInfos);
+        this.setParamSimple(map, prefix + "AutoIndexEnabled", this.AutoIndexEnabled);
+        this.setParamSimple(map, prefix + "EnableHybridStorage", this.EnableHybridStorage);
+        this.setParamSimple(map, prefix + "ProcessPercent", this.ProcessPercent);
+        this.setParamSimple(map, prefix + "KibanaAlteringPublicAccess", this.KibanaAlteringPublicAccess);
 
     }
 }

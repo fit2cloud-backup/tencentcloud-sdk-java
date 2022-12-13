@@ -101,13 +101,18 @@ public class VodClient extends AbstractClient{
     }
 
     /**
-     *该接口用于制作媒体文件，可以
+     *该接口用于合成媒体文件，可以达到以下效果：
 
-1. 对一个媒体文件进行剪辑，生成一个新的媒体文件；
-2. 对多个媒体文件进行裁剪拼接，生成一个新的媒体文件；
-3. 对多个媒体文件的媒体流进行裁剪拼接，生成一个新的媒体文件。
+1. **画面旋转**：对视频、图片的画面旋转一定角度，或按照某个方向翻转。
+2. **声音控制**：升高降低视频、音频中声音的音量，或者对视频静音。
+3. **画面叠加**：将视频、图片中的画面依序叠加在一起，如实现“画中画”的效果。
+4. **声音混合**：将视频、音频中的声音混合在一起（混音）。
+5. **声音提取**：将视频中的音频提取出来（不保留画面）。
+6. **裁剪**：对视频、音频裁剪出指定时间段。
+7. **拼接**：对视频、音频、图片按时间顺序前后拼接。
+8. **转场**：将多段视频或图片拼接时，可以在段落之间添加转场效果。
 
-如使用事件通知，事件通知的类型为 [视频合成完成](https://cloud.tencent.com/document/product/266/43000)。
+合成后的媒体封装格式可以是 MP4（视频）或 MP3（音频）。如使用事件通知，事件通知的类型为 [视频合成完成](https://cloud.tencent.com/document/product/266/43000)。
      * @param req ComposeMediaRequest
      * @return ComposeMediaResponse
      * @throws TencentCloudSDKException
@@ -454,7 +459,8 @@ public class VodClient extends AbstractClient{
     }
 
     /**
-     *创建超级播放器配置，数量上限：100。
+     *该 API 已经<font color='red'>不再维护</font>，新版播放器签名不再使用播放器配置模板，详细请参考 [播放器签名](https://cloud.tencent.com/document/product/266/45554)。
+创建播放器配置，数量上限：100。
      * @param req CreateSuperPlayerConfigRequest
      * @return CreateSuperPlayerConfigResponse
      * @throws TencentCloudSDKException
@@ -840,7 +846,8 @@ public class VodClient extends AbstractClient{
     }
 
     /**
-     *删除超级播放器配置。  
+     *该 API 已经<font color='red'>不再维护</font>，新版播放器签名不再使用播放器配置模板，详细请参考 [播放器签名](https://cloud.tencent.com/document/product/266/45554)。
+删除播放器配置。  
 *注：系统预置播放器配置不允许删除。*
      * @param req DeleteSuperPlayerConfigRequest
      * @return DeleteSuperPlayerConfigResponse
@@ -1112,6 +1119,30 @@ public class VodClient extends AbstractClient{
     }
 
     /**
+     *该接口返回查询时间范围内客户端上传加速统计信息。
+   1. 可以查询最近365天内的客户端上传加速统计数据。
+   2. 查询时间跨度不超过90天。
+   3. 查询时间跨度超过1天的，返回以天为粒度的数据，否则，返回以5分钟为粒度的数据。
+
+     * @param req DescribeClientUploadAccelerationUsageDataRequest
+     * @return DescribeClientUploadAccelerationUsageDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeClientUploadAccelerationUsageDataResponse DescribeClientUploadAccelerationUsageData(DescribeClientUploadAccelerationUsageDataRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeClientUploadAccelerationUsageDataResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeClientUploadAccelerationUsageDataResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeClientUploadAccelerationUsageData");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *根据音视频内容审核模板唯一标识，获取音视频内容审核模板详情列表。返回结果包含符合条件的所有用户自定义模板及[系统预置内容审核模板](https://cloud.tencent.com/document/product/266/33476#.E9.A2.84.E7.BD.AE.E8.A7.86.E9.A2.91.E5.86.85.E5.AE.B9.E5.AE.A1.E6.A0.B8.E6.A8.A1.E6.9D.BF)。
      * @param req DescribeContentReviewTemplatesRequest
      * @return DescribeContentReviewTemplatesResponse
@@ -1227,6 +1258,26 @@ public class VodClient extends AbstractClient{
     }
 
     /**
+     *查询 DRM 密钥提供商信息。
+     * @param req DescribeDrmKeyProviderInfoRequest
+     * @return DescribeDrmKeyProviderInfoResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeDrmKeyProviderInfoResponse DescribeDrmKeyProviderInfo(DescribeDrmKeyProviderInfoRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeDrmKeyProviderInfoResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeDrmKeyProviderInfoResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeDrmKeyProviderInfo");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *腾讯云点播为客户提供了媒体上传、媒体管理、媒体处理等等服务，在这些服务执行过程或执行结束时，腾讯云点播也提供各种对应的事件通知，方便开发者感知服务处理状态，并做下一步的业务操作。
 
 开发者可以通过本接口来查询当前配置事件通知的接收方式、接收地址以及哪些事件开启了接收回调通知。
@@ -1264,6 +1315,28 @@ public class VodClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeEventsStateResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeEventsState");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *用于异步获取文件属性。
+- 当前仅支持获取源文件的 Md5。
+- 对输入文件为 HLS 或 DASH 的情况，仅获取索引文件的属性。
+     * @param req DescribeFileAttributesRequest
+     * @return DescribeFileAttributesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeFileAttributesResponse DescribeFileAttributes(DescribeFileAttributesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeFileAttributesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeFileAttributesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeFileAttributes");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1668,7 +1741,8 @@ public class VodClient extends AbstractClient{
     }
 
     /**
-     *查询超级播放器配置，支持根据条件，分页查询。
+     *该 API 已经<font color='red'>不再维护</font>，新版播放器签名不再使用播放器配置模板，详细请参考 [播放器签名](https://cloud.tencent.com/document/product/266/45554)。
+查询播放器配置，支持根据条件，分页查询。
      * @param req DescribeSuperPlayerConfigsRequest
      * @return DescribeSuperPlayerConfigsResponse
      * @throws TencentCloudSDKException
@@ -1856,6 +1930,26 @@ public class VodClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<ExecuteFunctionResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ExecuteFunction");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *用于提取溯源水印。
+     * @param req ExtractTraceWatermarkRequest
+     * @return ExtractTraceWatermarkResponse
+     * @throws TencentCloudSDKException
+     */
+    public ExtractTraceWatermarkResponse ExtractTraceWatermark(ExtractTraceWatermarkRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ExtractTraceWatermarkResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ExtractTraceWatermarkResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ExtractTraceWatermark");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -2308,7 +2402,8 @@ public class VodClient extends AbstractClient{
     }
 
     /**
-     *修改超级播放器配置。
+     *该 API 已经<font color='red'>不再维护</font>，新版播放器签名不再使用播放器配置模板，详细请参考 [播放器签名](https://cloud.tencent.com/document/product/266/45554)。
+修改播放器配置。
      * @param req ModifySuperPlayerConfigRequest
      * @return ModifySuperPlayerConfigResponse
      * @throws TencentCloudSDKException
@@ -2492,12 +2587,6 @@ public class VodClient extends AbstractClient{
 10. 内容识别（视频片头片尾、人脸、文本全文、文本关键词、语音全文、语音关键词、物体）。
 
 如使用事件通知，事件通知的类型为 [任务流状态变更](https://cloud.tencent.com/document/product/266/9636)。
-
-使用溯源水印存在以下限制条件：
-<li> 溯源水印仅支持图片水印； </li>
-<li> 溯源水印仅支持水印重复类型为水印循环播放； </li>
-<li> 溯源水印仅支持输出文件封装格式为 HLS； </li>
-<li> 溯源水印的位置仅支持位于视频的上半部分。 </li>
      * @param req ProcessMediaRequest
      * @return ProcessMediaResponse
      * @throws TencentCloudSDKException
@@ -2653,6 +2742,26 @@ public class VodClient extends AbstractClient{
     }
 
     /**
+     *智能去除水印
+     * @param req RemoveWatermarkRequest
+     * @return RemoveWatermarkResponse
+     * @throws TencentCloudSDKException
+     */
+    public RemoveWatermarkResponse RemoveWatermark(RemoveWatermarkRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<RemoveWatermarkResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<RemoveWatermarkResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "RemoveWatermark");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *重新设置用户自定义任务流模板的内容。  
      * @param req ResetProcedureTemplateRequest
      * @return ResetProcedureTemplateResponse
@@ -2685,6 +2794,29 @@ public class VodClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<RestoreMediaResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "RestoreMedia");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *对点播中的音视频媒体发起审核任务，智能检测视频画面、画面中的文字、语音中的文字、声音出现的违规内容。
+
+如使用事件通知，事件通知的类型为 [音视频审核完成](https://cloud.tencent.com/document/product/266/81258)。
+
+     * @param req ReviewAudioVideoRequest
+     * @return ReviewAudioVideoResponse
+     * @throws TencentCloudSDKException
+     */
+    public ReviewAudioVideoResponse ReviewAudioVideo(ReviewAudioVideoRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ReviewAudioVideoResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ReviewAudioVideoResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ReviewAudioVideo");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -2727,12 +2859,12 @@ public class VodClient extends AbstractClient{
 - 指定文件类型集合 Categories（见输入参数），返回满足集合中任意类型的媒体。例如：文件类型有 Video（视频）、 Audio （音频）、 Image （图片）。如果Categories指定了 Video 和 Audio 2个文件类型，那么符合这些类型的媒体都会被检索出来。
 - 指定来源集合 SourceTypes（见输入参数），返回满足集合中任意来源的媒体。例如：媒体来源有 Record (直播录制)、Upload （上传）等。如果 SourceTypes 指定了 Record 和 Upload ，那么符合这些来源的媒体都会被检索出来。
 - 指定直播推流码集合 StreamIds（见输入参数）筛选直播录制的媒体。
-- 指定视频 ID 集合 Vids （见输入参数）筛选直播录制的媒体。
 - 指定媒体的创建时间范围筛选媒体。
+- 指定 TRTC 应用 ID 集合筛选媒体。
+- 指定 TRTC 房间 ID 集合筛选媒体。
 - （不推荐：应使用 Names、NamePrefixes 或 Descriptions 替代）指定单个文本 Text 对媒体文件名或描述信息进行模糊搜索。
 - （不推荐：应使用 SourceTypes 替代）指定单个媒体文件来源 SourceType 进行搜索。
 - （不推荐：应使用 StreamIds 替代）指定单个推流直播码 StreamId 进行搜索。
-- （不推荐：应使用 Vids 替代）指定单个视频 ID Vid 进行搜索。
 - （不推荐：应使用 CreateTime 替代）指定单个起始创建时间 StartTime 进行搜索。
 - （不推荐：应使用 CreateTime 替代）指定单个结尾创建时间 EndTime 进行搜索。
 - 以上参数之间可以任意组合进行检索。例如：筛选创建时间在2018年12月1日12:00:00到2018年12月8日12:00:00之间、分类为电影或电视剧、带有宫斗和悬疑标签的媒体。注意，任何支持数组输入的参数，其元素之间的搜索逻辑为‘或’。所有参数之间的逻辑关系为‘与’。
@@ -2771,6 +2903,26 @@ public class VodClient extends AbstractClient{
     }
 
     /**
+     *设置 DRM 密钥提供商信息。
+     * @param req SetDrmKeyProviderInfoRequest
+     * @return SetDrmKeyProviderInfoResponse
+     * @throws TencentCloudSDKException
+     */
+    public SetDrmKeyProviderInfoResponse SetDrmKeyProviderInfo(SetDrmKeyProviderInfoRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<SetDrmKeyProviderInfoResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<SetDrmKeyProviderInfoResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "SetDrmKeyProviderInfo");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *对 HLS 视频进行按时间段裁剪，实时生成一个新的视频（HLS 格式），开发者可以将其立即分享出去，或者长久保存起来。
 
 腾讯云点播支持两种剪辑模式：
@@ -2781,14 +2933,14 @@ public class VodClient extends AbstractClient{
 - 剪辑是基于输入 m3u8 文件进行的，故而其最小剪辑精度为一个 ts 切片，无法实现秒级或者更为精确的剪辑精度。
 
 
-###剪辑固化
+### 剪辑固化
 所谓剪辑固化，是指将剪辑出来的视频保存成一个独立的视频（拥有独立的 FileId）。其生命周期不受原始输入视频影响（即使原始输入视频被删除，剪辑结果也不会受到任何影响）；也可以对其进行转码、微信发布等二次处理。
 
 举例如下：一场完整的足球比赛，原始视频可能长达 2 个小时，客户出于节省成本的目的可以对这个视频存储 2 个月，但对于剪辑的「精彩时刻」视频却可以指定存储更长时间，同时可以单独对「精彩时刻」视频进行转码、微信发布等额外的点播操作，这时候可以选择剪辑并且固化的方案。
 
 剪辑固化的优势在于其生命周期与原始输入视频相互独立，可以独立管理、长久保存。
 
-###剪辑不固化
+### 剪辑不固化
 所谓剪辑不固化，是指剪辑所得到的结果（m3u8 文件）与原始输入视频共享相同的 ts 分片，新生成的视频不是一个独立完整的视频（没有独立 FileId，只有播放 URL），其有效期与原始输入的完整视频有效期是一致的。一旦原始输入的视频被删除，也会导致该片段无法播放。
 
 剪辑不固化，由于其剪辑结果不是一个独立的视频，因而也不会纳入点播媒资视频管理（例如控制台的视频总数不会统计这一片段）中，也无法单独针对这个片段做转码、微信发布等任何视频处理操作。

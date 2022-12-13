@@ -36,6 +36,9 @@ public enum TcbErrorCode {
     // 环境ID非法。
      INVALIDPARAMETER_ENVID("InvalidParameter.EnvId"),
      
+    // 路径已存在。
+     INVALIDPARAMETER_PATHEXIST("InvalidParameter.PathExist"),
+     
     // 对应资源不存在。
      INVALIDPARAMETER_RESOURCENOTEXISTS("InvalidParameter.ResourceNotExists"),
      
@@ -98,6 +101,9 @@ public enum TcbErrorCode {
      
     // 当前发票余额不足，无法退费。
      RESOURCEUNAVAILABLE_INVOICEAMOUNTLACK("ResourceUnavailable.InvoiceAmountLack"),
+     
+    // 云项目oAuth授权失效（即RefreshToken过期）。
+     RESOURCEUNAVAILABLE_REFRESHTOKENEXPIRED("ResourceUnavailable.RefreshTokenExpired"),
      
     // 资源过期。
      RESOURCEUNAVAILABLE_RESOURCEOVERDUE("ResourceUnavailable.ResourceOverdue"),

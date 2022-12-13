@@ -23,23 +23,23 @@ import java.util.HashMap;
 public class VoiceFilterStatisticsItem extends AbstractModel{
 
     /**
-    * 语音过滤总时长
+    * 语音过滤总时长，单位为min
     */
     @SerializedName("Duration")
     @Expose
     private Long Duration;
 
     /**
-     * Get 语音过滤总时长 
-     * @return Duration 语音过滤总时长
+     * Get 语音过滤总时长，单位为min 
+     * @return Duration 语音过滤总时长，单位为min
      */
     public Long getDuration() {
         return this.Duration;
     }
 
     /**
-     * Set 语音过滤总时长
-     * @param Duration 语音过滤总时长
+     * Set 语音过滤总时长，单位为min
+     * @param Duration 语音过滤总时长，单位为min
      */
     public void setDuration(Long Duration) {
         this.Duration = Duration;

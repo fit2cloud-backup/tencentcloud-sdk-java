@@ -117,6 +117,61 @@ FAILED:已失败
     private String PayeeId;
 
     /**
+    * 外部用户ID
+    */
+    @SerializedName("OutUserId")
+    @Expose
+    private String OutUserId;
+
+    /**
+    * 渠道支付订单号
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ChannelOrderId")
+    @Expose
+    private String ChannelOrderId;
+
+    /**
+    * 增值税
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Vat")
+    @Expose
+    private String Vat;
+
+    /**
+    * 个人所得税
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IndividualIncomeTax")
+    @Expose
+    private String IndividualIncomeTax;
+
+    /**
+    * 附加税总税额
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AdditionalTaxSum")
+    @Expose
+    private String AdditionalTaxSum;
+
+    /**
+    * 附加税税项。格式为JSON格式
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AdditionalTaxItem")
+    @Expose
+    private String AdditionalTaxItem;
+
+    /**
+    * 失败原因。当Status为FAILED时，改字段为失败的原因。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FailReason")
+    @Expose
+    private String FailReason;
+
+    /**
      * Get 收入类型
 LABOR:劳务所得
 OCCASION:偶然所得 
@@ -348,6 +403,142 @@ FAILED:已失败
         this.PayeeId = PayeeId;
     }
 
+    /**
+     * Get 外部用户ID 
+     * @return OutUserId 外部用户ID
+     */
+    public String getOutUserId() {
+        return this.OutUserId;
+    }
+
+    /**
+     * Set 外部用户ID
+     * @param OutUserId 外部用户ID
+     */
+    public void setOutUserId(String OutUserId) {
+        this.OutUserId = OutUserId;
+    }
+
+    /**
+     * Get 渠道支付订单号
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ChannelOrderId 渠道支付订单号
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getChannelOrderId() {
+        return this.ChannelOrderId;
+    }
+
+    /**
+     * Set 渠道支付订单号
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ChannelOrderId 渠道支付订单号
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setChannelOrderId(String ChannelOrderId) {
+        this.ChannelOrderId = ChannelOrderId;
+    }
+
+    /**
+     * Get 增值税
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Vat 增值税
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getVat() {
+        return this.Vat;
+    }
+
+    /**
+     * Set 增值税
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Vat 增值税
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setVat(String Vat) {
+        this.Vat = Vat;
+    }
+
+    /**
+     * Get 个人所得税
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IndividualIncomeTax 个人所得税
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getIndividualIncomeTax() {
+        return this.IndividualIncomeTax;
+    }
+
+    /**
+     * Set 个人所得税
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IndividualIncomeTax 个人所得税
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIndividualIncomeTax(String IndividualIncomeTax) {
+        this.IndividualIncomeTax = IndividualIncomeTax;
+    }
+
+    /**
+     * Get 附加税总税额
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AdditionalTaxSum 附加税总税额
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAdditionalTaxSum() {
+        return this.AdditionalTaxSum;
+    }
+
+    /**
+     * Set 附加税总税额
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AdditionalTaxSum 附加税总税额
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAdditionalTaxSum(String AdditionalTaxSum) {
+        this.AdditionalTaxSum = AdditionalTaxSum;
+    }
+
+    /**
+     * Get 附加税税项。格式为JSON格式
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AdditionalTaxItem 附加税税项。格式为JSON格式
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAdditionalTaxItem() {
+        return this.AdditionalTaxItem;
+    }
+
+    /**
+     * Set 附加税税项。格式为JSON格式
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AdditionalTaxItem 附加税税项。格式为JSON格式
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAdditionalTaxItem(String AdditionalTaxItem) {
+        this.AdditionalTaxItem = AdditionalTaxItem;
+    }
+
+    /**
+     * Get 失败原因。当Status为FAILED时，改字段为失败的原因。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FailReason 失败原因。当Status为FAILED时，改字段为失败的原因。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getFailReason() {
+        return this.FailReason;
+    }
+
+    /**
+     * Set 失败原因。当Status为FAILED时，改字段为失败的原因。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FailReason 失败原因。当Status为FAILED时，改字段为失败的原因。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFailReason(String FailReason) {
+        this.FailReason = FailReason;
+    }
+
     public PaymentOrderResult() {
     }
 
@@ -392,6 +583,27 @@ FAILED:已失败
         if (source.PayeeId != null) {
             this.PayeeId = new String(source.PayeeId);
         }
+        if (source.OutUserId != null) {
+            this.OutUserId = new String(source.OutUserId);
+        }
+        if (source.ChannelOrderId != null) {
+            this.ChannelOrderId = new String(source.ChannelOrderId);
+        }
+        if (source.Vat != null) {
+            this.Vat = new String(source.Vat);
+        }
+        if (source.IndividualIncomeTax != null) {
+            this.IndividualIncomeTax = new String(source.IndividualIncomeTax);
+        }
+        if (source.AdditionalTaxSum != null) {
+            this.AdditionalTaxSum = new String(source.AdditionalTaxSum);
+        }
+        if (source.AdditionalTaxItem != null) {
+            this.AdditionalTaxItem = new String(source.AdditionalTaxItem);
+        }
+        if (source.FailReason != null) {
+            this.FailReason = new String(source.FailReason);
+        }
     }
 
 
@@ -411,6 +623,13 @@ FAILED:已失败
         this.setParamSimple(map, prefix + "StatusDesc", this.StatusDesc);
         this.setParamSimple(map, prefix + "Remark", this.Remark);
         this.setParamSimple(map, prefix + "PayeeId", this.PayeeId);
+        this.setParamSimple(map, prefix + "OutUserId", this.OutUserId);
+        this.setParamSimple(map, prefix + "ChannelOrderId", this.ChannelOrderId);
+        this.setParamSimple(map, prefix + "Vat", this.Vat);
+        this.setParamSimple(map, prefix + "IndividualIncomeTax", this.IndividualIncomeTax);
+        this.setParamSimple(map, prefix + "AdditionalTaxSum", this.AdditionalTaxSum);
+        this.setParamSimple(map, prefix + "AdditionalTaxItem", this.AdditionalTaxItem);
+        this.setParamSimple(map, prefix + "FailReason", this.FailReason);
 
     }
 }

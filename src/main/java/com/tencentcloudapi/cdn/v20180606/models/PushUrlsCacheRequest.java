@@ -77,6 +77,20 @@ global：预热全球节点
     private Boolean DisableRange;
 
     /**
+    * 自定义 HTTP 请求头。最多定义 20 个，Name 长度不超过 128 字节，Value 长度不超过 1024 字节
+    */
+    @SerializedName("Headers")
+    @Expose
+    private HTTPHeader [] Headers;
+
+    /**
+    * 是否对URL进行编码
+    */
+    @SerializedName("UrlEncode")
+    @Expose
+    private Boolean UrlEncode;
+
+    /**
      * Get URL 列表，需要包含协议头部 http:// 或 https:// 
      * @return Urls URL 列表，需要包含协议头部 http:// 或 https://
      */
@@ -220,6 +234,38 @@ global：预热全球节点
         this.DisableRange = DisableRange;
     }
 
+    /**
+     * Get 自定义 HTTP 请求头。最多定义 20 个，Name 长度不超过 128 字节，Value 长度不超过 1024 字节 
+     * @return Headers 自定义 HTTP 请求头。最多定义 20 个，Name 长度不超过 128 字节，Value 长度不超过 1024 字节
+     */
+    public HTTPHeader [] getHeaders() {
+        return this.Headers;
+    }
+
+    /**
+     * Set 自定义 HTTP 请求头。最多定义 20 个，Name 长度不超过 128 字节，Value 长度不超过 1024 字节
+     * @param Headers 自定义 HTTP 请求头。最多定义 20 个，Name 长度不超过 128 字节，Value 长度不超过 1024 字节
+     */
+    public void setHeaders(HTTPHeader [] Headers) {
+        this.Headers = Headers;
+    }
+
+    /**
+     * Get 是否对URL进行编码 
+     * @return UrlEncode 是否对URL进行编码
+     */
+    public Boolean getUrlEncode() {
+        return this.UrlEncode;
+    }
+
+    /**
+     * Set 是否对URL进行编码
+     * @param UrlEncode 是否对URL进行编码
+     */
+    public void setUrlEncode(Boolean UrlEncode) {
+        this.UrlEncode = UrlEncode;
+    }
+
     public PushUrlsCacheRequest() {
     }
 
@@ -249,6 +295,15 @@ global：预热全球节点
         if (source.DisableRange != null) {
             this.DisableRange = new Boolean(source.DisableRange);
         }
+        if (source.Headers != null) {
+            this.Headers = new HTTPHeader[source.Headers.length];
+            for (int i = 0; i < source.Headers.length; i++) {
+                this.Headers[i] = new HTTPHeader(source.Headers[i]);
+            }
+        }
+        if (source.UrlEncode != null) {
+            this.UrlEncode = new Boolean(source.UrlEncode);
+        }
     }
 
 
@@ -262,6 +317,8 @@ global：预热全球节点
         this.setParamSimple(map, prefix + "Layer", this.Layer);
         this.setParamSimple(map, prefix + "ParseM3U8", this.ParseM3U8);
         this.setParamSimple(map, prefix + "DisableRange", this.DisableRange);
+        this.setParamArrayObj(map, prefix + "Headers.", this.Headers);
+        this.setParamSimple(map, prefix + "UrlEncode", this.UrlEncode);
 
     }
 }

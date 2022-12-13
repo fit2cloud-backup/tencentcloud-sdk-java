@@ -39,7 +39,7 @@ public class CodeBatch extends AbstractModel{
     private Long CorpId;
 
     /**
-    * 码
+    * 批次编码(未使用)
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BatchCode")
@@ -95,7 +95,7 @@ public class CodeBatch extends AbstractModel{
     private String MpTpl;
 
     /**
-    * 状态
+    * 批次状态 0: 未激活 1: 已激活 -1: 已冻结
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
@@ -135,7 +135,7 @@ public class CodeBatch extends AbstractModel{
     private String ProductName;
 
     /**
-    * 0
+    * 未使用
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Ext")
@@ -149,6 +149,14 @@ public class CodeBatch extends AbstractModel{
     @SerializedName("TplName")
     @Expose
     private String TplName;
+
+    /**
+    * 调度任务
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Job")
+    @Expose
+    private Job Job;
 
     /**
      * Get 批次号
@@ -191,9 +199,9 @@ public class CodeBatch extends AbstractModel{
     }
 
     /**
-     * Get 码
+     * Get 批次编码(未使用)
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return BatchCode 码
+     * @return BatchCode 批次编码(未使用)
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBatchCode() {
@@ -201,9 +209,9 @@ public class CodeBatch extends AbstractModel{
     }
 
     /**
-     * Set 码
+     * Set 批次编码(未使用)
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param BatchCode 码
+     * @param BatchCode 批次编码(未使用)
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBatchCode(String BatchCode) {
@@ -331,9 +339,9 @@ public class CodeBatch extends AbstractModel{
     }
 
     /**
-     * Get 状态
+     * Get 批次状态 0: 未激活 1: 已激活 -1: 已冻结
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Status 状态
+     * @return Status 批次状态 0: 未激活 1: 已激活 -1: 已冻结
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStatus() {
@@ -341,9 +349,9 @@ public class CodeBatch extends AbstractModel{
     }
 
     /**
-     * Set 状态
+     * Set 批次状态 0: 未激活 1: 已激活 -1: 已冻结
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Status 状态
+     * @param Status 批次状态 0: 未激活 1: 已激活 -1: 已冻结
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(Long Status) {
@@ -431,9 +439,9 @@ public class CodeBatch extends AbstractModel{
     }
 
     /**
-     * Get 0
+     * Get 未使用
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Ext 0
+     * @return Ext 未使用
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Ext getExt() {
@@ -441,9 +449,9 @@ public class CodeBatch extends AbstractModel{
     }
 
     /**
-     * Set 0
+     * Set 未使用
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Ext 0
+     * @param Ext 未使用
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExt(Ext Ext) {
@@ -468,6 +476,26 @@ public class CodeBatch extends AbstractModel{
      */
     public void setTplName(String TplName) {
         this.TplName = TplName;
+    }
+
+    /**
+     * Get 调度任务
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Job 调度任务
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Job getJob() {
+        return this.Job;
+    }
+
+    /**
+     * Set 调度任务
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Job 调度任务
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setJob(Job Job) {
+        this.Job = Job;
     }
 
     public CodeBatch() {
@@ -526,6 +554,9 @@ public class CodeBatch extends AbstractModel{
         if (source.TplName != null) {
             this.TplName = new String(source.TplName);
         }
+        if (source.Job != null) {
+            this.Job = new Job(source.Job);
+        }
     }
 
 
@@ -549,6 +580,7 @@ public class CodeBatch extends AbstractModel{
         this.setParamSimple(map, prefix + "ProductName", this.ProductName);
         this.setParamObj(map, prefix + "Ext.", this.Ext);
         this.setParamSimple(map, prefix + "TplName", this.TplName);
+        this.setParamObj(map, prefix + "Job.", this.Job);
 
     }
 }

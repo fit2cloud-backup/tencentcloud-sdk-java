@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class DescribeVpcRequest extends AbstractModel{
 
     /**
-    * 返回偏移量。
+    * 返回偏移量。Offset最小为0。
     */
     @SerializedName("Offset")
     @Expose
     private Long Offset;
 
     /**
-    * 返回数量。
+    * 返回数量。Limit需要在[1, 100]之间。
     */
     @SerializedName("Limit")
     @Expose
@@ -44,32 +44,32 @@ public class DescribeVpcRequest extends AbstractModel{
     private String SearchWord;
 
     /**
-     * Get 返回偏移量。 
-     * @return Offset 返回偏移量。
+     * Get 返回偏移量。Offset最小为0。 
+     * @return Offset 返回偏移量。Offset最小为0。
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 返回偏移量。
-     * @param Offset 返回偏移量。
+     * Set 返回偏移量。Offset最小为0。
+     * @param Offset 返回偏移量。Offset最小为0。
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get 返回数量。 
-     * @return Limit 返回数量。
+     * Get 返回数量。Limit需要在[1, 100]之间。 
+     * @return Limit 返回数量。Limit需要在[1, 100]之间。
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 返回数量。
-     * @param Limit 返回数量。
+     * Set 返回数量。Limit需要在[1, 100]之间。
+     * @param Limit 返回数量。Limit需要在[1, 100]之间。
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;

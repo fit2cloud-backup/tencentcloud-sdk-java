@@ -100,11 +100,18 @@ public class DescribeDBPriceRequest extends AbstractModel{
     private Long Cpu;
 
     /**
-    * 续费询价实例ID。如需查询实例续费价格，填写InstanceId和Period即可。
+    * 询价续费实例ID。如需查询实例续费价格，填写InstanceId和Period即可。
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
+
+    /**
+    * 按量计费阶梯。仅PayType=HOUR_PAID有效，支持值包括：1，2，3。阶梯时长见https://cloud.tencent.com/document/product/236/18335。
+    */
+    @SerializedName("Ladder")
+    @Expose
+    private Long Ladder;
 
     /**
      * Get 实例时长，单位：月，最小值 1，最大值为 36；查询按量计费价格时，该字段无效。 
@@ -283,19 +290,35 @@ public class DescribeDBPriceRequest extends AbstractModel{
     }
 
     /**
-     * Get 续费询价实例ID。如需查询实例续费价格，填写InstanceId和Period即可。 
-     * @return InstanceId 续费询价实例ID。如需查询实例续费价格，填写InstanceId和Period即可。
+     * Get 询价续费实例ID。如需查询实例续费价格，填写InstanceId和Period即可。 
+     * @return InstanceId 询价续费实例ID。如需查询实例续费价格，填写InstanceId和Period即可。
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 续费询价实例ID。如需查询实例续费价格，填写InstanceId和Period即可。
-     * @param InstanceId 续费询价实例ID。如需查询实例续费价格，填写InstanceId和Period即可。
+     * Set 询价续费实例ID。如需查询实例续费价格，填写InstanceId和Period即可。
+     * @param InstanceId 询价续费实例ID。如需查询实例续费价格，填写InstanceId和Period即可。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
+    }
+
+    /**
+     * Get 按量计费阶梯。仅PayType=HOUR_PAID有效，支持值包括：1，2，3。阶梯时长见https://cloud.tencent.com/document/product/236/18335。 
+     * @return Ladder 按量计费阶梯。仅PayType=HOUR_PAID有效，支持值包括：1，2，3。阶梯时长见https://cloud.tencent.com/document/product/236/18335。
+     */
+    public Long getLadder() {
+        return this.Ladder;
+    }
+
+    /**
+     * Set 按量计费阶梯。仅PayType=HOUR_PAID有效，支持值包括：1，2，3。阶梯时长见https://cloud.tencent.com/document/product/236/18335。
+     * @param Ladder 按量计费阶梯。仅PayType=HOUR_PAID有效，支持值包括：1，2，3。阶梯时长见https://cloud.tencent.com/document/product/236/18335。
+     */
+    public void setLadder(Long Ladder) {
+        this.Ladder = Ladder;
     }
 
     public DescribeDBPriceRequest() {
@@ -342,6 +365,9 @@ public class DescribeDBPriceRequest extends AbstractModel{
         if (source.InstanceId != null) {
             this.InstanceId = new String(source.InstanceId);
         }
+        if (source.Ladder != null) {
+            this.Ladder = new Long(source.Ladder);
+        }
     }
 
 
@@ -361,6 +387,7 @@ public class DescribeDBPriceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "InstanceNodes", this.InstanceNodes);
         this.setParamSimple(map, prefix + "Cpu", this.Cpu);
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
+        this.setParamSimple(map, prefix + "Ladder", this.Ladder);
 
     }
 }

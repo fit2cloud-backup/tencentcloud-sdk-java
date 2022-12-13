@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class InquirePriceRenewInstancesResponse extends AbstractModel{
 
     /**
-    * 询价信息。
+    * 询价信息。默认为列表中第一个实例的价格信息。
     */
     @SerializedName("Price")
     @Expose
@@ -38,6 +38,21 @@ public class InquirePriceRenewInstancesResponse extends AbstractModel{
     private DataDiskPrice [] DataDiskPriceSet;
 
     /**
+    * 待续费实例价格列表。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("InstancePriceDetailSet")
+    @Expose
+    private InstancePriceDetail [] InstancePriceDetailSet;
+
+    /**
+    * 总计价格。
+    */
+    @SerializedName("TotalPrice")
+    @Expose
+    private TotalPrice TotalPrice;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -45,16 +60,16 @@ public class InquirePriceRenewInstancesResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 询价信息。 
-     * @return Price 询价信息。
+     * Get 询价信息。默认为列表中第一个实例的价格信息。 
+     * @return Price 询价信息。默认为列表中第一个实例的价格信息。
      */
     public Price getPrice() {
         return this.Price;
     }
 
     /**
-     * Set 询价信息。
-     * @param Price 询价信息。
+     * Set 询价信息。默认为列表中第一个实例的价格信息。
+     * @param Price 询价信息。默认为列表中第一个实例的价格信息。
      */
     public void setPrice(Price Price) {
         this.Price = Price;
@@ -78,6 +93,42 @@ public class InquirePriceRenewInstancesResponse extends AbstractModel{
      */
     public void setDataDiskPriceSet(DataDiskPrice [] DataDiskPriceSet) {
         this.DataDiskPriceSet = DataDiskPriceSet;
+    }
+
+    /**
+     * Get 待续费实例价格列表。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return InstancePriceDetailSet 待续费实例价格列表。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public InstancePriceDetail [] getInstancePriceDetailSet() {
+        return this.InstancePriceDetailSet;
+    }
+
+    /**
+     * Set 待续费实例价格列表。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param InstancePriceDetailSet 待续费实例价格列表。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setInstancePriceDetailSet(InstancePriceDetail [] InstancePriceDetailSet) {
+        this.InstancePriceDetailSet = InstancePriceDetailSet;
+    }
+
+    /**
+     * Get 总计价格。 
+     * @return TotalPrice 总计价格。
+     */
+    public TotalPrice getTotalPrice() {
+        return this.TotalPrice;
+    }
+
+    /**
+     * Set 总计价格。
+     * @param TotalPrice 总计价格。
+     */
+    public void setTotalPrice(TotalPrice TotalPrice) {
+        this.TotalPrice = TotalPrice;
     }
 
     /**
@@ -113,6 +164,15 @@ public class InquirePriceRenewInstancesResponse extends AbstractModel{
                 this.DataDiskPriceSet[i] = new DataDiskPrice(source.DataDiskPriceSet[i]);
             }
         }
+        if (source.InstancePriceDetailSet != null) {
+            this.InstancePriceDetailSet = new InstancePriceDetail[source.InstancePriceDetailSet.length];
+            for (int i = 0; i < source.InstancePriceDetailSet.length; i++) {
+                this.InstancePriceDetailSet[i] = new InstancePriceDetail(source.InstancePriceDetailSet[i]);
+            }
+        }
+        if (source.TotalPrice != null) {
+            this.TotalPrice = new TotalPrice(source.TotalPrice);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -125,6 +185,8 @@ public class InquirePriceRenewInstancesResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "Price.", this.Price);
         this.setParamArrayObj(map, prefix + "DataDiskPriceSet.", this.DataDiskPriceSet);
+        this.setParamArrayObj(map, prefix + "InstancePriceDetailSet.", this.InstancePriceDetailSet);
+        this.setParamObj(map, prefix + "TotalPrice.", this.TotalPrice);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

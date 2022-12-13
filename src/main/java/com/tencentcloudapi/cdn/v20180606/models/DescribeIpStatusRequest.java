@@ -57,6 +57,20 @@ global: 全球节点
     private Boolean Segment;
 
     /**
+    * 是否查询节点 IPV6 信息。
+    */
+    @SerializedName("ShowIpv6")
+    @Expose
+    private Boolean ShowIpv6;
+
+    /**
+    * 是否对IPV6进行缩写。
+    */
+    @SerializedName("AbbreviationIpv6")
+    @Expose
+    private Boolean AbbreviationIpv6;
+
+    /**
      * Get 加速域名 
      * @return Domain 加速域名
      */
@@ -144,6 +158,38 @@ global: 全球节点
         this.Segment = Segment;
     }
 
+    /**
+     * Get 是否查询节点 IPV6 信息。 
+     * @return ShowIpv6 是否查询节点 IPV6 信息。
+     */
+    public Boolean getShowIpv6() {
+        return this.ShowIpv6;
+    }
+
+    /**
+     * Set 是否查询节点 IPV6 信息。
+     * @param ShowIpv6 是否查询节点 IPV6 信息。
+     */
+    public void setShowIpv6(Boolean ShowIpv6) {
+        this.ShowIpv6 = ShowIpv6;
+    }
+
+    /**
+     * Get 是否对IPV6进行缩写。 
+     * @return AbbreviationIpv6 是否对IPV6进行缩写。
+     */
+    public Boolean getAbbreviationIpv6() {
+        return this.AbbreviationIpv6;
+    }
+
+    /**
+     * Set 是否对IPV6进行缩写。
+     * @param AbbreviationIpv6 是否对IPV6进行缩写。
+     */
+    public void setAbbreviationIpv6(Boolean AbbreviationIpv6) {
+        this.AbbreviationIpv6 = AbbreviationIpv6;
+    }
+
     public DescribeIpStatusRequest() {
     }
 
@@ -164,6 +210,12 @@ global: 全球节点
         if (source.Segment != null) {
             this.Segment = new Boolean(source.Segment);
         }
+        if (source.ShowIpv6 != null) {
+            this.ShowIpv6 = new Boolean(source.ShowIpv6);
+        }
+        if (source.AbbreviationIpv6 != null) {
+            this.AbbreviationIpv6 = new Boolean(source.AbbreviationIpv6);
+        }
     }
 
 
@@ -175,6 +227,8 @@ global: 全球节点
         this.setParamSimple(map, prefix + "Layer", this.Layer);
         this.setParamSimple(map, prefix + "Area", this.Area);
         this.setParamSimple(map, prefix + "Segment", this.Segment);
+        this.setParamSimple(map, prefix + "ShowIpv6", this.ShowIpv6);
+        this.setParamSimple(map, prefix + "AbbreviationIpv6", this.AbbreviationIpv6);
 
     }
 }

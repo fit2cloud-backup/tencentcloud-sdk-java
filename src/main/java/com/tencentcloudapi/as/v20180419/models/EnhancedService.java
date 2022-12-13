@@ -37,6 +37,20 @@ public class EnhancedService extends AbstractModel{
     private RunMonitorServiceEnabled MonitorService;
 
     /**
+    * 该参数已废弃，查询时会返回空值，请勿使用。
+    */
+    @SerializedName("AutomationService")
+    @Expose
+    private RunAutomationServiceEnabled [] AutomationService;
+
+    /**
+    * 开启自动化助手服务。若不指定该参数，则默认逻辑与CVM保持一致。注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AutomationToolsService")
+    @Expose
+    private RunAutomationServiceEnabled AutomationToolsService;
+
+    /**
      * Get 开启云安全服务。若不指定该参数，则默认开启云安全服务。 
      * @return SecurityService 开启云安全服务。若不指定该参数，则默认开启云安全服务。
      */
@@ -68,6 +82,38 @@ public class EnhancedService extends AbstractModel{
         this.MonitorService = MonitorService;
     }
 
+    /**
+     * Get 该参数已废弃，查询时会返回空值，请勿使用。 
+     * @return AutomationService 该参数已废弃，查询时会返回空值，请勿使用。
+     */
+    public RunAutomationServiceEnabled [] getAutomationService() {
+        return this.AutomationService;
+    }
+
+    /**
+     * Set 该参数已废弃，查询时会返回空值，请勿使用。
+     * @param AutomationService 该参数已废弃，查询时会返回空值，请勿使用。
+     */
+    public void setAutomationService(RunAutomationServiceEnabled [] AutomationService) {
+        this.AutomationService = AutomationService;
+    }
+
+    /**
+     * Get 开启自动化助手服务。若不指定该参数，则默认逻辑与CVM保持一致。注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AutomationToolsService 开启自动化助手服务。若不指定该参数，则默认逻辑与CVM保持一致。注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public RunAutomationServiceEnabled getAutomationToolsService() {
+        return this.AutomationToolsService;
+    }
+
+    /**
+     * Set 开启自动化助手服务。若不指定该参数，则默认逻辑与CVM保持一致。注意：此字段可能返回 null，表示取不到有效值。
+     * @param AutomationToolsService 开启自动化助手服务。若不指定该参数，则默认逻辑与CVM保持一致。注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAutomationToolsService(RunAutomationServiceEnabled AutomationToolsService) {
+        this.AutomationToolsService = AutomationToolsService;
+    }
+
     public EnhancedService() {
     }
 
@@ -82,6 +128,15 @@ public class EnhancedService extends AbstractModel{
         if (source.MonitorService != null) {
             this.MonitorService = new RunMonitorServiceEnabled(source.MonitorService);
         }
+        if (source.AutomationService != null) {
+            this.AutomationService = new RunAutomationServiceEnabled[source.AutomationService.length];
+            for (int i = 0; i < source.AutomationService.length; i++) {
+                this.AutomationService[i] = new RunAutomationServiceEnabled(source.AutomationService[i]);
+            }
+        }
+        if (source.AutomationToolsService != null) {
+            this.AutomationToolsService = new RunAutomationServiceEnabled(source.AutomationToolsService);
+        }
     }
 
 
@@ -91,6 +146,8 @@ public class EnhancedService extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "SecurityService.", this.SecurityService);
         this.setParamObj(map, prefix + "MonitorService.", this.MonitorService);
+        this.setParamArrayObj(map, prefix + "AutomationService.", this.AutomationService);
+        this.setParamObj(map, prefix + "AutomationToolsService.", this.AutomationToolsService);
 
     }
 }

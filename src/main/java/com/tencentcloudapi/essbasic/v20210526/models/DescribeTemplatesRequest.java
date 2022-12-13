@@ -30,7 +30,7 @@ public class DescribeTemplatesRequest extends AbstractModel{
     private Agent Agent;
 
     /**
-    * 模板唯一标识
+    * 模板唯一标识，查询单个模板时使用
     */
     @SerializedName("TemplateId")
     @Expose
@@ -44,18 +44,32 @@ public class DescribeTemplatesRequest extends AbstractModel{
     private Long ContentType;
 
     /**
-    * 查询个数，默认20，最大100
+    * 查询个数，默认20，最大100；在查询列表的时候有效
     */
     @SerializedName("Limit")
     @Expose
     private Long Limit;
 
     /**
-    * 查询偏移位置，默认0
+    * 查询偏移位置，默认0；在查询列表的时候有效
     */
     @SerializedName("Offset")
     @Expose
     private Long Offset;
+
+    /**
+    * 是否返回所有组件信息。默认false，只返回发起方控件；true，返回所有签署方控件
+    */
+    @SerializedName("QueryAllComponents")
+    @Expose
+    private Boolean QueryAllComponents;
+
+    /**
+    * 模糊搜索模板名称，最大长度200
+    */
+    @SerializedName("TemplateName")
+    @Expose
+    private String TemplateName;
 
     /**
     * 操作者的信息
@@ -63,6 +77,20 @@ public class DescribeTemplatesRequest extends AbstractModel{
     @SerializedName("Operator")
     @Expose
     private UserInfo Operator;
+
+    /**
+    * 是否获取模板预览链接
+    */
+    @SerializedName("WithPreviewUrl")
+    @Expose
+    private Boolean WithPreviewUrl;
+
+    /**
+    * 是否获取模板的PDF文件链接-渠道版需要开启白名单时才能使用。
+    */
+    @SerializedName("WithPdfUrl")
+    @Expose
+    private Boolean WithPdfUrl;
 
     /**
      * Get 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。 
@@ -81,16 +109,16 @@ public class DescribeTemplatesRequest extends AbstractModel{
     }
 
     /**
-     * Get 模板唯一标识 
-     * @return TemplateId 模板唯一标识
+     * Get 模板唯一标识，查询单个模板时使用 
+     * @return TemplateId 模板唯一标识，查询单个模板时使用
      */
     public String getTemplateId() {
         return this.TemplateId;
     }
 
     /**
-     * Set 模板唯一标识
-     * @param TemplateId 模板唯一标识
+     * Set 模板唯一标识，查询单个模板时使用
+     * @param TemplateId 模板唯一标识，查询单个模板时使用
      */
     public void setTemplateId(String TemplateId) {
         this.TemplateId = TemplateId;
@@ -113,35 +141,67 @@ public class DescribeTemplatesRequest extends AbstractModel{
     }
 
     /**
-     * Get 查询个数，默认20，最大100 
-     * @return Limit 查询个数，默认20，最大100
+     * Get 查询个数，默认20，最大100；在查询列表的时候有效 
+     * @return Limit 查询个数，默认20，最大100；在查询列表的时候有效
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 查询个数，默认20，最大100
-     * @param Limit 查询个数，默认20，最大100
+     * Set 查询个数，默认20，最大100；在查询列表的时候有效
+     * @param Limit 查询个数，默认20，最大100；在查询列表的时候有效
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
     }
 
     /**
-     * Get 查询偏移位置，默认0 
-     * @return Offset 查询偏移位置，默认0
+     * Get 查询偏移位置，默认0；在查询列表的时候有效 
+     * @return Offset 查询偏移位置，默认0；在查询列表的时候有效
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 查询偏移位置，默认0
-     * @param Offset 查询偏移位置，默认0
+     * Set 查询偏移位置，默认0；在查询列表的时候有效
+     * @param Offset 查询偏移位置，默认0；在查询列表的时候有效
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
+    }
+
+    /**
+     * Get 是否返回所有组件信息。默认false，只返回发起方控件；true，返回所有签署方控件 
+     * @return QueryAllComponents 是否返回所有组件信息。默认false，只返回发起方控件；true，返回所有签署方控件
+     */
+    public Boolean getQueryAllComponents() {
+        return this.QueryAllComponents;
+    }
+
+    /**
+     * Set 是否返回所有组件信息。默认false，只返回发起方控件；true，返回所有签署方控件
+     * @param QueryAllComponents 是否返回所有组件信息。默认false，只返回发起方控件；true，返回所有签署方控件
+     */
+    public void setQueryAllComponents(Boolean QueryAllComponents) {
+        this.QueryAllComponents = QueryAllComponents;
+    }
+
+    /**
+     * Get 模糊搜索模板名称，最大长度200 
+     * @return TemplateName 模糊搜索模板名称，最大长度200
+     */
+    public String getTemplateName() {
+        return this.TemplateName;
+    }
+
+    /**
+     * Set 模糊搜索模板名称，最大长度200
+     * @param TemplateName 模糊搜索模板名称，最大长度200
+     */
+    public void setTemplateName(String TemplateName) {
+        this.TemplateName = TemplateName;
     }
 
     /**
@@ -158,6 +218,38 @@ public class DescribeTemplatesRequest extends AbstractModel{
      */
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
+    }
+
+    /**
+     * Get 是否获取模板预览链接 
+     * @return WithPreviewUrl 是否获取模板预览链接
+     */
+    public Boolean getWithPreviewUrl() {
+        return this.WithPreviewUrl;
+    }
+
+    /**
+     * Set 是否获取模板预览链接
+     * @param WithPreviewUrl 是否获取模板预览链接
+     */
+    public void setWithPreviewUrl(Boolean WithPreviewUrl) {
+        this.WithPreviewUrl = WithPreviewUrl;
+    }
+
+    /**
+     * Get 是否获取模板的PDF文件链接-渠道版需要开启白名单时才能使用。 
+     * @return WithPdfUrl 是否获取模板的PDF文件链接-渠道版需要开启白名单时才能使用。
+     */
+    public Boolean getWithPdfUrl() {
+        return this.WithPdfUrl;
+    }
+
+    /**
+     * Set 是否获取模板的PDF文件链接-渠道版需要开启白名单时才能使用。
+     * @param WithPdfUrl 是否获取模板的PDF文件链接-渠道版需要开启白名单时才能使用。
+     */
+    public void setWithPdfUrl(Boolean WithPdfUrl) {
+        this.WithPdfUrl = WithPdfUrl;
     }
 
     public DescribeTemplatesRequest() {
@@ -183,8 +275,20 @@ public class DescribeTemplatesRequest extends AbstractModel{
         if (source.Offset != null) {
             this.Offset = new Long(source.Offset);
         }
+        if (source.QueryAllComponents != null) {
+            this.QueryAllComponents = new Boolean(source.QueryAllComponents);
+        }
+        if (source.TemplateName != null) {
+            this.TemplateName = new String(source.TemplateName);
+        }
         if (source.Operator != null) {
             this.Operator = new UserInfo(source.Operator);
+        }
+        if (source.WithPreviewUrl != null) {
+            this.WithPreviewUrl = new Boolean(source.WithPreviewUrl);
+        }
+        if (source.WithPdfUrl != null) {
+            this.WithPdfUrl = new Boolean(source.WithPdfUrl);
         }
     }
 
@@ -198,7 +302,11 @@ public class DescribeTemplatesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ContentType", this.ContentType);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
+        this.setParamSimple(map, prefix + "QueryAllComponents", this.QueryAllComponents);
+        this.setParamSimple(map, prefix + "TemplateName", this.TemplateName);
         this.setParamObj(map, prefix + "Operator.", this.Operator);
+        this.setParamSimple(map, prefix + "WithPreviewUrl", this.WithPreviewUrl);
+        this.setParamSimple(map, prefix + "WithPdfUrl", this.WithPdfUrl);
 
     }
 }

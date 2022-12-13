@@ -23,38 +23,33 @@ import java.util.HashMap;
 public class CacheConfigFollowOrigin extends AbstractModel{
 
     /**
-    * 遵循源站配置开关
-on：开启
-off：关闭
-注意：此字段可能返回 null，表示取不到有效值。
+    * 遵循源站配置开关，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li>
     */
     @SerializedName("Switch")
     @Expose
     private String Switch;
 
     /**
-     * Get 遵循源站配置开关
-on：开启
-off：关闭
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Switch 遵循源站配置开关
-on：开启
-off：关闭
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 遵循源站配置开关，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li> 
+     * @return Switch 遵循源站配置开关，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li>
      */
     public String getSwitch() {
         return this.Switch;
     }
 
     /**
-     * Set 遵循源站配置开关
-on：开启
-off：关闭
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Switch 遵循源站配置开关
-on：开启
-off：关闭
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 遵循源站配置开关，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li>
+     * @param Switch 遵循源站配置开关，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li>
      */
     public void setSwitch(String Switch) {
         this.Switch = Switch;

@@ -331,6 +331,70 @@ public class DBInstance extends AbstractModel{
     private String InstanceType;
 
     /**
+    * 跨地域备份目的地域，如果为空，则表示未开启跨地域备份
+    */
+    @SerializedName("CrossRegions")
+    @Expose
+    private String [] CrossRegions;
+
+    /**
+    * 跨地域备份状态 enable-开启，disable-关闭
+    */
+    @SerializedName("CrossBackupEnabled")
+    @Expose
+    private String CrossBackupEnabled;
+
+    /**
+    * 跨地域备份保留天数，则默认7天
+    */
+    @SerializedName("CrossBackupSaveDays")
+    @Expose
+    private Long CrossBackupSaveDays;
+
+    /**
+    * 外网地址域名
+    */
+    @SerializedName("DnsPodDomain")
+    @Expose
+    private String DnsPodDomain;
+
+    /**
+    * 外网端口号
+    */
+    @SerializedName("TgwWanVPort")
+    @Expose
+    private Long TgwWanVPort;
+
+    /**
+    * 系统字符集排序规则，默认：Chinese_PRC_CI_AS
+    */
+    @SerializedName("Collation")
+    @Expose
+    private String Collation;
+
+    /**
+    * 系统时区，默认：China Standard Time
+    */
+    @SerializedName("TimeZone")
+    @Expose
+    private String TimeZone;
+
+    /**
+    * 是否跨AZ
+    */
+    @SerializedName("IsDrZone")
+    @Expose
+    private Boolean IsDrZone;
+
+    /**
+    * 备可用区信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SlaveZones")
+    @Expose
+    private SlaveZones SlaveZones;
+
+    /**
      * Get 实例ID 
      * @return InstanceId 实例ID
      */
@@ -1046,6 +1110,154 @@ public class DBInstance extends AbstractModel{
         this.InstanceType = InstanceType;
     }
 
+    /**
+     * Get 跨地域备份目的地域，如果为空，则表示未开启跨地域备份 
+     * @return CrossRegions 跨地域备份目的地域，如果为空，则表示未开启跨地域备份
+     */
+    public String [] getCrossRegions() {
+        return this.CrossRegions;
+    }
+
+    /**
+     * Set 跨地域备份目的地域，如果为空，则表示未开启跨地域备份
+     * @param CrossRegions 跨地域备份目的地域，如果为空，则表示未开启跨地域备份
+     */
+    public void setCrossRegions(String [] CrossRegions) {
+        this.CrossRegions = CrossRegions;
+    }
+
+    /**
+     * Get 跨地域备份状态 enable-开启，disable-关闭 
+     * @return CrossBackupEnabled 跨地域备份状态 enable-开启，disable-关闭
+     */
+    public String getCrossBackupEnabled() {
+        return this.CrossBackupEnabled;
+    }
+
+    /**
+     * Set 跨地域备份状态 enable-开启，disable-关闭
+     * @param CrossBackupEnabled 跨地域备份状态 enable-开启，disable-关闭
+     */
+    public void setCrossBackupEnabled(String CrossBackupEnabled) {
+        this.CrossBackupEnabled = CrossBackupEnabled;
+    }
+
+    /**
+     * Get 跨地域备份保留天数，则默认7天 
+     * @return CrossBackupSaveDays 跨地域备份保留天数，则默认7天
+     */
+    public Long getCrossBackupSaveDays() {
+        return this.CrossBackupSaveDays;
+    }
+
+    /**
+     * Set 跨地域备份保留天数，则默认7天
+     * @param CrossBackupSaveDays 跨地域备份保留天数，则默认7天
+     */
+    public void setCrossBackupSaveDays(Long CrossBackupSaveDays) {
+        this.CrossBackupSaveDays = CrossBackupSaveDays;
+    }
+
+    /**
+     * Get 外网地址域名 
+     * @return DnsPodDomain 外网地址域名
+     */
+    public String getDnsPodDomain() {
+        return this.DnsPodDomain;
+    }
+
+    /**
+     * Set 外网地址域名
+     * @param DnsPodDomain 外网地址域名
+     */
+    public void setDnsPodDomain(String DnsPodDomain) {
+        this.DnsPodDomain = DnsPodDomain;
+    }
+
+    /**
+     * Get 外网端口号 
+     * @return TgwWanVPort 外网端口号
+     */
+    public Long getTgwWanVPort() {
+        return this.TgwWanVPort;
+    }
+
+    /**
+     * Set 外网端口号
+     * @param TgwWanVPort 外网端口号
+     */
+    public void setTgwWanVPort(Long TgwWanVPort) {
+        this.TgwWanVPort = TgwWanVPort;
+    }
+
+    /**
+     * Get 系统字符集排序规则，默认：Chinese_PRC_CI_AS 
+     * @return Collation 系统字符集排序规则，默认：Chinese_PRC_CI_AS
+     */
+    public String getCollation() {
+        return this.Collation;
+    }
+
+    /**
+     * Set 系统字符集排序规则，默认：Chinese_PRC_CI_AS
+     * @param Collation 系统字符集排序规则，默认：Chinese_PRC_CI_AS
+     */
+    public void setCollation(String Collation) {
+        this.Collation = Collation;
+    }
+
+    /**
+     * Get 系统时区，默认：China Standard Time 
+     * @return TimeZone 系统时区，默认：China Standard Time
+     */
+    public String getTimeZone() {
+        return this.TimeZone;
+    }
+
+    /**
+     * Set 系统时区，默认：China Standard Time
+     * @param TimeZone 系统时区，默认：China Standard Time
+     */
+    public void setTimeZone(String TimeZone) {
+        this.TimeZone = TimeZone;
+    }
+
+    /**
+     * Get 是否跨AZ 
+     * @return IsDrZone 是否跨AZ
+     */
+    public Boolean getIsDrZone() {
+        return this.IsDrZone;
+    }
+
+    /**
+     * Set 是否跨AZ
+     * @param IsDrZone 是否跨AZ
+     */
+    public void setIsDrZone(Boolean IsDrZone) {
+        this.IsDrZone = IsDrZone;
+    }
+
+    /**
+     * Get 备可用区信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SlaveZones 备可用区信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public SlaveZones getSlaveZones() {
+        return this.SlaveZones;
+    }
+
+    /**
+     * Set 备可用区信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SlaveZones 备可用区信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSlaveZones(SlaveZones SlaveZones) {
+        this.SlaveZones = SlaveZones;
+    }
+
     public DBInstance() {
     }
 
@@ -1189,6 +1401,36 @@ public class DBInstance extends AbstractModel{
         if (source.InstanceType != null) {
             this.InstanceType = new String(source.InstanceType);
         }
+        if (source.CrossRegions != null) {
+            this.CrossRegions = new String[source.CrossRegions.length];
+            for (int i = 0; i < source.CrossRegions.length; i++) {
+                this.CrossRegions[i] = new String(source.CrossRegions[i]);
+            }
+        }
+        if (source.CrossBackupEnabled != null) {
+            this.CrossBackupEnabled = new String(source.CrossBackupEnabled);
+        }
+        if (source.CrossBackupSaveDays != null) {
+            this.CrossBackupSaveDays = new Long(source.CrossBackupSaveDays);
+        }
+        if (source.DnsPodDomain != null) {
+            this.DnsPodDomain = new String(source.DnsPodDomain);
+        }
+        if (source.TgwWanVPort != null) {
+            this.TgwWanVPort = new Long(source.TgwWanVPort);
+        }
+        if (source.Collation != null) {
+            this.Collation = new String(source.Collation);
+        }
+        if (source.TimeZone != null) {
+            this.TimeZone = new String(source.TimeZone);
+        }
+        if (source.IsDrZone != null) {
+            this.IsDrZone = new Boolean(source.IsDrZone);
+        }
+        if (source.SlaveZones != null) {
+            this.SlaveZones = new SlaveZones(source.SlaveZones);
+        }
     }
 
 
@@ -1239,6 +1481,15 @@ public class DBInstance extends AbstractModel{
         this.setParamSimple(map, prefix + "BackupCycleType", this.BackupCycleType);
         this.setParamSimple(map, prefix + "BackupSaveDays", this.BackupSaveDays);
         this.setParamSimple(map, prefix + "InstanceType", this.InstanceType);
+        this.setParamArraySimple(map, prefix + "CrossRegions.", this.CrossRegions);
+        this.setParamSimple(map, prefix + "CrossBackupEnabled", this.CrossBackupEnabled);
+        this.setParamSimple(map, prefix + "CrossBackupSaveDays", this.CrossBackupSaveDays);
+        this.setParamSimple(map, prefix + "DnsPodDomain", this.DnsPodDomain);
+        this.setParamSimple(map, prefix + "TgwWanVPort", this.TgwWanVPort);
+        this.setParamSimple(map, prefix + "Collation", this.Collation);
+        this.setParamSimple(map, prefix + "TimeZone", this.TimeZone);
+        this.setParamSimple(map, prefix + "IsDrZone", this.IsDrZone);
+        this.setParamObj(map, prefix + "SlaveZones.", this.SlaveZones);
 
     }
 }

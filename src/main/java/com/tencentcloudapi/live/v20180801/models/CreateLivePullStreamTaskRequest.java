@@ -26,6 +26,7 @@ public class CreateLivePullStreamTaskRequest extends AbstractModel{
     * 拉流源的类型：
 PullLivePushLive -直播，
 PullVodPushLive -点播。
+PullPicPushLive -图片。
     */
     @SerializedName("SourceType")
     @Expose
@@ -52,7 +53,7 @@ SourceType 为点播（PullVodPushLive）可以填多个，上限30个。
     /**
     * 推流域名。
 将拉取过来的流推到该域名。
-注意：请使用已在云直播配置的推流域名。
+注意：如果目标地址为非云直播，且样式不同于云直播，请使用 ToUrl 传入完整推流地址，详细用法请参考 ToUrl 参数说明。
     */
     @SerializedName("DomainName")
     @Expose
@@ -180,7 +181,7 @@ ContinueBreakPoint：播放完当前正在播放的点播 url 后再使用新的
 
     /**
     * 完整目标 URL 地址。
-用法注意：如果使用该参数来传完整目标地址，则 DomainName, AppName, StreamName 需要传入空值，任务将会使用该 ToUrl 参数指定的目标地址。
+用法注意：如果使用该参数来传完整目标地址，则 DomainName, AppName, StreamName 需要传入空字符串，任务将会使用该 ToUrl 参数指定的目标地址。
 
 注意：签名时间需要超过任务结束时间，避免因签名过期造成任务失败。
     */
@@ -210,12 +211,35 @@ PullVodPushLive -点播。
     private String BackupSourceUrl;
 
     /**
+    * 水印信息列表。
+注意：
+1. 最多支持4个不同位置的水印。
+2. 水印图片 URL 请使用合法外网可访问地址。
+3. 支持的水印图片格式：png，jpg，gif 等。
+    */
+    @SerializedName("WatermarkList")
+    @Expose
+    private PullPushWatermarkInfo [] WatermarkList;
+
+    /**
+    * 点播源是否启用本地推流模式，默认0，不启用。
+0 - 不启用。
+1 - 启用。
+注意：启用本地模式后，会将源列表中的 MP4 文件进行本地下载，优先使用本地已下载文件进行推流，提高点播源推流稳定性。使用本地下载文件推流时，会产生增值费用。
+    */
+    @SerializedName("VodLocalMode")
+    @Expose
+    private Long VodLocalMode;
+
+    /**
      * Get 拉流源的类型：
 PullLivePushLive -直播，
-PullVodPushLive -点播。 
+PullVodPushLive -点播。
+PullPicPushLive -图片。 
      * @return SourceType 拉流源的类型：
 PullLivePushLive -直播，
 PullVodPushLive -点播。
+PullPicPushLive -图片。
      */
     public String getSourceType() {
         return this.SourceType;
@@ -225,9 +249,11 @@ PullVodPushLive -点播。
      * Set 拉流源的类型：
 PullLivePushLive -直播，
 PullVodPushLive -点播。
+PullPicPushLive -图片。
      * @param SourceType 拉流源的类型：
 PullLivePushLive -直播，
 PullVodPushLive -点播。
+PullPicPushLive -图片。
      */
     public void setSourceType(String SourceType) {
         this.SourceType = SourceType;
@@ -296,10 +322,10 @@ SourceType 为点播（PullVodPushLive）可以填多个，上限30个。
     /**
      * Get 推流域名。
 将拉取过来的流推到该域名。
-注意：请使用已在云直播配置的推流域名。 
+注意：如果目标地址为非云直播，且样式不同于云直播，请使用 ToUrl 传入完整推流地址，详细用法请参考 ToUrl 参数说明。 
      * @return DomainName 推流域名。
 将拉取过来的流推到该域名。
-注意：请使用已在云直播配置的推流域名。
+注意：如果目标地址为非云直播，且样式不同于云直播，请使用 ToUrl 传入完整推流地址，详细用法请参考 ToUrl 参数说明。
      */
     public String getDomainName() {
         return this.DomainName;
@@ -308,10 +334,10 @@ SourceType 为点播（PullVodPushLive）可以填多个，上限30个。
     /**
      * Set 推流域名。
 将拉取过来的流推到该域名。
-注意：请使用已在云直播配置的推流域名。
+注意：如果目标地址为非云直播，且样式不同于云直播，请使用 ToUrl 传入完整推流地址，详细用法请参考 ToUrl 参数说明。
      * @param DomainName 推流域名。
 将拉取过来的流推到该域名。
-注意：请使用已在云直播配置的推流域名。
+注意：如果目标地址为非云直播，且样式不同于云直播，请使用 ToUrl 传入完整推流地址，详细用法请参考 ToUrl 参数说明。
      */
     public void setDomainName(String DomainName) {
         this.DomainName = DomainName;
@@ -655,11 +681,11 @@ ContinueBreakPoint：播放完当前正在播放的点播 url 后再使用新的
 
     /**
      * Get 完整目标 URL 地址。
-用法注意：如果使用该参数来传完整目标地址，则 DomainName, AppName, StreamName 需要传入空值，任务将会使用该 ToUrl 参数指定的目标地址。
+用法注意：如果使用该参数来传完整目标地址，则 DomainName, AppName, StreamName 需要传入空字符串，任务将会使用该 ToUrl 参数指定的目标地址。
 
 注意：签名时间需要超过任务结束时间，避免因签名过期造成任务失败。 
      * @return ToUrl 完整目标 URL 地址。
-用法注意：如果使用该参数来传完整目标地址，则 DomainName, AppName, StreamName 需要传入空值，任务将会使用该 ToUrl 参数指定的目标地址。
+用法注意：如果使用该参数来传完整目标地址，则 DomainName, AppName, StreamName 需要传入空字符串，任务将会使用该 ToUrl 参数指定的目标地址。
 
 注意：签名时间需要超过任务结束时间，避免因签名过期造成任务失败。
      */
@@ -669,11 +695,11 @@ ContinueBreakPoint：播放完当前正在播放的点播 url 后再使用新的
 
     /**
      * Set 完整目标 URL 地址。
-用法注意：如果使用该参数来传完整目标地址，则 DomainName, AppName, StreamName 需要传入空值，任务将会使用该 ToUrl 参数指定的目标地址。
+用法注意：如果使用该参数来传完整目标地址，则 DomainName, AppName, StreamName 需要传入空字符串，任务将会使用该 ToUrl 参数指定的目标地址。
 
 注意：签名时间需要超过任务结束时间，避免因签名过期造成任务失败。
      * @param ToUrl 完整目标 URL 地址。
-用法注意：如果使用该参数来传完整目标地址，则 DomainName, AppName, StreamName 需要传入空值，任务将会使用该 ToUrl 参数指定的目标地址。
+用法注意：如果使用该参数来传完整目标地址，则 DomainName, AppName, StreamName 需要传入空字符串，任务将会使用该 ToUrl 参数指定的目标地址。
 
 注意：签名时间需要超过任务结束时间，避免因签名过期造成任务失败。
      */
@@ -739,6 +765,66 @@ PullVodPushLive -点播。
      */
     public void setBackupSourceUrl(String BackupSourceUrl) {
         this.BackupSourceUrl = BackupSourceUrl;
+    }
+
+    /**
+     * Get 水印信息列表。
+注意：
+1. 最多支持4个不同位置的水印。
+2. 水印图片 URL 请使用合法外网可访问地址。
+3. 支持的水印图片格式：png，jpg，gif 等。 
+     * @return WatermarkList 水印信息列表。
+注意：
+1. 最多支持4个不同位置的水印。
+2. 水印图片 URL 请使用合法外网可访问地址。
+3. 支持的水印图片格式：png，jpg，gif 等。
+     */
+    public PullPushWatermarkInfo [] getWatermarkList() {
+        return this.WatermarkList;
+    }
+
+    /**
+     * Set 水印信息列表。
+注意：
+1. 最多支持4个不同位置的水印。
+2. 水印图片 URL 请使用合法外网可访问地址。
+3. 支持的水印图片格式：png，jpg，gif 等。
+     * @param WatermarkList 水印信息列表。
+注意：
+1. 最多支持4个不同位置的水印。
+2. 水印图片 URL 请使用合法外网可访问地址。
+3. 支持的水印图片格式：png，jpg，gif 等。
+     */
+    public void setWatermarkList(PullPushWatermarkInfo [] WatermarkList) {
+        this.WatermarkList = WatermarkList;
+    }
+
+    /**
+     * Get 点播源是否启用本地推流模式，默认0，不启用。
+0 - 不启用。
+1 - 启用。
+注意：启用本地模式后，会将源列表中的 MP4 文件进行本地下载，优先使用本地已下载文件进行推流，提高点播源推流稳定性。使用本地下载文件推流时，会产生增值费用。 
+     * @return VodLocalMode 点播源是否启用本地推流模式，默认0，不启用。
+0 - 不启用。
+1 - 启用。
+注意：启用本地模式后，会将源列表中的 MP4 文件进行本地下载，优先使用本地已下载文件进行推流，提高点播源推流稳定性。使用本地下载文件推流时，会产生增值费用。
+     */
+    public Long getVodLocalMode() {
+        return this.VodLocalMode;
+    }
+
+    /**
+     * Set 点播源是否启用本地推流模式，默认0，不启用。
+0 - 不启用。
+1 - 启用。
+注意：启用本地模式后，会将源列表中的 MP4 文件进行本地下载，优先使用本地已下载文件进行推流，提高点播源推流稳定性。使用本地下载文件推流时，会产生增值费用。
+     * @param VodLocalMode 点播源是否启用本地推流模式，默认0，不启用。
+0 - 不启用。
+1 - 启用。
+注意：启用本地模式后，会将源列表中的 MP4 文件进行本地下载，优先使用本地已下载文件进行推流，提高点播源推流稳定性。使用本地下载文件推流时，会产生增值费用。
+     */
+    public void setVodLocalMode(Long VodLocalMode) {
+        this.VodLocalMode = VodLocalMode;
     }
 
     public CreateLivePullStreamTaskRequest() {
@@ -809,6 +895,15 @@ PullVodPushLive -点播。
         if (source.BackupSourceUrl != null) {
             this.BackupSourceUrl = new String(source.BackupSourceUrl);
         }
+        if (source.WatermarkList != null) {
+            this.WatermarkList = new PullPushWatermarkInfo[source.WatermarkList.length];
+            for (int i = 0; i < source.WatermarkList.length; i++) {
+                this.WatermarkList[i] = new PullPushWatermarkInfo(source.WatermarkList[i]);
+            }
+        }
+        if (source.VodLocalMode != null) {
+            this.VodLocalMode = new Long(source.VodLocalMode);
+        }
     }
 
 
@@ -834,6 +929,8 @@ PullVodPushLive -点播。
         this.setParamSimple(map, prefix + "ToUrl", this.ToUrl);
         this.setParamSimple(map, prefix + "BackupSourceType", this.BackupSourceType);
         this.setParamSimple(map, prefix + "BackupSourceUrl", this.BackupSourceUrl);
+        this.setParamArrayObj(map, prefix + "WatermarkList.", this.WatermarkList);
+        this.setParamSimple(map, prefix + "VodLocalMode", this.VodLocalMode);
 
     }
 }

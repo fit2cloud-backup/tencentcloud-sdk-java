@@ -51,7 +51,7 @@ public class CarTagItem extends AbstractModel{
     private String Color;
 
     /**
-    * 置信度，0-100
+    * 车系置信度，0-100
     */
     @SerializedName("Confidence")
     @Expose
@@ -72,12 +72,52 @@ public class CarTagItem extends AbstractModel{
     private Coord [] CarLocation;
 
     /**
-    * 车牌信息
+    * 车牌信息，仅车辆识别（增强版）支持
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PlateContent")
     @Expose
     private CarPlateContent PlateContent;
+
+    /**
+    * 车牌信息置信度，0-100，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PlateConfidence")
+    @Expose
+    private Long PlateConfidence;
+
+    /**
+    * 车辆类型置信度，0-100，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TypeConfidence")
+    @Expose
+    private Long TypeConfidence;
+
+    /**
+    * 车辆颜色置信度，0-100，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ColorConfidence")
+    @Expose
+    private Long ColorConfidence;
+
+    /**
+    * 车辆朝向，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Orientation")
+    @Expose
+    private String Orientation;
+
+    /**
+    * 车辆朝向置信度，0-100，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OrientationConfidence")
+    @Expose
+    private Long OrientationConfidence;
 
     /**
      * Get 车系 
@@ -144,16 +184,16 @@ public class CarTagItem extends AbstractModel{
     }
 
     /**
-     * Get 置信度，0-100 
-     * @return Confidence 置信度，0-100
+     * Get 车系置信度，0-100 
+     * @return Confidence 车系置信度，0-100
      */
     public Long getConfidence() {
         return this.Confidence;
     }
 
     /**
-     * Set 置信度，0-100
-     * @param Confidence 置信度，0-100
+     * Set 车系置信度，0-100
+     * @param Confidence 车系置信度，0-100
      */
     public void setConfidence(Long Confidence) {
         this.Confidence = Confidence;
@@ -192,9 +232,9 @@ public class CarTagItem extends AbstractModel{
     }
 
     /**
-     * Get 车牌信息
+     * Get 车牌信息，仅车辆识别（增强版）支持
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return PlateContent 车牌信息
+     * @return PlateContent 车牌信息，仅车辆识别（增强版）支持
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public CarPlateContent getPlateContent() {
@@ -202,13 +242,113 @@ public class CarTagItem extends AbstractModel{
     }
 
     /**
-     * Set 车牌信息
+     * Set 车牌信息，仅车辆识别（增强版）支持
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param PlateContent 车牌信息
+     * @param PlateContent 车牌信息，仅车辆识别（增强版）支持
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPlateContent(CarPlateContent PlateContent) {
         this.PlateContent = PlateContent;
+    }
+
+    /**
+     * Get 车牌信息置信度，0-100，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PlateConfidence 车牌信息置信度，0-100，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getPlateConfidence() {
+        return this.PlateConfidence;
+    }
+
+    /**
+     * Set 车牌信息置信度，0-100，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PlateConfidence 车牌信息置信度，0-100，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPlateConfidence(Long PlateConfidence) {
+        this.PlateConfidence = PlateConfidence;
+    }
+
+    /**
+     * Get 车辆类型置信度，0-100，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TypeConfidence 车辆类型置信度，0-100，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getTypeConfidence() {
+        return this.TypeConfidence;
+    }
+
+    /**
+     * Set 车辆类型置信度，0-100，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TypeConfidence 车辆类型置信度，0-100，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTypeConfidence(Long TypeConfidence) {
+        this.TypeConfidence = TypeConfidence;
+    }
+
+    /**
+     * Get 车辆颜色置信度，0-100，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ColorConfidence 车辆颜色置信度，0-100，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getColorConfidence() {
+        return this.ColorConfidence;
+    }
+
+    /**
+     * Set 车辆颜色置信度，0-100，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ColorConfidence 车辆颜色置信度，0-100，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setColorConfidence(Long ColorConfidence) {
+        this.ColorConfidence = ColorConfidence;
+    }
+
+    /**
+     * Get 车辆朝向，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Orientation 车辆朝向，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getOrientation() {
+        return this.Orientation;
+    }
+
+    /**
+     * Set 车辆朝向，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Orientation 车辆朝向，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOrientation(String Orientation) {
+        this.Orientation = Orientation;
+    }
+
+    /**
+     * Get 车辆朝向置信度，0-100，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OrientationConfidence 车辆朝向置信度，0-100，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getOrientationConfidence() {
+        return this.OrientationConfidence;
+    }
+
+    /**
+     * Set 车辆朝向置信度，0-100，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OrientationConfidence 车辆朝向置信度，0-100，仅车辆识别（增强版）支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOrientationConfidence(Long OrientationConfidence) {
+        this.OrientationConfidence = OrientationConfidence;
     }
 
     public CarTagItem() {
@@ -246,6 +386,21 @@ public class CarTagItem extends AbstractModel{
         if (source.PlateContent != null) {
             this.PlateContent = new CarPlateContent(source.PlateContent);
         }
+        if (source.PlateConfidence != null) {
+            this.PlateConfidence = new Long(source.PlateConfidence);
+        }
+        if (source.TypeConfidence != null) {
+            this.TypeConfidence = new Long(source.TypeConfidence);
+        }
+        if (source.ColorConfidence != null) {
+            this.ColorConfidence = new Long(source.ColorConfidence);
+        }
+        if (source.Orientation != null) {
+            this.Orientation = new String(source.Orientation);
+        }
+        if (source.OrientationConfidence != null) {
+            this.OrientationConfidence = new Long(source.OrientationConfidence);
+        }
     }
 
 
@@ -261,6 +416,11 @@ public class CarTagItem extends AbstractModel{
         this.setParamSimple(map, prefix + "Year", this.Year);
         this.setParamArrayObj(map, prefix + "CarLocation.", this.CarLocation);
         this.setParamObj(map, prefix + "PlateContent.", this.PlateContent);
+        this.setParamSimple(map, prefix + "PlateConfidence", this.PlateConfidence);
+        this.setParamSimple(map, prefix + "TypeConfidence", this.TypeConfidence);
+        this.setParamSimple(map, prefix + "ColorConfidence", this.ColorConfidence);
+        this.setParamSimple(map, prefix + "Orientation", this.Orientation);
+        this.setParamSimple(map, prefix + "OrientationConfidence", this.OrientationConfidence);
 
     }
 }

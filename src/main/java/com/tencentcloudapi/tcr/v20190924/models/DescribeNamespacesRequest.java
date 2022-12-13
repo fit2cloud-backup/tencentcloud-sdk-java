@@ -44,11 +44,32 @@ public class DescribeNamespacesRequest extends AbstractModel{
     private Long Limit;
 
     /**
-    * 页偏移
+    * 页面偏移（第几页）
     */
     @SerializedName("Offset")
     @Expose
     private Long Offset;
+
+    /**
+    * 列出所有命名空间
+    */
+    @SerializedName("All")
+    @Expose
+    private Boolean All;
+
+    /**
+    * 过滤条件
+    */
+    @SerializedName("Filters")
+    @Expose
+    private Filter [] Filters;
+
+    /**
+    * 仅查询启用了 KMS 镜像签名的空间
+    */
+    @SerializedName("KmsSignPolicy")
+    @Expose
+    private Boolean KmsSignPolicy;
 
     /**
      * Get 实例Id 
@@ -99,19 +120,67 @@ public class DescribeNamespacesRequest extends AbstractModel{
     }
 
     /**
-     * Get 页偏移 
-     * @return Offset 页偏移
+     * Get 页面偏移（第几页） 
+     * @return Offset 页面偏移（第几页）
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 页偏移
-     * @param Offset 页偏移
+     * Set 页面偏移（第几页）
+     * @param Offset 页面偏移（第几页）
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
+    }
+
+    /**
+     * Get 列出所有命名空间 
+     * @return All 列出所有命名空间
+     */
+    public Boolean getAll() {
+        return this.All;
+    }
+
+    /**
+     * Set 列出所有命名空间
+     * @param All 列出所有命名空间
+     */
+    public void setAll(Boolean All) {
+        this.All = All;
+    }
+
+    /**
+     * Get 过滤条件 
+     * @return Filters 过滤条件
+     */
+    public Filter [] getFilters() {
+        return this.Filters;
+    }
+
+    /**
+     * Set 过滤条件
+     * @param Filters 过滤条件
+     */
+    public void setFilters(Filter [] Filters) {
+        this.Filters = Filters;
+    }
+
+    /**
+     * Get 仅查询启用了 KMS 镜像签名的空间 
+     * @return KmsSignPolicy 仅查询启用了 KMS 镜像签名的空间
+     */
+    public Boolean getKmsSignPolicy() {
+        return this.KmsSignPolicy;
+    }
+
+    /**
+     * Set 仅查询启用了 KMS 镜像签名的空间
+     * @param KmsSignPolicy 仅查询启用了 KMS 镜像签名的空间
+     */
+    public void setKmsSignPolicy(Boolean KmsSignPolicy) {
+        this.KmsSignPolicy = KmsSignPolicy;
     }
 
     public DescribeNamespacesRequest() {
@@ -134,6 +203,18 @@ public class DescribeNamespacesRequest extends AbstractModel{
         if (source.Offset != null) {
             this.Offset = new Long(source.Offset);
         }
+        if (source.All != null) {
+            this.All = new Boolean(source.All);
+        }
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
+        }
+        if (source.KmsSignPolicy != null) {
+            this.KmsSignPolicy = new Boolean(source.KmsSignPolicy);
+        }
     }
 
 
@@ -145,6 +226,9 @@ public class DescribeNamespacesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "NamespaceName", this.NamespaceName);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
+        this.setParamSimple(map, prefix + "All", this.All);
+        this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
+        this.setParamSimple(map, prefix + "KmsSignPolicy", this.KmsSignPolicy);
 
     }
 }

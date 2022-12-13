@@ -23,11 +23,25 @@ import java.util.HashMap;
 public class DescribeFlowTemplatesRequest extends AbstractModel{
 
     /**
-    * 操作人信息
+    * 调用方用户信息，userId 必填
     */
     @SerializedName("Operator")
     @Expose
     private UserInfo Operator;
+
+    /**
+    * 企业组织相关信息
+    */
+    @SerializedName("Organization")
+    @Expose
+    private OrganizationInfo Organization;
+
+    /**
+    * 应用相关信息
+    */
+    @SerializedName("Agent")
+    @Expose
+    private Agent Agent;
 
     /**
     * 查询偏移位置，默认0
@@ -37,7 +51,7 @@ public class DescribeFlowTemplatesRequest extends AbstractModel{
     private Long Offset;
 
     /**
-    * 查询个数，默认20，最大100
+    * 查询个数，默认20，最大200
     */
     @SerializedName("Limit")
     @Expose
@@ -51,11 +65,22 @@ public class DescribeFlowTemplatesRequest extends AbstractModel{
     private Filter [] Filters;
 
     /**
-    * 应用相关信息
+    * 这个参数跟下面的IsChannel参数配合使用。
+IsChannel=false时，ApplicationId参数不起任何作用。
+IsChannel=true时，ApplicationId为空，查询所有渠道模板列表；ApplicationId不为空，查询指定渠道下的模板列表
+ApplicationId为空，查询渠道模板列表
     */
-    @SerializedName("Agent")
+    @SerializedName("ApplicationId")
     @Expose
-    private Agent Agent;
+    private String ApplicationId;
+
+    /**
+    * 默认为false，查询SaaS模板库列表；
+为true，查询渠道模板库管理列表
+    */
+    @SerializedName("IsChannel")
+    @Expose
+    private Boolean IsChannel;
 
     /**
     * 暂未开放
@@ -72,19 +97,51 @@ public class DescribeFlowTemplatesRequest extends AbstractModel{
     private Long ContentType;
 
     /**
-     * Get 操作人信息 
-     * @return Operator 操作人信息
+     * Get 调用方用户信息，userId 必填 
+     * @return Operator 调用方用户信息，userId 必填
      */
     public UserInfo getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 操作人信息
-     * @param Operator 操作人信息
+     * Set 调用方用户信息，userId 必填
+     * @param Operator 调用方用户信息，userId 必填
      */
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
+    }
+
+    /**
+     * Get 企业组织相关信息 
+     * @return Organization 企业组织相关信息
+     */
+    public OrganizationInfo getOrganization() {
+        return this.Organization;
+    }
+
+    /**
+     * Set 企业组织相关信息
+     * @param Organization 企业组织相关信息
+     */
+    public void setOrganization(OrganizationInfo Organization) {
+        this.Organization = Organization;
+    }
+
+    /**
+     * Get 应用相关信息 
+     * @return Agent 应用相关信息
+     */
+    public Agent getAgent() {
+        return this.Agent;
+    }
+
+    /**
+     * Set 应用相关信息
+     * @param Agent 应用相关信息
+     */
+    public void setAgent(Agent Agent) {
+        this.Agent = Agent;
     }
 
     /**
@@ -104,16 +161,16 @@ public class DescribeFlowTemplatesRequest extends AbstractModel{
     }
 
     /**
-     * Get 查询个数，默认20，最大100 
-     * @return Limit 查询个数，默认20，最大100
+     * Get 查询个数，默认20，最大200 
+     * @return Limit 查询个数，默认20，最大200
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 查询个数，默认20，最大100
-     * @param Limit 查询个数，默认20，最大100
+     * Set 查询个数，默认20，最大200
+     * @param Limit 查询个数，默认20，最大200
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
@@ -136,19 +193,51 @@ public class DescribeFlowTemplatesRequest extends AbstractModel{
     }
 
     /**
-     * Get 应用相关信息 
-     * @return Agent 应用相关信息
+     * Get 这个参数跟下面的IsChannel参数配合使用。
+IsChannel=false时，ApplicationId参数不起任何作用。
+IsChannel=true时，ApplicationId为空，查询所有渠道模板列表；ApplicationId不为空，查询指定渠道下的模板列表
+ApplicationId为空，查询渠道模板列表 
+     * @return ApplicationId 这个参数跟下面的IsChannel参数配合使用。
+IsChannel=false时，ApplicationId参数不起任何作用。
+IsChannel=true时，ApplicationId为空，查询所有渠道模板列表；ApplicationId不为空，查询指定渠道下的模板列表
+ApplicationId为空，查询渠道模板列表
      */
-    public Agent getAgent() {
-        return this.Agent;
+    public String getApplicationId() {
+        return this.ApplicationId;
     }
 
     /**
-     * Set 应用相关信息
-     * @param Agent 应用相关信息
+     * Set 这个参数跟下面的IsChannel参数配合使用。
+IsChannel=false时，ApplicationId参数不起任何作用。
+IsChannel=true时，ApplicationId为空，查询所有渠道模板列表；ApplicationId不为空，查询指定渠道下的模板列表
+ApplicationId为空，查询渠道模板列表
+     * @param ApplicationId 这个参数跟下面的IsChannel参数配合使用。
+IsChannel=false时，ApplicationId参数不起任何作用。
+IsChannel=true时，ApplicationId为空，查询所有渠道模板列表；ApplicationId不为空，查询指定渠道下的模板列表
+ApplicationId为空，查询渠道模板列表
      */
-    public void setAgent(Agent Agent) {
-        this.Agent = Agent;
+    public void setApplicationId(String ApplicationId) {
+        this.ApplicationId = ApplicationId;
+    }
+
+    /**
+     * Get 默认为false，查询SaaS模板库列表；
+为true，查询渠道模板库管理列表 
+     * @return IsChannel 默认为false，查询SaaS模板库列表；
+为true，查询渠道模板库管理列表
+     */
+    public Boolean getIsChannel() {
+        return this.IsChannel;
+    }
+
+    /**
+     * Set 默认为false，查询SaaS模板库列表；
+为true，查询渠道模板库管理列表
+     * @param IsChannel 默认为false，查询SaaS模板库列表；
+为true，查询渠道模板库管理列表
+     */
+    public void setIsChannel(Boolean IsChannel) {
+        this.IsChannel = IsChannel;
     }
 
     /**
@@ -194,6 +283,12 @@ public class DescribeFlowTemplatesRequest extends AbstractModel{
         if (source.Operator != null) {
             this.Operator = new UserInfo(source.Operator);
         }
+        if (source.Organization != null) {
+            this.Organization = new OrganizationInfo(source.Organization);
+        }
+        if (source.Agent != null) {
+            this.Agent = new Agent(source.Agent);
+        }
         if (source.Offset != null) {
             this.Offset = new Long(source.Offset);
         }
@@ -206,8 +301,11 @@ public class DescribeFlowTemplatesRequest extends AbstractModel{
                 this.Filters[i] = new Filter(source.Filters[i]);
             }
         }
-        if (source.Agent != null) {
-            this.Agent = new Agent(source.Agent);
+        if (source.ApplicationId != null) {
+            this.ApplicationId = new String(source.ApplicationId);
+        }
+        if (source.IsChannel != null) {
+            this.IsChannel = new Boolean(source.IsChannel);
         }
         if (source.GenerateSource != null) {
             this.GenerateSource = new Long(source.GenerateSource);
@@ -223,10 +321,13 @@ public class DescribeFlowTemplatesRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "Operator.", this.Operator);
+        this.setParamObj(map, prefix + "Organization.", this.Organization);
+        this.setParamObj(map, prefix + "Agent.", this.Agent);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
-        this.setParamObj(map, prefix + "Agent.", this.Agent);
+        this.setParamSimple(map, prefix + "ApplicationId", this.ApplicationId);
+        this.setParamSimple(map, prefix + "IsChannel", this.IsChannel);
         this.setParamSimple(map, prefix + "GenerateSource", this.GenerateSource);
         this.setParamSimple(map, prefix + "ContentType", this.ContentType);
 

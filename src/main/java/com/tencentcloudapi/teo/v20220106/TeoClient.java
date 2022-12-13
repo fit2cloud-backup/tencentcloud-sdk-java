@@ -199,6 +199,26 @@ public class TeoClient extends AbstractClient{
     }
 
     /**
+     *为未购买套餐的站点购买套餐
+     * @param req CreatePlanForZoneRequest
+     * @return CreatePlanForZoneResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreatePlanForZoneResponse CreatePlanForZone(CreatePlanForZoneRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreatePlanForZoneResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreatePlanForZoneResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreatePlanForZone");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *创建预热任务
      * @param req CreatePrefetchTaskRequest
      * @return CreatePrefetchTaskResponse
@@ -231,6 +251,26 @@ public class TeoClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<CreatePurgeTaskResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "CreatePurgeTask");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *规则引擎创建规则。
+     * @param req CreateRuleRequest
+     * @return CreateRuleResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateRuleResponse CreateRule(CreateRuleRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateRuleResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateRuleResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateRule");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -359,6 +399,26 @@ public class TeoClient extends AbstractClient{
     }
 
     /**
+     *批量删除规则引擎规则。
+     * @param req DeleteRulesRequest
+     * @return DeleteRulesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteRulesResponse DeleteRules(DeleteRulesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteRulesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteRulesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteRules");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *删除站点
      * @param req DeleteZoneRequest
      * @return DeleteZoneResponse
@@ -411,6 +471,26 @@ public class TeoClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeApplicationProxyDetailResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeApplicationProxyDetail");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询当前账户可用套餐信息列表
+     * @param req DescribeAvailablePlansRequest
+     * @return DescribeAvailablePlansResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeAvailablePlansResponse DescribeAvailablePlans(DescribeAvailablePlansRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeAvailablePlansResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeAvailablePlansResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeAvailablePlans");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -499,7 +579,7 @@ public class TeoClient extends AbstractClient{
     }
 
     /**
-     *查询DDos攻击数据
+     *查询DDos攻击时序数据
      * @param req DescribeDDosAttackDataRequest
      * @return DescribeDDosAttackDataResponse
      * @throws TencentCloudSDKException
@@ -559,7 +639,7 @@ public class TeoClient extends AbstractClient{
     }
 
     /**
-     *查询DDos攻击源
+     *查询DDos攻击源信息
      * @param req DescribeDDosAttackSourceEventRequest
      * @return DescribeDDosAttackSourceEventResponse
      * @throws TencentCloudSDKException
@@ -839,7 +919,7 @@ public class TeoClient extends AbstractClient{
     }
 
     /**
-     *查询七层监控类时序流量数据
+     *本接口（DescribeOverviewL7Data）用于查询七层监控类时序流量数据。
      * @param req DescribeOverviewL7DataRequest
      * @return DescribeOverviewL7DataResponse
      * @throws TencentCloudSDKException
@@ -891,6 +971,46 @@ public class TeoClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribePurgeTasksResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribePurgeTasks");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询规则引擎规则。
+     * @param req DescribeRulesRequest
+     * @return DescribeRulesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeRulesResponse DescribeRules(DescribeRulesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeRulesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeRulesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeRules");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *返回规则引擎可应用匹配请求的设置列表及其详细建议配置信息
+     * @param req DescribeRulesSettingRequest
+     * @return DescribeRulesSettingResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeRulesSettingResponse DescribeRulesSetting(DescribeRulesSettingRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeRulesSettingResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeRulesSettingResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeRulesSetting");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1139,7 +1259,7 @@ public class TeoClient extends AbstractClient{
     }
 
     /**
-     *查询Web托管规则数据
+     *查询waf攻击时序数据
      * @param req DescribeWebManagedRulesDataRequest
      * @return DescribeWebManagedRulesDataResponse
      * @throws TencentCloudSDKException
@@ -1159,7 +1279,7 @@ public class TeoClient extends AbstractClient{
     }
 
     /**
-     *查询Web托管日志
+     *查询waf攻击日志
      * @param req DescribeWebManagedRulesLogRequest
      * @return DescribeWebManagedRulesLogResponse
      * @throws TencentCloudSDKException
@@ -1179,7 +1299,7 @@ public class TeoClient extends AbstractClient{
     }
 
     /**
-     *查询Web托管规则Top数据
+     *查询waf攻击top数据
      * @param req DescribeWebManagedRulesTopDataRequest
      * @return DescribeWebManagedRulesTopDataResponse
      * @throws TencentCloudSDKException
@@ -1219,7 +1339,7 @@ public class TeoClient extends AbstractClient{
     }
 
     /**
-     *查询web防护数据
+     *查询CC防护时序数据
      * @param req DescribeWebProtectionDataRequest
      * @return DescribeWebProtectionDataResponse
      * @throws TencentCloudSDKException
@@ -1239,7 +1359,7 @@ public class TeoClient extends AbstractClient{
     }
 
     /**
-     *查询web防护日志
+     *查询CC防护日志
      * @param req DescribeWebProtectionLogRequest
      * @return DescribeWebProtectionLogResponse
      * @throws TencentCloudSDKException
@@ -1651,6 +1771,46 @@ public class TeoClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<ModifyOriginGroupResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifyOriginGroup");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改规则引擎规则。
+     * @param req ModifyRuleRequest
+     * @return ModifyRuleResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyRuleResponse ModifyRule(ModifyRuleRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyRuleResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyRuleResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyRule");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改规则引擎规则优先级
+     * @param req ModifyRulePriorityRequest
+     * @return ModifyRulePriorityResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyRulePriorityResponse ModifyRulePriority(ModifyRulePriorityRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyRulePriorityResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyRulePriorityResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyRulePriority");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

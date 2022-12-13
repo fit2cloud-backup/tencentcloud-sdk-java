@@ -439,6 +439,26 @@ public class TcbClient extends AbstractClient{
     }
 
     /**
+     *获取新套餐列表，含详情，如果传了PackageId，则只获取指定套餐详情
+     * @param req DescribeBaasPackageListRequest
+     * @return DescribeBaasPackageListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeBaasPackageListResponse DescribeBaasPackageList(DescribeBaasPackageListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeBaasPackageListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeBaasPackageListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeBaasPackageList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *获取云托管代码上传url
      * @param req DescribeCloudBaseBuildServiceRequest
      * @return DescribeCloudBaseBuildServiceResponse
@@ -1394,6 +1414,26 @@ public class TcbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<ModifyCloudBaseRunServerVersionResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifyCloudBaseRunServerVersion");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改日志主题
+     * @param req ModifyClsTopicRequest
+     * @return ModifyClsTopicResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyClsTopicResponse ModifyClsTopic(ModifyClsTopicRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyClsTopicResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyClsTopicResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyClsTopic");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

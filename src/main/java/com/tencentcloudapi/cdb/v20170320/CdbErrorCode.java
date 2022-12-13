@@ -78,9 +78,6 @@ public enum CdbErrorCode {
     // 查询日志失败。
      FAILEDOPERATION_QUERYLOGERROR("FailedOperation.QueryLogError"),
      
-    // 代理创建中或则已存在，请勿重复创建。
-     FAILEDOPERATION_REPEATCREATEPROXYERROR("FailedOperation.RepeatCreateProxyError"),
-     
     // 后台请求服务异常，请您联系客服解决。
      FAILEDOPERATION_RESPONSEVALUEERROR("FailedOperation.ResponseValueError"),
      
@@ -158,6 +155,12 @@ public enum CdbErrorCode {
      
     // sql错误。
      INTERNALERROR_EXESQLERROR("InternalError.ExeSqlError"),
+     
+    // 执行http请求错误。
+     INTERNALERROR_EXECHTTPREQUESTERROR("InternalError.ExecHttpRequestError"),
+     
+    // sql执行失败。
+     INTERNALERROR_EXECUTESQLERROR("InternalError.ExecuteSQLError"),
      
     // 文件传输异常。
      INTERNALERROR_FTPERROR("InternalError.FtpError"),
@@ -410,6 +413,9 @@ public enum CdbErrorCode {
      
     // 当前实例正在进行其他任务，不能执行延迟复制。
      OPERATIONDENIED_INSTANCETASKRUNNING("OperationDenied.InstanceTaskRunning"),
+     
+    // 实例任务状态异常。
+     OPERATIONDENIED_INSTANCETASKSTATUSERROR("OperationDenied.InstanceTaskStatusError"),
      
     // 实例不支持该操作。
      OPERATIONDENIED_INSTANCEUNSUPPORTEDOPERATEERROR("OperationDenied.InstanceUnsupportedOperateError"),

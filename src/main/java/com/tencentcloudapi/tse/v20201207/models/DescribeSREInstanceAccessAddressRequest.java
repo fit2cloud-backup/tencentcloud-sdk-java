@@ -44,6 +44,20 @@ public class DescribeSREInstanceAccessAddressRequest extends AbstractModel{
     private String SubnetId;
 
     /**
+    * 引擎其他组件名称（pushgateway、polaris-limiter）
+    */
+    @SerializedName("Workload")
+    @Expose
+    private String Workload;
+
+    /**
+    * 部署地域
+    */
+    @SerializedName("EngineRegion")
+    @Expose
+    private String EngineRegion;
+
+    /**
      * Get 注册引擎实例Id 
      * @return InstanceId 注册引擎实例Id
      */
@@ -91,6 +105,38 @@ public class DescribeSREInstanceAccessAddressRequest extends AbstractModel{
         this.SubnetId = SubnetId;
     }
 
+    /**
+     * Get 引擎其他组件名称（pushgateway、polaris-limiter） 
+     * @return Workload 引擎其他组件名称（pushgateway、polaris-limiter）
+     */
+    public String getWorkload() {
+        return this.Workload;
+    }
+
+    /**
+     * Set 引擎其他组件名称（pushgateway、polaris-limiter）
+     * @param Workload 引擎其他组件名称（pushgateway、polaris-limiter）
+     */
+    public void setWorkload(String Workload) {
+        this.Workload = Workload;
+    }
+
+    /**
+     * Get 部署地域 
+     * @return EngineRegion 部署地域
+     */
+    public String getEngineRegion() {
+        return this.EngineRegion;
+    }
+
+    /**
+     * Set 部署地域
+     * @param EngineRegion 部署地域
+     */
+    public void setEngineRegion(String EngineRegion) {
+        this.EngineRegion = EngineRegion;
+    }
+
     public DescribeSREInstanceAccessAddressRequest() {
     }
 
@@ -108,6 +154,12 @@ public class DescribeSREInstanceAccessAddressRequest extends AbstractModel{
         if (source.SubnetId != null) {
             this.SubnetId = new String(source.SubnetId);
         }
+        if (source.Workload != null) {
+            this.Workload = new String(source.Workload);
+        }
+        if (source.EngineRegion != null) {
+            this.EngineRegion = new String(source.EngineRegion);
+        }
     }
 
 
@@ -118,6 +170,8 @@ public class DescribeSREInstanceAccessAddressRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "VpcId", this.VpcId);
         this.setParamSimple(map, prefix + "SubnetId", this.SubnetId);
+        this.setParamSimple(map, prefix + "Workload", this.Workload);
+        this.setParamSimple(map, prefix + "EngineRegion", this.EngineRegion);
 
     }
 }

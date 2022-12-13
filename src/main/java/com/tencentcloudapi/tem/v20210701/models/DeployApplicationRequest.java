@@ -310,18 +310,48 @@ public class DeployApplicationRequest extends AbstractModel{
     private String OsFlavour;
 
     /**
-    * 是否开启prometheus 业务指标监控
+    * metrics业务指标监控配置
     */
     @SerializedName("EnablePrometheusConf")
     @Expose
     private EnablePrometheusConf EnablePrometheusConf;
 
     /**
-    * 1：开始apm采集；0：关闭apm采集
+    * 1：开始自动apm采集（skywalking）；
+0：关闭apm采集；
     */
     @SerializedName("EnableTracing")
     @Expose
     private Long EnableTracing;
+
+    /**
+    * 1：开始自动metrics采集（open-telemetry）；
+0：关闭metrics采集；
+    */
+    @SerializedName("EnableMetrics")
+    @Expose
+    private Long EnableMetrics;
+
+    /**
+    * 镜像部署时，选择的tcr实例id
+    */
+    @SerializedName("TcrInstanceId")
+    @Expose
+    private String TcrInstanceId;
+
+    /**
+    * 镜像部署时，选择的镜像服务器地址
+    */
+    @SerializedName("RepoServer")
+    @Expose
+    private String RepoServer;
+
+    /**
+    * 镜像部署时，仓库类型：0：个人仓库；1：企业版；2：公共仓库；3：tem托管仓库；4：demo仓库
+    */
+    @SerializedName("RepoType")
+    @Expose
+    private Long RepoType;
 
     /**
      * Get 应用ID 
@@ -1004,35 +1034,107 @@ public class DeployApplicationRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否开启prometheus 业务指标监控 
-     * @return EnablePrometheusConf 是否开启prometheus 业务指标监控
+     * Get metrics业务指标监控配置 
+     * @return EnablePrometheusConf metrics业务指标监控配置
      */
     public EnablePrometheusConf getEnablePrometheusConf() {
         return this.EnablePrometheusConf;
     }
 
     /**
-     * Set 是否开启prometheus 业务指标监控
-     * @param EnablePrometheusConf 是否开启prometheus 业务指标监控
+     * Set metrics业务指标监控配置
+     * @param EnablePrometheusConf metrics业务指标监控配置
      */
     public void setEnablePrometheusConf(EnablePrometheusConf EnablePrometheusConf) {
         this.EnablePrometheusConf = EnablePrometheusConf;
     }
 
     /**
-     * Get 1：开始apm采集；0：关闭apm采集 
-     * @return EnableTracing 1：开始apm采集；0：关闭apm采集
+     * Get 1：开始自动apm采集（skywalking）；
+0：关闭apm采集； 
+     * @return EnableTracing 1：开始自动apm采集（skywalking）；
+0：关闭apm采集；
      */
     public Long getEnableTracing() {
         return this.EnableTracing;
     }
 
     /**
-     * Set 1：开始apm采集；0：关闭apm采集
-     * @param EnableTracing 1：开始apm采集；0：关闭apm采集
+     * Set 1：开始自动apm采集（skywalking）；
+0：关闭apm采集；
+     * @param EnableTracing 1：开始自动apm采集（skywalking）；
+0：关闭apm采集；
      */
     public void setEnableTracing(Long EnableTracing) {
         this.EnableTracing = EnableTracing;
+    }
+
+    /**
+     * Get 1：开始自动metrics采集（open-telemetry）；
+0：关闭metrics采集； 
+     * @return EnableMetrics 1：开始自动metrics采集（open-telemetry）；
+0：关闭metrics采集；
+     */
+    public Long getEnableMetrics() {
+        return this.EnableMetrics;
+    }
+
+    /**
+     * Set 1：开始自动metrics采集（open-telemetry）；
+0：关闭metrics采集；
+     * @param EnableMetrics 1：开始自动metrics采集（open-telemetry）；
+0：关闭metrics采集；
+     */
+    public void setEnableMetrics(Long EnableMetrics) {
+        this.EnableMetrics = EnableMetrics;
+    }
+
+    /**
+     * Get 镜像部署时，选择的tcr实例id 
+     * @return TcrInstanceId 镜像部署时，选择的tcr实例id
+     */
+    public String getTcrInstanceId() {
+        return this.TcrInstanceId;
+    }
+
+    /**
+     * Set 镜像部署时，选择的tcr实例id
+     * @param TcrInstanceId 镜像部署时，选择的tcr实例id
+     */
+    public void setTcrInstanceId(String TcrInstanceId) {
+        this.TcrInstanceId = TcrInstanceId;
+    }
+
+    /**
+     * Get 镜像部署时，选择的镜像服务器地址 
+     * @return RepoServer 镜像部署时，选择的镜像服务器地址
+     */
+    public String getRepoServer() {
+        return this.RepoServer;
+    }
+
+    /**
+     * Set 镜像部署时，选择的镜像服务器地址
+     * @param RepoServer 镜像部署时，选择的镜像服务器地址
+     */
+    public void setRepoServer(String RepoServer) {
+        this.RepoServer = RepoServer;
+    }
+
+    /**
+     * Get 镜像部署时，仓库类型：0：个人仓库；1：企业版；2：公共仓库；3：tem托管仓库；4：demo仓库 
+     * @return RepoType 镜像部署时，仓库类型：0：个人仓库；1：企业版；2：公共仓库；3：tem托管仓库；4：demo仓库
+     */
+    public Long getRepoType() {
+        return this.RepoType;
+    }
+
+    /**
+     * Set 镜像部署时，仓库类型：0：个人仓库；1：企业版；2：公共仓库；3：tem托管仓库；4：demo仓库
+     * @param RepoType 镜像部署时，仓库类型：0：个人仓库；1：企业版；2：公共仓库；3：tem托管仓库；4：demo仓库
+     */
+    public void setRepoType(Long RepoType) {
+        this.RepoType = RepoType;
     }
 
     public DeployApplicationRequest() {
@@ -1193,6 +1295,18 @@ public class DeployApplicationRequest extends AbstractModel{
         if (source.EnableTracing != null) {
             this.EnableTracing = new Long(source.EnableTracing);
         }
+        if (source.EnableMetrics != null) {
+            this.EnableMetrics = new Long(source.EnableMetrics);
+        }
+        if (source.TcrInstanceId != null) {
+            this.TcrInstanceId = new String(source.TcrInstanceId);
+        }
+        if (source.RepoServer != null) {
+            this.RepoServer = new String(source.RepoServer);
+        }
+        if (source.RepoType != null) {
+            this.RepoType = new Long(source.RepoType);
+        }
     }
 
 
@@ -1241,6 +1355,10 @@ public class DeployApplicationRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "OsFlavour", this.OsFlavour);
         this.setParamObj(map, prefix + "EnablePrometheusConf.", this.EnablePrometheusConf);
         this.setParamSimple(map, prefix + "EnableTracing", this.EnableTracing);
+        this.setParamSimple(map, prefix + "EnableMetrics", this.EnableMetrics);
+        this.setParamSimple(map, prefix + "TcrInstanceId", this.TcrInstanceId);
+        this.setParamSimple(map, prefix + "RepoServer", this.RepoServer);
+        this.setParamSimple(map, prefix + "RepoType", this.RepoType);
 
     }
 }

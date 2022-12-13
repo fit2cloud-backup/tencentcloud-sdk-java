@@ -58,6 +58,20 @@ public class ServerBaseInfo extends AbstractModel{
     private String UpdateTime;
 
     /**
+    * 公网访问类型
+    */
+    @SerializedName("AccessTypes")
+    @Expose
+    private String [] AccessTypes;
+
+    /**
+    * 展示自定义域名
+    */
+    @SerializedName("CustomDomainNames")
+    @Expose
+    private String [] CustomDomainNames;
+
+    /**
      * Get 服务名 
      * @return ServerName 服务名
      */
@@ -137,6 +151,38 @@ public class ServerBaseInfo extends AbstractModel{
         this.UpdateTime = UpdateTime;
     }
 
+    /**
+     * Get 公网访问类型 
+     * @return AccessTypes 公网访问类型
+     */
+    public String [] getAccessTypes() {
+        return this.AccessTypes;
+    }
+
+    /**
+     * Set 公网访问类型
+     * @param AccessTypes 公网访问类型
+     */
+    public void setAccessTypes(String [] AccessTypes) {
+        this.AccessTypes = AccessTypes;
+    }
+
+    /**
+     * Get 展示自定义域名 
+     * @return CustomDomainNames 展示自定义域名
+     */
+    public String [] getCustomDomainNames() {
+        return this.CustomDomainNames;
+    }
+
+    /**
+     * Set 展示自定义域名
+     * @param CustomDomainNames 展示自定义域名
+     */
+    public void setCustomDomainNames(String [] CustomDomainNames) {
+        this.CustomDomainNames = CustomDomainNames;
+    }
+
     public ServerBaseInfo() {
     }
 
@@ -160,6 +206,18 @@ public class ServerBaseInfo extends AbstractModel{
         if (source.UpdateTime != null) {
             this.UpdateTime = new String(source.UpdateTime);
         }
+        if (source.AccessTypes != null) {
+            this.AccessTypes = new String[source.AccessTypes.length];
+            for (int i = 0; i < source.AccessTypes.length; i++) {
+                this.AccessTypes[i] = new String(source.AccessTypes[i]);
+            }
+        }
+        if (source.CustomDomainNames != null) {
+            this.CustomDomainNames = new String[source.CustomDomainNames.length];
+            for (int i = 0; i < source.CustomDomainNames.length; i++) {
+                this.CustomDomainNames[i] = new String(source.CustomDomainNames[i]);
+            }
+        }
     }
 
 
@@ -172,6 +230,8 @@ public class ServerBaseInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "CustomDomainName", this.CustomDomainName);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
+        this.setParamArraySimple(map, prefix + "AccessTypes.", this.AccessTypes);
+        this.setParamArraySimple(map, prefix + "CustomDomainNames.", this.CustomDomainNames);
 
     }
 }

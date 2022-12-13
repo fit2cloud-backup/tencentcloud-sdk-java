@@ -23,21 +23,21 @@ import java.util.HashMap;
 public class DescribeOverviewL7DataResponse extends AbstractModel{
 
     /**
-    * 查询维度
+    * 查询维度。
     */
     @SerializedName("Type")
     @Expose
     private String Type;
 
     /**
-    * 时间间隔
+    * 查询时间间隔。
     */
     @SerializedName("Interval")
     @Expose
     private String Interval;
 
     /**
-    * 详细数据
+    * 七层监控类时序流量数据列表。
     */
     @SerializedName("Data")
     @Expose
@@ -51,48 +51,48 @@ public class DescribeOverviewL7DataResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 查询维度 
-     * @return Type 查询维度
+     * Get 查询维度。 
+     * @return Type 查询维度。
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set 查询维度
-     * @param Type 查询维度
+     * Set 查询维度。
+     * @param Type 查询维度。
      */
     public void setType(String Type) {
         this.Type = Type;
     }
 
     /**
-     * Get 时间间隔 
-     * @return Interval 时间间隔
+     * Get 查询时间间隔。 
+     * @return Interval 查询时间间隔。
      */
     public String getInterval() {
         return this.Interval;
     }
 
     /**
-     * Set 时间间隔
-     * @param Interval 时间间隔
+     * Set 查询时间间隔。
+     * @param Interval 查询时间间隔。
      */
     public void setInterval(String Interval) {
         this.Interval = Interval;
     }
 
     /**
-     * Get 详细数据 
-     * @return Data 详细数据
+     * Get 七层监控类时序流量数据列表。 
+     * @return Data 七层监控类时序流量数据列表。
      */
     public TimingDataRecord [] getData() {
         return this.Data;
     }
 
     /**
-     * Set 详细数据
-     * @param Data 详细数据
+     * Set 七层监控类时序流量数据列表。
+     * @param Data 七层监控类时序流量数据列表。
      */
     public void setData(TimingDataRecord [] Data) {
         this.Data = Data;

@@ -30,6 +30,20 @@ public class DeleteTrainingModelRequest extends AbstractModel{
     private String TrainingModelId;
 
     /**
+    * 是否同步清理cos
+    */
+    @SerializedName("EnableDeleteCos")
+    @Expose
+    private Boolean EnableDeleteCos;
+
+    /**
+    * 删除模型类型，枚举值：NORMAL 普通，ACCELERATE 加速，不传则删除所有
+    */
+    @SerializedName("ModelVersionType")
+    @Expose
+    private String ModelVersionType;
+
+    /**
      * Get 模型ID 
      * @return TrainingModelId 模型ID
      */
@@ -45,6 +59,38 @@ public class DeleteTrainingModelRequest extends AbstractModel{
         this.TrainingModelId = TrainingModelId;
     }
 
+    /**
+     * Get 是否同步清理cos 
+     * @return EnableDeleteCos 是否同步清理cos
+     */
+    public Boolean getEnableDeleteCos() {
+        return this.EnableDeleteCos;
+    }
+
+    /**
+     * Set 是否同步清理cos
+     * @param EnableDeleteCos 是否同步清理cos
+     */
+    public void setEnableDeleteCos(Boolean EnableDeleteCos) {
+        this.EnableDeleteCos = EnableDeleteCos;
+    }
+
+    /**
+     * Get 删除模型类型，枚举值：NORMAL 普通，ACCELERATE 加速，不传则删除所有 
+     * @return ModelVersionType 删除模型类型，枚举值：NORMAL 普通，ACCELERATE 加速，不传则删除所有
+     */
+    public String getModelVersionType() {
+        return this.ModelVersionType;
+    }
+
+    /**
+     * Set 删除模型类型，枚举值：NORMAL 普通，ACCELERATE 加速，不传则删除所有
+     * @param ModelVersionType 删除模型类型，枚举值：NORMAL 普通，ACCELERATE 加速，不传则删除所有
+     */
+    public void setModelVersionType(String ModelVersionType) {
+        this.ModelVersionType = ModelVersionType;
+    }
+
     public DeleteTrainingModelRequest() {
     }
 
@@ -56,6 +102,12 @@ public class DeleteTrainingModelRequest extends AbstractModel{
         if (source.TrainingModelId != null) {
             this.TrainingModelId = new String(source.TrainingModelId);
         }
+        if (source.EnableDeleteCos != null) {
+            this.EnableDeleteCos = new Boolean(source.EnableDeleteCos);
+        }
+        if (source.ModelVersionType != null) {
+            this.ModelVersionType = new String(source.ModelVersionType);
+        }
     }
 
 
@@ -64,6 +116,8 @@ public class DeleteTrainingModelRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TrainingModelId", this.TrainingModelId);
+        this.setParamSimple(map, prefix + "EnableDeleteCos", this.EnableDeleteCos);
+        this.setParamSimple(map, prefix + "ModelVersionType", this.ModelVersionType);
 
     }
 }

@@ -66,6 +66,7 @@ public class UpdateFunctionConfigurationRequest extends AbstractModel{
 
     /**
     * 函数所属命名空间
+默认值: default
     */
     @SerializedName("Namespace")
     @Expose
@@ -161,6 +162,13 @@ public class UpdateFunctionConfigurationRequest extends AbstractModel{
     @SerializedName("ProtocolParams")
     @Expose
     private ProtocolParams ProtocolParams;
+
+    /**
+    * 单实例多并发配置。只支持Web函数。
+    */
+    @SerializedName("InstanceConcurrencyConfig")
+    @Expose
+    private InstanceConcurrencyConfig InstanceConcurrencyConfig;
 
     /**
      * Get 要修改的函数名称 
@@ -259,8 +267,10 @@ public class UpdateFunctionConfigurationRequest extends AbstractModel{
     }
 
     /**
-     * Get 函数所属命名空间 
+     * Get 函数所属命名空间
+默认值: default 
      * @return Namespace 函数所属命名空间
+默认值: default
      */
     public String getNamespace() {
         return this.Namespace;
@@ -268,7 +278,9 @@ public class UpdateFunctionConfigurationRequest extends AbstractModel{
 
     /**
      * Set 函数所属命名空间
+默认值: default
      * @param Namespace 函数所属命名空间
+默认值: default
      */
     public void setNamespace(String Namespace) {
         this.Namespace = Namespace;
@@ -482,6 +494,22 @@ public class UpdateFunctionConfigurationRequest extends AbstractModel{
         this.ProtocolParams = ProtocolParams;
     }
 
+    /**
+     * Get 单实例多并发配置。只支持Web函数。 
+     * @return InstanceConcurrencyConfig 单实例多并发配置。只支持Web函数。
+     */
+    public InstanceConcurrencyConfig getInstanceConcurrencyConfig() {
+        return this.InstanceConcurrencyConfig;
+    }
+
+    /**
+     * Set 单实例多并发配置。只支持Web函数。
+     * @param InstanceConcurrencyConfig 单实例多并发配置。只支持Web函数。
+     */
+    public void setInstanceConcurrencyConfig(InstanceConcurrencyConfig InstanceConcurrencyConfig) {
+        this.InstanceConcurrencyConfig = InstanceConcurrencyConfig;
+    }
+
     public UpdateFunctionConfigurationRequest() {
     }
 
@@ -553,6 +581,9 @@ public class UpdateFunctionConfigurationRequest extends AbstractModel{
         if (source.ProtocolParams != null) {
             this.ProtocolParams = new ProtocolParams(source.ProtocolParams);
         }
+        if (source.InstanceConcurrencyConfig != null) {
+            this.InstanceConcurrencyConfig = new InstanceConcurrencyConfig(source.InstanceConcurrencyConfig);
+        }
     }
 
 
@@ -580,6 +611,7 @@ public class UpdateFunctionConfigurationRequest extends AbstractModel{
         this.setParamObj(map, prefix + "CfsConfig.", this.CfsConfig);
         this.setParamSimple(map, prefix + "InitTimeout", this.InitTimeout);
         this.setParamObj(map, prefix + "ProtocolParams.", this.ProtocolParams);
+        this.setParamObj(map, prefix + "InstanceConcurrencyConfig.", this.InstanceConcurrencyConfig);
 
     }
 }

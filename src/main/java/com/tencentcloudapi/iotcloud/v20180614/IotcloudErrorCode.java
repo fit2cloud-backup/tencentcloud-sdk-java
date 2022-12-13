@@ -72,6 +72,9 @@ public enum IotcloudErrorCode {
     // 内部错误。
      INTERNALERROR("InternalError"),
      
+    // 数据库内部错误。
+     INTERNALERROR_DBOPERATIONERROR("InternalError.DBOperationError"),
+     
     // 参数错误。
      INVALIDPARAMETER("InvalidParameter"),
      
@@ -116,6 +119,9 @@ public enum IotcloudErrorCode {
      
     // State JSON对象超过大小限制，最大为 8k。
      INVALIDPARAMETERVALUE_JSONSIZEEXCEEDLIMIT("InvalidParameterValue.JSONSizeExceedLimit"),
+     
+    // 不可合并。
+     INVALIDPARAMETERVALUE_NOTMERGEABLE("InvalidParameterValue.NotMergeAble"),
      
     // 修改规则的操作被禁止。
      INVALIDPARAMETERVALUE_OPERATIONDENIED("InvalidParameterValue.OperationDenied"),

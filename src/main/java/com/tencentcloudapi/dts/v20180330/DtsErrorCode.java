@@ -1,10 +1,19 @@
 package com.tencentcloudapi.dts.v20180330;
 public enum DtsErrorCode {
+    // 认证失败。
+     AUTHFAILURE_AUTHFAILUREERROR("AuthFailure.AuthFailureError"),
+     
     // 鉴权失败，当前用户不允许执行该操作。
      AUTHFAILURE_UNAUTHORIZEDOPERATIONERROR("AuthFailure.UnauthorizedOperationError"),
      
+    // 操作失败。
+     FAILEDOPERATION_FAILEDOPERATIONERROR("FailedOperation.FailedOperationError"),
+     
     // 禁止该操作。
      FAILEDOPERATION_NOTALLOWOPERATION("FailedOperation.NotAllowOperation"),
+     
+    // 代理出错。
+     FAILEDOPERATION_PROXYERROR("FailedOperation.ProxyError"),
      
     // 任务开始失败。
      FAILEDOPERATION_STARTJOBFAILED("FailedOperation.StartJobFailed"),
@@ -33,11 +42,17 @@ public enum DtsErrorCode {
     // 迁移任务冲突。
      INTERNALERROR_DUPLICATEJOB("InternalError.DuplicateJob"),
      
+    // 内部错误。
+     INTERNALERROR_INTERNALERRORERROR("InternalError.InternalErrorError"),
+     
     // http请求访问出错。
      INTERNALERROR_INTERNALHTTPSERVERERROR("InternalError.InternalHttpServerError"),
      
     // 内部组件访问错误。
      INTERNALERROR_INTERNALINNERCOMMONERROR("InternalError.InternalInnerCommonError"),
+     
+    // 调用计费服务失败。
+     INTERNALERROR_INTERNALTRADEERROR("InternalError.InternalTradeError"),
      
     // 锁冲突。
      INTERNALERROR_LOCKERROR("InternalError.LockError"),
@@ -59,6 +74,12 @@ public enum DtsErrorCode {
      
     // 实例不存在。
      INVALIDPARAMETER_INSTANCENOTFOUND("InvalidParameter.InstanceNotFound"),
+     
+    // ip地址错误。
+     INVALIDPARAMETER_INVALIDIPADDRESS("InvalidParameter.InvalidIpAddress"),
+     
+    // 参数无效。
+     INVALIDPARAMETER_INVALIDPARAMETERERROR("InvalidParameter.InvalidParameterError"),
      
     // 业务参数错误。
      INVALIDPARAMETERVALUE_BIZINVALIDPARAMETERVALUEERROR("InvalidParameterValue.BizInvalidParameterValueError"),
@@ -87,8 +108,17 @@ public enum DtsErrorCode {
     // 数据迁移服务不支持当前迁移类型。
      OPERATIONDENIED_MIGRATESERVICESUPPORTERROR("OperationDenied.MigrateServiceSupportError"),
      
+    // 用户余额不足。
+     OPERATIONDENIED_NOTENOUGHMONEYERROR("OperationDenied.NotEnoughMoneyError"),
+     
     // 该操作不能执行。
      OPERATIONDENIED_OPERATIONDENIED("OperationDenied.OperationDenied"),
+     
+    // 操作被拒绝。
+     OPERATIONDENIED_OPERATIONDENIEDERROR("OperationDenied.OperationDeniedError"),
+     
+    // 请求次数超限。
+     REQUESTLIMITEXCEEDED_REQUESTLIMITEXCEEDEDERROR("RequestLimitExceeded.RequestLimitExceededError"),
      
     // 资源不存在。
      RESOURCENOTFOUND("ResourceNotFound"),
@@ -104,6 +134,9 @@ public enum DtsErrorCode {
      
     // 认证失败，没有足够权限。
      UNAUTHORIZEDOPERATION_NOTENOUGHPRIVILEGES("UnauthorizedOperation.NotEnoughPrivileges"),
+     
+    // 未授权的操作。
+     UNAUTHORIZEDOPERATION_UNAUTHORIZEDOPERATIONERROR("UnauthorizedOperation.UnauthorizedOperationError"),
      
     // 操作不支持。
      UNSUPPORTEDOPERATION("UnsupportedOperation"),

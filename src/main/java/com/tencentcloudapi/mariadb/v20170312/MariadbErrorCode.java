@@ -9,6 +9,9 @@ public enum MariadbErrorCode {
     // 实例安全组信息添加失败。
      FAILEDOPERATION_ADDINSTANCEINFOFAILED("FailedOperation.AddInstanceInfoFailed"),
      
+    // 申请VIP失败。
+     FAILEDOPERATION_APPLYVIPFAILED("FailedOperation.ApplyVipFailed"),
+     
     // 绑定安全组失败。
      FAILEDOPERATION_ASSOCIATESECURITYGROUPSFAILED("FailedOperation.AssociateSecurityGroupsFailed"),
      
@@ -36,11 +39,20 @@ public enum MariadbErrorCode {
     // 解绑安全组失败。
      FAILEDOPERATION_DISASSOCIATESECURITYGROUPSFAILED("FailedOperation.DisassociateSecurityGroupsFailed"),
      
+    // 拉取安全组详情失败。
+     FAILEDOPERATION_GETSECURITYGROUPDETAILFAILED("FailedOperation.GetSecurityGroupDetailFailed"),
+     
+    // 实例不可退费。
+     FAILEDOPERATION_INSTANCECANNOTRETURN("FailedOperation.InstanceCanNotReturn"),
+     
+    // 实例退费失败。
+     FAILEDOPERATION_INSTANCERETURNFAILED("FailedOperation.InstanceReturnFailed"),
+     
     // 修改账号权限失败。
      FAILEDOPERATION_MODIFYRIGHTFAILED("FailedOperation.ModifyRightFailed"),
      
-    // 消息队列操作失败。
-     FAILEDOPERATION_MSGQUEUEOPERATIONFAILED("FailedOperation.MsgQueueOperationFailed"),
+    // 隔离实例失败。
+     FAILEDOPERATION_OSSISOLATEINSTANCEFAILED("FailedOperation.OssIsolateInstanceFailed"),
      
     // 请求后端接口失败。
      FAILEDOPERATION_OSSOPERATIONFAILED("FailedOperation.OssOperationFailed"),
@@ -51,8 +63,14 @@ public enum MariadbErrorCode {
     // 重置账号密码失败。
      FAILEDOPERATION_RESETPASSWORDFAILED("FailedOperation.ResetPasswordFailed"),
      
+    // 更新安全组失败。
+     FAILEDOPERATION_SGCHANGEVIP("FailedOperation.SGChangeVip"),
+     
     // 设置规则失败。
      FAILEDOPERATION_SETRULELOCATIONFAILED("FailedOperation.SetRuleLocationFailed"),
+     
+    // 安全组规则下发失败。
+     FAILEDOPERATION_SETSVCLOCATIONFAILED("FailedOperation.SetSvcLocationFailed"),
      
     // 标签键值校验或鉴权失败。
      FAILEDOPERATION_TAGDRYRUNERROR("FailedOperation.TagDryRunError"),
@@ -63,8 +81,20 @@ public enum MariadbErrorCode {
     // 实例安全组信息更新失败。
      FAILEDOPERATION_UPDATEINSTANCEINFOFAILED("FailedOperation.UpdateInstanceInfoFailed"),
      
+    // 用户未经鉴权。
+     FAILEDOPERATION_USERNOTAUTHED("FailedOperation.UserNotAuthed"),
+     
+    // VIP不能与之前一样。
+     FAILEDOPERATION_VIPNOTCHANGE("FailedOperation.VipNotChange"),
+     
+    // VPC添加服务失败。
+     FAILEDOPERATION_VPCADDSERVICEFAILED("FailedOperation.VpcAddServiceFailed"),
+     
     // VPC更新路由失败。
      FAILEDOPERATION_VPCUPDATEROUTEFAILED("FailedOperation.VpcUpdateRouteFailed"),
+     
+    // 外网状态异常。
+     FAILEDOPERATION_WANSTATUSABNORMAL("FailedOperation.WanStatusAbnormal"),
      
     // 内部错误。
      INTERNALERROR("InternalError"),
@@ -92,9 +122,6 @@ public enum MariadbErrorCode {
      
     // 查询独享集群信息失败。
      INTERNALERROR_FENCEERROR("InternalError.FenceError"),
-     
-    // 获取监控数据失败。
-     INTERNALERROR_FETCHMETRICDATAFAILED("InternalError.FetchMetricDataFailed"),
      
     // 获取数据库实例参数失败。
      INTERNALERROR_GETDBCONFIGFAILED("InternalError.GetDbConfigFailed"),
@@ -128,6 +155,9 @@ public enum MariadbErrorCode {
      
     // 获取账号列表失败。
      INTERNALERROR_GETUSERLISTFAILED("InternalError.GetUserListFailed"),
+     
+    // 获取用户安全组数量失败。
+     INTERNALERROR_GETUSERSGCOUNTFAILED("InternalError.GetUserSGCountFailed"),
      
     // 获取用户安全组配额失败。
      INTERNALERROR_GETUSGQUOTAERROR("InternalError.GetUsgQuotaError"),
@@ -189,6 +219,9 @@ public enum MariadbErrorCode {
     // 数据库更新失败。
      INTERNALERROR_UPDATEDATABASEFAILED("InternalError.UpdateDatabaseFailed"),
      
+    // VPC操作失败。
+     INTERNALERROR_VPCOPERATIONFAILED("InternalError.VpcOperationFailed"),
+     
     // 外网操作失败。
      INTERNALERROR_WANSERVICEFAILED("InternalError.WanServiceFailed"),
      
@@ -243,8 +276,17 @@ public enum MariadbErrorCode {
     // snat子网不支持申请IP。
      INVALIDPARAMETER_SUBNETUNAVAILABLE("InvalidParameter.SubnetUnavailable"),
      
+    // Vip不在子网内。
+     INVALIDPARAMETER_VIPNOTINSUBNET("InvalidParameter.VipNotInSubnet"),
+     
+    // Vip被占用。
+     INVALIDPARAMETER_VIPUSED("InvalidParameter.VipUsed"),
+     
     // 找不到指定的虚拟私有网络。
      INVALIDPARAMETER_VPCNOTFOUND("InvalidParameter.VpcNotFound"),
+     
+    // Vport被占用。
+     INVALIDPARAMETER_VPORTUSED("InvalidParameter.VportUsed"),
      
     // 可用区信息错误。
      INVALIDPARAMETER_ZONEIDILLEGAL("InvalidParameter.ZoneIdIllegal"),
@@ -291,14 +333,14 @@ public enum MariadbErrorCode {
     // 参数验证错误。
      INVALIDPARAMETERVALUE_INVALIDPARAMETERVALUEERROR("InvalidParameterValue.InvalidParameterValueError"),
      
-    // 分片不存在。
-     INVALIDPARAMETERVALUE_SHARDNOTEXIST("InvalidParameterValue.ShardNotExist"),
-     
     // 找不到数据库实例对应的规格信息。
      INVALIDPARAMETERVALUE_SPECIDILLEGAL("InvalidParameterValue.SpecIdIllegal"),
      
     // 系统用户不允许操作。
      INVALIDPARAMETERVALUE_SUPERUSERFORBIDDEN("InvalidParameterValue.SuperUserForbidden"),
+     
+    // 当前部署方式不允许设置此同步模式。
+     INVALIDPARAMETERVALUE_SYNCMODENOTALLOWED("InvalidParameterValue.SyncModeNotAllowed"),
      
     // 请求过于频繁。
      LIMITEXCEEDED_TOOFREQUENTLYCALLED("LimitExceeded.TooFrequentlyCalled"),
@@ -341,6 +383,9 @@ public enum MariadbErrorCode {
      
     // 数据库实例状态不正确，当前无法操作。
      RESOURCEUNAVAILABLE_INSTANCESTATUSABNORMAL("ResourceUnavailable.InstanceStatusAbnormal"),
+     
+    // 安全组校验失败。
+     RESOURCEUNAVAILABLE_SGCHECKFAIL("ResourceUnavailable.SGCheckFail"),
      
     // 未授权操作。
      UNAUTHORIZEDOPERATION("UnauthorizedOperation"),

@@ -65,6 +65,20 @@ public class CreateCodeBatchRequest extends AbstractModel{
     private String Remark;
 
     /**
+    * 模版ID，或者活动ID
+    */
+    @SerializedName("MpTpl")
+    @Expose
+    private String MpTpl;
+
+    /**
+    * 克隆批次ID，同时会复制溯源信息
+    */
+    @SerializedName("CloneId")
+    @Expose
+    private String CloneId;
+
+    /**
      * Get 企业ID 
      * @return CorpId 企业ID
      */
@@ -160,6 +174,38 @@ public class CreateCodeBatchRequest extends AbstractModel{
         this.Remark = Remark;
     }
 
+    /**
+     * Get 模版ID，或者活动ID 
+     * @return MpTpl 模版ID，或者活动ID
+     */
+    public String getMpTpl() {
+        return this.MpTpl;
+    }
+
+    /**
+     * Set 模版ID，或者活动ID
+     * @param MpTpl 模版ID，或者活动ID
+     */
+    public void setMpTpl(String MpTpl) {
+        this.MpTpl = MpTpl;
+    }
+
+    /**
+     * Get 克隆批次ID，同时会复制溯源信息 
+     * @return CloneId 克隆批次ID，同时会复制溯源信息
+     */
+    public String getCloneId() {
+        return this.CloneId;
+    }
+
+    /**
+     * Set 克隆批次ID，同时会复制溯源信息
+     * @param CloneId 克隆批次ID，同时会复制溯源信息
+     */
+    public void setCloneId(String CloneId) {
+        this.CloneId = CloneId;
+    }
+
     public CreateCodeBatchRequest() {
     }
 
@@ -186,6 +232,12 @@ public class CreateCodeBatchRequest extends AbstractModel{
         if (source.Remark != null) {
             this.Remark = new String(source.Remark);
         }
+        if (source.MpTpl != null) {
+            this.MpTpl = new String(source.MpTpl);
+        }
+        if (source.CloneId != null) {
+            this.CloneId = new String(source.CloneId);
+        }
     }
 
 
@@ -199,6 +251,8 @@ public class CreateCodeBatchRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "BatchType", this.BatchType);
         this.setParamSimple(map, prefix + "BatchId", this.BatchId);
         this.setParamSimple(map, prefix + "Remark", this.Remark);
+        this.setParamSimple(map, prefix + "MpTpl", this.MpTpl);
+        this.setParamSimple(map, prefix + "CloneId", this.CloneId);
 
     }
 }

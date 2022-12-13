@@ -44,7 +44,7 @@ public class CreateTraceDataRequest extends AbstractModel{
     private String TaskId;
 
     /**
-    * 溯源阶段 0:商品 1:通用 2:内部溯源 3:外部溯源
+    * 溯源阶段 0:商品 1:通用 2:生产溯源 3:销售溯源
     */
     @SerializedName("Phase")
     @Expose
@@ -84,6 +84,20 @@ public class CreateTraceDataRequest extends AbstractModel{
     @SerializedName("TraceItems")
     @Expose
     private TraceItem [] TraceItems;
+
+    /**
+    * 溯源状态 0: 无效, 1: 有效
+    */
+    @SerializedName("Status")
+    @Expose
+    private Long Status;
+
+    /**
+    * 环节数据
+    */
+    @SerializedName("PhaseData")
+    @Expose
+    private PhaseData PhaseData;
 
     /**
      * Get 企业ID 
@@ -134,16 +148,16 @@ public class CreateTraceDataRequest extends AbstractModel{
     }
 
     /**
-     * Get 溯源阶段 0:商品 1:通用 2:内部溯源 3:外部溯源 
-     * @return Phase 溯源阶段 0:商品 1:通用 2:内部溯源 3:外部溯源
+     * Get 溯源阶段 0:商品 1:通用 2:生产溯源 3:销售溯源 
+     * @return Phase 溯源阶段 0:商品 1:通用 2:生产溯源 3:销售溯源
      */
     public Long getPhase() {
         return this.Phase;
     }
 
     /**
-     * Set 溯源阶段 0:商品 1:通用 2:内部溯源 3:外部溯源
-     * @param Phase 溯源阶段 0:商品 1:通用 2:内部溯源 3:外部溯源
+     * Set 溯源阶段 0:商品 1:通用 2:生产溯源 3:销售溯源
+     * @param Phase 溯源阶段 0:商品 1:通用 2:生产溯源 3:销售溯源
      */
     public void setPhase(Long Phase) {
         this.Phase = Phase;
@@ -229,6 +243,38 @@ public class CreateTraceDataRequest extends AbstractModel{
         this.TraceItems = TraceItems;
     }
 
+    /**
+     * Get 溯源状态 0: 无效, 1: 有效 
+     * @return Status 溯源状态 0: 无效, 1: 有效
+     */
+    public Long getStatus() {
+        return this.Status;
+    }
+
+    /**
+     * Set 溯源状态 0: 无效, 1: 有效
+     * @param Status 溯源状态 0: 无效, 1: 有效
+     */
+    public void setStatus(Long Status) {
+        this.Status = Status;
+    }
+
+    /**
+     * Get 环节数据 
+     * @return PhaseData 环节数据
+     */
+    public PhaseData getPhaseData() {
+        return this.PhaseData;
+    }
+
+    /**
+     * Set 环节数据
+     * @param PhaseData 环节数据
+     */
+    public void setPhaseData(PhaseData PhaseData) {
+        this.PhaseData = PhaseData;
+    }
+
     public CreateTraceDataRequest() {
     }
 
@@ -267,6 +313,12 @@ public class CreateTraceDataRequest extends AbstractModel{
                 this.TraceItems[i] = new TraceItem(source.TraceItems[i]);
             }
         }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+        if (source.PhaseData != null) {
+            this.PhaseData = new PhaseData(source.PhaseData);
+        }
     }
 
 
@@ -283,6 +335,8 @@ public class CreateTraceDataRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Type", this.Type);
         this.setParamSimple(map, prefix + "TraceId", this.TraceId);
         this.setParamArrayObj(map, prefix + "TraceItems.", this.TraceItems);
+        this.setParamSimple(map, prefix + "Status", this.Status);
+        this.setParamObj(map, prefix + "PhaseData.", this.PhaseData);
 
     }
 }

@@ -39,6 +39,26 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
+     *用于添加机器组信息
+     * @param req AddMachineGroupInfoRequest
+     * @return AddMachineGroupInfoResponse
+     * @throws TencentCloudSDKException
+     */
+    public AddMachineGroupInfoResponse AddMachineGroupInfo(AddMachineGroupInfoRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<AddMachineGroupInfoResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<AddMachineGroupInfoResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "AddMachineGroupInfo");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *应用采集配置到指定机器组
      * @param req ApplyConfigToMachineGroupRequest
      * @return ApplyConfigToMachineGroupResponse
@@ -139,7 +159,7 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
-     *本接口用于创建特殊采集配置任务
+     *本接口用于创建特殊采集配置任务，特殊采集配置应用于自建K8S环境的采集Agent
      * @param req CreateConfigExtraRequest
      * @return CreateConfigExtraResponse
      * @throws TencentCloudSDKException
@@ -359,7 +379,7 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
-     *本接口用于删除特殊采集规则配置
+     *本接口用于删除特殊采集规则配置，特殊采集配置应用于自建K8S环境的采集Agent
      * @param req DeleteConfigExtraRequest
      * @return DeleteConfigExtraResponse
      * @throws TencentCloudSDKException
@@ -499,6 +519,26 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
+     *用于删除机器组信息
+     * @param req DeleteMachineGroupInfoRequest
+     * @return DeleteMachineGroupInfoResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteMachineGroupInfoResponse DeleteMachineGroupInfo(DeleteMachineGroupInfoRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteMachineGroupInfoResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteMachineGroupInfoResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteMachineGroupInfo");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *删除投递规则
      * @param req DeleteShipperRequest
      * @return DeleteShipperResponse
@@ -579,7 +619,7 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
-     *本接口用于获取特殊采集配置
+     *本接口用于获取特殊采集配置，特殊采集配置应用于自建K8S环境的采集Agent
      * @param req DescribeConfigExtrasRequest
      * @return DescribeConfigExtrasResponse
      * @throws TencentCloudSDKException
@@ -719,7 +759,7 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
-     *本接口用于构建直方图
+     *本接口用于构建日志数量直方图
      * @param req DescribeLogHistogramRequest
      * @return DescribeLogHistogramResponse
      * @throws TencentCloudSDKException
@@ -999,7 +1039,7 @@ public class ClsClient extends AbstractClient{
     }
 
     /**
-     *本接口用于修改特殊采集配置任务
+     *本接口用于修改特殊采集配置任务，特殊采集配置应用于自建K8S环境的采集Agent
      * @param req ModifyConfigExtraRequest
      * @return ModifyConfigExtraResponse
      * @throws TencentCloudSDKException

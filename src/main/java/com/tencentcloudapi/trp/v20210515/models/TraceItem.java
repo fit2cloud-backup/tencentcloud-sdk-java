@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class TraceItem extends AbstractModel{
 
     /**
-    * 名称
+    * 字段名称
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
@@ -31,7 +31,7 @@ public class TraceItem extends AbstractModel{
     private String Name;
 
     /**
-    * 单个值
+    * 字段值
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Value")
@@ -39,7 +39,7 @@ public class TraceItem extends AbstractModel{
     private String Value;
 
     /**
-    * 类型
+    * 类型 text:文本类型, longtext:长文本类型, banner:单图片类型, image:多图片类型, video:视频类型, mp:小程序类型
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Type")
@@ -71,9 +71,25 @@ public class TraceItem extends AbstractModel{
     private String [] Values;
 
     /**
-     * Get 名称
+    * 类型标识
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Key")
+    @Expose
+    private String Key;
+
+    /**
+    * 扩展字段
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Ext")
+    @Expose
+    private String Ext;
+
+    /**
+     * Get 字段名称
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Name 名称
+     * @return Name 字段名称
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
@@ -81,9 +97,9 @@ public class TraceItem extends AbstractModel{
     }
 
     /**
-     * Set 名称
+     * Set 字段名称
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Name 名称
+     * @param Name 字段名称
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
@@ -91,9 +107,9 @@ public class TraceItem extends AbstractModel{
     }
 
     /**
-     * Get 单个值
+     * Get 字段值
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Value 单个值
+     * @return Value 字段值
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getValue() {
@@ -101,9 +117,9 @@ public class TraceItem extends AbstractModel{
     }
 
     /**
-     * Set 单个值
+     * Set 字段值
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Value 单个值
+     * @param Value 字段值
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValue(String Value) {
@@ -111,9 +127,9 @@ public class TraceItem extends AbstractModel{
     }
 
     /**
-     * Get 类型
+     * Get 类型 text:文本类型, longtext:长文本类型, banner:单图片类型, image:多图片类型, video:视频类型, mp:小程序类型
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Type 类型
+     * @return Type 类型 text:文本类型, longtext:长文本类型, banner:单图片类型, image:多图片类型, video:视频类型, mp:小程序类型
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getType() {
@@ -121,9 +137,9 @@ public class TraceItem extends AbstractModel{
     }
 
     /**
-     * Set 类型
+     * Set 类型 text:文本类型, longtext:长文本类型, banner:单图片类型, image:多图片类型, video:视频类型, mp:小程序类型
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Type 类型
+     * @param Type 类型 text:文本类型, longtext:长文本类型, banner:单图片类型, image:多图片类型, video:视频类型, mp:小程序类型
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setType(String Type) {
@@ -190,6 +206,46 @@ public class TraceItem extends AbstractModel{
         this.Values = Values;
     }
 
+    /**
+     * Get 类型标识
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Key 类型标识
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getKey() {
+        return this.Key;
+    }
+
+    /**
+     * Set 类型标识
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Key 类型标识
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setKey(String Key) {
+        this.Key = Key;
+    }
+
+    /**
+     * Get 扩展字段
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Ext 扩展字段
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getExt() {
+        return this.Ext;
+    }
+
+    /**
+     * Set 扩展字段
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Ext 扩展字段
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setExt(String Ext) {
+        this.Ext = Ext;
+    }
+
     public TraceItem() {
     }
 
@@ -219,6 +275,12 @@ public class TraceItem extends AbstractModel{
                 this.Values[i] = new String(source.Values[i]);
             }
         }
+        if (source.Key != null) {
+            this.Key = new String(source.Key);
+        }
+        if (source.Ext != null) {
+            this.Ext = new String(source.Ext);
+        }
     }
 
 
@@ -232,6 +294,8 @@ public class TraceItem extends AbstractModel{
         this.setParamSimple(map, prefix + "ReadOnly", this.ReadOnly);
         this.setParamSimple(map, prefix + "Hidden", this.Hidden);
         this.setParamArraySimple(map, prefix + "Values.", this.Values);
+        this.setParamSimple(map, prefix + "Key", this.Key);
+        this.setParamSimple(map, prefix + "Ext", this.Ext);
 
     }
 }

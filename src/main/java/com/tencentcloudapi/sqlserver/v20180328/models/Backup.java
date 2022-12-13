@@ -93,7 +93,7 @@ public class Backup extends AbstractModel{
     private Long Strategy;
 
     /**
-    * 备份方式，0-定时备份；1-手动临时备份
+    * 备份方式，0-定时备份；1-手动临时备份；2-定期备份
     */
     @SerializedName("BackupWay")
     @Expose
@@ -119,6 +119,27 @@ public class Backup extends AbstractModel{
     @SerializedName("BackupFormat")
     @Expose
     private String BackupFormat;
+
+    /**
+    * 实例当前地域Code
+    */
+    @SerializedName("Region")
+    @Expose
+    private String Region;
+
+    /**
+    * 跨地域备份的目的地域下载链接
+    */
+    @SerializedName("CrossBackupAddr")
+    @Expose
+    private CrossBackupAddr [] CrossBackupAddr;
+
+    /**
+    * 跨地域备份的目标地域和备份状态
+    */
+    @SerializedName("CrossBackupStatus")
+    @Expose
+    private CrossRegionStatus [] CrossBackupStatus;
 
     /**
      * Get 文件名，对于单库备份文件不返回此值；单库备份文件通过DescribeBackupFiles接口获取文件名 
@@ -281,16 +302,16 @@ public class Backup extends AbstractModel{
     }
 
     /**
-     * Get 备份方式，0-定时备份；1-手动临时备份 
-     * @return BackupWay 备份方式，0-定时备份；1-手动临时备份
+     * Get 备份方式，0-定时备份；1-手动临时备份；2-定期备份 
+     * @return BackupWay 备份方式，0-定时备份；1-手动临时备份；2-定期备份
      */
     public Long getBackupWay() {
         return this.BackupWay;
     }
 
     /**
-     * Set 备份方式，0-定时备份；1-手动临时备份
-     * @param BackupWay 备份方式，0-定时备份；1-手动临时备份
+     * Set 备份方式，0-定时备份；1-手动临时备份；2-定期备份
+     * @param BackupWay 备份方式，0-定时备份；1-手动临时备份；2-定期备份
      */
     public void setBackupWay(Long BackupWay) {
         this.BackupWay = BackupWay;
@@ -342,6 +363,54 @@ public class Backup extends AbstractModel{
      */
     public void setBackupFormat(String BackupFormat) {
         this.BackupFormat = BackupFormat;
+    }
+
+    /**
+     * Get 实例当前地域Code 
+     * @return Region 实例当前地域Code
+     */
+    public String getRegion() {
+        return this.Region;
+    }
+
+    /**
+     * Set 实例当前地域Code
+     * @param Region 实例当前地域Code
+     */
+    public void setRegion(String Region) {
+        this.Region = Region;
+    }
+
+    /**
+     * Get 跨地域备份的目的地域下载链接 
+     * @return CrossBackupAddr 跨地域备份的目的地域下载链接
+     */
+    public CrossBackupAddr [] getCrossBackupAddr() {
+        return this.CrossBackupAddr;
+    }
+
+    /**
+     * Set 跨地域备份的目的地域下载链接
+     * @param CrossBackupAddr 跨地域备份的目的地域下载链接
+     */
+    public void setCrossBackupAddr(CrossBackupAddr [] CrossBackupAddr) {
+        this.CrossBackupAddr = CrossBackupAddr;
+    }
+
+    /**
+     * Get 跨地域备份的目标地域和备份状态 
+     * @return CrossBackupStatus 跨地域备份的目标地域和备份状态
+     */
+    public CrossRegionStatus [] getCrossBackupStatus() {
+        return this.CrossBackupStatus;
+    }
+
+    /**
+     * Set 跨地域备份的目标地域和备份状态
+     * @param CrossBackupStatus 跨地域备份的目标地域和备份状态
+     */
+    public void setCrossBackupStatus(CrossRegionStatus [] CrossBackupStatus) {
+        this.CrossBackupStatus = CrossBackupStatus;
     }
 
     public Backup() {
@@ -397,6 +466,21 @@ public class Backup extends AbstractModel{
         if (source.BackupFormat != null) {
             this.BackupFormat = new String(source.BackupFormat);
         }
+        if (source.Region != null) {
+            this.Region = new String(source.Region);
+        }
+        if (source.CrossBackupAddr != null) {
+            this.CrossBackupAddr = new CrossBackupAddr[source.CrossBackupAddr.length];
+            for (int i = 0; i < source.CrossBackupAddr.length; i++) {
+                this.CrossBackupAddr[i] = new CrossBackupAddr(source.CrossBackupAddr[i]);
+            }
+        }
+        if (source.CrossBackupStatus != null) {
+            this.CrossBackupStatus = new CrossRegionStatus[source.CrossBackupStatus.length];
+            for (int i = 0; i < source.CrossBackupStatus.length; i++) {
+                this.CrossBackupStatus[i] = new CrossRegionStatus(source.CrossBackupStatus[i]);
+            }
+        }
     }
 
 
@@ -418,6 +502,9 @@ public class Backup extends AbstractModel{
         this.setParamSimple(map, prefix + "BackupName", this.BackupName);
         this.setParamSimple(map, prefix + "GroupId", this.GroupId);
         this.setParamSimple(map, prefix + "BackupFormat", this.BackupFormat);
+        this.setParamSimple(map, prefix + "Region", this.Region);
+        this.setParamArrayObj(map, prefix + "CrossBackupAddr.", this.CrossBackupAddr);
+        this.setParamArrayObj(map, prefix + "CrossBackupStatus.", this.CrossBackupStatus);
 
     }
 }

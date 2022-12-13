@@ -422,86 +422,6 @@ public class MariadbClient extends AbstractClient{
     }
 
     /**
-     *本接口(DescribeDBPerformance)用于查看数据库实例当前性能数据。
-     * @param req DescribeDBPerformanceRequest
-     * @return DescribeDBPerformanceResponse
-     * @throws TencentCloudSDKException
-     */
-    public DescribeDBPerformanceResponse DescribeDBPerformance(DescribeDBPerformanceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDBPerformanceResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDBPerformanceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDBPerformance");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *本接口(DescribeDBPerformanceDetails)用于查看实例性能数据详情。
-     * @param req DescribeDBPerformanceDetailsRequest
-     * @return DescribeDBPerformanceDetailsResponse
-     * @throws TencentCloudSDKException
-     */
-    public DescribeDBPerformanceDetailsResponse DescribeDBPerformanceDetails(DescribeDBPerformanceDetailsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDBPerformanceDetailsResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDBPerformanceDetailsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDBPerformanceDetails");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *本接口(DescribeDBResourceUsage)用于查看数据库实例资源的使用情况。
-     * @param req DescribeDBResourceUsageRequest
-     * @return DescribeDBResourceUsageResponse
-     * @throws TencentCloudSDKException
-     */
-    public DescribeDBResourceUsageResponse DescribeDBResourceUsage(DescribeDBResourceUsageRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDBResourceUsageResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDBResourceUsageResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDBResourceUsage");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *本接口(DescribeDBResourceUsageDetails)用于查看数据库实例当前性能数据。
-     * @param req DescribeDBResourceUsageDetailsRequest
-     * @return DescribeDBResourceUsageDetailsResponse
-     * @throws TencentCloudSDKException
-     */
-    public DescribeDBResourceUsageDetailsResponse DescribeDBResourceUsageDetails(DescribeDBResourceUsageDetailsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDBResourceUsageDetailsResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDBResourceUsageDetailsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDBResourceUsageDetails");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
      *本接口（DescribeDBSecurityGroups）用于查询实例安全组信息
      * @param req DescribeDBSecurityGroupsRequest
      * @return DescribeDBSecurityGroupsResponse
@@ -802,26 +722,6 @@ public class MariadbClient extends AbstractClient{
     }
 
     /**
-     *本接口（DescribeSqlLogs）用于获取实例SQL日志。
-     * @param req DescribeSqlLogsRequest
-     * @return DescribeSqlLogsResponse
-     * @throws TencentCloudSDKException
-     */
-    public DescribeSqlLogsResponse DescribeSqlLogs(DescribeSqlLogsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSqlLogsResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSqlLogsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSqlLogs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
      *本接口（DescribeUpgradePrice）用于在扩容云数据库实例时，查询变配的价格。
      * @param req DescribeUpgradePriceRequest
      * @return DescribeUpgradePriceResponse
@@ -834,6 +734,26 @@ public class MariadbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeUpgradePriceResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeUpgradePrice");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口(DestroyDBInstance)用于销毁已隔离的包年包月实例。
+     * @param req DestroyDBInstanceRequest
+     * @return DestroyDBInstanceResponse
+     * @throws TencentCloudSDKException
+     */
+    public DestroyDBInstanceResponse DestroyDBInstance(DestroyDBInstanceRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DestroyDBInstanceResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DestroyDBInstanceResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DestroyDBInstance");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -935,6 +855,46 @@ public class MariadbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<InitDBInstancesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "InitDBInstances");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口(IsolateDBInstance)用于隔离云数据库实例（包年包月），隔离后不能通过IP和端口访问数据库。隔离的实例可在回收站中进行开机。若为欠费隔离，请尽快进行充值。
+     * @param req IsolateDBInstanceRequest
+     * @return IsolateDBInstanceResponse
+     * @throws TencentCloudSDKException
+     */
+    public IsolateDBInstanceResponse IsolateDBInstance(IsolateDBInstanceRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<IsolateDBInstanceResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<IsolateDBInstanceResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "IsolateDBInstance");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（IsolateDedicatedDBInstance）用于隔离独享云数据库实例。
+     * @param req IsolateDedicatedDBInstanceRequest
+     * @return IsolateDedicatedDBInstanceResponse
+     * @throws TencentCloudSDKException
+     */
+    public IsolateDedicatedDBInstanceResponse IsolateDedicatedDBInstance(IsolateDedicatedDBInstanceRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<IsolateDedicatedDBInstanceResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<IsolateDedicatedDBInstanceResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "IsolateDedicatedDBInstance");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1149,6 +1109,66 @@ public class MariadbClient extends AbstractClient{
     }
 
     /**
+     *本接口（ModifyInstanceNetwork）用于修改实例所属网络
+     * @param req ModifyInstanceNetworkRequest
+     * @return ModifyInstanceNetworkResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyInstanceNetworkResponse ModifyInstanceNetwork(ModifyInstanceNetworkRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyInstanceNetworkResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyInstanceNetworkResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyInstanceNetwork");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（ModifyInstanceVip）用于修改实例VIP
+     * @param req ModifyInstanceVipRequest
+     * @return ModifyInstanceVipResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyInstanceVipResponse ModifyInstanceVip(ModifyInstanceVipRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyInstanceVipResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyInstanceVipResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyInstanceVip");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（ModifyInstanceVport）用于修改实例VPORT
+     * @param req ModifyInstanceVportRequest
+     * @return ModifyInstanceVportResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyInstanceVportResponse ModifyInstanceVport(ModifyInstanceVportRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyInstanceVportResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyInstanceVportResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyInstanceVport");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口(ModifyLogFileRetentionPeriod)用于修改数据库备份日志保存天数。
      * @param req ModifyLogFileRetentionPeriodRequest
      * @return ModifyLogFileRetentionPeriodResponse
@@ -1307,6 +1327,26 @@ public class MariadbClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<SwitchDBInstanceHAResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "SwitchDBInstanceHA");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（TerminateDedicatedDBInstance）用于销毁已隔离的独享云数据库实例。
+     * @param req TerminateDedicatedDBInstanceRequest
+     * @return TerminateDedicatedDBInstanceResponse
+     * @throws TencentCloudSDKException
+     */
+    public TerminateDedicatedDBInstanceResponse TerminateDedicatedDBInstance(TerminateDedicatedDBInstanceRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<TerminateDedicatedDBInstanceResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<TerminateDedicatedDBInstanceResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "TerminateDedicatedDBInstance");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

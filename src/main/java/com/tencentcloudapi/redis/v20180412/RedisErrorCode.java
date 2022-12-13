@@ -222,6 +222,9 @@ public enum RedisErrorCode {
     // 备份状态异常，暂不能执行该操作。备份可能已过期或已被删除。
      RESOURCEUNAVAILABLE_BACKUPSTATUSABNORMAL("ResourceUnavailable.BackupStatusAbnormal"),
      
+    // 备份状态无效，可能在其他流程中，也可能被删除。
+     RESOURCEUNAVAILABLE_BACKUPSTATUSINVALID("ResourceUnavailable.BackupStatusInvalid"),
+     
     // 调用后端接口失败。
      RESOURCEUNAVAILABLE_CALLOSSERROR("ResourceUnavailable.CallOssError"),
      
@@ -296,6 +299,9 @@ public enum RedisErrorCode {
      
     // 自动续费标识错误。
      UNSUPPORTEDOPERATION_ISAUTORENEWERROR("UnsupportedOperation.IsAutoRenewError"),
+     
+    // 实例版本过低。
+     UNSUPPORTEDOPERATION_LIMITPROXYVERSION("UnsupportedOperation.LimitProxyVersion"),
      
     // 只有集群版实例支持导出备份。
      UNSUPPORTEDOPERATION_ONLYCLUSTERINSTANCECANEXPORTBACKUP("UnsupportedOperation.OnlyClusterInstanceCanExportBackup");

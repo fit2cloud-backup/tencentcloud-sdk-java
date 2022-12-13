@@ -1,5 +1,11 @@
 package com.tencentcloudapi.cynosdb.v20190107;
 public enum CynosdbErrorCode {
+    // CAM签名/鉴权错误。
+     AUTHFAILURE("AuthFailure"),
+     
+    // 批量查询失败。
+     FAILEDOPERATION_BATCHGETINSTANCEERROR("FailedOperation.BatchGetInstanceError"),
+     
     // 获取权限失败，请稍后重试。如果持续不成功，请联系客服进行处理。
      FAILEDOPERATION_CAMCHECKRESOURCEERROR("FailedOperation.CamCheckResourceError"),
      
@@ -75,6 +81,9 @@ public enum CynosdbErrorCode {
     // 未找到该接口。
      INVALIDPARAMETER_CONTROLLERNOTFOUNDERROR("InvalidParameter.ControllerNotFoundError"),
      
+    // 未知参数，请检查参数是否有效。
+     INVALIDPARAMETER_INVALIDPARAMETERERROR("InvalidParameter.InvalidParameterError"),
+     
     // 当前实例不可隔离。
      INVALIDPARAMETER_ISOLATENOTALLOWED("InvalidParameter.IsolateNotAllowed"),
      
@@ -126,6 +135,9 @@ public enum CynosdbErrorCode {
     // 参数值无效。
      INVALIDPARAMETERVALUE_INVALIDPARAMETERVALUEERROR("InvalidParameterValue.InvalidParameterValueError"),
      
+    // 密码不合规。
+     INVALIDPARAMETERVALUE_INVALIDPASSWORDVALUEERROR("InvalidParameterValue.InvalidPasswordValueError"),
+     
     // 无效的地域。
      INVALIDPARAMETERVALUE_INVALIDREGIONIDERROR("InvalidParameterValue.InvalidRegionIdError"),
      
@@ -140,6 +152,9 @@ public enum CynosdbErrorCode {
      
     // 参数错误。
      INVALIDPARAMETERVALUE_PARAMERROR("InvalidParameterValue.ParamError"),
+     
+    // 参数值无效，超过允许范围。
+     INVALIDPARAMETERVALUE_PARAMETEROUTRANGEERROR("InvalidParameterValue.ParameterOutRangeError"),
      
     // 预付费类型不允许该操作。
      INVALIDPARAMETERVALUE_PREPAYPAYMODEERROR("InvalidParameterValue.PrePayPayModeError"),
@@ -156,8 +171,14 @@ public enum CynosdbErrorCode {
     // 找不到所选VPC网络。
      INVALIDPARAMETERVALUE_VPCNOTFOUND("InvalidParameterValue.VpcNotFound"),
      
+    // 超过配额限制。
+     LIMITEXCEEDED("LimitExceeded"),
+     
     // 用户实例个数超出限制。
      LIMITEXCEEDED_USERINSTANCELIMIT("LimitExceeded.UserInstanceLimit"),
+     
+    // 缺少参数错误。
+     MISSINGPARAMETER("MissingParameter"),
      
     // 由于操作禁止，当前集群不允许该操作。
      OPERATIONDENIED_CLUSTEROPNOTALLOWEDERROR("OperationDenied.ClusterOpNotAllowedError"),
@@ -167,6 +188,9 @@ public enum CynosdbErrorCode {
      
     // 实例当前状态不允许该操作。
      OPERATIONDENIED_INSTANCESTATUSDENIEDERROR("OperationDenied.InstanceStatusDeniedError"),
+     
+    // 实例未处于运行状态
+     OPERATIONDENIED_INSTANCESTATUSLIMITERROR("OperationDenied.InstanceStatusLimitError"),
      
     // 账号余额不足。
      OPERATIONDENIED_INSUFFICIENTBALANCEERROR("OperationDenied.InsufficientBalanceError"),

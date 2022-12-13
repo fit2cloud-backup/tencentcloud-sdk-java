@@ -128,6 +128,42 @@ public class BackupInfo extends AbstractModel{
     private String SaveMode;
 
     /**
+    * 本地备份所在地域
+    */
+    @SerializedName("Region")
+    @Expose
+    private String Region;
+
+    /**
+    * 异地备份详细信息
+    */
+    @SerializedName("RemoteInfo")
+    @Expose
+    private RemoteBackupInfo [] RemoteInfo;
+
+    /**
+    * 存储方式，0-常规存储，1-归档存储，默认为0
+    */
+    @SerializedName("CosStorageType")
+    @Expose
+    private Long CosStorageType;
+
+    /**
+    * 实例 ID，格式如：cdb-c1nl9rpv。与云数据库控制台页面中显示的实例 ID 相同。
+    */
+    @SerializedName("InstanceId")
+    @Expose
+    private String InstanceId;
+
+    /**
+    * 备份文件是否加密， on-加密， off-未加密
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EncryptionFlag")
+    @Expose
+    private String EncryptionFlag;
+
+    /**
      * Get 备份文件名 
      * @return Name 备份文件名
      */
@@ -367,6 +403,90 @@ public class BackupInfo extends AbstractModel{
         this.SaveMode = SaveMode;
     }
 
+    /**
+     * Get 本地备份所在地域 
+     * @return Region 本地备份所在地域
+     */
+    public String getRegion() {
+        return this.Region;
+    }
+
+    /**
+     * Set 本地备份所在地域
+     * @param Region 本地备份所在地域
+     */
+    public void setRegion(String Region) {
+        this.Region = Region;
+    }
+
+    /**
+     * Get 异地备份详细信息 
+     * @return RemoteInfo 异地备份详细信息
+     */
+    public RemoteBackupInfo [] getRemoteInfo() {
+        return this.RemoteInfo;
+    }
+
+    /**
+     * Set 异地备份详细信息
+     * @param RemoteInfo 异地备份详细信息
+     */
+    public void setRemoteInfo(RemoteBackupInfo [] RemoteInfo) {
+        this.RemoteInfo = RemoteInfo;
+    }
+
+    /**
+     * Get 存储方式，0-常规存储，1-归档存储，默认为0 
+     * @return CosStorageType 存储方式，0-常规存储，1-归档存储，默认为0
+     */
+    public Long getCosStorageType() {
+        return this.CosStorageType;
+    }
+
+    /**
+     * Set 存储方式，0-常规存储，1-归档存储，默认为0
+     * @param CosStorageType 存储方式，0-常规存储，1-归档存储，默认为0
+     */
+    public void setCosStorageType(Long CosStorageType) {
+        this.CosStorageType = CosStorageType;
+    }
+
+    /**
+     * Get 实例 ID，格式如：cdb-c1nl9rpv。与云数据库控制台页面中显示的实例 ID 相同。 
+     * @return InstanceId 实例 ID，格式如：cdb-c1nl9rpv。与云数据库控制台页面中显示的实例 ID 相同。
+     */
+    public String getInstanceId() {
+        return this.InstanceId;
+    }
+
+    /**
+     * Set 实例 ID，格式如：cdb-c1nl9rpv。与云数据库控制台页面中显示的实例 ID 相同。
+     * @param InstanceId 实例 ID，格式如：cdb-c1nl9rpv。与云数据库控制台页面中显示的实例 ID 相同。
+     */
+    public void setInstanceId(String InstanceId) {
+        this.InstanceId = InstanceId;
+    }
+
+    /**
+     * Get 备份文件是否加密， on-加密， off-未加密
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EncryptionFlag 备份文件是否加密， on-加密， off-未加密
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getEncryptionFlag() {
+        return this.EncryptionFlag;
+    }
+
+    /**
+     * Set 备份文件是否加密， on-加密， off-未加密
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EncryptionFlag 备份文件是否加密， on-加密， off-未加密
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEncryptionFlag(String EncryptionFlag) {
+        this.EncryptionFlag = EncryptionFlag;
+    }
+
     public BackupInfo() {
     }
 
@@ -420,6 +540,24 @@ public class BackupInfo extends AbstractModel{
         if (source.SaveMode != null) {
             this.SaveMode = new String(source.SaveMode);
         }
+        if (source.Region != null) {
+            this.Region = new String(source.Region);
+        }
+        if (source.RemoteInfo != null) {
+            this.RemoteInfo = new RemoteBackupInfo[source.RemoteInfo.length];
+            for (int i = 0; i < source.RemoteInfo.length; i++) {
+                this.RemoteInfo[i] = new RemoteBackupInfo(source.RemoteInfo[i]);
+            }
+        }
+        if (source.CosStorageType != null) {
+            this.CosStorageType = new Long(source.CosStorageType);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.EncryptionFlag != null) {
+            this.EncryptionFlag = new String(source.EncryptionFlag);
+        }
     }
 
 
@@ -442,6 +580,11 @@ public class BackupInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Way", this.Way);
         this.setParamSimple(map, prefix + "ManualBackupName", this.ManualBackupName);
         this.setParamSimple(map, prefix + "SaveMode", this.SaveMode);
+        this.setParamSimple(map, prefix + "Region", this.Region);
+        this.setParamArrayObj(map, prefix + "RemoteInfo.", this.RemoteInfo);
+        this.setParamSimple(map, prefix + "CosStorageType", this.CosStorageType);
+        this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
+        this.setParamSimple(map, prefix + "EncryptionFlag", this.EncryptionFlag);
 
     }
 }

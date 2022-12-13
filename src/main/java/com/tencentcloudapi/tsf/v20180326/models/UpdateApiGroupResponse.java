@@ -24,6 +24,7 @@ public class UpdateApiGroupResponse extends AbstractModel{
 
     /**
     * 返回结果，true: 成功, false: 失败
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Result")
     @Expose
@@ -37,8 +38,10 @@ public class UpdateApiGroupResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 返回结果，true: 成功, false: 失败 
+     * Get 返回结果，true: 成功, false: 失败
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Result 返回结果，true: 成功, false: 失败
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getResult() {
         return this.Result;
@@ -46,7 +49,9 @@ public class UpdateApiGroupResponse extends AbstractModel{
 
     /**
      * Set 返回结果，true: 成功, false: 失败
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Result 返回结果，true: 成功, false: 失败
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResult(Boolean Result) {
         this.Result = Result;

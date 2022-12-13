@@ -65,6 +65,20 @@ public class DescribeImagesRequest extends AbstractModel{
     private Long Offset;
 
     /**
+    * 指定镜像 Digest 进行查找
+    */
+    @SerializedName("Digest")
+    @Expose
+    private String Digest;
+
+    /**
+    * 指定是否为精准匹配，true为精准匹配，不填为模糊匹配
+    */
+    @SerializedName("ExactMatch")
+    @Expose
+    private Boolean ExactMatch;
+
+    /**
      * Get 实例ID 
      * @return RegistryId 实例ID
      */
@@ -160,6 +174,38 @@ public class DescribeImagesRequest extends AbstractModel{
         this.Offset = Offset;
     }
 
+    /**
+     * Get 指定镜像 Digest 进行查找 
+     * @return Digest 指定镜像 Digest 进行查找
+     */
+    public String getDigest() {
+        return this.Digest;
+    }
+
+    /**
+     * Set 指定镜像 Digest 进行查找
+     * @param Digest 指定镜像 Digest 进行查找
+     */
+    public void setDigest(String Digest) {
+        this.Digest = Digest;
+    }
+
+    /**
+     * Get 指定是否为精准匹配，true为精准匹配，不填为模糊匹配 
+     * @return ExactMatch 指定是否为精准匹配，true为精准匹配，不填为模糊匹配
+     */
+    public Boolean getExactMatch() {
+        return this.ExactMatch;
+    }
+
+    /**
+     * Set 指定是否为精准匹配，true为精准匹配，不填为模糊匹配
+     * @param ExactMatch 指定是否为精准匹配，true为精准匹配，不填为模糊匹配
+     */
+    public void setExactMatch(Boolean ExactMatch) {
+        this.ExactMatch = ExactMatch;
+    }
+
     public DescribeImagesRequest() {
     }
 
@@ -186,6 +232,12 @@ public class DescribeImagesRequest extends AbstractModel{
         if (source.Offset != null) {
             this.Offset = new Long(source.Offset);
         }
+        if (source.Digest != null) {
+            this.Digest = new String(source.Digest);
+        }
+        if (source.ExactMatch != null) {
+            this.ExactMatch = new Boolean(source.ExactMatch);
+        }
     }
 
 
@@ -199,6 +251,8 @@ public class DescribeImagesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ImageVersion", this.ImageVersion);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
+        this.setParamSimple(map, prefix + "Digest", this.Digest);
+        this.setParamSimple(map, prefix + "ExactMatch", this.ExactMatch);
 
     }
 }

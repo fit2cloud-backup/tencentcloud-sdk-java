@@ -23,18 +23,46 @@ import java.util.HashMap;
 public class DescribeBinlogBackupOverviewResponse extends AbstractModel{
 
     /**
-    * 总的日志备份容量（单位为字节）。
+    * 总的日志备份容量，包含异地日志备份（单位为字节）。
     */
     @SerializedName("BinlogBackupVolume")
     @Expose
     private Long BinlogBackupVolume;
 
     /**
-    * 总的日志备份个数。
+    * 总的日志备份个数，包含异地日志备份。
     */
     @SerializedName("BinlogBackupCount")
     @Expose
     private Long BinlogBackupCount;
+
+    /**
+    * 异地日志备份容量（单位为字节）。
+    */
+    @SerializedName("RemoteBinlogVolume")
+    @Expose
+    private Long RemoteBinlogVolume;
+
+    /**
+    * 异地日志备份个数。
+    */
+    @SerializedName("RemoteBinlogCount")
+    @Expose
+    private Long RemoteBinlogCount;
+
+    /**
+    * 归档日志备份容量（单位为字节）。
+    */
+    @SerializedName("BinlogArchiveVolume")
+    @Expose
+    private Long BinlogArchiveVolume;
+
+    /**
+    * 归档日志备份个数。
+    */
+    @SerializedName("BinlogArchiveCount")
+    @Expose
+    private Long BinlogArchiveCount;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -44,35 +72,99 @@ public class DescribeBinlogBackupOverviewResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 总的日志备份容量（单位为字节）。 
-     * @return BinlogBackupVolume 总的日志备份容量（单位为字节）。
+     * Get 总的日志备份容量，包含异地日志备份（单位为字节）。 
+     * @return BinlogBackupVolume 总的日志备份容量，包含异地日志备份（单位为字节）。
      */
     public Long getBinlogBackupVolume() {
         return this.BinlogBackupVolume;
     }
 
     /**
-     * Set 总的日志备份容量（单位为字节）。
-     * @param BinlogBackupVolume 总的日志备份容量（单位为字节）。
+     * Set 总的日志备份容量，包含异地日志备份（单位为字节）。
+     * @param BinlogBackupVolume 总的日志备份容量，包含异地日志备份（单位为字节）。
      */
     public void setBinlogBackupVolume(Long BinlogBackupVolume) {
         this.BinlogBackupVolume = BinlogBackupVolume;
     }
 
     /**
-     * Get 总的日志备份个数。 
-     * @return BinlogBackupCount 总的日志备份个数。
+     * Get 总的日志备份个数，包含异地日志备份。 
+     * @return BinlogBackupCount 总的日志备份个数，包含异地日志备份。
      */
     public Long getBinlogBackupCount() {
         return this.BinlogBackupCount;
     }
 
     /**
-     * Set 总的日志备份个数。
-     * @param BinlogBackupCount 总的日志备份个数。
+     * Set 总的日志备份个数，包含异地日志备份。
+     * @param BinlogBackupCount 总的日志备份个数，包含异地日志备份。
      */
     public void setBinlogBackupCount(Long BinlogBackupCount) {
         this.BinlogBackupCount = BinlogBackupCount;
+    }
+
+    /**
+     * Get 异地日志备份容量（单位为字节）。 
+     * @return RemoteBinlogVolume 异地日志备份容量（单位为字节）。
+     */
+    public Long getRemoteBinlogVolume() {
+        return this.RemoteBinlogVolume;
+    }
+
+    /**
+     * Set 异地日志备份容量（单位为字节）。
+     * @param RemoteBinlogVolume 异地日志备份容量（单位为字节）。
+     */
+    public void setRemoteBinlogVolume(Long RemoteBinlogVolume) {
+        this.RemoteBinlogVolume = RemoteBinlogVolume;
+    }
+
+    /**
+     * Get 异地日志备份个数。 
+     * @return RemoteBinlogCount 异地日志备份个数。
+     */
+    public Long getRemoteBinlogCount() {
+        return this.RemoteBinlogCount;
+    }
+
+    /**
+     * Set 异地日志备份个数。
+     * @param RemoteBinlogCount 异地日志备份个数。
+     */
+    public void setRemoteBinlogCount(Long RemoteBinlogCount) {
+        this.RemoteBinlogCount = RemoteBinlogCount;
+    }
+
+    /**
+     * Get 归档日志备份容量（单位为字节）。 
+     * @return BinlogArchiveVolume 归档日志备份容量（单位为字节）。
+     */
+    public Long getBinlogArchiveVolume() {
+        return this.BinlogArchiveVolume;
+    }
+
+    /**
+     * Set 归档日志备份容量（单位为字节）。
+     * @param BinlogArchiveVolume 归档日志备份容量（单位为字节）。
+     */
+    public void setBinlogArchiveVolume(Long BinlogArchiveVolume) {
+        this.BinlogArchiveVolume = BinlogArchiveVolume;
+    }
+
+    /**
+     * Get 归档日志备份个数。 
+     * @return BinlogArchiveCount 归档日志备份个数。
+     */
+    public Long getBinlogArchiveCount() {
+        return this.BinlogArchiveCount;
+    }
+
+    /**
+     * Set 归档日志备份个数。
+     * @param BinlogArchiveCount 归档日志备份个数。
+     */
+    public void setBinlogArchiveCount(Long BinlogArchiveCount) {
+        this.BinlogArchiveCount = BinlogArchiveCount;
     }
 
     /**
@@ -105,6 +197,18 @@ public class DescribeBinlogBackupOverviewResponse extends AbstractModel{
         if (source.BinlogBackupCount != null) {
             this.BinlogBackupCount = new Long(source.BinlogBackupCount);
         }
+        if (source.RemoteBinlogVolume != null) {
+            this.RemoteBinlogVolume = new Long(source.RemoteBinlogVolume);
+        }
+        if (source.RemoteBinlogCount != null) {
+            this.RemoteBinlogCount = new Long(source.RemoteBinlogCount);
+        }
+        if (source.BinlogArchiveVolume != null) {
+            this.BinlogArchiveVolume = new Long(source.BinlogArchiveVolume);
+        }
+        if (source.BinlogArchiveCount != null) {
+            this.BinlogArchiveCount = new Long(source.BinlogArchiveCount);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -117,6 +221,10 @@ public class DescribeBinlogBackupOverviewResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "BinlogBackupVolume", this.BinlogBackupVolume);
         this.setParamSimple(map, prefix + "BinlogBackupCount", this.BinlogBackupCount);
+        this.setParamSimple(map, prefix + "RemoteBinlogVolume", this.RemoteBinlogVolume);
+        this.setParamSimple(map, prefix + "RemoteBinlogCount", this.RemoteBinlogCount);
+        this.setParamSimple(map, prefix + "BinlogArchiveVolume", this.BinlogArchiveVolume);
+        this.setParamSimple(map, prefix + "BinlogArchiveCount", this.BinlogArchiveCount);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

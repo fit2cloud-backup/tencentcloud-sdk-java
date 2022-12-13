@@ -99,6 +99,26 @@ public class CatClient extends AbstractClient{
     }
 
     /**
+     *获取拨测节点
+     * @param req DescribeNodesRequest
+     * @return DescribeNodesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeNodesResponse DescribeNodes(DescribeNodesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeNodesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeNodesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeNodes");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *查询云拨测指标数据，指标支持使用sum,avg,max,min聚合函数进行指标数据查询
      * @param req DescribeProbeMetricDataRequest
      * @return DescribeProbeMetricDataResponse
@@ -191,6 +211,26 @@ public class CatClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<SuspendProbeTaskResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "SuspendProbeTask");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *更新探测任务属性
+     * @param req UpdateProbeTaskAttributesRequest
+     * @return UpdateProbeTaskAttributesResponse
+     * @throws TencentCloudSDKException
+     */
+    public UpdateProbeTaskAttributesResponse UpdateProbeTaskAttributes(UpdateProbeTaskAttributesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<UpdateProbeTaskAttributesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<UpdateProbeTaskAttributesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "UpdateProbeTaskAttributes");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

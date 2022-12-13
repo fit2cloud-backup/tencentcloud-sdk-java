@@ -30,18 +30,32 @@ public class SyncImagesRequest extends AbstractModel{
     private String [] ImageIds;
 
     /**
-    * 目的同步地域列表；必须满足限制：<br><li>不能为源地域，<br><li>必须是一个合法的Region。<br><li>暂不支持部分地域同步。<br>具体地域参数请参考[Region](https://cloud.tencent.com/document/product/213/6091)。
+    * 目的同步地域列表，必须满足如下限制：<br><li>必须是一个合法的Region。<br><li>如果是自定义镜像，则目标同步地域不能为源地域。<br><li>如果是共享镜像，则目的同步地域仅支持源地域，表示将共享镜像复制为源地域的自定义镜像。<br><li>暂不支持部分地域同步。<br>具体地域参数请参考[Region](https://cloud.tencent.com/document/product/213/6091)。
     */
     @SerializedName("DestinationRegions")
     @Expose
     private String [] DestinationRegions;
 
     /**
-    * 检测是否支持发起同步镜像
+    * 检测是否支持发起同步镜像。
     */
     @SerializedName("DryRun")
     @Expose
     private Boolean DryRun;
+
+    /**
+    * 目标镜像名称。
+    */
+    @SerializedName("ImageName")
+    @Expose
+    private String ImageName;
+
+    /**
+    * 是否需要返回目的地域的镜像ID。
+    */
+    @SerializedName("ImageSetRequired")
+    @Expose
+    private Boolean ImageSetRequired;
 
     /**
      * Get 镜像ID列表 ，镜像ID可以通过如下方式获取：<br><li>通过[DescribeImages](https://cloud.tencent.com/document/api/213/15715)接口返回的`ImageId`获取。<br><li>通过[镜像控制台](https://console.cloud.tencent.com/cvm/image)获取。<br>镜像ID必须满足限制：<br><li>镜像ID对应的镜像状态必须为`NORMAL`。<br>镜像状态请参考[镜像数据表](https://cloud.tencent.com/document/product/213/15753#Image)。 
@@ -60,35 +74,67 @@ public class SyncImagesRequest extends AbstractModel{
     }
 
     /**
-     * Get 目的同步地域列表；必须满足限制：<br><li>不能为源地域，<br><li>必须是一个合法的Region。<br><li>暂不支持部分地域同步。<br>具体地域参数请参考[Region](https://cloud.tencent.com/document/product/213/6091)。 
-     * @return DestinationRegions 目的同步地域列表；必须满足限制：<br><li>不能为源地域，<br><li>必须是一个合法的Region。<br><li>暂不支持部分地域同步。<br>具体地域参数请参考[Region](https://cloud.tencent.com/document/product/213/6091)。
+     * Get 目的同步地域列表，必须满足如下限制：<br><li>必须是一个合法的Region。<br><li>如果是自定义镜像，则目标同步地域不能为源地域。<br><li>如果是共享镜像，则目的同步地域仅支持源地域，表示将共享镜像复制为源地域的自定义镜像。<br><li>暂不支持部分地域同步。<br>具体地域参数请参考[Region](https://cloud.tencent.com/document/product/213/6091)。 
+     * @return DestinationRegions 目的同步地域列表，必须满足如下限制：<br><li>必须是一个合法的Region。<br><li>如果是自定义镜像，则目标同步地域不能为源地域。<br><li>如果是共享镜像，则目的同步地域仅支持源地域，表示将共享镜像复制为源地域的自定义镜像。<br><li>暂不支持部分地域同步。<br>具体地域参数请参考[Region](https://cloud.tencent.com/document/product/213/6091)。
      */
     public String [] getDestinationRegions() {
         return this.DestinationRegions;
     }
 
     /**
-     * Set 目的同步地域列表；必须满足限制：<br><li>不能为源地域，<br><li>必须是一个合法的Region。<br><li>暂不支持部分地域同步。<br>具体地域参数请参考[Region](https://cloud.tencent.com/document/product/213/6091)。
-     * @param DestinationRegions 目的同步地域列表；必须满足限制：<br><li>不能为源地域，<br><li>必须是一个合法的Region。<br><li>暂不支持部分地域同步。<br>具体地域参数请参考[Region](https://cloud.tencent.com/document/product/213/6091)。
+     * Set 目的同步地域列表，必须满足如下限制：<br><li>必须是一个合法的Region。<br><li>如果是自定义镜像，则目标同步地域不能为源地域。<br><li>如果是共享镜像，则目的同步地域仅支持源地域，表示将共享镜像复制为源地域的自定义镜像。<br><li>暂不支持部分地域同步。<br>具体地域参数请参考[Region](https://cloud.tencent.com/document/product/213/6091)。
+     * @param DestinationRegions 目的同步地域列表，必须满足如下限制：<br><li>必须是一个合法的Region。<br><li>如果是自定义镜像，则目标同步地域不能为源地域。<br><li>如果是共享镜像，则目的同步地域仅支持源地域，表示将共享镜像复制为源地域的自定义镜像。<br><li>暂不支持部分地域同步。<br>具体地域参数请参考[Region](https://cloud.tencent.com/document/product/213/6091)。
      */
     public void setDestinationRegions(String [] DestinationRegions) {
         this.DestinationRegions = DestinationRegions;
     }
 
     /**
-     * Get 检测是否支持发起同步镜像 
-     * @return DryRun 检测是否支持发起同步镜像
+     * Get 检测是否支持发起同步镜像。 
+     * @return DryRun 检测是否支持发起同步镜像。
      */
     public Boolean getDryRun() {
         return this.DryRun;
     }
 
     /**
-     * Set 检测是否支持发起同步镜像
-     * @param DryRun 检测是否支持发起同步镜像
+     * Set 检测是否支持发起同步镜像。
+     * @param DryRun 检测是否支持发起同步镜像。
      */
     public void setDryRun(Boolean DryRun) {
         this.DryRun = DryRun;
+    }
+
+    /**
+     * Get 目标镜像名称。 
+     * @return ImageName 目标镜像名称。
+     */
+    public String getImageName() {
+        return this.ImageName;
+    }
+
+    /**
+     * Set 目标镜像名称。
+     * @param ImageName 目标镜像名称。
+     */
+    public void setImageName(String ImageName) {
+        this.ImageName = ImageName;
+    }
+
+    /**
+     * Get 是否需要返回目的地域的镜像ID。 
+     * @return ImageSetRequired 是否需要返回目的地域的镜像ID。
+     */
+    public Boolean getImageSetRequired() {
+        return this.ImageSetRequired;
+    }
+
+    /**
+     * Set 是否需要返回目的地域的镜像ID。
+     * @param ImageSetRequired 是否需要返回目的地域的镜像ID。
+     */
+    public void setImageSetRequired(Boolean ImageSetRequired) {
+        this.ImageSetRequired = ImageSetRequired;
     }
 
     public SyncImagesRequest() {
@@ -114,6 +160,12 @@ public class SyncImagesRequest extends AbstractModel{
         if (source.DryRun != null) {
             this.DryRun = new Boolean(source.DryRun);
         }
+        if (source.ImageName != null) {
+            this.ImageName = new String(source.ImageName);
+        }
+        if (source.ImageSetRequired != null) {
+            this.ImageSetRequired = new Boolean(source.ImageSetRequired);
+        }
     }
 
 
@@ -124,6 +176,8 @@ public class SyncImagesRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "ImageIds.", this.ImageIds);
         this.setParamArraySimple(map, prefix + "DestinationRegions.", this.DestinationRegions);
         this.setParamSimple(map, prefix + "DryRun", this.DryRun);
+        this.setParamSimple(map, prefix + "ImageName", this.ImageName);
+        this.setParamSimple(map, prefix + "ImageSetRequired", this.ImageSetRequired);
 
     }
 }

@@ -126,6 +126,9 @@ public enum IotexplorerErrorCode {
     // 设备不存在。
      INVALIDPARAMETERVALUE_DEVICENOTEXIST("InvalidParameterValue.DeviceNotExist"),
      
+    // 使用标准蓝牙广播协议的产品，DeviceName最多不超过8个字符。
+     INVALIDPARAMETERVALUE_ERRLLSYNCBROADCASTDEVICENAMELENGTHEXCEED("InvalidParameterValue.ErrLLSyncBroadcastDeviceNameLengthExceed"),
+     
     // 任务不存在。
      INVALIDPARAMETERVALUE_ERRORTASKNOTEXIST("InvalidParameterValue.ErrorTaskNotExist"),
      
@@ -493,7 +496,13 @@ public enum IotexplorerErrorCode {
      UNSUPPORTEDOPERATION_UNPAIDORDER("UnsupportedOperation.UnpaidOrder"),
      
     // 存在重复VPN。
-     UNSUPPORTEDOPERATION_VPNDUPKEYEXIST("UnsupportedOperation.VPNDupKeyExist");
+     UNSUPPORTEDOPERATION_VPNDUPKEYEXIST("UnsupportedOperation.VPNDupKeyExist"),
+     
+    // Video账户未创建，请检查后重新操作。
+     UNSUPPORTEDOPERATION_VIDEOACCOUNTNOTEXIST("UnsupportedOperation.VideoAccountNotExist"),
+     
+    // Video平台license数量不足。
+     UNSUPPORTEDOPERATION_VIDEOINSUFFICIENTLICENSES("UnsupportedOperation.VideoInsufficientLicenses");
      
     private String value;
     private IotexplorerErrorCode (String value){

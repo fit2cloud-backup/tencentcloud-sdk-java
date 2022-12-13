@@ -165,6 +165,9 @@ public enum TsfErrorCode {
     // TSF云API调用申请角色临时凭证调用请求失败。
      INTERNALERROR_CAMROLEREQUESTERROR("InternalError.CamRoleRequestError"),
      
+    // 配置发布失败：无法连接配置中心服务器。
+     INTERNALERROR_CANNOTCONNCONSULSERVER("InternalError.CanNotConnConsulServer"),
+     
     // TSF云API请求调用失败。
      INTERNALERROR_CLOUDAPIPROXYERROR("InternalError.CloudApiProxyError"),
      
@@ -363,6 +366,9 @@ public enum TsfErrorCode {
     // 仓库中存在软件包，请先删除软件包。
      INVALIDPARAMETER_REPOSITORYNOTEMPTY("InvalidParameter.RepositoryNotEmpty"),
      
+    // TSF应用性能管理业务日志应用标识参数错误。
+     INVALIDPARAMETER_TSFAPMBUSILOGCFGAPPPARAMERROR("InvalidParameter.TsfApmBusiLogCfgAppParamError"),
+     
     // TSF应用性能管理业务日志配置与应用关联参数错误。
      INVALIDPARAMETER_TSFAPMBUSILOGCFGAPPRELATIONPARAMERROR("InvalidParameter.TsfApmBusiLogCfgAppRelationParamError"),
      
@@ -401,6 +407,9 @@ public enum TsfErrorCode {
      
     // 应用名称已存在，请更换其他名称。
      INVALIDPARAMETERVALUE_APPLICATIONNAMEEXIST("InvalidParameterValue.ApplicationNameExist"),
+     
+    // 应用名称不能大于60字符。
+     INVALIDPARAMETERVALUE_APPLICATIONNAMELENGTH("InvalidParameterValue.ApplicationNameLength"),
      
     // 应用名称不能为空。
      INVALIDPARAMETERVALUE_APPLICATIONNAMENULL("InvalidParameterValue.ApplicationNameNull"),
@@ -477,14 +486,14 @@ public enum TsfErrorCode {
     // 集群 CPU 资源不足。
      INVALIDPARAMETERVALUE_CONTAINERGROUPCPULIMITOVER("InvalidParameterValue.ContainergroupCpulimitOver"),
      
-    // 容器 Env 的 Value 和 ValueFrom 至少要有一个。
-     INVALIDPARAMETERVALUE_CONTAINERGROUPENVVALUENOTSET("InvalidParameterValue.ContainergroupEnvValueNotSet"),
-     
     // 部署组ID不能为空。
      INVALIDPARAMETERVALUE_CONTAINERGROUPGROUPIDNULL("InvalidParameterValue.ContainergroupGroupidNull"),
      
     // 部署组名不能大于60个字符。
      INVALIDPARAMETERVALUE_CONTAINERGROUPGROUPNAMELEGNTH("InvalidParameterValue.ContainergroupGroupnameLegnth"),
+     
+    // 部署组名不能为空。
+     INVALIDPARAMETERVALUE_CONTAINERGROUPGROUPNAMENULL("InvalidParameterValue.ContainergroupGroupnameNull"),
      
     // 部署组名称格式不正确,只能包含小写字母、数字及分隔符("-"),且必须以小写字母开头，数字或小写字母结尾。
      INVALIDPARAMETERVALUE_CONTAINERGROUPGROUPNAMEREGEXMATCHFALSE("InvalidParameterValue.ContainergroupGroupnameRegexMatchFalse"),
@@ -630,11 +639,11 @@ public enum TsfErrorCode {
     // 分组操作，无有效机器。
      INVALIDPARAMETERVALUE_GROUPVALIDINSTANCENULL("InvalidParameterValue.GroupValidInstanceNull"),
      
+    // 镜像仓库名不能为空。
+     INVALIDPARAMETERVALUE_IMAGEREPOREPONAMENULL("InvalidParameterValue.ImagerepoRepoNameNull"),
+     
     // 镜像仓库名不合法,示例:tsf-repo/nginx。
      INVALIDPARAMETERVALUE_IMAGEREPOREPONAMEINVALID("InvalidParameterValue.ImagerepoReponameInvalid"),
-     
-    // 镜像仓库名不能为空。
-     INVALIDPARAMETERVALUE_IMAGEREPOREPONAMENULL("InvalidParameterValue.ImagerepoReponameNull"),
      
     // imageTags不能为空。
      INVALIDPARAMETERVALUE_IMAGEREPOTAGNAMENULL("InvalidParameterValue.ImagerepoTagnameNull"),
@@ -744,6 +753,9 @@ public enum TsfErrorCode {
     // 无效请求参数。
      INVALIDPARAMETERVALUE_TASKPARAMETERINVALID("InvalidParameterValue.TaskParameterInvalid"),
      
+    // 仅有停止状态下的部署组才可以不启动。
+     INVALIDPARAMETERVALUE_WRONGDONTSTARTVALUE("InvalidParameterValue.WrongDontStartValue"),
+     
     // 命名空间数达到上限。
      LIMITEXCEEDED_ERRNAMESPACEMAXLIMIT("LimitExceeded.ErrNamespaceMaxLimit"),
      
@@ -798,8 +810,14 @@ public enum TsfErrorCode {
     // 分组ID不能为空。
      MISSINGPARAMETER_GROUPIDNULL("MissingParameter.GroupIdNull"),
      
+    // 部署组ID未填写。
+     MISSINGPARAMETER_GROUPIDREQUIRED("MissingParameter.GroupIdRequired"),
+     
     // 分组所属命名空间不能为空。
      MISSINGPARAMETER_GROUPNAMESPACENULL("MissingParameter.GroupNamespaceNull"),
+     
+    // 虚拟机集群导入云主机导入方式为空。
+     MISSINGPARAMETER_INSTANCEIMPORTMODENULL("MissingParameter.InstanceImportModeNull"),
      
     // 命名空间ID不能为空。
      MISSINGPARAMETER_NAMESPACEIDREQUIRED("MissingParameter.NamespaceIdRequired"),
@@ -846,7 +864,7 @@ public enum TsfErrorCode {
     // 无法获取应用信息。
      RESOURCENOTFOUND_APPLICATIONNOTEXIST("ResourceNotFound.ApplicationNotExist"),
      
-    // 应用不存在或应用不属于当前项目。
+    // 无法获取应用或应用不属于当前项目。
      RESOURCENOTFOUND_APPLICATIONPROJECTNOTMATCH("ResourceNotFound.ApplicationProjectNotMatch"),
      
     // 无法获取命名空间所属集群。

@@ -87,7 +87,7 @@ public class Certificates extends AbstractModel{
     private String Alias;
 
     /**
-    * 状态值 0：审核中，1：已通过，2：审核失败，3：已过期，4：已添加 DNS 解析记录，5：OV/EV 证书，待提交资料，6：订单取消中，7：已取消，8：已提交资料， 待上传确认函。
+    * 状态。0：审核中，1：已通过，2：审核失败，3：已过期，4：验证方式为 DNS_AUTO 类型的证书， 已添加DNS记录，5：企业证书，待提交，6：订单取消中，7：已取消，8：已提交资料， 待上传确认函，9：证书吊销中，10：已吊销，11：重颁发中，12：待上传吊销确认函，13：免费证书待提交资料状态，14：已退款，
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
@@ -271,6 +271,22 @@ public class Certificates extends AbstractModel{
     private Boolean IsIgnore;
 
     /**
+    * 是否国密证书
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IsSM")
+    @Expose
+    private Boolean IsSM;
+
+    /**
+    * 证书算法
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EncryptAlgorithm")
+    @Expose
+    private String EncryptAlgorithm;
+
+    /**
      * Get 用户 UIN。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return OwnerUin 用户 UIN。
@@ -431,9 +447,9 @@ public class Certificates extends AbstractModel{
     }
 
     /**
-     * Get 状态值 0：审核中，1：已通过，2：审核失败，3：已过期，4：已添加 DNS 解析记录，5：OV/EV 证书，待提交资料，6：订单取消中，7：已取消，8：已提交资料， 待上传确认函。
+     * Get 状态。0：审核中，1：已通过，2：审核失败，3：已过期，4：验证方式为 DNS_AUTO 类型的证书， 已添加DNS记录，5：企业证书，待提交，6：订单取消中，7：已取消，8：已提交资料， 待上传确认函，9：证书吊销中，10：已吊销，11：重颁发中，12：待上传吊销确认函，13：免费证书待提交资料状态，14：已退款，
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Status 状态值 0：审核中，1：已通过，2：审核失败，3：已过期，4：已添加 DNS 解析记录，5：OV/EV 证书，待提交资料，6：订单取消中，7：已取消，8：已提交资料， 待上传确认函。
+     * @return Status 状态。0：审核中，1：已通过，2：审核失败，3：已过期，4：验证方式为 DNS_AUTO 类型的证书， 已添加DNS记录，5：企业证书，待提交，6：订单取消中，7：已取消，8：已提交资料， 待上传确认函，9：证书吊销中，10：已吊销，11：重颁发中，12：待上传吊销确认函，13：免费证书待提交资料状态，14：已退款，
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStatus() {
@@ -441,9 +457,9 @@ public class Certificates extends AbstractModel{
     }
 
     /**
-     * Set 状态值 0：审核中，1：已通过，2：审核失败，3：已过期，4：已添加 DNS 解析记录，5：OV/EV 证书，待提交资料，6：订单取消中，7：已取消，8：已提交资料， 待上传确认函。
+     * Set 状态。0：审核中，1：已通过，2：审核失败，3：已过期，4：验证方式为 DNS_AUTO 类型的证书， 已添加DNS记录，5：企业证书，待提交，6：订单取消中，7：已取消，8：已提交资料， 待上传确认函，9：证书吊销中，10：已吊销，11：重颁发中，12：待上传吊销确认函，13：免费证书待提交资料状态，14：已退款，
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Status 状态值 0：审核中，1：已通过，2：审核失败，3：已过期，4：已添加 DNS 解析记录，5：OV/EV 证书，待提交资料，6：订单取消中，7：已取消，8：已提交资料， 待上传确认函。
+     * @param Status 状态。0：审核中，1：已通过，2：审核失败，3：已过期，4：验证方式为 DNS_AUTO 类型的证书， 已添加DNS记录，5：企业证书，待提交，6：订单取消中，7：已取消，8：已提交资料， 待上传确认函，9：证书吊销中，10：已吊销，11：重颁发中，12：待上传吊销确认函，13：免费证书待提交资料状态，14：已退款，
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(Long Status) {
@@ -890,6 +906,46 @@ public class Certificates extends AbstractModel{
         this.IsIgnore = IsIgnore;
     }
 
+    /**
+     * Get 是否国密证书
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IsSM 是否国密证书
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getIsSM() {
+        return this.IsSM;
+    }
+
+    /**
+     * Set 是否国密证书
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IsSM 是否国密证书
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIsSM(Boolean IsSM) {
+        this.IsSM = IsSM;
+    }
+
+    /**
+     * Get 证书算法
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EncryptAlgorithm 证书算法
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getEncryptAlgorithm() {
+        return this.EncryptAlgorithm;
+    }
+
+    /**
+     * Set 证书算法
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EncryptAlgorithm 证书算法
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEncryptAlgorithm(String EncryptAlgorithm) {
+        this.EncryptAlgorithm = EncryptAlgorithm;
+    }
+
     public Certificates() {
     }
 
@@ -1000,6 +1056,12 @@ public class Certificates extends AbstractModel{
         if (source.IsIgnore != null) {
             this.IsIgnore = new Boolean(source.IsIgnore);
         }
+        if (source.IsSM != null) {
+            this.IsSM = new Boolean(source.IsSM);
+        }
+        if (source.EncryptAlgorithm != null) {
+            this.EncryptAlgorithm = new String(source.EncryptAlgorithm);
+        }
     }
 
 
@@ -1038,6 +1100,8 @@ public class Certificates extends AbstractModel{
         this.setParamSimple(map, prefix + "Deployable", this.Deployable);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "IsIgnore", this.IsIgnore);
+        this.setParamSimple(map, prefix + "IsSM", this.IsSM);
+        this.setParamSimple(map, prefix + "EncryptAlgorithm", this.EncryptAlgorithm);
 
     }
 }

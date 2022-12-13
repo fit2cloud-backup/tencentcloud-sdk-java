@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class InquiryPriceCreateDBInstancesResponse extends AbstractModel{
 
     /**
-    * 原始价格，单位：分
+    * 刊例价，单位：分
     */
     @SerializedName("OriginalPrice")
     @Expose
     private Long OriginalPrice;
 
     /**
-    * 折后价格，单位：分
+    * 折后实际付款金额，单位：分
     */
     @SerializedName("Price")
     @Expose
@@ -51,32 +51,32 @@ public class InquiryPriceCreateDBInstancesResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 原始价格，单位：分 
-     * @return OriginalPrice 原始价格，单位：分
+     * Get 刊例价，单位：分 
+     * @return OriginalPrice 刊例价，单位：分
      */
     public Long getOriginalPrice() {
         return this.OriginalPrice;
     }
 
     /**
-     * Set 原始价格，单位：分
-     * @param OriginalPrice 原始价格，单位：分
+     * Set 刊例价，单位：分
+     * @param OriginalPrice 刊例价，单位：分
      */
     public void setOriginalPrice(Long OriginalPrice) {
         this.OriginalPrice = OriginalPrice;
     }
 
     /**
-     * Get 折后价格，单位：分 
-     * @return Price 折后价格，单位：分
+     * Get 折后实际付款金额，单位：分 
+     * @return Price 折后实际付款金额，单位：分
      */
     public Long getPrice() {
         return this.Price;
     }
 
     /**
-     * Set 折后价格，单位：分
-     * @param Price 折后价格，单位：分
+     * Set 折后实际付款金额，单位：分
+     * @param Price 折后实际付款金额，单位：分
      */
     public void setPrice(Long Price) {
         this.Price = Price;

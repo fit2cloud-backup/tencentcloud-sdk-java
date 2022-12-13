@@ -79,6 +79,26 @@ public class TseClient extends AbstractClient{
     }
 
     /**
+     *获取云原生网关节点列表
+     * @param req DescribeCloudNativeAPIGatewayNodesRequest
+     * @return DescribeCloudNativeAPIGatewayNodesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCloudNativeAPIGatewayNodesResponse DescribeCloudNativeAPIGatewayNodes(DescribeCloudNativeAPIGatewayNodesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeCloudNativeAPIGatewayNodesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeCloudNativeAPIGatewayNodesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeCloudNativeAPIGatewayNodes");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *查询Nacos类型引擎实例副本信息
      * @param req DescribeNacosReplicasRequest
      * @return DescribeNacosReplicasResponse
@@ -191,6 +211,26 @@ public class TseClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeZookeeperServerInterfacesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeZookeeperServerInterfaces");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改引擎公网访问配置
+     * @param req UpdateEngineInternetAccessRequest
+     * @return UpdateEngineInternetAccessResponse
+     * @throws TencentCloudSDKException
+     */
+    public UpdateEngineInternetAccessResponse UpdateEngineInternetAccess(UpdateEngineInternetAccessRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<UpdateEngineInternetAccessResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<UpdateEngineInternetAccessResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "UpdateEngineInternetAccess");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

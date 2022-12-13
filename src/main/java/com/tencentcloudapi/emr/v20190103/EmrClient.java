@@ -80,7 +80,28 @@ public class EmrClient extends AbstractClient{
     }
 
     /**
-     *查询硬件节点信息
+     *删除用户列表（用户管理）
+
+     * @param req DeleteUserManagerUserListRequest
+     * @return DeleteUserManagerUserListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteUserManagerUserListResponse DeleteUserManagerUserList(DeleteUserManagerUserListRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteUserManagerUserListResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteUserManagerUserListResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteUserManagerUserList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询集群节点信息
      * @param req DescribeClusterNodesRequest
      * @return DescribeClusterNodesResponse
      * @throws TencentCloudSDKException
@@ -120,7 +141,27 @@ public class EmrClient extends AbstractClient{
     }
 
     /**
-     *预付费集群隔离后续费资源查询
+     * yarn application 统计接口查询
+     * @param req DescribeEmrApplicationStaticsRequest
+     * @return DescribeEmrApplicationStaticsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeEmrApplicationStaticsResponse DescribeEmrApplicationStatics(DescribeEmrApplicationStaticsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeEmrApplicationStaticsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeEmrApplicationStaticsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeEmrApplicationStatics");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询待续费节点信息
      * @param req DescribeInstanceRenewNodesRequest
      * @return DescribeInstanceRenewNodesResponse
      * @throws TencentCloudSDKException
@@ -140,7 +181,7 @@ public class EmrClient extends AbstractClient{
     }
 
     /**
-     *查询EMR实例
+     *查询集群实例信息
      * @param req DescribeInstancesRequest
      * @return DescribeInstancesResponse
      * @throws TencentCloudSDKException
@@ -160,7 +201,7 @@ public class EmrClient extends AbstractClient{
     }
 
     /**
-     *EMR集群实例列表查询
+     *查询集群列表
      * @param req DescribeInstancesListRequest
      * @return DescribeInstancesListResponse
      * @throws TencentCloudSDKException
@@ -200,7 +241,7 @@ public class EmrClient extends AbstractClient{
     }
 
     /**
-     *获取yarn资源调度页面的数据
+     *查询YARN资源调度数据信息
      * @param req DescribeResourceScheduleRequest
      * @return DescribeResourceScheduleResponse
      * @throws TencentCloudSDKException
@@ -341,7 +382,7 @@ public class EmrClient extends AbstractClient{
     }
 
     /**
-     *刷新动态资源池
+     *刷新YARN的动态资源池
      * @param req ModifyResourcePoolsRequest
      * @return ModifyResourcePoolsResponse
      * @throws TencentCloudSDKException
@@ -361,7 +402,7 @@ public class EmrClient extends AbstractClient{
     }
 
     /**
-     *修改yarn资源调度的资源配置
+     *修改YARN资源调度的资源配置
      * @param req ModifyResourceScheduleConfigRequest
      * @return ModifyResourceScheduleConfigResponse
      * @throws TencentCloudSDKException
@@ -421,7 +462,7 @@ public class EmrClient extends AbstractClient{
     }
 
     /**
-     *实例扩容
+     *扩容节点
      * @param req ScaleOutInstanceRequest
      * @return ScaleOutInstanceResponse
      * @throws TencentCloudSDKException

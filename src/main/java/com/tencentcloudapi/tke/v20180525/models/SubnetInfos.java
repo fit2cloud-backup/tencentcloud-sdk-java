@@ -37,6 +37,27 @@ public class SubnetInfos extends AbstractModel{
     private String Name;
 
     /**
+    * 安全组id
+    */
+    @SerializedName("SecurityGroups")
+    @Expose
+    private String [] SecurityGroups;
+
+    /**
+    * 系统
+    */
+    @SerializedName("Os")
+    @Expose
+    private String Os;
+
+    /**
+    * 硬件架构
+    */
+    @SerializedName("Arch")
+    @Expose
+    private String Arch;
+
+    /**
      * Get 子网id 
      * @return SubnetId 子网id
      */
@@ -68,6 +89,54 @@ public class SubnetInfos extends AbstractModel{
         this.Name = Name;
     }
 
+    /**
+     * Get 安全组id 
+     * @return SecurityGroups 安全组id
+     */
+    public String [] getSecurityGroups() {
+        return this.SecurityGroups;
+    }
+
+    /**
+     * Set 安全组id
+     * @param SecurityGroups 安全组id
+     */
+    public void setSecurityGroups(String [] SecurityGroups) {
+        this.SecurityGroups = SecurityGroups;
+    }
+
+    /**
+     * Get 系统 
+     * @return Os 系统
+     */
+    public String getOs() {
+        return this.Os;
+    }
+
+    /**
+     * Set 系统
+     * @param Os 系统
+     */
+    public void setOs(String Os) {
+        this.Os = Os;
+    }
+
+    /**
+     * Get 硬件架构 
+     * @return Arch 硬件架构
+     */
+    public String getArch() {
+        return this.Arch;
+    }
+
+    /**
+     * Set 硬件架构
+     * @param Arch 硬件架构
+     */
+    public void setArch(String Arch) {
+        this.Arch = Arch;
+    }
+
     public SubnetInfos() {
     }
 
@@ -82,6 +151,18 @@ public class SubnetInfos extends AbstractModel{
         if (source.Name != null) {
             this.Name = new String(source.Name);
         }
+        if (source.SecurityGroups != null) {
+            this.SecurityGroups = new String[source.SecurityGroups.length];
+            for (int i = 0; i < source.SecurityGroups.length; i++) {
+                this.SecurityGroups[i] = new String(source.SecurityGroups[i]);
+            }
+        }
+        if (source.Os != null) {
+            this.Os = new String(source.Os);
+        }
+        if (source.Arch != null) {
+            this.Arch = new String(source.Arch);
+        }
     }
 
 
@@ -91,6 +172,9 @@ public class SubnetInfos extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "SubnetId", this.SubnetId);
         this.setParamSimple(map, prefix + "Name", this.Name);
+        this.setParamArraySimple(map, prefix + "SecurityGroups.", this.SecurityGroups);
+        this.setParamSimple(map, prefix + "Os", this.Os);
+        this.setParamSimple(map, prefix + "Arch", this.Arch);
 
     }
 }

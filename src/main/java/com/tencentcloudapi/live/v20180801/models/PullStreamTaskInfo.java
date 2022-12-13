@@ -32,7 +32,8 @@ public class PullStreamTaskInfo extends AbstractModel{
     /**
     * 拉流源的类型：
 PullLivePushLive -直播，
-PullVodPushLive -点播。
+PullVodPushLive -点播，
+PullPicPushLive -图片。
     */
     @SerializedName("SourceType")
     @Expose
@@ -103,11 +104,19 @@ SourceType为点播（PullVodToLive）可以填多个，上限10个。
     private String EndTime;
 
     /**
-    * 拉流源所在地域（请就近选取）：
+    * 任务创建所在地域：
 ap-beijing - 华北地区(北京)，
 ap-shanghai -华东地区(上海)，
 ap-guangzhou -华南地区(广州)，
-ap-mumbai - 印度。
+ap-mumbai - 印度，
+ap-hongkong - 香港，
+eu-frankfurt - 德国，
+ap-seoul - 韩国，
+ap-bangkok - 泰国，
+ap-singapore - 新加坡，
+na-siliconvalley - 美西，
+na-ashburn - 美东，
+ap-tokyo - 日本。
     */
     @SerializedName("Region")
     @Expose
@@ -230,6 +239,42 @@ pause：暂停中。
     private String Comment;
 
     /**
+    * 备源类型：
+PullLivePushLive -直播，
+PullVodPushLive -点播。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("BackupSourceType")
+    @Expose
+    private String BackupSourceType;
+
+    /**
+    * 备源URL。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("BackupSourceUrl")
+    @Expose
+    private String BackupSourceUrl;
+
+    /**
+    * 水印信息列表。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("WatermarkList")
+    @Expose
+    private PullPushWatermarkInfo [] WatermarkList;
+
+    /**
+    * 点播源是否启用本地推流模式，默认0，不启用。
+0 - 不启用。
+1 - 启用。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("VodLocalMode")
+    @Expose
+    private Long VodLocalMode;
+
+    /**
      * Get 拉流任务Id。 
      * @return TaskId 拉流任务Id。
      */
@@ -248,10 +293,12 @@ pause：暂停中。
     /**
      * Get 拉流源的类型：
 PullLivePushLive -直播，
-PullVodPushLive -点播。 
+PullVodPushLive -点播，
+PullPicPushLive -图片。 
      * @return SourceType 拉流源的类型：
 PullLivePushLive -直播，
-PullVodPushLive -点播。
+PullVodPushLive -点播，
+PullPicPushLive -图片。
      */
     public String getSourceType() {
         return this.SourceType;
@@ -260,10 +307,12 @@ PullVodPushLive -点播。
     /**
      * Set 拉流源的类型：
 PullLivePushLive -直播，
-PullVodPushLive -点播。
+PullVodPushLive -点播，
+PullPicPushLive -图片。
      * @param SourceType 拉流源的类型：
 PullLivePushLive -直播，
-PullVodPushLive -点播。
+PullVodPushLive -点播，
+PullPicPushLive -图片。
      */
     public void setSourceType(String SourceType) {
         this.SourceType = SourceType;
@@ -442,32 +491,64 @@ SourceType为点播（PullVodToLive）可以填多个，上限10个。
     }
 
     /**
-     * Get 拉流源所在地域（请就近选取）：
+     * Get 任务创建所在地域：
 ap-beijing - 华北地区(北京)，
 ap-shanghai -华东地区(上海)，
 ap-guangzhou -华南地区(广州)，
-ap-mumbai - 印度。 
-     * @return Region 拉流源所在地域（请就近选取）：
+ap-mumbai - 印度，
+ap-hongkong - 香港，
+eu-frankfurt - 德国，
+ap-seoul - 韩国，
+ap-bangkok - 泰国，
+ap-singapore - 新加坡，
+na-siliconvalley - 美西，
+na-ashburn - 美东，
+ap-tokyo - 日本。 
+     * @return Region 任务创建所在地域：
 ap-beijing - 华北地区(北京)，
 ap-shanghai -华东地区(上海)，
 ap-guangzhou -华南地区(广州)，
-ap-mumbai - 印度。
+ap-mumbai - 印度，
+ap-hongkong - 香港，
+eu-frankfurt - 德国，
+ap-seoul - 韩国，
+ap-bangkok - 泰国，
+ap-singapore - 新加坡，
+na-siliconvalley - 美西，
+na-ashburn - 美东，
+ap-tokyo - 日本。
      */
     public String getRegion() {
         return this.Region;
     }
 
     /**
-     * Set 拉流源所在地域（请就近选取）：
+     * Set 任务创建所在地域：
 ap-beijing - 华北地区(北京)，
 ap-shanghai -华东地区(上海)，
 ap-guangzhou -华南地区(广州)，
-ap-mumbai - 印度。
-     * @param Region 拉流源所在地域（请就近选取）：
+ap-mumbai - 印度，
+ap-hongkong - 香港，
+eu-frankfurt - 德国，
+ap-seoul - 韩国，
+ap-bangkok - 泰国，
+ap-singapore - 新加坡，
+na-siliconvalley - 美西，
+na-ashburn - 美东，
+ap-tokyo - 日本。
+     * @param Region 任务创建所在地域：
 ap-beijing - 华北地区(北京)，
 ap-shanghai -华东地区(上海)，
 ap-guangzhou -华南地区(广州)，
-ap-mumbai - 印度。
+ap-mumbai - 印度，
+ap-hongkong - 香港，
+eu-frankfurt - 德国，
+ap-seoul - 韩国，
+ap-bangkok - 泰国，
+ap-singapore - 新加坡，
+na-siliconvalley - 美西，
+na-ashburn - 美东，
+ap-tokyo - 日本。
      */
     public void setRegion(String Region) {
         this.Region = Region;
@@ -781,6 +862,102 @@ pause：暂停中。
         this.Comment = Comment;
     }
 
+    /**
+     * Get 备源类型：
+PullLivePushLive -直播，
+PullVodPushLive -点播。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return BackupSourceType 备源类型：
+PullLivePushLive -直播，
+PullVodPushLive -点播。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getBackupSourceType() {
+        return this.BackupSourceType;
+    }
+
+    /**
+     * Set 备源类型：
+PullLivePushLive -直播，
+PullVodPushLive -点播。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param BackupSourceType 备源类型：
+PullLivePushLive -直播，
+PullVodPushLive -点播。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBackupSourceType(String BackupSourceType) {
+        this.BackupSourceType = BackupSourceType;
+    }
+
+    /**
+     * Get 备源URL。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return BackupSourceUrl 备源URL。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getBackupSourceUrl() {
+        return this.BackupSourceUrl;
+    }
+
+    /**
+     * Set 备源URL。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param BackupSourceUrl 备源URL。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBackupSourceUrl(String BackupSourceUrl) {
+        this.BackupSourceUrl = BackupSourceUrl;
+    }
+
+    /**
+     * Get 水印信息列表。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return WatermarkList 水印信息列表。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public PullPushWatermarkInfo [] getWatermarkList() {
+        return this.WatermarkList;
+    }
+
+    /**
+     * Set 水印信息列表。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param WatermarkList 水印信息列表。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setWatermarkList(PullPushWatermarkInfo [] WatermarkList) {
+        this.WatermarkList = WatermarkList;
+    }
+
+    /**
+     * Get 点播源是否启用本地推流模式，默认0，不启用。
+0 - 不启用。
+1 - 启用。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return VodLocalMode 点播源是否启用本地推流模式，默认0，不启用。
+0 - 不启用。
+1 - 启用。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getVodLocalMode() {
+        return this.VodLocalMode;
+    }
+
+    /**
+     * Set 点播源是否启用本地推流模式，默认0，不启用。
+0 - 不启用。
+1 - 启用。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param VodLocalMode 点播源是否启用本地推流模式，默认0，不启用。
+0 - 不启用。
+1 - 启用。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setVodLocalMode(Long VodLocalMode) {
+        this.VodLocalMode = VodLocalMode;
+    }
+
     public PullStreamTaskInfo() {
     }
 
@@ -864,6 +1041,21 @@ pause：暂停中。
         if (source.Comment != null) {
             this.Comment = new String(source.Comment);
         }
+        if (source.BackupSourceType != null) {
+            this.BackupSourceType = new String(source.BackupSourceType);
+        }
+        if (source.BackupSourceUrl != null) {
+            this.BackupSourceUrl = new String(source.BackupSourceUrl);
+        }
+        if (source.WatermarkList != null) {
+            this.WatermarkList = new PullPushWatermarkInfo[source.WatermarkList.length];
+            for (int i = 0; i < source.WatermarkList.length; i++) {
+                this.WatermarkList[i] = new PullPushWatermarkInfo(source.WatermarkList[i]);
+            }
+        }
+        if (source.VodLocalMode != null) {
+            this.VodLocalMode = new Long(source.VodLocalMode);
+        }
     }
 
 
@@ -894,6 +1086,10 @@ pause：暂停中。
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamObj(map, prefix + "RecentPullInfo.", this.RecentPullInfo);
         this.setParamSimple(map, prefix + "Comment", this.Comment);
+        this.setParamSimple(map, prefix + "BackupSourceType", this.BackupSourceType);
+        this.setParamSimple(map, prefix + "BackupSourceUrl", this.BackupSourceUrl);
+        this.setParamArrayObj(map, prefix + "WatermarkList.", this.WatermarkList);
+        this.setParamSimple(map, prefix + "VodLocalMode", this.VodLocalMode);
 
     }
 }

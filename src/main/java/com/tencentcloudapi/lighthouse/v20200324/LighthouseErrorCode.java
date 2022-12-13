@@ -27,6 +27,9 @@ public enum LighthouseErrorCode {
     // 退还资源失败。
      FAILEDOPERATION_ISOLATERESOURCESFAILED("FailedOperation.IsolateResourcesFailed"),
      
+    // 变更实例套餐失败。
+     FAILEDOPERATION_MODIFYINSTANCESBUNDLEFAILED("FailedOperation.ModifyInstancesBundleFailed"),
+     
     // 快照操作失败。
      FAILEDOPERATION_SNAPSHOTOPERATIONFAILED("FailedOperation.SnapshotOperationFailed"),
      
@@ -135,6 +138,9 @@ public enum LighthouseErrorCode {
     // 参数值非法，镜像 ID 格式非法。
      INVALIDPARAMETERVALUE_BLUEPRINTIDMALFORMED("InvalidParameterValue.BlueprintIdMalformed"),
      
+    // 套餐和镜像不匹配。
+     INVALIDPARAMETERVALUE_BUNDLEANDBLUEPRINTNOTMATCH("InvalidParameterValue.BundleAndBlueprintNotMatch"),
+     
     // 云联网实例ID格式非法。
      INVALIDPARAMETERVALUE_CCNIDMALFORMED("InvalidParameterValue.CcnIdMalformed"),
      
@@ -203,6 +209,9 @@ public enum LighthouseErrorCode {
      
     // 不正确的配额资源名称。
      INVALIDPARAMETERVALUE_INVALIDRESOURCEQUOTARESOURCENAME("InvalidParameterValue.InvalidResourceQuotaResourceName"),
+     
+    // 使用场景Id不合法。
+     INVALIDPARAMETERVALUE_INVALIDSCENEIDMALFORMED("InvalidParameterValue.InvalidSceneIdMalformed"),
      
     // 参数Zone的取值不合法。
      INVALIDPARAMETERVALUE_INVALIDZONE("InvalidParameterValue.InvalidZone"),
@@ -320,6 +329,9 @@ public enum LighthouseErrorCode {
      
     // 密钥对 ID 不存在。
      RESOURCENOTFOUND_KEYIDNOTFOUND("ResourceNotFound.KeyIdNotFound"),
+     
+    // 自定义镜像不存在。
+     RESOURCENOTFOUND_PRIVATEBLUEPRINTNOTFOUND("ResourceNotFound.PrivateBlueprintNotFound"),
      
     // 快照 ID 不存在。
      RESOURCENOTFOUND_SNAPSHOTIDNOTFOUND("ResourceNotFound.SnapshotIdNotFound"),
@@ -439,7 +451,10 @@ public enum LighthouseErrorCode {
      UNSUPPORTEDOPERATION_SYSTEMBUSY("UnsupportedOperation.SystemBusy"),
      
     // Windows实例不支持绑定密钥对。
-     UNSUPPORTEDOPERATION_WINDOWSNOTALLOWTOASSOCIATEKEYPAIR("UnsupportedOperation.WindowsNotAllowToAssociateKeyPair");
+     UNSUPPORTEDOPERATION_WINDOWSNOTALLOWTOASSOCIATEKEYPAIR("UnsupportedOperation.WindowsNotAllowToAssociateKeyPair"),
+     
+    // windows类型实例不支持密钥对功能。
+     UNSUPPORTEDOPERATION_WINDOWSNOTSUPPORTKEYPAIR("UnsupportedOperation.WindowsNotSupportKeyPair");
      
     private String value;
     private LighthouseErrorCode (String value){

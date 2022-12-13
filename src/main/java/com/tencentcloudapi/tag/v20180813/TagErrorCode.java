@@ -1,10 +1,19 @@
 package com.tencentcloudapi.tag.v20180813;
 public enum TagErrorCode {
+    // CAM签名/鉴权错误。
+     AUTHFAILURE("AuthFailure"),
+     
     // 未通过CAM鉴权。
      AUTHFAILURE_UNAUTHORIZEDOPERATION("AuthFailure.UnauthorizedOperation"),
      
     // 操作失败。
      FAILEDOPERATION("FailedOperation"),
+     
+    // 项目已禁用。
+     FAILEDOPERATION_PROJECTDISABLED("FailedOperation.ProjectDisabled"),
+     
+    // 项目数超过限制。
+     FAILEDOPERATION_PROJECTNUMEXCEED("FailedOperation.ProjectNumExceed"),
      
     // 单次请求的资源appId必须相同。
      FAILEDOPERATION_RESOURCEAPPIDNOTSAME("FailedOperation.ResourceAppIdNotSame"),
@@ -23,6 +32,9 @@ public enum TagErrorCode {
      
     // PaginationToken参数非法。
      INVALIDPARAMETER_PAGINATIONTOKENINVALID("InvalidParameter.PaginationTokenInvalid"),
+     
+    // 项目名称已存在。
+     INVALIDPARAMETER_PROJECTNAMEEXISTED("InvalidParameter.ProjectNameExisted"),
      
     // 系统预留标签键 qcloud、tencent和project 禁止创建。
      INVALIDPARAMETER_RESERVEDTAGKEY("InvalidParameter.ReservedTagKey"),
@@ -122,6 +134,9 @@ public enum TagErrorCode {
      
     // 资源关联的标签键不存在。
      RESOURCENOTFOUND_ATTACHEDTAGKEYNOTFOUND("ResourceNotFound.AttachedTagKeyNotFound"),
+     
+    // 记录不存在。
+     RESOURCENOTFOUND_RECORDNOTFOUND("ResourceNotFound.RecordNotFound"),
      
     // 标签不存在。
      RESOURCENOTFOUND_TAGNONEXIST("ResourceNotFound.TagNonExist"),

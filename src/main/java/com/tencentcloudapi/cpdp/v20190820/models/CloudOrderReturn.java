@@ -212,6 +212,48 @@ wechat:微信支付
     private String SceneInfo;
 
     /**
+    * 子应用ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SubAppId")
+    @Expose
+    private String SubAppId;
+
+    /**
+    * 支付场景
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PayScene")
+    @Expose
+    private String PayScene;
+
+    /**
+    * 支付方式
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PaymentMethod")
+    @Expose
+    private String PaymentMethod;
+
+    /**
+    * 平台应收金额
+单位：分，需要注意的是，TotalAmt=TotalPlatformIncome+TotalMchIncome
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TotalPlatformIncome")
+    @Expose
+    private Long TotalPlatformIncome;
+
+    /**
+    * 商户应收金额
+单位：分，需要注意的是，TotalAmt=TotalPlatformIncome+TotalMchIncome
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TotalMchIncome")
+    @Expose
+    private Long TotalMchIncome;
+
+    /**
      * Get 米大师分配的支付主MidasAppId 
      * @return AppId 米大师分配的支付主MidasAppId
      */
@@ -667,6 +709,114 @@ wechat:微信支付
         this.SceneInfo = SceneInfo;
     }
 
+    /**
+     * Get 子应用ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SubAppId 子应用ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSubAppId() {
+        return this.SubAppId;
+    }
+
+    /**
+     * Set 子应用ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SubAppId 子应用ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSubAppId(String SubAppId) {
+        this.SubAppId = SubAppId;
+    }
+
+    /**
+     * Get 支付场景
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PayScene 支付场景
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getPayScene() {
+        return this.PayScene;
+    }
+
+    /**
+     * Set 支付场景
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PayScene 支付场景
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPayScene(String PayScene) {
+        this.PayScene = PayScene;
+    }
+
+    /**
+     * Get 支付方式
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PaymentMethod 支付方式
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getPaymentMethod() {
+        return this.PaymentMethod;
+    }
+
+    /**
+     * Set 支付方式
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PaymentMethod 支付方式
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPaymentMethod(String PaymentMethod) {
+        this.PaymentMethod = PaymentMethod;
+    }
+
+    /**
+     * Get 平台应收金额
+单位：分，需要注意的是，TotalAmt=TotalPlatformIncome+TotalMchIncome
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TotalPlatformIncome 平台应收金额
+单位：分，需要注意的是，TotalAmt=TotalPlatformIncome+TotalMchIncome
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getTotalPlatformIncome() {
+        return this.TotalPlatformIncome;
+    }
+
+    /**
+     * Set 平台应收金额
+单位：分，需要注意的是，TotalAmt=TotalPlatformIncome+TotalMchIncome
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TotalPlatformIncome 平台应收金额
+单位：分，需要注意的是，TotalAmt=TotalPlatformIncome+TotalMchIncome
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTotalPlatformIncome(Long TotalPlatformIncome) {
+        this.TotalPlatformIncome = TotalPlatformIncome;
+    }
+
+    /**
+     * Get 商户应收金额
+单位：分，需要注意的是，TotalAmt=TotalPlatformIncome+TotalMchIncome
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TotalMchIncome 商户应收金额
+单位：分，需要注意的是，TotalAmt=TotalPlatformIncome+TotalMchIncome
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getTotalMchIncome() {
+        return this.TotalMchIncome;
+    }
+
+    /**
+     * Set 商户应收金额
+单位：分，需要注意的是，TotalAmt=TotalPlatformIncome+TotalMchIncome
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TotalMchIncome 商户应收金额
+单位：分，需要注意的是，TotalAmt=TotalPlatformIncome+TotalMchIncome
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTotalMchIncome(Long TotalMchIncome) {
+        this.TotalMchIncome = TotalMchIncome;
+    }
+
     public CloudOrderReturn() {
     }
 
@@ -762,6 +912,21 @@ wechat:微信支付
         if (source.SceneInfo != null) {
             this.SceneInfo = new String(source.SceneInfo);
         }
+        if (source.SubAppId != null) {
+            this.SubAppId = new String(source.SubAppId);
+        }
+        if (source.PayScene != null) {
+            this.PayScene = new String(source.PayScene);
+        }
+        if (source.PaymentMethod != null) {
+            this.PaymentMethod = new String(source.PaymentMethod);
+        }
+        if (source.TotalPlatformIncome != null) {
+            this.TotalPlatformIncome = new Long(source.TotalPlatformIncome);
+        }
+        if (source.TotalMchIncome != null) {
+            this.TotalMchIncome = new Long(source.TotalMchIncome);
+        }
     }
 
 
@@ -794,6 +959,11 @@ wechat:微信支付
         this.setParamArrayObj(map, prefix + "ChannelExternalUserInfoList.", this.ChannelExternalUserInfoList);
         this.setParamArrayObj(map, prefix + "ExternalReturnPromptGroupList.", this.ExternalReturnPromptGroupList);
         this.setParamSimple(map, prefix + "SceneInfo", this.SceneInfo);
+        this.setParamSimple(map, prefix + "SubAppId", this.SubAppId);
+        this.setParamSimple(map, prefix + "PayScene", this.PayScene);
+        this.setParamSimple(map, prefix + "PaymentMethod", this.PaymentMethod);
+        this.setParamSimple(map, prefix + "TotalPlatformIncome", this.TotalPlatformIncome);
+        this.setParamSimple(map, prefix + "TotalMchIncome", this.TotalMchIncome);
 
     }
 }

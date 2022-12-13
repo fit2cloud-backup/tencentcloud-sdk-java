@@ -6,6 +6,9 @@ public enum DcdbErrorCode {
     // 实例安全组信息添加失败。
      FAILEDOPERATION_ADDINSTANCEINFOFAILED("FailedOperation.AddInstanceInfoFailed"),
      
+    // 申请VIP失败。
+     FAILEDOPERATION_APPLYVIPFAILED("FailedOperation.ApplyVipFailed"),
+     
     // 绑定安全组失败。
      FAILEDOPERATION_ASSOCIATESECURITYGROUPSFAILED("FailedOperation.AssociateSecurityGroupsFailed"),
      
@@ -33,11 +36,17 @@ public enum DcdbErrorCode {
     // 解绑安全组失败。
      FAILEDOPERATION_DISASSOCIATESECURITYGROUPSFAILED("FailedOperation.DisassociateSecurityGroupsFailed"),
      
+    // 拉取安全组详情失败。
+     FAILEDOPERATION_GETSECURITYGROUPDETAILFAILED("FailedOperation.GetSecurityGroupDetailFailed"),
+     
     // 修改账号权限失败。
      FAILEDOPERATION_MODIFYRIGHTFAILED("FailedOperation.ModifyRightFailed"),
      
     // 消息队列操作失败。
      FAILEDOPERATION_MSGQUEUEOPERATIONFAILED("FailedOperation.MsgQueueOperationFailed"),
+     
+    // 隔离实例失败。
+     FAILEDOPERATION_OSSISOLATEINSTANCEFAILED("FailedOperation.OssIsolateInstanceFailed"),
      
     // 请求后端接口失败。
      FAILEDOPERATION_OSSOPERATIONFAILED("FailedOperation.OssOperationFailed"),
@@ -48,14 +57,17 @@ public enum DcdbErrorCode {
     // 重置账号密码失败。
      FAILEDOPERATION_RESETPASSWORDFAILED("FailedOperation.ResetPasswordFailed"),
      
+    // 更新安全组失败。
+     FAILEDOPERATION_SGCHANGEVIP("FailedOperation.SGChangeVip"),
+     
     // 设置规则失败。
      FAILEDOPERATION_SETRULELOCATIONFAILED("FailedOperation.SetRuleLocationFailed"),
      
+    // 安全组规则下发失败。
+     FAILEDOPERATION_SETSVCLOCATIONFAILED("FailedOperation.SetSvcLocationFailed"),
+     
     // 标签键值校验或鉴权失败。
      FAILEDOPERATION_TAGDRYRUNERROR("FailedOperation.TagDryRunError"),
-     
-    // 标签配额不足。
-     FAILEDOPERATION_TAGQUOTAEXCEEDLIMIT("FailedOperation.TagQuotaExceedLimit"),
      
     // 实例安全组信息更新失败。
      FAILEDOPERATION_UPDATEINSTANCEINFOFAILED("FailedOperation.UpdateInstanceInfoFailed"),
@@ -63,8 +75,17 @@ public enum DcdbErrorCode {
     // 用户未实名认证。
      FAILEDOPERATION_USERNOTAUTHED("FailedOperation.UserNotAuthed"),
      
+    // VIP不能与之前一样。
+     FAILEDOPERATION_VIPNOTCHANGE("FailedOperation.VipNotChange"),
+     
+    // VPC添加服务失败。
+     FAILEDOPERATION_VPCADDSERVICEFAILED("FailedOperation.VpcAddServiceFailed"),
+     
     // VPC更新路由失败。
      FAILEDOPERATION_VPCUPDATEROUTEFAILED("FailedOperation.VpcUpdateRouteFailed"),
+     
+    // 外网状态异常。
+     FAILEDOPERATION_WANSTATUSABNORMAL("FailedOperation.WanStatusAbnormal"),
      
     // 内部错误。
      INTERNALERROR("InternalError"),
@@ -80,6 +101,9 @@ public enum DcdbErrorCode {
      
     // 备份文件签名失败。
      INTERNALERROR_COSSIGNURL("InternalError.CosSignUrl"),
+     
+    // 创建任务流程失败。
+     INTERNALERROR_CREATEFLOWFAILED("InternalError.CreateFlowFailed"),
      
     // DB影响行数为0错误。
      INTERNALERROR_DBROWSAFFECTEDERROR("InternalError.DBRowsAffectedError"),
@@ -123,6 +147,9 @@ public enum DcdbErrorCode {
     // 获取账号列表失败。
      INTERNALERROR_GETUSERLISTFAILED("InternalError.GetUserListFailed"),
      
+    // 获取用户安全组数量失败。
+     INTERNALERROR_GETUSERSGCOUNTFAILED("InternalError.GetUserSGCountFailed"),
+     
     // 获取用户安全组配额失败。
      INTERNALERROR_GETUSGQUOTAERROR("InternalError.GetUsgQuotaError"),
      
@@ -165,6 +192,9 @@ public enum DcdbErrorCode {
     // 操作读DB数据错误。
      INTERNALERROR_READDATABASEFAILED("InternalError.ReadDatabaseFailed"),
      
+    // 回档的时间不合法。
+     INTERNALERROR_RETREATETIME("InternalError.RetreateTime"),
+     
     // 路由未发现。
      INTERNALERROR_ROUTENOTFOUND("InternalError.RouteNotFound"),
      
@@ -173,6 +203,9 @@ public enum DcdbErrorCode {
      
     // 数据库更新失败。
      INTERNALERROR_UPDATEDATABASEFAILED("InternalError.UpdateDatabaseFailed"),
+     
+    // VPC操作失败。
+     INTERNALERROR_VPCOPERATIONFAILED("InternalError.VpcOperationFailed"),
      
     // 外网操作失败。
      INTERNALERROR_WANSERVICEFAILED("InternalError.WanServiceFailed"),
@@ -222,8 +255,17 @@ public enum DcdbErrorCode {
     // snat子网不支持申请IP。
      INVALIDPARAMETER_SUBNETUNAVAILABLE("InvalidParameter.SubnetUnavailable"),
      
+    // Vip不在子网内。
+     INVALIDPARAMETER_VIPNOTINSUBNET("InvalidParameter.VipNotInSubnet"),
+     
+    // Vip被占用。
+     INVALIDPARAMETER_VIPUSED("InvalidParameter.VipUsed"),
+     
     // 找不到指定的虚拟私有网络。
      INVALIDPARAMETER_VPCNOTFOUND("InvalidParameter.VpcNotFound"),
+     
+    // Vport被占用。
+     INVALIDPARAMETER_VPORTUSED("InvalidParameter.VportUsed"),
      
     // 可用区信息错误。
      INVALIDPARAMETER_ZONEIDILLEGAL("InvalidParameter.ZoneIdIllegal"),
@@ -255,6 +297,9 @@ public enum DcdbErrorCode {
     // 找不到指定的可用区。
      INVALIDPARAMETERVALUE_ILLEGALZONE("InvalidParameterValue.IllegalZone"),
      
+    // 参数值传入错误。
+     INVALIDPARAMETERVALUE_INVALIDPARAMETERVALUEERROR("InvalidParameterValue.InvalidParameterValueError"),
+     
     // 分片不存在。
      INVALIDPARAMETERVALUE_SHARDNOTEXIST("InvalidParameterValue.ShardNotExist"),
      
@@ -264,11 +309,11 @@ public enum DcdbErrorCode {
     // 系统用户不允许操作。
      INVALIDPARAMETERVALUE_SUPERUSERFORBIDDEN("InvalidParameterValue.SuperUserForbidden"),
      
+    // 当前部署方式不允许设置此同步模式。
+     INVALIDPARAMETERVALUE_SYNCMODENOTALLOWED("InvalidParameterValue.SyncModeNotAllowed"),
+     
     // 请求过于频繁。
      LIMITEXCEEDED_TOOFREQUENTLYCALLED("LimitExceeded.TooFrequentlyCalled"),
-     
-    // 资源不足。
-     RESOURCEINSUFFICIENT("ResourceInsufficient"),
      
     // 指定的账号不存在。
      RESOURCENOTFOUND_ACCOUNTDOESNOTEXIST("ResourceNotFound.AccountDoesNotExist"),
@@ -288,9 +333,6 @@ public enum DcdbErrorCode {
     // COS API调用错误。
      RESOURCEUNAVAILABLE_COSAPIFAILED("ResourceUnavailable.CosApiFailed"),
      
-    // 独享集群状态异常。
-     RESOURCEUNAVAILABLE_EXCLUSTERSTATUSABNORMAL("ResourceUnavailable.ExclusterStatusAbnormal"),
-     
     // 数据库实例已被删除。
      RESOURCEUNAVAILABLE_INSTANCEALREADYDELETED("ResourceUnavailable.InstanceAlreadyDeleted"),
      
@@ -299,6 +341,9 @@ public enum DcdbErrorCode {
      
     // 数据库实例状态不正确，当前无法操作。
      RESOURCEUNAVAILABLE_INSTANCESTATUSABNORMAL("ResourceUnavailable.InstanceStatusAbnormal"),
+     
+    // 安全组校验失败。
+     RESOURCEUNAVAILABLE_SGCHECKFAIL("ResourceUnavailable.SGCheckFail"),
      
     // 没有权限操作该接口或资源。
      UNAUTHORIZEDOPERATION_PERMISSIONDENIED("UnauthorizedOperation.PermissionDenied"),

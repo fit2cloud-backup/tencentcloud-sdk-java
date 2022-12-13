@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class ModifyInstanceParamsResponse extends AbstractModel{
 
     /**
-    * 修改是否成功。
+    * 说明修改参数配置是否成功。<br><li>true：指修改成功；<br><li>false：指修改失败。<br>
     */
     @SerializedName("Changed")
     @Expose
     private Boolean Changed;
 
     /**
-    * 任务ID
+    * 任务ID。
     */
     @SerializedName("TaskId")
     @Expose
@@ -44,32 +44,32 @@ public class ModifyInstanceParamsResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 修改是否成功。 
-     * @return Changed 修改是否成功。
+     * Get 说明修改参数配置是否成功。<br><li>true：指修改成功；<br><li>false：指修改失败。<br> 
+     * @return Changed 说明修改参数配置是否成功。<br><li>true：指修改成功；<br><li>false：指修改失败。<br>
      */
     public Boolean getChanged() {
         return this.Changed;
     }
 
     /**
-     * Set 修改是否成功。
-     * @param Changed 修改是否成功。
+     * Set 说明修改参数配置是否成功。<br><li>true：指修改成功；<br><li>false：指修改失败。<br>
+     * @param Changed 说明修改参数配置是否成功。<br><li>true：指修改成功；<br><li>false：指修改失败。<br>
      */
     public void setChanged(Boolean Changed) {
         this.Changed = Changed;
     }
 
     /**
-     * Get 任务ID 
-     * @return TaskId 任务ID
+     * Get 任务ID。 
+     * @return TaskId 任务ID。
      */
     public Long getTaskId() {
         return this.TaskId;
     }
 
     /**
-     * Set 任务ID
-     * @param TaskId 任务ID
+     * Set 任务ID。
+     * @param TaskId 任务ID。
      */
     public void setTaskId(Long TaskId) {
         this.TaskId = TaskId;

@@ -65,6 +65,16 @@ public class CreateAdaptiveDynamicStreamingTemplateRequest extends AbstractModel
     private String DrmType;
 
     /**
+    * DRM 的密钥提供商，取值范围：
+<li>SDMC：华曦达；</li>
+<li>VOD：云点播。</li>
+默认为 VOD 。
+    */
+    @SerializedName("DrmKeyProvider")
+    @Expose
+    private String DrmKeyProvider;
+
+    /**
     * 是否禁止视频低码率转高码率，取值范围：
 <li>0：否，</li>
 <li>1：是。</li>
@@ -90,6 +100,16 @@ public class CreateAdaptiveDynamicStreamingTemplateRequest extends AbstractModel
     @SerializedName("Comment")
     @Expose
     private String Comment;
+
+    /**
+    * 切片类型，当 Format 为 HLS 时有效，可选值：
+<li>ts：ts 切片；</li>
+<li>fmp4：fmp4 切片。</li>
+默认值：ts。
+    */
+    @SerializedName("SegmentType")
+    @Expose
+    private String SegmentType;
 
     /**
      * Get 自适应转码格式，取值范围：
@@ -200,6 +220,34 @@ public class CreateAdaptiveDynamicStreamingTemplateRequest extends AbstractModel
     }
 
     /**
+     * Get DRM 的密钥提供商，取值范围：
+<li>SDMC：华曦达；</li>
+<li>VOD：云点播。</li>
+默认为 VOD 。 
+     * @return DrmKeyProvider DRM 的密钥提供商，取值范围：
+<li>SDMC：华曦达；</li>
+<li>VOD：云点播。</li>
+默认为 VOD 。
+     */
+    public String getDrmKeyProvider() {
+        return this.DrmKeyProvider;
+    }
+
+    /**
+     * Set DRM 的密钥提供商，取值范围：
+<li>SDMC：华曦达；</li>
+<li>VOD：云点播。</li>
+默认为 VOD 。
+     * @param DrmKeyProvider DRM 的密钥提供商，取值范围：
+<li>SDMC：华曦达；</li>
+<li>VOD：云点播。</li>
+默认为 VOD 。
+     */
+    public void setDrmKeyProvider(String DrmKeyProvider) {
+        this.DrmKeyProvider = DrmKeyProvider;
+    }
+
+    /**
      * Get 是否禁止视频低码率转高码率，取值范围：
 <li>0：否，</li>
 <li>1：是。</li>
@@ -271,6 +319,34 @@ public class CreateAdaptiveDynamicStreamingTemplateRequest extends AbstractModel
         this.Comment = Comment;
     }
 
+    /**
+     * Get 切片类型，当 Format 为 HLS 时有效，可选值：
+<li>ts：ts 切片；</li>
+<li>fmp4：fmp4 切片。</li>
+默认值：ts。 
+     * @return SegmentType 切片类型，当 Format 为 HLS 时有效，可选值：
+<li>ts：ts 切片；</li>
+<li>fmp4：fmp4 切片。</li>
+默认值：ts。
+     */
+    public String getSegmentType() {
+        return this.SegmentType;
+    }
+
+    /**
+     * Set 切片类型，当 Format 为 HLS 时有效，可选值：
+<li>ts：ts 切片；</li>
+<li>fmp4：fmp4 切片。</li>
+默认值：ts。
+     * @param SegmentType 切片类型，当 Format 为 HLS 时有效，可选值：
+<li>ts：ts 切片；</li>
+<li>fmp4：fmp4 切片。</li>
+默认值：ts。
+     */
+    public void setSegmentType(String SegmentType) {
+        this.SegmentType = SegmentType;
+    }
+
     public CreateAdaptiveDynamicStreamingTemplateRequest() {
     }
 
@@ -297,6 +373,9 @@ public class CreateAdaptiveDynamicStreamingTemplateRequest extends AbstractModel
         if (source.DrmType != null) {
             this.DrmType = new String(source.DrmType);
         }
+        if (source.DrmKeyProvider != null) {
+            this.DrmKeyProvider = new String(source.DrmKeyProvider);
+        }
         if (source.DisableHigherVideoBitrate != null) {
             this.DisableHigherVideoBitrate = new Long(source.DisableHigherVideoBitrate);
         }
@@ -305,6 +384,9 @@ public class CreateAdaptiveDynamicStreamingTemplateRequest extends AbstractModel
         }
         if (source.Comment != null) {
             this.Comment = new String(source.Comment);
+        }
+        if (source.SegmentType != null) {
+            this.SegmentType = new String(source.SegmentType);
         }
     }
 
@@ -318,9 +400,11 @@ public class CreateAdaptiveDynamicStreamingTemplateRequest extends AbstractModel
         this.setParamSimple(map, prefix + "SubAppId", this.SubAppId);
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "DrmType", this.DrmType);
+        this.setParamSimple(map, prefix + "DrmKeyProvider", this.DrmKeyProvider);
         this.setParamSimple(map, prefix + "DisableHigherVideoBitrate", this.DisableHigherVideoBitrate);
         this.setParamSimple(map, prefix + "DisableHigherVideoResolution", this.DisableHigherVideoResolution);
         this.setParamSimple(map, prefix + "Comment", this.Comment);
+        this.setParamSimple(map, prefix + "SegmentType", this.SegmentType);
 
     }
 }

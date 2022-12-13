@@ -195,11 +195,35 @@ public class Machine extends AbstractModel{
     private String KernelVersion;
 
     /**
-    * 防护版本 BASIC_VERSION 基础版, PRO_VERSION 专业版 Flagship 旗舰版.
+    * 防护版本：BASIC_VERSION 基础版， PRO_VERSION 专业版，Flagship 旗舰版，GENERAL_DISCOUNT 普惠版
     */
     @SerializedName("ProtectType")
     @Expose
     private String ProtectType;
+
+    /**
+    * 云标签信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CloudTags")
+    @Expose
+    private Tags [] CloudTags;
+
+    /**
+    * 是否15天内新增的主机 0：非15天内新增的主机，1：15天内增加的主机
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IsAddedOnTheFifteen")
+    @Expose
+    private Long IsAddedOnTheFifteen;
+
+    /**
+    * 主机ip列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IpList")
+    @Expose
+    private String IpList;
 
     /**
      * Get 主机名称。 
@@ -614,19 +638,79 @@ public class Machine extends AbstractModel{
     }
 
     /**
-     * Get 防护版本 BASIC_VERSION 基础版, PRO_VERSION 专业版 Flagship 旗舰版. 
-     * @return ProtectType 防护版本 BASIC_VERSION 基础版, PRO_VERSION 专业版 Flagship 旗舰版.
+     * Get 防护版本：BASIC_VERSION 基础版， PRO_VERSION 专业版，Flagship 旗舰版，GENERAL_DISCOUNT 普惠版 
+     * @return ProtectType 防护版本：BASIC_VERSION 基础版， PRO_VERSION 专业版，Flagship 旗舰版，GENERAL_DISCOUNT 普惠版
      */
     public String getProtectType() {
         return this.ProtectType;
     }
 
     /**
-     * Set 防护版本 BASIC_VERSION 基础版, PRO_VERSION 专业版 Flagship 旗舰版.
-     * @param ProtectType 防护版本 BASIC_VERSION 基础版, PRO_VERSION 专业版 Flagship 旗舰版.
+     * Set 防护版本：BASIC_VERSION 基础版， PRO_VERSION 专业版，Flagship 旗舰版，GENERAL_DISCOUNT 普惠版
+     * @param ProtectType 防护版本：BASIC_VERSION 基础版， PRO_VERSION 专业版，Flagship 旗舰版，GENERAL_DISCOUNT 普惠版
      */
     public void setProtectType(String ProtectType) {
         this.ProtectType = ProtectType;
+    }
+
+    /**
+     * Get 云标签信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CloudTags 云标签信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Tags [] getCloudTags() {
+        return this.CloudTags;
+    }
+
+    /**
+     * Set 云标签信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CloudTags 云标签信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCloudTags(Tags [] CloudTags) {
+        this.CloudTags = CloudTags;
+    }
+
+    /**
+     * Get 是否15天内新增的主机 0：非15天内新增的主机，1：15天内增加的主机
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IsAddedOnTheFifteen 是否15天内新增的主机 0：非15天内新增的主机，1：15天内增加的主机
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getIsAddedOnTheFifteen() {
+        return this.IsAddedOnTheFifteen;
+    }
+
+    /**
+     * Set 是否15天内新增的主机 0：非15天内新增的主机，1：15天内增加的主机
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IsAddedOnTheFifteen 是否15天内新增的主机 0：非15天内新增的主机，1：15天内增加的主机
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIsAddedOnTheFifteen(Long IsAddedOnTheFifteen) {
+        this.IsAddedOnTheFifteen = IsAddedOnTheFifteen;
+    }
+
+    /**
+     * Get 主机ip列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IpList 主机ip列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getIpList() {
+        return this.IpList;
+    }
+
+    /**
+     * Set 主机ip列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IpList 主机ip列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIpList(String IpList) {
+        this.IpList = IpList;
     }
 
     public Machine() {
@@ -712,6 +796,18 @@ public class Machine extends AbstractModel{
         if (source.ProtectType != null) {
             this.ProtectType = new String(source.ProtectType);
         }
+        if (source.CloudTags != null) {
+            this.CloudTags = new Tags[source.CloudTags.length];
+            for (int i = 0; i < source.CloudTags.length; i++) {
+                this.CloudTags[i] = new Tags(source.CloudTags[i]);
+            }
+        }
+        if (source.IsAddedOnTheFifteen != null) {
+            this.IsAddedOnTheFifteen = new Long(source.IsAddedOnTheFifteen);
+        }
+        if (source.IpList != null) {
+            this.IpList = new String(source.IpList);
+        }
     }
 
 
@@ -743,6 +839,9 @@ public class Machine extends AbstractModel{
         this.setParamSimple(map, prefix + "MachineType", this.MachineType);
         this.setParamSimple(map, prefix + "KernelVersion", this.KernelVersion);
         this.setParamSimple(map, prefix + "ProtectType", this.ProtectType);
+        this.setParamArrayObj(map, prefix + "CloudTags.", this.CloudTags);
+        this.setParamSimple(map, prefix + "IsAddedOnTheFifteen", this.IsAddedOnTheFifteen);
+        this.setParamSimple(map, prefix + "IpList", this.IpList);
 
     }
 }

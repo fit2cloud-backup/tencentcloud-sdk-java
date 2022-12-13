@@ -102,19 +102,18 @@ public class LiveClient extends AbstractClient{
     }
 
     /**
-     *域名绑定证书。
-注意：需先调用添加证书接口进行证书添加。获取到证书Id后再调用该接口进行绑定。
-     * @param req BindLiveDomainCertRequest
-     * @return BindLiveDomainCertResponse
+     *验证用户是否拥有特定直播域名。
+     * @param req AuthenticateDomainOwnerRequest
+     * @return AuthenticateDomainOwnerResponse
      * @throws TencentCloudSDKException
      */
-    public BindLiveDomainCertResponse BindLiveDomainCert(BindLiveDomainCertRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<BindLiveDomainCertResponse> rsp = null;
+    public AuthenticateDomainOwnerResponse AuthenticateDomainOwner(AuthenticateDomainOwnerRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<AuthenticateDomainOwnerResponse> rsp = null;
         String rspStr = "";
         try {
-                Type type = new TypeToken<JsonResponseModel<BindLiveDomainCertResponse>>() {
+                Type type = new TypeToken<JsonResponseModel<AuthenticateDomainOwnerResponse>>() {
                 }.getType();
-                rspStr = this.internalRequest(req, "BindLiveDomainCert");
+                rspStr = this.internalRequest(req, "AuthenticateDomainOwner");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -200,26 +199,6 @@ public class LiveClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<CreateLiveCallbackTemplateResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "CreateLiveCallbackTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *添加证书
-     * @param req CreateLiveCertRequest
-     * @return CreateLiveCertResponse
-     * @throws TencentCloudSDKException
-     */
-    public CreateLiveCertResponse CreateLiveCert(CreateLiveCertRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateLiveCertResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateLiveCertResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateLiveCert");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -354,7 +333,7 @@ public class LiveClient extends AbstractClient{
     }
 
     /**
-     *创建截图模板，成功返回模板id后，需要调用[CreateLiveSnapshotRule](/document/product/267/32625)接口，将模板id绑定到流使用。
+     *创建截图模板，数量上限：50，成功返回模板id后，需要调用[CreateLiveSnapshotRule](/document/product/267/32625)接口，将模板id绑定到流使用。
 <br>截图相关文档：[直播截图](/document/product/267/32737)。
      * @param req CreateLiveSnapshotTemplateRequest
      * @return CreateLiveSnapshotTemplateResponse
@@ -438,6 +417,7 @@ public class LiveClient extends AbstractClient{
 
     /**
      *创建临时拉流转推任务，目前限制添加10条任务。
+该接口已下线,请使用新接口 CreateLivePullStreamTask。
 
 注意：该接口用于创建临时拉流转推任务，
 拉流源地址即 FromUrl 可以是腾讯或非腾讯数据源，
@@ -548,26 +528,6 @@ public class LiveClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DeleteLiveCallbackTemplateResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DeleteLiveCallbackTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *删除域名对应的证书
-     * @param req DeleteLiveCertRequest
-     * @return DeleteLiveCertResponse
-     * @throws TencentCloudSDKException
-     */
-    public DeleteLiveCertResponse DeleteLiveCert(DeleteLiveCertRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteLiveCertResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteLiveCertResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteLiveCert");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -800,7 +760,7 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
     }
 
     /**
-     *删除直播拉流配置。
+     *删除直播拉流配置。该接口已下线,请使用新接口 DeleteLivePullStreamTask。
      * @param req DeletePullStreamConfigRequest
      * @return DeletePullStreamConfigResponse
      * @throws TencentCloudSDKException
@@ -1173,6 +1133,26 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
                 Type type = new TypeToken<JsonResponseModel<DescribeLiveDomainCertResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeLiveDomainCert");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询绑定证书的域名列表。
+     * @param req DescribeLiveDomainCertBindingsRequest
+     * @return DescribeLiveDomainCertBindingsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeLiveDomainCertBindingsResponse DescribeLiveDomainCertBindings(DescribeLiveDomainCertBindingsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeLiveDomainCertBindingsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeLiveDomainCertBindingsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeLiveDomainCertBindings");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1684,7 +1664,7 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
     }
 
     /**
-     *查询转码总量数据，可查询近30天内数据。
+     *查询转码总量数据，可查询近三个月内的数据。
 注意：
 如果是查询某一天内，则返回5分钟粒度数据；
 如果是查询跨天或指定域名， 则返回1小时粒度数据。
@@ -1869,7 +1849,7 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
     }
 
     /**
-     *查询直播拉流配置。
+     *查询直播拉流配置。该接口已下线,请使用新接口 DescribeLivePullStreamTasks。
      * @param req DescribePullStreamConfigsRequest
      * @return DescribePullStreamConfigsResponse
      * @throws TencentCloudSDKException
@@ -2058,6 +2038,26 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
     }
 
     /**
+     *查询转码任务数。
+     * @param req DescribeTranscodeTaskNumRequest
+     * @return DescribeTranscodeTaskNumResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeTranscodeTaskNumResponse DescribeTranscodeTaskNum(DescribeTranscodeTaskNumRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeTranscodeTaskNumResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeTranscodeTaskNumResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeTranscodeTaskNum");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *直播上行路数查询
      * @param req DescribeUploadStreamNumsRequest
      * @return DescribeUploadStreamNumsResponse
@@ -2199,38 +2199,19 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
     }
 
     /**
-     *修改证书
-     * @param req ModifyLiveCertRequest
-     * @return ModifyLiveCertResponse
+     *批量绑定证书对应的播放域名，并更新启用状态。
+新建自有证书将自动上传至腾讯云ssl。
+     * @param req ModifyLiveDomainCertBindingsRequest
+     * @return ModifyLiveDomainCertBindingsResponse
      * @throws TencentCloudSDKException
      */
-    public ModifyLiveCertResponse ModifyLiveCert(ModifyLiveCertRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyLiveCertResponse> rsp = null;
+    public ModifyLiveDomainCertBindingsResponse ModifyLiveDomainCertBindings(ModifyLiveDomainCertBindingsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyLiveDomainCertBindingsResponse> rsp = null;
         String rspStr = "";
         try {
-                Type type = new TypeToken<JsonResponseModel<ModifyLiveCertResponse>>() {
+                Type type = new TypeToken<JsonResponseModel<ModifyLiveDomainCertBindingsResponse>>() {
                 }.getType();
-                rspStr = this.internalRequest(req, "ModifyLiveCert");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *修改域名和证书绑定信息
-     * @param req ModifyLiveDomainCertRequest
-     * @return ModifyLiveDomainCertResponse
-     * @throws TencentCloudSDKException
-     */
-    public ModifyLiveDomainCertResponse ModifyLiveDomainCert(ModifyLiveDomainCertRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyLiveDomainCertResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyLiveDomainCertResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyLiveDomainCert");
+                rspStr = this.internalRequest(req, "ModifyLiveDomainCertBindings");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -2402,7 +2383,7 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
     }
 
     /**
-     *更新拉流配置。
+     *更新拉流配置。该接口为已下线接口，请使用新接口 ModifyLivePullStreamTask。 
      * @param req ModifyPullStreamConfigRequest
      * @return ModifyPullStreamConfigResponse
      * @throws TencentCloudSDKException
@@ -2422,7 +2403,7 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
     }
 
     /**
-     *修改直播拉流配置的状态。
+     *修改直播拉流配置的状态。该接口已下线,请使用新接口 ModifyLivePullStreamTask。
      * @param req ModifyPullStreamStatusRequest
      * @return ModifyPullStreamStatusResponse
      * @throws TencentCloudSDKException

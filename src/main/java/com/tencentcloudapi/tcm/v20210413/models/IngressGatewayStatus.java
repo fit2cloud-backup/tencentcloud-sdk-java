@@ -30,6 +30,27 @@ public class IngressGatewayStatus extends AbstractModel{
     private LoadBalancerStatus LoadBalancer;
 
     /**
+    * ingress gateway 当前的版本
+    */
+    @SerializedName("CurrentVersion")
+    @Expose
+    private String CurrentVersion;
+
+    /**
+    * ingress gateway 目标的版本
+    */
+    @SerializedName("DesiredVersion")
+    @Expose
+    private String DesiredVersion;
+
+    /**
+    * ingress gateway的状态，取值running, upgrading, rollbacking
+    */
+    @SerializedName("State")
+    @Expose
+    private String State;
+
+    /**
      * Get 负载均衡实例状态 
      * @return LoadBalancer 负载均衡实例状态
      */
@@ -45,6 +66,54 @@ public class IngressGatewayStatus extends AbstractModel{
         this.LoadBalancer = LoadBalancer;
     }
 
+    /**
+     * Get ingress gateway 当前的版本 
+     * @return CurrentVersion ingress gateway 当前的版本
+     */
+    public String getCurrentVersion() {
+        return this.CurrentVersion;
+    }
+
+    /**
+     * Set ingress gateway 当前的版本
+     * @param CurrentVersion ingress gateway 当前的版本
+     */
+    public void setCurrentVersion(String CurrentVersion) {
+        this.CurrentVersion = CurrentVersion;
+    }
+
+    /**
+     * Get ingress gateway 目标的版本 
+     * @return DesiredVersion ingress gateway 目标的版本
+     */
+    public String getDesiredVersion() {
+        return this.DesiredVersion;
+    }
+
+    /**
+     * Set ingress gateway 目标的版本
+     * @param DesiredVersion ingress gateway 目标的版本
+     */
+    public void setDesiredVersion(String DesiredVersion) {
+        this.DesiredVersion = DesiredVersion;
+    }
+
+    /**
+     * Get ingress gateway的状态，取值running, upgrading, rollbacking 
+     * @return State ingress gateway的状态，取值running, upgrading, rollbacking
+     */
+    public String getState() {
+        return this.State;
+    }
+
+    /**
+     * Set ingress gateway的状态，取值running, upgrading, rollbacking
+     * @param State ingress gateway的状态，取值running, upgrading, rollbacking
+     */
+    public void setState(String State) {
+        this.State = State;
+    }
+
     public IngressGatewayStatus() {
     }
 
@@ -56,6 +125,15 @@ public class IngressGatewayStatus extends AbstractModel{
         if (source.LoadBalancer != null) {
             this.LoadBalancer = new LoadBalancerStatus(source.LoadBalancer);
         }
+        if (source.CurrentVersion != null) {
+            this.CurrentVersion = new String(source.CurrentVersion);
+        }
+        if (source.DesiredVersion != null) {
+            this.DesiredVersion = new String(source.DesiredVersion);
+        }
+        if (source.State != null) {
+            this.State = new String(source.State);
+        }
     }
 
 
@@ -64,6 +142,9 @@ public class IngressGatewayStatus extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "LoadBalancer.", this.LoadBalancer);
+        this.setParamSimple(map, prefix + "CurrentVersion", this.CurrentVersion);
+        this.setParamSimple(map, prefix + "DesiredVersion", this.DesiredVersion);
+        this.setParamSimple(map, prefix + "State", this.State);
 
     }
 }

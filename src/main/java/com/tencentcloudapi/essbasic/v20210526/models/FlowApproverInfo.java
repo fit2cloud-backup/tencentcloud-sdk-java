@@ -30,7 +30,7 @@ public class FlowApproverInfo extends AbstractModel{
     private String Name;
 
     /**
-    * 经办人身份证件类型
+    * 签署人身份证件类型
 1.ID_CARD 居民身份证
 2.HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证
 3.HONGKONG_AND_MACAO 港澳居民来往内地通行证
@@ -40,7 +40,7 @@ public class FlowApproverInfo extends AbstractModel{
     private String IdCardType;
 
     /**
-    * 经办人证件号
+    * 签署人证件号
     */
     @SerializedName("IdCardNumber")
     @Expose
@@ -70,6 +70,7 @@ public class FlowApproverInfo extends AbstractModel{
 
     /**
     * 用户侧第三方id，最大长度64个字符
+当签署方为同一渠道下的员工时，该字段若不指定，则发起【待领取】的流程
     */
     @SerializedName("OpenId")
     @Expose
@@ -83,9 +84,11 @@ public class FlowApproverInfo extends AbstractModel{
     private String OrganizationOpenId;
 
     /**
-    * 签署人类型，PERSON-个人；ORGANIZATION-企业；
-ENTERPRISESERVER-企业静默签;
-注：ENTERPRISESERVER 类型仅用于使用文件创建签署流程（ChannelCreateFlowByFiles）接口；并且仅能指定发起方企业签署方为静默签署；
+    * 签署人类型
+PERSON-个人/自然人；
+PERSON_AUTO_SIGN-个人自动签（定制化场景下使用）；
+ORGANIZATION-企业（企业签署方或模版发起时的企业静默签）；
+ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
     */
     @SerializedName("ApproverType")
     @Expose
@@ -141,6 +144,20 @@ ENTERPRISESERVER-企业静默签;
     private String JumpUrl;
 
     /**
+    * 签署人个性化能力值
+    */
+    @SerializedName("ApproverOption")
+    @Expose
+    private ApproverOption ApproverOption;
+
+    /**
+    * 当前签署方进行签署操作是否需要企业内部审批，true 则为需要
+    */
+    @SerializedName("ApproverNeedSignReview")
+    @Expose
+    private Boolean ApproverNeedSignReview;
+
+    /**
      * Get 签署人姓名，最大长度50个字符 
      * @return Name 签署人姓名，最大长度50个字符
      */
@@ -157,11 +174,11 @@ ENTERPRISESERVER-企业静默签;
     }
 
     /**
-     * Get 经办人身份证件类型
+     * Get 签署人身份证件类型
 1.ID_CARD 居民身份证
 2.HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证
 3.HONGKONG_AND_MACAO 港澳居民来往内地通行证 
-     * @return IdCardType 经办人身份证件类型
+     * @return IdCardType 签署人身份证件类型
 1.ID_CARD 居民身份证
 2.HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证
 3.HONGKONG_AND_MACAO 港澳居民来往内地通行证
@@ -171,11 +188,11 @@ ENTERPRISESERVER-企业静默签;
     }
 
     /**
-     * Set 经办人身份证件类型
+     * Set 签署人身份证件类型
 1.ID_CARD 居民身份证
 2.HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证
 3.HONGKONG_AND_MACAO 港澳居民来往内地通行证
-     * @param IdCardType 经办人身份证件类型
+     * @param IdCardType 签署人身份证件类型
 1.ID_CARD 居民身份证
 2.HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证
 3.HONGKONG_AND_MACAO 港澳居民来往内地通行证
@@ -185,16 +202,16 @@ ENTERPRISESERVER-企业静默签;
     }
 
     /**
-     * Get 经办人证件号 
-     * @return IdCardNumber 经办人证件号
+     * Get 签署人证件号 
+     * @return IdCardNumber 签署人证件号
      */
     public String getIdCardNumber() {
         return this.IdCardNumber;
     }
 
     /**
-     * Set 经办人证件号
-     * @param IdCardNumber 经办人证件号
+     * Set 签署人证件号
+     * @param IdCardNumber 签署人证件号
      */
     public void setIdCardNumber(String IdCardNumber) {
         this.IdCardNumber = IdCardNumber;
@@ -253,8 +270,10 @@ ENTERPRISESERVER-企业静默签;
     }
 
     /**
-     * Get 用户侧第三方id，最大长度64个字符 
+     * Get 用户侧第三方id，最大长度64个字符
+当签署方为同一渠道下的员工时，该字段若不指定，则发起【待领取】的流程 
      * @return OpenId 用户侧第三方id，最大长度64个字符
+当签署方为同一渠道下的员工时，该字段若不指定，则发起【待领取】的流程
      */
     public String getOpenId() {
         return this.OpenId;
@@ -262,7 +281,9 @@ ENTERPRISESERVER-企业静默签;
 
     /**
      * Set 用户侧第三方id，最大长度64个字符
+当签署方为同一渠道下的员工时，该字段若不指定，则发起【待领取】的流程
      * @param OpenId 用户侧第三方id，最大长度64个字符
+当签署方为同一渠道下的员工时，该字段若不指定，则发起【待领取】的流程
      */
     public void setOpenId(String OpenId) {
         this.OpenId = OpenId;
@@ -285,24 +306,32 @@ ENTERPRISESERVER-企业静默签;
     }
 
     /**
-     * Get 签署人类型，PERSON-个人；ORGANIZATION-企业；
-ENTERPRISESERVER-企业静默签;
-注：ENTERPRISESERVER 类型仅用于使用文件创建签署流程（ChannelCreateFlowByFiles）接口；并且仅能指定发起方企业签署方为静默签署； 
-     * @return ApproverType 签署人类型，PERSON-个人；ORGANIZATION-企业；
-ENTERPRISESERVER-企业静默签;
-注：ENTERPRISESERVER 类型仅用于使用文件创建签署流程（ChannelCreateFlowByFiles）接口；并且仅能指定发起方企业签署方为静默签署；
+     * Get 签署人类型
+PERSON-个人/自然人；
+PERSON_AUTO_SIGN-个人自动签（定制化场景下使用）；
+ORGANIZATION-企业（企业签署方或模版发起时的企业静默签）；
+ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。 
+     * @return ApproverType 签署人类型
+PERSON-个人/自然人；
+PERSON_AUTO_SIGN-个人自动签（定制化场景下使用）；
+ORGANIZATION-企业（企业签署方或模版发起时的企业静默签）；
+ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
      */
     public String getApproverType() {
         return this.ApproverType;
     }
 
     /**
-     * Set 签署人类型，PERSON-个人；ORGANIZATION-企业；
-ENTERPRISESERVER-企业静默签;
-注：ENTERPRISESERVER 类型仅用于使用文件创建签署流程（ChannelCreateFlowByFiles）接口；并且仅能指定发起方企业签署方为静默签署；
-     * @param ApproverType 签署人类型，PERSON-个人；ORGANIZATION-企业；
-ENTERPRISESERVER-企业静默签;
-注：ENTERPRISESERVER 类型仅用于使用文件创建签署流程（ChannelCreateFlowByFiles）接口；并且仅能指定发起方企业签署方为静默签署；
+     * Set 签署人类型
+PERSON-个人/自然人；
+PERSON_AUTO_SIGN-个人自动签（定制化场景下使用）；
+ORGANIZATION-企业（企业签署方或模版发起时的企业静默签）；
+ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
+     * @param ApproverType 签署人类型
+PERSON-个人/自然人；
+PERSON_AUTO_SIGN-个人自动签（定制化场景下使用）；
+ORGANIZATION-企业（企业签署方或模版发起时的企业静默签）；
+ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
      */
     public void setApproverType(String ApproverType) {
         this.ApproverType = ApproverType;
@@ -420,6 +449,38 @@ ENTERPRISESERVER-企业静默签;
         this.JumpUrl = JumpUrl;
     }
 
+    /**
+     * Get 签署人个性化能力值 
+     * @return ApproverOption 签署人个性化能力值
+     */
+    public ApproverOption getApproverOption() {
+        return this.ApproverOption;
+    }
+
+    /**
+     * Set 签署人个性化能力值
+     * @param ApproverOption 签署人个性化能力值
+     */
+    public void setApproverOption(ApproverOption ApproverOption) {
+        this.ApproverOption = ApproverOption;
+    }
+
+    /**
+     * Get 当前签署方进行签署操作是否需要企业内部审批，true 则为需要 
+     * @return ApproverNeedSignReview 当前签署方进行签署操作是否需要企业内部审批，true 则为需要
+     */
+    public Boolean getApproverNeedSignReview() {
+        return this.ApproverNeedSignReview;
+    }
+
+    /**
+     * Set 当前签署方进行签署操作是否需要企业内部审批，true 则为需要
+     * @param ApproverNeedSignReview 当前签署方进行签署操作是否需要企业内部审批，true 则为需要
+     */
+    public void setApproverNeedSignReview(Boolean ApproverNeedSignReview) {
+        this.ApproverNeedSignReview = ApproverNeedSignReview;
+    }
+
     public FlowApproverInfo() {
     }
 
@@ -482,6 +543,12 @@ ENTERPRISESERVER-企业静默签;
         if (source.JumpUrl != null) {
             this.JumpUrl = new String(source.JumpUrl);
         }
+        if (source.ApproverOption != null) {
+            this.ApproverOption = new ApproverOption(source.ApproverOption);
+        }
+        if (source.ApproverNeedSignReview != null) {
+            this.ApproverNeedSignReview = new Boolean(source.ApproverNeedSignReview);
+        }
     }
 
 
@@ -505,6 +572,8 @@ ENTERPRISESERVER-企业静默签;
         this.setParamArraySimple(map, prefix + "ComponentLimitType.", this.ComponentLimitType);
         this.setParamSimple(map, prefix + "PreReadTime", this.PreReadTime);
         this.setParamSimple(map, prefix + "JumpUrl", this.JumpUrl);
+        this.setParamObj(map, prefix + "ApproverOption.", this.ApproverOption);
+        this.setParamSimple(map, prefix + "ApproverNeedSignReview", this.ApproverNeedSignReview);
 
     }
 }

@@ -141,6 +141,9 @@ public enum ClsErrorCode {
     // 分区超过限制。
      LIMITEXCEEDED_PARTITION("LimitExceeded.Partition"),
      
+    // 检索内存超限。
+     LIMITEXCEEDED_SEARCHRESOURCES("LimitExceeded.SearchResources"),
+     
     // 检索接口返回的日志量太大， 超过20MB限制。
      LIMITEXCEEDED_SEARCHRESULTTOOLARGE("LimitExceeded.SearchResultTooLarge"),
      
@@ -177,6 +180,9 @@ public enum ClsErrorCode {
     // 字段没有开启分析功能。
      OPERATIONDENIED_ANALYSISSWITCHCLOSE("OperationDenied.AnalysisSwitchClose"),
      
+    // 不支持新语法。
+     OPERATIONDENIED_NEWSYNTAXNOTSUPPORTED("OperationDenied.NewSyntaxNotSupported"),
+     
     // 通知模板已绑定告警，无法删除。
      OPERATIONDENIED_NOTICEHASALARM("OperationDenied.NoticeHasAlarm"),
      
@@ -188,6 +194,9 @@ public enum ClsErrorCode {
      
     // topic绑定了函数投递。
      OPERATIONDENIED_TOPICHASDELIVERFUNCTION("OperationDenied.TopicHasDeliverFunction"),
+     
+    // topic绑定了scheduleSql任务。
+     OPERATIONDENIED_TOPICHASSCHEDULESQLTASK("OperationDenied.TopicHasScheduleSqlTask"),
      
     // 资源不存在。
      RESOURCENOTFOUND("ResourceNotFound"),

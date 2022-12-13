@@ -27,7 +27,7 @@ public class ApproverInfo extends AbstractModel{
 0：企业
 1：个人
 3：企业静默签署
-注：类型为3（企业静默签署）时，此接口会默认完成该签署方的签署。
+注：类型为3（企业静默签署）时，此接口会默认完成该签署方的签署。静默签署仅进行盖章操作，不能自动签名。
     */
     @SerializedName("ApproverType")
     @Expose
@@ -48,7 +48,7 @@ public class ApproverInfo extends AbstractModel{
     private String ApproverMobile;
 
     /**
-    * 本环节操作人签署控件配置，为企业静默签署时，只允许类型为SIGN_SEAL（印章）和SIGN_DATE（日期）控件，并且传入印章编号。
+    * 本环节操作人签署控件配置
     */
     @SerializedName("SignComponents")
     @Expose
@@ -107,16 +107,44 @@ HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证(格式同居民身份证)
     private Long PreReadTime;
 
     /**
+    * 签署人userId，传此字段则不用传姓名、手机号
+    */
+    @SerializedName("UserId")
+    @Expose
+    private String UserId;
+
+    /**
+    * 签署人用户来源,企微侧用户请传入：WEWORKAPP
+    */
+    @SerializedName("ApproverSource")
+    @Expose
+    private String ApproverSource;
+
+    /**
+    * 客户自定义签署人标识，64位长度，保证唯一，非企微场景不使用此字段
+    */
+    @SerializedName("CustomApproverTag")
+    @Expose
+    private String CustomApproverTag;
+
+    /**
+    * 签署人个性化能力值
+    */
+    @SerializedName("ApproverOption")
+    @Expose
+    private ApproverOption ApproverOption;
+
+    /**
      * Get 参与者类型：
 0：企业
 1：个人
 3：企业静默签署
-注：类型为3（企业静默签署）时，此接口会默认完成该签署方的签署。 
+注：类型为3（企业静默签署）时，此接口会默认完成该签署方的签署。静默签署仅进行盖章操作，不能自动签名。 
      * @return ApproverType 参与者类型：
 0：企业
 1：个人
 3：企业静默签署
-注：类型为3（企业静默签署）时，此接口会默认完成该签署方的签署。
+注：类型为3（企业静默签署）时，此接口会默认完成该签署方的签署。静默签署仅进行盖章操作，不能自动签名。
      */
     public Long getApproverType() {
         return this.ApproverType;
@@ -127,12 +155,12 @@ HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证(格式同居民身份证)
 0：企业
 1：个人
 3：企业静默签署
-注：类型为3（企业静默签署）时，此接口会默认完成该签署方的签署。
+注：类型为3（企业静默签署）时，此接口会默认完成该签署方的签署。静默签署仅进行盖章操作，不能自动签名。
      * @param ApproverType 参与者类型：
 0：企业
 1：个人
 3：企业静默签署
-注：类型为3（企业静默签署）时，此接口会默认完成该签署方的签署。
+注：类型为3（企业静默签署）时，此接口会默认完成该签署方的签署。静默签署仅进行盖章操作，不能自动签名。
      */
     public void setApproverType(Long ApproverType) {
         this.ApproverType = ApproverType;
@@ -171,16 +199,16 @@ HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证(格式同居民身份证)
     }
 
     /**
-     * Get 本环节操作人签署控件配置，为企业静默签署时，只允许类型为SIGN_SEAL（印章）和SIGN_DATE（日期）控件，并且传入印章编号。 
-     * @return SignComponents 本环节操作人签署控件配置，为企业静默签署时，只允许类型为SIGN_SEAL（印章）和SIGN_DATE（日期）控件，并且传入印章编号。
+     * Get 本环节操作人签署控件配置 
+     * @return SignComponents 本环节操作人签署控件配置
      */
     public Component [] getSignComponents() {
         return this.SignComponents;
     }
 
     /**
-     * Set 本环节操作人签署控件配置，为企业静默签署时，只允许类型为SIGN_SEAL（印章）和SIGN_DATE（日期）控件，并且传入印章编号。
-     * @param SignComponents 本环节操作人签署控件配置，为企业静默签署时，只允许类型为SIGN_SEAL（印章）和SIGN_DATE（日期）控件，并且传入印章编号。
+     * Set 本环节操作人签署控件配置
+     * @param SignComponents 本环节操作人签署控件配置
      */
     public void setSignComponents(Component [] SignComponents) {
         this.SignComponents = SignComponents;
@@ -310,6 +338,70 @@ HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证(格式同居民身份证)
         this.PreReadTime = PreReadTime;
     }
 
+    /**
+     * Get 签署人userId，传此字段则不用传姓名、手机号 
+     * @return UserId 签署人userId，传此字段则不用传姓名、手机号
+     */
+    public String getUserId() {
+        return this.UserId;
+    }
+
+    /**
+     * Set 签署人userId，传此字段则不用传姓名、手机号
+     * @param UserId 签署人userId，传此字段则不用传姓名、手机号
+     */
+    public void setUserId(String UserId) {
+        this.UserId = UserId;
+    }
+
+    /**
+     * Get 签署人用户来源,企微侧用户请传入：WEWORKAPP 
+     * @return ApproverSource 签署人用户来源,企微侧用户请传入：WEWORKAPP
+     */
+    public String getApproverSource() {
+        return this.ApproverSource;
+    }
+
+    /**
+     * Set 签署人用户来源,企微侧用户请传入：WEWORKAPP
+     * @param ApproverSource 签署人用户来源,企微侧用户请传入：WEWORKAPP
+     */
+    public void setApproverSource(String ApproverSource) {
+        this.ApproverSource = ApproverSource;
+    }
+
+    /**
+     * Get 客户自定义签署人标识，64位长度，保证唯一，非企微场景不使用此字段 
+     * @return CustomApproverTag 客户自定义签署人标识，64位长度，保证唯一，非企微场景不使用此字段
+     */
+    public String getCustomApproverTag() {
+        return this.CustomApproverTag;
+    }
+
+    /**
+     * Set 客户自定义签署人标识，64位长度，保证唯一，非企微场景不使用此字段
+     * @param CustomApproverTag 客户自定义签署人标识，64位长度，保证唯一，非企微场景不使用此字段
+     */
+    public void setCustomApproverTag(String CustomApproverTag) {
+        this.CustomApproverTag = CustomApproverTag;
+    }
+
+    /**
+     * Get 签署人个性化能力值 
+     * @return ApproverOption 签署人个性化能力值
+     */
+    public ApproverOption getApproverOption() {
+        return this.ApproverOption;
+    }
+
+    /**
+     * Set 签署人个性化能力值
+     * @param ApproverOption 签署人个性化能力值
+     */
+    public void setApproverOption(ApproverOption ApproverOption) {
+        this.ApproverOption = ApproverOption;
+    }
+
     public ApproverInfo() {
     }
 
@@ -357,6 +449,18 @@ HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证(格式同居民身份证)
         if (source.PreReadTime != null) {
             this.PreReadTime = new Long(source.PreReadTime);
         }
+        if (source.UserId != null) {
+            this.UserId = new String(source.UserId);
+        }
+        if (source.ApproverSource != null) {
+            this.ApproverSource = new String(source.ApproverSource);
+        }
+        if (source.CustomApproverTag != null) {
+            this.CustomApproverTag = new String(source.CustomApproverTag);
+        }
+        if (source.ApproverOption != null) {
+            this.ApproverOption = new ApproverOption(source.ApproverOption);
+        }
     }
 
 
@@ -375,6 +479,10 @@ HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证(格式同居民身份证)
         this.setParamSimple(map, prefix + "ApproverRole", this.ApproverRole);
         this.setParamArraySimple(map, prefix + "VerifyChannel.", this.VerifyChannel);
         this.setParamSimple(map, prefix + "PreReadTime", this.PreReadTime);
+        this.setParamSimple(map, prefix + "UserId", this.UserId);
+        this.setParamSimple(map, prefix + "ApproverSource", this.ApproverSource);
+        this.setParamSimple(map, prefix + "CustomApproverTag", this.CustomApproverTag);
+        this.setParamObj(map, prefix + "ApproverOption.", this.ApproverOption);
 
     }
 }

@@ -37,10 +37,7 @@ public class ModifyRuleAttributeRequest extends AbstractModel{
     private String RuleId;
 
     /**
-    * 调度策略，其中：
-rr，轮询；
-wrr，加权轮询；
-lc，最小连接数。
+    * 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。
     */
     @SerializedName("Scheduler")
     @Expose
@@ -100,6 +97,13 @@ lc，最小连接数。
     private String ServerNameIndication;
 
     /**
+    * HTTP强制跳转HTTPS。输入当前规则对应的域名与地址。
+    */
+    @SerializedName("ForcedRedirect")
+    @Expose
+    private String ForcedRedirect;
+
+    /**
      * Get 监听器ID 
      * @return ListenerId 监听器ID
      */
@@ -132,28 +136,16 @@ lc，最小连接数。
     }
 
     /**
-     * Get 调度策略，其中：
-rr，轮询；
-wrr，加权轮询；
-lc，最小连接数。 
-     * @return Scheduler 调度策略，其中：
-rr，轮询；
-wrr，加权轮询；
-lc，最小连接数。
+     * Get 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。 
+     * @return Scheduler 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。
      */
     public String getScheduler() {
         return this.Scheduler;
     }
 
     /**
-     * Set 调度策略，其中：
-rr，轮询；
-wrr，加权轮询；
-lc，最小连接数。
-     * @param Scheduler 调度策略，其中：
-rr，轮询；
-wrr，加权轮询；
-lc，最小连接数。
+     * Set 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。
+     * @param Scheduler 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。
      */
     public void setScheduler(String Scheduler) {
         this.Scheduler = Scheduler;
@@ -287,6 +279,22 @@ lc，最小连接数。
         this.ServerNameIndication = ServerNameIndication;
     }
 
+    /**
+     * Get HTTP强制跳转HTTPS。输入当前规则对应的域名与地址。 
+     * @return ForcedRedirect HTTP强制跳转HTTPS。输入当前规则对应的域名与地址。
+     */
+    public String getForcedRedirect() {
+        return this.ForcedRedirect;
+    }
+
+    /**
+     * Set HTTP强制跳转HTTPS。输入当前规则对应的域名与地址。
+     * @param ForcedRedirect HTTP强制跳转HTTPS。输入当前规则对应的域名与地址。
+     */
+    public void setForcedRedirect(String ForcedRedirect) {
+        this.ForcedRedirect = ForcedRedirect;
+    }
+
     public ModifyRuleAttributeRequest() {
     }
 
@@ -325,6 +333,9 @@ lc，最小连接数。
         if (source.ServerNameIndication != null) {
             this.ServerNameIndication = new String(source.ServerNameIndication);
         }
+        if (source.ForcedRedirect != null) {
+            this.ForcedRedirect = new String(source.ForcedRedirect);
+        }
     }
 
 
@@ -342,6 +353,7 @@ lc，最小连接数。
         this.setParamSimple(map, prefix + "ForwardHost", this.ForwardHost);
         this.setParamSimple(map, prefix + "ServerNameIndicationSwitch", this.ServerNameIndicationSwitch);
         this.setParamSimple(map, prefix + "ServerNameIndication", this.ServerNameIndication);
+        this.setParamSimple(map, prefix + "ForcedRedirect", this.ForcedRedirect);
 
     }
 }

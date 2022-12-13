@@ -65,7 +65,7 @@ public class MLIDPassportOCRResponse extends AbstractModel{
     private String IssuingCountry;
 
     /**
-    * 国籍
+    * 国家地区代码
     */
     @SerializedName("Nationality")
     @Expose
@@ -74,7 +74,7 @@ public class MLIDPassportOCRResponse extends AbstractModel{
     /**
     * 告警码
 -9103	证照翻拍告警
--9102	证照复印件告警
+-9102	证照复印件告警（包括黑白复印件、彩色复印件）
 -9106       证件遮挡告警
     */
     @SerializedName("Warn")
@@ -221,16 +221,16 @@ public class MLIDPassportOCRResponse extends AbstractModel{
     }
 
     /**
-     * Get 国籍 
-     * @return Nationality 国籍
+     * Get 国家地区代码 
+     * @return Nationality 国家地区代码
      */
     public String getNationality() {
         return this.Nationality;
     }
 
     /**
-     * Set 国籍
-     * @param Nationality 国籍
+     * Set 国家地区代码
+     * @param Nationality 国家地区代码
      */
     public void setNationality(String Nationality) {
         this.Nationality = Nationality;
@@ -239,11 +239,11 @@ public class MLIDPassportOCRResponse extends AbstractModel{
     /**
      * Get 告警码
 -9103	证照翻拍告警
--9102	证照复印件告警
+-9102	证照复印件告警（包括黑白复印件、彩色复印件）
 -9106       证件遮挡告警 
      * @return Warn 告警码
 -9103	证照翻拍告警
--9102	证照复印件告警
+-9102	证照复印件告警（包括黑白复印件、彩色复印件）
 -9106       证件遮挡告警
      */
     public Long [] getWarn() {
@@ -253,11 +253,11 @@ public class MLIDPassportOCRResponse extends AbstractModel{
     /**
      * Set 告警码
 -9103	证照翻拍告警
--9102	证照复印件告警
+-9102	证照复印件告警（包括黑白复印件、彩色复印件）
 -9106       证件遮挡告警
      * @param Warn 告警码
 -9103	证照翻拍告警
--9102	证照复印件告警
+-9102	证照复印件告警（包括黑白复印件、彩色复印件）
 -9106       证件遮挡告警
      */
     public void setWarn(Long [] Warn) {

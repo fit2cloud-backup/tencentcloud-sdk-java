@@ -44,11 +44,32 @@ public class ModifyCodeBatchRequest extends AbstractModel{
     private Long Status;
 
     /**
-    * 模板ID
+    * 模版ID，或者活动ID
     */
     @SerializedName("MpTpl")
     @Expose
     private String MpTpl;
+
+    /**
+    * 商户ID
+    */
+    @SerializedName("MerchantId")
+    @Expose
+    private String MerchantId;
+
+    /**
+    * 商品ID
+    */
+    @SerializedName("ProductId")
+    @Expose
+    private String ProductId;
+
+    /**
+    * 备注
+    */
+    @SerializedName("Remark")
+    @Expose
+    private String Remark;
 
     /**
      * Get 批次ID 
@@ -99,19 +120,67 @@ public class ModifyCodeBatchRequest extends AbstractModel{
     }
 
     /**
-     * Get 模板ID 
-     * @return MpTpl 模板ID
+     * Get 模版ID，或者活动ID 
+     * @return MpTpl 模版ID，或者活动ID
      */
     public String getMpTpl() {
         return this.MpTpl;
     }
 
     /**
-     * Set 模板ID
-     * @param MpTpl 模板ID
+     * Set 模版ID，或者活动ID
+     * @param MpTpl 模版ID，或者活动ID
      */
     public void setMpTpl(String MpTpl) {
         this.MpTpl = MpTpl;
+    }
+
+    /**
+     * Get 商户ID 
+     * @return MerchantId 商户ID
+     */
+    public String getMerchantId() {
+        return this.MerchantId;
+    }
+
+    /**
+     * Set 商户ID
+     * @param MerchantId 商户ID
+     */
+    public void setMerchantId(String MerchantId) {
+        this.MerchantId = MerchantId;
+    }
+
+    /**
+     * Get 商品ID 
+     * @return ProductId 商品ID
+     */
+    public String getProductId() {
+        return this.ProductId;
+    }
+
+    /**
+     * Set 商品ID
+     * @param ProductId 商品ID
+     */
+    public void setProductId(String ProductId) {
+        this.ProductId = ProductId;
+    }
+
+    /**
+     * Get 备注 
+     * @return Remark 备注
+     */
+    public String getRemark() {
+        return this.Remark;
+    }
+
+    /**
+     * Set 备注
+     * @param Remark 备注
+     */
+    public void setRemark(String Remark) {
+        this.Remark = Remark;
     }
 
     public ModifyCodeBatchRequest() {
@@ -134,6 +203,15 @@ public class ModifyCodeBatchRequest extends AbstractModel{
         if (source.MpTpl != null) {
             this.MpTpl = new String(source.MpTpl);
         }
+        if (source.MerchantId != null) {
+            this.MerchantId = new String(source.MerchantId);
+        }
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+        if (source.Remark != null) {
+            this.Remark = new String(source.Remark);
+        }
     }
 
 
@@ -145,6 +223,9 @@ public class ModifyCodeBatchRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "CorpId", this.CorpId);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "MpTpl", this.MpTpl);
+        this.setParamSimple(map, prefix + "MerchantId", this.MerchantId);
+        this.setParamSimple(map, prefix + "ProductId", this.ProductId);
+        this.setParamSimple(map, prefix + "Remark", this.Remark);
 
     }
 }

@@ -3,7 +3,7 @@ public enum DomainErrorCode {
     // 操作失败。
      FAILEDOPERATION("FailedOperation"),
      
-    // 域名查询失败，请稍后重试。
+    // 域名查询失败，请稍后重试该功能。
      FAILEDOPERATION_CHECKDOMAINFAILED("FailedOperation.CheckDomainFailed"),
      
     // 创建模板操作失败。
@@ -20,6 +20,9 @@ public enum DomainErrorCode {
      
     // 查询模板操作失败。
      FAILEDOPERATION_DESCRIBETEMPLATEFAILED("FailedOperation.DescribeTemplateFailed"),
+     
+    // 域名已过期，不允许操作。
+     FAILEDOPERATION_DOMAINEXPIREDUNSUPPORTED("FailedOperation.DomainExpiredUnsupported"),
      
     // 获取域名价格列表失败。
      FAILEDOPERATION_DOMAINPRICELISTFAILED("FailedOperation.DomainPriceListFailed"),
@@ -57,7 +60,7 @@ public enum DomainErrorCode {
     // 内部错误。
      INTERNALERROR("InternalError"),
      
-    // 网络错误，请稍后重试。
+    // 网络报错，请稍后重试。
      INTERNALERROR_DOMAININTERNALERROR("InternalError.DomainInternalError"),
      
     // 参数错误。
@@ -75,13 +78,13 @@ public enum DomainErrorCode {
     // 无权限自定义DNS。
      INVALIDPARAMETER_CUSTOMDNSNOTALLOWED("InvalidParameter.CustomDnsNotAllowed"),
      
-    // 域名输入为空或者不合法。
+    // 域名输入为空或者不正确。
      INVALIDPARAMETER_DOMAINNAMEISINVALID("InvalidParameter.DomainNameIsInvalid"),
      
     // 存在重复域名，请检查后重新提交。
      INVALIDPARAMETER_DUPLICATEDOMAINEXISTS("InvalidParameter.DuplicateDomainExists"),
      
-    // 邮箱为空或者不合法。
+    // 邮箱为空或者不正确。
      INVALIDPARAMETER_EMAILISINVALID("InvalidParameter.EmailIsInvalid"),
      
     // 仅支持已验证的电子邮箱，请先在控制台创建后使用
@@ -185,6 +188,9 @@ public enum DomainErrorCode {
      
     // 账户实名认证未通过。
      UNSUPPORTEDOPERATION_ACCOUNTREALNAME("UnsupportedOperation.AccountRealName"),
+     
+    // 当前域名未完成实名认证，无法完成该操作。
+     UNSUPPORTEDOPERATION_DOMAINNOTVERIFIED("UnsupportedOperation.DomainNotVerified"),
      
     // 当前域名状态不支持修改。
      UNSUPPORTEDOPERATION_MODIFYDOMAININFOUNSUPPORTED("UnsupportedOperation.ModifyDomainInfoUnsupported"),

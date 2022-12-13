@@ -15,6 +15,9 @@ public enum TeoErrorCode {
     // 后台处理出错。
      INTERNALERROR_BACKENDERROR("InternalError.BackendError"),
      
+    // 数据库错误。
+     INTERNALERROR_DBERROR("InternalError.DBError"),
+     
     // 获取配置失败。
      INTERNALERROR_DOMAINCONFIG("InternalError.DomainConfig"),
      
@@ -30,28 +33,82 @@ public enum TeoErrorCode {
     // 配额系统处理失败。
      INTERNALERROR_QUOTASYSTEM("InternalError.QuotaSystem"),
      
-    // 内部错误。
+    // 后端服务路由地址错误。
+     INTERNALERROR_ROUTEERROR("InternalError.RouteError"),
+     
+    // 系统错误。
      INTERNALERROR_SYSTEMERROR("InternalError.SystemError"),
      
     // 参数错误。
      INVALIDPARAMETER("InvalidParameter"),
      
+    // 操作频繁，请稍后重试。
+     INVALIDPARAMETER_ACTIONINPROGRESS("InvalidParameter.ActionInProgress"),
+     
     // 域名不存在或不属于该账号。
      INVALIDPARAMETER_DOMAINNOTFOUND("InvalidParameter.DomainNotFound"),
+     
+    // 无效的节点缓存。
+     INVALIDPARAMETER_INVALIDCACHEONLYONSWITCH("InvalidParameter.InvalidCacheOnlyOnSwitch"),
      
     // 证书信息错误。
      INVALIDPARAMETER_INVALIDCERTINFO("InvalidParameter.InvalidCertInfo"),
      
+    // 无效的客户端IP请求头。
+     INVALIDPARAMETER_INVALIDCLIENTIPHEADERNAME("InvalidParameter.InvalidClientIpHeaderName"),
+     
+    // 套餐包不支持智能加速配置。
+     INVALIDPARAMETER_INVALIDDYNAMICROUTINEBILLING("InvalidParameter.InvalidDynamicRoutineBilling"),
+     
+    // 不合法的过滤字段。
+     INVALIDPARAMETER_INVALIDFILTERNAME("InvalidParameter.InvalidFilterName"),
+     
+    // 无效的强制HTTPS跳转。
+     INVALIDPARAMETER_INVALIDFORCEREDIRECTTYPE("InvalidParameter.InvalidForceRedirectType"),
+     
     // 无效的源站。
      INVALIDPARAMETER_INVALIDORIGIN("InvalidParameter.InvalidOrigin"),
+     
+    // 套餐包不支持最大上传大小。
+     INVALIDPARAMETER_INVALIDPOSTMAXSIZEBILLING("InvalidParameter.InvalidPostMaxSizeBilling"),
+     
+    // 无效的最大上传大小。
+     INVALIDPARAMETER_INVALIDPOSTSIZEVALUE("InvalidParameter.InvalidPostSizeValue"),
+     
+    // 无效的URL重写。
+     INVALIDPARAMETER_INVALIDREDIRECTURLCAPTURE("InvalidParameter.InvalidRedirectUrlCapture"),
      
     // 无效的请求头header。
      INVALIDPARAMETER_INVALIDREQUESTHEADERNAME("InvalidParameter.InvalidRequestHeaderName"),
      
+    // 无效的请求头header。
+     INVALIDPARAMETER_INVALIDREQUESTHEADERVALUE("InvalidParameter.InvalidRequestHeaderValue"),
+     
+    // 无套餐包。
+     INVALIDPARAMETER_INVALIDRESOURCEIDBILLING("InvalidParameter.InvalidResourceIdBilling"),
+     
+    // 无效的响应头header。
+     INVALIDPARAMETER_INVALIDRESPONSEHEADERVALUE("InvalidParameter.InvalidResponseHeaderValue"),
+     
+    // 无效的规则引擎操作。
+     INVALIDPARAMETER_INVALIDRULEENGINEACTION("InvalidParameter.InvalidRuleEngineAction"),
+     
+    // 无效的规则引擎条件。
+     INVALIDPARAMETER_INVALIDRULEENGINETARGET("InvalidParameter.InvalidRuleEngineTarget"),
+     
+    // 无效的规则引擎文件后缀条件。
+     INVALIDPARAMETER_INVALIDRULEENGINETARGETSEXTENSION("InvalidParameter.InvalidRuleEngineTargetsExtension"),
+     
+    // URL重写的目标URL无效。
+     INVALIDPARAMETER_INVALIDURLREDIRECTURL("InvalidParameter.InvalidUrlRedirectUrl"),
+     
+    // 无效的WebSocket。
+     INVALIDPARAMETER_INVALIDWEBSOCKETTIMEOUT("InvalidParameter.InvalidWebSocketTimeout"),
+     
     // 参数错误。
      INVALIDPARAMETER_PARAMETERERROR("InvalidParameter.ParameterError"),
      
-    // 安全参数错误。
+    // 参数错误
      INVALIDPARAMETER_SECURITY("InvalidParameter.Security"),
      
     // 域名配置错误。
@@ -66,8 +123,14 @@ public enum TeoErrorCode {
     // 文件上传链接存在问题。
      INVALIDPARAMETER_UPLOADURL("InvalidParameter.UploadUrl"),
      
+    // 站点不存在。
+     INVALIDPARAMETER_ZONENOTFOUND("InvalidParameter.ZoneNotFound"),
+     
     // 与已经添加的记录冲突。
      INVALIDPARAMETERVALUE_CONFLICTRECORD("InvalidParameterValue.ConflictRecord"),
+     
+    // DNS 记录与 DNSSEC 功能冲突。
+     INVALIDPARAMETERVALUE_CONFLICTWITHDNSSEC("InvalidParameterValue.ConflictWithDNSSEC"),
      
     // DNS 记录与 LB 记录冲突。
      INVALIDPARAMETERVALUE_CONFLICTWITHLBRECORD("InvalidParameterValue.ConflictWithLBRecord"),
@@ -81,14 +144,23 @@ public enum TeoErrorCode {
     // DNS 记录名称错误。
      INVALIDPARAMETERVALUE_INVALIDDNSNAME("InvalidParameterValue.InvalidDNSName"),
      
+    // DNS 代理域名错误。
+     INVALIDPARAMETERVALUE_INVALIDPROXYNAME("InvalidParameterValue.InvalidProxyName"),
+     
     // DNS 代理域名源站错误。
      INVALIDPARAMETERVALUE_INVALIDPROXYORIGIN("InvalidParameterValue.InvalidProxyOrigin"),
+     
+    // SRV 记录名称错误。
+     INVALIDPARAMETERVALUE_INVALIDSRVNAME("InvalidParameterValue.InvalidSRVName"),
      
     // 记录已存在。
      INVALIDPARAMETERVALUE_RECORDALREADYEXISTS("InvalidParameterValue.RecordAlreadyExists"),
      
     // 记录不允许添加。
      INVALIDPARAMETERVALUE_RECORDNOTALLOWED("InvalidParameterValue.RecordNotAllowed"),
+     
+    // 超过配额限制。
+     LIMITEXCEEDED("LimitExceeded"),
      
     // 本次提交的资源数超过上限。
      LIMITEXCEEDED_BATCHQUOTA("LimitExceeded.BatchQuota"),
@@ -98,6 +170,9 @@ public enum TeoErrorCode {
      
     // 操作被拒绝。
      OPERATIONDENIED("OperationDenied"),
+     
+    // 域名尚未备案。
+     OPERATIONDENIED_DOMAINNOICP("OperationDenied.DomainNoICP"),
      
     // 资源被占用。
      RESOURCEINUSE("ResourceInUse"),

@@ -138,6 +138,9 @@ public enum GaapErrorCode {
     // 该资源不可访问。
      FAILEDOPERATION_RESOURCECANNOTACCESS("FailedOperation.ResourceCanNotAccess"),
      
+    // 资源已经被操作过。
+     FAILEDOPERATION_RESOURCEHADBEENDONE("FailedOperation.ResourceHadBeenDone"),
+     
     // 应用ID填写有误，请检查应用ID是否存在。
      FAILEDOPERATION_RESOURCENOTFOUND("FailedOperation.ResourceNotFound"),
      
@@ -159,6 +162,9 @@ public enum GaapErrorCode {
     // 用户未认证。
      FAILEDOPERATION_USERNOTAUTHENTICATED("FailedOperation.UserNotAuthenticated"),
      
+    // 未开通协议。
+     FAILEDOPERATION_USERNOTCONFIRMPROTOCOL("FailedOperation.UserNotConfirmProtocol"),
+     
     // 该用户不在运营商网络可加速范围内。
      FAILEDOPERATION_USEROUTOFCOVERAGE("FailedOperation.UserOutOfCoverage"),
      
@@ -177,6 +183,9 @@ public enum GaapErrorCode {
     // 参数取值错误。
      INVALIDPARAMETERVALUE("InvalidParameterValue"),
      
+    // 证书和私钥不匹配。
+     INVALIDPARAMETERVALUE_CERTIFICATECONTENTNOTMATCHKEY("InvalidParameterValue.CertificateContentNotMatchKey"),
+     
     // Https证书与域名不匹配。
      INVALIDPARAMETERVALUE_CERTIFICATENOTMATCHDOMAIN("InvalidParameterValue.CertificateNotMatchDomain"),
      
@@ -194,6 +203,9 @@ public enum GaapErrorCode {
      
     // 无法同时开启所设置的特性。
      INVALIDPARAMETERVALUE_FEATURECONFLICT("InvalidParameterValue.FeatureConflict"),
+     
+    // 该默认入口被封禁，无法添加。
+     INVALIDPARAMETERVALUE_GLOBALDOMAINHITBANBLACKLIST("InvalidParameterValue.GlobalDomainHitBanBlacklist"),
      
     // 资源已被录入封禁黑名单。
      INVALIDPARAMETERVALUE_HITBANBLACKLIST("InvalidParameterValue.HitBanBlacklist"),
@@ -245,6 +257,9 @@ public enum GaapErrorCode {
      
     // 超过配额限制。
      LIMITEXCEEDED("LimitExceeded"),
+     
+    // 域名数量超限制。
+     LIMITEXCEEDED_DOMAIN("LimitExceeded.Domain"),
      
     // 标签配额不足。
      LIMITEXCEEDED_TAGQUOTA("LimitExceeded.TagQuota"),

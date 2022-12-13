@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class ChannelCreateFlowByFilesRequest extends AbstractModel{
 
     /**
-    * 渠道应用相关信息
+    * 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
     */
     @SerializedName("Agent")
     @Expose
@@ -51,7 +51,7 @@ public class ChannelCreateFlowByFilesRequest extends AbstractModel{
     private String [] FileIds;
 
     /**
-    * 签署文件中的控件，如：填写控件等
+    * 签署文件中的发起方的填写控件，需要在发起的时候进行填充
     */
     @SerializedName("Components")
     @Expose
@@ -72,7 +72,7 @@ public class ChannelCreateFlowByFilesRequest extends AbstractModel{
     private String CallbackUrl;
 
     /**
-    * 合同签署顺序类型(无序签,顺序签)，默认为false，即有序签署
+    * 合同签署顺序类型(无序签,顺序签)，默认为false，即有序签署。有序签署时以传入FlowApprovers数组的顺序作为签署顺序
     */
     @SerializedName("Unordered")
     @Expose
@@ -100,6 +100,20 @@ public class ChannelCreateFlowByFilesRequest extends AbstractModel{
     private String CustomShowMap;
 
     /**
+    * 渠道的业务信息，最大长度1000个字符。发起自动签署时，需设置对应自动签署场景，目前仅支持场景：处方单-E_PRESCRIPTION_AUTO_SIGN
+    */
+    @SerializedName("CustomerData")
+    @Expose
+    private String CustomerData;
+
+    /**
+    * 发起方企业的签署人进行签署操作是否需要企业内部审批。 若设置为true,审核结果需通过接口 ChannelCreateFlowSignReview 通知电子签，审核通过后，发起方企业签署人方可进行签署操作，否则会阻塞其签署操作。  注：企业可以通过此功能与企业内部的审批流程进行关联，支持手动、静默签署合同。
+    */
+    @SerializedName("NeedSignReview")
+    @Expose
+    private Boolean NeedSignReview;
+
+    /**
     * 操作者的信息
     */
     @SerializedName("Operator")
@@ -107,16 +121,33 @@ public class ChannelCreateFlowByFilesRequest extends AbstractModel{
     private UserInfo Operator;
 
     /**
-     * Get 渠道应用相关信息 
-     * @return Agent 渠道应用相关信息
+    * 签署人校验方式
+VerifyCheck: 人脸识别（默认）
+MobileCheck：手机号验证
+参数说明：可选人脸识别或手机号验证两种方式，若选择后者，未实名个人签署方在签署合同时，无需经过实名认证和意愿确认两次人脸识别，该能力仅适用于个人签署方。
+    */
+    @SerializedName("ApproverVerifyType")
+    @Expose
+    private String ApproverVerifyType;
+
+    /**
+    * 标识是否允许发起后添加控件。0为不允许1为允许。如果为1，创建的时候不能有签署控件，只能创建后添加。注意发起后添加控件功能不支持添加骑缝章和签批控件
+    */
+    @SerializedName("SignBeanTag")
+    @Expose
+    private Long SignBeanTag;
+
+    /**
+     * Get 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。 
+     * @return Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 渠道应用相关信息
-     * @param Agent 渠道应用相关信息
+     * Set 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+     * @param Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
@@ -171,16 +202,16 @@ public class ChannelCreateFlowByFilesRequest extends AbstractModel{
     }
 
     /**
-     * Get 签署文件中的控件，如：填写控件等 
-     * @return Components 签署文件中的控件，如：填写控件等
+     * Get 签署文件中的发起方的填写控件，需要在发起的时候进行填充 
+     * @return Components 签署文件中的发起方的填写控件，需要在发起的时候进行填充
      */
     public Component [] getComponents() {
         return this.Components;
     }
 
     /**
-     * Set 签署文件中的控件，如：填写控件等
-     * @param Components 签署文件中的控件，如：填写控件等
+     * Set 签署文件中的发起方的填写控件，需要在发起的时候进行填充
+     * @param Components 签署文件中的发起方的填写控件，需要在发起的时候进行填充
      */
     public void setComponents(Component [] Components) {
         this.Components = Components;
@@ -219,16 +250,16 @@ public class ChannelCreateFlowByFilesRequest extends AbstractModel{
     }
 
     /**
-     * Get 合同签署顺序类型(无序签,顺序签)，默认为false，即有序签署 
-     * @return Unordered 合同签署顺序类型(无序签,顺序签)，默认为false，即有序签署
+     * Get 合同签署顺序类型(无序签,顺序签)，默认为false，即有序签署。有序签署时以传入FlowApprovers数组的顺序作为签署顺序 
+     * @return Unordered 合同签署顺序类型(无序签,顺序签)，默认为false，即有序签署。有序签署时以传入FlowApprovers数组的顺序作为签署顺序
      */
     public Boolean getUnordered() {
         return this.Unordered;
     }
 
     /**
-     * Set 合同签署顺序类型(无序签,顺序签)，默认为false，即有序签署
-     * @param Unordered 合同签署顺序类型(无序签,顺序签)，默认为false，即有序签署
+     * Set 合同签署顺序类型(无序签,顺序签)，默认为false，即有序签署。有序签署时以传入FlowApprovers数组的顺序作为签署顺序
+     * @param Unordered 合同签署顺序类型(无序签,顺序签)，默认为false，即有序签署。有序签署时以传入FlowApprovers数组的顺序作为签署顺序
      */
     public void setUnordered(Boolean Unordered) {
         this.Unordered = Unordered;
@@ -283,6 +314,38 @@ public class ChannelCreateFlowByFilesRequest extends AbstractModel{
     }
 
     /**
+     * Get 渠道的业务信息，最大长度1000个字符。发起自动签署时，需设置对应自动签署场景，目前仅支持场景：处方单-E_PRESCRIPTION_AUTO_SIGN 
+     * @return CustomerData 渠道的业务信息，最大长度1000个字符。发起自动签署时，需设置对应自动签署场景，目前仅支持场景：处方单-E_PRESCRIPTION_AUTO_SIGN
+     */
+    public String getCustomerData() {
+        return this.CustomerData;
+    }
+
+    /**
+     * Set 渠道的业务信息，最大长度1000个字符。发起自动签署时，需设置对应自动签署场景，目前仅支持场景：处方单-E_PRESCRIPTION_AUTO_SIGN
+     * @param CustomerData 渠道的业务信息，最大长度1000个字符。发起自动签署时，需设置对应自动签署场景，目前仅支持场景：处方单-E_PRESCRIPTION_AUTO_SIGN
+     */
+    public void setCustomerData(String CustomerData) {
+        this.CustomerData = CustomerData;
+    }
+
+    /**
+     * Get 发起方企业的签署人进行签署操作是否需要企业内部审批。 若设置为true,审核结果需通过接口 ChannelCreateFlowSignReview 通知电子签，审核通过后，发起方企业签署人方可进行签署操作，否则会阻塞其签署操作。  注：企业可以通过此功能与企业内部的审批流程进行关联，支持手动、静默签署合同。 
+     * @return NeedSignReview 发起方企业的签署人进行签署操作是否需要企业内部审批。 若设置为true,审核结果需通过接口 ChannelCreateFlowSignReview 通知电子签，审核通过后，发起方企业签署人方可进行签署操作，否则会阻塞其签署操作。  注：企业可以通过此功能与企业内部的审批流程进行关联，支持手动、静默签署合同。
+     */
+    public Boolean getNeedSignReview() {
+        return this.NeedSignReview;
+    }
+
+    /**
+     * Set 发起方企业的签署人进行签署操作是否需要企业内部审批。 若设置为true,审核结果需通过接口 ChannelCreateFlowSignReview 通知电子签，审核通过后，发起方企业签署人方可进行签署操作，否则会阻塞其签署操作。  注：企业可以通过此功能与企业内部的审批流程进行关联，支持手动、静默签署合同。
+     * @param NeedSignReview 发起方企业的签署人进行签署操作是否需要企业内部审批。 若设置为true,审核结果需通过接口 ChannelCreateFlowSignReview 通知电子签，审核通过后，发起方企业签署人方可进行签署操作，否则会阻塞其签署操作。  注：企业可以通过此功能与企业内部的审批流程进行关联，支持手动、静默签署合同。
+     */
+    public void setNeedSignReview(Boolean NeedSignReview) {
+        this.NeedSignReview = NeedSignReview;
+    }
+
+    /**
      * Get 操作者的信息 
      * @return Operator 操作者的信息
      */
@@ -296,6 +359,50 @@ public class ChannelCreateFlowByFilesRequest extends AbstractModel{
      */
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
+    }
+
+    /**
+     * Get 签署人校验方式
+VerifyCheck: 人脸识别（默认）
+MobileCheck：手机号验证
+参数说明：可选人脸识别或手机号验证两种方式，若选择后者，未实名个人签署方在签署合同时，无需经过实名认证和意愿确认两次人脸识别，该能力仅适用于个人签署方。 
+     * @return ApproverVerifyType 签署人校验方式
+VerifyCheck: 人脸识别（默认）
+MobileCheck：手机号验证
+参数说明：可选人脸识别或手机号验证两种方式，若选择后者，未实名个人签署方在签署合同时，无需经过实名认证和意愿确认两次人脸识别，该能力仅适用于个人签署方。
+     */
+    public String getApproverVerifyType() {
+        return this.ApproverVerifyType;
+    }
+
+    /**
+     * Set 签署人校验方式
+VerifyCheck: 人脸识别（默认）
+MobileCheck：手机号验证
+参数说明：可选人脸识别或手机号验证两种方式，若选择后者，未实名个人签署方在签署合同时，无需经过实名认证和意愿确认两次人脸识别，该能力仅适用于个人签署方。
+     * @param ApproverVerifyType 签署人校验方式
+VerifyCheck: 人脸识别（默认）
+MobileCheck：手机号验证
+参数说明：可选人脸识别或手机号验证两种方式，若选择后者，未实名个人签署方在签署合同时，无需经过实名认证和意愿确认两次人脸识别，该能力仅适用于个人签署方。
+     */
+    public void setApproverVerifyType(String ApproverVerifyType) {
+        this.ApproverVerifyType = ApproverVerifyType;
+    }
+
+    /**
+     * Get 标识是否允许发起后添加控件。0为不允许1为允许。如果为1，创建的时候不能有签署控件，只能创建后添加。注意发起后添加控件功能不支持添加骑缝章和签批控件 
+     * @return SignBeanTag 标识是否允许发起后添加控件。0为不允许1为允许。如果为1，创建的时候不能有签署控件，只能创建后添加。注意发起后添加控件功能不支持添加骑缝章和签批控件
+     */
+    public Long getSignBeanTag() {
+        return this.SignBeanTag;
+    }
+
+    /**
+     * Set 标识是否允许发起后添加控件。0为不允许1为允许。如果为1，创建的时候不能有签署控件，只能创建后添加。注意发起后添加控件功能不支持添加骑缝章和签批控件
+     * @param SignBeanTag 标识是否允许发起后添加控件。0为不允许1为允许。如果为1，创建的时候不能有签署控件，只能创建后添加。注意发起后添加控件功能不支持添加骑缝章和签批控件
+     */
+    public void setSignBeanTag(Long SignBeanTag) {
+        this.SignBeanTag = SignBeanTag;
     }
 
     public ChannelCreateFlowByFilesRequest() {
@@ -348,8 +455,20 @@ public class ChannelCreateFlowByFilesRequest extends AbstractModel{
         if (source.CustomShowMap != null) {
             this.CustomShowMap = new String(source.CustomShowMap);
         }
+        if (source.CustomerData != null) {
+            this.CustomerData = new String(source.CustomerData);
+        }
+        if (source.NeedSignReview != null) {
+            this.NeedSignReview = new Boolean(source.NeedSignReview);
+        }
         if (source.Operator != null) {
             this.Operator = new UserInfo(source.Operator);
+        }
+        if (source.ApproverVerifyType != null) {
+            this.ApproverVerifyType = new String(source.ApproverVerifyType);
+        }
+        if (source.SignBeanTag != null) {
+            this.SignBeanTag = new Long(source.SignBeanTag);
         }
     }
 
@@ -369,7 +488,11 @@ public class ChannelCreateFlowByFilesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "FlowType", this.FlowType);
         this.setParamSimple(map, prefix + "FlowDescription", this.FlowDescription);
         this.setParamSimple(map, prefix + "CustomShowMap", this.CustomShowMap);
+        this.setParamSimple(map, prefix + "CustomerData", this.CustomerData);
+        this.setParamSimple(map, prefix + "NeedSignReview", this.NeedSignReview);
         this.setParamObj(map, prefix + "Operator.", this.Operator);
+        this.setParamSimple(map, prefix + "ApproverVerifyType", this.ApproverVerifyType);
+        this.setParamSimple(map, prefix + "SignBeanTag", this.SignBeanTag);
 
     }
 }

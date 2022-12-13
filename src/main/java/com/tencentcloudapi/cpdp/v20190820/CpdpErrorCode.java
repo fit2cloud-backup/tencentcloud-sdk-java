@@ -18,6 +18,9 @@ public enum CpdpErrorCode {
     // 验证失败。
      AUTHFAILURE_VERIFYERROR("AuthFailure.VerifyError"),
      
+    // Token校验失败。
+     AUTHFAILURE_VERIFYTOKENFAILURE("AuthFailure.VerifyTokenFailure"),
+     
     // 操作失败。
      FAILEDOPERATION("FailedOperation"),
      
@@ -195,6 +198,9 @@ public enum CpdpErrorCode {
     // 聚鑫内部系统错误。
      FAILEDOPERATION_MIDASINTERNALERROR("FailedOperation.MidasInternalError"),
      
+    // 聚鑫请求无效。
+     FAILEDOPERATION_MIDASINVALIDREQUEST("FailedOperation.MidasInvalidRequest"),
+     
     // 聚鑫需要重试。
      FAILEDOPERATION_MIDASNEEDRETRY("FailedOperation.MidasNeedRetry"),
      
@@ -207,6 +213,9 @@ public enum CpdpErrorCode {
     // 通用风控系统错误，被风控拦截。
      FAILEDOPERATION_MIDASRISK("FailedOperation.MidasRisk"),
      
+    // 聚鑫支付状态不匹配。
+     FAILEDOPERATION_MIDASSTATUSNOTMATCH("FailedOperation.MidasStatusNotMatch"),
+     
     // 聚鑫不支持该操作。
      FAILEDOPERATION_MIDASUNSUPPORTEDACTION("FailedOperation.MidasUnsupportedAction"),
      
@@ -215,6 +224,9 @@ public enum CpdpErrorCode {
      
     // 商户修改失败。
      FAILEDOPERATION_MODIFYMERCHANTFAILED("FailedOperation.ModifyMerchantFailed"),
+     
+    // 记录不存在。
+     FAILEDOPERATION_MOUNTNOTFOUND("FailedOperation.MountNotFound"),
      
     // 商户信息不合法。
      FAILEDOPERATION_NOAUTH("FailedOperation.NoAuth"),
@@ -402,6 +414,9 @@ public enum CpdpErrorCode {
     // 参数错误。
      INVALIDPARAMETER("InvalidParameter"),
      
+    // 传入参数有误，请检查传入参数是否正确。
+     INVALIDPARAMETER_BACKENDCGIERROR("InvalidParameter.BackendCgiError"),
+     
     // 缺少必填参数。
      INVALIDPARAMETER_LACKPARAMETER("InvalidParameter.LackParameter"),
      
@@ -512,6 +527,9 @@ public enum CpdpErrorCode {
      
     // 平台信息不存在。
      RESOURCENOTFOUND_PLATFORMINFONOTFOUND("ResourceNotFound.PlatformInfoNotFound"),
+     
+    // 聚鑫可用余额不足。
+     RESOURCEUNAVAILABLE_MIDASBALANCE("ResourceUnavailable.MidasBalance"),
      
     // 聚鑫单日限额。
      RESOURCEUNAVAILABLE_MIDASDAY("ResourceUnavailable.MidasDay"),

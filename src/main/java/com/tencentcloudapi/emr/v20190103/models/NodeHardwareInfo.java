@@ -376,6 +376,54 @@ public class NodeHardwareInfo extends AbstractModel{
     private String Clients;
 
     /**
+    * 系统当前时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CurrentTime")
+    @Expose
+    private String CurrentTime;
+
+    /**
+    * 是否用于联邦 ,1是，0否
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IsFederation")
+    @Expose
+    private Long IsFederation;
+
+    /**
+    * 设备名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DeviceName")
+    @Expose
+    private String DeviceName;
+
+    /**
+    * 服务
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ServiceClient")
+    @Expose
+    private String ServiceClient;
+
+    /**
+    * 该实例是否开启实例保护，true为开启 false为关闭
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DisableApiTermination")
+    @Expose
+    private Boolean DisableApiTermination;
+
+    /**
+    * 0表示老计费，1表示新计费
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TradeVersion")
+    @Expose
+    private Long TradeVersion;
+
+    /**
      * Get 用户APPID
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return AppId 用户APPID
@@ -1259,6 +1307,126 @@ public class NodeHardwareInfo extends AbstractModel{
         this.Clients = Clients;
     }
 
+    /**
+     * Get 系统当前时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CurrentTime 系统当前时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCurrentTime() {
+        return this.CurrentTime;
+    }
+
+    /**
+     * Set 系统当前时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CurrentTime 系统当前时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCurrentTime(String CurrentTime) {
+        this.CurrentTime = CurrentTime;
+    }
+
+    /**
+     * Get 是否用于联邦 ,1是，0否
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IsFederation 是否用于联邦 ,1是，0否
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getIsFederation() {
+        return this.IsFederation;
+    }
+
+    /**
+     * Set 是否用于联邦 ,1是，0否
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IsFederation 是否用于联邦 ,1是，0否
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIsFederation(Long IsFederation) {
+        this.IsFederation = IsFederation;
+    }
+
+    /**
+     * Get 设备名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DeviceName 设备名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDeviceName() {
+        return this.DeviceName;
+    }
+
+    /**
+     * Set 设备名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DeviceName 设备名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDeviceName(String DeviceName) {
+        this.DeviceName = DeviceName;
+    }
+
+    /**
+     * Get 服务
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ServiceClient 服务
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getServiceClient() {
+        return this.ServiceClient;
+    }
+
+    /**
+     * Set 服务
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ServiceClient 服务
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setServiceClient(String ServiceClient) {
+        this.ServiceClient = ServiceClient;
+    }
+
+    /**
+     * Get 该实例是否开启实例保护，true为开启 false为关闭
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DisableApiTermination 该实例是否开启实例保护，true为开启 false为关闭
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getDisableApiTermination() {
+        return this.DisableApiTermination;
+    }
+
+    /**
+     * Set 该实例是否开启实例保护，true为开启 false为关闭
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DisableApiTermination 该实例是否开启实例保护，true为开启 false为关闭
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDisableApiTermination(Boolean DisableApiTermination) {
+        this.DisableApiTermination = DisableApiTermination;
+    }
+
+    /**
+     * Get 0表示老计费，1表示新计费
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TradeVersion 0表示老计费，1表示新计费
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getTradeVersion() {
+        return this.TradeVersion;
+    }
+
+    /**
+     * Set 0表示老计费，1表示新计费
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TradeVersion 0表示老计费，1表示新计费
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTradeVersion(Long TradeVersion) {
+        this.TradeVersion = TradeVersion;
+    }
+
     public NodeHardwareInfo() {
     }
 
@@ -1405,6 +1573,24 @@ public class NodeHardwareInfo extends AbstractModel{
         if (source.Clients != null) {
             this.Clients = new String(source.Clients);
         }
+        if (source.CurrentTime != null) {
+            this.CurrentTime = new String(source.CurrentTime);
+        }
+        if (source.IsFederation != null) {
+            this.IsFederation = new Long(source.IsFederation);
+        }
+        if (source.DeviceName != null) {
+            this.DeviceName = new String(source.DeviceName);
+        }
+        if (source.ServiceClient != null) {
+            this.ServiceClient = new String(source.ServiceClient);
+        }
+        if (source.DisableApiTermination != null) {
+            this.DisableApiTermination = new Boolean(source.DisableApiTermination);
+        }
+        if (source.TradeVersion != null) {
+            this.TradeVersion = new Long(source.TradeVersion);
+        }
     }
 
 
@@ -1456,6 +1642,12 @@ public class NodeHardwareInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Zone", this.Zone);
         this.setParamObj(map, prefix + "SubnetInfo.", this.SubnetInfo);
         this.setParamSimple(map, prefix + "Clients", this.Clients);
+        this.setParamSimple(map, prefix + "CurrentTime", this.CurrentTime);
+        this.setParamSimple(map, prefix + "IsFederation", this.IsFederation);
+        this.setParamSimple(map, prefix + "DeviceName", this.DeviceName);
+        this.setParamSimple(map, prefix + "ServiceClient", this.ServiceClient);
+        this.setParamSimple(map, prefix + "DisableApiTermination", this.DisableApiTermination);
+        this.setParamSimple(map, prefix + "TradeVersion", this.TradeVersion);
 
     }
 }

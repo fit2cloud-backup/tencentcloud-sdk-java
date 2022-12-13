@@ -172,6 +172,38 @@ public class InstanceInfo extends AbstractModel{
     private BotPkg BotPkg;
 
     /**
+    * bot的qps详情
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("BotQPS")
+    @Expose
+    private BotQPS BotQPS;
+
+    /**
+    * qps弹性计费上限
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ElasticBilling")
+    @Expose
+    private Long ElasticBilling;
+
+    /**
+    * 攻击日志投递开关
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AttackLogPost")
+    @Expose
+    private Long AttackLogPost;
+
+    /**
+    * 带宽峰值
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MaxBandwidth")
+    @Expose
+    private Long MaxBandwidth;
+
+    /**
      * Get id 
      * @return InstanceId id
      */
@@ -515,6 +547,86 @@ public class InstanceInfo extends AbstractModel{
         this.BotPkg = BotPkg;
     }
 
+    /**
+     * Get bot的qps详情
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return BotQPS bot的qps详情
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public BotQPS getBotQPS() {
+        return this.BotQPS;
+    }
+
+    /**
+     * Set bot的qps详情
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param BotQPS bot的qps详情
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBotQPS(BotQPS BotQPS) {
+        this.BotQPS = BotQPS;
+    }
+
+    /**
+     * Get qps弹性计费上限
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ElasticBilling qps弹性计费上限
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getElasticBilling() {
+        return this.ElasticBilling;
+    }
+
+    /**
+     * Set qps弹性计费上限
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ElasticBilling qps弹性计费上限
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setElasticBilling(Long ElasticBilling) {
+        this.ElasticBilling = ElasticBilling;
+    }
+
+    /**
+     * Get 攻击日志投递开关
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AttackLogPost 攻击日志投递开关
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getAttackLogPost() {
+        return this.AttackLogPost;
+    }
+
+    /**
+     * Set 攻击日志投递开关
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AttackLogPost 攻击日志投递开关
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAttackLogPost(Long AttackLogPost) {
+        this.AttackLogPost = AttackLogPost;
+    }
+
+    /**
+     * Get 带宽峰值
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MaxBandwidth 带宽峰值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getMaxBandwidth() {
+        return this.MaxBandwidth;
+    }
+
+    /**
+     * Set 带宽峰值
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MaxBandwidth 带宽峰值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMaxBandwidth(Long MaxBandwidth) {
+        this.MaxBandwidth = MaxBandwidth;
+    }
+
     public InstanceInfo() {
     }
 
@@ -586,6 +698,18 @@ public class InstanceInfo extends AbstractModel{
         if (source.BotPkg != null) {
             this.BotPkg = new BotPkg(source.BotPkg);
         }
+        if (source.BotQPS != null) {
+            this.BotQPS = new BotQPS(source.BotQPS);
+        }
+        if (source.ElasticBilling != null) {
+            this.ElasticBilling = new Long(source.ElasticBilling);
+        }
+        if (source.AttackLogPost != null) {
+            this.AttackLogPost = new Long(source.AttackLogPost);
+        }
+        if (source.MaxBandwidth != null) {
+            this.MaxBandwidth = new Long(source.MaxBandwidth);
+        }
     }
 
 
@@ -614,6 +738,10 @@ public class InstanceInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Edition", this.Edition);
         this.setParamObj(map, prefix + "FraudPkg.", this.FraudPkg);
         this.setParamObj(map, prefix + "BotPkg.", this.BotPkg);
+        this.setParamObj(map, prefix + "BotQPS.", this.BotQPS);
+        this.setParamSimple(map, prefix + "ElasticBilling", this.ElasticBilling);
+        this.setParamSimple(map, prefix + "AttackLogPost", this.AttackLogPost);
+        this.setParamSimple(map, prefix + "MaxBandwidth", this.MaxBandwidth);
 
     }
 }

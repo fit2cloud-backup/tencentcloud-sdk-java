@@ -69,14 +69,14 @@ public class InitOralProcessRequest extends AbstractModel{
     /**
     * 评价苛刻指数。取值为[1.0 - 4.0]范围内的浮点数，用于平滑不同年龄段的分数。
 1.0：适用于最小年龄段用户，一般对应儿童应用场景；
-4.0：适用于最高年龄段用户，一般对应成人严格打分场景。
+4.0：适用于最高年龄段用户，一般对应成人严格打分场景。苛刻度影响范围参考：[苛刻度影响范围](https://cloud.tencent.com/document/product/884/78824#.E8.8B.9B.E5.88.BB.E5.BA.A6)
     */
     @SerializedName("ScoreCoeff")
     @Expose
     private Float ScoreCoeff;
 
     /**
-    * 业务应用ID，与账号应用APPID无关，是用来方便客户管理服务的参数，新的 SoeAppId 可以在[控制台](https://console.cloud.tencent.com/soe)【应用管理】下新建。如果没有新建SoeAppId，请勿填入该参数，否则会报欠费错误。
+    * 业务应用ID，与账号应用APPID无关，是用来方便客户管理服务的参数，新的 SoeAppId 可以在[控制台](https://console.cloud.tencent.com/soe)【应用管理】下新建。如果没有新建SoeAppId，请勿填入该参数，否则会报欠费错误。使用指南：[业务应用](https://cloud.tencent.com/document/product/884/78824#.E4.B8.9A.E5.8A.A1.E5.BA.94.E7.94.A8)
     */
     @SerializedName("SoeAppId")
     @Expose
@@ -109,9 +109,8 @@ public class InitOralProcessRequest extends AbstractModel{
 
     /**
     * 评估语言
-0：英文
+0：英文（默认）
 1：中文
-ServerType不填默认为0
     */
     @SerializedName("ServerType")
     @Expose
@@ -131,11 +130,17 @@ ServerType不填默认为0
     * 输入文本模式
 0: 普通文本
 1：[音素结构](https://cloud.tencent.com/document/product/884/33698)文本
-2：音素注册模式（提工单注册需要使用音素的单词）。
     */
     @SerializedName("TextMode")
     @Expose
     private Long TextMode;
+
+    /**
+    * 主题词和关键词
+    */
+    @SerializedName("Keyword")
+    @Expose
+    private String Keyword;
 
     /**
      * Get 语音段唯一标识，一段完整语音使用一个SessionId，不同语音段的评测需要使用不同的SessionId。一般使用uuid(通用唯一识别码)来作为它的值，要尽量保证SessionId的唯一性。 
@@ -268,10 +273,10 @@ ServerType不填默认为0
     /**
      * Get 评价苛刻指数。取值为[1.0 - 4.0]范围内的浮点数，用于平滑不同年龄段的分数。
 1.0：适用于最小年龄段用户，一般对应儿童应用场景；
-4.0：适用于最高年龄段用户，一般对应成人严格打分场景。 
+4.0：适用于最高年龄段用户，一般对应成人严格打分场景。苛刻度影响范围参考：[苛刻度影响范围](https://cloud.tencent.com/document/product/884/78824#.E8.8B.9B.E5.88.BB.E5.BA.A6) 
      * @return ScoreCoeff 评价苛刻指数。取值为[1.0 - 4.0]范围内的浮点数，用于平滑不同年龄段的分数。
 1.0：适用于最小年龄段用户，一般对应儿童应用场景；
-4.0：适用于最高年龄段用户，一般对应成人严格打分场景。
+4.0：适用于最高年龄段用户，一般对应成人严格打分场景。苛刻度影响范围参考：[苛刻度影响范围](https://cloud.tencent.com/document/product/884/78824#.E8.8B.9B.E5.88.BB.E5.BA.A6)
      */
     public Float getScoreCoeff() {
         return this.ScoreCoeff;
@@ -280,26 +285,26 @@ ServerType不填默认为0
     /**
      * Set 评价苛刻指数。取值为[1.0 - 4.0]范围内的浮点数，用于平滑不同年龄段的分数。
 1.0：适用于最小年龄段用户，一般对应儿童应用场景；
-4.0：适用于最高年龄段用户，一般对应成人严格打分场景。
+4.0：适用于最高年龄段用户，一般对应成人严格打分场景。苛刻度影响范围参考：[苛刻度影响范围](https://cloud.tencent.com/document/product/884/78824#.E8.8B.9B.E5.88.BB.E5.BA.A6)
      * @param ScoreCoeff 评价苛刻指数。取值为[1.0 - 4.0]范围内的浮点数，用于平滑不同年龄段的分数。
 1.0：适用于最小年龄段用户，一般对应儿童应用场景；
-4.0：适用于最高年龄段用户，一般对应成人严格打分场景。
+4.0：适用于最高年龄段用户，一般对应成人严格打分场景。苛刻度影响范围参考：[苛刻度影响范围](https://cloud.tencent.com/document/product/884/78824#.E8.8B.9B.E5.88.BB.E5.BA.A6)
      */
     public void setScoreCoeff(Float ScoreCoeff) {
         this.ScoreCoeff = ScoreCoeff;
     }
 
     /**
-     * Get 业务应用ID，与账号应用APPID无关，是用来方便客户管理服务的参数，新的 SoeAppId 可以在[控制台](https://console.cloud.tencent.com/soe)【应用管理】下新建。如果没有新建SoeAppId，请勿填入该参数，否则会报欠费错误。 
-     * @return SoeAppId 业务应用ID，与账号应用APPID无关，是用来方便客户管理服务的参数，新的 SoeAppId 可以在[控制台](https://console.cloud.tencent.com/soe)【应用管理】下新建。如果没有新建SoeAppId，请勿填入该参数，否则会报欠费错误。
+     * Get 业务应用ID，与账号应用APPID无关，是用来方便客户管理服务的参数，新的 SoeAppId 可以在[控制台](https://console.cloud.tencent.com/soe)【应用管理】下新建。如果没有新建SoeAppId，请勿填入该参数，否则会报欠费错误。使用指南：[业务应用](https://cloud.tencent.com/document/product/884/78824#.E4.B8.9A.E5.8A.A1.E5.BA.94.E7.94.A8) 
+     * @return SoeAppId 业务应用ID，与账号应用APPID无关，是用来方便客户管理服务的参数，新的 SoeAppId 可以在[控制台](https://console.cloud.tencent.com/soe)【应用管理】下新建。如果没有新建SoeAppId，请勿填入该参数，否则会报欠费错误。使用指南：[业务应用](https://cloud.tencent.com/document/product/884/78824#.E4.B8.9A.E5.8A.A1.E5.BA.94.E7.94.A8)
      */
     public String getSoeAppId() {
         return this.SoeAppId;
     }
 
     /**
-     * Set 业务应用ID，与账号应用APPID无关，是用来方便客户管理服务的参数，新的 SoeAppId 可以在[控制台](https://console.cloud.tencent.com/soe)【应用管理】下新建。如果没有新建SoeAppId，请勿填入该参数，否则会报欠费错误。
-     * @param SoeAppId 业务应用ID，与账号应用APPID无关，是用来方便客户管理服务的参数，新的 SoeAppId 可以在[控制台](https://console.cloud.tencent.com/soe)【应用管理】下新建。如果没有新建SoeAppId，请勿填入该参数，否则会报欠费错误。
+     * Set 业务应用ID，与账号应用APPID无关，是用来方便客户管理服务的参数，新的 SoeAppId 可以在[控制台](https://console.cloud.tencent.com/soe)【应用管理】下新建。如果没有新建SoeAppId，请勿填入该参数，否则会报欠费错误。使用指南：[业务应用](https://cloud.tencent.com/document/product/884/78824#.E4.B8.9A.E5.8A.A1.E5.BA.94.E7.94.A8)
+     * @param SoeAppId 业务应用ID，与账号应用APPID无关，是用来方便客户管理服务的参数，新的 SoeAppId 可以在[控制台](https://console.cloud.tencent.com/soe)【应用管理】下新建。如果没有新建SoeAppId，请勿填入该参数，否则会报欠费错误。使用指南：[业务应用](https://cloud.tencent.com/document/product/884/78824#.E4.B8.9A.E5.8A.A1.E5.BA.94.E7.94.A8)
      */
     public void setSoeAppId(String SoeAppId) {
         this.SoeAppId = SoeAppId;
@@ -371,13 +376,11 @@ ServerType不填默认为0
 
     /**
      * Get 评估语言
-0：英文
-1：中文
-ServerType不填默认为0 
+0：英文（默认）
+1：中文 
      * @return ServerType 评估语言
-0：英文
+0：英文（默认）
 1：中文
-ServerType不填默认为0
      */
     public Long getServerType() {
         return this.ServerType;
@@ -385,13 +388,11 @@ ServerType不填默认为0
 
     /**
      * Set 评估语言
-0：英文
+0：英文（默认）
 1：中文
-ServerType不填默认为0
      * @param ServerType 评估语言
-0：英文
+0：英文（默认）
 1：中文
-ServerType不填默认为0
      */
     public void setServerType(Long ServerType) {
         this.ServerType = ServerType;
@@ -428,12 +429,10 @@ ServerType不填默认为0
     /**
      * Get 输入文本模式
 0: 普通文本
-1：[音素结构](https://cloud.tencent.com/document/product/884/33698)文本
-2：音素注册模式（提工单注册需要使用音素的单词）。 
+1：[音素结构](https://cloud.tencent.com/document/product/884/33698)文本 
      * @return TextMode 输入文本模式
 0: 普通文本
 1：[音素结构](https://cloud.tencent.com/document/product/884/33698)文本
-2：音素注册模式（提工单注册需要使用音素的单词）。
      */
     public Long getTextMode() {
         return this.TextMode;
@@ -443,14 +442,28 @@ ServerType不填默认为0
      * Set 输入文本模式
 0: 普通文本
 1：[音素结构](https://cloud.tencent.com/document/product/884/33698)文本
-2：音素注册模式（提工单注册需要使用音素的单词）。
      * @param TextMode 输入文本模式
 0: 普通文本
 1：[音素结构](https://cloud.tencent.com/document/product/884/33698)文本
-2：音素注册模式（提工单注册需要使用音素的单词）。
      */
     public void setTextMode(Long TextMode) {
         this.TextMode = TextMode;
+    }
+
+    /**
+     * Get 主题词和关键词 
+     * @return Keyword 主题词和关键词
+     */
+    public String getKeyword() {
+        return this.Keyword;
+    }
+
+    /**
+     * Set 主题词和关键词
+     * @param Keyword 主题词和关键词
+     */
+    public void setKeyword(String Keyword) {
+        this.Keyword = Keyword;
     }
 
     public InitOralProcessRequest() {
@@ -497,6 +510,9 @@ ServerType不填默认为0
         if (source.TextMode != null) {
             this.TextMode = new Long(source.TextMode);
         }
+        if (source.Keyword != null) {
+            this.Keyword = new String(source.Keyword);
+        }
     }
 
 
@@ -516,6 +532,7 @@ ServerType不填默认为0
         this.setParamSimple(map, prefix + "ServerType", this.ServerType);
         this.setParamSimple(map, prefix + "IsAsync", this.IsAsync);
         this.setParamSimple(map, prefix + "TextMode", this.TextMode);
+        this.setParamSimple(map, prefix + "Keyword", this.Keyword);
 
     }
 }

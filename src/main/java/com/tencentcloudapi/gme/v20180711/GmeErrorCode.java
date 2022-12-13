@@ -33,6 +33,9 @@ public enum GmeErrorCode {
     // 查询时间范围错误。
      INVALIDPARAMETER_TIMERANGEERROR("InvalidParameter.TimeRangeError"),
      
+    // 超过配额限制。
+     LIMITEXCEEDED("LimitExceeded"),
+     
     // 创建应用数已达上限。
      LIMITEXCEEDED_APPLICATION("LimitExceeded.Application"),
      
@@ -73,7 +76,10 @@ public enum GmeErrorCode {
      UNKNOWNPARAMETER("UnknownParameter"),
      
     // 操作不支持。
-     UNSUPPORTEDOPERATION("UnsupportedOperation");
+     UNSUPPORTEDOPERATION("UnsupportedOperation"),
+     
+    // 语音转文本开关未开启。
+     UNSUPPORTEDOPERATION_PTTSWITCHOFF("UnsupportedOperation.PTTSwitchOff");
      
     private String value;
     private GmeErrorCode (String value){

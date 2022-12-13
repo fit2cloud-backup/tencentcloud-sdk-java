@@ -39,7 +39,7 @@ public class MsClient extends AbstractClient{
     }
 
     /**
-     *将应用和资源进行绑定
+     *将应用和资源进行绑定。（注意：根据国家互联网用户实名制相关要求，使用该产品前，需先完成实名认证。）
      * @param req CreateBindInstanceRequest
      * @return CreateBindInstanceResponse
      * @throws TencentCloudSDKException
@@ -119,7 +119,7 @@ public class MsClient extends AbstractClient{
     }
 
     /**
-     *用户通过该接口提交应用进行应用加固，加固后需通过DescribeShieldResult接口查询加固结果
+     *用户通过该接口提交应用进行应用加固，加固后需通过DescribeShieldResult接口查询加固结果。（注意：根据国家互联网用户实名制相关要求，使用该产品前，需先完成实名认证。）
      * @param req CreateShieldInstanceRequest
      * @return CreateShieldInstanceResponse
      * @throws TencentCloudSDKException
@@ -139,7 +139,7 @@ public class MsClient extends AbstractClient{
     }
 
     /**
-     *对资源进行策略新增
+     *对资源进行策略新增。（注意：根据国家互联网用户实名制相关要求，使用该产品前，需先完成实名认证。）
      * @param req CreateShieldPlanInstanceRequest
      * @return CreateShieldPlanInstanceResponse
      * @throws TencentCloudSDKException
@@ -179,7 +179,7 @@ public class MsClient extends AbstractClient{
     }
 
     /**
-     *删除一个或者多个app加固信息
+     *删除一个或者多个app加固信息。（注意：根据国家互联网用户实名制相关要求，使用该产品前，需先完成实名认证。）
      * @param req DeleteShieldInstancesRequest
      * @return DeleteShieldInstancesResponse
      * @throws TencentCloudSDKException
@@ -199,7 +199,27 @@ public class MsClient extends AbstractClient{
     }
 
     /**
-     *获取某个用户的所有资源信息
+     *该接口采用同步模式请求腾讯APK云检测服务，即时返回检测数据，需要用户用轮询的方式调用本接口来进行样本送检并获取检测结果(每隔60s发送一次请求，传相同的参数，重试30次)，一般情况下0.5h内会出检测结果，最长时间是3h。当Result为ok并且ResultList数组非空有值时，代表检测完毕，若长时间获取不到检测结果，请联系客服。
+     * @param req DescribeApkDetectionResultRequest
+     * @return DescribeApkDetectionResultResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeApkDetectionResultResponse DescribeApkDetectionResult(DescribeApkDetectionResultRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeApkDetectionResultResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeApkDetectionResultResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeApkDetectionResult");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取某个用户的所有资源信息。（注意：根据国家互联网用户实名制相关要求，使用该产品前，需先完成实名认证。）
      * @param req DescribeResourceInstancesRequest
      * @return DescribeResourceInstancesResponse
      * @throws TencentCloudSDKException
@@ -261,7 +281,7 @@ public class MsClient extends AbstractClient{
 
     /**
      *本接口用于查看app列表。
-可以通过指定任务唯一标识ItemId来查询指定app的详细信息，或通过设定过滤器来查询满足过滤条件的app的详细信息。 指定偏移(Offset)和限制(Limit)来选择结果中的一部分，默认返回满足条件的前20个app信息。
+可以通过指定任务唯一标识ItemId来查询指定app的详细信息，或通过设定过滤器来查询满足过滤条件的app的详细信息。 指定偏移(Offset)和限制(Limit)来选择结果中的一部分，默认返回满足条件的前20个app信息。（注意：根据国家互联网用户实名制相关要求，使用该产品前，需先完成实名认证。）
 
      * @param req DescribeShieldInstancesRequest
      * @return DescribeShieldInstancesResponse
@@ -282,7 +302,7 @@ public class MsClient extends AbstractClient{
     }
 
     /**
-     *查询加固策略
+     *查询加固策略。（注意：根据国家互联网用户实名制相关要求，使用该产品前，需先完成实名认证。）
      * @param req DescribeShieldPlanInstanceRequest
      * @return DescribeShieldPlanInstanceResponse
      * @throws TencentCloudSDKException
@@ -302,7 +322,7 @@ public class MsClient extends AbstractClient{
     }
 
     /**
-     *通过唯一标识获取加固的结果
+     *通过唯一标识获取加固的结果。（注意：根据国家互联网用户实名制相关要求，使用该产品前，需先完成实名认证。）
      * @param req DescribeShieldResultRequest
      * @return DescribeShieldResultResponse
      * @throws TencentCloudSDKException

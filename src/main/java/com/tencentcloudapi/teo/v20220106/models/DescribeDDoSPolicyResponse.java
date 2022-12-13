@@ -23,11 +23,34 @@ import java.util.HashMap;
 public class DescribeDDoSPolicyResponse extends AbstractModel{
 
     /**
+    * DDoS防护配置
+    */
+    @SerializedName("DdosRule")
+    @Expose
+    private DdosRule DdosRule;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
+
+    /**
+     * Get DDoS防护配置 
+     * @return DdosRule DDoS防护配置
+     */
+    public DdosRule getDdosRule() {
+        return this.DdosRule;
+    }
+
+    /**
+     * Set DDoS防护配置
+     * @param DdosRule DDoS防护配置
+     */
+    public void setDdosRule(DdosRule DdosRule) {
+        this.DdosRule = DdosRule;
+    }
 
     /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
@@ -53,6 +76,9 @@ public class DescribeDDoSPolicyResponse extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public DescribeDDoSPolicyResponse(DescribeDDoSPolicyResponse source) {
+        if (source.DdosRule != null) {
+            this.DdosRule = new DdosRule(source.DdosRule);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -63,6 +89,7 @@ public class DescribeDDoSPolicyResponse extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamObj(map, prefix + "DdosRule.", this.DdosRule);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

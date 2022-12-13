@@ -30,6 +30,9 @@ public enum AsErrorCode {
     // STS 接口调用失败。
      INTERNALERROR_CALLSTSERROR("InternalError.CallStsError"),
      
+    // TAT 接口调用失败。
+     INTERNALERROR_CALLTATERROR("InternalError.CallTATError"),
+     
     // Tag 接口调用失败。
      INTERNALERROR_CALLTAGERROR("InternalError.CallTagError"),
      
@@ -57,6 +60,9 @@ public enum AsErrorCode {
     // 参数错误。
      INVALIDPARAMETER("InvalidParameter"),
      
+    // 无效的Action请求。
+     INVALIDPARAMETER_ACTIONNOTFOUND("InvalidParameter.ActionNotFound"),
+     
     // 参数冲突，指定的多个参数冲突，不能同时存在。
      INVALIDPARAMETER_CONFLICT("InvalidParameter.Conflict"),
      
@@ -75,6 +81,9 @@ public enum AsErrorCode {
     // 参数缺失，两种参数之中必须指定其中一个。
      INVALIDPARAMETER_MUSTONEPARAMETER("InvalidParameter.MustOneParameter"),
      
+    // 该参数已废弃。
+     INVALIDPARAMETER_PARAMETERDEPRECATED("InvalidParameter.ParameterDeprecated"),
+     
     // 部分参数存在互斥应该删掉。
      INVALIDPARAMETER_PARAMETERMUSTBEDELETED("InvalidParameter.ParameterMustBeDeleted"),
      
@@ -83,6 +92,9 @@ public enum AsErrorCode {
      
     // 参数取值错误。
      INVALIDPARAMETERVALUE("InvalidParameterValue"),
+     
+    // 当前账户不支持带宽包ID参数。
+     INVALIDPARAMETERVALUE_ACCOUNTNOTSUPPORTBANDWIDTHPACKAGEID("InvalidParameterValue.AccountNotSupportBandwidthPackageId"),
      
     // 指定的基础容量过大，需小于等于最大实例数。
      INVALIDPARAMETERVALUE_BASECAPACITYTOOLARGE("InvalidParameterValue.BaseCapacityTooLarge"),
@@ -123,6 +135,9 @@ public enum AsErrorCode {
     // 主机名不合法。
      INVALIDPARAMETERVALUE_HOSTNAMEILLEGAL("InvalidParameterValue.HostNameIllegal"),
      
+    // 指定的IPv6公网带宽计费模式不合法。
+     INVALIDPARAMETERVALUE_IPV6INTERNETCHARGETYPE("InvalidParameterValue.IPv6InternetChargeType"),
+     
     // 指定的镜像不存在。
      INVALIDPARAMETERVALUE_IMAGENOTFOUND("InvalidParameterValue.ImageNotFound"),
      
@@ -149,6 +164,9 @@ public enum AsErrorCode {
      
     // 过滤条件无效。
      INVALIDPARAMETERVALUE_INVALIDFILTER("InvalidParameterValue.InvalidFilter"),
+     
+    // 高性能计算集群ID无效。
+     INVALIDPARAMETERVALUE_INVALIDHPCCLUSTERID("InvalidParameterValue.InvalidHpcClusterId"),
      
     // 镜像ID无效。
      INVALIDPARAMETERVALUE_INVALIDIMAGEID("InvalidParameterValue.InvalidImageId"),
@@ -177,6 +195,9 @@ public enum AsErrorCode {
     // 定时任务名称包含无效字符。
      INVALIDPARAMETERVALUE_INVALIDSCHEDULEDACTIONNAMEINCLUDEILLEGALCHAR("InvalidParameterValue.InvalidScheduledActionNameIncludeIllegalChar"),
      
+    // 安全组ID无效。
+     INVALIDPARAMETERVALUE_INVALIDSECURITYGROUPID("InvalidParameterValue.InvalidSecurityGroupId"),
+     
     // 快照ID无效。
      INVALIDPARAMETERVALUE_INVALIDSNAPSHOTID("InvalidParameterValue.InvalidSnapshotId"),
      
@@ -197,6 +218,9 @@ public enum AsErrorCode {
      
     // 取值超出限制。
      INVALIDPARAMETERVALUE_LIMITEXCEEDED("InvalidParameterValue.LimitExceeded"),
+     
+    // 当前账户在带宽包模式中必须填写带宽包ID参数。
+     INVALIDPARAMETERVALUE_MISSINGBANDWIDTHPACKAGEID("InvalidParameterValue.MissingBandwidthPackageId"),
      
     // 无资源权限。
      INVALIDPARAMETERVALUE_NORESOURCEPERMISSION("InvalidParameterValue.NoResourcePermission"),
@@ -327,8 +351,14 @@ public enum AsErrorCode {
     // 通知不存在。
      RESOURCENOTFOUND_AUTOSCALINGNOTIFICATIONNOTFOUND("ResourceNotFound.AutoScalingNotificationNotFound"),
      
+    // 指定的带宽包ID不存在。
+     RESOURCENOTFOUND_BANDWIDTHPACKAGEIDNOTFOUND("ResourceNotFound.BandwidthPackageIdNotFound"),
+     
     // 指定的 CMQ queue 不存在。
      RESOURCENOTFOUND_CMQQUEUENOTFOUND("ResourceNotFound.CmqQueueNotFound"),
+     
+    // 命令不存在。
+     RESOURCENOTFOUND_COMMANDNOTFOUND("ResourceNotFound.CommandNotFound"),
      
     // 指定的实例不存在。
      RESOURCENOTFOUND_INSTANCESNOTFOUND("ResourceNotFound.InstancesNotFound"),

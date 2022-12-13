@@ -23,164 +23,237 @@ import java.util.HashMap;
 public class DescribeBotLogRequest extends AbstractModel{
 
     /**
-    * 起始时间
+    * 起始时间。
     */
     @SerializedName("StartTime")
     @Expose
     private String StartTime;
 
     /**
-    * 结束时间
+    * 结束时间。
     */
     @SerializedName("EndTime")
     @Expose
     private String EndTime;
 
     /**
-    * 每页条数
+    * 分页拉取的最大返回结果数。最大值：1000。
     */
     @SerializedName("PageSize")
     @Expose
     private Long PageSize;
 
     /**
-    * 当前页
+    * 分页拉取的起始页号。最小值：1。
     */
     @SerializedName("PageNo")
     @Expose
     private Long PageNo;
 
     /**
-    * 站点集合
+    * 站点集合，不填默认查询所有站点。
     */
     @SerializedName("ZoneIds")
     @Expose
     private String [] ZoneIds;
 
     /**
-    * 域名集合
+    * 域名集合，不填默认查询所有子域名。
     */
     @SerializedName("Domains")
     @Expose
     private String [] Domains;
 
     /**
-    * 查询条件
+    * 筛选条件，取值有：
+<li>action ：执行动作（处置方式）；</li>
+<li>sipCountryCode ：ip所在国家 ；</li>
+<li>attackIp ：攻击ip ；</li>
+<li>ruleId ：规则id ；</li>
+<li>eventId ：事件id ；</li>
+<li>ua ：用户代理 ；</li>
+<li>requestMethod ：请求方法 ；</li>
+<li>uri ：统一资源标识符 。</li>
     */
     @SerializedName("QueryCondition")
     @Expose
     private QueryCondition [] QueryCondition;
 
     /**
-     * Get 起始时间 
-     * @return StartTime 起始时间
+    * 数据归属地区，取值有：
+<li>overseas ：全球（除中国大陆地区）数据 ；</li>
+<li>mainland ：中国大陆地区数据 。</li>不填默认查询overseas。
+    */
+    @SerializedName("Area")
+    @Expose
+    private String Area;
+
+    /**
+     * Get 起始时间。 
+     * @return StartTime 起始时间。
      */
     public String getStartTime() {
         return this.StartTime;
     }
 
     /**
-     * Set 起始时间
-     * @param StartTime 起始时间
+     * Set 起始时间。
+     * @param StartTime 起始时间。
      */
     public void setStartTime(String StartTime) {
         this.StartTime = StartTime;
     }
 
     /**
-     * Get 结束时间 
-     * @return EndTime 结束时间
+     * Get 结束时间。 
+     * @return EndTime 结束时间。
      */
     public String getEndTime() {
         return this.EndTime;
     }
 
     /**
-     * Set 结束时间
-     * @param EndTime 结束时间
+     * Set 结束时间。
+     * @param EndTime 结束时间。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
     }
 
     /**
-     * Get 每页条数 
-     * @return PageSize 每页条数
+     * Get 分页拉取的最大返回结果数。最大值：1000。 
+     * @return PageSize 分页拉取的最大返回结果数。最大值：1000。
      */
     public Long getPageSize() {
         return this.PageSize;
     }
 
     /**
-     * Set 每页条数
-     * @param PageSize 每页条数
+     * Set 分页拉取的最大返回结果数。最大值：1000。
+     * @param PageSize 分页拉取的最大返回结果数。最大值：1000。
      */
     public void setPageSize(Long PageSize) {
         this.PageSize = PageSize;
     }
 
     /**
-     * Get 当前页 
-     * @return PageNo 当前页
+     * Get 分页拉取的起始页号。最小值：1。 
+     * @return PageNo 分页拉取的起始页号。最小值：1。
      */
     public Long getPageNo() {
         return this.PageNo;
     }
 
     /**
-     * Set 当前页
-     * @param PageNo 当前页
+     * Set 分页拉取的起始页号。最小值：1。
+     * @param PageNo 分页拉取的起始页号。最小值：1。
      */
     public void setPageNo(Long PageNo) {
         this.PageNo = PageNo;
     }
 
     /**
-     * Get 站点集合 
-     * @return ZoneIds 站点集合
+     * Get 站点集合，不填默认查询所有站点。 
+     * @return ZoneIds 站点集合，不填默认查询所有站点。
      */
     public String [] getZoneIds() {
         return this.ZoneIds;
     }
 
     /**
-     * Set 站点集合
-     * @param ZoneIds 站点集合
+     * Set 站点集合，不填默认查询所有站点。
+     * @param ZoneIds 站点集合，不填默认查询所有站点。
      */
     public void setZoneIds(String [] ZoneIds) {
         this.ZoneIds = ZoneIds;
     }
 
     /**
-     * Get 域名集合 
-     * @return Domains 域名集合
+     * Get 域名集合，不填默认查询所有子域名。 
+     * @return Domains 域名集合，不填默认查询所有子域名。
      */
     public String [] getDomains() {
         return this.Domains;
     }
 
     /**
-     * Set 域名集合
-     * @param Domains 域名集合
+     * Set 域名集合，不填默认查询所有子域名。
+     * @param Domains 域名集合，不填默认查询所有子域名。
      */
     public void setDomains(String [] Domains) {
         this.Domains = Domains;
     }
 
     /**
-     * Get 查询条件 
-     * @return QueryCondition 查询条件
+     * Get 筛选条件，取值有：
+<li>action ：执行动作（处置方式）；</li>
+<li>sipCountryCode ：ip所在国家 ；</li>
+<li>attackIp ：攻击ip ；</li>
+<li>ruleId ：规则id ；</li>
+<li>eventId ：事件id ；</li>
+<li>ua ：用户代理 ；</li>
+<li>requestMethod ：请求方法 ；</li>
+<li>uri ：统一资源标识符 。</li> 
+     * @return QueryCondition 筛选条件，取值有：
+<li>action ：执行动作（处置方式）；</li>
+<li>sipCountryCode ：ip所在国家 ；</li>
+<li>attackIp ：攻击ip ；</li>
+<li>ruleId ：规则id ；</li>
+<li>eventId ：事件id ；</li>
+<li>ua ：用户代理 ；</li>
+<li>requestMethod ：请求方法 ；</li>
+<li>uri ：统一资源标识符 。</li>
      */
     public QueryCondition [] getQueryCondition() {
         return this.QueryCondition;
     }
 
     /**
-     * Set 查询条件
-     * @param QueryCondition 查询条件
+     * Set 筛选条件，取值有：
+<li>action ：执行动作（处置方式）；</li>
+<li>sipCountryCode ：ip所在国家 ；</li>
+<li>attackIp ：攻击ip ；</li>
+<li>ruleId ：规则id ；</li>
+<li>eventId ：事件id ；</li>
+<li>ua ：用户代理 ；</li>
+<li>requestMethod ：请求方法 ；</li>
+<li>uri ：统一资源标识符 。</li>
+     * @param QueryCondition 筛选条件，取值有：
+<li>action ：执行动作（处置方式）；</li>
+<li>sipCountryCode ：ip所在国家 ；</li>
+<li>attackIp ：攻击ip ；</li>
+<li>ruleId ：规则id ；</li>
+<li>eventId ：事件id ；</li>
+<li>ua ：用户代理 ；</li>
+<li>requestMethod ：请求方法 ；</li>
+<li>uri ：统一资源标识符 。</li>
      */
     public void setQueryCondition(QueryCondition [] QueryCondition) {
         this.QueryCondition = QueryCondition;
+    }
+
+    /**
+     * Get 数据归属地区，取值有：
+<li>overseas ：全球（除中国大陆地区）数据 ；</li>
+<li>mainland ：中国大陆地区数据 。</li>不填默认查询overseas。 
+     * @return Area 数据归属地区，取值有：
+<li>overseas ：全球（除中国大陆地区）数据 ；</li>
+<li>mainland ：中国大陆地区数据 。</li>不填默认查询overseas。
+     */
+    public String getArea() {
+        return this.Area;
+    }
+
+    /**
+     * Set 数据归属地区，取值有：
+<li>overseas ：全球（除中国大陆地区）数据 ；</li>
+<li>mainland ：中国大陆地区数据 。</li>不填默认查询overseas。
+     * @param Area 数据归属地区，取值有：
+<li>overseas ：全球（除中国大陆地区）数据 ；</li>
+<li>mainland ：中国大陆地区数据 。</li>不填默认查询overseas。
+     */
+    public void setArea(String Area) {
+        this.Area = Area;
     }
 
     public DescribeBotLogRequest() {
@@ -221,6 +294,9 @@ public class DescribeBotLogRequest extends AbstractModel{
                 this.QueryCondition[i] = new QueryCondition(source.QueryCondition[i]);
             }
         }
+        if (source.Area != null) {
+            this.Area = new String(source.Area);
+        }
     }
 
 
@@ -235,6 +311,7 @@ public class DescribeBotLogRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "ZoneIds.", this.ZoneIds);
         this.setParamArraySimple(map, prefix + "Domains.", this.Domains);
         this.setParamArrayObj(map, prefix + "QueryCondition.", this.QueryCondition);
+        this.setParamSimple(map, prefix + "Area", this.Area);
 
     }
 }

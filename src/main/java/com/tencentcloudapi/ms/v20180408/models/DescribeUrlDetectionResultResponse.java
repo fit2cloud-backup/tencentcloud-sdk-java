@@ -30,84 +30,97 @@ public class DescribeUrlDetectionResultResponse extends AbstractModel{
     private Long ResultCode;
 
     /**
-    * [固定信息]响应协议版本号；
+    * [固定信息]响应协议版本号
     */
     @SerializedName("RespVer")
     @Expose
     private Long RespVer;
 
     /**
-    * [查询结果]url恶意状态；枚举值：1-灰， 2-黑（具体的恶意类型参考恶意类型定义Eviltype字段) ，3-非腾讯白名单，4-腾讯白名单。查询结果（level、evilclass、eviltype）这3个字段在Urltype=2（url状态为黑）下才有意义。
+    * [查询结果]url恶意状态
+枚举值：
+0-1：未知，访问暂无风险。
+2 ：	风险网址，具体的恶意类型定义参考恶意大类EvilClass字段。
+3-4：安全，访问无风险。
+
+注意：查询结果EvilClass字段在Urltype=2时，才有意义。
     */
     @SerializedName("UrlType")
     @Expose
     private Long UrlType;
 
     /**
-    * [查询结果]url恶意大类；枚举值：1-链接，2-Cgi，3-路劲，4-整站，5-整域。
+    * [查询结果]url恶意类型大类:{
+    "1": "社工欺诈（仿冒、账号钓鱼、中奖诈骗）",
+    "2": "信息诈骗（虚假充值、虚假兼职、虚假金融投资、虚假信用卡代办、网络赌博诈骗）",
+    "3": "虚假销售（男女保健美容减肥产品、电子产品、虚假广告、违法销售）",
+    "4": "恶意文件（病毒文件，木马文件，恶意apk文件的下载链接以及站点，挂马网站）",
+    "5": "博彩网站（博彩网站，在线赌博网站）",
+    "6": "色情网站（涉嫌传播色情内容，提供色情服务的网站）"
+  }
     */
     @SerializedName("EvilClass")
     @Expose
     private Long EvilClass;
 
     /**
-    * [查询结果]url恶意类型；枚举值：1-社工欺诈（仿冒、账号钓鱼、中奖诈骗）；2-信息诈骗（虚假充值、虚假兼职、虚假金融投资、虚假信用卡代办、网络赌博诈骗；3-虚假销售（男女保健美容减肥产品、电子产品、虚假广告、违法销售）；4-恶意文件（病毒文件，木马文件，恶意apk文件的下载链接以及站点，挂马网站）；5-博彩网站（博彩网站，在线赌博网站）；6-色情网站（涉嫌传播色情内容，提供色情服务的网站；7-风险网站（弱类型，传播垃圾信息的网站, 如果客户端有阻断，不建议使用这个数据）；8-非法内容（根据法律法规不能传播的内容，主要为政治敏感内容，默认内部使用）
+    * 该字段暂为空
     */
     @SerializedName("EvilType")
     @Expose
     private Long EvilType;
 
     /**
-    * [查询结果]url恶意级别
+    * 该字段暂为空
     */
     @SerializedName("Level")
     @Expose
     private Long Level;
 
     /**
-    * [查询详情]url检出时间
+    * [查询详情]url检出时间；时间戳
     */
     @SerializedName("DetectTime")
     @Expose
     private Long DetectTime;
 
     /**
-    * [查询详情]拦截Wording
+    * 该字段暂为空
     */
     @SerializedName("Wording")
     @Expose
     private String Wording;
 
     /**
-    * [查询详情]拦截Wording 标题
+    * 该字段暂为空
     */
     @SerializedName("WordingTitle")
     @Expose
     private String WordingTitle;
 
     /**
-    * [查询结果]url恶意状态说明
+    * [查询结果]url恶意状态说明；为UrlType字段值对应的说明
     */
     @SerializedName("UrlTypeDesc")
     @Expose
     private String UrlTypeDesc;
 
     /**
-    * [查询结果]url恶意大类说明
+    * [查询结果]url恶意大类说明；为EvilClass字段值对应的说明
     */
     @SerializedName("EvilClassDesc")
     @Expose
     private String EvilClassDesc;
 
     /**
-    * [查询结果]url恶意类型说明
+    * 该字段暂为空
     */
     @SerializedName("EvilTypeDesc")
     @Expose
     private String EvilTypeDesc;
 
     /**
-    * [查询结果]url恶意级别说明
+    * 该字段暂为空
     */
     @SerializedName("LevelDesc")
     @Expose
@@ -137,192 +150,244 @@ public class DescribeUrlDetectionResultResponse extends AbstractModel{
     }
 
     /**
-     * Get [固定信息]响应协议版本号； 
-     * @return RespVer [固定信息]响应协议版本号；
+     * Get [固定信息]响应协议版本号 
+     * @return RespVer [固定信息]响应协议版本号
      */
     public Long getRespVer() {
         return this.RespVer;
     }
 
     /**
-     * Set [固定信息]响应协议版本号；
-     * @param RespVer [固定信息]响应协议版本号；
+     * Set [固定信息]响应协议版本号
+     * @param RespVer [固定信息]响应协议版本号
      */
     public void setRespVer(Long RespVer) {
         this.RespVer = RespVer;
     }
 
     /**
-     * Get [查询结果]url恶意状态；枚举值：1-灰， 2-黑（具体的恶意类型参考恶意类型定义Eviltype字段) ，3-非腾讯白名单，4-腾讯白名单。查询结果（level、evilclass、eviltype）这3个字段在Urltype=2（url状态为黑）下才有意义。 
-     * @return UrlType [查询结果]url恶意状态；枚举值：1-灰， 2-黑（具体的恶意类型参考恶意类型定义Eviltype字段) ，3-非腾讯白名单，4-腾讯白名单。查询结果（level、evilclass、eviltype）这3个字段在Urltype=2（url状态为黑）下才有意义。
+     * Get [查询结果]url恶意状态
+枚举值：
+0-1：未知，访问暂无风险。
+2 ：	风险网址，具体的恶意类型定义参考恶意大类EvilClass字段。
+3-4：安全，访问无风险。
+
+注意：查询结果EvilClass字段在Urltype=2时，才有意义。 
+     * @return UrlType [查询结果]url恶意状态
+枚举值：
+0-1：未知，访问暂无风险。
+2 ：	风险网址，具体的恶意类型定义参考恶意大类EvilClass字段。
+3-4：安全，访问无风险。
+
+注意：查询结果EvilClass字段在Urltype=2时，才有意义。
      */
     public Long getUrlType() {
         return this.UrlType;
     }
 
     /**
-     * Set [查询结果]url恶意状态；枚举值：1-灰， 2-黑（具体的恶意类型参考恶意类型定义Eviltype字段) ，3-非腾讯白名单，4-腾讯白名单。查询结果（level、evilclass、eviltype）这3个字段在Urltype=2（url状态为黑）下才有意义。
-     * @param UrlType [查询结果]url恶意状态；枚举值：1-灰， 2-黑（具体的恶意类型参考恶意类型定义Eviltype字段) ，3-非腾讯白名单，4-腾讯白名单。查询结果（level、evilclass、eviltype）这3个字段在Urltype=2（url状态为黑）下才有意义。
+     * Set [查询结果]url恶意状态
+枚举值：
+0-1：未知，访问暂无风险。
+2 ：	风险网址，具体的恶意类型定义参考恶意大类EvilClass字段。
+3-4：安全，访问无风险。
+
+注意：查询结果EvilClass字段在Urltype=2时，才有意义。
+     * @param UrlType [查询结果]url恶意状态
+枚举值：
+0-1：未知，访问暂无风险。
+2 ：	风险网址，具体的恶意类型定义参考恶意大类EvilClass字段。
+3-4：安全，访问无风险。
+
+注意：查询结果EvilClass字段在Urltype=2时，才有意义。
      */
     public void setUrlType(Long UrlType) {
         this.UrlType = UrlType;
     }
 
     /**
-     * Get [查询结果]url恶意大类；枚举值：1-链接，2-Cgi，3-路劲，4-整站，5-整域。 
-     * @return EvilClass [查询结果]url恶意大类；枚举值：1-链接，2-Cgi，3-路劲，4-整站，5-整域。
+     * Get [查询结果]url恶意类型大类:{
+    "1": "社工欺诈（仿冒、账号钓鱼、中奖诈骗）",
+    "2": "信息诈骗（虚假充值、虚假兼职、虚假金融投资、虚假信用卡代办、网络赌博诈骗）",
+    "3": "虚假销售（男女保健美容减肥产品、电子产品、虚假广告、违法销售）",
+    "4": "恶意文件（病毒文件，木马文件，恶意apk文件的下载链接以及站点，挂马网站）",
+    "5": "博彩网站（博彩网站，在线赌博网站）",
+    "6": "色情网站（涉嫌传播色情内容，提供色情服务的网站）"
+  } 
+     * @return EvilClass [查询结果]url恶意类型大类:{
+    "1": "社工欺诈（仿冒、账号钓鱼、中奖诈骗）",
+    "2": "信息诈骗（虚假充值、虚假兼职、虚假金融投资、虚假信用卡代办、网络赌博诈骗）",
+    "3": "虚假销售（男女保健美容减肥产品、电子产品、虚假广告、违法销售）",
+    "4": "恶意文件（病毒文件，木马文件，恶意apk文件的下载链接以及站点，挂马网站）",
+    "5": "博彩网站（博彩网站，在线赌博网站）",
+    "6": "色情网站（涉嫌传播色情内容，提供色情服务的网站）"
+  }
      */
     public Long getEvilClass() {
         return this.EvilClass;
     }
 
     /**
-     * Set [查询结果]url恶意大类；枚举值：1-链接，2-Cgi，3-路劲，4-整站，5-整域。
-     * @param EvilClass [查询结果]url恶意大类；枚举值：1-链接，2-Cgi，3-路劲，4-整站，5-整域。
+     * Set [查询结果]url恶意类型大类:{
+    "1": "社工欺诈（仿冒、账号钓鱼、中奖诈骗）",
+    "2": "信息诈骗（虚假充值、虚假兼职、虚假金融投资、虚假信用卡代办、网络赌博诈骗）",
+    "3": "虚假销售（男女保健美容减肥产品、电子产品、虚假广告、违法销售）",
+    "4": "恶意文件（病毒文件，木马文件，恶意apk文件的下载链接以及站点，挂马网站）",
+    "5": "博彩网站（博彩网站，在线赌博网站）",
+    "6": "色情网站（涉嫌传播色情内容，提供色情服务的网站）"
+  }
+     * @param EvilClass [查询结果]url恶意类型大类:{
+    "1": "社工欺诈（仿冒、账号钓鱼、中奖诈骗）",
+    "2": "信息诈骗（虚假充值、虚假兼职、虚假金融投资、虚假信用卡代办、网络赌博诈骗）",
+    "3": "虚假销售（男女保健美容减肥产品、电子产品、虚假广告、违法销售）",
+    "4": "恶意文件（病毒文件，木马文件，恶意apk文件的下载链接以及站点，挂马网站）",
+    "5": "博彩网站（博彩网站，在线赌博网站）",
+    "6": "色情网站（涉嫌传播色情内容，提供色情服务的网站）"
+  }
      */
     public void setEvilClass(Long EvilClass) {
         this.EvilClass = EvilClass;
     }
 
     /**
-     * Get [查询结果]url恶意类型；枚举值：1-社工欺诈（仿冒、账号钓鱼、中奖诈骗）；2-信息诈骗（虚假充值、虚假兼职、虚假金融投资、虚假信用卡代办、网络赌博诈骗；3-虚假销售（男女保健美容减肥产品、电子产品、虚假广告、违法销售）；4-恶意文件（病毒文件，木马文件，恶意apk文件的下载链接以及站点，挂马网站）；5-博彩网站（博彩网站，在线赌博网站）；6-色情网站（涉嫌传播色情内容，提供色情服务的网站；7-风险网站（弱类型，传播垃圾信息的网站, 如果客户端有阻断，不建议使用这个数据）；8-非法内容（根据法律法规不能传播的内容，主要为政治敏感内容，默认内部使用） 
-     * @return EvilType [查询结果]url恶意类型；枚举值：1-社工欺诈（仿冒、账号钓鱼、中奖诈骗）；2-信息诈骗（虚假充值、虚假兼职、虚假金融投资、虚假信用卡代办、网络赌博诈骗；3-虚假销售（男女保健美容减肥产品、电子产品、虚假广告、违法销售）；4-恶意文件（病毒文件，木马文件，恶意apk文件的下载链接以及站点，挂马网站）；5-博彩网站（博彩网站，在线赌博网站）；6-色情网站（涉嫌传播色情内容，提供色情服务的网站；7-风险网站（弱类型，传播垃圾信息的网站, 如果客户端有阻断，不建议使用这个数据）；8-非法内容（根据法律法规不能传播的内容，主要为政治敏感内容，默认内部使用）
+     * Get 该字段暂为空 
+     * @return EvilType 该字段暂为空
      */
     public Long getEvilType() {
         return this.EvilType;
     }
 
     /**
-     * Set [查询结果]url恶意类型；枚举值：1-社工欺诈（仿冒、账号钓鱼、中奖诈骗）；2-信息诈骗（虚假充值、虚假兼职、虚假金融投资、虚假信用卡代办、网络赌博诈骗；3-虚假销售（男女保健美容减肥产品、电子产品、虚假广告、违法销售）；4-恶意文件（病毒文件，木马文件，恶意apk文件的下载链接以及站点，挂马网站）；5-博彩网站（博彩网站，在线赌博网站）；6-色情网站（涉嫌传播色情内容，提供色情服务的网站；7-风险网站（弱类型，传播垃圾信息的网站, 如果客户端有阻断，不建议使用这个数据）；8-非法内容（根据法律法规不能传播的内容，主要为政治敏感内容，默认内部使用）
-     * @param EvilType [查询结果]url恶意类型；枚举值：1-社工欺诈（仿冒、账号钓鱼、中奖诈骗）；2-信息诈骗（虚假充值、虚假兼职、虚假金融投资、虚假信用卡代办、网络赌博诈骗；3-虚假销售（男女保健美容减肥产品、电子产品、虚假广告、违法销售）；4-恶意文件（病毒文件，木马文件，恶意apk文件的下载链接以及站点，挂马网站）；5-博彩网站（博彩网站，在线赌博网站）；6-色情网站（涉嫌传播色情内容，提供色情服务的网站；7-风险网站（弱类型，传播垃圾信息的网站, 如果客户端有阻断，不建议使用这个数据）；8-非法内容（根据法律法规不能传播的内容，主要为政治敏感内容，默认内部使用）
+     * Set 该字段暂为空
+     * @param EvilType 该字段暂为空
      */
     public void setEvilType(Long EvilType) {
         this.EvilType = EvilType;
     }
 
     /**
-     * Get [查询结果]url恶意级别 
-     * @return Level [查询结果]url恶意级别
+     * Get 该字段暂为空 
+     * @return Level 该字段暂为空
      */
     public Long getLevel() {
         return this.Level;
     }
 
     /**
-     * Set [查询结果]url恶意级别
-     * @param Level [查询结果]url恶意级别
+     * Set 该字段暂为空
+     * @param Level 该字段暂为空
      */
     public void setLevel(Long Level) {
         this.Level = Level;
     }
 
     /**
-     * Get [查询详情]url检出时间 
-     * @return DetectTime [查询详情]url检出时间
+     * Get [查询详情]url检出时间；时间戳 
+     * @return DetectTime [查询详情]url检出时间；时间戳
      */
     public Long getDetectTime() {
         return this.DetectTime;
     }
 
     /**
-     * Set [查询详情]url检出时间
-     * @param DetectTime [查询详情]url检出时间
+     * Set [查询详情]url检出时间；时间戳
+     * @param DetectTime [查询详情]url检出时间；时间戳
      */
     public void setDetectTime(Long DetectTime) {
         this.DetectTime = DetectTime;
     }
 
     /**
-     * Get [查询详情]拦截Wording 
-     * @return Wording [查询详情]拦截Wording
+     * Get 该字段暂为空 
+     * @return Wording 该字段暂为空
      */
     public String getWording() {
         return this.Wording;
     }
 
     /**
-     * Set [查询详情]拦截Wording
-     * @param Wording [查询详情]拦截Wording
+     * Set 该字段暂为空
+     * @param Wording 该字段暂为空
      */
     public void setWording(String Wording) {
         this.Wording = Wording;
     }
 
     /**
-     * Get [查询详情]拦截Wording 标题 
-     * @return WordingTitle [查询详情]拦截Wording 标题
+     * Get 该字段暂为空 
+     * @return WordingTitle 该字段暂为空
      */
     public String getWordingTitle() {
         return this.WordingTitle;
     }
 
     /**
-     * Set [查询详情]拦截Wording 标题
-     * @param WordingTitle [查询详情]拦截Wording 标题
+     * Set 该字段暂为空
+     * @param WordingTitle 该字段暂为空
      */
     public void setWordingTitle(String WordingTitle) {
         this.WordingTitle = WordingTitle;
     }
 
     /**
-     * Get [查询结果]url恶意状态说明 
-     * @return UrlTypeDesc [查询结果]url恶意状态说明
+     * Get [查询结果]url恶意状态说明；为UrlType字段值对应的说明 
+     * @return UrlTypeDesc [查询结果]url恶意状态说明；为UrlType字段值对应的说明
      */
     public String getUrlTypeDesc() {
         return this.UrlTypeDesc;
     }
 
     /**
-     * Set [查询结果]url恶意状态说明
-     * @param UrlTypeDesc [查询结果]url恶意状态说明
+     * Set [查询结果]url恶意状态说明；为UrlType字段值对应的说明
+     * @param UrlTypeDesc [查询结果]url恶意状态说明；为UrlType字段值对应的说明
      */
     public void setUrlTypeDesc(String UrlTypeDesc) {
         this.UrlTypeDesc = UrlTypeDesc;
     }
 
     /**
-     * Get [查询结果]url恶意大类说明 
-     * @return EvilClassDesc [查询结果]url恶意大类说明
+     * Get [查询结果]url恶意大类说明；为EvilClass字段值对应的说明 
+     * @return EvilClassDesc [查询结果]url恶意大类说明；为EvilClass字段值对应的说明
      */
     public String getEvilClassDesc() {
         return this.EvilClassDesc;
     }
 
     /**
-     * Set [查询结果]url恶意大类说明
-     * @param EvilClassDesc [查询结果]url恶意大类说明
+     * Set [查询结果]url恶意大类说明；为EvilClass字段值对应的说明
+     * @param EvilClassDesc [查询结果]url恶意大类说明；为EvilClass字段值对应的说明
      */
     public void setEvilClassDesc(String EvilClassDesc) {
         this.EvilClassDesc = EvilClassDesc;
     }
 
     /**
-     * Get [查询结果]url恶意类型说明 
-     * @return EvilTypeDesc [查询结果]url恶意类型说明
+     * Get 该字段暂为空 
+     * @return EvilTypeDesc 该字段暂为空
      */
     public String getEvilTypeDesc() {
         return this.EvilTypeDesc;
     }
 
     /**
-     * Set [查询结果]url恶意类型说明
-     * @param EvilTypeDesc [查询结果]url恶意类型说明
+     * Set 该字段暂为空
+     * @param EvilTypeDesc 该字段暂为空
      */
     public void setEvilTypeDesc(String EvilTypeDesc) {
         this.EvilTypeDesc = EvilTypeDesc;
     }
 
     /**
-     * Get [查询结果]url恶意级别说明 
-     * @return LevelDesc [查询结果]url恶意级别说明
+     * Get 该字段暂为空 
+     * @return LevelDesc 该字段暂为空
      */
     public String getLevelDesc() {
         return this.LevelDesc;
     }
 
     /**
-     * Set [查询结果]url恶意级别说明
-     * @param LevelDesc [查询结果]url恶意级别说明
+     * Set 该字段暂为空
+     * @param LevelDesc 该字段暂为空
      */
     public void setLevelDesc(String LevelDesc) {
         this.LevelDesc = LevelDesc;

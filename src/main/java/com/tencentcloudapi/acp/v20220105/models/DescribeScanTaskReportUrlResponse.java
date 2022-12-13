@@ -30,7 +30,7 @@ public class DescribeScanTaskReportUrlResponse extends AbstractModel{
     private Long Result;
 
     /**
-    * 诊断报告/堆栈信息下载链接
+    * 诊断报告/堆栈信息/报告json结果下载链接
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReportUrl")
@@ -38,12 +38,20 @@ public class DescribeScanTaskReportUrlResponse extends AbstractModel{
     private String ReportUrl;
 
     /**
-    * 诊断报告/堆栈名称
+    * 诊断报告/堆栈/报告json结果的名称
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReportTitle")
     @Expose
     private String ReportTitle;
+
+    /**
+    * 诊断json结果内容
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ReportResult")
+    @Expose
+    private String ReportResult;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -69,9 +77,9 @@ public class DescribeScanTaskReportUrlResponse extends AbstractModel{
     }
 
     /**
-     * Get 诊断报告/堆栈信息下载链接
+     * Get 诊断报告/堆栈信息/报告json结果下载链接
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ReportUrl 诊断报告/堆栈信息下载链接
+     * @return ReportUrl 诊断报告/堆栈信息/报告json结果下载链接
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getReportUrl() {
@@ -79,9 +87,9 @@ public class DescribeScanTaskReportUrlResponse extends AbstractModel{
     }
 
     /**
-     * Set 诊断报告/堆栈信息下载链接
+     * Set 诊断报告/堆栈信息/报告json结果下载链接
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ReportUrl 诊断报告/堆栈信息下载链接
+     * @param ReportUrl 诊断报告/堆栈信息/报告json结果下载链接
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReportUrl(String ReportUrl) {
@@ -89,9 +97,9 @@ public class DescribeScanTaskReportUrlResponse extends AbstractModel{
     }
 
     /**
-     * Get 诊断报告/堆栈名称
+     * Get 诊断报告/堆栈/报告json结果的名称
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ReportTitle 诊断报告/堆栈名称
+     * @return ReportTitle 诊断报告/堆栈/报告json结果的名称
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getReportTitle() {
@@ -99,13 +107,33 @@ public class DescribeScanTaskReportUrlResponse extends AbstractModel{
     }
 
     /**
-     * Set 诊断报告/堆栈名称
+     * Set 诊断报告/堆栈/报告json结果的名称
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ReportTitle 诊断报告/堆栈名称
+     * @param ReportTitle 诊断报告/堆栈/报告json结果的名称
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReportTitle(String ReportTitle) {
         this.ReportTitle = ReportTitle;
+    }
+
+    /**
+     * Get 诊断json结果内容
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ReportResult 诊断json结果内容
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getReportResult() {
+        return this.ReportResult;
+    }
+
+    /**
+     * Set 诊断json结果内容
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ReportResult 诊断json结果内容
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setReportResult(String ReportResult) {
+        this.ReportResult = ReportResult;
     }
 
     /**
@@ -141,6 +169,9 @@ public class DescribeScanTaskReportUrlResponse extends AbstractModel{
         if (source.ReportTitle != null) {
             this.ReportTitle = new String(source.ReportTitle);
         }
+        if (source.ReportResult != null) {
+            this.ReportResult = new String(source.ReportResult);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -154,6 +185,7 @@ public class DescribeScanTaskReportUrlResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "Result", this.Result);
         this.setParamSimple(map, prefix + "ReportUrl", this.ReportUrl);
         this.setParamSimple(map, prefix + "ReportTitle", this.ReportTitle);
+        this.setParamSimple(map, prefix + "ReportResult", this.ReportResult);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

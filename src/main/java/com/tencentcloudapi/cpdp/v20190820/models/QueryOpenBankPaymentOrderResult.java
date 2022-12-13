@@ -59,6 +59,8 @@ SUCCESS：支付成功
 CLOSED：关单
 PAY_FAIL：支付失败
 REVOKE：退票
+PART_REFUND：部分退款
+FULL_REFUND：全部退款
     */
     @SerializedName("OrderStatus")
     @Expose
@@ -151,6 +153,22 @@ OPENBANK_PAYMENT
     private Long FeeRate;
 
     /**
+    * 分账信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ProfitShareRespInfoList")
+    @Expose
+    private OpenBankProfitShareRespInfo [] ProfitShareRespInfoList;
+
+    /**
+    * 支付完成时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TimeFinish")
+    @Expose
+    private String TimeFinish;
+
+    /**
      * Get 渠道商户号。外部接入平台入驻云企付平台下发 
      * @return ChannelMerchantId 渠道商户号。外部接入平台入驻云企付平台下发
      */
@@ -222,7 +240,9 @@ ACCEPTED：支付受理成功
 SUCCESS：支付成功
 CLOSED：关单
 PAY_FAIL：支付失败
-REVOKE：退票 
+REVOKE：退票
+PART_REFUND：部分退款
+FULL_REFUND：全部退款 
      * @return OrderStatus 订单状态。
 INIT：初始化
 PAYING：支付中
@@ -231,6 +251,8 @@ SUCCESS：支付成功
 CLOSED：关单
 PAY_FAIL：支付失败
 REVOKE：退票
+PART_REFUND：部分退款
+FULL_REFUND：全部退款
      */
     public String getOrderStatus() {
         return this.OrderStatus;
@@ -245,6 +267,8 @@ SUCCESS：支付成功
 CLOSED：关单
 PAY_FAIL：支付失败
 REVOKE：退票
+PART_REFUND：部分退款
+FULL_REFUND：全部退款
      * @param OrderStatus 订单状态。
 INIT：初始化
 PAYING：支付中
@@ -253,6 +277,8 @@ SUCCESS：支付成功
 CLOSED：关单
 PAY_FAIL：支付失败
 REVOKE：退票
+PART_REFUND：部分退款
+FULL_REFUND：全部退款
      */
     public void setOrderStatus(String OrderStatus) {
         this.OrderStatus = OrderStatus;
@@ -470,6 +496,46 @@ OPENBANK_PAYMENT
         this.FeeRate = FeeRate;
     }
 
+    /**
+     * Get 分账信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ProfitShareRespInfoList 分账信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public OpenBankProfitShareRespInfo [] getProfitShareRespInfoList() {
+        return this.ProfitShareRespInfoList;
+    }
+
+    /**
+     * Set 分账信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ProfitShareRespInfoList 分账信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setProfitShareRespInfoList(OpenBankProfitShareRespInfo [] ProfitShareRespInfoList) {
+        this.ProfitShareRespInfoList = ProfitShareRespInfoList;
+    }
+
+    /**
+     * Get 支付完成时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TimeFinish 支付完成时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTimeFinish() {
+        return this.TimeFinish;
+    }
+
+    /**
+     * Set 支付完成时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TimeFinish 支付完成时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTimeFinish(String TimeFinish) {
+        this.TimeFinish = TimeFinish;
+    }
+
     public QueryOpenBankPaymentOrderResult() {
     }
 
@@ -526,6 +592,15 @@ OPENBANK_PAYMENT
         if (source.FeeRate != null) {
             this.FeeRate = new Long(source.FeeRate);
         }
+        if (source.ProfitShareRespInfoList != null) {
+            this.ProfitShareRespInfoList = new OpenBankProfitShareRespInfo[source.ProfitShareRespInfoList.length];
+            for (int i = 0; i < source.ProfitShareRespInfoList.length; i++) {
+                this.ProfitShareRespInfoList[i] = new OpenBankProfitShareRespInfo(source.ProfitShareRespInfoList[i]);
+            }
+        }
+        if (source.TimeFinish != null) {
+            this.TimeFinish = new String(source.TimeFinish);
+        }
     }
 
 
@@ -549,6 +624,8 @@ OPENBANK_PAYMENT
         this.setParamObj(map, prefix + "BankApprovalGuideInfo.", this.BankApprovalGuideInfo);
         this.setParamSimple(map, prefix + "FeeAmount", this.FeeAmount);
         this.setParamSimple(map, prefix + "FeeRate", this.FeeRate);
+        this.setParamArrayObj(map, prefix + "ProfitShareRespInfoList.", this.ProfitShareRespInfoList);
+        this.setParamSimple(map, prefix + "TimeFinish", this.TimeFinish);
 
     }
 }

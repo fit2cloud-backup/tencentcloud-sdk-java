@@ -23,23 +23,33 @@ import java.util.HashMap;
 public class SwitchConfig extends AbstractModel{
 
     /**
-    * Web类型的安全总开关：Web基础防护，自定义规则，速率限制
+    * Web类型的安全总开关生效范围，Waf，自定义规则，速率限制。
+1. on 开启
+2. off 关闭
     */
     @SerializedName("WebSwitch")
     @Expose
     private String WebSwitch;
 
     /**
-     * Get Web类型的安全总开关：Web基础防护，自定义规则，速率限制 
-     * @return WebSwitch Web类型的安全总开关：Web基础防护，自定义规则，速率限制
+     * Get Web类型的安全总开关生效范围，Waf，自定义规则，速率限制。
+1. on 开启
+2. off 关闭 
+     * @return WebSwitch Web类型的安全总开关生效范围，Waf，自定义规则，速率限制。
+1. on 开启
+2. off 关闭
      */
     public String getWebSwitch() {
         return this.WebSwitch;
     }
 
     /**
-     * Set Web类型的安全总开关：Web基础防护，自定义规则，速率限制
-     * @param WebSwitch Web类型的安全总开关：Web基础防护，自定义规则，速率限制
+     * Set Web类型的安全总开关生效范围，Waf，自定义规则，速率限制。
+1. on 开启
+2. off 关闭
+     * @param WebSwitch Web类型的安全总开关生效范围，Waf，自定义规则，速率限制。
+1. on 开启
+2. off 关闭
      */
     public void setWebSwitch(String WebSwitch) {
         this.WebSwitch = WebSwitch;

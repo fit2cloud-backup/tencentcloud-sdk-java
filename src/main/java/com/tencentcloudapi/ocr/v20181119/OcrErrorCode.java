@@ -24,6 +24,9 @@ public enum OcrErrorCode {
     // 身份证信息不合法（身份证号、姓名字段校验非法等）。
      FAILEDOPERATION_IDCARDINFOILLEGAL("FailedOperation.IdCardInfoIllegal"),
      
+    // 银行卡信息非法。
+     FAILEDOPERATION_ILLEGALBANKCARDERROR("FailedOperation.IllegalBankCardError"),
+     
     // 图片模糊。
      FAILEDOPERATION_IMAGEBLUR("FailedOperation.ImageBlur"),
      
@@ -42,7 +45,7 @@ public enum OcrErrorCode {
     // 图片尺寸过大，请参考输出参数中关于图片大小限制的说明。
      FAILEDOPERATION_IMAGESIZETOOLARGE("FailedOperation.ImageSizeTooLarge"),
      
-    // 发票数据不一致。
+    // 发票数据不一致。温馨提示：新版发票核验接口功能更完整，请尽快切换，如已切换请忽略。
      FAILEDOPERATION_INVOICEMISMATCH("FailedOperation.InvoiceMismatch"),
      
     // 输入的Language不支持。
@@ -50,6 +53,12 @@ public enum OcrErrorCode {
      
     // 照片中存在多张卡。
      FAILEDOPERATION_MULTICARDERROR("FailedOperation.MultiCardError"),
+     
+    // 非银行卡。
+     FAILEDOPERATION_NOBANKCARDERROR("FailedOperation.NoBankCardError"),
+     
+    // 非营业执照。
+     FAILEDOPERATION_NOBIZLICENSE("FailedOperation.NoBizLicense"),
      
     // 非香港身份证。
      FAILEDOPERATION_NOHKIDCARD("FailedOperation.NoHKIDCard"),
@@ -108,7 +117,7 @@ public enum OcrErrorCode {
     // 地区编码不存在。
      RESOURCENOTFOUND_NOAREACODE("ResourceNotFound.NoAreaCode"),
      
-    // 发票不存在。
+    // 发票不存在。温馨提示：新版发票核验接口功能更完整，请尽快切换，如已切换请忽略。
      RESOURCENOTFOUND_NOINVOICE("ResourceNotFound.NoInvoice"),
      
     // 不支持当天发票查询。

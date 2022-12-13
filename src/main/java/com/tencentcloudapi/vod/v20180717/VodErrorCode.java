@@ -36,6 +36,9 @@ public enum VodErrorCode {
     // 网络错误。
      FAILEDOPERATION_NETWORKERROR("FailedOperation.NetWorkError"),
      
+    // 无需做降码率处理。
+     FAILEDOPERATION_NONEEDTOREDUCEMEDIABITRATE("FailedOperation.NoNeedToReduceMediaBitrate"),
+     
     // 没有开通该接口使用权限。
      FAILEDOPERATION_NOPRIVILEGES("FailedOperation.NoPrivileges"),
      
@@ -599,6 +602,9 @@ public enum VodErrorCode {
      
     // 缺少参数错误。
      MISSINGPARAMETER("MissingParameter"),
+     
+    // 请求的次数超过了频率限制。
+     REQUESTLIMITEXCEEDED("RequestLimitExceeded"),
      
     // 资源不存在。
      RESOURCENOTFOUND("ResourceNotFound"),

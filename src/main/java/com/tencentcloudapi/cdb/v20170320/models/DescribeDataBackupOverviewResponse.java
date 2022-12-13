@@ -65,6 +65,34 @@ public class DescribeDataBackupOverviewResponse extends AbstractModel{
     private Long ManualBackupCount;
 
     /**
+    * 异地备份总容量。
+    */
+    @SerializedName("RemoteBackupVolume")
+    @Expose
+    private Long RemoteBackupVolume;
+
+    /**
+    * 异地备份总个数。
+    */
+    @SerializedName("RemoteBackupCount")
+    @Expose
+    private Long RemoteBackupCount;
+
+    /**
+    * 当前地域归档备份总容量。
+    */
+    @SerializedName("DataBackupArchiveVolume")
+    @Expose
+    private Long DataBackupArchiveVolume;
+
+    /**
+    * 当前地域归档备份总个数。
+    */
+    @SerializedName("DataBackupArchiveCount")
+    @Expose
+    private Long DataBackupArchiveCount;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -168,6 +196,70 @@ public class DescribeDataBackupOverviewResponse extends AbstractModel{
     }
 
     /**
+     * Get 异地备份总容量。 
+     * @return RemoteBackupVolume 异地备份总容量。
+     */
+    public Long getRemoteBackupVolume() {
+        return this.RemoteBackupVolume;
+    }
+
+    /**
+     * Set 异地备份总容量。
+     * @param RemoteBackupVolume 异地备份总容量。
+     */
+    public void setRemoteBackupVolume(Long RemoteBackupVolume) {
+        this.RemoteBackupVolume = RemoteBackupVolume;
+    }
+
+    /**
+     * Get 异地备份总个数。 
+     * @return RemoteBackupCount 异地备份总个数。
+     */
+    public Long getRemoteBackupCount() {
+        return this.RemoteBackupCount;
+    }
+
+    /**
+     * Set 异地备份总个数。
+     * @param RemoteBackupCount 异地备份总个数。
+     */
+    public void setRemoteBackupCount(Long RemoteBackupCount) {
+        this.RemoteBackupCount = RemoteBackupCount;
+    }
+
+    /**
+     * Get 当前地域归档备份总容量。 
+     * @return DataBackupArchiveVolume 当前地域归档备份总容量。
+     */
+    public Long getDataBackupArchiveVolume() {
+        return this.DataBackupArchiveVolume;
+    }
+
+    /**
+     * Set 当前地域归档备份总容量。
+     * @param DataBackupArchiveVolume 当前地域归档备份总容量。
+     */
+    public void setDataBackupArchiveVolume(Long DataBackupArchiveVolume) {
+        this.DataBackupArchiveVolume = DataBackupArchiveVolume;
+    }
+
+    /**
+     * Get 当前地域归档备份总个数。 
+     * @return DataBackupArchiveCount 当前地域归档备份总个数。
+     */
+    public Long getDataBackupArchiveCount() {
+        return this.DataBackupArchiveCount;
+    }
+
+    /**
+     * Set 当前地域归档备份总个数。
+     * @param DataBackupArchiveCount 当前地域归档备份总个数。
+     */
+    public void setDataBackupArchiveCount(Long DataBackupArchiveCount) {
+        this.DataBackupArchiveCount = DataBackupArchiveCount;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -209,6 +301,18 @@ public class DescribeDataBackupOverviewResponse extends AbstractModel{
         if (source.ManualBackupCount != null) {
             this.ManualBackupCount = new Long(source.ManualBackupCount);
         }
+        if (source.RemoteBackupVolume != null) {
+            this.RemoteBackupVolume = new Long(source.RemoteBackupVolume);
+        }
+        if (source.RemoteBackupCount != null) {
+            this.RemoteBackupCount = new Long(source.RemoteBackupCount);
+        }
+        if (source.DataBackupArchiveVolume != null) {
+            this.DataBackupArchiveVolume = new Long(source.DataBackupArchiveVolume);
+        }
+        if (source.DataBackupArchiveCount != null) {
+            this.DataBackupArchiveCount = new Long(source.DataBackupArchiveCount);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -225,6 +329,10 @@ public class DescribeDataBackupOverviewResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "AutoBackupCount", this.AutoBackupCount);
         this.setParamSimple(map, prefix + "ManualBackupVolume", this.ManualBackupVolume);
         this.setParamSimple(map, prefix + "ManualBackupCount", this.ManualBackupCount);
+        this.setParamSimple(map, prefix + "RemoteBackupVolume", this.RemoteBackupVolume);
+        this.setParamSimple(map, prefix + "RemoteBackupCount", this.RemoteBackupCount);
+        this.setParamSimple(map, prefix + "DataBackupArchiveVolume", this.DataBackupArchiveVolume);
+        this.setParamSimple(map, prefix + "DataBackupArchiveCount", this.DataBackupArchiveCount);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

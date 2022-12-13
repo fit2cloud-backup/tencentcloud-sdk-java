@@ -99,6 +99,26 @@ public class IcClient extends AbstractClient{
     }
 
     /**
+     *查询短信列表
+     * @param req DescribeSmsRequest
+     * @return DescribeSmsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeSmsResponse DescribeSms(DescribeSmsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeSmsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeSmsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeSms");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *编辑卡片备注
      * @param req ModifyUserCardRemarkRequest
      * @return ModifyUserCardRemarkResponse
@@ -111,6 +131,26 @@ public class IcClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<ModifyUserCardRemarkResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifyUserCardRemark");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *购买套外流量包
+     * @param req PayForExtendDataRequest
+     * @return PayForExtendDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public PayForExtendDataResponse PayForExtendData(PayForExtendDataRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<PayForExtendDataResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<PayForExtendDataResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "PayForExtendData");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

@@ -354,6 +354,20 @@ ORDER_RECEIVE_MODE_V_COMBINE - 虚拟合单支付
     private String OrderReceiveMode;
 
     /**
+    * 渠道方用户信息列表
+    */
+    @SerializedName("ExternalUserInfoList")
+    @Expose
+    private CloudExternalUserInfo [] ExternalUserInfoList;
+
+    /**
+    * 渠道透传数据列表
+    */
+    @SerializedName("ExternalAttachmentDataList")
+    @Expose
+    private CloudExternalAttachmentData [] ExternalAttachmentDataList;
+
+    /**
      * Get 米大师分配的支付主MidasAppId 
      * @return MidasAppId 米大师分配的支付主MidasAppId
      */
@@ -1221,6 +1235,38 @@ ORDER_RECEIVE_MODE_V_COMBINE - 虚拟合单支付
         this.OrderReceiveMode = OrderReceiveMode;
     }
 
+    /**
+     * Get 渠道方用户信息列表 
+     * @return ExternalUserInfoList 渠道方用户信息列表
+     */
+    public CloudExternalUserInfo [] getExternalUserInfoList() {
+        return this.ExternalUserInfoList;
+    }
+
+    /**
+     * Set 渠道方用户信息列表
+     * @param ExternalUserInfoList 渠道方用户信息列表
+     */
+    public void setExternalUserInfoList(CloudExternalUserInfo [] ExternalUserInfoList) {
+        this.ExternalUserInfoList = ExternalUserInfoList;
+    }
+
+    /**
+     * Get 渠道透传数据列表 
+     * @return ExternalAttachmentDataList 渠道透传数据列表
+     */
+    public CloudExternalAttachmentData [] getExternalAttachmentDataList() {
+        return this.ExternalAttachmentDataList;
+    }
+
+    /**
+     * Set 渠道透传数据列表
+     * @param ExternalAttachmentDataList 渠道透传数据列表
+     */
+    public void setExternalAttachmentDataList(CloudExternalAttachmentData [] ExternalAttachmentDataList) {
+        this.ExternalAttachmentDataList = ExternalAttachmentDataList;
+    }
+
     public UnifiedCloudOrderRequest() {
     }
 
@@ -1352,6 +1398,18 @@ ORDER_RECEIVE_MODE_V_COMBINE - 虚拟合单支付
         if (source.OrderReceiveMode != null) {
             this.OrderReceiveMode = new String(source.OrderReceiveMode);
         }
+        if (source.ExternalUserInfoList != null) {
+            this.ExternalUserInfoList = new CloudExternalUserInfo[source.ExternalUserInfoList.length];
+            for (int i = 0; i < source.ExternalUserInfoList.length; i++) {
+                this.ExternalUserInfoList[i] = new CloudExternalUserInfo(source.ExternalUserInfoList[i]);
+            }
+        }
+        if (source.ExternalAttachmentDataList != null) {
+            this.ExternalAttachmentDataList = new CloudExternalAttachmentData[source.ExternalAttachmentDataList.length];
+            for (int i = 0; i < source.ExternalAttachmentDataList.length; i++) {
+                this.ExternalAttachmentDataList[i] = new CloudExternalAttachmentData(source.ExternalAttachmentDataList[i]);
+            }
+        }
     }
 
 
@@ -1397,6 +1455,8 @@ ORDER_RECEIVE_MODE_V_COMBINE - 虚拟合单支付
         this.setParamObj(map, prefix + "ClientInfo.", this.ClientInfo);
         this.setParamArrayObj(map, prefix + "ExternalPromptGroupList.", this.ExternalPromptGroupList);
         this.setParamSimple(map, prefix + "OrderReceiveMode", this.OrderReceiveMode);
+        this.setParamArrayObj(map, prefix + "ExternalUserInfoList.", this.ExternalUserInfoList);
+        this.setParamArrayObj(map, prefix + "ExternalAttachmentDataList.", this.ExternalAttachmentDataList);
 
     }
 }

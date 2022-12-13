@@ -359,6 +359,26 @@ public class AntiddosClient extends AbstractClient{
     }
 
     /**
+     *添加7层转发规则
+     * @param req CreateNewL7RulesRequest
+     * @return CreateNewL7RulesResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateNewL7RulesResponse CreateNewL7Rules(CreateNewL7RulesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateNewL7RulesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateNewL7RulesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateNewL7Rules");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *添加DDoS防护的特征过滤规则
      * @param req CreatePacketFilterConfigRequest
      * @return CreatePacketFilterConfigResponse
@@ -491,26 +511,6 @@ public class AntiddosClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<CreateWaterPrintKeyResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "CreateWaterPrintKey");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *删除DDoS防护的IP黑白名单
-     * @param req DeleteBlackWhiteIpListRequest
-     * @return DeleteBlackWhiteIpListResponse
-     * @throws TencentCloudSDKException
-     */
-    public DeleteBlackWhiteIpListResponse DeleteBlackWhiteIpList(DeleteBlackWhiteIpListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteBlackWhiteIpListResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteBlackWhiteIpListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteBlackWhiteIpList");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -791,6 +791,26 @@ public class AntiddosClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeBasicDeviceStatusResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeBasicDeviceStatus");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取高防包流量折线图
+     * @param req DescribeBgpBizTrendRequest
+     * @return DescribeBgpBizTrendResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeBgpBizTrendResponse DescribeBgpBizTrend(DescribeBgpBizTrendRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeBgpBizTrendResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeBgpBizTrendResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeBgpBizTrend");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1381,6 +1401,46 @@ public class AntiddosClient extends AbstractClient{
     }
 
     /**
+     *高防IP获取7层规则
+     * @param req DescribeNewL7RulesRequest
+     * @return DescribeNewL7RulesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeNewL7RulesResponse DescribeNewL7Rules(DescribeNewL7RulesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeNewL7RulesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeNewL7RulesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeNewL7Rules");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取L7转发规则健康检查异常结果列表
+     * @param req DescribeNewL7RulesErrHealthRequest
+     * @return DescribeNewL7RulesErrHealthResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeNewL7RulesErrHealthResponse DescribeNewL7RulesErrHealth(DescribeNewL7RulesErrHealthRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeNewL7RulesErrHealthResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeNewL7RulesErrHealthResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeNewL7RulesErrHealth");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *拉取防护概览攻击趋势
      * @param req DescribeOverviewAttackTrendRequest
      * @return DescribeOverviewAttackTrendResponse
@@ -1473,6 +1533,26 @@ public class AntiddosClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeOverviewIndexResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeOverviewIndex");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询账号维度待处理风险信息，包括是否为付费用户，查询攻击中、封堵中、过期资源数量等
+     * @param req DescribePendingRiskInfoRequest
+     * @return DescribePendingRiskInfoResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribePendingRiskInfoResponse DescribePendingRiskInfo(DescribePendingRiskInfoRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribePendingRiskInfoResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribePendingRiskInfoResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribePendingRiskInfo");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1713,26 +1793,6 @@ public class AntiddosClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<ModifyDomainUsrNameResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifyDomainUsrName");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *修改边界防护L7转发规则
-     * @param req ModifyL7RulesEdgeRequest
-     * @return ModifyL7RulesEdgeResponse
-     * @throws TencentCloudSDKException
-     */
-    public ModifyL7RulesEdgeResponse ModifyL7RulesEdge(ModifyL7RulesEdgeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyL7RulesEdgeResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyL7RulesEdgeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyL7RulesEdge");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

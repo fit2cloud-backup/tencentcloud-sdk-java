@@ -30,14 +30,14 @@ public class TransmitOralProcessWithInitResponse extends AbstractModel{
     private Float PronAccuracy;
 
     /**
-    * 发音流利度，取值范围[0, 1]，当为词模式时，取值无意义；当为流式模式且请求中IsEnd未置1时，取值无意义
+    * 发音流利度，取值范围[0, 1]，当为词模式时，取值无意义；当为流式模式且请求中IsEnd未置1时，取值无意义。取值无意义时，值为-1
     */
     @SerializedName("PronFluency")
     @Expose
     private Float PronFluency;
 
     /**
-    * 发音完整度，取值范围[0, 1]，当为词模式时，取值无意义；当为流式模式且请求中IsEnd未置1时，取值无意义
+    * 发音完整度，取值范围[0, 1]，当为词模式或自由说模式时，取值无意义；当为流式模式且请求中IsEnd未置1时，取值无意义。取值无意义时，值为-1
     */
     @SerializedName("PronCompletion")
     @Expose
@@ -58,7 +58,7 @@ public class TransmitOralProcessWithInitResponse extends AbstractModel{
     private String SessionId;
 
     /**
-    * 保存语音音频文件下载地址
+    * 已废弃，不再保存语音音频文件下载地址
     */
     @SerializedName("AudioUrl")
     @Expose
@@ -86,6 +86,30 @@ public class TransmitOralProcessWithInitResponse extends AbstractModel{
     private Float SuggestedScore;
 
     /**
+    * 匹配候选文本的序号，在句子多分支、情景对 话、段落模式下表示匹配到的文本序号
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RefTextId")
+    @Expose
+    private Long RefTextId;
+
+    /**
+    * 主题词命中标志，0表示没命中，1表示命中
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("KeyWordHits")
+    @Expose
+    private Float [] KeyWordHits;
+
+    /**
+    * 负向主题词命中标志，0表示没命中，1表示命中
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UnKeyWordHits")
+    @Expose
+    private Float [] UnKeyWordHits;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -109,32 +133,32 @@ public class TransmitOralProcessWithInitResponse extends AbstractModel{
     }
 
     /**
-     * Get 发音流利度，取值范围[0, 1]，当为词模式时，取值无意义；当为流式模式且请求中IsEnd未置1时，取值无意义 
-     * @return PronFluency 发音流利度，取值范围[0, 1]，当为词模式时，取值无意义；当为流式模式且请求中IsEnd未置1时，取值无意义
+     * Get 发音流利度，取值范围[0, 1]，当为词模式时，取值无意义；当为流式模式且请求中IsEnd未置1时，取值无意义。取值无意义时，值为-1 
+     * @return PronFluency 发音流利度，取值范围[0, 1]，当为词模式时，取值无意义；当为流式模式且请求中IsEnd未置1时，取值无意义。取值无意义时，值为-1
      */
     public Float getPronFluency() {
         return this.PronFluency;
     }
 
     /**
-     * Set 发音流利度，取值范围[0, 1]，当为词模式时，取值无意义；当为流式模式且请求中IsEnd未置1时，取值无意义
-     * @param PronFluency 发音流利度，取值范围[0, 1]，当为词模式时，取值无意义；当为流式模式且请求中IsEnd未置1时，取值无意义
+     * Set 发音流利度，取值范围[0, 1]，当为词模式时，取值无意义；当为流式模式且请求中IsEnd未置1时，取值无意义。取值无意义时，值为-1
+     * @param PronFluency 发音流利度，取值范围[0, 1]，当为词模式时，取值无意义；当为流式模式且请求中IsEnd未置1时，取值无意义。取值无意义时，值为-1
      */
     public void setPronFluency(Float PronFluency) {
         this.PronFluency = PronFluency;
     }
 
     /**
-     * Get 发音完整度，取值范围[0, 1]，当为词模式时，取值无意义；当为流式模式且请求中IsEnd未置1时，取值无意义 
-     * @return PronCompletion 发音完整度，取值范围[0, 1]，当为词模式时，取值无意义；当为流式模式且请求中IsEnd未置1时，取值无意义
+     * Get 发音完整度，取值范围[0, 1]，当为词模式或自由说模式时，取值无意义；当为流式模式且请求中IsEnd未置1时，取值无意义。取值无意义时，值为-1 
+     * @return PronCompletion 发音完整度，取值范围[0, 1]，当为词模式或自由说模式时，取值无意义；当为流式模式且请求中IsEnd未置1时，取值无意义。取值无意义时，值为-1
      */
     public Float getPronCompletion() {
         return this.PronCompletion;
     }
 
     /**
-     * Set 发音完整度，取值范围[0, 1]，当为词模式时，取值无意义；当为流式模式且请求中IsEnd未置1时，取值无意义
-     * @param PronCompletion 发音完整度，取值范围[0, 1]，当为词模式时，取值无意义；当为流式模式且请求中IsEnd未置1时，取值无意义
+     * Set 发音完整度，取值范围[0, 1]，当为词模式或自由说模式时，取值无意义；当为流式模式且请求中IsEnd未置1时，取值无意义。取值无意义时，值为-1
+     * @param PronCompletion 发音完整度，取值范围[0, 1]，当为词模式或自由说模式时，取值无意义；当为流式模式且请求中IsEnd未置1时，取值无意义。取值无意义时，值为-1
      */
     public void setPronCompletion(Float PronCompletion) {
         this.PronCompletion = PronCompletion;
@@ -173,16 +197,16 @@ public class TransmitOralProcessWithInitResponse extends AbstractModel{
     }
 
     /**
-     * Get 保存语音音频文件下载地址 
-     * @return AudioUrl 保存语音音频文件下载地址
+     * Get 已废弃，不再保存语音音频文件下载地址 
+     * @return AudioUrl 已废弃，不再保存语音音频文件下载地址
      */
     public String getAudioUrl() {
         return this.AudioUrl;
     }
 
     /**
-     * Set 保存语音音频文件下载地址
-     * @param AudioUrl 保存语音音频文件下载地址
+     * Set 已废弃，不再保存语音音频文件下载地址
+     * @param AudioUrl 已废弃，不再保存语音音频文件下载地址
      */
     public void setAudioUrl(String AudioUrl) {
         this.AudioUrl = AudioUrl;
@@ -234,6 +258,66 @@ public class TransmitOralProcessWithInitResponse extends AbstractModel{
      */
     public void setSuggestedScore(Float SuggestedScore) {
         this.SuggestedScore = SuggestedScore;
+    }
+
+    /**
+     * Get 匹配候选文本的序号，在句子多分支、情景对 话、段落模式下表示匹配到的文本序号
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RefTextId 匹配候选文本的序号，在句子多分支、情景对 话、段落模式下表示匹配到的文本序号
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getRefTextId() {
+        return this.RefTextId;
+    }
+
+    /**
+     * Set 匹配候选文本的序号，在句子多分支、情景对 话、段落模式下表示匹配到的文本序号
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RefTextId 匹配候选文本的序号，在句子多分支、情景对 话、段落模式下表示匹配到的文本序号
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRefTextId(Long RefTextId) {
+        this.RefTextId = RefTextId;
+    }
+
+    /**
+     * Get 主题词命中标志，0表示没命中，1表示命中
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return KeyWordHits 主题词命中标志，0表示没命中，1表示命中
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Float [] getKeyWordHits() {
+        return this.KeyWordHits;
+    }
+
+    /**
+     * Set 主题词命中标志，0表示没命中，1表示命中
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param KeyWordHits 主题词命中标志，0表示没命中，1表示命中
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setKeyWordHits(Float [] KeyWordHits) {
+        this.KeyWordHits = KeyWordHits;
+    }
+
+    /**
+     * Get 负向主题词命中标志，0表示没命中，1表示命中
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UnKeyWordHits 负向主题词命中标志，0表示没命中，1表示命中
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Float [] getUnKeyWordHits() {
+        return this.UnKeyWordHits;
+    }
+
+    /**
+     * Set 负向主题词命中标志，0表示没命中，1表示命中
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UnKeyWordHits 负向主题词命中标志，0表示没命中，1表示命中
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUnKeyWordHits(Float [] UnKeyWordHits) {
+        this.UnKeyWordHits = UnKeyWordHits;
     }
 
     /**
@@ -293,6 +377,21 @@ public class TransmitOralProcessWithInitResponse extends AbstractModel{
         if (source.SuggestedScore != null) {
             this.SuggestedScore = new Float(source.SuggestedScore);
         }
+        if (source.RefTextId != null) {
+            this.RefTextId = new Long(source.RefTextId);
+        }
+        if (source.KeyWordHits != null) {
+            this.KeyWordHits = new Float[source.KeyWordHits.length];
+            for (int i = 0; i < source.KeyWordHits.length; i++) {
+                this.KeyWordHits[i] = new Float(source.KeyWordHits[i]);
+            }
+        }
+        if (source.UnKeyWordHits != null) {
+            this.UnKeyWordHits = new Float[source.UnKeyWordHits.length];
+            for (int i = 0; i < source.UnKeyWordHits.length; i++) {
+                this.UnKeyWordHits[i] = new Float(source.UnKeyWordHits[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -312,6 +411,9 @@ public class TransmitOralProcessWithInitResponse extends AbstractModel{
         this.setParamArrayObj(map, prefix + "SentenceInfoSet.", this.SentenceInfoSet);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "SuggestedScore", this.SuggestedScore);
+        this.setParamSimple(map, prefix + "RefTextId", this.RefTextId);
+        this.setParamArraySimple(map, prefix + "KeyWordHits.", this.KeyWordHits);
+        this.setParamArraySimple(map, prefix + "UnKeyWordHits.", this.UnKeyWordHits);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

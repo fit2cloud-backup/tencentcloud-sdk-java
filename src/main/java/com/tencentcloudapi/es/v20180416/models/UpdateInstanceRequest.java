@@ -59,7 +59,7 @@ public class UpdateInstanceRequest extends AbstractModel{
     private String Password;
 
     /**
-    * 访问控制列表
+    * 可视化组件（Kibana、Cerebro）的公网访问策略
     */
     @SerializedName("EsAcl")
     @Expose
@@ -127,7 +127,9 @@ public class UpdateInstanceRequest extends AbstractModel{
     private NodeInfo [] NodeInfoList;
 
     /**
-    * 公网访问状态
+    * ES集群公网访问状态
+OPEN 开启
+CLOSE 关闭
     */
     @SerializedName("PublicAccess")
     @Expose
@@ -142,6 +144,8 @@ public class UpdateInstanceRequest extends AbstractModel{
 
     /**
     * Kibana公网访问状态
+OPEN 开启
+CLOSE 关闭
     */
     @SerializedName("KibanaPublicAccess")
     @Expose
@@ -149,6 +153,8 @@ public class UpdateInstanceRequest extends AbstractModel{
 
     /**
     * Kibana内网访问状态
+OPEN 开启
+CLOSE 关闭
     */
     @SerializedName("KibanaPrivateAccess")
     @Expose
@@ -219,6 +225,8 @@ public class UpdateInstanceRequest extends AbstractModel{
 
     /**
     * Cerebro公网访问状态
+OPEN 开启
+CLOSE 关闭
     */
     @SerializedName("CerebroPublicAccess")
     @Expose
@@ -226,6 +234,8 @@ public class UpdateInstanceRequest extends AbstractModel{
 
     /**
     * Cerebro内网访问状态
+OPEN 开启
+CLOSE 关闭
     */
     @SerializedName("CerebroPrivateAccess")
     @Expose
@@ -237,6 +247,22 @@ public class UpdateInstanceRequest extends AbstractModel{
     @SerializedName("EsConfigSet")
     @Expose
     private EsConfigSetInfo EsConfigSet;
+
+    /**
+    * 可维护时间段
+    */
+    @SerializedName("OperationDuration")
+    @Expose
+    private OperationDurationUpdated OperationDuration;
+
+    /**
+    * 是否开启Alerting 外网告警输出：
+OPEN 开启
+CLOSE 关闭
+    */
+    @SerializedName("KibanaAlteringPublicAccess")
+    @Expose
+    private String KibanaAlteringPublicAccess;
 
     /**
      * Get 实例ID 
@@ -323,16 +349,16 @@ public class UpdateInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 访问控制列表 
-     * @return EsAcl 访问控制列表
+     * Get 可视化组件（Kibana、Cerebro）的公网访问策略 
+     * @return EsAcl 可视化组件（Kibana、Cerebro）的公网访问策略
      */
     public EsAcl getEsAcl() {
         return this.EsAcl;
     }
 
     /**
-     * Set 访问控制列表
-     * @param EsAcl 访问控制列表
+     * Set 可视化组件（Kibana、Cerebro）的公网访问策略
+     * @param EsAcl 可视化组件（Kibana、Cerebro）的公网访问策略
      */
     public void setEsAcl(EsAcl EsAcl) {
         this.EsAcl = EsAcl;
@@ -487,16 +513,24 @@ public class UpdateInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 公网访问状态 
-     * @return PublicAccess 公网访问状态
+     * Get ES集群公网访问状态
+OPEN 开启
+CLOSE 关闭 
+     * @return PublicAccess ES集群公网访问状态
+OPEN 开启
+CLOSE 关闭
      */
     public String getPublicAccess() {
         return this.PublicAccess;
     }
 
     /**
-     * Set 公网访问状态
-     * @param PublicAccess 公网访问状态
+     * Set ES集群公网访问状态
+OPEN 开启
+CLOSE 关闭
+     * @param PublicAccess ES集群公网访问状态
+OPEN 开启
+CLOSE 关闭
      */
     public void setPublicAccess(String PublicAccess) {
         this.PublicAccess = PublicAccess;
@@ -519,8 +553,12 @@ public class UpdateInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get Kibana公网访问状态 
+     * Get Kibana公网访问状态
+OPEN 开启
+CLOSE 关闭 
      * @return KibanaPublicAccess Kibana公网访问状态
+OPEN 开启
+CLOSE 关闭
      */
     public String getKibanaPublicAccess() {
         return this.KibanaPublicAccess;
@@ -528,15 +566,23 @@ public class UpdateInstanceRequest extends AbstractModel{
 
     /**
      * Set Kibana公网访问状态
+OPEN 开启
+CLOSE 关闭
      * @param KibanaPublicAccess Kibana公网访问状态
+OPEN 开启
+CLOSE 关闭
      */
     public void setKibanaPublicAccess(String KibanaPublicAccess) {
         this.KibanaPublicAccess = KibanaPublicAccess;
     }
 
     /**
-     * Get Kibana内网访问状态 
+     * Get Kibana内网访问状态
+OPEN 开启
+CLOSE 关闭 
      * @return KibanaPrivateAccess Kibana内网访问状态
+OPEN 开启
+CLOSE 关闭
      */
     public String getKibanaPrivateAccess() {
         return this.KibanaPrivateAccess;
@@ -544,7 +590,11 @@ public class UpdateInstanceRequest extends AbstractModel{
 
     /**
      * Set Kibana内网访问状态
+OPEN 开启
+CLOSE 关闭
      * @param KibanaPrivateAccess Kibana内网访问状态
+OPEN 开启
+CLOSE 关闭
      */
     public void setKibanaPrivateAccess(String KibanaPrivateAccess) {
         this.KibanaPrivateAccess = KibanaPrivateAccess;
@@ -695,8 +745,12 @@ public class UpdateInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get Cerebro公网访问状态 
+     * Get Cerebro公网访问状态
+OPEN 开启
+CLOSE 关闭 
      * @return CerebroPublicAccess Cerebro公网访问状态
+OPEN 开启
+CLOSE 关闭
      */
     public String getCerebroPublicAccess() {
         return this.CerebroPublicAccess;
@@ -704,15 +758,23 @@ public class UpdateInstanceRequest extends AbstractModel{
 
     /**
      * Set Cerebro公网访问状态
+OPEN 开启
+CLOSE 关闭
      * @param CerebroPublicAccess Cerebro公网访问状态
+OPEN 开启
+CLOSE 关闭
      */
     public void setCerebroPublicAccess(String CerebroPublicAccess) {
         this.CerebroPublicAccess = CerebroPublicAccess;
     }
 
     /**
-     * Get Cerebro内网访问状态 
+     * Get Cerebro内网访问状态
+OPEN 开启
+CLOSE 关闭 
      * @return CerebroPrivateAccess Cerebro内网访问状态
+OPEN 开启
+CLOSE 关闭
      */
     public String getCerebroPrivateAccess() {
         return this.CerebroPrivateAccess;
@@ -720,7 +782,11 @@ public class UpdateInstanceRequest extends AbstractModel{
 
     /**
      * Set Cerebro内网访问状态
+OPEN 开启
+CLOSE 关闭
      * @param CerebroPrivateAccess Cerebro内网访问状态
+OPEN 开启
+CLOSE 关闭
      */
     public void setCerebroPrivateAccess(String CerebroPrivateAccess) {
         this.CerebroPrivateAccess = CerebroPrivateAccess;
@@ -740,6 +806,46 @@ public class UpdateInstanceRequest extends AbstractModel{
      */
     public void setEsConfigSet(EsConfigSetInfo EsConfigSet) {
         this.EsConfigSet = EsConfigSet;
+    }
+
+    /**
+     * Get 可维护时间段 
+     * @return OperationDuration 可维护时间段
+     */
+    public OperationDurationUpdated getOperationDuration() {
+        return this.OperationDuration;
+    }
+
+    /**
+     * Set 可维护时间段
+     * @param OperationDuration 可维护时间段
+     */
+    public void setOperationDuration(OperationDurationUpdated OperationDuration) {
+        this.OperationDuration = OperationDuration;
+    }
+
+    /**
+     * Get 是否开启Alerting 外网告警输出：
+OPEN 开启
+CLOSE 关闭 
+     * @return KibanaAlteringPublicAccess 是否开启Alerting 外网告警输出：
+OPEN 开启
+CLOSE 关闭
+     */
+    public String getKibanaAlteringPublicAccess() {
+        return this.KibanaAlteringPublicAccess;
+    }
+
+    /**
+     * Set 是否开启Alerting 外网告警输出：
+OPEN 开启
+CLOSE 关闭
+     * @param KibanaAlteringPublicAccess 是否开启Alerting 外网告警输出：
+OPEN 开启
+CLOSE 关闭
+     */
+    public void setKibanaAlteringPublicAccess(String KibanaAlteringPublicAccess) {
+        this.KibanaAlteringPublicAccess = KibanaAlteringPublicAccess;
     }
 
     public UpdateInstanceRequest() {
@@ -846,6 +952,12 @@ public class UpdateInstanceRequest extends AbstractModel{
         if (source.EsConfigSet != null) {
             this.EsConfigSet = new EsConfigSetInfo(source.EsConfigSet);
         }
+        if (source.OperationDuration != null) {
+            this.OperationDuration = new OperationDurationUpdated(source.OperationDuration);
+        }
+        if (source.KibanaAlteringPublicAccess != null) {
+            this.KibanaAlteringPublicAccess = new String(source.KibanaAlteringPublicAccess);
+        }
     }
 
 
@@ -883,6 +995,8 @@ public class UpdateInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "CerebroPublicAccess", this.CerebroPublicAccess);
         this.setParamSimple(map, prefix + "CerebroPrivateAccess", this.CerebroPrivateAccess);
         this.setParamObj(map, prefix + "EsConfigSet.", this.EsConfigSet);
+        this.setParamObj(map, prefix + "OperationDuration.", this.OperationDuration);
+        this.setParamSimple(map, prefix + "KibanaAlteringPublicAccess", this.KibanaAlteringPublicAccess);
 
     }
 }

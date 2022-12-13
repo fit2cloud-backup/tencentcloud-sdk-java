@@ -23,21 +23,21 @@ import java.util.HashMap;
 public class DescribeDBSecurityGroupsResponse extends AbstractModel{
 
     /**
-    * 安全组规则
+    * 安全组规则。
     */
     @SerializedName("Groups")
     @Expose
     private SecurityGroup [] Groups;
 
     /**
-    * 安全组生效内网地址
+    * 安全组生效内网地址。
     */
     @SerializedName("VIP")
     @Expose
     private String VIP;
 
     /**
-    * 安全组生效内网端口
+    * 安全组生效内网端口。
     */
     @SerializedName("VPort")
     @Expose
@@ -51,48 +51,48 @@ public class DescribeDBSecurityGroupsResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 安全组规则 
-     * @return Groups 安全组规则
+     * Get 安全组规则。 
+     * @return Groups 安全组规则。
      */
     public SecurityGroup [] getGroups() {
         return this.Groups;
     }
 
     /**
-     * Set 安全组规则
-     * @param Groups 安全组规则
+     * Set 安全组规则。
+     * @param Groups 安全组规则。
      */
     public void setGroups(SecurityGroup [] Groups) {
         this.Groups = Groups;
     }
 
     /**
-     * Get 安全组生效内网地址 
-     * @return VIP 安全组生效内网地址
+     * Get 安全组生效内网地址。 
+     * @return VIP 安全组生效内网地址。
      */
     public String getVIP() {
         return this.VIP;
     }
 
     /**
-     * Set 安全组生效内网地址
-     * @param VIP 安全组生效内网地址
+     * Set 安全组生效内网地址。
+     * @param VIP 安全组生效内网地址。
      */
     public void setVIP(String VIP) {
         this.VIP = VIP;
     }
 
     /**
-     * Get 安全组生效内网端口 
-     * @return VPort 安全组生效内网端口
+     * Get 安全组生效内网端口。 
+     * @return VPort 安全组生效内网端口。
      */
     public String getVPort() {
         return this.VPort;
     }
 
     /**
-     * Set 安全组生效内网端口
-     * @param VPort 安全组生效内网端口
+     * Set 安全组生效内网端口。
+     * @param VPort 安全组生效内网端口。
      */
     public void setVPort(String VPort) {
         this.VPort = VPort;

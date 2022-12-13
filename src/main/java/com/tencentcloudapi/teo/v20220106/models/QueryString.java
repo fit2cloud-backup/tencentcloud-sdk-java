@@ -23,16 +23,18 @@ import java.util.HashMap;
 public class QueryString extends AbstractModel{
 
     /**
-    * on | off CacheKey是否由QueryString组成
-注意：此字段可能返回 null，表示取不到有效值。
+    * CacheKey是否由QueryString组成，取值有：
+<li>on：是；</li>
+<li>off：否。</li>
     */
     @SerializedName("Switch")
     @Expose
     private String Switch;
 
     /**
-    * includeCustom:使用部分url参数
-excludeCustom:排除部分url参数
+    * CacheKey使用QueryString的方式，取值有：
+<li>includeCustom：使用部分url参数；</li>
+<li>excludeCustom：排除部分url参数。</li>
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Action")
@@ -40,7 +42,7 @@ excludeCustom:排除部分url参数
     private String Action;
 
     /**
-    * 使用/排除的url参数数组
+    * 使用/排除的url参数数组。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Value")
@@ -48,31 +50,37 @@ excludeCustom:排除部分url参数
     private String [] Value;
 
     /**
-     * Get on | off CacheKey是否由QueryString组成
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Switch on | off CacheKey是否由QueryString组成
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get CacheKey是否由QueryString组成，取值有：
+<li>on：是；</li>
+<li>off：否。</li> 
+     * @return Switch CacheKey是否由QueryString组成，取值有：
+<li>on：是；</li>
+<li>off：否。</li>
      */
     public String getSwitch() {
         return this.Switch;
     }
 
     /**
-     * Set on | off CacheKey是否由QueryString组成
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Switch on | off CacheKey是否由QueryString组成
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set CacheKey是否由QueryString组成，取值有：
+<li>on：是；</li>
+<li>off：否。</li>
+     * @param Switch CacheKey是否由QueryString组成，取值有：
+<li>on：是；</li>
+<li>off：否。</li>
      */
     public void setSwitch(String Switch) {
         this.Switch = Switch;
     }
 
     /**
-     * Get includeCustom:使用部分url参数
-excludeCustom:排除部分url参数
+     * Get CacheKey使用QueryString的方式，取值有：
+<li>includeCustom：使用部分url参数；</li>
+<li>excludeCustom：排除部分url参数。</li>
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Action includeCustom:使用部分url参数
-excludeCustom:排除部分url参数
+     * @return Action CacheKey使用QueryString的方式，取值有：
+<li>includeCustom：使用部分url参数；</li>
+<li>excludeCustom：排除部分url参数。</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAction() {
@@ -80,11 +88,13 @@ excludeCustom:排除部分url参数
     }
 
     /**
-     * Set includeCustom:使用部分url参数
-excludeCustom:排除部分url参数
+     * Set CacheKey使用QueryString的方式，取值有：
+<li>includeCustom：使用部分url参数；</li>
+<li>excludeCustom：排除部分url参数。</li>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Action includeCustom:使用部分url参数
-excludeCustom:排除部分url参数
+     * @param Action CacheKey使用QueryString的方式，取值有：
+<li>includeCustom：使用部分url参数；</li>
+<li>excludeCustom：排除部分url参数。</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAction(String Action) {
@@ -92,9 +102,9 @@ excludeCustom:排除部分url参数
     }
 
     /**
-     * Get 使用/排除的url参数数组
+     * Get 使用/排除的url参数数组。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Value 使用/排除的url参数数组
+     * @return Value 使用/排除的url参数数组。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getValue() {
@@ -102,9 +112,9 @@ excludeCustom:排除部分url参数
     }
 
     /**
-     * Set 使用/排除的url参数数组
+     * Set 使用/排除的url参数数组。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Value 使用/排除的url参数数组
+     * @param Value 使用/排除的url参数数组。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValue(String [] Value) {

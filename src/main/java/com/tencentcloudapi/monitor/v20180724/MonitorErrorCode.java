@@ -3,6 +3,9 @@ public enum MonitorErrorCode {
     // CAM签名/鉴权错误。
      AUTHFAILURE("AuthFailure"),
      
+    // 访问鉴权失败。
+     AUTHFAILURE_ACCESSCAMFAIL("AuthFailure.AccessCAMFail"),
+     
     // 请求未授权。请参考 CAM 文档对鉴权的说明。
      AUTHFAILURE_UNAUTHORIZEDOPERATION("AuthFailure.UnauthorizedOperation"),
      
@@ -99,6 +102,12 @@ public enum MonitorErrorCode {
     // 名字重复。
      FAILEDOPERATION_DUPLICATENAME("FailedOperation.DuplicateName"),
      
+    // 未开通。
+     FAILEDOPERATION_ERRNOTOPEN("FailedOperation.ErrNotOpen"),
+     
+    // 欠费。
+     FAILEDOPERATION_ERROWED("FailedOperation.ErrOwed"),
+     
     // 生成资源ID错误。
      FAILEDOPERATION_GENERATEINSTANCEIDFAILED("FailedOperation.GenerateInstanceIDFailed"),
      
@@ -107,6 +116,12 @@ public enum MonitorErrorCode {
      
     // 实例没有运行。
      FAILEDOPERATION_INSTANCENOTRUNNING("FailedOperation.InstanceNotRunning"),
+     
+    // 内部服务错误。
+     FAILEDOPERATION_INTERNALERROR("FailedOperation.InternalError"),
+     
+    // 地区不可用。
+     FAILEDOPERATION_REGIONUNAVAILABLE("FailedOperation.RegionUnavailable"),
      
     // 资源已经存在。
      FAILEDOPERATION_RESOURCEEXIST("FailedOperation.ResourceExist"),
@@ -131,6 +146,9 @@ public enum MonitorErrorCode {
      
     // 更新TKE资源时出现冲突。
      FAILEDOPERATION_TKERESOURCECONFLICT("FailedOperation.TKEResourceConflict"),
+     
+    // 可用区不可用。
+     FAILEDOPERATION_ZONEUNAVAILABLE("FailedOperation.ZoneUnavailable"),
      
     // 内部错误。
      INTERNALERROR("InternalError"),

@@ -37,6 +37,14 @@ public class Group extends AbstractModel{
     private String Name;
 
     /**
+    * 所属部门信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Department")
+    @Expose
+    private Department Department;
+
+    /**
      * Get 组ID 
      * @return Id 组ID
      */
@@ -68,6 +76,26 @@ public class Group extends AbstractModel{
         this.Name = Name;
     }
 
+    /**
+     * Get 所属部门信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Department 所属部门信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Department getDepartment() {
+        return this.Department;
+    }
+
+    /**
+     * Set 所属部门信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Department 所属部门信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDepartment(Department Department) {
+        this.Department = Department;
+    }
+
     public Group() {
     }
 
@@ -82,6 +110,9 @@ public class Group extends AbstractModel{
         if (source.Name != null) {
             this.Name = new String(source.Name);
         }
+        if (source.Department != null) {
+            this.Department = new Department(source.Department);
+        }
     }
 
 
@@ -91,6 +122,7 @@ public class Group extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Id", this.Id);
         this.setParamSimple(map, prefix + "Name", this.Name);
+        this.setParamObj(map, prefix + "Department.", this.Department);
 
     }
 }

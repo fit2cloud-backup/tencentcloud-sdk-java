@@ -117,6 +117,45 @@ public class PrivateZone extends AbstractModel{
     private Boolean IsCustomTld;
 
     /**
+    * CNAME加速状态：开通：ENABLED, 关闭，DISABLED
+    */
+    @SerializedName("CnameSpeedupStatus")
+    @Expose
+    private String CnameSpeedupStatus;
+
+    /**
+    * 转发规则名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ForwardRuleName")
+    @Expose
+    private String ForwardRuleName;
+
+    /**
+    * 转发规则类型：云上到云下，DOWN；云下到云上，UP，目前只支持DOWN
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ForwardRuleType")
+    @Expose
+    private String ForwardRuleType;
+
+    /**
+    * 转发的地址
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ForwardAddress")
+    @Expose
+    private String ForwardAddress;
+
+    /**
+    * 终端节点名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EndPointName")
+    @Expose
+    private String EndPointName;
+
+    /**
      * Get 私有域id: zone-xxxxxxxx 
      * @return ZoneId 私有域id: zone-xxxxxxxx
      */
@@ -336,6 +375,102 @@ public class PrivateZone extends AbstractModel{
         this.IsCustomTld = IsCustomTld;
     }
 
+    /**
+     * Get CNAME加速状态：开通：ENABLED, 关闭，DISABLED 
+     * @return CnameSpeedupStatus CNAME加速状态：开通：ENABLED, 关闭，DISABLED
+     */
+    public String getCnameSpeedupStatus() {
+        return this.CnameSpeedupStatus;
+    }
+
+    /**
+     * Set CNAME加速状态：开通：ENABLED, 关闭，DISABLED
+     * @param CnameSpeedupStatus CNAME加速状态：开通：ENABLED, 关闭，DISABLED
+     */
+    public void setCnameSpeedupStatus(String CnameSpeedupStatus) {
+        this.CnameSpeedupStatus = CnameSpeedupStatus;
+    }
+
+    /**
+     * Get 转发规则名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ForwardRuleName 转发规则名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getForwardRuleName() {
+        return this.ForwardRuleName;
+    }
+
+    /**
+     * Set 转发规则名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ForwardRuleName 转发规则名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setForwardRuleName(String ForwardRuleName) {
+        this.ForwardRuleName = ForwardRuleName;
+    }
+
+    /**
+     * Get 转发规则类型：云上到云下，DOWN；云下到云上，UP，目前只支持DOWN
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ForwardRuleType 转发规则类型：云上到云下，DOWN；云下到云上，UP，目前只支持DOWN
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getForwardRuleType() {
+        return this.ForwardRuleType;
+    }
+
+    /**
+     * Set 转发规则类型：云上到云下，DOWN；云下到云上，UP，目前只支持DOWN
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ForwardRuleType 转发规则类型：云上到云下，DOWN；云下到云上，UP，目前只支持DOWN
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setForwardRuleType(String ForwardRuleType) {
+        this.ForwardRuleType = ForwardRuleType;
+    }
+
+    /**
+     * Get 转发的地址
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ForwardAddress 转发的地址
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getForwardAddress() {
+        return this.ForwardAddress;
+    }
+
+    /**
+     * Set 转发的地址
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ForwardAddress 转发的地址
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setForwardAddress(String ForwardAddress) {
+        this.ForwardAddress = ForwardAddress;
+    }
+
+    /**
+     * Get 终端节点名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EndPointName 终端节点名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getEndPointName() {
+        return this.EndPointName;
+    }
+
+    /**
+     * Set 终端节点名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EndPointName 终端节点名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEndPointName(String EndPointName) {
+        this.EndPointName = EndPointName;
+    }
+
     public PrivateZone() {
     }
 
@@ -392,6 +527,21 @@ public class PrivateZone extends AbstractModel{
         if (source.IsCustomTld != null) {
             this.IsCustomTld = new Boolean(source.IsCustomTld);
         }
+        if (source.CnameSpeedupStatus != null) {
+            this.CnameSpeedupStatus = new String(source.CnameSpeedupStatus);
+        }
+        if (source.ForwardRuleName != null) {
+            this.ForwardRuleName = new String(source.ForwardRuleName);
+        }
+        if (source.ForwardRuleType != null) {
+            this.ForwardRuleType = new String(source.ForwardRuleType);
+        }
+        if (source.ForwardAddress != null) {
+            this.ForwardAddress = new String(source.ForwardAddress);
+        }
+        if (source.EndPointName != null) {
+            this.EndPointName = new String(source.EndPointName);
+        }
     }
 
 
@@ -412,6 +562,11 @@ public class PrivateZone extends AbstractModel{
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamArrayObj(map, prefix + "AccountVpcSet.", this.AccountVpcSet);
         this.setParamSimple(map, prefix + "IsCustomTld", this.IsCustomTld);
+        this.setParamSimple(map, prefix + "CnameSpeedupStatus", this.CnameSpeedupStatus);
+        this.setParamSimple(map, prefix + "ForwardRuleName", this.ForwardRuleName);
+        this.setParamSimple(map, prefix + "ForwardRuleType", this.ForwardRuleType);
+        this.setParamSimple(map, prefix + "ForwardAddress", this.ForwardAddress);
+        this.setParamSimple(map, prefix + "EndPointName", this.EndPointName);
 
     }
 }

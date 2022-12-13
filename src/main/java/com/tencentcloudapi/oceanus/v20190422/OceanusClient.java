@@ -59,6 +59,46 @@ public class OceanusClient extends AbstractClient{
     }
 
     /**
+     *单条和批量复制作业
+     * @param req CopyJobsRequest
+     * @return CopyJobsResponse
+     * @throws TencentCloudSDKException
+     */
+    public CopyJobsResponse CopyJobs(CopyJobsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CopyJobsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CopyJobsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CopyJobs");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *作业列表页面新建文件夹请求
+     * @param req CreateFolderRequest
+     * @return CreateFolderResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateFolderResponse CreateFolder(CreateFolderRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateFolderResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateFolderResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateFolder");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *新建作业接口，一个 AppId 最多允许创建1000个作业
      * @param req CreateJobRequest
      * @return CreateJobResponse
@@ -139,6 +179,26 @@ public class OceanusClient extends AbstractClient{
     }
 
     /**
+     *批量删除作业接口，批量操作数量上限20
+     * @param req DeleteJobsRequest
+     * @return DeleteJobsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteJobsResponse DeleteJobs(DeleteJobsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteJobsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteJobsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteJobs");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *删除资源版本
      * @param req DeleteResourceConfigsRequest
      * @return DeleteResourceConfigsResponse
@@ -191,6 +251,26 @@ public class OceanusClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DeleteTableConfigResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DeleteTableConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询集群
+     * @param req DescribeClustersRequest
+     * @return DescribeClustersResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeClustersResponse DescribeClusters(DescribeClustersRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeClustersResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeClustersResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeClusters");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -331,6 +411,46 @@ public class OceanusClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeSystemResourcesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeSystemResources");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *生成树状作业显示结构
+     * @param req DescribeTreeJobsRequest
+     * @return DescribeTreeJobsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeTreeJobsResponse DescribeTreeJobs(DescribeTreeJobsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeTreeJobsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeTreeJobsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeTreeJobs");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询树状结构资源列表
+     * @param req DescribeTreeResourcesRequest
+     * @return DescribeTreeResourcesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeTreeResourcesResponse DescribeTreeResources(DescribeTreeResourcesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeTreeResourcesResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeTreeResourcesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeTreeResources");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

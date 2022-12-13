@@ -30,6 +30,13 @@ public class DescribeKTVPlaylistsResponse extends AbstractModel{
     private KTVPlaylistBaseInfo [] PlaylistBaseInfoSet;
 
     /**
+    * 歌单总数。
+    */
+    @SerializedName("TotalCount")
+    @Expose
+    private Long TotalCount;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -50,6 +57,22 @@ public class DescribeKTVPlaylistsResponse extends AbstractModel{
      */
     public void setPlaylistBaseInfoSet(KTVPlaylistBaseInfo [] PlaylistBaseInfoSet) {
         this.PlaylistBaseInfoSet = PlaylistBaseInfoSet;
+    }
+
+    /**
+     * Get 歌单总数。 
+     * @return TotalCount 歌单总数。
+     */
+    public Long getTotalCount() {
+        return this.TotalCount;
+    }
+
+    /**
+     * Set 歌单总数。
+     * @param TotalCount 歌单总数。
+     */
+    public void setTotalCount(Long TotalCount) {
+        this.TotalCount = TotalCount;
     }
 
     /**
@@ -82,6 +105,9 @@ public class DescribeKTVPlaylistsResponse extends AbstractModel{
                 this.PlaylistBaseInfoSet[i] = new KTVPlaylistBaseInfo(source.PlaylistBaseInfoSet[i]);
             }
         }
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -93,6 +119,7 @@ public class DescribeKTVPlaylistsResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "PlaylistBaseInfoSet.", this.PlaylistBaseInfoSet);
+        this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

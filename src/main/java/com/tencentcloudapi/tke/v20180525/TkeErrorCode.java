@@ -12,14 +12,14 @@ public enum TkeErrorCode {
     // 伸缩组资源创建报错。
      FAILEDOPERATION_ASCOMMON("FailedOperation.AsCommon"),
      
-    // CLB 未知错误。
-     FAILEDOPERATION_CLBUNEXPECTEDERROR("FailedOperation.CLBUnexpectedError"),
-     
     // CVM未知错误。
      FAILEDOPERATION_CVMUNEXPECTEDERROR("FailedOperation.CVMUnexpectedError"),
      
     // 无该接口CAM权限。
      FAILEDOPERATION_CAMNOAUTH("FailedOperation.CamNoAuth"),
+     
+    // 集群禁止删除。
+     FAILEDOPERATION_CLUSTERFORBIDDENTODELETE("FailedOperation.ClusterForbiddenToDelete"),
      
     // 集群未找到。
      FAILEDOPERATION_CLUSTERNOTFOUND("FailedOperation.ClusterNotFound"),
@@ -42,11 +42,20 @@ public enum TkeErrorCode {
     // 请求(http请求)其他云服务失败。
      FAILEDOPERATION_COMPONENTCLINETHTTP("FailedOperation.ComponentClinetHttp"),
      
+    // 创建CLS客户端失败。
+     FAILEDOPERATION_CREATECLSCLIENT("FailedOperation.CreateClsClient"),
+     
     // 创建CLS采集配置失败。
      FAILEDOPERATION_CREATECLSCONFIG("FailedOperation.CreateClsConfig"),
      
+    // 创建CLS索引失败。
+     FAILEDOPERATION_CREATECLSINDEX("FailedOperation.CreateClsIndex"),
+     
     // 创建CLS日志集失败。
      FAILEDOPERATION_CREATECLSLOGSET("FailedOperation.CreateClsLogSet"),
+     
+    // 创建CLS机器组失败。
+     FAILEDOPERATION_CREATECLSMACHINEGROUP("FailedOperation.CreateClsMachineGroup"),
      
     // 创建 CLS 主题失败。
      FAILEDOPERATION_CREATECLSTOPIC("FailedOperation.CreateClsTopic"),
@@ -68,6 +77,15 @@ public enum TkeErrorCode {
      
     // 获得安全组配额失败。
      FAILEDOPERATION_DFWGETUSGQUOTA("FailedOperation.DfwGetUSGQuota"),
+     
+    // 集群关闭 VPC-CNI 模式失败。
+     FAILEDOPERATION_DISABLEVPCCNIFAILED("FailedOperation.DisableVPCCNIFailed"),
+     
+    // 开启 VPC-CNI 模式失败。
+     FAILEDOPERATION_ENABLEVPCCNIFAILED("FailedOperation.EnableVPCCNIFailed"),
+     
+    // 获取CLS采集配置失败。
+     FAILEDOPERATION_GETCLSCONFIG("FailedOperation.GetClsConfig"),
      
     // 查询主题集失败。
      FAILEDOPERATION_GETCLSLOGSET("FailedOperation.GetClsLogSet"),
@@ -105,6 +123,12 @@ public enum TkeErrorCode {
     // 底层调用CLB未知错误。
      FAILEDOPERATION_LBCOMMON("FailedOperation.LbCommon"),
      
+    // 获取集群认证信息失败。
+     FAILEDOPERATION_MARKETGETAUTHFAILED("FailedOperation.MarketGetAuthFailed"),
+     
+    // 操作应用Release失败。
+     FAILEDOPERATION_MARKETRELEASEOPERATION("FailedOperation.MarketReleaseOperation"),
+     
     // 修改CLS索引失败。
      FAILEDOPERATION_MODIFYCLSINDEX("FailedOperation.ModifyClsIndex"),
      
@@ -116,6 +140,9 @@ public enum TkeErrorCode {
      
     // 参数错误。
      FAILEDOPERATION_PARAM("FailedOperation.Param"),
+     
+    // gpe错误。
+     FAILEDOPERATION_POLICYSERVERCOMMONERROR("FailedOperation.PolicyServerCommonError"),
      
     // 超过配额限制。
      FAILEDOPERATION_QUOTAMAXCLSLIMIT("FailedOperation.QuotaMaxClsLimit"),
@@ -129,11 +156,17 @@ public enum TkeErrorCode {
     // 子账户RBAC权限不足。
      FAILEDOPERATION_RBACFORBIDDEN("FailedOperation.RBACForbidden"),
      
+    // 记录没有发现。
+     FAILEDOPERATION_RECORDNOTFOUND("FailedOperation.RecordNotFound"),
+     
     // 已有相同任务执行中。
      FAILEDOPERATION_TASKALREADYRUNNING("FailedOperation.TaskAlreadyRunning"),
      
     // 询价错误。
      FAILEDOPERATION_TRADECOMMON("FailedOperation.TradeCommon"),
+     
+    // 不可预知的错误。
+     FAILEDOPERATION_UNEXPECTEDERROR("FailedOperation.UnexpectedError"),
      
     // VPC未知错误。
      FAILEDOPERATION_VPCUNEXPECTEDERROR("FailedOperation.VPCUnexpectedError"),
@@ -279,6 +312,15 @@ public enum TkeErrorCode {
     // 底层调用CLB未知错误。
      INTERNALERROR_LBCOMMON("InternalError.LbCommon"),
      
+    // 获取集群认证信息失败。
+     INTERNALERROR_MARKETGETAUTHFAILED("InternalError.MarketGetAuthFailed"),
+     
+    // 应用市场服务操作错误。
+     INTERNALERROR_MARKETINTERNALSERVERERROR("InternalError.MarketInternalServerError"),
+     
+    // 操作应用Release失败。
+     INTERNALERROR_MARKETRELEASEOPERATION("InternalError.MarketReleaseOperation"),
+     
     // 镜像OS不支持。
      INTERNALERROR_OSNOTSUPPORT("InternalError.OsNotSupport"),
      
@@ -375,6 +417,9 @@ public enum TkeErrorCode {
     // 创建的路由与VPC下已存在的全局路由产生冲突。
      INVALIDPARAMETER_CIDRCONFLICTWITHVPCGLOBALROUTE("InvalidParameter.CidrConflictWithVpcGlobalRoute"),
      
+    // CIDR无效。
+     INVALIDPARAMETER_CIDRINVALI("InvalidParameter.CidrInvali"),
+     
     // 参数错误，CIDR不符合规范。
      INVALIDPARAMETER_CIDRINVALID("InvalidParameter.CidrInvalid"),
      
@@ -429,6 +474,9 @@ public enum TkeErrorCode {
     // 资源不足。
      RESOURCEINSUFFICIENT("ResourceInsufficient"),
      
+    // CVM资源不足。
+     RESOURCEINSUFFICIENT_SPECIFIEDINSTANCETYPE("ResourceInsufficient.SpecifiedInstanceType"),
+     
     // 资源不存在。
      RESOURCENOTFOUND("ResourceNotFound"),
      
@@ -476,6 +524,12 @@ public enum TkeErrorCode {
      
     // AS伸缩关闭导致无法开启CA。
      UNSUPPORTEDOPERATION_CAENABLEFAILED("UnsupportedOperation.CaEnableFailed"),
+     
+    // 集群不支持添加 ClusterCIDR。
+     UNSUPPORTEDOPERATION_CLUSTERNOTSUITADDCLUSTERCIDR("UnsupportedOperation.ClusterNotSuitAddClusterCIDR"),
+     
+    // 集群不支持开启 VPC-CNI 模式。
+     UNSUPPORTEDOPERATION_CLUSTERNOTSUITENABLEVPCCNI("UnsupportedOperation.ClusterNotSuitEnableVPCCNI"),
      
     // 非白名单用户。
      UNSUPPORTEDOPERATION_NOTINWHITELIST("UnsupportedOperation.NotInWhitelist");

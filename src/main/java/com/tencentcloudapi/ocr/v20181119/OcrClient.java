@@ -82,6 +82,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持对中国大陆主流银行卡正反面关键字段的检测与识别，包括卡号、卡类型、卡名字、银行信息、有效期。支持竖排异形卡识别、多角度旋转图片识别。支持对复印件、翻拍件、边框遮挡的银行卡进行告警，可应用于各种银行卡信息有效性校验场景，如金融行业身份认证、第三方支付绑卡等场景。
+
+默认接口请求频率限制：10次/秒。
      * @param req BankCardOCRRequest
      * @return BankCardOCRResponse
      * @throws TencentCloudSDKException
@@ -123,6 +125,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持快速精准识别营业执照上的字段，包括统一社会信用代码、公司名称、经营场所、主体类型、法定代表人、注册资金、组成形式、成立日期、营业期限和经营范围等字段。
+
+默认接口请求频率限制：10次/秒。
      * @param req BizLicenseOCRRequest
      * @return BizLicenseOCRResponse
      * @throws TencentCloudSDKException
@@ -232,6 +236,8 @@ public class OcrClient extends AbstractClient{
 另外，本接口还支持复印件、翻拍和PS告警功能。同时支持识别交管12123APP发放的电子驾驶证正页。
 
 电子驾驶证正页：包括证号、姓名、性别、国籍、出生日期、初次领证日期、准驾车型、有效期开始时间、有效期截止时间、档案编号、状态、累积记分。
+
+默认接口请求频率限制：10次/秒。
      * @param req DriverLicenseOCRRequest
      * @return DriverLicenseOCRResponse
      * @throws TencentCloudSDKException
@@ -292,6 +298,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持图像英文文字的检测和识别，返回文字框位置与文字内容。支持多场景、任意版面下的英文、字母、数字和常见字符的识别，同时覆盖英文印刷体和英文手写体识别。
+
+默认接口请求频率限制：10次/秒。
      * @param req EnglishOCRRequest
      * @return EnglishOCRResponse
      * @throws TencentCloudSDKException
@@ -495,6 +503,8 @@ public class OcrClient extends AbstractClient{
         </tr>
       </tbody>
     </table>
+
+默认接口请求频率限制：10次/秒。
      * @param req GeneralAccurateOCRRequest
      * @return GeneralAccurateOCRResponse
      * @throws TencentCloudSDKException
@@ -575,6 +585,8 @@ public class OcrClient extends AbstractClient{
         </tr>
       </tbody>
     </table>
+
+默认接口请求频率限制：20次/秒。
      * @param req GeneralBasicOCRRequest
      * @return GeneralBasicOCRResponse
      * @throws TencentCloudSDKException
@@ -655,6 +667,8 @@ public class OcrClient extends AbstractClient{
         </tr>
       </tbody>
     </table>
+
+默认接口请求频率限制：10次/秒。
      * @param req GeneralEfficientOCRRequest
      * @return GeneralEfficientOCRResponse
      * @throws TencentCloudSDKException
@@ -675,6 +689,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持图片中整体文字的检测和识别，返回文字框位置与文字内容。相比通用印刷体识别接口，识别速度更快。
+
+默认接口请求频率限制：10次/秒。
      * @param req GeneralFastOCRRequest
      * @return GeneralFastOCRResponse
      * @throws TencentCloudSDKException
@@ -695,6 +711,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持图片内手写体文字的检测和识别，针对手写字体无规则、字迹潦草、模糊等特点进行了识别能力的增强。
+
+默认接口请求频率限制：10次/秒。
      * @param req GeneralHandwritingOCRRequest
      * @return GeneralHandwritingOCRResponse
      * @throws TencentCloudSDKException
@@ -715,8 +733,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持中国香港身份证人像面中关键字段的识别，包括中文姓名、英文姓名、姓名电码、出生日期、性别、证件符号、首次签发日期、最近领用日期、身份证号、是否是永久性居民身份证；具备防伪识别、人像照片裁剪等扩展功能。
-本接口暂未完全对外开放，如需咨询，请[联系商务](https://cloud.tencent.com/about/connect)
 
+默认接口请求频率限制：5次/秒。
      * @param req HKIDCardOCRRequest
      * @return HKIDCardOCRResponse
      * @throws TencentCloudSDKException
@@ -802,6 +820,8 @@ public class OcrClient extends AbstractClient{
         </tr>
       </tbody>
     </table>
+
+默认接口请求频率限制：20次/秒。
      * @param req IDCardOCRRequest
      * @return IDCardOCRResponse
      * @throws TencentCloudSDKException
@@ -813,6 +833,26 @@ public class OcrClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<IDCardOCRResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "IDCardOCR");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *文本图像增强是面向文档类图片提供的图像增强处理能力，包括切边增强、图像矫正、阴影去除、摩尔纹去除等；可以有效优化文档类的图片质量，提升文字的清晰度。
+     * @param req ImageEnhancementRequest
+     * @return ImageEnhancementResponse
+     * @throws TencentCloudSDKException
+     */
+    public ImageEnhancementResponse ImageEnhancement(ImageEnhancementRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ImageEnhancementResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<ImageEnhancementResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ImageEnhancement");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -882,6 +922,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持对中国大陆机动车车牌的自动定位和识别，返回地域编号和车牌号码与车牌颜色信息。
+
+默认接口请求频率限制：10次/秒。
      * @param req LicensePlateOCRRequest
      * @return LicensePlateOCRResponse
      * @throws TencentCloudSDKException
@@ -924,6 +966,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持中国港澳台地区以及其他国家、地区的护照识别。识别字段包括护照ID、姓名、出生日期、性别、有效期、发行国、国籍，具备护照人像照片的裁剪功能和翻拍、复印件告警功能。
+
+默认接口请求频率限制：5次/秒。
 
      * @param req MLIDPassportOCRRequest
      * @return MLIDPassportOCRResponse
@@ -985,6 +1029,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持 单张、多张、多类型 票据的混合识别，同时支持自选需要识别的票据类型，已支持票种包括：增值税发票（专票、普票、卷票）、全电发票、非税发票、定额发票、通用机打发票、购车发票、火车票、出租车发票、机票行程单、汽车票、轮船票、过路过桥费发票共14种标准报销发票，并支持其他类发票的识别。
+
+默认接口请求频率限制：5次/秒。
      * @param req MixedInvoiceOCRRequest
      * @return MixedInvoiceOCRResponse
      * @throws TencentCloudSDKException
@@ -1168,7 +1214,9 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持北京、上海、广东、江苏、吉林、黑龙江、天津、辽宁、浙江、河南、四川、贵州、山东、安徽、福建、江西、湖南等省份健康码的识别，包括持码人姓名、持码人身份证号、健康码更新时间、健康码颜色、核酸检测结果、核酸检测间隔时长、核酸检测时间，疫苗接种信息，八个字段的识别结果输出。不同省市健康码显示的字段信息有所不同，上述字段的识别结果可能为空，以图片上具体展示的信息为准。
+     *本接口支持北京、上海、广东、江苏、吉林、黑龙江、天津、辽宁、浙江、河南、四川、贵州、山东、安徽、福建、江西、湖北、湖南等省份健康码的识别，包括持码人姓名、持码人身份证号、健康码更新时间、健康码颜色、核酸检测结果、核酸检测间隔时长、核酸检测时间，疫苗接种信息，八个字段的识别结果输出。不同省市健康码显示的字段信息有所不同，上述字段的识别结果可能为空，以图片上具体展示的信息为准。
+
+默认接口请求频率限制：10次/秒。
      * @param req RecognizeHealthCodeOCRRequest
      * @return RecognizeHealthCodeOCRResponse
      * @throws TencentCloudSDKException
@@ -1200,6 +1248,27 @@ public class OcrClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<RecognizeIndonesiaIDCardOCRResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "RecognizeIndonesiaIDCardOCR");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *医疗发票识别目前支持全国统一门诊发票、全国统一住院发票、以及部分地方的门诊和住院发票的识别。
+
+     * @param req RecognizeMedicalInvoiceOCRRequest
+     * @return RecognizeMedicalInvoiceOCRResponse
+     * @throws TencentCloudSDKException
+     */
+    public RecognizeMedicalInvoiceOCRResponse RecognizeMedicalInvoiceOCR(RecognizeMedicalInvoiceOCRRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<RecognizeMedicalInvoiceOCRResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<RecognizeMedicalInvoiceOCRResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "RecognizeMedicalInvoiceOCR");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1311,6 +1380,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持通信大数据行程卡识别，包括行程卡颜色、更新时间、途经地、存在中高风险地区的城市、电话号码，五个字段的识别结果输出。
+
+默认接口请求频率限制：20次/秒。
      * @param req RecognizeTravelCardOCRRequest
      * @return RecognizeTravelCardOCRResponse
      * @throws TencentCloudSDKException
@@ -1392,6 +1463,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持各类印章识别，包括发票章，财务章等，适用于公文，票据等场景。
+
+默认接口请求频率限制：5次/秒。
      * @param req SealOCRRequest
      * @return SealOCRResponse
      * @throws TencentCloudSDKException
@@ -1432,6 +1505,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持识别并提取各类证照、票据、表单、合同等结构化场景的字段信息。无需任何配置，灵活高效。适用于各类结构化信息录入场景。
+
+默认接口请求频率限制：5次/秒。
      * @param req SmartStructuralOCRRequest
      * @return SmartStructuralOCRResponse
      * @throws TencentCloudSDKException
@@ -1557,6 +1632,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持增值税专用发票、增值税普通发票、增值税电子发票全字段的内容检测和识别，包括发票代码、发票号码、打印发票代码、打印发票号码、开票日期、合计金额、校验码、税率、合计税额、价税合计、购买方识别号、复核、销售方识别号、开票人、密码区1、密码区2、密码区3、密码区4、发票名称、购买方名称、销售方名称、服务名称、备注、规格型号、数量、单价、金额、税额、收款人等字段。
+
+默认接口请求频率限制：10次/秒。
      * @param req VatInvoiceOCRRequest
      * @return VatInvoiceOCRResponse
      * @throws TencentCloudSDKException
@@ -1596,7 +1673,7 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持增值税发票的准确性核验，您可以通过输入增值税发票的关键字段提供所需的验证信息，接口返回真实的票面相关信息，包括发票代码、发票号码、开票日期、金额、消费类型、购方名称、购方税号、销方名称、销方税号等多个常用字段。支持多种发票类型核验，包括增值税专用发票、增值税普通发票（含电子普通发票、卷式发票、通行费发票）、全电发票、机动车销售统一发票、货物运输业增值税专用发票、二手车销售统一发票。
+     *本接口支持增值税发票的准确性核验，您可以通过输入增值税发票的关键字段提供所需的验证信息，接口返回真实的票面相关信息，包括发票代码、发票号码、开票日期、金额、消费类型、购方名称、购方税号、销方名称、销方税号等多个常用字段。支持多种发票类型核验，包括增值税专用发票、增值税普通发票（含电子普通发票、卷式发票、通行费发票）、全电发票、机动车销售统一发票、货物运输业增值税专用发票、二手车销售统一发票、通用机打电子发票（广东和浙江）。
      * @param req VatInvoiceVerifyNewRequest
      * @return VatInvoiceVerifyNewResponse
      * @throws TencentCloudSDKException
@@ -1643,6 +1720,8 @@ public class OcrClient extends AbstractClient{
 行驶证副页：号牌号码、档案编号、核定载人数、总质量、整备质量、核定载质量、外廓尺寸、准牵引总质量、备注、检验记录。
 
 另外，本接口还支持复印件、翻拍和PS告警功能。
+
+默认接口请求频率限制：10次/秒。
      * @param req VehicleLicenseOCRRequest
      * @return VehicleLicenseOCRResponse
      * @throws TencentCloudSDKException
@@ -1789,6 +1868,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持市面上主流版式电子运单的识别，包括收件人和寄件人的姓名、电话、地址以及运单号等字段，精度均处于业界领先水平，识别准确率达到99%以上。
+
+默认接口请求频率限制：10次/秒。
      * @param req WaybillOCRRequest
      * @return WaybillOCRResponse
      * @throws TencentCloudSDKException

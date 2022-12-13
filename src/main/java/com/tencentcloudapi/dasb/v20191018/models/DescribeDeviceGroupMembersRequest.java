@@ -44,7 +44,7 @@ public class DescribeDeviceGroupMembersRequest extends AbstractModel{
     private String Name;
 
     /**
-    * 分页偏移位置
+    * 分页偏移位置，默认值为0
     */
     @SerializedName("Offset")
     @Expose
@@ -63,6 +63,20 @@ public class DescribeDeviceGroupMembersRequest extends AbstractModel{
     @SerializedName("Kind")
     @Expose
     private Long Kind;
+
+    /**
+    * 所属部门ID
+    */
+    @SerializedName("DepartmentId")
+    @Expose
+    private String DepartmentId;
+
+    /**
+    * 过滤条件，可按照标签键、标签进行过滤。如果同时指定标签键和标签过滤条件，它们之间为“AND”的关系
+    */
+    @SerializedName("TagFilters")
+    @Expose
+    private TagFilter [] TagFilters;
 
     /**
      * Get 资产组ID 
@@ -113,16 +127,16 @@ public class DescribeDeviceGroupMembersRequest extends AbstractModel{
     }
 
     /**
-     * Get 分页偏移位置 
-     * @return Offset 分页偏移位置
+     * Get 分页偏移位置，默认值为0 
+     * @return Offset 分页偏移位置，默认值为0
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 分页偏移位置
-     * @param Offset 分页偏移位置
+     * Set 分页偏移位置，默认值为0
+     * @param Offset 分页偏移位置，默认值为0
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
@@ -160,6 +174,38 @@ public class DescribeDeviceGroupMembersRequest extends AbstractModel{
         this.Kind = Kind;
     }
 
+    /**
+     * Get 所属部门ID 
+     * @return DepartmentId 所属部门ID
+     */
+    public String getDepartmentId() {
+        return this.DepartmentId;
+    }
+
+    /**
+     * Set 所属部门ID
+     * @param DepartmentId 所属部门ID
+     */
+    public void setDepartmentId(String DepartmentId) {
+        this.DepartmentId = DepartmentId;
+    }
+
+    /**
+     * Get 过滤条件，可按照标签键、标签进行过滤。如果同时指定标签键和标签过滤条件，它们之间为“AND”的关系 
+     * @return TagFilters 过滤条件，可按照标签键、标签进行过滤。如果同时指定标签键和标签过滤条件，它们之间为“AND”的关系
+     */
+    public TagFilter [] getTagFilters() {
+        return this.TagFilters;
+    }
+
+    /**
+     * Set 过滤条件，可按照标签键、标签进行过滤。如果同时指定标签键和标签过滤条件，它们之间为“AND”的关系
+     * @param TagFilters 过滤条件，可按照标签键、标签进行过滤。如果同时指定标签键和标签过滤条件，它们之间为“AND”的关系
+     */
+    public void setTagFilters(TagFilter [] TagFilters) {
+        this.TagFilters = TagFilters;
+    }
+
     public DescribeDeviceGroupMembersRequest() {
     }
 
@@ -186,6 +232,15 @@ public class DescribeDeviceGroupMembersRequest extends AbstractModel{
         if (source.Kind != null) {
             this.Kind = new Long(source.Kind);
         }
+        if (source.DepartmentId != null) {
+            this.DepartmentId = new String(source.DepartmentId);
+        }
+        if (source.TagFilters != null) {
+            this.TagFilters = new TagFilter[source.TagFilters.length];
+            for (int i = 0; i < source.TagFilters.length; i++) {
+                this.TagFilters[i] = new TagFilter(source.TagFilters[i]);
+            }
+        }
     }
 
 
@@ -199,6 +254,8 @@ public class DescribeDeviceGroupMembersRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "Kind", this.Kind);
+        this.setParamSimple(map, prefix + "DepartmentId", this.DepartmentId);
+        this.setParamArrayObj(map, prefix + "TagFilters.", this.TagFilters);
 
     }
 }

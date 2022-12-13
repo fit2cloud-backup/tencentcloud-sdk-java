@@ -202,6 +202,20 @@ public class ScaleOutInstanceRequest extends AbstractModel{
     private String SubnetId;
 
     /**
+    * 预设配置组
+    */
+    @SerializedName("ScaleOutServiceConfAssign")
+    @Expose
+    private String ScaleOutServiceConfAssign;
+
+    /**
+    * 0表示关闭自动续费，1表示开启自动续费
+    */
+    @SerializedName("AutoRenew")
+    @Expose
+    private Long AutoRenew;
+
+    /**
      * Get 扩容的时间单位。取值范围：
 <li>s：表示秒。PayMode取值为0时，TimeUnit只能取值为s。</li>
 <li>m：表示月份。PayMode取值为1时，TimeUnit只能取值为m。</li> 
@@ -629,6 +643,38 @@ public class ScaleOutInstanceRequest extends AbstractModel{
         this.SubnetId = SubnetId;
     }
 
+    /**
+     * Get 预设配置组 
+     * @return ScaleOutServiceConfAssign 预设配置组
+     */
+    public String getScaleOutServiceConfAssign() {
+        return this.ScaleOutServiceConfAssign;
+    }
+
+    /**
+     * Set 预设配置组
+     * @param ScaleOutServiceConfAssign 预设配置组
+     */
+    public void setScaleOutServiceConfAssign(String ScaleOutServiceConfAssign) {
+        this.ScaleOutServiceConfAssign = ScaleOutServiceConfAssign;
+    }
+
+    /**
+     * Get 0表示关闭自动续费，1表示开启自动续费 
+     * @return AutoRenew 0表示关闭自动续费，1表示开启自动续费
+     */
+    public Long getAutoRenew() {
+        return this.AutoRenew;
+    }
+
+    /**
+     * Set 0表示关闭自动续费，1表示开启自动续费
+     * @param AutoRenew 0表示关闭自动续费，1表示开启自动续费
+     */
+    public void setAutoRenew(Long AutoRenew) {
+        this.AutoRenew = AutoRenew;
+    }
+
     public ScaleOutInstanceRequest() {
     }
 
@@ -727,6 +773,12 @@ public class ScaleOutInstanceRequest extends AbstractModel{
         if (source.SubnetId != null) {
             this.SubnetId = new String(source.SubnetId);
         }
+        if (source.ScaleOutServiceConfAssign != null) {
+            this.ScaleOutServiceConfAssign = new String(source.ScaleOutServiceConfAssign);
+        }
+        if (source.AutoRenew != null) {
+            this.AutoRenew = new Long(source.AutoRenew);
+        }
     }
 
 
@@ -758,6 +810,8 @@ public class ScaleOutInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "StartServiceAfterScaleOut", this.StartServiceAfterScaleOut);
         this.setParamSimple(map, prefix + "ZoneId", this.ZoneId);
         this.setParamSimple(map, prefix + "SubnetId", this.SubnetId);
+        this.setParamSimple(map, prefix + "ScaleOutServiceConfAssign", this.ScaleOutServiceConfAssign);
+        this.setParamSimple(map, prefix + "AutoRenew", this.AutoRenew);
 
     }
 }

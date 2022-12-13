@@ -39,6 +39,26 @@ public class TagClient extends AbstractClient{
     }
 
     /**
+     *创建项目
+     * @param req AddProjectRequest
+     * @return AddProjectResponse
+     * @throws TencentCloudSDKException
+     */
+    public AddProjectResponse AddProject(AddProjectRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<AddProjectResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<AddProjectResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "AddProject");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口用于给标签关联资源
      * @param req AddResourceTagRequest
      * @return AddResourceTagResponse
@@ -159,7 +179,7 @@ public class TagClient extends AbstractClient{
     }
 
     /**
-     *本接口用于删除一对标签键和标签值
+     *本接口用于批量删除标签键和标签值。
      * @param req DeleteTagsRequest
      * @return DeleteTagsResponse
      * @throws TencentCloudSDKException
@@ -171,6 +191,26 @@ public class TagClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DeleteTagsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DeleteTags");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取项目列表
+     * @param req DescribeProjectsRequest
+     * @return DescribeProjectsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeProjectsResponse DescribeProjects(DescribeProjectsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeProjectsResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeProjectsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeProjects");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -574,6 +614,26 @@ public class TagClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<UnTagResourcesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "UnTagResources");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改项目
+     * @param req UpdateProjectRequest
+     * @return UpdateProjectResponse
+     * @throws TencentCloudSDKException
+     */
+    public UpdateProjectResponse UpdateProject(UpdateProjectRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<UpdateProjectResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<UpdateProjectResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "UpdateProject");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

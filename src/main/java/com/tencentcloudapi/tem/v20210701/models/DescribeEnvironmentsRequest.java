@@ -44,6 +44,20 @@ public class DescribeEnvironmentsRequest extends AbstractModel{
     private Long SourceChannel;
 
     /**
+    * 查询过滤器
+    */
+    @SerializedName("Filters")
+    @Expose
+    private QueryFilter [] Filters;
+
+    /**
+    * 排序字段
+    */
+    @SerializedName("SortInfo")
+    @Expose
+    private SortType SortInfo;
+
+    /**
      * Get 分页limit 
      * @return Limit 分页limit
      */
@@ -91,6 +105,38 @@ public class DescribeEnvironmentsRequest extends AbstractModel{
         this.SourceChannel = SourceChannel;
     }
 
+    /**
+     * Get 查询过滤器 
+     * @return Filters 查询过滤器
+     */
+    public QueryFilter [] getFilters() {
+        return this.Filters;
+    }
+
+    /**
+     * Set 查询过滤器
+     * @param Filters 查询过滤器
+     */
+    public void setFilters(QueryFilter [] Filters) {
+        this.Filters = Filters;
+    }
+
+    /**
+     * Get 排序字段 
+     * @return SortInfo 排序字段
+     */
+    public SortType getSortInfo() {
+        return this.SortInfo;
+    }
+
+    /**
+     * Set 排序字段
+     * @param SortInfo 排序字段
+     */
+    public void setSortInfo(SortType SortInfo) {
+        this.SortInfo = SortInfo;
+    }
+
     public DescribeEnvironmentsRequest() {
     }
 
@@ -108,6 +154,15 @@ public class DescribeEnvironmentsRequest extends AbstractModel{
         if (source.SourceChannel != null) {
             this.SourceChannel = new Long(source.SourceChannel);
         }
+        if (source.Filters != null) {
+            this.Filters = new QueryFilter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new QueryFilter(source.Filters[i]);
+            }
+        }
+        if (source.SortInfo != null) {
+            this.SortInfo = new SortType(source.SortInfo);
+        }
     }
 
 
@@ -118,6 +173,8 @@ public class DescribeEnvironmentsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "SourceChannel", this.SourceChannel);
+        this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
+        this.setParamObj(map, prefix + "SortInfo.", this.SortInfo);
 
     }
 }

@@ -63,6 +63,9 @@ public enum SslErrorCode {
     // 文件尺寸太小，请上传清晰图片。
      FAILEDOPERATION_FILETOOSMALL("FailedOperation.FileTooSmall"),
      
+    // 公司管理人状态错误。
+     FAILEDOPERATION_ILLEGALMANAGERSTATUS("FailedOperation.IllegalManagerStatus"),
+     
     // 证书来源错误。
      FAILEDOPERATION_INVALIDCERTIFICATESOURCE("FailedOperation.InvalidCertificateSource"),
      
@@ -117,6 +120,9 @@ public enum SslErrorCode {
     // 内部错误。
      INTERNALERROR("InternalError"),
      
+    // 后端服务响应为空。
+     INTERNALERROR_BACKENDRESPONSEEMPTY("InternalError.BackendResponseEmpty"),
+     
     // 后端服务响应错误。
      INTERNALERROR_BACKENDRESPONSEERROR("InternalError.BackendResponseError"),
      
@@ -126,11 +132,17 @@ public enum SslErrorCode {
     // 查询的证书ID不能超过50个。
      INVALIDPARAMETER_CERTIFICATEIDNUMBERLIMIT("InvalidParameter.CertificateIdNumberLimit"),
      
+    // 证书数量超出限制。
+     INVALIDPARAMETER_CERTIFICATESNUMBEREXCEEDED("InvalidParameter.CertificatesNumberExceeded"),
+     
     // 包含无效的证书ID。
      INVALIDPARAMETER_CONTAINSINVALIDCERTIFICATEID("InvalidParameter.ContainsInvalidCertificateId"),
      
     // 权益点ID列表无效。
      INVALIDPARAMETER_PACKAGEIDSINVALID("InvalidParameter.PackageIdsInvalid"),
+     
+    // 参数有误。
+     INVALIDPARAMETER_WITHDETAILREASON("InvalidParameter.WithDetailReason"),
      
     // 参数取值错误。
      INVALIDPARAMETERVALUE("InvalidParameterValue"),

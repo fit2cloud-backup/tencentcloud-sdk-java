@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeScanTaskReportUrlRequest extends AbstractModel{
 
     /**
-    * 任务来源, 0:默认值(私域), 1:灵犀, 2:灵鲲;
+    * 任务来源, 0:小程序诊断, 1:预留字段(暂未使用), 2:app诊断(android);
     */
     @SerializedName("Source")
     @Expose
@@ -44,7 +44,7 @@ public class DescribeScanTaskReportUrlRequest extends AbstractModel{
     private Long Platform;
 
     /**
-    * 报告类型, 0:诊断报告, 1:堆栈报告
+    * 报告类型, 0:诊断报告, 1:堆栈报告(预留), 2:视频证据(预留), 3:报告json结果
     */
     @SerializedName("ReportType")
     @Expose
@@ -58,16 +58,16 @@ public class DescribeScanTaskReportUrlRequest extends AbstractModel{
     private Long TaskType;
 
     /**
-     * Get 任务来源, 0:默认值(私域), 1:灵犀, 2:灵鲲; 
-     * @return Source 任务来源, 0:默认值(私域), 1:灵犀, 2:灵鲲;
+     * Get 任务来源, 0:小程序诊断, 1:预留字段(暂未使用), 2:app诊断(android); 
+     * @return Source 任务来源, 0:小程序诊断, 1:预留字段(暂未使用), 2:app诊断(android);
      */
     public Long getSource() {
         return this.Source;
     }
 
     /**
-     * Set 任务来源, 0:默认值(私域), 1:灵犀, 2:灵鲲;
-     * @param Source 任务来源, 0:默认值(私域), 1:灵犀, 2:灵鲲;
+     * Set 任务来源, 0:小程序诊断, 1:预留字段(暂未使用), 2:app诊断(android);
+     * @param Source 任务来源, 0:小程序诊断, 1:预留字段(暂未使用), 2:app诊断(android);
      */
     public void setSource(Long Source) {
         this.Source = Source;
@@ -106,16 +106,16 @@ public class DescribeScanTaskReportUrlRequest extends AbstractModel{
     }
 
     /**
-     * Get 报告类型, 0:诊断报告, 1:堆栈报告 
-     * @return ReportType 报告类型, 0:诊断报告, 1:堆栈报告
+     * Get 报告类型, 0:诊断报告, 1:堆栈报告(预留), 2:视频证据(预留), 3:报告json结果 
+     * @return ReportType 报告类型, 0:诊断报告, 1:堆栈报告(预留), 2:视频证据(预留), 3:报告json结果
      */
     public Long getReportType() {
         return this.ReportType;
     }
 
     /**
-     * Set 报告类型, 0:诊断报告, 1:堆栈报告
-     * @param ReportType 报告类型, 0:诊断报告, 1:堆栈报告
+     * Set 报告类型, 0:诊断报告, 1:堆栈报告(预留), 2:视频证据(预留), 3:报告json结果
+     * @param ReportType 报告类型, 0:诊断报告, 1:堆栈报告(预留), 2:视频证据(预留), 3:报告json结果
      */
     public void setReportType(Long ReportType) {
         this.ReportType = ReportType;

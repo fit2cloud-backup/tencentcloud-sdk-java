@@ -23,6 +23,13 @@ import java.util.HashMap;
 public class CreateDocumentRequest extends AbstractModel{
 
     /**
+    * 调用方用户信息，userId 必填
+    */
+    @SerializedName("Operator")
+    @Expose
+    private UserInfo Operator;
+
+    /**
     * 签署流程编号,由CreateFlow接口返回
     */
     @SerializedName("FlowId")
@@ -37,25 +44,11 @@ public class CreateDocumentRequest extends AbstractModel{
     private String TemplateId;
 
     /**
-    * 文件名列表,单个文件名最大长度200个字符
+    * 文件名列表，单个文件名最大长度200个字符，暂时仅支持单文件发起
     */
     @SerializedName("FileNames")
     @Expose
     private String [] FileNames;
-
-    /**
-    * 无
-    */
-    @SerializedName("Operator")
-    @Expose
-    private UserInfo Operator;
-
-    /**
-    * 应用相关信息
-    */
-    @SerializedName("Agent")
-    @Expose
-    private Agent Agent;
 
     /**
     * 内容控件信息数组
@@ -73,11 +66,41 @@ public class CreateDocumentRequest extends AbstractModel{
     private Boolean NeedPreview;
 
     /**
+    * 预览链接类型 默认:0-文件流, 1- H5链接 注意:此参数在NeedPreview 为true 时有效,
+    */
+    @SerializedName("PreviewType")
+    @Expose
+    private Long PreviewType;
+
+    /**
+    * 应用相关信息
+    */
+    @SerializedName("Agent")
+    @Expose
+    private Agent Agent;
+
+    /**
     * 客户端Token，保持接口幂等性,最大长度64个字符
     */
     @SerializedName("ClientToken")
     @Expose
     private String ClientToken;
+
+    /**
+     * Get 调用方用户信息，userId 必填 
+     * @return Operator 调用方用户信息，userId 必填
+     */
+    public UserInfo getOperator() {
+        return this.Operator;
+    }
+
+    /**
+     * Set 调用方用户信息，userId 必填
+     * @param Operator 调用方用户信息，userId 必填
+     */
+    public void setOperator(UserInfo Operator) {
+        this.Operator = Operator;
+    }
 
     /**
      * Get 签署流程编号,由CreateFlow接口返回 
@@ -112,51 +135,19 @@ public class CreateDocumentRequest extends AbstractModel{
     }
 
     /**
-     * Get 文件名列表,单个文件名最大长度200个字符 
-     * @return FileNames 文件名列表,单个文件名最大长度200个字符
+     * Get 文件名列表，单个文件名最大长度200个字符，暂时仅支持单文件发起 
+     * @return FileNames 文件名列表，单个文件名最大长度200个字符，暂时仅支持单文件发起
      */
     public String [] getFileNames() {
         return this.FileNames;
     }
 
     /**
-     * Set 文件名列表,单个文件名最大长度200个字符
-     * @param FileNames 文件名列表,单个文件名最大长度200个字符
+     * Set 文件名列表，单个文件名最大长度200个字符，暂时仅支持单文件发起
+     * @param FileNames 文件名列表，单个文件名最大长度200个字符，暂时仅支持单文件发起
      */
     public void setFileNames(String [] FileNames) {
         this.FileNames = FileNames;
-    }
-
-    /**
-     * Get 无 
-     * @return Operator 无
-     */
-    public UserInfo getOperator() {
-        return this.Operator;
-    }
-
-    /**
-     * Set 无
-     * @param Operator 无
-     */
-    public void setOperator(UserInfo Operator) {
-        this.Operator = Operator;
-    }
-
-    /**
-     * Get 应用相关信息 
-     * @return Agent 应用相关信息
-     */
-    public Agent getAgent() {
-        return this.Agent;
-    }
-
-    /**
-     * Set 应用相关信息
-     * @param Agent 应用相关信息
-     */
-    public void setAgent(Agent Agent) {
-        this.Agent = Agent;
     }
 
     /**
@@ -196,6 +187,38 @@ public class CreateDocumentRequest extends AbstractModel{
     }
 
     /**
+     * Get 预览链接类型 默认:0-文件流, 1- H5链接 注意:此参数在NeedPreview 为true 时有效, 
+     * @return PreviewType 预览链接类型 默认:0-文件流, 1- H5链接 注意:此参数在NeedPreview 为true 时有效,
+     */
+    public Long getPreviewType() {
+        return this.PreviewType;
+    }
+
+    /**
+     * Set 预览链接类型 默认:0-文件流, 1- H5链接 注意:此参数在NeedPreview 为true 时有效,
+     * @param PreviewType 预览链接类型 默认:0-文件流, 1- H5链接 注意:此参数在NeedPreview 为true 时有效,
+     */
+    public void setPreviewType(Long PreviewType) {
+        this.PreviewType = PreviewType;
+    }
+
+    /**
+     * Get 应用相关信息 
+     * @return Agent 应用相关信息
+     */
+    public Agent getAgent() {
+        return this.Agent;
+    }
+
+    /**
+     * Set 应用相关信息
+     * @param Agent 应用相关信息
+     */
+    public void setAgent(Agent Agent) {
+        this.Agent = Agent;
+    }
+
+    /**
      * Get 客户端Token，保持接口幂等性,最大长度64个字符 
      * @return ClientToken 客户端Token，保持接口幂等性,最大长度64个字符
      */
@@ -219,6 +242,9 @@ public class CreateDocumentRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public CreateDocumentRequest(CreateDocumentRequest source) {
+        if (source.Operator != null) {
+            this.Operator = new UserInfo(source.Operator);
+        }
         if (source.FlowId != null) {
             this.FlowId = new String(source.FlowId);
         }
@@ -231,12 +257,6 @@ public class CreateDocumentRequest extends AbstractModel{
                 this.FileNames[i] = new String(source.FileNames[i]);
             }
         }
-        if (source.Operator != null) {
-            this.Operator = new UserInfo(source.Operator);
-        }
-        if (source.Agent != null) {
-            this.Agent = new Agent(source.Agent);
-        }
         if (source.FormFields != null) {
             this.FormFields = new FormField[source.FormFields.length];
             for (int i = 0; i < source.FormFields.length; i++) {
@@ -245,6 +265,12 @@ public class CreateDocumentRequest extends AbstractModel{
         }
         if (source.NeedPreview != null) {
             this.NeedPreview = new Boolean(source.NeedPreview);
+        }
+        if (source.PreviewType != null) {
+            this.PreviewType = new Long(source.PreviewType);
+        }
+        if (source.Agent != null) {
+            this.Agent = new Agent(source.Agent);
         }
         if (source.ClientToken != null) {
             this.ClientToken = new String(source.ClientToken);
@@ -256,13 +282,14 @@ public class CreateDocumentRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamObj(map, prefix + "Operator.", this.Operator);
         this.setParamSimple(map, prefix + "FlowId", this.FlowId);
         this.setParamSimple(map, prefix + "TemplateId", this.TemplateId);
         this.setParamArraySimple(map, prefix + "FileNames.", this.FileNames);
-        this.setParamObj(map, prefix + "Operator.", this.Operator);
-        this.setParamObj(map, prefix + "Agent.", this.Agent);
         this.setParamArrayObj(map, prefix + "FormFields.", this.FormFields);
         this.setParamSimple(map, prefix + "NeedPreview", this.NeedPreview);
+        this.setParamSimple(map, prefix + "PreviewType", this.PreviewType);
+        this.setParamObj(map, prefix + "Agent.", this.Agent);
         this.setParamSimple(map, prefix + "ClientToken", this.ClientToken);
 
     }

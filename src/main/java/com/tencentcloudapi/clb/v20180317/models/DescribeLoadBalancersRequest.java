@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeLoadBalancersRequest extends AbstractModel{
 
     /**
-    * 负载均衡实例ID。
+    * 负载均衡实例ID。实例ID数量上限为20个。
     */
     @SerializedName("LoadBalancerIds")
     @Expose
@@ -66,14 +66,14 @@ OPEN：公网属性， INTERNAL：内网属性。
     private String [] LoadBalancerVips;
 
     /**
-    * 负载均衡绑定的后端服务的外网 IP。
+    * 负载均衡绑定的后端服务的外网 IP，只支持查询云服务器的公网 IP。
     */
     @SerializedName("BackendPublicIps")
     @Expose
     private String [] BackendPublicIps;
 
     /**
-    * 负载均衡绑定的后端服务的内网 IP。
+    * 负载均衡绑定的后端服务的内网 IP，只支持查询云服务器的内网 IP。
     */
     @SerializedName("BackendPrivateIps")
     @Expose
@@ -167,16 +167,16 @@ OPEN：公网属性， INTERNAL：内网属性。
     private Filter [] Filters;
 
     /**
-     * Get 负载均衡实例ID。 
-     * @return LoadBalancerIds 负载均衡实例ID。
+     * Get 负载均衡实例ID。实例ID数量上限为20个。 
+     * @return LoadBalancerIds 负载均衡实例ID。实例ID数量上限为20个。
      */
     public String [] getLoadBalancerIds() {
         return this.LoadBalancerIds;
     }
 
     /**
-     * Set 负载均衡实例ID。
-     * @param LoadBalancerIds 负载均衡实例ID。
+     * Set 负载均衡实例ID。实例ID数量上限为20个。
+     * @param LoadBalancerIds 负载均衡实例ID。实例ID数量上限为20个。
      */
     public void setLoadBalancerIds(String [] LoadBalancerIds) {
         this.LoadBalancerIds = LoadBalancerIds;
@@ -267,32 +267,32 @@ OPEN：公网属性， INTERNAL：内网属性。
     }
 
     /**
-     * Get 负载均衡绑定的后端服务的外网 IP。 
-     * @return BackendPublicIps 负载均衡绑定的后端服务的外网 IP。
+     * Get 负载均衡绑定的后端服务的外网 IP，只支持查询云服务器的公网 IP。 
+     * @return BackendPublicIps 负载均衡绑定的后端服务的外网 IP，只支持查询云服务器的公网 IP。
      */
     public String [] getBackendPublicIps() {
         return this.BackendPublicIps;
     }
 
     /**
-     * Set 负载均衡绑定的后端服务的外网 IP。
-     * @param BackendPublicIps 负载均衡绑定的后端服务的外网 IP。
+     * Set 负载均衡绑定的后端服务的外网 IP，只支持查询云服务器的公网 IP。
+     * @param BackendPublicIps 负载均衡绑定的后端服务的外网 IP，只支持查询云服务器的公网 IP。
      */
     public void setBackendPublicIps(String [] BackendPublicIps) {
         this.BackendPublicIps = BackendPublicIps;
     }
 
     /**
-     * Get 负载均衡绑定的后端服务的内网 IP。 
-     * @return BackendPrivateIps 负载均衡绑定的后端服务的内网 IP。
+     * Get 负载均衡绑定的后端服务的内网 IP，只支持查询云服务器的内网 IP。 
+     * @return BackendPrivateIps 负载均衡绑定的后端服务的内网 IP，只支持查询云服务器的内网 IP。
      */
     public String [] getBackendPrivateIps() {
         return this.BackendPrivateIps;
     }
 
     /**
-     * Set 负载均衡绑定的后端服务的内网 IP。
-     * @param BackendPrivateIps 负载均衡绑定的后端服务的内网 IP。
+     * Set 负载均衡绑定的后端服务的内网 IP，只支持查询云服务器的内网 IP。
+     * @param BackendPrivateIps 负载均衡绑定的后端服务的内网 IP，只支持查询云服务器的内网 IP。
      */
     public void setBackendPrivateIps(String [] BackendPrivateIps) {
         this.BackendPrivateIps = BackendPrivateIps;

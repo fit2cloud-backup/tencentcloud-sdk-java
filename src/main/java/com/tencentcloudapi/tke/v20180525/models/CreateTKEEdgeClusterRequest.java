@@ -86,6 +86,41 @@ public class CreateTKEEdgeClusterRequest extends AbstractModel{
     private EdgeClusterPublicLB PublicLB;
 
     /**
+    * 集群的级别
+    */
+    @SerializedName("ClusterLevel")
+    @Expose
+    private String ClusterLevel;
+
+    /**
+    * 集群是否支持自动升配
+    */
+    @SerializedName("AutoUpgradeClusterLevel")
+    @Expose
+    private Boolean AutoUpgradeClusterLevel;
+
+    /**
+    * 集群计费方式
+    */
+    @SerializedName("ChargeType")
+    @Expose
+    private String ChargeType;
+
+    /**
+    * 边缘集群版本，此版本区别于k8s版本，是整个集群各组件版本集合
+    */
+    @SerializedName("EdgeVersion")
+    @Expose
+    private String EdgeVersion;
+
+    /**
+    * 边缘组件镜像仓库前缀
+    */
+    @SerializedName("RegistryPrefix")
+    @Expose
+    private String RegistryPrefix;
+
+    /**
      * Get k8s版本号 
      * @return K8SVersion k8s版本号
      */
@@ -229,6 +264,86 @@ public class CreateTKEEdgeClusterRequest extends AbstractModel{
         this.PublicLB = PublicLB;
     }
 
+    /**
+     * Get 集群的级别 
+     * @return ClusterLevel 集群的级别
+     */
+    public String getClusterLevel() {
+        return this.ClusterLevel;
+    }
+
+    /**
+     * Set 集群的级别
+     * @param ClusterLevel 集群的级别
+     */
+    public void setClusterLevel(String ClusterLevel) {
+        this.ClusterLevel = ClusterLevel;
+    }
+
+    /**
+     * Get 集群是否支持自动升配 
+     * @return AutoUpgradeClusterLevel 集群是否支持自动升配
+     */
+    public Boolean getAutoUpgradeClusterLevel() {
+        return this.AutoUpgradeClusterLevel;
+    }
+
+    /**
+     * Set 集群是否支持自动升配
+     * @param AutoUpgradeClusterLevel 集群是否支持自动升配
+     */
+    public void setAutoUpgradeClusterLevel(Boolean AutoUpgradeClusterLevel) {
+        this.AutoUpgradeClusterLevel = AutoUpgradeClusterLevel;
+    }
+
+    /**
+     * Get 集群计费方式 
+     * @return ChargeType 集群计费方式
+     */
+    public String getChargeType() {
+        return this.ChargeType;
+    }
+
+    /**
+     * Set 集群计费方式
+     * @param ChargeType 集群计费方式
+     */
+    public void setChargeType(String ChargeType) {
+        this.ChargeType = ChargeType;
+    }
+
+    /**
+     * Get 边缘集群版本，此版本区别于k8s版本，是整个集群各组件版本集合 
+     * @return EdgeVersion 边缘集群版本，此版本区别于k8s版本，是整个集群各组件版本集合
+     */
+    public String getEdgeVersion() {
+        return this.EdgeVersion;
+    }
+
+    /**
+     * Set 边缘集群版本，此版本区别于k8s版本，是整个集群各组件版本集合
+     * @param EdgeVersion 边缘集群版本，此版本区别于k8s版本，是整个集群各组件版本集合
+     */
+    public void setEdgeVersion(String EdgeVersion) {
+        this.EdgeVersion = EdgeVersion;
+    }
+
+    /**
+     * Get 边缘组件镜像仓库前缀 
+     * @return RegistryPrefix 边缘组件镜像仓库前缀
+     */
+    public String getRegistryPrefix() {
+        return this.RegistryPrefix;
+    }
+
+    /**
+     * Set 边缘组件镜像仓库前缀
+     * @param RegistryPrefix 边缘组件镜像仓库前缀
+     */
+    public void setRegistryPrefix(String RegistryPrefix) {
+        this.RegistryPrefix = RegistryPrefix;
+    }
+
     public CreateTKEEdgeClusterRequest() {
     }
 
@@ -264,6 +379,21 @@ public class CreateTKEEdgeClusterRequest extends AbstractModel{
         if (source.PublicLB != null) {
             this.PublicLB = new EdgeClusterPublicLB(source.PublicLB);
         }
+        if (source.ClusterLevel != null) {
+            this.ClusterLevel = new String(source.ClusterLevel);
+        }
+        if (source.AutoUpgradeClusterLevel != null) {
+            this.AutoUpgradeClusterLevel = new Boolean(source.AutoUpgradeClusterLevel);
+        }
+        if (source.ChargeType != null) {
+            this.ChargeType = new String(source.ChargeType);
+        }
+        if (source.EdgeVersion != null) {
+            this.EdgeVersion = new String(source.EdgeVersion);
+        }
+        if (source.RegistryPrefix != null) {
+            this.RegistryPrefix = new String(source.RegistryPrefix);
+        }
     }
 
 
@@ -280,6 +410,11 @@ public class CreateTKEEdgeClusterRequest extends AbstractModel{
         this.setParamObj(map, prefix + "ClusterAdvancedSettings.", this.ClusterAdvancedSettings);
         this.setParamSimple(map, prefix + "MaxNodePodNum", this.MaxNodePodNum);
         this.setParamObj(map, prefix + "PublicLB.", this.PublicLB);
+        this.setParamSimple(map, prefix + "ClusterLevel", this.ClusterLevel);
+        this.setParamSimple(map, prefix + "AutoUpgradeClusterLevel", this.AutoUpgradeClusterLevel);
+        this.setParamSimple(map, prefix + "ChargeType", this.ChargeType);
+        this.setParamSimple(map, prefix + "EdgeVersion", this.EdgeVersion);
+        this.setParamSimple(map, prefix + "RegistryPrefix", this.RegistryPrefix);
 
     }
 }

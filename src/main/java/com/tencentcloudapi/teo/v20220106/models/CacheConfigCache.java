@@ -23,18 +23,17 @@ import java.util.HashMap;
 public class CacheConfigCache extends AbstractModel{
 
     /**
-    * 缓存配置开关
-on：开启
-off：关闭
-注意：此字段可能返回 null，表示取不到有效值。
+    * 缓存配置开关，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li>
     */
     @SerializedName("Switch")
     @Expose
     private String Switch;
 
     /**
-    * 缓存过期时间设置
-单位为秒，最大可设置为 365 天
+    * 缓存过期时间设置。
+单位为秒，最大可设置为 365 天。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CacheTime")
@@ -42,9 +41,9 @@ off：关闭
     private Long CacheTime;
 
     /**
-    * 是否开启强制缓存
-开启：on
-关闭：off
+    * 是否开启强制缓存，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li>
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IgnoreCacheControl")
@@ -52,39 +51,35 @@ off：关闭
     private String IgnoreCacheControl;
 
     /**
-     * Get 缓存配置开关
-on：开启
-off：关闭
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Switch 缓存配置开关
-on：开启
-off：关闭
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 缓存配置开关，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li> 
+     * @return Switch 缓存配置开关，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li>
      */
     public String getSwitch() {
         return this.Switch;
     }
 
     /**
-     * Set 缓存配置开关
-on：开启
-off：关闭
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Switch 缓存配置开关
-on：开启
-off：关闭
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 缓存配置开关，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li>
+     * @param Switch 缓存配置开关，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li>
      */
     public void setSwitch(String Switch) {
         this.Switch = Switch;
     }
 
     /**
-     * Get 缓存过期时间设置
-单位为秒，最大可设置为 365 天
+     * Get 缓存过期时间设置。
+单位为秒，最大可设置为 365 天。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CacheTime 缓存过期时间设置
-单位为秒，最大可设置为 365 天
+     * @return CacheTime 缓存过期时间设置。
+单位为秒，最大可设置为 365 天。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCacheTime() {
@@ -92,11 +87,11 @@ off：关闭
     }
 
     /**
-     * Set 缓存过期时间设置
-单位为秒，最大可设置为 365 天
+     * Set 缓存过期时间设置。
+单位为秒，最大可设置为 365 天。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param CacheTime 缓存过期时间设置
-单位为秒，最大可设置为 365 天
+     * @param CacheTime 缓存过期时间设置。
+单位为秒，最大可设置为 365 天。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCacheTime(Long CacheTime) {
@@ -104,13 +99,13 @@ off：关闭
     }
 
     /**
-     * Get 是否开启强制缓存
-开启：on
-关闭：off
+     * Get 是否开启强制缓存，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li>
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return IgnoreCacheControl 是否开启强制缓存
-开启：on
-关闭：off
+     * @return IgnoreCacheControl 是否开启强制缓存，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIgnoreCacheControl() {
@@ -118,13 +113,13 @@ off：关闭
     }
 
     /**
-     * Set 是否开启强制缓存
-开启：on
-关闭：off
+     * Set 是否开启强制缓存，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param IgnoreCacheControl 是否开启强制缓存
-开启：on
-关闭：off
+     * @param IgnoreCacheControl 是否开启强制缓存，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIgnoreCacheControl(String IgnoreCacheControl) {

@@ -120,6 +120,9 @@ public enum SesErrorCode {
     // 邮件地址不合法，请检查邮件地址格式。
      INVALIDPARAMETERVALUE_ILLEGALEMAILADDRESS("InvalidParameterValue.IllegalEmailAddress"),
      
+    // 发信人别名错误。
+     INVALIDPARAMETERVALUE_ILLEGALSENDERNAME("InvalidParameterValue.IllegalSenderName"),
+     
     // 收件人地址附带的模板参数不能包含html标签。
      INVALIDPARAMETERVALUE_INVALIDTEMPLATEDATA("InvalidParameterValue.InValidTemplateData"),
      
@@ -134,6 +137,9 @@ public enum SesErrorCode {
      
     // 收件人列表描述不合法，描述不可包含特殊字符，字符长度范围:1~300。
      INVALIDPARAMETERVALUE_RECEIVERDESCILLEGAL("InvalidParameterValue.ReceiverDescIllegal"),
+     
+    // 收件人地址错误。
+     INVALIDPARAMETERVALUE_RECEIVEREMAILINVALID("InvalidParameterValue.ReceiverEmailInvalid"),
      
     // 收件人列表名字不合法，请检查字符内容及大小。
      INVALIDPARAMETERVALUE_RECEIVERNAMEILLEGAL("InvalidParameterValue.ReceiverNameIllegal"),
@@ -159,7 +165,10 @@ public enum SesErrorCode {
     // 模板参数必须为json格式。
      INVALIDPARAMETERVALUE_TEMPLATEDATAERROR("InvalidParameterValue.TemplateDataError"),
      
-    // 收件人地址附带的模板参数长度超过限制
+    // 模板参数变量名与之前不一致。
+     INVALIDPARAMETERVALUE_TEMPLATEDATAINCONSISTENT("InvalidParameterValue.TemplateDataInconsistent"),
+     
+    // 单条收件人地址附带的模板参数(整个 JSON 结构)， 长度超过限制 800 bytes
      INVALIDPARAMETERVALUE_TEMPLATEDATALENLIMIT("InvalidParameterValue.TemplateDataLenLimit"),
      
     // 模板名字不合法，请检查字符内容及大小。
@@ -180,11 +189,14 @@ public enum SesErrorCode {
     // 超过配额限制。
      LIMITEXCEEDED("LimitExceeded"),
      
-    // 收件人地址数量超过限制。
-     LIMITEXCEEDED_EXCEEDRECEIVERDETAILLIMIT("LimitExceeded.ExceedReceiverDetailLimit"),
-     
     // 收件人列表数量超过限制。
      LIMITEXCEEDED_EXCEEDRECEIVERLIMIT("LimitExceeded.ExceedReceiverLimit"),
+     
+    // 该收件人列表包含的收件人地址总量超过限制。
+     LIMITEXCEEDED_RECEIVERDETAILCOUNTLIMIT("LimitExceeded.ReceiverDetailCountLimit"),
+     
+    // 请求的收件人地址数量超过限制。
+     LIMITEXCEEDED_RECEIVERDETAILREQUESTLIMIT("LimitExceeded.ReceiverDetailRequestLimit"),
      
     // 缺少参数错误。
      MISSINGPARAMETER("MissingParameter"),
@@ -216,7 +228,7 @@ public enum SesErrorCode {
     // 超出最大发信地址限制。
      OPERATIONDENIED_EXCEEDSENDERLIMIT("OperationDenied.ExceedSenderLimit"),
      
-    // 收件人列表正在被操作，请稍后操作。
+    // 收件人列表正在上传中，请稍后操作。
      OPERATIONDENIED_RECEIVERISOPERATING("OperationDenied.ReceiverIsOperating"),
      
     // 收件人列表不存在。

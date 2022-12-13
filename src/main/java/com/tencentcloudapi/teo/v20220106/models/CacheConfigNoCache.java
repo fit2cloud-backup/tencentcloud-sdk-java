@@ -23,38 +23,33 @@ import java.util.HashMap;
 public class CacheConfigNoCache extends AbstractModel{
 
     /**
-    * 不缓存配置开关
-on：开启
-off：关闭
-注意：此字段可能返回 null，表示取不到有效值。
+    * 不缓存配置开关，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li>
     */
     @SerializedName("Switch")
     @Expose
     private String Switch;
 
     /**
-     * Get 不缓存配置开关
-on：开启
-off：关闭
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Switch 不缓存配置开关
-on：开启
-off：关闭
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 不缓存配置开关，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li> 
+     * @return Switch 不缓存配置开关，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li>
      */
     public String getSwitch() {
         return this.Switch;
     }
 
     /**
-     * Set 不缓存配置开关
-on：开启
-off：关闭
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Switch 不缓存配置开关
-on：开启
-off：关闭
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 不缓存配置开关，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li>
+     * @param Switch 不缓存配置开关，取值有：
+<li>on：开启；</li>
+<li>off：关闭。</li>
      */
     public void setSwitch(String Switch) {
         this.Switch = Switch;

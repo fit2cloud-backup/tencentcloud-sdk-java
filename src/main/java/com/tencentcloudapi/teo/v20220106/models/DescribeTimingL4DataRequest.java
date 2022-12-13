@@ -37,7 +37,11 @@ public class DescribeTimingL4DataRequest extends AbstractModel{
     private String EndTime;
 
     /**
-    * 指标列表
+    * 支持的指标：
+l4Flow_connections: 访问连接数
+l4Flow_flux: 访问总流量
+l4Flow_inFlux: 访问入流量
+l4Flow_outFlux: 访问出流量
     */
     @SerializedName("MetricNames")
     @Expose
@@ -93,6 +97,15 @@ public class DescribeTimingL4DataRequest extends AbstractModel{
     private String [] ProxyIds;
 
     /**
+    * 加速区域，取值有：
+<li>mainland：中国大陆境内;</li>
+<li>overseas：全球（不含中国大陆）。</li>
+    */
+    @SerializedName("Area")
+    @Expose
+    private String Area;
+
+    /**
      * Get RFC3339格式，客户端时间 
      * @return StartTime RFC3339格式，客户端时间
      */
@@ -125,16 +138,32 @@ public class DescribeTimingL4DataRequest extends AbstractModel{
     }
 
     /**
-     * Get 指标列表 
-     * @return MetricNames 指标列表
+     * Get 支持的指标：
+l4Flow_connections: 访问连接数
+l4Flow_flux: 访问总流量
+l4Flow_inFlux: 访问入流量
+l4Flow_outFlux: 访问出流量 
+     * @return MetricNames 支持的指标：
+l4Flow_connections: 访问连接数
+l4Flow_flux: 访问总流量
+l4Flow_inFlux: 访问入流量
+l4Flow_outFlux: 访问出流量
      */
     public String [] getMetricNames() {
         return this.MetricNames;
     }
 
     /**
-     * Set 指标列表
-     * @param MetricNames 指标列表
+     * Set 支持的指标：
+l4Flow_connections: 访问连接数
+l4Flow_flux: 访问总流量
+l4Flow_inFlux: 访问入流量
+l4Flow_outFlux: 访问出流量
+     * @param MetricNames 支持的指标：
+l4Flow_connections: 访问连接数
+l4Flow_flux: 访问总流量
+l4Flow_inFlux: 访问入流量
+l4Flow_outFlux: 访问出流量
      */
     public void setMetricNames(String [] MetricNames) {
         this.MetricNames = MetricNames;
@@ -252,6 +281,30 @@ public class DescribeTimingL4DataRequest extends AbstractModel{
         this.ProxyIds = ProxyIds;
     }
 
+    /**
+     * Get 加速区域，取值有：
+<li>mainland：中国大陆境内;</li>
+<li>overseas：全球（不含中国大陆）。</li> 
+     * @return Area 加速区域，取值有：
+<li>mainland：中国大陆境内;</li>
+<li>overseas：全球（不含中国大陆）。</li>
+     */
+    public String getArea() {
+        return this.Area;
+    }
+
+    /**
+     * Set 加速区域，取值有：
+<li>mainland：中国大陆境内;</li>
+<li>overseas：全球（不含中国大陆）。</li>
+     * @param Area 加速区域，取值有：
+<li>mainland：中国大陆境内;</li>
+<li>overseas：全球（不含中国大陆）。</li>
+     */
+    public void setArea(String Area) {
+        this.Area = Area;
+    }
+
     public DescribeTimingL4DataRequest() {
     }
 
@@ -305,6 +358,9 @@ public class DescribeTimingL4DataRequest extends AbstractModel{
                 this.ProxyIds[i] = new String(source.ProxyIds[i]);
             }
         }
+        if (source.Area != null) {
+            this.Area = new String(source.Area);
+        }
     }
 
 
@@ -322,6 +378,7 @@ public class DescribeTimingL4DataRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "RuleId", this.RuleId);
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
         this.setParamArraySimple(map, prefix + "ProxyIds.", this.ProxyIds);
+        this.setParamSimple(map, prefix + "Area", this.Area);
 
     }
 }

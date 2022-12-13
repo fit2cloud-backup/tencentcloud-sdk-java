@@ -199,7 +199,7 @@ public class PartnersClient extends AbstractClient{
     }
 
     /**
-     *供代理商拉取缓存的全量客户订单
+     *供代理商拉取缓存的全量预付费客户订单
      * @param req DescribeAgentDealsByCacheRequest
      * @return DescribeAgentDealsByCacheResponse
      * @throws TencentCloudSDKException
@@ -219,7 +219,7 @@ public class PartnersClient extends AbstractClient{
     }
 
     /**
-     *【该接口将逐步下线，请切换使用升级版本DescribeAgentDealsByCache】代理商拉取缓存的全量客户订单
+     *【该接口已下线，请使用升级版本DescribeAgentDealsByCache】代理商拉取缓存的全量客户订单
      * @param req DescribeAgentDealsCacheRequest
      * @return DescribeAgentDealsCacheResponse
      * @throws TencentCloudSDKException
@@ -239,7 +239,7 @@ public class PartnersClient extends AbstractClient{
     }
 
     /**
-     *【该接口将逐步下线，请切换使用升级版本DescribeAgentPayDealsV2】可以查询代理商代付的所有订单
+     *【该接口已下线，请切换使用升级版本DescribeAgentPayDealsV2】可以查询代理商代付的所有订单
      * @param req DescribeAgentPayDealsRequest
      * @return DescribeAgentPayDealsResponse
      * @throws TencentCloudSDKException
@@ -259,7 +259,7 @@ public class PartnersClient extends AbstractClient{
     }
 
     /**
-     *可以查询代理商代付的所有订单
+     *可以查询代理商代付的预付费订单
      * @param req DescribeAgentPayDealsV2Request
      * @return DescribeAgentPayDealsV2Response
      * @throws TencentCloudSDKException
@@ -279,7 +279,7 @@ public class PartnersClient extends AbstractClient{
     }
 
     /**
-     *【该接口将逐步下线，请切换使用升级版本DescribeAgentSelfPayDealsV2】可以查询代理商下指定客户的自付订单
+     *【该接口已下线，请切换使用升级版本DescribeAgentSelfPayDealsV2】可以查询代理商下指定客户的自付订单
      * @param req DescribeAgentSelfPayDealsRequest
      * @return DescribeAgentSelfPayDealsResponse
      * @throws TencentCloudSDKException
@@ -299,7 +299,7 @@ public class PartnersClient extends AbstractClient{
     }
 
     /**
-     *查询代理商名下指定代客的自付订单
+     *查询代理商名下指定代客的自付订单（预付费）
      * @param req DescribeAgentSelfPayDealsV2Request
      * @return DescribeAgentSelfPayDealsV2Response
      * @throws TencentCloudSDKException
@@ -359,7 +359,7 @@ public class PartnersClient extends AbstractClient{
     }
 
     /**
-     *代理商可查询自己名下全部返佣信息
+     *【该接口已下线，请切换使用升级版本DescribeRebateInfosNew】代理商可查询自己名下全部返佣信息
      * @param req DescribeRebateInfosRequest
      * @return DescribeRebateInfosResponse
      * @throws TencentCloudSDKException
@@ -371,6 +371,26 @@ public class PartnersClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<DescribeRebateInfosResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeRebateInfos");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *代理商可查询自己名下全部返佣信息
+     * @param req DescribeRebateInfosNewRequest
+     * @return DescribeRebateInfosNewResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeRebateInfosNewResponse DescribeRebateInfosNew(DescribeRebateInfosNewRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeRebateInfosNewResponse> rsp = null;
+        String rspStr = "";
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeRebateInfosNewResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeRebateInfosNew");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

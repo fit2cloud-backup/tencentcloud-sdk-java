@@ -44,7 +44,7 @@ public class TaskResponseInfo extends AbstractModel{
     private String Id;
 
     /**
-    * 计算时长，单位： ms。
+    * 计算耗时，单位： ms
     */
     @SerializedName("UsedTime")
     @Expose
@@ -248,6 +248,22 @@ public class TaskResponseInfo extends AbstractModel{
     private String UiUrl;
 
     /**
+    * 任务耗时，单位： ms
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TotalTime")
+    @Expose
+    private Long TotalTime;
+
+    /**
+    * spark app job执行task的程序入口参数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CmdArgs")
+    @Expose
+    private String CmdArgs;
+
+    /**
      * Get 任务所属Database的名称。 
      * @return DatabaseName 任务所属Database的名称。
      */
@@ -296,16 +312,16 @@ public class TaskResponseInfo extends AbstractModel{
     }
 
     /**
-     * Get 计算时长，单位： ms。 
-     * @return UsedTime 计算时长，单位： ms。
+     * Get 计算耗时，单位： ms 
+     * @return UsedTime 计算耗时，单位： ms
      */
     public Long getUsedTime() {
         return this.UsedTime;
     }
 
     /**
-     * Set 计算时长，单位： ms。
-     * @param UsedTime 计算时长，单位： ms。
+     * Set 计算耗时，单位： ms
+     * @param UsedTime 计算耗时，单位： ms
      */
     public void setUsedTime(Long UsedTime) {
         this.UsedTime = UsedTime;
@@ -787,6 +803,46 @@ public class TaskResponseInfo extends AbstractModel{
         this.UiUrl = UiUrl;
     }
 
+    /**
+     * Get 任务耗时，单位： ms
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TotalTime 任务耗时，单位： ms
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getTotalTime() {
+        return this.TotalTime;
+    }
+
+    /**
+     * Set 任务耗时，单位： ms
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TotalTime 任务耗时，单位： ms
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTotalTime(Long TotalTime) {
+        this.TotalTime = TotalTime;
+    }
+
+    /**
+     * Get spark app job执行task的程序入口参数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CmdArgs spark app job执行task的程序入口参数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCmdArgs() {
+        return this.CmdArgs;
+    }
+
+    /**
+     * Set spark app job执行task的程序入口参数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CmdArgs spark app job执行task的程序入口参数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCmdArgs(String CmdArgs) {
+        this.CmdArgs = CmdArgs;
+    }
+
     public TaskResponseInfo() {
     }
 
@@ -885,6 +941,12 @@ public class TaskResponseInfo extends AbstractModel{
         if (source.UiUrl != null) {
             this.UiUrl = new String(source.UiUrl);
         }
+        if (source.TotalTime != null) {
+            this.TotalTime = new Long(source.TotalTime);
+        }
+        if (source.CmdArgs != null) {
+            this.CmdArgs = new String(source.CmdArgs);
+        }
     }
 
 
@@ -922,6 +984,8 @@ public class TaskResponseInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "SparkJobId", this.SparkJobId);
         this.setParamSimple(map, prefix + "SparkJobFile", this.SparkJobFile);
         this.setParamSimple(map, prefix + "UiUrl", this.UiUrl);
+        this.setParamSimple(map, prefix + "TotalTime", this.TotalTime);
+        this.setParamSimple(map, prefix + "CmdArgs", this.CmdArgs);
 
     }
 }

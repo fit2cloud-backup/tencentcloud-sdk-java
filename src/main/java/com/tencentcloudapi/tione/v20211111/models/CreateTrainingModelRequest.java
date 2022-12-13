@@ -23,7 +23,10 @@ import java.util.HashMap;
 public class CreateTrainingModelRequest extends AbstractModel{
 
     /**
-    * 导入方式（MODEL/VERSION）
+    * 导入方式
+MODEL：导入新模型
+VERSION：导入新版本
+EXIST：导入现有版本
     */
     @SerializedName("ImportMethod")
     @Expose
@@ -65,7 +68,7 @@ public class CreateTrainingModelRequest extends AbstractModel{
     private String TrainingJobName;
 
     /**
-    * 算法框架 （PYTORCH/TENSORFLOW/DETECTRON2/PMML)
+    * 算法框架 （PYTORCH/TENSORFLOW/DETECTRON2/PMML/MMDETECTION)
     */
     @SerializedName("AlgorithmFramework")
     @Expose
@@ -128,7 +131,7 @@ public class CreateTrainingModelRequest extends AbstractModel{
     private CosPathInfo ModelOutputPath;
 
     /**
-    * 模型来源 （JOB/COS/AUTO_ML）
+    * 模型来源 （JOB/COS）
     */
     @SerializedName("TrainingModelSource")
     @Expose
@@ -142,7 +145,7 @@ public class CreateTrainingModelRequest extends AbstractModel{
     private String TrainingPreference;
 
     /**
-    * 自动学习任务ID
+    * 自动学习任务ID（已废弃）
     */
     @SerializedName("AutoMLTaskId")
     @Expose
@@ -165,23 +168,63 @@ public class CreateTrainingModelRequest extends AbstractModel{
     private String ModelVersionType;
 
     /**
-    * 模型格式 （PYTORCH/TORCH_SCRIPT/DETECTRON2/SAVED_MODEL/FROZEN_GRAPH/PMML）
+    * 模型格式 （PYTORCH/TORCH_SCRIPT/DETECTRON2/SAVED_MODEL/FROZEN_GRAPH/PMML/MMDETECTION/ONNX/HUGGING_FACE）
     */
     @SerializedName("ModelFormat")
     @Expose
     private String ModelFormat;
 
     /**
-     * Get 导入方式（MODEL/VERSION） 
-     * @return ImportMethod 导入方式（MODEL/VERSION）
+    * 推理镜像ID
+    */
+    @SerializedName("ReasoningEnvironmentId")
+    @Expose
+    private String ReasoningEnvironmentId;
+
+    /**
+    * 模型自动清理开关(true/false)，当前版本仅支持SAVED_MODEL格式模型
+    */
+    @SerializedName("AutoClean")
+    @Expose
+    private String AutoClean;
+
+    /**
+    * 模型数量保留上限(默认值为24个，上限为24，下限为1，步长为1)
+    */
+    @SerializedName("MaxReservedModels")
+    @Expose
+    private Long MaxReservedModels;
+
+    /**
+    * 模型清理周期(默认值为1分钟，上限为1440，下限为1分钟，步长为1)
+    */
+    @SerializedName("ModelCleanPeriod")
+    @Expose
+    private Long ModelCleanPeriod;
+
+    /**
+     * Get 导入方式
+MODEL：导入新模型
+VERSION：导入新版本
+EXIST：导入现有版本 
+     * @return ImportMethod 导入方式
+MODEL：导入新模型
+VERSION：导入新版本
+EXIST：导入现有版本
      */
     public String getImportMethod() {
         return this.ImportMethod;
     }
 
     /**
-     * Set 导入方式（MODEL/VERSION）
-     * @param ImportMethod 导入方式（MODEL/VERSION）
+     * Set 导入方式
+MODEL：导入新模型
+VERSION：导入新版本
+EXIST：导入现有版本
+     * @param ImportMethod 导入方式
+MODEL：导入新模型
+VERSION：导入新版本
+EXIST：导入现有版本
      */
     public void setImportMethod(String ImportMethod) {
         this.ImportMethod = ImportMethod;
@@ -268,16 +311,16 @@ public class CreateTrainingModelRequest extends AbstractModel{
     }
 
     /**
-     * Get 算法框架 （PYTORCH/TENSORFLOW/DETECTRON2/PMML) 
-     * @return AlgorithmFramework 算法框架 （PYTORCH/TENSORFLOW/DETECTRON2/PMML)
+     * Get 算法框架 （PYTORCH/TENSORFLOW/DETECTRON2/PMML/MMDETECTION) 
+     * @return AlgorithmFramework 算法框架 （PYTORCH/TENSORFLOW/DETECTRON2/PMML/MMDETECTION)
      */
     public String getAlgorithmFramework() {
         return this.AlgorithmFramework;
     }
 
     /**
-     * Set 算法框架 （PYTORCH/TENSORFLOW/DETECTRON2/PMML)
-     * @param AlgorithmFramework 算法框架 （PYTORCH/TENSORFLOW/DETECTRON2/PMML)
+     * Set 算法框架 （PYTORCH/TENSORFLOW/DETECTRON2/PMML/MMDETECTION)
+     * @param AlgorithmFramework 算法框架 （PYTORCH/TENSORFLOW/DETECTRON2/PMML/MMDETECTION)
      */
     public void setAlgorithmFramework(String AlgorithmFramework) {
         this.AlgorithmFramework = AlgorithmFramework;
@@ -412,16 +455,16 @@ public class CreateTrainingModelRequest extends AbstractModel{
     }
 
     /**
-     * Get 模型来源 （JOB/COS/AUTO_ML） 
-     * @return TrainingModelSource 模型来源 （JOB/COS/AUTO_ML）
+     * Get 模型来源 （JOB/COS） 
+     * @return TrainingModelSource 模型来源 （JOB/COS）
      */
     public String getTrainingModelSource() {
         return this.TrainingModelSource;
     }
 
     /**
-     * Set 模型来源 （JOB/COS/AUTO_ML）
-     * @param TrainingModelSource 模型来源 （JOB/COS/AUTO_ML）
+     * Set 模型来源 （JOB/COS）
+     * @param TrainingModelSource 模型来源 （JOB/COS）
      */
     public void setTrainingModelSource(String TrainingModelSource) {
         this.TrainingModelSource = TrainingModelSource;
@@ -444,16 +487,16 @@ public class CreateTrainingModelRequest extends AbstractModel{
     }
 
     /**
-     * Get 自动学习任务ID 
-     * @return AutoMLTaskId 自动学习任务ID
+     * Get 自动学习任务ID（已废弃） 
+     * @return AutoMLTaskId 自动学习任务ID（已废弃）
      */
     public String getAutoMLTaskId() {
         return this.AutoMLTaskId;
     }
 
     /**
-     * Set 自动学习任务ID
-     * @param AutoMLTaskId 自动学习任务ID
+     * Set 自动学习任务ID（已废弃）
+     * @param AutoMLTaskId 自动学习任务ID（已废弃）
      */
     public void setAutoMLTaskId(String AutoMLTaskId) {
         this.AutoMLTaskId = AutoMLTaskId;
@@ -500,19 +543,83 @@ public class CreateTrainingModelRequest extends AbstractModel{
     }
 
     /**
-     * Get 模型格式 （PYTORCH/TORCH_SCRIPT/DETECTRON2/SAVED_MODEL/FROZEN_GRAPH/PMML） 
-     * @return ModelFormat 模型格式 （PYTORCH/TORCH_SCRIPT/DETECTRON2/SAVED_MODEL/FROZEN_GRAPH/PMML）
+     * Get 模型格式 （PYTORCH/TORCH_SCRIPT/DETECTRON2/SAVED_MODEL/FROZEN_GRAPH/PMML/MMDETECTION/ONNX/HUGGING_FACE） 
+     * @return ModelFormat 模型格式 （PYTORCH/TORCH_SCRIPT/DETECTRON2/SAVED_MODEL/FROZEN_GRAPH/PMML/MMDETECTION/ONNX/HUGGING_FACE）
      */
     public String getModelFormat() {
         return this.ModelFormat;
     }
 
     /**
-     * Set 模型格式 （PYTORCH/TORCH_SCRIPT/DETECTRON2/SAVED_MODEL/FROZEN_GRAPH/PMML）
-     * @param ModelFormat 模型格式 （PYTORCH/TORCH_SCRIPT/DETECTRON2/SAVED_MODEL/FROZEN_GRAPH/PMML）
+     * Set 模型格式 （PYTORCH/TORCH_SCRIPT/DETECTRON2/SAVED_MODEL/FROZEN_GRAPH/PMML/MMDETECTION/ONNX/HUGGING_FACE）
+     * @param ModelFormat 模型格式 （PYTORCH/TORCH_SCRIPT/DETECTRON2/SAVED_MODEL/FROZEN_GRAPH/PMML/MMDETECTION/ONNX/HUGGING_FACE）
      */
     public void setModelFormat(String ModelFormat) {
         this.ModelFormat = ModelFormat;
+    }
+
+    /**
+     * Get 推理镜像ID 
+     * @return ReasoningEnvironmentId 推理镜像ID
+     */
+    public String getReasoningEnvironmentId() {
+        return this.ReasoningEnvironmentId;
+    }
+
+    /**
+     * Set 推理镜像ID
+     * @param ReasoningEnvironmentId 推理镜像ID
+     */
+    public void setReasoningEnvironmentId(String ReasoningEnvironmentId) {
+        this.ReasoningEnvironmentId = ReasoningEnvironmentId;
+    }
+
+    /**
+     * Get 模型自动清理开关(true/false)，当前版本仅支持SAVED_MODEL格式模型 
+     * @return AutoClean 模型自动清理开关(true/false)，当前版本仅支持SAVED_MODEL格式模型
+     */
+    public String getAutoClean() {
+        return this.AutoClean;
+    }
+
+    /**
+     * Set 模型自动清理开关(true/false)，当前版本仅支持SAVED_MODEL格式模型
+     * @param AutoClean 模型自动清理开关(true/false)，当前版本仅支持SAVED_MODEL格式模型
+     */
+    public void setAutoClean(String AutoClean) {
+        this.AutoClean = AutoClean;
+    }
+
+    /**
+     * Get 模型数量保留上限(默认值为24个，上限为24，下限为1，步长为1) 
+     * @return MaxReservedModels 模型数量保留上限(默认值为24个，上限为24，下限为1，步长为1)
+     */
+    public Long getMaxReservedModels() {
+        return this.MaxReservedModels;
+    }
+
+    /**
+     * Set 模型数量保留上限(默认值为24个，上限为24，下限为1，步长为1)
+     * @param MaxReservedModels 模型数量保留上限(默认值为24个，上限为24，下限为1，步长为1)
+     */
+    public void setMaxReservedModels(Long MaxReservedModels) {
+        this.MaxReservedModels = MaxReservedModels;
+    }
+
+    /**
+     * Get 模型清理周期(默认值为1分钟，上限为1440，下限为1分钟，步长为1) 
+     * @return ModelCleanPeriod 模型清理周期(默认值为1分钟，上限为1440，下限为1分钟，步长为1)
+     */
+    public Long getModelCleanPeriod() {
+        return this.ModelCleanPeriod;
+    }
+
+    /**
+     * Set 模型清理周期(默认值为1分钟，上限为1440，下限为1分钟，步长为1)
+     * @param ModelCleanPeriod 模型清理周期(默认值为1分钟，上限为1440，下限为1分钟，步长为1)
+     */
+    public void setModelCleanPeriod(Long ModelCleanPeriod) {
+        this.ModelCleanPeriod = ModelCleanPeriod;
     }
 
     public CreateTrainingModelRequest() {
@@ -589,6 +696,18 @@ public class CreateTrainingModelRequest extends AbstractModel{
         if (source.ModelFormat != null) {
             this.ModelFormat = new String(source.ModelFormat);
         }
+        if (source.ReasoningEnvironmentId != null) {
+            this.ReasoningEnvironmentId = new String(source.ReasoningEnvironmentId);
+        }
+        if (source.AutoClean != null) {
+            this.AutoClean = new String(source.AutoClean);
+        }
+        if (source.MaxReservedModels != null) {
+            this.MaxReservedModels = new Long(source.MaxReservedModels);
+        }
+        if (source.ModelCleanPeriod != null) {
+            this.ModelCleanPeriod = new Long(source.ModelCleanPeriod);
+        }
     }
 
 
@@ -617,6 +736,10 @@ public class CreateTrainingModelRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TrainingJobVersion", this.TrainingJobVersion);
         this.setParamSimple(map, prefix + "ModelVersionType", this.ModelVersionType);
         this.setParamSimple(map, prefix + "ModelFormat", this.ModelFormat);
+        this.setParamSimple(map, prefix + "ReasoningEnvironmentId", this.ReasoningEnvironmentId);
+        this.setParamSimple(map, prefix + "AutoClean", this.AutoClean);
+        this.setParamSimple(map, prefix + "MaxReservedModels", this.MaxReservedModels);
+        this.setParamSimple(map, prefix + "ModelCleanPeriod", this.ModelCleanPeriod);
 
     }
 }

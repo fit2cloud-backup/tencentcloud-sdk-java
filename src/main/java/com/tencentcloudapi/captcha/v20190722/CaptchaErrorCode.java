@@ -3,13 +3,16 @@ public enum CaptchaErrorCode {
     // 内部错误。
      INTERNALERROR("InternalError"),
      
+    // 参数错误。
+     INVALIDPARAMETER("InvalidParameter"),
+     
     // 缺少参数错误。
      MISSINGPARAMETER("MissingParameter"),
      
     // 鉴权失败。
      UNAUTHORIZEDOPERATION_ERRAUTH("UnauthorizedOperation.ErrAuth"),
      
-    // 未开通权限。
+    // 未开通权限/无有效套餐包/账号已欠费。
      UNAUTHORIZEDOPERATION_UNAUTHORIZED("UnauthorizedOperation.Unauthorized");
      
     private String value;

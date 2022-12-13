@@ -15,14 +15,26 @@ public enum CatErrorCode {
     // ES查询错误。
      FAILEDOPERATION_ESQUERYERROR("FailedOperation.ESQueryError"),
      
+    // 任务绑定的预付费套餐已过期。
+     FAILEDOPERATION_ERRPREPAIDRESOURCEEXPIRE("FailedOperation.ErrPrePaidResourceExpire"),
+     
     // 无有效节点。
      FAILEDOPERATION_NOVALIDNODES("FailedOperation.NoValidNodes"),
      
     // 账单欠费。
      FAILEDOPERATION_ORDEROUTOFCREDIT("FailedOperation.OrderOutOfCredit"),
      
+    // 预付费资源id绑定错误。
+     FAILEDOPERATION_PRERESOURCEIDFAILED("FailedOperation.PreResourceIDFailed"),
+     
     // 资源不存在。
      FAILEDOPERATION_RESOURCENOTFOUND("FailedOperation.ResourceNotFound"),
+     
+    // 发送授权请求失败。
+     FAILEDOPERATION_SENDREQUEST("FailedOperation.SendRequest"),
+     
+    // 标签验证错误。
+     FAILEDOPERATION_TAGREQUIREDVERIFYFAILED("FailedOperation.TagRequiredVerifyFailed"),
      
     // 任务未运行。
      FAILEDOPERATION_TASKNOTRUNNING("FailedOperation.TaskNotRunning"),
@@ -38,6 +50,12 @@ public enum CatErrorCode {
      
     // 试用任务量超时。
      FAILEDOPERATION_TRIALTASKEXCEED("FailedOperation.TrialTaskExceed"),
+     
+    // json解析失败。
+     FAILEDOPERATION_UNMARSHALRESPONSE("FailedOperation.UnmarshalResponse"),
+     
+    // 鉴权失败。
+     FAILEDOPERATION_USERNOQCLOUDTAGFULLACCESS("FailedOperation.UserNoQcloudTAGFullAccess"),
      
     // 内部错误。
      INTERNALERROR("InternalError"),

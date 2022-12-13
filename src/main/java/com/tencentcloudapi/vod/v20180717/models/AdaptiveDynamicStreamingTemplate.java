@@ -72,6 +72,16 @@ public class AdaptiveDynamicStreamingTemplate extends AbstractModel{
     private String DrmType;
 
     /**
+    * DRM 的密钥提供商，取值范围：
+<li>SDMC：华曦达；</li>
+<li>VOD：云点播。</li>
+默认值为 VOD 。
+    */
+    @SerializedName("DrmKeyProvider")
+    @Expose
+    private String DrmKeyProvider;
+
+    /**
     * 自适应转码输入流参数信息，最多输入10路流。
     */
     @SerializedName("StreamInfos")
@@ -109,6 +119,13 @@ public class AdaptiveDynamicStreamingTemplate extends AbstractModel{
     @SerializedName("UpdateTime")
     @Expose
     private String UpdateTime;
+
+    /**
+    * 切片类型，仅当 Format 为 HLS 时有效。
+    */
+    @SerializedName("SegmentType")
+    @Expose
+    private String SegmentType;
 
     /**
      * Get 转自适应码流模板唯一标识。 
@@ -235,6 +252,34 @@ public class AdaptiveDynamicStreamingTemplate extends AbstractModel{
     }
 
     /**
+     * Get DRM 的密钥提供商，取值范围：
+<li>SDMC：华曦达；</li>
+<li>VOD：云点播。</li>
+默认值为 VOD 。 
+     * @return DrmKeyProvider DRM 的密钥提供商，取值范围：
+<li>SDMC：华曦达；</li>
+<li>VOD：云点播。</li>
+默认值为 VOD 。
+     */
+    public String getDrmKeyProvider() {
+        return this.DrmKeyProvider;
+    }
+
+    /**
+     * Set DRM 的密钥提供商，取值范围：
+<li>SDMC：华曦达；</li>
+<li>VOD：云点播。</li>
+默认值为 VOD 。
+     * @param DrmKeyProvider DRM 的密钥提供商，取值范围：
+<li>SDMC：华曦达；</li>
+<li>VOD：云点播。</li>
+默认值为 VOD 。
+     */
+    public void setDrmKeyProvider(String DrmKeyProvider) {
+        this.DrmKeyProvider = DrmKeyProvider;
+    }
+
+    /**
      * Get 自适应转码输入流参数信息，最多输入10路流。 
      * @return StreamInfos 自适应转码输入流参数信息，最多输入10路流。
      */
@@ -330,6 +375,22 @@ public class AdaptiveDynamicStreamingTemplate extends AbstractModel{
         this.UpdateTime = UpdateTime;
     }
 
+    /**
+     * Get 切片类型，仅当 Format 为 HLS 时有效。 
+     * @return SegmentType 切片类型，仅当 Format 为 HLS 时有效。
+     */
+    public String getSegmentType() {
+        return this.SegmentType;
+    }
+
+    /**
+     * Set 切片类型，仅当 Format 为 HLS 时有效。
+     * @param SegmentType 切片类型，仅当 Format 为 HLS 时有效。
+     */
+    public void setSegmentType(String SegmentType) {
+        this.SegmentType = SegmentType;
+    }
+
     public AdaptiveDynamicStreamingTemplate() {
     }
 
@@ -356,6 +417,9 @@ public class AdaptiveDynamicStreamingTemplate extends AbstractModel{
         if (source.DrmType != null) {
             this.DrmType = new String(source.DrmType);
         }
+        if (source.DrmKeyProvider != null) {
+            this.DrmKeyProvider = new String(source.DrmKeyProvider);
+        }
         if (source.StreamInfos != null) {
             this.StreamInfos = new AdaptiveStreamTemplate[source.StreamInfos.length];
             for (int i = 0; i < source.StreamInfos.length; i++) {
@@ -374,6 +438,9 @@ public class AdaptiveDynamicStreamingTemplate extends AbstractModel{
         if (source.UpdateTime != null) {
             this.UpdateTime = new String(source.UpdateTime);
         }
+        if (source.SegmentType != null) {
+            this.SegmentType = new String(source.SegmentType);
+        }
     }
 
 
@@ -387,11 +454,13 @@ public class AdaptiveDynamicStreamingTemplate extends AbstractModel{
         this.setParamSimple(map, prefix + "Comment", this.Comment);
         this.setParamSimple(map, prefix + "Format", this.Format);
         this.setParamSimple(map, prefix + "DrmType", this.DrmType);
+        this.setParamSimple(map, prefix + "DrmKeyProvider", this.DrmKeyProvider);
         this.setParamArrayObj(map, prefix + "StreamInfos.", this.StreamInfos);
         this.setParamSimple(map, prefix + "DisableHigherVideoBitrate", this.DisableHigherVideoBitrate);
         this.setParamSimple(map, prefix + "DisableHigherVideoResolution", this.DisableHigherVideoResolution);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
+        this.setParamSimple(map, prefix + "SegmentType", this.SegmentType);
 
     }
 }

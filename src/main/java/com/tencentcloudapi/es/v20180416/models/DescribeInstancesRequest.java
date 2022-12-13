@@ -58,7 +58,7 @@ public class DescribeInstancesRequest extends AbstractModel{
     private Long Limit;
 
     /**
-    * 排序字段<li>1：实例ID</li><li>2：实例名称</li><li>3：可用区</li><li>4：创建时间</li>若orderKey未传递则按创建时间降序排序
+    * 排序字段<li>1：实例ID</li><li>2：实例名称</li><li>3：可用区</li><li>4：创建时间</li>若orderByKey未传递则按创建时间降序排序
     */
     @SerializedName("OrderByKey")
     @Expose
@@ -93,11 +93,18 @@ public class DescribeInstancesRequest extends AbstractModel{
     private String [] ZoneList;
 
     /**
-    * 健康状态筛列表
+    * 健康状态筛列表:0表示绿色，1表示黄色，2表示红色,-1表示未知
     */
     @SerializedName("HealthStatus")
     @Expose
     private Long [] HealthStatus;
+
+    /**
+    * Vpc列表 筛选项
+    */
+    @SerializedName("VpcIds")
+    @Expose
+    private String [] VpcIds;
 
     /**
      * Get 集群实例所属可用区，不传则默认所有可用区 
@@ -180,16 +187,16 @@ public class DescribeInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 排序字段<li>1：实例ID</li><li>2：实例名称</li><li>3：可用区</li><li>4：创建时间</li>若orderKey未传递则按创建时间降序排序 
-     * @return OrderByKey 排序字段<li>1：实例ID</li><li>2：实例名称</li><li>3：可用区</li><li>4：创建时间</li>若orderKey未传递则按创建时间降序排序
+     * Get 排序字段<li>1：实例ID</li><li>2：实例名称</li><li>3：可用区</li><li>4：创建时间</li>若orderByKey未传递则按创建时间降序排序 
+     * @return OrderByKey 排序字段<li>1：实例ID</li><li>2：实例名称</li><li>3：可用区</li><li>4：创建时间</li>若orderByKey未传递则按创建时间降序排序
      */
     public Long getOrderByKey() {
         return this.OrderByKey;
     }
 
     /**
-     * Set 排序字段<li>1：实例ID</li><li>2：实例名称</li><li>3：可用区</li><li>4：创建时间</li>若orderKey未传递则按创建时间降序排序
-     * @param OrderByKey 排序字段<li>1：实例ID</li><li>2：实例名称</li><li>3：可用区</li><li>4：创建时间</li>若orderKey未传递则按创建时间降序排序
+     * Set 排序字段<li>1：实例ID</li><li>2：实例名称</li><li>3：可用区</li><li>4：创建时间</li>若orderByKey未传递则按创建时间降序排序
+     * @param OrderByKey 排序字段<li>1：实例ID</li><li>2：实例名称</li><li>3：可用区</li><li>4：创建时间</li>若orderByKey未传递则按创建时间降序排序
      */
     public void setOrderByKey(Long OrderByKey) {
         this.OrderByKey = OrderByKey;
@@ -260,19 +267,35 @@ public class DescribeInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 健康状态筛列表 
-     * @return HealthStatus 健康状态筛列表
+     * Get 健康状态筛列表:0表示绿色，1表示黄色，2表示红色,-1表示未知 
+     * @return HealthStatus 健康状态筛列表:0表示绿色，1表示黄色，2表示红色,-1表示未知
      */
     public Long [] getHealthStatus() {
         return this.HealthStatus;
     }
 
     /**
-     * Set 健康状态筛列表
-     * @param HealthStatus 健康状态筛列表
+     * Set 健康状态筛列表:0表示绿色，1表示黄色，2表示红色,-1表示未知
+     * @param HealthStatus 健康状态筛列表:0表示绿色，1表示黄色，2表示红色,-1表示未知
      */
     public void setHealthStatus(Long [] HealthStatus) {
         this.HealthStatus = HealthStatus;
+    }
+
+    /**
+     * Get Vpc列表 筛选项 
+     * @return VpcIds Vpc列表 筛选项
+     */
+    public String [] getVpcIds() {
+        return this.VpcIds;
+    }
+
+    /**
+     * Set Vpc列表 筛选项
+     * @param VpcIds Vpc列表 筛选项
+     */
+    public void setVpcIds(String [] VpcIds) {
+        this.VpcIds = VpcIds;
     }
 
     public DescribeInstancesRequest() {
@@ -334,6 +357,12 @@ public class DescribeInstancesRequest extends AbstractModel{
                 this.HealthStatus[i] = new Long(source.HealthStatus[i]);
             }
         }
+        if (source.VpcIds != null) {
+            this.VpcIds = new String[source.VpcIds.length];
+            for (int i = 0; i < source.VpcIds.length; i++) {
+                this.VpcIds[i] = new String(source.VpcIds[i]);
+            }
+        }
     }
 
 
@@ -352,6 +381,7 @@ public class DescribeInstancesRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "IpList.", this.IpList);
         this.setParamArraySimple(map, prefix + "ZoneList.", this.ZoneList);
         this.setParamArraySimple(map, prefix + "HealthStatus.", this.HealthStatus);
+        this.setParamArraySimple(map, prefix + "VpcIds.", this.VpcIds);
 
     }
 }

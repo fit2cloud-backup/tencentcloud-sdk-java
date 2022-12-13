@@ -30,15 +30,11 @@ public class DescribeTaskDetailResponse extends AbstractModel{
 <li>ComposeMedia：制作媒体文件任务；</li>
 <li>WechatPublish：微信发布任务；</li>
 <li>WechatMiniProgramPublish：微信小程序视频发布任务；</li>
-<li>PullUpload：拉取上传媒体文件任务。</li>
-<li>FastClipMedia：快速剪辑任务。</li>
-
-兼容 2017 版的任务类型：
-<li>Transcode：视频转码任务；</li>
-<li>SnapshotByTimeOffset：视频截图任务；</li>
-<li>Concat：视频拼接任务；</li>
-<li>Clip：视频剪辑任务；</li>
-<li>ImageSprites：截取雪碧图任务。</li>
+<li>PullUpload：拉取上传媒体文件任务；</li>
+<li>FastClipMedia：快速剪辑任务；</li>
+<li>RemoveWatermarkTask：智能去除水印任务；</li>
+<li>DescribeFileAttributesTask：获取文件属性任务；</li>
+<li> ReviewAudioVideo：音视频审核任务。</li>
     */
     @SerializedName("TaskType")
     @Expose
@@ -172,6 +168,46 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     private SnapshotByTimeOffsetTask2017 SnapshotByTimeOffsetTask;
 
     /**
+    * 智能去除水印任务信息，仅当 TaskType 为 RemoveWatermark，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RemoveWatermarkTask")
+    @Expose
+    private RemoveWatermarkTask RemoveWatermarkTask;
+
+    /**
+    * 提取溯源水印任务信息，仅当 TaskType 为 ExtractTraceWatermark，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ExtractTraceWatermarkTask")
+    @Expose
+    private ExtractTraceWatermarkTask ExtractTraceWatermarkTask;
+
+    /**
+    * 音视频审核任务信息，仅当 TaskType 为 ReviewAudioVideo，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ReviewAudioVideoTask")
+    @Expose
+    private ReviewAudioVideoTask ReviewAudioVideoTask;
+
+    /**
+    * 该字段已无效。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ReduceMediaBitrateTask")
+    @Expose
+    private ReduceMediaBitrateTask ReduceMediaBitrateTask;
+
+    /**
+    * 获取文件属性任务信息，仅当 TaskType 为 DescribeFileAttributes，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DescribeFileAttributesTask")
+    @Expose
+    private DescribeFileAttributesTask DescribeFileAttributesTask;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -186,15 +222,11 @@ public class DescribeTaskDetailResponse extends AbstractModel{
 <li>ComposeMedia：制作媒体文件任务；</li>
 <li>WechatPublish：微信发布任务；</li>
 <li>WechatMiniProgramPublish：微信小程序视频发布任务；</li>
-<li>PullUpload：拉取上传媒体文件任务。</li>
-<li>FastClipMedia：快速剪辑任务。</li>
-
-兼容 2017 版的任务类型：
-<li>Transcode：视频转码任务；</li>
-<li>SnapshotByTimeOffset：视频截图任务；</li>
-<li>Concat：视频拼接任务；</li>
-<li>Clip：视频剪辑任务；</li>
-<li>ImageSprites：截取雪碧图任务。</li> 
+<li>PullUpload：拉取上传媒体文件任务；</li>
+<li>FastClipMedia：快速剪辑任务；</li>
+<li>RemoveWatermarkTask：智能去除水印任务；</li>
+<li>DescribeFileAttributesTask：获取文件属性任务；</li>
+<li> ReviewAudioVideo：音视频审核任务。</li> 
      * @return TaskType 任务类型，取值：
 <li>Procedure：视频处理任务；</li>
 <li>EditMedia：视频编辑任务；</li>
@@ -202,15 +234,11 @@ public class DescribeTaskDetailResponse extends AbstractModel{
 <li>ComposeMedia：制作媒体文件任务；</li>
 <li>WechatPublish：微信发布任务；</li>
 <li>WechatMiniProgramPublish：微信小程序视频发布任务；</li>
-<li>PullUpload：拉取上传媒体文件任务。</li>
-<li>FastClipMedia：快速剪辑任务。</li>
-
-兼容 2017 版的任务类型：
-<li>Transcode：视频转码任务；</li>
-<li>SnapshotByTimeOffset：视频截图任务；</li>
-<li>Concat：视频拼接任务；</li>
-<li>Clip：视频剪辑任务；</li>
-<li>ImageSprites：截取雪碧图任务。</li>
+<li>PullUpload：拉取上传媒体文件任务；</li>
+<li>FastClipMedia：快速剪辑任务；</li>
+<li>RemoveWatermarkTask：智能去除水印任务；</li>
+<li>DescribeFileAttributesTask：获取文件属性任务；</li>
+<li> ReviewAudioVideo：音视频审核任务。</li>
      */
     public String getTaskType() {
         return this.TaskType;
@@ -224,15 +252,11 @@ public class DescribeTaskDetailResponse extends AbstractModel{
 <li>ComposeMedia：制作媒体文件任务；</li>
 <li>WechatPublish：微信发布任务；</li>
 <li>WechatMiniProgramPublish：微信小程序视频发布任务；</li>
-<li>PullUpload：拉取上传媒体文件任务。</li>
-<li>FastClipMedia：快速剪辑任务。</li>
-
-兼容 2017 版的任务类型：
-<li>Transcode：视频转码任务；</li>
-<li>SnapshotByTimeOffset：视频截图任务；</li>
-<li>Concat：视频拼接任务；</li>
-<li>Clip：视频剪辑任务；</li>
-<li>ImageSprites：截取雪碧图任务。</li>
+<li>PullUpload：拉取上传媒体文件任务；</li>
+<li>FastClipMedia：快速剪辑任务；</li>
+<li>RemoveWatermarkTask：智能去除水印任务；</li>
+<li>DescribeFileAttributesTask：获取文件属性任务；</li>
+<li> ReviewAudioVideo：音视频审核任务。</li>
      * @param TaskType 任务类型，取值：
 <li>Procedure：视频处理任务；</li>
 <li>EditMedia：视频编辑任务；</li>
@@ -240,15 +264,11 @@ public class DescribeTaskDetailResponse extends AbstractModel{
 <li>ComposeMedia：制作媒体文件任务；</li>
 <li>WechatPublish：微信发布任务；</li>
 <li>WechatMiniProgramPublish：微信小程序视频发布任务；</li>
-<li>PullUpload：拉取上传媒体文件任务。</li>
-<li>FastClipMedia：快速剪辑任务。</li>
-
-兼容 2017 版的任务类型：
-<li>Transcode：视频转码任务；</li>
-<li>SnapshotByTimeOffset：视频截图任务；</li>
-<li>Concat：视频拼接任务；</li>
-<li>Clip：视频剪辑任务；</li>
-<li>ImageSprites：截取雪碧图任务。</li>
+<li>PullUpload：拉取上传媒体文件任务；</li>
+<li>FastClipMedia：快速剪辑任务；</li>
+<li>RemoveWatermarkTask：智能去除水印任务；</li>
+<li>DescribeFileAttributesTask：获取文件属性任务；</li>
+<li> ReviewAudioVideo：音视频审核任务。</li>
      */
     public void setTaskType(String TaskType) {
         this.TaskType = TaskType;
@@ -571,6 +591,106 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     }
 
     /**
+     * Get 智能去除水印任务信息，仅当 TaskType 为 RemoveWatermark，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RemoveWatermarkTask 智能去除水印任务信息，仅当 TaskType 为 RemoveWatermark，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public RemoveWatermarkTask getRemoveWatermarkTask() {
+        return this.RemoveWatermarkTask;
+    }
+
+    /**
+     * Set 智能去除水印任务信息，仅当 TaskType 为 RemoveWatermark，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RemoveWatermarkTask 智能去除水印任务信息，仅当 TaskType 为 RemoveWatermark，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRemoveWatermarkTask(RemoveWatermarkTask RemoveWatermarkTask) {
+        this.RemoveWatermarkTask = RemoveWatermarkTask;
+    }
+
+    /**
+     * Get 提取溯源水印任务信息，仅当 TaskType 为 ExtractTraceWatermark，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ExtractTraceWatermarkTask 提取溯源水印任务信息，仅当 TaskType 为 ExtractTraceWatermark，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ExtractTraceWatermarkTask getExtractTraceWatermarkTask() {
+        return this.ExtractTraceWatermarkTask;
+    }
+
+    /**
+     * Set 提取溯源水印任务信息，仅当 TaskType 为 ExtractTraceWatermark，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ExtractTraceWatermarkTask 提取溯源水印任务信息，仅当 TaskType 为 ExtractTraceWatermark，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setExtractTraceWatermarkTask(ExtractTraceWatermarkTask ExtractTraceWatermarkTask) {
+        this.ExtractTraceWatermarkTask = ExtractTraceWatermarkTask;
+    }
+
+    /**
+     * Get 音视频审核任务信息，仅当 TaskType 为 ReviewAudioVideo，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ReviewAudioVideoTask 音视频审核任务信息，仅当 TaskType 为 ReviewAudioVideo，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ReviewAudioVideoTask getReviewAudioVideoTask() {
+        return this.ReviewAudioVideoTask;
+    }
+
+    /**
+     * Set 音视频审核任务信息，仅当 TaskType 为 ReviewAudioVideo，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ReviewAudioVideoTask 音视频审核任务信息，仅当 TaskType 为 ReviewAudioVideo，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setReviewAudioVideoTask(ReviewAudioVideoTask ReviewAudioVideoTask) {
+        this.ReviewAudioVideoTask = ReviewAudioVideoTask;
+    }
+
+    /**
+     * Get 该字段已无效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ReduceMediaBitrateTask 该字段已无效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ReduceMediaBitrateTask getReduceMediaBitrateTask() {
+        return this.ReduceMediaBitrateTask;
+    }
+
+    /**
+     * Set 该字段已无效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ReduceMediaBitrateTask 该字段已无效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setReduceMediaBitrateTask(ReduceMediaBitrateTask ReduceMediaBitrateTask) {
+        this.ReduceMediaBitrateTask = ReduceMediaBitrateTask;
+    }
+
+    /**
+     * Get 获取文件属性任务信息，仅当 TaskType 为 DescribeFileAttributes，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DescribeFileAttributesTask 获取文件属性任务信息，仅当 TaskType 为 DescribeFileAttributes，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public DescribeFileAttributesTask getDescribeFileAttributesTask() {
+        return this.DescribeFileAttributesTask;
+    }
+
+    /**
+     * Set 获取文件属性任务信息，仅当 TaskType 为 DescribeFileAttributes，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DescribeFileAttributesTask 获取文件属性任务信息，仅当 TaskType 为 DescribeFileAttributes，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDescribeFileAttributesTask(DescribeFileAttributesTask DescribeFileAttributesTask) {
+        this.DescribeFileAttributesTask = DescribeFileAttributesTask;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -645,6 +765,21 @@ public class DescribeTaskDetailResponse extends AbstractModel{
         if (source.SnapshotByTimeOffsetTask != null) {
             this.SnapshotByTimeOffsetTask = new SnapshotByTimeOffsetTask2017(source.SnapshotByTimeOffsetTask);
         }
+        if (source.RemoveWatermarkTask != null) {
+            this.RemoveWatermarkTask = new RemoveWatermarkTask(source.RemoveWatermarkTask);
+        }
+        if (source.ExtractTraceWatermarkTask != null) {
+            this.ExtractTraceWatermarkTask = new ExtractTraceWatermarkTask(source.ExtractTraceWatermarkTask);
+        }
+        if (source.ReviewAudioVideoTask != null) {
+            this.ReviewAudioVideoTask = new ReviewAudioVideoTask(source.ReviewAudioVideoTask);
+        }
+        if (source.ReduceMediaBitrateTask != null) {
+            this.ReduceMediaBitrateTask = new ReduceMediaBitrateTask(source.ReduceMediaBitrateTask);
+        }
+        if (source.DescribeFileAttributesTask != null) {
+            this.DescribeFileAttributesTask = new DescribeFileAttributesTask(source.DescribeFileAttributesTask);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -672,6 +807,11 @@ public class DescribeTaskDetailResponse extends AbstractModel{
         this.setParamObj(map, prefix + "ClipTask.", this.ClipTask);
         this.setParamObj(map, prefix + "CreateImageSpriteTask.", this.CreateImageSpriteTask);
         this.setParamObj(map, prefix + "SnapshotByTimeOffsetTask.", this.SnapshotByTimeOffsetTask);
+        this.setParamObj(map, prefix + "RemoveWatermarkTask.", this.RemoveWatermarkTask);
+        this.setParamObj(map, prefix + "ExtractTraceWatermarkTask.", this.ExtractTraceWatermarkTask);
+        this.setParamObj(map, prefix + "ReviewAudioVideoTask.", this.ReviewAudioVideoTask);
+        this.setParamObj(map, prefix + "ReduceMediaBitrateTask.", this.ReduceMediaBitrateTask);
+        this.setParamObj(map, prefix + "DescribeFileAttributesTask.", this.DescribeFileAttributesTask);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

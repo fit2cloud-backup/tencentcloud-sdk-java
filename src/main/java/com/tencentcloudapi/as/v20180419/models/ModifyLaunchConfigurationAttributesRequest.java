@@ -174,6 +174,21 @@ InstanceType 指定单一实例类型，通过设置 InstanceTypes可以指定�
     private String CamRoleName;
 
     /**
+    * 高性能计算集群ID。<br>
+注意：此字段默认为空。
+    */
+    @SerializedName("HpcClusterId")
+    @Expose
+    private String HpcClusterId;
+
+    /**
+    * IPv6公网带宽相关信息设置。若新建实例包含IPv6地址，该参数可为新建实例的IPv6地址分配公网带宽。关联启动配置的伸缩组Ipv6AddressCount参数为0时，该参数不会生效。
+    */
+    @SerializedName("IPv6InternetAccessible")
+    @Expose
+    private IPv6InternetAccessible IPv6InternetAccessible;
+
+    /**
      * Get 启动配置ID 
      * @return LaunchConfigurationId 启动配置ID
      */
@@ -561,6 +576,42 @@ InstanceType 指定单一实例类型，通过设置 InstanceTypes可以指定�
         this.CamRoleName = CamRoleName;
     }
 
+    /**
+     * Get 高性能计算集群ID。<br>
+注意：此字段默认为空。 
+     * @return HpcClusterId 高性能计算集群ID。<br>
+注意：此字段默认为空。
+     */
+    public String getHpcClusterId() {
+        return this.HpcClusterId;
+    }
+
+    /**
+     * Set 高性能计算集群ID。<br>
+注意：此字段默认为空。
+     * @param HpcClusterId 高性能计算集群ID。<br>
+注意：此字段默认为空。
+     */
+    public void setHpcClusterId(String HpcClusterId) {
+        this.HpcClusterId = HpcClusterId;
+    }
+
+    /**
+     * Get IPv6公网带宽相关信息设置。若新建实例包含IPv6地址，该参数可为新建实例的IPv6地址分配公网带宽。关联启动配置的伸缩组Ipv6AddressCount参数为0时，该参数不会生效。 
+     * @return IPv6InternetAccessible IPv6公网带宽相关信息设置。若新建实例包含IPv6地址，该参数可为新建实例的IPv6地址分配公网带宽。关联启动配置的伸缩组Ipv6AddressCount参数为0时，该参数不会生效。
+     */
+    public IPv6InternetAccessible getIPv6InternetAccessible() {
+        return this.IPv6InternetAccessible;
+    }
+
+    /**
+     * Set IPv6公网带宽相关信息设置。若新建实例包含IPv6地址，该参数可为新建实例的IPv6地址分配公网带宽。关联启动配置的伸缩组Ipv6AddressCount参数为0时，该参数不会生效。
+     * @param IPv6InternetAccessible IPv6公网带宽相关信息设置。若新建实例包含IPv6地址，该参数可为新建实例的IPv6地址分配公网带宽。关联启动配置的伸缩组Ipv6AddressCount参数为0时，该参数不会生效。
+     */
+    public void setIPv6InternetAccessible(IPv6InternetAccessible IPv6InternetAccessible) {
+        this.IPv6InternetAccessible = IPv6InternetAccessible;
+    }
+
     public ModifyLaunchConfigurationAttributesRequest() {
     }
 
@@ -632,6 +683,12 @@ InstanceType 指定单一实例类型，通过设置 InstanceTypes可以指定�
         if (source.CamRoleName != null) {
             this.CamRoleName = new String(source.CamRoleName);
         }
+        if (source.HpcClusterId != null) {
+            this.HpcClusterId = new String(source.HpcClusterId);
+        }
+        if (source.IPv6InternetAccessible != null) {
+            this.IPv6InternetAccessible = new IPv6InternetAccessible(source.IPv6InternetAccessible);
+        }
     }
 
 
@@ -657,6 +714,8 @@ InstanceType 指定单一实例类型，通过设置 InstanceTypes可以指定�
         this.setParamObj(map, prefix + "InstanceNameSettings.", this.InstanceNameSettings);
         this.setParamObj(map, prefix + "EnhancedService.", this.EnhancedService);
         this.setParamSimple(map, prefix + "CamRoleName", this.CamRoleName);
+        this.setParamSimple(map, prefix + "HpcClusterId", this.HpcClusterId);
+        this.setParamObj(map, prefix + "IPv6InternetAccessible.", this.IPv6InternetAccessible);
 
     }
 }

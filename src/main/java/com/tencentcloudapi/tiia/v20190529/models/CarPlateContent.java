@@ -39,7 +39,10 @@ public class CarPlateContent extends AbstractModel{
     private String Color;
 
     /**
-    * 车牌类型；渣土车车牌遮挡时,该值为枚举值“异常”。
+    * 车牌类型，包含：0普通蓝牌，1双层黄牌，2单层黄牌，3新能源车牌，4使馆车牌，5领馆车牌，6澳门车牌，7香港车牌，8警用车牌，9教练车牌，10武警车牌，11军用车牌   -2遮挡污损模糊车牌/异常   其他无牌
+注意：
+此字段可能返回 null，表示取不到有效值。
+此字段结果遮挡污损模糊车牌/异常：包含PlateStatus参数的“遮挡污损模糊车牌”，针对车牌异常，建议参考此字段，更全面
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Type")
@@ -53,6 +56,30 @@ public class CarPlateContent extends AbstractModel{
     @SerializedName("PlateLocation")
     @Expose
     private Coord [] PlateLocation;
+
+    /**
+    * 判断车牌是否遮挡：“遮挡污损模糊车牌”和"正常车牌"。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PlateStatus")
+    @Expose
+    private String PlateStatus;
+
+    /**
+    * 车牌遮挡的置信度，0-100。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PlateStatusConfidence")
+    @Expose
+    private Long PlateStatusConfidence;
+
+    /**
+    * 车牌角度。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PlateAngle")
+    @Expose
+    private Float PlateAngle;
 
     /**
      * Get 车牌信息。
@@ -95,9 +122,15 @@ public class CarPlateContent extends AbstractModel{
     }
 
     /**
-     * Get 车牌类型；渣土车车牌遮挡时,该值为枚举值“异常”。
+     * Get 车牌类型，包含：0普通蓝牌，1双层黄牌，2单层黄牌，3新能源车牌，4使馆车牌，5领馆车牌，6澳门车牌，7香港车牌，8警用车牌，9教练车牌，10武警车牌，11军用车牌   -2遮挡污损模糊车牌/异常   其他无牌
+注意：
+此字段可能返回 null，表示取不到有效值。
+此字段结果遮挡污损模糊车牌/异常：包含PlateStatus参数的“遮挡污损模糊车牌”，针对车牌异常，建议参考此字段，更全面
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Type 车牌类型；渣土车车牌遮挡时,该值为枚举值“异常”。
+     * @return Type 车牌类型，包含：0普通蓝牌，1双层黄牌，2单层黄牌，3新能源车牌，4使馆车牌，5领馆车牌，6澳门车牌，7香港车牌，8警用车牌，9教练车牌，10武警车牌，11军用车牌   -2遮挡污损模糊车牌/异常   其他无牌
+注意：
+此字段可能返回 null，表示取不到有效值。
+此字段结果遮挡污损模糊车牌/异常：包含PlateStatus参数的“遮挡污损模糊车牌”，针对车牌异常，建议参考此字段，更全面
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getType() {
@@ -105,9 +138,15 @@ public class CarPlateContent extends AbstractModel{
     }
 
     /**
-     * Set 车牌类型；渣土车车牌遮挡时,该值为枚举值“异常”。
+     * Set 车牌类型，包含：0普通蓝牌，1双层黄牌，2单层黄牌，3新能源车牌，4使馆车牌，5领馆车牌，6澳门车牌，7香港车牌，8警用车牌，9教练车牌，10武警车牌，11军用车牌   -2遮挡污损模糊车牌/异常   其他无牌
+注意：
+此字段可能返回 null，表示取不到有效值。
+此字段结果遮挡污损模糊车牌/异常：包含PlateStatus参数的“遮挡污损模糊车牌”，针对车牌异常，建议参考此字段，更全面
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Type 车牌类型；渣土车车牌遮挡时,该值为枚举值“异常”。
+     * @param Type 车牌类型，包含：0普通蓝牌，1双层黄牌，2单层黄牌，3新能源车牌，4使馆车牌，5领馆车牌，6澳门车牌，7香港车牌，8警用车牌，9教练车牌，10武警车牌，11军用车牌   -2遮挡污损模糊车牌/异常   其他无牌
+注意：
+此字段可能返回 null，表示取不到有效值。
+此字段结果遮挡污损模糊车牌/异常：包含PlateStatus参数的“遮挡污损模糊车牌”，针对车牌异常，建议参考此字段，更全面
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setType(String Type) {
@@ -134,6 +173,66 @@ public class CarPlateContent extends AbstractModel{
         this.PlateLocation = PlateLocation;
     }
 
+    /**
+     * Get 判断车牌是否遮挡：“遮挡污损模糊车牌”和"正常车牌"。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PlateStatus 判断车牌是否遮挡：“遮挡污损模糊车牌”和"正常车牌"。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getPlateStatus() {
+        return this.PlateStatus;
+    }
+
+    /**
+     * Set 判断车牌是否遮挡：“遮挡污损模糊车牌”和"正常车牌"。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PlateStatus 判断车牌是否遮挡：“遮挡污损模糊车牌”和"正常车牌"。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPlateStatus(String PlateStatus) {
+        this.PlateStatus = PlateStatus;
+    }
+
+    /**
+     * Get 车牌遮挡的置信度，0-100。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PlateStatusConfidence 车牌遮挡的置信度，0-100。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getPlateStatusConfidence() {
+        return this.PlateStatusConfidence;
+    }
+
+    /**
+     * Set 车牌遮挡的置信度，0-100。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PlateStatusConfidence 车牌遮挡的置信度，0-100。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPlateStatusConfidence(Long PlateStatusConfidence) {
+        this.PlateStatusConfidence = PlateStatusConfidence;
+    }
+
+    /**
+     * Get 车牌角度。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PlateAngle 车牌角度。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Float getPlateAngle() {
+        return this.PlateAngle;
+    }
+
+    /**
+     * Set 车牌角度。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PlateAngle 车牌角度。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPlateAngle(Float PlateAngle) {
+        this.PlateAngle = PlateAngle;
+    }
+
     public CarPlateContent() {
     }
 
@@ -157,6 +256,15 @@ public class CarPlateContent extends AbstractModel{
                 this.PlateLocation[i] = new Coord(source.PlateLocation[i]);
             }
         }
+        if (source.PlateStatus != null) {
+            this.PlateStatus = new String(source.PlateStatus);
+        }
+        if (source.PlateStatusConfidence != null) {
+            this.PlateStatusConfidence = new Long(source.PlateStatusConfidence);
+        }
+        if (source.PlateAngle != null) {
+            this.PlateAngle = new Float(source.PlateAngle);
+        }
     }
 
 
@@ -168,6 +276,9 @@ public class CarPlateContent extends AbstractModel{
         this.setParamSimple(map, prefix + "Color", this.Color);
         this.setParamSimple(map, prefix + "Type", this.Type);
         this.setParamArrayObj(map, prefix + "PlateLocation.", this.PlateLocation);
+        this.setParamSimple(map, prefix + "PlateStatus", this.PlateStatus);
+        this.setParamSimple(map, prefix + "PlateStatusConfidence", this.PlateStatusConfidence);
+        this.setParamSimple(map, prefix + "PlateAngle", this.PlateAngle);
 
     }
 }

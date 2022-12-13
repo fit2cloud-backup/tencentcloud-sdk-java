@@ -51,6 +51,28 @@ public class Docker extends AbstractModel{
     private String Server;
 
     /**
+    * 拉取Docker镜像重试次数。默认值：0。
+    */
+    @SerializedName("MaxRetryCount")
+    @Expose
+    private Long MaxRetryCount;
+
+    /**
+    * 拉取Docker镜像失败时延迟时间。单位：秒。
+    */
+    @SerializedName("DelayOnRetry")
+    @Expose
+    private Long DelayOnRetry;
+
+    /**
+    * Docker命令运行参数。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DockerRunOption")
+    @Expose
+    private String DockerRunOption;
+
+    /**
      * Get Docker Hub 用户名或 Tencent Registry 用户名 
      * @return User Docker Hub 用户名或 Tencent Registry 用户名
      */
@@ -114,6 +136,58 @@ public class Docker extends AbstractModel{
         this.Server = Server;
     }
 
+    /**
+     * Get 拉取Docker镜像重试次数。默认值：0。 
+     * @return MaxRetryCount 拉取Docker镜像重试次数。默认值：0。
+     */
+    public Long getMaxRetryCount() {
+        return this.MaxRetryCount;
+    }
+
+    /**
+     * Set 拉取Docker镜像重试次数。默认值：0。
+     * @param MaxRetryCount 拉取Docker镜像重试次数。默认值：0。
+     */
+    public void setMaxRetryCount(Long MaxRetryCount) {
+        this.MaxRetryCount = MaxRetryCount;
+    }
+
+    /**
+     * Get 拉取Docker镜像失败时延迟时间。单位：秒。 
+     * @return DelayOnRetry 拉取Docker镜像失败时延迟时间。单位：秒。
+     */
+    public Long getDelayOnRetry() {
+        return this.DelayOnRetry;
+    }
+
+    /**
+     * Set 拉取Docker镜像失败时延迟时间。单位：秒。
+     * @param DelayOnRetry 拉取Docker镜像失败时延迟时间。单位：秒。
+     */
+    public void setDelayOnRetry(Long DelayOnRetry) {
+        this.DelayOnRetry = DelayOnRetry;
+    }
+
+    /**
+     * Get Docker命令运行参数。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DockerRunOption Docker命令运行参数。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDockerRunOption() {
+        return this.DockerRunOption;
+    }
+
+    /**
+     * Set Docker命令运行参数。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DockerRunOption Docker命令运行参数。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDockerRunOption(String DockerRunOption) {
+        this.DockerRunOption = DockerRunOption;
+    }
+
     public Docker() {
     }
 
@@ -134,6 +208,15 @@ public class Docker extends AbstractModel{
         if (source.Server != null) {
             this.Server = new String(source.Server);
         }
+        if (source.MaxRetryCount != null) {
+            this.MaxRetryCount = new Long(source.MaxRetryCount);
+        }
+        if (source.DelayOnRetry != null) {
+            this.DelayOnRetry = new Long(source.DelayOnRetry);
+        }
+        if (source.DockerRunOption != null) {
+            this.DockerRunOption = new String(source.DockerRunOption);
+        }
     }
 
 
@@ -145,6 +228,9 @@ public class Docker extends AbstractModel{
         this.setParamSimple(map, prefix + "Password", this.Password);
         this.setParamSimple(map, prefix + "Image", this.Image);
         this.setParamSimple(map, prefix + "Server", this.Server);
+        this.setParamSimple(map, prefix + "MaxRetryCount", this.MaxRetryCount);
+        this.setParamSimple(map, prefix + "DelayOnRetry", this.DelayOnRetry);
+        this.setParamSimple(map, prefix + "DockerRunOption", this.DockerRunOption);
 
     }
 }

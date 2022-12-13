@@ -1,5 +1,8 @@
 package com.tencentcloudapi.cfs.v20190719;
 public enum CfsErrorCode {
+    // CAM签名/鉴权错误。
+     AUTHFAILURE("AuthFailure"),
+     
     // 请求未CAM授权。
      AUTHFAILURE_UNAUTHORIZEDOPERATION("AuthFailure.UnauthorizedOperation"),
      
@@ -41,6 +44,36 @@ public enum CfsErrorCode {
      
     // 快照策略未找到。
      INVALIDPARAMETER_AUTOPOLICYNOTFOUND("InvalidParameter.AutoPolicyNotFound"),
+     
+    // 无效的快照保留时间。
+     INVALIDPARAMETER_INVALIDALIVEDDAYS("InvalidParameter.InvalidAlivedDays"),
+     
+    // 定期星期参数无效。
+     INVALIDPARAMETER_INVALIDPARAMDAYOFWEEK("InvalidParameter.InvalidParamDayofWeek"),
+     
+    // 定期小时 参数值错误。
+     INVALIDPARAMETER_INVALIDPARAMHOUR("InvalidParameter.InvalidParamHour"),
+     
+    // 无效的快照策略状态。
+     INVALIDPARAMETER_INVALIDSNAPPOLICYSTATUS("InvalidParameter.InvalidSnapPolicyStatus"),
+     
+    // 无效的文件系统快照参数名称 。
+     INVALIDPARAMETER_INVALIDSNAPSHOTNAME("InvalidParameter.InvalidSnapshotName"),
+     
+    // 无效的文件系统快照策略名称。
+     INVALIDPARAMETER_INVALIDSNAPSHOTPOLICYNAME("InvalidParameter.InvalidSnapshotPolicyName"),
+     
+    // 缺少策略相关参数。
+     INVALIDPARAMETER_MISSINGPOLICYPARAM("InvalidParameter.MissingPolicyParam"),
+     
+    // 文件系统快照名称超出上限。
+     INVALIDPARAMETER_SNAPSHOTNAMELIMITEXCEEDED("InvalidParameter.SnapshotNameLimitExceeded"),
+     
+    // 文件系统快照策略名称超过限制。
+     INVALIDPARAMETER_SNAPSHOTPOLICYNAMELIMITEXCEEDED("InvalidParameter.SnapshotPolicyNameLimitExceeded"),
+     
+    // 参数取值错误。
+     INVALIDPARAMETERVALUE("InvalidParameterValue"),
      
     // 用于保证请求幂等性的字符串长度超过限制（不能超过64字节）。
      INVALIDPARAMETERVALUE_CLIENTTOKENLIMITEXCEEDED("InvalidParameterValue.ClientTokenLimitExceeded"),
@@ -189,6 +222,18 @@ public enum CfsErrorCode {
     // 权限组名称长度超过限制（不能超过64字节）。
      INVALIDPARAMETERVALUE_PGROUPNAMELIMITEXCEEDED("InvalidParameterValue.PgroupNameLimitExceeded"),
      
+    // 容量硬限制取值范围错误。
+     INVALIDPARAMETERVALUE_QUOTACAPLIMITERROR("InvalidParameterValue.QuotaCapLimitError"),
+     
+    // 文件硬限制取值范围错误。
+     INVALIDPARAMETERVALUE_QUOTAFILELIMITERROR("InvalidParameterValue.QuotaFileLimitError"),
+     
+    // USER ID类型错误。
+     INVALIDPARAMETERVALUE_QUOTAUSERIDERROR("InvalidParameterValue.QuotaUserIdError"),
+     
+    // 配额类型错误。
+     INVALIDPARAMETERVALUE_QUOTAUSERTYPEERROR("InvalidParameterValue.QuotaUserTypeError"),
+     
     // 权限组规则和权限组不匹配。
      INVALIDPARAMETERVALUE_RULENOTMATCHPGROUP("InvalidParameterValue.RuleNotMatchPgroup"),
      
@@ -246,6 +291,9 @@ public enum CfsErrorCode {
     // 权限规则不存在。
      RESOURCENOTFOUND_RULENOTFOUND("ResourceNotFound.RuleNotFound"),
      
+    // 快照ID 不存在。
+     RESOURCENOTFOUND_SNAPSHOTNOTFOUND("ResourceNotFound.SnapshotNotFound"),
+     
     // 操作不支持。
      UNSUPPORTEDOPERATION("UnsupportedOperation"),
      
@@ -254,6 +302,9 @@ public enum CfsErrorCode {
      
     // 用户已欠费, 请充值后重试。
      UNSUPPORTEDOPERATION_OUTOFSERVICE("UnsupportedOperation.OutOfService"),
+     
+    // cfs角色未被授权。
+     UNSUPPORTEDOPERATION_UNAUTHORIZEDCFSQCSROLE("UnsupportedOperation.UnauthorizedCfsQcsRole"),
      
     // 用户未经过实名认证。
      UNSUPPORTEDOPERATION_UNVERIFIEDUSER("UnsupportedOperation.UnverifiedUser");

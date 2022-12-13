@@ -553,7 +553,7 @@ public class CdnClient extends AbstractClient{
     }
 
     /**
-     *DescribeImageConfig 用于获取域名图片优化的当前配置，支持Webp、TPG 和 Guetzli。 
+     *DescribeImageConfig 用于获取域名图片优化的当前配置，支持Webp、TPG、 Guetzli 和 Avif。 
      * @param req DescribeImageConfigRequest
      * @return DescribeImageConfigResponse
      * @throws TencentCloudSDKException
@@ -573,7 +573,7 @@ public class CdnClient extends AbstractClient{
     }
 
     /**
-     *DescribeIpStatus 用于查询域名所在加速平台的边缘节点、回源节点明细。注意事项：边缘节点（edge）尚未全量开放，未在内测名单中的账号不支持调用。
+     *DescribeIpStatus 用于查询域名所在加速平台的边缘节点、回源节点明细。注意事项：暂不支持查询边缘节点信息并且数据会存在一定延迟。
 
 >?  若您的业务已迁移至 CDN 控制台，请参考<a href="https://cloud.tencent.com/document/api/228/41954"> CDN 接口文档</a>，使用  CDN 相关API 进行操作。
      * @param req DescribeIpStatusRequest
@@ -1555,6 +1555,7 @@ public class CdnClient extends AbstractClient{
     /**
      *UpdateDomainConfig 用于修改内容分发网络加速域名配置信息
 注意：如果需要更新复杂类型的配置项，必须传递整个对象的所有属性，未传递的属性将使用默认值，建议通过查询接口获取配置属性后，直接修改后传递给本接口。Https配置由于证书的特殊性，更新时不用传递证书和密钥字段。
+云审计相关：接口的入参可能包含密钥等敏感信息，所以此接口的入参不会上报到云审计。
      * @param req UpdateDomainConfigRequest
      * @return UpdateDomainConfigResponse
      * @throws TencentCloudSDKException
@@ -1574,7 +1575,7 @@ public class CdnClient extends AbstractClient{
     }
 
     /**
-     *UpdateImageConfig 用于更新控制台图片优化的相关配置，支持Webp、TPG 和 Guetzli。 
+     *UpdateImageConfig 用于更新控制台图片优化的相关配置，支持Webp、TPG、 Guetzli 和 Avif。 
      * @param req UpdateImageConfigRequest
      * @return UpdateImageConfigResponse
      * @throws TencentCloudSDKException

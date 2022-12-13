@@ -39,26 +39,6 @@ public class TafClient extends AbstractClient{
     }
 
     /**
-     *流量反欺诈-KOL欺诈识别
-     * @param req DetectFraudKOLRequest
-     * @return DetectFraudKOLResponse
-     * @throws TencentCloudSDKException
-     */
-    public DetectFraudKOLResponse DetectFraudKOL(DetectFraudKOLRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DetectFraudKOLResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<DetectFraudKOLResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DetectFraudKOL");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
      *流量反欺诈-流量验准定制版
      * @param req RecognizeCustomizedAudienceRequest
      * @return RecognizeCustomizedAudienceResponse
@@ -71,28 +51,6 @@ public class TafClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<RecognizeCustomizedAudienceResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "RecognizeCustomizedAudience");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *该服务已不再对外提供能力
-
-筛选敏感易骚扰人群
-     * @param req RecognizeEffectiveFlowRequest
-     * @return RecognizeEffectiveFlowResponse
-     * @throws TencentCloudSDKException
-     */
-    public RecognizeEffectiveFlowResponse RecognizeEffectiveFlow(RecognizeEffectiveFlowRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RecognizeEffectiveFlowResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<RecognizeEffectiveFlowResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RecognizeEffectiveFlow");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -133,26 +91,6 @@ public class TafClient extends AbstractClient{
                 Type type = new TypeToken<JsonResponseModel<RecognizeTargetAudienceResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "RecognizeTargetAudience");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *流量安选产品，短信发送接口
-     * @param req SendTrafficSecuritySmsMessageRequest
-     * @return SendTrafficSecuritySmsMessageResponse
-     * @throws TencentCloudSDKException
-     */
-    public SendTrafficSecuritySmsMessageResponse SendTrafficSecuritySmsMessage(SendTrafficSecuritySmsMessageRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<SendTrafficSecuritySmsMessageResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<SendTrafficSecuritySmsMessageResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "SendTrafficSecuritySmsMessage");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

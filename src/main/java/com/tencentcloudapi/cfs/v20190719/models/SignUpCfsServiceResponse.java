@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class SignUpCfsServiceResponse extends AbstractModel{
 
     /**
-    * 该用户当前 CFS 服务的状态，none 是未开通，creating 是开通中，created 是已开通
+    * 该用户当前 CFS 服务的状态，creating 是开通中，created 是已开通
     */
     @SerializedName("CfsServiceStatus")
     @Expose
@@ -37,16 +37,16 @@ public class SignUpCfsServiceResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 该用户当前 CFS 服务的状态，none 是未开通，creating 是开通中，created 是已开通 
-     * @return CfsServiceStatus 该用户当前 CFS 服务的状态，none 是未开通，creating 是开通中，created 是已开通
+     * Get 该用户当前 CFS 服务的状态，creating 是开通中，created 是已开通 
+     * @return CfsServiceStatus 该用户当前 CFS 服务的状态，creating 是开通中，created 是已开通
      */
     public String getCfsServiceStatus() {
         return this.CfsServiceStatus;
     }
 
     /**
-     * Set 该用户当前 CFS 服务的状态，none 是未开通，creating 是开通中，created 是已开通
-     * @param CfsServiceStatus 该用户当前 CFS 服务的状态，none 是未开通，creating 是开通中，created 是已开通
+     * Set 该用户当前 CFS 服务的状态，creating 是开通中，created 是已开通
+     * @param CfsServiceStatus 该用户当前 CFS 服务的状态，creating 是开通中，created 是已开通
      */
     public void setCfsServiceStatus(String CfsServiceStatus) {
         this.CfsServiceStatus = CfsServiceStatus;
