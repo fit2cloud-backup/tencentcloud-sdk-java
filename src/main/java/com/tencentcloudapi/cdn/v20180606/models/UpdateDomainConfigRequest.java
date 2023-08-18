@@ -100,7 +100,7 @@ public class UpdateDomainConfigRequest extends AbstractModel{
     private ErrorPage ErrorPage;
 
     /**
-    * 请求头部配置
+    * 回源请求头部配置
     */
     @SerializedName("RequestHeader")
     @Expose
@@ -360,6 +360,20 @@ global：全球加速
     private QnPrivateAccess QnPrivateAccess;
 
     /**
+    * 其他厂商对象存储回源鉴权
+    */
+    @SerializedName("OthersPrivateAccess")
+    @Expose
+    private OthersPrivateAccess OthersPrivateAccess;
+
+    /**
+    * HTTPS服务（收费服务，详见计费说明和产品文档）
+    */
+    @SerializedName("HttpsBilling")
+    @Expose
+    private HttpsBilling HttpsBilling;
+
+    /**
      * Get 域名 
      * @return Domain 域名
      */
@@ -536,16 +550,16 @@ global：全球加速
     }
 
     /**
-     * Get 请求头部配置 
-     * @return RequestHeader 请求头部配置
+     * Get 回源请求头部配置 
+     * @return RequestHeader 回源请求头部配置
      */
     public RequestHeader getRequestHeader() {
         return this.RequestHeader;
     }
 
     /**
-     * Set 请求头部配置
-     * @param RequestHeader 请求头部配置
+     * Set 回源请求头部配置
+     * @param RequestHeader 回源请求头部配置
      */
     public void setRequestHeader(RequestHeader RequestHeader) {
         this.RequestHeader = RequestHeader;
@@ -1143,6 +1157,38 @@ global：全球加速
         this.QnPrivateAccess = QnPrivateAccess;
     }
 
+    /**
+     * Get 其他厂商对象存储回源鉴权 
+     * @return OthersPrivateAccess 其他厂商对象存储回源鉴权
+     */
+    public OthersPrivateAccess getOthersPrivateAccess() {
+        return this.OthersPrivateAccess;
+    }
+
+    /**
+     * Set 其他厂商对象存储回源鉴权
+     * @param OthersPrivateAccess 其他厂商对象存储回源鉴权
+     */
+    public void setOthersPrivateAccess(OthersPrivateAccess OthersPrivateAccess) {
+        this.OthersPrivateAccess = OthersPrivateAccess;
+    }
+
+    /**
+     * Get HTTPS服务（收费服务，详见计费说明和产品文档） 
+     * @return HttpsBilling HTTPS服务（收费服务，详见计费说明和产品文档）
+     */
+    public HttpsBilling getHttpsBilling() {
+        return this.HttpsBilling;
+    }
+
+    /**
+     * Set HTTPS服务（收费服务，详见计费说明和产品文档）
+     * @param HttpsBilling HTTPS服务（收费服务，详见计费说明和产品文档）
+     */
+    public void setHttpsBilling(HttpsBilling HttpsBilling) {
+        this.HttpsBilling = HttpsBilling;
+    }
+
     public UpdateDomainConfigRequest() {
     }
 
@@ -1295,6 +1341,12 @@ global：全球加速
         if (source.QnPrivateAccess != null) {
             this.QnPrivateAccess = new QnPrivateAccess(source.QnPrivateAccess);
         }
+        if (source.OthersPrivateAccess != null) {
+            this.OthersPrivateAccess = new OthersPrivateAccess(source.OthersPrivateAccess);
+        }
+        if (source.HttpsBilling != null) {
+            this.HttpsBilling = new HttpsBilling(source.HttpsBilling);
+        }
     }
 
 
@@ -1349,6 +1401,8 @@ global：全球加速
         this.setParamObj(map, prefix + "ShareCname.", this.ShareCname);
         this.setParamObj(map, prefix + "HwPrivateAccess.", this.HwPrivateAccess);
         this.setParamObj(map, prefix + "QnPrivateAccess.", this.QnPrivateAccess);
+        this.setParamObj(map, prefix + "OthersPrivateAccess.", this.OthersPrivateAccess);
+        this.setParamObj(map, prefix + "HttpsBilling.", this.HttpsBilling);
 
     }
 }

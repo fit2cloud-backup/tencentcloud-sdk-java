@@ -64,7 +64,8 @@ public class Zone extends AbstractModel{
     /**
     * 站点接入方式，取值有
 <li> full：NS 接入； </li>
-<li> partial：CNAME 接入。</li>
+<li> partial：CNAME 接入；</li>
+<li> noDomainAccess：无域名接入。</li>
     */
     @SerializedName("Type")
     @Expose
@@ -168,6 +169,22 @@ public class Zone extends AbstractModel{
     private String AliasZoneName;
 
     /**
+    * 是否伪站点，取值有：
+<li> 0：非伪站点；</li>
+<li> 1：伪站点。</li>
+    */
+    @SerializedName("IsFake")
+    @Expose
+    private Long IsFake;
+
+    /**
+    * 锁定状态，取值有：<li> enable：正常，允许进行修改操作；</li><li> disable：锁定中，不允许进行修改操作。</li>
+    */
+    @SerializedName("LockStatus")
+    @Expose
+    private String LockStatus;
+
+    /**
      * Get 站点ID。 
      * @return ZoneId 站点ID。
      */
@@ -266,10 +283,12 @@ public class Zone extends AbstractModel{
     /**
      * Get 站点接入方式，取值有
 <li> full：NS 接入； </li>
-<li> partial：CNAME 接入。</li> 
+<li> partial：CNAME 接入；</li>
+<li> noDomainAccess：无域名接入。</li> 
      * @return Type 站点接入方式，取值有
 <li> full：NS 接入； </li>
-<li> partial：CNAME 接入。</li>
+<li> partial：CNAME 接入；</li>
+<li> noDomainAccess：无域名接入。</li>
      */
     public String getType() {
         return this.Type;
@@ -278,10 +297,12 @@ public class Zone extends AbstractModel{
     /**
      * Set 站点接入方式，取值有
 <li> full：NS 接入； </li>
-<li> partial：CNAME 接入。</li>
+<li> partial：CNAME 接入；</li>
+<li> noDomainAccess：无域名接入。</li>
      * @param Type 站点接入方式，取值有
 <li> full：NS 接入； </li>
-<li> partial：CNAME 接入。</li>
+<li> partial：CNAME 接入；</li>
+<li> noDomainAccess：无域名接入。</li>
      */
     public void setType(String Type) {
         this.Type = Type;
@@ -531,6 +552,46 @@ public class Zone extends AbstractModel{
         this.AliasZoneName = AliasZoneName;
     }
 
+    /**
+     * Get 是否伪站点，取值有：
+<li> 0：非伪站点；</li>
+<li> 1：伪站点。</li> 
+     * @return IsFake 是否伪站点，取值有：
+<li> 0：非伪站点；</li>
+<li> 1：伪站点。</li>
+     */
+    public Long getIsFake() {
+        return this.IsFake;
+    }
+
+    /**
+     * Set 是否伪站点，取值有：
+<li> 0：非伪站点；</li>
+<li> 1：伪站点。</li>
+     * @param IsFake 是否伪站点，取值有：
+<li> 0：非伪站点；</li>
+<li> 1：伪站点。</li>
+     */
+    public void setIsFake(Long IsFake) {
+        this.IsFake = IsFake;
+    }
+
+    /**
+     * Get 锁定状态，取值有：<li> enable：正常，允许进行修改操作；</li><li> disable：锁定中，不允许进行修改操作。</li> 
+     * @return LockStatus 锁定状态，取值有：<li> enable：正常，允许进行修改操作；</li><li> disable：锁定中，不允许进行修改操作。</li>
+     */
+    public String getLockStatus() {
+        return this.LockStatus;
+    }
+
+    /**
+     * Set 锁定状态，取值有：<li> enable：正常，允许进行修改操作；</li><li> disable：锁定中，不允许进行修改操作。</li>
+     * @param LockStatus 锁定状态，取值有：<li> enable：正常，允许进行修改操作；</li><li> disable：锁定中，不允许进行修改操作。</li>
+     */
+    public void setLockStatus(String LockStatus) {
+        this.LockStatus = LockStatus;
+    }
+
     public Zone() {
     }
 
@@ -608,6 +669,12 @@ public class Zone extends AbstractModel{
         if (source.AliasZoneName != null) {
             this.AliasZoneName = new String(source.AliasZoneName);
         }
+        if (source.IsFake != null) {
+            this.IsFake = new Long(source.IsFake);
+        }
+        if (source.LockStatus != null) {
+            this.LockStatus = new String(source.LockStatus);
+        }
     }
 
 
@@ -633,6 +700,8 @@ public class Zone extends AbstractModel{
         this.setParamArrayObj(map, prefix + "VanityNameServersIps.", this.VanityNameServersIps);
         this.setParamSimple(map, prefix + "ActiveStatus", this.ActiveStatus);
         this.setParamSimple(map, prefix + "AliasZoneName", this.AliasZoneName);
+        this.setParamSimple(map, prefix + "IsFake", this.IsFake);
+        this.setParamSimple(map, prefix + "LockStatus", this.LockStatus);
 
     }
 }

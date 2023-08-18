@@ -27,27 +27,44 @@ public class PolicyDetail extends AbstractModel{
     */
     @SerializedName("UserDiscount")
     @Expose
-    private Long UserDiscount;
+    private Float UserDiscount;
 
     /**
     * 公共折扣。
     */
     @SerializedName("CommonDiscount")
     @Expose
-    private Long CommonDiscount;
+    private Float CommonDiscount;
 
     /**
     * 最终折扣。
     */
     @SerializedName("FinalDiscount")
     @Expose
-    private Long FinalDiscount;
+    private Float FinalDiscount;
+
+    /**
+    * 活动折扣。取值为null，表示无有效值，即没有折扣。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ActivityDiscount")
+    @Expose
+    private Float ActivityDiscount;
+
+    /**
+    * 折扣类型。
+user：用户折扣; common：官网折扣; activity：活动折扣。 取值为null，表示无有效值，即没有折扣。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DiscountType")
+    @Expose
+    private String DiscountType;
 
     /**
      * Get 用户折扣。 
      * @return UserDiscount 用户折扣。
      */
-    public Long getUserDiscount() {
+    public Float getUserDiscount() {
         return this.UserDiscount;
     }
 
@@ -55,7 +72,7 @@ public class PolicyDetail extends AbstractModel{
      * Set 用户折扣。
      * @param UserDiscount 用户折扣。
      */
-    public void setUserDiscount(Long UserDiscount) {
+    public void setUserDiscount(Float UserDiscount) {
         this.UserDiscount = UserDiscount;
     }
 
@@ -63,7 +80,7 @@ public class PolicyDetail extends AbstractModel{
      * Get 公共折扣。 
      * @return CommonDiscount 公共折扣。
      */
-    public Long getCommonDiscount() {
+    public Float getCommonDiscount() {
         return this.CommonDiscount;
     }
 
@@ -71,7 +88,7 @@ public class PolicyDetail extends AbstractModel{
      * Set 公共折扣。
      * @param CommonDiscount 公共折扣。
      */
-    public void setCommonDiscount(Long CommonDiscount) {
+    public void setCommonDiscount(Float CommonDiscount) {
         this.CommonDiscount = CommonDiscount;
     }
 
@@ -79,7 +96,7 @@ public class PolicyDetail extends AbstractModel{
      * Get 最终折扣。 
      * @return FinalDiscount 最终折扣。
      */
-    public Long getFinalDiscount() {
+    public Float getFinalDiscount() {
         return this.FinalDiscount;
     }
 
@@ -87,8 +104,52 @@ public class PolicyDetail extends AbstractModel{
      * Set 最终折扣。
      * @param FinalDiscount 最终折扣。
      */
-    public void setFinalDiscount(Long FinalDiscount) {
+    public void setFinalDiscount(Float FinalDiscount) {
         this.FinalDiscount = FinalDiscount;
+    }
+
+    /**
+     * Get 活动折扣。取值为null，表示无有效值，即没有折扣。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ActivityDiscount 活动折扣。取值为null，表示无有效值，即没有折扣。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Float getActivityDiscount() {
+        return this.ActivityDiscount;
+    }
+
+    /**
+     * Set 活动折扣。取值为null，表示无有效值，即没有折扣。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ActivityDiscount 活动折扣。取值为null，表示无有效值，即没有折扣。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setActivityDiscount(Float ActivityDiscount) {
+        this.ActivityDiscount = ActivityDiscount;
+    }
+
+    /**
+     * Get 折扣类型。
+user：用户折扣; common：官网折扣; activity：活动折扣。 取值为null，表示无有效值，即没有折扣。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DiscountType 折扣类型。
+user：用户折扣; common：官网折扣; activity：活动折扣。 取值为null，表示无有效值，即没有折扣。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDiscountType() {
+        return this.DiscountType;
+    }
+
+    /**
+     * Set 折扣类型。
+user：用户折扣; common：官网折扣; activity：活动折扣。 取值为null，表示无有效值，即没有折扣。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DiscountType 折扣类型。
+user：用户折扣; common：官网折扣; activity：活动折扣。 取值为null，表示无有效值，即没有折扣。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDiscountType(String DiscountType) {
+        this.DiscountType = DiscountType;
     }
 
     public PolicyDetail() {
@@ -100,13 +161,19 @@ public class PolicyDetail extends AbstractModel{
      */
     public PolicyDetail(PolicyDetail source) {
         if (source.UserDiscount != null) {
-            this.UserDiscount = new Long(source.UserDiscount);
+            this.UserDiscount = new Float(source.UserDiscount);
         }
         if (source.CommonDiscount != null) {
-            this.CommonDiscount = new Long(source.CommonDiscount);
+            this.CommonDiscount = new Float(source.CommonDiscount);
         }
         if (source.FinalDiscount != null) {
-            this.FinalDiscount = new Long(source.FinalDiscount);
+            this.FinalDiscount = new Float(source.FinalDiscount);
+        }
+        if (source.ActivityDiscount != null) {
+            this.ActivityDiscount = new Float(source.ActivityDiscount);
+        }
+        if (source.DiscountType != null) {
+            this.DiscountType = new String(source.DiscountType);
         }
     }
 
@@ -118,6 +185,8 @@ public class PolicyDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "UserDiscount", this.UserDiscount);
         this.setParamSimple(map, prefix + "CommonDiscount", this.CommonDiscount);
         this.setParamSimple(map, prefix + "FinalDiscount", this.FinalDiscount);
+        this.setParamSimple(map, prefix + "ActivityDiscount", this.ActivityDiscount);
+        this.setParamSimple(map, prefix + "DiscountType", this.DiscountType);
 
     }
 }

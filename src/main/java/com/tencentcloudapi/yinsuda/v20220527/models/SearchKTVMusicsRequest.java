@@ -67,6 +67,23 @@ public class SearchKTVMusicsRequest extends AbstractModel{
     private String [] RightFilters;
 
     /**
+    * 播放场景。默认为Chat
+<li>Live：直播</li><li>Chat：语聊</li>
+    */
+    @SerializedName("PlayScene")
+    @Expose
+    private String PlayScene;
+
+    /**
+    * 物料过滤，取值有：
+<li>Lyrics：含有歌词；</li>
+<li>Midi：含有音高线。</li>
+    */
+    @SerializedName("MaterialFilters")
+    @Expose
+    private String [] MaterialFilters;
+
+    /**
      * Get 应用名称。 
      * @return AppName 应用名称。
      */
@@ -170,6 +187,50 @@ public class SearchKTVMusicsRequest extends AbstractModel{
         this.RightFilters = RightFilters;
     }
 
+    /**
+     * Get 播放场景。默认为Chat
+<li>Live：直播</li><li>Chat：语聊</li> 
+     * @return PlayScene 播放场景。默认为Chat
+<li>Live：直播</li><li>Chat：语聊</li>
+     */
+    public String getPlayScene() {
+        return this.PlayScene;
+    }
+
+    /**
+     * Set 播放场景。默认为Chat
+<li>Live：直播</li><li>Chat：语聊</li>
+     * @param PlayScene 播放场景。默认为Chat
+<li>Live：直播</li><li>Chat：语聊</li>
+     */
+    public void setPlayScene(String PlayScene) {
+        this.PlayScene = PlayScene;
+    }
+
+    /**
+     * Get 物料过滤，取值有：
+<li>Lyrics：含有歌词；</li>
+<li>Midi：含有音高线。</li> 
+     * @return MaterialFilters 物料过滤，取值有：
+<li>Lyrics：含有歌词；</li>
+<li>Midi：含有音高线。</li>
+     */
+    public String [] getMaterialFilters() {
+        return this.MaterialFilters;
+    }
+
+    /**
+     * Set 物料过滤，取值有：
+<li>Lyrics：含有歌词；</li>
+<li>Midi：含有音高线。</li>
+     * @param MaterialFilters 物料过滤，取值有：
+<li>Lyrics：含有歌词；</li>
+<li>Midi：含有音高线。</li>
+     */
+    public void setMaterialFilters(String [] MaterialFilters) {
+        this.MaterialFilters = MaterialFilters;
+    }
+
     public SearchKTVMusicsRequest() {
     }
 
@@ -199,6 +260,15 @@ public class SearchKTVMusicsRequest extends AbstractModel{
                 this.RightFilters[i] = new String(source.RightFilters[i]);
             }
         }
+        if (source.PlayScene != null) {
+            this.PlayScene = new String(source.PlayScene);
+        }
+        if (source.MaterialFilters != null) {
+            this.MaterialFilters = new String[source.MaterialFilters.length];
+            for (int i = 0; i < source.MaterialFilters.length; i++) {
+                this.MaterialFilters[i] = new String(source.MaterialFilters[i]);
+            }
+        }
     }
 
 
@@ -212,6 +282,8 @@ public class SearchKTVMusicsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ScrollToken", this.ScrollToken);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamArraySimple(map, prefix + "RightFilters.", this.RightFilters);
+        this.setParamSimple(map, prefix + "PlayScene", this.PlayScene);
+        this.setParamArraySimple(map, prefix + "MaterialFilters.", this.MaterialFilters);
 
     }
 }

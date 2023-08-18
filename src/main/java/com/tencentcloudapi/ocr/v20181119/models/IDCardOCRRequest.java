@@ -54,7 +54,7 @@ CropPortrait，人像照片裁剪（自动抠取身份证头像区域）
 CopyWarn，复印件告警
 BorderCheckWarn，边框和框内遮挡告警
 ReshootWarn，翻拍告警
-DetectPsWarn，PS检测告警
+DetectPsWarn，疑似存在PS痕迹告警
 TempIdWarn，临时身份证告警
 InvalidDateWarn，身份证有效日期不合法告警
 Quality，图片质量分数（评价图片的模糊程度）
@@ -69,6 +69,13 @@ Config = {"CropIdCard":true,"CropPortrait":true}
     @SerializedName("Config")
     @Expose
     private String Config;
+
+    /**
+    * 默认值为true，打开识别结果纠正开关。开关开启后，身份证号、出生日期、性别，三个字段会进行矫正补齐，统一结果输出；若关闭此开关，以上三个字段不会进行矫正补齐，保持原始识别结果输出，若原图出现篡改情况，这三个字段的识别结果可能会不统一。
+    */
+    @SerializedName("EnableRecognitionRectify")
+    @Expose
+    private Boolean EnableRecognitionRectify;
 
     /**
      * Get 图片的 Base64 值。要求图片经Base64编码后不超过 7M，分辨率建议500*800以上，支持PNG、JPG、JPEG、BMP格式。建议卡片部分占据图片2/3以上。
@@ -141,7 +148,7 @@ CropPortrait，人像照片裁剪（自动抠取身份证头像区域）
 CopyWarn，复印件告警
 BorderCheckWarn，边框和框内遮挡告警
 ReshootWarn，翻拍告警
-DetectPsWarn，PS检测告警
+DetectPsWarn，疑似存在PS痕迹告警
 TempIdWarn，临时身份证告警
 InvalidDateWarn，身份证有效日期不合法告警
 Quality，图片质量分数（评价图片的模糊程度）
@@ -158,7 +165,7 @@ CropPortrait，人像照片裁剪（自动抠取身份证头像区域）
 CopyWarn，复印件告警
 BorderCheckWarn，边框和框内遮挡告警
 ReshootWarn，翻拍告警
-DetectPsWarn，PS检测告警
+DetectPsWarn，疑似存在PS痕迹告警
 TempIdWarn，临时身份证告警
 InvalidDateWarn，身份证有效日期不合法告警
 Quality，图片质量分数（评价图片的模糊程度）
@@ -181,7 +188,7 @@ CropPortrait，人像照片裁剪（自动抠取身份证头像区域）
 CopyWarn，复印件告警
 BorderCheckWarn，边框和框内遮挡告警
 ReshootWarn，翻拍告警
-DetectPsWarn，PS检测告警
+DetectPsWarn，疑似存在PS痕迹告警
 TempIdWarn，临时身份证告警
 InvalidDateWarn，身份证有效日期不合法告警
 Quality，图片质量分数（评价图片的模糊程度）
@@ -198,7 +205,7 @@ CropPortrait，人像照片裁剪（自动抠取身份证头像区域）
 CopyWarn，复印件告警
 BorderCheckWarn，边框和框内遮挡告警
 ReshootWarn，翻拍告警
-DetectPsWarn，PS检测告警
+DetectPsWarn，疑似存在PS痕迹告警
 TempIdWarn，临时身份证告警
 InvalidDateWarn，身份证有效日期不合法告警
 Quality，图片质量分数（评价图片的模糊程度）
@@ -212,6 +219,22 @@ Config = {"CropIdCard":true,"CropPortrait":true}
      */
     public void setConfig(String Config) {
         this.Config = Config;
+    }
+
+    /**
+     * Get 默认值为true，打开识别结果纠正开关。开关开启后，身份证号、出生日期、性别，三个字段会进行矫正补齐，统一结果输出；若关闭此开关，以上三个字段不会进行矫正补齐，保持原始识别结果输出，若原图出现篡改情况，这三个字段的识别结果可能会不统一。 
+     * @return EnableRecognitionRectify 默认值为true，打开识别结果纠正开关。开关开启后，身份证号、出生日期、性别，三个字段会进行矫正补齐，统一结果输出；若关闭此开关，以上三个字段不会进行矫正补齐，保持原始识别结果输出，若原图出现篡改情况，这三个字段的识别结果可能会不统一。
+     */
+    public Boolean getEnableRecognitionRectify() {
+        return this.EnableRecognitionRectify;
+    }
+
+    /**
+     * Set 默认值为true，打开识别结果纠正开关。开关开启后，身份证号、出生日期、性别，三个字段会进行矫正补齐，统一结果输出；若关闭此开关，以上三个字段不会进行矫正补齐，保持原始识别结果输出，若原图出现篡改情况，这三个字段的识别结果可能会不统一。
+     * @param EnableRecognitionRectify 默认值为true，打开识别结果纠正开关。开关开启后，身份证号、出生日期、性别，三个字段会进行矫正补齐，统一结果输出；若关闭此开关，以上三个字段不会进行矫正补齐，保持原始识别结果输出，若原图出现篡改情况，这三个字段的识别结果可能会不统一。
+     */
+    public void setEnableRecognitionRectify(Boolean EnableRecognitionRectify) {
+        this.EnableRecognitionRectify = EnableRecognitionRectify;
     }
 
     public IDCardOCRRequest() {
@@ -234,6 +257,9 @@ Config = {"CropIdCard":true,"CropPortrait":true}
         if (source.Config != null) {
             this.Config = new String(source.Config);
         }
+        if (source.EnableRecognitionRectify != null) {
+            this.EnableRecognitionRectify = new Boolean(source.EnableRecognitionRectify);
+        }
     }
 
 
@@ -245,6 +271,7 @@ Config = {"CropIdCard":true,"CropPortrait":true}
         this.setParamSimple(map, prefix + "ImageUrl", this.ImageUrl);
         this.setParamSimple(map, prefix + "CardSide", this.CardSide);
         this.setParamSimple(map, prefix + "Config", this.Config);
+        this.setParamSimple(map, prefix + "EnableRecognitionRectify", this.EnableRecognitionRectify);
 
     }
 }

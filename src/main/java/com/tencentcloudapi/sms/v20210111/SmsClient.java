@@ -29,7 +29,7 @@ public class SmsClient extends AbstractClient{
     private static String endpoint = "sms.tencentcloudapi.com";
     private static String service = "sms";
     private static String version = "2021-01-11";
-
+    
     public SmsClient(Credential credential, String region) {
         this(credential, region, new ClientProfile());
     }
@@ -50,6 +50,7 @@ public class SmsClient extends AbstractClient{
     public AddSmsSignResponse AddSmsSign(AddSmsSignRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AddSmsSignResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AddSmsSignResponse>>() {
                 }.getType();
@@ -73,6 +74,7 @@ public class SmsClient extends AbstractClient{
     public AddSmsTemplateResponse AddSmsTemplate(AddSmsTemplateRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AddSmsTemplateResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AddSmsTemplateResponse>>() {
                 }.getType();
@@ -95,6 +97,7 @@ public class SmsClient extends AbstractClient{
     public CallbackStatusStatisticsResponse CallbackStatusStatistics(CallbackStatusStatisticsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CallbackStatusStatisticsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CallbackStatusStatisticsResponse>>() {
                 }.getType();
@@ -117,6 +120,7 @@ public class SmsClient extends AbstractClient{
     public DeleteSmsSignResponse DeleteSmsSign(DeleteSmsSignRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteSmsSignResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteSmsSignResponse>>() {
                 }.getType();
@@ -139,6 +143,7 @@ public class SmsClient extends AbstractClient{
     public DeleteSmsTemplateResponse DeleteSmsTemplate(DeleteSmsTemplateRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteSmsTemplateResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteSmsTemplateResponse>>() {
                 }.getType();
@@ -160,6 +165,7 @@ public class SmsClient extends AbstractClient{
     public DescribePhoneNumberInfoResponse DescribePhoneNumberInfo(DescribePhoneNumberInfoRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribePhoneNumberInfoResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribePhoneNumberInfoResponse>>() {
                 }.getType();
@@ -183,6 +189,7 @@ public class SmsClient extends AbstractClient{
     public DescribeSmsSignListResponse DescribeSmsSignList(DescribeSmsSignListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSmsSignListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSmsSignListResponse>>() {
                 }.getType();
@@ -206,6 +213,7 @@ public class SmsClient extends AbstractClient{
     public DescribeSmsTemplateListResponse DescribeSmsTemplateList(DescribeSmsTemplateListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSmsTemplateListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSmsTemplateListResponse>>() {
                 }.getType();
@@ -218,7 +226,7 @@ public class SmsClient extends AbstractClient{
     }
 
     /**
-     *1. 修改短信签名，修改之前请先认证参阅 [腾讯云短信签名审核标准](https://cloud.tencent.com/document/product/382/39022)。
+     *1. 修改短信签名，修改之前请先认真参阅 [腾讯云短信签名审核标准](https://cloud.tencent.com/document/product/382/39022)。
 2. ⚠️注意：个人认证用户不支持使用 API 修改短信签名，请参阅了解 [实名认证基本介绍](https://cloud.tencent.com/document/product/378/3629)，如果为个人认证请登录 [控制台](https://console.cloud.tencent.com/smsv2) 修改短信签名。
 3. 修改短信签名，仅当签名为**待审核**或**已拒绝**状态时，才能进行修改，**已审核通过**的签名不支持修改。
 >- 注：由于云 **API3.0 安全性**有所提升，所以**接口鉴权**较为复杂，建议使用 SDK 来使用云短信服务。
@@ -230,6 +238,7 @@ public class SmsClient extends AbstractClient{
     public ModifySmsSignResponse ModifySmsSign(ModifySmsSignRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifySmsSignResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifySmsSignResponse>>() {
                 }.getType();
@@ -255,6 +264,7 @@ public class SmsClient extends AbstractClient{
     public ModifySmsTemplateResponse ModifySmsTemplate(ModifySmsTemplateRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifySmsTemplateResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifySmsTemplateResponse>>() {
                 }.getType();
@@ -280,6 +290,7 @@ public class SmsClient extends AbstractClient{
     public PullSmsReplyStatusResponse PullSmsReplyStatus(PullSmsReplyStatusRequest req) throws TencentCloudSDKException{
         JsonResponseModel<PullSmsReplyStatusResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<PullSmsReplyStatusResponse>>() {
                 }.getType();
@@ -304,6 +315,7 @@ public class SmsClient extends AbstractClient{
     public PullSmsReplyStatusByPhoneNumberResponse PullSmsReplyStatusByPhoneNumber(PullSmsReplyStatusByPhoneNumberRequest req) throws TencentCloudSDKException{
         JsonResponseModel<PullSmsReplyStatusByPhoneNumberResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<PullSmsReplyStatusByPhoneNumberResponse>>() {
                 }.getType();
@@ -329,6 +341,7 @@ public class SmsClient extends AbstractClient{
     public PullSmsSendStatusResponse PullSmsSendStatus(PullSmsSendStatusRequest req) throws TencentCloudSDKException{
         JsonResponseModel<PullSmsSendStatusResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<PullSmsSendStatusResponse>>() {
                 }.getType();
@@ -353,6 +366,7 @@ public class SmsClient extends AbstractClient{
     public PullSmsSendStatusByPhoneNumberResponse PullSmsSendStatusByPhoneNumber(PullSmsSendStatusByPhoneNumberRequest req) throws TencentCloudSDKException{
         JsonResponseModel<PullSmsSendStatusByPhoneNumberResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<PullSmsSendStatusByPhoneNumberResponse>>() {
                 }.getType();
@@ -374,6 +388,7 @@ public class SmsClient extends AbstractClient{
     public ReportConversionResponse ReportConversion(ReportConversionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ReportConversionResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ReportConversionResponse>>() {
                 }.getType();
@@ -397,6 +412,7 @@ public class SmsClient extends AbstractClient{
     public SendSmsResponse SendSms(SendSmsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SendSmsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<SendSmsResponse>>() {
                 }.getType();
@@ -420,6 +436,7 @@ public class SmsClient extends AbstractClient{
     public SendStatusStatisticsResponse SendStatusStatistics(SendStatusStatisticsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SendStatusStatisticsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<SendStatusStatisticsResponse>>() {
                 }.getType();
@@ -435,7 +452,6 @@ public class SmsClient extends AbstractClient{
      *用户套餐包信息统计。
 >- 注：由于云 **API3.0 安全性**有所提升，所以**接口鉴权**较为复杂，建议使用 SDK 来使用云短信服务。
 >- 您可以在 [API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=sms&Version=2021-01-11&Action=SendSms) 中直接运行该接口，可以先免去签名计算步骤。运行成功后，API Explorer可以**自动生成**SDK代码示例。
-
      * @param req SmsPackagesStatisticsRequest
      * @return SmsPackagesStatisticsResponse
      * @throws TencentCloudSDKException
@@ -443,6 +459,7 @@ public class SmsClient extends AbstractClient{
     public SmsPackagesStatisticsResponse SmsPackagesStatistics(SmsPackagesStatisticsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SmsPackagesStatisticsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<SmsPackagesStatisticsResponse>>() {
                 }.getType();

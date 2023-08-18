@@ -30,7 +30,7 @@ public class FlowApproverDetail extends AbstractModel{
     private String ReceiptId;
 
     /**
-    * 渠道侧企业的第三方id
+    * 平台企业的第三方id
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProxyOrganizationOpenId")
@@ -38,14 +38,14 @@ public class FlowApproverDetail extends AbstractModel{
     private String ProxyOrganizationOpenId;
 
     /**
-    * 渠道侧企业操作人的第三方id
+    * 平台企业操作人的第三方id
     */
     @SerializedName("ProxyOperatorOpenId")
     @Expose
     private String ProxyOperatorOpenId;
 
     /**
-    * 渠道侧企业名称
+    * 平台企业名称
     */
     @SerializedName("ProxyOrganizationName")
     @Expose
@@ -74,7 +74,20 @@ public class FlowApproverDetail extends AbstractModel{
     private String ApproveName;
 
     /**
-    * 当前签署人的状态
+    * 当前签署人的状态, 状态如下
+<br/>PENDING 待签署	
+<br/>FILLPENDING 待填写
+<br/>FILLACCEPT 填写完成	
+<br/>FILLREJECT 拒绝填写	
+<br/>WAITPICKUP 待领取	
+<br/>ACCEPT 已签署	
+<br/>REJECT 拒签 
+<br/>DEADLINE 过期没人处理 
+<br/>CANCEL 流程已撤回	
+<br/>FORWARD 已经转他人处理
+<br/>STOP 流程已终止	
+<br/>RELIEVED 解除协议（已解除）
+
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApproveStatus")
@@ -82,7 +95,7 @@ public class FlowApproverDetail extends AbstractModel{
     private String ApproveStatus;
 
     /**
-    * 签署人信息
+    * 签署人自定义信息
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApproveMessage")
@@ -90,14 +103,16 @@ public class FlowApproverDetail extends AbstractModel{
     private String ApproveMessage;
 
     /**
-    * 签署人签署时间
+    * 签署人签署时间戳，单位秒
     */
     @SerializedName("ApproveTime")
     @Expose
     private Long ApproveTime;
 
     /**
-    * 参与者类型 (ORGANIZATION企业/PERSON个人)
+    * 参与者类型 
+<br/>ORGANIZATION：企业签署人
+<br/>PERSON：个人签署人
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApproveType")
@@ -121,9 +136,9 @@ public class FlowApproverDetail extends AbstractModel{
     }
 
     /**
-     * Get 渠道侧企业的第三方id
+     * Get 平台企业的第三方id
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ProxyOrganizationOpenId 渠道侧企业的第三方id
+     * @return ProxyOrganizationOpenId 平台企业的第三方id
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProxyOrganizationOpenId() {
@@ -131,9 +146,9 @@ public class FlowApproverDetail extends AbstractModel{
     }
 
     /**
-     * Set 渠道侧企业的第三方id
+     * Set 平台企业的第三方id
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ProxyOrganizationOpenId 渠道侧企业的第三方id
+     * @param ProxyOrganizationOpenId 平台企业的第三方id
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProxyOrganizationOpenId(String ProxyOrganizationOpenId) {
@@ -141,32 +156,32 @@ public class FlowApproverDetail extends AbstractModel{
     }
 
     /**
-     * Get 渠道侧企业操作人的第三方id 
-     * @return ProxyOperatorOpenId 渠道侧企业操作人的第三方id
+     * Get 平台企业操作人的第三方id 
+     * @return ProxyOperatorOpenId 平台企业操作人的第三方id
      */
     public String getProxyOperatorOpenId() {
         return this.ProxyOperatorOpenId;
     }
 
     /**
-     * Set 渠道侧企业操作人的第三方id
-     * @param ProxyOperatorOpenId 渠道侧企业操作人的第三方id
+     * Set 平台企业操作人的第三方id
+     * @param ProxyOperatorOpenId 平台企业操作人的第三方id
      */
     public void setProxyOperatorOpenId(String ProxyOperatorOpenId) {
         this.ProxyOperatorOpenId = ProxyOperatorOpenId;
     }
 
     /**
-     * Get 渠道侧企业名称 
-     * @return ProxyOrganizationName 渠道侧企业名称
+     * Get 平台企业名称 
+     * @return ProxyOrganizationName 平台企业名称
      */
     public String getProxyOrganizationName() {
         return this.ProxyOrganizationName;
     }
 
     /**
-     * Set 渠道侧企业名称
-     * @param ProxyOrganizationName 渠道侧企业名称
+     * Set 平台企业名称
+     * @param ProxyOrganizationName 平台企业名称
      */
     public void setProxyOrganizationName(String ProxyOrganizationName) {
         this.ProxyOrganizationName = ProxyOrganizationName;
@@ -225,9 +240,35 @@ public class FlowApproverDetail extends AbstractModel{
     }
 
     /**
-     * Get 当前签署人的状态
+     * Get 当前签署人的状态, 状态如下
+<br/>PENDING 待签署	
+<br/>FILLPENDING 待填写
+<br/>FILLACCEPT 填写完成	
+<br/>FILLREJECT 拒绝填写	
+<br/>WAITPICKUP 待领取	
+<br/>ACCEPT 已签署	
+<br/>REJECT 拒签 
+<br/>DEADLINE 过期没人处理 
+<br/>CANCEL 流程已撤回	
+<br/>FORWARD 已经转他人处理
+<br/>STOP 流程已终止	
+<br/>RELIEVED 解除协议（已解除）
+
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ApproveStatus 当前签署人的状态
+     * @return ApproveStatus 当前签署人的状态, 状态如下
+<br/>PENDING 待签署	
+<br/>FILLPENDING 待填写
+<br/>FILLACCEPT 填写完成	
+<br/>FILLREJECT 拒绝填写	
+<br/>WAITPICKUP 待领取	
+<br/>ACCEPT 已签署	
+<br/>REJECT 拒签 
+<br/>DEADLINE 过期没人处理 
+<br/>CANCEL 流程已撤回	
+<br/>FORWARD 已经转他人处理
+<br/>STOP 流程已终止	
+<br/>RELIEVED 解除协议（已解除）
+
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApproveStatus() {
@@ -235,9 +276,35 @@ public class FlowApproverDetail extends AbstractModel{
     }
 
     /**
-     * Set 当前签署人的状态
+     * Set 当前签署人的状态, 状态如下
+<br/>PENDING 待签署	
+<br/>FILLPENDING 待填写
+<br/>FILLACCEPT 填写完成	
+<br/>FILLREJECT 拒绝填写	
+<br/>WAITPICKUP 待领取	
+<br/>ACCEPT 已签署	
+<br/>REJECT 拒签 
+<br/>DEADLINE 过期没人处理 
+<br/>CANCEL 流程已撤回	
+<br/>FORWARD 已经转他人处理
+<br/>STOP 流程已终止	
+<br/>RELIEVED 解除协议（已解除）
+
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ApproveStatus 当前签署人的状态
+     * @param ApproveStatus 当前签署人的状态, 状态如下
+<br/>PENDING 待签署	
+<br/>FILLPENDING 待填写
+<br/>FILLACCEPT 填写完成	
+<br/>FILLREJECT 拒绝填写	
+<br/>WAITPICKUP 待领取	
+<br/>ACCEPT 已签署	
+<br/>REJECT 拒签 
+<br/>DEADLINE 过期没人处理 
+<br/>CANCEL 流程已撤回	
+<br/>FORWARD 已经转他人处理
+<br/>STOP 流程已终止	
+<br/>RELIEVED 解除协议（已解除）
+
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApproveStatus(String ApproveStatus) {
@@ -245,9 +312,9 @@ public class FlowApproverDetail extends AbstractModel{
     }
 
     /**
-     * Get 签署人信息
+     * Get 签署人自定义信息
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ApproveMessage 签署人信息
+     * @return ApproveMessage 签署人自定义信息
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApproveMessage() {
@@ -255,9 +322,9 @@ public class FlowApproverDetail extends AbstractModel{
     }
 
     /**
-     * Set 签署人信息
+     * Set 签署人自定义信息
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ApproveMessage 签署人信息
+     * @param ApproveMessage 签署人自定义信息
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApproveMessage(String ApproveMessage) {
@@ -265,25 +332,29 @@ public class FlowApproverDetail extends AbstractModel{
     }
 
     /**
-     * Get 签署人签署时间 
-     * @return ApproveTime 签署人签署时间
+     * Get 签署人签署时间戳，单位秒 
+     * @return ApproveTime 签署人签署时间戳，单位秒
      */
     public Long getApproveTime() {
         return this.ApproveTime;
     }
 
     /**
-     * Set 签署人签署时间
-     * @param ApproveTime 签署人签署时间
+     * Set 签署人签署时间戳，单位秒
+     * @param ApproveTime 签署人签署时间戳，单位秒
      */
     public void setApproveTime(Long ApproveTime) {
         this.ApproveTime = ApproveTime;
     }
 
     /**
-     * Get 参与者类型 (ORGANIZATION企业/PERSON个人)
+     * Get 参与者类型 
+<br/>ORGANIZATION：企业签署人
+<br/>PERSON：个人签署人
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ApproveType 参与者类型 (ORGANIZATION企业/PERSON个人)
+     * @return ApproveType 参与者类型 
+<br/>ORGANIZATION：企业签署人
+<br/>PERSON：个人签署人
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApproveType() {
@@ -291,9 +362,13 @@ public class FlowApproverDetail extends AbstractModel{
     }
 
     /**
-     * Set 参与者类型 (ORGANIZATION企业/PERSON个人)
+     * Set 参与者类型 
+<br/>ORGANIZATION：企业签署人
+<br/>PERSON：个人签署人
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ApproveType 参与者类型 (ORGANIZATION企业/PERSON个人)
+     * @param ApproveType 参与者类型 
+<br/>ORGANIZATION：企业签署人
+<br/>PERSON：个人签署人
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApproveType(String ApproveType) {

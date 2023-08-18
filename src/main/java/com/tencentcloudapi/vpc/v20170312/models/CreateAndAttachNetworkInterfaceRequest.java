@@ -58,11 +58,18 @@ public class CreateAndAttachNetworkInterfaceRequest extends AbstractModel{
     private PrivateIpAddressSpecification [] PrivateIpAddresses;
 
     /**
-    * 新申请的内网IP地址个数，内网IP地址个数总和不能超过配数。
+    * 新申请的内网IP地址个数，内网IP地址个数总和不能超过配额数。
     */
     @SerializedName("SecondaryPrivateIpAddressCount")
     @Expose
     private Long SecondaryPrivateIpAddressCount;
+
+    /**
+    * IP服务质量等级，和SecondaryPrivateIpAddressCount配合使用，可选值：PT、AU、AG、DEFAULT，分别代表云金、云银、云铜、默认四个等级。
+    */
+    @SerializedName("QosLevel")
+    @Expose
+    private String QosLevel;
 
     /**
     * 指定绑定的安全组，例如：['sg-1dd51d']。
@@ -79,7 +86,7 @@ public class CreateAndAttachNetworkInterfaceRequest extends AbstractModel{
     private String NetworkInterfaceDescription;
 
     /**
-    * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+    * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
     */
     @SerializedName("Tags")
     @Expose
@@ -173,19 +180,35 @@ public class CreateAndAttachNetworkInterfaceRequest extends AbstractModel{
     }
 
     /**
-     * Get 新申请的内网IP地址个数，内网IP地址个数总和不能超过配数。 
-     * @return SecondaryPrivateIpAddressCount 新申请的内网IP地址个数，内网IP地址个数总和不能超过配数。
+     * Get 新申请的内网IP地址个数，内网IP地址个数总和不能超过配额数。 
+     * @return SecondaryPrivateIpAddressCount 新申请的内网IP地址个数，内网IP地址个数总和不能超过配额数。
      */
     public Long getSecondaryPrivateIpAddressCount() {
         return this.SecondaryPrivateIpAddressCount;
     }
 
     /**
-     * Set 新申请的内网IP地址个数，内网IP地址个数总和不能超过配数。
-     * @param SecondaryPrivateIpAddressCount 新申请的内网IP地址个数，内网IP地址个数总和不能超过配数。
+     * Set 新申请的内网IP地址个数，内网IP地址个数总和不能超过配额数。
+     * @param SecondaryPrivateIpAddressCount 新申请的内网IP地址个数，内网IP地址个数总和不能超过配额数。
      */
     public void setSecondaryPrivateIpAddressCount(Long SecondaryPrivateIpAddressCount) {
         this.SecondaryPrivateIpAddressCount = SecondaryPrivateIpAddressCount;
+    }
+
+    /**
+     * Get IP服务质量等级，和SecondaryPrivateIpAddressCount配合使用，可选值：PT、AU、AG、DEFAULT，分别代表云金、云银、云铜、默认四个等级。 
+     * @return QosLevel IP服务质量等级，和SecondaryPrivateIpAddressCount配合使用，可选值：PT、AU、AG、DEFAULT，分别代表云金、云银、云铜、默认四个等级。
+     */
+    public String getQosLevel() {
+        return this.QosLevel;
+    }
+
+    /**
+     * Set IP服务质量等级，和SecondaryPrivateIpAddressCount配合使用，可选值：PT、AU、AG、DEFAULT，分别代表云金、云银、云铜、默认四个等级。
+     * @param QosLevel IP服务质量等级，和SecondaryPrivateIpAddressCount配合使用，可选值：PT、AU、AG、DEFAULT，分别代表云金、云银、云铜、默认四个等级。
+     */
+    public void setQosLevel(String QosLevel) {
+        this.QosLevel = QosLevel;
     }
 
     /**
@@ -221,16 +244,16 @@ public class CreateAndAttachNetworkInterfaceRequest extends AbstractModel{
     }
 
     /**
-     * Get 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}] 
-     * @return Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+     * Get 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。 
+     * @return Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
      */
     public Tag [] getTags() {
         return this.Tags;
     }
 
     /**
-     * Set 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
-     * @param Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+     * Set 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+     * @param Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
      */
     public void setTags(Tag [] Tags) {
         this.Tags = Tags;
@@ -281,6 +304,9 @@ public class CreateAndAttachNetworkInterfaceRequest extends AbstractModel{
         if (source.SecondaryPrivateIpAddressCount != null) {
             this.SecondaryPrivateIpAddressCount = new Long(source.SecondaryPrivateIpAddressCount);
         }
+        if (source.QosLevel != null) {
+            this.QosLevel = new String(source.QosLevel);
+        }
         if (source.SecurityGroupIds != null) {
             this.SecurityGroupIds = new String[source.SecurityGroupIds.length];
             for (int i = 0; i < source.SecurityGroupIds.length; i++) {
@@ -312,6 +338,7 @@ public class CreateAndAttachNetworkInterfaceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamArrayObj(map, prefix + "PrivateIpAddresses.", this.PrivateIpAddresses);
         this.setParamSimple(map, prefix + "SecondaryPrivateIpAddressCount", this.SecondaryPrivateIpAddressCount);
+        this.setParamSimple(map, prefix + "QosLevel", this.QosLevel);
         this.setParamArraySimple(map, prefix + "SecurityGroupIds.", this.SecurityGroupIds);
         this.setParamSimple(map, prefix + "NetworkInterfaceDescription", this.NetworkInterfaceDescription);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);

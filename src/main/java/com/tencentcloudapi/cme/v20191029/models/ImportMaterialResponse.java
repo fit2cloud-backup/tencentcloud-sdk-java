@@ -30,7 +30,7 @@ public class ImportMaterialResponse extends AbstractModel{
     private String MaterialId;
 
     /**
-    * 媒体文预处理任务 ID，如果未指定发起预处理任务则为空。
+    * 媒体文件预处理任务 ID，如果未指定发起预处理任务则为空。
     */
     @SerializedName("PreProcessTaskId")
     @Expose
@@ -60,16 +60,16 @@ public class ImportMaterialResponse extends AbstractModel{
     }
 
     /**
-     * Get 媒体文预处理任务 ID，如果未指定发起预处理任务则为空。 
-     * @return PreProcessTaskId 媒体文预处理任务 ID，如果未指定发起预处理任务则为空。
+     * Get 媒体文件预处理任务 ID，如果未指定发起预处理任务则为空。 
+     * @return PreProcessTaskId 媒体文件预处理任务 ID，如果未指定发起预处理任务则为空。
      */
     public String getPreProcessTaskId() {
         return this.PreProcessTaskId;
     }
 
     /**
-     * Set 媒体文预处理任务 ID，如果未指定发起预处理任务则为空。
-     * @param PreProcessTaskId 媒体文预处理任务 ID，如果未指定发起预处理任务则为空。
+     * Set 媒体文件预处理任务 ID，如果未指定发起预处理任务则为空。
+     * @param PreProcessTaskId 媒体文件预处理任务 ID，如果未指定发起预处理任务则为空。
      */
     public void setPreProcessTaskId(String PreProcessTaskId) {
         this.PreProcessTaskId = PreProcessTaskId;

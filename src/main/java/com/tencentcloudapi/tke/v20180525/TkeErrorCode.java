@@ -87,11 +87,17 @@ public enum TkeErrorCode {
     // 获取CLS采集配置失败。
      FAILEDOPERATION_GETCLSCONFIG("FailedOperation.GetClsConfig"),
      
+    // 获取CLS索引配置失败。
+     FAILEDOPERATION_GETCLSINDEX("FailedOperation.GetClsIndex"),
+     
     // 查询主题集失败。
      FAILEDOPERATION_GETCLSLOGSET("FailedOperation.GetClsLogSet"),
      
     // 获取CLS机器组失败。
      FAILEDOPERATION_GETCLSMACHINEGROUP("FailedOperation.GetClsMachineGroup"),
+     
+    // 获取CLS日志主题失败。
+     FAILEDOPERATION_GETCLSTOPIC("FailedOperation.GetClsTopic"),
      
     // 通过配置文件创建集群Client错误。
      FAILEDOPERATION_KUBECLIENTCONF("FailedOperation.KubeClientConf"),
@@ -117,6 +123,9 @@ public enum TkeErrorCode {
     // Kubernetes未知错误。
      FAILEDOPERATION_KUBERNETESINTERNAL("FailedOperation.KubernetesInternal"),
      
+    // 获取Kubernetes资源列表失败。
+     FAILEDOPERATION_KUBERNETESLISTOPERATIONERROR("FailedOperation.KubernetesListOperationError"),
+     
     // Kubernetes patch 操作失败。
      FAILEDOPERATION_KUBERNETESPATCHOPERATIONERROR("FailedOperation.KubernetesPatchOperationError"),
      
@@ -134,6 +143,9 @@ public enum TkeErrorCode {
      
     // 网络扩展错误。
      FAILEDOPERATION_NETWORKSCALEERROR("FailedOperation.NetworkScaleError"),
+     
+    // 节点存在辅助网卡
+     FAILEDOPERATION_NODEEXISTSSECONDARYNETWORKINTERFACE("FailedOperation.NodeExistsSecondaryNetworkInterface"),
      
     // 镜像OS不支持。
      FAILEDOPERATION_OSNOTSUPPORT("FailedOperation.OsNotSupport"),
@@ -161,6 +173,9 @@ public enum TkeErrorCode {
      
     // 已有相同任务执行中。
      FAILEDOPERATION_TASKALREADYRUNNING("FailedOperation.TaskAlreadyRunning"),
+     
+    // 任务当前所处状态不支持此操作。
+     FAILEDOPERATION_TASKLIFESTATEERROR("FailedOperation.TaskLifeStateError"),
      
     // 询价错误。
      FAILEDOPERATION_TRADECOMMON("FailedOperation.TradeCommon"),
@@ -305,6 +320,9 @@ public enum TkeErrorCode {
      
     // Kubernetes未知错误。
      INTERNALERROR_KUBERNETESINTERNAL("InternalError.KubernetesInternal"),
+     
+    // 获取Kubernetes资源列表失败。
+     INTERNALERROR_KUBERNETESLISTOPERATIONERROR("InternalError.KubernetesListOperationError"),
      
     // Kubernetes Patch操作失败。
      INTERNALERROR_KUBERNETESPATCHOPERATIONERROR("InternalError.KubernetesPatchOperationError"),
@@ -453,6 +471,12 @@ public enum TkeErrorCode {
     // 路由表非空。
      INVALIDPARAMETER_ROUTETABLENOTEMPTY("InvalidParameter.RouteTableNotEmpty"),
      
+    // 子网不合法。
+     INVALIDPARAMETER_SUBNETINVALIDERROR("InvalidParameter.SubnetInvalidError"),
+     
+    // 子网不存在。
+     INVALIDPARAMETER_SUBNETNOTEXIST("InvalidParameter.SubnetNotExist"),
+     
     // 超过配额限制。
      LIMITEXCEEDED("LimitExceeded"),
      
@@ -468,8 +492,14 @@ public enum TkeErrorCode {
     // 资源被占用。
      RESOURCEINUSE("ResourceInUse"),
      
+    // 存在运行中的Pod。
+     RESOURCEINUSE_EXISTRUNNINGPOD("ResourceInUse.ExistRunningPod"),
+     
     // 资源已存在。
      RESOURCEINUSE_RESOURCEEXISTALREADY("ResourceInUse.ResourceExistAlready"),
+     
+    // 所选子网已存在。
+     RESOURCEINUSE_SUBNETALREADYEXIST("ResourceInUse.SubnetAlreadyExist"),
      
     // 资源不足。
      RESOURCEINSUFFICIENT("ResourceInsufficient"),
@@ -507,6 +537,9 @@ public enum TkeErrorCode {
     // Eks Container Instance状态不支持改操作。
      RESOURCEUNAVAILABLE_EKSCONTAINERSTATUS("ResourceUnavailable.EksContainerStatus"),
      
+    // 节点池状态不正常。
+     RESOURCEUNAVAILABLE_NODEPOOLSTATENOTNORMAL("ResourceUnavailable.NodePoolStateNotNormal"),
+     
     // 资源售罄。
      RESOURCESSOLDOUT("ResourcesSoldOut"),
      
@@ -532,7 +565,10 @@ public enum TkeErrorCode {
      UNSUPPORTEDOPERATION_CLUSTERNOTSUITENABLEVPCCNI("UnsupportedOperation.ClusterNotSuitEnableVPCCNI"),
      
     // 非白名单用户。
-     UNSUPPORTEDOPERATION_NOTINWHITELIST("UnsupportedOperation.NotInWhitelist");
+     UNSUPPORTEDOPERATION_NOTINWHITELIST("UnsupportedOperation.NotInWhitelist"),
+     
+    // 不支持安装虚拟节点。
+     UNSUPPORTEDOPERATION_NOTSUPPORTINSTALLVIRTUALKUBELET("UnsupportedOperation.NotSupportInstallVirtualKubelet");
      
     private String value;
     private TkeErrorCode (String value){

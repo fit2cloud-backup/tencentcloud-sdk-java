@@ -37,16 +37,6 @@ public class DescribeDDoSAttackEventRequest extends AbstractModel{
     private String EndTime;
 
     /**
-    * 协议类型，取值有：
-<li>tcp：tcp协议；</li>
-<li>udp：udp协议；</li>
-<li>all：全部协议。</li>默认为: all，表示获取全部协议类型。
-    */
-    @SerializedName("ProtocolType")
-    @Expose
-    private String ProtocolType;
-
-    /**
     * ddos策略组集合，不填默认选择全部策略。
     */
     @SerializedName("PolicyIds")
@@ -54,7 +44,7 @@ public class DescribeDDoSAttackEventRequest extends AbstractModel{
     private Long [] PolicyIds;
 
     /**
-    * 站点集合，不填默认选择全部站点。
+    * 站点集合，此参数必填，不填默认查询为空。
     */
     @SerializedName("ZoneIds")
     @Expose
@@ -84,11 +74,30 @@ public class DescribeDDoSAttackEventRequest extends AbstractModel{
     /**
     * 数据归属地区，取值有：
 <li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据。</li>不填将根据用户所在地智能选择地区。
+<li>mainland：中国大陆地区数据；</li>
+<li>global：全球数据；</li>不填默认取值为global。
     */
     @SerializedName("Area")
     @Expose
     private String Area;
+
+    /**
+    * 排序字段，取值有：
+<li>MaxBandWidth：带宽峰值；</li>
+<li>AttackStartTime：攻击开始时间。</li>不填默认值为：AttackStartTime。
+    */
+    @SerializedName("OrderBy")
+    @Expose
+    private String OrderBy;
+
+    /**
+    * 排序方式，取值有：
+<li>asc：升序方式；</li>
+<li>desc：降序方式。</li>不填默认值为：desc。
+    */
+    @SerializedName("OrderType")
+    @Expose
+    private String OrderType;
 
     /**
      * Get 开始时间。 
@@ -123,34 +132,6 @@ public class DescribeDDoSAttackEventRequest extends AbstractModel{
     }
 
     /**
-     * Get 协议类型，取值有：
-<li>tcp：tcp协议；</li>
-<li>udp：udp协议；</li>
-<li>all：全部协议。</li>默认为: all，表示获取全部协议类型。 
-     * @return ProtocolType 协议类型，取值有：
-<li>tcp：tcp协议；</li>
-<li>udp：udp协议；</li>
-<li>all：全部协议。</li>默认为: all，表示获取全部协议类型。
-     */
-    public String getProtocolType() {
-        return this.ProtocolType;
-    }
-
-    /**
-     * Set 协议类型，取值有：
-<li>tcp：tcp协议；</li>
-<li>udp：udp协议；</li>
-<li>all：全部协议。</li>默认为: all，表示获取全部协议类型。
-     * @param ProtocolType 协议类型，取值有：
-<li>tcp：tcp协议；</li>
-<li>udp：udp协议；</li>
-<li>all：全部协议。</li>默认为: all，表示获取全部协议类型。
-     */
-    public void setProtocolType(String ProtocolType) {
-        this.ProtocolType = ProtocolType;
-    }
-
-    /**
      * Get ddos策略组集合，不填默认选择全部策略。 
      * @return PolicyIds ddos策略组集合，不填默认选择全部策略。
      */
@@ -167,16 +148,16 @@ public class DescribeDDoSAttackEventRequest extends AbstractModel{
     }
 
     /**
-     * Get 站点集合，不填默认选择全部站点。 
-     * @return ZoneIds 站点集合，不填默认选择全部站点。
+     * Get 站点集合，此参数必填，不填默认查询为空。 
+     * @return ZoneIds 站点集合，此参数必填，不填默认查询为空。
      */
     public String [] getZoneIds() {
         return this.ZoneIds;
     }
 
     /**
-     * Set 站点集合，不填默认选择全部站点。
-     * @param ZoneIds 站点集合，不填默认选择全部站点。
+     * Set 站点集合，此参数必填，不填默认查询为空。
+     * @param ZoneIds 站点集合，此参数必填，不填默认查询为空。
      */
     public void setZoneIds(String [] ZoneIds) {
         this.ZoneIds = ZoneIds;
@@ -233,10 +214,12 @@ public class DescribeDDoSAttackEventRequest extends AbstractModel{
     /**
      * Get 数据归属地区，取值有：
 <li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据。</li>不填将根据用户所在地智能选择地区。 
+<li>mainland：中国大陆地区数据；</li>
+<li>global：全球数据；</li>不填默认取值为global。 
      * @return Area 数据归属地区，取值有：
 <li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据。</li>不填将根据用户所在地智能选择地区。
+<li>mainland：中国大陆地区数据；</li>
+<li>global：全球数据；</li>不填默认取值为global。
      */
     public String getArea() {
         return this.Area;
@@ -245,13 +228,63 @@ public class DescribeDDoSAttackEventRequest extends AbstractModel{
     /**
      * Set 数据归属地区，取值有：
 <li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据。</li>不填将根据用户所在地智能选择地区。
+<li>mainland：中国大陆地区数据；</li>
+<li>global：全球数据；</li>不填默认取值为global。
      * @param Area 数据归属地区，取值有：
 <li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据。</li>不填将根据用户所在地智能选择地区。
+<li>mainland：中国大陆地区数据；</li>
+<li>global：全球数据；</li>不填默认取值为global。
      */
     public void setArea(String Area) {
         this.Area = Area;
+    }
+
+    /**
+     * Get 排序字段，取值有：
+<li>MaxBandWidth：带宽峰值；</li>
+<li>AttackStartTime：攻击开始时间。</li>不填默认值为：AttackStartTime。 
+     * @return OrderBy 排序字段，取值有：
+<li>MaxBandWidth：带宽峰值；</li>
+<li>AttackStartTime：攻击开始时间。</li>不填默认值为：AttackStartTime。
+     */
+    public String getOrderBy() {
+        return this.OrderBy;
+    }
+
+    /**
+     * Set 排序字段，取值有：
+<li>MaxBandWidth：带宽峰值；</li>
+<li>AttackStartTime：攻击开始时间。</li>不填默认值为：AttackStartTime。
+     * @param OrderBy 排序字段，取值有：
+<li>MaxBandWidth：带宽峰值；</li>
+<li>AttackStartTime：攻击开始时间。</li>不填默认值为：AttackStartTime。
+     */
+    public void setOrderBy(String OrderBy) {
+        this.OrderBy = OrderBy;
+    }
+
+    /**
+     * Get 排序方式，取值有：
+<li>asc：升序方式；</li>
+<li>desc：降序方式。</li>不填默认值为：desc。 
+     * @return OrderType 排序方式，取值有：
+<li>asc：升序方式；</li>
+<li>desc：降序方式。</li>不填默认值为：desc。
+     */
+    public String getOrderType() {
+        return this.OrderType;
+    }
+
+    /**
+     * Set 排序方式，取值有：
+<li>asc：升序方式；</li>
+<li>desc：降序方式。</li>不填默认值为：desc。
+     * @param OrderType 排序方式，取值有：
+<li>asc：升序方式；</li>
+<li>desc：降序方式。</li>不填默认值为：desc。
+     */
+    public void setOrderType(String OrderType) {
+        this.OrderType = OrderType;
     }
 
     public DescribeDDoSAttackEventRequest() {
@@ -267,9 +300,6 @@ public class DescribeDDoSAttackEventRequest extends AbstractModel{
         }
         if (source.EndTime != null) {
             this.EndTime = new String(source.EndTime);
-        }
-        if (source.ProtocolType != null) {
-            this.ProtocolType = new String(source.ProtocolType);
         }
         if (source.PolicyIds != null) {
             this.PolicyIds = new Long[source.PolicyIds.length];
@@ -295,6 +325,12 @@ public class DescribeDDoSAttackEventRequest extends AbstractModel{
         if (source.Area != null) {
             this.Area = new String(source.Area);
         }
+        if (source.OrderBy != null) {
+            this.OrderBy = new String(source.OrderBy);
+        }
+        if (source.OrderType != null) {
+            this.OrderType = new String(source.OrderType);
+        }
     }
 
 
@@ -304,13 +340,14 @@ public class DescribeDDoSAttackEventRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "StartTime", this.StartTime);
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
-        this.setParamSimple(map, prefix + "ProtocolType", this.ProtocolType);
         this.setParamArraySimple(map, prefix + "PolicyIds.", this.PolicyIds);
         this.setParamArraySimple(map, prefix + "ZoneIds.", this.ZoneIds);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "ShowDetail", this.ShowDetail);
         this.setParamSimple(map, prefix + "Area", this.Area);
+        this.setParamSimple(map, prefix + "OrderBy", this.OrderBy);
+        this.setParamSimple(map, prefix + "OrderType", this.OrderType);
 
     }
 }

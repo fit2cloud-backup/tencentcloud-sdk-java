@@ -100,6 +100,69 @@ public class AuditLogFilter extends AbstractModel{
     private String [] Sqls;
 
     /**
+    * 影响行数，格式为M-N，例如：10-200
+    */
+    @SerializedName("AffectRowsSection")
+    @Expose
+    private String AffectRowsSection;
+
+    /**
+    * 返回行数，格式为M-N，例如：10-200
+    */
+    @SerializedName("SentRowsSection")
+    @Expose
+    private String SentRowsSection;
+
+    /**
+    * 执行时间，格式为M-N，例如：10-200
+    */
+    @SerializedName("ExecTimeSection")
+    @Expose
+    private String ExecTimeSection;
+
+    /**
+    * 锁等待时间，格式为M-N，例如：10-200
+    */
+    @SerializedName("LockWaitTimeSection")
+    @Expose
+    private String LockWaitTimeSection;
+
+    /**
+    * IO等待时间，格式为M-N，例如：10-200
+    */
+    @SerializedName("IoWaitTimeSection")
+    @Expose
+    private String IoWaitTimeSection;
+
+    /**
+    * 事务持续时间，格式为M-N，例如：10-200
+    */
+    @SerializedName("TransactionLivingTimeSection")
+    @Expose
+    private String TransactionLivingTimeSection;
+
+    /**
+    * 线程ID
+    */
+    @SerializedName("ThreadId")
+    @Expose
+    private String [] ThreadId;
+
+    /**
+    * 返回行数。表示筛选返回行数大于该值的审计日志。
+    */
+    @SerializedName("SentRows")
+    @Expose
+    private Long SentRows;
+
+    /**
+    * mysql错误码
+    */
+    @SerializedName("ErrCode")
+    @Expose
+    private Long [] ErrCode;
+
+    /**
      * Get 客户端地址。 
      * @return Host 客户端地址。
      */
@@ -275,6 +338,150 @@ public class AuditLogFilter extends AbstractModel{
         this.Sqls = Sqls;
     }
 
+    /**
+     * Get 影响行数，格式为M-N，例如：10-200 
+     * @return AffectRowsSection 影响行数，格式为M-N，例如：10-200
+     */
+    public String getAffectRowsSection() {
+        return this.AffectRowsSection;
+    }
+
+    /**
+     * Set 影响行数，格式为M-N，例如：10-200
+     * @param AffectRowsSection 影响行数，格式为M-N，例如：10-200
+     */
+    public void setAffectRowsSection(String AffectRowsSection) {
+        this.AffectRowsSection = AffectRowsSection;
+    }
+
+    /**
+     * Get 返回行数，格式为M-N，例如：10-200 
+     * @return SentRowsSection 返回行数，格式为M-N，例如：10-200
+     */
+    public String getSentRowsSection() {
+        return this.SentRowsSection;
+    }
+
+    /**
+     * Set 返回行数，格式为M-N，例如：10-200
+     * @param SentRowsSection 返回行数，格式为M-N，例如：10-200
+     */
+    public void setSentRowsSection(String SentRowsSection) {
+        this.SentRowsSection = SentRowsSection;
+    }
+
+    /**
+     * Get 执行时间，格式为M-N，例如：10-200 
+     * @return ExecTimeSection 执行时间，格式为M-N，例如：10-200
+     */
+    public String getExecTimeSection() {
+        return this.ExecTimeSection;
+    }
+
+    /**
+     * Set 执行时间，格式为M-N，例如：10-200
+     * @param ExecTimeSection 执行时间，格式为M-N，例如：10-200
+     */
+    public void setExecTimeSection(String ExecTimeSection) {
+        this.ExecTimeSection = ExecTimeSection;
+    }
+
+    /**
+     * Get 锁等待时间，格式为M-N，例如：10-200 
+     * @return LockWaitTimeSection 锁等待时间，格式为M-N，例如：10-200
+     */
+    public String getLockWaitTimeSection() {
+        return this.LockWaitTimeSection;
+    }
+
+    /**
+     * Set 锁等待时间，格式为M-N，例如：10-200
+     * @param LockWaitTimeSection 锁等待时间，格式为M-N，例如：10-200
+     */
+    public void setLockWaitTimeSection(String LockWaitTimeSection) {
+        this.LockWaitTimeSection = LockWaitTimeSection;
+    }
+
+    /**
+     * Get IO等待时间，格式为M-N，例如：10-200 
+     * @return IoWaitTimeSection IO等待时间，格式为M-N，例如：10-200
+     */
+    public String getIoWaitTimeSection() {
+        return this.IoWaitTimeSection;
+    }
+
+    /**
+     * Set IO等待时间，格式为M-N，例如：10-200
+     * @param IoWaitTimeSection IO等待时间，格式为M-N，例如：10-200
+     */
+    public void setIoWaitTimeSection(String IoWaitTimeSection) {
+        this.IoWaitTimeSection = IoWaitTimeSection;
+    }
+
+    /**
+     * Get 事务持续时间，格式为M-N，例如：10-200 
+     * @return TransactionLivingTimeSection 事务持续时间，格式为M-N，例如：10-200
+     */
+    public String getTransactionLivingTimeSection() {
+        return this.TransactionLivingTimeSection;
+    }
+
+    /**
+     * Set 事务持续时间，格式为M-N，例如：10-200
+     * @param TransactionLivingTimeSection 事务持续时间，格式为M-N，例如：10-200
+     */
+    public void setTransactionLivingTimeSection(String TransactionLivingTimeSection) {
+        this.TransactionLivingTimeSection = TransactionLivingTimeSection;
+    }
+
+    /**
+     * Get 线程ID 
+     * @return ThreadId 线程ID
+     */
+    public String [] getThreadId() {
+        return this.ThreadId;
+    }
+
+    /**
+     * Set 线程ID
+     * @param ThreadId 线程ID
+     */
+    public void setThreadId(String [] ThreadId) {
+        this.ThreadId = ThreadId;
+    }
+
+    /**
+     * Get 返回行数。表示筛选返回行数大于该值的审计日志。 
+     * @return SentRows 返回行数。表示筛选返回行数大于该值的审计日志。
+     */
+    public Long getSentRows() {
+        return this.SentRows;
+    }
+
+    /**
+     * Set 返回行数。表示筛选返回行数大于该值的审计日志。
+     * @param SentRows 返回行数。表示筛选返回行数大于该值的审计日志。
+     */
+    public void setSentRows(Long SentRows) {
+        this.SentRows = SentRows;
+    }
+
+    /**
+     * Get mysql错误码 
+     * @return ErrCode mysql错误码
+     */
+    public Long [] getErrCode() {
+        return this.ErrCode;
+    }
+
+    /**
+     * Set mysql错误码
+     * @param ErrCode mysql错误码
+     */
+    public void setErrCode(Long [] ErrCode) {
+        this.ErrCode = ErrCode;
+    }
+
     public AuditLogFilter() {
     }
 
@@ -337,6 +544,39 @@ public class AuditLogFilter extends AbstractModel{
                 this.Sqls[i] = new String(source.Sqls[i]);
             }
         }
+        if (source.AffectRowsSection != null) {
+            this.AffectRowsSection = new String(source.AffectRowsSection);
+        }
+        if (source.SentRowsSection != null) {
+            this.SentRowsSection = new String(source.SentRowsSection);
+        }
+        if (source.ExecTimeSection != null) {
+            this.ExecTimeSection = new String(source.ExecTimeSection);
+        }
+        if (source.LockWaitTimeSection != null) {
+            this.LockWaitTimeSection = new String(source.LockWaitTimeSection);
+        }
+        if (source.IoWaitTimeSection != null) {
+            this.IoWaitTimeSection = new String(source.IoWaitTimeSection);
+        }
+        if (source.TransactionLivingTimeSection != null) {
+            this.TransactionLivingTimeSection = new String(source.TransactionLivingTimeSection);
+        }
+        if (source.ThreadId != null) {
+            this.ThreadId = new String[source.ThreadId.length];
+            for (int i = 0; i < source.ThreadId.length; i++) {
+                this.ThreadId[i] = new String(source.ThreadId[i]);
+            }
+        }
+        if (source.SentRows != null) {
+            this.SentRows = new Long(source.SentRows);
+        }
+        if (source.ErrCode != null) {
+            this.ErrCode = new Long[source.ErrCode.length];
+            for (int i = 0; i < source.ErrCode.length; i++) {
+                this.ErrCode[i] = new Long(source.ErrCode[i]);
+            }
+        }
     }
 
 
@@ -355,6 +595,15 @@ public class AuditLogFilter extends AbstractModel{
         this.setParamSimple(map, prefix + "AffectRows", this.AffectRows);
         this.setParamArraySimple(map, prefix + "SqlTypes.", this.SqlTypes);
         this.setParamArraySimple(map, prefix + "Sqls.", this.Sqls);
+        this.setParamSimple(map, prefix + "AffectRowsSection", this.AffectRowsSection);
+        this.setParamSimple(map, prefix + "SentRowsSection", this.SentRowsSection);
+        this.setParamSimple(map, prefix + "ExecTimeSection", this.ExecTimeSection);
+        this.setParamSimple(map, prefix + "LockWaitTimeSection", this.LockWaitTimeSection);
+        this.setParamSimple(map, prefix + "IoWaitTimeSection", this.IoWaitTimeSection);
+        this.setParamSimple(map, prefix + "TransactionLivingTimeSection", this.TransactionLivingTimeSection);
+        this.setParamArraySimple(map, prefix + "ThreadId.", this.ThreadId);
+        this.setParamSimple(map, prefix + "SentRows", this.SentRows);
+        this.setParamArraySimple(map, prefix + "ErrCode.", this.ErrCode);
 
     }
 }

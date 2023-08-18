@@ -18,6 +18,9 @@ public enum IotvideoErrorCode {
     // 内部错误。
      INTERNALERROR("InternalError"),
      
+    // 数据库内部错误。
+     INTERNALERROR_DBOPERATIONERROR("InternalError.DBOperationError"),
+     
     // 参数错误。
      INVALIDPARAMETER("InvalidParameter"),
      
@@ -26,6 +29,9 @@ public enum IotvideoErrorCode {
      
     // 固件已存在。
      INVALIDPARAMETERVALUE_FIRMWAREALREADYEXIST("InvalidParameterValue.FirmwareAlreadyExist"),
+     
+    // 资源不存在。
+     RESOURCENOTFOUND("ResourceNotFound"),
      
     // 设备固件升级任务不存在。
      RESOURCENOTFOUND_DEVICEFIRMWARETASKNOTEXIST("ResourceNotFound.DeviceFirmwareTaskNotExist"),

@@ -58,28 +58,28 @@ public class DescribeGatewayFlowMonitorDetailRequest extends AbstractModel{
     private String NatId;
 
     /**
-    * 偏移量。
+    * 偏移量，默认为0。
     */
     @SerializedName("Offset")
     @Expose
     private Long Offset;
 
     /**
-    * 返回数量。
+    * 返回数量，默认为20，最大值为100。
     */
     @SerializedName("Limit")
     @Expose
     private Long Limit;
 
     /**
-    * 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`。
+    * 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`。默认值`OutTraffic`。
     */
     @SerializedName("OrderField")
     @Expose
     private String OrderField;
 
     /**
-    * 排序方法。顺序：`ASC`，倒序：`DESC`。
+    * 排序方法。顺序：`ASC`，倒序：`DESC`。默认值`DESC`。
     */
     @SerializedName("OrderDirection")
     @Expose
@@ -166,64 +166,64 @@ public class DescribeGatewayFlowMonitorDetailRequest extends AbstractModel{
     }
 
     /**
-     * Get 偏移量。 
-     * @return Offset 偏移量。
+     * Get 偏移量，默认为0。 
+     * @return Offset 偏移量，默认为0。
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 偏移量。
-     * @param Offset 偏移量。
+     * Set 偏移量，默认为0。
+     * @param Offset 偏移量，默认为0。
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get 返回数量。 
-     * @return Limit 返回数量。
+     * Get 返回数量，默认为20，最大值为100。 
+     * @return Limit 返回数量，默认为20，最大值为100。
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 返回数量。
-     * @param Limit 返回数量。
+     * Set 返回数量，默认为20，最大值为100。
+     * @param Limit 返回数量，默认为20，最大值为100。
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
     }
 
     /**
-     * Get 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`。 
-     * @return OrderField 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`。
+     * Get 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`。默认值`OutTraffic`。 
+     * @return OrderField 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`。默认值`OutTraffic`。
      */
     public String getOrderField() {
         return this.OrderField;
     }
 
     /**
-     * Set 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`。
-     * @param OrderField 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`。
+     * Set 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`。默认值`OutTraffic`。
+     * @param OrderField 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`。默认值`OutTraffic`。
      */
     public void setOrderField(String OrderField) {
         this.OrderField = OrderField;
     }
 
     /**
-     * Get 排序方法。顺序：`ASC`，倒序：`DESC`。 
-     * @return OrderDirection 排序方法。顺序：`ASC`，倒序：`DESC`。
+     * Get 排序方法。顺序：`ASC`，倒序：`DESC`。默认值`DESC`。 
+     * @return OrderDirection 排序方法。顺序：`ASC`，倒序：`DESC`。默认值`DESC`。
      */
     public String getOrderDirection() {
         return this.OrderDirection;
     }
 
     /**
-     * Set 排序方法。顺序：`ASC`，倒序：`DESC`。
-     * @param OrderDirection 排序方法。顺序：`ASC`，倒序：`DESC`。
+     * Set 排序方法。顺序：`ASC`，倒序：`DESC`。默认值`DESC`。
+     * @param OrderDirection 排序方法。顺序：`ASC`，倒序：`DESC`。默认值`DESC`。
      */
     public void setOrderDirection(String OrderDirection) {
         this.OrderDirection = OrderDirection;

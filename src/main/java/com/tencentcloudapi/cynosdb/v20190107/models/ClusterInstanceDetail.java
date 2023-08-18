@@ -79,6 +79,45 @@ public class ClusterInstanceDetail extends AbstractModel{
     private Long InstanceStorage;
 
     /**
+    * 实例角色
+    */
+    @SerializedName("InstanceRole")
+    @Expose
+    private String InstanceRole;
+
+    /**
+    * 执行开始时间(距离0点的秒数)	
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MaintainStartTime")
+    @Expose
+    private Long MaintainStartTime;
+
+    /**
+    * 持续的时间(单位：秒)	
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MaintainDuration")
+    @Expose
+    private Long MaintainDuration;
+
+    /**
+    * 可以执行的时间，枚举值：["Mon","Tue","Wed","Thu","Fri", "Sat", "Sun"]
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MaintainWeekDays")
+    @Expose
+    private String [] MaintainWeekDays;
+
+    /**
+    * serverless实例子状态
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ServerlessStatus")
+    @Expose
+    private String ServerlessStatus;
+
+    /**
      * Get 实例ID 
      * @return InstanceId 实例ID
      */
@@ -206,6 +245,102 @@ public class ClusterInstanceDetail extends AbstractModel{
         this.InstanceStorage = InstanceStorage;
     }
 
+    /**
+     * Get 实例角色 
+     * @return InstanceRole 实例角色
+     */
+    public String getInstanceRole() {
+        return this.InstanceRole;
+    }
+
+    /**
+     * Set 实例角色
+     * @param InstanceRole 实例角色
+     */
+    public void setInstanceRole(String InstanceRole) {
+        this.InstanceRole = InstanceRole;
+    }
+
+    /**
+     * Get 执行开始时间(距离0点的秒数)	
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MaintainStartTime 执行开始时间(距离0点的秒数)	
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getMaintainStartTime() {
+        return this.MaintainStartTime;
+    }
+
+    /**
+     * Set 执行开始时间(距离0点的秒数)	
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MaintainStartTime 执行开始时间(距离0点的秒数)	
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMaintainStartTime(Long MaintainStartTime) {
+        this.MaintainStartTime = MaintainStartTime;
+    }
+
+    /**
+     * Get 持续的时间(单位：秒)	
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MaintainDuration 持续的时间(单位：秒)	
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getMaintainDuration() {
+        return this.MaintainDuration;
+    }
+
+    /**
+     * Set 持续的时间(单位：秒)	
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MaintainDuration 持续的时间(单位：秒)	
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMaintainDuration(Long MaintainDuration) {
+        this.MaintainDuration = MaintainDuration;
+    }
+
+    /**
+     * Get 可以执行的时间，枚举值：["Mon","Tue","Wed","Thu","Fri", "Sat", "Sun"]
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MaintainWeekDays 可以执行的时间，枚举值：["Mon","Tue","Wed","Thu","Fri", "Sat", "Sun"]
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getMaintainWeekDays() {
+        return this.MaintainWeekDays;
+    }
+
+    /**
+     * Set 可以执行的时间，枚举值：["Mon","Tue","Wed","Thu","Fri", "Sat", "Sun"]
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MaintainWeekDays 可以执行的时间，枚举值：["Mon","Tue","Wed","Thu","Fri", "Sat", "Sun"]
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMaintainWeekDays(String [] MaintainWeekDays) {
+        this.MaintainWeekDays = MaintainWeekDays;
+    }
+
+    /**
+     * Get serverless实例子状态
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ServerlessStatus serverless实例子状态
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getServerlessStatus() {
+        return this.ServerlessStatus;
+    }
+
+    /**
+     * Set serverless实例子状态
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ServerlessStatus serverless实例子状态
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setServerlessStatus(String ServerlessStatus) {
+        this.ServerlessStatus = ServerlessStatus;
+    }
+
     public ClusterInstanceDetail() {
     }
 
@@ -238,6 +373,24 @@ public class ClusterInstanceDetail extends AbstractModel{
         if (source.InstanceStorage != null) {
             this.InstanceStorage = new Long(source.InstanceStorage);
         }
+        if (source.InstanceRole != null) {
+            this.InstanceRole = new String(source.InstanceRole);
+        }
+        if (source.MaintainStartTime != null) {
+            this.MaintainStartTime = new Long(source.MaintainStartTime);
+        }
+        if (source.MaintainDuration != null) {
+            this.MaintainDuration = new Long(source.MaintainDuration);
+        }
+        if (source.MaintainWeekDays != null) {
+            this.MaintainWeekDays = new String[source.MaintainWeekDays.length];
+            for (int i = 0; i < source.MaintainWeekDays.length; i++) {
+                this.MaintainWeekDays[i] = new String(source.MaintainWeekDays[i]);
+            }
+        }
+        if (source.ServerlessStatus != null) {
+            this.ServerlessStatus = new String(source.ServerlessStatus);
+        }
     }
 
 
@@ -253,6 +406,11 @@ public class ClusterInstanceDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "InstanceCpu", this.InstanceCpu);
         this.setParamSimple(map, prefix + "InstanceMemory", this.InstanceMemory);
         this.setParamSimple(map, prefix + "InstanceStorage", this.InstanceStorage);
+        this.setParamSimple(map, prefix + "InstanceRole", this.InstanceRole);
+        this.setParamSimple(map, prefix + "MaintainStartTime", this.MaintainStartTime);
+        this.setParamSimple(map, prefix + "MaintainDuration", this.MaintainDuration);
+        this.setParamArraySimple(map, prefix + "MaintainWeekDays.", this.MaintainWeekDays);
+        this.setParamSimple(map, prefix + "ServerlessStatus", this.ServerlessStatus);
 
     }
 }

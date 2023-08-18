@@ -140,6 +140,30 @@ public class KafkaParam extends AbstractModel{
     private String CompressionType;
 
     /**
+    * 源topic消息1条扩增成msgMultiple条写入目标topic(该参数目前只有ckafka流入ckafka适用)
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MsgMultiple")
+    @Expose
+    private Long MsgMultiple;
+
+    /**
+    * 数据同步专用参数, 正常数据处理可为空, 实例级别同步: 仅同步元数据填写"META_SYNC_INSTANCE_TYPE", 同步元数据及全部topic内消息的填写"META_AND_DATA_SYNC_INSTANCE_TYPE"; topic级别同步: 选中的源和目标topic中的消息(需要目标实例也包含该topic)填写"DATA_SYNC_TYPE"
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ConnectorSyncType")
+    @Expose
+    private String ConnectorSyncType;
+
+    /**
+    * 数据同步专用参数, 当通过时,希望下游的消息写入分区与上游的一致,则填true,但下游分区小于上游时,会报错; 不需要一致则为false, 默认为false
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("KeepPartition")
+    @Expose
+    private Boolean KeepPartition;
+
+    /**
      * Get 是否为自建集群 
      * @return SelfBuilt 是否为自建集群
      */
@@ -427,6 +451,66 @@ public class KafkaParam extends AbstractModel{
         this.CompressionType = CompressionType;
     }
 
+    /**
+     * Get 源topic消息1条扩增成msgMultiple条写入目标topic(该参数目前只有ckafka流入ckafka适用)
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MsgMultiple 源topic消息1条扩增成msgMultiple条写入目标topic(该参数目前只有ckafka流入ckafka适用)
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getMsgMultiple() {
+        return this.MsgMultiple;
+    }
+
+    /**
+     * Set 源topic消息1条扩增成msgMultiple条写入目标topic(该参数目前只有ckafka流入ckafka适用)
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MsgMultiple 源topic消息1条扩增成msgMultiple条写入目标topic(该参数目前只有ckafka流入ckafka适用)
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMsgMultiple(Long MsgMultiple) {
+        this.MsgMultiple = MsgMultiple;
+    }
+
+    /**
+     * Get 数据同步专用参数, 正常数据处理可为空, 实例级别同步: 仅同步元数据填写"META_SYNC_INSTANCE_TYPE", 同步元数据及全部topic内消息的填写"META_AND_DATA_SYNC_INSTANCE_TYPE"; topic级别同步: 选中的源和目标topic中的消息(需要目标实例也包含该topic)填写"DATA_SYNC_TYPE"
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ConnectorSyncType 数据同步专用参数, 正常数据处理可为空, 实例级别同步: 仅同步元数据填写"META_SYNC_INSTANCE_TYPE", 同步元数据及全部topic内消息的填写"META_AND_DATA_SYNC_INSTANCE_TYPE"; topic级别同步: 选中的源和目标topic中的消息(需要目标实例也包含该topic)填写"DATA_SYNC_TYPE"
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getConnectorSyncType() {
+        return this.ConnectorSyncType;
+    }
+
+    /**
+     * Set 数据同步专用参数, 正常数据处理可为空, 实例级别同步: 仅同步元数据填写"META_SYNC_INSTANCE_TYPE", 同步元数据及全部topic内消息的填写"META_AND_DATA_SYNC_INSTANCE_TYPE"; topic级别同步: 选中的源和目标topic中的消息(需要目标实例也包含该topic)填写"DATA_SYNC_TYPE"
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ConnectorSyncType 数据同步专用参数, 正常数据处理可为空, 实例级别同步: 仅同步元数据填写"META_SYNC_INSTANCE_TYPE", 同步元数据及全部topic内消息的填写"META_AND_DATA_SYNC_INSTANCE_TYPE"; topic级别同步: 选中的源和目标topic中的消息(需要目标实例也包含该topic)填写"DATA_SYNC_TYPE"
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setConnectorSyncType(String ConnectorSyncType) {
+        this.ConnectorSyncType = ConnectorSyncType;
+    }
+
+    /**
+     * Get 数据同步专用参数, 当通过时,希望下游的消息写入分区与上游的一致,则填true,但下游分区小于上游时,会报错; 不需要一致则为false, 默认为false
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return KeepPartition 数据同步专用参数, 当通过时,希望下游的消息写入分区与上游的一致,则填true,但下游分区小于上游时,会报错; 不需要一致则为false, 默认为false
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getKeepPartition() {
+        return this.KeepPartition;
+    }
+
+    /**
+     * Set 数据同步专用参数, 当通过时,希望下游的消息写入分区与上游的一致,则填true,但下游分区小于上游时,会报错; 不需要一致则为false, 默认为false
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param KeepPartition 数据同步专用参数, 当通过时,希望下游的消息写入分区与上游的一致,则填true,但下游分区小于上游时,会报错; 不需要一致则为false, 默认为false
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setKeepPartition(Boolean KeepPartition) {
+        this.KeepPartition = KeepPartition;
+    }
+
     public KafkaParam() {
     }
 
@@ -483,6 +567,15 @@ public class KafkaParam extends AbstractModel{
         if (source.CompressionType != null) {
             this.CompressionType = new String(source.CompressionType);
         }
+        if (source.MsgMultiple != null) {
+            this.MsgMultiple = new Long(source.MsgMultiple);
+        }
+        if (source.ConnectorSyncType != null) {
+            this.ConnectorSyncType = new String(source.ConnectorSyncType);
+        }
+        if (source.KeepPartition != null) {
+            this.KeepPartition = new Boolean(source.KeepPartition);
+        }
     }
 
 
@@ -505,6 +598,9 @@ public class KafkaParam extends AbstractModel{
         this.setParamSimple(map, prefix + "UseTableMapping", this.UseTableMapping);
         this.setParamSimple(map, prefix + "UseAutoCreateTopic", this.UseAutoCreateTopic);
         this.setParamSimple(map, prefix + "CompressionType", this.CompressionType);
+        this.setParamSimple(map, prefix + "MsgMultiple", this.MsgMultiple);
+        this.setParamSimple(map, prefix + "ConnectorSyncType", this.ConnectorSyncType);
+        this.setParamSimple(map, prefix + "KeepPartition", this.KeepPartition);
 
     }
 }

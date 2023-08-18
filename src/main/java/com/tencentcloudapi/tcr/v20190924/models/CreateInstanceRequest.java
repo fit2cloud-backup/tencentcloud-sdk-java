@@ -51,11 +51,32 @@ public class CreateInstanceRequest extends AbstractModel{
     private Long RegistryChargeType;
 
     /**
+    * 预付费自动续费标识和购买时长
+    */
+    @SerializedName("RegistryChargePrepaid")
+    @Expose
+    private RegistryChargePrepaid RegistryChargePrepaid;
+
+    /**
     * 是否同步TCR云标签至生成的COS Bucket
     */
     @SerializedName("SyncTag")
     @Expose
     private Boolean SyncTag;
+
+    /**
+    * 是否开启Cos桶多AZ特性
+    */
+    @SerializedName("EnableCosMAZ")
+    @Expose
+    private Boolean EnableCosMAZ;
+
+    /**
+    * 是否开启实例删除保护
+    */
+    @SerializedName("DeletionProtection")
+    @Expose
+    private Boolean DeletionProtection;
 
     /**
      * Get 企业版实例名称 
@@ -122,6 +143,22 @@ public class CreateInstanceRequest extends AbstractModel{
     }
 
     /**
+     * Get 预付费自动续费标识和购买时长 
+     * @return RegistryChargePrepaid 预付费自动续费标识和购买时长
+     */
+    public RegistryChargePrepaid getRegistryChargePrepaid() {
+        return this.RegistryChargePrepaid;
+    }
+
+    /**
+     * Set 预付费自动续费标识和购买时长
+     * @param RegistryChargePrepaid 预付费自动续费标识和购买时长
+     */
+    public void setRegistryChargePrepaid(RegistryChargePrepaid RegistryChargePrepaid) {
+        this.RegistryChargePrepaid = RegistryChargePrepaid;
+    }
+
+    /**
      * Get 是否同步TCR云标签至生成的COS Bucket 
      * @return SyncTag 是否同步TCR云标签至生成的COS Bucket
      */
@@ -135,6 +172,38 @@ public class CreateInstanceRequest extends AbstractModel{
      */
     public void setSyncTag(Boolean SyncTag) {
         this.SyncTag = SyncTag;
+    }
+
+    /**
+     * Get 是否开启Cos桶多AZ特性 
+     * @return EnableCosMAZ 是否开启Cos桶多AZ特性
+     */
+    public Boolean getEnableCosMAZ() {
+        return this.EnableCosMAZ;
+    }
+
+    /**
+     * Set 是否开启Cos桶多AZ特性
+     * @param EnableCosMAZ 是否开启Cos桶多AZ特性
+     */
+    public void setEnableCosMAZ(Boolean EnableCosMAZ) {
+        this.EnableCosMAZ = EnableCosMAZ;
+    }
+
+    /**
+     * Get 是否开启实例删除保护 
+     * @return DeletionProtection 是否开启实例删除保护
+     */
+    public Boolean getDeletionProtection() {
+        return this.DeletionProtection;
+    }
+
+    /**
+     * Set 是否开启实例删除保护
+     * @param DeletionProtection 是否开启实例删除保护
+     */
+    public void setDeletionProtection(Boolean DeletionProtection) {
+        this.DeletionProtection = DeletionProtection;
     }
 
     public CreateInstanceRequest() {
@@ -157,8 +226,17 @@ public class CreateInstanceRequest extends AbstractModel{
         if (source.RegistryChargeType != null) {
             this.RegistryChargeType = new Long(source.RegistryChargeType);
         }
+        if (source.RegistryChargePrepaid != null) {
+            this.RegistryChargePrepaid = new RegistryChargePrepaid(source.RegistryChargePrepaid);
+        }
         if (source.SyncTag != null) {
             this.SyncTag = new Boolean(source.SyncTag);
+        }
+        if (source.EnableCosMAZ != null) {
+            this.EnableCosMAZ = new Boolean(source.EnableCosMAZ);
+        }
+        if (source.DeletionProtection != null) {
+            this.DeletionProtection = new Boolean(source.DeletionProtection);
         }
     }
 
@@ -171,7 +249,10 @@ public class CreateInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "RegistryType", this.RegistryType);
         this.setParamObj(map, prefix + "TagSpecification.", this.TagSpecification);
         this.setParamSimple(map, prefix + "RegistryChargeType", this.RegistryChargeType);
+        this.setParamObj(map, prefix + "RegistryChargePrepaid.", this.RegistryChargePrepaid);
         this.setParamSimple(map, prefix + "SyncTag", this.SyncTag);
+        this.setParamSimple(map, prefix + "EnableCosMAZ", this.EnableCosMAZ);
+        this.setParamSimple(map, prefix + "DeletionProtection", this.DeletionProtection);
 
     }
 }

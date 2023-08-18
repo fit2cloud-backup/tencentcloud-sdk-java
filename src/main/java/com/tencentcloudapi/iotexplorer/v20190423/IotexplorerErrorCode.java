@@ -171,6 +171,9 @@ public enum IotexplorerErrorCode {
     // 物模型事件/属性 Name 错误。
      INVALIDPARAMETERVALUE_MODELDEFINEEVENTPROPNAMEERROR("InvalidParameterValue.ModelDefineEventPropNameError"),
      
+    // 物模型事件 Type 错误:lac 。
+     INVALIDPARAMETERVALUE_MODELDEFINEEVENTTYPEERROR("InvalidParameterValue.ModelDefineEventTypeError"),
+     
     // 数据模板未定义。
      INVALIDPARAMETERVALUE_MODELDEFINEINVALID("InvalidParameterValue.ModelDefineInvalid"),
      
@@ -297,8 +300,14 @@ public enum IotexplorerErrorCode {
     // 物模型事件 Type 错误。
      MISSINGPARAMETER_MODELDEFINEEVENTTYPEERROR("MissingParameter.ModelDefineEventTypeError"),
      
+    // 资源不足。
+     RESOURCEINSUFFICIENT("ResourceInsufficient"),
+     
     // 已有量产进行，请等待量产完成。
      RESOURCEINSUFFICIENT_BATCHPRODUCTIONISRUNNING("ResourceInsufficient.BatchProductionIsRunning"),
+     
+    // 资源不存在。
+     RESOURCENOTFOUND("ResourceNotFound"),
      
     // 量产不存在。
      RESOURCENOTFOUND_BATCHPRODUCTIONNOTEXIST("ResourceNotFound.BatchProductionNotExist"),
@@ -408,6 +417,9 @@ public enum IotexplorerErrorCode {
     // 产品ACL错误。
      UNAUTHORIZEDOPERATION_NOPERMISSIONTOSTUDIOPRODUCT("UnauthorizedOperation.NoPermissionToStudioProduct"),
      
+    // 您的帐号未实名认证，请登录腾讯云进行实名认证
+     UNAUTHORIZEDOPERATION_NOVERIFIED("UnauthorizedOperation.NoVerified"),
+     
     // 没有权限。
      UNAUTHORIZEDOPERATION_PERMISSIONDENIED("UnauthorizedOperation.PermissionDenied"),
      
@@ -422,6 +434,9 @@ public enum IotexplorerErrorCode {
      
     // 围栏下还存在绑定的设备。
      UNSUPPORTEDOPERATION_BINDSEXISTUNDERFENCE("UnsupportedOperation.BindsExistUnderFence"),
+     
+    // 存在重复的绑定关系。
+     UNSUPPORTEDOPERATION_CANNOTREBINDFAMILY("UnsupportedOperation.CannotReBindFamily"),
      
     // 创建的设备已经存在。
      UNSUPPORTEDOPERATION_DEVICEDUPKEYEXIST("UnsupportedOperation.DeviceDupKeyExist"),
@@ -502,7 +517,10 @@ public enum IotexplorerErrorCode {
      UNSUPPORTEDOPERATION_VIDEOACCOUNTNOTEXIST("UnsupportedOperation.VideoAccountNotExist"),
      
     // Video平台license数量不足。
-     UNSUPPORTEDOPERATION_VIDEOINSUFFICIENTLICENSES("UnsupportedOperation.VideoInsufficientLicenses");
+     UNSUPPORTEDOPERATION_VIDEOINSUFFICIENTLICENSES("UnsupportedOperation.VideoInsufficientLicenses"),
+     
+    // Video平台产品不存在。
+     UNSUPPORTEDOPERATION_VIDEOPRODUCTNOTEXIST("UnsupportedOperation.VideoProductNotExist");
      
     private String value;
     private IotexplorerErrorCode (String value){

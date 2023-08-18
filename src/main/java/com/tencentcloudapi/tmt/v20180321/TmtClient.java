@@ -29,7 +29,7 @@ public class TmtClient extends AbstractClient{
     private static String endpoint = "tmt.tencentcloudapi.com";
     private static String service = "tmt";
     private static String version = "2018-03-21";
-
+    
     public TmtClient(Credential credential, String region) {
         this(credential, region, new ClientProfile());
     }
@@ -47,6 +47,7 @@ public class TmtClient extends AbstractClient{
     public FileTranslateResponse FileTranslate(FileTranslateRequest req) throws TencentCloudSDKException{
         JsonResponseModel<FileTranslateResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<FileTranslateResponse>>() {
                 }.getType();
@@ -60,7 +61,7 @@ public class TmtClient extends AbstractClient{
 
     /**
      *在调用文档翻译请求接口后，有回调和轮询两种方式获取识别结果。
-•当采用回调方式时，翻译完成后会将结果通过 POST 请求的形式通知到用户在请求时填写的回调 URL，具体请参见文档翻译结果回调 。
+•当采用回调方式时，翻译完成后会将结果通过 POST 请求的形式通知到用户在请求时填写的回调 URL，具体请参见文档翻译结果回调。
 • 当采用轮询方式时，需要主动提交任务ID来轮询识别结果，共有任务成功、等待、执行中和失败四种结果，具体信息请参见参数说明。
      * @param req GetFileTranslateRequest
      * @return GetFileTranslateResponse
@@ -69,6 +70,7 @@ public class TmtClient extends AbstractClient{
     public GetFileTranslateResponse GetFileTranslate(GetFileTranslateRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetFileTranslateResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<GetFileTranslateResponse>>() {
                 }.getType();
@@ -90,6 +92,7 @@ public class TmtClient extends AbstractClient{
     public ImageTranslateResponse ImageTranslate(ImageTranslateRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ImageTranslateResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ImageTranslateResponse>>() {
                 }.getType();
@@ -111,6 +114,7 @@ public class TmtClient extends AbstractClient{
     public LanguageDetectResponse LanguageDetect(LanguageDetectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<LanguageDetectResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<LanguageDetectResponse>>() {
                 }.getType();
@@ -135,6 +139,7 @@ public class TmtClient extends AbstractClient{
     public SpeechTranslateResponse SpeechTranslate(SpeechTranslateRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SpeechTranslateResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<SpeechTranslateResponse>>() {
                 }.getType();
@@ -149,7 +154,6 @@ public class TmtClient extends AbstractClient{
     /**
      *提供中文到英文、英文到中文的等多种语言的文本内容翻译服务， 经过大数据语料库、多种解码算法、翻译引擎深度优化，在新闻文章、生活口语等不同语言场景中都有深厚积累，翻译结果专业评价处于行业领先水平。<br />
 提示：对于一般开发者，我们建议优先使用SDK接入简化开发。SDK使用介绍请直接查看 5. 开发者资源 部分。
-
      * @param req TextTranslateRequest
      * @return TextTranslateResponse
      * @throws TencentCloudSDKException
@@ -157,6 +161,7 @@ public class TmtClient extends AbstractClient{
     public TextTranslateResponse TextTranslate(TextTranslateRequest req) throws TencentCloudSDKException{
         JsonResponseModel<TextTranslateResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<TextTranslateResponse>>() {
                 }.getType();
@@ -177,6 +182,7 @@ public class TmtClient extends AbstractClient{
     public TextTranslateBatchResponse TextTranslateBatch(TextTranslateBatchRequest req) throws TencentCloudSDKException{
         JsonResponseModel<TextTranslateBatchResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<TextTranslateBatchResponse>>() {
                 }.getType();

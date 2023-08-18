@@ -108,6 +108,14 @@ public class TriggerInfo extends AbstractModel{
     private String TriggerAttribute;
 
     /**
+    * 客户自定义触发器描述
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Description")
+    @Expose
+    private String Description;
+
+    /**
      * Get 使能开关 
      * @return Enable 使能开关
      */
@@ -258,7 +266,9 @@ public class TriggerInfo extends AbstractModel{
     /**
      * Get 触发器最小资源ID 
      * @return ResourceId 触发器最小资源ID
+     * @deprecated
      */
+    @Deprecated
     public String getResourceId() {
         return this.ResourceId;
     }
@@ -266,7 +276,9 @@ public class TriggerInfo extends AbstractModel{
     /**
      * Set 触发器最小资源ID
      * @param ResourceId 触发器最小资源ID
+     * @deprecated
      */
+    @Deprecated
     public void setResourceId(String ResourceId) {
         this.ResourceId = ResourceId;
     }
@@ -274,7 +286,9 @@ public class TriggerInfo extends AbstractModel{
     /**
      * Get 触发器和云函数绑定状态 
      * @return BindStatus 触发器和云函数绑定状态
+     * @deprecated
      */
+    @Deprecated
     public String getBindStatus() {
         return this.BindStatus;
     }
@@ -282,7 +296,9 @@ public class TriggerInfo extends AbstractModel{
     /**
      * Set 触发器和云函数绑定状态
      * @param BindStatus 触发器和云函数绑定状态
+     * @deprecated
      */
+    @Deprecated
     public void setBindStatus(String BindStatus) {
         this.BindStatus = BindStatus;
     }
@@ -290,7 +306,9 @@ public class TriggerInfo extends AbstractModel{
     /**
      * Get 触发器类型，双向表示两侧控制台均可操作，单向表示SCF控制台单向创建 
      * @return TriggerAttribute 触发器类型，双向表示两侧控制台均可操作，单向表示SCF控制台单向创建
+     * @deprecated
      */
+    @Deprecated
     public String getTriggerAttribute() {
         return this.TriggerAttribute;
     }
@@ -298,9 +316,31 @@ public class TriggerInfo extends AbstractModel{
     /**
      * Set 触发器类型，双向表示两侧控制台均可操作，单向表示SCF控制台单向创建
      * @param TriggerAttribute 触发器类型，双向表示两侧控制台均可操作，单向表示SCF控制台单向创建
+     * @deprecated
      */
+    @Deprecated
     public void setTriggerAttribute(String TriggerAttribute) {
         this.TriggerAttribute = TriggerAttribute;
+    }
+
+    /**
+     * Get 客户自定义触发器描述
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Description 客户自定义触发器描述
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDescription() {
+        return this.Description;
+    }
+
+    /**
+     * Set 客户自定义触发器描述
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Description 客户自定义触发器描述
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDescription(String Description) {
+        this.Description = Description;
     }
 
     public TriggerInfo() {
@@ -347,6 +387,9 @@ public class TriggerInfo extends AbstractModel{
         if (source.TriggerAttribute != null) {
             this.TriggerAttribute = new String(source.TriggerAttribute);
         }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
     }
 
 
@@ -366,6 +409,7 @@ public class TriggerInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "ResourceId", this.ResourceId);
         this.setParamSimple(map, prefix + "BindStatus", this.BindStatus);
         this.setParamSimple(map, prefix + "TriggerAttribute", this.TriggerAttribute);
+        this.setParamSimple(map, prefix + "Description", this.Description);
 
     }
 }

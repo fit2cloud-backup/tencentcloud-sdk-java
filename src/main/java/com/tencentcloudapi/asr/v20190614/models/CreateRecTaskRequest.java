@@ -25,19 +25,26 @@ public class CreateRecTaskRequest extends AbstractModel{
     /**
     * 引擎模型类型。注意：非电话场景请务必使用16k的引擎。
 电话场景：
-• 8k_en：电话 8k 英语；
-• 8k_zh：电话 8k 中文普通话通用；
+• 8k_zh：中文电话通用；
+• 8k_en：英文电话通用；
+
 非电话场景：
-• 16k_zh：16k 中文普通话通用；
-• 16k_zh_video：16k 音视频领域；
-• 16k_en：16k 英语；
-• 16k_ca：16k 粤语；
-• 16k_ja：16k 日语；
-• 16k_zh_edu 中文教育；
-• 16k_en_edu 英文教育；
-• 16k_zh_medical  医疗；
-• 16k_th 泰语；
-• 16k_zh-PY 中英粤;
+• 16k_zh：中文通用；
+• 16k_zh-PY：中英粤;
+• 16k_zh_medical：中文医疗；
+• 16k_en：英语；
+• 16k_yue：粤语；
+• 16k_ja：日语；
+• 16k_ko：韩语；
+• 16k_vi：越南语；
+• 16k_ms：马来语；
+• 16k_id：印度尼西亚语；
+• 16k_fil：菲律宾语；
+• 16k_th：泰语；
+• 16k_pt：葡萄牙语；
+• 16k_tr：土耳其语；
+• 16k_ar：阿拉伯语；
+• 16k_es：西班牙语；
 • 16k_zh_dialect：多方言，支持23种方言（上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话）；
     */
     @SerializedName("EngineModelType")
@@ -52,7 +59,7 @@ public class CreateRecTaskRequest extends AbstractModel{
     private Long ChannelNum;
 
     /**
-    * 识别结果返回形式。0： 识别结果文本(含分段时间戳)； 1：词级别粒度的[详细识别结果](https://cloud.tencent.com/document/api/1093/37824#SentenceDetail)(不含标点，含语速值)；2：词级别粒度的详细识别结果（包含标点、语速值）；3: 标点符号分段，包含每段时间戳，特别适用于字幕场景（包含词级时间、标点、语速值）。
+    * 识别结果返回形式。0： 识别结果文本(含分段时间戳)； 1：词级别粒度的[详细识别结果](https://cloud.tencent.com/document/api/1093/37824#SentenceDetail)(不含标点，含语速值)；2：词级别粒度的详细识别结果（包含标点、语速值）；3: 标点符号分段，包含每段时间戳，特别适用于字幕场景（包含词级时间、标点、语速值）。4：【增值付费功能】对识别结果按照语义分段，并展示词级别粒度的详细识别结果，仅支持8k_zh、16k_zh引擎，需购买对应资源包使用（注意：如果账号后付费功能开启并使用此功能，将[自动计费](https://cloud.tencent.com/document/product/1093/35686)）
     */
     @SerializedName("ResTextFormat")
     @Expose
@@ -66,8 +73,8 @@ public class CreateRecTaskRequest extends AbstractModel{
     private Long SourceType;
 
     /**
-    * 是否开启说话人分离，0：不开启，1：开启(仅支持8k_zh，16k_zh，16k_zh_video，单声道音频)，默认值为 0。
-注意：8k电话场景建议使用双声道来区分通话双方，设置ChannelNum=2即可，不用开启说话人分离。
+    * 是否开启说话人分离，0：不开启，1：开启(仅支持8k_zh/16k_zh，ChannelNum=1时可用)，默认值为 0。
+注意：8k电话场景建议使用双声道来区分通话双方，设置ChannelNum=2即可，不用开启说话人分离，如果设置了ChannelNum=1，后台会先转码成单声道，说话人分离结果可能产生偏差。
     */
     @SerializedName("SpeakerDiarization")
     @Expose
@@ -75,7 +82,7 @@ public class CreateRecTaskRequest extends AbstractModel{
 
     /**
     * 说话人分离人数（需配合开启说话人分离使用），取值范围：0-10，0代表自动分离（目前仅支持≤6个人），1-10代表指定说话人数分离。默认值为 0。
-注：话者分离目前是beta版本，请根据您的需要谨慎使用
+注：此功能结果仅供参考，请根据您的需要谨慎使用。
     */
     @SerializedName("SpeakerNumber")
     @Expose
@@ -166,44 +173,73 @@ public class CreateRecTaskRequest extends AbstractModel{
     private Long EmotionalEnergy;
 
     /**
-    * 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”、“蜜汁”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。
+    * 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。
     */
     @SerializedName("ReinforceHotword")
     @Expose
     private Long ReinforceHotword;
 
     /**
+    * 单标点最多字数，取值范围：[6，40]。默认为0，不开启该功能。该参数可用于字幕生成场景，控制单行字幕最大字数（设置ResTextFormat为3，解析返回的ResultDetail列表，通过结构中FinalSentence获取单个标点断句结果）。
+    */
+    @SerializedName("SentenceMaxLength")
+    @Expose
+    private Long SentenceMaxLength;
+
+    /**
+    * 情绪识别能力(目前支持16k_zh) 默认为0，不开启。 1：开启情绪识别但是不会在文本展示“情绪标签”， 2：开启情绪识别并且在文本展示“情绪标签”。（该功能需要设置ResTextFormat 大于0）
+注意：本功能为增值服务，购买对应套餐包后，将参数设置为1或2时方可按对应方式生效，并消耗套餐包对应资源。参数设置为0时无需购买套餐包，也不会消耗对应资源。
+    */
+    @SerializedName("EmotionRecognition")
+    @Expose
+    private Long EmotionRecognition;
+
+    /**
      * Get 引擎模型类型。注意：非电话场景请务必使用16k的引擎。
 电话场景：
-• 8k_en：电话 8k 英语；
-• 8k_zh：电话 8k 中文普通话通用；
+• 8k_zh：中文电话通用；
+• 8k_en：英文电话通用；
+
 非电话场景：
-• 16k_zh：16k 中文普通话通用；
-• 16k_zh_video：16k 音视频领域；
-• 16k_en：16k 英语；
-• 16k_ca：16k 粤语；
-• 16k_ja：16k 日语；
-• 16k_zh_edu 中文教育；
-• 16k_en_edu 英文教育；
-• 16k_zh_medical  医疗；
-• 16k_th 泰语；
-• 16k_zh-PY 中英粤;
+• 16k_zh：中文通用；
+• 16k_zh-PY：中英粤;
+• 16k_zh_medical：中文医疗；
+• 16k_en：英语；
+• 16k_yue：粤语；
+• 16k_ja：日语；
+• 16k_ko：韩语；
+• 16k_vi：越南语；
+• 16k_ms：马来语；
+• 16k_id：印度尼西亚语；
+• 16k_fil：菲律宾语；
+• 16k_th：泰语；
+• 16k_pt：葡萄牙语；
+• 16k_tr：土耳其语；
+• 16k_ar：阿拉伯语；
+• 16k_es：西班牙语；
 • 16k_zh_dialect：多方言，支持23种方言（上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话）； 
      * @return EngineModelType 引擎模型类型。注意：非电话场景请务必使用16k的引擎。
 电话场景：
-• 8k_en：电话 8k 英语；
-• 8k_zh：电话 8k 中文普通话通用；
+• 8k_zh：中文电话通用；
+• 8k_en：英文电话通用；
+
 非电话场景：
-• 16k_zh：16k 中文普通话通用；
-• 16k_zh_video：16k 音视频领域；
-• 16k_en：16k 英语；
-• 16k_ca：16k 粤语；
-• 16k_ja：16k 日语；
-• 16k_zh_edu 中文教育；
-• 16k_en_edu 英文教育；
-• 16k_zh_medical  医疗；
-• 16k_th 泰语；
-• 16k_zh-PY 中英粤;
+• 16k_zh：中文通用；
+• 16k_zh-PY：中英粤;
+• 16k_zh_medical：中文医疗；
+• 16k_en：英语；
+• 16k_yue：粤语；
+• 16k_ja：日语；
+• 16k_ko：韩语；
+• 16k_vi：越南语；
+• 16k_ms：马来语；
+• 16k_id：印度尼西亚语；
+• 16k_fil：菲律宾语；
+• 16k_th：泰语；
+• 16k_pt：葡萄牙语；
+• 16k_tr：土耳其语；
+• 16k_ar：阿拉伯语；
+• 16k_es：西班牙语；
 • 16k_zh_dialect：多方言，支持23种方言（上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话）；
      */
     public String getEngineModelType() {
@@ -213,35 +249,49 @@ public class CreateRecTaskRequest extends AbstractModel{
     /**
      * Set 引擎模型类型。注意：非电话场景请务必使用16k的引擎。
 电话场景：
-• 8k_en：电话 8k 英语；
-• 8k_zh：电话 8k 中文普通话通用；
+• 8k_zh：中文电话通用；
+• 8k_en：英文电话通用；
+
 非电话场景：
-• 16k_zh：16k 中文普通话通用；
-• 16k_zh_video：16k 音视频领域；
-• 16k_en：16k 英语；
-• 16k_ca：16k 粤语；
-• 16k_ja：16k 日语；
-• 16k_zh_edu 中文教育；
-• 16k_en_edu 英文教育；
-• 16k_zh_medical  医疗；
-• 16k_th 泰语；
-• 16k_zh-PY 中英粤;
+• 16k_zh：中文通用；
+• 16k_zh-PY：中英粤;
+• 16k_zh_medical：中文医疗；
+• 16k_en：英语；
+• 16k_yue：粤语；
+• 16k_ja：日语；
+• 16k_ko：韩语；
+• 16k_vi：越南语；
+• 16k_ms：马来语；
+• 16k_id：印度尼西亚语；
+• 16k_fil：菲律宾语；
+• 16k_th：泰语；
+• 16k_pt：葡萄牙语；
+• 16k_tr：土耳其语；
+• 16k_ar：阿拉伯语；
+• 16k_es：西班牙语；
 • 16k_zh_dialect：多方言，支持23种方言（上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话）；
      * @param EngineModelType 引擎模型类型。注意：非电话场景请务必使用16k的引擎。
 电话场景：
-• 8k_en：电话 8k 英语；
-• 8k_zh：电话 8k 中文普通话通用；
+• 8k_zh：中文电话通用；
+• 8k_en：英文电话通用；
+
 非电话场景：
-• 16k_zh：16k 中文普通话通用；
-• 16k_zh_video：16k 音视频领域；
-• 16k_en：16k 英语；
-• 16k_ca：16k 粤语；
-• 16k_ja：16k 日语；
-• 16k_zh_edu 中文教育；
-• 16k_en_edu 英文教育；
-• 16k_zh_medical  医疗；
-• 16k_th 泰语；
-• 16k_zh-PY 中英粤;
+• 16k_zh：中文通用；
+• 16k_zh-PY：中英粤;
+• 16k_zh_medical：中文医疗；
+• 16k_en：英语；
+• 16k_yue：粤语；
+• 16k_ja：日语；
+• 16k_ko：韩语；
+• 16k_vi：越南语；
+• 16k_ms：马来语；
+• 16k_id：印度尼西亚语；
+• 16k_fil：菲律宾语；
+• 16k_th：泰语；
+• 16k_pt：葡萄牙语；
+• 16k_tr：土耳其语；
+• 16k_ar：阿拉伯语；
+• 16k_es：西班牙语；
 • 16k_zh_dialect：多方言，支持23种方言（上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话）；
      */
     public void setEngineModelType(String EngineModelType) {
@@ -265,16 +315,16 @@ public class CreateRecTaskRequest extends AbstractModel{
     }
 
     /**
-     * Get 识别结果返回形式。0： 识别结果文本(含分段时间戳)； 1：词级别粒度的[详细识别结果](https://cloud.tencent.com/document/api/1093/37824#SentenceDetail)(不含标点，含语速值)；2：词级别粒度的详细识别结果（包含标点、语速值）；3: 标点符号分段，包含每段时间戳，特别适用于字幕场景（包含词级时间、标点、语速值）。 
-     * @return ResTextFormat 识别结果返回形式。0： 识别结果文本(含分段时间戳)； 1：词级别粒度的[详细识别结果](https://cloud.tencent.com/document/api/1093/37824#SentenceDetail)(不含标点，含语速值)；2：词级别粒度的详细识别结果（包含标点、语速值）；3: 标点符号分段，包含每段时间戳，特别适用于字幕场景（包含词级时间、标点、语速值）。
+     * Get 识别结果返回形式。0： 识别结果文本(含分段时间戳)； 1：词级别粒度的[详细识别结果](https://cloud.tencent.com/document/api/1093/37824#SentenceDetail)(不含标点，含语速值)；2：词级别粒度的详细识别结果（包含标点、语速值）；3: 标点符号分段，包含每段时间戳，特别适用于字幕场景（包含词级时间、标点、语速值）。4：【增值付费功能】对识别结果按照语义分段，并展示词级别粒度的详细识别结果，仅支持8k_zh、16k_zh引擎，需购买对应资源包使用（注意：如果账号后付费功能开启并使用此功能，将[自动计费](https://cloud.tencent.com/document/product/1093/35686)） 
+     * @return ResTextFormat 识别结果返回形式。0： 识别结果文本(含分段时间戳)； 1：词级别粒度的[详细识别结果](https://cloud.tencent.com/document/api/1093/37824#SentenceDetail)(不含标点，含语速值)；2：词级别粒度的详细识别结果（包含标点、语速值）；3: 标点符号分段，包含每段时间戳，特别适用于字幕场景（包含词级时间、标点、语速值）。4：【增值付费功能】对识别结果按照语义分段，并展示词级别粒度的详细识别结果，仅支持8k_zh、16k_zh引擎，需购买对应资源包使用（注意：如果账号后付费功能开启并使用此功能，将[自动计费](https://cloud.tencent.com/document/product/1093/35686)）
      */
     public Long getResTextFormat() {
         return this.ResTextFormat;
     }
 
     /**
-     * Set 识别结果返回形式。0： 识别结果文本(含分段时间戳)； 1：词级别粒度的[详细识别结果](https://cloud.tencent.com/document/api/1093/37824#SentenceDetail)(不含标点，含语速值)；2：词级别粒度的详细识别结果（包含标点、语速值）；3: 标点符号分段，包含每段时间戳，特别适用于字幕场景（包含词级时间、标点、语速值）。
-     * @param ResTextFormat 识别结果返回形式。0： 识别结果文本(含分段时间戳)； 1：词级别粒度的[详细识别结果](https://cloud.tencent.com/document/api/1093/37824#SentenceDetail)(不含标点，含语速值)；2：词级别粒度的详细识别结果（包含标点、语速值）；3: 标点符号分段，包含每段时间戳，特别适用于字幕场景（包含词级时间、标点、语速值）。
+     * Set 识别结果返回形式。0： 识别结果文本(含分段时间戳)； 1：词级别粒度的[详细识别结果](https://cloud.tencent.com/document/api/1093/37824#SentenceDetail)(不含标点，含语速值)；2：词级别粒度的详细识别结果（包含标点、语速值）；3: 标点符号分段，包含每段时间戳，特别适用于字幕场景（包含词级时间、标点、语速值）。4：【增值付费功能】对识别结果按照语义分段，并展示词级别粒度的详细识别结果，仅支持8k_zh、16k_zh引擎，需购买对应资源包使用（注意：如果账号后付费功能开启并使用此功能，将[自动计费](https://cloud.tencent.com/document/product/1093/35686)）
+     * @param ResTextFormat 识别结果返回形式。0： 识别结果文本(含分段时间戳)； 1：词级别粒度的[详细识别结果](https://cloud.tencent.com/document/api/1093/37824#SentenceDetail)(不含标点，含语速值)；2：词级别粒度的详细识别结果（包含标点、语速值）；3: 标点符号分段，包含每段时间戳，特别适用于字幕场景（包含词级时间、标点、语速值）。4：【增值付费功能】对识别结果按照语义分段，并展示词级别粒度的详细识别结果，仅支持8k_zh、16k_zh引擎，需购买对应资源包使用（注意：如果账号后付费功能开启并使用此功能，将[自动计费](https://cloud.tencent.com/document/product/1093/35686)）
      */
     public void setResTextFormat(Long ResTextFormat) {
         this.ResTextFormat = ResTextFormat;
@@ -297,20 +347,20 @@ public class CreateRecTaskRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否开启说话人分离，0：不开启，1：开启(仅支持8k_zh，16k_zh，16k_zh_video，单声道音频)，默认值为 0。
-注意：8k电话场景建议使用双声道来区分通话双方，设置ChannelNum=2即可，不用开启说话人分离。 
-     * @return SpeakerDiarization 是否开启说话人分离，0：不开启，1：开启(仅支持8k_zh，16k_zh，16k_zh_video，单声道音频)，默认值为 0。
-注意：8k电话场景建议使用双声道来区分通话双方，设置ChannelNum=2即可，不用开启说话人分离。
+     * Get 是否开启说话人分离，0：不开启，1：开启(仅支持8k_zh/16k_zh，ChannelNum=1时可用)，默认值为 0。
+注意：8k电话场景建议使用双声道来区分通话双方，设置ChannelNum=2即可，不用开启说话人分离，如果设置了ChannelNum=1，后台会先转码成单声道，说话人分离结果可能产生偏差。 
+     * @return SpeakerDiarization 是否开启说话人分离，0：不开启，1：开启(仅支持8k_zh/16k_zh，ChannelNum=1时可用)，默认值为 0。
+注意：8k电话场景建议使用双声道来区分通话双方，设置ChannelNum=2即可，不用开启说话人分离，如果设置了ChannelNum=1，后台会先转码成单声道，说话人分离结果可能产生偏差。
      */
     public Long getSpeakerDiarization() {
         return this.SpeakerDiarization;
     }
 
     /**
-     * Set 是否开启说话人分离，0：不开启，1：开启(仅支持8k_zh，16k_zh，16k_zh_video，单声道音频)，默认值为 0。
-注意：8k电话场景建议使用双声道来区分通话双方，设置ChannelNum=2即可，不用开启说话人分离。
-     * @param SpeakerDiarization 是否开启说话人分离，0：不开启，1：开启(仅支持8k_zh，16k_zh，16k_zh_video，单声道音频)，默认值为 0。
-注意：8k电话场景建议使用双声道来区分通话双方，设置ChannelNum=2即可，不用开启说话人分离。
+     * Set 是否开启说话人分离，0：不开启，1：开启(仅支持8k_zh/16k_zh，ChannelNum=1时可用)，默认值为 0。
+注意：8k电话场景建议使用双声道来区分通话双方，设置ChannelNum=2即可，不用开启说话人分离，如果设置了ChannelNum=1，后台会先转码成单声道，说话人分离结果可能产生偏差。
+     * @param SpeakerDiarization 是否开启说话人分离，0：不开启，1：开启(仅支持8k_zh/16k_zh，ChannelNum=1时可用)，默认值为 0。
+注意：8k电话场景建议使用双声道来区分通话双方，设置ChannelNum=2即可，不用开启说话人分离，如果设置了ChannelNum=1，后台会先转码成单声道，说话人分离结果可能产生偏差。
      */
     public void setSpeakerDiarization(Long SpeakerDiarization) {
         this.SpeakerDiarization = SpeakerDiarization;
@@ -318,9 +368,9 @@ public class CreateRecTaskRequest extends AbstractModel{
 
     /**
      * Get 说话人分离人数（需配合开启说话人分离使用），取值范围：0-10，0代表自动分离（目前仅支持≤6个人），1-10代表指定说话人数分离。默认值为 0。
-注：话者分离目前是beta版本，请根据您的需要谨慎使用 
+注：此功能结果仅供参考，请根据您的需要谨慎使用。 
      * @return SpeakerNumber 说话人分离人数（需配合开启说话人分离使用），取值范围：0-10，0代表自动分离（目前仅支持≤6个人），1-10代表指定说话人数分离。默认值为 0。
-注：话者分离目前是beta版本，请根据您的需要谨慎使用
+注：此功能结果仅供参考，请根据您的需要谨慎使用。
      */
     public Long getSpeakerNumber() {
         return this.SpeakerNumber;
@@ -328,9 +378,9 @@ public class CreateRecTaskRequest extends AbstractModel{
 
     /**
      * Set 说话人分离人数（需配合开启说话人分离使用），取值范围：0-10，0代表自动分离（目前仅支持≤6个人），1-10代表指定说话人数分离。默认值为 0。
-注：话者分离目前是beta版本，请根据您的需要谨慎使用
+注：此功能结果仅供参考，请根据您的需要谨慎使用。
      * @param SpeakerNumber 说话人分离人数（需配合开启说话人分离使用），取值范围：0-10，0代表自动分离（目前仅支持≤6个人），1-10代表指定说话人数分离。默认值为 0。
-注：话者分离目前是beta版本，请根据您的需要谨慎使用
+注：此功能结果仅供参考，请根据您的需要谨慎使用。
      */
     public void setSpeakerNumber(Long SpeakerNumber) {
         this.SpeakerNumber = SpeakerNumber;
@@ -529,19 +579,55 @@ public class CreateRecTaskRequest extends AbstractModel{
     }
 
     /**
-     * Get 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”、“蜜汁”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。 
-     * @return ReinforceHotword 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”、“蜜汁”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。
+     * Get 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。 
+     * @return ReinforceHotword 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。
      */
     public Long getReinforceHotword() {
         return this.ReinforceHotword;
     }
 
     /**
-     * Set 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”、“蜜汁”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。
-     * @param ReinforceHotword 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”、“蜜汁”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。
+     * Set 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。
+     * @param ReinforceHotword 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。
      */
     public void setReinforceHotword(Long ReinforceHotword) {
         this.ReinforceHotword = ReinforceHotword;
+    }
+
+    /**
+     * Get 单标点最多字数，取值范围：[6，40]。默认为0，不开启该功能。该参数可用于字幕生成场景，控制单行字幕最大字数（设置ResTextFormat为3，解析返回的ResultDetail列表，通过结构中FinalSentence获取单个标点断句结果）。 
+     * @return SentenceMaxLength 单标点最多字数，取值范围：[6，40]。默认为0，不开启该功能。该参数可用于字幕生成场景，控制单行字幕最大字数（设置ResTextFormat为3，解析返回的ResultDetail列表，通过结构中FinalSentence获取单个标点断句结果）。
+     */
+    public Long getSentenceMaxLength() {
+        return this.SentenceMaxLength;
+    }
+
+    /**
+     * Set 单标点最多字数，取值范围：[6，40]。默认为0，不开启该功能。该参数可用于字幕生成场景，控制单行字幕最大字数（设置ResTextFormat为3，解析返回的ResultDetail列表，通过结构中FinalSentence获取单个标点断句结果）。
+     * @param SentenceMaxLength 单标点最多字数，取值范围：[6，40]。默认为0，不开启该功能。该参数可用于字幕生成场景，控制单行字幕最大字数（设置ResTextFormat为3，解析返回的ResultDetail列表，通过结构中FinalSentence获取单个标点断句结果）。
+     */
+    public void setSentenceMaxLength(Long SentenceMaxLength) {
+        this.SentenceMaxLength = SentenceMaxLength;
+    }
+
+    /**
+     * Get 情绪识别能力(目前支持16k_zh) 默认为0，不开启。 1：开启情绪识别但是不会在文本展示“情绪标签”， 2：开启情绪识别并且在文本展示“情绪标签”。（该功能需要设置ResTextFormat 大于0）
+注意：本功能为增值服务，购买对应套餐包后，将参数设置为1或2时方可按对应方式生效，并消耗套餐包对应资源。参数设置为0时无需购买套餐包，也不会消耗对应资源。 
+     * @return EmotionRecognition 情绪识别能力(目前支持16k_zh) 默认为0，不开启。 1：开启情绪识别但是不会在文本展示“情绪标签”， 2：开启情绪识别并且在文本展示“情绪标签”。（该功能需要设置ResTextFormat 大于0）
+注意：本功能为增值服务，购买对应套餐包后，将参数设置为1或2时方可按对应方式生效，并消耗套餐包对应资源。参数设置为0时无需购买套餐包，也不会消耗对应资源。
+     */
+    public Long getEmotionRecognition() {
+        return this.EmotionRecognition;
+    }
+
+    /**
+     * Set 情绪识别能力(目前支持16k_zh) 默认为0，不开启。 1：开启情绪识别但是不会在文本展示“情绪标签”， 2：开启情绪识别并且在文本展示“情绪标签”。（该功能需要设置ResTextFormat 大于0）
+注意：本功能为增值服务，购买对应套餐包后，将参数设置为1或2时方可按对应方式生效，并消耗套餐包对应资源。参数设置为0时无需购买套餐包，也不会消耗对应资源。
+     * @param EmotionRecognition 情绪识别能力(目前支持16k_zh) 默认为0，不开启。 1：开启情绪识别但是不会在文本展示“情绪标签”， 2：开启情绪识别并且在文本展示“情绪标签”。（该功能需要设置ResTextFormat 大于0）
+注意：本功能为增值服务，购买对应套餐包后，将参数设置为1或2时方可按对应方式生效，并消耗套餐包对应资源。参数设置为0时无需购买套餐包，也不会消耗对应资源。
+     */
+    public void setEmotionRecognition(Long EmotionRecognition) {
+        this.EmotionRecognition = EmotionRecognition;
     }
 
     public CreateRecTaskRequest() {
@@ -609,6 +695,12 @@ public class CreateRecTaskRequest extends AbstractModel{
         if (source.ReinforceHotword != null) {
             this.ReinforceHotword = new Long(source.ReinforceHotword);
         }
+        if (source.SentenceMaxLength != null) {
+            this.SentenceMaxLength = new Long(source.SentenceMaxLength);
+        }
+        if (source.EmotionRecognition != null) {
+            this.EmotionRecognition = new Long(source.EmotionRecognition);
+        }
     }
 
 
@@ -635,6 +727,8 @@ public class CreateRecTaskRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "FilterModal", this.FilterModal);
         this.setParamSimple(map, prefix + "EmotionalEnergy", this.EmotionalEnergy);
         this.setParamSimple(map, prefix + "ReinforceHotword", this.ReinforceHotword);
+        this.setParamSimple(map, prefix + "SentenceMaxLength", this.SentenceMaxLength);
+        this.setParamSimple(map, prefix + "EmotionRecognition", this.EmotionRecognition);
 
     }
 }

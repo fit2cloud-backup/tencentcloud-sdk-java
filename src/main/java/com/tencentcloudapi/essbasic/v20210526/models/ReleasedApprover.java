@@ -39,6 +39,7 @@ public class ReleasedApprover extends AbstractModel{
     /**
     * 签署人类型，目前仅支持
 ORGANIZATION-企业
+ENTERPRISESERVER-企业静默签
     */
     @SerializedName("ApproverType")
     @Expose
@@ -76,7 +77,7 @@ ORGANIZATION-企业
     private String Mobile;
 
     /**
-    * 企业签署方在同一渠道下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符
+    * 企业签署方在同一第三方应用下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符
     */
     @SerializedName("OrganizationOpenId")
     @Expose
@@ -84,11 +85,27 @@ ORGANIZATION-企业
 
     /**
     * 用户侧第三方id，最大长度64个字符
-当签署方为同一渠道下的员工时，该字必传
+当签署方为同一第三方应用下的员工时，该字必传
     */
     @SerializedName("OpenId")
     @Expose
     private String OpenId;
+
+    /**
+    * 签署控件类型，支持自定义企业签署方的签署控件为“印章”或“签名”
+- SIGN_SEAL-默认为印章控件类型
+- SIGN_SIGNATURE-手写签名控件类型
+    */
+    @SerializedName("ApproverSignComponentType")
+    @Expose
+    private String ApproverSignComponentType;
+
+    /**
+    * 签署方自定义控件别名，最大长度20个字符
+    */
+    @SerializedName("ApproverSignRole")
+    @Expose
+    private String ApproverSignRole;
 
     /**
      * Get 企业签署方工商营业执照上的企业名称，签署方为非发起方企业场景下必传，最大长度64个字符 
@@ -124,9 +141,11 @@ ORGANIZATION-企业
 
     /**
      * Get 签署人类型，目前仅支持
-ORGANIZATION-企业 
+ORGANIZATION-企业
+ENTERPRISESERVER-企业静默签 
      * @return ApproverType 签署人类型，目前仅支持
 ORGANIZATION-企业
+ENTERPRISESERVER-企业静默签
      */
     public String getApproverType() {
         return this.ApproverType;
@@ -135,8 +154,10 @@ ORGANIZATION-企业
     /**
      * Set 签署人类型，目前仅支持
 ORGANIZATION-企业
+ENTERPRISESERVER-企业静默签
      * @param ApproverType 签署人类型，目前仅支持
 ORGANIZATION-企业
+ENTERPRISESERVER-企业静默签
      */
     public void setApproverType(String ApproverType) {
         this.ApproverType = ApproverType;
@@ -219,16 +240,16 @@ ORGANIZATION-企业
     }
 
     /**
-     * Get 企业签署方在同一渠道下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符 
-     * @return OrganizationOpenId 企业签署方在同一渠道下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符
+     * Get 企业签署方在同一第三方应用下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符 
+     * @return OrganizationOpenId 企业签署方在同一第三方应用下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符
      */
     public String getOrganizationOpenId() {
         return this.OrganizationOpenId;
     }
 
     /**
-     * Set 企业签署方在同一渠道下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符
-     * @param OrganizationOpenId 企业签署方在同一渠道下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符
+     * Set 企业签署方在同一第三方应用下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符
+     * @param OrganizationOpenId 企业签署方在同一第三方应用下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符
      */
     public void setOrganizationOpenId(String OrganizationOpenId) {
         this.OrganizationOpenId = OrganizationOpenId;
@@ -236,9 +257,9 @@ ORGANIZATION-企业
 
     /**
      * Get 用户侧第三方id，最大长度64个字符
-当签署方为同一渠道下的员工时，该字必传 
+当签署方为同一第三方应用下的员工时，该字必传 
      * @return OpenId 用户侧第三方id，最大长度64个字符
-当签署方为同一渠道下的员工时，该字必传
+当签署方为同一第三方应用下的员工时，该字必传
      */
     public String getOpenId() {
         return this.OpenId;
@@ -246,12 +267,52 @@ ORGANIZATION-企业
 
     /**
      * Set 用户侧第三方id，最大长度64个字符
-当签署方为同一渠道下的员工时，该字必传
+当签署方为同一第三方应用下的员工时，该字必传
      * @param OpenId 用户侧第三方id，最大长度64个字符
-当签署方为同一渠道下的员工时，该字必传
+当签署方为同一第三方应用下的员工时，该字必传
      */
     public void setOpenId(String OpenId) {
         this.OpenId = OpenId;
+    }
+
+    /**
+     * Get 签署控件类型，支持自定义企业签署方的签署控件为“印章”或“签名”
+- SIGN_SEAL-默认为印章控件类型
+- SIGN_SIGNATURE-手写签名控件类型 
+     * @return ApproverSignComponentType 签署控件类型，支持自定义企业签署方的签署控件为“印章”或“签名”
+- SIGN_SEAL-默认为印章控件类型
+- SIGN_SIGNATURE-手写签名控件类型
+     */
+    public String getApproverSignComponentType() {
+        return this.ApproverSignComponentType;
+    }
+
+    /**
+     * Set 签署控件类型，支持自定义企业签署方的签署控件为“印章”或“签名”
+- SIGN_SEAL-默认为印章控件类型
+- SIGN_SIGNATURE-手写签名控件类型
+     * @param ApproverSignComponentType 签署控件类型，支持自定义企业签署方的签署控件为“印章”或“签名”
+- SIGN_SEAL-默认为印章控件类型
+- SIGN_SIGNATURE-手写签名控件类型
+     */
+    public void setApproverSignComponentType(String ApproverSignComponentType) {
+        this.ApproverSignComponentType = ApproverSignComponentType;
+    }
+
+    /**
+     * Get 签署方自定义控件别名，最大长度20个字符 
+     * @return ApproverSignRole 签署方自定义控件别名，最大长度20个字符
+     */
+    public String getApproverSignRole() {
+        return this.ApproverSignRole;
+    }
+
+    /**
+     * Set 签署方自定义控件别名，最大长度20个字符
+     * @param ApproverSignRole 签署方自定义控件别名，最大长度20个字符
+     */
+    public void setApproverSignRole(String ApproverSignRole) {
+        this.ApproverSignRole = ApproverSignRole;
     }
 
     public ReleasedApprover() {
@@ -289,6 +350,12 @@ ORGANIZATION-企业
         if (source.OpenId != null) {
             this.OpenId = new String(source.OpenId);
         }
+        if (source.ApproverSignComponentType != null) {
+            this.ApproverSignComponentType = new String(source.ApproverSignComponentType);
+        }
+        if (source.ApproverSignRole != null) {
+            this.ApproverSignRole = new String(source.ApproverSignRole);
+        }
     }
 
 
@@ -305,6 +372,8 @@ ORGANIZATION-企业
         this.setParamSimple(map, prefix + "Mobile", this.Mobile);
         this.setParamSimple(map, prefix + "OrganizationOpenId", this.OrganizationOpenId);
         this.setParamSimple(map, prefix + "OpenId", this.OpenId);
+        this.setParamSimple(map, prefix + "ApproverSignComponentType", this.ApproverSignComponentType);
+        this.setParamSimple(map, prefix + "ApproverSignRole", this.ApproverSignRole);
 
     }
 }

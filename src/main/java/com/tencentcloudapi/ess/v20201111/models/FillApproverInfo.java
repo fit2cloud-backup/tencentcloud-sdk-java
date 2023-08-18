@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class FillApproverInfo extends AbstractModel{
 
     /**
-    * 签署人签署Id
+    * 对应模板中的参与方ID
     */
     @SerializedName("RecipientId")
     @Expose
@@ -32,30 +32,45 @@ public class FillApproverInfo extends AbstractModel{
     /**
     * 签署人来源
 WEWORKAPP: 企业微信
+<br/>仅【企微或签】时指定WEWORKAPP
     */
     @SerializedName("ApproverSource")
     @Expose
     private String ApproverSource;
 
     /**
-    * 企业自定义账号Id
-WEWORKAPP场景下指企业自有应用获取企微明文的userid
+    * 企业自定义账号ID
+<br/>当ApproverSource为WEWORKAPP的企微或签场景下，必须指企业自有应用获取企微明文的userid
     */
     @SerializedName("CustomUserId")
     @Expose
     private String CustomUserId;
 
     /**
-     * Get 签署人签署Id 
-     * @return RecipientId 签署人签署Id
+    * 补充签署人姓名
+    */
+    @SerializedName("ApproverName")
+    @Expose
+    private String ApproverName;
+
+    /**
+    * 补充签署人手机号
+    */
+    @SerializedName("ApproverMobile")
+    @Expose
+    private String ApproverMobile;
+
+    /**
+     * Get 对应模板中的参与方ID 
+     * @return RecipientId 对应模板中的参与方ID
      */
     public String getRecipientId() {
         return this.RecipientId;
     }
 
     /**
-     * Set 签署人签署Id
-     * @param RecipientId 签署人签署Id
+     * Set 对应模板中的参与方ID
+     * @param RecipientId 对应模板中的参与方ID
      */
     public void setRecipientId(String RecipientId) {
         this.RecipientId = RecipientId;
@@ -63,9 +78,11 @@ WEWORKAPP场景下指企业自有应用获取企微明文的userid
 
     /**
      * Get 签署人来源
-WEWORKAPP: 企业微信 
+WEWORKAPP: 企业微信
+<br/>仅【企微或签】时指定WEWORKAPP 
      * @return ApproverSource 签署人来源
 WEWORKAPP: 企业微信
+<br/>仅【企微或签】时指定WEWORKAPP
      */
     public String getApproverSource() {
         return this.ApproverSource;
@@ -74,31 +91,65 @@ WEWORKAPP: 企业微信
     /**
      * Set 签署人来源
 WEWORKAPP: 企业微信
+<br/>仅【企微或签】时指定WEWORKAPP
      * @param ApproverSource 签署人来源
 WEWORKAPP: 企业微信
+<br/>仅【企微或签】时指定WEWORKAPP
      */
     public void setApproverSource(String ApproverSource) {
         this.ApproverSource = ApproverSource;
     }
 
     /**
-     * Get 企业自定义账号Id
-WEWORKAPP场景下指企业自有应用获取企微明文的userid 
-     * @return CustomUserId 企业自定义账号Id
-WEWORKAPP场景下指企业自有应用获取企微明文的userid
+     * Get 企业自定义账号ID
+<br/>当ApproverSource为WEWORKAPP的企微或签场景下，必须指企业自有应用获取企微明文的userid 
+     * @return CustomUserId 企业自定义账号ID
+<br/>当ApproverSource为WEWORKAPP的企微或签场景下，必须指企业自有应用获取企微明文的userid
      */
     public String getCustomUserId() {
         return this.CustomUserId;
     }
 
     /**
-     * Set 企业自定义账号Id
-WEWORKAPP场景下指企业自有应用获取企微明文的userid
-     * @param CustomUserId 企业自定义账号Id
-WEWORKAPP场景下指企业自有应用获取企微明文的userid
+     * Set 企业自定义账号ID
+<br/>当ApproverSource为WEWORKAPP的企微或签场景下，必须指企业自有应用获取企微明文的userid
+     * @param CustomUserId 企业自定义账号ID
+<br/>当ApproverSource为WEWORKAPP的企微或签场景下，必须指企业自有应用获取企微明文的userid
      */
     public void setCustomUserId(String CustomUserId) {
         this.CustomUserId = CustomUserId;
+    }
+
+    /**
+     * Get 补充签署人姓名 
+     * @return ApproverName 补充签署人姓名
+     */
+    public String getApproverName() {
+        return this.ApproverName;
+    }
+
+    /**
+     * Set 补充签署人姓名
+     * @param ApproverName 补充签署人姓名
+     */
+    public void setApproverName(String ApproverName) {
+        this.ApproverName = ApproverName;
+    }
+
+    /**
+     * Get 补充签署人手机号 
+     * @return ApproverMobile 补充签署人手机号
+     */
+    public String getApproverMobile() {
+        return this.ApproverMobile;
+    }
+
+    /**
+     * Set 补充签署人手机号
+     * @param ApproverMobile 补充签署人手机号
+     */
+    public void setApproverMobile(String ApproverMobile) {
+        this.ApproverMobile = ApproverMobile;
     }
 
     public FillApproverInfo() {
@@ -118,6 +169,12 @@ WEWORKAPP场景下指企业自有应用获取企微明文的userid
         if (source.CustomUserId != null) {
             this.CustomUserId = new String(source.CustomUserId);
         }
+        if (source.ApproverName != null) {
+            this.ApproverName = new String(source.ApproverName);
+        }
+        if (source.ApproverMobile != null) {
+            this.ApproverMobile = new String(source.ApproverMobile);
+        }
     }
 
 
@@ -128,6 +185,8 @@ WEWORKAPP场景下指企业自有应用获取企微明文的userid
         this.setParamSimple(map, prefix + "RecipientId", this.RecipientId);
         this.setParamSimple(map, prefix + "ApproverSource", this.ApproverSource);
         this.setParamSimple(map, prefix + "CustomUserId", this.CustomUserId);
+        this.setParamSimple(map, prefix + "ApproverName", this.ApproverName);
+        this.setParamSimple(map, prefix + "ApproverMobile", this.ApproverMobile);
 
     }
 }

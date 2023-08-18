@@ -58,7 +58,7 @@ public class CreateShipperRequest extends AbstractModel{
     private Long Interval;
 
     /**
-    * 投递的文件的最大值，单位 MB，默认256，范围 100-256
+    * 投递的文件的最大值，单位 MB，默认256，范围 5-256
     */
     @SerializedName("MaxSize")
     @Expose
@@ -98,6 +98,20 @@ public class CreateShipperRequest extends AbstractModel{
     @SerializedName("FilenameMode")
     @Expose
     private Long FilenameMode;
+
+    /**
+    * 投递数据范围的开始时间点，不能超出日志主题的生命周期起点。如果用户不填写，默认为用户新建投递任务的时间。
+    */
+    @SerializedName("StartTime")
+    @Expose
+    private Long StartTime;
+
+    /**
+    * 投递数据范围的结束时间点，不能填写未来时间。如果用户不填写，默认为持续投递，即无限。
+    */
+    @SerializedName("EndTime")
+    @Expose
+    private Long EndTime;
 
     /**
      * Get 创建的投递规则所属的日志主题ID 
@@ -180,16 +194,16 @@ public class CreateShipperRequest extends AbstractModel{
     }
 
     /**
-     * Get 投递的文件的最大值，单位 MB，默认256，范围 100-256 
-     * @return MaxSize 投递的文件的最大值，单位 MB，默认256，范围 100-256
+     * Get 投递的文件的最大值，单位 MB，默认256，范围 5-256 
+     * @return MaxSize 投递的文件的最大值，单位 MB，默认256，范围 5-256
      */
     public Long getMaxSize() {
         return this.MaxSize;
     }
 
     /**
-     * Set 投递的文件的最大值，单位 MB，默认256，范围 100-256
-     * @param MaxSize 投递的文件的最大值，单位 MB，默认256，范围 100-256
+     * Set 投递的文件的最大值，单位 MB，默认256，范围 5-256
+     * @param MaxSize 投递的文件的最大值，单位 MB，默认256，范围 5-256
      */
     public void setMaxSize(Long MaxSize) {
         this.MaxSize = MaxSize;
@@ -275,6 +289,38 @@ public class CreateShipperRequest extends AbstractModel{
         this.FilenameMode = FilenameMode;
     }
 
+    /**
+     * Get 投递数据范围的开始时间点，不能超出日志主题的生命周期起点。如果用户不填写，默认为用户新建投递任务的时间。 
+     * @return StartTime 投递数据范围的开始时间点，不能超出日志主题的生命周期起点。如果用户不填写，默认为用户新建投递任务的时间。
+     */
+    public Long getStartTime() {
+        return this.StartTime;
+    }
+
+    /**
+     * Set 投递数据范围的开始时间点，不能超出日志主题的生命周期起点。如果用户不填写，默认为用户新建投递任务的时间。
+     * @param StartTime 投递数据范围的开始时间点，不能超出日志主题的生命周期起点。如果用户不填写，默认为用户新建投递任务的时间。
+     */
+    public void setStartTime(Long StartTime) {
+        this.StartTime = StartTime;
+    }
+
+    /**
+     * Get 投递数据范围的结束时间点，不能填写未来时间。如果用户不填写，默认为持续投递，即无限。 
+     * @return EndTime 投递数据范围的结束时间点，不能填写未来时间。如果用户不填写，默认为持续投递，即无限。
+     */
+    public Long getEndTime() {
+        return this.EndTime;
+    }
+
+    /**
+     * Set 投递数据范围的结束时间点，不能填写未来时间。如果用户不填写，默认为持续投递，即无限。
+     * @param EndTime 投递数据范围的结束时间点，不能填写未来时间。如果用户不填写，默认为持续投递，即无限。
+     */
+    public void setEndTime(Long EndTime) {
+        this.EndTime = EndTime;
+    }
+
     public CreateShipperRequest() {
     }
 
@@ -319,6 +365,12 @@ public class CreateShipperRequest extends AbstractModel{
         if (source.FilenameMode != null) {
             this.FilenameMode = new Long(source.FilenameMode);
         }
+        if (source.StartTime != null) {
+            this.StartTime = new Long(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new Long(source.EndTime);
+        }
     }
 
 
@@ -337,6 +389,8 @@ public class CreateShipperRequest extends AbstractModel{
         this.setParamObj(map, prefix + "Compress.", this.Compress);
         this.setParamObj(map, prefix + "Content.", this.Content);
         this.setParamSimple(map, prefix + "FilenameMode", this.FilenameMode);
+        this.setParamSimple(map, prefix + "StartTime", this.StartTime);
+        this.setParamSimple(map, prefix + "EndTime", this.EndTime);
 
     }
 }

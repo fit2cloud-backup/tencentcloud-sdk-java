@@ -24,10 +24,19 @@ public class ReviewImageResponse extends AbstractModel{
 
     /**
     * 图片审核任务结果。
+<font color=red>注意：该字段已废弃，建议使用 MediaReviewResult。</font> 
     */
     @SerializedName("ReviewResultSet")
     @Expose
     private ContentReviewResult [] ReviewResultSet;
+
+    /**
+    * 图片审核任务结果。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MediaReviewResult")
+    @Expose
+    private ReviewImageResult MediaReviewResult;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -37,8 +46,10 @@ public class ReviewImageResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 图片审核任务结果。 
+     * Get 图片审核任务结果。
+<font color=red>注意：该字段已废弃，建议使用 MediaReviewResult。</font>  
      * @return ReviewResultSet 图片审核任务结果。
+<font color=red>注意：该字段已废弃，建议使用 MediaReviewResult。</font> 
      */
     public ContentReviewResult [] getReviewResultSet() {
         return this.ReviewResultSet;
@@ -46,10 +57,32 @@ public class ReviewImageResponse extends AbstractModel{
 
     /**
      * Set 图片审核任务结果。
+<font color=red>注意：该字段已废弃，建议使用 MediaReviewResult。</font> 
      * @param ReviewResultSet 图片审核任务结果。
+<font color=red>注意：该字段已废弃，建议使用 MediaReviewResult。</font> 
      */
     public void setReviewResultSet(ContentReviewResult [] ReviewResultSet) {
         this.ReviewResultSet = ReviewResultSet;
+    }
+
+    /**
+     * Get 图片审核任务结果。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MediaReviewResult 图片审核任务结果。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ReviewImageResult getMediaReviewResult() {
+        return this.MediaReviewResult;
+    }
+
+    /**
+     * Set 图片审核任务结果。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MediaReviewResult 图片审核任务结果。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMediaReviewResult(ReviewImageResult MediaReviewResult) {
+        this.MediaReviewResult = MediaReviewResult;
     }
 
     /**
@@ -82,6 +115,9 @@ public class ReviewImageResponse extends AbstractModel{
                 this.ReviewResultSet[i] = new ContentReviewResult(source.ReviewResultSet[i]);
             }
         }
+        if (source.MediaReviewResult != null) {
+            this.MediaReviewResult = new ReviewImageResult(source.MediaReviewResult);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -93,6 +129,7 @@ public class ReviewImageResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "ReviewResultSet.", this.ReviewResultSet);
+        this.setParamObj(map, prefix + "MediaReviewResult.", this.MediaReviewResult);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

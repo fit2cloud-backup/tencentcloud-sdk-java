@@ -22,6 +22,98 @@ import java.util.HashMap;
 
 public class ListDeployableRuntimesMCRequest extends AbstractModel{
 
+    /**
+    * 应用id
+    */
+    @SerializedName("ProjectId")
+    @Expose
+    private Long ProjectId;
+
+    /**
+    * 实例id
+    */
+    @SerializedName("InstanceId")
+    @Expose
+    private Long InstanceId;
+
+    /**
+    * 版本类型 0-pro 1-lite
+    */
+    @SerializedName("PlanType")
+    @Expose
+    private Long PlanType;
+
+    /**
+    * 0：应用集成，1：API，2：ETL
+    */
+    @SerializedName("RuntimeClass")
+    @Expose
+    private Long RuntimeClass;
+
+    /**
+     * Get 应用id 
+     * @return ProjectId 应用id
+     */
+    public Long getProjectId() {
+        return this.ProjectId;
+    }
+
+    /**
+     * Set 应用id
+     * @param ProjectId 应用id
+     */
+    public void setProjectId(Long ProjectId) {
+        this.ProjectId = ProjectId;
+    }
+
+    /**
+     * Get 实例id 
+     * @return InstanceId 实例id
+     */
+    public Long getInstanceId() {
+        return this.InstanceId;
+    }
+
+    /**
+     * Set 实例id
+     * @param InstanceId 实例id
+     */
+    public void setInstanceId(Long InstanceId) {
+        this.InstanceId = InstanceId;
+    }
+
+    /**
+     * Get 版本类型 0-pro 1-lite 
+     * @return PlanType 版本类型 0-pro 1-lite
+     */
+    public Long getPlanType() {
+        return this.PlanType;
+    }
+
+    /**
+     * Set 版本类型 0-pro 1-lite
+     * @param PlanType 版本类型 0-pro 1-lite
+     */
+    public void setPlanType(Long PlanType) {
+        this.PlanType = PlanType;
+    }
+
+    /**
+     * Get 0：应用集成，1：API，2：ETL 
+     * @return RuntimeClass 0：应用集成，1：API，2：ETL
+     */
+    public Long getRuntimeClass() {
+        return this.RuntimeClass;
+    }
+
+    /**
+     * Set 0：应用集成，1：API，2：ETL
+     * @param RuntimeClass 0：应用集成，1：API，2：ETL
+     */
+    public void setRuntimeClass(Long RuntimeClass) {
+        this.RuntimeClass = RuntimeClass;
+    }
+
     public ListDeployableRuntimesMCRequest() {
     }
 
@@ -30,6 +122,18 @@ public class ListDeployableRuntimesMCRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public ListDeployableRuntimesMCRequest(ListDeployableRuntimesMCRequest source) {
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new Long(source.InstanceId);
+        }
+        if (source.PlanType != null) {
+            this.PlanType = new Long(source.PlanType);
+        }
+        if (source.RuntimeClass != null) {
+            this.RuntimeClass = new Long(source.RuntimeClass);
+        }
     }
 
 
@@ -37,6 +141,10 @@ public class ListDeployableRuntimesMCRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
+        this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
+        this.setParamSimple(map, prefix + "PlanType", this.PlanType);
+        this.setParamSimple(map, prefix + "RuntimeClass", this.RuntimeClass);
 
     }
 }

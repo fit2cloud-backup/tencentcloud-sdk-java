@@ -9,11 +9,26 @@ public enum WafErrorCode {
     // 操作失败。
      FAILEDOPERATION("FailedOperation"),
      
+    // 调用CLS日志服务API失败
+     FAILEDOPERATION_CLSDBOPERATIONFAILED("FailedOperation.CLSDBOperationFailed"),
+     
     // CLS内部错误。
      FAILEDOPERATION_CLSINTERNALERROR("FailedOperation.CLSInternalError"),
      
+    // 操作Mysql数据库失败
+     FAILEDOPERATION_MYSQLDBOPERATIONFAILED("FailedOperation.MysqlDBOperationFailed"),
+     
+    // 操作Redis数据库失败
+     FAILEDOPERATION_REDISOPERATIONFAILED("FailedOperation.RedisOperationFailed"),
+     
     // 内部错误。
      INTERNALERROR("InternalError"),
+     
+    // DBErr
+     INTERNALERROR_DBERR("InternalError.DBErr"),
+     
+    // 存在内部错误，请联系我们
+     INTERNALERROR_UNKNOWNERR("InternalError.UnknownErr"),
      
     // 参数错误。
      INVALIDPARAMETER("InvalidParameter"),
@@ -21,14 +36,29 @@ public enum WafErrorCode {
     // 证书内容非法。
      INVALIDPARAMETER_INVALIDCERTIFICATE("InvalidParameter.InvalidCertificate"),
      
+    // 逻辑错误：SQL检索语句中的逻辑错误也可能导致错误。例如，使用错误的运算符、使用错误的条件等
+     INVALIDPARAMETER_LOGICERR("InvalidParameter.LogicErr"),
+     
     // 根据ID查询证书失败。
      INVALIDPARAMETER_QUERYCERTBYSSLIDFAILED("InvalidParameter.QueryCertBySSLIDFailed"),
+     
+    // 语法错误：逻辑表达式语法解析出错
+     INVALIDPARAMETER_QUERYSTRINGSYNTAXERR("InvalidParameter.QueryStringSyntaxErr"),
+     
+    // 语法错误：SQL检索语句必须遵循特定的语法规则，如果语法错误，就会导致SQL语句无法执行。例如，缺少关键字、拼写错误、缺少分号等。
+     INVALIDPARAMETER_SQLSYNTAXERR("InvalidParameter.SQLSyntaxErr"),
+     
+    // 数据类型错误：SQL检索语句中的数据类型必须与数据库中的数据类型匹配，否则会导致错误。例如，将字符串与整数进行比较、将日期格式不正确等。
+     INVALIDPARAMETER_TYPEMISMATCH("InvalidParameter.TypeMismatch"),
      
     // 参数取值错误。
      INVALIDPARAMETERVALUE("InvalidParameterValue"),
      
     // 超过配额限制。
      LIMITEXCEEDED("LimitExceeded"),
+     
+    // SpecificationErr
+     LIMITEXCEEDED_SPECIFICATIONERR("LimitExceeded.SpecificationErr"),
      
     // 缺少参数错误。
      MISSINGPARAMETER("MissingParameter"),
@@ -61,7 +91,10 @@ public enum WafErrorCode {
      UNKNOWNPARAMETER("UnknownParameter"),
      
     // 操作不支持。
-     UNSUPPORTEDOPERATION("UnsupportedOperation");
+     UNSUPPORTEDOPERATION("UnsupportedOperation"),
+     
+    // InvalidRequest
+     UNSUPPORTEDOPERATION_INVALIDREQUEST("UnsupportedOperation.InvalidRequest");
      
     private String value;
     private WafErrorCode (String value){

@@ -40,7 +40,7 @@ public class SearchMediaRequest extends AbstractModel{
 
     /**
     * 文件名集合，模糊匹配媒体文件的文件名，匹配度越高，排序越优先。
-<li>单个文件名长度限制：40个字符。</li>
+<li>单个文件名长度限制：100个字符。</li>
 <li>数组长度限制：10。</li>
     */
     @SerializedName("Names")
@@ -49,7 +49,7 @@ public class SearchMediaRequest extends AbstractModel{
 
     /**
     * 文件名前缀，前缀匹配媒体文件的文件名。
-<li>单个文件名前缀长度限制：20个字符。</li>
+<li>单个文件名前缀长度限制：100个字符。</li>
 <li>数组长度限制：10。</li>
     */
     @SerializedName("NamePrefixes")
@@ -75,8 +75,8 @@ public class SearchMediaRequest extends AbstractModel{
 
     /**
     * 标签集合，匹配集合中任意元素。
-<li>单个标签长度限制：16个字符。</li>
-<li>数组长度限制：10。</li>
+<li>单个标签长度限制：32个字符。</li>
+<li>数组长度限制：16。</li>
     */
     @SerializedName("Tags")
     @Expose
@@ -125,6 +125,89 @@ public class SearchMediaRequest extends AbstractModel{
     private TimeRange ExpireTime;
 
     /**
+    * 媒体文件存储地区，如 ap-chongqing，参见[地域列表](https://cloud.tencent.com/document/product/266/9760#.E5.B7.B2.E6.94.AF.E6.8C.81.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
+<li>单个存储地区长度限制：20个字符。</li>
+<li>数组长度限制：20。</li>
+    */
+    @SerializedName("StorageRegions")
+    @Expose
+    private String [] StorageRegions;
+
+    /**
+    * 存储类型数组。可选值有：
+<li> STANDARD：标准存储。</li>
+<li> STANDARD_IA：低频存储。</li>
+<li> ARCHIVE：归档存储。</li>
+<li> DEEP_ARCHIVE：深度归档存储。</li>
+    */
+    @SerializedName("StorageClasses")
+    @Expose
+    private String [] StorageClasses;
+
+    /**
+    * 媒体文件封装格式集合，匹配集合中任意元素。
+<li>数组长度限制：10。</li>
+    */
+    @SerializedName("MediaTypes")
+    @Expose
+    private String [] MediaTypes;
+
+    /**
+    * 媒体文件状态，匹配集合中任意元素。
+<li> Normal：正常；</li>
+<li> SystemForbidden：平台封禁；</li>
+<li> Forbidden：主动封禁。</li>
+    */
+    @SerializedName("Status")
+    @Expose
+    private String [] Status;
+
+    /**
+    * 媒体文件审核结果，匹配集合中任意元素。
+<li> pass：审核通过；</li>
+<li> review：疑似违规，建议复审；</li>
+<li> block：确认违规，建议封禁；</li>
+<li> notModerated：未审核。</li>
+    */
+    @SerializedName("ReviewResults")
+    @Expose
+    private String [] ReviewResults;
+
+    /**
+    * TRTC 应用 ID 集合。匹配集合中的任意元素。
+<li>数组长度限制：10。</li>
+    */
+    @SerializedName("TrtcSdkAppIds")
+    @Expose
+    private Long [] TrtcSdkAppIds;
+
+    /**
+    * TRTC 房间 ID 集合。匹配集合中的任意元素。
+<li>单个房间 ID 长度限制：64个字符；</li>
+<li>数组长度限制：10。</li>
+    */
+    @SerializedName("TrtcRoomIds")
+    @Expose
+    private String [] TrtcRoomIds;
+
+    /**
+    * 指定所有媒体文件需要返回的信息，可同时指定多个信息，N 从 0 开始递增。如果未填写该字段，默认返回所有信息。选项有：
+<li>basicInfo（视频基础信息）。</li>
+<li>metaData（视频元信息）。</li>
+<li>transcodeInfo（视频转码结果信息）。</li>
+<li>animatedGraphicsInfo（视频转动图结果信息）。</li>
+<li>imageSpriteInfo（视频雪碧图信息）。</li>
+<li>snapshotByTimeOffsetInfo（视频指定时间点截图信息）。</li>
+<li>sampleSnapshotInfo（采样截图信息）。</li>
+<li>keyFrameDescInfo（打点信息）。</li>
+<li>adaptiveDynamicStreamingInfo（转自适应码流信息）。</li>
+<li>miniProgramReviewInfo（小程序审核信息）。</li>
+    */
+    @SerializedName("Filters")
+    @Expose
+    private String [] Filters;
+
+    /**
     * 排序方式。
 <li>Sort.Field 可选 CreateTime 。</li>
 <li>当 Text、 Names 或 Descriptions 不为空时，Sort.Field 字段无效， 搜索结果将以匹配度排序。</li>
@@ -148,60 +231,6 @@ public class SearchMediaRequest extends AbstractModel{
     @SerializedName("Limit")
     @Expose
     private Long Limit;
-
-    /**
-    * 指定所有媒体文件需要返回的信息，可同时指定多个信息，N 从 0 开始递增。如果未填写该字段，默认返回所有信息。选项有：
-<li>basicInfo（视频基础信息）。</li>
-<li>metaData（视频元信息）。</li>
-<li>transcodeInfo（视频转码结果信息）。</li>
-<li>animatedGraphicsInfo（视频转动图结果信息）。</li>
-<li>imageSpriteInfo（视频雪碧图信息）。</li>
-<li>snapshotByTimeOffsetInfo（视频指定时间点截图信息）。</li>
-<li>sampleSnapshotInfo（采样截图信息）。</li>
-<li>keyFrameDescInfo（打点信息）。</li>
-<li>adaptiveDynamicStreamingInfo（转自适应码流信息）。</li>
-<li>miniProgramReviewInfo（小程序审核信息）。</li>
-    */
-    @SerializedName("Filters")
-    @Expose
-    private String [] Filters;
-
-    /**
-    * 媒体文件存储地区，如 ap-chongqing，参见[地域列表](https://cloud.tencent.com/document/product/266/9760#.E5.B7.B2.E6.94.AF.E6.8C.81.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
-<li>单个存储地区长度限制：20个字符。</li>
-<li>数组长度限制：20。</li>
-    */
-    @SerializedName("StorageRegions")
-    @Expose
-    private String [] StorageRegions;
-
-    /**
-    * 存储类型数组。可选值有：
-<li> STANDARD：标准存储。</li>
-<li> STANDARD_IA：低频存储。</li>
-<li> ARCHIVE：归档存储。</li>
-<li> DEEP_ARCHIVE：深度归档存储。</li>
-    */
-    @SerializedName("StorageClasses")
-    @Expose
-    private String [] StorageClasses;
-
-    /**
-    * TRTC 应用 ID 集合。匹配集合中的任意元素。
-<li>数组长度限制：10。</li>
-    */
-    @SerializedName("TrtcSdkAppIds")
-    @Expose
-    private Long [] TrtcSdkAppIds;
-
-    /**
-    * TRTC 房间 ID 集合。匹配集合中的任意元素。
-<li>单个房间 ID 长度限制：64个字符；</li>
-<li>数组长度限制：10。</li>
-    */
-    @SerializedName("TrtcRoomIds")
-    @Expose
-    private String [] TrtcRoomIds;
 
     /**
     * （不推荐：应使用 Names、NamePrefixes 或 Descriptions 替代）
@@ -305,10 +334,10 @@ public class SearchMediaRequest extends AbstractModel{
 
     /**
      * Get 文件名集合，模糊匹配媒体文件的文件名，匹配度越高，排序越优先。
-<li>单个文件名长度限制：40个字符。</li>
+<li>单个文件名长度限制：100个字符。</li>
 <li>数组长度限制：10。</li> 
      * @return Names 文件名集合，模糊匹配媒体文件的文件名，匹配度越高，排序越优先。
-<li>单个文件名长度限制：40个字符。</li>
+<li>单个文件名长度限制：100个字符。</li>
 <li>数组长度限制：10。</li>
      */
     public String [] getNames() {
@@ -317,10 +346,10 @@ public class SearchMediaRequest extends AbstractModel{
 
     /**
      * Set 文件名集合，模糊匹配媒体文件的文件名，匹配度越高，排序越优先。
-<li>单个文件名长度限制：40个字符。</li>
+<li>单个文件名长度限制：100个字符。</li>
 <li>数组长度限制：10。</li>
      * @param Names 文件名集合，模糊匹配媒体文件的文件名，匹配度越高，排序越优先。
-<li>单个文件名长度限制：40个字符。</li>
+<li>单个文件名长度限制：100个字符。</li>
 <li>数组长度限制：10。</li>
      */
     public void setNames(String [] Names) {
@@ -329,10 +358,10 @@ public class SearchMediaRequest extends AbstractModel{
 
     /**
      * Get 文件名前缀，前缀匹配媒体文件的文件名。
-<li>单个文件名前缀长度限制：20个字符。</li>
+<li>单个文件名前缀长度限制：100个字符。</li>
 <li>数组长度限制：10。</li> 
      * @return NamePrefixes 文件名前缀，前缀匹配媒体文件的文件名。
-<li>单个文件名前缀长度限制：20个字符。</li>
+<li>单个文件名前缀长度限制：100个字符。</li>
 <li>数组长度限制：10。</li>
      */
     public String [] getNamePrefixes() {
@@ -341,10 +370,10 @@ public class SearchMediaRequest extends AbstractModel{
 
     /**
      * Set 文件名前缀，前缀匹配媒体文件的文件名。
-<li>单个文件名前缀长度限制：20个字符。</li>
+<li>单个文件名前缀长度限制：100个字符。</li>
 <li>数组长度限制：10。</li>
      * @param NamePrefixes 文件名前缀，前缀匹配媒体文件的文件名。
-<li>单个文件名前缀长度限制：20个字符。</li>
+<li>单个文件名前缀长度限制：100个字符。</li>
 <li>数组长度限制：10。</li>
      */
     public void setNamePrefixes(String [] NamePrefixes) {
@@ -397,11 +426,11 @@ public class SearchMediaRequest extends AbstractModel{
 
     /**
      * Get 标签集合，匹配集合中任意元素。
-<li>单个标签长度限制：16个字符。</li>
-<li>数组长度限制：10。</li> 
+<li>单个标签长度限制：32个字符。</li>
+<li>数组长度限制：16。</li> 
      * @return Tags 标签集合，匹配集合中任意元素。
-<li>单个标签长度限制：16个字符。</li>
-<li>数组长度限制：10。</li>
+<li>单个标签长度限制：32个字符。</li>
+<li>数组长度限制：16。</li>
      */
     public String [] getTags() {
         return this.Tags;
@@ -409,11 +438,11 @@ public class SearchMediaRequest extends AbstractModel{
 
     /**
      * Set 标签集合，匹配集合中任意元素。
-<li>单个标签长度限制：16个字符。</li>
-<li>数组长度限制：10。</li>
+<li>单个标签长度限制：32个字符。</li>
+<li>数组长度限制：16。</li>
      * @param Tags 标签集合，匹配集合中任意元素。
-<li>单个标签长度限制：16个字符。</li>
-<li>数组长度限制：10。</li>
+<li>单个标签长度限制：32个字符。</li>
+<li>数组长度限制：16。</li>
      */
     public void setTags(String [] Tags) {
         this.Tags = Tags;
@@ -528,6 +557,242 @@ public class SearchMediaRequest extends AbstractModel{
     }
 
     /**
+     * Get 媒体文件存储地区，如 ap-chongqing，参见[地域列表](https://cloud.tencent.com/document/product/266/9760#.E5.B7.B2.E6.94.AF.E6.8C.81.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
+<li>单个存储地区长度限制：20个字符。</li>
+<li>数组长度限制：20。</li> 
+     * @return StorageRegions 媒体文件存储地区，如 ap-chongqing，参见[地域列表](https://cloud.tencent.com/document/product/266/9760#.E5.B7.B2.E6.94.AF.E6.8C.81.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
+<li>单个存储地区长度限制：20个字符。</li>
+<li>数组长度限制：20。</li>
+     */
+    public String [] getStorageRegions() {
+        return this.StorageRegions;
+    }
+
+    /**
+     * Set 媒体文件存储地区，如 ap-chongqing，参见[地域列表](https://cloud.tencent.com/document/product/266/9760#.E5.B7.B2.E6.94.AF.E6.8C.81.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
+<li>单个存储地区长度限制：20个字符。</li>
+<li>数组长度限制：20。</li>
+     * @param StorageRegions 媒体文件存储地区，如 ap-chongqing，参见[地域列表](https://cloud.tencent.com/document/product/266/9760#.E5.B7.B2.E6.94.AF.E6.8C.81.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
+<li>单个存储地区长度限制：20个字符。</li>
+<li>数组长度限制：20。</li>
+     */
+    public void setStorageRegions(String [] StorageRegions) {
+        this.StorageRegions = StorageRegions;
+    }
+
+    /**
+     * Get 存储类型数组。可选值有：
+<li> STANDARD：标准存储。</li>
+<li> STANDARD_IA：低频存储。</li>
+<li> ARCHIVE：归档存储。</li>
+<li> DEEP_ARCHIVE：深度归档存储。</li> 
+     * @return StorageClasses 存储类型数组。可选值有：
+<li> STANDARD：标准存储。</li>
+<li> STANDARD_IA：低频存储。</li>
+<li> ARCHIVE：归档存储。</li>
+<li> DEEP_ARCHIVE：深度归档存储。</li>
+     */
+    public String [] getStorageClasses() {
+        return this.StorageClasses;
+    }
+
+    /**
+     * Set 存储类型数组。可选值有：
+<li> STANDARD：标准存储。</li>
+<li> STANDARD_IA：低频存储。</li>
+<li> ARCHIVE：归档存储。</li>
+<li> DEEP_ARCHIVE：深度归档存储。</li>
+     * @param StorageClasses 存储类型数组。可选值有：
+<li> STANDARD：标准存储。</li>
+<li> STANDARD_IA：低频存储。</li>
+<li> ARCHIVE：归档存储。</li>
+<li> DEEP_ARCHIVE：深度归档存储。</li>
+     */
+    public void setStorageClasses(String [] StorageClasses) {
+        this.StorageClasses = StorageClasses;
+    }
+
+    /**
+     * Get 媒体文件封装格式集合，匹配集合中任意元素。
+<li>数组长度限制：10。</li> 
+     * @return MediaTypes 媒体文件封装格式集合，匹配集合中任意元素。
+<li>数组长度限制：10。</li>
+     */
+    public String [] getMediaTypes() {
+        return this.MediaTypes;
+    }
+
+    /**
+     * Set 媒体文件封装格式集合，匹配集合中任意元素。
+<li>数组长度限制：10。</li>
+     * @param MediaTypes 媒体文件封装格式集合，匹配集合中任意元素。
+<li>数组长度限制：10。</li>
+     */
+    public void setMediaTypes(String [] MediaTypes) {
+        this.MediaTypes = MediaTypes;
+    }
+
+    /**
+     * Get 媒体文件状态，匹配集合中任意元素。
+<li> Normal：正常；</li>
+<li> SystemForbidden：平台封禁；</li>
+<li> Forbidden：主动封禁。</li> 
+     * @return Status 媒体文件状态，匹配集合中任意元素。
+<li> Normal：正常；</li>
+<li> SystemForbidden：平台封禁；</li>
+<li> Forbidden：主动封禁。</li>
+     */
+    public String [] getStatus() {
+        return this.Status;
+    }
+
+    /**
+     * Set 媒体文件状态，匹配集合中任意元素。
+<li> Normal：正常；</li>
+<li> SystemForbidden：平台封禁；</li>
+<li> Forbidden：主动封禁。</li>
+     * @param Status 媒体文件状态，匹配集合中任意元素。
+<li> Normal：正常；</li>
+<li> SystemForbidden：平台封禁；</li>
+<li> Forbidden：主动封禁。</li>
+     */
+    public void setStatus(String [] Status) {
+        this.Status = Status;
+    }
+
+    /**
+     * Get 媒体文件审核结果，匹配集合中任意元素。
+<li> pass：审核通过；</li>
+<li> review：疑似违规，建议复审；</li>
+<li> block：确认违规，建议封禁；</li>
+<li> notModerated：未审核。</li> 
+     * @return ReviewResults 媒体文件审核结果，匹配集合中任意元素。
+<li> pass：审核通过；</li>
+<li> review：疑似违规，建议复审；</li>
+<li> block：确认违规，建议封禁；</li>
+<li> notModerated：未审核。</li>
+     */
+    public String [] getReviewResults() {
+        return this.ReviewResults;
+    }
+
+    /**
+     * Set 媒体文件审核结果，匹配集合中任意元素。
+<li> pass：审核通过；</li>
+<li> review：疑似违规，建议复审；</li>
+<li> block：确认违规，建议封禁；</li>
+<li> notModerated：未审核。</li>
+     * @param ReviewResults 媒体文件审核结果，匹配集合中任意元素。
+<li> pass：审核通过；</li>
+<li> review：疑似违规，建议复审；</li>
+<li> block：确认违规，建议封禁；</li>
+<li> notModerated：未审核。</li>
+     */
+    public void setReviewResults(String [] ReviewResults) {
+        this.ReviewResults = ReviewResults;
+    }
+
+    /**
+     * Get TRTC 应用 ID 集合。匹配集合中的任意元素。
+<li>数组长度限制：10。</li> 
+     * @return TrtcSdkAppIds TRTC 应用 ID 集合。匹配集合中的任意元素。
+<li>数组长度限制：10。</li>
+     */
+    public Long [] getTrtcSdkAppIds() {
+        return this.TrtcSdkAppIds;
+    }
+
+    /**
+     * Set TRTC 应用 ID 集合。匹配集合中的任意元素。
+<li>数组长度限制：10。</li>
+     * @param TrtcSdkAppIds TRTC 应用 ID 集合。匹配集合中的任意元素。
+<li>数组长度限制：10。</li>
+     */
+    public void setTrtcSdkAppIds(Long [] TrtcSdkAppIds) {
+        this.TrtcSdkAppIds = TrtcSdkAppIds;
+    }
+
+    /**
+     * Get TRTC 房间 ID 集合。匹配集合中的任意元素。
+<li>单个房间 ID 长度限制：64个字符；</li>
+<li>数组长度限制：10。</li> 
+     * @return TrtcRoomIds TRTC 房间 ID 集合。匹配集合中的任意元素。
+<li>单个房间 ID 长度限制：64个字符；</li>
+<li>数组长度限制：10。</li>
+     */
+    public String [] getTrtcRoomIds() {
+        return this.TrtcRoomIds;
+    }
+
+    /**
+     * Set TRTC 房间 ID 集合。匹配集合中的任意元素。
+<li>单个房间 ID 长度限制：64个字符；</li>
+<li>数组长度限制：10。</li>
+     * @param TrtcRoomIds TRTC 房间 ID 集合。匹配集合中的任意元素。
+<li>单个房间 ID 长度限制：64个字符；</li>
+<li>数组长度限制：10。</li>
+     */
+    public void setTrtcRoomIds(String [] TrtcRoomIds) {
+        this.TrtcRoomIds = TrtcRoomIds;
+    }
+
+    /**
+     * Get 指定所有媒体文件需要返回的信息，可同时指定多个信息，N 从 0 开始递增。如果未填写该字段，默认返回所有信息。选项有：
+<li>basicInfo（视频基础信息）。</li>
+<li>metaData（视频元信息）。</li>
+<li>transcodeInfo（视频转码结果信息）。</li>
+<li>animatedGraphicsInfo（视频转动图结果信息）。</li>
+<li>imageSpriteInfo（视频雪碧图信息）。</li>
+<li>snapshotByTimeOffsetInfo（视频指定时间点截图信息）。</li>
+<li>sampleSnapshotInfo（采样截图信息）。</li>
+<li>keyFrameDescInfo（打点信息）。</li>
+<li>adaptiveDynamicStreamingInfo（转自适应码流信息）。</li>
+<li>miniProgramReviewInfo（小程序审核信息）。</li> 
+     * @return Filters 指定所有媒体文件需要返回的信息，可同时指定多个信息，N 从 0 开始递增。如果未填写该字段，默认返回所有信息。选项有：
+<li>basicInfo（视频基础信息）。</li>
+<li>metaData（视频元信息）。</li>
+<li>transcodeInfo（视频转码结果信息）。</li>
+<li>animatedGraphicsInfo（视频转动图结果信息）。</li>
+<li>imageSpriteInfo（视频雪碧图信息）。</li>
+<li>snapshotByTimeOffsetInfo（视频指定时间点截图信息）。</li>
+<li>sampleSnapshotInfo（采样截图信息）。</li>
+<li>keyFrameDescInfo（打点信息）。</li>
+<li>adaptiveDynamicStreamingInfo（转自适应码流信息）。</li>
+<li>miniProgramReviewInfo（小程序审核信息）。</li>
+     */
+    public String [] getFilters() {
+        return this.Filters;
+    }
+
+    /**
+     * Set 指定所有媒体文件需要返回的信息，可同时指定多个信息，N 从 0 开始递增。如果未填写该字段，默认返回所有信息。选项有：
+<li>basicInfo（视频基础信息）。</li>
+<li>metaData（视频元信息）。</li>
+<li>transcodeInfo（视频转码结果信息）。</li>
+<li>animatedGraphicsInfo（视频转动图结果信息）。</li>
+<li>imageSpriteInfo（视频雪碧图信息）。</li>
+<li>snapshotByTimeOffsetInfo（视频指定时间点截图信息）。</li>
+<li>sampleSnapshotInfo（采样截图信息）。</li>
+<li>keyFrameDescInfo（打点信息）。</li>
+<li>adaptiveDynamicStreamingInfo（转自适应码流信息）。</li>
+<li>miniProgramReviewInfo（小程序审核信息）。</li>
+     * @param Filters 指定所有媒体文件需要返回的信息，可同时指定多个信息，N 从 0 开始递增。如果未填写该字段，默认返回所有信息。选项有：
+<li>basicInfo（视频基础信息）。</li>
+<li>metaData（视频元信息）。</li>
+<li>transcodeInfo（视频转码结果信息）。</li>
+<li>animatedGraphicsInfo（视频转动图结果信息）。</li>
+<li>imageSpriteInfo（视频雪碧图信息）。</li>
+<li>snapshotByTimeOffsetInfo（视频指定时间点截图信息）。</li>
+<li>sampleSnapshotInfo（采样截图信息）。</li>
+<li>keyFrameDescInfo（打点信息）。</li>
+<li>adaptiveDynamicStreamingInfo（转自适应码流信息）。</li>
+<li>miniProgramReviewInfo（小程序审核信息）。</li>
+     */
+    public void setFilters(String [] Filters) {
+        this.Filters = Filters;
+    }
+
+    /**
      * Get 排序方式。
 <li>Sort.Field 可选 CreateTime 。</li>
 <li>当 Text、 Names 或 Descriptions 不为空时，Sort.Field 字段无效， 搜索结果将以匹配度排序。</li> 
@@ -589,162 +854,6 @@ public class SearchMediaRequest extends AbstractModel{
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
-    }
-
-    /**
-     * Get 指定所有媒体文件需要返回的信息，可同时指定多个信息，N 从 0 开始递增。如果未填写该字段，默认返回所有信息。选项有：
-<li>basicInfo（视频基础信息）。</li>
-<li>metaData（视频元信息）。</li>
-<li>transcodeInfo（视频转码结果信息）。</li>
-<li>animatedGraphicsInfo（视频转动图结果信息）。</li>
-<li>imageSpriteInfo（视频雪碧图信息）。</li>
-<li>snapshotByTimeOffsetInfo（视频指定时间点截图信息）。</li>
-<li>sampleSnapshotInfo（采样截图信息）。</li>
-<li>keyFrameDescInfo（打点信息）。</li>
-<li>adaptiveDynamicStreamingInfo（转自适应码流信息）。</li>
-<li>miniProgramReviewInfo（小程序审核信息）。</li> 
-     * @return Filters 指定所有媒体文件需要返回的信息，可同时指定多个信息，N 从 0 开始递增。如果未填写该字段，默认返回所有信息。选项有：
-<li>basicInfo（视频基础信息）。</li>
-<li>metaData（视频元信息）。</li>
-<li>transcodeInfo（视频转码结果信息）。</li>
-<li>animatedGraphicsInfo（视频转动图结果信息）。</li>
-<li>imageSpriteInfo（视频雪碧图信息）。</li>
-<li>snapshotByTimeOffsetInfo（视频指定时间点截图信息）。</li>
-<li>sampleSnapshotInfo（采样截图信息）。</li>
-<li>keyFrameDescInfo（打点信息）。</li>
-<li>adaptiveDynamicStreamingInfo（转自适应码流信息）。</li>
-<li>miniProgramReviewInfo（小程序审核信息）。</li>
-     */
-    public String [] getFilters() {
-        return this.Filters;
-    }
-
-    /**
-     * Set 指定所有媒体文件需要返回的信息，可同时指定多个信息，N 从 0 开始递增。如果未填写该字段，默认返回所有信息。选项有：
-<li>basicInfo（视频基础信息）。</li>
-<li>metaData（视频元信息）。</li>
-<li>transcodeInfo（视频转码结果信息）。</li>
-<li>animatedGraphicsInfo（视频转动图结果信息）。</li>
-<li>imageSpriteInfo（视频雪碧图信息）。</li>
-<li>snapshotByTimeOffsetInfo（视频指定时间点截图信息）。</li>
-<li>sampleSnapshotInfo（采样截图信息）。</li>
-<li>keyFrameDescInfo（打点信息）。</li>
-<li>adaptiveDynamicStreamingInfo（转自适应码流信息）。</li>
-<li>miniProgramReviewInfo（小程序审核信息）。</li>
-     * @param Filters 指定所有媒体文件需要返回的信息，可同时指定多个信息，N 从 0 开始递增。如果未填写该字段，默认返回所有信息。选项有：
-<li>basicInfo（视频基础信息）。</li>
-<li>metaData（视频元信息）。</li>
-<li>transcodeInfo（视频转码结果信息）。</li>
-<li>animatedGraphicsInfo（视频转动图结果信息）。</li>
-<li>imageSpriteInfo（视频雪碧图信息）。</li>
-<li>snapshotByTimeOffsetInfo（视频指定时间点截图信息）。</li>
-<li>sampleSnapshotInfo（采样截图信息）。</li>
-<li>keyFrameDescInfo（打点信息）。</li>
-<li>adaptiveDynamicStreamingInfo（转自适应码流信息）。</li>
-<li>miniProgramReviewInfo（小程序审核信息）。</li>
-     */
-    public void setFilters(String [] Filters) {
-        this.Filters = Filters;
-    }
-
-    /**
-     * Get 媒体文件存储地区，如 ap-chongqing，参见[地域列表](https://cloud.tencent.com/document/product/266/9760#.E5.B7.B2.E6.94.AF.E6.8C.81.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
-<li>单个存储地区长度限制：20个字符。</li>
-<li>数组长度限制：20。</li> 
-     * @return StorageRegions 媒体文件存储地区，如 ap-chongqing，参见[地域列表](https://cloud.tencent.com/document/product/266/9760#.E5.B7.B2.E6.94.AF.E6.8C.81.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
-<li>单个存储地区长度限制：20个字符。</li>
-<li>数组长度限制：20。</li>
-     */
-    public String [] getStorageRegions() {
-        return this.StorageRegions;
-    }
-
-    /**
-     * Set 媒体文件存储地区，如 ap-chongqing，参见[地域列表](https://cloud.tencent.com/document/product/266/9760#.E5.B7.B2.E6.94.AF.E6.8C.81.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
-<li>单个存储地区长度限制：20个字符。</li>
-<li>数组长度限制：20。</li>
-     * @param StorageRegions 媒体文件存储地区，如 ap-chongqing，参见[地域列表](https://cloud.tencent.com/document/product/266/9760#.E5.B7.B2.E6.94.AF.E6.8C.81.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
-<li>单个存储地区长度限制：20个字符。</li>
-<li>数组长度限制：20。</li>
-     */
-    public void setStorageRegions(String [] StorageRegions) {
-        this.StorageRegions = StorageRegions;
-    }
-
-    /**
-     * Get 存储类型数组。可选值有：
-<li> STANDARD：标准存储。</li>
-<li> STANDARD_IA：低频存储。</li>
-<li> ARCHIVE：归档存储。</li>
-<li> DEEP_ARCHIVE：深度归档存储。</li> 
-     * @return StorageClasses 存储类型数组。可选值有：
-<li> STANDARD：标准存储。</li>
-<li> STANDARD_IA：低频存储。</li>
-<li> ARCHIVE：归档存储。</li>
-<li> DEEP_ARCHIVE：深度归档存储。</li>
-     */
-    public String [] getStorageClasses() {
-        return this.StorageClasses;
-    }
-
-    /**
-     * Set 存储类型数组。可选值有：
-<li> STANDARD：标准存储。</li>
-<li> STANDARD_IA：低频存储。</li>
-<li> ARCHIVE：归档存储。</li>
-<li> DEEP_ARCHIVE：深度归档存储。</li>
-     * @param StorageClasses 存储类型数组。可选值有：
-<li> STANDARD：标准存储。</li>
-<li> STANDARD_IA：低频存储。</li>
-<li> ARCHIVE：归档存储。</li>
-<li> DEEP_ARCHIVE：深度归档存储。</li>
-     */
-    public void setStorageClasses(String [] StorageClasses) {
-        this.StorageClasses = StorageClasses;
-    }
-
-    /**
-     * Get TRTC 应用 ID 集合。匹配集合中的任意元素。
-<li>数组长度限制：10。</li> 
-     * @return TrtcSdkAppIds TRTC 应用 ID 集合。匹配集合中的任意元素。
-<li>数组长度限制：10。</li>
-     */
-    public Long [] getTrtcSdkAppIds() {
-        return this.TrtcSdkAppIds;
-    }
-
-    /**
-     * Set TRTC 应用 ID 集合。匹配集合中的任意元素。
-<li>数组长度限制：10。</li>
-     * @param TrtcSdkAppIds TRTC 应用 ID 集合。匹配集合中的任意元素。
-<li>数组长度限制：10。</li>
-     */
-    public void setTrtcSdkAppIds(Long [] TrtcSdkAppIds) {
-        this.TrtcSdkAppIds = TrtcSdkAppIds;
-    }
-
-    /**
-     * Get TRTC 房间 ID 集合。匹配集合中的任意元素。
-<li>单个房间 ID 长度限制：64个字符；</li>
-<li>数组长度限制：10。</li> 
-     * @return TrtcRoomIds TRTC 房间 ID 集合。匹配集合中的任意元素。
-<li>单个房间 ID 长度限制：64个字符；</li>
-<li>数组长度限制：10。</li>
-     */
-    public String [] getTrtcRoomIds() {
-        return this.TrtcRoomIds;
-    }
-
-    /**
-     * Set TRTC 房间 ID 集合。匹配集合中的任意元素。
-<li>单个房间 ID 长度限制：64个字符；</li>
-<li>数组长度限制：10。</li>
-     * @param TrtcRoomIds TRTC 房间 ID 集合。匹配集合中的任意元素。
-<li>单个房间 ID 长度限制：64个字符；</li>
-<li>数组长度限制：10。</li>
-     */
-    public void setTrtcRoomIds(String [] TrtcRoomIds) {
-        this.TrtcRoomIds = TrtcRoomIds;
     }
 
     /**
@@ -974,21 +1083,6 @@ public class SearchMediaRequest extends AbstractModel{
         if (source.ExpireTime != null) {
             this.ExpireTime = new TimeRange(source.ExpireTime);
         }
-        if (source.Sort != null) {
-            this.Sort = new SortBy(source.Sort);
-        }
-        if (source.Offset != null) {
-            this.Offset = new Long(source.Offset);
-        }
-        if (source.Limit != null) {
-            this.Limit = new Long(source.Limit);
-        }
-        if (source.Filters != null) {
-            this.Filters = new String[source.Filters.length];
-            for (int i = 0; i < source.Filters.length; i++) {
-                this.Filters[i] = new String(source.Filters[i]);
-            }
-        }
         if (source.StorageRegions != null) {
             this.StorageRegions = new String[source.StorageRegions.length];
             for (int i = 0; i < source.StorageRegions.length; i++) {
@@ -999,6 +1093,24 @@ public class SearchMediaRequest extends AbstractModel{
             this.StorageClasses = new String[source.StorageClasses.length];
             for (int i = 0; i < source.StorageClasses.length; i++) {
                 this.StorageClasses[i] = new String(source.StorageClasses[i]);
+            }
+        }
+        if (source.MediaTypes != null) {
+            this.MediaTypes = new String[source.MediaTypes.length];
+            for (int i = 0; i < source.MediaTypes.length; i++) {
+                this.MediaTypes[i] = new String(source.MediaTypes[i]);
+            }
+        }
+        if (source.Status != null) {
+            this.Status = new String[source.Status.length];
+            for (int i = 0; i < source.Status.length; i++) {
+                this.Status[i] = new String(source.Status[i]);
+            }
+        }
+        if (source.ReviewResults != null) {
+            this.ReviewResults = new String[source.ReviewResults.length];
+            for (int i = 0; i < source.ReviewResults.length; i++) {
+                this.ReviewResults[i] = new String(source.ReviewResults[i]);
             }
         }
         if (source.TrtcSdkAppIds != null) {
@@ -1012,6 +1124,21 @@ public class SearchMediaRequest extends AbstractModel{
             for (int i = 0; i < source.TrtcRoomIds.length; i++) {
                 this.TrtcRoomIds[i] = new String(source.TrtcRoomIds[i]);
             }
+        }
+        if (source.Filters != null) {
+            this.Filters = new String[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new String(source.Filters[i]);
+            }
+        }
+        if (source.Sort != null) {
+            this.Sort = new SortBy(source.Sort);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
         }
         if (source.Text != null) {
             this.Text = new String(source.Text);
@@ -1056,14 +1183,17 @@ public class SearchMediaRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "StreamIds.", this.StreamIds);
         this.setParamObj(map, prefix + "CreateTime.", this.CreateTime);
         this.setParamObj(map, prefix + "ExpireTime.", this.ExpireTime);
+        this.setParamArraySimple(map, prefix + "StorageRegions.", this.StorageRegions);
+        this.setParamArraySimple(map, prefix + "StorageClasses.", this.StorageClasses);
+        this.setParamArraySimple(map, prefix + "MediaTypes.", this.MediaTypes);
+        this.setParamArraySimple(map, prefix + "Status.", this.Status);
+        this.setParamArraySimple(map, prefix + "ReviewResults.", this.ReviewResults);
+        this.setParamArraySimple(map, prefix + "TrtcSdkAppIds.", this.TrtcSdkAppIds);
+        this.setParamArraySimple(map, prefix + "TrtcRoomIds.", this.TrtcRoomIds);
+        this.setParamArraySimple(map, prefix + "Filters.", this.Filters);
         this.setParamObj(map, prefix + "Sort.", this.Sort);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
-        this.setParamArraySimple(map, prefix + "Filters.", this.Filters);
-        this.setParamArraySimple(map, prefix + "StorageRegions.", this.StorageRegions);
-        this.setParamArraySimple(map, prefix + "StorageClasses.", this.StorageClasses);
-        this.setParamArraySimple(map, prefix + "TrtcSdkAppIds.", this.TrtcSdkAppIds);
-        this.setParamArraySimple(map, prefix + "TrtcRoomIds.", this.TrtcRoomIds);
         this.setParamSimple(map, prefix + "Text", this.Text);
         this.setParamSimple(map, prefix + "SourceType", this.SourceType);
         this.setParamSimple(map, prefix + "StreamId", this.StreamId);

@@ -39,21 +39,21 @@ public class Bundle extends AbstractModel{
     /**
     * 系统盘类型。
 取值范围： 
-<li> LOCAL_BASIC：本地硬盘</li><li> LOCAL_SSD：本地 SSD 硬盘</li><li> CLOUD_BASIC：普通云硬盘</li><li> CLOUD_SSD：SSD 云硬盘</li><li> CLOUD_PREMIUM：高性能云硬盘</li>
+<li> CLOUD_SSD：SSD 云硬盘</li><li> CLOUD_PREMIUM：高性能云硬盘</li>
     */
     @SerializedName("SystemDiskType")
     @Expose
     private String SystemDiskType;
 
     /**
-    * 系统盘大小。
+    * 系统盘大小。单位GB。
     */
     @SerializedName("SystemDiskSize")
     @Expose
     private Long SystemDiskSize;
 
     /**
-    * 每月网络流量，单位 Gb。
+    * 每月网络流量，单位 GB。
     */
     @SerializedName("MonthlyTraffic")
     @Expose
@@ -111,11 +111,26 @@ public class Bundle extends AbstractModel{
     /**
     * 套餐类型。
 取值范围：
-<li> GENERAL_BUNDLE：通用型</li><li> STORAGE_BUNDLE：存储型 </li>
+<li>STARTER_BUNDLE：入门型</li>
+<li>GENERAL_BUNDLE：通用型</li>
+<li>ENTERPRISE_BUNDLE：企业型</li>
+<li>STORAGE_BUNDLE：存储型</li>
+<li>EXCLUSIVE_BUNDLE：专属型</li>
+<li>HK_EXCLUSIVE_BUNDLE：香港专属型 </li>
+<li>CAREFREE_BUNDLE：无忧型</li>
+<li>BEFAST_BUNDLE：蜂驰型 </li>
     */
     @SerializedName("BundleType")
     @Expose
     private String BundleType;
+
+    /**
+    * 套餐类型描述信息。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("BundleTypeDescription")
+    @Expose
+    private String BundleTypeDescription;
 
     /**
     * 套餐展示标签.
@@ -163,10 +178,10 @@ public class Bundle extends AbstractModel{
     /**
      * Get 系统盘类型。
 取值范围： 
-<li> LOCAL_BASIC：本地硬盘</li><li> LOCAL_SSD：本地 SSD 硬盘</li><li> CLOUD_BASIC：普通云硬盘</li><li> CLOUD_SSD：SSD 云硬盘</li><li> CLOUD_PREMIUM：高性能云硬盘</li> 
+<li> CLOUD_SSD：SSD 云硬盘</li><li> CLOUD_PREMIUM：高性能云硬盘</li> 
      * @return SystemDiskType 系统盘类型。
 取值范围： 
-<li> LOCAL_BASIC：本地硬盘</li><li> LOCAL_SSD：本地 SSD 硬盘</li><li> CLOUD_BASIC：普通云硬盘</li><li> CLOUD_SSD：SSD 云硬盘</li><li> CLOUD_PREMIUM：高性能云硬盘</li>
+<li> CLOUD_SSD：SSD 云硬盘</li><li> CLOUD_PREMIUM：高性能云硬盘</li>
      */
     public String getSystemDiskType() {
         return this.SystemDiskType;
@@ -175,42 +190,42 @@ public class Bundle extends AbstractModel{
     /**
      * Set 系统盘类型。
 取值范围： 
-<li> LOCAL_BASIC：本地硬盘</li><li> LOCAL_SSD：本地 SSD 硬盘</li><li> CLOUD_BASIC：普通云硬盘</li><li> CLOUD_SSD：SSD 云硬盘</li><li> CLOUD_PREMIUM：高性能云硬盘</li>
+<li> CLOUD_SSD：SSD 云硬盘</li><li> CLOUD_PREMIUM：高性能云硬盘</li>
      * @param SystemDiskType 系统盘类型。
 取值范围： 
-<li> LOCAL_BASIC：本地硬盘</li><li> LOCAL_SSD：本地 SSD 硬盘</li><li> CLOUD_BASIC：普通云硬盘</li><li> CLOUD_SSD：SSD 云硬盘</li><li> CLOUD_PREMIUM：高性能云硬盘</li>
+<li> CLOUD_SSD：SSD 云硬盘</li><li> CLOUD_PREMIUM：高性能云硬盘</li>
      */
     public void setSystemDiskType(String SystemDiskType) {
         this.SystemDiskType = SystemDiskType;
     }
 
     /**
-     * Get 系统盘大小。 
-     * @return SystemDiskSize 系统盘大小。
+     * Get 系统盘大小。单位GB。 
+     * @return SystemDiskSize 系统盘大小。单位GB。
      */
     public Long getSystemDiskSize() {
         return this.SystemDiskSize;
     }
 
     /**
-     * Set 系统盘大小。
-     * @param SystemDiskSize 系统盘大小。
+     * Set 系统盘大小。单位GB。
+     * @param SystemDiskSize 系统盘大小。单位GB。
      */
     public void setSystemDiskSize(Long SystemDiskSize) {
         this.SystemDiskSize = SystemDiskSize;
     }
 
     /**
-     * Get 每月网络流量，单位 Gb。 
-     * @return MonthlyTraffic 每月网络流量，单位 Gb。
+     * Get 每月网络流量，单位 GB。 
+     * @return MonthlyTraffic 每月网络流量，单位 GB。
      */
     public Long getMonthlyTraffic() {
         return this.MonthlyTraffic;
     }
 
     /**
-     * Set 每月网络流量，单位 Gb。
-     * @param MonthlyTraffic 每月网络流量，单位 Gb。
+     * Set 每月网络流量，单位 GB。
+     * @param MonthlyTraffic 每月网络流量，单位 GB。
      */
     public void setMonthlyTraffic(Long MonthlyTraffic) {
         this.MonthlyTraffic = MonthlyTraffic;
@@ -331,10 +346,24 @@ public class Bundle extends AbstractModel{
     /**
      * Get 套餐类型。
 取值范围：
-<li> GENERAL_BUNDLE：通用型</li><li> STORAGE_BUNDLE：存储型 </li> 
+<li>STARTER_BUNDLE：入门型</li>
+<li>GENERAL_BUNDLE：通用型</li>
+<li>ENTERPRISE_BUNDLE：企业型</li>
+<li>STORAGE_BUNDLE：存储型</li>
+<li>EXCLUSIVE_BUNDLE：专属型</li>
+<li>HK_EXCLUSIVE_BUNDLE：香港专属型 </li>
+<li>CAREFREE_BUNDLE：无忧型</li>
+<li>BEFAST_BUNDLE：蜂驰型 </li> 
      * @return BundleType 套餐类型。
 取值范围：
-<li> GENERAL_BUNDLE：通用型</li><li> STORAGE_BUNDLE：存储型 </li>
+<li>STARTER_BUNDLE：入门型</li>
+<li>GENERAL_BUNDLE：通用型</li>
+<li>ENTERPRISE_BUNDLE：企业型</li>
+<li>STORAGE_BUNDLE：存储型</li>
+<li>EXCLUSIVE_BUNDLE：专属型</li>
+<li>HK_EXCLUSIVE_BUNDLE：香港专属型 </li>
+<li>CAREFREE_BUNDLE：无忧型</li>
+<li>BEFAST_BUNDLE：蜂驰型 </li>
      */
     public String getBundleType() {
         return this.BundleType;
@@ -343,13 +372,47 @@ public class Bundle extends AbstractModel{
     /**
      * Set 套餐类型。
 取值范围：
-<li> GENERAL_BUNDLE：通用型</li><li> STORAGE_BUNDLE：存储型 </li>
+<li>STARTER_BUNDLE：入门型</li>
+<li>GENERAL_BUNDLE：通用型</li>
+<li>ENTERPRISE_BUNDLE：企业型</li>
+<li>STORAGE_BUNDLE：存储型</li>
+<li>EXCLUSIVE_BUNDLE：专属型</li>
+<li>HK_EXCLUSIVE_BUNDLE：香港专属型 </li>
+<li>CAREFREE_BUNDLE：无忧型</li>
+<li>BEFAST_BUNDLE：蜂驰型 </li>
      * @param BundleType 套餐类型。
 取值范围：
-<li> GENERAL_BUNDLE：通用型</li><li> STORAGE_BUNDLE：存储型 </li>
+<li>STARTER_BUNDLE：入门型</li>
+<li>GENERAL_BUNDLE：通用型</li>
+<li>ENTERPRISE_BUNDLE：企业型</li>
+<li>STORAGE_BUNDLE：存储型</li>
+<li>EXCLUSIVE_BUNDLE：专属型</li>
+<li>HK_EXCLUSIVE_BUNDLE：香港专属型 </li>
+<li>CAREFREE_BUNDLE：无忧型</li>
+<li>BEFAST_BUNDLE：蜂驰型 </li>
      */
     public void setBundleType(String BundleType) {
         this.BundleType = BundleType;
+    }
+
+    /**
+     * Get 套餐类型描述信息。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return BundleTypeDescription 套餐类型描述信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getBundleTypeDescription() {
+        return this.BundleTypeDescription;
+    }
+
+    /**
+     * Set 套餐类型描述信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param BundleTypeDescription 套餐类型描述信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBundleTypeDescription(String BundleTypeDescription) {
+        this.BundleTypeDescription = BundleTypeDescription;
     }
 
     /**
@@ -431,6 +494,9 @@ public class Bundle extends AbstractModel{
         if (source.BundleType != null) {
             this.BundleType = new String(source.BundleType);
         }
+        if (source.BundleTypeDescription != null) {
+            this.BundleTypeDescription = new String(source.BundleTypeDescription);
+        }
         if (source.BundleDisplayLabel != null) {
             this.BundleDisplayLabel = new String(source.BundleDisplayLabel);
         }
@@ -454,6 +520,7 @@ public class Bundle extends AbstractModel{
         this.setParamSimple(map, prefix + "InternetChargeType", this.InternetChargeType);
         this.setParamSimple(map, prefix + "BundleSalesState", this.BundleSalesState);
         this.setParamSimple(map, prefix + "BundleType", this.BundleType);
+        this.setParamSimple(map, prefix + "BundleTypeDescription", this.BundleTypeDescription);
         this.setParamSimple(map, prefix + "BundleDisplayLabel", this.BundleDisplayLabel);
 
     }

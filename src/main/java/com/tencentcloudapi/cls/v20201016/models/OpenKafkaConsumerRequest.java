@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class OpenKafkaConsumerRequest extends AbstractModel{
 
     /**
-    * CLS控制台创建的TopicId
+    * 日志主题ID
     */
     @SerializedName("FromTopicId")
     @Expose
@@ -37,16 +37,23 @@ public class OpenKafkaConsumerRequest extends AbstractModel{
     private Long Compression;
 
     /**
-     * Get CLS控制台创建的TopicId 
-     * @return FromTopicId CLS控制台创建的TopicId
+    * kafka协议消费数据格式
+    */
+    @SerializedName("ConsumerContent")
+    @Expose
+    private KafkaConsumerContent ConsumerContent;
+
+    /**
+     * Get 日志主题ID 
+     * @return FromTopicId 日志主题ID
      */
     public String getFromTopicId() {
         return this.FromTopicId;
     }
 
     /**
-     * Set CLS控制台创建的TopicId
-     * @param FromTopicId CLS控制台创建的TopicId
+     * Set 日志主题ID
+     * @param FromTopicId 日志主题ID
      */
     public void setFromTopicId(String FromTopicId) {
         this.FromTopicId = FromTopicId;
@@ -68,6 +75,22 @@ public class OpenKafkaConsumerRequest extends AbstractModel{
         this.Compression = Compression;
     }
 
+    /**
+     * Get kafka协议消费数据格式 
+     * @return ConsumerContent kafka协议消费数据格式
+     */
+    public KafkaConsumerContent getConsumerContent() {
+        return this.ConsumerContent;
+    }
+
+    /**
+     * Set kafka协议消费数据格式
+     * @param ConsumerContent kafka协议消费数据格式
+     */
+    public void setConsumerContent(KafkaConsumerContent ConsumerContent) {
+        this.ConsumerContent = ConsumerContent;
+    }
+
     public OpenKafkaConsumerRequest() {
     }
 
@@ -82,6 +105,9 @@ public class OpenKafkaConsumerRequest extends AbstractModel{
         if (source.Compression != null) {
             this.Compression = new Long(source.Compression);
         }
+        if (source.ConsumerContent != null) {
+            this.ConsumerContent = new KafkaConsumerContent(source.ConsumerContent);
+        }
     }
 
 
@@ -91,6 +117,7 @@ public class OpenKafkaConsumerRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "FromTopicId", this.FromTopicId);
         this.setParamSimple(map, prefix + "Compression", this.Compression);
+        this.setParamObj(map, prefix + "ConsumerContent.", this.ConsumerContent);
 
     }
 }

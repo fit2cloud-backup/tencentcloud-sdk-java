@@ -37,7 +37,7 @@ public class ModifyEndUserRequest extends AbstractModel{
     private String UUId;
 
     /**
-    * 帐号的状态
+    * 账号的状态
 <li>ENABLE</li>
 <li>DISABLE</li>
     */
@@ -78,10 +78,10 @@ public class ModifyEndUserRequest extends AbstractModel{
     }
 
     /**
-     * Get 帐号的状态
+     * Get 账号的状态
 <li>ENABLE</li>
 <li>DISABLE</li> 
-     * @return Status 帐号的状态
+     * @return Status 账号的状态
 <li>ENABLE</li>
 <li>DISABLE</li>
      */
@@ -90,10 +90,10 @@ public class ModifyEndUserRequest extends AbstractModel{
     }
 
     /**
-     * Set 帐号的状态
+     * Set 账号的状态
 <li>ENABLE</li>
 <li>DISABLE</li>
-     * @param Status 帐号的状态
+     * @param Status 账号的状态
 <li>ENABLE</li>
 <li>DISABLE</li>
      */

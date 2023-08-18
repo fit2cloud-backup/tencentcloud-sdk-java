@@ -24,8 +24,10 @@ public class TEHDConfigForUpdate extends AbstractModel{
 
     /**
     * 极速高清类型，可选值：
-<li>TEHD-100：极速高清-100。</li>
+<li>TEHD-100：极速高清-100（视频极速高清）。</li>
+<li>TEHD-200：极速高清-200（音频极速高清）。</li>
 不填代表不修改。
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Type")
     @Expose
@@ -33,6 +35,7 @@ public class TEHDConfigForUpdate extends AbstractModel{
 
     /**
     * 视频码率上限，不填代表不修改。
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxVideoBitrate")
     @Expose
@@ -40,11 +43,15 @@ public class TEHDConfigForUpdate extends AbstractModel{
 
     /**
      * Get 极速高清类型，可选值：
-<li>TEHD-100：极速高清-100。</li>
-不填代表不修改。 
-     * @return Type 极速高清类型，可选值：
-<li>TEHD-100：极速高清-100。</li>
+<li>TEHD-100：极速高清-100（视频极速高清）。</li>
+<li>TEHD-200：极速高清-200（音频极速高清）。</li>
 不填代表不修改。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Type 极速高清类型，可选值：
+<li>TEHD-100：极速高清-100（视频极速高清）。</li>
+<li>TEHD-200：极速高清-200（音频极速高清）。</li>
+不填代表不修改。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getType() {
         return this.Type;
@@ -52,19 +59,25 @@ public class TEHDConfigForUpdate extends AbstractModel{
 
     /**
      * Set 极速高清类型，可选值：
-<li>TEHD-100：极速高清-100。</li>
+<li>TEHD-100：极速高清-100（视频极速高清）。</li>
+<li>TEHD-200：极速高清-200（音频极速高清）。</li>
 不填代表不修改。
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Type 极速高清类型，可选值：
-<li>TEHD-100：极速高清-100。</li>
+<li>TEHD-100：极速高清-100（视频极速高清）。</li>
+<li>TEHD-200：极速高清-200（音频极速高清）。</li>
 不填代表不修改。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setType(String Type) {
         this.Type = Type;
     }
 
     /**
-     * Get 视频码率上限，不填代表不修改。 
+     * Get 视频码率上限，不填代表不修改。
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return MaxVideoBitrate 视频码率上限，不填代表不修改。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxVideoBitrate() {
         return this.MaxVideoBitrate;
@@ -72,7 +85,9 @@ public class TEHDConfigForUpdate extends AbstractModel{
 
     /**
      * Set 视频码率上限，不填代表不修改。
+注意：此字段可能返回 null，表示取不到有效值。
      * @param MaxVideoBitrate 视频码率上限，不填代表不修改。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxVideoBitrate(Long MaxVideoBitrate) {
         this.MaxVideoBitrate = MaxVideoBitrate;

@@ -29,13 +29,34 @@ public class YinsudaClient extends AbstractClient{
     private static String endpoint = "yinsuda.tencentcloudapi.com";
     private static String service = "yinsuda";
     private static String version = "2022-05-27";
-
+    
     public YinsudaClient(Credential credential, String region) {
         this(credential, region, new ClientProfile());
     }
 
     public YinsudaClient(Credential credential, String region, ClientProfile profile) {
         super(YinsudaClient.endpoint, YinsudaClient.version, credential, region, profile);
+    }
+
+    /**
+     *申请合唱相关信息，用于标记用户的演唱是在合唱场景下。
+     * @param req ApplyChorusRequest
+     * @return ApplyChorusResponse
+     * @throws TencentCloudSDKException
+     */
+    public ApplyChorusResponse ApplyChorus(ApplyChorusRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ApplyChorusResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<ApplyChorusResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ApplyChorus");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
     }
 
     /**
@@ -47,6 +68,7 @@ public class YinsudaClient extends AbstractClient{
     public BatchDescribeKTVMusicDetailsResponse BatchDescribeKTVMusicDetails(BatchDescribeKTVMusicDetailsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<BatchDescribeKTVMusicDetailsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<BatchDescribeKTVMusicDetailsResponse>>() {
                 }.getType();
@@ -67,6 +89,7 @@ public class YinsudaClient extends AbstractClient{
     public CreateKTVRobotResponse CreateKTVRobot(CreateKTVRobotRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateKTVRobotResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateKTVRobotResponse>>() {
                 }.getType();
@@ -87,10 +110,32 @@ public class YinsudaClient extends AbstractClient{
     public DescribeKTVMatchMusicsResponse DescribeKTVMatchMusics(DescribeKTVMatchMusicsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeKTVMatchMusicsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeKTVMatchMusicsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeKTVMatchMusics");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取歌曲伴奏片段链接，可用于抢唱
+     * @param req DescribeKTVMusicAccompanySegmentUrlRequest
+     * @return DescribeKTVMusicAccompanySegmentUrlResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeKTVMusicAccompanySegmentUrlResponse DescribeKTVMusicAccompanySegmentUrl(DescribeKTVMusicAccompanySegmentUrlRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeKTVMusicAccompanySegmentUrlResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeKTVMusicAccompanySegmentUrlResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeKTVMusicAccompanySegmentUrl");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -107,6 +152,7 @@ public class YinsudaClient extends AbstractClient{
     public DescribeKTVMusicsByTagResponse DescribeKTVMusicsByTag(DescribeKTVMusicsByTagRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeKTVMusicsByTagResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeKTVMusicsByTagResponse>>() {
                 }.getType();
@@ -127,6 +173,7 @@ public class YinsudaClient extends AbstractClient{
     public DescribeKTVPlaylistDetailResponse DescribeKTVPlaylistDetail(DescribeKTVPlaylistDetailRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeKTVPlaylistDetailResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeKTVPlaylistDetailResponse>>() {
                 }.getType();
@@ -147,6 +194,7 @@ public class YinsudaClient extends AbstractClient{
     public DescribeKTVPlaylistsResponse DescribeKTVPlaylists(DescribeKTVPlaylistsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeKTVPlaylistsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeKTVPlaylistsResponse>>() {
                 }.getType();
@@ -167,6 +215,7 @@ public class YinsudaClient extends AbstractClient{
     public DescribeKTVRobotsResponse DescribeKTVRobots(DescribeKTVRobotsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeKTVRobotsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeKTVRobotsResponse>>() {
                 }.getType();
@@ -187,6 +236,7 @@ public class YinsudaClient extends AbstractClient{
     public DescribeKTVSuggestionsResponse DescribeKTVSuggestions(DescribeKTVSuggestionsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeKTVSuggestionsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeKTVSuggestionsResponse>>() {
                 }.getType();
@@ -207,10 +257,53 @@ public class YinsudaClient extends AbstractClient{
     public DescribeKTVTagsResponse DescribeKTVTags(DescribeKTVTagsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeKTVTagsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeKTVTagsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeKTVTags");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *批量获取直播会员充值流水详细信息，包括：流水号，订单状态，下订单时间等
+     * @param req DescribeLiveVipTradeInfosRequest
+     * @return DescribeLiveVipTradeInfosResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeLiveVipTradeInfosResponse DescribeLiveVipTradeInfos(DescribeLiveVipTradeInfosRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeLiveVipTradeInfosResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeLiveVipTradeInfosResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeLiveVipTradeInfos");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取用户信息，包括是否为直播会员，及直播会员信息等
+     * @param req DescribeUserInfoRequest
+     * @return DescribeUserInfoResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeUserInfoResponse DescribeUserInfo(DescribeUserInfoRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeUserInfoResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeUserInfoResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeUserInfo");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -227,10 +320,32 @@ public class YinsudaClient extends AbstractClient{
     public DestroyKTVRobotResponse DestroyKTVRobot(DestroyKTVRobotRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DestroyKTVRobotResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DestroyKTVRobotResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DestroyKTVRobot");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *充值直播会员，使该用户可以在直播场景使用
+     * @param req RechargeLiveVipRequest
+     * @return RechargeLiveVipResponse
+     * @throws TencentCloudSDKException
+     */
+    public RechargeLiveVipResponse RechargeLiveVip(RechargeLiveVipRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<RechargeLiveVipResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<RechargeLiveVipResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "RechargeLiveVip");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -247,6 +362,7 @@ public class YinsudaClient extends AbstractClient{
     public SearchKTVMusicsResponse SearchKTVMusics(SearchKTVMusicsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SearchKTVMusicsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<SearchKTVMusicsResponse>>() {
                 }.getType();
@@ -267,6 +383,7 @@ public class YinsudaClient extends AbstractClient{
     public SyncKTVRobotCommandResponse SyncKTVRobotCommand(SyncKTVRobotCommandRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SyncKTVRobotCommandResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<SyncKTVRobotCommandResponse>>() {
                 }.getType();

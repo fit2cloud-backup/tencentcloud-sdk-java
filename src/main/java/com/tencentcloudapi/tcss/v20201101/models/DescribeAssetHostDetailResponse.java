@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeAssetHostDetailResponse extends AbstractModel{
 
     /**
-    * 云镜uuid
+    * 容器安全uuid
     */
     @SerializedName("UUID")
     @Expose
@@ -205,6 +205,27 @@ public class DescribeAssetHostDetailResponse extends AbstractModel{
     private TagInfo [] Tags;
 
     /**
+    * 集群ID
+    */
+    @SerializedName("ClusterID")
+    @Expose
+    private String ClusterID;
+
+    /**
+    * 集群名称
+    */
+    @SerializedName("ClusterName")
+    @Expose
+    private String ClusterName;
+
+    /**
+    * 集群接入状态
+    */
+    @SerializedName("ClusterAccessedStatus")
+    @Expose
+    private String ClusterAccessedStatus;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -212,16 +233,16 @@ public class DescribeAssetHostDetailResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 云镜uuid 
-     * @return UUID 云镜uuid
+     * Get 容器安全uuid 
+     * @return UUID 容器安全uuid
      */
     public String getUUID() {
         return this.UUID;
     }
 
     /**
-     * Set 云镜uuid
-     * @param UUID 云镜uuid
+     * Set 容器安全uuid
+     * @param UUID 容器安全uuid
      */
     public void setUUID(String UUID) {
         this.UUID = UUID;
@@ -628,6 +649,54 @@ public class DescribeAssetHostDetailResponse extends AbstractModel{
     }
 
     /**
+     * Get 集群ID 
+     * @return ClusterID 集群ID
+     */
+    public String getClusterID() {
+        return this.ClusterID;
+    }
+
+    /**
+     * Set 集群ID
+     * @param ClusterID 集群ID
+     */
+    public void setClusterID(String ClusterID) {
+        this.ClusterID = ClusterID;
+    }
+
+    /**
+     * Get 集群名称 
+     * @return ClusterName 集群名称
+     */
+    public String getClusterName() {
+        return this.ClusterName;
+    }
+
+    /**
+     * Set 集群名称
+     * @param ClusterName 集群名称
+     */
+    public void setClusterName(String ClusterName) {
+        this.ClusterName = ClusterName;
+    }
+
+    /**
+     * Get 集群接入状态 
+     * @return ClusterAccessedStatus 集群接入状态
+     */
+    public String getClusterAccessedStatus() {
+        return this.ClusterAccessedStatus;
+    }
+
+    /**
+     * Set 集群接入状态
+     * @param ClusterAccessedStatus 集群接入状态
+     */
+    public void setClusterAccessedStatus(String ClusterAccessedStatus) {
+        this.ClusterAccessedStatus = ClusterAccessedStatus;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -732,6 +801,15 @@ public class DescribeAssetHostDetailResponse extends AbstractModel{
                 this.Tags[i] = new TagInfo(source.Tags[i]);
             }
         }
+        if (source.ClusterID != null) {
+            this.ClusterID = new String(source.ClusterID);
+        }
+        if (source.ClusterName != null) {
+            this.ClusterName = new String(source.ClusterName);
+        }
+        if (source.ClusterAccessedStatus != null) {
+            this.ClusterAccessedStatus = new String(source.ClusterAccessedStatus);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -768,6 +846,9 @@ public class DescribeAssetHostDetailResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "RegionID", this.RegionID);
         this.setParamObj(map, prefix + "Project.", this.Project);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "ClusterID", this.ClusterID);
+        this.setParamSimple(map, prefix + "ClusterName", this.ClusterName);
+        this.setParamSimple(map, prefix + "ClusterAccessedStatus", this.ClusterAccessedStatus);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

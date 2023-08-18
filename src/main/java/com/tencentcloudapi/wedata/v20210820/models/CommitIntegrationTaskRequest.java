@@ -51,6 +51,27 @@ public class CommitIntegrationTaskRequest extends AbstractModel{
     private Long TaskType;
 
     /**
+    * 额外参数
+    */
+    @SerializedName("ExtConfig")
+    @Expose
+    private RecordField [] ExtConfig;
+
+    /**
+    * 提交版本描述
+    */
+    @SerializedName("VersionDesc")
+    @Expose
+    private String VersionDesc;
+
+    /**
+    * 提交版本号
+    */
+    @SerializedName("InstanceVersion")
+    @Expose
+    private Long InstanceVersion;
+
+    /**
      * Get 任务id 
      * @return TaskId 任务id
      */
@@ -114,6 +135,54 @@ public class CommitIntegrationTaskRequest extends AbstractModel{
         this.TaskType = TaskType;
     }
 
+    /**
+     * Get 额外参数 
+     * @return ExtConfig 额外参数
+     */
+    public RecordField [] getExtConfig() {
+        return this.ExtConfig;
+    }
+
+    /**
+     * Set 额外参数
+     * @param ExtConfig 额外参数
+     */
+    public void setExtConfig(RecordField [] ExtConfig) {
+        this.ExtConfig = ExtConfig;
+    }
+
+    /**
+     * Get 提交版本描述 
+     * @return VersionDesc 提交版本描述
+     */
+    public String getVersionDesc() {
+        return this.VersionDesc;
+    }
+
+    /**
+     * Set 提交版本描述
+     * @param VersionDesc 提交版本描述
+     */
+    public void setVersionDesc(String VersionDesc) {
+        this.VersionDesc = VersionDesc;
+    }
+
+    /**
+     * Get 提交版本号 
+     * @return InstanceVersion 提交版本号
+     */
+    public Long getInstanceVersion() {
+        return this.InstanceVersion;
+    }
+
+    /**
+     * Set 提交版本号
+     * @param InstanceVersion 提交版本号
+     */
+    public void setInstanceVersion(Long InstanceVersion) {
+        this.InstanceVersion = InstanceVersion;
+    }
+
     public CommitIntegrationTaskRequest() {
     }
 
@@ -134,6 +203,18 @@ public class CommitIntegrationTaskRequest extends AbstractModel{
         if (source.TaskType != null) {
             this.TaskType = new Long(source.TaskType);
         }
+        if (source.ExtConfig != null) {
+            this.ExtConfig = new RecordField[source.ExtConfig.length];
+            for (int i = 0; i < source.ExtConfig.length; i++) {
+                this.ExtConfig[i] = new RecordField(source.ExtConfig[i]);
+            }
+        }
+        if (source.VersionDesc != null) {
+            this.VersionDesc = new String(source.VersionDesc);
+        }
+        if (source.InstanceVersion != null) {
+            this.InstanceVersion = new Long(source.InstanceVersion);
+        }
     }
 
 
@@ -145,6 +226,9 @@ public class CommitIntegrationTaskRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamSimple(map, prefix + "CommitType", this.CommitType);
         this.setParamSimple(map, prefix + "TaskType", this.TaskType);
+        this.setParamArrayObj(map, prefix + "ExtConfig.", this.ExtConfig);
+        this.setParamSimple(map, prefix + "VersionDesc", this.VersionDesc);
+        this.setParamSimple(map, prefix + "InstanceVersion", this.InstanceVersion);
 
     }
 }

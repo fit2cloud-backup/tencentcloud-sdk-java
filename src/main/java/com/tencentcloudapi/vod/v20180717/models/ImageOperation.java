@@ -24,8 +24,9 @@ public class ImageOperation extends AbstractModel{
 
     /**
     * 图片处理类型。可选类型有：
-<li>Scale : 图片缩略处理。</li>
-<li>CenterCut : 图片裁剪处理。</li>
+<li>Scale : 图片缩略处理；</li>
+<li>CenterCut : 图片裁剪处理；</li>
+<li>Blur : 图片模糊处理。</li>
     */
     @SerializedName("Type")
     @Expose
@@ -46,12 +47,21 @@ public class ImageOperation extends AbstractModel{
     private ImageCenterCut CenterCut;
 
     /**
+    * 图片模糊处理，仅当 Type 为 Blur 时有效。
+    */
+    @SerializedName("Blur")
+    @Expose
+    private ImageBlur Blur;
+
+    /**
      * Get 图片处理类型。可选类型有：
-<li>Scale : 图片缩略处理。</li>
-<li>CenterCut : 图片裁剪处理。</li> 
+<li>Scale : 图片缩略处理；</li>
+<li>CenterCut : 图片裁剪处理；</li>
+<li>Blur : 图片模糊处理。</li> 
      * @return Type 图片处理类型。可选类型有：
-<li>Scale : 图片缩略处理。</li>
-<li>CenterCut : 图片裁剪处理。</li>
+<li>Scale : 图片缩略处理；</li>
+<li>CenterCut : 图片裁剪处理；</li>
+<li>Blur : 图片模糊处理。</li>
      */
     public String getType() {
         return this.Type;
@@ -59,11 +69,13 @@ public class ImageOperation extends AbstractModel{
 
     /**
      * Set 图片处理类型。可选类型有：
-<li>Scale : 图片缩略处理。</li>
-<li>CenterCut : 图片裁剪处理。</li>
+<li>Scale : 图片缩略处理；</li>
+<li>CenterCut : 图片裁剪处理；</li>
+<li>Blur : 图片模糊处理。</li>
      * @param Type 图片处理类型。可选类型有：
-<li>Scale : 图片缩略处理。</li>
-<li>CenterCut : 图片裁剪处理。</li>
+<li>Scale : 图片缩略处理；</li>
+<li>CenterCut : 图片裁剪处理；</li>
+<li>Blur : 图片模糊处理。</li>
      */
     public void setType(String Type) {
         this.Type = Type;
@@ -101,6 +113,22 @@ public class ImageOperation extends AbstractModel{
         this.CenterCut = CenterCut;
     }
 
+    /**
+     * Get 图片模糊处理，仅当 Type 为 Blur 时有效。 
+     * @return Blur 图片模糊处理，仅当 Type 为 Blur 时有效。
+     */
+    public ImageBlur getBlur() {
+        return this.Blur;
+    }
+
+    /**
+     * Set 图片模糊处理，仅当 Type 为 Blur 时有效。
+     * @param Blur 图片模糊处理，仅当 Type 为 Blur 时有效。
+     */
+    public void setBlur(ImageBlur Blur) {
+        this.Blur = Blur;
+    }
+
     public ImageOperation() {
     }
 
@@ -118,6 +146,9 @@ public class ImageOperation extends AbstractModel{
         if (source.CenterCut != null) {
             this.CenterCut = new ImageCenterCut(source.CenterCut);
         }
+        if (source.Blur != null) {
+            this.Blur = new ImageBlur(source.Blur);
+        }
     }
 
 
@@ -128,6 +159,7 @@ public class ImageOperation extends AbstractModel{
         this.setParamSimple(map, prefix + "Type", this.Type);
         this.setParamObj(map, prefix + "Scale.", this.Scale);
         this.setParamObj(map, prefix + "CenterCut.", this.CenterCut);
+        this.setParamObj(map, prefix + "Blur.", this.Blur);
 
     }
 }

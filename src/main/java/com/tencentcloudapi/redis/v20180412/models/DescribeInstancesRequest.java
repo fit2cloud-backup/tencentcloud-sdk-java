@@ -23,35 +23,44 @@ import java.util.HashMap;
 public class DescribeInstancesRequest extends AbstractModel{
 
     /**
-    * 实例数量，参数默认值20，最大值为1000。
+    * 每页输出实例的数量，参数默认值20，最大值为1000。
     */
     @SerializedName("Limit")
     @Expose
     private Long Limit;
 
     /**
-    * 偏移量，取Limit整数倍。
+    * 分页偏移量，取Limit整数倍。计算公式：offset=limit*(页码-1)。
     */
     @SerializedName("Offset")
     @Expose
     private Long Offset;
 
     /**
-    * 实例 ID，如：crs-6ubhgouj。
+    * 指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+
+
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
 
     /**
-    * 实例排序依据，枚举值如下所示：<ul><li>projectId：项目ID。</li><li>createtime：实例创建时间。</li><li>instancename：实例名称。</li><li>type：实例类型。</li><li>curDeadline：实例到期时间。</li></ul>
+    * 实例列表排序依据，枚举值如下所示：
+- projectId：依据项目ID排序。
+- createtime：依据实例创建时间排序。
+- instancename：依据实例名称排序。
+- type：依据实例类型排序。
+- curDeadline：依据实例到期时间排序。
     */
     @SerializedName("OrderBy")
     @Expose
     private String OrderBy;
 
     /**
-    * 实例排序方式，默认为倒序排序。<ul><li>1：倒序。</li><li>0：顺序。</li></ul>
+    * 实例排序方式，默认为倒序排序。
+- 1：倒序。
+- 0：顺序。
     */
     @SerializedName("OrderType")
     @Expose
@@ -72,7 +81,7 @@ public class DescribeInstancesRequest extends AbstractModel{
     private String [] SubnetIds;
 
     /**
-    * 设置模糊查询关键字，支持根据实例名称或实例ID模糊查询实例。
+    * 设置模糊查询关键字段，仅实例名称支持模糊查询。
     */
     @SerializedName("SearchKey")
     @Expose
@@ -114,14 +123,22 @@ public class DescribeInstancesRequest extends AbstractModel{
     private Long [] RegionIds;
 
     /**
-    * 实例状态。<ul><li>0：待初始化。</li><li>1：流程中。</li><li>2：运行中。</li><li>-2：已隔离。</li><li>-3：待删除。</li></ul>
+    * 实例状态。
+- 0：待初始化。
+- 1：流程中。
+- 2：运行中。
+- -2：已隔离。
+- -3：待删除。
     */
     @SerializedName("Status")
     @Expose
     private Long [] Status;
 
     /**
-    * 实例架构版本。<ul><li>1：单机版。</li><li>2：主从版。</li><li>3：集群版。</li></ul>
+    * 实例架构版本。
+- 1：单机版。
+- 2：主从版。
+- 3：集群版。
     */
     @SerializedName("TypeVersion")
     @Expose
@@ -135,28 +152,43 @@ public class DescribeInstancesRequest extends AbstractModel{
     private String EngineName;
 
     /**
-    * 续费模式。<ul><li>0：默认状态（手动续费）。</li><li>1：自动续费。</li><li>2：明确不自动续费。</ul>
+    * 续费模式。
+- 0：手动续费。
+- 1：自动续费。
+- 2：到期不再续费。
     */
     @SerializedName("AutoRenew")
     @Expose
     private Long [] AutoRenew;
 
     /**
-    * 计费模式。<ul><li>postpaid：按量计费。</li><li>prepaid：包年包月。</li></ul>
+    * 计费模式。
+- postpaid：按量计费。
+- prepaid：包年包月。
     */
     @SerializedName("BillingMode")
     @Expose
     private String BillingMode;
 
     /**
-    * 实例类型。<ul><li>1：Redis 老集群版。</li><li>2：Redis 2.8 主从版。</li><li>3：CKV 主从版。</li><li>4：CKV 集群版。</li><li>5：Redis 2.8 单机版。</li><li>6：Redis 4.0主从版。</li><li>7：Redis 4.0 集群版。</li><li>8：Redis 5.0 主从版。</li><li>9：Redis 5.0 集群版。</li></ul>
+    * 实例类型。
+- 2：Redis 2.8内存版（标准架构）。
+- 3：CKV 3.2内存版（标准架构）。
+- 4：CKV 3.2内存版（集群架构）。
+- 5：Redis 2.8内存版（单机）。
+- 6：Redis 4.0内存版（标准架构）。
+- 7：Redis 4.0内存版（集群架构）。
+- 8：Redis 5.0内存版（标准架构）。
+- 9：Redis 5.0内存版（集群架构）。
+- 15：Redis 6.2内存版（标准架构）。
+- 16：Redis 6.2内存版（集群架构）。
     */
     @SerializedName("Type")
     @Expose
     private Long Type;
 
     /**
-    * 设置搜索关键字数组，可根据实例ID、实例名称、完整IP地址查询实例。
+    * 设置搜索关键字数组，可根据实例ID、实例名称、完整IP地址搜索实例。
     */
     @SerializedName("SearchKeys")
     @Expose
@@ -191,7 +223,9 @@ public class DescribeInstancesRequest extends AbstractModel{
     private String [] TagKeys;
 
     /**
-    * 实例的产品版本。如果该参数不配置或者数组设置为空值，则默认不依据此参数过滤实例。<ul><li>local：本地盘版。</li><li>cloud：云盘版。</li><li>cdc：独享集群版。</li></ul>
+    * 实例的产品版本。如果该参数不配置或者数组设置为空值，则默认不依据此参数过滤实例。
+- local：本地盘版。
+- cdc：独享集群版。
     */
     @SerializedName("ProductVersions")
     @Expose
@@ -205,87 +239,125 @@ public class DescribeInstancesRequest extends AbstractModel{
     private String [] InstanceIds;
 
     /**
-    * 可用区模式。<ul><li>singleaz：单可用区。</li><li>multiaz：多可用区。</li></ul>
+    * 可用区模式。
+- singleaz：单可用区。
+- multiaz：多可用区。
     */
     @SerializedName("AzMode")
     @Expose
     private String AzMode;
 
     /**
-     * Get 实例数量，参数默认值20，最大值为1000。 
-     * @return Limit 实例数量，参数默认值20，最大值为1000。
+     * Get 每页输出实例的数量，参数默认值20，最大值为1000。 
+     * @return Limit 每页输出实例的数量，参数默认值20，最大值为1000。
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 实例数量，参数默认值20，最大值为1000。
-     * @param Limit 实例数量，参数默认值20，最大值为1000。
+     * Set 每页输出实例的数量，参数默认值20，最大值为1000。
+     * @param Limit 每页输出实例的数量，参数默认值20，最大值为1000。
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
     }
 
     /**
-     * Get 偏移量，取Limit整数倍。 
-     * @return Offset 偏移量，取Limit整数倍。
+     * Get 分页偏移量，取Limit整数倍。计算公式：offset=limit*(页码-1)。 
+     * @return Offset 分页偏移量，取Limit整数倍。计算公式：offset=limit*(页码-1)。
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 偏移量，取Limit整数倍。
-     * @param Offset 偏移量，取Limit整数倍。
+     * Set 分页偏移量，取Limit整数倍。计算公式：offset=limit*(页码-1)。
+     * @param Offset 分页偏移量，取Limit整数倍。计算公式：offset=limit*(页码-1)。
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get 实例 ID，如：crs-6ubhgouj。 
-     * @return InstanceId 实例 ID，如：crs-6ubhgouj。
+     * Get 指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+
+ 
+     * @return InstanceId 指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+
+
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例 ID，如：crs-6ubhgouj。
-     * @param InstanceId 实例 ID，如：crs-6ubhgouj。
+     * Set 指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+
+
+     * @param InstanceId 指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+
+
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 实例排序依据，枚举值如下所示：<ul><li>projectId：项目ID。</li><li>createtime：实例创建时间。</li><li>instancename：实例名称。</li><li>type：实例类型。</li><li>curDeadline：实例到期时间。</li></ul> 
-     * @return OrderBy 实例排序依据，枚举值如下所示：<ul><li>projectId：项目ID。</li><li>createtime：实例创建时间。</li><li>instancename：实例名称。</li><li>type：实例类型。</li><li>curDeadline：实例到期时间。</li></ul>
+     * Get 实例列表排序依据，枚举值如下所示：
+- projectId：依据项目ID排序。
+- createtime：依据实例创建时间排序。
+- instancename：依据实例名称排序。
+- type：依据实例类型排序。
+- curDeadline：依据实例到期时间排序。 
+     * @return OrderBy 实例列表排序依据，枚举值如下所示：
+- projectId：依据项目ID排序。
+- createtime：依据实例创建时间排序。
+- instancename：依据实例名称排序。
+- type：依据实例类型排序。
+- curDeadline：依据实例到期时间排序。
      */
     public String getOrderBy() {
         return this.OrderBy;
     }
 
     /**
-     * Set 实例排序依据，枚举值如下所示：<ul><li>projectId：项目ID。</li><li>createtime：实例创建时间。</li><li>instancename：实例名称。</li><li>type：实例类型。</li><li>curDeadline：实例到期时间。</li></ul>
-     * @param OrderBy 实例排序依据，枚举值如下所示：<ul><li>projectId：项目ID。</li><li>createtime：实例创建时间。</li><li>instancename：实例名称。</li><li>type：实例类型。</li><li>curDeadline：实例到期时间。</li></ul>
+     * Set 实例列表排序依据，枚举值如下所示：
+- projectId：依据项目ID排序。
+- createtime：依据实例创建时间排序。
+- instancename：依据实例名称排序。
+- type：依据实例类型排序。
+- curDeadline：依据实例到期时间排序。
+     * @param OrderBy 实例列表排序依据，枚举值如下所示：
+- projectId：依据项目ID排序。
+- createtime：依据实例创建时间排序。
+- instancename：依据实例名称排序。
+- type：依据实例类型排序。
+- curDeadline：依据实例到期时间排序。
      */
     public void setOrderBy(String OrderBy) {
         this.OrderBy = OrderBy;
     }
 
     /**
-     * Get 实例排序方式，默认为倒序排序。<ul><li>1：倒序。</li><li>0：顺序。</li></ul> 
-     * @return OrderType 实例排序方式，默认为倒序排序。<ul><li>1：倒序。</li><li>0：顺序。</li></ul>
+     * Get 实例排序方式，默认为倒序排序。
+- 1：倒序。
+- 0：顺序。 
+     * @return OrderType 实例排序方式，默认为倒序排序。
+- 1：倒序。
+- 0：顺序。
      */
     public Long getOrderType() {
         return this.OrderType;
     }
 
     /**
-     * Set 实例排序方式，默认为倒序排序。<ul><li>1：倒序。</li><li>0：顺序。</li></ul>
-     * @param OrderType 实例排序方式，默认为倒序排序。<ul><li>1：倒序。</li><li>0：顺序。</li></ul>
+     * Set 实例排序方式，默认为倒序排序。
+- 1：倒序。
+- 0：顺序。
+     * @param OrderType 实例排序方式，默认为倒序排序。
+- 1：倒序。
+- 0：顺序。
      */
     public void setOrderType(Long OrderType) {
         this.OrderType = OrderType;
@@ -324,16 +396,16 @@ public class DescribeInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 设置模糊查询关键字，支持根据实例名称或实例ID模糊查询实例。 
-     * @return SearchKey 设置模糊查询关键字，支持根据实例名称或实例ID模糊查询实例。
+     * Get 设置模糊查询关键字段，仅实例名称支持模糊查询。 
+     * @return SearchKey 设置模糊查询关键字段，仅实例名称支持模糊查询。
      */
     public String getSearchKey() {
         return this.SearchKey;
     }
 
     /**
-     * Set 设置模糊查询关键字，支持根据实例名称或实例ID模糊查询实例。
-     * @param SearchKey 设置模糊查询关键字，支持根据实例名称或实例ID模糊查询实例。
+     * Set 设置模糊查询关键字段，仅实例名称支持模糊查询。
+     * @param SearchKey 设置模糊查询关键字段，仅实例名称支持模糊查询。
      */
     public void setSearchKey(String SearchKey) {
         this.SearchKey = SearchKey;
@@ -420,32 +492,64 @@ public class DescribeInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 实例状态。<ul><li>0：待初始化。</li><li>1：流程中。</li><li>2：运行中。</li><li>-2：已隔离。</li><li>-3：待删除。</li></ul> 
-     * @return Status 实例状态。<ul><li>0：待初始化。</li><li>1：流程中。</li><li>2：运行中。</li><li>-2：已隔离。</li><li>-3：待删除。</li></ul>
+     * Get 实例状态。
+- 0：待初始化。
+- 1：流程中。
+- 2：运行中。
+- -2：已隔离。
+- -3：待删除。 
+     * @return Status 实例状态。
+- 0：待初始化。
+- 1：流程中。
+- 2：运行中。
+- -2：已隔离。
+- -3：待删除。
      */
     public Long [] getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 实例状态。<ul><li>0：待初始化。</li><li>1：流程中。</li><li>2：运行中。</li><li>-2：已隔离。</li><li>-3：待删除。</li></ul>
-     * @param Status 实例状态。<ul><li>0：待初始化。</li><li>1：流程中。</li><li>2：运行中。</li><li>-2：已隔离。</li><li>-3：待删除。</li></ul>
+     * Set 实例状态。
+- 0：待初始化。
+- 1：流程中。
+- 2：运行中。
+- -2：已隔离。
+- -3：待删除。
+     * @param Status 实例状态。
+- 0：待初始化。
+- 1：流程中。
+- 2：运行中。
+- -2：已隔离。
+- -3：待删除。
      */
     public void setStatus(Long [] Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 实例架构版本。<ul><li>1：单机版。</li><li>2：主从版。</li><li>3：集群版。</li></ul> 
-     * @return TypeVersion 实例架构版本。<ul><li>1：单机版。</li><li>2：主从版。</li><li>3：集群版。</li></ul>
+     * Get 实例架构版本。
+- 1：单机版。
+- 2：主从版。
+- 3：集群版。 
+     * @return TypeVersion 实例架构版本。
+- 1：单机版。
+- 2：主从版。
+- 3：集群版。
      */
     public Long getTypeVersion() {
         return this.TypeVersion;
     }
 
     /**
-     * Set 实例架构版本。<ul><li>1：单机版。</li><li>2：主从版。</li><li>3：集群版。</li></ul>
-     * @param TypeVersion 实例架构版本。<ul><li>1：单机版。</li><li>2：主从版。</li><li>3：集群版。</li></ul>
+     * Set 实例架构版本。
+- 1：单机版。
+- 2：主从版。
+- 3：集群版。
+     * @param TypeVersion 实例架构版本。
+- 1：单机版。
+- 2：主从版。
+- 3：集群版。
      */
     public void setTypeVersion(Long TypeVersion) {
         this.TypeVersion = TypeVersion;
@@ -468,64 +572,124 @@ public class DescribeInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 续费模式。<ul><li>0：默认状态（手动续费）。</li><li>1：自动续费。</li><li>2：明确不自动续费。</ul> 
-     * @return AutoRenew 续费模式。<ul><li>0：默认状态（手动续费）。</li><li>1：自动续费。</li><li>2：明确不自动续费。</ul>
+     * Get 续费模式。
+- 0：手动续费。
+- 1：自动续费。
+- 2：到期不再续费。 
+     * @return AutoRenew 续费模式。
+- 0：手动续费。
+- 1：自动续费。
+- 2：到期不再续费。
      */
     public Long [] getAutoRenew() {
         return this.AutoRenew;
     }
 
     /**
-     * Set 续费模式。<ul><li>0：默认状态（手动续费）。</li><li>1：自动续费。</li><li>2：明确不自动续费。</ul>
-     * @param AutoRenew 续费模式。<ul><li>0：默认状态（手动续费）。</li><li>1：自动续费。</li><li>2：明确不自动续费。</ul>
+     * Set 续费模式。
+- 0：手动续费。
+- 1：自动续费。
+- 2：到期不再续费。
+     * @param AutoRenew 续费模式。
+- 0：手动续费。
+- 1：自动续费。
+- 2：到期不再续费。
      */
     public void setAutoRenew(Long [] AutoRenew) {
         this.AutoRenew = AutoRenew;
     }
 
     /**
-     * Get 计费模式。<ul><li>postpaid：按量计费。</li><li>prepaid：包年包月。</li></ul> 
-     * @return BillingMode 计费模式。<ul><li>postpaid：按量计费。</li><li>prepaid：包年包月。</li></ul>
+     * Get 计费模式。
+- postpaid：按量计费。
+- prepaid：包年包月。 
+     * @return BillingMode 计费模式。
+- postpaid：按量计费。
+- prepaid：包年包月。
      */
     public String getBillingMode() {
         return this.BillingMode;
     }
 
     /**
-     * Set 计费模式。<ul><li>postpaid：按量计费。</li><li>prepaid：包年包月。</li></ul>
-     * @param BillingMode 计费模式。<ul><li>postpaid：按量计费。</li><li>prepaid：包年包月。</li></ul>
+     * Set 计费模式。
+- postpaid：按量计费。
+- prepaid：包年包月。
+     * @param BillingMode 计费模式。
+- postpaid：按量计费。
+- prepaid：包年包月。
      */
     public void setBillingMode(String BillingMode) {
         this.BillingMode = BillingMode;
     }
 
     /**
-     * Get 实例类型。<ul><li>1：Redis 老集群版。</li><li>2：Redis 2.8 主从版。</li><li>3：CKV 主从版。</li><li>4：CKV 集群版。</li><li>5：Redis 2.8 单机版。</li><li>6：Redis 4.0主从版。</li><li>7：Redis 4.0 集群版。</li><li>8：Redis 5.0 主从版。</li><li>9：Redis 5.0 集群版。</li></ul> 
-     * @return Type 实例类型。<ul><li>1：Redis 老集群版。</li><li>2：Redis 2.8 主从版。</li><li>3：CKV 主从版。</li><li>4：CKV 集群版。</li><li>5：Redis 2.8 单机版。</li><li>6：Redis 4.0主从版。</li><li>7：Redis 4.0 集群版。</li><li>8：Redis 5.0 主从版。</li><li>9：Redis 5.0 集群版。</li></ul>
+     * Get 实例类型。
+- 2：Redis 2.8内存版（标准架构）。
+- 3：CKV 3.2内存版（标准架构）。
+- 4：CKV 3.2内存版（集群架构）。
+- 5：Redis 2.8内存版（单机）。
+- 6：Redis 4.0内存版（标准架构）。
+- 7：Redis 4.0内存版（集群架构）。
+- 8：Redis 5.0内存版（标准架构）。
+- 9：Redis 5.0内存版（集群架构）。
+- 15：Redis 6.2内存版（标准架构）。
+- 16：Redis 6.2内存版（集群架构）。 
+     * @return Type 实例类型。
+- 2：Redis 2.8内存版（标准架构）。
+- 3：CKV 3.2内存版（标准架构）。
+- 4：CKV 3.2内存版（集群架构）。
+- 5：Redis 2.8内存版（单机）。
+- 6：Redis 4.0内存版（标准架构）。
+- 7：Redis 4.0内存版（集群架构）。
+- 8：Redis 5.0内存版（标准架构）。
+- 9：Redis 5.0内存版（集群架构）。
+- 15：Redis 6.2内存版（标准架构）。
+- 16：Redis 6.2内存版（集群架构）。
      */
     public Long getType() {
         return this.Type;
     }
 
     /**
-     * Set 实例类型。<ul><li>1：Redis 老集群版。</li><li>2：Redis 2.8 主从版。</li><li>3：CKV 主从版。</li><li>4：CKV 集群版。</li><li>5：Redis 2.8 单机版。</li><li>6：Redis 4.0主从版。</li><li>7：Redis 4.0 集群版。</li><li>8：Redis 5.0 主从版。</li><li>9：Redis 5.0 集群版。</li></ul>
-     * @param Type 实例类型。<ul><li>1：Redis 老集群版。</li><li>2：Redis 2.8 主从版。</li><li>3：CKV 主从版。</li><li>4：CKV 集群版。</li><li>5：Redis 2.8 单机版。</li><li>6：Redis 4.0主从版。</li><li>7：Redis 4.0 集群版。</li><li>8：Redis 5.0 主从版。</li><li>9：Redis 5.0 集群版。</li></ul>
+     * Set 实例类型。
+- 2：Redis 2.8内存版（标准架构）。
+- 3：CKV 3.2内存版（标准架构）。
+- 4：CKV 3.2内存版（集群架构）。
+- 5：Redis 2.8内存版（单机）。
+- 6：Redis 4.0内存版（标准架构）。
+- 7：Redis 4.0内存版（集群架构）。
+- 8：Redis 5.0内存版（标准架构）。
+- 9：Redis 5.0内存版（集群架构）。
+- 15：Redis 6.2内存版（标准架构）。
+- 16：Redis 6.2内存版（集群架构）。
+     * @param Type 实例类型。
+- 2：Redis 2.8内存版（标准架构）。
+- 3：CKV 3.2内存版（标准架构）。
+- 4：CKV 3.2内存版（集群架构）。
+- 5：Redis 2.8内存版（单机）。
+- 6：Redis 4.0内存版（标准架构）。
+- 7：Redis 4.0内存版（集群架构）。
+- 8：Redis 5.0内存版（标准架构）。
+- 9：Redis 5.0内存版（集群架构）。
+- 15：Redis 6.2内存版（标准架构）。
+- 16：Redis 6.2内存版（集群架构）。
      */
     public void setType(Long Type) {
         this.Type = Type;
     }
 
     /**
-     * Get 设置搜索关键字数组，可根据实例ID、实例名称、完整IP地址查询实例。 
-     * @return SearchKeys 设置搜索关键字数组，可根据实例ID、实例名称、完整IP地址查询实例。
+     * Get 设置搜索关键字数组，可根据实例ID、实例名称、完整IP地址搜索实例。 
+     * @return SearchKeys 设置搜索关键字数组，可根据实例ID、实例名称、完整IP地址搜索实例。
      */
     public String [] getSearchKeys() {
         return this.SearchKeys;
     }
 
     /**
-     * Set 设置搜索关键字数组，可根据实例ID、实例名称、完整IP地址查询实例。
-     * @param SearchKeys 设置搜索关键字数组，可根据实例ID、实例名称、完整IP地址查询实例。
+     * Set 设置搜索关键字数组，可根据实例ID、实例名称、完整IP地址搜索实例。
+     * @param SearchKeys 设置搜索关键字数组，可根据实例ID、实例名称、完整IP地址搜索实例。
      */
     public void setSearchKeys(String [] SearchKeys) {
         this.SearchKeys = SearchKeys;
@@ -596,16 +760,24 @@ public class DescribeInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 实例的产品版本。如果该参数不配置或者数组设置为空值，则默认不依据此参数过滤实例。<ul><li>local：本地盘版。</li><li>cloud：云盘版。</li><li>cdc：独享集群版。</li></ul> 
-     * @return ProductVersions 实例的产品版本。如果该参数不配置或者数组设置为空值，则默认不依据此参数过滤实例。<ul><li>local：本地盘版。</li><li>cloud：云盘版。</li><li>cdc：独享集群版。</li></ul>
+     * Get 实例的产品版本。如果该参数不配置或者数组设置为空值，则默认不依据此参数过滤实例。
+- local：本地盘版。
+- cdc：独享集群版。 
+     * @return ProductVersions 实例的产品版本。如果该参数不配置或者数组设置为空值，则默认不依据此参数过滤实例。
+- local：本地盘版。
+- cdc：独享集群版。
      */
     public String [] getProductVersions() {
         return this.ProductVersions;
     }
 
     /**
-     * Set 实例的产品版本。如果该参数不配置或者数组设置为空值，则默认不依据此参数过滤实例。<ul><li>local：本地盘版。</li><li>cloud：云盘版。</li><li>cdc：独享集群版。</li></ul>
-     * @param ProductVersions 实例的产品版本。如果该参数不配置或者数组设置为空值，则默认不依据此参数过滤实例。<ul><li>local：本地盘版。</li><li>cloud：云盘版。</li><li>cdc：独享集群版。</li></ul>
+     * Set 实例的产品版本。如果该参数不配置或者数组设置为空值，则默认不依据此参数过滤实例。
+- local：本地盘版。
+- cdc：独享集群版。
+     * @param ProductVersions 实例的产品版本。如果该参数不配置或者数组设置为空值，则默认不依据此参数过滤实例。
+- local：本地盘版。
+- cdc：独享集群版。
      */
     public void setProductVersions(String [] ProductVersions) {
         this.ProductVersions = ProductVersions;
@@ -628,16 +800,24 @@ public class DescribeInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 可用区模式。<ul><li>singleaz：单可用区。</li><li>multiaz：多可用区。</li></ul> 
-     * @return AzMode 可用区模式。<ul><li>singleaz：单可用区。</li><li>multiaz：多可用区。</li></ul>
+     * Get 可用区模式。
+- singleaz：单可用区。
+- multiaz：多可用区。 
+     * @return AzMode 可用区模式。
+- singleaz：单可用区。
+- multiaz：多可用区。
      */
     public String getAzMode() {
         return this.AzMode;
     }
 
     /**
-     * Set 可用区模式。<ul><li>singleaz：单可用区。</li><li>multiaz：多可用区。</li></ul>
-     * @param AzMode 可用区模式。<ul><li>singleaz：单可用区。</li><li>multiaz：多可用区。</li></ul>
+     * Set 可用区模式。
+- singleaz：单可用区。
+- multiaz：多可用区。
+     * @param AzMode 可用区模式。
+- singleaz：单可用区。
+- multiaz：多可用区。
      */
     public void setAzMode(String AzMode) {
         this.AzMode = AzMode;

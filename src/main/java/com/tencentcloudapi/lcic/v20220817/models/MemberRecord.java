@@ -100,6 +100,80 @@ public class MemberRecord extends AbstractModel{
     private Long Rewords;
 
     /**
+    * 用户IP。
+    */
+    @SerializedName("IPAddress")
+    @Expose
+    private String IPAddress;
+
+    /**
+    * 用户位置信息。
+    */
+    @SerializedName("Location")
+    @Expose
+    private String Location;
+
+    /**
+    * 用户设备平台信息。0:unknown  1:windows  2:mac  3:android  4:ios  5:web   6:h5   7:miniprogram （小程序）
+    */
+    @SerializedName("Device")
+    @Expose
+    private Long Device;
+
+    /**
+    * 每个成员上麦次数。
+    */
+    @SerializedName("PerMemberMicCount")
+    @Expose
+    private Long PerMemberMicCount;
+
+    /**
+    * 每个成员发送消息数量。
+
+    */
+    @SerializedName("PerMemberMessageCount")
+    @Expose
+    private Long PerMemberMessageCount;
+
+    /**
+    * 用户角色。0代表学生；1代表老师； 2助教；3巡课。
+    */
+    @SerializedName("Role")
+    @Expose
+    private Long Role;
+
+    /**
+    * 上课班号
+    */
+    @SerializedName("GroupId")
+    @Expose
+    private String GroupId;
+
+    /**
+    * 子上课班号
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SubGroupId")
+    @Expose
+    private String [] SubGroupId;
+
+    /**
+    * 用户的上台状态
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Stage")
+    @Expose
+    private Long Stage;
+
+    /**
+    * 用户状态。0为未到，1为在线，2为离线，3为被踢，4为永久被踢，5为暂时掉线
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CurrentState")
+    @Expose
+    private Long CurrentState;
+
+    /**
      * Get 用户ID。 
      * @return UserId 用户ID。
      */
@@ -275,6 +349,182 @@ public class MemberRecord extends AbstractModel{
         this.Rewords = Rewords;
     }
 
+    /**
+     * Get 用户IP。 
+     * @return IPAddress 用户IP。
+     */
+    public String getIPAddress() {
+        return this.IPAddress;
+    }
+
+    /**
+     * Set 用户IP。
+     * @param IPAddress 用户IP。
+     */
+    public void setIPAddress(String IPAddress) {
+        this.IPAddress = IPAddress;
+    }
+
+    /**
+     * Get 用户位置信息。 
+     * @return Location 用户位置信息。
+     */
+    public String getLocation() {
+        return this.Location;
+    }
+
+    /**
+     * Set 用户位置信息。
+     * @param Location 用户位置信息。
+     */
+    public void setLocation(String Location) {
+        this.Location = Location;
+    }
+
+    /**
+     * Get 用户设备平台信息。0:unknown  1:windows  2:mac  3:android  4:ios  5:web   6:h5   7:miniprogram （小程序） 
+     * @return Device 用户设备平台信息。0:unknown  1:windows  2:mac  3:android  4:ios  5:web   6:h5   7:miniprogram （小程序）
+     */
+    public Long getDevice() {
+        return this.Device;
+    }
+
+    /**
+     * Set 用户设备平台信息。0:unknown  1:windows  2:mac  3:android  4:ios  5:web   6:h5   7:miniprogram （小程序）
+     * @param Device 用户设备平台信息。0:unknown  1:windows  2:mac  3:android  4:ios  5:web   6:h5   7:miniprogram （小程序）
+     */
+    public void setDevice(Long Device) {
+        this.Device = Device;
+    }
+
+    /**
+     * Get 每个成员上麦次数。 
+     * @return PerMemberMicCount 每个成员上麦次数。
+     */
+    public Long getPerMemberMicCount() {
+        return this.PerMemberMicCount;
+    }
+
+    /**
+     * Set 每个成员上麦次数。
+     * @param PerMemberMicCount 每个成员上麦次数。
+     */
+    public void setPerMemberMicCount(Long PerMemberMicCount) {
+        this.PerMemberMicCount = PerMemberMicCount;
+    }
+
+    /**
+     * Get 每个成员发送消息数量。
+ 
+     * @return PerMemberMessageCount 每个成员发送消息数量。
+
+     */
+    public Long getPerMemberMessageCount() {
+        return this.PerMemberMessageCount;
+    }
+
+    /**
+     * Set 每个成员发送消息数量。
+
+     * @param PerMemberMessageCount 每个成员发送消息数量。
+
+     */
+    public void setPerMemberMessageCount(Long PerMemberMessageCount) {
+        this.PerMemberMessageCount = PerMemberMessageCount;
+    }
+
+    /**
+     * Get 用户角色。0代表学生；1代表老师； 2助教；3巡课。 
+     * @return Role 用户角色。0代表学生；1代表老师； 2助教；3巡课。
+     */
+    public Long getRole() {
+        return this.Role;
+    }
+
+    /**
+     * Set 用户角色。0代表学生；1代表老师； 2助教；3巡课。
+     * @param Role 用户角色。0代表学生；1代表老师； 2助教；3巡课。
+     */
+    public void setRole(Long Role) {
+        this.Role = Role;
+    }
+
+    /**
+     * Get 上课班号 
+     * @return GroupId 上课班号
+     */
+    public String getGroupId() {
+        return this.GroupId;
+    }
+
+    /**
+     * Set 上课班号
+     * @param GroupId 上课班号
+     */
+    public void setGroupId(String GroupId) {
+        this.GroupId = GroupId;
+    }
+
+    /**
+     * Get 子上课班号
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SubGroupId 子上课班号
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getSubGroupId() {
+        return this.SubGroupId;
+    }
+
+    /**
+     * Set 子上课班号
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SubGroupId 子上课班号
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSubGroupId(String [] SubGroupId) {
+        this.SubGroupId = SubGroupId;
+    }
+
+    /**
+     * Get 用户的上台状态
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Stage 用户的上台状态
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getStage() {
+        return this.Stage;
+    }
+
+    /**
+     * Set 用户的上台状态
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Stage 用户的上台状态
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setStage(Long Stage) {
+        this.Stage = Stage;
+    }
+
+    /**
+     * Get 用户状态。0为未到，1为在线，2为离线，3为被踢，4为永久被踢，5为暂时掉线
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CurrentState 用户状态。0为未到，1为在线，2为离线，3为被踢，4为永久被踢，5为暂时掉线
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getCurrentState() {
+        return this.CurrentState;
+    }
+
+    /**
+     * Set 用户状态。0为未到，1为在线，2为离线，3为被踢，4为永久被踢，5为暂时掉线
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CurrentState 用户状态。0为未到，1为在线，2为离线，3为被踢，4为永久被踢，5为暂时掉线
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCurrentState(Long CurrentState) {
+        this.CurrentState = CurrentState;
+    }
+
     public MemberRecord() {
     }
 
@@ -316,6 +566,39 @@ public class MemberRecord extends AbstractModel{
         if (source.Rewords != null) {
             this.Rewords = new Long(source.Rewords);
         }
+        if (source.IPAddress != null) {
+            this.IPAddress = new String(source.IPAddress);
+        }
+        if (source.Location != null) {
+            this.Location = new String(source.Location);
+        }
+        if (source.Device != null) {
+            this.Device = new Long(source.Device);
+        }
+        if (source.PerMemberMicCount != null) {
+            this.PerMemberMicCount = new Long(source.PerMemberMicCount);
+        }
+        if (source.PerMemberMessageCount != null) {
+            this.PerMemberMessageCount = new Long(source.PerMemberMessageCount);
+        }
+        if (source.Role != null) {
+            this.Role = new Long(source.Role);
+        }
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
+        if (source.SubGroupId != null) {
+            this.SubGroupId = new String[source.SubGroupId.length];
+            for (int i = 0; i < source.SubGroupId.length; i++) {
+                this.SubGroupId[i] = new String(source.SubGroupId[i]);
+            }
+        }
+        if (source.Stage != null) {
+            this.Stage = new Long(source.Stage);
+        }
+        if (source.CurrentState != null) {
+            this.CurrentState = new Long(source.CurrentState);
+        }
     }
 
 
@@ -334,6 +617,16 @@ public class MemberRecord extends AbstractModel{
         this.setParamSimple(map, prefix + "FirstJoinTimestamp", this.FirstJoinTimestamp);
         this.setParamSimple(map, prefix + "LastQuitTimestamp", this.LastQuitTimestamp);
         this.setParamSimple(map, prefix + "Rewords", this.Rewords);
+        this.setParamSimple(map, prefix + "IPAddress", this.IPAddress);
+        this.setParamSimple(map, prefix + "Location", this.Location);
+        this.setParamSimple(map, prefix + "Device", this.Device);
+        this.setParamSimple(map, prefix + "PerMemberMicCount", this.PerMemberMicCount);
+        this.setParamSimple(map, prefix + "PerMemberMessageCount", this.PerMemberMessageCount);
+        this.setParamSimple(map, prefix + "Role", this.Role);
+        this.setParamSimple(map, prefix + "GroupId", this.GroupId);
+        this.setParamArraySimple(map, prefix + "SubGroupId.", this.SubGroupId);
+        this.setParamSimple(map, prefix + "Stage", this.Stage);
+        this.setParamSimple(map, prefix + "CurrentState", this.CurrentState);
 
     }
 }

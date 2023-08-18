@@ -213,6 +213,30 @@ public class ApmInstanceDetail extends AbstractModel{
     private Long TotalCount;
 
     /**
+    * CLS日志集 | ES集群ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("LogSet")
+    @Expose
+    private String LogSet;
+
+    /**
+    * Metric数据保存时长
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MetricDuration")
+    @Expose
+    private Long MetricDuration;
+
+    /**
+    * 用户自定义展示标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CustomShowTags")
+    @Expose
+    private String [] CustomShowTags;
+
+    /**
      * Get 存储使用量(MB)
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return AmountOfUsedStorage 存储使用量(MB)
@@ -684,6 +708,66 @@ public class ApmInstanceDetail extends AbstractModel{
         this.TotalCount = TotalCount;
     }
 
+    /**
+     * Get CLS日志集 | ES集群ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return LogSet CLS日志集 | ES集群ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getLogSet() {
+        return this.LogSet;
+    }
+
+    /**
+     * Set CLS日志集 | ES集群ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param LogSet CLS日志集 | ES集群ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLogSet(String LogSet) {
+        this.LogSet = LogSet;
+    }
+
+    /**
+     * Get Metric数据保存时长
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MetricDuration Metric数据保存时长
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getMetricDuration() {
+        return this.MetricDuration;
+    }
+
+    /**
+     * Set Metric数据保存时长
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MetricDuration Metric数据保存时长
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMetricDuration(Long MetricDuration) {
+        this.MetricDuration = MetricDuration;
+    }
+
+    /**
+     * Get 用户自定义展示标签列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CustomShowTags 用户自定义展示标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getCustomShowTags() {
+        return this.CustomShowTags;
+    }
+
+    /**
+     * Set 用户自定义展示标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CustomShowTags 用户自定义展示标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCustomShowTags(String [] CustomShowTags) {
+        this.CustomShowTags = CustomShowTags;
+    }
+
     public ApmInstanceDetail() {
     }
 
@@ -767,6 +851,18 @@ public class ApmInstanceDetail extends AbstractModel{
         if (source.TotalCount != null) {
             this.TotalCount = new Long(source.TotalCount);
         }
+        if (source.LogSet != null) {
+            this.LogSet = new String(source.LogSet);
+        }
+        if (source.MetricDuration != null) {
+            this.MetricDuration = new Long(source.MetricDuration);
+        }
+        if (source.CustomShowTags != null) {
+            this.CustomShowTags = new String[source.CustomShowTags.length];
+            for (int i = 0; i < source.CustomShowTags.length; i++) {
+                this.CustomShowTags[i] = new String(source.CustomShowTags[i]);
+            }
+        }
     }
 
 
@@ -798,6 +894,9 @@ public class ApmInstanceDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "LogTopicID", this.LogTopicID);
         this.setParamSimple(map, prefix + "ClientCount", this.ClientCount);
         this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
+        this.setParamSimple(map, prefix + "LogSet", this.LogSet);
+        this.setParamSimple(map, prefix + "MetricDuration", this.MetricDuration);
+        this.setParamArraySimple(map, prefix + "CustomShowTags.", this.CustomShowTags);
 
     }
 }

@@ -23,52 +23,58 @@ import java.util.HashMap;
 public class DescribeFlowTemplatesRequest extends AbstractModel{
 
     /**
-    * 调用方用户信息，userId 必填
+    * 调用方员工/经办人信息
+UserId 必填，在企业控制台组织架构中可以查到员工的UserId
+注：请保证员工有相关的角色权限
     */
     @SerializedName("Operator")
     @Expose
     private UserInfo Operator;
 
     /**
-    * 企业组织相关信息
-    */
-    @SerializedName("Organization")
-    @Expose
-    private OrganizationInfo Organization;
-
-    /**
-    * 应用相关信息
+    * 代理相关应用信息
+如集团主企业代子企业操作的场景中ProxyOrganizationId必填
     */
     @SerializedName("Agent")
     @Expose
     private Agent Agent;
 
     /**
-    * 查询偏移位置，默认0
+    * 查询内容类型
+0-模板列表及详情（默认）
+1-仅模板列表
     */
-    @SerializedName("Offset")
+    @SerializedName("ContentType")
     @Expose
-    private Long Offset;
+    private Long ContentType;
 
     /**
-    * 查询个数，默认20，最大200
-    */
-    @SerializedName("Limit")
-    @Expose
-    private Long Limit;
-
-    /**
-    * 搜索条件，具体参考Filter结构体。本接口取值：template-id：按照【 **模板唯一标识** 】进行过滤
+    * 搜索条件，本字段用于指定模板Id进行查询。
+Key：template-id
+Values：需要查询的模板Id列表
     */
     @SerializedName("Filters")
     @Expose
     private Filter [] Filters;
 
     /**
-    * 这个参数跟下面的IsChannel参数配合使用。
-IsChannel=false时，ApplicationId参数不起任何作用。
-IsChannel=true时，ApplicationId为空，查询所有渠道模板列表；ApplicationId不为空，查询指定渠道下的模板列表
-ApplicationId为空，查询渠道模板列表
+    * 查询结果分页返回，此处指定第几页，如果不传默从第一页返回。页码从0开始，即首页为0。
+    */
+    @SerializedName("Offset")
+    @Expose
+    private Long Offset;
+
+    /**
+    * 指定每页多少条数据，如果不传默认为20，单页最大200。
+    */
+    @SerializedName("Limit")
+    @Expose
+    private Long Limit;
+
+    /**
+    * 用于查询指定应用号下单模板列表。
+ApplicationId不为空，查询指定应用下的模板列表
+ApplicationId为空，查询所有应用下的模板列表
     */
     @SerializedName("ApplicationId")
     @Expose
@@ -76,11 +82,18 @@ ApplicationId为空，查询渠道模板列表
 
     /**
     * 默认为false，查询SaaS模板库列表；
-为true，查询渠道模板库管理列表
+为true，查询第三方应用集成平台企业模板库管理列表
     */
     @SerializedName("IsChannel")
     @Expose
     private Boolean IsChannel;
+
+    /**
+    * 暂未开放
+    */
+    @SerializedName("Organization")
+    @Expose
+    private OrganizationInfo Organization;
 
     /**
     * 暂未开放
@@ -90,131 +103,148 @@ ApplicationId为空，查询渠道模板列表
     private Long GenerateSource;
 
     /**
-    * 查询内容：0-模板列表及详情（默认），1-仅模板列表
-    */
-    @SerializedName("ContentType")
-    @Expose
-    private Long ContentType;
-
-    /**
-     * Get 调用方用户信息，userId 必填 
-     * @return Operator 调用方用户信息，userId 必填
+     * Get 调用方员工/经办人信息
+UserId 必填，在企业控制台组织架构中可以查到员工的UserId
+注：请保证员工有相关的角色权限 
+     * @return Operator 调用方员工/经办人信息
+UserId 必填，在企业控制台组织架构中可以查到员工的UserId
+注：请保证员工有相关的角色权限
      */
     public UserInfo getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 调用方用户信息，userId 必填
-     * @param Operator 调用方用户信息，userId 必填
+     * Set 调用方员工/经办人信息
+UserId 必填，在企业控制台组织架构中可以查到员工的UserId
+注：请保证员工有相关的角色权限
+     * @param Operator 调用方员工/经办人信息
+UserId 必填，在企业控制台组织架构中可以查到员工的UserId
+注：请保证员工有相关的角色权限
      */
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
     }
 
     /**
-     * Get 企业组织相关信息 
-     * @return Organization 企业组织相关信息
-     */
-    public OrganizationInfo getOrganization() {
-        return this.Organization;
-    }
-
-    /**
-     * Set 企业组织相关信息
-     * @param Organization 企业组织相关信息
-     */
-    public void setOrganization(OrganizationInfo Organization) {
-        this.Organization = Organization;
-    }
-
-    /**
-     * Get 应用相关信息 
-     * @return Agent 应用相关信息
+     * Get 代理相关应用信息
+如集团主企业代子企业操作的场景中ProxyOrganizationId必填 
+     * @return Agent 代理相关应用信息
+如集团主企业代子企业操作的场景中ProxyOrganizationId必填
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 应用相关信息
-     * @param Agent 应用相关信息
+     * Set 代理相关应用信息
+如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+     * @param Agent 代理相关应用信息
+如集团主企业代子企业操作的场景中ProxyOrganizationId必填
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
     }
 
     /**
-     * Get 查询偏移位置，默认0 
-     * @return Offset 查询偏移位置，默认0
+     * Get 查询内容类型
+0-模板列表及详情（默认）
+1-仅模板列表 
+     * @return ContentType 查询内容类型
+0-模板列表及详情（默认）
+1-仅模板列表
      */
-    public Long getOffset() {
-        return this.Offset;
+    public Long getContentType() {
+        return this.ContentType;
     }
 
     /**
-     * Set 查询偏移位置，默认0
-     * @param Offset 查询偏移位置，默认0
+     * Set 查询内容类型
+0-模板列表及详情（默认）
+1-仅模板列表
+     * @param ContentType 查询内容类型
+0-模板列表及详情（默认）
+1-仅模板列表
      */
-    public void setOffset(Long Offset) {
-        this.Offset = Offset;
+    public void setContentType(Long ContentType) {
+        this.ContentType = ContentType;
     }
 
     /**
-     * Get 查询个数，默认20，最大200 
-     * @return Limit 查询个数，默认20，最大200
-     */
-    public Long getLimit() {
-        return this.Limit;
-    }
-
-    /**
-     * Set 查询个数，默认20，最大200
-     * @param Limit 查询个数，默认20，最大200
-     */
-    public void setLimit(Long Limit) {
-        this.Limit = Limit;
-    }
-
-    /**
-     * Get 搜索条件，具体参考Filter结构体。本接口取值：template-id：按照【 **模板唯一标识** 】进行过滤 
-     * @return Filters 搜索条件，具体参考Filter结构体。本接口取值：template-id：按照【 **模板唯一标识** 】进行过滤
+     * Get 搜索条件，本字段用于指定模板Id进行查询。
+Key：template-id
+Values：需要查询的模板Id列表 
+     * @return Filters 搜索条件，本字段用于指定模板Id进行查询。
+Key：template-id
+Values：需要查询的模板Id列表
      */
     public Filter [] getFilters() {
         return this.Filters;
     }
 
     /**
-     * Set 搜索条件，具体参考Filter结构体。本接口取值：template-id：按照【 **模板唯一标识** 】进行过滤
-     * @param Filters 搜索条件，具体参考Filter结构体。本接口取值：template-id：按照【 **模板唯一标识** 】进行过滤
+     * Set 搜索条件，本字段用于指定模板Id进行查询。
+Key：template-id
+Values：需要查询的模板Id列表
+     * @param Filters 搜索条件，本字段用于指定模板Id进行查询。
+Key：template-id
+Values：需要查询的模板Id列表
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;
     }
 
     /**
-     * Get 这个参数跟下面的IsChannel参数配合使用。
-IsChannel=false时，ApplicationId参数不起任何作用。
-IsChannel=true时，ApplicationId为空，查询所有渠道模板列表；ApplicationId不为空，查询指定渠道下的模板列表
-ApplicationId为空，查询渠道模板列表 
-     * @return ApplicationId 这个参数跟下面的IsChannel参数配合使用。
-IsChannel=false时，ApplicationId参数不起任何作用。
-IsChannel=true时，ApplicationId为空，查询所有渠道模板列表；ApplicationId不为空，查询指定渠道下的模板列表
-ApplicationId为空，查询渠道模板列表
+     * Get 查询结果分页返回，此处指定第几页，如果不传默从第一页返回。页码从0开始，即首页为0。 
+     * @return Offset 查询结果分页返回，此处指定第几页，如果不传默从第一页返回。页码从0开始，即首页为0。
+     */
+    public Long getOffset() {
+        return this.Offset;
+    }
+
+    /**
+     * Set 查询结果分页返回，此处指定第几页，如果不传默从第一页返回。页码从0开始，即首页为0。
+     * @param Offset 查询结果分页返回，此处指定第几页，如果不传默从第一页返回。页码从0开始，即首页为0。
+     */
+    public void setOffset(Long Offset) {
+        this.Offset = Offset;
+    }
+
+    /**
+     * Get 指定每页多少条数据，如果不传默认为20，单页最大200。 
+     * @return Limit 指定每页多少条数据，如果不传默认为20，单页最大200。
+     */
+    public Long getLimit() {
+        return this.Limit;
+    }
+
+    /**
+     * Set 指定每页多少条数据，如果不传默认为20，单页最大200。
+     * @param Limit 指定每页多少条数据，如果不传默认为20，单页最大200。
+     */
+    public void setLimit(Long Limit) {
+        this.Limit = Limit;
+    }
+
+    /**
+     * Get 用于查询指定应用号下单模板列表。
+ApplicationId不为空，查询指定应用下的模板列表
+ApplicationId为空，查询所有应用下的模板列表 
+     * @return ApplicationId 用于查询指定应用号下单模板列表。
+ApplicationId不为空，查询指定应用下的模板列表
+ApplicationId为空，查询所有应用下的模板列表
      */
     public String getApplicationId() {
         return this.ApplicationId;
     }
 
     /**
-     * Set 这个参数跟下面的IsChannel参数配合使用。
-IsChannel=false时，ApplicationId参数不起任何作用。
-IsChannel=true时，ApplicationId为空，查询所有渠道模板列表；ApplicationId不为空，查询指定渠道下的模板列表
-ApplicationId为空，查询渠道模板列表
-     * @param ApplicationId 这个参数跟下面的IsChannel参数配合使用。
-IsChannel=false时，ApplicationId参数不起任何作用。
-IsChannel=true时，ApplicationId为空，查询所有渠道模板列表；ApplicationId不为空，查询指定渠道下的模板列表
-ApplicationId为空，查询渠道模板列表
+     * Set 用于查询指定应用号下单模板列表。
+ApplicationId不为空，查询指定应用下的模板列表
+ApplicationId为空，查询所有应用下的模板列表
+     * @param ApplicationId 用于查询指定应用号下单模板列表。
+ApplicationId不为空，查询指定应用下的模板列表
+ApplicationId为空，查询所有应用下的模板列表
      */
     public void setApplicationId(String ApplicationId) {
         this.ApplicationId = ApplicationId;
@@ -222,28 +252,54 @@ ApplicationId为空，查询渠道模板列表
 
     /**
      * Get 默认为false，查询SaaS模板库列表；
-为true，查询渠道模板库管理列表 
+为true，查询第三方应用集成平台企业模板库管理列表 
      * @return IsChannel 默认为false，查询SaaS模板库列表；
-为true，查询渠道模板库管理列表
+为true，查询第三方应用集成平台企业模板库管理列表
+     * @deprecated
      */
+    @Deprecated
     public Boolean getIsChannel() {
         return this.IsChannel;
     }
 
     /**
      * Set 默认为false，查询SaaS模板库列表；
-为true，查询渠道模板库管理列表
+为true，查询第三方应用集成平台企业模板库管理列表
      * @param IsChannel 默认为false，查询SaaS模板库列表；
-为true，查询渠道模板库管理列表
+为true，查询第三方应用集成平台企业模板库管理列表
+     * @deprecated
      */
+    @Deprecated
     public void setIsChannel(Boolean IsChannel) {
         this.IsChannel = IsChannel;
     }
 
     /**
      * Get 暂未开放 
-     * @return GenerateSource 暂未开放
+     * @return Organization 暂未开放
+     * @deprecated
      */
+    @Deprecated
+    public OrganizationInfo getOrganization() {
+        return this.Organization;
+    }
+
+    /**
+     * Set 暂未开放
+     * @param Organization 暂未开放
+     * @deprecated
+     */
+    @Deprecated
+    public void setOrganization(OrganizationInfo Organization) {
+        this.Organization = Organization;
+    }
+
+    /**
+     * Get 暂未开放 
+     * @return GenerateSource 暂未开放
+     * @deprecated
+     */
+    @Deprecated
     public Long getGenerateSource() {
         return this.GenerateSource;
     }
@@ -251,25 +307,11 @@ ApplicationId为空，查询渠道模板列表
     /**
      * Set 暂未开放
      * @param GenerateSource 暂未开放
+     * @deprecated
      */
+    @Deprecated
     public void setGenerateSource(Long GenerateSource) {
         this.GenerateSource = GenerateSource;
-    }
-
-    /**
-     * Get 查询内容：0-模板列表及详情（默认），1-仅模板列表 
-     * @return ContentType 查询内容：0-模板列表及详情（默认），1-仅模板列表
-     */
-    public Long getContentType() {
-        return this.ContentType;
-    }
-
-    /**
-     * Set 查询内容：0-模板列表及详情（默认），1-仅模板列表
-     * @param ContentType 查询内容：0-模板列表及详情（默认），1-仅模板列表
-     */
-    public void setContentType(Long ContentType) {
-        this.ContentType = ContentType;
     }
 
     public DescribeFlowTemplatesRequest() {
@@ -283,17 +325,11 @@ ApplicationId为空，查询渠道模板列表
         if (source.Operator != null) {
             this.Operator = new UserInfo(source.Operator);
         }
-        if (source.Organization != null) {
-            this.Organization = new OrganizationInfo(source.Organization);
-        }
         if (source.Agent != null) {
             this.Agent = new Agent(source.Agent);
         }
-        if (source.Offset != null) {
-            this.Offset = new Long(source.Offset);
-        }
-        if (source.Limit != null) {
-            this.Limit = new Long(source.Limit);
+        if (source.ContentType != null) {
+            this.ContentType = new Long(source.ContentType);
         }
         if (source.Filters != null) {
             this.Filters = new Filter[source.Filters.length];
@@ -301,17 +337,23 @@ ApplicationId为空，查询渠道模板列表
                 this.Filters[i] = new Filter(source.Filters[i]);
             }
         }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
         if (source.ApplicationId != null) {
             this.ApplicationId = new String(source.ApplicationId);
         }
         if (source.IsChannel != null) {
             this.IsChannel = new Boolean(source.IsChannel);
         }
+        if (source.Organization != null) {
+            this.Organization = new OrganizationInfo(source.Organization);
+        }
         if (source.GenerateSource != null) {
             this.GenerateSource = new Long(source.GenerateSource);
-        }
-        if (source.ContentType != null) {
-            this.ContentType = new Long(source.ContentType);
         }
     }
 
@@ -321,15 +363,15 @@ ApplicationId为空，查询渠道模板列表
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "Operator.", this.Operator);
-        this.setParamObj(map, prefix + "Organization.", this.Organization);
         this.setParamObj(map, prefix + "Agent.", this.Agent);
+        this.setParamSimple(map, prefix + "ContentType", this.ContentType);
+        this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
-        this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
         this.setParamSimple(map, prefix + "ApplicationId", this.ApplicationId);
         this.setParamSimple(map, prefix + "IsChannel", this.IsChannel);
+        this.setParamObj(map, prefix + "Organization.", this.Organization);
         this.setParamSimple(map, prefix + "GenerateSource", this.GenerateSource);
-        this.setParamSimple(map, prefix + "ContentType", this.ContentType);
 
     }
 }

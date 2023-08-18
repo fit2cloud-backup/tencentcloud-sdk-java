@@ -37,7 +37,7 @@ public class CreateListenerRequest extends AbstractModel{
     private Long [] Ports;
 
     /**
-    * 监听器协议： TCP | UDP | HTTP | HTTPS | TCP_SSL（TCP_SSL 正在内测中，如需使用请通过工单申请）。
+    * 监听器协议： TCP | UDP | HTTP | HTTPS | TCP_SSL | QUIC。
     */
     @SerializedName("Protocol")
     @Expose
@@ -51,7 +51,7 @@ public class CreateListenerRequest extends AbstractModel{
     private String [] ListenerNames;
 
     /**
-    * 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL监听器。
+    * 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。
     */
     @SerializedName("HealthCheck")
     @Expose
@@ -73,7 +73,7 @@ public class CreateListenerRequest extends AbstractModel{
 
     /**
     * 监听器转发的方式。可选值：WRR、LEAST_CONN
-分别表示按权重轮询、最小连接数， 默认为 WRR。此参数仅适用于TCP/UDP/TCP_SSL监听器。
+分别表示按权重轮询、最小连接数， 默认为 WRR。此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。
     */
     @SerializedName("Scheduler")
     @Expose
@@ -129,6 +129,27 @@ public class CreateListenerRequest extends AbstractModel{
     private MultiCertInfo MultiCertInfo;
 
     /**
+    * 监听器最大连接数，只有TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。
+    */
+    @SerializedName("MaxConn")
+    @Expose
+    private Long MaxConn;
+
+    /**
+    * 监听器最大新增连接数，只有TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。
+    */
+    @SerializedName("MaxCps")
+    @Expose
+    private Long MaxCps;
+
+    /**
+    * 空闲连接超时时间，此参数仅适用于TCP监听器，单位：秒。默认值：900，取值范围：共享型实例和独占型实例支持：300～900，性能容量型实例支持：300~2000。如需设置超过2000s，请通过 [工单申请](https://console.cloud.tencent.com/workorder/category),最大可设置到3600s。
+    */
+    @SerializedName("IdleConnectTimeout")
+    @Expose
+    private Long IdleConnectTimeout;
+
+    /**
      * Get 负载均衡实例 ID。 
      * @return LoadBalancerId 负载均衡实例 ID。
      */
@@ -161,16 +182,16 @@ public class CreateListenerRequest extends AbstractModel{
     }
 
     /**
-     * Get 监听器协议： TCP | UDP | HTTP | HTTPS | TCP_SSL（TCP_SSL 正在内测中，如需使用请通过工单申请）。 
-     * @return Protocol 监听器协议： TCP | UDP | HTTP | HTTPS | TCP_SSL（TCP_SSL 正在内测中，如需使用请通过工单申请）。
+     * Get 监听器协议： TCP | UDP | HTTP | HTTPS | TCP_SSL | QUIC。 
+     * @return Protocol 监听器协议： TCP | UDP | HTTP | HTTPS | TCP_SSL | QUIC。
      */
     public String getProtocol() {
         return this.Protocol;
     }
 
     /**
-     * Set 监听器协议： TCP | UDP | HTTP | HTTPS | TCP_SSL（TCP_SSL 正在内测中，如需使用请通过工单申请）。
-     * @param Protocol 监听器协议： TCP | UDP | HTTP | HTTPS | TCP_SSL（TCP_SSL 正在内测中，如需使用请通过工单申请）。
+     * Set 监听器协议： TCP | UDP | HTTP | HTTPS | TCP_SSL | QUIC。
+     * @param Protocol 监听器协议： TCP | UDP | HTTP | HTTPS | TCP_SSL | QUIC。
      */
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;
@@ -193,16 +214,16 @@ public class CreateListenerRequest extends AbstractModel{
     }
 
     /**
-     * Get 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL监听器。 
-     * @return HealthCheck 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL监听器。
+     * Get 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。 
+     * @return HealthCheck 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。
      */
     public HealthCheck getHealthCheck() {
         return this.HealthCheck;
     }
 
     /**
-     * Set 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL监听器。
-     * @param HealthCheck 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL监听器。
+     * Set 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。
+     * @param HealthCheck 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。
      */
     public void setHealthCheck(HealthCheck HealthCheck) {
         this.HealthCheck = HealthCheck;
@@ -242,9 +263,9 @@ public class CreateListenerRequest extends AbstractModel{
 
     /**
      * Get 监听器转发的方式。可选值：WRR、LEAST_CONN
-分别表示按权重轮询、最小连接数， 默认为 WRR。此参数仅适用于TCP/UDP/TCP_SSL监听器。 
+分别表示按权重轮询、最小连接数， 默认为 WRR。此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。 
      * @return Scheduler 监听器转发的方式。可选值：WRR、LEAST_CONN
-分别表示按权重轮询、最小连接数， 默认为 WRR。此参数仅适用于TCP/UDP/TCP_SSL监听器。
+分别表示按权重轮询、最小连接数， 默认为 WRR。此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。
      */
     public String getScheduler() {
         return this.Scheduler;
@@ -252,9 +273,9 @@ public class CreateListenerRequest extends AbstractModel{
 
     /**
      * Set 监听器转发的方式。可选值：WRR、LEAST_CONN
-分别表示按权重轮询、最小连接数， 默认为 WRR。此参数仅适用于TCP/UDP/TCP_SSL监听器。
+分别表示按权重轮询、最小连接数， 默认为 WRR。此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。
      * @param Scheduler 监听器转发的方式。可选值：WRR、LEAST_CONN
-分别表示按权重轮询、最小连接数， 默认为 WRR。此参数仅适用于TCP/UDP/TCP_SSL监听器。
+分别表示按权重轮询、最小连接数， 默认为 WRR。此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。
      */
     public void setScheduler(String Scheduler) {
         this.Scheduler = Scheduler;
@@ -372,6 +393,54 @@ public class CreateListenerRequest extends AbstractModel{
         this.MultiCertInfo = MultiCertInfo;
     }
 
+    /**
+     * Get 监听器最大连接数，只有TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。 
+     * @return MaxConn 监听器最大连接数，只有TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。
+     */
+    public Long getMaxConn() {
+        return this.MaxConn;
+    }
+
+    /**
+     * Set 监听器最大连接数，只有TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。
+     * @param MaxConn 监听器最大连接数，只有TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。
+     */
+    public void setMaxConn(Long MaxConn) {
+        this.MaxConn = MaxConn;
+    }
+
+    /**
+     * Get 监听器最大新增连接数，只有TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。 
+     * @return MaxCps 监听器最大新增连接数，只有TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。
+     */
+    public Long getMaxCps() {
+        return this.MaxCps;
+    }
+
+    /**
+     * Set 监听器最大新增连接数，只有TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。
+     * @param MaxCps 监听器最大新增连接数，只有TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。
+     */
+    public void setMaxCps(Long MaxCps) {
+        this.MaxCps = MaxCps;
+    }
+
+    /**
+     * Get 空闲连接超时时间，此参数仅适用于TCP监听器，单位：秒。默认值：900，取值范围：共享型实例和独占型实例支持：300～900，性能容量型实例支持：300~2000。如需设置超过2000s，请通过 [工单申请](https://console.cloud.tencent.com/workorder/category),最大可设置到3600s。 
+     * @return IdleConnectTimeout 空闲连接超时时间，此参数仅适用于TCP监听器，单位：秒。默认值：900，取值范围：共享型实例和独占型实例支持：300～900，性能容量型实例支持：300~2000。如需设置超过2000s，请通过 [工单申请](https://console.cloud.tencent.com/workorder/category),最大可设置到3600s。
+     */
+    public Long getIdleConnectTimeout() {
+        return this.IdleConnectTimeout;
+    }
+
+    /**
+     * Set 空闲连接超时时间，此参数仅适用于TCP监听器，单位：秒。默认值：900，取值范围：共享型实例和独占型实例支持：300～900，性能容量型实例支持：300~2000。如需设置超过2000s，请通过 [工单申请](https://console.cloud.tencent.com/workorder/category),最大可设置到3600s。
+     * @param IdleConnectTimeout 空闲连接超时时间，此参数仅适用于TCP监听器，单位：秒。默认值：900，取值范围：共享型实例和独占型实例支持：300～900，性能容量型实例支持：300~2000。如需设置超过2000s，请通过 [工单申请](https://console.cloud.tencent.com/workorder/category),最大可设置到3600s。
+     */
+    public void setIdleConnectTimeout(Long IdleConnectTimeout) {
+        this.IdleConnectTimeout = IdleConnectTimeout;
+    }
+
     public CreateListenerRequest() {
     }
 
@@ -431,6 +500,15 @@ public class CreateListenerRequest extends AbstractModel{
         if (source.MultiCertInfo != null) {
             this.MultiCertInfo = new MultiCertInfo(source.MultiCertInfo);
         }
+        if (source.MaxConn != null) {
+            this.MaxConn = new Long(source.MaxConn);
+        }
+        if (source.MaxCps != null) {
+            this.MaxCps = new Long(source.MaxCps);
+        }
+        if (source.IdleConnectTimeout != null) {
+            this.IdleConnectTimeout = new Long(source.IdleConnectTimeout);
+        }
     }
 
 
@@ -453,6 +531,9 @@ public class CreateListenerRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "EndPort", this.EndPort);
         this.setParamSimple(map, prefix + "DeregisterTargetRst", this.DeregisterTargetRst);
         this.setParamObj(map, prefix + "MultiCertInfo.", this.MultiCertInfo);
+        this.setParamSimple(map, prefix + "MaxConn", this.MaxConn);
+        this.setParamSimple(map, prefix + "MaxCps", this.MaxCps);
+        this.setParamSimple(map, prefix + "IdleConnectTimeout", this.IdleConnectTimeout);
 
     }
 }

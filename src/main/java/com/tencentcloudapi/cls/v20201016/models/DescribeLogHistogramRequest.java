@@ -23,13 +23,6 @@ import java.util.HashMap;
 public class DescribeLogHistogramRequest extends AbstractModel{
 
     /**
-    * 要查询的日志主题ID
-    */
-    @SerializedName("TopicId")
-    @Expose
-    private String TopicId;
-
-    /**
     * 要查询的日志的起始时间，Unix时间戳，单位ms
     */
     @SerializedName("From")
@@ -51,6 +44,13 @@ public class DescribeLogHistogramRequest extends AbstractModel{
     private String Query;
 
     /**
+    * 要查询的日志主题ID
+    */
+    @SerializedName("TopicId")
+    @Expose
+    private String TopicId;
+
+    /**
     * 时间间隔: 单位ms  限制性条件：(To-From) / interval <= 200
     */
     @SerializedName("Interval")
@@ -58,20 +58,13 @@ public class DescribeLogHistogramRequest extends AbstractModel{
     private Long Interval;
 
     /**
-     * Get 要查询的日志主题ID 
-     * @return TopicId 要查询的日志主题ID
-     */
-    public String getTopicId() {
-        return this.TopicId;
-    }
-
-    /**
-     * Set 要查询的日志主题ID
-     * @param TopicId 要查询的日志主题ID
-     */
-    public void setTopicId(String TopicId) {
-        this.TopicId = TopicId;
-    }
+    * 检索语法规则，默认值为0。
+0：Lucene语法，1：CQL语法。
+详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>
+    */
+    @SerializedName("SyntaxRule")
+    @Expose
+    private Long SyntaxRule;
 
     /**
      * Get 要查询的日志的起始时间，Unix时间戳，单位ms 
@@ -122,6 +115,22 @@ public class DescribeLogHistogramRequest extends AbstractModel{
     }
 
     /**
+     * Get 要查询的日志主题ID 
+     * @return TopicId 要查询的日志主题ID
+     */
+    public String getTopicId() {
+        return this.TopicId;
+    }
+
+    /**
+     * Set 要查询的日志主题ID
+     * @param TopicId 要查询的日志主题ID
+     */
+    public void setTopicId(String TopicId) {
+        this.TopicId = TopicId;
+    }
+
+    /**
      * Get 时间间隔: 单位ms  限制性条件：(To-From) / interval <= 200 
      * @return Interval 时间间隔: 单位ms  限制性条件：(To-From) / interval <= 200
      */
@@ -137,6 +146,30 @@ public class DescribeLogHistogramRequest extends AbstractModel{
         this.Interval = Interval;
     }
 
+    /**
+     * Get 检索语法规则，默认值为0。
+0：Lucene语法，1：CQL语法。
+详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a> 
+     * @return SyntaxRule 检索语法规则，默认值为0。
+0：Lucene语法，1：CQL语法。
+详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>
+     */
+    public Long getSyntaxRule() {
+        return this.SyntaxRule;
+    }
+
+    /**
+     * Set 检索语法规则，默认值为0。
+0：Lucene语法，1：CQL语法。
+详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>
+     * @param SyntaxRule 检索语法规则，默认值为0。
+0：Lucene语法，1：CQL语法。
+详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>
+     */
+    public void setSyntaxRule(Long SyntaxRule) {
+        this.SyntaxRule = SyntaxRule;
+    }
+
     public DescribeLogHistogramRequest() {
     }
 
@@ -145,9 +178,6 @@ public class DescribeLogHistogramRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public DescribeLogHistogramRequest(DescribeLogHistogramRequest source) {
-        if (source.TopicId != null) {
-            this.TopicId = new String(source.TopicId);
-        }
         if (source.From != null) {
             this.From = new Long(source.From);
         }
@@ -157,8 +187,14 @@ public class DescribeLogHistogramRequest extends AbstractModel{
         if (source.Query != null) {
             this.Query = new String(source.Query);
         }
+        if (source.TopicId != null) {
+            this.TopicId = new String(source.TopicId);
+        }
         if (source.Interval != null) {
             this.Interval = new Long(source.Interval);
+        }
+        if (source.SyntaxRule != null) {
+            this.SyntaxRule = new Long(source.SyntaxRule);
         }
     }
 
@@ -167,11 +203,12 @@ public class DescribeLogHistogramRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "TopicId", this.TopicId);
         this.setParamSimple(map, prefix + "From", this.From);
         this.setParamSimple(map, prefix + "To", this.To);
         this.setParamSimple(map, prefix + "Query", this.Query);
+        this.setParamSimple(map, prefix + "TopicId", this.TopicId);
         this.setParamSimple(map, prefix + "Interval", this.Interval);
+        this.setParamSimple(map, prefix + "SyntaxRule", this.SyntaxRule);
 
     }
 }

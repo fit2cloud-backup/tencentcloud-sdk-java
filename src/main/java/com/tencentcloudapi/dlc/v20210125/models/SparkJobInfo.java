@@ -239,6 +239,14 @@ public class SparkJobInfo extends AbstractModel{
     private String JobArchives;
 
     /**
+    * Spark Image 版本
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SparkImage")
+    @Expose
+    private String SparkImage;
+
+    /**
     * pyspark：python依赖, 除py文件外，还支持zip/egg等归档格式，多文件以逗号分隔
 注意：此字段可能返回 null，表示取不到有效值。
     */
@@ -261,6 +269,62 @@ public class SparkJobInfo extends AbstractModel{
     @SerializedName("DataEngineStatus")
     @Expose
     private Long DataEngineStatus;
+
+    /**
+    * 指定的Executor数量（最大值），默认为1，当开启动态分配有效，若未开启，则该值等于JobExecutorNums
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("JobExecutorMaxNumbers")
+    @Expose
+    private Long JobExecutorMaxNumbers;
+
+    /**
+    * 镜像版本
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SparkImageVersion")
+    @Expose
+    private String SparkImageVersion;
+
+    /**
+    * 查询脚本关联id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SessionId")
+    @Expose
+    private String SessionId;
+
+    /**
+    * spark_emr_livy
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DataEngineClusterType")
+    @Expose
+    private String DataEngineClusterType;
+
+    /**
+    * Spark 3.2-EMR
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DataEngineImageVersion")
+    @Expose
+    private String DataEngineImageVersion;
+
+    /**
+    * 任务资源配置是否继承集群模板，0（默认）不继承，1：继承
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IsInherit")
+    @Expose
+    private Long IsInherit;
+
+    /**
+    * 是否使用session脚本的sql运行任务：false：否，true：是
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IsSessionStarted")
+    @Expose
+    private Boolean IsSessionStarted;
 
     /**
      * Get spark作业ID 
@@ -767,6 +831,26 @@ public class SparkJobInfo extends AbstractModel{
     }
 
     /**
+     * Get Spark Image 版本
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SparkImage Spark Image 版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSparkImage() {
+        return this.SparkImage;
+    }
+
+    /**
+     * Set Spark Image 版本
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SparkImage Spark Image 版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSparkImage(String SparkImage) {
+        this.SparkImage = SparkImage;
+    }
+
+    /**
      * Get pyspark：python依赖, 除py文件外，还支持zip/egg等归档格式，多文件以逗号分隔
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return JobPythonFiles pyspark：python依赖, 除py文件外，还支持zip/egg等归档格式，多文件以逗号分隔
@@ -824,6 +908,146 @@ public class SparkJobInfo extends AbstractModel{
      */
     public void setDataEngineStatus(Long DataEngineStatus) {
         this.DataEngineStatus = DataEngineStatus;
+    }
+
+    /**
+     * Get 指定的Executor数量（最大值），默认为1，当开启动态分配有效，若未开启，则该值等于JobExecutorNums
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return JobExecutorMaxNumbers 指定的Executor数量（最大值），默认为1，当开启动态分配有效，若未开启，则该值等于JobExecutorNums
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getJobExecutorMaxNumbers() {
+        return this.JobExecutorMaxNumbers;
+    }
+
+    /**
+     * Set 指定的Executor数量（最大值），默认为1，当开启动态分配有效，若未开启，则该值等于JobExecutorNums
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param JobExecutorMaxNumbers 指定的Executor数量（最大值），默认为1，当开启动态分配有效，若未开启，则该值等于JobExecutorNums
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setJobExecutorMaxNumbers(Long JobExecutorMaxNumbers) {
+        this.JobExecutorMaxNumbers = JobExecutorMaxNumbers;
+    }
+
+    /**
+     * Get 镜像版本
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SparkImageVersion 镜像版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSparkImageVersion() {
+        return this.SparkImageVersion;
+    }
+
+    /**
+     * Set 镜像版本
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SparkImageVersion 镜像版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSparkImageVersion(String SparkImageVersion) {
+        this.SparkImageVersion = SparkImageVersion;
+    }
+
+    /**
+     * Get 查询脚本关联id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SessionId 查询脚本关联id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSessionId() {
+        return this.SessionId;
+    }
+
+    /**
+     * Set 查询脚本关联id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SessionId 查询脚本关联id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSessionId(String SessionId) {
+        this.SessionId = SessionId;
+    }
+
+    /**
+     * Get spark_emr_livy
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DataEngineClusterType spark_emr_livy
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDataEngineClusterType() {
+        return this.DataEngineClusterType;
+    }
+
+    /**
+     * Set spark_emr_livy
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DataEngineClusterType spark_emr_livy
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDataEngineClusterType(String DataEngineClusterType) {
+        this.DataEngineClusterType = DataEngineClusterType;
+    }
+
+    /**
+     * Get Spark 3.2-EMR
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DataEngineImageVersion Spark 3.2-EMR
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDataEngineImageVersion() {
+        return this.DataEngineImageVersion;
+    }
+
+    /**
+     * Set Spark 3.2-EMR
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DataEngineImageVersion Spark 3.2-EMR
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDataEngineImageVersion(String DataEngineImageVersion) {
+        this.DataEngineImageVersion = DataEngineImageVersion;
+    }
+
+    /**
+     * Get 任务资源配置是否继承集群模板，0（默认）不继承，1：继承
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IsInherit 任务资源配置是否继承集群模板，0（默认）不继承，1：继承
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getIsInherit() {
+        return this.IsInherit;
+    }
+
+    /**
+     * Set 任务资源配置是否继承集群模板，0（默认）不继承，1：继承
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IsInherit 任务资源配置是否继承集群模板，0（默认）不继承，1：继承
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIsInherit(Long IsInherit) {
+        this.IsInherit = IsInherit;
+    }
+
+    /**
+     * Get 是否使用session脚本的sql运行任务：false：否，true：是
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IsSessionStarted 是否使用session脚本的sql运行任务：false：否，true：是
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getIsSessionStarted() {
+        return this.IsSessionStarted;
+    }
+
+    /**
+     * Set 是否使用session脚本的sql运行任务：false：否，true：是
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IsSessionStarted 是否使用session脚本的sql运行任务：false：否，true：是
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIsSessionStarted(Boolean IsSessionStarted) {
+        this.IsSessionStarted = IsSessionStarted;
     }
 
     public SparkJobInfo() {
@@ -924,6 +1148,9 @@ public class SparkJobInfo extends AbstractModel{
         if (source.JobArchives != null) {
             this.JobArchives = new String(source.JobArchives);
         }
+        if (source.SparkImage != null) {
+            this.SparkImage = new String(source.SparkImage);
+        }
         if (source.JobPythonFiles != null) {
             this.JobPythonFiles = new String(source.JobPythonFiles);
         }
@@ -932,6 +1159,27 @@ public class SparkJobInfo extends AbstractModel{
         }
         if (source.DataEngineStatus != null) {
             this.DataEngineStatus = new Long(source.DataEngineStatus);
+        }
+        if (source.JobExecutorMaxNumbers != null) {
+            this.JobExecutorMaxNumbers = new Long(source.JobExecutorMaxNumbers);
+        }
+        if (source.SparkImageVersion != null) {
+            this.SparkImageVersion = new String(source.SparkImageVersion);
+        }
+        if (source.SessionId != null) {
+            this.SessionId = new String(source.SessionId);
+        }
+        if (source.DataEngineClusterType != null) {
+            this.DataEngineClusterType = new String(source.DataEngineClusterType);
+        }
+        if (source.DataEngineImageVersion != null) {
+            this.DataEngineImageVersion = new String(source.DataEngineImageVersion);
+        }
+        if (source.IsInherit != null) {
+            this.IsInherit = new Long(source.IsInherit);
+        }
+        if (source.IsSessionStarted != null) {
+            this.IsSessionStarted = new Boolean(source.IsSessionStarted);
         }
     }
 
@@ -970,9 +1218,17 @@ public class SparkJobInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "AppPythonFiles", this.AppPythonFiles);
         this.setParamSimple(map, prefix + "IsLocalArchives", this.IsLocalArchives);
         this.setParamSimple(map, prefix + "JobArchives", this.JobArchives);
+        this.setParamSimple(map, prefix + "SparkImage", this.SparkImage);
         this.setParamSimple(map, prefix + "JobPythonFiles", this.JobPythonFiles);
         this.setParamSimple(map, prefix + "TaskNum", this.TaskNum);
         this.setParamSimple(map, prefix + "DataEngineStatus", this.DataEngineStatus);
+        this.setParamSimple(map, prefix + "JobExecutorMaxNumbers", this.JobExecutorMaxNumbers);
+        this.setParamSimple(map, prefix + "SparkImageVersion", this.SparkImageVersion);
+        this.setParamSimple(map, prefix + "SessionId", this.SessionId);
+        this.setParamSimple(map, prefix + "DataEngineClusterType", this.DataEngineClusterType);
+        this.setParamSimple(map, prefix + "DataEngineImageVersion", this.DataEngineImageVersion);
+        this.setParamSimple(map, prefix + "IsInherit", this.IsInherit);
+        this.setParamSimple(map, prefix + "IsSessionStarted", this.IsSessionStarted);
 
     }
 }

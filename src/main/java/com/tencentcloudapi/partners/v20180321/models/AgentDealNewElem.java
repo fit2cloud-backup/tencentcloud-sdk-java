@@ -243,6 +243,22 @@ public class AgentDealNewElem extends AbstractModel{
     private String UpdateTime;
 
     /**
+    * 资源id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ResourceIds")
+    @Expose
+    private String [] ResourceIds;
+
+    /**
+    * 退款单的原订单信息。当前仅 DescribeClientDealsByCache 接口会返回该字段
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RefundMap")
+    @Expose
+    private RefundMap [] RefundMap;
+
+    /**
      * Get 订单自增 ID【请勿依赖该字段作为唯一标识】 
      * @return DealId 订单自增 ID【请勿依赖该字段作为唯一标识】
      */
@@ -786,6 +802,46 @@ public class AgentDealNewElem extends AbstractModel{
         this.UpdateTime = UpdateTime;
     }
 
+    /**
+     * Get 资源id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ResourceIds 资源id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getResourceIds() {
+        return this.ResourceIds;
+    }
+
+    /**
+     * Set 资源id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ResourceIds 资源id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setResourceIds(String [] ResourceIds) {
+        this.ResourceIds = ResourceIds;
+    }
+
+    /**
+     * Get 退款单的原订单信息。当前仅 DescribeClientDealsByCache 接口会返回该字段
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RefundMap 退款单的原订单信息。当前仅 DescribeClientDealsByCache 接口会返回该字段
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public RefundMap [] getRefundMap() {
+        return this.RefundMap;
+    }
+
+    /**
+     * Set 退款单的原订单信息。当前仅 DescribeClientDealsByCache 接口会返回该字段
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RefundMap 退款单的原订单信息。当前仅 DescribeClientDealsByCache 接口会返回该字段
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRefundMap(RefundMap [] RefundMap) {
+        this.RefundMap = RefundMap;
+    }
+
     public AgentDealNewElem() {
     }
 
@@ -881,6 +937,18 @@ public class AgentDealNewElem extends AbstractModel{
         if (source.UpdateTime != null) {
             this.UpdateTime = new String(source.UpdateTime);
         }
+        if (source.ResourceIds != null) {
+            this.ResourceIds = new String[source.ResourceIds.length];
+            for (int i = 0; i < source.ResourceIds.length; i++) {
+                this.ResourceIds[i] = new String(source.ResourceIds[i]);
+            }
+        }
+        if (source.RefundMap != null) {
+            this.RefundMap = new RefundMap[source.RefundMap.length];
+            for (int i = 0; i < source.RefundMap.length; i++) {
+                this.RefundMap[i] = new RefundMap(source.RefundMap[i]);
+            }
+        }
     }
 
 
@@ -916,6 +984,8 @@ public class AgentDealNewElem extends AbstractModel{
         this.setParamArrayObj(map, prefix + "ProductInfo.", this.ProductInfo);
         this.setParamSimple(map, prefix + "PaymentMethod", this.PaymentMethod);
         this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
+        this.setParamArraySimple(map, prefix + "ResourceIds.", this.ResourceIds);
+        this.setParamArrayObj(map, prefix + "RefundMap.", this.RefundMap);
 
     }
 }

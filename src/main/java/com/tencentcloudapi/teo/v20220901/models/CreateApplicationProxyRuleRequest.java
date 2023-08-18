@@ -93,6 +93,13 @@ public class CreateApplicationProxyRuleRequest extends AbstractModel{
     private Boolean SessionPersist;
 
     /**
+    * 会话保持的时间，只有当SessionPersist为true时，该值才会生效。
+    */
+    @SerializedName("SessionPersistTime")
+    @Expose
+    private Long SessionPersistTime;
+
+    /**
     * 源站端口，支持格式：
 <li>单端口：80；</li>
 <li>端口段：81-90，81至90端口。</li>
@@ -100,6 +107,13 @@ public class CreateApplicationProxyRuleRequest extends AbstractModel{
     @SerializedName("OriginPort")
     @Expose
     private String OriginPort;
+
+    /**
+    * 规则标签。默认值为空字符串。
+    */
+    @SerializedName("RuleTag")
+    @Expose
+    private String RuleTag;
 
     /**
      * Get 站点ID。 
@@ -286,6 +300,22 @@ public class CreateApplicationProxyRuleRequest extends AbstractModel{
     }
 
     /**
+     * Get 会话保持的时间，只有当SessionPersist为true时，该值才会生效。 
+     * @return SessionPersistTime 会话保持的时间，只有当SessionPersist为true时，该值才会生效。
+     */
+    public Long getSessionPersistTime() {
+        return this.SessionPersistTime;
+    }
+
+    /**
+     * Set 会话保持的时间，只有当SessionPersist为true时，该值才会生效。
+     * @param SessionPersistTime 会话保持的时间，只有当SessionPersist为true时，该值才会生效。
+     */
+    public void setSessionPersistTime(Long SessionPersistTime) {
+        this.SessionPersistTime = SessionPersistTime;
+    }
+
+    /**
      * Get 源站端口，支持格式：
 <li>单端口：80；</li>
 <li>端口段：81-90，81至90端口。</li> 
@@ -307,6 +337,22 @@ public class CreateApplicationProxyRuleRequest extends AbstractModel{
      */
     public void setOriginPort(String OriginPort) {
         this.OriginPort = OriginPort;
+    }
+
+    /**
+     * Get 规则标签。默认值为空字符串。 
+     * @return RuleTag 规则标签。默认值为空字符串。
+     */
+    public String getRuleTag() {
+        return this.RuleTag;
+    }
+
+    /**
+     * Set 规则标签。默认值为空字符串。
+     * @param RuleTag 规则标签。默认值为空字符串。
+     */
+    public void setRuleTag(String RuleTag) {
+        this.RuleTag = RuleTag;
     }
 
     public CreateApplicationProxyRuleRequest() {
@@ -347,8 +393,14 @@ public class CreateApplicationProxyRuleRequest extends AbstractModel{
         if (source.SessionPersist != null) {
             this.SessionPersist = new Boolean(source.SessionPersist);
         }
+        if (source.SessionPersistTime != null) {
+            this.SessionPersistTime = new Long(source.SessionPersistTime);
+        }
         if (source.OriginPort != null) {
             this.OriginPort = new String(source.OriginPort);
+        }
+        if (source.RuleTag != null) {
+            this.RuleTag = new String(source.RuleTag);
         }
     }
 
@@ -365,7 +417,9 @@ public class CreateApplicationProxyRuleRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "OriginValue.", this.OriginValue);
         this.setParamSimple(map, prefix + "ForwardClientIp", this.ForwardClientIp);
         this.setParamSimple(map, prefix + "SessionPersist", this.SessionPersist);
+        this.setParamSimple(map, prefix + "SessionPersistTime", this.SessionPersistTime);
         this.setParamSimple(map, prefix + "OriginPort", this.OriginPort);
+        this.setParamSimple(map, prefix + "RuleTag", this.RuleTag);
 
     }
 }

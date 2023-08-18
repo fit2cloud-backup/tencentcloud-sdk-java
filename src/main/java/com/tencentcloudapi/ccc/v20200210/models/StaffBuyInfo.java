@@ -37,11 +37,19 @@ public class StaffBuyInfo extends AbstractModel{
     private Long BuyTime;
 
     /**
-    * 截至时间戳
+    * 截止时间戳
     */
     @SerializedName("EndTime")
     @Expose
     private Long EndTime;
+
+    /**
+    * 购买办公电话数量
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SipNum")
+    @Expose
+    private Long SipNum;
 
     /**
      * Get 购买坐席数量 
@@ -76,19 +84,39 @@ public class StaffBuyInfo extends AbstractModel{
     }
 
     /**
-     * Get 截至时间戳 
-     * @return EndTime 截至时间戳
+     * Get 截止时间戳 
+     * @return EndTime 截止时间戳
      */
     public Long getEndTime() {
         return this.EndTime;
     }
 
     /**
-     * Set 截至时间戳
-     * @param EndTime 截至时间戳
+     * Set 截止时间戳
+     * @param EndTime 截止时间戳
      */
     public void setEndTime(Long EndTime) {
         this.EndTime = EndTime;
+    }
+
+    /**
+     * Get 购买办公电话数量
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SipNum 购买办公电话数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getSipNum() {
+        return this.SipNum;
+    }
+
+    /**
+     * Set 购买办公电话数量
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SipNum 购买办公电话数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSipNum(Long SipNum) {
+        this.SipNum = SipNum;
     }
 
     public StaffBuyInfo() {
@@ -108,6 +136,9 @@ public class StaffBuyInfo extends AbstractModel{
         if (source.EndTime != null) {
             this.EndTime = new Long(source.EndTime);
         }
+        if (source.SipNum != null) {
+            this.SipNum = new Long(source.SipNum);
+        }
     }
 
 
@@ -118,6 +149,7 @@ public class StaffBuyInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Num", this.Num);
         this.setParamSimple(map, prefix + "BuyTime", this.BuyTime);
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
+        this.setParamSimple(map, prefix + "SipNum", this.SipNum);
 
     }
 }

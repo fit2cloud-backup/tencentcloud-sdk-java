@@ -30,6 +30,14 @@ public class DescribeOfflineTaskTokenResponse extends AbstractModel{
     private String Token;
 
     /**
+    * 长连接临时token。与Token相同含义，优先取Data，Data为空时，取Token。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Data")
+    @Expose
+    private String Data;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -50,6 +58,26 @@ public class DescribeOfflineTaskTokenResponse extends AbstractModel{
      */
     public void setToken(String Token) {
         this.Token = Token;
+    }
+
+    /**
+     * Get 长连接临时token。与Token相同含义，优先取Data，Data为空时，取Token。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Data 长连接临时token。与Token相同含义，优先取Data，Data为空时，取Token。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getData() {
+        return this.Data;
+    }
+
+    /**
+     * Set 长连接临时token。与Token相同含义，优先取Data，Data为空时，取Token。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Data 长连接临时token。与Token相同含义，优先取Data，Data为空时，取Token。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setData(String Data) {
+        this.Data = Data;
     }
 
     /**
@@ -79,6 +107,9 @@ public class DescribeOfflineTaskTokenResponse extends AbstractModel{
         if (source.Token != null) {
             this.Token = new String(source.Token);
         }
+        if (source.Data != null) {
+            this.Data = new String(source.Data);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -90,6 +121,7 @@ public class DescribeOfflineTaskTokenResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Token", this.Token);
+        this.setParamSimple(map, prefix + "Data", this.Data);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

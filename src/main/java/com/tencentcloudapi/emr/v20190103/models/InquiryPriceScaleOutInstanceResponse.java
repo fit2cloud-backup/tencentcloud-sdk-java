@@ -41,7 +41,7 @@ public class InquiryPriceScaleOutInstanceResponse extends AbstractModel{
     /**
     * 扩容的时间单位。取值范围：
 <li>s：表示秒。</li>
-<li>m：表示月份。</li>
+<li>m：表示月份。</li>
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Unit")
@@ -55,6 +55,14 @@ public class InquiryPriceScaleOutInstanceResponse extends AbstractModel{
     @SerializedName("PriceSpec")
     @Expose
     private PriceResource PriceSpec;
+
+    /**
+    * 对应入参MultipleResources中多个规格的询价结果，其它出参返回的是第一个规格的询价结果
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MultipleEmrPrice")
+    @Expose
+    private EmrPrice [] MultipleEmrPrice;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -106,11 +114,11 @@ public class InquiryPriceScaleOutInstanceResponse extends AbstractModel{
     /**
      * Get 扩容的时间单位。取值范围：
 <li>s：表示秒。</li>
-<li>m：表示月份。</li>
+<li>m：表示月份。</li>
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return Unit 扩容的时间单位。取值范围：
 <li>s：表示秒。</li>
-<li>m：表示月份。</li>
+<li>m：表示月份。</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUnit() {
@@ -120,11 +128,11 @@ public class InquiryPriceScaleOutInstanceResponse extends AbstractModel{
     /**
      * Set 扩容的时间单位。取值范围：
 <li>s：表示秒。</li>
-<li>m：表示月份。</li>
+<li>m：表示月份。</li>
 注意：此字段可能返回 null，表示取不到有效值。
      * @param Unit 扩容的时间单位。取值范围：
 <li>s：表示秒。</li>
-<li>m：表示月份。</li>
+<li>m：表示月份。</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUnit(String Unit) {
@@ -149,6 +157,26 @@ public class InquiryPriceScaleOutInstanceResponse extends AbstractModel{
      */
     public void setPriceSpec(PriceResource PriceSpec) {
         this.PriceSpec = PriceSpec;
+    }
+
+    /**
+     * Get 对应入参MultipleResources中多个规格的询价结果，其它出参返回的是第一个规格的询价结果
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MultipleEmrPrice 对应入参MultipleResources中多个规格的询价结果，其它出参返回的是第一个规格的询价结果
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public EmrPrice [] getMultipleEmrPrice() {
+        return this.MultipleEmrPrice;
+    }
+
+    /**
+     * Set 对应入参MultipleResources中多个规格的询价结果，其它出参返回的是第一个规格的询价结果
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MultipleEmrPrice 对应入参MultipleResources中多个规格的询价结果，其它出参返回的是第一个规格的询价结果
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMultipleEmrPrice(EmrPrice [] MultipleEmrPrice) {
+        this.MultipleEmrPrice = MultipleEmrPrice;
     }
 
     /**
@@ -187,6 +215,12 @@ public class InquiryPriceScaleOutInstanceResponse extends AbstractModel{
         if (source.PriceSpec != null) {
             this.PriceSpec = new PriceResource(source.PriceSpec);
         }
+        if (source.MultipleEmrPrice != null) {
+            this.MultipleEmrPrice = new EmrPrice[source.MultipleEmrPrice.length];
+            for (int i = 0; i < source.MultipleEmrPrice.length; i++) {
+                this.MultipleEmrPrice[i] = new EmrPrice(source.MultipleEmrPrice[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -201,6 +235,7 @@ public class InquiryPriceScaleOutInstanceResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "DiscountCost", this.DiscountCost);
         this.setParamSimple(map, prefix + "Unit", this.Unit);
         this.setParamObj(map, prefix + "PriceSpec.", this.PriceSpec);
+        this.setParamArrayObj(map, prefix + "MultipleEmrPrice.", this.MultipleEmrPrice);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

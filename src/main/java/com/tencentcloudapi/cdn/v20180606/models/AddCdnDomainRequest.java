@@ -299,6 +299,20 @@ global：全球加速
     private QnPrivateAccess QnPrivateAccess;
 
     /**
+    * 其他厂商对象存储回源鉴权
+    */
+    @SerializedName("OthersPrivateAccess")
+    @Expose
+    private OthersPrivateAccess OthersPrivateAccess;
+
+    /**
+    * HTTPS服务，默认开启（收费服务，详见计费说明和产品文档）
+    */
+    @SerializedName("HttpsBilling")
+    @Expose
+    private HttpsBilling HttpsBilling;
+
+    /**
      * Get 域名 
      * @return Domain 域名
      */
@@ -946,6 +960,38 @@ global：全球加速
         this.QnPrivateAccess = QnPrivateAccess;
     }
 
+    /**
+     * Get 其他厂商对象存储回源鉴权 
+     * @return OthersPrivateAccess 其他厂商对象存储回源鉴权
+     */
+    public OthersPrivateAccess getOthersPrivateAccess() {
+        return this.OthersPrivateAccess;
+    }
+
+    /**
+     * Set 其他厂商对象存储回源鉴权
+     * @param OthersPrivateAccess 其他厂商对象存储回源鉴权
+     */
+    public void setOthersPrivateAccess(OthersPrivateAccess OthersPrivateAccess) {
+        this.OthersPrivateAccess = OthersPrivateAccess;
+    }
+
+    /**
+     * Get HTTPS服务，默认开启（收费服务，详见计费说明和产品文档） 
+     * @return HttpsBilling HTTPS服务，默认开启（收费服务，详见计费说明和产品文档）
+     */
+    public HttpsBilling getHttpsBilling() {
+        return this.HttpsBilling;
+    }
+
+    /**
+     * Set HTTPS服务，默认开启（收费服务，详见计费说明和产品文档）
+     * @param HttpsBilling HTTPS服务，默认开启（收费服务，详见计费说明和产品文档）
+     */
+    public void setHttpsBilling(HttpsBilling HttpsBilling) {
+        this.HttpsBilling = HttpsBilling;
+    }
+
     public AddCdnDomainRequest() {
     }
 
@@ -1071,6 +1117,12 @@ global：全球加速
         if (source.QnPrivateAccess != null) {
             this.QnPrivateAccess = new QnPrivateAccess(source.QnPrivateAccess);
         }
+        if (source.OthersPrivateAccess != null) {
+            this.OthersPrivateAccess = new OthersPrivateAccess(source.OthersPrivateAccess);
+        }
+        if (source.HttpsBilling != null) {
+            this.HttpsBilling = new HttpsBilling(source.HttpsBilling);
+        }
     }
 
 
@@ -1116,6 +1168,8 @@ global：全球加速
         this.setParamObj(map, prefix + "OssPrivateAccess.", this.OssPrivateAccess);
         this.setParamObj(map, prefix + "HwPrivateAccess.", this.HwPrivateAccess);
         this.setParamObj(map, prefix + "QnPrivateAccess.", this.QnPrivateAccess);
+        this.setParamObj(map, prefix + "OthersPrivateAccess.", this.OthersPrivateAccess);
+        this.setParamObj(map, prefix + "HttpsBilling.", this.HttpsBilling);
 
     }
 }

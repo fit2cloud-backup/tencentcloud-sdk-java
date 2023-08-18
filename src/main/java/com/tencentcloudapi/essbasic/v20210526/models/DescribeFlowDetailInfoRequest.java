@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeFlowDetailInfoRequest extends AbstractModel{
 
     /**
-    * 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+    * 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
     */
     @SerializedName("Agent")
     @Expose
@@ -31,37 +31,38 @@ public class DescribeFlowDetailInfoRequest extends AbstractModel{
 
     /**
     * 合同(流程)编号数组，最多支持100个。
-（备注：该参数和合同组编号必须二选一）
+<br/>备注：该参数和合同组编号必须二选一, 如果填写FlowGroupId则忽略此FlowIds的入参
     */
     @SerializedName("FlowIds")
     @Expose
     private String [] FlowIds;
 
     /**
-    * 操作者的信息
-    */
-    @SerializedName("Operator")
-    @Expose
-    private UserInfo Operator;
-
-    /**
-    * 合同组编号（备注：该参数和合同(流程)编号数组必须二选一）
+    * 合同组编号
+<br/>备注：该参数和合同(流程)编号数组必须二选一
     */
     @SerializedName("FlowGroupId")
     @Expose
     private String FlowGroupId;
 
     /**
-     * Get 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。 
-     * @return Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+    * 暂未开放
+    */
+    @SerializedName("Operator")
+    @Expose
+    private UserInfo Operator;
+
+    /**
+     * Get 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。 
+     * @return Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
-     * @param Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+     * Set 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
+     * @param Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
@@ -69,9 +70,9 @@ public class DescribeFlowDetailInfoRequest extends AbstractModel{
 
     /**
      * Get 合同(流程)编号数组，最多支持100个。
-（备注：该参数和合同组编号必须二选一） 
+<br/>备注：该参数和合同组编号必须二选一, 如果填写FlowGroupId则忽略此FlowIds的入参 
      * @return FlowIds 合同(流程)编号数组，最多支持100个。
-（备注：该参数和合同组编号必须二选一）
+<br/>备注：该参数和合同组编号必须二选一, 如果填写FlowGroupId则忽略此FlowIds的入参
      */
     public String [] getFlowIds() {
         return this.FlowIds;
@@ -79,44 +80,52 @@ public class DescribeFlowDetailInfoRequest extends AbstractModel{
 
     /**
      * Set 合同(流程)编号数组，最多支持100个。
-（备注：该参数和合同组编号必须二选一）
+<br/>备注：该参数和合同组编号必须二选一, 如果填写FlowGroupId则忽略此FlowIds的入参
      * @param FlowIds 合同(流程)编号数组，最多支持100个。
-（备注：该参数和合同组编号必须二选一）
+<br/>备注：该参数和合同组编号必须二选一, 如果填写FlowGroupId则忽略此FlowIds的入参
      */
     public void setFlowIds(String [] FlowIds) {
         this.FlowIds = FlowIds;
     }
 
     /**
-     * Get 操作者的信息 
-     * @return Operator 操作者的信息
-     */
-    public UserInfo getOperator() {
-        return this.Operator;
-    }
-
-    /**
-     * Set 操作者的信息
-     * @param Operator 操作者的信息
-     */
-    public void setOperator(UserInfo Operator) {
-        this.Operator = Operator;
-    }
-
-    /**
-     * Get 合同组编号（备注：该参数和合同(流程)编号数组必须二选一） 
-     * @return FlowGroupId 合同组编号（备注：该参数和合同(流程)编号数组必须二选一）
+     * Get 合同组编号
+<br/>备注：该参数和合同(流程)编号数组必须二选一 
+     * @return FlowGroupId 合同组编号
+<br/>备注：该参数和合同(流程)编号数组必须二选一
      */
     public String getFlowGroupId() {
         return this.FlowGroupId;
     }
 
     /**
-     * Set 合同组编号（备注：该参数和合同(流程)编号数组必须二选一）
-     * @param FlowGroupId 合同组编号（备注：该参数和合同(流程)编号数组必须二选一）
+     * Set 合同组编号
+<br/>备注：该参数和合同(流程)编号数组必须二选一
+     * @param FlowGroupId 合同组编号
+<br/>备注：该参数和合同(流程)编号数组必须二选一
      */
     public void setFlowGroupId(String FlowGroupId) {
         this.FlowGroupId = FlowGroupId;
+    }
+
+    /**
+     * Get 暂未开放 
+     * @return Operator 暂未开放
+     * @deprecated
+     */
+    @Deprecated
+    public UserInfo getOperator() {
+        return this.Operator;
+    }
+
+    /**
+     * Set 暂未开放
+     * @param Operator 暂未开放
+     * @deprecated
+     */
+    @Deprecated
+    public void setOperator(UserInfo Operator) {
+        this.Operator = Operator;
     }
 
     public DescribeFlowDetailInfoRequest() {
@@ -136,11 +145,11 @@ public class DescribeFlowDetailInfoRequest extends AbstractModel{
                 this.FlowIds[i] = new String(source.FlowIds[i]);
             }
         }
-        if (source.Operator != null) {
-            this.Operator = new UserInfo(source.Operator);
-        }
         if (source.FlowGroupId != null) {
             this.FlowGroupId = new String(source.FlowGroupId);
+        }
+        if (source.Operator != null) {
+            this.Operator = new UserInfo(source.Operator);
         }
     }
 
@@ -151,8 +160,8 @@ public class DescribeFlowDetailInfoRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "Agent.", this.Agent);
         this.setParamArraySimple(map, prefix + "FlowIds.", this.FlowIds);
-        this.setParamObj(map, prefix + "Operator.", this.Operator);
         this.setParamSimple(map, prefix + "FlowGroupId", this.FlowGroupId);
+        this.setParamObj(map, prefix + "Operator.", this.Operator);
 
     }
 }

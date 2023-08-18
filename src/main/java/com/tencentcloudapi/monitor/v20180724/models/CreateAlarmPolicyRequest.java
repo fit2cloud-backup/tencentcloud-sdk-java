@@ -121,7 +121,7 @@ public class CreateAlarmPolicyRequest extends AbstractModel{
     private String [] GroupBy;
 
     /**
-    * 模版绑定的标签
+    * 模板绑定的标签
     */
     @SerializedName("Tags")
     @Expose
@@ -147,6 +147,13 @@ public class CreateAlarmPolicyRequest extends AbstractModel{
     @SerializedName("MigrateFlag")
     @Expose
     private Long MigrateFlag;
+
+    /**
+    * 事件配置的告警
+    */
+    @SerializedName("EbSubject")
+    @Expose
+    private String EbSubject;
 
     /**
      * Get 固定值，为"monitor" 
@@ -373,16 +380,16 @@ public class CreateAlarmPolicyRequest extends AbstractModel{
     }
 
     /**
-     * Get 模版绑定的标签 
-     * @return Tags 模版绑定的标签
+     * Get 模板绑定的标签 
+     * @return Tags 模板绑定的标签
      */
     public Tag [] getTags() {
         return this.Tags;
     }
 
     /**
-     * Set 模版绑定的标签
-     * @param Tags 模版绑定的标签
+     * Set 模板绑定的标签
+     * @param Tags 模板绑定的标签
      */
     public void setTags(Tag [] Tags) {
         this.Tags = Tags;
@@ -434,6 +441,22 @@ public class CreateAlarmPolicyRequest extends AbstractModel{
      */
     public void setMigrateFlag(Long MigrateFlag) {
         this.MigrateFlag = MigrateFlag;
+    }
+
+    /**
+     * Get 事件配置的告警 
+     * @return EbSubject 事件配置的告警
+     */
+    public String getEbSubject() {
+        return this.EbSubject;
+    }
+
+    /**
+     * Set 事件配置的告警
+     * @param EbSubject 事件配置的告警
+     */
+    public void setEbSubject(String EbSubject) {
+        this.EbSubject = EbSubject;
     }
 
     public CreateAlarmPolicyRequest() {
@@ -513,6 +536,9 @@ public class CreateAlarmPolicyRequest extends AbstractModel{
         if (source.MigrateFlag != null) {
             this.MigrateFlag = new Long(source.MigrateFlag);
         }
+        if (source.EbSubject != null) {
+            this.EbSubject = new String(source.EbSubject);
+        }
     }
 
 
@@ -538,6 +564,7 @@ public class CreateAlarmPolicyRequest extends AbstractModel{
         this.setParamObj(map, prefix + "LogAlarmReqInfo.", this.LogAlarmReqInfo);
         this.setParamArrayObj(map, prefix + "HierarchicalNotices.", this.HierarchicalNotices);
         this.setParamSimple(map, prefix + "MigrateFlag", this.MigrateFlag);
+        this.setParamSimple(map, prefix + "EbSubject", this.EbSubject);
 
     }
 }

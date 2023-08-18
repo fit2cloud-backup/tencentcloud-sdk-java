@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class RuleInfo extends AbstractModel{
 
     /**
-    * 全文索引配置
+    * 全文索引配置, 如果为空时代表未开启全文索引
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FullText")
@@ -31,7 +31,7 @@ public class RuleInfo extends AbstractModel{
     private FullTextInfo FullText;
 
     /**
-    * 键值索引配置
+    * 键值索引配置，如果为空时代表未开启键值索引
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("KeyValue")
@@ -39,7 +39,7 @@ public class RuleInfo extends AbstractModel{
     private RuleKeyValueInfo KeyValue;
 
     /**
-    * 元字段索引配置
+    * 元字段索引配置，如果为空时代表未开启元字段索引
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tag")
@@ -47,9 +47,19 @@ public class RuleInfo extends AbstractModel{
     private RuleTagInfo Tag;
 
     /**
-     * Get 全文索引配置
+    * 动态索引配置，如果为空时代表未开启动态段索引
+
+注意：该功能尚处于内测阶段，如需使用请联系技术支持
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DynamicIndex")
+    @Expose
+    private DynamicIndex DynamicIndex;
+
+    /**
+     * Get 全文索引配置, 如果为空时代表未开启全文索引
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return FullText 全文索引配置
+     * @return FullText 全文索引配置, 如果为空时代表未开启全文索引
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public FullTextInfo getFullText() {
@@ -57,9 +67,9 @@ public class RuleInfo extends AbstractModel{
     }
 
     /**
-     * Set 全文索引配置
+     * Set 全文索引配置, 如果为空时代表未开启全文索引
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param FullText 全文索引配置
+     * @param FullText 全文索引配置, 如果为空时代表未开启全文索引
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFullText(FullTextInfo FullText) {
@@ -67,9 +77,9 @@ public class RuleInfo extends AbstractModel{
     }
 
     /**
-     * Get 键值索引配置
+     * Get 键值索引配置，如果为空时代表未开启键值索引
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return KeyValue 键值索引配置
+     * @return KeyValue 键值索引配置，如果为空时代表未开启键值索引
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public RuleKeyValueInfo getKeyValue() {
@@ -77,9 +87,9 @@ public class RuleInfo extends AbstractModel{
     }
 
     /**
-     * Set 键值索引配置
+     * Set 键值索引配置，如果为空时代表未开启键值索引
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param KeyValue 键值索引配置
+     * @param KeyValue 键值索引配置，如果为空时代表未开启键值索引
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKeyValue(RuleKeyValueInfo KeyValue) {
@@ -87,9 +97,9 @@ public class RuleInfo extends AbstractModel{
     }
 
     /**
-     * Get 元字段索引配置
+     * Get 元字段索引配置，如果为空时代表未开启元字段索引
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Tag 元字段索引配置
+     * @return Tag 元字段索引配置，如果为空时代表未开启元字段索引
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public RuleTagInfo getTag() {
@@ -97,13 +107,41 @@ public class RuleInfo extends AbstractModel{
     }
 
     /**
-     * Set 元字段索引配置
+     * Set 元字段索引配置，如果为空时代表未开启元字段索引
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Tag 元字段索引配置
+     * @param Tag 元字段索引配置，如果为空时代表未开启元字段索引
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTag(RuleTagInfo Tag) {
         this.Tag = Tag;
+    }
+
+    /**
+     * Get 动态索引配置，如果为空时代表未开启动态段索引
+
+注意：该功能尚处于内测阶段，如需使用请联系技术支持
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DynamicIndex 动态索引配置，如果为空时代表未开启动态段索引
+
+注意：该功能尚处于内测阶段，如需使用请联系技术支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public DynamicIndex getDynamicIndex() {
+        return this.DynamicIndex;
+    }
+
+    /**
+     * Set 动态索引配置，如果为空时代表未开启动态段索引
+
+注意：该功能尚处于内测阶段，如需使用请联系技术支持
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DynamicIndex 动态索引配置，如果为空时代表未开启动态段索引
+
+注意：该功能尚处于内测阶段，如需使用请联系技术支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDynamicIndex(DynamicIndex DynamicIndex) {
+        this.DynamicIndex = DynamicIndex;
     }
 
     public RuleInfo() {
@@ -123,6 +161,9 @@ public class RuleInfo extends AbstractModel{
         if (source.Tag != null) {
             this.Tag = new RuleTagInfo(source.Tag);
         }
+        if (source.DynamicIndex != null) {
+            this.DynamicIndex = new DynamicIndex(source.DynamicIndex);
+        }
     }
 
 
@@ -133,6 +174,7 @@ public class RuleInfo extends AbstractModel{
         this.setParamObj(map, prefix + "FullText.", this.FullText);
         this.setParamObj(map, prefix + "KeyValue.", this.KeyValue);
         this.setParamObj(map, prefix + "Tag.", this.Tag);
+        this.setParamObj(map, prefix + "DynamicIndex.", this.DynamicIndex);
 
     }
 }

@@ -23,28 +23,28 @@ import java.util.HashMap;
 public class ModifyAutoBackupConfigResponse extends AbstractModel{
 
     /**
-    * 自动备份类型： 1 “定时回档”
+    * 自动备份类型。目前仅能配置为：1 ，指定时备份。
     */
     @SerializedName("AutoBackupType")
     @Expose
     private Long AutoBackupType;
 
     /**
-    * 日期Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。
+    * 自动备份周期。取值为：Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。
     */
     @SerializedName("WeekDays")
     @Expose
     private String [] WeekDays;
 
     /**
-    * 时间段 00:00-01:00, 01:00-02:00...... 23:00-00:00
+    * 自动定时备份时间段。格式如：00:00-01:00, 01:00-02:00...... 23:00-00:00。
     */
     @SerializedName("TimePeriod")
     @Expose
     private String TimePeriod;
 
     /**
-    * 全量备份文件保存天数,单位：天
+    * 全量备份文件保存天数,单位：天。
     */
     @SerializedName("BackupStorageDays")
     @Expose
@@ -58,64 +58,64 @@ public class ModifyAutoBackupConfigResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 自动备份类型： 1 “定时回档” 
-     * @return AutoBackupType 自动备份类型： 1 “定时回档”
+     * Get 自动备份类型。目前仅能配置为：1 ，指定时备份。 
+     * @return AutoBackupType 自动备份类型。目前仅能配置为：1 ，指定时备份。
      */
     public Long getAutoBackupType() {
         return this.AutoBackupType;
     }
 
     /**
-     * Set 自动备份类型： 1 “定时回档”
-     * @param AutoBackupType 自动备份类型： 1 “定时回档”
+     * Set 自动备份类型。目前仅能配置为：1 ，指定时备份。
+     * @param AutoBackupType 自动备份类型。目前仅能配置为：1 ，指定时备份。
      */
     public void setAutoBackupType(Long AutoBackupType) {
         this.AutoBackupType = AutoBackupType;
     }
 
     /**
-     * Get 日期Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。 
-     * @return WeekDays 日期Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。
+     * Get 自动备份周期。取值为：Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。 
+     * @return WeekDays 自动备份周期。取值为：Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。
      */
     public String [] getWeekDays() {
         return this.WeekDays;
     }
 
     /**
-     * Set 日期Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。
-     * @param WeekDays 日期Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。
+     * Set 自动备份周期。取值为：Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。
+     * @param WeekDays 自动备份周期。取值为：Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。
      */
     public void setWeekDays(String [] WeekDays) {
         this.WeekDays = WeekDays;
     }
 
     /**
-     * Get 时间段 00:00-01:00, 01:00-02:00...... 23:00-00:00 
-     * @return TimePeriod 时间段 00:00-01:00, 01:00-02:00...... 23:00-00:00
+     * Get 自动定时备份时间段。格式如：00:00-01:00, 01:00-02:00...... 23:00-00:00。 
+     * @return TimePeriod 自动定时备份时间段。格式如：00:00-01:00, 01:00-02:00...... 23:00-00:00。
      */
     public String getTimePeriod() {
         return this.TimePeriod;
     }
 
     /**
-     * Set 时间段 00:00-01:00, 01:00-02:00...... 23:00-00:00
-     * @param TimePeriod 时间段 00:00-01:00, 01:00-02:00...... 23:00-00:00
+     * Set 自动定时备份时间段。格式如：00:00-01:00, 01:00-02:00...... 23:00-00:00。
+     * @param TimePeriod 自动定时备份时间段。格式如：00:00-01:00, 01:00-02:00...... 23:00-00:00。
      */
     public void setTimePeriod(String TimePeriod) {
         this.TimePeriod = TimePeriod;
     }
 
     /**
-     * Get 全量备份文件保存天数,单位：天 
-     * @return BackupStorageDays 全量备份文件保存天数,单位：天
+     * Get 全量备份文件保存天数,单位：天。 
+     * @return BackupStorageDays 全量备份文件保存天数,单位：天。
      */
     public Long getBackupStorageDays() {
         return this.BackupStorageDays;
     }
 
     /**
-     * Set 全量备份文件保存天数,单位：天
-     * @param BackupStorageDays 全量备份文件保存天数,单位：天
+     * Set 全量备份文件保存天数,单位：天。
+     * @param BackupStorageDays 全量备份文件保存天数,单位：天。
      */
     public void setBackupStorageDays(Long BackupStorageDays) {
         this.BackupStorageDays = BackupStorageDays;

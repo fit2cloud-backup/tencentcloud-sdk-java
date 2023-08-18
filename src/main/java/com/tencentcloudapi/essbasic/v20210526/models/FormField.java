@@ -29,7 +29,7 @@ MULTI_LINE_TEXT - 文本内容
 CHECK_BOX - true/false
 FILL_IMAGE、ATTACHMENT - 附件的FileId，需要通过UploadFiles接口上传获取
 SELECTOR - 选项值
-DYNAMIC_TABLE - 传入json格式的表格内容，具体见数据结构FlowInfo：https://cloud.tencent.com/document/api/1420/61525#FlowInfo
+DYNAMIC_TABLE - 传入json格式的表格内容，具体见数据结构FlowInfo
     */
     @SerializedName("ComponentValue")
     @Expose
@@ -53,20 +53,28 @@ CreateFlowsByTemplates 接口不使用此字段。
     private String ComponentName;
 
     /**
+    * 是否锁定模板控件值，锁定后无法修改（用于嵌入式发起合同），true-锁定，false-不锁定
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("LockComponentValue")
+    @Expose
+    private Boolean LockComponentValue;
+
+    /**
      * Get 控件填充vaule，ComponentType和传入值类型对应关系：
 TEXT - 文本内容
 MULTI_LINE_TEXT - 文本内容
 CHECK_BOX - true/false
 FILL_IMAGE、ATTACHMENT - 附件的FileId，需要通过UploadFiles接口上传获取
 SELECTOR - 选项值
-DYNAMIC_TABLE - 传入json格式的表格内容，具体见数据结构FlowInfo：https://cloud.tencent.com/document/api/1420/61525#FlowInfo 
+DYNAMIC_TABLE - 传入json格式的表格内容，具体见数据结构FlowInfo 
      * @return ComponentValue 控件填充vaule，ComponentType和传入值类型对应关系：
 TEXT - 文本内容
 MULTI_LINE_TEXT - 文本内容
 CHECK_BOX - true/false
 FILL_IMAGE、ATTACHMENT - 附件的FileId，需要通过UploadFiles接口上传获取
 SELECTOR - 选项值
-DYNAMIC_TABLE - 传入json格式的表格内容，具体见数据结构FlowInfo：https://cloud.tencent.com/document/api/1420/61525#FlowInfo
+DYNAMIC_TABLE - 传入json格式的表格内容，具体见数据结构FlowInfo
      */
     public String getComponentValue() {
         return this.ComponentValue;
@@ -79,14 +87,14 @@ MULTI_LINE_TEXT - 文本内容
 CHECK_BOX - true/false
 FILL_IMAGE、ATTACHMENT - 附件的FileId，需要通过UploadFiles接口上传获取
 SELECTOR - 选项值
-DYNAMIC_TABLE - 传入json格式的表格内容，具体见数据结构FlowInfo：https://cloud.tencent.com/document/api/1420/61525#FlowInfo
+DYNAMIC_TABLE - 传入json格式的表格内容，具体见数据结构FlowInfo
      * @param ComponentValue 控件填充vaule，ComponentType和传入值类型对应关系：
 TEXT - 文本内容
 MULTI_LINE_TEXT - 文本内容
 CHECK_BOX - true/false
 FILL_IMAGE、ATTACHMENT - 附件的FileId，需要通过UploadFiles接口上传获取
 SELECTOR - 选项值
-DYNAMIC_TABLE - 传入json格式的表格内容，具体见数据结构FlowInfo：https://cloud.tencent.com/document/api/1420/61525#FlowInfo
+DYNAMIC_TABLE - 传入json格式的表格内容，具体见数据结构FlowInfo
      */
     public void setComponentValue(String ComponentValue) {
         this.ComponentValue = ComponentValue;
@@ -136,6 +144,26 @@ CreateFlowsByTemplates 接口不使用此字段。
         this.ComponentName = ComponentName;
     }
 
+    /**
+     * Get 是否锁定模板控件值，锁定后无法修改（用于嵌入式发起合同），true-锁定，false-不锁定
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return LockComponentValue 是否锁定模板控件值，锁定后无法修改（用于嵌入式发起合同），true-锁定，false-不锁定
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getLockComponentValue() {
+        return this.LockComponentValue;
+    }
+
+    /**
+     * Set 是否锁定模板控件值，锁定后无法修改（用于嵌入式发起合同），true-锁定，false-不锁定
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param LockComponentValue 是否锁定模板控件值，锁定后无法修改（用于嵌入式发起合同），true-锁定，false-不锁定
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLockComponentValue(Boolean LockComponentValue) {
+        this.LockComponentValue = LockComponentValue;
+    }
+
     public FormField() {
     }
 
@@ -153,6 +181,9 @@ CreateFlowsByTemplates 接口不使用此字段。
         if (source.ComponentName != null) {
             this.ComponentName = new String(source.ComponentName);
         }
+        if (source.LockComponentValue != null) {
+            this.LockComponentValue = new Boolean(source.LockComponentValue);
+        }
     }
 
 
@@ -163,6 +194,7 @@ CreateFlowsByTemplates 接口不使用此字段。
         this.setParamSimple(map, prefix + "ComponentValue", this.ComponentValue);
         this.setParamSimple(map, prefix + "ComponentId", this.ComponentId);
         this.setParamSimple(map, prefix + "ComponentName", this.ComponentName);
+        this.setParamSimple(map, prefix + "LockComponentValue", this.LockComponentValue);
 
     }
 }

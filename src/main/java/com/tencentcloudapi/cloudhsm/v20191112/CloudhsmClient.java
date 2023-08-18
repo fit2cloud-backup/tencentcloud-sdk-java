@@ -29,7 +29,7 @@ public class CloudhsmClient extends AbstractClient{
     private static String endpoint = "cloudhsm.tencentcloudapi.com";
     private static String service = "cloudhsm";
     private static String version = "2019-11-12";
-
+    
     public CloudhsmClient(Credential credential, String region) {
         this(credential, region, new ClientProfile());
     }
@@ -47,6 +47,7 @@ public class CloudhsmClient extends AbstractClient{
     public DescribeHSMBySubnetIdResponse DescribeHSMBySubnetId(DescribeHSMBySubnetIdRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeHSMBySubnetIdResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeHSMBySubnetIdResponse>>() {
                 }.getType();
@@ -67,6 +68,7 @@ public class CloudhsmClient extends AbstractClient{
     public DescribeHSMByVpcIdResponse DescribeHSMByVpcId(DescribeHSMByVpcIdRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeHSMByVpcIdResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeHSMByVpcIdResponse>>() {
                 }.getType();
@@ -87,6 +89,7 @@ public class CloudhsmClient extends AbstractClient{
     public DescribeSubnetResponse DescribeSubnet(DescribeSubnetRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSubnetResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSubnetResponse>>() {
                 }.getType();
@@ -107,6 +110,7 @@ public class CloudhsmClient extends AbstractClient{
     public DescribeSupportedHsmResponse DescribeSupportedHsm(DescribeSupportedHsmRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSupportedHsmResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSupportedHsmResponse>>() {
                 }.getType();
@@ -127,6 +131,7 @@ public class CloudhsmClient extends AbstractClient{
     public DescribeUsgResponse DescribeUsg(DescribeUsgRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeUsgResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeUsgResponse>>() {
                 }.getType();
@@ -147,6 +152,7 @@ public class CloudhsmClient extends AbstractClient{
     public DescribeUsgRuleResponse DescribeUsgRule(DescribeUsgRuleRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeUsgRuleResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeUsgRuleResponse>>() {
                 }.getType();
@@ -167,6 +173,7 @@ public class CloudhsmClient extends AbstractClient{
     public DescribeVpcResponse DescribeVpc(DescribeVpcRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeVpcResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeVpcResponse>>() {
                 }.getType();
@@ -187,6 +194,7 @@ public class CloudhsmClient extends AbstractClient{
     public DescribeVsmAttributesResponse DescribeVsmAttributes(DescribeVsmAttributesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeVsmAttributesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeVsmAttributesResponse>>() {
                 }.getType();
@@ -207,10 +215,53 @@ public class CloudhsmClient extends AbstractClient{
     public DescribeVsmsResponse DescribeVsms(DescribeVsmsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeVsmsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeVsmsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeVsms");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取告警事件
+     * @param req GetAlarmEventRequest
+     * @return GetAlarmEventResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetAlarmEventResponse GetAlarmEvent(GetAlarmEventRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetAlarmEventResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetAlarmEventResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetAlarmEvent");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取VSM监控信息
+     * @param req GetVsmMonitorInfoRequest
+     * @return GetVsmMonitorInfoResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetVsmMonitorInfoResponse GetVsmMonitorInfo(GetVsmMonitorInfoRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetVsmMonitorInfoResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetVsmMonitorInfoResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetVsmMonitorInfo");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -227,10 +278,32 @@ public class CloudhsmClient extends AbstractClient{
     public InquiryPriceBuyVsmResponse InquiryPriceBuyVsm(InquiryPriceBuyVsmRequest req) throws TencentCloudSDKException{
         JsonResponseModel<InquiryPriceBuyVsmResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<InquiryPriceBuyVsmResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "InquiryPriceBuyVsm");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改告警事件
+     * @param req ModifyAlarmEventRequest
+     * @return ModifyAlarmEventResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyAlarmEventResponse ModifyAlarmEvent(ModifyAlarmEventRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyAlarmEventResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyAlarmEventResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyAlarmEvent");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -247,6 +320,7 @@ public class CloudhsmClient extends AbstractClient{
     public ModifyVsmAttributesResponse ModifyVsmAttributes(ModifyVsmAttributesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyVsmAttributesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyVsmAttributesResponse>>() {
                 }.getType();

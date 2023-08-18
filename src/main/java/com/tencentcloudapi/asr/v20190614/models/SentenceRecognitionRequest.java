@@ -23,31 +23,28 @@ import java.util.HashMap;
 public class SentenceRecognitionRequest extends AbstractModel{
 
     /**
-    * 腾讯云项目 ID，废弃参数，填写0即可。
-    */
-    @SerializedName("ProjectId")
-    @Expose
-    private Long ProjectId;
-
-    /**
-    * 子服务类型。2： 一句话识别。
-    */
-    @SerializedName("SubServiceType")
-    @Expose
-    private Long SubServiceType;
-
-    /**
     * 引擎模型类型。
 电话场景：
-• 8k_en：电话 8k 英语；
-• 8k_zh：电话 8k 中文普通话通用；
+• 8k_zh：中文电话通用；
+• 8k_en：英文电话通用；
+
 非电话场景：
-• 16k_zh：16k 中文普通话通用；
-• 16k_en：16k 英语；
-• 16k_ca：16k 粤语；
-• 16k_ja：16k 日语；
-• 16k_zh_medical：16k 医疗；
-• 16k_zh-PY 中英粤;
+• 16k_zh：中文通用；
+• 16k_zh-PY：中英粤;
+• 16k_zh_medical：中文医疗；
+• 16k_en：英语；
+• 16k_yue：粤语；
+• 16k_ja：日语；
+• 16k_ko：韩语；
+• 16k_vi：越南语；
+• 16k_ms：马来语；
+• 16k_id：印度尼西亚语；
+• 16k_fil：菲律宾语；
+• 16k_th：泰语；
+• 16k_pt：葡萄牙语；
+• 16k_tr：土耳其语；
+• 16k_ar：阿拉伯语；
+• 16k_es：西班牙语；
 • 16k_zh_dialect：多方言，支持23种方言（上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话）；
     */
     @SerializedName("EngSerViceType")
@@ -62,18 +59,25 @@ public class SentenceRecognitionRequest extends AbstractModel{
     private Long SourceType;
 
     /**
-    * 识别音频的音频格式，支持wav、pcm、ogg-opus、speex、silk、mp3、m4a、aac。
+    * 识别音频的音频格式，支持wav、pcm、ogg-opus、speex、silk、mp3、m4a、aac、amr。
     */
     @SerializedName("VoiceFormat")
     @Expose
     private String VoiceFormat;
 
     /**
-    * 废弃参数，填写任意字符串即可。
+    * 腾讯云项目 ID，废弃参数，填写0即可。
     */
-    @SerializedName("UsrAudioKey")
+    @SerializedName("ProjectId")
     @Expose
-    private String UsrAudioKey;
+    private Long ProjectId;
+
+    /**
+    * 子服务类型。2： 一句话识别。
+    */
+    @SerializedName("SubServiceType")
+    @Expose
+    private Long SubServiceType;
 
     /**
     * 语音的URL地址，需要公网环境浏览器可下载。当 SourceType 值为 0时须填写该字段，为 1 时不填。音频时长不能超过60s，音频文件大小不能超过3MB。
@@ -81,6 +85,13 @@ public class SentenceRecognitionRequest extends AbstractModel{
     @SerializedName("Url")
     @Expose
     private String Url;
+
+    /**
+    * 废弃参数，填写任意字符串即可。
+    */
+    @SerializedName("UsrAudioKey")
+    @Expose
+    private String UsrAudioKey;
 
     /**
     * 语音数据，当SourceType 值为1（本地语音数据上传）时必须填写，当SourceType 值为0（语音 URL上传）可不写。要使用base64编码(采用python语言时注意读取文件应该为string而不是byte，以byte格式读取后要decode()。编码后的数据不可带有回车换行符)。音频时长不能超过60s，音频文件大小不能超过3MB（Base64后）。
@@ -146,68 +157,78 @@ public class SentenceRecognitionRequest extends AbstractModel{
     private String CustomizationId;
 
     /**
-    * 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”、“蜜汁”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。
+    * 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。
     */
     @SerializedName("ReinforceHotword")
     @Expose
     private Long ReinforceHotword;
 
     /**
-     * Get 腾讯云项目 ID，废弃参数，填写0即可。 
-     * @return ProjectId 腾讯云项目 ID，废弃参数，填写0即可。
-     */
-    public Long getProjectId() {
-        return this.ProjectId;
-    }
+    * 临时热词表，该参数用于提升热词识别准确率。
+单个热词规则："热词|权重"，不超过30个字符（最多10个汉字），权重1-10；
+临时热词表限制：多个热词用英文逗号分割，最多128个热词，参数示例："腾讯云|10,语音识别|5,ASR|10"；
+参数 hotword_list 与 hotword_id 区别：
+hotword_id：需要先在控制台或接口创建热词表，获得对应hotword_id传入参数来使用热词功能；
+hotword_list：每次请求时直接传入临时热词表来使用热词功能，云端不保留临时热词表；
+注意：如果同时传入了 hotword_id 和 hotword_list，会优先使用 hotword_list。
+    */
+    @SerializedName("HotwordList")
+    @Expose
+    private String HotwordList;
 
     /**
-     * Set 腾讯云项目 ID，废弃参数，填写0即可。
-     * @param ProjectId 腾讯云项目 ID，废弃参数，填写0即可。
-     */
-    public void setProjectId(Long ProjectId) {
-        this.ProjectId = ProjectId;
-    }
-
-    /**
-     * Get 子服务类型。2： 一句话识别。 
-     * @return SubServiceType 子服务类型。2： 一句话识别。
-     */
-    public Long getSubServiceType() {
-        return this.SubServiceType;
-    }
-
-    /**
-     * Set 子服务类型。2： 一句话识别。
-     * @param SubServiceType 子服务类型。2： 一句话识别。
-     */
-    public void setSubServiceType(Long SubServiceType) {
-        this.SubServiceType = SubServiceType;
-    }
+    * 支持pcm格式的8k音频在与引擎采样率不匹配的情况下升采样到16k后识别，能有效提升识别准确率。仅支持：8000。如：传入 8000 ，则pcm音频采样率为8k，当引擎选用16k_zh， 那么该8k采样率的pcm音频可以在16k_zh引擎下正常识别。 注：此参数仅适用于pcm格式音频，不传入值将维持默认状态，即默认调用的引擎采样率等于pcm音频采样率。
+    */
+    @SerializedName("InputSampleRate")
+    @Expose
+    private Long InputSampleRate;
 
     /**
      * Get 引擎模型类型。
 电话场景：
-• 8k_en：电话 8k 英语；
-• 8k_zh：电话 8k 中文普通话通用；
+• 8k_zh：中文电话通用；
+• 8k_en：英文电话通用；
+
 非电话场景：
-• 16k_zh：16k 中文普通话通用；
-• 16k_en：16k 英语；
-• 16k_ca：16k 粤语；
-• 16k_ja：16k 日语；
-• 16k_zh_medical：16k 医疗；
-• 16k_zh-PY 中英粤;
+• 16k_zh：中文通用；
+• 16k_zh-PY：中英粤;
+• 16k_zh_medical：中文医疗；
+• 16k_en：英语；
+• 16k_yue：粤语；
+• 16k_ja：日语；
+• 16k_ko：韩语；
+• 16k_vi：越南语；
+• 16k_ms：马来语；
+• 16k_id：印度尼西亚语；
+• 16k_fil：菲律宾语；
+• 16k_th：泰语；
+• 16k_pt：葡萄牙语；
+• 16k_tr：土耳其语；
+• 16k_ar：阿拉伯语；
+• 16k_es：西班牙语；
 • 16k_zh_dialect：多方言，支持23种方言（上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话）； 
      * @return EngSerViceType 引擎模型类型。
 电话场景：
-• 8k_en：电话 8k 英语；
-• 8k_zh：电话 8k 中文普通话通用；
+• 8k_zh：中文电话通用；
+• 8k_en：英文电话通用；
+
 非电话场景：
-• 16k_zh：16k 中文普通话通用；
-• 16k_en：16k 英语；
-• 16k_ca：16k 粤语；
-• 16k_ja：16k 日语；
-• 16k_zh_medical：16k 医疗；
-• 16k_zh-PY 中英粤;
+• 16k_zh：中文通用；
+• 16k_zh-PY：中英粤;
+• 16k_zh_medical：中文医疗；
+• 16k_en：英语；
+• 16k_yue：粤语；
+• 16k_ja：日语；
+• 16k_ko：韩语；
+• 16k_vi：越南语；
+• 16k_ms：马来语；
+• 16k_id：印度尼西亚语；
+• 16k_fil：菲律宾语；
+• 16k_th：泰语；
+• 16k_pt：葡萄牙语；
+• 16k_tr：土耳其语；
+• 16k_ar：阿拉伯语；
+• 16k_es：西班牙语；
 • 16k_zh_dialect：多方言，支持23种方言（上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话）；
      */
     public String getEngSerViceType() {
@@ -217,27 +238,49 @@ public class SentenceRecognitionRequest extends AbstractModel{
     /**
      * Set 引擎模型类型。
 电话场景：
-• 8k_en：电话 8k 英语；
-• 8k_zh：电话 8k 中文普通话通用；
+• 8k_zh：中文电话通用；
+• 8k_en：英文电话通用；
+
 非电话场景：
-• 16k_zh：16k 中文普通话通用；
-• 16k_en：16k 英语；
-• 16k_ca：16k 粤语；
-• 16k_ja：16k 日语；
-• 16k_zh_medical：16k 医疗；
-• 16k_zh-PY 中英粤;
+• 16k_zh：中文通用；
+• 16k_zh-PY：中英粤;
+• 16k_zh_medical：中文医疗；
+• 16k_en：英语；
+• 16k_yue：粤语；
+• 16k_ja：日语；
+• 16k_ko：韩语；
+• 16k_vi：越南语；
+• 16k_ms：马来语；
+• 16k_id：印度尼西亚语；
+• 16k_fil：菲律宾语；
+• 16k_th：泰语；
+• 16k_pt：葡萄牙语；
+• 16k_tr：土耳其语；
+• 16k_ar：阿拉伯语；
+• 16k_es：西班牙语；
 • 16k_zh_dialect：多方言，支持23种方言（上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话）；
      * @param EngSerViceType 引擎模型类型。
 电话场景：
-• 8k_en：电话 8k 英语；
-• 8k_zh：电话 8k 中文普通话通用；
+• 8k_zh：中文电话通用；
+• 8k_en：英文电话通用；
+
 非电话场景：
-• 16k_zh：16k 中文普通话通用；
-• 16k_en：16k 英语；
-• 16k_ca：16k 粤语；
-• 16k_ja：16k 日语；
-• 16k_zh_medical：16k 医疗；
-• 16k_zh-PY 中英粤;
+• 16k_zh：中文通用；
+• 16k_zh-PY：中英粤;
+• 16k_zh_medical：中文医疗；
+• 16k_en：英语；
+• 16k_yue：粤语；
+• 16k_ja：日语；
+• 16k_ko：韩语；
+• 16k_vi：越南语；
+• 16k_ms：马来语；
+• 16k_id：印度尼西亚语；
+• 16k_fil：菲律宾语；
+• 16k_th：泰语；
+• 16k_pt：葡萄牙语；
+• 16k_tr：土耳其语；
+• 16k_ar：阿拉伯语；
+• 16k_es：西班牙语；
 • 16k_zh_dialect：多方言，支持23种方言（上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话）；
      */
     public void setEngSerViceType(String EngSerViceType) {
@@ -261,35 +304,59 @@ public class SentenceRecognitionRequest extends AbstractModel{
     }
 
     /**
-     * Get 识别音频的音频格式，支持wav、pcm、ogg-opus、speex、silk、mp3、m4a、aac。 
-     * @return VoiceFormat 识别音频的音频格式，支持wav、pcm、ogg-opus、speex、silk、mp3、m4a、aac。
+     * Get 识别音频的音频格式，支持wav、pcm、ogg-opus、speex、silk、mp3、m4a、aac、amr。 
+     * @return VoiceFormat 识别音频的音频格式，支持wav、pcm、ogg-opus、speex、silk、mp3、m4a、aac、amr。
      */
     public String getVoiceFormat() {
         return this.VoiceFormat;
     }
 
     /**
-     * Set 识别音频的音频格式，支持wav、pcm、ogg-opus、speex、silk、mp3、m4a、aac。
-     * @param VoiceFormat 识别音频的音频格式，支持wav、pcm、ogg-opus、speex、silk、mp3、m4a、aac。
+     * Set 识别音频的音频格式，支持wav、pcm、ogg-opus、speex、silk、mp3、m4a、aac、amr。
+     * @param VoiceFormat 识别音频的音频格式，支持wav、pcm、ogg-opus、speex、silk、mp3、m4a、aac、amr。
      */
     public void setVoiceFormat(String VoiceFormat) {
         this.VoiceFormat = VoiceFormat;
     }
 
     /**
-     * Get 废弃参数，填写任意字符串即可。 
-     * @return UsrAudioKey 废弃参数，填写任意字符串即可。
+     * Get 腾讯云项目 ID，废弃参数，填写0即可。 
+     * @return ProjectId 腾讯云项目 ID，废弃参数，填写0即可。
+     * @deprecated
      */
-    public String getUsrAudioKey() {
-        return this.UsrAudioKey;
+    @Deprecated
+    public Long getProjectId() {
+        return this.ProjectId;
     }
 
     /**
-     * Set 废弃参数，填写任意字符串即可。
-     * @param UsrAudioKey 废弃参数，填写任意字符串即可。
+     * Set 腾讯云项目 ID，废弃参数，填写0即可。
+     * @param ProjectId 腾讯云项目 ID，废弃参数，填写0即可。
+     * @deprecated
      */
-    public void setUsrAudioKey(String UsrAudioKey) {
-        this.UsrAudioKey = UsrAudioKey;
+    @Deprecated
+    public void setProjectId(Long ProjectId) {
+        this.ProjectId = ProjectId;
+    }
+
+    /**
+     * Get 子服务类型。2： 一句话识别。 
+     * @return SubServiceType 子服务类型。2： 一句话识别。
+     * @deprecated
+     */
+    @Deprecated
+    public Long getSubServiceType() {
+        return this.SubServiceType;
+    }
+
+    /**
+     * Set 子服务类型。2： 一句话识别。
+     * @param SubServiceType 子服务类型。2： 一句话识别。
+     * @deprecated
+     */
+    @Deprecated
+    public void setSubServiceType(Long SubServiceType) {
+        this.SubServiceType = SubServiceType;
     }
 
     /**
@@ -306,6 +373,26 @@ public class SentenceRecognitionRequest extends AbstractModel{
      */
     public void setUrl(String Url) {
         this.Url = Url;
+    }
+
+    /**
+     * Get 废弃参数，填写任意字符串即可。 
+     * @return UsrAudioKey 废弃参数，填写任意字符串即可。
+     * @deprecated
+     */
+    @Deprecated
+    public String getUsrAudioKey() {
+        return this.UsrAudioKey;
+    }
+
+    /**
+     * Set 废弃参数，填写任意字符串即可。
+     * @param UsrAudioKey 废弃参数，填写任意字符串即可。
+     * @deprecated
+     */
+    @Deprecated
+    public void setUsrAudioKey(String UsrAudioKey) {
+        this.UsrAudioKey = UsrAudioKey;
     }
 
     /**
@@ -453,19 +540,75 @@ public class SentenceRecognitionRequest extends AbstractModel{
     }
 
     /**
-     * Get 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”、“蜜汁”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。 
-     * @return ReinforceHotword 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”、“蜜汁”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。
+     * Get 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。 
+     * @return ReinforceHotword 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。
      */
     public Long getReinforceHotword() {
         return this.ReinforceHotword;
     }
 
     /**
-     * Set 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”、“蜜汁”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。
-     * @param ReinforceHotword 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”、“蜜汁”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。
+     * Set 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。
+     * @param ReinforceHotword 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。
      */
     public void setReinforceHotword(Long ReinforceHotword) {
         this.ReinforceHotword = ReinforceHotword;
+    }
+
+    /**
+     * Get 临时热词表，该参数用于提升热词识别准确率。
+单个热词规则："热词|权重"，不超过30个字符（最多10个汉字），权重1-10；
+临时热词表限制：多个热词用英文逗号分割，最多128个热词，参数示例："腾讯云|10,语音识别|5,ASR|10"；
+参数 hotword_list 与 hotword_id 区别：
+hotword_id：需要先在控制台或接口创建热词表，获得对应hotword_id传入参数来使用热词功能；
+hotword_list：每次请求时直接传入临时热词表来使用热词功能，云端不保留临时热词表；
+注意：如果同时传入了 hotword_id 和 hotword_list，会优先使用 hotword_list。 
+     * @return HotwordList 临时热词表，该参数用于提升热词识别准确率。
+单个热词规则："热词|权重"，不超过30个字符（最多10个汉字），权重1-10；
+临时热词表限制：多个热词用英文逗号分割，最多128个热词，参数示例："腾讯云|10,语音识别|5,ASR|10"；
+参数 hotword_list 与 hotword_id 区别：
+hotword_id：需要先在控制台或接口创建热词表，获得对应hotword_id传入参数来使用热词功能；
+hotword_list：每次请求时直接传入临时热词表来使用热词功能，云端不保留临时热词表；
+注意：如果同时传入了 hotword_id 和 hotword_list，会优先使用 hotword_list。
+     */
+    public String getHotwordList() {
+        return this.HotwordList;
+    }
+
+    /**
+     * Set 临时热词表，该参数用于提升热词识别准确率。
+单个热词规则："热词|权重"，不超过30个字符（最多10个汉字），权重1-10；
+临时热词表限制：多个热词用英文逗号分割，最多128个热词，参数示例："腾讯云|10,语音识别|5,ASR|10"；
+参数 hotword_list 与 hotword_id 区别：
+hotword_id：需要先在控制台或接口创建热词表，获得对应hotword_id传入参数来使用热词功能；
+hotword_list：每次请求时直接传入临时热词表来使用热词功能，云端不保留临时热词表；
+注意：如果同时传入了 hotword_id 和 hotword_list，会优先使用 hotword_list。
+     * @param HotwordList 临时热词表，该参数用于提升热词识别准确率。
+单个热词规则："热词|权重"，不超过30个字符（最多10个汉字），权重1-10；
+临时热词表限制：多个热词用英文逗号分割，最多128个热词，参数示例："腾讯云|10,语音识别|5,ASR|10"；
+参数 hotword_list 与 hotword_id 区别：
+hotword_id：需要先在控制台或接口创建热词表，获得对应hotword_id传入参数来使用热词功能；
+hotword_list：每次请求时直接传入临时热词表来使用热词功能，云端不保留临时热词表；
+注意：如果同时传入了 hotword_id 和 hotword_list，会优先使用 hotword_list。
+     */
+    public void setHotwordList(String HotwordList) {
+        this.HotwordList = HotwordList;
+    }
+
+    /**
+     * Get 支持pcm格式的8k音频在与引擎采样率不匹配的情况下升采样到16k后识别，能有效提升识别准确率。仅支持：8000。如：传入 8000 ，则pcm音频采样率为8k，当引擎选用16k_zh， 那么该8k采样率的pcm音频可以在16k_zh引擎下正常识别。 注：此参数仅适用于pcm格式音频，不传入值将维持默认状态，即默认调用的引擎采样率等于pcm音频采样率。 
+     * @return InputSampleRate 支持pcm格式的8k音频在与引擎采样率不匹配的情况下升采样到16k后识别，能有效提升识别准确率。仅支持：8000。如：传入 8000 ，则pcm音频采样率为8k，当引擎选用16k_zh， 那么该8k采样率的pcm音频可以在16k_zh引擎下正常识别。 注：此参数仅适用于pcm格式音频，不传入值将维持默认状态，即默认调用的引擎采样率等于pcm音频采样率。
+     */
+    public Long getInputSampleRate() {
+        return this.InputSampleRate;
+    }
+
+    /**
+     * Set 支持pcm格式的8k音频在与引擎采样率不匹配的情况下升采样到16k后识别，能有效提升识别准确率。仅支持：8000。如：传入 8000 ，则pcm音频采样率为8k，当引擎选用16k_zh， 那么该8k采样率的pcm音频可以在16k_zh引擎下正常识别。 注：此参数仅适用于pcm格式音频，不传入值将维持默认状态，即默认调用的引擎采样率等于pcm音频采样率。
+     * @param InputSampleRate 支持pcm格式的8k音频在与引擎采样率不匹配的情况下升采样到16k后识别，能有效提升识别准确率。仅支持：8000。如：传入 8000 ，则pcm音频采样率为8k，当引擎选用16k_zh， 那么该8k采样率的pcm音频可以在16k_zh引擎下正常识别。 注：此参数仅适用于pcm格式音频，不传入值将维持默认状态，即默认调用的引擎采样率等于pcm音频采样率。
+     */
+    public void setInputSampleRate(Long InputSampleRate) {
+        this.InputSampleRate = InputSampleRate;
     }
 
     public SentenceRecognitionRequest() {
@@ -476,12 +619,6 @@ public class SentenceRecognitionRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public SentenceRecognitionRequest(SentenceRecognitionRequest source) {
-        if (source.ProjectId != null) {
-            this.ProjectId = new Long(source.ProjectId);
-        }
-        if (source.SubServiceType != null) {
-            this.SubServiceType = new Long(source.SubServiceType);
-        }
         if (source.EngSerViceType != null) {
             this.EngSerViceType = new String(source.EngSerViceType);
         }
@@ -491,11 +628,17 @@ public class SentenceRecognitionRequest extends AbstractModel{
         if (source.VoiceFormat != null) {
             this.VoiceFormat = new String(source.VoiceFormat);
         }
-        if (source.UsrAudioKey != null) {
-            this.UsrAudioKey = new String(source.UsrAudioKey);
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.SubServiceType != null) {
+            this.SubServiceType = new Long(source.SubServiceType);
         }
         if (source.Url != null) {
             this.Url = new String(source.Url);
+        }
+        if (source.UsrAudioKey != null) {
+            this.UsrAudioKey = new String(source.UsrAudioKey);
         }
         if (source.Data != null) {
             this.Data = new String(source.Data);
@@ -527,6 +670,12 @@ public class SentenceRecognitionRequest extends AbstractModel{
         if (source.ReinforceHotword != null) {
             this.ReinforceHotword = new Long(source.ReinforceHotword);
         }
+        if (source.HotwordList != null) {
+            this.HotwordList = new String(source.HotwordList);
+        }
+        if (source.InputSampleRate != null) {
+            this.InputSampleRate = new Long(source.InputSampleRate);
+        }
     }
 
 
@@ -534,13 +683,13 @@ public class SentenceRecognitionRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
-        this.setParamSimple(map, prefix + "SubServiceType", this.SubServiceType);
         this.setParamSimple(map, prefix + "EngSerViceType", this.EngSerViceType);
         this.setParamSimple(map, prefix + "SourceType", this.SourceType);
         this.setParamSimple(map, prefix + "VoiceFormat", this.VoiceFormat);
-        this.setParamSimple(map, prefix + "UsrAudioKey", this.UsrAudioKey);
+        this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
+        this.setParamSimple(map, prefix + "SubServiceType", this.SubServiceType);
         this.setParamSimple(map, prefix + "Url", this.Url);
+        this.setParamSimple(map, prefix + "UsrAudioKey", this.UsrAudioKey);
         this.setParamSimple(map, prefix + "Data", this.Data);
         this.setParamSimple(map, prefix + "DataLen", this.DataLen);
         this.setParamSimple(map, prefix + "WordInfo", this.WordInfo);
@@ -551,6 +700,8 @@ public class SentenceRecognitionRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "HotwordId", this.HotwordId);
         this.setParamSimple(map, prefix + "CustomizationId", this.CustomizationId);
         this.setParamSimple(map, prefix + "ReinforceHotword", this.ReinforceHotword);
+        this.setParamSimple(map, prefix + "HotwordList", this.HotwordList);
+        this.setParamSimple(map, prefix + "InputSampleRate", this.InputSampleRate);
 
     }
 }

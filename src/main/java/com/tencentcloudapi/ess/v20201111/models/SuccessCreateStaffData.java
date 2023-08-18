@@ -44,6 +44,21 @@ public class SuccessCreateStaffData extends AbstractModel{
     private String UserId;
 
     /**
+    * 提示，当创建已存在未实名用户时，该字段有值
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Note")
+    @Expose
+    private String Note;
+
+    /**
+    * 传入的企微账号id
+    */
+    @SerializedName("WeworkOpenId")
+    @Expose
+    private String WeworkOpenId;
+
+    /**
      * Get 员工名 
      * @return DisplayName 员工名
      */
@@ -91,6 +106,42 @@ public class SuccessCreateStaffData extends AbstractModel{
         this.UserId = UserId;
     }
 
+    /**
+     * Get 提示，当创建已存在未实名用户时，该字段有值
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Note 提示，当创建已存在未实名用户时，该字段有值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getNote() {
+        return this.Note;
+    }
+
+    /**
+     * Set 提示，当创建已存在未实名用户时，该字段有值
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Note 提示，当创建已存在未实名用户时，该字段有值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setNote(String Note) {
+        this.Note = Note;
+    }
+
+    /**
+     * Get 传入的企微账号id 
+     * @return WeworkOpenId 传入的企微账号id
+     */
+    public String getWeworkOpenId() {
+        return this.WeworkOpenId;
+    }
+
+    /**
+     * Set 传入的企微账号id
+     * @param WeworkOpenId 传入的企微账号id
+     */
+    public void setWeworkOpenId(String WeworkOpenId) {
+        this.WeworkOpenId = WeworkOpenId;
+    }
+
     public SuccessCreateStaffData() {
     }
 
@@ -108,6 +159,12 @@ public class SuccessCreateStaffData extends AbstractModel{
         if (source.UserId != null) {
             this.UserId = new String(source.UserId);
         }
+        if (source.Note != null) {
+            this.Note = new String(source.Note);
+        }
+        if (source.WeworkOpenId != null) {
+            this.WeworkOpenId = new String(source.WeworkOpenId);
+        }
     }
 
 
@@ -118,6 +175,8 @@ public class SuccessCreateStaffData extends AbstractModel{
         this.setParamSimple(map, prefix + "DisplayName", this.DisplayName);
         this.setParamSimple(map, prefix + "Mobile", this.Mobile);
         this.setParamSimple(map, prefix + "UserId", this.UserId);
+        this.setParamSimple(map, prefix + "Note", this.Note);
+        this.setParamSimple(map, prefix + "WeworkOpenId", this.WeworkOpenId);
 
     }
 }

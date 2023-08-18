@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class CreateConvertTaskApiRequest extends AbstractModel{
 
     /**
-    * 资源类型 取值范围doc,docx,html,xls,xlsx之一
+    * 资源类型 支持doc,docx,html,xls,xlsx,jpg,jpeg,png,bmp文件类型
     */
     @SerializedName("ResourceType")
     @Expose
@@ -37,14 +37,14 @@ public class CreateConvertTaskApiRequest extends AbstractModel{
     private String ResourceName;
 
     /**
-    * 资源Id，通过UploadFiles获取
+    * 文件Id，通过UploadFiles获取
     */
     @SerializedName("ResourceId")
     @Expose
     private String ResourceId;
 
     /**
-    * 操作者信息
+    * 调用方用户信息，userId 必填
     */
     @SerializedName("Operator")
     @Expose
@@ -65,16 +65,16 @@ public class CreateConvertTaskApiRequest extends AbstractModel{
     private OrganizationInfo Organization;
 
     /**
-     * Get 资源类型 取值范围doc,docx,html,xls,xlsx之一 
-     * @return ResourceType 资源类型 取值范围doc,docx,html,xls,xlsx之一
+     * Get 资源类型 支持doc,docx,html,xls,xlsx,jpg,jpeg,png,bmp文件类型 
+     * @return ResourceType 资源类型 支持doc,docx,html,xls,xlsx,jpg,jpeg,png,bmp文件类型
      */
     public String getResourceType() {
         return this.ResourceType;
     }
 
     /**
-     * Set 资源类型 取值范围doc,docx,html,xls,xlsx之一
-     * @param ResourceType 资源类型 取值范围doc,docx,html,xls,xlsx之一
+     * Set 资源类型 支持doc,docx,html,xls,xlsx,jpg,jpeg,png,bmp文件类型
+     * @param ResourceType 资源类型 支持doc,docx,html,xls,xlsx,jpg,jpeg,png,bmp文件类型
      */
     public void setResourceType(String ResourceType) {
         this.ResourceType = ResourceType;
@@ -97,32 +97,32 @@ public class CreateConvertTaskApiRequest extends AbstractModel{
     }
 
     /**
-     * Get 资源Id，通过UploadFiles获取 
-     * @return ResourceId 资源Id，通过UploadFiles获取
+     * Get 文件Id，通过UploadFiles获取 
+     * @return ResourceId 文件Id，通过UploadFiles获取
      */
     public String getResourceId() {
         return this.ResourceId;
     }
 
     /**
-     * Set 资源Id，通过UploadFiles获取
-     * @param ResourceId 资源Id，通过UploadFiles获取
+     * Set 文件Id，通过UploadFiles获取
+     * @param ResourceId 文件Id，通过UploadFiles获取
      */
     public void setResourceId(String ResourceId) {
         this.ResourceId = ResourceId;
     }
 
     /**
-     * Get 操作者信息 
-     * @return Operator 操作者信息
+     * Get 调用方用户信息，userId 必填 
+     * @return Operator 调用方用户信息，userId 必填
      */
     public UserInfo getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 操作者信息
-     * @param Operator 操作者信息
+     * Set 调用方用户信息，userId 必填
+     * @param Operator 调用方用户信息，userId 必填
      */
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
@@ -131,7 +131,9 @@ public class CreateConvertTaskApiRequest extends AbstractModel{
     /**
      * Get 应用号信息 
      * @return Agent 应用号信息
+     * @deprecated
      */
+    @Deprecated
     public Agent getAgent() {
         return this.Agent;
     }
@@ -139,7 +141,9 @@ public class CreateConvertTaskApiRequest extends AbstractModel{
     /**
      * Set 应用号信息
      * @param Agent 应用号信息
+     * @deprecated
      */
+    @Deprecated
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
     }
@@ -147,7 +151,9 @@ public class CreateConvertTaskApiRequest extends AbstractModel{
     /**
      * Get 暂未开放 
      * @return Organization 暂未开放
+     * @deprecated
      */
+    @Deprecated
     public OrganizationInfo getOrganization() {
         return this.Organization;
     }
@@ -155,7 +161,9 @@ public class CreateConvertTaskApiRequest extends AbstractModel{
     /**
      * Set 暂未开放
      * @param Organization 暂未开放
+     * @deprecated
      */
+    @Deprecated
     public void setOrganization(OrganizationInfo Organization) {
         this.Organization = Organization;
     }

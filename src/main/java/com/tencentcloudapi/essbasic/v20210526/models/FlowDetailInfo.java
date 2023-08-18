@@ -44,7 +44,16 @@ public class FlowDetailInfo extends AbstractModel{
     private String FlowType;
 
     /**
-    * 合同(流程)的状态
+    * 合同(流程)的状态, 状态如下
+
+INIT 合同创建
+PART 合同签署中
+REJECT 合同拒签
+ALL 合同签署完成
+DEADLINE 合同流签(合同过期)
+CANCEL 合同撤回
+RELIEVED 解除协议（已解除）
+ 
     */
     @SerializedName("FlowStatus")
     @Expose
@@ -58,14 +67,14 @@ public class FlowDetailInfo extends AbstractModel{
     private String FlowMessage;
 
     /**
-    * 合同(流程)的创建时间戳
+    * 合同(流程)的创建时间戳，单位秒
     */
     @SerializedName("CreateOn")
     @Expose
     private Long CreateOn;
 
     /**
-    * 合同(流程)的签署截止时间戳
+    * 合同(流程)的签署截止时间戳，单位秒
     */
     @SerializedName("DeadLine")
     @Expose
@@ -84,6 +93,20 @@ public class FlowDetailInfo extends AbstractModel{
     @SerializedName("FlowApproverInfos")
     @Expose
     private FlowApproverDetail [] FlowApproverInfos;
+
+    /**
+    * 合同(流程)关注方信息列表
+    */
+    @SerializedName("CcInfos")
+    @Expose
+    private FlowApproverDetail [] CcInfos;
+
+    /**
+    * 是否需要发起前审批，当NeedCreateReview为true，表明当前流程是需要发起前审核的合同，可能无法进行查看，签署操作，需要等审核完成后，才可以继续后续流程
+    */
+    @SerializedName("NeedCreateReview")
+    @Expose
+    private Boolean NeedCreateReview;
 
     /**
      * Get 合同(流程)的Id 
@@ -134,16 +157,52 @@ public class FlowDetailInfo extends AbstractModel{
     }
 
     /**
-     * Get 合同(流程)的状态 
-     * @return FlowStatus 合同(流程)的状态
+     * Get 合同(流程)的状态, 状态如下
+
+INIT 合同创建
+PART 合同签署中
+REJECT 合同拒签
+ALL 合同签署完成
+DEADLINE 合同流签(合同过期)
+CANCEL 合同撤回
+RELIEVED 解除协议（已解除）
+  
+     * @return FlowStatus 合同(流程)的状态, 状态如下
+
+INIT 合同创建
+PART 合同签署中
+REJECT 合同拒签
+ALL 合同签署完成
+DEADLINE 合同流签(合同过期)
+CANCEL 合同撤回
+RELIEVED 解除协议（已解除）
+ 
      */
     public String getFlowStatus() {
         return this.FlowStatus;
     }
 
     /**
-     * Set 合同(流程)的状态
-     * @param FlowStatus 合同(流程)的状态
+     * Set 合同(流程)的状态, 状态如下
+
+INIT 合同创建
+PART 合同签署中
+REJECT 合同拒签
+ALL 合同签署完成
+DEADLINE 合同流签(合同过期)
+CANCEL 合同撤回
+RELIEVED 解除协议（已解除）
+ 
+     * @param FlowStatus 合同(流程)的状态, 状态如下
+
+INIT 合同创建
+PART 合同签署中
+REJECT 合同拒签
+ALL 合同签署完成
+DEADLINE 合同流签(合同过期)
+CANCEL 合同撤回
+RELIEVED 解除协议（已解除）
+ 
      */
     public void setFlowStatus(String FlowStatus) {
         this.FlowStatus = FlowStatus;
@@ -166,32 +225,32 @@ public class FlowDetailInfo extends AbstractModel{
     }
 
     /**
-     * Get 合同(流程)的创建时间戳 
-     * @return CreateOn 合同(流程)的创建时间戳
+     * Get 合同(流程)的创建时间戳，单位秒 
+     * @return CreateOn 合同(流程)的创建时间戳，单位秒
      */
     public Long getCreateOn() {
         return this.CreateOn;
     }
 
     /**
-     * Set 合同(流程)的创建时间戳
-     * @param CreateOn 合同(流程)的创建时间戳
+     * Set 合同(流程)的创建时间戳，单位秒
+     * @param CreateOn 合同(流程)的创建时间戳，单位秒
      */
     public void setCreateOn(Long CreateOn) {
         this.CreateOn = CreateOn;
     }
 
     /**
-     * Get 合同(流程)的签署截止时间戳 
-     * @return DeadLine 合同(流程)的签署截止时间戳
+     * Get 合同(流程)的签署截止时间戳，单位秒 
+     * @return DeadLine 合同(流程)的签署截止时间戳，单位秒
      */
     public Long getDeadLine() {
         return this.DeadLine;
     }
 
     /**
-     * Set 合同(流程)的签署截止时间戳
-     * @param DeadLine 合同(流程)的签署截止时间戳
+     * Set 合同(流程)的签署截止时间戳，单位秒
+     * @param DeadLine 合同(流程)的签署截止时间戳，单位秒
      */
     public void setDeadLine(Long DeadLine) {
         this.DeadLine = DeadLine;
@@ -227,6 +286,38 @@ public class FlowDetailInfo extends AbstractModel{
      */
     public void setFlowApproverInfos(FlowApproverDetail [] FlowApproverInfos) {
         this.FlowApproverInfos = FlowApproverInfos;
+    }
+
+    /**
+     * Get 合同(流程)关注方信息列表 
+     * @return CcInfos 合同(流程)关注方信息列表
+     */
+    public FlowApproverDetail [] getCcInfos() {
+        return this.CcInfos;
+    }
+
+    /**
+     * Set 合同(流程)关注方信息列表
+     * @param CcInfos 合同(流程)关注方信息列表
+     */
+    public void setCcInfos(FlowApproverDetail [] CcInfos) {
+        this.CcInfos = CcInfos;
+    }
+
+    /**
+     * Get 是否需要发起前审批，当NeedCreateReview为true，表明当前流程是需要发起前审核的合同，可能无法进行查看，签署操作，需要等审核完成后，才可以继续后续流程 
+     * @return NeedCreateReview 是否需要发起前审批，当NeedCreateReview为true，表明当前流程是需要发起前审核的合同，可能无法进行查看，签署操作，需要等审核完成后，才可以继续后续流程
+     */
+    public Boolean getNeedCreateReview() {
+        return this.NeedCreateReview;
+    }
+
+    /**
+     * Set 是否需要发起前审批，当NeedCreateReview为true，表明当前流程是需要发起前审核的合同，可能无法进行查看，签署操作，需要等审核完成后，才可以继续后续流程
+     * @param NeedCreateReview 是否需要发起前审批，当NeedCreateReview为true，表明当前流程是需要发起前审核的合同，可能无法进行查看，签署操作，需要等审核完成后，才可以继续后续流程
+     */
+    public void setNeedCreateReview(Boolean NeedCreateReview) {
+        this.NeedCreateReview = NeedCreateReview;
     }
 
     public FlowDetailInfo() {
@@ -267,6 +358,15 @@ public class FlowDetailInfo extends AbstractModel{
                 this.FlowApproverInfos[i] = new FlowApproverDetail(source.FlowApproverInfos[i]);
             }
         }
+        if (source.CcInfos != null) {
+            this.CcInfos = new FlowApproverDetail[source.CcInfos.length];
+            for (int i = 0; i < source.CcInfos.length; i++) {
+                this.CcInfos[i] = new FlowApproverDetail(source.CcInfos[i]);
+            }
+        }
+        if (source.NeedCreateReview != null) {
+            this.NeedCreateReview = new Boolean(source.NeedCreateReview);
+        }
     }
 
 
@@ -283,6 +383,8 @@ public class FlowDetailInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "DeadLine", this.DeadLine);
         this.setParamSimple(map, prefix + "CustomData", this.CustomData);
         this.setParamArrayObj(map, prefix + "FlowApproverInfos.", this.FlowApproverInfos);
+        this.setParamArrayObj(map, prefix + "CcInfos.", this.CcInfos);
+        this.setParamSimple(map, prefix + "NeedCreateReview", this.NeedCreateReview);
 
     }
 }

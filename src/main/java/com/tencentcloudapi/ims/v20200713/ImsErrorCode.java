@@ -15,11 +15,20 @@ public enum ImsErrorCode {
     // 参数错误。
      INVALIDPARAMETER("InvalidParameter"),
      
+    // 图片长宽比太大
+     INVALIDPARAMETER_IMAGEASPECTRATIOTOOLARGE("InvalidParameter.ImageAspectRatioTooLarge"),
+     
+    // 图片体积太小
+     INVALIDPARAMETER_IMAGEDATATOOSMALL("InvalidParameter.ImageDataTooSmall"),
+     
     // 图片分辨率过低。
      INVALIDPARAMETER_IMAGESIZETOOSMALL("InvalidParameter.ImageSizeTooSmall"),
      
     // 图片内容错误。
      INVALIDPARAMETER_INVALIDIMAGECONTENT("InvalidParameter.InvalidImageContent"),
+     
+    // 参数不合法。
+     INVALIDPARAMETER_INVALIDPARAMETER("InvalidParameter.InvalidParameter"),
      
     // 参数取值错误。
      INVALIDPARAMETERVALUE("InvalidParameterValue"),
@@ -30,7 +39,7 @@ public enum ImsErrorCode {
     // 图片分辨率太低。
      INVALIDPARAMETERVALUE_IMAGESIZETOOSMALL("InvalidParameterValue.ImageSizeTooSmall"),
      
-    // FileContent和FileUrl为空。
+    // FileContent和FileUrl为空或base64编码错误。
      INVALIDPARAMETERVALUE_INVALIDCONTENT("InvalidParameterValue.InvalidContent"),
      
     // DataId格式错误。
@@ -80,6 +89,9 @@ public enum ImsErrorCode {
      
     // 未授权操作。
      UNAUTHORIZEDOPERATION("UnauthorizedOperation"),
+     
+    // 未开通权限/无有效套餐包/账号已欠费。
+     UNAUTHORIZEDOPERATION_UNAUTHORIZED("UnauthorizedOperation.Unauthorized"),
      
     // 未知参数错误。
      UNKNOWNPARAMETER("UnknownParameter"),

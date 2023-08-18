@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class FreezeCloudBaseRunServersResponse extends AbstractModel{
 
     /**
-    * 批量状态状态
+    * 批量状态
 成功：succ
 失败：fail
 部分：partial（部分成功、部分失败）
@@ -51,13 +51,13 @@ public class FreezeCloudBaseRunServersResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 批量状态状态
+     * Get 批量状态
 成功：succ
 失败：fail
 部分：partial（部分成功、部分失败）
 注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Result 批量状态状态
+     * @return Result 批量状态
 成功：succ
 失败：fail
 部分：partial（部分成功、部分失败）
@@ -69,13 +69,13 @@ public class FreezeCloudBaseRunServersResponse extends AbstractModel{
     }
 
     /**
-     * Set 批量状态状态
+     * Set 批量状态
 成功：succ
 失败：fail
 部分：partial（部分成功、部分失败）
 注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Result 批量状态状态
+     * @param Result 批量状态
 成功：succ
 失败：fail
 部分：partial（部分成功、部分失败）

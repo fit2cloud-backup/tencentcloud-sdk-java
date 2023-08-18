@@ -76,7 +76,7 @@ public class CreateClustersRequest extends AbstractModel{
 
     /**
     * 当DbMode为NORMAL或不填时必选
-普通实例内存,单位G
+普通实例内存,单位GB
     */
     @SerializedName("Memory")
     @Expose
@@ -84,7 +84,7 @@ public class CreateClustersRequest extends AbstractModel{
 
     /**
     * 该参数无实际意义，已废弃。
-存储大小，单位G。
+存储大小，单位GB。
     */
     @SerializedName("Storage")
     @Expose
@@ -296,7 +296,7 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
     private String [] AlarmPolicyIds;
 
     /**
-    * 参数数组
+    * 参数数组，暂时支持character_set_server （utf8｜latin1｜gbk｜utf8mb4） ，lower_case_table_names，1-大小写不敏感，0-大小写敏感
     */
     @SerializedName("ClusterParams")
     @Expose
@@ -322,6 +322,13 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
     @SerializedName("SlaveZone")
     @Expose
     private String SlaveZone;
+
+    /**
+    * 实例初始化配置信息，主要用于购买集群时选不同规格实例
+    */
+    @SerializedName("InstanceInitInfos")
+    @Expose
+    private InstanceInitInfo [] InstanceInitInfos;
 
     /**
      * Get 可用区 
@@ -449,9 +456,9 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
 
     /**
      * Get 当DbMode为NORMAL或不填时必选
-普通实例内存,单位G 
+普通实例内存,单位GB 
      * @return Memory 当DbMode为NORMAL或不填时必选
-普通实例内存,单位G
+普通实例内存,单位GB
      */
     public Long getMemory() {
         return this.Memory;
@@ -459,9 +466,9 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
 
     /**
      * Set 当DbMode为NORMAL或不填时必选
-普通实例内存,单位G
+普通实例内存,单位GB
      * @param Memory 当DbMode为NORMAL或不填时必选
-普通实例内存,单位G
+普通实例内存,单位GB
      */
     public void setMemory(Long Memory) {
         this.Memory = Memory;
@@ -469,9 +476,9 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
 
     /**
      * Get 该参数无实际意义，已废弃。
-存储大小，单位G。 
+存储大小，单位GB。 
      * @return Storage 该参数无实际意义，已废弃。
-存储大小，单位G。
+存储大小，单位GB。
      */
     public Long getStorage() {
         return this.Storage;
@@ -479,9 +486,9 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
 
     /**
      * Set 该参数无实际意义，已废弃。
-存储大小，单位G。
+存储大小，单位GB。
      * @param Storage 该参数无实际意义，已废弃。
-存储大小，单位G。
+存储大小，单位GB。
      */
     public void setStorage(Long Storage) {
         this.Storage = Storage;
@@ -984,16 +991,16 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
     }
 
     /**
-     * Get 参数数组 
-     * @return ClusterParams 参数数组
+     * Get 参数数组，暂时支持character_set_server （utf8｜latin1｜gbk｜utf8mb4） ，lower_case_table_names，1-大小写不敏感，0-大小写敏感 
+     * @return ClusterParams 参数数组，暂时支持character_set_server （utf8｜latin1｜gbk｜utf8mb4） ，lower_case_table_names，1-大小写不敏感，0-大小写敏感
      */
     public ParamItem [] getClusterParams() {
         return this.ClusterParams;
     }
 
     /**
-     * Set 参数数组
-     * @param ClusterParams 参数数组
+     * Set 参数数组，暂时支持character_set_server （utf8｜latin1｜gbk｜utf8mb4） ，lower_case_table_names，1-大小写不敏感，0-大小写敏感
+     * @param ClusterParams 参数数组，暂时支持character_set_server （utf8｜latin1｜gbk｜utf8mb4） ，lower_case_table_names，1-大小写不敏感，0-大小写敏感
      */
     public void setClusterParams(ParamItem [] ClusterParams) {
         this.ClusterParams = ClusterParams;
@@ -1045,6 +1052,22 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
      */
     public void setSlaveZone(String SlaveZone) {
         this.SlaveZone = SlaveZone;
+    }
+
+    /**
+     * Get 实例初始化配置信息，主要用于购买集群时选不同规格实例 
+     * @return InstanceInitInfos 实例初始化配置信息，主要用于购买集群时选不同规格实例
+     */
+    public InstanceInitInfo [] getInstanceInitInfos() {
+        return this.InstanceInitInfos;
+    }
+
+    /**
+     * Set 实例初始化配置信息，主要用于购买集群时选不同规格实例
+     * @param InstanceInitInfos 实例初始化配置信息，主要用于购买集群时选不同规格实例
+     */
+    public void setInstanceInitInfos(InstanceInitInfo [] InstanceInitInfos) {
+        this.InstanceInitInfos = InstanceInitInfos;
     }
 
     public CreateClustersRequest() {
@@ -1187,6 +1210,12 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
         if (source.SlaveZone != null) {
             this.SlaveZone = new String(source.SlaveZone);
         }
+        if (source.InstanceInitInfos != null) {
+            this.InstanceInitInfos = new InstanceInitInfo[source.InstanceInitInfos.length];
+            for (int i = 0; i < source.InstanceInitInfos.length; i++) {
+                this.InstanceInitInfos[i] = new InstanceInitInfo(source.InstanceInitInfos[i]);
+            }
+        }
     }
 
 
@@ -1234,6 +1263,7 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
         this.setParamSimple(map, prefix + "DealMode", this.DealMode);
         this.setParamSimple(map, prefix + "ParamTemplateId", this.ParamTemplateId);
         this.setParamSimple(map, prefix + "SlaveZone", this.SlaveZone);
+        this.setParamArrayObj(map, prefix + "InstanceInitInfos.", this.InstanceInitInfos);
 
     }
 }

@@ -162,6 +162,9 @@ public enum AsErrorCode {
     // 为CLB指定的地域不合法。
      INVALIDPARAMETERVALUE_INVALIDCLBREGION("InvalidParameterValue.InvalidClbRegion"),
      
+    // 指定的置放群组ID格式不正确。
+     INVALIDPARAMETERVALUE_INVALIDDISASTERRECOVERGROUPID("InvalidParameterValue.InvalidDisasterRecoverGroupId"),
+     
     // 过滤条件无效。
      INVALIDPARAMETERVALUE_INVALIDFILTER("InvalidParameterValue.InvalidFilter"),
      
@@ -219,6 +222,9 @@ public enum AsErrorCode {
     // 取值超出限制。
      INVALIDPARAMETERVALUE_LIMITEXCEEDED("InvalidParameterValue.LimitExceeded"),
      
+    // 不支持目标组类型的监听器。
+     INVALIDPARAMETERVALUE_LISTENERTARGETTYPENOTSUPPORTED("InvalidParameterValue.ListenerTargetTypeNotSupported"),
+     
     // 当前账户在带宽包模式中必须填写带宽包ID参数。
      INVALIDPARAMETERVALUE_MISSINGBANDWIDTHPACKAGEID("InvalidParameterValue.MissingBandwidthPackageId"),
      
@@ -254,6 +260,9 @@ public enum AsErrorCode {
      
     // 负载均衡器四层监听器的后端端口重复。
      INVALIDPARAMETERVALUE_TARGETPORTDUPLICATED("InvalidParameterValue.TargetPortDuplicated"),
+     
+    // 不支持执行目标追踪策略。
+     INVALIDPARAMETERVALUE_TARGETTRACKINGSCALINGPOLICY("InvalidParameterValue.TargetTrackingScalingPolicy"),
      
     // 指定的阈值不在有效范围。
      INVALIDPARAMETERVALUE_THRESHOLDOUTOFRANGE("InvalidParameterValue.ThresholdOutOfRange"),
@@ -312,6 +321,9 @@ public enum AsErrorCode {
     // 定时任务数量超过限制。
      LIMITEXCEEDED_SCHEDULEDACTIONLIMITEXCEEDED("LimitExceeded.ScheduledActionLimitExceeded"),
      
+    // 每个伸缩组限制创建一个目标追踪策略。
+     LIMITEXCEEDED_TARGETTRACKINGSCALINGPOLICY("LimitExceeded.TargetTrackingScalingPolicy"),
+     
     // 缺少参数错误。
      MISSINGPARAMETER("MissingParameter"),
      
@@ -360,6 +372,9 @@ public enum AsErrorCode {
     // 命令不存在。
      RESOURCENOTFOUND_COMMANDNOTFOUND("ResourceNotFound.CommandNotFound"),
      
+    // 指定的置放群组ID不存在。
+     RESOURCENOTFOUND_DISASTERRECOVERGROUPNOTFOUND("ResourceNotFound.DisasterRecoverGroupNotFound"),
+     
     // 指定的实例不存在。
      RESOURCENOTFOUND_INSTANCESNOTFOUND("ResourceNotFound.InstancesNotFound"),
      
@@ -374,6 +389,9 @@ public enum AsErrorCode {
      
     // 无法找到指定生命周期挂钩。
      RESOURCENOTFOUND_LIFECYCLEHOOKNOTFOUND("ResourceNotFound.LifecycleHookNotFound"),
+     
+    // 指定的生命周期挂钩Token不存在。
+     RESOURCENOTFOUND_LIFECYCLEHOOKTOKENNOTFOUND("ResourceNotFound.LifecycleHookTokenNotFound"),
      
     // 指定的Listener不存在。
      RESOURCENOTFOUND_LISTENERNOTFOUND("ResourceNotFound.ListenerNotFound"),
@@ -413,6 +431,9 @@ public enum AsErrorCode {
      
     // 实例和伸缩组Vpc不一致。
      RESOURCEUNAVAILABLE_CVMVPCINCONSISTENT("ResourceUnavailable.CvmVpcInconsistent"),
+     
+    // 绑定负载均衡器的伸缩组禁止修改Vpc。
+     RESOURCEUNAVAILABLE_FORBIDDENMODIFYVPC("ResourceUnavailable.ForbiddenModifyVpc"),
      
     // 实例无法添加至伸缩组。
      RESOURCEUNAVAILABLE_INSTANCECANNOTATTACH("ResourceUnavailable.InstanceCannotAttach"),
@@ -455,6 +476,9 @@ public enum AsErrorCode {
      
     // 指定的可用区不可用。
      RESOURCEUNAVAILABLE_ZONEUNAVAILABLE("ResourceUnavailable.ZoneUnavailable"),
+     
+    // 未授权弹性伸缩预设服务角色AS_QCSRole，请前往弹性伸缩控制台进行授权。
+     UNAUTHORIZEDOPERATION_AUTOSCALINGROLEUNAUTHORIZED("UnauthorizedOperation.AutoScalingRoleUnauthorized"),
      
     // 操作不支持。
      UNSUPPORTEDOPERATION("UnsupportedOperation");

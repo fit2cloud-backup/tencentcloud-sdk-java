@@ -47,7 +47,7 @@ public class SendSmsRequest extends AbstractModel{
 
     /**
     * 短信签名内容，使用 UTF-8 编码，必须填写已审核通过的签名，例如：腾讯云，签名信息可前往 [国内短信](https://console.cloud.tencent.com/smsv2/csms-sign) 或 [国际/港澳台短信](https://console.cloud.tencent.com/smsv2/isms-sign) 的签名管理查看。
-<dx-alert infotype="notice" title="注意">发送国内短信该参数必填。</dx-alert>
+<dx-alert infotype="notice" title="注意">发送国内短信该参数必填，且需填写签名内容而非签名ID。</dx-alert>
     */
     @SerializedName("SignName")
     @Expose
@@ -69,7 +69,7 @@ public class SendSmsRequest extends AbstractModel{
     private String ExtendCode;
 
     /**
-    * 用户的 session 内容，可以携带用户侧 ID 等上下文信息，server 会原样返回。
+    * 用户的 session 内容，可以携带用户侧 ID 等上下文信息，server 会原样返回。注意长度需小于512字节。
     */
     @SerializedName("SessionContext")
     @Expose
@@ -141,9 +141,9 @@ public class SendSmsRequest extends AbstractModel{
 
     /**
      * Get 短信签名内容，使用 UTF-8 编码，必须填写已审核通过的签名，例如：腾讯云，签名信息可前往 [国内短信](https://console.cloud.tencent.com/smsv2/csms-sign) 或 [国际/港澳台短信](https://console.cloud.tencent.com/smsv2/isms-sign) 的签名管理查看。
-<dx-alert infotype="notice" title="注意">发送国内短信该参数必填。</dx-alert> 
+<dx-alert infotype="notice" title="注意">发送国内短信该参数必填，且需填写签名内容而非签名ID。</dx-alert> 
      * @return SignName 短信签名内容，使用 UTF-8 编码，必须填写已审核通过的签名，例如：腾讯云，签名信息可前往 [国内短信](https://console.cloud.tencent.com/smsv2/csms-sign) 或 [国际/港澳台短信](https://console.cloud.tencent.com/smsv2/isms-sign) 的签名管理查看。
-<dx-alert infotype="notice" title="注意">发送国内短信该参数必填。</dx-alert>
+<dx-alert infotype="notice" title="注意">发送国内短信该参数必填，且需填写签名内容而非签名ID。</dx-alert>
      */
     public String getSignName() {
         return this.SignName;
@@ -151,9 +151,9 @@ public class SendSmsRequest extends AbstractModel{
 
     /**
      * Set 短信签名内容，使用 UTF-8 编码，必须填写已审核通过的签名，例如：腾讯云，签名信息可前往 [国内短信](https://console.cloud.tencent.com/smsv2/csms-sign) 或 [国际/港澳台短信](https://console.cloud.tencent.com/smsv2/isms-sign) 的签名管理查看。
-<dx-alert infotype="notice" title="注意">发送国内短信该参数必填。</dx-alert>
+<dx-alert infotype="notice" title="注意">发送国内短信该参数必填，且需填写签名内容而非签名ID。</dx-alert>
      * @param SignName 短信签名内容，使用 UTF-8 编码，必须填写已审核通过的签名，例如：腾讯云，签名信息可前往 [国内短信](https://console.cloud.tencent.com/smsv2/csms-sign) 或 [国际/港澳台短信](https://console.cloud.tencent.com/smsv2/isms-sign) 的签名管理查看。
-<dx-alert infotype="notice" title="注意">发送国内短信该参数必填。</dx-alert>
+<dx-alert infotype="notice" title="注意">发送国内短信该参数必填，且需填写签名内容而非签名ID。</dx-alert>
      */
     public void setSignName(String SignName) {
         this.SignName = SignName;
@@ -196,16 +196,16 @@ public class SendSmsRequest extends AbstractModel{
     }
 
     /**
-     * Get 用户的 session 内容，可以携带用户侧 ID 等上下文信息，server 会原样返回。 
-     * @return SessionContext 用户的 session 内容，可以携带用户侧 ID 等上下文信息，server 会原样返回。
+     * Get 用户的 session 内容，可以携带用户侧 ID 等上下文信息，server 会原样返回。注意长度需小于512字节。 
+     * @return SessionContext 用户的 session 内容，可以携带用户侧 ID 等上下文信息，server 会原样返回。注意长度需小于512字节。
      */
     public String getSessionContext() {
         return this.SessionContext;
     }
 
     /**
-     * Set 用户的 session 内容，可以携带用户侧 ID 等上下文信息，server 会原样返回。
-     * @param SessionContext 用户的 session 内容，可以携带用户侧 ID 等上下文信息，server 会原样返回。
+     * Set 用户的 session 内容，可以携带用户侧 ID 等上下文信息，server 会原样返回。注意长度需小于512字节。
+     * @param SessionContext 用户的 session 内容，可以携带用户侧 ID 等上下文信息，server 会原样返回。注意长度需小于512字节。
      */
     public void setSessionContext(String SessionContext) {
         this.SessionContext = SessionContext;

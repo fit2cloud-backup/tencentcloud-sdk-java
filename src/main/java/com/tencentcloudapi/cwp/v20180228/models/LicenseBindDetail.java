@@ -51,7 +51,7 @@ public class LicenseBindDetail extends AbstractModel{
     private String Quuid;
 
     /**
-    * 云镜客户端UUID
+    * 主机安全客户端UUID
     */
     @SerializedName("Uuid")
     @Expose
@@ -65,7 +65,7 @@ public class LicenseBindDetail extends AbstractModel{
     private String [] Tags;
 
     /**
-    * 云镜客户端状态,OFFLINE 离线,ONLINE 在线,UNINSTALL 未安装
+    * 主机安全客户端状态,OFFLINE 离线,ONLINE 在线,UNINSTALL 未安装
     */
     @SerializedName("AgentStatus")
     @Expose
@@ -84,6 +84,14 @@ public class LicenseBindDetail extends AbstractModel{
     @SerializedName("IsSwitchBind")
     @Expose
     private Boolean IsSwitchBind;
+
+    /**
+    * 主机额外信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MachineExtraInfo")
+    @Expose
+    private MachineExtraInfo MachineExtraInfo;
 
     /**
      * Get 机器别名 
@@ -150,16 +158,16 @@ public class LicenseBindDetail extends AbstractModel{
     }
 
     /**
-     * Get 云镜客户端UUID 
-     * @return Uuid 云镜客户端UUID
+     * Get 主机安全客户端UUID 
+     * @return Uuid 主机安全客户端UUID
      */
     public String getUuid() {
         return this.Uuid;
     }
 
     /**
-     * Set 云镜客户端UUID
-     * @param Uuid 云镜客户端UUID
+     * Set 主机安全客户端UUID
+     * @param Uuid 主机安全客户端UUID
      */
     public void setUuid(String Uuid) {
         this.Uuid = Uuid;
@@ -182,16 +190,16 @@ public class LicenseBindDetail extends AbstractModel{
     }
 
     /**
-     * Get 云镜客户端状态,OFFLINE 离线,ONLINE 在线,UNINSTALL 未安装 
-     * @return AgentStatus 云镜客户端状态,OFFLINE 离线,ONLINE 在线,UNINSTALL 未安装
+     * Get 主机安全客户端状态,OFFLINE 离线,ONLINE 在线,UNINSTALL 未安装 
+     * @return AgentStatus 主机安全客户端状态,OFFLINE 离线,ONLINE 在线,UNINSTALL 未安装
      */
     public String getAgentStatus() {
         return this.AgentStatus;
     }
 
     /**
-     * Set 云镜客户端状态,OFFLINE 离线,ONLINE 在线,UNINSTALL 未安装
-     * @param AgentStatus 云镜客户端状态,OFFLINE 离线,ONLINE 在线,UNINSTALL 未安装
+     * Set 主机安全客户端状态,OFFLINE 离线,ONLINE 在线,UNINSTALL 未安装
+     * @param AgentStatus 主机安全客户端状态,OFFLINE 离线,ONLINE 在线,UNINSTALL 未安装
      */
     public void setAgentStatus(String AgentStatus) {
         this.AgentStatus = AgentStatus;
@@ -227,6 +235,26 @@ public class LicenseBindDetail extends AbstractModel{
      */
     public void setIsSwitchBind(Boolean IsSwitchBind) {
         this.IsSwitchBind = IsSwitchBind;
+    }
+
+    /**
+     * Get 主机额外信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MachineExtraInfo 主机额外信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public MachineExtraInfo getMachineExtraInfo() {
+        return this.MachineExtraInfo;
+    }
+
+    /**
+     * Set 主机额外信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MachineExtraInfo 主机额外信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMachineExtraInfo(MachineExtraInfo MachineExtraInfo) {
+        this.MachineExtraInfo = MachineExtraInfo;
     }
 
     public LicenseBindDetail() {
@@ -267,6 +295,9 @@ public class LicenseBindDetail extends AbstractModel{
         if (source.IsSwitchBind != null) {
             this.IsSwitchBind = new Boolean(source.IsSwitchBind);
         }
+        if (source.MachineExtraInfo != null) {
+            this.MachineExtraInfo = new MachineExtraInfo(source.MachineExtraInfo);
+        }
     }
 
 
@@ -283,6 +314,7 @@ public class LicenseBindDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "AgentStatus", this.AgentStatus);
         this.setParamSimple(map, prefix + "IsUnBind", this.IsUnBind);
         this.setParamSimple(map, prefix + "IsSwitchBind", this.IsSwitchBind);
+        this.setParamObj(map, prefix + "MachineExtraInfo.", this.MachineExtraInfo);
 
     }
 }

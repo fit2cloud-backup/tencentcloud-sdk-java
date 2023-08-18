@@ -23,7 +23,13 @@ import java.util.HashMap;
 public class StartFlowResponse extends AbstractModel{
 
     /**
-    * 返回描述，START-发起成功， REVIEW-提交审核成功，EXECUTING-已提交发起任务
+    * 发起成功之后返回状态，
+
+START-发起成功， 
+
+REVIEW-提交审核成功，
+
+EXECUTING-已提交发起任务
     */
     @SerializedName("Status")
     @Expose
@@ -37,16 +43,40 @@ public class StartFlowResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 返回描述，START-发起成功， REVIEW-提交审核成功，EXECUTING-已提交发起任务 
-     * @return Status 返回描述，START-发起成功， REVIEW-提交审核成功，EXECUTING-已提交发起任务
+     * Get 发起成功之后返回状态，
+
+START-发起成功， 
+
+REVIEW-提交审核成功，
+
+EXECUTING-已提交发起任务 
+     * @return Status 发起成功之后返回状态，
+
+START-发起成功， 
+
+REVIEW-提交审核成功，
+
+EXECUTING-已提交发起任务
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 返回描述，START-发起成功， REVIEW-提交审核成功，EXECUTING-已提交发起任务
-     * @param Status 返回描述，START-发起成功， REVIEW-提交审核成功，EXECUTING-已提交发起任务
+     * Set 发起成功之后返回状态，
+
+START-发起成功， 
+
+REVIEW-提交审核成功，
+
+EXECUTING-已提交发起任务
+     * @param Status 发起成功之后返回状态，
+
+START-发起成功， 
+
+REVIEW-提交审核成功，
+
+EXECUTING-已提交发起任务
      */
     public void setStatus(String Status) {
         this.Status = Status;

@@ -29,7 +29,7 @@ public class AmsClient extends AbstractClient{
     private static String endpoint = "ams.tencentcloudapi.com";
     private static String service = "ams";
     private static String version = "2020-12-29";
-
+    
     public AmsClient(Credential credential, String region) {
         this(credential, region, new ClientProfile());
     }
@@ -47,6 +47,7 @@ public class AmsClient extends AbstractClient{
     public CancelTaskResponse CancelTask(CancelTaskRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CancelTaskResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CancelTaskResponse>>() {
                 }.getType();
@@ -66,12 +67,12 @@ public class AmsClient extends AbstractClient{
 - 该接口为收费接口，计费方式敬请参见 [腾讯云音频内容安全定价](https://cloud.tencent.com/product/ams/pricing)。
 
 ### 接口调用说明：
-- 音频文件大小支持：**文件 < 5M**;
-- 音频文件**时长小于60s**，超过60s音频调用则报错；
-- 音频文件支持格式：**wav (PCM编码)** 、**mp3**、**m4a** (采样率：16kHz~48kHz，位深：16bit 小端，声道数：单声道/双声道，建议格式：**16kHz/16bit/单声道**)；
+- 音频文件大小支持：**文件 <= 4M**;
+- 音频文件**时长不超过60s**，超过60s音频调用则报错；
+- 音频文件支持格式：**wav (PCM编码)** 、**mp3**、**aac**、**m4a** (采样率：16kHz~48kHz，位深：16bit 小端，声道数：单声道/双声道，建议格式：**16kHz/16bit/单声道**)；
 - 接口仅限音频文件传入，视频文件传入请调用长音频异步接口；
 - 接口**默认QPS为20**，如需自定义配置并发或请求频率，请工单咨询；
-- 接口**默认超时为5s**，请求如超过该时长则接口会报错。
+- 接口**默认超时为10s**，请求如超过该时长则接口会报错。
 
      * @param req CreateAudioModerationSyncTaskRequest
      * @return CreateAudioModerationSyncTaskResponse
@@ -80,6 +81,7 @@ public class AmsClient extends AbstractClient{
     public CreateAudioModerationSyncTaskResponse CreateAudioModerationSyncTask(CreateAudioModerationSyncTaskRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateAudioModerationSyncTaskResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateAudioModerationSyncTaskResponse>>() {
                 }.getType();
@@ -131,6 +133,7 @@ public class AmsClient extends AbstractClient{
     public CreateAudioModerationTaskResponse CreateAudioModerationTask(CreateAudioModerationTaskRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateAudioModerationTaskResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateAudioModerationTaskResponse>>() {
                 }.getType();
@@ -151,6 +154,7 @@ public class AmsClient extends AbstractClient{
     public DescribeTaskDetailResponse DescribeTaskDetail(DescribeTaskDetailRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeTaskDetailResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeTaskDetailResponse>>() {
                 }.getType();
@@ -171,6 +175,7 @@ public class AmsClient extends AbstractClient{
     public DescribeTasksResponse DescribeTasks(DescribeTasksRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeTasksResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeTasksResponse>>() {
                 }.getType();

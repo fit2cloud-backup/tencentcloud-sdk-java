@@ -58,6 +58,26 @@ public class DescribeOrganizationSealsRequest extends AbstractModel{
     private String SealId;
 
     /**
+    * 印章类型列表（都是组织机构印章）。
+为空时查询所有类型的印章。
+目前支持以下类型：
+OFFICIAL：企业公章；
+CONTRACT：合同专用章；
+ORGANIZATION_SEAL：企业印章(图片上传创建)；
+LEGAL_PERSON_SEAL：法定代表人章
+    */
+    @SerializedName("SealTypes")
+    @Expose
+    private String [] SealTypes;
+
+    /**
+    * 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+    */
+    @SerializedName("Agent")
+    @Expose
+    private Agent Agent;
+
+    /**
      * Get 调用方用户信息，userId 必填 
      * @return Operator 调用方用户信息，userId 必填
      */
@@ -137,6 +157,62 @@ public class DescribeOrganizationSealsRequest extends AbstractModel{
         this.SealId = SealId;
     }
 
+    /**
+     * Get 印章类型列表（都是组织机构印章）。
+为空时查询所有类型的印章。
+目前支持以下类型：
+OFFICIAL：企业公章；
+CONTRACT：合同专用章；
+ORGANIZATION_SEAL：企业印章(图片上传创建)；
+LEGAL_PERSON_SEAL：法定代表人章 
+     * @return SealTypes 印章类型列表（都是组织机构印章）。
+为空时查询所有类型的印章。
+目前支持以下类型：
+OFFICIAL：企业公章；
+CONTRACT：合同专用章；
+ORGANIZATION_SEAL：企业印章(图片上传创建)；
+LEGAL_PERSON_SEAL：法定代表人章
+     */
+    public String [] getSealTypes() {
+        return this.SealTypes;
+    }
+
+    /**
+     * Set 印章类型列表（都是组织机构印章）。
+为空时查询所有类型的印章。
+目前支持以下类型：
+OFFICIAL：企业公章；
+CONTRACT：合同专用章；
+ORGANIZATION_SEAL：企业印章(图片上传创建)；
+LEGAL_PERSON_SEAL：法定代表人章
+     * @param SealTypes 印章类型列表（都是组织机构印章）。
+为空时查询所有类型的印章。
+目前支持以下类型：
+OFFICIAL：企业公章；
+CONTRACT：合同专用章；
+ORGANIZATION_SEAL：企业印章(图片上传创建)；
+LEGAL_PERSON_SEAL：法定代表人章
+     */
+    public void setSealTypes(String [] SealTypes) {
+        this.SealTypes = SealTypes;
+    }
+
+    /**
+     * Get 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填 
+     * @return Agent 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+     */
+    public Agent getAgent() {
+        return this.Agent;
+    }
+
+    /**
+     * Set 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+     * @param Agent 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+     */
+    public void setAgent(Agent Agent) {
+        this.Agent = Agent;
+    }
+
     public DescribeOrganizationSealsRequest() {
     }
 
@@ -160,6 +236,15 @@ public class DescribeOrganizationSealsRequest extends AbstractModel{
         if (source.SealId != null) {
             this.SealId = new String(source.SealId);
         }
+        if (source.SealTypes != null) {
+            this.SealTypes = new String[source.SealTypes.length];
+            for (int i = 0; i < source.SealTypes.length; i++) {
+                this.SealTypes[i] = new String(source.SealTypes[i]);
+            }
+        }
+        if (source.Agent != null) {
+            this.Agent = new Agent(source.Agent);
+        }
     }
 
 
@@ -172,6 +257,8 @@ public class DescribeOrganizationSealsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "InfoType", this.InfoType);
         this.setParamSimple(map, prefix + "SealId", this.SealId);
+        this.setParamArraySimple(map, prefix + "SealTypes.", this.SealTypes);
+        this.setParamObj(map, prefix + "Agent.", this.Agent);
 
     }
 }

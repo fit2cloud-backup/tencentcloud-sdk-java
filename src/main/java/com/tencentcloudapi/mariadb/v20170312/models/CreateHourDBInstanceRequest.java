@@ -79,8 +79,7 @@ public class CreateHourDBInstanceRequest extends AbstractModel{
     private String SubnetId;
 
     /**
-    * 数据库引擎版本，当前可选：10.0.10，10.1.9，5.7.17。
-如果不填的话，默认为10.1.9，表示Mariadb 10.1.9。
+    * 数据库引擎版本，当前可选：8.0，5.7，10.1，10.0。
     */
     @SerializedName("DbVersionId")
     @Expose
@@ -101,7 +100,7 @@ public class CreateHourDBInstanceRequest extends AbstractModel{
     private String [] SecurityGroupIds;
 
     /**
-    * 是否支持IPv6
+    * 是否支持IPv6，0:不支持，1:支持
     */
     @SerializedName("Ipv6Flag")
     @Expose
@@ -138,7 +137,7 @@ innodb_page_size（innodb数据页，默认16K），sync_mode（同步模式：0
     private DBParamValue [] InitParams;
 
     /**
-    * 回档源实例ID
+    * 回档源实例ID，例如“2021-11-22 00:00:00”
     */
     @SerializedName("RollbackInstanceId")
     @Expose
@@ -280,20 +279,16 @@ innodb_page_size（innodb数据页，默认16K），sync_mode（同步模式：0
     }
 
     /**
-     * Get 数据库引擎版本，当前可选：10.0.10，10.1.9，5.7.17。
-如果不填的话，默认为10.1.9，表示Mariadb 10.1.9。 
-     * @return DbVersionId 数据库引擎版本，当前可选：10.0.10，10.1.9，5.7.17。
-如果不填的话，默认为10.1.9，表示Mariadb 10.1.9。
+     * Get 数据库引擎版本，当前可选：8.0，5.7，10.1，10.0。 
+     * @return DbVersionId 数据库引擎版本，当前可选：8.0，5.7，10.1，10.0。
      */
     public String getDbVersionId() {
         return this.DbVersionId;
     }
 
     /**
-     * Set 数据库引擎版本，当前可选：10.0.10，10.1.9，5.7.17。
-如果不填的话，默认为10.1.9，表示Mariadb 10.1.9。
-     * @param DbVersionId 数据库引擎版本，当前可选：10.0.10，10.1.9，5.7.17。
-如果不填的话，默认为10.1.9，表示Mariadb 10.1.9。
+     * Set 数据库引擎版本，当前可选：8.0，5.7，10.1，10.0。
+     * @param DbVersionId 数据库引擎版本，当前可选：8.0，5.7，10.1，10.0。
      */
     public void setDbVersionId(String DbVersionId) {
         this.DbVersionId = DbVersionId;
@@ -332,16 +327,16 @@ innodb_page_size（innodb数据页，默认16K），sync_mode（同步模式：0
     }
 
     /**
-     * Get 是否支持IPv6 
-     * @return Ipv6Flag 是否支持IPv6
+     * Get 是否支持IPv6，0:不支持，1:支持 
+     * @return Ipv6Flag 是否支持IPv6，0:不支持，1:支持
      */
     public Long getIpv6Flag() {
         return this.Ipv6Flag;
     }
 
     /**
-     * Set 是否支持IPv6
-     * @param Ipv6Flag 是否支持IPv6
+     * Set 是否支持IPv6，0:不支持，1:支持
+     * @param Ipv6Flag 是否支持IPv6，0:不支持，1:支持
      */
     public void setIpv6Flag(Long Ipv6Flag) {
         this.Ipv6Flag = Ipv6Flag;
@@ -420,16 +415,16 @@ innodb_page_size（innodb数据页，默认16K），sync_mode（同步模式：0
     }
 
     /**
-     * Get 回档源实例ID 
-     * @return RollbackInstanceId 回档源实例ID
+     * Get 回档源实例ID，例如“2021-11-22 00:00:00” 
+     * @return RollbackInstanceId 回档源实例ID，例如“2021-11-22 00:00:00”
      */
     public String getRollbackInstanceId() {
         return this.RollbackInstanceId;
     }
 
     /**
-     * Set 回档源实例ID
-     * @param RollbackInstanceId 回档源实例ID
+     * Set 回档源实例ID，例如“2021-11-22 00:00:00”
+     * @param RollbackInstanceId 回档源实例ID，例如“2021-11-22 00:00:00”
      */
     public void setRollbackInstanceId(String RollbackInstanceId) {
         this.RollbackInstanceId = RollbackInstanceId;

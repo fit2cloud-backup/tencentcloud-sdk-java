@@ -51,7 +51,7 @@ public class AutoSnapshotPolicyInfo extends AbstractModel{
     private Long FileSystemNums;
 
     /**
-    * 快照定期备份在一星期哪一天
+    * 快照定期备份在一星期哪一天，该参数与DayOfMonth,IntervalDays互斥
     */
     @SerializedName("DayOfWeek")
     @Expose
@@ -65,7 +65,7 @@ public class AutoSnapshotPolicyInfo extends AbstractModel{
     private String Hour;
 
     /**
-    * 是否激活定期快照功能
+    * 是否激活定期快照功能,1代表已激活，0代表未激活
     */
     @SerializedName("IsActivated")
     @Expose
@@ -79,7 +79,7 @@ public class AutoSnapshotPolicyInfo extends AbstractModel{
     private String NextActiveTime;
 
     /**
-    * 快照策略状态
+    * 快照策略状态，1代表快照策略状态正常。这里只有一种状态
     */
     @SerializedName("Status")
     @Expose
@@ -112,6 +112,29 @@ public class AutoSnapshotPolicyInfo extends AbstractModel{
     @SerializedName("FileSystems")
     @Expose
     private FileSystemByPolicy [] FileSystems;
+
+    /**
+    * 快照定期备份在一个月的某个时间；该参数与DayOfWeek,IntervalDays互斥
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DayOfMonth")
+    @Expose
+    private String DayOfMonth;
+
+    /**
+    * 快照定期间隔天数，1-365 天；该参数与DayOfMonth,DayOfWeek互斥
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IntervalDays")
+    @Expose
+    private Long IntervalDays;
+
+    /**
+    * 跨地域复制的快照保留时间，单位天
+    */
+    @SerializedName("CrossRegionsAliveDays")
+    @Expose
+    private Long CrossRegionsAliveDays;
 
     /**
      * Get 快照策略ID 
@@ -178,16 +201,16 @@ public class AutoSnapshotPolicyInfo extends AbstractModel{
     }
 
     /**
-     * Get 快照定期备份在一星期哪一天 
-     * @return DayOfWeek 快照定期备份在一星期哪一天
+     * Get 快照定期备份在一星期哪一天，该参数与DayOfMonth,IntervalDays互斥 
+     * @return DayOfWeek 快照定期备份在一星期哪一天，该参数与DayOfMonth,IntervalDays互斥
      */
     public String getDayOfWeek() {
         return this.DayOfWeek;
     }
 
     /**
-     * Set 快照定期备份在一星期哪一天
-     * @param DayOfWeek 快照定期备份在一星期哪一天
+     * Set 快照定期备份在一星期哪一天，该参数与DayOfMonth,IntervalDays互斥
+     * @param DayOfWeek 快照定期备份在一星期哪一天，该参数与DayOfMonth,IntervalDays互斥
      */
     public void setDayOfWeek(String DayOfWeek) {
         this.DayOfWeek = DayOfWeek;
@@ -210,16 +233,16 @@ public class AutoSnapshotPolicyInfo extends AbstractModel{
     }
 
     /**
-     * Get 是否激活定期快照功能 
-     * @return IsActivated 是否激活定期快照功能
+     * Get 是否激活定期快照功能,1代表已激活，0代表未激活 
+     * @return IsActivated 是否激活定期快照功能,1代表已激活，0代表未激活
      */
     public Long getIsActivated() {
         return this.IsActivated;
     }
 
     /**
-     * Set 是否激活定期快照功能
-     * @param IsActivated 是否激活定期快照功能
+     * Set 是否激活定期快照功能,1代表已激活，0代表未激活
+     * @param IsActivated 是否激活定期快照功能,1代表已激活，0代表未激活
      */
     public void setIsActivated(Long IsActivated) {
         this.IsActivated = IsActivated;
@@ -242,16 +265,16 @@ public class AutoSnapshotPolicyInfo extends AbstractModel{
     }
 
     /**
-     * Get 快照策略状态 
-     * @return Status 快照策略状态
+     * Get 快照策略状态，1代表快照策略状态正常。这里只有一种状态 
+     * @return Status 快照策略状态，1代表快照策略状态正常。这里只有一种状态
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 快照策略状态
-     * @param Status 快照策略状态
+     * Set 快照策略状态，1代表快照策略状态正常。这里只有一种状态
+     * @param Status 快照策略状态，1代表快照策略状态正常。这里只有一种状态
      */
     public void setStatus(String Status) {
         this.Status = Status;
@@ -321,6 +344,62 @@ public class AutoSnapshotPolicyInfo extends AbstractModel{
         this.FileSystems = FileSystems;
     }
 
+    /**
+     * Get 快照定期备份在一个月的某个时间；该参数与DayOfWeek,IntervalDays互斥
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DayOfMonth 快照定期备份在一个月的某个时间；该参数与DayOfWeek,IntervalDays互斥
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDayOfMonth() {
+        return this.DayOfMonth;
+    }
+
+    /**
+     * Set 快照定期备份在一个月的某个时间；该参数与DayOfWeek,IntervalDays互斥
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DayOfMonth 快照定期备份在一个月的某个时间；该参数与DayOfWeek,IntervalDays互斥
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDayOfMonth(String DayOfMonth) {
+        this.DayOfMonth = DayOfMonth;
+    }
+
+    /**
+     * Get 快照定期间隔天数，1-365 天；该参数与DayOfMonth,DayOfWeek互斥
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IntervalDays 快照定期间隔天数，1-365 天；该参数与DayOfMonth,DayOfWeek互斥
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getIntervalDays() {
+        return this.IntervalDays;
+    }
+
+    /**
+     * Set 快照定期间隔天数，1-365 天；该参数与DayOfMonth,DayOfWeek互斥
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IntervalDays 快照定期间隔天数，1-365 天；该参数与DayOfMonth,DayOfWeek互斥
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIntervalDays(Long IntervalDays) {
+        this.IntervalDays = IntervalDays;
+    }
+
+    /**
+     * Get 跨地域复制的快照保留时间，单位天 
+     * @return CrossRegionsAliveDays 跨地域复制的快照保留时间，单位天
+     */
+    public Long getCrossRegionsAliveDays() {
+        return this.CrossRegionsAliveDays;
+    }
+
+    /**
+     * Set 跨地域复制的快照保留时间，单位天
+     * @param CrossRegionsAliveDays 跨地域复制的快照保留时间，单位天
+     */
+    public void setCrossRegionsAliveDays(Long CrossRegionsAliveDays) {
+        this.CrossRegionsAliveDays = CrossRegionsAliveDays;
+    }
+
     public AutoSnapshotPolicyInfo() {
     }
 
@@ -371,6 +450,15 @@ public class AutoSnapshotPolicyInfo extends AbstractModel{
                 this.FileSystems[i] = new FileSystemByPolicy(source.FileSystems[i]);
             }
         }
+        if (source.DayOfMonth != null) {
+            this.DayOfMonth = new String(source.DayOfMonth);
+        }
+        if (source.IntervalDays != null) {
+            this.IntervalDays = new Long(source.IntervalDays);
+        }
+        if (source.CrossRegionsAliveDays != null) {
+            this.CrossRegionsAliveDays = new Long(source.CrossRegionsAliveDays);
+        }
     }
 
 
@@ -391,6 +479,9 @@ public class AutoSnapshotPolicyInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "AliveDays", this.AliveDays);
         this.setParamSimple(map, prefix + "RegionName", this.RegionName);
         this.setParamArrayObj(map, prefix + "FileSystems.", this.FileSystems);
+        this.setParamSimple(map, prefix + "DayOfMonth", this.DayOfMonth);
+        this.setParamSimple(map, prefix + "IntervalDays", this.IntervalDays);
+        this.setParamSimple(map, prefix + "CrossRegionsAliveDays", this.CrossRegionsAliveDays);
 
     }
 }

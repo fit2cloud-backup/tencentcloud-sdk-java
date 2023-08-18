@@ -28,7 +28,7 @@ public class DescribeIPStrategysStatusResponse extends AbstractModel{
     */
     @SerializedName("Result")
     @Expose
-    private IPStrategysStatus Result;
+    private IPStrategiesStatus Result;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -43,7 +43,7 @@ public class DescribeIPStrategysStatusResponse extends AbstractModel{
      * @return Result 符合条件的策略列表。
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public IPStrategysStatus getResult() {
+    public IPStrategiesStatus getResult() {
         return this.Result;
     }
 
@@ -53,7 +53,7 @@ public class DescribeIPStrategysStatusResponse extends AbstractModel{
      * @param Result 符合条件的策略列表。
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public void setResult(IPStrategysStatus Result) {
+    public void setResult(IPStrategiesStatus Result) {
         this.Result = Result;
     }
 
@@ -82,7 +82,7 @@ public class DescribeIPStrategysStatusResponse extends AbstractModel{
      */
     public DescribeIPStrategysStatusResponse(DescribeIPStrategysStatusResponse source) {
         if (source.Result != null) {
-            this.Result = new IPStrategysStatus(source.Result);
+            this.Result = new IPStrategiesStatus(source.Result);
         }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);

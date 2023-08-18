@@ -30,7 +30,7 @@ public class PrivilegeEscalationProcess extends AbstractModel{
     private Long Id;
 
     /**
-    * 云镜ID
+    * 主机安全ID
     */
     @SerializedName("Uuid")
     @Expose
@@ -149,6 +149,22 @@ public class PrivilegeEscalationProcess extends AbstractModel{
     private String MachineName;
 
     /**
+    * 附加信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MachineExtraInfo")
+    @Expose
+    private MachineExtraInfo MachineExtraInfo;
+
+    /**
+    * 进程id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Pid")
+    @Expose
+    private Long Pid;
+
+    /**
      * Get 数据ID 
      * @return Id 数据ID
      */
@@ -165,16 +181,16 @@ public class PrivilegeEscalationProcess extends AbstractModel{
     }
 
     /**
-     * Get 云镜ID 
-     * @return Uuid 云镜ID
+     * Get 主机安全ID 
+     * @return Uuid 主机安全ID
      */
     public String getUuid() {
         return this.Uuid;
     }
 
     /**
-     * Set 云镜ID
-     * @param Uuid 云镜ID
+     * Set 主机安全ID
+     * @param Uuid 主机安全ID
      */
     public void setUuid(String Uuid) {
         this.Uuid = Uuid;
@@ -436,6 +452,46 @@ public class PrivilegeEscalationProcess extends AbstractModel{
         this.MachineName = MachineName;
     }
 
+    /**
+     * Get 附加信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MachineExtraInfo 附加信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public MachineExtraInfo getMachineExtraInfo() {
+        return this.MachineExtraInfo;
+    }
+
+    /**
+     * Set 附加信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MachineExtraInfo 附加信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMachineExtraInfo(MachineExtraInfo MachineExtraInfo) {
+        this.MachineExtraInfo = MachineExtraInfo;
+    }
+
+    /**
+     * Get 进程id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Pid 进程id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getPid() {
+        return this.Pid;
+    }
+
+    /**
+     * Set 进程id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Pid 进程id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPid(Long Pid) {
+        this.Pid = Pid;
+    }
+
     public PrivilegeEscalationProcess() {
     }
 
@@ -498,6 +554,12 @@ public class PrivilegeEscalationProcess extends AbstractModel{
         if (source.MachineName != null) {
             this.MachineName = new String(source.MachineName);
         }
+        if (source.MachineExtraInfo != null) {
+            this.MachineExtraInfo = new MachineExtraInfo(source.MachineExtraInfo);
+        }
+        if (source.Pid != null) {
+            this.Pid = new Long(source.Pid);
+        }
     }
 
 
@@ -523,6 +585,8 @@ public class PrivilegeEscalationProcess extends AbstractModel{
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "MachineName", this.MachineName);
+        this.setParamObj(map, prefix + "MachineExtraInfo.", this.MachineExtraInfo);
+        this.setParamSimple(map, prefix + "Pid", this.Pid);
 
     }
 }

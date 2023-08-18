@@ -36,7 +36,7 @@ public enum FmuErrorCode {
     // 不支持的图片文件。
      FAILEDOPERATION_IMAGENOTSUPPORTED("FailedOperation.ImageNotSupported"),
      
-    // 图片分辨率过大。
+    // 图片分辨率过大，超过2000*2000。
      FAILEDOPERATION_IMAGERESOLUTIONEXCEED("FailedOperation.ImageResolutionExceed"),
      
     // 图片短边分辨率小于64。
@@ -153,13 +153,13 @@ public enum FmuErrorCode {
     // 资源正在发货中。
      RESOURCEUNAVAILABLE_DELIVERING("ResourceUnavailable.Delivering"),
      
-    // 帐号已被冻结。
+    // 账号已被冻结。
      RESOURCEUNAVAILABLE_FREEZE("ResourceUnavailable.Freeze"),
      
     // 获取认证信息失败。
      RESOURCEUNAVAILABLE_GETAUTHINFOERROR("ResourceUnavailable.GetAuthInfoError"),
      
-    // 帐号已欠费。
+    // 账号已欠费。
      RESOURCEUNAVAILABLE_INARREARS("ResourceUnavailable.InArrears"),
      
     // 余额不足。
@@ -174,13 +174,13 @@ public enum FmuErrorCode {
     // 资源已被回收。
      RESOURCEUNAVAILABLE_RECOVER("ResourceUnavailable.Recover"),
      
-    // 帐号已停服。
+    // 账号已停服。
      RESOURCEUNAVAILABLE_STOPUSING("ResourceUnavailable.StopUsing"),
      
     // 计费状态未知。
      RESOURCEUNAVAILABLE_UNKNOWNSTATUS("ResourceUnavailable.UnknownStatus"),
      
-    // 帐号已欠费。
+    // 账号已欠费。
      RESOURCESSOLDOUT_CHARGESTATUSEXCEPTION("ResourcesSoldOut.ChargeStatusException");
      
     private String value;

@@ -63,6 +63,7 @@ public class OverrideTranscodeParameter extends AbstractModel{
 
     /**
     * 极速高清转码参数。
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TEHDConfig")
     @Expose
@@ -70,10 +71,35 @@ public class OverrideTranscodeParameter extends AbstractModel{
 
     /**
     * 字幕流配置参数。
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubtitleTemplate")
     @Expose
     private SubtitleTemplate SubtitleTemplate;
+
+    /**
+    * 外挂音轨参数。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AddonAudioStream")
+    @Expose
+    private MediaInputInfo [] AddonAudioStream;
+
+    /**
+    * 转码扩展字段。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("StdExtInfo")
+    @Expose
+    private String StdExtInfo;
+
+    /**
+    * 要插入的字幕文件。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AddOnSubtitles")
+    @Expose
+    private AddOnSubtitle [] AddOnSubtitles;
 
     /**
      * Get 封装格式，可选值：mp4、flv、hls、mp3、flac、ogg、m4a。其中，mp3、flac、ogg、m4a 为纯音频文件。 
@@ -172,8 +198,10 @@ public class OverrideTranscodeParameter extends AbstractModel{
     }
 
     /**
-     * Get 极速高清转码参数。 
+     * Get 极速高清转码参数。
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return TEHDConfig 极速高清转码参数。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public TEHDConfigForUpdate getTEHDConfig() {
         return this.TEHDConfig;
@@ -181,15 +209,19 @@ public class OverrideTranscodeParameter extends AbstractModel{
 
     /**
      * Set 极速高清转码参数。
+注意：此字段可能返回 null，表示取不到有效值。
      * @param TEHDConfig 极速高清转码参数。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTEHDConfig(TEHDConfigForUpdate TEHDConfig) {
         this.TEHDConfig = TEHDConfig;
     }
 
     /**
-     * Get 字幕流配置参数。 
+     * Get 字幕流配置参数。
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return SubtitleTemplate 字幕流配置参数。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public SubtitleTemplate getSubtitleTemplate() {
         return this.SubtitleTemplate;
@@ -197,10 +229,72 @@ public class OverrideTranscodeParameter extends AbstractModel{
 
     /**
      * Set 字幕流配置参数。
+注意：此字段可能返回 null，表示取不到有效值。
      * @param SubtitleTemplate 字幕流配置参数。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubtitleTemplate(SubtitleTemplate SubtitleTemplate) {
         this.SubtitleTemplate = SubtitleTemplate;
+    }
+
+    /**
+     * Get 外挂音轨参数。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AddonAudioStream 外挂音轨参数。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public MediaInputInfo [] getAddonAudioStream() {
+        return this.AddonAudioStream;
+    }
+
+    /**
+     * Set 外挂音轨参数。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AddonAudioStream 外挂音轨参数。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAddonAudioStream(MediaInputInfo [] AddonAudioStream) {
+        this.AddonAudioStream = AddonAudioStream;
+    }
+
+    /**
+     * Get 转码扩展字段。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return StdExtInfo 转码扩展字段。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getStdExtInfo() {
+        return this.StdExtInfo;
+    }
+
+    /**
+     * Set 转码扩展字段。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param StdExtInfo 转码扩展字段。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setStdExtInfo(String StdExtInfo) {
+        this.StdExtInfo = StdExtInfo;
+    }
+
+    /**
+     * Get 要插入的字幕文件。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AddOnSubtitles 要插入的字幕文件。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AddOnSubtitle [] getAddOnSubtitles() {
+        return this.AddOnSubtitles;
+    }
+
+    /**
+     * Set 要插入的字幕文件。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AddOnSubtitles 要插入的字幕文件。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAddOnSubtitles(AddOnSubtitle [] AddOnSubtitles) {
+        this.AddOnSubtitles = AddOnSubtitles;
     }
 
     public OverrideTranscodeParameter() {
@@ -232,6 +326,21 @@ public class OverrideTranscodeParameter extends AbstractModel{
         if (source.SubtitleTemplate != null) {
             this.SubtitleTemplate = new SubtitleTemplate(source.SubtitleTemplate);
         }
+        if (source.AddonAudioStream != null) {
+            this.AddonAudioStream = new MediaInputInfo[source.AddonAudioStream.length];
+            for (int i = 0; i < source.AddonAudioStream.length; i++) {
+                this.AddonAudioStream[i] = new MediaInputInfo(source.AddonAudioStream[i]);
+            }
+        }
+        if (source.StdExtInfo != null) {
+            this.StdExtInfo = new String(source.StdExtInfo);
+        }
+        if (source.AddOnSubtitles != null) {
+            this.AddOnSubtitles = new AddOnSubtitle[source.AddOnSubtitles.length];
+            for (int i = 0; i < source.AddOnSubtitles.length; i++) {
+                this.AddOnSubtitles[i] = new AddOnSubtitle(source.AddOnSubtitles[i]);
+            }
+        }
     }
 
 
@@ -246,6 +355,9 @@ public class OverrideTranscodeParameter extends AbstractModel{
         this.setParamObj(map, prefix + "AudioTemplate.", this.AudioTemplate);
         this.setParamObj(map, prefix + "TEHDConfig.", this.TEHDConfig);
         this.setParamObj(map, prefix + "SubtitleTemplate.", this.SubtitleTemplate);
+        this.setParamArrayObj(map, prefix + "AddonAudioStream.", this.AddonAudioStream);
+        this.setParamSimple(map, prefix + "StdExtInfo", this.StdExtInfo);
+        this.setParamArrayObj(map, prefix + "AddOnSubtitles.", this.AddOnSubtitles);
 
     }
 }

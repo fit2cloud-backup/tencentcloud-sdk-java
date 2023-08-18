@@ -23,7 +23,12 @@ import java.util.HashMap;
 public class DescribeTLogInfoResponse extends AbstractModel{
 
     /**
-    * 无
+    * "NetworkNum":网络扫描探测
+ "HandleNum": 待处理事件
+"BanNum": 
+  "VulNum": 漏洞利用
+  "OutNum": 失陷主机
+"BruteForceNum": 0
     */
     @SerializedName("Data")
     @Expose
@@ -37,16 +42,36 @@ public class DescribeTLogInfoResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 无 
-     * @return Data 无
+     * Get "NetworkNum":网络扫描探测
+ "HandleNum": 待处理事件
+"BanNum": 
+  "VulNum": 漏洞利用
+  "OutNum": 失陷主机
+"BruteForceNum": 0 
+     * @return Data "NetworkNum":网络扫描探测
+ "HandleNum": 待处理事件
+"BanNum": 
+  "VulNum": 漏洞利用
+  "OutNum": 失陷主机
+"BruteForceNum": 0
      */
     public TLogInfo getData() {
         return this.Data;
     }
 
     /**
-     * Set 无
-     * @param Data 无
+     * Set "NetworkNum":网络扫描探测
+ "HandleNum": 待处理事件
+"BanNum": 
+  "VulNum": 漏洞利用
+  "OutNum": 失陷主机
+"BruteForceNum": 0
+     * @param Data "NetworkNum":网络扫描探测
+ "HandleNum": 待处理事件
+"BanNum": 
+  "VulNum": 漏洞利用
+  "OutNum": 失陷主机
+"BruteForceNum": 0
      */
     public void setData(TLogInfo Data) {
         this.Data = Data;

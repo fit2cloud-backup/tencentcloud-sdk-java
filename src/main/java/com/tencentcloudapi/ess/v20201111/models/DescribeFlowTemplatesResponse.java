@@ -30,7 +30,7 @@ public class DescribeFlowTemplatesResponse extends AbstractModel{
     private TemplateInfo [] Templates;
 
     /**
-    * 查询到的总个数
+    * 查询到的总数
     */
     @SerializedName("TotalCount")
     @Expose
@@ -60,16 +60,16 @@ public class DescribeFlowTemplatesResponse extends AbstractModel{
     }
 
     /**
-     * Get 查询到的总个数 
-     * @return TotalCount 查询到的总个数
+     * Get 查询到的总数 
+     * @return TotalCount 查询到的总数
      */
     public Long getTotalCount() {
         return this.TotalCount;
     }
 
     /**
-     * Set 查询到的总个数
-     * @param TotalCount 查询到的总个数
+     * Set 查询到的总数
+     * @param TotalCount 查询到的总数
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;

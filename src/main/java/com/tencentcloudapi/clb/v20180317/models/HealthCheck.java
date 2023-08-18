@@ -38,7 +38,8 @@ public class HealthCheck extends AbstractModel{
     private Long TimeOut;
 
     /**
-    * 健康检查探测间隔时间，默认值：5，可选值：5~300，单位：秒。
+    * 健康检查探测间隔时间，默认值：5，IPv4 CLB实例的取值范围为：2-300，IPv6 CLB 实例的取值范围为：5-300。单位：秒。
+说明：部分老旧 IPv4 CLB实例的取值范围为：5-300。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IntervalTime")
@@ -79,7 +80,7 @@ public class HealthCheck extends AbstractModel{
     private String HttpCheckPath;
 
     /**
-    * 健康检查域名（仅适用于HTTP/HTTPS转发规则、TCP监听器的HTTP健康检查方式，当监听器是TCP类型时，该参数为必填项）。
+    * 健康检查域名（仅适用于HTTP/HTTPS监听器和TCP监听器的HTTP健康检查方式。针对TCP监听器，当使用HTTP健康检查方式时，该参数为必填项）。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HttpCheckDomain")
@@ -127,7 +128,7 @@ public class HealthCheck extends AbstractModel{
     private String RecvContext;
 
     /**
-    * 自定义探测相关参数。健康检查使用的协议：TCP | HTTP | CUSTOM（仅适用于TCP/UDP监听器，其中UDP监听器只支持CUSTOM；如果使用自定义健康检查功能，则必传）。
+    * 健康检查使用的协议。取值 TCP | HTTP | HTTPS | GRPC | PING | CUSTOM，UDP监听器支持PING/CUSTOM，TCP监听器支持TCP/HTTP/CUSTOM，TCP_SSL/QUIC监听器支持TCP/HTTP，HTTP规则支持HTTP/GRPC，HTTPS规则支持HTTP/HTTPS/GRPC。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CheckType")
@@ -135,7 +136,7 @@ public class HealthCheck extends AbstractModel{
     private String CheckType;
 
     /**
-    * 自定义探测相关参数。健康检查协议CheckType的值取HTTP时，必传此字段，代表后端服务的HTTP版本：HTTP/1.0、HTTP/1.1；（仅适用于TCP监听器）
+    * HTTP版本。健康检查协议CheckType的值取HTTP时，必传此字段，代表后端服务的HTTP版本：HTTP/1.0、HTTP/1.1；（仅适用于TCP监听器）
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HttpVersion")
@@ -143,7 +144,7 @@ public class HealthCheck extends AbstractModel{
     private String HttpVersion;
 
     /**
-    * 自定义探测相关参数。健康检查源IP类型：0（使用LB的VIP作为源IP），1（使用100.64网段IP作为源IP），默认值：0
+    * 健康检查源IP类型：0（使用LB的VIP作为源IP），1（使用100.64网段IP作为源IP），默认值：0
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SourceIpType")
@@ -195,9 +196,11 @@ public class HealthCheck extends AbstractModel{
     }
 
     /**
-     * Get 健康检查探测间隔时间，默认值：5，可选值：5~300，单位：秒。
+     * Get 健康检查探测间隔时间，默认值：5，IPv4 CLB实例的取值范围为：2-300，IPv6 CLB 实例的取值范围为：5-300。单位：秒。
+说明：部分老旧 IPv4 CLB实例的取值范围为：5-300。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return IntervalTime 健康检查探测间隔时间，默认值：5，可选值：5~300，单位：秒。
+     * @return IntervalTime 健康检查探测间隔时间，默认值：5，IPv4 CLB实例的取值范围为：2-300，IPv6 CLB 实例的取值范围为：5-300。单位：秒。
+说明：部分老旧 IPv4 CLB实例的取值范围为：5-300。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIntervalTime() {
@@ -205,9 +208,11 @@ public class HealthCheck extends AbstractModel{
     }
 
     /**
-     * Set 健康检查探测间隔时间，默认值：5，可选值：5~300，单位：秒。
+     * Set 健康检查探测间隔时间，默认值：5，IPv4 CLB实例的取值范围为：2-300，IPv6 CLB 实例的取值范围为：5-300。单位：秒。
+说明：部分老旧 IPv4 CLB实例的取值范围为：5-300。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param IntervalTime 健康检查探测间隔时间，默认值：5，可选值：5~300，单位：秒。
+     * @param IntervalTime 健康检查探测间隔时间，默认值：5，IPv4 CLB实例的取值范围为：2-300，IPv6 CLB 实例的取值范围为：5-300。单位：秒。
+说明：部分老旧 IPv4 CLB实例的取值范围为：5-300。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIntervalTime(Long IntervalTime) {
@@ -299,9 +304,9 @@ public class HealthCheck extends AbstractModel{
     }
 
     /**
-     * Get 健康检查域名（仅适用于HTTP/HTTPS转发规则、TCP监听器的HTTP健康检查方式，当监听器是TCP类型时，该参数为必填项）。
+     * Get 健康检查域名（仅适用于HTTP/HTTPS监听器和TCP监听器的HTTP健康检查方式。针对TCP监听器，当使用HTTP健康检查方式时，该参数为必填项）。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return HttpCheckDomain 健康检查域名（仅适用于HTTP/HTTPS转发规则、TCP监听器的HTTP健康检查方式，当监听器是TCP类型时，该参数为必填项）。
+     * @return HttpCheckDomain 健康检查域名（仅适用于HTTP/HTTPS监听器和TCP监听器的HTTP健康检查方式。针对TCP监听器，当使用HTTP健康检查方式时，该参数为必填项）。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHttpCheckDomain() {
@@ -309,9 +314,9 @@ public class HealthCheck extends AbstractModel{
     }
 
     /**
-     * Set 健康检查域名（仅适用于HTTP/HTTPS转发规则、TCP监听器的HTTP健康检查方式，当监听器是TCP类型时，该参数为必填项）。
+     * Set 健康检查域名（仅适用于HTTP/HTTPS监听器和TCP监听器的HTTP健康检查方式。针对TCP监听器，当使用HTTP健康检查方式时，该参数为必填项）。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param HttpCheckDomain 健康检查域名（仅适用于HTTP/HTTPS转发规则、TCP监听器的HTTP健康检查方式，当监听器是TCP类型时，该参数为必填项）。
+     * @param HttpCheckDomain 健康检查域名（仅适用于HTTP/HTTPS监听器和TCP监听器的HTTP健康检查方式。针对TCP监听器，当使用HTTP健康检查方式时，该参数为必填项）。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHttpCheckDomain(String HttpCheckDomain) {
@@ -419,9 +424,9 @@ public class HealthCheck extends AbstractModel{
     }
 
     /**
-     * Get 自定义探测相关参数。健康检查使用的协议：TCP | HTTP | CUSTOM（仅适用于TCP/UDP监听器，其中UDP监听器只支持CUSTOM；如果使用自定义健康检查功能，则必传）。
+     * Get 健康检查使用的协议。取值 TCP | HTTP | HTTPS | GRPC | PING | CUSTOM，UDP监听器支持PING/CUSTOM，TCP监听器支持TCP/HTTP/CUSTOM，TCP_SSL/QUIC监听器支持TCP/HTTP，HTTP规则支持HTTP/GRPC，HTTPS规则支持HTTP/HTTPS/GRPC。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CheckType 自定义探测相关参数。健康检查使用的协议：TCP | HTTP | CUSTOM（仅适用于TCP/UDP监听器，其中UDP监听器只支持CUSTOM；如果使用自定义健康检查功能，则必传）。
+     * @return CheckType 健康检查使用的协议。取值 TCP | HTTP | HTTPS | GRPC | PING | CUSTOM，UDP监听器支持PING/CUSTOM，TCP监听器支持TCP/HTTP/CUSTOM，TCP_SSL/QUIC监听器支持TCP/HTTP，HTTP规则支持HTTP/GRPC，HTTPS规则支持HTTP/HTTPS/GRPC。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCheckType() {
@@ -429,9 +434,9 @@ public class HealthCheck extends AbstractModel{
     }
 
     /**
-     * Set 自定义探测相关参数。健康检查使用的协议：TCP | HTTP | CUSTOM（仅适用于TCP/UDP监听器，其中UDP监听器只支持CUSTOM；如果使用自定义健康检查功能，则必传）。
+     * Set 健康检查使用的协议。取值 TCP | HTTP | HTTPS | GRPC | PING | CUSTOM，UDP监听器支持PING/CUSTOM，TCP监听器支持TCP/HTTP/CUSTOM，TCP_SSL/QUIC监听器支持TCP/HTTP，HTTP规则支持HTTP/GRPC，HTTPS规则支持HTTP/HTTPS/GRPC。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param CheckType 自定义探测相关参数。健康检查使用的协议：TCP | HTTP | CUSTOM（仅适用于TCP/UDP监听器，其中UDP监听器只支持CUSTOM；如果使用自定义健康检查功能，则必传）。
+     * @param CheckType 健康检查使用的协议。取值 TCP | HTTP | HTTPS | GRPC | PING | CUSTOM，UDP监听器支持PING/CUSTOM，TCP监听器支持TCP/HTTP/CUSTOM，TCP_SSL/QUIC监听器支持TCP/HTTP，HTTP规则支持HTTP/GRPC，HTTPS规则支持HTTP/HTTPS/GRPC。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCheckType(String CheckType) {
@@ -439,9 +444,9 @@ public class HealthCheck extends AbstractModel{
     }
 
     /**
-     * Get 自定义探测相关参数。健康检查协议CheckType的值取HTTP时，必传此字段，代表后端服务的HTTP版本：HTTP/1.0、HTTP/1.1；（仅适用于TCP监听器）
+     * Get HTTP版本。健康检查协议CheckType的值取HTTP时，必传此字段，代表后端服务的HTTP版本：HTTP/1.0、HTTP/1.1；（仅适用于TCP监听器）
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return HttpVersion 自定义探测相关参数。健康检查协议CheckType的值取HTTP时，必传此字段，代表后端服务的HTTP版本：HTTP/1.0、HTTP/1.1；（仅适用于TCP监听器）
+     * @return HttpVersion HTTP版本。健康检查协议CheckType的值取HTTP时，必传此字段，代表后端服务的HTTP版本：HTTP/1.0、HTTP/1.1；（仅适用于TCP监听器）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHttpVersion() {
@@ -449,9 +454,9 @@ public class HealthCheck extends AbstractModel{
     }
 
     /**
-     * Set 自定义探测相关参数。健康检查协议CheckType的值取HTTP时，必传此字段，代表后端服务的HTTP版本：HTTP/1.0、HTTP/1.1；（仅适用于TCP监听器）
+     * Set HTTP版本。健康检查协议CheckType的值取HTTP时，必传此字段，代表后端服务的HTTP版本：HTTP/1.0、HTTP/1.1；（仅适用于TCP监听器）
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param HttpVersion 自定义探测相关参数。健康检查协议CheckType的值取HTTP时，必传此字段，代表后端服务的HTTP版本：HTTP/1.0、HTTP/1.1；（仅适用于TCP监听器）
+     * @param HttpVersion HTTP版本。健康检查协议CheckType的值取HTTP时，必传此字段，代表后端服务的HTTP版本：HTTP/1.0、HTTP/1.1；（仅适用于TCP监听器）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHttpVersion(String HttpVersion) {
@@ -459,9 +464,9 @@ public class HealthCheck extends AbstractModel{
     }
 
     /**
-     * Get 自定义探测相关参数。健康检查源IP类型：0（使用LB的VIP作为源IP），1（使用100.64网段IP作为源IP），默认值：0
+     * Get 健康检查源IP类型：0（使用LB的VIP作为源IP），1（使用100.64网段IP作为源IP），默认值：0
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return SourceIpType 自定义探测相关参数。健康检查源IP类型：0（使用LB的VIP作为源IP），1（使用100.64网段IP作为源IP），默认值：0
+     * @return SourceIpType 健康检查源IP类型：0（使用LB的VIP作为源IP），1（使用100.64网段IP作为源IP），默认值：0
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSourceIpType() {
@@ -469,9 +474,9 @@ public class HealthCheck extends AbstractModel{
     }
 
     /**
-     * Set 自定义探测相关参数。健康检查源IP类型：0（使用LB的VIP作为源IP），1（使用100.64网段IP作为源IP），默认值：0
+     * Set 健康检查源IP类型：0（使用LB的VIP作为源IP），1（使用100.64网段IP作为源IP），默认值：0
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param SourceIpType 自定义探测相关参数。健康检查源IP类型：0（使用LB的VIP作为源IP），1（使用100.64网段IP作为源IP），默认值：0
+     * @param SourceIpType 健康检查源IP类型：0（使用LB的VIP作为源IP），1（使用100.64网段IP作为源IP），默认值：0
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSourceIpType(Long SourceIpType) {

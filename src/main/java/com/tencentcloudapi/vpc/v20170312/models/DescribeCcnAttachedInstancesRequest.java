@@ -41,7 +41,7 @@ public class DescribeCcnAttachedInstancesRequest extends AbstractModel{
 <li>ccn-id - String -（过滤条件）CCN实例ID。</li>
 <li>instance-type - String -（过滤条件）关联实例类型。</li>
 <li>instance-region - String -（过滤条件）关联实例所属地域。</li>
-<li>instance-id - String -（过滤条件）关联实例实例ID。</li>
+<li>instance-id - String -（过滤条件）关联实例ID。</li>
     */
     @SerializedName("Filters")
     @Expose
@@ -55,14 +55,14 @@ public class DescribeCcnAttachedInstancesRequest extends AbstractModel{
     private String CcnId;
 
     /**
-    * 排序字段。支持：`CcnId` `InstanceType` `InstanceId` `InstanceName` `InstanceRegion` `AttachedTime` `State`。
+    * 排序字段。支持：`CcnId` `InstanceType` `InstanceId` `InstanceName` `InstanceRegion` `AttachedTime` `State`。默认值：`AttachedTime`
     */
     @SerializedName("OrderField")
     @Expose
     private String OrderField;
 
     /**
-    * 排序方法。升序：`ASC`，倒序：`DESC`。
+    * 排序方法。升序：`ASC`，倒序：`DESC`。默认值：`ASC`
     */
     @SerializedName("OrderDirection")
     @Expose
@@ -105,12 +105,12 @@ public class DescribeCcnAttachedInstancesRequest extends AbstractModel{
 <li>ccn-id - String -（过滤条件）CCN实例ID。</li>
 <li>instance-type - String -（过滤条件）关联实例类型。</li>
 <li>instance-region - String -（过滤条件）关联实例所属地域。</li>
-<li>instance-id - String -（过滤条件）关联实例实例ID。</li> 
+<li>instance-id - String -（过滤条件）关联实例ID。</li> 
      * @return Filters 过滤条件：
 <li>ccn-id - String -（过滤条件）CCN实例ID。</li>
 <li>instance-type - String -（过滤条件）关联实例类型。</li>
 <li>instance-region - String -（过滤条件）关联实例所属地域。</li>
-<li>instance-id - String -（过滤条件）关联实例实例ID。</li>
+<li>instance-id - String -（过滤条件）关联实例ID。</li>
      */
     public Filter [] getFilters() {
         return this.Filters;
@@ -121,12 +121,12 @@ public class DescribeCcnAttachedInstancesRequest extends AbstractModel{
 <li>ccn-id - String -（过滤条件）CCN实例ID。</li>
 <li>instance-type - String -（过滤条件）关联实例类型。</li>
 <li>instance-region - String -（过滤条件）关联实例所属地域。</li>
-<li>instance-id - String -（过滤条件）关联实例实例ID。</li>
+<li>instance-id - String -（过滤条件）关联实例ID。</li>
      * @param Filters 过滤条件：
 <li>ccn-id - String -（过滤条件）CCN实例ID。</li>
 <li>instance-type - String -（过滤条件）关联实例类型。</li>
 <li>instance-region - String -（过滤条件）关联实例所属地域。</li>
-<li>instance-id - String -（过滤条件）关联实例实例ID。</li>
+<li>instance-id - String -（过滤条件）关联实例ID。</li>
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;
@@ -149,32 +149,32 @@ public class DescribeCcnAttachedInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 排序字段。支持：`CcnId` `InstanceType` `InstanceId` `InstanceName` `InstanceRegion` `AttachedTime` `State`。 
-     * @return OrderField 排序字段。支持：`CcnId` `InstanceType` `InstanceId` `InstanceName` `InstanceRegion` `AttachedTime` `State`。
+     * Get 排序字段。支持：`CcnId` `InstanceType` `InstanceId` `InstanceName` `InstanceRegion` `AttachedTime` `State`。默认值：`AttachedTime` 
+     * @return OrderField 排序字段。支持：`CcnId` `InstanceType` `InstanceId` `InstanceName` `InstanceRegion` `AttachedTime` `State`。默认值：`AttachedTime`
      */
     public String getOrderField() {
         return this.OrderField;
     }
 
     /**
-     * Set 排序字段。支持：`CcnId` `InstanceType` `InstanceId` `InstanceName` `InstanceRegion` `AttachedTime` `State`。
-     * @param OrderField 排序字段。支持：`CcnId` `InstanceType` `InstanceId` `InstanceName` `InstanceRegion` `AttachedTime` `State`。
+     * Set 排序字段。支持：`CcnId` `InstanceType` `InstanceId` `InstanceName` `InstanceRegion` `AttachedTime` `State`。默认值：`AttachedTime`
+     * @param OrderField 排序字段。支持：`CcnId` `InstanceType` `InstanceId` `InstanceName` `InstanceRegion` `AttachedTime` `State`。默认值：`AttachedTime`
      */
     public void setOrderField(String OrderField) {
         this.OrderField = OrderField;
     }
 
     /**
-     * Get 排序方法。升序：`ASC`，倒序：`DESC`。 
-     * @return OrderDirection 排序方法。升序：`ASC`，倒序：`DESC`。
+     * Get 排序方法。升序：`ASC`，倒序：`DESC`。默认值：`ASC` 
+     * @return OrderDirection 排序方法。升序：`ASC`，倒序：`DESC`。默认值：`ASC`
      */
     public String getOrderDirection() {
         return this.OrderDirection;
     }
 
     /**
-     * Set 排序方法。升序：`ASC`，倒序：`DESC`。
-     * @param OrderDirection 排序方法。升序：`ASC`，倒序：`DESC`。
+     * Set 排序方法。升序：`ASC`，倒序：`DESC`。默认值：`ASC`
+     * @param OrderDirection 排序方法。升序：`ASC`，倒序：`DESC`。默认值：`ASC`
      */
     public void setOrderDirection(String OrderDirection) {
         this.OrderDirection = OrderDirection;

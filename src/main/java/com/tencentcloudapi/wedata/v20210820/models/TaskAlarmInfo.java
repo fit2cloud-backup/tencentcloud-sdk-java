@@ -51,14 +51,6 @@ public class TaskAlarmInfo extends AbstractModel{
     private Long AlarmLevel;
 
     /**
-    * 告警指标,0表示任务失败，1表示任务运行超时，2表示任务停止，3表示任务暂停
-，4写入速度，5读取速度，6读取吞吐，7写入吞吐, 8脏数据字节数，9脏数据条数
-    */
-    @SerializedName("AlarmIndicator")
-    @Expose
-    private Long AlarmIndicator;
-
-    /**
     * 告警方式,多个用逗号隔开（1:邮件，2:短信，3:微信，4:语音，5:代表企业微信，6:http）
     */
     @SerializedName("AlarmWay")
@@ -66,26 +58,11 @@ public class TaskAlarmInfo extends AbstractModel{
     private String AlarmWay;
 
     /**
-    * 告警接收人ID，多个用逗号隔开
-    */
-    @SerializedName("AlarmRecipientId")
-    @Expose
-    private String AlarmRecipientId;
-
-    /**
     * 任务类型(201表示实时，202表示离线)
     */
     @SerializedName("TaskType")
     @Expose
     private Long TaskType;
-
-    /**
-    * 告警接收人昵称，多个用逗号隔开
-注意：此字段可能返回 null，表示取不到有效值。
-    */
-    @SerializedName("AlarmRecipientName")
-    @Expose
-    private String AlarmRecipientName;
 
     /**
     * 主键ID
@@ -101,6 +78,14 @@ public class TaskAlarmInfo extends AbstractModel{
     @SerializedName("RegularId")
     @Expose
     private String RegularId;
+
+    /**
+    * 告警指标,0表示任务失败，1表示任务运行超时，2表示任务停止，3表示任务暂停
+，4写入速度，5读取速度，6读取吞吐，7写入吞吐, 8脏数据字节数，9脏数据条数
+    */
+    @SerializedName("AlarmIndicator")
+    @Expose
+    private Long AlarmIndicator;
 
     /**
     * 指标阈值(1表示离线任务第一次运行失败，2表示离线任务所有重试完成后失败)
@@ -119,6 +104,13 @@ public class TaskAlarmInfo extends AbstractModel{
     private Long EstimatedTime;
 
     /**
+    * 告警接收人ID，多个用逗号隔开
+    */
+    @SerializedName("AlarmRecipientId")
+    @Expose
+    private String AlarmRecipientId;
+
+    /**
     * 项目ID
 注意：此字段可能返回 null，表示取不到有效值。
     */
@@ -133,6 +125,14 @@ public class TaskAlarmInfo extends AbstractModel{
     @SerializedName("Creater")
     @Expose
     private String Creater;
+
+    /**
+    * 告警接收人昵称，多个用逗号隔开
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AlarmRecipientName")
+    @Expose
+    private String AlarmRecipientName;
 
     /**
     * 告警指标描述
@@ -165,6 +165,94 @@ public class TaskAlarmInfo extends AbstractModel{
     @SerializedName("NodeName")
     @Expose
     private String NodeName;
+
+    /**
+    * 指标列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AlarmIndicatorInfos")
+    @Expose
+    private AlarmIndicatorInfo [] AlarmIndicatorInfos;
+
+    /**
+    * 告警接收人类型，0指定人员；1任务责任人
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AlarmRecipientType")
+    @Expose
+    private Long AlarmRecipientType;
+
+    /**
+    * 企业微信群Hook地址，多个hook地址使用,隔开
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("WeComHook")
+    @Expose
+    private String WeComHook;
+
+    /**
+    * 最近操作时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UpdateTime")
+    @Expose
+    private String UpdateTime;
+
+    /**
+    * 最近操作人Uin
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OperatorUin")
+    @Expose
+    private String OperatorUin;
+
+    /**
+    * 关联任务数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TaskCount")
+    @Expose
+    private Long TaskCount;
+
+    /**
+    * 监控对象类型,1:所有任务,2:指定任务,3:指定责任人
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MonitorType")
+    @Expose
+    private Long MonitorType;
+
+    /**
+    * 监控对象列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MonitorObjectIds")
+    @Expose
+    private String [] MonitorObjectIds;
+
+    /**
+    * 最近一次告警的实例ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("LatestAlarmInstanceId")
+    @Expose
+    private String LatestAlarmInstanceId;
+
+    /**
+    * 最近一次告警时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("LatestAlarmTime")
+    @Expose
+    private String LatestAlarmTime;
+
+    /**
+    * 告警规则描述
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Description")
+    @Expose
+    private String Description;
 
     /**
      * Get 任务ID 
@@ -231,26 +319,6 @@ public class TaskAlarmInfo extends AbstractModel{
     }
 
     /**
-     * Get 告警指标,0表示任务失败，1表示任务运行超时，2表示任务停止，3表示任务暂停
-，4写入速度，5读取速度，6读取吞吐，7写入吞吐, 8脏数据字节数，9脏数据条数 
-     * @return AlarmIndicator 告警指标,0表示任务失败，1表示任务运行超时，2表示任务停止，3表示任务暂停
-，4写入速度，5读取速度，6读取吞吐，7写入吞吐, 8脏数据字节数，9脏数据条数
-     */
-    public Long getAlarmIndicator() {
-        return this.AlarmIndicator;
-    }
-
-    /**
-     * Set 告警指标,0表示任务失败，1表示任务运行超时，2表示任务停止，3表示任务暂停
-，4写入速度，5读取速度，6读取吞吐，7写入吞吐, 8脏数据字节数，9脏数据条数
-     * @param AlarmIndicator 告警指标,0表示任务失败，1表示任务运行超时，2表示任务停止，3表示任务暂停
-，4写入速度，5读取速度，6读取吞吐，7写入吞吐, 8脏数据字节数，9脏数据条数
-     */
-    public void setAlarmIndicator(Long AlarmIndicator) {
-        this.AlarmIndicator = AlarmIndicator;
-    }
-
-    /**
      * Get 告警方式,多个用逗号隔开（1:邮件，2:短信，3:微信，4:语音，5:代表企业微信，6:http） 
      * @return AlarmWay 告警方式,多个用逗号隔开（1:邮件，2:短信，3:微信，4:语音，5:代表企业微信，6:http）
      */
@@ -267,22 +335,6 @@ public class TaskAlarmInfo extends AbstractModel{
     }
 
     /**
-     * Get 告警接收人ID，多个用逗号隔开 
-     * @return AlarmRecipientId 告警接收人ID，多个用逗号隔开
-     */
-    public String getAlarmRecipientId() {
-        return this.AlarmRecipientId;
-    }
-
-    /**
-     * Set 告警接收人ID，多个用逗号隔开
-     * @param AlarmRecipientId 告警接收人ID，多个用逗号隔开
-     */
-    public void setAlarmRecipientId(String AlarmRecipientId) {
-        this.AlarmRecipientId = AlarmRecipientId;
-    }
-
-    /**
      * Get 任务类型(201表示实时，202表示离线) 
      * @return TaskType 任务类型(201表示实时，202表示离线)
      */
@@ -296,26 +348,6 @@ public class TaskAlarmInfo extends AbstractModel{
      */
     public void setTaskType(Long TaskType) {
         this.TaskType = TaskType;
-    }
-
-    /**
-     * Get 告警接收人昵称，多个用逗号隔开
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AlarmRecipientName 告警接收人昵称，多个用逗号隔开
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public String getAlarmRecipientName() {
-        return this.AlarmRecipientName;
-    }
-
-    /**
-     * Set 告警接收人昵称，多个用逗号隔开
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param AlarmRecipientName 告警接收人昵称，多个用逗号隔开
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public void setAlarmRecipientName(String AlarmRecipientName) {
-        this.AlarmRecipientName = AlarmRecipientName;
     }
 
     /**
@@ -352,6 +384,26 @@ public class TaskAlarmInfo extends AbstractModel{
      */
     public void setRegularId(String RegularId) {
         this.RegularId = RegularId;
+    }
+
+    /**
+     * Get 告警指标,0表示任务失败，1表示任务运行超时，2表示任务停止，3表示任务暂停
+，4写入速度，5读取速度，6读取吞吐，7写入吞吐, 8脏数据字节数，9脏数据条数 
+     * @return AlarmIndicator 告警指标,0表示任务失败，1表示任务运行超时，2表示任务停止，3表示任务暂停
+，4写入速度，5读取速度，6读取吞吐，7写入吞吐, 8脏数据字节数，9脏数据条数
+     */
+    public Long getAlarmIndicator() {
+        return this.AlarmIndicator;
+    }
+
+    /**
+     * Set 告警指标,0表示任务失败，1表示任务运行超时，2表示任务停止，3表示任务暂停
+，4写入速度，5读取速度，6读取吞吐，7写入吞吐, 8脏数据字节数，9脏数据条数
+     * @param AlarmIndicator 告警指标,0表示任务失败，1表示任务运行超时，2表示任务停止，3表示任务暂停
+，4写入速度，5读取速度，6读取吞吐，7写入吞吐, 8脏数据字节数，9脏数据条数
+     */
+    public void setAlarmIndicator(Long AlarmIndicator) {
+        this.AlarmIndicator = AlarmIndicator;
     }
 
     /**
@@ -395,6 +447,22 @@ public class TaskAlarmInfo extends AbstractModel{
     }
 
     /**
+     * Get 告警接收人ID，多个用逗号隔开 
+     * @return AlarmRecipientId 告警接收人ID，多个用逗号隔开
+     */
+    public String getAlarmRecipientId() {
+        return this.AlarmRecipientId;
+    }
+
+    /**
+     * Set 告警接收人ID，多个用逗号隔开
+     * @param AlarmRecipientId 告警接收人ID，多个用逗号隔开
+     */
+    public void setAlarmRecipientId(String AlarmRecipientId) {
+        this.AlarmRecipientId = AlarmRecipientId;
+    }
+
+    /**
      * Get 项目ID
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return ProjectId 项目ID
@@ -432,6 +500,26 @@ public class TaskAlarmInfo extends AbstractModel{
      */
     public void setCreater(String Creater) {
         this.Creater = Creater;
+    }
+
+    /**
+     * Get 告警接收人昵称，多个用逗号隔开
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AlarmRecipientName 告警接收人昵称，多个用逗号隔开
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAlarmRecipientName() {
+        return this.AlarmRecipientName;
+    }
+
+    /**
+     * Set 告警接收人昵称，多个用逗号隔开
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AlarmRecipientName 告警接收人昵称，多个用逗号隔开
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAlarmRecipientName(String AlarmRecipientName) {
+        this.AlarmRecipientName = AlarmRecipientName;
     }
 
     /**
@@ -514,6 +602,226 @@ public class TaskAlarmInfo extends AbstractModel{
         this.NodeName = NodeName;
     }
 
+    /**
+     * Get 指标列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AlarmIndicatorInfos 指标列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AlarmIndicatorInfo [] getAlarmIndicatorInfos() {
+        return this.AlarmIndicatorInfos;
+    }
+
+    /**
+     * Set 指标列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AlarmIndicatorInfos 指标列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAlarmIndicatorInfos(AlarmIndicatorInfo [] AlarmIndicatorInfos) {
+        this.AlarmIndicatorInfos = AlarmIndicatorInfos;
+    }
+
+    /**
+     * Get 告警接收人类型，0指定人员；1任务责任人
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AlarmRecipientType 告警接收人类型，0指定人员；1任务责任人
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getAlarmRecipientType() {
+        return this.AlarmRecipientType;
+    }
+
+    /**
+     * Set 告警接收人类型，0指定人员；1任务责任人
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AlarmRecipientType 告警接收人类型，0指定人员；1任务责任人
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAlarmRecipientType(Long AlarmRecipientType) {
+        this.AlarmRecipientType = AlarmRecipientType;
+    }
+
+    /**
+     * Get 企业微信群Hook地址，多个hook地址使用,隔开
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return WeComHook 企业微信群Hook地址，多个hook地址使用,隔开
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getWeComHook() {
+        return this.WeComHook;
+    }
+
+    /**
+     * Set 企业微信群Hook地址，多个hook地址使用,隔开
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param WeComHook 企业微信群Hook地址，多个hook地址使用,隔开
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setWeComHook(String WeComHook) {
+        this.WeComHook = WeComHook;
+    }
+
+    /**
+     * Get 最近操作时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UpdateTime 最近操作时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getUpdateTime() {
+        return this.UpdateTime;
+    }
+
+    /**
+     * Set 最近操作时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UpdateTime 最近操作时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUpdateTime(String UpdateTime) {
+        this.UpdateTime = UpdateTime;
+    }
+
+    /**
+     * Get 最近操作人Uin
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OperatorUin 最近操作人Uin
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getOperatorUin() {
+        return this.OperatorUin;
+    }
+
+    /**
+     * Set 最近操作人Uin
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OperatorUin 最近操作人Uin
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOperatorUin(String OperatorUin) {
+        this.OperatorUin = OperatorUin;
+    }
+
+    /**
+     * Get 关联任务数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TaskCount 关联任务数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getTaskCount() {
+        return this.TaskCount;
+    }
+
+    /**
+     * Set 关联任务数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TaskCount 关联任务数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTaskCount(Long TaskCount) {
+        this.TaskCount = TaskCount;
+    }
+
+    /**
+     * Get 监控对象类型,1:所有任务,2:指定任务,3:指定责任人
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MonitorType 监控对象类型,1:所有任务,2:指定任务,3:指定责任人
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getMonitorType() {
+        return this.MonitorType;
+    }
+
+    /**
+     * Set 监控对象类型,1:所有任务,2:指定任务,3:指定责任人
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MonitorType 监控对象类型,1:所有任务,2:指定任务,3:指定责任人
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMonitorType(Long MonitorType) {
+        this.MonitorType = MonitorType;
+    }
+
+    /**
+     * Get 监控对象列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MonitorObjectIds 监控对象列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getMonitorObjectIds() {
+        return this.MonitorObjectIds;
+    }
+
+    /**
+     * Set 监控对象列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MonitorObjectIds 监控对象列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMonitorObjectIds(String [] MonitorObjectIds) {
+        this.MonitorObjectIds = MonitorObjectIds;
+    }
+
+    /**
+     * Get 最近一次告警的实例ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return LatestAlarmInstanceId 最近一次告警的实例ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getLatestAlarmInstanceId() {
+        return this.LatestAlarmInstanceId;
+    }
+
+    /**
+     * Set 最近一次告警的实例ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param LatestAlarmInstanceId 最近一次告警的实例ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLatestAlarmInstanceId(String LatestAlarmInstanceId) {
+        this.LatestAlarmInstanceId = LatestAlarmInstanceId;
+    }
+
+    /**
+     * Get 最近一次告警时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return LatestAlarmTime 最近一次告警时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getLatestAlarmTime() {
+        return this.LatestAlarmTime;
+    }
+
+    /**
+     * Set 最近一次告警时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param LatestAlarmTime 最近一次告警时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLatestAlarmTime(String LatestAlarmTime) {
+        this.LatestAlarmTime = LatestAlarmTime;
+    }
+
+    /**
+     * Get 告警规则描述
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Description 告警规则描述
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDescription() {
+        return this.Description;
+    }
+
+    /**
+     * Set 告警规则描述
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Description 告警规则描述
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDescription(String Description) {
+        this.Description = Description;
+    }
+
     public TaskAlarmInfo() {
     }
 
@@ -534,20 +842,11 @@ public class TaskAlarmInfo extends AbstractModel{
         if (source.AlarmLevel != null) {
             this.AlarmLevel = new Long(source.AlarmLevel);
         }
-        if (source.AlarmIndicator != null) {
-            this.AlarmIndicator = new Long(source.AlarmIndicator);
-        }
         if (source.AlarmWay != null) {
             this.AlarmWay = new String(source.AlarmWay);
         }
-        if (source.AlarmRecipientId != null) {
-            this.AlarmRecipientId = new String(source.AlarmRecipientId);
-        }
         if (source.TaskType != null) {
             this.TaskType = new Long(source.TaskType);
-        }
-        if (source.AlarmRecipientName != null) {
-            this.AlarmRecipientName = new String(source.AlarmRecipientName);
         }
         if (source.Id != null) {
             this.Id = new String(source.Id);
@@ -555,17 +854,26 @@ public class TaskAlarmInfo extends AbstractModel{
         if (source.RegularId != null) {
             this.RegularId = new String(source.RegularId);
         }
+        if (source.AlarmIndicator != null) {
+            this.AlarmIndicator = new Long(source.AlarmIndicator);
+        }
         if (source.TriggerType != null) {
             this.TriggerType = new Long(source.TriggerType);
         }
         if (source.EstimatedTime != null) {
             this.EstimatedTime = new Long(source.EstimatedTime);
         }
+        if (source.AlarmRecipientId != null) {
+            this.AlarmRecipientId = new String(source.AlarmRecipientId);
+        }
         if (source.ProjectId != null) {
             this.ProjectId = new String(source.ProjectId);
         }
         if (source.Creater != null) {
             this.Creater = new String(source.Creater);
+        }
+        if (source.AlarmRecipientName != null) {
+            this.AlarmRecipientName = new String(source.AlarmRecipientName);
         }
         if (source.AlarmIndicatorDesc != null) {
             this.AlarmIndicatorDesc = new String(source.AlarmIndicatorDesc);
@@ -579,6 +887,45 @@ public class TaskAlarmInfo extends AbstractModel{
         if (source.NodeName != null) {
             this.NodeName = new String(source.NodeName);
         }
+        if (source.AlarmIndicatorInfos != null) {
+            this.AlarmIndicatorInfos = new AlarmIndicatorInfo[source.AlarmIndicatorInfos.length];
+            for (int i = 0; i < source.AlarmIndicatorInfos.length; i++) {
+                this.AlarmIndicatorInfos[i] = new AlarmIndicatorInfo(source.AlarmIndicatorInfos[i]);
+            }
+        }
+        if (source.AlarmRecipientType != null) {
+            this.AlarmRecipientType = new Long(source.AlarmRecipientType);
+        }
+        if (source.WeComHook != null) {
+            this.WeComHook = new String(source.WeComHook);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
+        if (source.OperatorUin != null) {
+            this.OperatorUin = new String(source.OperatorUin);
+        }
+        if (source.TaskCount != null) {
+            this.TaskCount = new Long(source.TaskCount);
+        }
+        if (source.MonitorType != null) {
+            this.MonitorType = new Long(source.MonitorType);
+        }
+        if (source.MonitorObjectIds != null) {
+            this.MonitorObjectIds = new String[source.MonitorObjectIds.length];
+            for (int i = 0; i < source.MonitorObjectIds.length; i++) {
+                this.MonitorObjectIds[i] = new String(source.MonitorObjectIds[i]);
+            }
+        }
+        if (source.LatestAlarmInstanceId != null) {
+            this.LatestAlarmInstanceId = new String(source.LatestAlarmInstanceId);
+        }
+        if (source.LatestAlarmTime != null) {
+            this.LatestAlarmTime = new String(source.LatestAlarmTime);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
     }
 
 
@@ -590,21 +937,32 @@ public class TaskAlarmInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "RegularName", this.RegularName);
         this.setParamSimple(map, prefix + "RegularStatus", this.RegularStatus);
         this.setParamSimple(map, prefix + "AlarmLevel", this.AlarmLevel);
-        this.setParamSimple(map, prefix + "AlarmIndicator", this.AlarmIndicator);
         this.setParamSimple(map, prefix + "AlarmWay", this.AlarmWay);
-        this.setParamSimple(map, prefix + "AlarmRecipientId", this.AlarmRecipientId);
         this.setParamSimple(map, prefix + "TaskType", this.TaskType);
-        this.setParamSimple(map, prefix + "AlarmRecipientName", this.AlarmRecipientName);
         this.setParamSimple(map, prefix + "Id", this.Id);
         this.setParamSimple(map, prefix + "RegularId", this.RegularId);
+        this.setParamSimple(map, prefix + "AlarmIndicator", this.AlarmIndicator);
         this.setParamSimple(map, prefix + "TriggerType", this.TriggerType);
         this.setParamSimple(map, prefix + "EstimatedTime", this.EstimatedTime);
+        this.setParamSimple(map, prefix + "AlarmRecipientId", this.AlarmRecipientId);
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamSimple(map, prefix + "Creater", this.Creater);
+        this.setParamSimple(map, prefix + "AlarmRecipientName", this.AlarmRecipientName);
         this.setParamSimple(map, prefix + "AlarmIndicatorDesc", this.AlarmIndicatorDesc);
         this.setParamSimple(map, prefix + "Operator", this.Operator);
         this.setParamSimple(map, prefix + "NodeId", this.NodeId);
         this.setParamSimple(map, prefix + "NodeName", this.NodeName);
+        this.setParamArrayObj(map, prefix + "AlarmIndicatorInfos.", this.AlarmIndicatorInfos);
+        this.setParamSimple(map, prefix + "AlarmRecipientType", this.AlarmRecipientType);
+        this.setParamSimple(map, prefix + "WeComHook", this.WeComHook);
+        this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
+        this.setParamSimple(map, prefix + "OperatorUin", this.OperatorUin);
+        this.setParamSimple(map, prefix + "TaskCount", this.TaskCount);
+        this.setParamSimple(map, prefix + "MonitorType", this.MonitorType);
+        this.setParamArraySimple(map, prefix + "MonitorObjectIds.", this.MonitorObjectIds);
+        this.setParamSimple(map, prefix + "LatestAlarmInstanceId", this.LatestAlarmInstanceId);
+        this.setParamSimple(map, prefix + "LatestAlarmTime", this.LatestAlarmTime);
+        this.setParamSimple(map, prefix + "Description", this.Description);
 
     }
 }

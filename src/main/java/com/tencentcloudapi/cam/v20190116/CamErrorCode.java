@@ -42,6 +42,9 @@ public enum CamErrorCode {
     // 内部错误。
      INTERNALERROR_SYSTEMERROR("InternalError.SystemError"),
      
+    // 系统错误，未知异常。
+     INTERNALERROR_UNKNOWNERROR("InternalError.UnknownError"),
+     
     // 参数错误。
      INVALIDPARAMETER("InvalidParameter"),
      
@@ -99,6 +102,9 @@ public enum CamErrorCode {
     // 身份提供商名称已经使用。
      INVALIDPARAMETER_IDENTITYNAMEINUSE("InvalidParameter.IdentityNameInUse"),
      
+    // 接口不存在。
+     INVALIDPARAMETER_INTERFACENOTEXIST("InvalidParameter.InterfaceNotExist"),
+     
     // Keyword字段不合法。
      INVALIDPARAMETER_KEYWORDERROR("InvalidParameter.KeywordError"),
      
@@ -110,6 +116,9 @@ public enum CamErrorCode {
      
     // 一次操作实体数过多。
      INVALIDPARAMETER_OPERATEENTITIESOVERLIMIT("InvalidParameter.OperateEntitiesOverLimit"),
+     
+    // 当前角色仅支持企业管理员操作，如需修改，请联系企业管理员。
+     INVALIDPARAMETER_ORGANIZATIONROLEOPERATEERROR("InvalidParameter.OrganizationRoleOperateError"),
      
     // 非法入参。
      INVALIDPARAMETER_PARAMERROR("InvalidParameter.ParamError"),
@@ -149,6 +158,9 @@ public enum CamErrorCode {
      
     // PrincipalService不存在。
      INVALIDPARAMETER_PRINCIPALSERVICENOTEXIST("InvalidParameter.PrincipalServiceNotExist"),
+     
+    // 消息接收人超出限制。
+     INVALIDPARAMETER_RECEIVEROVERLIMIT("InvalidParameter.ReceiverOverLimit"),
      
     // 策略语法中资源内容不正确。
      INVALIDPARAMETER_RESOURCECONTENTERROR("InvalidParameter.ResourceContentError"),
@@ -222,6 +234,9 @@ public enum CamErrorCode {
     // 用户名不合法。
      INVALIDPARAMETER_USERNAMEILLEGAL("InvalidParameter.UserNameIllegal"),
      
+    // 用户未实名。
+     INVALIDPARAMETER_USERNOTAUTH("InvalidParameter.UserNotAuth"),
+     
     // 用户对象不存在。
      INVALIDPARAMETER_USERNOTEXIST("InvalidParameter.UserNotExist"),
      
@@ -245,6 +260,9 @@ public enum CamErrorCode {
      
     // 身份提供商已达到上限。
      LIMITEXCEEDED_IDENTITYFULL("LimitExceeded.IdentityFull"),
+     
+    // 请求超出限制。
+     LIMITEXCEEDED_UIN("LimitExceeded.Uin"),
      
     // 每个账号最多支持两个AccessKey。
      OPERATIONDENIED_ACCESSKEYOVERLIMIT("OperationDenied.AccessKeyOverLimit"),

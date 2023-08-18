@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class CreateDocumentRequest extends AbstractModel{
 
     /**
-    * 调用方用户信息，userId 必填
+    * 调用方用户信息，userId 必填。支持填入集团子公司经办人 userId代发合同。
     */
     @SerializedName("Operator")
     @Expose
@@ -44,7 +44,7 @@ public class CreateDocumentRequest extends AbstractModel{
     private String TemplateId;
 
     /**
-    * 文件名列表，单个文件名最大长度200个字符，暂时仅支持单文件发起
+    * 文件名列表，单个文件名最大长度200个字符，暂时仅支持单文件发起。设置后流程对应的文件名称当前设置的值。
     */
     @SerializedName("FileNames")
     @Expose
@@ -73,7 +73,7 @@ public class CreateDocumentRequest extends AbstractModel{
     private Long PreviewType;
 
     /**
-    * 应用相关信息
+    * 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
     */
     @SerializedName("Agent")
     @Expose
@@ -87,16 +87,16 @@ public class CreateDocumentRequest extends AbstractModel{
     private String ClientToken;
 
     /**
-     * Get 调用方用户信息，userId 必填 
-     * @return Operator 调用方用户信息，userId 必填
+     * Get 调用方用户信息，userId 必填。支持填入集团子公司经办人 userId代发合同。 
+     * @return Operator 调用方用户信息，userId 必填。支持填入集团子公司经办人 userId代发合同。
      */
     public UserInfo getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 调用方用户信息，userId 必填
-     * @param Operator 调用方用户信息，userId 必填
+     * Set 调用方用户信息，userId 必填。支持填入集团子公司经办人 userId代发合同。
+     * @param Operator 调用方用户信息，userId 必填。支持填入集团子公司经办人 userId代发合同。
      */
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
@@ -135,16 +135,16 @@ public class CreateDocumentRequest extends AbstractModel{
     }
 
     /**
-     * Get 文件名列表，单个文件名最大长度200个字符，暂时仅支持单文件发起 
-     * @return FileNames 文件名列表，单个文件名最大长度200个字符，暂时仅支持单文件发起
+     * Get 文件名列表，单个文件名最大长度200个字符，暂时仅支持单文件发起。设置后流程对应的文件名称当前设置的值。 
+     * @return FileNames 文件名列表，单个文件名最大长度200个字符，暂时仅支持单文件发起。设置后流程对应的文件名称当前设置的值。
      */
     public String [] getFileNames() {
         return this.FileNames;
     }
 
     /**
-     * Set 文件名列表，单个文件名最大长度200个字符，暂时仅支持单文件发起
-     * @param FileNames 文件名列表，单个文件名最大长度200个字符，暂时仅支持单文件发起
+     * Set 文件名列表，单个文件名最大长度200个字符，暂时仅支持单文件发起。设置后流程对应的文件名称当前设置的值。
+     * @param FileNames 文件名列表，单个文件名最大长度200个字符，暂时仅支持单文件发起。设置后流程对应的文件名称当前设置的值。
      */
     public void setFileNames(String [] FileNames) {
         this.FileNames = FileNames;
@@ -203,16 +203,16 @@ public class CreateDocumentRequest extends AbstractModel{
     }
 
     /**
-     * Get 应用相关信息 
-     * @return Agent 应用相关信息
+     * Get 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填 
+     * @return Agent 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 应用相关信息
-     * @param Agent 应用相关信息
+     * Set 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+     * @param Agent 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;

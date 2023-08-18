@@ -24,10 +24,18 @@ public class DescribeAccountsResponse extends AbstractModel{
 
     /**
     * 数据库账号列表
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AccountSet")
     @Expose
     private Account [] AccountSet;
+
+    /**
+    * 账号总数量
+    */
+    @SerializedName("TotalCount")
+    @Expose
+    private Long TotalCount;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -37,8 +45,10 @@ public class DescribeAccountsResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 数据库账号列表 
+     * Get 数据库账号列表
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return AccountSet 数据库账号列表
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public Account [] getAccountSet() {
         return this.AccountSet;
@@ -46,10 +56,28 @@ public class DescribeAccountsResponse extends AbstractModel{
 
     /**
      * Set 数据库账号列表
+注意：此字段可能返回 null，表示取不到有效值。
      * @param AccountSet 数据库账号列表
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAccountSet(Account [] AccountSet) {
         this.AccountSet = AccountSet;
+    }
+
+    /**
+     * Get 账号总数量 
+     * @return TotalCount 账号总数量
+     */
+    public Long getTotalCount() {
+        return this.TotalCount;
+    }
+
+    /**
+     * Set 账号总数量
+     * @param TotalCount 账号总数量
+     */
+    public void setTotalCount(Long TotalCount) {
+        this.TotalCount = TotalCount;
     }
 
     /**
@@ -82,6 +110,9 @@ public class DescribeAccountsResponse extends AbstractModel{
                 this.AccountSet[i] = new Account(source.AccountSet[i]);
             }
         }
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -93,6 +124,7 @@ public class DescribeAccountsResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "AccountSet.", this.AccountSet);
+        this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

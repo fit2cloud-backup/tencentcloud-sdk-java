@@ -29,7 +29,7 @@ public class MrsClient extends AbstractClient{
     private static String endpoint = "mrs.tencentcloudapi.com";
     private static String service = "mrs";
     private static String version = "2020-09-10";
-
+    
     public MrsClient(Credential credential, String region) {
         this(credential, region, new ClientProfile());
     }
@@ -47,6 +47,7 @@ public class MrsClient extends AbstractClient{
     public ImageToClassResponse ImageToClass(ImageToClassRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ImageToClassResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ImageToClassResponse>>() {
                 }.getType();
@@ -67,6 +68,7 @@ public class MrsClient extends AbstractClient{
     public ImageToObjectResponse ImageToObject(ImageToObjectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ImageToObjectResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ImageToObjectResponse>>() {
                 }.getType();
@@ -87,6 +89,7 @@ public class MrsClient extends AbstractClient{
     public TextToClassResponse TextToClass(TextToClassRequest req) throws TencentCloudSDKException{
         JsonResponseModel<TextToClassResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<TextToClassResponse>>() {
                 }.getType();
@@ -99,7 +102,9 @@ public class MrsClient extends AbstractClient{
     }
 
     /**
-     *文本转结构化对象
+     *文本转结构化对象。
+
+适用场景：经过腾讯医疗专用 OCR 从图片识别之后的文本，可以调用此接口。通过其它 OCR 识别的文本可能不适配。医院的 XML 格式文本也不适配，XML 文件需要经过特殊转换才能直接调用此接口。单次调用传入的文本不宜超过 2000 字。
      * @param req TextToObjectRequest
      * @return TextToObjectResponse
      * @throws TencentCloudSDKException
@@ -107,6 +112,7 @@ public class MrsClient extends AbstractClient{
     public TextToObjectResponse TextToObject(TextToObjectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<TextToObjectResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<TextToObjectResponse>>() {
                 }.getType();

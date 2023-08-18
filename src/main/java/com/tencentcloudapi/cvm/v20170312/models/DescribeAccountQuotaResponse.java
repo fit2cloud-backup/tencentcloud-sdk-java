@@ -27,7 +27,7 @@ public class DescribeAccountQuotaResponse extends AbstractModel{
     */
     @SerializedName("AppId")
     @Expose
-    private String AppId;
+    private Long AppId;
 
     /**
     * 配额数据
@@ -47,7 +47,7 @@ public class DescribeAccountQuotaResponse extends AbstractModel{
      * Get 用户appid 
      * @return AppId 用户appid
      */
-    public String getAppId() {
+    public Long getAppId() {
         return this.AppId;
     }
 
@@ -55,7 +55,7 @@ public class DescribeAccountQuotaResponse extends AbstractModel{
      * Set 用户appid
      * @param AppId 用户appid
      */
-    public void setAppId(String AppId) {
+    public void setAppId(Long AppId) {
         this.AppId = AppId;
     }
 
@@ -100,7 +100,7 @@ public class DescribeAccountQuotaResponse extends AbstractModel{
      */
     public DescribeAccountQuotaResponse(DescribeAccountQuotaResponse source) {
         if (source.AppId != null) {
-            this.AppId = new String(source.AppId);
+            this.AppId = new Long(source.AppId);
         }
         if (source.AccountQuotaOverview != null) {
             this.AccountQuotaOverview = new AccountQuotaOverview(source.AccountQuotaOverview);

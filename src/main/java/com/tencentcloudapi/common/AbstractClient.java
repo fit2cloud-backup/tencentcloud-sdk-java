@@ -29,6 +29,8 @@ import java.util.UUID;
 import java.security.SecureRandom;
 import javax.crypto.Mac;
 import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.X509TrustManager;
 import javax.xml.bind.DatatypeConverter;
 
 import java.io.ByteArrayOutputStream;
@@ -43,12 +45,13 @@ import java.nio.charset.StandardCharsets;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 
-import com.squareup.okhttp.Authenticator;
-import com.squareup.okhttp.Credentials;
-import com.squareup.okhttp.Headers;
-import com.squareup.okhttp.Headers.Builder;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
+import okhttp3.Authenticator;
+import okhttp3.Credentials;
+import okhttp3.Headers;
+import okhttp3.Headers.Builder;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.Route;
 import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 import com.tencentcloudapi.common.http.HttpConnection;
 import com.tencentcloudapi.common.profile.ClientProfile;
@@ -61,7 +64,7 @@ import com.google.gson.JsonSyntaxException;
 public abstract class AbstractClient {
 
   public static final int HTTP_RSP_OK = 200;
-  public static final String SDK_VERSION = "SDK_JAVA_3.1.650";
+  public static final String SDK_VERSION = "SDK_JAVA_3.1.833";
 
   private Credential credential;
   private ClientProfile profile;
@@ -73,6 +76,10 @@ public abstract class AbstractClient {
   private String apiVersion;
   public Gson gson;
   private TCLog log;
+  private HttpConnection httpConnection;
+
+  private CircuitBreaker regionBreaker;
+
   public AbstractClient(String endpoint, String version, Credential credential, String region) {
     this(endpoint, version, credential, region, new ClientProfile());
   }
@@ -93,6 +100,15 @@ public abstract class AbstractClient {
     this.apiVersion = version;
     this.gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
     this.log = new TCLog(getClass().getName(), profile.isDebug());
+    this.httpConnection = new HttpConnection(
+            this.profile.getHttpProfile().getConnTimeout(),
+            this.profile.getHttpProfile().getReadTimeout(),
+            this.profile.getHttpProfile().getWriteTimeout()
+    );
+    this.httpConnection.addInterceptors(this.log);
+    this.trySetProxy(this.httpConnection);
+    this.trySetSSLSocketFactory(this.httpConnection);
+    this.trySetRegionBreaker();
     warmup();
   }
 
@@ -249,18 +265,16 @@ public abstract class AbstractClient {
 
   private String getResponseBody(String url, HashMap<String, String> headers, byte[] body)
       throws TencentCloudSDKException {
-    HttpConnection conn =
-        new HttpConnection(
-            this.profile.getHttpProfile().getConnTimeout(),
-            this.profile.getHttpProfile().getReadTimeout(),
-            this.profile.getHttpProfile().getWriteTimeout());
-    conn.addInterceptors(log);
-    this.trySetProxy(conn);
     Builder hb = new Headers.Builder();
     for (String key : headers.keySet()) {
       hb.add(key, headers.get(key));
     }
-    Response resp = conn.postRequest(url, body, hb.build());
+    Response resp = null;
+    try {
+      resp = this.httpConnection.postRequest(url, body, hb.build());
+    } catch (IOException e) {
+      throw new TencentCloudSDKException(e.getClass().getName() + "-" + e.getMessage());
+    }
     if (resp.code() != AbstractClient.HTTP_RSP_OK) {
       String msg = "response code is " + resp.code() + ", not 200";
       log.info(msg);
@@ -306,23 +320,37 @@ public abstract class AbstractClient {
     if (username == null || username.isEmpty()) {
       return;
     }
-    conn.setAuthenticator(
+    conn.setProxyAuthenticator(
         new Authenticator() {
           @Override
-          public Request authenticate(Proxy proxy, Response response) throws IOException {
+          public Request authenticate(Route route, Response response) throws IOException {
             String credential = Credentials.basic(username, password);
             return response
-                .request()
-                .newBuilder()
-                .header("Proxy-Authorization", credential)
-                .build();
-          }
-
-          @Override
-          public Request authenticateProxy(Proxy proxy, Response response) throws IOException {
-            return authenticate(proxy, response);
+                    .request()
+                    .newBuilder()
+                    .header("Proxy-Authorization", credential)
+                    .build();
           }
         });
+  }
+
+  private void trySetSSLSocketFactory(HttpConnection conn){
+    SSLSocketFactory sslSocketFactory = this.profile.getHttpProfile().getSslSocketFactory();
+    X509TrustManager trustManager = this.profile.getHttpProfile().getX509TrustManager();
+    if(sslSocketFactory != null) {
+      if(trustManager != null) {
+        this.httpConnection.setSSLSocketFactory(sslSocketFactory, trustManager);
+      }else{
+        this.httpConnection.setSSLSocketFactory(sslSocketFactory);
+      }
+    }
+  }
+
+  private void trySetRegionBreaker(){
+    String ep = profile.getBackupEndpoint();
+    if(ep != null && !ep.isEmpty()){
+      this.regionBreaker = new CircuitBreaker();
+    }
   }
 
   protected String internalRequest(AbstractModel request, String actionName)
@@ -350,13 +378,29 @@ public abstract class AbstractClient {
       }
     }
 
-    if (binaryParams.length > 0 || sm.equals(ClientProfile.SIGN_TC3_256)) {
-      okRsp = doRequestWithTC3(endpoint, request, actionName);
-    } else if (sm.equals(ClientProfile.SIGN_SHA1) || sm.equals(ClientProfile.SIGN_SHA256)) {
-      okRsp = doRequest(endpoint, request, actionName);
-    } else {
-      throw new TencentCloudSDKException(
-          "Signature method " + sm + " is invalid or not supported yet.");
+    CircuitBreaker.Token breakerToken = null;
+    if (regionBreaker != null) {
+      breakerToken = regionBreaker.allow();
+      if (!breakerToken.allowed) {
+        endpoint = service + "." + profile.getBackupEndpoint();
+      }
+    }
+
+    try {
+      if (binaryParams.length > 0 || sm.equals(ClientProfile.SIGN_TC3_256)) {
+        okRsp = doRequestWithTC3(endpoint, request, actionName);
+      } else if (sm.equals(ClientProfile.SIGN_SHA1) || sm.equals(ClientProfile.SIGN_SHA256)) {
+        okRsp = doRequest(endpoint, request, actionName);
+      } else {
+        throw new TencentCloudSDKException(
+            "Signature method " + sm + " is invalid or not supported yet.");
+      }
+    } catch (IOException e) {
+      // network failure, consider region failure
+      if (breakerToken != null) {
+        breakerToken.report(false);
+      }
+      throw new TencentCloudSDKException(e.getClass().getName() + "-" + e.getMessage());
     }
 
     if (okRsp.code() != AbstractClient.HTTP_RSP_OK) {
@@ -382,7 +426,16 @@ public abstract class AbstractClient {
       log.info(msg);
       throw new TencentCloudSDKException(msg, "", e.getClass().getName());
     }
+
     if (errResp.response.error != null) {
+      if (breakerToken != null) {
+        JsonResponseErrModel error = errResp.response;
+        boolean regionOk = error.requestId != null
+                && !error.requestId.isEmpty()
+                && error.error.code != null
+                && !error.error.code.equals("InternalError");
+        breakerToken.report(regionOk);
+      }
       throw new TencentCloudSDKException(
           errResp.response.error.message,
           errResp.response.requestId,
@@ -393,30 +446,23 @@ public abstract class AbstractClient {
   }
 
   private Response doRequest(String endpoint, AbstractModel request, String action)
-      throws TencentCloudSDKException {
+      throws TencentCloudSDKException, IOException {
     HashMap<String, String> param = new HashMap<String, String>();
     request.toMap(param, "");
     String strParam = this.formatRequestData(action, param);
-    HttpConnection conn =
-        new HttpConnection(
-            this.profile.getHttpProfile().getConnTimeout(),
-            this.profile.getHttpProfile().getReadTimeout(),
-            this.profile.getHttpProfile().getWriteTimeout());
-    conn.addInterceptors(log);
-    this.trySetProxy(conn);
     String reqMethod = this.profile.getHttpProfile().getReqMethod();
     String url = this.profile.getHttpProfile().getProtocol() + endpoint + this.path;
     if (reqMethod.equals(HttpProfile.REQ_GET)) {
-      return conn.getRequest(url + "?" + strParam);
+      return this.httpConnection.getRequest(url + "?" + strParam);
     } else if (reqMethod.equals(HttpProfile.REQ_POST)) {
-      return conn.postRequest(url, strParam);
+      return this.httpConnection.postRequest(url, strParam);
     } else {
       throw new TencentCloudSDKException("Method only support (GET, POST)");
     }
   }
 
   private Response doRequestWithTC3(String endpoint, AbstractModel request, String action)
-      throws TencentCloudSDKException {
+      throws TencentCloudSDKException, IOException {
     String httpRequestMethod = this.profile.getHttpProfile().getReqMethod();
     if (httpRequestMethod == null) {
       throw new TencentCloudSDKException(
@@ -478,34 +524,31 @@ public abstract class AbstractClient {
         Sign.sha256Hex(canonicalRequest.getBytes(StandardCharsets.UTF_8));
     String stringToSign =
         "TC3-HMAC-SHA256\n" + timestamp + "\n" + credentialScope + "\n" + hashedCanonicalRequest;
-
-    String secretId = this.credential.getSecretId();
-    String secretKey = this.credential.getSecretKey();
-    byte[] secretDate = Sign.hmac256(("TC3" + secretKey).getBytes(StandardCharsets.UTF_8), date);
-    byte[] secretService = Sign.hmac256(secretDate, service);
-    byte[] secretSigning = Sign.hmac256(secretService, "tc3_request");
-    String signature =
-        DatatypeConverter.printHexBinary(Sign.hmac256(secretSigning, stringToSign)).toLowerCase();
-    String authorization =
-        "TC3-HMAC-SHA256 "
-            + "Credential="
-            + secretId
-            + "/"
-            + credentialScope
-            + ", "
-            + "SignedHeaders="
-            + signedHeaders
-            + ", "
-            + "Signature="
-            + signature;
-
-    HttpConnection conn =
-        new HttpConnection(
-            this.profile.getHttpProfile().getConnTimeout(),
-            this.profile.getHttpProfile().getReadTimeout(),
-            this.profile.getHttpProfile().getWriteTimeout());
-    conn.addInterceptors(log);
-    this.trySetProxy(conn);
+    boolean skipSign = request.getSkipSign();
+    String authorization = "";
+    if (skipSign) {
+      authorization = "SKIP";
+    } else {
+      String secretId = this.credential.getSecretId();
+      String secretKey = this.credential.getSecretKey();
+      byte[] secretDate = Sign.hmac256(("TC3" + secretKey).getBytes(StandardCharsets.UTF_8), date);
+      byte[] secretService = Sign.hmac256(secretDate, service);
+      byte[] secretSigning = Sign.hmac256(secretService, "tc3_request");
+      String signature =
+              DatatypeConverter.printHexBinary(Sign.hmac256(secretSigning, stringToSign)).toLowerCase();
+      authorization =
+          "TC3-HMAC-SHA256 "
+                  + "Credential="
+                  + secretId
+                  + "/"
+                  + credentialScope
+                  + ", "
+                  + "SignedHeaders="
+                  + signedHeaders
+                  + ", "
+                  + "Signature="
+                  + signature;
+    }
     String url = this.profile.getHttpProfile().getProtocol() + endpoint + this.path;
     Builder hb = new Headers.Builder();
     hb.add("Content-Type", contentType)
@@ -531,9 +574,9 @@ public abstract class AbstractClient {
 
     Headers headers = hb.build();
     if (httpRequestMethod.equals(HttpProfile.REQ_GET)) {
-      return conn.getRequest(url + "?" + canonicalQueryString, headers);
+      return this.httpConnection.getRequest(url + "?" + canonicalQueryString, headers);
     } else if (httpRequestMethod.equals(HttpProfile.REQ_POST)) {
-      return conn.postRequest(url, requestPayload, headers);
+      return this.httpConnection.postRequest(url, requestPayload, headers);
     } else {
       throw new TencentCloudSDKException("Method only support GET, POST");
     }
@@ -711,5 +754,13 @@ public abstract class AbstractClient {
       }
     } while (--retryTimes >= 0);
     return null;
+  }
+
+  public CircuitBreaker getRegionBreaker() {
+    return regionBreaker;
+  }
+
+  public void setRegionBreaker(CircuitBreaker regionBreaker) {
+    this.regionBreaker = regionBreaker;
   }
 }

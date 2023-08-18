@@ -123,6 +123,9 @@ public enum MariadbErrorCode {
     // 查询独享集群信息失败。
      INTERNALERROR_FENCEERROR("InternalError.FenceError"),
      
+    // 获取数据库加密密钥失败。
+     INTERNALERROR_GETCIPHERTEXTFAILED("InternalError.GetCipherTextFailed"),
+     
     // 获取数据库实例参数失败。
      INTERNALERROR_GETDBCONFIGFAILED("InternalError.GetDbConfigFailed"),
      
@@ -393,11 +396,17 @@ public enum MariadbErrorCode {
     // 没有权限操作该接口或资源。
      UNAUTHORIZEDOPERATION_PERMISSIONDENIED("UnauthorizedOperation.PermissionDenied"),
      
+    // 不支持该数据库版本。
+     UNSUPPORTEDOPERATION_DBVERSIONNOTSUPPORTED("UnsupportedOperation.DbVersionNotSupported"),
+     
     // 不支持的无效操作。
      UNSUPPORTEDOPERATION_INVALIDOPERATION("UnsupportedOperation.InvalidOperation"),
      
     // Proxy软件版本太旧，请联系客服升级到新版本后再试。
-     UNSUPPORTEDOPERATION_OLDPROXYVERSION("UnsupportedOperation.OldProxyVersion");
+     UNSUPPORTEDOPERATION_OLDPROXYVERSION("UnsupportedOperation.OldProxyVersion"),
+     
+    // 不适用的操作。
+     UNSUPPORTEDOPERATION_OPERATIONNOTAPPLICABLE("UnsupportedOperation.OperationNotApplicable");
      
     private String value;
     private MariadbErrorCode (String value){

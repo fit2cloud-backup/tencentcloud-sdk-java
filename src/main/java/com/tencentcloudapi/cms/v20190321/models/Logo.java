@@ -23,45 +23,34 @@ import java.util.HashMap;
 public class Logo extends AbstractModel{
 
     /**
-    * logo图标坐标信息
-    */
-    @SerializedName("RrectF")
-    @Expose
-    private RrectF RrectF;
-
-    /**
     * logo图标置信度
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Confidence")
     @Expose
     private Float Confidence;
 
     /**
+    * logo图标坐标信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RrectF")
+    @Expose
+    private RrectF RrectF;
+
+    /**
     * logo图标名称
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
     private String Name;
 
     /**
-     * Get logo图标坐标信息 
-     * @return RrectF logo图标坐标信息
-     */
-    public RrectF getRrectF() {
-        return this.RrectF;
-    }
-
-    /**
-     * Set logo图标坐标信息
-     * @param RrectF logo图标坐标信息
-     */
-    public void setRrectF(RrectF RrectF) {
-        this.RrectF = RrectF;
-    }
-
-    /**
-     * Get logo图标置信度 
+     * Get logo图标置信度
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Confidence logo图标置信度
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getConfidence() {
         return this.Confidence;
@@ -69,15 +58,39 @@ public class Logo extends AbstractModel{
 
     /**
      * Set logo图标置信度
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Confidence logo图标置信度
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setConfidence(Float Confidence) {
         this.Confidence = Confidence;
     }
 
     /**
-     * Get logo图标名称 
+     * Get logo图标坐标信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RrectF logo图标坐标信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public RrectF getRrectF() {
+        return this.RrectF;
+    }
+
+    /**
+     * Set logo图标坐标信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RrectF logo图标坐标信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRrectF(RrectF RrectF) {
+        this.RrectF = RrectF;
+    }
+
+    /**
+     * Get logo图标名称
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Name logo图标名称
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -85,7 +98,9 @@ public class Logo extends AbstractModel{
 
     /**
      * Set logo图标名称
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Name logo图标名称
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
@@ -99,11 +114,11 @@ public class Logo extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public Logo(Logo source) {
-        if (source.RrectF != null) {
-            this.RrectF = new RrectF(source.RrectF);
-        }
         if (source.Confidence != null) {
             this.Confidence = new Float(source.Confidence);
+        }
+        if (source.RrectF != null) {
+            this.RrectF = new RrectF(source.RrectF);
         }
         if (source.Name != null) {
             this.Name = new String(source.Name);
@@ -115,8 +130,8 @@ public class Logo extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamObj(map, prefix + "RrectF.", this.RrectF);
         this.setParamSimple(map, prefix + "Confidence", this.Confidence);
+        this.setParamObj(map, prefix + "RrectF.", this.RrectF);
         this.setParamSimple(map, prefix + "Name", this.Name);
 
     }

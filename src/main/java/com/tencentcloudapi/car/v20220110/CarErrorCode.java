@@ -6,20 +6,29 @@ public enum CarErrorCode {
     // 未申请并发或申请后超时。
      FAILEDOPERATION_LOCKTIMEOUT("FailedOperation.LockTimeout"),
      
+    // 路径无法找到
+     FAILEDOPERATION_PATHNOTFOUND("FailedOperation.PathNotFound"),
+     
     // 处理超时。
      FAILEDOPERATION_PROCESSTIMEOUT("FailedOperation.ProcessTimeout"),
      
-    // 请降低访问频率。
+    // 该UserId请求正在处理中，请稍后再试。
      FAILEDOPERATION_SLOWDOWN("FailedOperation.SlowDown"),
      
     // 内部错误。
      INTERNALERROR("InternalError"),
+     
+    // 参数错误。
+     INVALIDPARAMETER("InvalidParameter"),
      
     // Json 解析失败。
      INVALIDPARAMETER_JSONPARSEERROR("InvalidParameter.JsonParseError"),
      
     // 参数取值错误。
      INVALIDPARAMETERVALUE("InvalidParameterValue"),
+     
+    // 【多人互动】对应的角色人数超过限制。
+     LIMITEXCEEDED_ROLE("LimitExceeded.Role"),
      
     // 操作被拒绝。
      OPERATIONDENIED("OperationDenied"),

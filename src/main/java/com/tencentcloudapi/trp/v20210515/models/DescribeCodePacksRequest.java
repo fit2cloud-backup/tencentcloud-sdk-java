@@ -51,6 +51,27 @@ public class DescribeCodePacksRequest extends AbstractModel{
     private Long CorpId;
 
     /**
+    * 是否有流水码 0:无 1:有
+    */
+    @SerializedName("SerialType")
+    @Expose
+    private Long SerialType;
+
+    /**
+    * 资源类型 batch:批次, order_in 入库, order_out: 出入
+    */
+    @SerializedName("ResType")
+    @Expose
+    private String ResType;
+
+    /**
+    * 资源ID ResType是 batch 时对应是批次ID, 是 order_in, order_out时，则是订单ID
+    */
+    @SerializedName("ResId")
+    @Expose
+    private String ResId;
+
+    /**
      * Get 每页数量 
      * @return PageSize 每页数量
      */
@@ -114,6 +135,54 @@ public class DescribeCodePacksRequest extends AbstractModel{
         this.CorpId = CorpId;
     }
 
+    /**
+     * Get 是否有流水码 0:无 1:有 
+     * @return SerialType 是否有流水码 0:无 1:有
+     */
+    public Long getSerialType() {
+        return this.SerialType;
+    }
+
+    /**
+     * Set 是否有流水码 0:无 1:有
+     * @param SerialType 是否有流水码 0:无 1:有
+     */
+    public void setSerialType(Long SerialType) {
+        this.SerialType = SerialType;
+    }
+
+    /**
+     * Get 资源类型 batch:批次, order_in 入库, order_out: 出入 
+     * @return ResType 资源类型 batch:批次, order_in 入库, order_out: 出入
+     */
+    public String getResType() {
+        return this.ResType;
+    }
+
+    /**
+     * Set 资源类型 batch:批次, order_in 入库, order_out: 出入
+     * @param ResType 资源类型 batch:批次, order_in 入库, order_out: 出入
+     */
+    public void setResType(String ResType) {
+        this.ResType = ResType;
+    }
+
+    /**
+     * Get 资源ID ResType是 batch 时对应是批次ID, 是 order_in, order_out时，则是订单ID 
+     * @return ResId 资源ID ResType是 batch 时对应是批次ID, 是 order_in, order_out时，则是订单ID
+     */
+    public String getResId() {
+        return this.ResId;
+    }
+
+    /**
+     * Set 资源ID ResType是 batch 时对应是批次ID, 是 order_in, order_out时，则是订单ID
+     * @param ResId 资源ID ResType是 batch 时对应是批次ID, 是 order_in, order_out时，则是订单ID
+     */
+    public void setResId(String ResId) {
+        this.ResId = ResId;
+    }
+
     public DescribeCodePacksRequest() {
     }
 
@@ -134,6 +203,15 @@ public class DescribeCodePacksRequest extends AbstractModel{
         if (source.CorpId != null) {
             this.CorpId = new Long(source.CorpId);
         }
+        if (source.SerialType != null) {
+            this.SerialType = new Long(source.SerialType);
+        }
+        if (source.ResType != null) {
+            this.ResType = new String(source.ResType);
+        }
+        if (source.ResId != null) {
+            this.ResId = new String(source.ResId);
+        }
     }
 
 
@@ -145,6 +223,9 @@ public class DescribeCodePacksRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "PageNumber", this.PageNumber);
         this.setParamSimple(map, prefix + "Keyword", this.Keyword);
         this.setParamSimple(map, prefix + "CorpId", this.CorpId);
+        this.setParamSimple(map, prefix + "SerialType", this.SerialType);
+        this.setParamSimple(map, prefix + "ResType", this.ResType);
+        this.setParamSimple(map, prefix + "ResId", this.ResId);
 
     }
 }

@@ -175,6 +175,38 @@ public class ZoneSetting extends AbstractModel{
     private ClientIpCountry ClientIpCountry;
 
     /**
+    * Grpc协议支持配置。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Grpc")
+    @Expose
+    private Grpc Grpc;
+
+    /**
+    * 图片优化相关配置。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ImageOptimize")
+    @Expose
+    private ImageOptimize ImageOptimize;
+
+    /**
+    * 中国大陆加速优化配置。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AccelerateMainland")
+    @Expose
+    private AccelerateMainland AccelerateMainland;
+
+    /**
+    * 标准 Debug 配置。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("StandardDebug")
+    @Expose
+    private StandardDebug StandardDebug;
+
+    /**
      * Get 站点名称。 
      * @return ZoneName 站点名称。
      */
@@ -554,6 +586,86 @@ public class ZoneSetting extends AbstractModel{
         this.ClientIpCountry = ClientIpCountry;
     }
 
+    /**
+     * Get Grpc协议支持配置。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Grpc Grpc协议支持配置。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Grpc getGrpc() {
+        return this.Grpc;
+    }
+
+    /**
+     * Set Grpc协议支持配置。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Grpc Grpc协议支持配置。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setGrpc(Grpc Grpc) {
+        this.Grpc = Grpc;
+    }
+
+    /**
+     * Get 图片优化相关配置。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ImageOptimize 图片优化相关配置。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ImageOptimize getImageOptimize() {
+        return this.ImageOptimize;
+    }
+
+    /**
+     * Set 图片优化相关配置。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ImageOptimize 图片优化相关配置。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setImageOptimize(ImageOptimize ImageOptimize) {
+        this.ImageOptimize = ImageOptimize;
+    }
+
+    /**
+     * Get 中国大陆加速优化配置。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AccelerateMainland 中国大陆加速优化配置。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AccelerateMainland getAccelerateMainland() {
+        return this.AccelerateMainland;
+    }
+
+    /**
+     * Set 中国大陆加速优化配置。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AccelerateMainland 中国大陆加速优化配置。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAccelerateMainland(AccelerateMainland AccelerateMainland) {
+        this.AccelerateMainland = AccelerateMainland;
+    }
+
+    /**
+     * Get 标准 Debug 配置。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return StandardDebug 标准 Debug 配置。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public StandardDebug getStandardDebug() {
+        return this.StandardDebug;
+    }
+
+    /**
+     * Set 标准 Debug 配置。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param StandardDebug 标准 Debug 配置。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setStandardDebug(StandardDebug StandardDebug) {
+        this.StandardDebug = StandardDebug;
+    }
+
     public ZoneSetting() {
     }
 
@@ -619,6 +731,18 @@ public class ZoneSetting extends AbstractModel{
         if (source.ClientIpCountry != null) {
             this.ClientIpCountry = new ClientIpCountry(source.ClientIpCountry);
         }
+        if (source.Grpc != null) {
+            this.Grpc = new Grpc(source.Grpc);
+        }
+        if (source.ImageOptimize != null) {
+            this.ImageOptimize = new ImageOptimize(source.ImageOptimize);
+        }
+        if (source.AccelerateMainland != null) {
+            this.AccelerateMainland = new AccelerateMainland(source.AccelerateMainland);
+        }
+        if (source.StandardDebug != null) {
+            this.StandardDebug = new StandardDebug(source.StandardDebug);
+        }
     }
 
 
@@ -645,6 +769,10 @@ public class ZoneSetting extends AbstractModel{
         this.setParamObj(map, prefix + "Ipv6.", this.Ipv6);
         this.setParamObj(map, prefix + "Https.", this.Https);
         this.setParamObj(map, prefix + "ClientIpCountry.", this.ClientIpCountry);
+        this.setParamObj(map, prefix + "Grpc.", this.Grpc);
+        this.setParamObj(map, prefix + "ImageOptimize.", this.ImageOptimize);
+        this.setParamObj(map, prefix + "AccelerateMainland.", this.AccelerateMainland);
+        this.setParamObj(map, prefix + "StandardDebug.", this.StandardDebug);
 
     }
 }

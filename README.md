@@ -1,5 +1,5 @@
 # 简介
-欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK3.0是云 API3.0 平台的配套工具。目前已经支持cvm、vpc、cbs等产品，后续所有的云服务产品都会接入进来。新版SDK实现了统一化，具有各个语言版本的SDK使用方法相同，接口调用方式相同，统一的错误码和返回包格式这些优点。
+欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK3.0是云 API3.0 平台的配套工具。
 为方便 JAVA 开发者调试和接入腾讯云产品 API，这里向您介绍适用于 Java 的腾讯云开发工具包，并提供首次使用开发工具包的简单示例。让您快速获取腾讯云 Java SDK 并开始调用。
 # 依赖环境
 1. 依赖环境：JDK 7 版本及以上。
@@ -14,7 +14,7 @@
 
 通过 Maven 获取安装是使用 JAVA SDK 的推荐方法，Maven 是 JAVA 的依赖管理工具，支持您项目所需的依赖项，并将其安装到项目中。关于 Maven 详细可参考 Maven 官网。
 1. 请访问[Maven官网](https://maven.apache.org/)下载对应系统Maven安装包进行安装；
-2. 为您的项目添加 Maven 依赖项，只需在 Maven pom.xml 添加以下依赖项即可。注意这里的版本号只是举例，您可以在[Maven仓库](https://search.maven.org/search?q=tencentcloud-sdk-java)上找到最新的版本(最新版本是3.1.650)
+2. 为您的项目添加 Maven 依赖项，只需在 Maven pom.xml 添加以下依赖项即可。注意这里的版本号只是举例，您可以在[Maven仓库](https://search.maven.org/search?q=tencentcloud-sdk-java)上找到最新的版本(最新版本是3.1.708)。请知悉，SDK 是先确认 `mvn deploy` 发布成功后再更新 GitHub tag，但是 Maven 官网索引更新有延迟，导致新发布的版本暂时（约1-2小时）在 Maven 官网搜索不到，实际不影响使用最新版本，您可以正常执行 `mvn compile` 等指令。
 3. maven仓库中显示的4.0.11是废弃版本，我们已经联系maven官方删除jar包，但maven索引无法清除，请勿使用;
 4. 引用方法可参考示例。
 ```xml
@@ -23,7 +23,7 @@
     <artifactId>tencentcloud-sdk-java</artifactId>
     <!-- go to https://search.maven.org/search?q=tencentcloud-sdk-java and get the latest version. -->
     <!-- 请到https://search.maven.org/search?q=tencentcloud-sdk-java查询所有版本，最新版本如下 -->
-    <version>3.1.650</version>
+    <version>3.1.833</version>
 </dependency>
 ```
 5. 如上引用方式会将腾讯云所有产品sdk下载到本地，可以将artifactId换成tencentcloud-sdk-java-cvm/cbs/vpc等，即可引用特定产品的sdk，代码中使用方式和大包相同，可参考示例。最新版本也可在[Maven仓库](https://search.maven.org/search?q=tencentcloud-sdk-java)查询，可大大节省存储空间。
@@ -59,7 +59,10 @@ import com.tencentcloudapi.cvm.v20170312.models.DescribeInstancesResponse;
 public class DescribeInstances {
     public static void main(String[] args) {
         try {
-            Credential cred = new Credential("secretId", "secretKey");
+            // 为了保护密钥安全，建议将密钥设置在环境变量中或者配置文件中，请参考本文凭证管理章节。
+            // 硬编码密钥到代码中有可能随代码泄露而暴露，有安全隐患，并不推荐。
+            // Credential cred = new Credential("SecretId", "SecretKey");
+            Credential cred = new Credential(System.getenv("TENCENTCLOUD_SECRET_ID"), System.getenv("TENCENTCLOUD_SECRET_KEY"));
             CvmClient client = new CvmClient(cred, "ap-shanghai");
 
             DescribeInstancesRequest req = new DescribeInstancesRequest();
@@ -92,8 +95,11 @@ import com.tencentcloudapi.common.profile.Language;
 public class DescribeInstances {
     public static void main(String[] args) {
         try {
-            // 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey,此处还需注意密钥对的保密
-            Credential cred = new Credential("secretId", "secretKey");
+            // 实例化一个认证对象，入参需要传入腾讯云账户 SecretId，SecretKey。
+            // 为了保护密钥安全，建议将密钥设置在环境变量中或者配置文件中，请参考本文凭证管理章节。
+            // 硬编码密钥到代码中有可能随代码泄露而暴露，有安全隐患，并不推荐。
+            // Credential cred = new Credential("SecretId", "SecretKey");
+            Credential cred = new Credential(System.getenv("TENCENTCLOUD_SECRET_ID"), System.getenv("TENCENTCLOUD_SECRET_KEY"));
 
             // 实例化一个http选项，可选的，没有特殊需求可以跳过
             HttpProfile httpProfile = new HttpProfile();
@@ -165,7 +171,9 @@ import com.tencentcloudapi.common.profile.Language;
 2. 实例化一个认证对象cred，入参需要传入腾讯云账户密钥 secretId，secretKey, 前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，即可进行获取密钥。此处还需注意密钥对的保密。
 
 ```java
-Credential cred = new Credential("secretId", "secretKey");
+// 为了保护密钥安全，建议将密钥设置在环境变量中或者配置文件中，请参考本文凭证管理章节。
+// 硬编码密钥到代码中有可能随代码泄露而暴露，有安全隐患，并不推荐。
+Credential cred = new Credential(System.getenv("TENCENTCLOUD_SECRET_ID"), System.getenv("TENCENTCLOUD_SECRET_KEY"));
 ```
 
 3. 实例化一个http选项，若没有特殊需求可参照简化版示例代码跳过设置。若有需求可以参照下方示例代码设置http选项中的参数。
@@ -313,58 +321,33 @@ Log logger = LogFactory.getLog("TestLog");
 logger.info("hello world");
 ```
 
-# 旧版 SDK
-我们推荐您使用新版 SDK，如果需要旧版 SDK，请在您的 Maven pom.xml 添加以下依赖项即可：
-```xml
-<dependency>
-<groupId>com.qcloud</groupId>
-<artifactId>qcloud-java-sdk</artifactId>
-<version>2.0.6</version>
-</dependency>
+## 地域容灾
+
+从 `3.1.779`开始，腾讯云 JAVA SDK 支持地域容灾功能：
+
+默认当请求满足以下条件时：
+
+1. 失败次数 >= 5 次
+2. 失败率 >= 75%
+
+SDK 会自动将您请求的地域设置为备选地域。
+
+相关设置如下：
+
+```java
+    // 设置备用请求地址，不需要指定服务，SDK 会自动在头部加上服务名(如cvm)
+    // 例如，设置为 ap-guangzhou.tencentcloudapi.com，则最终的请求为 cvm.ap-guangzhou.tencentcloudapi.com
+    clientProfile.setBackupEndpoint("ap-guangzhou.tencentcloudapi.com");
+
+    // 自定义断路器条件
+    CircuitBreaker.Setting setting = new CircuitBreaker.Setting();
+    setting.maxFailNum = 6;
+    setting.maxFailPercentage = 0.8f;
+    CircuitBreaker rb = new CircuitBreaker(setting);
+    client.setRegionBreaker(rb);
 ```
 
-# 其他问题
-
-## 版本升级
-
-请注意，从 3.0.x 版本升级到 3.1.x 版本有兼容性问题，对于 Integer 字段的使用修改为了 Long 类型，需要重新编译项目。
-
-## 依赖冲突
-
-目前，SDK 依赖 okhttp 2.5.0，如果和其他依赖 okhttp3 的包混用时，有可能会报错，例如:`Exception in thread "main" java.lang.NoSuchMethodError: okio.BufferedSource.rangeEquals(JLokio/ByteString;)Z`。原因是 okhttp3 依赖 okio 1.12.0，而 okhttp 依赖 okio 1.6.0，maven 在解析依赖时的规则是路径最短优先和顺序优先，所以如果 SDK 在 pom.xml 依赖中先被声明，则 okio 1.6.0 会被使用，从而报错。
-
-在 SDK 没有升级到 okhttp3 前的解决办法：
-
-1）在 pom.xml 中明确指定依赖 okio 1.12.0 版本（**注意：可能有其他包需要用到更高的版本，需要变通下取最高的可兼容版本**，例如当其他包使用 okhttp4 时对应的可能是 okio 2.2.2）；
-
-```
-    <dependency>
-      <groupId>com.squareup.okio</groupId>
-      <artifactId>okio</artifactId>
-      <version>1.12.0</version>
-    </dependency>
-```
-
-2）将 SDK 放在依赖的最后（注意如果此前已经编译过，需要先删除掉 maven 缓存的 okhttp 包），以同时使用依赖 okhttp3 的 CMQ SDK 为例，形如（注意变通版本号）：
-
-```
-    <dependency>
-      <groupId>com.qcloud</groupId>
-      <artifactId>cmq-http-client</artifactId>
-      <version>1.0.7</version>
-    </dependency>
-    <dependency>
-      <groupId>com.tencentcloudapi</groupId>
-      <artifactId>tencentcloud-sdk-java</artifactId>
-      <version>3.1.59</version>
-    </dependency>
-```
-
-## 证书问题
-
-证书问题通常是客户端环境配置错误导致的。SDK 没有对证书进行操作，依赖的是 Java 运行环境本身的处理。出现证书问题后，可以使用`-Djavax.net.debug=ssl`开启详细日志辅助判断。
-
-有用户报告使用 IBM JDK 1.8 出现证书报错：`javax.net.ssl.SSLHandshakeException: Received fatal alert: handshake_failure`，使用 Oracle JDK 后问题消失。
+此功能仅支持单个客户端的同步请求。
 
 # Common Client
 
@@ -438,12 +421,46 @@ Credential cred = new STSCredential("secretId", "secretKey", "roleArn", "roleSes
 Credential cred = new CvmRoleCredential();
 ```
 
-5. 凭证提供链
+5. TKE OIDC凭证
 
-腾讯云 Java SDK 提供了凭证提供链，它会默认以环境变量->配置文件->实例角色的顺序尝试获取凭证，并返回第一个获取到的凭证。相关代码如下：
+有关 TKE OIDC 凭证的相关示例请参阅：[Pod 使用 CAM 对数据库身份验证](https://cloud.tencent.com/document/product/457/81989)
+
+```java
+OIDCRoleArnProvider provider = new OIDCRoleArnProvider();
+Credential credential = provider.getCredentials();
+```
+
+
+
+6.凭证提供链
+
+腾讯云 Java SDK 提供了凭证提供链，它会默认以环境变量->配置文件->实例角色->TKE OIDC凭证的顺序尝试获取凭证，并返回第一个获取到的凭证。相关代码如下：
 
 ```java
 Credential cred = new DefaultCredentialsProvider().getCredentials();
 ```
 
 凭证管理详细使用请参阅示例：[使用凭证提供链](./examples/common/credential_manager/CredentialManager.java)
+
+# 自定义 SSLSocketFactory 和 X509TrustManager
+```java
+ClientProfile cpf = new ClientProfile();
+cpf.getHttpProfile().setSslSocketFactory(new MySSLSocketFactoryImpl());
+cpf.getHttpProfile().setX509TrustManager(new MyX509TrustManagerImpl());
+```
+
+# 其他问题
+
+## 版本升级
+
+请注意，从 3.0.x 版本升级到 3.1.x 版本有兼容性问题，对于 Integer 字段的使用修改为了 Long 类型，需要重新编译项目。
+
+## 证书问题
+
+证书问题通常是客户端环境配置错误导致的。SDK 没有对证书进行操作，依赖的是 Java 运行环境本身的处理。出现证书问题后，可以使用`-Djavax.net.debug=ssl`开启详细日志辅助判断。
+
+有用户报告使用 IBM JDK 1.8 出现证书报错：`javax.net.ssl.SSLHandshakeException: Received fatal alert: handshake_failure`，使用 Oracle JDK 后问题消失。
+
+## kotlin 问题
+
+部分用户可能使用时遇到报错：`java.lang.NoSuchMethodError: kotlin.collections.ArraysKt.copyInto`。这是因为 kotlin 运行环境版本较低导致，可尝试升级 kotlin 版本解决。

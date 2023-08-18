@@ -79,6 +79,14 @@ public class DescribeConnectResource extends AbstractModel{
     private String ErrorMessage;
 
     /**
+    * 该连接源关联的Datahub任务数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DatahubTaskCount")
+    @Expose
+    private Long DatahubTaskCount;
+
+    /**
     * 连接源的当前所处步骤
 注意：此字段可能返回 null，表示取不到有效值。
     */
@@ -87,12 +95,20 @@ public class DescribeConnectResource extends AbstractModel{
     private String CurrentStep;
 
     /**
-    * 该连接源关联的Datahub任务数
+    * 创建进度百分比
 注意：此字段可能返回 null，表示取不到有效值。
     */
-    @SerializedName("DatahubTaskCount")
+    @SerializedName("TaskProgress")
     @Expose
-    private Long DatahubTaskCount;
+    private Float TaskProgress;
+
+    /**
+    * 步骤列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("StepList")
+    @Expose
+    private String [] StepList;
 
     /**
     * Dts配置，Type为DTS时返回
@@ -173,6 +189,14 @@ public class DescribeConnectResource extends AbstractModel{
     @SerializedName("DorisConnectParam")
     @Expose
     private DorisConnectParam DorisConnectParam;
+
+    /**
+    * Kafka配置，Type 为 KAFKA 时返回
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("KafkaConnectParam")
+    @Expose
+    private KafkaConnectParam KafkaConnectParam;
 
     /**
      * Get 连接源的Id
@@ -315,6 +339,26 @@ public class DescribeConnectResource extends AbstractModel{
     }
 
     /**
+     * Get 该连接源关联的Datahub任务数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DatahubTaskCount 该连接源关联的Datahub任务数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getDatahubTaskCount() {
+        return this.DatahubTaskCount;
+    }
+
+    /**
+     * Set 该连接源关联的Datahub任务数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DatahubTaskCount 该连接源关联的Datahub任务数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDatahubTaskCount(Long DatahubTaskCount) {
+        this.DatahubTaskCount = DatahubTaskCount;
+    }
+
+    /**
      * Get 连接源的当前所处步骤
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return CurrentStep 连接源的当前所处步骤
@@ -335,23 +379,43 @@ public class DescribeConnectResource extends AbstractModel{
     }
 
     /**
-     * Get 该连接源关联的Datahub任务数
+     * Get 创建进度百分比
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return DatahubTaskCount 该连接源关联的Datahub任务数
+     * @return TaskProgress 创建进度百分比
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public Long getDatahubTaskCount() {
-        return this.DatahubTaskCount;
+    public Float getTaskProgress() {
+        return this.TaskProgress;
     }
 
     /**
-     * Set 该连接源关联的Datahub任务数
+     * Set 创建进度百分比
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param DatahubTaskCount 该连接源关联的Datahub任务数
+     * @param TaskProgress 创建进度百分比
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public void setDatahubTaskCount(Long DatahubTaskCount) {
-        this.DatahubTaskCount = DatahubTaskCount;
+    public void setTaskProgress(Float TaskProgress) {
+        this.TaskProgress = TaskProgress;
+    }
+
+    /**
+     * Get 步骤列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return StepList 步骤列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getStepList() {
+        return this.StepList;
+    }
+
+    /**
+     * Set 步骤列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param StepList 步骤列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setStepList(String [] StepList) {
+        this.StepList = StepList;
     }
 
     /**
@@ -554,6 +618,26 @@ public class DescribeConnectResource extends AbstractModel{
         this.DorisConnectParam = DorisConnectParam;
     }
 
+    /**
+     * Get Kafka配置，Type 为 KAFKA 时返回
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return KafkaConnectParam Kafka配置，Type 为 KAFKA 时返回
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public KafkaConnectParam getKafkaConnectParam() {
+        return this.KafkaConnectParam;
+    }
+
+    /**
+     * Set Kafka配置，Type 为 KAFKA 时返回
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param KafkaConnectParam Kafka配置，Type 为 KAFKA 时返回
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setKafkaConnectParam(KafkaConnectParam KafkaConnectParam) {
+        this.KafkaConnectParam = KafkaConnectParam;
+    }
+
     public DescribeConnectResource() {
     }
 
@@ -583,11 +667,20 @@ public class DescribeConnectResource extends AbstractModel{
         if (source.ErrorMessage != null) {
             this.ErrorMessage = new String(source.ErrorMessage);
         }
+        if (source.DatahubTaskCount != null) {
+            this.DatahubTaskCount = new Long(source.DatahubTaskCount);
+        }
         if (source.CurrentStep != null) {
             this.CurrentStep = new String(source.CurrentStep);
         }
-        if (source.DatahubTaskCount != null) {
-            this.DatahubTaskCount = new Long(source.DatahubTaskCount);
+        if (source.TaskProgress != null) {
+            this.TaskProgress = new Float(source.TaskProgress);
+        }
+        if (source.StepList != null) {
+            this.StepList = new String[source.StepList.length];
+            for (int i = 0; i < source.StepList.length; i++) {
+                this.StepList[i] = new String(source.StepList[i]);
+            }
         }
         if (source.DtsConnectParam != null) {
             this.DtsConnectParam = new DtsConnectParam(source.DtsConnectParam);
@@ -619,6 +712,9 @@ public class DescribeConnectResource extends AbstractModel{
         if (source.DorisConnectParam != null) {
             this.DorisConnectParam = new DorisConnectParam(source.DorisConnectParam);
         }
+        if (source.KafkaConnectParam != null) {
+            this.KafkaConnectParam = new KafkaConnectParam(source.KafkaConnectParam);
+        }
     }
 
 
@@ -633,8 +729,10 @@ public class DescribeConnectResource extends AbstractModel{
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "ErrorMessage", this.ErrorMessage);
-        this.setParamSimple(map, prefix + "CurrentStep", this.CurrentStep);
         this.setParamSimple(map, prefix + "DatahubTaskCount", this.DatahubTaskCount);
+        this.setParamSimple(map, prefix + "CurrentStep", this.CurrentStep);
+        this.setParamSimple(map, prefix + "TaskProgress", this.TaskProgress);
+        this.setParamArraySimple(map, prefix + "StepList.", this.StepList);
         this.setParamObj(map, prefix + "DtsConnectParam.", this.DtsConnectParam);
         this.setParamObj(map, prefix + "MongoDBConnectParam.", this.MongoDBConnectParam);
         this.setParamObj(map, prefix + "EsConnectParam.", this.EsConnectParam);
@@ -645,6 +743,7 @@ public class DescribeConnectResource extends AbstractModel{
         this.setParamObj(map, prefix + "SQLServerConnectParam.", this.SQLServerConnectParam);
         this.setParamObj(map, prefix + "CtsdbConnectParam.", this.CtsdbConnectParam);
         this.setParamObj(map, prefix + "DorisConnectParam.", this.DorisConnectParam);
+        this.setParamObj(map, prefix + "KafkaConnectParam.", this.KafkaConnectParam);
 
     }
 }

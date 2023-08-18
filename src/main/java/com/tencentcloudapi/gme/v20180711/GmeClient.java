@@ -29,7 +29,7 @@ public class GmeClient extends AbstractClient{
     private static String endpoint = "gme.tencentcloudapi.com";
     private static String service = "gme";
     private static String version = "2018-07-11";
-
+    
     public GmeClient(Credential credential, String region) {
         this(credential, region, new ClientProfile());
     }
@@ -57,6 +57,7 @@ public class GmeClient extends AbstractClient{
     public CreateAgeDetectTaskResponse CreateAgeDetectTask(CreateAgeDetectTaskRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateAgeDetectTaskResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateAgeDetectTaskResponse>>() {
                 }.getType();
@@ -77,6 +78,7 @@ public class GmeClient extends AbstractClient{
     public CreateAppResponse CreateApp(CreateAppRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateAppResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateAppResponse>>() {
                 }.getType();
@@ -89,7 +91,7 @@ public class GmeClient extends AbstractClient{
     }
 
     /**
-     *用户使用该接口可以创建语音消息转文本自学习模型，以供识别调用
+     *用户使用该接口可以创建语音消息转文本热句模型，以供识别调用
      * @param req CreateCustomizationRequest
      * @return CreateCustomizationResponse
      * @throws TencentCloudSDKException
@@ -97,6 +99,7 @@ public class GmeClient extends AbstractClient{
     public CreateCustomizationResponse CreateCustomization(CreateCustomizationRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateCustomizationResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateCustomizationResponse>>() {
                 }.getType();
@@ -109,7 +112,7 @@ public class GmeClient extends AbstractClient{
     }
 
     /**
-     *新增自定义送检用户
+     *新增自定义送检用户。**接口使用前提**：目前 CreateScanUser 接口通过白名单开放，如需使用，需要 [提交工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=438&level2_id=445&source=0&data_title=%E6%B8%B8%E6%88%8F%E5%A4%9A%E5%AA%92%E4%BD%93%E5%BC%95%E6%93%8EGME&step=1)。
      * @param req CreateScanUserRequest
      * @return CreateScanUserResponse
      * @throws TencentCloudSDKException
@@ -117,6 +120,7 @@ public class GmeClient extends AbstractClient{
     public CreateScanUserResponse CreateScanUser(CreateScanUserRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateScanUserResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateScanUserResponse>>() {
                 }.getType();
@@ -129,7 +133,7 @@ public class GmeClient extends AbstractClient{
     }
 
     /**
-     *用户通过该接口可以删除语音消息转文本自学习模型
+     *用户通过该接口可以删除语音消息转文本热句模型
      * @param req DeleteCustomizationRequest
      * @return DeleteCustomizationResponse
      * @throws TencentCloudSDKException
@@ -137,6 +141,7 @@ public class GmeClient extends AbstractClient{
     public DeleteCustomizationResponse DeleteCustomization(DeleteCustomizationRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteCustomizationResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteCustomizationResponse>>() {
                 }.getType();
@@ -157,6 +162,7 @@ public class GmeClient extends AbstractClient{
     public DeleteRoomMemberResponse DeleteRoomMember(DeleteRoomMemberRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteRoomMemberResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteRoomMemberResponse>>() {
                 }.getType();
@@ -169,7 +175,7 @@ public class GmeClient extends AbstractClient{
     }
 
     /**
-     *删除自定义送检用户
+     *删除自定义送检用户。**接口使用前提**：目前 DeleteScanUser 接口通过白名单开放，如需使用，需要 [提交工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=438&level2_id=445&source=0&data_title=%E6%B8%B8%E6%88%8F%E5%A4%9A%E5%AA%92%E4%BD%93%E5%BC%95%E6%93%8EGME&step=1)。
      * @param req DeleteScanUserRequest
      * @return DeleteScanUserResponse
      * @throws TencentCloudSDKException
@@ -177,6 +183,7 @@ public class GmeClient extends AbstractClient{
     public DeleteScanUserResponse DeleteScanUser(DeleteScanUserRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteScanUserResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteScanUserResponse>>() {
                 }.getType();
@@ -197,6 +204,7 @@ public class GmeClient extends AbstractClient{
     public DescribeAgeDetectTaskResponse DescribeAgeDetectTask(DescribeAgeDetectTaskRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeAgeDetectTaskResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeAgeDetectTaskResponse>>() {
                 }.getType();
@@ -217,6 +225,7 @@ public class GmeClient extends AbstractClient{
     public DescribeAppStatisticsResponse DescribeAppStatistics(DescribeAppStatisticsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeAppStatisticsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeAppStatisticsResponse>>() {
                 }.getType();
@@ -237,6 +246,7 @@ public class GmeClient extends AbstractClient{
     public DescribeApplicationDataResponse DescribeApplicationData(DescribeApplicationDataRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeApplicationDataResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeApplicationDataResponse>>() {
                 }.getType();
@@ -257,6 +267,7 @@ public class GmeClient extends AbstractClient{
     public DescribeApplicationListResponse DescribeApplicationList(DescribeApplicationListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeApplicationListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeApplicationListResponse>>() {
                 }.getType();
@@ -269,7 +280,7 @@ public class GmeClient extends AbstractClient{
     }
 
     /**
-     *获取用户自定义送检信息
+     *获取用户自定义送检信息。**接口使用前提**：目前 DescribeRealtimeScanConfig 接口通过白名单开放，如需使用，需要 [提交工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=438&level2_id=445&source=0&data_title=%E6%B8%B8%E6%88%8F%E5%A4%9A%E5%AA%92%E4%BD%93%E5%BC%95%E6%93%8EGME&step=1)。
      * @param req DescribeRealtimeScanConfigRequest
      * @return DescribeRealtimeScanConfigResponse
      * @throws TencentCloudSDKException
@@ -277,10 +288,32 @@ public class GmeClient extends AbstractClient{
     public DescribeRealtimeScanConfigResponse DescribeRealtimeScanConfig(DescribeRealtimeScanConfigRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeRealtimeScanConfigResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeRealtimeScanConfigResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeRealtimeScanConfig");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询录制任务信息。
+     * @param req DescribeRecordInfoRequest
+     * @return DescribeRecordInfoResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeRecordInfoResponse DescribeRecordInfo(DescribeRecordInfoRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeRecordInfoResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeRecordInfoResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeRecordInfo");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -297,6 +330,7 @@ public class GmeClient extends AbstractClient{
     public DescribeRoomInfoResponse DescribeRoomInfo(DescribeRoomInfoRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeRoomInfoResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeRoomInfoResponse>>() {
                 }.getType();
@@ -318,10 +352,32 @@ public class GmeClient extends AbstractClient{
     public DescribeScanResultListResponse DescribeScanResultList(DescribeScanResultListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeScanResultListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeScanResultListResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeScanResultList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询房间录制的详细信息
+     * @param req DescribeTaskInfoRequest
+     * @return DescribeTaskInfoResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeTaskInfoResponse DescribeTaskInfo(DescribeTaskInfoRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeTaskInfoResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeTaskInfoResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeTaskInfo");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -338,6 +394,7 @@ public class GmeClient extends AbstractClient{
     public DescribeUserInAndOutTimeResponse DescribeUserInAndOutTime(DescribeUserInAndOutTimeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeUserInAndOutTimeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeUserInAndOutTimeResponse>>() {
                 }.getType();
@@ -350,7 +407,7 @@ public class GmeClient extends AbstractClient{
     }
 
     /**
-     *查询语音消息转文本自学习模型列表
+     *查询语音消息转文本热句模型列表
      * @param req GetCustomizationListRequest
      * @return GetCustomizationListResponse
      * @throws TencentCloudSDKException
@@ -358,6 +415,7 @@ public class GmeClient extends AbstractClient{
     public GetCustomizationListResponse GetCustomizationList(GetCustomizationListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetCustomizationListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<GetCustomizationListResponse>>() {
                 }.getType();
@@ -378,6 +436,7 @@ public class GmeClient extends AbstractClient{
     public ModifyAppStatusResponse ModifyAppStatus(ModifyAppStatusRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyAppStatusResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyAppStatusResponse>>() {
                 }.getType();
@@ -390,7 +449,7 @@ public class GmeClient extends AbstractClient{
     }
 
     /**
-     *用户通过该接口可以更新语音消息转文本自学习模型。
+     *用户通过该接口可以更新语音消息转文本热句模型。
      * @param req ModifyCustomizationRequest
      * @return ModifyCustomizationResponse
      * @throws TencentCloudSDKException
@@ -398,6 +457,7 @@ public class GmeClient extends AbstractClient{
     public ModifyCustomizationResponse ModifyCustomization(ModifyCustomizationRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyCustomizationResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyCustomizationResponse>>() {
                 }.getType();
@@ -410,7 +470,7 @@ public class GmeClient extends AbstractClient{
     }
 
     /**
-     *通过该接口，用户可以修改语音消息转文本自学习模型状态，上下线自学习模型
+     *通过该接口，用户可以修改语音消息转文本热句模型状态，上下线热句模型
      * @param req ModifyCustomizationStateRequest
      * @return ModifyCustomizationStateResponse
      * @throws TencentCloudSDKException
@@ -418,10 +478,32 @@ public class GmeClient extends AbstractClient{
     public ModifyCustomizationStateResponse ModifyCustomizationState(ModifyCustomizationStateRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyCustomizationStateResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyCustomizationStateResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifyCustomizationState");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改录制配置信息
+     * @param req ModifyRecordInfoRequest
+     * @return ModifyRecordInfoResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyRecordInfoResponse ModifyRecordInfo(ModifyRecordInfoRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyRecordInfoResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyRecordInfoResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyRecordInfo");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -440,6 +522,7 @@ public class GmeClient extends AbstractClient{
     public ModifyUserMicStatusResponse ModifyUserMicStatus(ModifyUserMicStatusRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyUserMicStatusResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyUserMicStatusResponse>>() {
                 }.getType();
@@ -506,7 +589,7 @@ public class GmeClient extends AbstractClient{
 <h4 id="Callback_Declare"><b>回调相关说明：</b></h4>
 <li>如果在请求参数中指定了回调地址参数 Callback，即一个 HTTP(S) 协议接口的 URL，则需要支持 POST 方法，传输数据编码采用 UTF-8。</li>
 <li>在推送回调数据后，接收到的 HTTP 状态码为 200 时，表示推送成功。</li>
-<li>HTTP 头参数说明：</li>
+<li>HTTP 请求参数（query）说明：</li>
 <table>
 <thread>
 <tr>
@@ -548,32 +631,32 @@ public class GmeClient extends AbstractClient{
 		"HitFlag": true,
 		"MainType": "abuse",
 		"RoomId": "123",
-		"OpenId": "xxx",
+		"OpenId": "111",
 		"Info":"",
 		"Offset": 0,
 		"Duration": 3400,
 		"PieceStartTime":1574684231,
 		"ScanDetail": [{
 			"EndTime": 1110,
-			"KeyWord": "xxx",
+			"KeyWord": "违规字",
 			"Label": "abuse",
 			"Rate": "90.00",
 			"StartTime": 1110
 		}, {
 			"EndTime": 1380,
-			"KeyWord": "xxx",
+			"KeyWord": "违规字",
 			"Label": "abuse",
 			"Rate": "90.00",
 			"StartTime": 930
 		}, {
 			"EndTime": 1560,
-			"KeyWord": "xxx",
+			"KeyWord": "违规字",
 			"Label": "abuse",
 			"Rate": "90.00",
 			"StartTime": 930
 		}, {
 			"EndTime": 2820,
-			"KeyWord": "xxx",
+			"KeyWord": "违规字",
 			"Label": "abuse",
 			"Rate": "90.00",
 			"StartTime": 2490
@@ -584,7 +667,7 @@ public class GmeClient extends AbstractClient{
 		"default"
 	],
 	"Status": "Success",
-	"TaskId": "xxx",
+	"TaskId": "6330xxxx-9xx7-11ed-98e3-52xxxxe4ac3b",
 	"Url": "https://xxx/xxx.m4a"
 }
 </code></pre>
@@ -595,6 +678,7 @@ public class GmeClient extends AbstractClient{
     public ScanVoiceResponse ScanVoice(ScanVoiceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ScanVoiceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ScanVoiceResponse>>() {
                 }.getType();
@@ -607,7 +691,50 @@ public class GmeClient extends AbstractClient{
     }
 
     /**
-     *更新自定义送检房间号
+     *开启录制
+     * @param req StartRecordRequest
+     * @return StartRecordResponse
+     * @throws TencentCloudSDKException
+     */
+    public StartRecordResponse StartRecord(StartRecordRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<StartRecordResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<StartRecordResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "StartRecord");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *停止录制
+
+     * @param req StopRecordRequest
+     * @return StopRecordResponse
+     * @throws TencentCloudSDKException
+     */
+    public StopRecordResponse StopRecord(StopRecordRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<StopRecordResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<StopRecordResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "StopRecord");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *更新自定义送检房间号。**接口使用前提**：目前 UpdateScanRooms 接口通过白名单开放，如需使用，需要 [提交工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=438&level2_id=445&source=0&data_title=%E6%B8%B8%E6%88%8F%E5%A4%9A%E5%AA%92%E4%BD%93%E5%BC%95%E6%93%8EGME&step=1)。
      * @param req UpdateScanRoomsRequest
      * @return UpdateScanRoomsResponse
      * @throws TencentCloudSDKException
@@ -615,6 +742,7 @@ public class GmeClient extends AbstractClient{
     public UpdateScanRoomsResponse UpdateScanRooms(UpdateScanRoomsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<UpdateScanRoomsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<UpdateScanRoomsResponse>>() {
                 }.getType();
@@ -627,7 +755,8 @@ public class GmeClient extends AbstractClient{
     }
 
     /**
-     *更新自定义送检用户号
+     *更新自定义送检用户号。
+**接口使用前提**：目前 UpdateScanUsers 接口通过白名单开放，如需使用，需要 [提交工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=438&level2_id=445&source=0&data_title=%E6%B8%B8%E6%88%8F%E5%A4%9A%E5%AA%92%E4%BD%93%E5%BC%95%E6%93%8EGME&step=1)。
      * @param req UpdateScanUsersRequest
      * @return UpdateScanUsersResponse
      * @throws TencentCloudSDKException
@@ -635,6 +764,7 @@ public class GmeClient extends AbstractClient{
     public UpdateScanUsersResponse UpdateScanUsers(UpdateScanUsersRequest req) throws TencentCloudSDKException{
         JsonResponseModel<UpdateScanUsersResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<UpdateScanUsersResponse>>() {
                 }.getType();

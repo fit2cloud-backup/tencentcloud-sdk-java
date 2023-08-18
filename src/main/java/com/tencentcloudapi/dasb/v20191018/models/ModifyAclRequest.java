@@ -149,6 +149,13 @@ public class ModifyAclRequest extends AbstractModel{
     private Long [] CmdTemplateIdSet;
 
     /**
+    * 关联高危DB模板ID
+    */
+    @SerializedName("ACTemplateIdSet")
+    @Expose
+    private String [] ACTemplateIdSet;
+
+    /**
     * 是否开启 RDP 磁盘映射文件上传
     */
     @SerializedName("AllowDiskFileUp")
@@ -205,6 +212,13 @@ public class ModifyAclRequest extends AbstractModel{
     @SerializedName("DepartmentId")
     @Expose
     private String DepartmentId;
+
+    /**
+    * 是否允许使用访问串
+    */
+    @SerializedName("AllowAccessCredential")
+    @Expose
+    private Boolean AllowAccessCredential;
 
     /**
      * Get 访问权限名称，最大32字符，不能包含空白字符 
@@ -495,6 +509,22 @@ public class ModifyAclRequest extends AbstractModel{
     }
 
     /**
+     * Get 关联高危DB模板ID 
+     * @return ACTemplateIdSet 关联高危DB模板ID
+     */
+    public String [] getACTemplateIdSet() {
+        return this.ACTemplateIdSet;
+    }
+
+    /**
+     * Set 关联高危DB模板ID
+     * @param ACTemplateIdSet 关联高危DB模板ID
+     */
+    public void setACTemplateIdSet(String [] ACTemplateIdSet) {
+        this.ACTemplateIdSet = ACTemplateIdSet;
+    }
+
+    /**
      * Get 是否开启 RDP 磁盘映射文件上传 
      * @return AllowDiskFileUp 是否开启 RDP 磁盘映射文件上传
      */
@@ -630,6 +660,22 @@ public class ModifyAclRequest extends AbstractModel{
         this.DepartmentId = DepartmentId;
     }
 
+    /**
+     * Get 是否允许使用访问串 
+     * @return AllowAccessCredential 是否允许使用访问串
+     */
+    public Boolean getAllowAccessCredential() {
+        return this.AllowAccessCredential;
+    }
+
+    /**
+     * Set 是否允许使用访问串
+     * @param AllowAccessCredential 是否允许使用访问串
+     */
+    public void setAllowAccessCredential(Boolean AllowAccessCredential) {
+        this.AllowAccessCredential = AllowAccessCredential;
+    }
+
     public ModifyAclRequest() {
     }
 
@@ -710,6 +756,12 @@ public class ModifyAclRequest extends AbstractModel{
                 this.CmdTemplateIdSet[i] = new Long(source.CmdTemplateIdSet[i]);
             }
         }
+        if (source.ACTemplateIdSet != null) {
+            this.ACTemplateIdSet = new String[source.ACTemplateIdSet.length];
+            for (int i = 0; i < source.ACTemplateIdSet.length; i++) {
+                this.ACTemplateIdSet[i] = new String(source.ACTemplateIdSet[i]);
+            }
+        }
         if (source.AllowDiskFileUp != null) {
             this.AllowDiskFileUp = new Boolean(source.AllowDiskFileUp);
         }
@@ -733,6 +785,9 @@ public class ModifyAclRequest extends AbstractModel{
         }
         if (source.DepartmentId != null) {
             this.DepartmentId = new String(source.DepartmentId);
+        }
+        if (source.AllowAccessCredential != null) {
+            this.AllowAccessCredential = new Boolean(source.AllowAccessCredential);
         }
     }
 
@@ -759,6 +814,7 @@ public class ModifyAclRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "DeviceGroupIdSet.", this.DeviceGroupIdSet);
         this.setParamArraySimple(map, prefix + "AccountSet.", this.AccountSet);
         this.setParamArraySimple(map, prefix + "CmdTemplateIdSet.", this.CmdTemplateIdSet);
+        this.setParamArraySimple(map, prefix + "ACTemplateIdSet.", this.ACTemplateIdSet);
         this.setParamSimple(map, prefix + "AllowDiskFileUp", this.AllowDiskFileUp);
         this.setParamSimple(map, prefix + "AllowDiskFileDown", this.AllowDiskFileDown);
         this.setParamSimple(map, prefix + "AllowShellFileUp", this.AllowShellFileUp);
@@ -767,6 +823,7 @@ public class ModifyAclRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ValidateFrom", this.ValidateFrom);
         this.setParamSimple(map, prefix + "ValidateTo", this.ValidateTo);
         this.setParamSimple(map, prefix + "DepartmentId", this.DepartmentId);
+        this.setParamSimple(map, prefix + "AllowAccessCredential", this.AllowAccessCredential);
 
     }
 }

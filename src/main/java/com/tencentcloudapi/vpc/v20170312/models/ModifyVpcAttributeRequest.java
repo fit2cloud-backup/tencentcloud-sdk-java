@@ -44,18 +44,25 @@ public class ModifyVpcAttributeRequest extends AbstractModel{
     private String EnableMulticast;
 
     /**
-    * DNS地址，最多支持4个，第1个默认为主，其余为备
+    * DNS地址，最多支持4个，第1个默认为主，其余为备。
     */
     @SerializedName("DnsServers")
     @Expose
     private String [] DnsServers;
 
     /**
-    * 域名
+    * 域名。
     */
     @SerializedName("DomainName")
     @Expose
     private String DomainName;
+
+    /**
+    * 发布cdc 子网到云联网的开关。true: 发布, false: 不发布。
+    */
+    @SerializedName("EnableCdcPublish")
+    @Expose
+    private Boolean EnableCdcPublish;
 
     /**
      * Get VPC实例ID。形如：vpc-f49l6u0z。每次请求的实例的上限为100。参数不支持同时指定VpcIds和Filters。 
@@ -106,35 +113,51 @@ public class ModifyVpcAttributeRequest extends AbstractModel{
     }
 
     /**
-     * Get DNS地址，最多支持4个，第1个默认为主，其余为备 
-     * @return DnsServers DNS地址，最多支持4个，第1个默认为主，其余为备
+     * Get DNS地址，最多支持4个，第1个默认为主，其余为备。 
+     * @return DnsServers DNS地址，最多支持4个，第1个默认为主，其余为备。
      */
     public String [] getDnsServers() {
         return this.DnsServers;
     }
 
     /**
-     * Set DNS地址，最多支持4个，第1个默认为主，其余为备
-     * @param DnsServers DNS地址，最多支持4个，第1个默认为主，其余为备
+     * Set DNS地址，最多支持4个，第1个默认为主，其余为备。
+     * @param DnsServers DNS地址，最多支持4个，第1个默认为主，其余为备。
      */
     public void setDnsServers(String [] DnsServers) {
         this.DnsServers = DnsServers;
     }
 
     /**
-     * Get 域名 
-     * @return DomainName 域名
+     * Get 域名。 
+     * @return DomainName 域名。
      */
     public String getDomainName() {
         return this.DomainName;
     }
 
     /**
-     * Set 域名
-     * @param DomainName 域名
+     * Set 域名。
+     * @param DomainName 域名。
      */
     public void setDomainName(String DomainName) {
         this.DomainName = DomainName;
+    }
+
+    /**
+     * Get 发布cdc 子网到云联网的开关。true: 发布, false: 不发布。 
+     * @return EnableCdcPublish 发布cdc 子网到云联网的开关。true: 发布, false: 不发布。
+     */
+    public Boolean getEnableCdcPublish() {
+        return this.EnableCdcPublish;
+    }
+
+    /**
+     * Set 发布cdc 子网到云联网的开关。true: 发布, false: 不发布。
+     * @param EnableCdcPublish 发布cdc 子网到云联网的开关。true: 发布, false: 不发布。
+     */
+    public void setEnableCdcPublish(Boolean EnableCdcPublish) {
+        this.EnableCdcPublish = EnableCdcPublish;
     }
 
     public ModifyVpcAttributeRequest() {
@@ -163,6 +186,9 @@ public class ModifyVpcAttributeRequest extends AbstractModel{
         if (source.DomainName != null) {
             this.DomainName = new String(source.DomainName);
         }
+        if (source.EnableCdcPublish != null) {
+            this.EnableCdcPublish = new Boolean(source.EnableCdcPublish);
+        }
     }
 
 
@@ -175,6 +201,7 @@ public class ModifyVpcAttributeRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "EnableMulticast", this.EnableMulticast);
         this.setParamArraySimple(map, prefix + "DnsServers.", this.DnsServers);
         this.setParamSimple(map, prefix + "DomainName", this.DomainName);
+        this.setParamSimple(map, prefix + "EnableCdcPublish", this.EnableCdcPublish);
 
     }
 }

@@ -279,6 +279,38 @@ public class DescribeCertificateResponse extends AbstractModel{
     private Tags [] Tags;
 
     /**
+    * CA证书的所有加密方式	
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CAEncryptAlgorithms")
+    @Expose
+    private String [] CAEncryptAlgorithms;
+
+    /**
+    * CA证书的所有通用名称	
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CACommonNames")
+    @Expose
+    private String [] CACommonNames;
+
+    /**
+    * CA证书所有的到期时间	
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CAEndTimes")
+    @Expose
+    private String [] CAEndTimes;
+
+    /**
+    * DV证书吊销验证值
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DvRevokeAuthDetail")
+    @Expose
+    private DvAuths [] DvRevokeAuthDetail;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -926,6 +958,86 @@ public class DescribeCertificateResponse extends AbstractModel{
     }
 
     /**
+     * Get CA证书的所有加密方式	
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CAEncryptAlgorithms CA证书的所有加密方式	
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getCAEncryptAlgorithms() {
+        return this.CAEncryptAlgorithms;
+    }
+
+    /**
+     * Set CA证书的所有加密方式	
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CAEncryptAlgorithms CA证书的所有加密方式	
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCAEncryptAlgorithms(String [] CAEncryptAlgorithms) {
+        this.CAEncryptAlgorithms = CAEncryptAlgorithms;
+    }
+
+    /**
+     * Get CA证书的所有通用名称	
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CACommonNames CA证书的所有通用名称	
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getCACommonNames() {
+        return this.CACommonNames;
+    }
+
+    /**
+     * Set CA证书的所有通用名称	
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CACommonNames CA证书的所有通用名称	
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCACommonNames(String [] CACommonNames) {
+        this.CACommonNames = CACommonNames;
+    }
+
+    /**
+     * Get CA证书所有的到期时间	
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CAEndTimes CA证书所有的到期时间	
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getCAEndTimes() {
+        return this.CAEndTimes;
+    }
+
+    /**
+     * Set CA证书所有的到期时间	
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CAEndTimes CA证书所有的到期时间	
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCAEndTimes(String [] CAEndTimes) {
+        this.CAEndTimes = CAEndTimes;
+    }
+
+    /**
+     * Get DV证书吊销验证值
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DvRevokeAuthDetail DV证书吊销验证值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public DvAuths [] getDvRevokeAuthDetail() {
+        return this.DvRevokeAuthDetail;
+    }
+
+    /**
+     * Set DV证书吊销验证值
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DvRevokeAuthDetail DV证书吊销验证值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDvRevokeAuthDetail(DvAuths [] DvRevokeAuthDetail) {
+        this.DvRevokeAuthDetail = DvRevokeAuthDetail;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -1051,6 +1163,30 @@ public class DescribeCertificateResponse extends AbstractModel{
                 this.Tags[i] = new Tags(source.Tags[i]);
             }
         }
+        if (source.CAEncryptAlgorithms != null) {
+            this.CAEncryptAlgorithms = new String[source.CAEncryptAlgorithms.length];
+            for (int i = 0; i < source.CAEncryptAlgorithms.length; i++) {
+                this.CAEncryptAlgorithms[i] = new String(source.CAEncryptAlgorithms[i]);
+            }
+        }
+        if (source.CACommonNames != null) {
+            this.CACommonNames = new String[source.CACommonNames.length];
+            for (int i = 0; i < source.CACommonNames.length; i++) {
+                this.CACommonNames[i] = new String(source.CACommonNames[i]);
+            }
+        }
+        if (source.CAEndTimes != null) {
+            this.CAEndTimes = new String[source.CAEndTimes.length];
+            for (int i = 0; i < source.CAEndTimes.length; i++) {
+                this.CAEndTimes[i] = new String(source.CAEndTimes[i]);
+            }
+        }
+        if (source.DvRevokeAuthDetail != null) {
+            this.DvRevokeAuthDetail = new DvAuths[source.DvRevokeAuthDetail.length];
+            for (int i = 0; i < source.DvRevokeAuthDetail.length; i++) {
+                this.DvRevokeAuthDetail[i] = new DvAuths(source.DvRevokeAuthDetail[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -1093,6 +1229,10 @@ public class DescribeCertificateResponse extends AbstractModel{
         this.setParamObj(map, prefix + "SubmittedData.", this.SubmittedData);
         this.setParamSimple(map, prefix + "Deployable", this.Deployable);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamArraySimple(map, prefix + "CAEncryptAlgorithms.", this.CAEncryptAlgorithms);
+        this.setParamArraySimple(map, prefix + "CACommonNames.", this.CACommonNames);
+        this.setParamArraySimple(map, prefix + "CAEndTimes.", this.CAEndTimes);
+        this.setParamArrayObj(map, prefix + "DvRevokeAuthDetail.", this.DvRevokeAuthDetail);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

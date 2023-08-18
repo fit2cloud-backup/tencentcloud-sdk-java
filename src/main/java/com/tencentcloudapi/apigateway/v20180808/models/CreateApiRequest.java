@@ -30,7 +30,7 @@ public class CreateApiRequest extends AbstractModel{
     private String ServiceId;
 
     /**
-    * API 的后端服务类型。支持HTTP、MOCK、TSF、SCF、WEBSOCKET、TARGET（内测）。
+    * API 的后端服务类型。支持HTTP、MOCK、TSF、SCF、EB、TARGET、VPC、UPSTREAM、GRPC、COS、WEBSOCKET。
     */
     @SerializedName("ServiceType")
     @Expose
@@ -121,7 +121,7 @@ public class CreateApiRequest extends AbstractModel{
     private String ServiceMockReturnMessage;
 
     /**
-    * API绑定微服务服务列表。
+    * API绑定微服务列表。
     */
     @SerializedName("MicroServices")
     @Expose
@@ -410,16 +410,16 @@ public class CreateApiRequest extends AbstractModel{
     }
 
     /**
-     * Get API 的后端服务类型。支持HTTP、MOCK、TSF、SCF、WEBSOCKET、TARGET（内测）。 
-     * @return ServiceType API 的后端服务类型。支持HTTP、MOCK、TSF、SCF、WEBSOCKET、TARGET（内测）。
+     * Get API 的后端服务类型。支持HTTP、MOCK、TSF、SCF、EB、TARGET、VPC、UPSTREAM、GRPC、COS、WEBSOCKET。 
+     * @return ServiceType API 的后端服务类型。支持HTTP、MOCK、TSF、SCF、EB、TARGET、VPC、UPSTREAM、GRPC、COS、WEBSOCKET。
      */
     public String getServiceType() {
         return this.ServiceType;
     }
 
     /**
-     * Set API 的后端服务类型。支持HTTP、MOCK、TSF、SCF、WEBSOCKET、TARGET（内测）。
-     * @param ServiceType API 的后端服务类型。支持HTTP、MOCK、TSF、SCF、WEBSOCKET、TARGET（内测）。
+     * Set API 的后端服务类型。支持HTTP、MOCK、TSF、SCF、EB、TARGET、VPC、UPSTREAM、GRPC、COS、WEBSOCKET。
+     * @param ServiceType API 的后端服务类型。支持HTTP、MOCK、TSF、SCF、EB、TARGET、VPC、UPSTREAM、GRPC、COS、WEBSOCKET。
      */
     public void setServiceType(String ServiceType) {
         this.ServiceType = ServiceType;
@@ -618,16 +618,16 @@ public class CreateApiRequest extends AbstractModel{
     }
 
     /**
-     * Get API绑定微服务服务列表。 
-     * @return MicroServices API绑定微服务服务列表。
+     * Get API绑定微服务列表。 
+     * @return MicroServices API绑定微服务列表。
      */
     public MicroServiceReq [] getMicroServices() {
         return this.MicroServices;
     }
 
     /**
-     * Set API绑定微服务服务列表。
-     * @param MicroServices API绑定微服务服务列表。
+     * Set API绑定微服务列表。
+     * @param MicroServices API绑定微服务列表。
      */
     public void setMicroServices(MicroServiceReq [] MicroServices) {
         this.MicroServices = MicroServices;

@@ -9,8 +9,26 @@ public enum EmrErrorCode {
     // 重复的订单，请检查emr控制台。
      FAILEDOPERATION_DUPLICATEORDERNOTALLOWED("FailedOperation.DuplicateOrderNotAllowed"),
      
+    // 获取cam角色失败。
+     FAILEDOPERATION_GETCAMROLEFAILED("FailedOperation.GetCamRoleFailed"),
+     
+    // 调用cam服务失败。
+     FAILEDOPERATION_GETCAMSERVERFAILED("FailedOperation.GetCamServerFailed"),
+     
+    // 获取cvm 规格信息失败。
+     FAILEDOPERATION_GETCVMCONFIGQUOTAFAILED("FailedOperation.GetCvmConfigQuotaFailed"),
+     
+    // 调用cvm服务失败。
+     FAILEDOPERATION_GETCVMSERVERFAILED("FailedOperation.GetCvmServerFailed"),
+     
+    // 调去询价中心服务失败
+     FAILEDOPERATION_GETTRADESERVERFAILED("FailedOperation.GetTradeServerFailed"),
+     
     // 操作失败，不支持pod。
      FAILEDOPERATION_NOTSUPPORTPOD("FailedOperation.NotSupportPod"),
+     
+    // 操作失败。
+     FAILEDOPERATION_REFUNDCVMFAILED("FailedOperation.RefundCvmFailed"),
      
     // 内部错误。
      INTERNALERROR("InternalError"),
@@ -78,17 +96,26 @@ public enum EmrErrorCode {
     // 参数错误。
      INVALIDPARAMETER("InvalidParameter"),
      
+    // 参数错误。
+     INVALIDPARAMETER_APPIDRESOURCENOTMATCH("InvalidParameter.AppIdResourceNotMatch"),
+     
     // 展示策略错误。
      INVALIDPARAMETER_DISPLAYSTRATEGYNOTMATCH("InvalidParameter.DisplayStrategyNotMatch"),
      
     // 参数错误。
      INVALIDPARAMETER_HALESSMASTERCOUNT("InvalidParameter.HALessMasterCount"),
      
+    // impala查询参数异常。
+     INVALIDPARAMETER_IMPALAQUERYEXCEPTION("InvalidParameter.ImpalaQueryException"),
+     
     // Common节点数量无效。
      INVALIDPARAMETER_INCORRECTCOMMONCOUNT("InvalidParameter.IncorrectCommonCount"),
      
     // Master节点数量无效。
      INVALIDPARAMETER_INCORRECTMASTERCOUNT("InvalidParameter.IncorrectMasterCount"),
+     
+    // 不合法的AllNodeResourceSpec参数。
+     INVALIDPARAMETER_INVALIDALLNODERESOURCESPEC("InvalidParameter.InvalidAllNodeResourceSpec"),
      
     // 无效参数，AppId。
      INVALIDPARAMETER_INVALIDAPPID("InvalidParameter.InvalidAppId"),
@@ -129,6 +156,9 @@ public enum EmrErrorCode {
     // 错误信息：Invalid PodParameter。
      INVALIDPARAMETER_INVALIDCUSTOMIZEDPODPARAM("InvalidParameter.InvalidCustomizedPodParam"),
      
+    // DependService和EnableKerberos参数冲突。
+     INVALIDPARAMETER_INVALIDDEPENDSERVICEANDENABLEKERBEROSCONFLICT("InvalidParameter.InvalidDependServiceAndEnableKerberosConflict"),
+     
     // 无效的磁盘大小。
      INVALIDPARAMETER_INVALIDDISKSIZE("InvalidParameter.InvalidDiskSize"),
      
@@ -143,6 +173,9 @@ public enum EmrErrorCode {
      
     // 无效参数，EMR实例不符合要求。
      INVALIDPARAMETER_INVALIDINSTANCE("InvalidParameter.InvalidInstance"),
+     
+    // 不合法的实例计费模式。
+     INVALIDPARAMETER_INVALIDINSTANCECHARGETYPE("InvalidParameter.InvalidInstanceChargeType"),
      
     // 无效的集群名称。
      INVALIDPARAMETER_INVALIDINSTANCENAME("InvalidParameter.InvalidInstanceName"),
@@ -174,6 +207,9 @@ public enum EmrErrorCode {
     // 变配规格无效。
      INVALIDPARAMETER_INVALIDMODIFYSPEC("InvalidParameter.InvalidModifySpec"),
      
+    // 不合法的节点类型。
+     INVALIDPARAMETER_INVALIDNODEFLAG("InvalidParameter.InvalidNodeFlag"),
+     
     // 无效的NodeType。
      INVALIDPARAMETER_INVALIDNODETYPE("InvalidParameter.InvalidNodeType"),
      
@@ -192,14 +228,23 @@ public enum EmrErrorCode {
     // 无效的产品ID。
      INVALIDPARAMETER_INVALIDPRODUCTID("InvalidParameter.InvalidProductId"),
      
+    // 不合法的产品版本。
+     INVALIDPARAMETER_INVALIDPRODUCTVERSION("InvalidParameter.InvalidProductVersion"),
+     
     // 无效的项目ID。
      INVALIDPARAMETER_INVALIDPROJECTID("InvalidParameter.InvalidProjectId"),
+     
+    // 不合法自动续费标识。
+     INVALIDPARAMETER_INVALIDRENEWFLAG("InvalidParameter.InvalidRenewFlag"),
      
     // 资源ID无效。
      INVALIDPARAMETER_INVALIDRESOURCEIDS("InvalidParameter.InvalidResourceIds"),
      
     // 无效的资源规格。
      INVALIDPARAMETER_INVALIDRESOURCESPEC("InvalidParameter.InvalidResourceSpec"),
+     
+    // 不合法的引导脚本执行参数。
+     INVALIDPARAMETER_INVALIDSCRIPTBOOTSTRAPACTIONCONFIG("InvalidParameter.InvalidScriptBootstrapActionConfig"),
      
     // 该EMR版本不支持开启安全模式。
      INVALIDPARAMETER_INVALIDSECURITYSUPPORT("InvalidParameter.InvalidSecuritySupport"),
@@ -258,6 +303,9 @@ public enum EmrErrorCode {
     // 无效的可用区。
      INVALIDPARAMETER_INVALIDZONE("InvalidParameter.InvalidZone"),
      
+    // 不合法的支持Kerberos标识。
+     INVALIDPARAMETER_KERBEROSSUPPORT("InvalidParameter.KerberosSupport"),
+     
     // 无效参数，不满足必须组件。
      INVALIDPARAMETER_NOTCONTAINMUSTSELECTSOFTWARE("InvalidParameter.NotContainMustSelectSoftware"),
      
@@ -291,6 +339,9 @@ public enum EmrErrorCode {
     // 引导脚本数量超过限制。
      LIMITEXCEEDED_BOOTSTRAPACTIONSNUMLIMITEXCEEDED("LimitExceeded.BootstrapActionsNumLimitExceeded"),
      
+    // 安全组数量超过限制。
+     LIMITEXCEEDED_SECURITYGROUPNUMLIMITEXCEEDED("LimitExceeded.SecurityGroupNumLimitExceeded"),
+     
     // 缺少参数错误。
      MISSINGPARAMETER("MissingParameter"),
      
@@ -308,6 +359,9 @@ public enum EmrErrorCode {
      
     // 无法找到该实例。
      RESOURCENOTFOUND_CLUSTERNOTFOUND("ResourceNotFound.ClusterNotFound"),
+     
+    // 无法找到指定的CVM实例。
+     RESOURCENOTFOUND_CVMINSTANCENOTFOUND("ResourceNotFound.CvmInstanceNotFound"),
      
     // 无法找到硬件信息。
      RESOURCENOTFOUND_HARDWAREINFONOTFOUND("ResourceNotFound.HardwareInfoNotFound"),
@@ -338,6 +392,9 @@ public enum EmrErrorCode {
      
     // 云服务器已售罄。
      RESOURCESSOLDOUT_CVMSOLDOUT("ResourcesSoldOut.CvmSoldOut"),
+     
+    // 校验账号操作无权限。
+     UNAUTHORIZEDOPERATION_CHECKCAMAUTH("UnauthorizedOperation.CheckCamAuth"),
      
     // 未知参数错误。
      UNKNOWNPARAMETER("UnknownParameter"),

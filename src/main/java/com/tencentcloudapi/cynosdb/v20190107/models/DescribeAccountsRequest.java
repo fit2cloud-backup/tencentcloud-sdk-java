@@ -39,10 +39,39 @@ public class DescribeAccountsRequest extends AbstractModel{
     /**
     * 数据库类型，取值范围: 
 <li> MYSQL </li>
+该参数已废用
     */
     @SerializedName("DbType")
     @Expose
     private String DbType;
+
+    /**
+    * 需要过滤的账户列表
+    */
+    @SerializedName("Hosts")
+    @Expose
+    private String [] Hosts;
+
+    /**
+    * 限制量
+    */
+    @SerializedName("Limit")
+    @Expose
+    private Long Limit;
+
+    /**
+    * 偏移量
+    */
+    @SerializedName("Offset")
+    @Expose
+    private Long Offset;
+
+    /**
+    * 模糊匹配关键字(同时匹配AccountName和AccountHost，返回并集结果，支持正则)
+    */
+    @SerializedName("AccountRegular")
+    @Expose
+    private String AccountRegular;
 
     /**
      * Get 集群ID 
@@ -78,9 +107,11 @@ public class DescribeAccountsRequest extends AbstractModel{
 
     /**
      * Get 数据库类型，取值范围: 
-<li> MYSQL </li> 
+<li> MYSQL </li>
+该参数已废用 
      * @return DbType 数据库类型，取值范围: 
 <li> MYSQL </li>
+该参数已废用
      */
     public String getDbType() {
         return this.DbType;
@@ -89,11 +120,77 @@ public class DescribeAccountsRequest extends AbstractModel{
     /**
      * Set 数据库类型，取值范围: 
 <li> MYSQL </li>
+该参数已废用
      * @param DbType 数据库类型，取值范围: 
 <li> MYSQL </li>
+该参数已废用
      */
     public void setDbType(String DbType) {
         this.DbType = DbType;
+    }
+
+    /**
+     * Get 需要过滤的账户列表 
+     * @return Hosts 需要过滤的账户列表
+     */
+    public String [] getHosts() {
+        return this.Hosts;
+    }
+
+    /**
+     * Set 需要过滤的账户列表
+     * @param Hosts 需要过滤的账户列表
+     */
+    public void setHosts(String [] Hosts) {
+        this.Hosts = Hosts;
+    }
+
+    /**
+     * Get 限制量 
+     * @return Limit 限制量
+     */
+    public Long getLimit() {
+        return this.Limit;
+    }
+
+    /**
+     * Set 限制量
+     * @param Limit 限制量
+     */
+    public void setLimit(Long Limit) {
+        this.Limit = Limit;
+    }
+
+    /**
+     * Get 偏移量 
+     * @return Offset 偏移量
+     */
+    public Long getOffset() {
+        return this.Offset;
+    }
+
+    /**
+     * Set 偏移量
+     * @param Offset 偏移量
+     */
+    public void setOffset(Long Offset) {
+        this.Offset = Offset;
+    }
+
+    /**
+     * Get 模糊匹配关键字(同时匹配AccountName和AccountHost，返回并集结果，支持正则) 
+     * @return AccountRegular 模糊匹配关键字(同时匹配AccountName和AccountHost，返回并集结果，支持正则)
+     */
+    public String getAccountRegular() {
+        return this.AccountRegular;
+    }
+
+    /**
+     * Set 模糊匹配关键字(同时匹配AccountName和AccountHost，返回并集结果，支持正则)
+     * @param AccountRegular 模糊匹配关键字(同时匹配AccountName和AccountHost，返回并集结果，支持正则)
+     */
+    public void setAccountRegular(String AccountRegular) {
+        this.AccountRegular = AccountRegular;
     }
 
     public DescribeAccountsRequest() {
@@ -116,6 +213,21 @@ public class DescribeAccountsRequest extends AbstractModel{
         if (source.DbType != null) {
             this.DbType = new String(source.DbType);
         }
+        if (source.Hosts != null) {
+            this.Hosts = new String[source.Hosts.length];
+            for (int i = 0; i < source.Hosts.length; i++) {
+                this.Hosts[i] = new String(source.Hosts[i]);
+            }
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.AccountRegular != null) {
+            this.AccountRegular = new String(source.AccountRegular);
+        }
     }
 
 
@@ -126,6 +238,10 @@ public class DescribeAccountsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
         this.setParamArraySimple(map, prefix + "AccountNames.", this.AccountNames);
         this.setParamSimple(map, prefix + "DbType", this.DbType);
+        this.setParamArraySimple(map, prefix + "Hosts.", this.Hosts);
+        this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamSimple(map, prefix + "Offset", this.Offset);
+        this.setParamSimple(map, prefix + "AccountRegular", this.AccountRegular);
 
     }
 }

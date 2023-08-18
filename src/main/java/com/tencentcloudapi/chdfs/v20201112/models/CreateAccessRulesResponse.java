@@ -23,11 +23,39 @@ import java.util.HashMap;
 public class CreateAccessRulesResponse extends AbstractModel{
 
     /**
+    * 权限规则列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AccessRules")
+    @Expose
+    private AccessRule [] AccessRules;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
+
+    /**
+     * Get 权限规则列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AccessRules 权限规则列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AccessRule [] getAccessRules() {
+        return this.AccessRules;
+    }
+
+    /**
+     * Set 权限规则列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AccessRules 权限规则列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAccessRules(AccessRule [] AccessRules) {
+        this.AccessRules = AccessRules;
+    }
 
     /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
@@ -53,6 +81,12 @@ public class CreateAccessRulesResponse extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public CreateAccessRulesResponse(CreateAccessRulesResponse source) {
+        if (source.AccessRules != null) {
+            this.AccessRules = new AccessRule[source.AccessRules.length];
+            for (int i = 0; i < source.AccessRules.length; i++) {
+                this.AccessRules[i] = new AccessRule(source.AccessRules[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -63,6 +97,7 @@ public class CreateAccessRulesResponse extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamArrayObj(map, prefix + "AccessRules.", this.AccessRules);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -44,6 +44,27 @@ public class UpdateEventBusRequest extends AbstractModel{
     private String EventBusName;
 
     /**
+    * EB日志存储时长
+    */
+    @SerializedName("SaveDays")
+    @Expose
+    private Long SaveDays;
+
+    /**
+    * EB日志主题ID
+    */
+    @SerializedName("LogTopicId")
+    @Expose
+    private String LogTopicId;
+
+    /**
+    * 是否开启存储
+    */
+    @SerializedName("EnableStore")
+    @Expose
+    private Boolean EnableStore;
+
+    /**
      * Get 事件集ID 
      * @return EventBusId 事件集ID
      */
@@ -91,6 +112,54 @@ public class UpdateEventBusRequest extends AbstractModel{
         this.EventBusName = EventBusName;
     }
 
+    /**
+     * Get EB日志存储时长 
+     * @return SaveDays EB日志存储时长
+     */
+    public Long getSaveDays() {
+        return this.SaveDays;
+    }
+
+    /**
+     * Set EB日志存储时长
+     * @param SaveDays EB日志存储时长
+     */
+    public void setSaveDays(Long SaveDays) {
+        this.SaveDays = SaveDays;
+    }
+
+    /**
+     * Get EB日志主题ID 
+     * @return LogTopicId EB日志主题ID
+     */
+    public String getLogTopicId() {
+        return this.LogTopicId;
+    }
+
+    /**
+     * Set EB日志主题ID
+     * @param LogTopicId EB日志主题ID
+     */
+    public void setLogTopicId(String LogTopicId) {
+        this.LogTopicId = LogTopicId;
+    }
+
+    /**
+     * Get 是否开启存储 
+     * @return EnableStore 是否开启存储
+     */
+    public Boolean getEnableStore() {
+        return this.EnableStore;
+    }
+
+    /**
+     * Set 是否开启存储
+     * @param EnableStore 是否开启存储
+     */
+    public void setEnableStore(Boolean EnableStore) {
+        this.EnableStore = EnableStore;
+    }
+
     public UpdateEventBusRequest() {
     }
 
@@ -108,6 +177,15 @@ public class UpdateEventBusRequest extends AbstractModel{
         if (source.EventBusName != null) {
             this.EventBusName = new String(source.EventBusName);
         }
+        if (source.SaveDays != null) {
+            this.SaveDays = new Long(source.SaveDays);
+        }
+        if (source.LogTopicId != null) {
+            this.LogTopicId = new String(source.LogTopicId);
+        }
+        if (source.EnableStore != null) {
+            this.EnableStore = new Boolean(source.EnableStore);
+        }
     }
 
 
@@ -118,6 +196,9 @@ public class UpdateEventBusRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "EventBusId", this.EventBusId);
         this.setParamSimple(map, prefix + "Description", this.Description);
         this.setParamSimple(map, prefix + "EventBusName", this.EventBusName);
+        this.setParamSimple(map, prefix + "SaveDays", this.SaveDays);
+        this.setParamSimple(map, prefix + "LogTopicId", this.LogTopicId);
+        this.setParamSimple(map, prefix + "EnableStore", this.EnableStore);
 
     }
 }

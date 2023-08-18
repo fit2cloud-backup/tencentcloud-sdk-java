@@ -23,21 +23,21 @@ import java.util.HashMap;
 public class SearchAccessLogResponse extends AbstractModel{
 
     /**
-    * 加载后续内容的Context
+    * 新接口此字段失效，默认返回空字符串
     */
     @SerializedName("Context")
     @Expose
     private String Context;
 
     /**
-    * 日志查询结果是否全部返回
+    * 日志查询结果是否全部返回，其中，“true”表示结果返回，“false”表示结果为返回
     */
     @SerializedName("ListOver")
     @Expose
     private Boolean ListOver;
 
     /**
-    * 返回的是否为分析结果
+    * 返回的是否为分析结果，其中，“true”表示返回分析结果，“false”表示未返回分析结果
     */
     @SerializedName("Analysis")
     @Expose
@@ -78,48 +78,48 @@ public class SearchAccessLogResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 加载后续内容的Context 
-     * @return Context 加载后续内容的Context
+     * Get 新接口此字段失效，默认返回空字符串 
+     * @return Context 新接口此字段失效，默认返回空字符串
      */
     public String getContext() {
         return this.Context;
     }
 
     /**
-     * Set 加载后续内容的Context
-     * @param Context 加载后续内容的Context
+     * Set 新接口此字段失效，默认返回空字符串
+     * @param Context 新接口此字段失效，默认返回空字符串
      */
     public void setContext(String Context) {
         this.Context = Context;
     }
 
     /**
-     * Get 日志查询结果是否全部返回 
-     * @return ListOver 日志查询结果是否全部返回
+     * Get 日志查询结果是否全部返回，其中，“true”表示结果返回，“false”表示结果为返回 
+     * @return ListOver 日志查询结果是否全部返回，其中，“true”表示结果返回，“false”表示结果为返回
      */
     public Boolean getListOver() {
         return this.ListOver;
     }
 
     /**
-     * Set 日志查询结果是否全部返回
-     * @param ListOver 日志查询结果是否全部返回
+     * Set 日志查询结果是否全部返回，其中，“true”表示结果返回，“false”表示结果为返回
+     * @param ListOver 日志查询结果是否全部返回，其中，“true”表示结果返回，“false”表示结果为返回
      */
     public void setListOver(Boolean ListOver) {
         this.ListOver = ListOver;
     }
 
     /**
-     * Get 返回的是否为分析结果 
-     * @return Analysis 返回的是否为分析结果
+     * Get 返回的是否为分析结果，其中，“true”表示返回分析结果，“false”表示未返回分析结果 
+     * @return Analysis 返回的是否为分析结果，其中，“true”表示返回分析结果，“false”表示未返回分析结果
      */
     public Boolean getAnalysis() {
         return this.Analysis;
     }
 
     /**
-     * Set 返回的是否为分析结果
-     * @param Analysis 返回的是否为分析结果
+     * Set 返回的是否为分析结果，其中，“true”表示返回分析结果，“false”表示未返回分析结果
+     * @param Analysis 返回的是否为分析结果，其中，“true”表示返回分析结果，“false”表示未返回分析结果
      */
     public void setAnalysis(Boolean Analysis) {
         this.Analysis = Analysis;

@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class DescribeLocalGatewayResponse extends AbstractModel{
 
     /**
-    * 本地网关信息集合
+    * 本地网关信息集合。
     */
     @SerializedName("LocalGatewaySet")
     @Expose
     private LocalGateway [] LocalGatewaySet;
 
     /**
-    * 本地网关总数
+    * 本地网关总数。
     */
     @SerializedName("TotalCount")
     @Expose
@@ -44,32 +44,32 @@ public class DescribeLocalGatewayResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 本地网关信息集合 
-     * @return LocalGatewaySet 本地网关信息集合
+     * Get 本地网关信息集合。 
+     * @return LocalGatewaySet 本地网关信息集合。
      */
     public LocalGateway [] getLocalGatewaySet() {
         return this.LocalGatewaySet;
     }
 
     /**
-     * Set 本地网关信息集合
-     * @param LocalGatewaySet 本地网关信息集合
+     * Set 本地网关信息集合。
+     * @param LocalGatewaySet 本地网关信息集合。
      */
     public void setLocalGatewaySet(LocalGateway [] LocalGatewaySet) {
         this.LocalGatewaySet = LocalGatewaySet;
     }
 
     /**
-     * Get 本地网关总数 
-     * @return TotalCount 本地网关总数
+     * Get 本地网关总数。 
+     * @return TotalCount 本地网关总数。
      */
     public Long getTotalCount() {
         return this.TotalCount;
     }
 
     /**
-     * Set 本地网关总数
-     * @param TotalCount 本地网关总数
+     * Set 本地网关总数。
+     * @param TotalCount 本地网关总数。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;

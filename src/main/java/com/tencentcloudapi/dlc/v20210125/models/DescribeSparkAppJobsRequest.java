@@ -37,35 +37,35 @@ public class DescribeSparkAppJobsRequest extends AbstractModel{
     private String Sorting;
 
     /**
-    * 按照该参数过滤,支持spark-job-name
+    * 过滤条件，如下支持的过滤类型，传参Name应为其一:spark-job-name（作业名称），spark-job-id（作业id），spark-app-type（作业类型，1：批任务，2：流任务，4：SQL作业），user-name（创建人），key-word（作业名称或ID关键词模糊搜索）
     */
     @SerializedName("Filters")
     @Expose
     private Filter [] Filters;
 
     /**
-    * 更新时间起始点
+    * 更新时间起始点，支持格式：yyyy-MM-dd HH:mm:ss
     */
     @SerializedName("StartTime")
     @Expose
     private String StartTime;
 
     /**
-    * 更新时间截止点
+    * 更新时间截止点，支持格式：yyyy-MM-dd HH:mm:ss
     */
     @SerializedName("EndTime")
     @Expose
     private String EndTime;
 
     /**
-    * 查询列表偏移量
+    * 查询列表偏移量, 默认值0
     */
     @SerializedName("Offset")
     @Expose
     private Long Offset;
 
     /**
-    * 查询列表限制数量
+    * 查询列表限制数量, 默认值100
     */
     @SerializedName("Limit")
     @Expose
@@ -104,80 +104,80 @@ public class DescribeSparkAppJobsRequest extends AbstractModel{
     }
 
     /**
-     * Get 按照该参数过滤,支持spark-job-name 
-     * @return Filters 按照该参数过滤,支持spark-job-name
+     * Get 过滤条件，如下支持的过滤类型，传参Name应为其一:spark-job-name（作业名称），spark-job-id（作业id），spark-app-type（作业类型，1：批任务，2：流任务，4：SQL作业），user-name（创建人），key-word（作业名称或ID关键词模糊搜索） 
+     * @return Filters 过滤条件，如下支持的过滤类型，传参Name应为其一:spark-job-name（作业名称），spark-job-id（作业id），spark-app-type（作业类型，1：批任务，2：流任务，4：SQL作业），user-name（创建人），key-word（作业名称或ID关键词模糊搜索）
      */
     public Filter [] getFilters() {
         return this.Filters;
     }
 
     /**
-     * Set 按照该参数过滤,支持spark-job-name
-     * @param Filters 按照该参数过滤,支持spark-job-name
+     * Set 过滤条件，如下支持的过滤类型，传参Name应为其一:spark-job-name（作业名称），spark-job-id（作业id），spark-app-type（作业类型，1：批任务，2：流任务，4：SQL作业），user-name（创建人），key-word（作业名称或ID关键词模糊搜索）
+     * @param Filters 过滤条件，如下支持的过滤类型，传参Name应为其一:spark-job-name（作业名称），spark-job-id（作业id），spark-app-type（作业类型，1：批任务，2：流任务，4：SQL作业），user-name（创建人），key-word（作业名称或ID关键词模糊搜索）
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;
     }
 
     /**
-     * Get 更新时间起始点 
-     * @return StartTime 更新时间起始点
+     * Get 更新时间起始点，支持格式：yyyy-MM-dd HH:mm:ss 
+     * @return StartTime 更新时间起始点，支持格式：yyyy-MM-dd HH:mm:ss
      */
     public String getStartTime() {
         return this.StartTime;
     }
 
     /**
-     * Set 更新时间起始点
-     * @param StartTime 更新时间起始点
+     * Set 更新时间起始点，支持格式：yyyy-MM-dd HH:mm:ss
+     * @param StartTime 更新时间起始点，支持格式：yyyy-MM-dd HH:mm:ss
      */
     public void setStartTime(String StartTime) {
         this.StartTime = StartTime;
     }
 
     /**
-     * Get 更新时间截止点 
-     * @return EndTime 更新时间截止点
+     * Get 更新时间截止点，支持格式：yyyy-MM-dd HH:mm:ss 
+     * @return EndTime 更新时间截止点，支持格式：yyyy-MM-dd HH:mm:ss
      */
     public String getEndTime() {
         return this.EndTime;
     }
 
     /**
-     * Set 更新时间截止点
-     * @param EndTime 更新时间截止点
+     * Set 更新时间截止点，支持格式：yyyy-MM-dd HH:mm:ss
+     * @param EndTime 更新时间截止点，支持格式：yyyy-MM-dd HH:mm:ss
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
     }
 
     /**
-     * Get 查询列表偏移量 
-     * @return Offset 查询列表偏移量
+     * Get 查询列表偏移量, 默认值0 
+     * @return Offset 查询列表偏移量, 默认值0
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 查询列表偏移量
-     * @param Offset 查询列表偏移量
+     * Set 查询列表偏移量, 默认值0
+     * @param Offset 查询列表偏移量, 默认值0
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get 查询列表限制数量 
-     * @return Limit 查询列表限制数量
+     * Get 查询列表限制数量, 默认值100 
+     * @return Limit 查询列表限制数量, 默认值100
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 查询列表限制数量
-     * @param Limit 查询列表限制数量
+     * Set 查询列表限制数量, 默认值100
+     * @param Limit 查询列表限制数量, 默认值100
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;

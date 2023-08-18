@@ -12,6 +12,9 @@ public enum TiiaErrorCode {
     // 图片内容为空。
      FAILEDOPERATION_EMPTYIMAGEERROR("FailedOperation.EmptyImageError"),
      
+    // 图库数量超出限制。
+     FAILEDOPERATION_GROUPCOUNTEXCEEDED("FailedOperation.GroupCountExceeded"),
+     
     // 图片解码失败。
      FAILEDOPERATION_IMAGEDECODEFAILED("FailedOperation.ImageDecodeFailed"),
      
@@ -23,6 +26,9 @@ public enum TiiaErrorCode {
      
     // 超出Entity数量限制。
      FAILEDOPERATION_IMAGEENTITYCOUNTEXCEED("FailedOperation.ImageEntityCountExceed"),
+     
+    // 停止服务，控制台开关关闭。
+     FAILEDOPERATION_IMAGEGROUPCHARGESTATUSCLOSE("FailedOperation.ImageGroupChargeStatusClose"),
      
     // 图库为空。
      FAILEDOPERATION_IMAGEGROUPEMPTY("FailedOperation.ImageGroupEmpty"),
@@ -98,6 +104,9 @@ public enum TiiaErrorCode {
      
     // 参数取值错误。
      INVALIDPARAMETER_INVALIDPARAMETER("InvalidParameter.InvalidParameter"),
+     
+    // 图片不可为纯色图。
+     INVALIDPARAMETER_PICTURESOLIDCOLORERROR("InvalidParameter.PictureSolidColorError"),
      
     // 图库简介过长。
      INVALIDPARAMETERVALUE_BRIEFTOOLONG("InvalidParameterValue.BriefTooLong"),

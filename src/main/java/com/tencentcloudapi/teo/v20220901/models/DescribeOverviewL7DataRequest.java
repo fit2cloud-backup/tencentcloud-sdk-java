@@ -38,17 +38,22 @@ public class DescribeOverviewL7DataRequest extends AbstractModel{
 
     /**
     * 查询的指标，取值有：
-<li>l7Flow_outFlux: 访问流量；</li>
+<li>l7Flow_outFlux: Edegone响应流量；</li>
+<li>l7Flow_inFlux: Edgeone请求流量；</li>
+<li>l7Flow_outBandwidth: Edegone响应带宽；</li>
+<li>l7Flow_inBandwidth: Edegone请求带宽；</li>
+<li>l7Flow_hit_outFlux: 缓存命中流量；</li>
 <li>l7Flow_request: 访问请求数；</li>
-<li>l7Flow_outBandwidth: 访问带宽；</li>
-<li>l7Flow_hit_outFlux: 缓存命中流量。</li>
+<li>l7Flow_flux: 访问请求上行+下行流量；</li>
+<li>l7Flow_bandwidth：访问请求上行+下行带宽。</li>
     */
     @SerializedName("MetricNames")
     @Expose
     private String [] MetricNames;
 
     /**
-    * 查询的站点集合，不填默认查询所有站点。
+    * 站点集合。
+若不填写，默认选择全部站点，且最多只能查询近30天的数据；若填写，则可查询站点绑定套餐支持的<a href="https://cloud.tencent.com/document/product/1552/77380#edgeone-.E5.A5.97.E9.A4.90">数据分析最大查询范围</a>。
     */
     @SerializedName("ZoneIds")
     @Expose
@@ -66,7 +71,7 @@ public class DescribeOverviewL7DataRequest extends AbstractModel{
 <li>http: http协议；</li>
 <li>https: https协议；</li>
 <li>http2: http2协议；</li>
-<li>all:  所有协议。</li>不填默认为: all，表示查询所有协议。
+<li>all:  所有协议。</li>不填默认为all，此参数暂未生效。
     */
     @SerializedName("Protocol")
     @Expose
@@ -77,29 +82,31 @@ public class DescribeOverviewL7DataRequest extends AbstractModel{
 <li>min：1分钟；</li>
 <li>5min：5分钟；</li>
 <li>hour：1小时；</li>
-<li>day：1天。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：一小时范围内以min粒度查询，两天范围内以5min粒度查询，七天范围内以hour粒度查询，超过七天以day粒度查询。
+<li>day：1天。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：1小时范围内以min粒度查询，2天范围内以5min粒度查询，7天范围内以hour粒度查询，超过7天以day粒度查询。
     */
     @SerializedName("Interval")
     @Expose
     private String Interval;
 
     /**
-    * 数据归属地区，取值有：
-<li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据。</li>不填将根据用户的地域智能选择地区。
-    */
-    @SerializedName("Area")
-    @Expose
-    private String Area;
-
-    /**
-    * 过滤条件，Filters.Values的上限为20。详细的过滤条件如下：
-<li>tagKey<br>   按照【<strong>标签Key</strong>】进行过滤。<br>   类型：String<br>   必选：否</li>
-<li>tagValue<br>   按照【<strong>标签Value</strong>】进行过滤。<br>   类型：String<br>   必选：否</li>
+    * 过滤条件，详细的过滤条件Key值如下：
+<li>socket<br>   按照【<strong>HTTP协议类型</strong>】进行过滤。<br>   对应的Value可选项如下：<br>   HTTP：HTTP 协议；<br>   HTTPS：HTTPS协议；<br>   QUIC：QUIC协议。</li>
+<li>tagKey<br>   按照【<strong>标签Key</strong>】进行过滤。</li>
+<li>tagValue<br>   按照【<strong>标签Value</strong>】进行过滤。</li>
     */
     @SerializedName("Filters")
     @Expose
     private QueryCondition [] Filters;
+
+    /**
+    * 数据归属地区，取值有：
+<li>overseas：全球（除中国大陆地区）数据；</li>
+<li>mainland：中国大陆地区数据；</li>
+<li>global：全球数据。</li>不填默认取值为global。
+    */
+    @SerializedName("Area")
+    @Expose
+    private String Area;
 
     /**
      * Get 开始时间。 
@@ -135,15 +142,23 @@ public class DescribeOverviewL7DataRequest extends AbstractModel{
 
     /**
      * Get 查询的指标，取值有：
-<li>l7Flow_outFlux: 访问流量；</li>
+<li>l7Flow_outFlux: Edegone响应流量；</li>
+<li>l7Flow_inFlux: Edgeone请求流量；</li>
+<li>l7Flow_outBandwidth: Edegone响应带宽；</li>
+<li>l7Flow_inBandwidth: Edegone请求带宽；</li>
+<li>l7Flow_hit_outFlux: 缓存命中流量；</li>
 <li>l7Flow_request: 访问请求数；</li>
-<li>l7Flow_outBandwidth: 访问带宽；</li>
-<li>l7Flow_hit_outFlux: 缓存命中流量。</li> 
+<li>l7Flow_flux: 访问请求上行+下行流量；</li>
+<li>l7Flow_bandwidth：访问请求上行+下行带宽。</li> 
      * @return MetricNames 查询的指标，取值有：
-<li>l7Flow_outFlux: 访问流量；</li>
+<li>l7Flow_outFlux: Edegone响应流量；</li>
+<li>l7Flow_inFlux: Edgeone请求流量；</li>
+<li>l7Flow_outBandwidth: Edegone响应带宽；</li>
+<li>l7Flow_inBandwidth: Edegone请求带宽；</li>
+<li>l7Flow_hit_outFlux: 缓存命中流量；</li>
 <li>l7Flow_request: 访问请求数；</li>
-<li>l7Flow_outBandwidth: 访问带宽；</li>
-<li>l7Flow_hit_outFlux: 缓存命中流量。</li>
+<li>l7Flow_flux: 访问请求上行+下行流量；</li>
+<li>l7Flow_bandwidth：访问请求上行+下行带宽。</li>
      */
     public String [] getMetricNames() {
         return this.MetricNames;
@@ -151,31 +166,43 @@ public class DescribeOverviewL7DataRequest extends AbstractModel{
 
     /**
      * Set 查询的指标，取值有：
-<li>l7Flow_outFlux: 访问流量；</li>
+<li>l7Flow_outFlux: Edegone响应流量；</li>
+<li>l7Flow_inFlux: Edgeone请求流量；</li>
+<li>l7Flow_outBandwidth: Edegone响应带宽；</li>
+<li>l7Flow_inBandwidth: Edegone请求带宽；</li>
+<li>l7Flow_hit_outFlux: 缓存命中流量；</li>
 <li>l7Flow_request: 访问请求数；</li>
-<li>l7Flow_outBandwidth: 访问带宽；</li>
-<li>l7Flow_hit_outFlux: 缓存命中流量。</li>
+<li>l7Flow_flux: 访问请求上行+下行流量；</li>
+<li>l7Flow_bandwidth：访问请求上行+下行带宽。</li>
      * @param MetricNames 查询的指标，取值有：
-<li>l7Flow_outFlux: 访问流量；</li>
+<li>l7Flow_outFlux: Edegone响应流量；</li>
+<li>l7Flow_inFlux: Edgeone请求流量；</li>
+<li>l7Flow_outBandwidth: Edegone响应带宽；</li>
+<li>l7Flow_inBandwidth: Edegone请求带宽；</li>
+<li>l7Flow_hit_outFlux: 缓存命中流量；</li>
 <li>l7Flow_request: 访问请求数；</li>
-<li>l7Flow_outBandwidth: 访问带宽；</li>
-<li>l7Flow_hit_outFlux: 缓存命中流量。</li>
+<li>l7Flow_flux: 访问请求上行+下行流量；</li>
+<li>l7Flow_bandwidth：访问请求上行+下行带宽。</li>
      */
     public void setMetricNames(String [] MetricNames) {
         this.MetricNames = MetricNames;
     }
 
     /**
-     * Get 查询的站点集合，不填默认查询所有站点。 
-     * @return ZoneIds 查询的站点集合，不填默认查询所有站点。
+     * Get 站点集合。
+若不填写，默认选择全部站点，且最多只能查询近30天的数据；若填写，则可查询站点绑定套餐支持的<a href="https://cloud.tencent.com/document/product/1552/77380#edgeone-.E5.A5.97.E9.A4.90">数据分析最大查询范围</a>。 
+     * @return ZoneIds 站点集合。
+若不填写，默认选择全部站点，且最多只能查询近30天的数据；若填写，则可查询站点绑定套餐支持的<a href="https://cloud.tencent.com/document/product/1552/77380#edgeone-.E5.A5.97.E9.A4.90">数据分析最大查询范围</a>。
      */
     public String [] getZoneIds() {
         return this.ZoneIds;
     }
 
     /**
-     * Set 查询的站点集合，不填默认查询所有站点。
-     * @param ZoneIds 查询的站点集合，不填默认查询所有站点。
+     * Set 站点集合。
+若不填写，默认选择全部站点，且最多只能查询近30天的数据；若填写，则可查询站点绑定套餐支持的<a href="https://cloud.tencent.com/document/product/1552/77380#edgeone-.E5.A5.97.E9.A4.90">数据分析最大查询范围</a>。
+     * @param ZoneIds 站点集合。
+若不填写，默认选择全部站点，且最多只能查询近30天的数据；若填写，则可查询站点绑定套餐支持的<a href="https://cloud.tencent.com/document/product/1552/77380#edgeone-.E5.A5.97.E9.A4.90">数据分析最大查询范围</a>。
      */
     public void setZoneIds(String [] ZoneIds) {
         this.ZoneIds = ZoneIds;
@@ -202,12 +229,12 @@ public class DescribeOverviewL7DataRequest extends AbstractModel{
 <li>http: http协议；</li>
 <li>https: https协议；</li>
 <li>http2: http2协议；</li>
-<li>all:  所有协议。</li>不填默认为: all，表示查询所有协议。 
+<li>all:  所有协议。</li>不填默认为all，此参数暂未生效。 
      * @return Protocol 查询的协议类型，取值有：
 <li>http: http协议；</li>
 <li>https: https协议；</li>
 <li>http2: http2协议；</li>
-<li>all:  所有协议。</li>不填默认为: all，表示查询所有协议。
+<li>all:  所有协议。</li>不填默认为all，此参数暂未生效。
      */
     public String getProtocol() {
         return this.Protocol;
@@ -218,12 +245,12 @@ public class DescribeOverviewL7DataRequest extends AbstractModel{
 <li>http: http协议；</li>
 <li>https: https协议；</li>
 <li>http2: http2协议；</li>
-<li>all:  所有协议。</li>不填默认为: all，表示查询所有协议。
+<li>all:  所有协议。</li>不填默认为all，此参数暂未生效。
      * @param Protocol 查询的协议类型，取值有：
 <li>http: http协议；</li>
 <li>https: https协议；</li>
 <li>http2: http2协议；</li>
-<li>all:  所有协议。</li>不填默认为: all，表示查询所有协议。
+<li>all:  所有协议。</li>不填默认为all，此参数暂未生效。
      */
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;
@@ -234,12 +261,12 @@ public class DescribeOverviewL7DataRequest extends AbstractModel{
 <li>min：1分钟；</li>
 <li>5min：5分钟；</li>
 <li>hour：1小时；</li>
-<li>day：1天。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：一小时范围内以min粒度查询，两天范围内以5min粒度查询，七天范围内以hour粒度查询，超过七天以day粒度查询。 
+<li>day：1天。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：1小时范围内以min粒度查询，2天范围内以5min粒度查询，7天范围内以hour粒度查询，超过7天以day粒度查询。 
      * @return Interval 查询时间粒度，取值有：
 <li>min：1分钟；</li>
 <li>5min：5分钟；</li>
 <li>hour：1小时；</li>
-<li>day：1天。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：一小时范围内以min粒度查询，两天范围内以5min粒度查询，七天范围内以hour粒度查询，超过七天以day粒度查询。
+<li>day：1天。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：1小时范围内以min粒度查询，2天范围内以5min粒度查询，7天范围内以hour粒度查询，超过7天以day粒度查询。
      */
     public String getInterval() {
         return this.Interval;
@@ -250,24 +277,54 @@ public class DescribeOverviewL7DataRequest extends AbstractModel{
 <li>min：1分钟；</li>
 <li>5min：5分钟；</li>
 <li>hour：1小时；</li>
-<li>day：1天。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：一小时范围内以min粒度查询，两天范围内以5min粒度查询，七天范围内以hour粒度查询，超过七天以day粒度查询。
+<li>day：1天。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：1小时范围内以min粒度查询，2天范围内以5min粒度查询，7天范围内以hour粒度查询，超过7天以day粒度查询。
      * @param Interval 查询时间粒度，取值有：
 <li>min：1分钟；</li>
 <li>5min：5分钟；</li>
 <li>hour：1小时；</li>
-<li>day：1天。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：一小时范围内以min粒度查询，两天范围内以5min粒度查询，七天范围内以hour粒度查询，超过七天以day粒度查询。
+<li>day：1天。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：1小时范围内以min粒度查询，2天范围内以5min粒度查询，7天范围内以hour粒度查询，超过7天以day粒度查询。
      */
     public void setInterval(String Interval) {
         this.Interval = Interval;
     }
 
     /**
+     * Get 过滤条件，详细的过滤条件Key值如下：
+<li>socket<br>   按照【<strong>HTTP协议类型</strong>】进行过滤。<br>   对应的Value可选项如下：<br>   HTTP：HTTP 协议；<br>   HTTPS：HTTPS协议；<br>   QUIC：QUIC协议。</li>
+<li>tagKey<br>   按照【<strong>标签Key</strong>】进行过滤。</li>
+<li>tagValue<br>   按照【<strong>标签Value</strong>】进行过滤。</li> 
+     * @return Filters 过滤条件，详细的过滤条件Key值如下：
+<li>socket<br>   按照【<strong>HTTP协议类型</strong>】进行过滤。<br>   对应的Value可选项如下：<br>   HTTP：HTTP 协议；<br>   HTTPS：HTTPS协议；<br>   QUIC：QUIC协议。</li>
+<li>tagKey<br>   按照【<strong>标签Key</strong>】进行过滤。</li>
+<li>tagValue<br>   按照【<strong>标签Value</strong>】进行过滤。</li>
+     */
+    public QueryCondition [] getFilters() {
+        return this.Filters;
+    }
+
+    /**
+     * Set 过滤条件，详细的过滤条件Key值如下：
+<li>socket<br>   按照【<strong>HTTP协议类型</strong>】进行过滤。<br>   对应的Value可选项如下：<br>   HTTP：HTTP 协议；<br>   HTTPS：HTTPS协议；<br>   QUIC：QUIC协议。</li>
+<li>tagKey<br>   按照【<strong>标签Key</strong>】进行过滤。</li>
+<li>tagValue<br>   按照【<strong>标签Value</strong>】进行过滤。</li>
+     * @param Filters 过滤条件，详细的过滤条件Key值如下：
+<li>socket<br>   按照【<strong>HTTP协议类型</strong>】进行过滤。<br>   对应的Value可选项如下：<br>   HTTP：HTTP 协议；<br>   HTTPS：HTTPS协议；<br>   QUIC：QUIC协议。</li>
+<li>tagKey<br>   按照【<strong>标签Key</strong>】进行过滤。</li>
+<li>tagValue<br>   按照【<strong>标签Value</strong>】进行过滤。</li>
+     */
+    public void setFilters(QueryCondition [] Filters) {
+        this.Filters = Filters;
+    }
+
+    /**
      * Get 数据归属地区，取值有：
 <li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据。</li>不填将根据用户的地域智能选择地区。 
+<li>mainland：中国大陆地区数据；</li>
+<li>global：全球数据。</li>不填默认取值为global。 
      * @return Area 数据归属地区，取值有：
 <li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据。</li>不填将根据用户的地域智能选择地区。
+<li>mainland：中国大陆地区数据；</li>
+<li>global：全球数据。</li>不填默认取值为global。
      */
     public String getArea() {
         return this.Area;
@@ -276,37 +333,15 @@ public class DescribeOverviewL7DataRequest extends AbstractModel{
     /**
      * Set 数据归属地区，取值有：
 <li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据。</li>不填将根据用户的地域智能选择地区。
+<li>mainland：中国大陆地区数据；</li>
+<li>global：全球数据。</li>不填默认取值为global。
      * @param Area 数据归属地区，取值有：
 <li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据。</li>不填将根据用户的地域智能选择地区。
+<li>mainland：中国大陆地区数据；</li>
+<li>global：全球数据。</li>不填默认取值为global。
      */
     public void setArea(String Area) {
         this.Area = Area;
-    }
-
-    /**
-     * Get 过滤条件，Filters.Values的上限为20。详细的过滤条件如下：
-<li>tagKey<br>   按照【<strong>标签Key</strong>】进行过滤。<br>   类型：String<br>   必选：否</li>
-<li>tagValue<br>   按照【<strong>标签Value</strong>】进行过滤。<br>   类型：String<br>   必选：否</li> 
-     * @return Filters 过滤条件，Filters.Values的上限为20。详细的过滤条件如下：
-<li>tagKey<br>   按照【<strong>标签Key</strong>】进行过滤。<br>   类型：String<br>   必选：否</li>
-<li>tagValue<br>   按照【<strong>标签Value</strong>】进行过滤。<br>   类型：String<br>   必选：否</li>
-     */
-    public QueryCondition [] getFilters() {
-        return this.Filters;
-    }
-
-    /**
-     * Set 过滤条件，Filters.Values的上限为20。详细的过滤条件如下：
-<li>tagKey<br>   按照【<strong>标签Key</strong>】进行过滤。<br>   类型：String<br>   必选：否</li>
-<li>tagValue<br>   按照【<strong>标签Value</strong>】进行过滤。<br>   类型：String<br>   必选：否</li>
-     * @param Filters 过滤条件，Filters.Values的上限为20。详细的过滤条件如下：
-<li>tagKey<br>   按照【<strong>标签Key</strong>】进行过滤。<br>   类型：String<br>   必选：否</li>
-<li>tagValue<br>   按照【<strong>标签Value</strong>】进行过滤。<br>   类型：String<br>   必选：否</li>
-     */
-    public void setFilters(QueryCondition [] Filters) {
-        this.Filters = Filters;
     }
 
     public DescribeOverviewL7DataRequest() {
@@ -347,14 +382,14 @@ public class DescribeOverviewL7DataRequest extends AbstractModel{
         if (source.Interval != null) {
             this.Interval = new String(source.Interval);
         }
-        if (source.Area != null) {
-            this.Area = new String(source.Area);
-        }
         if (source.Filters != null) {
             this.Filters = new QueryCondition[source.Filters.length];
             for (int i = 0; i < source.Filters.length; i++) {
                 this.Filters[i] = new QueryCondition(source.Filters[i]);
             }
+        }
+        if (source.Area != null) {
+            this.Area = new String(source.Area);
         }
     }
 
@@ -370,8 +405,8 @@ public class DescribeOverviewL7DataRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "Domains.", this.Domains);
         this.setParamSimple(map, prefix + "Protocol", this.Protocol);
         this.setParamSimple(map, prefix + "Interval", this.Interval);
-        this.setParamSimple(map, prefix + "Area", this.Area);
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
+        this.setParamSimple(map, prefix + "Area", this.Area);
 
     }
 }

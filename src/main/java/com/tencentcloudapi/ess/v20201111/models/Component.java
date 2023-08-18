@@ -23,24 +23,25 @@ import java.util.HashMap;
 public class Component extends AbstractModel{
 
     /**
-    * 如果是Component控件类型，则可选的字段为：
-TEXT - 普通文本控件；
-MULTI_LINE_TEXT - 多行文本控件；
-CHECK_BOX - 勾选框控件；
-FILL_IMAGE - 图片控件；
+    * 如果是Component填写控件类型，则可选的字段为：
+TEXT - 普通文本控件，输入文本字符串；
+MULTI_LINE_TEXT - 多行文本控件，输入文本字符串；
+CHECK_BOX - 勾选框控件，若选中填写ComponentValue 填写 true或者 false 字符串；
+FILL_IMAGE - 图片控件，ComponentValue 填写图片的资源 ID；
 DYNAMIC_TABLE - 动态表格控件；
-ATTACHMENT - 附件控件；
-SELECTOR - 选择器控件；
-DATE - 日期控件；默认是格式化为xxxx年xx月xx日；
-DISTRICT - 省市区行政区划控件；
+ATTACHMENT - 附件控件,ComponentValue 填写附件图片的资源 ID列表，以逗号分隔；
+SELECTOR - 选择器控件，ComponentValue填写选择的字符串内容；
+DATE - 日期控件；默认是格式化为xxxx年xx月xx日字符串；
+DISTRICT - 省市区行政区控件，ComponentValue填写省市区行政区字符串内容；
 
-如果是SignComponent控件类型，则可选的字段为
+如果是SignComponent签署控件类型，则可选的字段为
 SIGN_SEAL - 签署印章控件；
 SIGN_DATE - 签署日期控件；
 SIGN_SIGNATURE - 用户签名控件；
 SIGN_PERSONAL_SEAL - 个人签署印章控件（使用文件发起暂不支持此类型）；
 SIGN_PAGING_SEAL - 骑缝章；若文件发起，需要对应填充ComponentPosY、ComponentWidth、ComponentHeight
-SIGN_OPINION - 签署意见控件，用户需要根据配置的签署意见内容，完成对意见内容的确认
+SIGN_OPINION - 签署意见控件，用户需要根据配置的签署意见内容，完成对意见内容的确认；
+SIGN_LEGAL_PERSON_SEAL - 企业法定代表人控件。
 
 表单域的控件不能作为印章和签名控件
     */
@@ -49,7 +50,8 @@ SIGN_OPINION - 签署意见控件，用户需要根据配置的签署意见内�
     private String ComponentType;
 
     /**
-    * 控件所属文件的序号（模板中的resourceId排列序号，取值为：0-N）
+    * 控件所属文件的序号（取值为：0-N）。
+目前单文件的情况下，值是0
     */
     @SerializedName("FileIndex")
     @Expose
@@ -91,28 +93,30 @@ SIGN_OPINION - 签署意见控件，用户需要根据配置的签署意见内�
     private Float ComponentPosY;
 
     /**
-    * GenerateMode==KEYWORD 指定关键字
+    * 控件唯一ID。
+或使用文件发起合同时用于GenerateMode==KEYWORD 指定关键字
     */
     @SerializedName("ComponentId")
     @Expose
     private String ComponentId;
 
     /**
-    * GenerateMode==FIELD 指定表单域名称
+    * 控件名。
+或使用文件发起合同时用于GenerateMode==FIELD 指定表单域名称
     */
     @SerializedName("ComponentName")
     @Expose
     private String ComponentName;
 
     /**
-    * 是否必选，默认为false
+    * 是否必选，默认为false-非必选
     */
     @SerializedName("ComponentRequired")
     @Expose
     private Boolean ComponentRequired;
 
     /**
-    * 控件关联的签署人ID
+    * 控件关联的参与方ID，对应Recipient结构体中的RecipientId
     */
     @SerializedName("ComponentRecipientId")
     @Expose
@@ -130,17 +134,32 @@ ComponentType为SIGN_SIGNATURE类型可以控制签署方式
 {“ComponentTypeLimit”: [“xxx”]}
 xxx可以为：
 HANDWRITE – 手写签名
-BORDERLESS_ESIGN – 自动生成无边框腾讯体
 OCR_ESIGN -- AI智能识别手写签名
 ESIGN -- 个人印章类型
-如：{“ComponentTypeLimit”: [“BORDERLESS_ESIGN”]}
+SYSTEM_ESIGN -- 系统签名（该类型可以在用户签署时根据用户姓名一键生成一个签名来进行签署）
+如：{“ComponentTypeLimit”: [“SYSTEM_ESIGN”]}
+
+ComponentType为SIGN_DATE时，支持以下参数：
+1 Font：字符串类型目前只支持"黑体"、"宋体"，如果不填默认为"黑体"
+2 FontSize： 数字类型，范围6-72，默认值为12
+3 FontAlign： 字符串类型，可取Left/Right/Center，对应左对齐/居中/右对齐
+4 Format： 字符串类型，日期格式，必须是以下五种之一 “yyyy m d”，”yyyy年m月d日”，”yyyy/m/d”，”yyyy-m-d”，”yyyy.m.d”。
+5 Gaps:： 字符串类型，仅在Format为“yyyy m d”时起作用，格式为用逗号分开的两个整数，例如”2,2”，两个数字分别是日期格式的前后两个空隙中的空格个数
+如果extra参数为空，默认为”yyyy年m月d日”格式的居中日期
+特别地，如果extra中Format字段为空或无法被识别，则extra参数会被当作默认值处理（Font，FontSize，Gaps和FontAlign都不会起效）
+参数样例：    "ComponentExtra": "{\"Format\":“yyyy m d”,\"FontSize\":12,\"Gaps\":\"2,2\", \"FontAlign\":\"Right\"}"
+
+ComponentType为SIGN_SEAL类型时，支持以下参数：
+1.PageRanges：PageRange的数组，通过PageRanges属性设置该印章在PDF所有页面上盖章（适用于标书在所有页面盖章的情况）
+参数样例："ComponentExtra":"{\"PageRanges\":[{\"BeginPage\":1,\"EndPage\":-1}]}"
     */
     @SerializedName("ComponentExtra")
     @Expose
     private String ComponentExtra;
 
     /**
-    * 是否是表单域类型，默认不存在
+    * 是否是表单域类型，默认false-不是
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsFormType")
     @Expose
@@ -157,6 +176,72 @@ DYNAMIC_TABLE - 传入json格式的表格内容，具体见数据结构FlowInfo�
 DATE - 默认是格式化为xxxx年xx月xx日
 SIGN_SEAL - 印章ID，于控制台查询获取
 SIGN_PAGING_SEAL - 可以指定印章ID，于控制台查询获取
+
+控件值约束说明：
+企业全称控件：
+  约束：企业名称中文字符中文括号
+  检查正则表达式：/^[\u3400-\u4dbf\u4e00-\u9fa5（）]+$/
+
+统一社会信用代码控件：
+  检查正则表达式：/^[A-Z0-9]{1,18}$/
+
+法人名称控件：
+  约束：最大50个字符，2到25个汉字或者1到50个字母
+  检查正则表达式：/^([\u3400-\u4dbf\u4e00-\u9fa5.·]{2,25}|[a-zA-Z·,\s-]{1,50})$/
+
+签署意见控件：
+  约束：签署意见最大长度为50字符
+
+签署人手机号控件：
+  约束：国内手机号 13,14,15,16,17,18,19号段长度11位
+
+签署人身份证控件：
+  约束：合法的身份证号码检查
+
+控件名称：
+  约束：控件名称最大长度为20字符
+
+单行文本控件：
+  约束：只允许输入中文，英文，数字，中英文标点符号
+
+多行文本控件：
+  约束：只允许输入中文，英文，数字，中英文标点符号
+
+勾选框控件：
+  约束：选择填字符串true，不选填字符串false
+
+选择器控件：
+  约束：同单行文本控件约束，填写选择值中的字符串
+
+数字控件：
+  约束：请输入有效的数字(可带小数点) 
+  检查正则表达式：/^(-|\+)?\d+(\.\d+)?$/
+
+日期控件：
+  约束：格式：yyyy年mm月dd日
+
+附件控件：
+  约束：JPG或PNG图片，上传数量限制，1到6个，最大6个附件
+
+图片控件：
+  约束：JPG或PNG图片，填写上传的图片资源ID
+
+邮箱控件：
+  约束：请输入有效的邮箱地址, w3c标准
+  检查正则表达式：/^([A-Za-z0-9_\-.!#$%&])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/
+  参考：https://emailregex.com/
+
+地址控件：
+  同单行文本控件约束
+
+省市区控件：
+  同单行文本控件约束
+
+性别控件：
+  同单行文本控件约束，填写选择值中的字符串
+
+学历控件：
+  同单行文本控件约束，填写选择值中的字符串
     */
     @SerializedName("ComponentValue")
     @Expose
@@ -179,7 +264,7 @@ KEYWORD 关键字，使用ComponentId指定关键字
     private Long ComponentDateFontSize;
 
     /**
-    * 渠道版控件 id 标识
+    * 第三方应用集成平台模板控件 ID 标识
     */
     @SerializedName("ChannelComponentId")
     @Expose
@@ -187,6 +272,7 @@ KEYWORD 关键字，使用ComponentId指定关键字
 
     /**
     * 指定关键字时横坐标偏移量，单位pt
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OffsetX")
     @Expose
@@ -194,20 +280,24 @@ KEYWORD 关键字，使用ComponentId指定关键字
 
     /**
     * 指定关键字时纵坐标偏移量，单位pt
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OffsetY")
     @Expose
     private Float OffsetY;
 
     /**
-    * //渠道子客控件来源。0-渠道指定；1-用户自定义
+    * 第三方应用集成中子客企业控件来源。
+0-平台指定；
+1-用户自定义
     */
     @SerializedName("ChannelComponentSource")
     @Expose
     private Long ChannelComponentSource;
 
     /**
-    * 指定关键字排序规则，Positive-正序，Reverse-倒序。传入Positive时会根据关键字在PDF文件内的顺序进行排列。在指定KeywordIndexes时，0代表在PDF内查找内容时，查找到的第一个关键字。
+    * 指定关键字排序规则，Positive-正序，Reverse-倒序。
+传入Positive时会根据关键字在PDF文件内的顺序进行排列。在指定KeywordIndexes时，0代表在PDF内查找内容时，查找到的第一个关键字。
 传入Reverse时会根据关键字在PDF文件内的反序进行排列。在指定KeywordIndexes时，0代表在PDF内查找内容时，查找到的最后一个关键字。
     */
     @SerializedName("KeywordOrder")
@@ -215,65 +305,94 @@ KEYWORD 关键字，使用ComponentId指定关键字
     private String KeywordOrder;
 
     /**
-    * 指定关键字页码，可选参数，指定页码后，将只在指定的页码内查找关键字，非该页码的关键字将不会查询出来
+    * 指定关键字页码。
+指定页码后，将只在指定的页码内查找关键字，非该页码的关键字将不会查询出来
     */
     @SerializedName("KeywordPage")
     @Expose
     private Long KeywordPage;
 
     /**
-    * 关键字位置模式，Middle-居中，Below-正下方，Right-正右方，LowerRight-右上角，UpperRight-右下角。示例：如果设置Middle的关键字盖章，则印章的中心会和关键字的中心重合，如果设置Below，则印章在关键字的正下方
+    * 关键字位置模式，
+Middle-居中，
+Below-正下方，
+Right-正右方，
+LowerRight-右上角，
+UpperRight-右下角。
+示例：如果设置Middle的关键字盖章，则印章的中心会和关键字的中心重合，如果设置Below，则印章在关键字的正下方
     */
     @SerializedName("RelativeLocation")
     @Expose
     private String RelativeLocation;
 
     /**
-    * 关键字索引，可选参数，如果一个关键字在PDF文件中存在多个，可以通过关键字索引指定使用第几个关键字作为最后的结果，可指定多个索引。示例：[0,2]，说明使用PDF文件内第1个和第3个关键字位置。
+    * 关键字索引。
+如果一个关键字在PDF文件中存在多个，可以通过关键字索引指定使用第几个关键字作为最后的结果，可指定多个索引。
+示例：[0,2]，说明使用PDF文件内第1个和第3个关键字位置。
     */
     @SerializedName("KeywordIndexes")
     @Expose
     private Long [] KeywordIndexes;
 
     /**
-     * Get 如果是Component控件类型，则可选的字段为：
-TEXT - 普通文本控件；
-MULTI_LINE_TEXT - 多行文本控件；
-CHECK_BOX - 勾选框控件；
-FILL_IMAGE - 图片控件；
-DYNAMIC_TABLE - 动态表格控件；
-ATTACHMENT - 附件控件；
-SELECTOR - 选择器控件；
-DATE - 日期控件；默认是格式化为xxxx年xx月xx日；
-DISTRICT - 省市区行政区划控件；
+    * 是否锁定控件值不允许编辑（嵌入式发起使用）
+<br/>默认false：不锁定控件值，允许在页面编辑控件值
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("LockComponentValue")
+    @Expose
+    private Boolean LockComponentValue;
 
-如果是SignComponent控件类型，则可选的字段为
+    /**
+    * 是否禁止移动和删除控件
+<br/>默认false，不禁止移动和删除控件
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ForbidMoveAndDelete")
+    @Expose
+    private Boolean ForbidMoveAndDelete;
+
+    /**
+     * Get 如果是Component填写控件类型，则可选的字段为：
+TEXT - 普通文本控件，输入文本字符串；
+MULTI_LINE_TEXT - 多行文本控件，输入文本字符串；
+CHECK_BOX - 勾选框控件，若选中填写ComponentValue 填写 true或者 false 字符串；
+FILL_IMAGE - 图片控件，ComponentValue 填写图片的资源 ID；
+DYNAMIC_TABLE - 动态表格控件；
+ATTACHMENT - 附件控件,ComponentValue 填写附件图片的资源 ID列表，以逗号分隔；
+SELECTOR - 选择器控件，ComponentValue填写选择的字符串内容；
+DATE - 日期控件；默认是格式化为xxxx年xx月xx日字符串；
+DISTRICT - 省市区行政区控件，ComponentValue填写省市区行政区字符串内容；
+
+如果是SignComponent签署控件类型，则可选的字段为
 SIGN_SEAL - 签署印章控件；
 SIGN_DATE - 签署日期控件；
 SIGN_SIGNATURE - 用户签名控件；
 SIGN_PERSONAL_SEAL - 个人签署印章控件（使用文件发起暂不支持此类型）；
 SIGN_PAGING_SEAL - 骑缝章；若文件发起，需要对应填充ComponentPosY、ComponentWidth、ComponentHeight
-SIGN_OPINION - 签署意见控件，用户需要根据配置的签署意见内容，完成对意见内容的确认
+SIGN_OPINION - 签署意见控件，用户需要根据配置的签署意见内容，完成对意见内容的确认；
+SIGN_LEGAL_PERSON_SEAL - 企业法定代表人控件。
 
 表单域的控件不能作为印章和签名控件 
-     * @return ComponentType 如果是Component控件类型，则可选的字段为：
-TEXT - 普通文本控件；
-MULTI_LINE_TEXT - 多行文本控件；
-CHECK_BOX - 勾选框控件；
-FILL_IMAGE - 图片控件；
+     * @return ComponentType 如果是Component填写控件类型，则可选的字段为：
+TEXT - 普通文本控件，输入文本字符串；
+MULTI_LINE_TEXT - 多行文本控件，输入文本字符串；
+CHECK_BOX - 勾选框控件，若选中填写ComponentValue 填写 true或者 false 字符串；
+FILL_IMAGE - 图片控件，ComponentValue 填写图片的资源 ID；
 DYNAMIC_TABLE - 动态表格控件；
-ATTACHMENT - 附件控件；
-SELECTOR - 选择器控件；
-DATE - 日期控件；默认是格式化为xxxx年xx月xx日；
-DISTRICT - 省市区行政区划控件；
+ATTACHMENT - 附件控件,ComponentValue 填写附件图片的资源 ID列表，以逗号分隔；
+SELECTOR - 选择器控件，ComponentValue填写选择的字符串内容；
+DATE - 日期控件；默认是格式化为xxxx年xx月xx日字符串；
+DISTRICT - 省市区行政区控件，ComponentValue填写省市区行政区字符串内容；
 
-如果是SignComponent控件类型，则可选的字段为
+如果是SignComponent签署控件类型，则可选的字段为
 SIGN_SEAL - 签署印章控件；
 SIGN_DATE - 签署日期控件；
 SIGN_SIGNATURE - 用户签名控件；
 SIGN_PERSONAL_SEAL - 个人签署印章控件（使用文件发起暂不支持此类型）；
 SIGN_PAGING_SEAL - 骑缝章；若文件发起，需要对应填充ComponentPosY、ComponentWidth、ComponentHeight
-SIGN_OPINION - 签署意见控件，用户需要根据配置的签署意见内容，完成对意见内容的确认
+SIGN_OPINION - 签署意见控件，用户需要根据配置的签署意见内容，完成对意见内容的确认；
+SIGN_LEGAL_PERSON_SEAL - 企业法定代表人控件。
 
 表单域的控件不能作为印章和签名控件
      */
@@ -282,44 +401,46 @@ SIGN_OPINION - 签署意见控件，用户需要根据配置的签署意见内�
     }
 
     /**
-     * Set 如果是Component控件类型，则可选的字段为：
-TEXT - 普通文本控件；
-MULTI_LINE_TEXT - 多行文本控件；
-CHECK_BOX - 勾选框控件；
-FILL_IMAGE - 图片控件；
+     * Set 如果是Component填写控件类型，则可选的字段为：
+TEXT - 普通文本控件，输入文本字符串；
+MULTI_LINE_TEXT - 多行文本控件，输入文本字符串；
+CHECK_BOX - 勾选框控件，若选中填写ComponentValue 填写 true或者 false 字符串；
+FILL_IMAGE - 图片控件，ComponentValue 填写图片的资源 ID；
 DYNAMIC_TABLE - 动态表格控件；
-ATTACHMENT - 附件控件；
-SELECTOR - 选择器控件；
-DATE - 日期控件；默认是格式化为xxxx年xx月xx日；
-DISTRICT - 省市区行政区划控件；
+ATTACHMENT - 附件控件,ComponentValue 填写附件图片的资源 ID列表，以逗号分隔；
+SELECTOR - 选择器控件，ComponentValue填写选择的字符串内容；
+DATE - 日期控件；默认是格式化为xxxx年xx月xx日字符串；
+DISTRICT - 省市区行政区控件，ComponentValue填写省市区行政区字符串内容；
 
-如果是SignComponent控件类型，则可选的字段为
+如果是SignComponent签署控件类型，则可选的字段为
 SIGN_SEAL - 签署印章控件；
 SIGN_DATE - 签署日期控件；
 SIGN_SIGNATURE - 用户签名控件；
 SIGN_PERSONAL_SEAL - 个人签署印章控件（使用文件发起暂不支持此类型）；
 SIGN_PAGING_SEAL - 骑缝章；若文件发起，需要对应填充ComponentPosY、ComponentWidth、ComponentHeight
-SIGN_OPINION - 签署意见控件，用户需要根据配置的签署意见内容，完成对意见内容的确认
+SIGN_OPINION - 签署意见控件，用户需要根据配置的签署意见内容，完成对意见内容的确认；
+SIGN_LEGAL_PERSON_SEAL - 企业法定代表人控件。
 
 表单域的控件不能作为印章和签名控件
-     * @param ComponentType 如果是Component控件类型，则可选的字段为：
-TEXT - 普通文本控件；
-MULTI_LINE_TEXT - 多行文本控件；
-CHECK_BOX - 勾选框控件；
-FILL_IMAGE - 图片控件；
+     * @param ComponentType 如果是Component填写控件类型，则可选的字段为：
+TEXT - 普通文本控件，输入文本字符串；
+MULTI_LINE_TEXT - 多行文本控件，输入文本字符串；
+CHECK_BOX - 勾选框控件，若选中填写ComponentValue 填写 true或者 false 字符串；
+FILL_IMAGE - 图片控件，ComponentValue 填写图片的资源 ID；
 DYNAMIC_TABLE - 动态表格控件；
-ATTACHMENT - 附件控件；
-SELECTOR - 选择器控件；
-DATE - 日期控件；默认是格式化为xxxx年xx月xx日；
-DISTRICT - 省市区行政区划控件；
+ATTACHMENT - 附件控件,ComponentValue 填写附件图片的资源 ID列表，以逗号分隔；
+SELECTOR - 选择器控件，ComponentValue填写选择的字符串内容；
+DATE - 日期控件；默认是格式化为xxxx年xx月xx日字符串；
+DISTRICT - 省市区行政区控件，ComponentValue填写省市区行政区字符串内容；
 
-如果是SignComponent控件类型，则可选的字段为
+如果是SignComponent签署控件类型，则可选的字段为
 SIGN_SEAL - 签署印章控件；
 SIGN_DATE - 签署日期控件；
 SIGN_SIGNATURE - 用户签名控件；
 SIGN_PERSONAL_SEAL - 个人签署印章控件（使用文件发起暂不支持此类型）；
 SIGN_PAGING_SEAL - 骑缝章；若文件发起，需要对应填充ComponentPosY、ComponentWidth、ComponentHeight
-SIGN_OPINION - 签署意见控件，用户需要根据配置的签署意见内容，完成对意见内容的确认
+SIGN_OPINION - 签署意见控件，用户需要根据配置的签署意见内容，完成对意见内容的确认；
+SIGN_LEGAL_PERSON_SEAL - 企业法定代表人控件。
 
 表单域的控件不能作为印章和签名控件
      */
@@ -328,16 +449,20 @@ SIGN_OPINION - 签署意见控件，用户需要根据配置的签署意见内�
     }
 
     /**
-     * Get 控件所属文件的序号（模板中的resourceId排列序号，取值为：0-N） 
-     * @return FileIndex 控件所属文件的序号（模板中的resourceId排列序号，取值为：0-N）
+     * Get 控件所属文件的序号（取值为：0-N）。
+目前单文件的情况下，值是0 
+     * @return FileIndex 控件所属文件的序号（取值为：0-N）。
+目前单文件的情况下，值是0
      */
     public Long getFileIndex() {
         return this.FileIndex;
     }
 
     /**
-     * Set 控件所属文件的序号（模板中的resourceId排列序号，取值为：0-N）
-     * @param FileIndex 控件所属文件的序号（模板中的resourceId排列序号，取值为：0-N）
+     * Set 控件所属文件的序号（取值为：0-N）。
+目前单文件的情况下，值是0
+     * @param FileIndex 控件所属文件的序号（取值为：0-N）。
+目前单文件的情况下，值是0
      */
     public void setFileIndex(Long FileIndex) {
         this.FileIndex = FileIndex;
@@ -424,64 +549,72 @@ SIGN_OPINION - 签署意见控件，用户需要根据配置的签署意见内�
     }
 
     /**
-     * Get GenerateMode==KEYWORD 指定关键字 
-     * @return ComponentId GenerateMode==KEYWORD 指定关键字
+     * Get 控件唯一ID。
+或使用文件发起合同时用于GenerateMode==KEYWORD 指定关键字 
+     * @return ComponentId 控件唯一ID。
+或使用文件发起合同时用于GenerateMode==KEYWORD 指定关键字
      */
     public String getComponentId() {
         return this.ComponentId;
     }
 
     /**
-     * Set GenerateMode==KEYWORD 指定关键字
-     * @param ComponentId GenerateMode==KEYWORD 指定关键字
+     * Set 控件唯一ID。
+或使用文件发起合同时用于GenerateMode==KEYWORD 指定关键字
+     * @param ComponentId 控件唯一ID。
+或使用文件发起合同时用于GenerateMode==KEYWORD 指定关键字
      */
     public void setComponentId(String ComponentId) {
         this.ComponentId = ComponentId;
     }
 
     /**
-     * Get GenerateMode==FIELD 指定表单域名称 
-     * @return ComponentName GenerateMode==FIELD 指定表单域名称
+     * Get 控件名。
+或使用文件发起合同时用于GenerateMode==FIELD 指定表单域名称 
+     * @return ComponentName 控件名。
+或使用文件发起合同时用于GenerateMode==FIELD 指定表单域名称
      */
     public String getComponentName() {
         return this.ComponentName;
     }
 
     /**
-     * Set GenerateMode==FIELD 指定表单域名称
-     * @param ComponentName GenerateMode==FIELD 指定表单域名称
+     * Set 控件名。
+或使用文件发起合同时用于GenerateMode==FIELD 指定表单域名称
+     * @param ComponentName 控件名。
+或使用文件发起合同时用于GenerateMode==FIELD 指定表单域名称
      */
     public void setComponentName(String ComponentName) {
         this.ComponentName = ComponentName;
     }
 
     /**
-     * Get 是否必选，默认为false 
-     * @return ComponentRequired 是否必选，默认为false
+     * Get 是否必选，默认为false-非必选 
+     * @return ComponentRequired 是否必选，默认为false-非必选
      */
     public Boolean getComponentRequired() {
         return this.ComponentRequired;
     }
 
     /**
-     * Set 是否必选，默认为false
-     * @param ComponentRequired 是否必选，默认为false
+     * Set 是否必选，默认为false-非必选
+     * @param ComponentRequired 是否必选，默认为false-非必选
      */
     public void setComponentRequired(Boolean ComponentRequired) {
         this.ComponentRequired = ComponentRequired;
     }
 
     /**
-     * Get 控件关联的签署人ID 
-     * @return ComponentRecipientId 控件关联的签署人ID
+     * Get 控件关联的参与方ID，对应Recipient结构体中的RecipientId 
+     * @return ComponentRecipientId 控件关联的参与方ID，对应Recipient结构体中的RecipientId
      */
     public String getComponentRecipientId() {
         return this.ComponentRecipientId;
     }
 
     /**
-     * Set 控件关联的签署人ID
-     * @param ComponentRecipientId 控件关联的签署人ID
+     * Set 控件关联的参与方ID，对应Recipient结构体中的RecipientId
+     * @param ComponentRecipientId 控件关联的参与方ID，对应Recipient结构体中的RecipientId
      */
     public void setComponentRecipientId(String ComponentRecipientId) {
         this.ComponentRecipientId = ComponentRecipientId;
@@ -499,10 +632,24 @@ ComponentType为SIGN_SIGNATURE类型可以控制签署方式
 {“ComponentTypeLimit”: [“xxx”]}
 xxx可以为：
 HANDWRITE – 手写签名
-BORDERLESS_ESIGN – 自动生成无边框腾讯体
 OCR_ESIGN -- AI智能识别手写签名
 ESIGN -- 个人印章类型
-如：{“ComponentTypeLimit”: [“BORDERLESS_ESIGN”]} 
+SYSTEM_ESIGN -- 系统签名（该类型可以在用户签署时根据用户姓名一键生成一个签名来进行签署）
+如：{“ComponentTypeLimit”: [“SYSTEM_ESIGN”]}
+
+ComponentType为SIGN_DATE时，支持以下参数：
+1 Font：字符串类型目前只支持"黑体"、"宋体"，如果不填默认为"黑体"
+2 FontSize： 数字类型，范围6-72，默认值为12
+3 FontAlign： 字符串类型，可取Left/Right/Center，对应左对齐/居中/右对齐
+4 Format： 字符串类型，日期格式，必须是以下五种之一 “yyyy m d”，”yyyy年m月d日”，”yyyy/m/d”，”yyyy-m-d”，”yyyy.m.d”。
+5 Gaps:： 字符串类型，仅在Format为“yyyy m d”时起作用，格式为用逗号分开的两个整数，例如”2,2”，两个数字分别是日期格式的前后两个空隙中的空格个数
+如果extra参数为空，默认为”yyyy年m月d日”格式的居中日期
+特别地，如果extra中Format字段为空或无法被识别，则extra参数会被当作默认值处理（Font，FontSize，Gaps和FontAlign都不会起效）
+参数样例：    "ComponentExtra": "{\"Format\":“yyyy m d”,\"FontSize\":12,\"Gaps\":\"2,2\", \"FontAlign\":\"Right\"}"
+
+ComponentType为SIGN_SEAL类型时，支持以下参数：
+1.PageRanges：PageRange的数组，通过PageRanges属性设置该印章在PDF所有页面上盖章（适用于标书在所有页面盖章的情况）
+参数样例："ComponentExtra":"{\"PageRanges\":[{\"BeginPage\":1,\"EndPage\":-1}]}" 
      * @return ComponentExtra 扩展参数：
 为JSON格式。
 
@@ -514,10 +661,24 @@ ComponentType为SIGN_SIGNATURE类型可以控制签署方式
 {“ComponentTypeLimit”: [“xxx”]}
 xxx可以为：
 HANDWRITE – 手写签名
-BORDERLESS_ESIGN – 自动生成无边框腾讯体
 OCR_ESIGN -- AI智能识别手写签名
 ESIGN -- 个人印章类型
-如：{“ComponentTypeLimit”: [“BORDERLESS_ESIGN”]}
+SYSTEM_ESIGN -- 系统签名（该类型可以在用户签署时根据用户姓名一键生成一个签名来进行签署）
+如：{“ComponentTypeLimit”: [“SYSTEM_ESIGN”]}
+
+ComponentType为SIGN_DATE时，支持以下参数：
+1 Font：字符串类型目前只支持"黑体"、"宋体"，如果不填默认为"黑体"
+2 FontSize： 数字类型，范围6-72，默认值为12
+3 FontAlign： 字符串类型，可取Left/Right/Center，对应左对齐/居中/右对齐
+4 Format： 字符串类型，日期格式，必须是以下五种之一 “yyyy m d”，”yyyy年m月d日”，”yyyy/m/d”，”yyyy-m-d”，”yyyy.m.d”。
+5 Gaps:： 字符串类型，仅在Format为“yyyy m d”时起作用，格式为用逗号分开的两个整数，例如”2,2”，两个数字分别是日期格式的前后两个空隙中的空格个数
+如果extra参数为空，默认为”yyyy年m月d日”格式的居中日期
+特别地，如果extra中Format字段为空或无法被识别，则extra参数会被当作默认值处理（Font，FontSize，Gaps和FontAlign都不会起效）
+参数样例：    "ComponentExtra": "{\"Format\":“yyyy m d”,\"FontSize\":12,\"Gaps\":\"2,2\", \"FontAlign\":\"Right\"}"
+
+ComponentType为SIGN_SEAL类型时，支持以下参数：
+1.PageRanges：PageRange的数组，通过PageRanges属性设置该印章在PDF所有页面上盖章（适用于标书在所有页面盖章的情况）
+参数样例："ComponentExtra":"{\"PageRanges\":[{\"BeginPage\":1,\"EndPage\":-1}]}"
      */
     public String getComponentExtra() {
         return this.ComponentExtra;
@@ -535,10 +696,24 @@ ComponentType为SIGN_SIGNATURE类型可以控制签署方式
 {“ComponentTypeLimit”: [“xxx”]}
 xxx可以为：
 HANDWRITE – 手写签名
-BORDERLESS_ESIGN – 自动生成无边框腾讯体
 OCR_ESIGN -- AI智能识别手写签名
 ESIGN -- 个人印章类型
-如：{“ComponentTypeLimit”: [“BORDERLESS_ESIGN”]}
+SYSTEM_ESIGN -- 系统签名（该类型可以在用户签署时根据用户姓名一键生成一个签名来进行签署）
+如：{“ComponentTypeLimit”: [“SYSTEM_ESIGN”]}
+
+ComponentType为SIGN_DATE时，支持以下参数：
+1 Font：字符串类型目前只支持"黑体"、"宋体"，如果不填默认为"黑体"
+2 FontSize： 数字类型，范围6-72，默认值为12
+3 FontAlign： 字符串类型，可取Left/Right/Center，对应左对齐/居中/右对齐
+4 Format： 字符串类型，日期格式，必须是以下五种之一 “yyyy m d”，”yyyy年m月d日”，”yyyy/m/d”，”yyyy-m-d”，”yyyy.m.d”。
+5 Gaps:： 字符串类型，仅在Format为“yyyy m d”时起作用，格式为用逗号分开的两个整数，例如”2,2”，两个数字分别是日期格式的前后两个空隙中的空格个数
+如果extra参数为空，默认为”yyyy年m月d日”格式的居中日期
+特别地，如果extra中Format字段为空或无法被识别，则extra参数会被当作默认值处理（Font，FontSize，Gaps和FontAlign都不会起效）
+参数样例：    "ComponentExtra": "{\"Format\":“yyyy m d”,\"FontSize\":12,\"Gaps\":\"2,2\", \"FontAlign\":\"Right\"}"
+
+ComponentType为SIGN_SEAL类型时，支持以下参数：
+1.PageRanges：PageRange的数组，通过PageRanges属性设置该印章在PDF所有页面上盖章（适用于标书在所有页面盖章的情况）
+参数样例："ComponentExtra":"{\"PageRanges\":[{\"BeginPage\":1,\"EndPage\":-1}]}"
      * @param ComponentExtra 扩展参数：
 为JSON格式。
 
@@ -550,26 +725,44 @@ ComponentType为SIGN_SIGNATURE类型可以控制签署方式
 {“ComponentTypeLimit”: [“xxx”]}
 xxx可以为：
 HANDWRITE – 手写签名
-BORDERLESS_ESIGN – 自动生成无边框腾讯体
 OCR_ESIGN -- AI智能识别手写签名
 ESIGN -- 个人印章类型
-如：{“ComponentTypeLimit”: [“BORDERLESS_ESIGN”]}
+SYSTEM_ESIGN -- 系统签名（该类型可以在用户签署时根据用户姓名一键生成一个签名来进行签署）
+如：{“ComponentTypeLimit”: [“SYSTEM_ESIGN”]}
+
+ComponentType为SIGN_DATE时，支持以下参数：
+1 Font：字符串类型目前只支持"黑体"、"宋体"，如果不填默认为"黑体"
+2 FontSize： 数字类型，范围6-72，默认值为12
+3 FontAlign： 字符串类型，可取Left/Right/Center，对应左对齐/居中/右对齐
+4 Format： 字符串类型，日期格式，必须是以下五种之一 “yyyy m d”，”yyyy年m月d日”，”yyyy/m/d”，”yyyy-m-d”，”yyyy.m.d”。
+5 Gaps:： 字符串类型，仅在Format为“yyyy m d”时起作用，格式为用逗号分开的两个整数，例如”2,2”，两个数字分别是日期格式的前后两个空隙中的空格个数
+如果extra参数为空，默认为”yyyy年m月d日”格式的居中日期
+特别地，如果extra中Format字段为空或无法被识别，则extra参数会被当作默认值处理（Font，FontSize，Gaps和FontAlign都不会起效）
+参数样例：    "ComponentExtra": "{\"Format\":“yyyy m d”,\"FontSize\":12,\"Gaps\":\"2,2\", \"FontAlign\":\"Right\"}"
+
+ComponentType为SIGN_SEAL类型时，支持以下参数：
+1.PageRanges：PageRange的数组，通过PageRanges属性设置该印章在PDF所有页面上盖章（适用于标书在所有页面盖章的情况）
+参数样例："ComponentExtra":"{\"PageRanges\":[{\"BeginPage\":1,\"EndPage\":-1}]}"
      */
     public void setComponentExtra(String ComponentExtra) {
         this.ComponentExtra = ComponentExtra;
     }
 
     /**
-     * Get 是否是表单域类型，默认不存在 
-     * @return IsFormType 是否是表单域类型，默认不存在
+     * Get 是否是表单域类型，默认false-不是
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IsFormType 是否是表单域类型，默认false-不是
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsFormType() {
         return this.IsFormType;
     }
 
     /**
-     * Set 是否是表单域类型，默认不存在
-     * @param IsFormType 是否是表单域类型，默认不存在
+     * Set 是否是表单域类型，默认false-不是
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IsFormType 是否是表单域类型，默认false-不是
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsFormType(Boolean IsFormType) {
         this.IsFormType = IsFormType;
@@ -585,7 +778,73 @@ SELECTOR - 选项值
 DYNAMIC_TABLE - 传入json格式的表格内容，具体见数据结构FlowInfo：https://cloud.tencent.com/document/api/1420/61525#FlowInfo
 DATE - 默认是格式化为xxxx年xx月xx日
 SIGN_SEAL - 印章ID，于控制台查询获取
-SIGN_PAGING_SEAL - 可以指定印章ID，于控制台查询获取 
+SIGN_PAGING_SEAL - 可以指定印章ID，于控制台查询获取
+
+控件值约束说明：
+企业全称控件：
+  约束：企业名称中文字符中文括号
+  检查正则表达式：/^[\u3400-\u4dbf\u4e00-\u9fa5（）]+$/
+
+统一社会信用代码控件：
+  检查正则表达式：/^[A-Z0-9]{1,18}$/
+
+法人名称控件：
+  约束：最大50个字符，2到25个汉字或者1到50个字母
+  检查正则表达式：/^([\u3400-\u4dbf\u4e00-\u9fa5.·]{2,25}|[a-zA-Z·,\s-]{1,50})$/
+
+签署意见控件：
+  约束：签署意见最大长度为50字符
+
+签署人手机号控件：
+  约束：国内手机号 13,14,15,16,17,18,19号段长度11位
+
+签署人身份证控件：
+  约束：合法的身份证号码检查
+
+控件名称：
+  约束：控件名称最大长度为20字符
+
+单行文本控件：
+  约束：只允许输入中文，英文，数字，中英文标点符号
+
+多行文本控件：
+  约束：只允许输入中文，英文，数字，中英文标点符号
+
+勾选框控件：
+  约束：选择填字符串true，不选填字符串false
+
+选择器控件：
+  约束：同单行文本控件约束，填写选择值中的字符串
+
+数字控件：
+  约束：请输入有效的数字(可带小数点) 
+  检查正则表达式：/^(-|\+)?\d+(\.\d+)?$/
+
+日期控件：
+  约束：格式：yyyy年mm月dd日
+
+附件控件：
+  约束：JPG或PNG图片，上传数量限制，1到6个，最大6个附件
+
+图片控件：
+  约束：JPG或PNG图片，填写上传的图片资源ID
+
+邮箱控件：
+  约束：请输入有效的邮箱地址, w3c标准
+  检查正则表达式：/^([A-Za-z0-9_\-.!#$%&])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/
+  参考：https://emailregex.com/
+
+地址控件：
+  同单行文本控件约束
+
+省市区控件：
+  同单行文本控件约束
+
+性别控件：
+  同单行文本控件约束，填写选择值中的字符串
+
+学历控件：
+  同单行文本控件约束，填写选择值中的字符串 
      * @return ComponentValue 控件填充vaule，ComponentType和传入值类型对应关系：
 TEXT - 文本内容
 MULTI_LINE_TEXT - 文本内容
@@ -596,6 +855,72 @@ DYNAMIC_TABLE - 传入json格式的表格内容，具体见数据结构FlowInfo�
 DATE - 默认是格式化为xxxx年xx月xx日
 SIGN_SEAL - 印章ID，于控制台查询获取
 SIGN_PAGING_SEAL - 可以指定印章ID，于控制台查询获取
+
+控件值约束说明：
+企业全称控件：
+  约束：企业名称中文字符中文括号
+  检查正则表达式：/^[\u3400-\u4dbf\u4e00-\u9fa5（）]+$/
+
+统一社会信用代码控件：
+  检查正则表达式：/^[A-Z0-9]{1,18}$/
+
+法人名称控件：
+  约束：最大50个字符，2到25个汉字或者1到50个字母
+  检查正则表达式：/^([\u3400-\u4dbf\u4e00-\u9fa5.·]{2,25}|[a-zA-Z·,\s-]{1,50})$/
+
+签署意见控件：
+  约束：签署意见最大长度为50字符
+
+签署人手机号控件：
+  约束：国内手机号 13,14,15,16,17,18,19号段长度11位
+
+签署人身份证控件：
+  约束：合法的身份证号码检查
+
+控件名称：
+  约束：控件名称最大长度为20字符
+
+单行文本控件：
+  约束：只允许输入中文，英文，数字，中英文标点符号
+
+多行文本控件：
+  约束：只允许输入中文，英文，数字，中英文标点符号
+
+勾选框控件：
+  约束：选择填字符串true，不选填字符串false
+
+选择器控件：
+  约束：同单行文本控件约束，填写选择值中的字符串
+
+数字控件：
+  约束：请输入有效的数字(可带小数点) 
+  检查正则表达式：/^(-|\+)?\d+(\.\d+)?$/
+
+日期控件：
+  约束：格式：yyyy年mm月dd日
+
+附件控件：
+  约束：JPG或PNG图片，上传数量限制，1到6个，最大6个附件
+
+图片控件：
+  约束：JPG或PNG图片，填写上传的图片资源ID
+
+邮箱控件：
+  约束：请输入有效的邮箱地址, w3c标准
+  检查正则表达式：/^([A-Za-z0-9_\-.!#$%&])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/
+  参考：https://emailregex.com/
+
+地址控件：
+  同单行文本控件约束
+
+省市区控件：
+  同单行文本控件约束
+
+性别控件：
+  同单行文本控件约束，填写选择值中的字符串
+
+学历控件：
+  同单行文本控件约束，填写选择值中的字符串
      */
     public String getComponentValue() {
         return this.ComponentValue;
@@ -612,6 +937,72 @@ DYNAMIC_TABLE - 传入json格式的表格内容，具体见数据结构FlowInfo�
 DATE - 默认是格式化为xxxx年xx月xx日
 SIGN_SEAL - 印章ID，于控制台查询获取
 SIGN_PAGING_SEAL - 可以指定印章ID，于控制台查询获取
+
+控件值约束说明：
+企业全称控件：
+  约束：企业名称中文字符中文括号
+  检查正则表达式：/^[\u3400-\u4dbf\u4e00-\u9fa5（）]+$/
+
+统一社会信用代码控件：
+  检查正则表达式：/^[A-Z0-9]{1,18}$/
+
+法人名称控件：
+  约束：最大50个字符，2到25个汉字或者1到50个字母
+  检查正则表达式：/^([\u3400-\u4dbf\u4e00-\u9fa5.·]{2,25}|[a-zA-Z·,\s-]{1,50})$/
+
+签署意见控件：
+  约束：签署意见最大长度为50字符
+
+签署人手机号控件：
+  约束：国内手机号 13,14,15,16,17,18,19号段长度11位
+
+签署人身份证控件：
+  约束：合法的身份证号码检查
+
+控件名称：
+  约束：控件名称最大长度为20字符
+
+单行文本控件：
+  约束：只允许输入中文，英文，数字，中英文标点符号
+
+多行文本控件：
+  约束：只允许输入中文，英文，数字，中英文标点符号
+
+勾选框控件：
+  约束：选择填字符串true，不选填字符串false
+
+选择器控件：
+  约束：同单行文本控件约束，填写选择值中的字符串
+
+数字控件：
+  约束：请输入有效的数字(可带小数点) 
+  检查正则表达式：/^(-|\+)?\d+(\.\d+)?$/
+
+日期控件：
+  约束：格式：yyyy年mm月dd日
+
+附件控件：
+  约束：JPG或PNG图片，上传数量限制，1到6个，最大6个附件
+
+图片控件：
+  约束：JPG或PNG图片，填写上传的图片资源ID
+
+邮箱控件：
+  约束：请输入有效的邮箱地址, w3c标准
+  检查正则表达式：/^([A-Za-z0-9_\-.!#$%&])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/
+  参考：https://emailregex.com/
+
+地址控件：
+  同单行文本控件约束
+
+省市区控件：
+  同单行文本控件约束
+
+性别控件：
+  同单行文本控件约束，填写选择值中的字符串
+
+学历控件：
+  同单行文本控件约束，填写选择值中的字符串
      * @param ComponentValue 控件填充vaule，ComponentType和传入值类型对应关系：
 TEXT - 文本内容
 MULTI_LINE_TEXT - 文本内容
@@ -622,6 +1013,72 @@ DYNAMIC_TABLE - 传入json格式的表格内容，具体见数据结构FlowInfo�
 DATE - 默认是格式化为xxxx年xx月xx日
 SIGN_SEAL - 印章ID，于控制台查询获取
 SIGN_PAGING_SEAL - 可以指定印章ID，于控制台查询获取
+
+控件值约束说明：
+企业全称控件：
+  约束：企业名称中文字符中文括号
+  检查正则表达式：/^[\u3400-\u4dbf\u4e00-\u9fa5（）]+$/
+
+统一社会信用代码控件：
+  检查正则表达式：/^[A-Z0-9]{1,18}$/
+
+法人名称控件：
+  约束：最大50个字符，2到25个汉字或者1到50个字母
+  检查正则表达式：/^([\u3400-\u4dbf\u4e00-\u9fa5.·]{2,25}|[a-zA-Z·,\s-]{1,50})$/
+
+签署意见控件：
+  约束：签署意见最大长度为50字符
+
+签署人手机号控件：
+  约束：国内手机号 13,14,15,16,17,18,19号段长度11位
+
+签署人身份证控件：
+  约束：合法的身份证号码检查
+
+控件名称：
+  约束：控件名称最大长度为20字符
+
+单行文本控件：
+  约束：只允许输入中文，英文，数字，中英文标点符号
+
+多行文本控件：
+  约束：只允许输入中文，英文，数字，中英文标点符号
+
+勾选框控件：
+  约束：选择填字符串true，不选填字符串false
+
+选择器控件：
+  约束：同单行文本控件约束，填写选择值中的字符串
+
+数字控件：
+  约束：请输入有效的数字(可带小数点) 
+  检查正则表达式：/^(-|\+)?\d+(\.\d+)?$/
+
+日期控件：
+  约束：格式：yyyy年mm月dd日
+
+附件控件：
+  约束：JPG或PNG图片，上传数量限制，1到6个，最大6个附件
+
+图片控件：
+  约束：JPG或PNG图片，填写上传的图片资源ID
+
+邮箱控件：
+  约束：请输入有效的邮箱地址, w3c标准
+  检查正则表达式：/^([A-Za-z0-9_\-.!#$%&])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/
+  参考：https://emailregex.com/
+
+地址控件：
+  同单行文本控件约束
+
+省市区控件：
+  同单行文本控件约束
+
+性别控件：
+  同单行文本控件约束，填写选择值中的字符串
+
+学历控件：
+  同单行文本控件约束，填写选择值中的字符串
      */
     public void setComponentValue(String ComponentValue) {
         this.ComponentValue = ComponentValue;
@@ -668,24 +1125,26 @@ KEYWORD 关键字，使用ComponentId指定关键字
     }
 
     /**
-     * Get 渠道版控件 id 标识 
-     * @return ChannelComponentId 渠道版控件 id 标识
+     * Get 第三方应用集成平台模板控件 ID 标识 
+     * @return ChannelComponentId 第三方应用集成平台模板控件 ID 标识
      */
     public String getChannelComponentId() {
         return this.ChannelComponentId;
     }
 
     /**
-     * Set 渠道版控件 id 标识
-     * @param ChannelComponentId 渠道版控件 id 标识
+     * Set 第三方应用集成平台模板控件 ID 标识
+     * @param ChannelComponentId 第三方应用集成平台模板控件 ID 标识
      */
     public void setChannelComponentId(String ChannelComponentId) {
         this.ChannelComponentId = ChannelComponentId;
     }
 
     /**
-     * Get 指定关键字时横坐标偏移量，单位pt 
+     * Get 指定关键字时横坐标偏移量，单位pt
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return OffsetX 指定关键字时横坐标偏移量，单位pt
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getOffsetX() {
         return this.OffsetX;
@@ -693,15 +1152,19 @@ KEYWORD 关键字，使用ComponentId指定关键字
 
     /**
      * Set 指定关键字时横坐标偏移量，单位pt
+注意：此字段可能返回 null，表示取不到有效值。
      * @param OffsetX 指定关键字时横坐标偏移量，单位pt
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOffsetX(Float OffsetX) {
         this.OffsetX = OffsetX;
     }
 
     /**
-     * Get 指定关键字时纵坐标偏移量，单位pt 
+     * Get 指定关键字时纵坐标偏移量，单位pt
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return OffsetY 指定关键字时纵坐标偏移量，单位pt
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getOffsetY() {
         return this.OffsetY;
@@ -709,32 +1172,44 @@ KEYWORD 关键字，使用ComponentId指定关键字
 
     /**
      * Set 指定关键字时纵坐标偏移量，单位pt
+注意：此字段可能返回 null，表示取不到有效值。
      * @param OffsetY 指定关键字时纵坐标偏移量，单位pt
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOffsetY(Float OffsetY) {
         this.OffsetY = OffsetY;
     }
 
     /**
-     * Get //渠道子客控件来源。0-渠道指定；1-用户自定义 
-     * @return ChannelComponentSource //渠道子客控件来源。0-渠道指定；1-用户自定义
+     * Get 第三方应用集成中子客企业控件来源。
+0-平台指定；
+1-用户自定义 
+     * @return ChannelComponentSource 第三方应用集成中子客企业控件来源。
+0-平台指定；
+1-用户自定义
      */
     public Long getChannelComponentSource() {
         return this.ChannelComponentSource;
     }
 
     /**
-     * Set //渠道子客控件来源。0-渠道指定；1-用户自定义
-     * @param ChannelComponentSource //渠道子客控件来源。0-渠道指定；1-用户自定义
+     * Set 第三方应用集成中子客企业控件来源。
+0-平台指定；
+1-用户自定义
+     * @param ChannelComponentSource 第三方应用集成中子客企业控件来源。
+0-平台指定；
+1-用户自定义
      */
     public void setChannelComponentSource(Long ChannelComponentSource) {
         this.ChannelComponentSource = ChannelComponentSource;
     }
 
     /**
-     * Get 指定关键字排序规则，Positive-正序，Reverse-倒序。传入Positive时会根据关键字在PDF文件内的顺序进行排列。在指定KeywordIndexes时，0代表在PDF内查找内容时，查找到的第一个关键字。
+     * Get 指定关键字排序规则，Positive-正序，Reverse-倒序。
+传入Positive时会根据关键字在PDF文件内的顺序进行排列。在指定KeywordIndexes时，0代表在PDF内查找内容时，查找到的第一个关键字。
 传入Reverse时会根据关键字在PDF文件内的反序进行排列。在指定KeywordIndexes时，0代表在PDF内查找内容时，查找到的最后一个关键字。 
-     * @return KeywordOrder 指定关键字排序规则，Positive-正序，Reverse-倒序。传入Positive时会根据关键字在PDF文件内的顺序进行排列。在指定KeywordIndexes时，0代表在PDF内查找内容时，查找到的第一个关键字。
+     * @return KeywordOrder 指定关键字排序规则，Positive-正序，Reverse-倒序。
+传入Positive时会根据关键字在PDF文件内的顺序进行排列。在指定KeywordIndexes时，0代表在PDF内查找内容时，查找到的第一个关键字。
 传入Reverse时会根据关键字在PDF文件内的反序进行排列。在指定KeywordIndexes时，0代表在PDF内查找内容时，查找到的最后一个关键字。
      */
     public String getKeywordOrder() {
@@ -742,9 +1217,11 @@ KEYWORD 关键字，使用ComponentId指定关键字
     }
 
     /**
-     * Set 指定关键字排序规则，Positive-正序，Reverse-倒序。传入Positive时会根据关键字在PDF文件内的顺序进行排列。在指定KeywordIndexes时，0代表在PDF内查找内容时，查找到的第一个关键字。
+     * Set 指定关键字排序规则，Positive-正序，Reverse-倒序。
+传入Positive时会根据关键字在PDF文件内的顺序进行排列。在指定KeywordIndexes时，0代表在PDF内查找内容时，查找到的第一个关键字。
 传入Reverse时会根据关键字在PDF文件内的反序进行排列。在指定KeywordIndexes时，0代表在PDF内查找内容时，查找到的最后一个关键字。
-     * @param KeywordOrder 指定关键字排序规则，Positive-正序，Reverse-倒序。传入Positive时会根据关键字在PDF文件内的顺序进行排列。在指定KeywordIndexes时，0代表在PDF内查找内容时，查找到的第一个关键字。
+     * @param KeywordOrder 指定关键字排序规则，Positive-正序，Reverse-倒序。
+传入Positive时会根据关键字在PDF文件内的顺序进行排列。在指定KeywordIndexes时，0代表在PDF内查找内容时，查找到的第一个关键字。
 传入Reverse时会根据关键字在PDF文件内的反序进行排列。在指定KeywordIndexes时，0代表在PDF内查找内容时，查找到的最后一个关键字。
      */
     public void setKeywordOrder(String KeywordOrder) {
@@ -752,51 +1229,135 @@ KEYWORD 关键字，使用ComponentId指定关键字
     }
 
     /**
-     * Get 指定关键字页码，可选参数，指定页码后，将只在指定的页码内查找关键字，非该页码的关键字将不会查询出来 
-     * @return KeywordPage 指定关键字页码，可选参数，指定页码后，将只在指定的页码内查找关键字，非该页码的关键字将不会查询出来
+     * Get 指定关键字页码。
+指定页码后，将只在指定的页码内查找关键字，非该页码的关键字将不会查询出来 
+     * @return KeywordPage 指定关键字页码。
+指定页码后，将只在指定的页码内查找关键字，非该页码的关键字将不会查询出来
      */
     public Long getKeywordPage() {
         return this.KeywordPage;
     }
 
     /**
-     * Set 指定关键字页码，可选参数，指定页码后，将只在指定的页码内查找关键字，非该页码的关键字将不会查询出来
-     * @param KeywordPage 指定关键字页码，可选参数，指定页码后，将只在指定的页码内查找关键字，非该页码的关键字将不会查询出来
+     * Set 指定关键字页码。
+指定页码后，将只在指定的页码内查找关键字，非该页码的关键字将不会查询出来
+     * @param KeywordPage 指定关键字页码。
+指定页码后，将只在指定的页码内查找关键字，非该页码的关键字将不会查询出来
      */
     public void setKeywordPage(Long KeywordPage) {
         this.KeywordPage = KeywordPage;
     }
 
     /**
-     * Get 关键字位置模式，Middle-居中，Below-正下方，Right-正右方，LowerRight-右上角，UpperRight-右下角。示例：如果设置Middle的关键字盖章，则印章的中心会和关键字的中心重合，如果设置Below，则印章在关键字的正下方 
-     * @return RelativeLocation 关键字位置模式，Middle-居中，Below-正下方，Right-正右方，LowerRight-右上角，UpperRight-右下角。示例：如果设置Middle的关键字盖章，则印章的中心会和关键字的中心重合，如果设置Below，则印章在关键字的正下方
+     * Get 关键字位置模式，
+Middle-居中，
+Below-正下方，
+Right-正右方，
+LowerRight-右上角，
+UpperRight-右下角。
+示例：如果设置Middle的关键字盖章，则印章的中心会和关键字的中心重合，如果设置Below，则印章在关键字的正下方 
+     * @return RelativeLocation 关键字位置模式，
+Middle-居中，
+Below-正下方，
+Right-正右方，
+LowerRight-右上角，
+UpperRight-右下角。
+示例：如果设置Middle的关键字盖章，则印章的中心会和关键字的中心重合，如果设置Below，则印章在关键字的正下方
      */
     public String getRelativeLocation() {
         return this.RelativeLocation;
     }
 
     /**
-     * Set 关键字位置模式，Middle-居中，Below-正下方，Right-正右方，LowerRight-右上角，UpperRight-右下角。示例：如果设置Middle的关键字盖章，则印章的中心会和关键字的中心重合，如果设置Below，则印章在关键字的正下方
-     * @param RelativeLocation 关键字位置模式，Middle-居中，Below-正下方，Right-正右方，LowerRight-右上角，UpperRight-右下角。示例：如果设置Middle的关键字盖章，则印章的中心会和关键字的中心重合，如果设置Below，则印章在关键字的正下方
+     * Set 关键字位置模式，
+Middle-居中，
+Below-正下方，
+Right-正右方，
+LowerRight-右上角，
+UpperRight-右下角。
+示例：如果设置Middle的关键字盖章，则印章的中心会和关键字的中心重合，如果设置Below，则印章在关键字的正下方
+     * @param RelativeLocation 关键字位置模式，
+Middle-居中，
+Below-正下方，
+Right-正右方，
+LowerRight-右上角，
+UpperRight-右下角。
+示例：如果设置Middle的关键字盖章，则印章的中心会和关键字的中心重合，如果设置Below，则印章在关键字的正下方
      */
     public void setRelativeLocation(String RelativeLocation) {
         this.RelativeLocation = RelativeLocation;
     }
 
     /**
-     * Get 关键字索引，可选参数，如果一个关键字在PDF文件中存在多个，可以通过关键字索引指定使用第几个关键字作为最后的结果，可指定多个索引。示例：[0,2]，说明使用PDF文件内第1个和第3个关键字位置。 
-     * @return KeywordIndexes 关键字索引，可选参数，如果一个关键字在PDF文件中存在多个，可以通过关键字索引指定使用第几个关键字作为最后的结果，可指定多个索引。示例：[0,2]，说明使用PDF文件内第1个和第3个关键字位置。
+     * Get 关键字索引。
+如果一个关键字在PDF文件中存在多个，可以通过关键字索引指定使用第几个关键字作为最后的结果，可指定多个索引。
+示例：[0,2]，说明使用PDF文件内第1个和第3个关键字位置。 
+     * @return KeywordIndexes 关键字索引。
+如果一个关键字在PDF文件中存在多个，可以通过关键字索引指定使用第几个关键字作为最后的结果，可指定多个索引。
+示例：[0,2]，说明使用PDF文件内第1个和第3个关键字位置。
      */
     public Long [] getKeywordIndexes() {
         return this.KeywordIndexes;
     }
 
     /**
-     * Set 关键字索引，可选参数，如果一个关键字在PDF文件中存在多个，可以通过关键字索引指定使用第几个关键字作为最后的结果，可指定多个索引。示例：[0,2]，说明使用PDF文件内第1个和第3个关键字位置。
-     * @param KeywordIndexes 关键字索引，可选参数，如果一个关键字在PDF文件中存在多个，可以通过关键字索引指定使用第几个关键字作为最后的结果，可指定多个索引。示例：[0,2]，说明使用PDF文件内第1个和第3个关键字位置。
+     * Set 关键字索引。
+如果一个关键字在PDF文件中存在多个，可以通过关键字索引指定使用第几个关键字作为最后的结果，可指定多个索引。
+示例：[0,2]，说明使用PDF文件内第1个和第3个关键字位置。
+     * @param KeywordIndexes 关键字索引。
+如果一个关键字在PDF文件中存在多个，可以通过关键字索引指定使用第几个关键字作为最后的结果，可指定多个索引。
+示例：[0,2]，说明使用PDF文件内第1个和第3个关键字位置。
      */
     public void setKeywordIndexes(Long [] KeywordIndexes) {
         this.KeywordIndexes = KeywordIndexes;
+    }
+
+    /**
+     * Get 是否锁定控件值不允许编辑（嵌入式发起使用）
+<br/>默认false：不锁定控件值，允许在页面编辑控件值
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return LockComponentValue 是否锁定控件值不允许编辑（嵌入式发起使用）
+<br/>默认false：不锁定控件值，允许在页面编辑控件值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getLockComponentValue() {
+        return this.LockComponentValue;
+    }
+
+    /**
+     * Set 是否锁定控件值不允许编辑（嵌入式发起使用）
+<br/>默认false：不锁定控件值，允许在页面编辑控件值
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param LockComponentValue 是否锁定控件值不允许编辑（嵌入式发起使用）
+<br/>默认false：不锁定控件值，允许在页面编辑控件值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLockComponentValue(Boolean LockComponentValue) {
+        this.LockComponentValue = LockComponentValue;
+    }
+
+    /**
+     * Get 是否禁止移动和删除控件
+<br/>默认false，不禁止移动和删除控件
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ForbidMoveAndDelete 是否禁止移动和删除控件
+<br/>默认false，不禁止移动和删除控件
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getForbidMoveAndDelete() {
+        return this.ForbidMoveAndDelete;
+    }
+
+    /**
+     * Set 是否禁止移动和删除控件
+<br/>默认false，不禁止移动和删除控件
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ForbidMoveAndDelete 是否禁止移动和删除控件
+<br/>默认false，不禁止移动和删除控件
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setForbidMoveAndDelete(Boolean ForbidMoveAndDelete) {
+        this.ForbidMoveAndDelete = ForbidMoveAndDelete;
     }
 
     public Component() {
@@ -882,6 +1443,12 @@ KEYWORD 关键字，使用ComponentId指定关键字
                 this.KeywordIndexes[i] = new Long(source.KeywordIndexes[i]);
             }
         }
+        if (source.LockComponentValue != null) {
+            this.LockComponentValue = new Boolean(source.LockComponentValue);
+        }
+        if (source.ForbidMoveAndDelete != null) {
+            this.ForbidMoveAndDelete = new Boolean(source.ForbidMoveAndDelete);
+        }
     }
 
 
@@ -913,6 +1480,8 @@ KEYWORD 关键字，使用ComponentId指定关键字
         this.setParamSimple(map, prefix + "KeywordPage", this.KeywordPage);
         this.setParamSimple(map, prefix + "RelativeLocation", this.RelativeLocation);
         this.setParamArraySimple(map, prefix + "KeywordIndexes.", this.KeywordIndexes);
+        this.setParamSimple(map, prefix + "LockComponentValue", this.LockComponentValue);
+        this.setParamSimple(map, prefix + "ForbidMoveAndDelete", this.ForbidMoveAndDelete);
 
     }
 }

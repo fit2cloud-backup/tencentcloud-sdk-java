@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class DescribeInstanceShardsResponse extends AbstractModel{
 
     /**
-    * 实例分片列表信息
+    * 实例分片列表信息，包括：节点信息、节点ID、Key数量、使用容量、容量倾斜率等信息。
     */
     @SerializedName("InstanceShards")
     @Expose
     private InstanceClusterShard [] InstanceShards;
 
     /**
-    * 实例分片节点总数
+    * 实例分片节点数量。
     */
     @SerializedName("TotalCount")
     @Expose
@@ -44,32 +44,32 @@ public class DescribeInstanceShardsResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 实例分片列表信息 
-     * @return InstanceShards 实例分片列表信息
+     * Get 实例分片列表信息，包括：节点信息、节点ID、Key数量、使用容量、容量倾斜率等信息。 
+     * @return InstanceShards 实例分片列表信息，包括：节点信息、节点ID、Key数量、使用容量、容量倾斜率等信息。
      */
     public InstanceClusterShard [] getInstanceShards() {
         return this.InstanceShards;
     }
 
     /**
-     * Set 实例分片列表信息
-     * @param InstanceShards 实例分片列表信息
+     * Set 实例分片列表信息，包括：节点信息、节点ID、Key数量、使用容量、容量倾斜率等信息。
+     * @param InstanceShards 实例分片列表信息，包括：节点信息、节点ID、Key数量、使用容量、容量倾斜率等信息。
      */
     public void setInstanceShards(InstanceClusterShard [] InstanceShards) {
         this.InstanceShards = InstanceShards;
     }
 
     /**
-     * Get 实例分片节点总数 
-     * @return TotalCount 实例分片节点总数
+     * Get 实例分片节点数量。 
+     * @return TotalCount 实例分片节点数量。
      */
     public Long getTotalCount() {
         return this.TotalCount;
     }
 
     /**
-     * Set 实例分片节点总数
-     * @param TotalCount 实例分片节点总数
+     * Set 实例分片节点数量。
+     * @param TotalCount 实例分片节点数量。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;

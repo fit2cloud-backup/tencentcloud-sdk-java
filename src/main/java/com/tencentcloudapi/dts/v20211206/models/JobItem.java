@@ -79,7 +79,9 @@ public class JobItem extends AbstractModel{
     private String BriefMsg;
 
     /**
-    * 任务状态，取值为：creating(创建中)、created(创建完成)、checking(校验中)、checkPass(校验通过)、checkNotPass(校验不通过)、readyRun(准备运行)、running(任务运行)、readyComplete(准备完成)、success(任务成功)、failed(任务失败)、stopping(中止中)、completing(完成中)
+    * 任务状态，取值为：creating(创建中)、created(创建完成)、checking(校验中)、checkPass(校验通过)、checkNotPass(校验不通过)、readyRun(准备运行)、running(任务运行)、readyComplete(准备完成)、success(任务成功)、failed(任务失败)、stopping(中止中)、completing(完成中)、
+pausing(暂停中)、
+manualPaused(已暂停)
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
@@ -157,6 +159,22 @@ public class JobItem extends AbstractModel{
     @SerializedName("Tags")
     @Expose
     private TagItem [] Tags;
+
+    /**
+    * 自动重试时间段信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AutoRetryTimeRangeMinutes")
+    @Expose
+    private Long AutoRetryTimeRangeMinutes;
+
+    /**
+    * 全量导出可重入标识：enum::"yes"/"no"。yes表示当前任务可重入、no表示当前任务处于全量导出且不可重入阶段；如果在该值为no时重启任务导出流程不支持断点续传
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DumperResumeCtrl")
+    @Expose
+    private String DumperResumeCtrl;
 
     /**
      * Get 数据迁移任务ID
@@ -299,9 +317,13 @@ public class JobItem extends AbstractModel{
     }
 
     /**
-     * Get 任务状态，取值为：creating(创建中)、created(创建完成)、checking(校验中)、checkPass(校验通过)、checkNotPass(校验不通过)、readyRun(准备运行)、running(任务运行)、readyComplete(准备完成)、success(任务成功)、failed(任务失败)、stopping(中止中)、completing(完成中)
+     * Get 任务状态，取值为：creating(创建中)、created(创建完成)、checking(校验中)、checkPass(校验通过)、checkNotPass(校验不通过)、readyRun(准备运行)、running(任务运行)、readyComplete(准备完成)、success(任务成功)、failed(任务失败)、stopping(中止中)、completing(完成中)、
+pausing(暂停中)、
+manualPaused(已暂停)
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Status 任务状态，取值为：creating(创建中)、created(创建完成)、checking(校验中)、checkPass(校验通过)、checkNotPass(校验不通过)、readyRun(准备运行)、running(任务运行)、readyComplete(准备完成)、success(任务成功)、failed(任务失败)、stopping(中止中)、completing(完成中)
+     * @return Status 任务状态，取值为：creating(创建中)、created(创建完成)、checking(校验中)、checkPass(校验通过)、checkNotPass(校验不通过)、readyRun(准备运行)、running(任务运行)、readyComplete(准备完成)、success(任务成功)、failed(任务失败)、stopping(中止中)、completing(完成中)、
+pausing(暂停中)、
+manualPaused(已暂停)
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStatus() {
@@ -309,9 +331,13 @@ public class JobItem extends AbstractModel{
     }
 
     /**
-     * Set 任务状态，取值为：creating(创建中)、created(创建完成)、checking(校验中)、checkPass(校验通过)、checkNotPass(校验不通过)、readyRun(准备运行)、running(任务运行)、readyComplete(准备完成)、success(任务成功)、failed(任务失败)、stopping(中止中)、completing(完成中)
+     * Set 任务状态，取值为：creating(创建中)、created(创建完成)、checking(校验中)、checkPass(校验通过)、checkNotPass(校验不通过)、readyRun(准备运行)、running(任务运行)、readyComplete(准备完成)、success(任务成功)、failed(任务失败)、stopping(中止中)、completing(完成中)、
+pausing(暂停中)、
+manualPaused(已暂停)
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Status 任务状态，取值为：creating(创建中)、created(创建完成)、checking(校验中)、checkPass(校验通过)、checkNotPass(校验不通过)、readyRun(准备运行)、running(任务运行)、readyComplete(准备完成)、success(任务成功)、failed(任务失败)、stopping(中止中)、completing(完成中)
+     * @param Status 任务状态，取值为：creating(创建中)、created(创建完成)、checking(校验中)、checkPass(校验通过)、checkNotPass(校验不通过)、readyRun(准备运行)、running(任务运行)、readyComplete(准备完成)、success(任务成功)、failed(任务失败)、stopping(中止中)、completing(完成中)、
+pausing(暂停中)、
+manualPaused(已暂停)
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(String Status) {
@@ -498,6 +524,46 @@ public class JobItem extends AbstractModel{
         this.Tags = Tags;
     }
 
+    /**
+     * Get 自动重试时间段信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AutoRetryTimeRangeMinutes 自动重试时间段信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getAutoRetryTimeRangeMinutes() {
+        return this.AutoRetryTimeRangeMinutes;
+    }
+
+    /**
+     * Set 自动重试时间段信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AutoRetryTimeRangeMinutes 自动重试时间段信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAutoRetryTimeRangeMinutes(Long AutoRetryTimeRangeMinutes) {
+        this.AutoRetryTimeRangeMinutes = AutoRetryTimeRangeMinutes;
+    }
+
+    /**
+     * Get 全量导出可重入标识：enum::"yes"/"no"。yes表示当前任务可重入、no表示当前任务处于全量导出且不可重入阶段；如果在该值为no时重启任务导出流程不支持断点续传
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DumperResumeCtrl 全量导出可重入标识：enum::"yes"/"no"。yes表示当前任务可重入、no表示当前任务处于全量导出且不可重入阶段；如果在该值为no时重启任务导出流程不支持断点续传
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDumperResumeCtrl() {
+        return this.DumperResumeCtrl;
+    }
+
+    /**
+     * Set 全量导出可重入标识：enum::"yes"/"no"。yes表示当前任务可重入、no表示当前任务处于全量导出且不可重入阶段；如果在该值为no时重启任务导出流程不支持断点续传
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DumperResumeCtrl 全量导出可重入标识：enum::"yes"/"no"。yes表示当前任务可重入、no表示当前任务处于全量导出且不可重入阶段；如果在该值为no时重启任务导出流程不支持断点续传
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDumperResumeCtrl(String DumperResumeCtrl) {
+        this.DumperResumeCtrl = DumperResumeCtrl;
+    }
+
     public JobItem() {
     }
 
@@ -560,6 +626,12 @@ public class JobItem extends AbstractModel{
                 this.Tags[i] = new TagItem(source.Tags[i]);
             }
         }
+        if (source.AutoRetryTimeRangeMinutes != null) {
+            this.AutoRetryTimeRangeMinutes = new Long(source.AutoRetryTimeRangeMinutes);
+        }
+        if (source.DumperResumeCtrl != null) {
+            this.DumperResumeCtrl = new String(source.DumperResumeCtrl);
+        }
     }
 
 
@@ -584,6 +656,8 @@ public class JobItem extends AbstractModel{
         this.setParamObj(map, prefix + "CompareTask.", this.CompareTask);
         this.setParamObj(map, prefix + "TradeInfo.", this.TradeInfo);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "AutoRetryTimeRangeMinutes", this.AutoRetryTimeRangeMinutes);
+        this.setParamSimple(map, prefix + "DumperResumeCtrl", this.DumperResumeCtrl);
 
     }
 }

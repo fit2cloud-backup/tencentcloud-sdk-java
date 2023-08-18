@@ -39,8 +39,17 @@ public enum DcdbErrorCode {
     // 拉取安全组详情失败。
      FAILEDOPERATION_GETSECURITYGROUPDETAILFAILED("FailedOperation.GetSecurityGroupDetailFailed"),
      
+    // 实例不可退费。
+     FAILEDOPERATION_INSTANCECANNOTRETURN("FailedOperation.InstanceCanNotReturn"),
+     
+    // 实例退费失败。
+     FAILEDOPERATION_INSTANCERETURNFAILED("FailedOperation.InstanceReturnFailed"),
+     
     // 修改账号权限失败。
      FAILEDOPERATION_MODIFYRIGHTFAILED("FailedOperation.ModifyRightFailed"),
+     
+    // 修改账号配置失败。
+     FAILEDOPERATION_MODIFYUSERCONFIGFAILED("FailedOperation.ModifyUserConfigFailed"),
      
     // 消息队列操作失败。
      FAILEDOPERATION_MSGQUEUEOPERATIONFAILED("FailedOperation.MsgQueueOperationFailed"),
@@ -68,6 +77,9 @@ public enum DcdbErrorCode {
      
     // 标签键值校验或鉴权失败。
      FAILEDOPERATION_TAGDRYRUNERROR("FailedOperation.TagDryRunError"),
+     
+    // 标签配额不足。
+     FAILEDOPERATION_TAGQUOTAEXCEEDLIMIT("FailedOperation.TagQuotaExceedLimit"),
      
     // 实例安全组信息更新失败。
      FAILEDOPERATION_UPDATEINSTANCEINFOFAILED("FailedOperation.UpdateInstanceInfoFailed"),
@@ -101,6 +113,9 @@ public enum DcdbErrorCode {
      
     // 备份文件签名失败。
      INTERNALERROR_COSSIGNURL("InternalError.CosSignUrl"),
+     
+    // 创建流程失败。
+     INTERNALERROR_CREATEFLOWERROR("InternalError.CreateFlowError"),
      
     // 创建任务流程失败。
      INTERNALERROR_CREATEFLOWFAILED("InternalError.CreateFlowFailed"),
@@ -315,6 +330,12 @@ public enum DcdbErrorCode {
     // 请求过于频繁。
      LIMITEXCEEDED_TOOFREQUENTLYCALLED("LimitExceeded.TooFrequentlyCalled"),
      
+    // 临时实例已经存在了。
+     RESOURCEINUSE_TEMPINSTANCEEXIST("ResourceInUse.TempInstanceExist"),
+     
+    // 资源不足。
+     RESOURCEINSUFFICIENT("ResourceInsufficient"),
+     
     // 指定的账号不存在。
      RESOURCENOTFOUND_ACCOUNTDOESNOTEXIST("ResourceNotFound.AccountDoesNotExist"),
      
@@ -333,6 +354,9 @@ public enum DcdbErrorCode {
     // COS API调用错误。
      RESOURCEUNAVAILABLE_COSAPIFAILED("ResourceUnavailable.CosApiFailed"),
      
+    // 独享集群状态异常。
+     RESOURCEUNAVAILABLE_EXCLUSTERSTATUSABNORMAL("ResourceUnavailable.ExclusterStatusAbnormal"),
+     
     // 数据库实例已被删除。
      RESOURCEUNAVAILABLE_INSTANCEALREADYDELETED("ResourceUnavailable.InstanceAlreadyDeleted"),
      
@@ -347,6 +371,9 @@ public enum DcdbErrorCode {
      
     // 没有权限操作该接口或资源。
      UNAUTHORIZEDOPERATION_PERMISSIONDENIED("UnauthorizedOperation.PermissionDenied"),
+     
+    // 不支持该数据库版本。
+     UNSUPPORTEDOPERATION_DBVERSIONNOTSUPPORTED("UnsupportedOperation.DbVersionNotSupported"),
      
     // 不支持的无效操作。
      UNSUPPORTEDOPERATION_INVALIDOPERATION("UnsupportedOperation.InvalidOperation"),

@@ -23,23 +23,23 @@ import java.util.HashMap;
 public class AuthorizedUser extends AbstractModel{
 
     /**
-    * 用户id
+    * 电子签系统中的用户id
     */
     @SerializedName("UserId")
     @Expose
     private String UserId;
 
     /**
-     * Get 用户id 
-     * @return UserId 用户id
+     * Get 电子签系统中的用户id 
+     * @return UserId 电子签系统中的用户id
      */
     public String getUserId() {
         return this.UserId;
     }
 
     /**
-     * Set 用户id
-     * @param UserId 用户id
+     * Set 电子签系统中的用户id
+     * @param UserId 电子签系统中的用户id
      */
     public void setUserId(String UserId) {
         this.UserId = UserId;

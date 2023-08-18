@@ -24,6 +24,9 @@ public enum TtsErrorCode {
     // 内部错误。
      INTERNALERROR_INTERNALERROR("InternalError.InternalError"),
      
+    // 暂无资源，请稍后重试。
+     INTERNALERROR_NORESOURCE("InternalError.NoResource"),
+     
     // 请求文本含有非法字符。
      INVALIDPARAMETER_INVALIDTEXT("InvalidParameter.InvalidText"),
      
@@ -42,7 +45,7 @@ public enum TtsErrorCode {
     // Codec非法，请参考Codec参数说明。
      INVALIDPARAMETERVALUE_CODEC("InvalidParameterValue.Codec"),
      
-    // ssml的say-as标签属性为cardinal、currency、address时，数字部分非有效常数，仅允许包含数字、“,”、“.”和空格。
+    // ssml的say-as标签属性为cardinal、currency、address时，数字部分非有效参数，仅允许包含数字、“,”、“.”和空格。
      INVALIDPARAMETERVALUE_ERRORCARDINALFORMAT("InvalidParameterValue.ErrorCardinalFormat"),
      
     // 请求文本含有非法字符，或请求文本没有有效字符。
@@ -117,7 +120,7 @@ public enum TtsErrorCode {
     // 没有余额。
      UNSUPPORTEDOPERATION_NOBANLANCE("UnsupportedOperation.NoBanlance"),
      
-    // 客户免费额度已用完。
+    // 免费资源包已用尽，请购买资源包或开通后付费。
      UNSUPPORTEDOPERATION_NOFREEACCOUNT("UnsupportedOperation.NoFreeAccount"),
      
     // 资源包余量已用尽。

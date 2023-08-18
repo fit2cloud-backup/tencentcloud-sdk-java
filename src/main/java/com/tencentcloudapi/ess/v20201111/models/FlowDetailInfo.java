@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class FlowDetailInfo extends AbstractModel{
 
     /**
-    * 合同(流程)的Id
+    * 合同(流程)的ID
     */
     @SerializedName("FlowId")
     @Expose
@@ -45,13 +45,19 @@ public class FlowDetailInfo extends AbstractModel{
     private String FlowType;
 
     /**
-    * 合同(流程)的状态
-1：未签署
-2：部分签署
-3：已退回
-4：完成签署
-5：已过期
-6：已取消
+    * 流程状态
+- 0 还没有发起
+- 1 待签署
+- 2 部分签署
+- 3 已拒签
+- 4 已签署
+- 5 已过期
+- 6 已撤销
+- 7 还没有预发起
+- 8 等待填写
+- 9 部分填写
+- 10 拒填
+- 21 已解除
     */
     @SerializedName("FlowStatus")
     @Expose
@@ -74,30 +80,45 @@ public class FlowDetailInfo extends AbstractModel{
     private String FlowDescription;
 
     /**
-    * 合同(流程)的创建时间戳
+    * 合同(流程)的创建时间戳，单位秒
     */
     @SerializedName("CreatedOn")
     @Expose
     private Long CreatedOn;
 
     /**
-    * 合同(流程)的签署人数组
+    * 合同(流程)的签署方数组
     */
     @SerializedName("FlowApproverInfos")
     @Expose
     private FlowApproverDetail [] FlowApproverInfos;
 
     /**
-     * Get 合同(流程)的Id 
-     * @return FlowId 合同(流程)的Id
+    * 合同(流程)的关注方信息列表
+    */
+    @SerializedName("CcInfos")
+    @Expose
+    private FlowApproverDetail [] CcInfos;
+
+    /**
+    * 合同发起人UserId
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Creator")
+    @Expose
+    private String Creator;
+
+    /**
+     * Get 合同(流程)的ID 
+     * @return FlowId 合同(流程)的ID
      */
     public String getFlowId() {
         return this.FlowId;
     }
 
     /**
-     * Set 合同(流程)的Id
-     * @param FlowId 合同(流程)的Id
+     * Set 合同(流程)的ID
+     * @param FlowId 合同(流程)的ID
      */
     public void setFlowId(String FlowId) {
         this.FlowId = FlowId;
@@ -140,40 +161,64 @@ public class FlowDetailInfo extends AbstractModel{
     }
 
     /**
-     * Get 合同(流程)的状态
-1：未签署
-2：部分签署
-3：已退回
-4：完成签署
-5：已过期
-6：已取消 
-     * @return FlowStatus 合同(流程)的状态
-1：未签署
-2：部分签署
-3：已退回
-4：完成签署
-5：已过期
-6：已取消
+     * Get 流程状态
+- 0 还没有发起
+- 1 待签署
+- 2 部分签署
+- 3 已拒签
+- 4 已签署
+- 5 已过期
+- 6 已撤销
+- 7 还没有预发起
+- 8 等待填写
+- 9 部分填写
+- 10 拒填
+- 21 已解除 
+     * @return FlowStatus 流程状态
+- 0 还没有发起
+- 1 待签署
+- 2 部分签署
+- 3 已拒签
+- 4 已签署
+- 5 已过期
+- 6 已撤销
+- 7 还没有预发起
+- 8 等待填写
+- 9 部分填写
+- 10 拒填
+- 21 已解除
      */
     public Long getFlowStatus() {
         return this.FlowStatus;
     }
 
     /**
-     * Set 合同(流程)的状态
-1：未签署
-2：部分签署
-3：已退回
-4：完成签署
-5：已过期
-6：已取消
-     * @param FlowStatus 合同(流程)的状态
-1：未签署
-2：部分签署
-3：已退回
-4：完成签署
-5：已过期
-6：已取消
+     * Set 流程状态
+- 0 还没有发起
+- 1 待签署
+- 2 部分签署
+- 3 已拒签
+- 4 已签署
+- 5 已过期
+- 6 已撤销
+- 7 还没有预发起
+- 8 等待填写
+- 9 部分填写
+- 10 拒填
+- 21 已解除
+     * @param FlowStatus 流程状态
+- 0 还没有发起
+- 1 待签署
+- 2 部分签署
+- 3 已拒签
+- 4 已签署
+- 5 已过期
+- 6 已撤销
+- 7 还没有预发起
+- 8 等待填写
+- 9 部分填写
+- 10 拒填
+- 21 已解除
      */
     public void setFlowStatus(Long FlowStatus) {
         this.FlowStatus = FlowStatus;
@@ -220,35 +265,71 @@ public class FlowDetailInfo extends AbstractModel{
     }
 
     /**
-     * Get 合同(流程)的创建时间戳 
-     * @return CreatedOn 合同(流程)的创建时间戳
+     * Get 合同(流程)的创建时间戳，单位秒 
+     * @return CreatedOn 合同(流程)的创建时间戳，单位秒
      */
     public Long getCreatedOn() {
         return this.CreatedOn;
     }
 
     /**
-     * Set 合同(流程)的创建时间戳
-     * @param CreatedOn 合同(流程)的创建时间戳
+     * Set 合同(流程)的创建时间戳，单位秒
+     * @param CreatedOn 合同(流程)的创建时间戳，单位秒
      */
     public void setCreatedOn(Long CreatedOn) {
         this.CreatedOn = CreatedOn;
     }
 
     /**
-     * Get 合同(流程)的签署人数组 
-     * @return FlowApproverInfos 合同(流程)的签署人数组
+     * Get 合同(流程)的签署方数组 
+     * @return FlowApproverInfos 合同(流程)的签署方数组
      */
     public FlowApproverDetail [] getFlowApproverInfos() {
         return this.FlowApproverInfos;
     }
 
     /**
-     * Set 合同(流程)的签署人数组
-     * @param FlowApproverInfos 合同(流程)的签署人数组
+     * Set 合同(流程)的签署方数组
+     * @param FlowApproverInfos 合同(流程)的签署方数组
      */
     public void setFlowApproverInfos(FlowApproverDetail [] FlowApproverInfos) {
         this.FlowApproverInfos = FlowApproverInfos;
+    }
+
+    /**
+     * Get 合同(流程)的关注方信息列表 
+     * @return CcInfos 合同(流程)的关注方信息列表
+     */
+    public FlowApproverDetail [] getCcInfos() {
+        return this.CcInfos;
+    }
+
+    /**
+     * Set 合同(流程)的关注方信息列表
+     * @param CcInfos 合同(流程)的关注方信息列表
+     */
+    public void setCcInfos(FlowApproverDetail [] CcInfos) {
+        this.CcInfos = CcInfos;
+    }
+
+    /**
+     * Get 合同发起人UserId
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Creator 合同发起人UserId
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCreator() {
+        return this.Creator;
+    }
+
+    /**
+     * Set 合同发起人UserId
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Creator 合同发起人UserId
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCreator(String Creator) {
+        this.Creator = Creator;
     }
 
     public FlowDetailInfo() {
@@ -286,6 +367,15 @@ public class FlowDetailInfo extends AbstractModel{
                 this.FlowApproverInfos[i] = new FlowApproverDetail(source.FlowApproverInfos[i]);
             }
         }
+        if (source.CcInfos != null) {
+            this.CcInfos = new FlowApproverDetail[source.CcInfos.length];
+            for (int i = 0; i < source.CcInfos.length; i++) {
+                this.CcInfos[i] = new FlowApproverDetail(source.CcInfos[i]);
+            }
+        }
+        if (source.Creator != null) {
+            this.Creator = new String(source.Creator);
+        }
     }
 
 
@@ -301,6 +391,8 @@ public class FlowDetailInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "FlowDescription", this.FlowDescription);
         this.setParamSimple(map, prefix + "CreatedOn", this.CreatedOn);
         this.setParamArrayObj(map, prefix + "FlowApproverInfos.", this.FlowApproverInfos);
+        this.setParamArrayObj(map, prefix + "CcInfos.", this.CcInfos);
+        this.setParamSimple(map, prefix + "Creator", this.Creator);
 
     }
 }

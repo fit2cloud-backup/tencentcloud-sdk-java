@@ -37,13 +37,6 @@ public class AddNodesRequest extends AbstractModel{
     private String ClusterId;
 
     /**
-    * 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-xxx`。目前仅支持公有镜。
-    */
-    @SerializedName("ImageId")
-    @Expose
-    private String ImageId;
-
-    /**
     * 私有网络相关信息配置。
     */
     @SerializedName("VirtualPrivateCloud")
@@ -56,6 +49,13 @@ public class AddNodesRequest extends AbstractModel{
     @SerializedName("Count")
     @Expose
     private Long Count;
+
+    /**
+    * 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-xxx`。目前仅支持公有镜像和特定自定义镜像。
+    */
+    @SerializedName("ImageId")
+    @Expose
+    private String ImageId;
 
     /**
     * 节点[计费类型](https://cloud.tencent.com/document/product/213/2180)。<br><li>PREPAID：预付费，即包年包月<br><li>POSTPAID_BY_HOUR：按小时后付费<br><li>SPOTPAID：竞价付费<br>默认值：POSTPAID_BY_HOUR。
@@ -130,14 +130,15 @@ public class AddNodesRequest extends AbstractModel{
     private String ClientToken;
 
     /**
-    * 队列名称。
+    * 队列名称。不指定则为默认队列。<li>SLURM默认队列为：compute。<li>SGE默认队列为：all.q。
+
     */
     @SerializedName("QueueName")
     @Expose
     private String QueueName;
 
     /**
-    * 添加节点类型。默认值：Compute<br><li>Compute：计算节点。<br><li>Login：登录节点。
+    * 添加节点角色。默认值：Compute<br><li>Compute：计算节点。<br><li>Login：登录节点。
     */
     @SerializedName("NodeRole")
     @Expose
@@ -153,6 +154,13 @@ false（默认）：发送正常请求，通过检查后直接创建实例
     @SerializedName("DryRun")
     @Expose
     private Boolean DryRun;
+
+    /**
+    * 添加节点类型。默认取值：STATIC。<li>STATIC：静态节点，不会参与弹性伸缩流程。<li>DYNAMIC：弹性节点，会被弹性缩容的节点。管控节点和登录节点不支持此参数。
+    */
+    @SerializedName("NodeType")
+    @Expose
+    private String NodeType;
 
     /**
      * Get 集群中实例所在的位置。 
@@ -187,22 +195,6 @@ false（默认）：发送正常请求，通过检查后直接创建实例
     }
 
     /**
-     * Get 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-xxx`。目前仅支持公有镜。 
-     * @return ImageId 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-xxx`。目前仅支持公有镜。
-     */
-    public String getImageId() {
-        return this.ImageId;
-    }
-
-    /**
-     * Set 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-xxx`。目前仅支持公有镜。
-     * @param ImageId 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-xxx`。目前仅支持公有镜。
-     */
-    public void setImageId(String ImageId) {
-        this.ImageId = ImageId;
-    }
-
-    /**
      * Get 私有网络相关信息配置。 
      * @return VirtualPrivateCloud 私有网络相关信息配置。
      */
@@ -232,6 +224,22 @@ false（默认）：发送正常请求，通过检查后直接创建实例
      */
     public void setCount(Long Count) {
         this.Count = Count;
+    }
+
+    /**
+     * Get 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-xxx`。目前仅支持公有镜像和特定自定义镜像。 
+     * @return ImageId 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-xxx`。目前仅支持公有镜像和特定自定义镜像。
+     */
+    public String getImageId() {
+        return this.ImageId;
+    }
+
+    /**
+     * Set 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-xxx`。目前仅支持公有镜像和特定自定义镜像。
+     * @param ImageId 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-xxx`。目前仅支持公有镜像和特定自定义镜像。
+     */
+    public void setImageId(String ImageId) {
+        this.ImageId = ImageId;
     }
 
     /**
@@ -403,32 +411,36 @@ false（默认）：发送正常请求，通过检查后直接创建实例
     }
 
     /**
-     * Get 队列名称。 
-     * @return QueueName 队列名称。
+     * Get 队列名称。不指定则为默认队列。<li>SLURM默认队列为：compute。<li>SGE默认队列为：all.q。
+ 
+     * @return QueueName 队列名称。不指定则为默认队列。<li>SLURM默认队列为：compute。<li>SGE默认队列为：all.q。
+
      */
     public String getQueueName() {
         return this.QueueName;
     }
 
     /**
-     * Set 队列名称。
-     * @param QueueName 队列名称。
+     * Set 队列名称。不指定则为默认队列。<li>SLURM默认队列为：compute。<li>SGE默认队列为：all.q。
+
+     * @param QueueName 队列名称。不指定则为默认队列。<li>SLURM默认队列为：compute。<li>SGE默认队列为：all.q。
+
      */
     public void setQueueName(String QueueName) {
         this.QueueName = QueueName;
     }
 
     /**
-     * Get 添加节点类型。默认值：Compute<br><li>Compute：计算节点。<br><li>Login：登录节点。 
-     * @return NodeRole 添加节点类型。默认值：Compute<br><li>Compute：计算节点。<br><li>Login：登录节点。
+     * Get 添加节点角色。默认值：Compute<br><li>Compute：计算节点。<br><li>Login：登录节点。 
+     * @return NodeRole 添加节点角色。默认值：Compute<br><li>Compute：计算节点。<br><li>Login：登录节点。
      */
     public String getNodeRole() {
         return this.NodeRole;
     }
 
     /**
-     * Set 添加节点类型。默认值：Compute<br><li>Compute：计算节点。<br><li>Login：登录节点。
-     * @param NodeRole 添加节点类型。默认值：Compute<br><li>Compute：计算节点。<br><li>Login：登录节点。
+     * Set 添加节点角色。默认值：Compute<br><li>Compute：计算节点。<br><li>Login：登录节点。
+     * @param NodeRole 添加节点角色。默认值：Compute<br><li>Compute：计算节点。<br><li>Login：登录节点。
      */
     public void setNodeRole(String NodeRole) {
         this.NodeRole = NodeRole;
@@ -466,6 +478,22 @@ false（默认）：发送正常请求，通过检查后直接创建实例
         this.DryRun = DryRun;
     }
 
+    /**
+     * Get 添加节点类型。默认取值：STATIC。<li>STATIC：静态节点，不会参与弹性伸缩流程。<li>DYNAMIC：弹性节点，会被弹性缩容的节点。管控节点和登录节点不支持此参数。 
+     * @return NodeType 添加节点类型。默认取值：STATIC。<li>STATIC：静态节点，不会参与弹性伸缩流程。<li>DYNAMIC：弹性节点，会被弹性缩容的节点。管控节点和登录节点不支持此参数。
+     */
+    public String getNodeType() {
+        return this.NodeType;
+    }
+
+    /**
+     * Set 添加节点类型。默认取值：STATIC。<li>STATIC：静态节点，不会参与弹性伸缩流程。<li>DYNAMIC：弹性节点，会被弹性缩容的节点。管控节点和登录节点不支持此参数。
+     * @param NodeType 添加节点类型。默认取值：STATIC。<li>STATIC：静态节点，不会参与弹性伸缩流程。<li>DYNAMIC：弹性节点，会被弹性缩容的节点。管控节点和登录节点不支持此参数。
+     */
+    public void setNodeType(String NodeType) {
+        this.NodeType = NodeType;
+    }
+
     public AddNodesRequest() {
     }
 
@@ -480,14 +508,14 @@ false（默认）：发送正常请求，通过检查后直接创建实例
         if (source.ClusterId != null) {
             this.ClusterId = new String(source.ClusterId);
         }
-        if (source.ImageId != null) {
-            this.ImageId = new String(source.ImageId);
-        }
         if (source.VirtualPrivateCloud != null) {
             this.VirtualPrivateCloud = new VirtualPrivateCloud(source.VirtualPrivateCloud);
         }
         if (source.Count != null) {
             this.Count = new Long(source.Count);
+        }
+        if (source.ImageId != null) {
+            this.ImageId = new String(source.ImageId);
         }
         if (source.InstanceChargeType != null) {
             this.InstanceChargeType = new String(source.InstanceChargeType);
@@ -537,6 +565,9 @@ false（默认）：发送正常请求，通过检查后直接创建实例
         if (source.DryRun != null) {
             this.DryRun = new Boolean(source.DryRun);
         }
+        if (source.NodeType != null) {
+            this.NodeType = new String(source.NodeType);
+        }
     }
 
 
@@ -546,9 +577,9 @@ false（默认）：发送正常请求，通过检查后直接创建实例
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "Placement.", this.Placement);
         this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
-        this.setParamSimple(map, prefix + "ImageId", this.ImageId);
         this.setParamObj(map, prefix + "VirtualPrivateCloud.", this.VirtualPrivateCloud);
         this.setParamSimple(map, prefix + "Count", this.Count);
+        this.setParamSimple(map, prefix + "ImageId", this.ImageId);
         this.setParamSimple(map, prefix + "InstanceChargeType", this.InstanceChargeType);
         this.setParamObj(map, prefix + "InstanceChargePrepaid.", this.InstanceChargePrepaid);
         this.setParamSimple(map, prefix + "InstanceType", this.InstanceType);
@@ -562,6 +593,7 @@ false（默认）：发送正常请求，通过检查后直接创建实例
         this.setParamSimple(map, prefix + "QueueName", this.QueueName);
         this.setParamSimple(map, prefix + "NodeRole", this.NodeRole);
         this.setParamSimple(map, prefix + "DryRun", this.DryRun);
+        this.setParamSimple(map, prefix + "NodeType", this.NodeType);
 
     }
 }

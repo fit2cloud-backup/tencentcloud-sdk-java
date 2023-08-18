@@ -29,7 +29,7 @@ public class ApmClient extends AbstractClient{
     private static String endpoint = "apm.tencentcloudapi.com";
     private static String service = "apm";
     private static String version = "2021-06-22";
-
+    
     public ApmClient(Credential credential, String region) {
         this(credential, region, new ClientProfile());
     }
@@ -47,6 +47,7 @@ public class ApmClient extends AbstractClient{
     public CreateApmInstanceResponse CreateApmInstance(CreateApmInstanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateApmInstanceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateApmInstanceResponse>>() {
                 }.getType();
@@ -67,6 +68,7 @@ public class ApmClient extends AbstractClient{
     public DescribeApmAgentResponse DescribeApmAgent(DescribeApmAgentRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeApmAgentResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeApmAgentResponse>>() {
                 }.getType();
@@ -87,6 +89,7 @@ public class ApmClient extends AbstractClient{
     public DescribeApmInstancesResponse DescribeApmInstances(DescribeApmInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeApmInstancesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeApmInstancesResponse>>() {
                 }.getType();
@@ -108,6 +111,7 @@ public class ApmClient extends AbstractClient{
     public DescribeGeneralMetricDataResponse DescribeGeneralMetricData(DescribeGeneralMetricDataRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeGeneralMetricDataResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeGeneralMetricDataResponse>>() {
                 }.getType();
@@ -128,6 +132,7 @@ public class ApmClient extends AbstractClient{
     public DescribeMetricRecordsResponse DescribeMetricRecords(DescribeMetricRecordsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeMetricRecordsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeMetricRecordsResponse>>() {
                 }.getType();
@@ -148,10 +153,53 @@ public class ApmClient extends AbstractClient{
     public DescribeServiceOverviewResponse DescribeServiceOverview(DescribeServiceOverviewRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeServiceOverviewResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeServiceOverviewResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeServiceOverview");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改Apm实例接口
+     * @param req ModifyApmInstanceRequest
+     * @return ModifyApmInstanceResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyApmInstanceResponse ModifyApmInstance(ModifyApmInstanceRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyApmInstanceResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyApmInstanceResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyApmInstance");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *apm销毁实例
+     * @param req TerminateApmInstanceRequest
+     * @return TerminateApmInstanceResponse
+     * @throws TencentCloudSDKException
+     */
+    public TerminateApmInstanceResponse TerminateApmInstance(TerminateApmInstanceRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<TerminateApmInstanceResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<TerminateApmInstanceResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "TerminateApmInstance");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

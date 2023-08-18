@@ -23,6 +23,13 @@ import java.util.HashMap;
 public class DescribeChannelFlowEvidenceReportRequest extends AbstractModel{
 
     /**
+    * 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填
+    */
+    @SerializedName("Agent")
+    @Expose
+    private Agent Agent;
+
+    /**
     * 出证报告编号
     */
     @SerializedName("ReportId")
@@ -30,18 +37,27 @@ public class DescribeChannelFlowEvidenceReportRequest extends AbstractModel{
     private String ReportId;
 
     /**
-    * 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填
-    */
-    @SerializedName("Agent")
-    @Expose
-    private Agent Agent;
-
-    /**
-    * 操作者的信息
+    * 暂未开放
     */
     @SerializedName("Operator")
     @Expose
     private UserInfo Operator;
+
+    /**
+     * Get 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填 
+     * @return Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填
+     */
+    public Agent getAgent() {
+        return this.Agent;
+    }
+
+    /**
+     * Set 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填
+     * @param Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填
+     */
+    public void setAgent(Agent Agent) {
+        this.Agent = Agent;
+    }
 
     /**
      * Get 出证报告编号 
@@ -60,33 +76,21 @@ public class DescribeChannelFlowEvidenceReportRequest extends AbstractModel{
     }
 
     /**
-     * Get 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填 
-     * @return Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填
+     * Get 暂未开放 
+     * @return Operator 暂未开放
+     * @deprecated
      */
-    public Agent getAgent() {
-        return this.Agent;
-    }
-
-    /**
-     * Set 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填
-     * @param Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填
-     */
-    public void setAgent(Agent Agent) {
-        this.Agent = Agent;
-    }
-
-    /**
-     * Get 操作者的信息 
-     * @return Operator 操作者的信息
-     */
+    @Deprecated
     public UserInfo getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 操作者的信息
-     * @param Operator 操作者的信息
+     * Set 暂未开放
+     * @param Operator 暂未开放
+     * @deprecated
      */
+    @Deprecated
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
     }
@@ -99,11 +103,11 @@ public class DescribeChannelFlowEvidenceReportRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public DescribeChannelFlowEvidenceReportRequest(DescribeChannelFlowEvidenceReportRequest source) {
-        if (source.ReportId != null) {
-            this.ReportId = new String(source.ReportId);
-        }
         if (source.Agent != null) {
             this.Agent = new Agent(source.Agent);
+        }
+        if (source.ReportId != null) {
+            this.ReportId = new String(source.ReportId);
         }
         if (source.Operator != null) {
             this.Operator = new UserInfo(source.Operator);
@@ -115,8 +119,8 @@ public class DescribeChannelFlowEvidenceReportRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "ReportId", this.ReportId);
         this.setParamObj(map, prefix + "Agent.", this.Agent);
+        this.setParamSimple(map, prefix + "ReportId", this.ReportId);
         this.setParamObj(map, prefix + "Operator.", this.Operator);
 
     }

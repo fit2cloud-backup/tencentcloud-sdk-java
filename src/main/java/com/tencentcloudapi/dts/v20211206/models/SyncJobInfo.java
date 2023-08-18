@@ -135,12 +135,28 @@ public class SyncJobInfo extends AbstractModel{
     private String SrcAccessType;
 
     /**
-    * 源端信息
+    * 源端信息，单节点数据库使用
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SrcInfo")
     @Expose
     private Endpoint SrcInfo;
+
+    /**
+    * 枚举值：cluster、single。源库为单节点数据库使用single，多节点使用cluster
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SrcNodeType")
+    @Expose
+    private String SrcNodeType;
+
+    /**
+    * 源端信息，多节点数据库使用
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SrcInfos")
+    @Expose
+    private SyncDBEndpointInfos SrcInfos;
 
     /**
     * 目标端地域，如：ap-guangzhou等
@@ -167,12 +183,28 @@ public class SyncJobInfo extends AbstractModel{
     private String DstAccessType;
 
     /**
-    * 目标端信息
+    * 目标端信息，单节点数据库使用
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DstInfo")
     @Expose
     private Endpoint DstInfo;
+
+    /**
+    * 枚举值：cluster、single。目标库为单节点数据库使用single，多节点使用cluster
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DstNodeType")
+    @Expose
+    private String DstNodeType;
+
+    /**
+    * 目标端信息，多节点数据库使用
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DstInfos")
+    @Expose
+    private SyncDBEndpointInfos DstInfos;
 
     /**
     * 创建时间，格式为 yyyy-mm-dd hh:mm:ss
@@ -253,6 +285,22 @@ public class SyncJobInfo extends AbstractModel{
     @SerializedName("OfflineTime")
     @Expose
     private String OfflineTime;
+
+    /**
+    * 自动重试时间段设置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AutoRetryTimeRangeMinutes")
+    @Expose
+    private Long AutoRetryTimeRangeMinutes;
+
+    /**
+    * 全量导出可重入标识：enum::"yes"/"no"。yes表示当前任务可重入、no表示当前任务处于全量导出且不可重入阶段；如果在该值为no时重启任务导出流程不支持断点续传
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DumperResumeCtrl")
+    @Expose
+    private String DumperResumeCtrl;
 
     /**
      * Get 同步任务id，如：sync-btso140
@@ -535,9 +583,9 @@ public class SyncJobInfo extends AbstractModel{
     }
 
     /**
-     * Get 源端信息
+     * Get 源端信息，单节点数据库使用
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return SrcInfo 源端信息
+     * @return SrcInfo 源端信息，单节点数据库使用
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Endpoint getSrcInfo() {
@@ -545,13 +593,53 @@ public class SyncJobInfo extends AbstractModel{
     }
 
     /**
-     * Set 源端信息
+     * Set 源端信息，单节点数据库使用
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param SrcInfo 源端信息
+     * @param SrcInfo 源端信息，单节点数据库使用
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSrcInfo(Endpoint SrcInfo) {
         this.SrcInfo = SrcInfo;
+    }
+
+    /**
+     * Get 枚举值：cluster、single。源库为单节点数据库使用single，多节点使用cluster
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SrcNodeType 枚举值：cluster、single。源库为单节点数据库使用single，多节点使用cluster
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSrcNodeType() {
+        return this.SrcNodeType;
+    }
+
+    /**
+     * Set 枚举值：cluster、single。源库为单节点数据库使用single，多节点使用cluster
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SrcNodeType 枚举值：cluster、single。源库为单节点数据库使用single，多节点使用cluster
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSrcNodeType(String SrcNodeType) {
+        this.SrcNodeType = SrcNodeType;
+    }
+
+    /**
+     * Get 源端信息，多节点数据库使用
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SrcInfos 源端信息，多节点数据库使用
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public SyncDBEndpointInfos getSrcInfos() {
+        return this.SrcInfos;
+    }
+
+    /**
+     * Set 源端信息，多节点数据库使用
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SrcInfos 源端信息，多节点数据库使用
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSrcInfos(SyncDBEndpointInfos SrcInfos) {
+        this.SrcInfos = SrcInfos;
     }
 
     /**
@@ -615,9 +703,9 @@ public class SyncJobInfo extends AbstractModel{
     }
 
     /**
-     * Get 目标端信息
+     * Get 目标端信息，单节点数据库使用
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return DstInfo 目标端信息
+     * @return DstInfo 目标端信息，单节点数据库使用
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Endpoint getDstInfo() {
@@ -625,13 +713,53 @@ public class SyncJobInfo extends AbstractModel{
     }
 
     /**
-     * Set 目标端信息
+     * Set 目标端信息，单节点数据库使用
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param DstInfo 目标端信息
+     * @param DstInfo 目标端信息，单节点数据库使用
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDstInfo(Endpoint DstInfo) {
         this.DstInfo = DstInfo;
+    }
+
+    /**
+     * Get 枚举值：cluster、single。目标库为单节点数据库使用single，多节点使用cluster
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DstNodeType 枚举值：cluster、single。目标库为单节点数据库使用single，多节点使用cluster
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDstNodeType() {
+        return this.DstNodeType;
+    }
+
+    /**
+     * Set 枚举值：cluster、single。目标库为单节点数据库使用single，多节点使用cluster
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DstNodeType 枚举值：cluster、single。目标库为单节点数据库使用single，多节点使用cluster
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDstNodeType(String DstNodeType) {
+        this.DstNodeType = DstNodeType;
+    }
+
+    /**
+     * Get 目标端信息，多节点数据库使用
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DstInfos 目标端信息，多节点数据库使用
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public SyncDBEndpointInfos getDstInfos() {
+        return this.DstInfos;
+    }
+
+    /**
+     * Set 目标端信息，多节点数据库使用
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DstInfos 目标端信息，多节点数据库使用
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDstInfos(SyncDBEndpointInfos DstInfos) {
+        this.DstInfos = DstInfos;
     }
 
     /**
@@ -834,6 +962,46 @@ public class SyncJobInfo extends AbstractModel{
         this.OfflineTime = OfflineTime;
     }
 
+    /**
+     * Get 自动重试时间段设置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AutoRetryTimeRangeMinutes 自动重试时间段设置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getAutoRetryTimeRangeMinutes() {
+        return this.AutoRetryTimeRangeMinutes;
+    }
+
+    /**
+     * Set 自动重试时间段设置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AutoRetryTimeRangeMinutes 自动重试时间段设置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAutoRetryTimeRangeMinutes(Long AutoRetryTimeRangeMinutes) {
+        this.AutoRetryTimeRangeMinutes = AutoRetryTimeRangeMinutes;
+    }
+
+    /**
+     * Get 全量导出可重入标识：enum::"yes"/"no"。yes表示当前任务可重入、no表示当前任务处于全量导出且不可重入阶段；如果在该值为no时重启任务导出流程不支持断点续传
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DumperResumeCtrl 全量导出可重入标识：enum::"yes"/"no"。yes表示当前任务可重入、no表示当前任务处于全量导出且不可重入阶段；如果在该值为no时重启任务导出流程不支持断点续传
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDumperResumeCtrl() {
+        return this.DumperResumeCtrl;
+    }
+
+    /**
+     * Set 全量导出可重入标识：enum::"yes"/"no"。yes表示当前任务可重入、no表示当前任务处于全量导出且不可重入阶段；如果在该值为no时重启任务导出流程不支持断点续传
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DumperResumeCtrl 全量导出可重入标识：enum::"yes"/"no"。yes表示当前任务可重入、no表示当前任务处于全量导出且不可重入阶段；如果在该值为no时重启任务导出流程不支持断点续传
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDumperResumeCtrl(String DumperResumeCtrl) {
+        this.DumperResumeCtrl = DumperResumeCtrl;
+    }
+
     public SyncJobInfo() {
     }
 
@@ -893,6 +1061,12 @@ public class SyncJobInfo extends AbstractModel{
         if (source.SrcInfo != null) {
             this.SrcInfo = new Endpoint(source.SrcInfo);
         }
+        if (source.SrcNodeType != null) {
+            this.SrcNodeType = new String(source.SrcNodeType);
+        }
+        if (source.SrcInfos != null) {
+            this.SrcInfos = new SyncDBEndpointInfos(source.SrcInfos);
+        }
         if (source.DstRegion != null) {
             this.DstRegion = new String(source.DstRegion);
         }
@@ -904,6 +1078,12 @@ public class SyncJobInfo extends AbstractModel{
         }
         if (source.DstInfo != null) {
             this.DstInfo = new Endpoint(source.DstInfo);
+        }
+        if (source.DstNodeType != null) {
+            this.DstNodeType = new String(source.DstNodeType);
+        }
+        if (source.DstInfos != null) {
+            this.DstInfos = new SyncDBEndpointInfos(source.DstInfos);
         }
         if (source.CreateTime != null) {
             this.CreateTime = new String(source.CreateTime);
@@ -938,6 +1118,12 @@ public class SyncJobInfo extends AbstractModel{
         if (source.OfflineTime != null) {
             this.OfflineTime = new String(source.OfflineTime);
         }
+        if (source.AutoRetryTimeRangeMinutes != null) {
+            this.AutoRetryTimeRangeMinutes = new Long(source.AutoRetryTimeRangeMinutes);
+        }
+        if (source.DumperResumeCtrl != null) {
+            this.DumperResumeCtrl = new String(source.DumperResumeCtrl);
+        }
     }
 
 
@@ -960,10 +1146,14 @@ public class SyncJobInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "SrcDatabaseType", this.SrcDatabaseType);
         this.setParamSimple(map, prefix + "SrcAccessType", this.SrcAccessType);
         this.setParamObj(map, prefix + "SrcInfo.", this.SrcInfo);
+        this.setParamSimple(map, prefix + "SrcNodeType", this.SrcNodeType);
+        this.setParamObj(map, prefix + "SrcInfos.", this.SrcInfos);
         this.setParamSimple(map, prefix + "DstRegion", this.DstRegion);
         this.setParamSimple(map, prefix + "DstDatabaseType", this.DstDatabaseType);
         this.setParamSimple(map, prefix + "DstAccessType", this.DstAccessType);
         this.setParamObj(map, prefix + "DstInfo.", this.DstInfo);
+        this.setParamSimple(map, prefix + "DstNodeType", this.DstNodeType);
+        this.setParamObj(map, prefix + "DstInfos.", this.DstInfos);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "StartTime", this.StartTime);
         this.setParamSimple(map, prefix + "Status", this.Status);
@@ -974,6 +1164,8 @@ public class SyncJobInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "InstanceClass", this.InstanceClass);
         this.setParamSimple(map, prefix + "AutoRenew", this.AutoRenew);
         this.setParamSimple(map, prefix + "OfflineTime", this.OfflineTime);
+        this.setParamSimple(map, prefix + "AutoRetryTimeRangeMinutes", this.AutoRetryTimeRangeMinutes);
+        this.setParamSimple(map, prefix + "DumperResumeCtrl", this.DumperResumeCtrl);
 
     }
 }

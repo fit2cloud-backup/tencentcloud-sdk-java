@@ -58,14 +58,14 @@ public class RecognizeThaiIDCardOCRResponse extends AbstractModel{
     private String Birthday;
 
     /**
-    * 首次领用日期
+    * 签发日期
     */
     @SerializedName("IssueDate")
     @Expose
     private String IssueDate;
 
     /**
-    * 签发日期
+    * 到期日期
     */
     @SerializedName("ExpirationDate")
     @Expose
@@ -77,6 +77,13 @@ public class RecognizeThaiIDCardOCRResponse extends AbstractModel{
     @SerializedName("EnLastName")
     @Expose
     private String EnLastName;
+
+    /**
+    * 证件人像照片抠取
+    */
+    @SerializedName("PortraitImage")
+    @Expose
+    private String PortraitImage;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -166,32 +173,32 @@ public class RecognizeThaiIDCardOCRResponse extends AbstractModel{
     }
 
     /**
-     * Get 首次领用日期 
-     * @return IssueDate 首次领用日期
+     * Get 签发日期 
+     * @return IssueDate 签发日期
      */
     public String getIssueDate() {
         return this.IssueDate;
     }
 
     /**
-     * Set 首次领用日期
-     * @param IssueDate 首次领用日期
+     * Set 签发日期
+     * @param IssueDate 签发日期
      */
     public void setIssueDate(String IssueDate) {
         this.IssueDate = IssueDate;
     }
 
     /**
-     * Get 签发日期 
-     * @return ExpirationDate 签发日期
+     * Get 到期日期 
+     * @return ExpirationDate 到期日期
      */
     public String getExpirationDate() {
         return this.ExpirationDate;
     }
 
     /**
-     * Set 签发日期
-     * @param ExpirationDate 签发日期
+     * Set 到期日期
+     * @param ExpirationDate 到期日期
      */
     public void setExpirationDate(String ExpirationDate) {
         this.ExpirationDate = ExpirationDate;
@@ -211,6 +218,22 @@ public class RecognizeThaiIDCardOCRResponse extends AbstractModel{
      */
     public void setEnLastName(String EnLastName) {
         this.EnLastName = EnLastName;
+    }
+
+    /**
+     * Get 证件人像照片抠取 
+     * @return PortraitImage 证件人像照片抠取
+     */
+    public String getPortraitImage() {
+        return this.PortraitImage;
+    }
+
+    /**
+     * Set 证件人像照片抠取
+     * @param PortraitImage 证件人像照片抠取
+     */
+    public void setPortraitImage(String PortraitImage) {
+        this.PortraitImage = PortraitImage;
     }
 
     /**
@@ -261,6 +284,9 @@ public class RecognizeThaiIDCardOCRResponse extends AbstractModel{
         if (source.EnLastName != null) {
             this.EnLastName = new String(source.EnLastName);
         }
+        if (source.PortraitImage != null) {
+            this.PortraitImage = new String(source.PortraitImage);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -279,6 +305,7 @@ public class RecognizeThaiIDCardOCRResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "IssueDate", this.IssueDate);
         this.setParamSimple(map, prefix + "ExpirationDate", this.ExpirationDate);
         this.setParamSimple(map, prefix + "EnLastName", this.EnLastName);
+        this.setParamSimple(map, prefix + "PortraitImage", this.PortraitImage);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

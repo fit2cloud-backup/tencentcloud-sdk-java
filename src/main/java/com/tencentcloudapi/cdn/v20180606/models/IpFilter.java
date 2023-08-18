@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class IpFilter extends AbstractModel{
 
     /**
-    * IP 黑白名单配置开关
+    * IP 黑白名单配置开关，取值有
 on：开启
 off：关闭
     */
@@ -60,8 +60,7 @@ blacklist：黑名单
     private IpFilterPathRule [] FilterRules;
 
     /**
-    * IP 黑白名单验证失败时返回的 HTTP Code
-合法值: 400~499
+    * IP 黑白名单验证失败时返回的 code <br><font color=red>已下线，参数失效，不支持自定义状态码，固定返回514</font>
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReturnCode")
@@ -69,10 +68,10 @@ blacklist：黑名单
     private Long ReturnCode;
 
     /**
-     * Get IP 黑白名单配置开关
+     * Get IP 黑白名单配置开关，取值有
 on：开启
 off：关闭 
-     * @return Switch IP 黑白名单配置开关
+     * @return Switch IP 黑白名单配置开关，取值有
 on：开启
 off：关闭
      */
@@ -81,10 +80,10 @@ off：关闭
     }
 
     /**
-     * Set IP 黑白名单配置开关
+     * Set IP 黑白名单配置开关，取值有
 on：开启
 off：关闭
-     * @param Switch IP 黑白名单配置开关
+     * @param Switch IP 黑白名单配置开关，取值有
 on：开启
 off：关闭
      */
@@ -169,11 +168,9 @@ blacklist：黑名单
     }
 
     /**
-     * Get IP 黑白名单验证失败时返回的 HTTP Code
-合法值: 400~499
+     * Get IP 黑白名单验证失败时返回的 code <br><font color=red>已下线，参数失效，不支持自定义状态码，固定返回514</font>
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ReturnCode IP 黑白名单验证失败时返回的 HTTP Code
-合法值: 400~499
+     * @return ReturnCode IP 黑白名单验证失败时返回的 code <br><font color=red>已下线，参数失效，不支持自定义状态码，固定返回514</font>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getReturnCode() {
@@ -181,11 +178,9 @@ blacklist：黑名单
     }
 
     /**
-     * Set IP 黑白名单验证失败时返回的 HTTP Code
-合法值: 400~499
+     * Set IP 黑白名单验证失败时返回的 code <br><font color=red>已下线，参数失效，不支持自定义状态码，固定返回514</font>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ReturnCode IP 黑白名单验证失败时返回的 HTTP Code
-合法值: 400~499
+     * @param ReturnCode IP 黑白名单验证失败时返回的 code <br><font color=red>已下线，参数失效，不支持自定义状态码，固定返回514</font>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReturnCode(Long ReturnCode) {

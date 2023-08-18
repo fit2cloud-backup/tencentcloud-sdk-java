@@ -3,8 +3,14 @@ public enum CynosdbErrorCode {
     // CAM签名/鉴权错误。
      AUTHFAILURE("AuthFailure"),
      
+    // 操作失败。
+     FAILEDOPERATION("FailedOperation"),
+     
     // 批量查询失败。
      FAILEDOPERATION_BATCHGETINSTANCEERROR("FailedOperation.BatchGetInstanceError"),
+     
+    // 绑定资源包失败
+     FAILEDOPERATION_BINDSOURCEPACKAGEERROR("FailedOperation.BindSourcePackageError"),
      
     // 获取权限失败，请稍后重试。如果持续不成功，请联系客服进行处理。
      FAILEDOPERATION_CAMCHECKRESOURCEERROR("FailedOperation.CamCheckResourceError"),
@@ -15,8 +21,14 @@ public enum CynosdbErrorCode {
     // 创建并支付订单失败。
      FAILEDOPERATION_CREATEORDER("FailedOperation.CreateOrder"),
      
+    // 创建资源包失败
+     FAILEDOPERATION_CREATESOURCEPACKAGEERROR("FailedOperation.CreateSourcePackageError"),
+     
     // 数据库访问失败，请稍后重试。如果持续不成功，请联系客服进行处理。
      FAILEDOPERATION_DATABASEACCESSERROR("FailedOperation.DatabaseAccessError"),
+     
+    // 修改账号权限失败。
+     FAILEDOPERATION_DESCRIBEACCOUNTPRIVILEGESERROR("FailedOperation.DescribeAccountPrivilegesError"),
      
     // 创建流程失败，请稍后重试。如果持续不成功，请联系客服进行处理。
      FAILEDOPERATION_FLOWCREATEERROR("FailedOperation.FlowCreateError"),
@@ -27,17 +39,35 @@ public enum CynosdbErrorCode {
     // 获取备份策略失败，请稍后重试。如果持续不成功，请联系客服进行处理。
      FAILEDOPERATION_GETBACKUPSTRATEGYERROR("FailedOperation.GetBackupStrategyError"),
      
+    // 查询接入组网络信息失败。
+     FAILEDOPERATION_GETNETSERVICEINFOERROR("FailedOperation.GetNetServiceInfoError"),
+     
+    // 查询主实例详情失败。
+     FAILEDOPERATION_GETOSSINFOERROR("FailedOperation.GetOssInfoError"),
+     
     // 账号余额不足。
      FAILEDOPERATION_INSUFFICIENTBALANCE("FailedOperation.InsufficientBalance"),
      
     // 操作失败，请稍后重试。如果持续不成功，请联系客服进行处理。
      FAILEDOPERATION_OPERATIONFAILEDERROR("FailedOperation.OperationFailedError"),
      
+    // 查询资源包消耗明细失败
+     FAILEDOPERATION_QUERYSOURCEPACKAGEDETAILERROR("FailedOperation.QuerySourcePackageDetailError"),
+     
+    // 查询资源包失败
+     FAILEDOPERATION_QUERYSOURCEPACKAGEERROR("FailedOperation.QuerySourcePackageError"),
+     
     // 规格信息查询失败。
      FAILEDOPERATION_QUERYSPECBYSPECCODEERROR("FailedOperation.QuerySpecBySpecCodeError"),
      
+    // 资源包退款失败
+     FAILEDOPERATION_REFUNDSOURCEPACKAGEERROR("FailedOperation.RefundSourcePackageError"),
+     
     // 创建并支付订单失败，请稍后重试。如果持续不成功，请联系客服进行处理。
      FAILEDOPERATION_TRADECREATEORDERERROR("FailedOperation.TradeCreateOrderError"),
+     
+    // 解绑资源包失败
+     FAILEDOPERATION_UNBINDSOURCEPACKAGEERROR("FailedOperation.UnBindSourcePackageError"),
      
     // 内部错误。
      INTERNALERROR("InternalError"),
@@ -54,6 +84,9 @@ public enum CynosdbErrorCode {
     // 获取VPC失败。
      INTERNALERROR_GETVPCFAILED("InternalError.GetVpcFailed"),
      
+    // 网络错误
+     INTERNALERROR_HTTPERROR("InternalError.HttpError"),
+     
     // http请求执行异常。
      INTERNALERROR_INTERNALHTTPSERVERERROR("InternalError.InternalHttpServerError"),
      
@@ -69,6 +102,9 @@ public enum CynosdbErrorCode {
     // 查询数据库失败。
      INTERNALERROR_QUERYDATABASEFAILED("InternalError.QueryDatabaseFailed"),
      
+    // 内部服务错误。
+     INTERNALERROR_SERVICEERROR("InternalError.ServiceError"),
+     
     // 系统内部错误。
      INTERNALERROR_SYSTEMERROR("InternalError.SystemError"),
      
@@ -80,6 +116,9 @@ public enum CynosdbErrorCode {
      
     // 未找到该接口。
      INVALIDPARAMETER_CONTROLLERNOTFOUNDERROR("InvalidParameter.ControllerNotFoundError"),
+     
+    // 参数传参错误。
+     INVALIDPARAMETER_EXCEPTIONPARAM("InvalidParameter.ExceptionParam"),
      
     // 未知参数，请检查参数是否有效。
      INVALIDPARAMETER_INVALIDPARAMETERERROR("InvalidParameter.InvalidParameterError"),
@@ -159,6 +198,9 @@ public enum CynosdbErrorCode {
     // 预付费类型不允许该操作。
      INVALIDPARAMETERVALUE_PREPAYPAYMODEERROR("InvalidParameterValue.PrePayPayModeError"),
      
+    // 找不到该ProjectId
+     INVALIDPARAMETERVALUE_PROJECTIDNOTFOUND("InvalidParameterValue.ProjectIdNotFound"),
+     
     // 所选地域和可用区不可用。
      INVALIDPARAMETERVALUE_REGIONZONEUNAVAILABLE("InvalidParameterValue.RegionZoneUnavailable"),
      
@@ -168,11 +210,17 @@ public enum CynosdbErrorCode {
     // 找不到所选子网。
      INVALIDPARAMETERVALUE_SUBNETNOTFOUND("InvalidParameterValue.SubnetNotFound"),
      
+    // 未找到该数据。
+     INVALIDPARAMETERVALUE_VALUENOTFOUND("InvalidParameterValue.ValueNotFound"),
+     
     // 找不到所选VPC网络。
      INVALIDPARAMETERVALUE_VPCNOTFOUND("InvalidParameterValue.VpcNotFound"),
      
     // 超过配额限制。
      LIMITEXCEEDED("LimitExceeded"),
+     
+    // 集群中节点数超过最大限制。
+     LIMITEXCEEDED_CLUSTERINSTANCELIMIT("LimitExceeded.ClusterInstanceLimit"),
      
     // 用户实例个数超出限制。
      LIMITEXCEEDED_USERINSTANCELIMIT("LimitExceeded.UserInstanceLimit"),
@@ -180,11 +228,17 @@ public enum CynosdbErrorCode {
     // 缺少参数错误。
      MISSINGPARAMETER("MissingParameter"),
      
+    // 权限校验失败。
+     OPERATIONDENIED_CAMDENIEDERROR("OperationDenied.CamDeniedError"),
+     
     // 由于操作禁止，当前集群不允许该操作。
      OPERATIONDENIED_CLUSTEROPNOTALLOWEDERROR("OperationDenied.ClusterOpNotAllowedError"),
      
     // 集群当前状态不允许该操作。
      OPERATIONDENIED_CLUSTERSTATUSDENIEDERROR("OperationDenied.ClusterStatusDeniedError"),
+     
+    // 您没有权限操作资源。
+     OPERATIONDENIED_INSTANCEACCESSDENIEDERROR("OperationDenied.InstanceAccessDeniedError"),
      
     // 实例当前状态不允许该操作。
      OPERATIONDENIED_INSTANCESTATUSDENIEDERROR("OperationDenied.InstanceStatusDeniedError"),
@@ -203,6 +257,9 @@ public enum CynosdbErrorCode {
      
     // 任务冲突检查不通过。
      OPERATIONDENIED_TASKCONFLICTERROR("OperationDenied.TaskConflictError"),
+     
+    // 不支持该类型规格售卖
+     OPERATIONDENIED_UNSUPPORTSALESPECERROR("OperationDenied.UnSupportSaleSpecError"),
      
     // 用户未进行实名认证，请先进行实名认证才可购买。
      OPERATIONDENIED_USERNOTAUTHENTICATEDERROR("OperationDenied.UserNotAuthenticatedError"),

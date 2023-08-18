@@ -100,6 +100,13 @@ public class CynosdbInstance extends AbstractModel{
     private String StatusDesc;
 
     /**
+    * 实例形态，是否为serverless实例
+    */
+    @SerializedName("DbMode")
+    @Expose
+    private String DbMode;
+
+    /**
     * 数据库类型
     */
     @SerializedName("DbType")
@@ -359,6 +366,38 @@ pause
     private Tag [] ResourceTags;
 
     /**
+    * 主可用区
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MasterZone")
+    @Expose
+    private String MasterZone;
+
+    /**
+    * 备可用区
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SlaveZones")
+    @Expose
+    private String [] SlaveZones;
+
+    /**
+    * 实例网络信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("InstanceNetInfo")
+    @Expose
+    private InstanceNetInfo [] InstanceNetInfo;
+
+    /**
+    * 实例绑定资源包信息（此处只返回计算资源包，即packageType=CCU）
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ResourcePackages")
+    @Expose
+    private ResourcePackage [] ResourcePackages;
+
+    /**
      * Get 用户Uin 
      * @return Uin 用户Uin
      */
@@ -532,6 +571,22 @@ pause
      */
     public void setStatusDesc(String StatusDesc) {
         this.StatusDesc = StatusDesc;
+    }
+
+    /**
+     * Get 实例形态，是否为serverless实例 
+     * @return DbMode 实例形态，是否为serverless实例
+     */
+    public String getDbMode() {
+        return this.DbMode;
+    }
+
+    /**
+     * Set 实例形态，是否为serverless实例
+     * @param DbMode 实例形态，是否为serverless实例
+     */
+    public void setDbMode(String DbMode) {
+        this.DbMode = DbMode;
     }
 
     /**
@@ -1138,6 +1193,86 @@ pause
         this.ResourceTags = ResourceTags;
     }
 
+    /**
+     * Get 主可用区
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MasterZone 主可用区
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getMasterZone() {
+        return this.MasterZone;
+    }
+
+    /**
+     * Set 主可用区
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MasterZone 主可用区
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMasterZone(String MasterZone) {
+        this.MasterZone = MasterZone;
+    }
+
+    /**
+     * Get 备可用区
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SlaveZones 备可用区
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getSlaveZones() {
+        return this.SlaveZones;
+    }
+
+    /**
+     * Set 备可用区
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SlaveZones 备可用区
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSlaveZones(String [] SlaveZones) {
+        this.SlaveZones = SlaveZones;
+    }
+
+    /**
+     * Get 实例网络信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return InstanceNetInfo 实例网络信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public InstanceNetInfo [] getInstanceNetInfo() {
+        return this.InstanceNetInfo;
+    }
+
+    /**
+     * Set 实例网络信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param InstanceNetInfo 实例网络信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setInstanceNetInfo(InstanceNetInfo [] InstanceNetInfo) {
+        this.InstanceNetInfo = InstanceNetInfo;
+    }
+
+    /**
+     * Get 实例绑定资源包信息（此处只返回计算资源包，即packageType=CCU）
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ResourcePackages 实例绑定资源包信息（此处只返回计算资源包，即packageType=CCU）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ResourcePackage [] getResourcePackages() {
+        return this.ResourcePackages;
+    }
+
+    /**
+     * Set 实例绑定资源包信息（此处只返回计算资源包，即packageType=CCU）
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ResourcePackages 实例绑定资源包信息（此处只返回计算资源包，即packageType=CCU）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setResourcePackages(ResourcePackage [] ResourcePackages) {
+        this.ResourcePackages = ResourcePackages;
+    }
+
     public CynosdbInstance() {
     }
 
@@ -1178,6 +1313,9 @@ pause
         }
         if (source.StatusDesc != null) {
             this.StatusDesc = new String(source.StatusDesc);
+        }
+        if (source.DbMode != null) {
+            this.DbMode = new String(source.DbMode);
         }
         if (source.DbType != null) {
             this.DbType = new String(source.DbType);
@@ -1293,6 +1431,27 @@ pause
                 this.ResourceTags[i] = new Tag(source.ResourceTags[i]);
             }
         }
+        if (source.MasterZone != null) {
+            this.MasterZone = new String(source.MasterZone);
+        }
+        if (source.SlaveZones != null) {
+            this.SlaveZones = new String[source.SlaveZones.length];
+            for (int i = 0; i < source.SlaveZones.length; i++) {
+                this.SlaveZones[i] = new String(source.SlaveZones[i]);
+            }
+        }
+        if (source.InstanceNetInfo != null) {
+            this.InstanceNetInfo = new InstanceNetInfo[source.InstanceNetInfo.length];
+            for (int i = 0; i < source.InstanceNetInfo.length; i++) {
+                this.InstanceNetInfo[i] = new InstanceNetInfo(source.InstanceNetInfo[i]);
+            }
+        }
+        if (source.ResourcePackages != null) {
+            this.ResourcePackages = new ResourcePackage[source.ResourcePackages.length];
+            for (int i = 0; i < source.ResourcePackages.length; i++) {
+                this.ResourcePackages[i] = new ResourcePackage(source.ResourcePackages[i]);
+            }
+        }
     }
 
 
@@ -1311,6 +1470,7 @@ pause
         this.setParamSimple(map, prefix + "Zone", this.Zone);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "StatusDesc", this.StatusDesc);
+        this.setParamSimple(map, prefix + "DbMode", this.DbMode);
         this.setParamSimple(map, prefix + "DbType", this.DbType);
         this.setParamSimple(map, prefix + "DbVersion", this.DbVersion);
         this.setParamSimple(map, prefix + "Cpu", this.Cpu);
@@ -1347,6 +1507,10 @@ pause
         this.setParamArrayObj(map, prefix + "Tasks.", this.Tasks);
         this.setParamSimple(map, prefix + "IsFreeze", this.IsFreeze);
         this.setParamArrayObj(map, prefix + "ResourceTags.", this.ResourceTags);
+        this.setParamSimple(map, prefix + "MasterZone", this.MasterZone);
+        this.setParamArraySimple(map, prefix + "SlaveZones.", this.SlaveZones);
+        this.setParamArrayObj(map, prefix + "InstanceNetInfo.", this.InstanceNetInfo);
+        this.setParamArrayObj(map, prefix + "ResourcePackages.", this.ResourcePackages);
 
     }
 }

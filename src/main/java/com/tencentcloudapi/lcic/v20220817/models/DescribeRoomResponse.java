@@ -30,21 +30,21 @@ public class DescribeRoomResponse extends AbstractModel{
     private String Name;
 
     /**
-    * 预定的房间开始时间，unix时间戳。
+    * 预定的房间开始时间，unix时间戳（秒）。
     */
     @SerializedName("StartTime")
     @Expose
     private Long StartTime;
 
     /**
-    * 预定的房间结束时间，unix时间戳。
+    * 预定的房间结束时间，unix时间戳（秒）。
     */
     @SerializedName("EndTime")
     @Expose
     private Long EndTime;
 
     /**
-    * 老师ID。
+    * 老师的UserId。
     */
     @SerializedName("TeacherId")
     @Expose
@@ -56,6 +56,13 @@ public class DescribeRoomResponse extends AbstractModel{
     @SerializedName("SdkAppId")
     @Expose
     private Long SdkAppId;
+
+    /**
+    * 观看类型。互动观看 （默认）	
+    */
+    @SerializedName("AudienceType")
+    @Expose
+    private Long AudienceType;
 
     /**
     * 分辨率。可以有如下取值：
@@ -75,8 +82,8 @@ public class DescribeRoomResponse extends AbstractModel{
     private Long MaxMicNumber;
 
     /**
-    * 进入房间时是否自动连麦。可以有以下取值：
-0 不自动连麦（默认值）
+    * 进入课堂时是否自动连麦。可以有以下取值：
+0 不自动连麦（需要手动申请上麦，默认值）
 1 自动连麦
     */
     @SerializedName("AutoMic")
@@ -96,23 +103,23 @@ public class DescribeRoomResponse extends AbstractModel{
     * 房间子类型，可以有以下取值：
 videodoc 文档+视频
 video 纯视频
-coteaching 双师
     */
     @SerializedName("SubType")
     @Expose
     private String SubType;
 
     /**
-    * 禁止录制。可以有以下取值：
-0 不禁止录制（默认值）
+    * 上课后是否禁止自动录制。可以有以下取值：
+0 不禁止录制（自动开启录制，默认值）
 1 禁止录制
+注：如果该配置取值为0，录制将从上课后开始，课堂结束后停止。
     */
     @SerializedName("DisableRecord")
     @Expose
     private Long DisableRecord;
 
     /**
-    * 助教Id列表。
+    * 助教UserId列表。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Assistants")
@@ -120,12 +127,72 @@ coteaching 双师
     private String [] Assistants;
 
     /**
-    * 录制地址。仅在房间结束后存在。
+    * 录制地址（协议为https)。仅在房间结束后存在。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RecordUrl")
     @Expose
     private String RecordUrl;
+
+    /**
+    * 课堂状态。0为未开始，1为已开始，2为已结束，3为已过期。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Status")
+    @Expose
+    private Long Status;
+
+    /**
+    * 房间绑定的群组ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("GroupId")
+    @Expose
+    private String GroupId;
+
+    /**
+    * 打开学生麦克风/摄像头的授权开关
+    */
+    @SerializedName("EnableDirectControl")
+    @Expose
+    private Long EnableDirectControl;
+
+    /**
+    * 开启专注模式。
+0 收看全部角色音视频(默认)
+1 只看老师和助教
+    */
+    @SerializedName("InteractionMode")
+    @Expose
+    private Long InteractionMode;
+
+    /**
+    * 横竖屏。0：横屏开播（默认值）; 1：竖屏开播，当前仅支持移动端的纯视频类型
+    */
+    @SerializedName("VideoOrientation")
+    @Expose
+    private Long VideoOrientation;
+
+    /**
+    * 开启课后评分。 0：不开启(默认)  1：开启
+    */
+    @SerializedName("IsGradingRequiredPostClass")
+    @Expose
+    private Long IsGradingRequiredPostClass;
+
+    /**
+    * 房间类型: 0 小班课（默认值）; 1 大班课; 2 1V1 (后续扩展)
+    */
+    @SerializedName("RoomType")
+    @Expose
+    private Long RoomType;
+
+    /**
+    * 录制时长
+    */
+    @SerializedName("VideoDuration")
+    @Expose
+    private Long VideoDuration;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -151,48 +218,48 @@ coteaching 双师
     }
 
     /**
-     * Get 预定的房间开始时间，unix时间戳。 
-     * @return StartTime 预定的房间开始时间，unix时间戳。
+     * Get 预定的房间开始时间，unix时间戳（秒）。 
+     * @return StartTime 预定的房间开始时间，unix时间戳（秒）。
      */
     public Long getStartTime() {
         return this.StartTime;
     }
 
     /**
-     * Set 预定的房间开始时间，unix时间戳。
-     * @param StartTime 预定的房间开始时间，unix时间戳。
+     * Set 预定的房间开始时间，unix时间戳（秒）。
+     * @param StartTime 预定的房间开始时间，unix时间戳（秒）。
      */
     public void setStartTime(Long StartTime) {
         this.StartTime = StartTime;
     }
 
     /**
-     * Get 预定的房间结束时间，unix时间戳。 
-     * @return EndTime 预定的房间结束时间，unix时间戳。
+     * Get 预定的房间结束时间，unix时间戳（秒）。 
+     * @return EndTime 预定的房间结束时间，unix时间戳（秒）。
      */
     public Long getEndTime() {
         return this.EndTime;
     }
 
     /**
-     * Set 预定的房间结束时间，unix时间戳。
-     * @param EndTime 预定的房间结束时间，unix时间戳。
+     * Set 预定的房间结束时间，unix时间戳（秒）。
+     * @param EndTime 预定的房间结束时间，unix时间戳（秒）。
      */
     public void setEndTime(Long EndTime) {
         this.EndTime = EndTime;
     }
 
     /**
-     * Get 老师ID。 
-     * @return TeacherId 老师ID。
+     * Get 老师的UserId。 
+     * @return TeacherId 老师的UserId。
      */
     public String getTeacherId() {
         return this.TeacherId;
     }
 
     /**
-     * Set 老师ID。
-     * @param TeacherId 老师ID。
+     * Set 老师的UserId。
+     * @param TeacherId 老师的UserId。
      */
     public void setTeacherId(String TeacherId) {
         this.TeacherId = TeacherId;
@@ -212,6 +279,22 @@ coteaching 双师
      */
     public void setSdkAppId(Long SdkAppId) {
         this.SdkAppId = SdkAppId;
+    }
+
+    /**
+     * Get 观看类型。互动观看 （默认）	 
+     * @return AudienceType 观看类型。互动观看 （默认）	
+     */
+    public Long getAudienceType() {
+        return this.AudienceType;
+    }
+
+    /**
+     * Set 观看类型。互动观看 （默认）	
+     * @param AudienceType 观看类型。互动观看 （默认）	
+     */
+    public void setAudienceType(Long AudienceType) {
+        this.AudienceType = AudienceType;
     }
 
     /**
@@ -259,11 +342,11 @@ coteaching 双师
     }
 
     /**
-     * Get 进入房间时是否自动连麦。可以有以下取值：
-0 不自动连麦（默认值）
+     * Get 进入课堂时是否自动连麦。可以有以下取值：
+0 不自动连麦（需要手动申请上麦，默认值）
 1 自动连麦 
-     * @return AutoMic 进入房间时是否自动连麦。可以有以下取值：
-0 不自动连麦（默认值）
+     * @return AutoMic 进入课堂时是否自动连麦。可以有以下取值：
+0 不自动连麦（需要手动申请上麦，默认值）
 1 自动连麦
      */
     public Long getAutoMic() {
@@ -271,11 +354,11 @@ coteaching 双师
     }
 
     /**
-     * Set 进入房间时是否自动连麦。可以有以下取值：
-0 不自动连麦（默认值）
+     * Set 进入课堂时是否自动连麦。可以有以下取值：
+0 不自动连麦（需要手动申请上麦，默认值）
 1 自动连麦
-     * @param AutoMic 进入房间时是否自动连麦。可以有以下取值：
-0 不自动连麦（默认值）
+     * @param AutoMic 进入课堂时是否自动连麦。可以有以下取值：
+0 不自动连麦（需要手动申请上麦，默认值）
 1 自动连麦
      */
     public void setAutoMic(Long AutoMic) {
@@ -309,12 +392,10 @@ coteaching 双师
     /**
      * Get 房间子类型，可以有以下取值：
 videodoc 文档+视频
-video 纯视频
-coteaching 双师 
+video 纯视频 
      * @return SubType 房间子类型，可以有以下取值：
 videodoc 文档+视频
 video 纯视频
-coteaching 双师
      */
     public String getSubType() {
         return this.SubType;
@@ -324,44 +405,46 @@ coteaching 双师
      * Set 房间子类型，可以有以下取值：
 videodoc 文档+视频
 video 纯视频
-coteaching 双师
      * @param SubType 房间子类型，可以有以下取值：
 videodoc 文档+视频
 video 纯视频
-coteaching 双师
      */
     public void setSubType(String SubType) {
         this.SubType = SubType;
     }
 
     /**
-     * Get 禁止录制。可以有以下取值：
-0 不禁止录制（默认值）
-1 禁止录制 
-     * @return DisableRecord 禁止录制。可以有以下取值：
-0 不禁止录制（默认值）
+     * Get 上课后是否禁止自动录制。可以有以下取值：
+0 不禁止录制（自动开启录制，默认值）
 1 禁止录制
+注：如果该配置取值为0，录制将从上课后开始，课堂结束后停止。 
+     * @return DisableRecord 上课后是否禁止自动录制。可以有以下取值：
+0 不禁止录制（自动开启录制，默认值）
+1 禁止录制
+注：如果该配置取值为0，录制将从上课后开始，课堂结束后停止。
      */
     public Long getDisableRecord() {
         return this.DisableRecord;
     }
 
     /**
-     * Set 禁止录制。可以有以下取值：
-0 不禁止录制（默认值）
+     * Set 上课后是否禁止自动录制。可以有以下取值：
+0 不禁止录制（自动开启录制，默认值）
 1 禁止录制
-     * @param DisableRecord 禁止录制。可以有以下取值：
-0 不禁止录制（默认值）
+注：如果该配置取值为0，录制将从上课后开始，课堂结束后停止。
+     * @param DisableRecord 上课后是否禁止自动录制。可以有以下取值：
+0 不禁止录制（自动开启录制，默认值）
 1 禁止录制
+注：如果该配置取值为0，录制将从上课后开始，课堂结束后停止。
      */
     public void setDisableRecord(Long DisableRecord) {
         this.DisableRecord = DisableRecord;
     }
 
     /**
-     * Get 助教Id列表。
+     * Get 助教UserId列表。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Assistants 助教Id列表。
+     * @return Assistants 助教UserId列表。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getAssistants() {
@@ -369,9 +452,9 @@ coteaching 双师
     }
 
     /**
-     * Set 助教Id列表。
+     * Set 助教UserId列表。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Assistants 助教Id列表。
+     * @param Assistants 助教UserId列表。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAssistants(String [] Assistants) {
@@ -379,9 +462,9 @@ coteaching 双师
     }
 
     /**
-     * Get 录制地址。仅在房间结束后存在。
+     * Get 录制地址（协议为https)。仅在房间结束后存在。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return RecordUrl 录制地址。仅在房间结束后存在。
+     * @return RecordUrl 录制地址（协议为https)。仅在房间结束后存在。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRecordUrl() {
@@ -389,13 +472,157 @@ coteaching 双师
     }
 
     /**
-     * Set 录制地址。仅在房间结束后存在。
+     * Set 录制地址（协议为https)。仅在房间结束后存在。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param RecordUrl 录制地址。仅在房间结束后存在。
+     * @param RecordUrl 录制地址（协议为https)。仅在房间结束后存在。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRecordUrl(String RecordUrl) {
         this.RecordUrl = RecordUrl;
+    }
+
+    /**
+     * Get 课堂状态。0为未开始，1为已开始，2为已结束，3为已过期。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Status 课堂状态。0为未开始，1为已开始，2为已结束，3为已过期。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getStatus() {
+        return this.Status;
+    }
+
+    /**
+     * Set 课堂状态。0为未开始，1为已开始，2为已结束，3为已过期。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Status 课堂状态。0为未开始，1为已开始，2为已结束，3为已过期。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setStatus(Long Status) {
+        this.Status = Status;
+    }
+
+    /**
+     * Get 房间绑定的群组ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return GroupId 房间绑定的群组ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getGroupId() {
+        return this.GroupId;
+    }
+
+    /**
+     * Set 房间绑定的群组ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param GroupId 房间绑定的群组ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setGroupId(String GroupId) {
+        this.GroupId = GroupId;
+    }
+
+    /**
+     * Get 打开学生麦克风/摄像头的授权开关 
+     * @return EnableDirectControl 打开学生麦克风/摄像头的授权开关
+     */
+    public Long getEnableDirectControl() {
+        return this.EnableDirectControl;
+    }
+
+    /**
+     * Set 打开学生麦克风/摄像头的授权开关
+     * @param EnableDirectControl 打开学生麦克风/摄像头的授权开关
+     */
+    public void setEnableDirectControl(Long EnableDirectControl) {
+        this.EnableDirectControl = EnableDirectControl;
+    }
+
+    /**
+     * Get 开启专注模式。
+0 收看全部角色音视频(默认)
+1 只看老师和助教 
+     * @return InteractionMode 开启专注模式。
+0 收看全部角色音视频(默认)
+1 只看老师和助教
+     */
+    public Long getInteractionMode() {
+        return this.InteractionMode;
+    }
+
+    /**
+     * Set 开启专注模式。
+0 收看全部角色音视频(默认)
+1 只看老师和助教
+     * @param InteractionMode 开启专注模式。
+0 收看全部角色音视频(默认)
+1 只看老师和助教
+     */
+    public void setInteractionMode(Long InteractionMode) {
+        this.InteractionMode = InteractionMode;
+    }
+
+    /**
+     * Get 横竖屏。0：横屏开播（默认值）; 1：竖屏开播，当前仅支持移动端的纯视频类型 
+     * @return VideoOrientation 横竖屏。0：横屏开播（默认值）; 1：竖屏开播，当前仅支持移动端的纯视频类型
+     */
+    public Long getVideoOrientation() {
+        return this.VideoOrientation;
+    }
+
+    /**
+     * Set 横竖屏。0：横屏开播（默认值）; 1：竖屏开播，当前仅支持移动端的纯视频类型
+     * @param VideoOrientation 横竖屏。0：横屏开播（默认值）; 1：竖屏开播，当前仅支持移动端的纯视频类型
+     */
+    public void setVideoOrientation(Long VideoOrientation) {
+        this.VideoOrientation = VideoOrientation;
+    }
+
+    /**
+     * Get 开启课后评分。 0：不开启(默认)  1：开启 
+     * @return IsGradingRequiredPostClass 开启课后评分。 0：不开启(默认)  1：开启
+     */
+    public Long getIsGradingRequiredPostClass() {
+        return this.IsGradingRequiredPostClass;
+    }
+
+    /**
+     * Set 开启课后评分。 0：不开启(默认)  1：开启
+     * @param IsGradingRequiredPostClass 开启课后评分。 0：不开启(默认)  1：开启
+     */
+    public void setIsGradingRequiredPostClass(Long IsGradingRequiredPostClass) {
+        this.IsGradingRequiredPostClass = IsGradingRequiredPostClass;
+    }
+
+    /**
+     * Get 房间类型: 0 小班课（默认值）; 1 大班课; 2 1V1 (后续扩展) 
+     * @return RoomType 房间类型: 0 小班课（默认值）; 1 大班课; 2 1V1 (后续扩展)
+     */
+    public Long getRoomType() {
+        return this.RoomType;
+    }
+
+    /**
+     * Set 房间类型: 0 小班课（默认值）; 1 大班课; 2 1V1 (后续扩展)
+     * @param RoomType 房间类型: 0 小班课（默认值）; 1 大班课; 2 1V1 (后续扩展)
+     */
+    public void setRoomType(Long RoomType) {
+        this.RoomType = RoomType;
+    }
+
+    /**
+     * Get 录制时长 
+     * @return VideoDuration 录制时长
+     */
+    public Long getVideoDuration() {
+        return this.VideoDuration;
+    }
+
+    /**
+     * Set 录制时长
+     * @param VideoDuration 录制时长
+     */
+    public void setVideoDuration(Long VideoDuration) {
+        this.VideoDuration = VideoDuration;
     }
 
     /**
@@ -437,6 +664,9 @@ coteaching 双师
         if (source.SdkAppId != null) {
             this.SdkAppId = new Long(source.SdkAppId);
         }
+        if (source.AudienceType != null) {
+            this.AudienceType = new Long(source.AudienceType);
+        }
         if (source.Resolution != null) {
             this.Resolution = new Long(source.Resolution);
         }
@@ -464,6 +694,30 @@ coteaching 双师
         if (source.RecordUrl != null) {
             this.RecordUrl = new String(source.RecordUrl);
         }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
+        if (source.EnableDirectControl != null) {
+            this.EnableDirectControl = new Long(source.EnableDirectControl);
+        }
+        if (source.InteractionMode != null) {
+            this.InteractionMode = new Long(source.InteractionMode);
+        }
+        if (source.VideoOrientation != null) {
+            this.VideoOrientation = new Long(source.VideoOrientation);
+        }
+        if (source.IsGradingRequiredPostClass != null) {
+            this.IsGradingRequiredPostClass = new Long(source.IsGradingRequiredPostClass);
+        }
+        if (source.RoomType != null) {
+            this.RoomType = new Long(source.RoomType);
+        }
+        if (source.VideoDuration != null) {
+            this.VideoDuration = new Long(source.VideoDuration);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -479,6 +733,7 @@ coteaching 双师
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
         this.setParamSimple(map, prefix + "TeacherId", this.TeacherId);
         this.setParamSimple(map, prefix + "SdkAppId", this.SdkAppId);
+        this.setParamSimple(map, prefix + "AudienceType", this.AudienceType);
         this.setParamSimple(map, prefix + "Resolution", this.Resolution);
         this.setParamSimple(map, prefix + "MaxMicNumber", this.MaxMicNumber);
         this.setParamSimple(map, prefix + "AutoMic", this.AutoMic);
@@ -487,6 +742,14 @@ coteaching 双师
         this.setParamSimple(map, prefix + "DisableRecord", this.DisableRecord);
         this.setParamArraySimple(map, prefix + "Assistants.", this.Assistants);
         this.setParamSimple(map, prefix + "RecordUrl", this.RecordUrl);
+        this.setParamSimple(map, prefix + "Status", this.Status);
+        this.setParamSimple(map, prefix + "GroupId", this.GroupId);
+        this.setParamSimple(map, prefix + "EnableDirectControl", this.EnableDirectControl);
+        this.setParamSimple(map, prefix + "InteractionMode", this.InteractionMode);
+        this.setParamSimple(map, prefix + "VideoOrientation", this.VideoOrientation);
+        this.setParamSimple(map, prefix + "IsGradingRequiredPostClass", this.IsGradingRequiredPostClass);
+        this.setParamSimple(map, prefix + "RoomType", this.RoomType);
+        this.setParamSimple(map, prefix + "VideoDuration", this.VideoDuration);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

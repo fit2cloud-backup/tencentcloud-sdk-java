@@ -37,7 +37,7 @@ public class ModifyLoadBalancerAttributesRequest extends AbstractModel{
     private String LoadBalancerName;
 
     /**
-    * 负载均衡绑定的后端服务的地域信息
+    * 设置负载均衡跨地域绑定1.0的后端服务信息
     */
     @SerializedName("TargetRegionInfo")
     @Expose
@@ -58,7 +58,7 @@ public class ModifyLoadBalancerAttributesRequest extends AbstractModel{
     private Boolean LoadBalancerPassToTarget;
 
     /**
-    * 是否开启SnatPro
+    * 是否开启跨地域绑定2.0功能
     */
     @SerializedName("SnatPro")
     @Expose
@@ -70,6 +70,13 @@ public class ModifyLoadBalancerAttributesRequest extends AbstractModel{
     @SerializedName("DeleteProtect")
     @Expose
     private Boolean DeleteProtect;
+
+    /**
+    * 将负载均衡二级域名由mycloud.com改为tencentclb.com，子域名也会变换。修改后mycloud.com域名将失效。
+    */
+    @SerializedName("ModifyClassicDomain")
+    @Expose
+    private Boolean ModifyClassicDomain;
 
     /**
      * Get 负载均衡的唯一ID 
@@ -104,16 +111,16 @@ public class ModifyLoadBalancerAttributesRequest extends AbstractModel{
     }
 
     /**
-     * Get 负载均衡绑定的后端服务的地域信息 
-     * @return TargetRegionInfo 负载均衡绑定的后端服务的地域信息
+     * Get 设置负载均衡跨地域绑定1.0的后端服务信息 
+     * @return TargetRegionInfo 设置负载均衡跨地域绑定1.0的后端服务信息
      */
     public TargetRegionInfo getTargetRegionInfo() {
         return this.TargetRegionInfo;
     }
 
     /**
-     * Set 负载均衡绑定的后端服务的地域信息
-     * @param TargetRegionInfo 负载均衡绑定的后端服务的地域信息
+     * Set 设置负载均衡跨地域绑定1.0的后端服务信息
+     * @param TargetRegionInfo 设置负载均衡跨地域绑定1.0的后端服务信息
      */
     public void setTargetRegionInfo(TargetRegionInfo TargetRegionInfo) {
         this.TargetRegionInfo = TargetRegionInfo;
@@ -152,16 +159,16 @@ public class ModifyLoadBalancerAttributesRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否开启SnatPro 
-     * @return SnatPro 是否开启SnatPro
+     * Get 是否开启跨地域绑定2.0功能 
+     * @return SnatPro 是否开启跨地域绑定2.0功能
      */
     public Boolean getSnatPro() {
         return this.SnatPro;
     }
 
     /**
-     * Set 是否开启SnatPro
-     * @param SnatPro 是否开启SnatPro
+     * Set 是否开启跨地域绑定2.0功能
+     * @param SnatPro 是否开启跨地域绑定2.0功能
      */
     public void setSnatPro(Boolean SnatPro) {
         this.SnatPro = SnatPro;
@@ -181,6 +188,22 @@ public class ModifyLoadBalancerAttributesRequest extends AbstractModel{
      */
     public void setDeleteProtect(Boolean DeleteProtect) {
         this.DeleteProtect = DeleteProtect;
+    }
+
+    /**
+     * Get 将负载均衡二级域名由mycloud.com改为tencentclb.com，子域名也会变换。修改后mycloud.com域名将失效。 
+     * @return ModifyClassicDomain 将负载均衡二级域名由mycloud.com改为tencentclb.com，子域名也会变换。修改后mycloud.com域名将失效。
+     */
+    public Boolean getModifyClassicDomain() {
+        return this.ModifyClassicDomain;
+    }
+
+    /**
+     * Set 将负载均衡二级域名由mycloud.com改为tencentclb.com，子域名也会变换。修改后mycloud.com域名将失效。
+     * @param ModifyClassicDomain 将负载均衡二级域名由mycloud.com改为tencentclb.com，子域名也会变换。修改后mycloud.com域名将失效。
+     */
+    public void setModifyClassicDomain(Boolean ModifyClassicDomain) {
+        this.ModifyClassicDomain = ModifyClassicDomain;
     }
 
     public ModifyLoadBalancerAttributesRequest() {
@@ -212,6 +235,9 @@ public class ModifyLoadBalancerAttributesRequest extends AbstractModel{
         if (source.DeleteProtect != null) {
             this.DeleteProtect = new Boolean(source.DeleteProtect);
         }
+        if (source.ModifyClassicDomain != null) {
+            this.ModifyClassicDomain = new Boolean(source.ModifyClassicDomain);
+        }
     }
 
 
@@ -226,6 +252,7 @@ public class ModifyLoadBalancerAttributesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "LoadBalancerPassToTarget", this.LoadBalancerPassToTarget);
         this.setParamSimple(map, prefix + "SnatPro", this.SnatPro);
         this.setParamSimple(map, prefix + "DeleteProtect", this.DeleteProtect);
+        this.setParamSimple(map, prefix + "ModifyClassicDomain", this.ModifyClassicDomain);
 
     }
 }

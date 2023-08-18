@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class CreateFlowsByTemplatesRequest extends AbstractModel{
 
     /**
-    * 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+    * 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 均必填。
     */
     @SerializedName("Agent")
     @Expose
     private Agent Agent;
 
     /**
-    * 多个合同（签署流程）信息，最多支持20个
+    * 要创建的合同信息列表，最多支持一次创建20个合同
     */
     @SerializedName("FlowInfos")
     @Expose
@@ -53,39 +53,39 @@ public class CreateFlowsByTemplatesRequest extends AbstractModel{
     private Long PreviewType;
 
     /**
-    * 操作者的信息
+    * 操作者的信息，不用传
     */
     @SerializedName("Operator")
     @Expose
     private UserInfo Operator;
 
     /**
-     * Get 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。 
-     * @return Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+     * Get 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 均必填。 
+     * @return Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 均必填。
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
-     * @param Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+     * Set 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 均必填。
+     * @param Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 均必填。
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
     }
 
     /**
-     * Get 多个合同（签署流程）信息，最多支持20个 
-     * @return FlowInfos 多个合同（签署流程）信息，最多支持20个
+     * Get 要创建的合同信息列表，最多支持一次创建20个合同 
+     * @return FlowInfos 要创建的合同信息列表，最多支持一次创建20个合同
      */
     public FlowInfo [] getFlowInfos() {
         return this.FlowInfos;
     }
 
     /**
-     * Set 多个合同（签署流程）信息，最多支持20个
-     * @param FlowInfos 多个合同（签署流程）信息，最多支持20个
+     * Set 要创建的合同信息列表，最多支持一次创建20个合同
+     * @param FlowInfos 要创建的合同信息列表，最多支持一次创建20个合同
      */
     public void setFlowInfos(FlowInfo [] FlowInfos) {
         this.FlowInfos = FlowInfos;
@@ -132,17 +132,21 @@ public class CreateFlowsByTemplatesRequest extends AbstractModel{
     }
 
     /**
-     * Get 操作者的信息 
-     * @return Operator 操作者的信息
+     * Get 操作者的信息，不用传 
+     * @return Operator 操作者的信息，不用传
+     * @deprecated
      */
+    @Deprecated
     public UserInfo getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 操作者的信息
-     * @param Operator 操作者的信息
+     * Set 操作者的信息，不用传
+     * @param Operator 操作者的信息，不用传
+     * @deprecated
      */
+    @Deprecated
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
     }

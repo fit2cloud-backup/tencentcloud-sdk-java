@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class StartFlowRequest extends AbstractModel{
 
     /**
-    * 调用方用户信息，userId 必填
+    * 调用方用户信息，userId 必填。支持填入集团子公司经办人 userId代发合同。
     */
     @SerializedName("Operator")
     @Expose
@@ -44,23 +44,34 @@ public class StartFlowRequest extends AbstractModel{
     private String ClientToken;
 
     /**
-    * 应用相关信息
+    * 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
     */
     @SerializedName("Agent")
     @Expose
     private Agent Agent;
 
     /**
-     * Get 调用方用户信息，userId 必填 
-     * @return Operator 调用方用户信息，userId 必填
+    * 给关注人发送短信通知的类型，
+
+0-合同发起时通知 
+
+1-签署完成后通知
+    */
+    @SerializedName("CcNotifyType")
+    @Expose
+    private Long CcNotifyType;
+
+    /**
+     * Get 调用方用户信息，userId 必填。支持填入集团子公司经办人 userId代发合同。 
+     * @return Operator 调用方用户信息，userId 必填。支持填入集团子公司经办人 userId代发合同。
      */
     public UserInfo getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 调用方用户信息，userId 必填
-     * @param Operator 调用方用户信息，userId 必填
+     * Set 调用方用户信息，userId 必填。支持填入集团子公司经办人 userId代发合同。
+     * @param Operator 调用方用户信息，userId 必填。支持填入集团子公司经办人 userId代发合同。
      */
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
@@ -99,19 +110,51 @@ public class StartFlowRequest extends AbstractModel{
     }
 
     /**
-     * Get 应用相关信息 
-     * @return Agent 应用相关信息
+     * Get 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填 
+     * @return Agent 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 应用相关信息
-     * @param Agent 应用相关信息
+     * Set 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+     * @param Agent 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
+    }
+
+    /**
+     * Get 给关注人发送短信通知的类型，
+
+0-合同发起时通知 
+
+1-签署完成后通知 
+     * @return CcNotifyType 给关注人发送短信通知的类型，
+
+0-合同发起时通知 
+
+1-签署完成后通知
+     */
+    public Long getCcNotifyType() {
+        return this.CcNotifyType;
+    }
+
+    /**
+     * Set 给关注人发送短信通知的类型，
+
+0-合同发起时通知 
+
+1-签署完成后通知
+     * @param CcNotifyType 给关注人发送短信通知的类型，
+
+0-合同发起时通知 
+
+1-签署完成后通知
+     */
+    public void setCcNotifyType(Long CcNotifyType) {
+        this.CcNotifyType = CcNotifyType;
     }
 
     public StartFlowRequest() {
@@ -134,6 +177,9 @@ public class StartFlowRequest extends AbstractModel{
         if (source.Agent != null) {
             this.Agent = new Agent(source.Agent);
         }
+        if (source.CcNotifyType != null) {
+            this.CcNotifyType = new Long(source.CcNotifyType);
+        }
     }
 
 
@@ -145,6 +191,7 @@ public class StartFlowRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "FlowId", this.FlowId);
         this.setParamSimple(map, prefix + "ClientToken", this.ClientToken);
         this.setParamObj(map, prefix + "Agent.", this.Agent);
+        this.setParamSimple(map, prefix + "CcNotifyType", this.CcNotifyType);
 
     }
 }

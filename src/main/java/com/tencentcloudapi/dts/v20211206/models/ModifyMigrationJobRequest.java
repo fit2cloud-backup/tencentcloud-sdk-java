@@ -37,7 +37,7 @@ public class ModifyMigrationJobRequest extends AbstractModel{
     private String RunMode;
 
     /**
-    * 迁移任务配置选项，描述任务如何执行迁移等一系列配置信息
+    * 迁移任务配置选项，描述任务如何执行迁移等一系列配置信息；字段下的RateLimitOption不可配置、如果需要修改任务的限速信息、请在任务运行后通过ModifyMigrateRateLimit接口修改
     */
     @SerializedName("MigrateOption")
     @Expose
@@ -79,6 +79,13 @@ public class ModifyMigrationJobRequest extends AbstractModel{
     private TagItem [] Tags;
 
     /**
+    * 自动重试的时间段、可设置5至720分钟、0表示不重试
+    */
+    @SerializedName("AutoRetryTimeRangeMinutes")
+    @Expose
+    private Long AutoRetryTimeRangeMinutes;
+
+    /**
      * Get 任务id 
      * @return JobId 任务id
      */
@@ -111,16 +118,16 @@ public class ModifyMigrationJobRequest extends AbstractModel{
     }
 
     /**
-     * Get 迁移任务配置选项，描述任务如何执行迁移等一系列配置信息 
-     * @return MigrateOption 迁移任务配置选项，描述任务如何执行迁移等一系列配置信息
+     * Get 迁移任务配置选项，描述任务如何执行迁移等一系列配置信息；字段下的RateLimitOption不可配置、如果需要修改任务的限速信息、请在任务运行后通过ModifyMigrateRateLimit接口修改 
+     * @return MigrateOption 迁移任务配置选项，描述任务如何执行迁移等一系列配置信息；字段下的RateLimitOption不可配置、如果需要修改任务的限速信息、请在任务运行后通过ModifyMigrateRateLimit接口修改
      */
     public MigrateOption getMigrateOption() {
         return this.MigrateOption;
     }
 
     /**
-     * Set 迁移任务配置选项，描述任务如何执行迁移等一系列配置信息
-     * @param MigrateOption 迁移任务配置选项，描述任务如何执行迁移等一系列配置信息
+     * Set 迁移任务配置选项，描述任务如何执行迁移等一系列配置信息；字段下的RateLimitOption不可配置、如果需要修改任务的限速信息、请在任务运行后通过ModifyMigrateRateLimit接口修改
+     * @param MigrateOption 迁移任务配置选项，描述任务如何执行迁移等一系列配置信息；字段下的RateLimitOption不可配置、如果需要修改任务的限速信息、请在任务运行后通过ModifyMigrateRateLimit接口修改
      */
     public void setMigrateOption(MigrateOption MigrateOption) {
         this.MigrateOption = MigrateOption;
@@ -206,6 +213,22 @@ public class ModifyMigrationJobRequest extends AbstractModel{
         this.Tags = Tags;
     }
 
+    /**
+     * Get 自动重试的时间段、可设置5至720分钟、0表示不重试 
+     * @return AutoRetryTimeRangeMinutes 自动重试的时间段、可设置5至720分钟、0表示不重试
+     */
+    public Long getAutoRetryTimeRangeMinutes() {
+        return this.AutoRetryTimeRangeMinutes;
+    }
+
+    /**
+     * Set 自动重试的时间段、可设置5至720分钟、0表示不重试
+     * @param AutoRetryTimeRangeMinutes 自动重试的时间段、可设置5至720分钟、0表示不重试
+     */
+    public void setAutoRetryTimeRangeMinutes(Long AutoRetryTimeRangeMinutes) {
+        this.AutoRetryTimeRangeMinutes = AutoRetryTimeRangeMinutes;
+    }
+
     public ModifyMigrationJobRequest() {
     }
 
@@ -241,6 +264,9 @@ public class ModifyMigrationJobRequest extends AbstractModel{
                 this.Tags[i] = new TagItem(source.Tags[i]);
             }
         }
+        if (source.AutoRetryTimeRangeMinutes != null) {
+            this.AutoRetryTimeRangeMinutes = new Long(source.AutoRetryTimeRangeMinutes);
+        }
     }
 
 
@@ -256,6 +282,7 @@ public class ModifyMigrationJobRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "JobName", this.JobName);
         this.setParamSimple(map, prefix + "ExpectRunTime", this.ExpectRunTime);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "AutoRetryTimeRangeMinutes", this.AutoRetryTimeRangeMinutes);
 
     }
 }

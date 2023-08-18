@@ -15,6 +15,9 @@ public enum CkafkaErrorCode {
     // 参数错误。
      INVALIDPARAMETER("InvalidParameter"),
      
+    // 已存在同名Topic。
+     INVALIDPARAMETER_TOPICEXIST("InvalidParameter.TopicExist"),
+     
     // 参数取值错误。
      INVALIDPARAMETERVALUE("InvalidParameterValue"),
      
@@ -74,6 +77,9 @@ public enum CkafkaErrorCode {
      
     // 资源不可用。
      RESOURCEUNAVAILABLE("ResourceUnavailable"),
+     
+    // Broker 磁盘资源异常
+     RESOURCEUNAVAILABLE_KAFKASTORAGEERROR("ResourceUnavailable.KafkaStorageError"),
      
     // 未授权操作。
      UNAUTHORIZEDOPERATION("UnauthorizedOperation"),

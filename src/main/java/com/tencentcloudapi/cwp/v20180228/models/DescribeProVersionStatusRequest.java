@@ -23,23 +23,23 @@ import java.util.HashMap;
 public class DescribeProVersionStatusRequest extends AbstractModel{
 
     /**
-    * 云镜客户端UUID、填写"all"表示所有主机。
+    * 主机安全客户端UUID、填写"all"表示所有主机。
     */
     @SerializedName("Uuid")
     @Expose
     private String Uuid;
 
     /**
-     * Get 云镜客户端UUID、填写"all"表示所有主机。 
-     * @return Uuid 云镜客户端UUID、填写"all"表示所有主机。
+     * Get 主机安全客户端UUID、填写"all"表示所有主机。 
+     * @return Uuid 主机安全客户端UUID、填写"all"表示所有主机。
      */
     public String getUuid() {
         return this.Uuid;
     }
 
     /**
-     * Set 云镜客户端UUID、填写"all"表示所有主机。
-     * @param Uuid 云镜客户端UUID、填写"all"表示所有主机。
+     * Set 主机安全客户端UUID、填写"all"表示所有主机。
+     * @param Uuid 主机安全客户端UUID、填写"all"表示所有主机。
      */
     public void setUuid(String Uuid) {
         this.Uuid = Uuid;

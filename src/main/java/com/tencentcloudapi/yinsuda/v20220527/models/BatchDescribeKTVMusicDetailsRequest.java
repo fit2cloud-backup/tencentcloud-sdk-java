@@ -44,6 +44,28 @@ public class BatchDescribeKTVMusicDetailsRequest extends AbstractModel{
     private String [] MusicIds;
 
     /**
+    * 播放场景。默认为Chat
+<li>Live：直播</li><li>Chat：语聊</li>
+    */
+    @SerializedName("PlayScene")
+    @Expose
+    private String PlayScene;
+
+    /**
+    * 玩家用户标识
+    */
+    @SerializedName("GuestUserId")
+    @Expose
+    private String GuestUserId;
+
+    /**
+    * 房间Id
+    */
+    @SerializedName("RoomId")
+    @Expose
+    private String RoomId;
+
+    /**
      * Get 应用名称。 
      * @return AppName 应用名称。
      */
@@ -91,6 +113,58 @@ public class BatchDescribeKTVMusicDetailsRequest extends AbstractModel{
         this.MusicIds = MusicIds;
     }
 
+    /**
+     * Get 播放场景。默认为Chat
+<li>Live：直播</li><li>Chat：语聊</li> 
+     * @return PlayScene 播放场景。默认为Chat
+<li>Live：直播</li><li>Chat：语聊</li>
+     */
+    public String getPlayScene() {
+        return this.PlayScene;
+    }
+
+    /**
+     * Set 播放场景。默认为Chat
+<li>Live：直播</li><li>Chat：语聊</li>
+     * @param PlayScene 播放场景。默认为Chat
+<li>Live：直播</li><li>Chat：语聊</li>
+     */
+    public void setPlayScene(String PlayScene) {
+        this.PlayScene = PlayScene;
+    }
+
+    /**
+     * Get 玩家用户标识 
+     * @return GuestUserId 玩家用户标识
+     */
+    public String getGuestUserId() {
+        return this.GuestUserId;
+    }
+
+    /**
+     * Set 玩家用户标识
+     * @param GuestUserId 玩家用户标识
+     */
+    public void setGuestUserId(String GuestUserId) {
+        this.GuestUserId = GuestUserId;
+    }
+
+    /**
+     * Get 房间Id 
+     * @return RoomId 房间Id
+     */
+    public String getRoomId() {
+        return this.RoomId;
+    }
+
+    /**
+     * Set 房间Id
+     * @param RoomId 房间Id
+     */
+    public void setRoomId(String RoomId) {
+        this.RoomId = RoomId;
+    }
+
     public BatchDescribeKTVMusicDetailsRequest() {
     }
 
@@ -111,6 +185,15 @@ public class BatchDescribeKTVMusicDetailsRequest extends AbstractModel{
                 this.MusicIds[i] = new String(source.MusicIds[i]);
             }
         }
+        if (source.PlayScene != null) {
+            this.PlayScene = new String(source.PlayScene);
+        }
+        if (source.GuestUserId != null) {
+            this.GuestUserId = new String(source.GuestUserId);
+        }
+        if (source.RoomId != null) {
+            this.RoomId = new String(source.RoomId);
+        }
     }
 
 
@@ -121,6 +204,9 @@ public class BatchDescribeKTVMusicDetailsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "AppName", this.AppName);
         this.setParamSimple(map, prefix + "UserId", this.UserId);
         this.setParamArraySimple(map, prefix + "MusicIds.", this.MusicIds);
+        this.setParamSimple(map, prefix + "PlayScene", this.PlayScene);
+        this.setParamSimple(map, prefix + "GuestUserId", this.GuestUserId);
+        this.setParamSimple(map, prefix + "RoomId", this.RoomId);
 
     }
 }

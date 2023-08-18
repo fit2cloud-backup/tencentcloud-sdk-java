@@ -159,7 +159,7 @@ Public：公网属性， Private：内网属性。
     private ExtraInfo ExtraInfo;
 
     /**
-    * 负载均衡维度的个性化配置ID。
+    * 负载均衡维度的个性化配置ID，多个配置用逗号隔开。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ConfigId")
@@ -317,6 +317,14 @@ Public：公网属性， Private：内网属性。
     @SerializedName("SniSwitch")
     @Expose
     private Long SniSwitch;
+
+    /**
+    * 负载均衡实例的域名。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("LoadBalancerDomain")
+    @Expose
+    private String LoadBalancerDomain;
 
     /**
      * Get 负载均衡实例 ID。 
@@ -659,9 +667,9 @@ Public：公网属性， Private：内网属性。
     }
 
     /**
-     * Get 负载均衡维度的个性化配置ID。
+     * Get 负载均衡维度的个性化配置ID，多个配置用逗号隔开。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ConfigId 负载均衡维度的个性化配置ID。
+     * @return ConfigId 负载均衡维度的个性化配置ID，多个配置用逗号隔开。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getConfigId() {
@@ -669,9 +677,9 @@ Public：公网属性， Private：内网属性。
     }
 
     /**
-     * Set 负载均衡维度的个性化配置ID。
+     * Set 负载均衡维度的个性化配置ID，多个配置用逗号隔开。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ConfigId 负载均衡维度的个性化配置ID。
+     * @param ConfigId 负载均衡维度的个性化配置ID，多个配置用逗号隔开。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setConfigId(String ConfigId) {
@@ -1058,6 +1066,26 @@ Public：公网属性， Private：内网属性。
         this.SniSwitch = SniSwitch;
     }
 
+    /**
+     * Get 负载均衡实例的域名。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return LoadBalancerDomain 负载均衡实例的域名。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getLoadBalancerDomain() {
+        return this.LoadBalancerDomain;
+    }
+
+    /**
+     * Set 负载均衡实例的域名。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param LoadBalancerDomain 负载均衡实例的域名。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLoadBalancerDomain(String LoadBalancerDomain) {
+        this.LoadBalancerDomain = LoadBalancerDomain;
+    }
+
     public LoadBalancerDetail() {
     }
 
@@ -1189,6 +1217,9 @@ Public：公网属性， Private：内网属性。
         if (source.SniSwitch != null) {
             this.SniSwitch = new Long(source.SniSwitch);
         }
+        if (source.LoadBalancerDomain != null) {
+            this.LoadBalancerDomain = new String(source.LoadBalancerDomain);
+        }
     }
 
 
@@ -1233,6 +1264,7 @@ Public：公网属性， Private：内网属性。
         this.setParamArraySimple(map, prefix + "SlaveZone.", this.SlaveZone);
         this.setParamArraySimple(map, prefix + "Zones.", this.Zones);
         this.setParamSimple(map, prefix + "SniSwitch", this.SniSwitch);
+        this.setParamSimple(map, prefix + "LoadBalancerDomain", this.LoadBalancerDomain);
 
     }
 }

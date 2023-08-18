@@ -30,14 +30,14 @@ public class DescribeBizTrendRequest extends AbstractModel{
     private String Statistics;
 
     /**
-    * 大禹子产品代号（bgpip表示高防IP）
+    * DDoS防护子产品代号（bgpip表示高防IP）
     */
     @SerializedName("Business")
     @Expose
     private String Business;
 
     /**
-    * 统计周期，可取值300，1800，3600，21600，86400，单位秒
+    * 统计周期，可取值60，300，1800，3600，21600，86400，单位秒
     */
     @SerializedName("Period")
     @Expose
@@ -86,6 +86,15 @@ public class DescribeBizTrendRequest extends AbstractModel{
     private ProtocolPort [] ProtoInfo;
 
     /**
+    * 业务类型可取值domain, port
+port：端口业务
+domain：域名业务
+    */
+    @SerializedName("BusinessType")
+    @Expose
+    private String BusinessType;
+
+    /**
      * Get 统计方式，可取值max, min, avg, sum, 如统计纬度是流量速率或包量速率，仅可取值max 
      * @return Statistics 统计方式，可取值max, min, avg, sum, 如统计纬度是流量速率或包量速率，仅可取值max
      */
@@ -102,32 +111,32 @@ public class DescribeBizTrendRequest extends AbstractModel{
     }
 
     /**
-     * Get 大禹子产品代号（bgpip表示高防IP） 
-     * @return Business 大禹子产品代号（bgpip表示高防IP）
+     * Get DDoS防护子产品代号（bgpip表示高防IP） 
+     * @return Business DDoS防护子产品代号（bgpip表示高防IP）
      */
     public String getBusiness() {
         return this.Business;
     }
 
     /**
-     * Set 大禹子产品代号（bgpip表示高防IP）
-     * @param Business 大禹子产品代号（bgpip表示高防IP）
+     * Set DDoS防护子产品代号（bgpip表示高防IP）
+     * @param Business DDoS防护子产品代号（bgpip表示高防IP）
      */
     public void setBusiness(String Business) {
         this.Business = Business;
     }
 
     /**
-     * Get 统计周期，可取值300，1800，3600，21600，86400，单位秒 
-     * @return Period 统计周期，可取值300，1800，3600，21600，86400，单位秒
+     * Get 统计周期，可取值60，300，1800，3600，21600，86400，单位秒 
+     * @return Period 统计周期，可取值60，300，1800，3600，21600，86400，单位秒
      */
     public Long getPeriod() {
         return this.Period;
     }
 
     /**
-     * Set 统计周期，可取值300，1800，3600，21600，86400，单位秒
-     * @param Period 统计周期，可取值300，1800，3600，21600，86400，单位秒
+     * Set 统计周期，可取值60，300，1800，3600，21600，86400，单位秒
+     * @param Period 统计周期，可取值60，300，1800，3600，21600，86400，单位秒
      */
     public void setPeriod(Long Period) {
         this.Period = Period;
@@ -229,6 +238,30 @@ public class DescribeBizTrendRequest extends AbstractModel{
         this.ProtoInfo = ProtoInfo;
     }
 
+    /**
+     * Get 业务类型可取值domain, port
+port：端口业务
+domain：域名业务 
+     * @return BusinessType 业务类型可取值domain, port
+port：端口业务
+domain：域名业务
+     */
+    public String getBusinessType() {
+        return this.BusinessType;
+    }
+
+    /**
+     * Set 业务类型可取值domain, port
+port：端口业务
+domain：域名业务
+     * @param BusinessType 业务类型可取值domain, port
+port：端口业务
+domain：域名业务
+     */
+    public void setBusinessType(String BusinessType) {
+        this.BusinessType = BusinessType;
+    }
+
     public DescribeBizTrendRequest() {
     }
 
@@ -267,6 +300,9 @@ public class DescribeBizTrendRequest extends AbstractModel{
                 this.ProtoInfo[i] = new ProtocolPort(source.ProtoInfo[i]);
             }
         }
+        if (source.BusinessType != null) {
+            this.BusinessType = new String(source.BusinessType);
+        }
     }
 
 
@@ -283,6 +319,7 @@ public class DescribeBizTrendRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "MetricName", this.MetricName);
         this.setParamSimple(map, prefix + "Domain", this.Domain);
         this.setParamArrayObj(map, prefix + "ProtoInfo.", this.ProtoInfo);
+        this.setParamSimple(map, prefix + "BusinessType", this.BusinessType);
 
     }
 }

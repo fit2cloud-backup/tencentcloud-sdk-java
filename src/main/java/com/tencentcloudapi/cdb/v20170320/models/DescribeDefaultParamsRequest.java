@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeDefaultParamsRequest extends AbstractModel{
 
     /**
-    * mysql版本，目前支持 ["5.1", "5.5", "5.6", "5.7"]。
+    * 引擎版本，目前支持 ["5.1", "5.5", "5.6", "5.7", "8.0"]
     */
     @SerializedName("EngineVersion")
     @Expose
@@ -37,16 +37,23 @@ public class DescribeDefaultParamsRequest extends AbstractModel{
     private String TemplateType;
 
     /**
-     * Get mysql版本，目前支持 ["5.1", "5.5", "5.6", "5.7"]。 
-     * @return EngineVersion mysql版本，目前支持 ["5.1", "5.5", "5.6", "5.7"]。
+    * 参数模板引擎，默认值：InnoDB
+    */
+    @SerializedName("EngineType")
+    @Expose
+    private String EngineType;
+
+    /**
+     * Get 引擎版本，目前支持 ["5.1", "5.5", "5.6", "5.7", "8.0"] 
+     * @return EngineVersion 引擎版本，目前支持 ["5.1", "5.5", "5.6", "5.7", "8.0"]
      */
     public String getEngineVersion() {
         return this.EngineVersion;
     }
 
     /**
-     * Set mysql版本，目前支持 ["5.1", "5.5", "5.6", "5.7"]。
-     * @param EngineVersion mysql版本，目前支持 ["5.1", "5.5", "5.6", "5.7"]。
+     * Set 引擎版本，目前支持 ["5.1", "5.5", "5.6", "5.7", "8.0"]
+     * @param EngineVersion 引擎版本，目前支持 ["5.1", "5.5", "5.6", "5.7", "8.0"]
      */
     public void setEngineVersion(String EngineVersion) {
         this.EngineVersion = EngineVersion;
@@ -68,6 +75,22 @@ public class DescribeDefaultParamsRequest extends AbstractModel{
         this.TemplateType = TemplateType;
     }
 
+    /**
+     * Get 参数模板引擎，默认值：InnoDB 
+     * @return EngineType 参数模板引擎，默认值：InnoDB
+     */
+    public String getEngineType() {
+        return this.EngineType;
+    }
+
+    /**
+     * Set 参数模板引擎，默认值：InnoDB
+     * @param EngineType 参数模板引擎，默认值：InnoDB
+     */
+    public void setEngineType(String EngineType) {
+        this.EngineType = EngineType;
+    }
+
     public DescribeDefaultParamsRequest() {
     }
 
@@ -82,6 +105,9 @@ public class DescribeDefaultParamsRequest extends AbstractModel{
         if (source.TemplateType != null) {
             this.TemplateType = new String(source.TemplateType);
         }
+        if (source.EngineType != null) {
+            this.EngineType = new String(source.EngineType);
+        }
     }
 
 
@@ -91,6 +117,7 @@ public class DescribeDefaultParamsRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "EngineVersion", this.EngineVersion);
         this.setParamSimple(map, prefix + "TemplateType", this.TemplateType);
+        this.setParamSimple(map, prefix + "EngineType", this.EngineType);
 
     }
 }

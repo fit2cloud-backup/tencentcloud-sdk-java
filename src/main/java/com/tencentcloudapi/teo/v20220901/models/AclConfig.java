@@ -39,6 +39,14 @@ public class AclConfig extends AbstractModel{
     private AclUserRule [] AclUserRules;
 
     /**
+    * 托管定制规则
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Customizes")
+    @Expose
+    private AclUserRule [] Customizes;
+
+    /**
      * Get 开关，取值有：
 <li> on：开启；</li>
 <li> off：关闭。</li> 
@@ -78,6 +86,26 @@ public class AclConfig extends AbstractModel{
         this.AclUserRules = AclUserRules;
     }
 
+    /**
+     * Get 托管定制规则
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Customizes 托管定制规则
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AclUserRule [] getCustomizes() {
+        return this.Customizes;
+    }
+
+    /**
+     * Set 托管定制规则
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Customizes 托管定制规则
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCustomizes(AclUserRule [] Customizes) {
+        this.Customizes = Customizes;
+    }
+
     public AclConfig() {
     }
 
@@ -95,6 +123,12 @@ public class AclConfig extends AbstractModel{
                 this.AclUserRules[i] = new AclUserRule(source.AclUserRules[i]);
             }
         }
+        if (source.Customizes != null) {
+            this.Customizes = new AclUserRule[source.Customizes.length];
+            for (int i = 0; i < source.Customizes.length; i++) {
+                this.Customizes[i] = new AclUserRule(source.Customizes[i]);
+            }
+        }
     }
 
 
@@ -104,6 +138,7 @@ public class AclConfig extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Switch", this.Switch);
         this.setParamArrayObj(map, prefix + "AclUserRules.", this.AclUserRules);
+        this.setParamArrayObj(map, prefix + "Customizes.", this.Customizes);
 
     }
 }

@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class ExportScanTaskDetailsResponse extends AbstractModel{
 
     /**
-    * 导出本次检测Excel的任务Id（不同于入参的本次检测任务id）
+    * 任务ID,需要到接口“异步导出任务”ExportTasks获取DownloadUrl下载地址(不同于入参的本次检测任务id)
     */
     @SerializedName("TaskId")
     @Expose
@@ -37,16 +37,16 @@ public class ExportScanTaskDetailsResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 导出本次检测Excel的任务Id（不同于入参的本次检测任务id） 
-     * @return TaskId 导出本次检测Excel的任务Id（不同于入参的本次检测任务id）
+     * Get 任务ID,需要到接口“异步导出任务”ExportTasks获取DownloadUrl下载地址(不同于入参的本次检测任务id) 
+     * @return TaskId 任务ID,需要到接口“异步导出任务”ExportTasks获取DownloadUrl下载地址(不同于入参的本次检测任务id)
      */
     public String getTaskId() {
         return this.TaskId;
     }
 
     /**
-     * Set 导出本次检测Excel的任务Id（不同于入参的本次检测任务id）
-     * @param TaskId 导出本次检测Excel的任务Id（不同于入参的本次检测任务id）
+     * Set 任务ID,需要到接口“异步导出任务”ExportTasks获取DownloadUrl下载地址(不同于入参的本次检测任务id)
+     * @param TaskId 任务ID,需要到接口“异步导出任务”ExportTasks获取DownloadUrl下载地址(不同于入参的本次检测任务id)
      */
     public void setTaskId(String TaskId) {
         this.TaskId = TaskId;

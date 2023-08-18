@@ -3,6 +3,9 @@ public enum ClsErrorCode {
     // CAM签名/鉴权错误。
      AUTHFAILURE("AuthFailure"),
      
+    // 请求未授权。
+     AUTHFAILURE_UNAUTHORIZEDOPERATION("AuthFailure.UnauthorizedOperation"),
+     
     // 操作失败。
      FAILEDOPERATION("FailedOperation"),
      
@@ -57,6 +60,9 @@ public enum ClsErrorCode {
     // 日志主题已关闭。
      FAILEDOPERATION_TOPICCLOSED("FailedOperation.TopicClosed"),
      
+    // topic创建中
+     FAILEDOPERATION_TOPICCREATING("FailedOperation.TopicCreating"),
+     
     // 日志主题已隔离。
      FAILEDOPERATION_TOPICISOLATED("FailedOperation.TopicIsolated"),
      
@@ -84,6 +90,12 @@ public enum ClsErrorCode {
     // 无效的Content。
      INVALIDPARAMETER_CONTENT("InvalidParameter.Content"),
      
+    // 数据加工任务冲突。
+     INVALIDPARAMETER_DATAFROMTASKCONFLICT("InvalidParameter.DataFromTaskConflict"),
+     
+    // 数据加工任务不存在。
+     INVALIDPARAMETER_DATAFROMTASKNOTEXIST("InvalidParameter.DataFromTaskNotExist"),
+     
     // 数据库唯一键冲突。
      INVALIDPARAMETER_DBDUPLICATION("InvalidParameter.DbDuplication"),
      
@@ -95,6 +107,9 @@ public enum ClsErrorCode {
      
     // 指定日志主题已经存在索引规则。
      INVALIDPARAMETER_INDEXCONFLICT("InvalidParameter.IndexConflict"),
+     
+    // 无效的数据加工语句。
+     INVALIDPARAMETER_INVALIDETLCONTENT("InvalidParameter.InvalidEtlContent"),
      
     // 相同的日志集已存在。
      INVALIDPARAMETER_LOGSETCONFLICT("InvalidParameter.LogsetConflict"),
@@ -117,8 +132,11 @@ public enum ClsErrorCode {
     // 采集规则配置超过最大值限制。
      LIMITEXCEEDED_CONFIG("LimitExceeded.Config"),
      
-    // 日志导出数量超出限制。
+    // 创建日志导出任务数量超出限制。
      LIMITEXCEEDED_EXPORT("LimitExceeded.Export"),
+     
+    // 索引操作超过频率限制。
+     LIMITEXCEEDED_INDEXOPERATING("LimitExceeded.IndexOperating"),
      
     // 并发查询超过限制，单topic并发最大值15。
      LIMITEXCEEDED_LOGSEARCH("LimitExceeded.LogSearch"),
@@ -194,6 +212,9 @@ public enum ClsErrorCode {
      
     // topic绑定了函数投递。
      OPERATIONDENIED_TOPICHASDELIVERFUNCTION("OperationDenied.TopicHasDeliverFunction"),
+     
+    // topic配置有外部数据源配置，不能删除
+     OPERATIONDENIED_TOPICHASEXTERNALDATASOURCECONFIG("OperationDenied.TopicHasExternalDatasourceConfig"),
      
     // topic绑定了scheduleSql任务。
      OPERATIONDENIED_TOPICHASSCHEDULESQLTASK("OperationDenied.TopicHasScheduleSqlTask"),

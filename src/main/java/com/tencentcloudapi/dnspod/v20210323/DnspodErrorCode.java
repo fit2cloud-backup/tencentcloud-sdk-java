@@ -27,6 +27,9 @@ public enum DnspodErrorCode {
     // 该域名已在您的列表中，无需重复添加。
      FAILEDOPERATION_DOMAINEXISTS("FailedOperation.DomainExists"),
      
+    // 该域名属于企业邮用户
+     FAILEDOPERATION_DOMAININENTERPRISEMAILACCOUNT("FailedOperation.DomainInEnterpriseMailAccount"),
+     
     // 该域名为腾讯云 DNSPod 重点保护资源，为了避免误操作造成的业务影响，域名禁止自行操作删除。如果您确认需要删除域名，请先联系您的客户经理，我们将竭诚为您提供技术支持。
      FAILEDOPERATION_DOMAINISKEYDOMAIN("FailedOperation.DomainIsKeyDomain"),
      
@@ -138,6 +141,9 @@ public enum DnspodErrorCode {
     // 记录值无效。
      INVALIDPARAMETER_BATCHRECORDMODIFYACTIONINVALIDVALUE("InvalidParameter.BatchRecordModifyActionInvalidValue"),
      
+    // 批量删除记录任务失败，原因：内部错误。
+     INVALIDPARAMETER_BATCHRECORDREMOVEACTIONERROR("InvalidParameter.BatchRecordRemoveActionError"),
+     
     // 批量替换记录任务失败，原因：内部错误。
      INVALIDPARAMETER_BATCHRECORDREPLACEACTIONERROR("InvalidParameter.BatchRecordReplaceActionError"),
      
@@ -189,6 +195,9 @@ public enum DnspodErrorCode {
     // 域名编号不正确。
      INVALIDPARAMETER_DOMAINIDINVALID("InvalidParameter.DomainIdInvalid"),
      
+    // 该域名涉及违法违规黑名单，无法进行该操作
+     INVALIDPARAMETER_DOMAININBLACKLIST("InvalidParameter.DomainInBlackList"),
+     
     // 不允许操作生效中或失效中的域名。
      INVALIDPARAMETER_DOMAININEFFECTORINVALIDATED("InvalidParameter.DomainInEffectOrInvalidated"),
      
@@ -200,6 +209,9 @@ public enum DnspodErrorCode {
      
     // 该域名已有同类型操作未完成，无法执行该操作。
      INVALIDPARAMETER_DOMAINISMODIFYINGDNS("InvalidParameter.DomainIsModifyingDns"),
+     
+    // 此域名是自己域名的别名
+     INVALIDPARAMETER_DOMAINISMYALIAS("InvalidParameter.DomainIsMyAlias"),
      
     // 域名没有锁定。
      INVALIDPARAMETER_DOMAINISNOTLOCKED("InvalidParameter.DomainIsNotlocked"),
@@ -272,6 +284,9 @@ public enum DnspodErrorCode {
      
     // 该订单存在冲突或参数有误，无法完成支付，请重新购买。
      INVALIDPARAMETER_ILLEGALNEWDEAL("InvalidParameter.IllegalNewDeal"),
+     
+    // 任务不存在。
+     INVALIDPARAMETER_INNERTASKNOTEXIST("InvalidParameter.InnerTaskNotExist"),
      
     // 礼券代码无效。
      INVALIDPARAMETER_INVALIDCOUPON("InvalidParameter.InvalidCoupon"),
@@ -350,6 +365,12 @@ public enum DnspodErrorCode {
      
     // 用户UIN无效。
      INVALIDPARAMETER_QCLOUDUININVALID("InvalidParameter.QcloudUinInvalid"),
+     
+    // TXT 记录无法匹配，请确认记录值是否准确，并再次验证。
+     INVALIDPARAMETER_QUHUITXTNOTMATCH("InvalidParameter.QuhuiTxtNotMatch"),
+     
+    // TXT 记录未设置或暂未生效，请稍后重试。
+     INVALIDPARAMETER_QUHUITXTRECORDWAIT("InvalidParameter.QuhuiTxtRecordWait"),
      
     // 已实名用户。
      INVALIDPARAMETER_REALNAMEUSER("InvalidParameter.RealNameUser"),
@@ -476,6 +497,9 @@ public enum DnspodErrorCode {
      
     // NS记录数量超出限制。
      LIMITEXCEEDED_NSCOUNTLIMIT("LimitExceeded.NsCountLimit"),
+     
+    // 分页起始数量过大。
+     LIMITEXCEEDED_OFFSETEXCEEDED("LimitExceeded.OffsetExceeded"),
      
     // 记录的TTL值超出了限制。
      LIMITEXCEEDED_RECORDTTLLIMIT("LimitExceeded.RecordTtlLimit"),

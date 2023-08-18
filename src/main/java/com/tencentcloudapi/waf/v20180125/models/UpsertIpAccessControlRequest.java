@@ -30,21 +30,21 @@ public class UpsertIpAccessControlRequest extends AbstractModel{
     private String Domain;
 
     /**
-    * ip 参数列表，json数组由ip，source，note，action，valid_ts组成。ip对应配置的ip地址，source固定为custom值，note为注释，action值42为黑名单，40为白名单，valid_ts为有效日期，值为秒级时间戳
+    * ip 参数列表，json数组由ip，source，note，action，valid_ts组成。ip对应配置的ip地址，source固定为custom值，note为注释，action值42为黑名单，40为白名单，valid_ts为有效日期，值为秒级时间戳（（如1680570420代表2023-04-04 09:07:00））
     */
     @SerializedName("Items")
     @Expose
     private String [] Items;
 
     /**
-    * clb-waf或者sparta-waf
+    * WAF实例类型，sparta-waf表示SAAS型WAF，clb-waf表示负载均衡型WAF
     */
     @SerializedName("Edition")
     @Expose
     private String Edition;
 
     /**
-    * 是否为多域名黑白名单
+    * 是否为多域名黑白名单，当为多域名的黑白名单时，取值为batch，否则为空
     */
     @SerializedName("SourceType")
     @Expose
@@ -67,48 +67,48 @@ public class UpsertIpAccessControlRequest extends AbstractModel{
     }
 
     /**
-     * Get ip 参数列表，json数组由ip，source，note，action，valid_ts组成。ip对应配置的ip地址，source固定为custom值，note为注释，action值42为黑名单，40为白名单，valid_ts为有效日期，值为秒级时间戳 
-     * @return Items ip 参数列表，json数组由ip，source，note，action，valid_ts组成。ip对应配置的ip地址，source固定为custom值，note为注释，action值42为黑名单，40为白名单，valid_ts为有效日期，值为秒级时间戳
+     * Get ip 参数列表，json数组由ip，source，note，action，valid_ts组成。ip对应配置的ip地址，source固定为custom值，note为注释，action值42为黑名单，40为白名单，valid_ts为有效日期，值为秒级时间戳（（如1680570420代表2023-04-04 09:07:00）） 
+     * @return Items ip 参数列表，json数组由ip，source，note，action，valid_ts组成。ip对应配置的ip地址，source固定为custom值，note为注释，action值42为黑名单，40为白名单，valid_ts为有效日期，值为秒级时间戳（（如1680570420代表2023-04-04 09:07:00））
      */
     public String [] getItems() {
         return this.Items;
     }
 
     /**
-     * Set ip 参数列表，json数组由ip，source，note，action，valid_ts组成。ip对应配置的ip地址，source固定为custom值，note为注释，action值42为黑名单，40为白名单，valid_ts为有效日期，值为秒级时间戳
-     * @param Items ip 参数列表，json数组由ip，source，note，action，valid_ts组成。ip对应配置的ip地址，source固定为custom值，note为注释，action值42为黑名单，40为白名单，valid_ts为有效日期，值为秒级时间戳
+     * Set ip 参数列表，json数组由ip，source，note，action，valid_ts组成。ip对应配置的ip地址，source固定为custom值，note为注释，action值42为黑名单，40为白名单，valid_ts为有效日期，值为秒级时间戳（（如1680570420代表2023-04-04 09:07:00））
+     * @param Items ip 参数列表，json数组由ip，source，note，action，valid_ts组成。ip对应配置的ip地址，source固定为custom值，note为注释，action值42为黑名单，40为白名单，valid_ts为有效日期，值为秒级时间戳（（如1680570420代表2023-04-04 09:07:00））
      */
     public void setItems(String [] Items) {
         this.Items = Items;
     }
 
     /**
-     * Get clb-waf或者sparta-waf 
-     * @return Edition clb-waf或者sparta-waf
+     * Get WAF实例类型，sparta-waf表示SAAS型WAF，clb-waf表示负载均衡型WAF 
+     * @return Edition WAF实例类型，sparta-waf表示SAAS型WAF，clb-waf表示负载均衡型WAF
      */
     public String getEdition() {
         return this.Edition;
     }
 
     /**
-     * Set clb-waf或者sparta-waf
-     * @param Edition clb-waf或者sparta-waf
+     * Set WAF实例类型，sparta-waf表示SAAS型WAF，clb-waf表示负载均衡型WAF
+     * @param Edition WAF实例类型，sparta-waf表示SAAS型WAF，clb-waf表示负载均衡型WAF
      */
     public void setEdition(String Edition) {
         this.Edition = Edition;
     }
 
     /**
-     * Get 是否为多域名黑白名单 
-     * @return SourceType 是否为多域名黑白名单
+     * Get 是否为多域名黑白名单，当为多域名的黑白名单时，取值为batch，否则为空 
+     * @return SourceType 是否为多域名黑白名单，当为多域名的黑白名单时，取值为batch，否则为空
      */
     public String getSourceType() {
         return this.SourceType;
     }
 
     /**
-     * Set 是否为多域名黑白名单
-     * @param SourceType 是否为多域名黑白名单
+     * Set 是否为多域名黑白名单，当为多域名的黑白名单时，取值为batch，否则为空
+     * @param SourceType 是否为多域名黑白名单，当为多域名的黑白名单时，取值为batch，否则为空
      */
     public void setSourceType(String SourceType) {
         this.SourceType = SourceType;

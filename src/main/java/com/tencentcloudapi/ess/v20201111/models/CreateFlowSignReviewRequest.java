@@ -54,11 +54,33 @@ REJECT: 拒绝
     private String ReviewMessage;
 
     /**
-    * 应用相关信息
+    * 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
     */
     @SerializedName("Agent")
     @Expose
     private Agent Agent;
+
+    /**
+    * 审核签署节点使用 非必填 如果填写则审核该签署节点。给个人审核时必填。
+    */
+    @SerializedName("RecipientId")
+    @Expose
+    private String RecipientId;
+
+    /**
+    * 操作类型：（接口通过该字段区分操作类型）
+
+SignReview:签署审核
+CreateReview:发起审核
+
+默认：SignReview；SignReview:签署审核
+
+该字段不传或者为空，则默认为SignReview签署审核，走签署审核流程
+若发起个人审核，则指定该字段为：SignReview
+    */
+    @SerializedName("OperateType")
+    @Expose
+    private String OperateType;
 
     /**
      * Get 调用方用户信息，userId 必填 
@@ -137,19 +159,83 @@ REJECT: 拒绝
     }
 
     /**
-     * Get 应用相关信息 
-     * @return Agent 应用相关信息
+     * Get 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填 
+     * @return Agent 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 应用相关信息
-     * @param Agent 应用相关信息
+     * Set 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+     * @param Agent 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
+    }
+
+    /**
+     * Get 审核签署节点使用 非必填 如果填写则审核该签署节点。给个人审核时必填。 
+     * @return RecipientId 审核签署节点使用 非必填 如果填写则审核该签署节点。给个人审核时必填。
+     */
+    public String getRecipientId() {
+        return this.RecipientId;
+    }
+
+    /**
+     * Set 审核签署节点使用 非必填 如果填写则审核该签署节点。给个人审核时必填。
+     * @param RecipientId 审核签署节点使用 非必填 如果填写则审核该签署节点。给个人审核时必填。
+     */
+    public void setRecipientId(String RecipientId) {
+        this.RecipientId = RecipientId;
+    }
+
+    /**
+     * Get 操作类型：（接口通过该字段区分操作类型）
+
+SignReview:签署审核
+CreateReview:发起审核
+
+默认：SignReview；SignReview:签署审核
+
+该字段不传或者为空，则默认为SignReview签署审核，走签署审核流程
+若发起个人审核，则指定该字段为：SignReview 
+     * @return OperateType 操作类型：（接口通过该字段区分操作类型）
+
+SignReview:签署审核
+CreateReview:发起审核
+
+默认：SignReview；SignReview:签署审核
+
+该字段不传或者为空，则默认为SignReview签署审核，走签署审核流程
+若发起个人审核，则指定该字段为：SignReview
+     */
+    public String getOperateType() {
+        return this.OperateType;
+    }
+
+    /**
+     * Set 操作类型：（接口通过该字段区分操作类型）
+
+SignReview:签署审核
+CreateReview:发起审核
+
+默认：SignReview；SignReview:签署审核
+
+该字段不传或者为空，则默认为SignReview签署审核，走签署审核流程
+若发起个人审核，则指定该字段为：SignReview
+     * @param OperateType 操作类型：（接口通过该字段区分操作类型）
+
+SignReview:签署审核
+CreateReview:发起审核
+
+默认：SignReview；SignReview:签署审核
+
+该字段不传或者为空，则默认为SignReview签署审核，走签署审核流程
+若发起个人审核，则指定该字段为：SignReview
+     */
+    public void setOperateType(String OperateType) {
+        this.OperateType = OperateType;
     }
 
     public CreateFlowSignReviewRequest() {
@@ -175,6 +261,12 @@ REJECT: 拒绝
         if (source.Agent != null) {
             this.Agent = new Agent(source.Agent);
         }
+        if (source.RecipientId != null) {
+            this.RecipientId = new String(source.RecipientId);
+        }
+        if (source.OperateType != null) {
+            this.OperateType = new String(source.OperateType);
+        }
     }
 
 
@@ -187,6 +279,8 @@ REJECT: 拒绝
         this.setParamSimple(map, prefix + "ReviewType", this.ReviewType);
         this.setParamSimple(map, prefix + "ReviewMessage", this.ReviewMessage);
         this.setParamObj(map, prefix + "Agent.", this.Agent);
+        this.setParamSimple(map, prefix + "RecipientId", this.RecipientId);
+        this.setParamSimple(map, prefix + "OperateType", this.OperateType);
 
     }
 }

@@ -6,6 +6,9 @@ public enum TmtErrorCode {
     // 数据插入错误。
      FAILEDOPERATION_INSERTERR("FailedOperation.InsertErr"),
      
+    // 暂时无法识别该语种。
+     FAILEDOPERATION_LANGUAGERECOGNITIONERR("FailedOperation.LanguageRecognitionErr"),
+     
     // 本月免费额度已用完，如需继续使用您可以在机器翻译控制台升级为付费使用。
      FAILEDOPERATION_NOFREEAMOUNT("FailedOperation.NoFreeAmount"),
      
@@ -15,6 +18,9 @@ public enum TmtErrorCode {
     // 账号因为欠费停止服务，请在腾讯云账户充值。
      FAILEDOPERATION_SERVICEISOLATE("FailedOperation.ServiceIsolate"),
      
+    // 账号已停服。
+     FAILEDOPERATION_STOPUSING("FailedOperation.StopUsing"),
+     
     // 服务未开通，请在腾讯云官网机器翻译控制台开通服务。
      FAILEDOPERATION_USERNOTREGISTERED("FailedOperation.UserNotRegistered"),
      
@@ -23,6 +29,9 @@ public enum TmtErrorCode {
      
     // 后台服务超时，请稍后重试。
      INTERNALERROR_BACKENDTIMEOUT("InternalError.BackendTimeout"),
+     
+    // 路由获取错误。
+     INTERNALERROR_ERRORGETROUTE("InternalError.ErrorGetRoute"),
      
     // 未知错误。
      INTERNALERROR_ERRORUNKNOWN("InternalError.ErrorUnknown"),
@@ -41,6 +50,9 @@ public enum TmtErrorCode {
      
     // Seq之间的间隙请不要大于2000。
      INVALIDPARAMETER_SEQINTERVALTOOLARGE("InvalidParameter.SeqIntervalTooLarge"),
+     
+    // 参数取值错误。
+     INVALIDPARAMETERVALUE("InvalidParameterValue"),
      
     // 超过配额限制。
      LIMITEXCEEDED("LimitExceeded"),
@@ -63,7 +75,7 @@ public enum TmtErrorCode {
     // 音频分片长度超过限制，请保证分片长度小于8s。
      UNSUPPORTEDOPERATION_AUDIODURATIONEXCEED("UnsupportedOperation.AudioDurationExceed"),
      
-    // 单次请求text超过长度限制，请保证单次请求⻓度低于2000。
+    // 单次请求text超过长度限制。
      UNSUPPORTEDOPERATION_TEXTTOOLONG("UnsupportedOperation.TextTooLong"),
      
     // 不支持的目标语言，请参照语言列表。

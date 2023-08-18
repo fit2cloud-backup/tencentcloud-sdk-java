@@ -29,7 +29,7 @@ public class MongodbClient extends AbstractClient{
     private static String endpoint = "mongodb.tencentcloudapi.com";
     private static String service = "mongodb";
     private static String version = "2019-07-25";
-
+    
     public MongodbClient(Credential credential, String region) {
         this(credential, region, new ClientProfile());
     }
@@ -48,6 +48,7 @@ public class MongodbClient extends AbstractClient{
     public AssignProjectResponse AssignProject(AssignProjectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AssignProjectResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AssignProjectResponse>>() {
                 }.getType();
@@ -60,7 +61,28 @@ public class MongodbClient extends AbstractClient{
     }
 
     /**
-     *备份实例接口
+     *本接口（CreateAccountUser）用于自定义实例访问账号。
+     * @param req CreateAccountUserRequest
+     * @return CreateAccountUserResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateAccountUserResponse CreateAccountUser(CreateAccountUserRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateAccountUserResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateAccountUserResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateAccountUser");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（CreateBackupDBInstance）用于备份实例。
      * @param req CreateBackupDBInstanceRequest
      * @return CreateBackupDBInstanceResponse
      * @throws TencentCloudSDKException
@@ -68,6 +90,7 @@ public class MongodbClient extends AbstractClient{
     public CreateBackupDBInstanceResponse CreateBackupDBInstance(CreateBackupDBInstanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateBackupDBInstanceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateBackupDBInstanceResponse>>() {
                 }.getType();
@@ -88,6 +111,7 @@ public class MongodbClient extends AbstractClient{
     public CreateBackupDownloadTaskResponse CreateBackupDownloadTask(CreateBackupDownloadTaskRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateBackupDownloadTaskResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateBackupDownloadTaskResponse>>() {
                 }.getType();
@@ -108,6 +132,7 @@ public class MongodbClient extends AbstractClient{
     public CreateDBInstanceResponse CreateDBInstance(CreateDBInstanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateDBInstanceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateDBInstanceResponse>>() {
                 }.getType();
@@ -120,7 +145,7 @@ public class MongodbClient extends AbstractClient{
     }
 
     /**
-     *本接口(CreateDBInstanceHour)用于创建按量计费的MongoDB云数据库实例。
+     *本接口（CreateDBInstanceHour）用于创建按量计费的MongoDB云数据库实例。
      * @param req CreateDBInstanceHourRequest
      * @return CreateDBInstanceHourResponse
      * @throws TencentCloudSDKException
@@ -128,6 +153,7 @@ public class MongodbClient extends AbstractClient{
     public CreateDBInstanceHourResponse CreateDBInstanceHour(CreateDBInstanceHourRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateDBInstanceHourResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateDBInstanceHourResponse>>() {
                 }.getType();
@@ -140,7 +166,28 @@ public class MongodbClient extends AbstractClient{
     }
 
     /**
-     *本接口(DescribeAccountUsers)用于获取当前实例的全部账号列表。
+     *本接口（DeleteAccountUser）用于删除实例的自定义账号。
+     * @param req DeleteAccountUserRequest
+     * @return DeleteAccountUserResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteAccountUserResponse DeleteAccountUser(DeleteAccountUserRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteAccountUserResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteAccountUserResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteAccountUser");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（DescribeAccountUsers）用于获取当前实例的全部账号。
      * @param req DescribeAccountUsersRequest
      * @return DescribeAccountUsersResponse
      * @throws TencentCloudSDKException
@@ -148,6 +195,7 @@ public class MongodbClient extends AbstractClient{
     public DescribeAccountUsersResponse DescribeAccountUsers(DescribeAccountUsersRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeAccountUsersResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeAccountUsersResponse>>() {
                 }.getType();
@@ -168,6 +216,7 @@ public class MongodbClient extends AbstractClient{
     public DescribeAsyncRequestInfoResponse DescribeAsyncRequestInfo(DescribeAsyncRequestInfoRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeAsyncRequestInfoResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeAsyncRequestInfoResponse>>() {
                 }.getType();
@@ -188,6 +237,7 @@ public class MongodbClient extends AbstractClient{
     public DescribeBackupDownloadTaskResponse DescribeBackupDownloadTask(DescribeBackupDownloadTaskRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeBackupDownloadTaskResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeBackupDownloadTaskResponse>>() {
                 }.getType();
@@ -200,7 +250,7 @@ public class MongodbClient extends AbstractClient{
     }
 
     /**
-     *本接口(DescribeClientConnections)用于查询实例客户端连接信息，包括连接IP和连接数量。
+     *本接口（DescribeClientConnections）用于查询实例客户端连接信息，包括连接 IP 和连接数量。
      * @param req DescribeClientConnectionsRequest
      * @return DescribeClientConnectionsResponse
      * @throws TencentCloudSDKException
@@ -208,6 +258,7 @@ public class MongodbClient extends AbstractClient{
     public DescribeClientConnectionsResponse DescribeClientConnections(DescribeClientConnectionsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeClientConnectionsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeClientConnectionsResponse>>() {
                 }.getType();
@@ -228,6 +279,7 @@ public class MongodbClient extends AbstractClient{
     public DescribeCurrentOpResponse DescribeCurrentOp(DescribeCurrentOpRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCurrentOpResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCurrentOpResponse>>() {
                 }.getType();
@@ -248,6 +300,7 @@ public class MongodbClient extends AbstractClient{
     public DescribeDBBackupsResponse DescribeDBBackups(DescribeDBBackupsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDBBackupsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDBBackupsResponse>>() {
                 }.getType();
@@ -268,6 +321,7 @@ public class MongodbClient extends AbstractClient{
     public DescribeDBInstanceDealResponse DescribeDBInstanceDeal(DescribeDBInstanceDealRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDBInstanceDealResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDBInstanceDealResponse>>() {
                 }.getType();
@@ -288,6 +342,7 @@ public class MongodbClient extends AbstractClient{
     public DescribeDBInstanceNodePropertyResponse DescribeDBInstanceNodeProperty(DescribeDBInstanceNodePropertyRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDBInstanceNodePropertyResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDBInstanceNodePropertyResponse>>() {
                 }.getType();
@@ -300,7 +355,7 @@ public class MongodbClient extends AbstractClient{
     }
 
     /**
-     *本接口(DescribeDBInstances)用于查询云数据库实例列表，支持通过项目ID、实例ID、实例状态等过滤条件来筛选实例。支持查询主实例、灾备实例和只读实例信息列表。
+     *本接口（DescribeDBInstances）用于查询云数据库实例列表，支持通过项目ID、实例ID、实例状态等过滤条件来筛选主实例、灾备实例和只读实例信息列表。
      * @param req DescribeDBInstancesRequest
      * @return DescribeDBInstancesResponse
      * @throws TencentCloudSDKException
@@ -308,6 +363,7 @@ public class MongodbClient extends AbstractClient{
     public DescribeDBInstancesResponse DescribeDBInstances(DescribeDBInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDBInstancesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDBInstancesResponse>>() {
                 }.getType();
@@ -320,7 +376,7 @@ public class MongodbClient extends AbstractClient{
     }
 
     /**
-     *本接口(DescribeInstanceParams)用于查询当前实例可修改的参数列表。
+     *本接口（DescribeInstanceParams）用于查询当前实例可修改的参数列表。
      * @param req DescribeInstanceParamsRequest
      * @return DescribeInstanceParamsResponse
      * @throws TencentCloudSDKException
@@ -328,6 +384,7 @@ public class MongodbClient extends AbstractClient{
     public DescribeInstanceParamsResponse DescribeInstanceParams(DescribeInstanceParamsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeInstanceParamsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeInstanceParamsResponse>>() {
                 }.getType();
@@ -340,7 +397,7 @@ public class MongodbClient extends AbstractClient{
     }
 
     /**
-     *查询实例绑定的安全组
+     *本接口（DescribeSecurityGroup）用于查询实例绑定的安全组。
      * @param req DescribeSecurityGroupRequest
      * @return DescribeSecurityGroupResponse
      * @throws TencentCloudSDKException
@@ -348,6 +405,7 @@ public class MongodbClient extends AbstractClient{
     public DescribeSecurityGroupResponse DescribeSecurityGroup(DescribeSecurityGroupRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSecurityGroupResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSecurityGroupResponse>>() {
                 }.getType();
@@ -368,6 +426,7 @@ public class MongodbClient extends AbstractClient{
     public DescribeSlowLogPatternsResponse DescribeSlowLogPatterns(DescribeSlowLogPatternsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSlowLogPatternsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSlowLogPatternsResponse>>() {
                 }.getType();
@@ -388,6 +447,7 @@ public class MongodbClient extends AbstractClient{
     public DescribeSlowLogsResponse DescribeSlowLogs(DescribeSlowLogsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSlowLogsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSlowLogsResponse>>() {
                 }.getType();
@@ -408,6 +468,7 @@ public class MongodbClient extends AbstractClient{
     public DescribeSpecInfoResponse DescribeSpecInfo(DescribeSpecInfoRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSpecInfoResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSpecInfoResponse>>() {
                 }.getType();
@@ -428,6 +489,7 @@ public class MongodbClient extends AbstractClient{
     public FlushInstanceRouterConfigResponse FlushInstanceRouterConfig(FlushInstanceRouterConfigRequest req) throws TencentCloudSDKException{
         JsonResponseModel<FlushInstanceRouterConfigResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<FlushInstanceRouterConfigResponse>>() {
                 }.getType();
@@ -448,6 +510,7 @@ public class MongodbClient extends AbstractClient{
     public InquirePriceCreateDBInstancesResponse InquirePriceCreateDBInstances(InquirePriceCreateDBInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<InquirePriceCreateDBInstancesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<InquirePriceCreateDBInstancesResponse>>() {
                 }.getType();
@@ -460,7 +523,7 @@ public class MongodbClient extends AbstractClient{
     }
 
     /**
-     *本接口 (InquirePriceModifyDBInstanceSpec) 用于调整实例的配置询价。
+     *本接口 (InquirePriceModifyDBInstanceSpec) 用于查询实例配置变更后的价格。
      * @param req InquirePriceModifyDBInstanceSpecRequest
      * @return InquirePriceModifyDBInstanceSpecResponse
      * @throws TencentCloudSDKException
@@ -468,6 +531,7 @@ public class MongodbClient extends AbstractClient{
     public InquirePriceModifyDBInstanceSpecResponse InquirePriceModifyDBInstanceSpec(InquirePriceModifyDBInstanceSpecRequest req) throws TencentCloudSDKException{
         JsonResponseModel<InquirePriceModifyDBInstanceSpecResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<InquirePriceModifyDBInstanceSpecResponse>>() {
                 }.getType();
@@ -488,6 +552,7 @@ public class MongodbClient extends AbstractClient{
     public InquirePriceRenewDBInstancesResponse InquirePriceRenewDBInstances(InquirePriceRenewDBInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<InquirePriceRenewDBInstancesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<InquirePriceRenewDBInstancesResponse>>() {
                 }.getType();
@@ -508,6 +573,7 @@ public class MongodbClient extends AbstractClient{
     public IsolateDBInstanceResponse IsolateDBInstance(IsolateDBInstanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<IsolateDBInstanceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<IsolateDBInstanceResponse>>() {
                 }.getType();
@@ -528,6 +594,7 @@ public class MongodbClient extends AbstractClient{
     public KillOpsResponse KillOps(KillOpsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<KillOpsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<KillOpsResponse>>() {
                 }.getType();
@@ -548,6 +615,7 @@ public class MongodbClient extends AbstractClient{
     public ModifyDBInstanceNetworkAddressResponse ModifyDBInstanceNetworkAddress(ModifyDBInstanceNetworkAddressRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyDBInstanceNetworkAddressResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyDBInstanceNetworkAddressResponse>>() {
                 }.getType();
@@ -560,7 +628,7 @@ public class MongodbClient extends AbstractClient{
     }
 
     /**
-     *修改实例绑定的安全组
+     *本接口（ModifyDBInstanceSecurityGroup）用于修改实例绑定的安全组
      * @param req ModifyDBInstanceSecurityGroupRequest
      * @return ModifyDBInstanceSecurityGroupResponse
      * @throws TencentCloudSDKException
@@ -568,6 +636,7 @@ public class MongodbClient extends AbstractClient{
     public ModifyDBInstanceSecurityGroupResponse ModifyDBInstanceSecurityGroup(ModifyDBInstanceSecurityGroupRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyDBInstanceSecurityGroupResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyDBInstanceSecurityGroupResponse>>() {
                 }.getType();
@@ -588,6 +657,7 @@ public class MongodbClient extends AbstractClient{
     public ModifyDBInstanceSpecResponse ModifyDBInstanceSpec(ModifyDBInstanceSpecRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyDBInstanceSpecResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyDBInstanceSpecResponse>>() {
                 }.getType();
@@ -608,6 +678,7 @@ public class MongodbClient extends AbstractClient{
     public OfflineIsolatedDBInstanceResponse OfflineIsolatedDBInstance(OfflineIsolatedDBInstanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<OfflineIsolatedDBInstanceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<OfflineIsolatedDBInstanceResponse>>() {
                 }.getType();
@@ -628,6 +699,7 @@ public class MongodbClient extends AbstractClient{
     public RenameInstanceResponse RenameInstance(RenameInstanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RenameInstanceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RenameInstanceResponse>>() {
                 }.getType();
@@ -648,6 +720,7 @@ public class MongodbClient extends AbstractClient{
     public RenewDBInstancesResponse RenewDBInstances(RenewDBInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RenewDBInstancesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RenewDBInstancesResponse>>() {
                 }.getType();
@@ -668,6 +741,7 @@ public class MongodbClient extends AbstractClient{
     public ResetDBInstancePasswordResponse ResetDBInstancePassword(ResetDBInstancePasswordRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ResetDBInstancePasswordResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ResetDBInstancePasswordResponse>>() {
                 }.getType();
@@ -680,7 +754,7 @@ public class MongodbClient extends AbstractClient{
     }
 
     /**
-     *账户权限设置。
+     *本接口（SetAccountUserPrivilege）用于设置实例的账号权限。
      * @param req SetAccountUserPrivilegeRequest
      * @return SetAccountUserPrivilegeResponse
      * @throws TencentCloudSDKException
@@ -688,6 +762,7 @@ public class MongodbClient extends AbstractClient{
     public SetAccountUserPrivilegeResponse SetAccountUserPrivilege(SetAccountUserPrivilegeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SetAccountUserPrivilegeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<SetAccountUserPrivilegeResponse>>() {
                 }.getType();
@@ -708,6 +783,7 @@ public class MongodbClient extends AbstractClient{
     public TerminateDBInstancesResponse TerminateDBInstances(TerminateDBInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<TerminateDBInstancesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<TerminateDBInstancesResponse>>() {
                 }.getType();

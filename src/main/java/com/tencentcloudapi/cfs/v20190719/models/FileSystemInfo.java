@@ -44,21 +44,27 @@ public class FileSystemInfo extends AbstractModel{
     private String FileSystemId;
 
     /**
-    * 文件系统状态
+    * 文件系统状态。取值范围：
+- creating:创建中
+- mounting:挂载中
+- create_failed:创建失败
+- available:可使用
+- unserviced:停服中
+- upgrading:升级中
     */
     @SerializedName("LifeCycleState")
     @Expose
     private String LifeCycleState;
 
     /**
-    * 文件系统已使用容量
+    * 文件系统已使用容量,单位Byte
     */
     @SerializedName("SizeByte")
     @Expose
     private Long SizeByte;
 
     /**
-    * 文件系统最大空间限制
+    * 文件系统最大空间限制,GiB
     */
     @SerializedName("SizeLimit")
     @Expose
@@ -79,14 +85,14 @@ public class FileSystemInfo extends AbstractModel{
     private String Zone;
 
     /**
-    * 文件系统协议类型
+    * 文件系统协议类型, 支持 NFS,CIFS,TURBO
     */
     @SerializedName("Protocol")
     @Expose
     private String Protocol;
 
     /**
-    * 文件系统存储类型
+    * 存储类型，HP：通用性能型；SD：通用标准型；TP:turbo性能型；TB：turbo标准型；THP：吞吐型
     */
     @SerializedName("StorageType")
     @Expose
@@ -121,7 +127,7 @@ public class FileSystemInfo extends AbstractModel{
     private String FsName;
 
     /**
-    * 文件系统是否加密
+    * 文件系统是否加密,true：代表加密，false：非加密
     */
     @SerializedName("Encrypted")
     @Expose
@@ -142,7 +148,7 @@ public class FileSystemInfo extends AbstractModel{
     private Long AppId;
 
     /**
-    * 文件系统吞吐上限，吞吐上限是根据文件系统当前已使用存储量、绑定的存储资源包以及吞吐资源包一同确定
+    * 文件系统吞吐上限，吞吐上限是根据文件系统当前已使用存储量、绑定的存储资源包以及吞吐资源包一同确定. 单位MiB/s
     */
     @SerializedName("BandwidthLimit")
     @Expose
@@ -161,6 +167,23 @@ public class FileSystemInfo extends AbstractModel{
     @SerializedName("Tags")
     @Expose
     private TagInfo [] Tags;
+
+    /**
+    * 文件系统生命周期管理状态
+NotAvailable：不可用
+Available:可用
+    */
+    @SerializedName("TieringState")
+    @Expose
+    private String TieringState;
+
+    /**
+    * 分层存储详情
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TieringDetail")
+    @Expose
+    private TieringDetailInfo TieringDetail;
 
     /**
      * Get 创建时间 
@@ -211,48 +234,72 @@ public class FileSystemInfo extends AbstractModel{
     }
 
     /**
-     * Get 文件系统状态 
-     * @return LifeCycleState 文件系统状态
+     * Get 文件系统状态。取值范围：
+- creating:创建中
+- mounting:挂载中
+- create_failed:创建失败
+- available:可使用
+- unserviced:停服中
+- upgrading:升级中 
+     * @return LifeCycleState 文件系统状态。取值范围：
+- creating:创建中
+- mounting:挂载中
+- create_failed:创建失败
+- available:可使用
+- unserviced:停服中
+- upgrading:升级中
      */
     public String getLifeCycleState() {
         return this.LifeCycleState;
     }
 
     /**
-     * Set 文件系统状态
-     * @param LifeCycleState 文件系统状态
+     * Set 文件系统状态。取值范围：
+- creating:创建中
+- mounting:挂载中
+- create_failed:创建失败
+- available:可使用
+- unserviced:停服中
+- upgrading:升级中
+     * @param LifeCycleState 文件系统状态。取值范围：
+- creating:创建中
+- mounting:挂载中
+- create_failed:创建失败
+- available:可使用
+- unserviced:停服中
+- upgrading:升级中
      */
     public void setLifeCycleState(String LifeCycleState) {
         this.LifeCycleState = LifeCycleState;
     }
 
     /**
-     * Get 文件系统已使用容量 
-     * @return SizeByte 文件系统已使用容量
+     * Get 文件系统已使用容量,单位Byte 
+     * @return SizeByte 文件系统已使用容量,单位Byte
      */
     public Long getSizeByte() {
         return this.SizeByte;
     }
 
     /**
-     * Set 文件系统已使用容量
-     * @param SizeByte 文件系统已使用容量
+     * Set 文件系统已使用容量,单位Byte
+     * @param SizeByte 文件系统已使用容量,单位Byte
      */
     public void setSizeByte(Long SizeByte) {
         this.SizeByte = SizeByte;
     }
 
     /**
-     * Get 文件系统最大空间限制 
-     * @return SizeLimit 文件系统最大空间限制
+     * Get 文件系统最大空间限制,GiB 
+     * @return SizeLimit 文件系统最大空间限制,GiB
      */
     public Long getSizeLimit() {
         return this.SizeLimit;
     }
 
     /**
-     * Set 文件系统最大空间限制
-     * @param SizeLimit 文件系统最大空间限制
+     * Set 文件系统最大空间限制,GiB
+     * @param SizeLimit 文件系统最大空间限制,GiB
      */
     public void setSizeLimit(Long SizeLimit) {
         this.SizeLimit = SizeLimit;
@@ -291,32 +338,32 @@ public class FileSystemInfo extends AbstractModel{
     }
 
     /**
-     * Get 文件系统协议类型 
-     * @return Protocol 文件系统协议类型
+     * Get 文件系统协议类型, 支持 NFS,CIFS,TURBO 
+     * @return Protocol 文件系统协议类型, 支持 NFS,CIFS,TURBO
      */
     public String getProtocol() {
         return this.Protocol;
     }
 
     /**
-     * Set 文件系统协议类型
-     * @param Protocol 文件系统协议类型
+     * Set 文件系统协议类型, 支持 NFS,CIFS,TURBO
+     * @param Protocol 文件系统协议类型, 支持 NFS,CIFS,TURBO
      */
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;
     }
 
     /**
-     * Get 文件系统存储类型 
-     * @return StorageType 文件系统存储类型
+     * Get 存储类型，HP：通用性能型；SD：通用标准型；TP:turbo性能型；TB：turbo标准型；THP：吞吐型 
+     * @return StorageType 存储类型，HP：通用性能型；SD：通用标准型；TP:turbo性能型；TB：turbo标准型；THP：吞吐型
      */
     public String getStorageType() {
         return this.StorageType;
     }
 
     /**
-     * Set 文件系统存储类型
-     * @param StorageType 文件系统存储类型
+     * Set 存储类型，HP：通用性能型；SD：通用标准型；TP:turbo性能型；TB：turbo标准型；THP：吞吐型
+     * @param StorageType 存储类型，HP：通用性能型；SD：通用标准型；TP:turbo性能型；TB：turbo标准型；THP：吞吐型
      */
     public void setStorageType(String StorageType) {
         this.StorageType = StorageType;
@@ -387,16 +434,16 @@ public class FileSystemInfo extends AbstractModel{
     }
 
     /**
-     * Get 文件系统是否加密 
-     * @return Encrypted 文件系统是否加密
+     * Get 文件系统是否加密,true：代表加密，false：非加密 
+     * @return Encrypted 文件系统是否加密,true：代表加密，false：非加密
      */
     public Boolean getEncrypted() {
         return this.Encrypted;
     }
 
     /**
-     * Set 文件系统是否加密
-     * @param Encrypted 文件系统是否加密
+     * Set 文件系统是否加密,true：代表加密，false：非加密
+     * @param Encrypted 文件系统是否加密,true：代表加密，false：非加密
      */
     public void setEncrypted(Boolean Encrypted) {
         this.Encrypted = Encrypted;
@@ -435,16 +482,16 @@ public class FileSystemInfo extends AbstractModel{
     }
 
     /**
-     * Get 文件系统吞吐上限，吞吐上限是根据文件系统当前已使用存储量、绑定的存储资源包以及吞吐资源包一同确定 
-     * @return BandwidthLimit 文件系统吞吐上限，吞吐上限是根据文件系统当前已使用存储量、绑定的存储资源包以及吞吐资源包一同确定
+     * Get 文件系统吞吐上限，吞吐上限是根据文件系统当前已使用存储量、绑定的存储资源包以及吞吐资源包一同确定. 单位MiB/s 
+     * @return BandwidthLimit 文件系统吞吐上限，吞吐上限是根据文件系统当前已使用存储量、绑定的存储资源包以及吞吐资源包一同确定. 单位MiB/s
      */
     public Float getBandwidthLimit() {
         return this.BandwidthLimit;
     }
 
     /**
-     * Set 文件系统吞吐上限，吞吐上限是根据文件系统当前已使用存储量、绑定的存储资源包以及吞吐资源包一同确定
-     * @param BandwidthLimit 文件系统吞吐上限，吞吐上限是根据文件系统当前已使用存储量、绑定的存储资源包以及吞吐资源包一同确定
+     * Set 文件系统吞吐上限，吞吐上限是根据文件系统当前已使用存储量、绑定的存储资源包以及吞吐资源包一同确定. 单位MiB/s
+     * @param BandwidthLimit 文件系统吞吐上限，吞吐上限是根据文件系统当前已使用存储量、绑定的存储资源包以及吞吐资源包一同确定. 单位MiB/s
      */
     public void setBandwidthLimit(Float BandwidthLimit) {
         this.BandwidthLimit = BandwidthLimit;
@@ -480,6 +527,50 @@ public class FileSystemInfo extends AbstractModel{
      */
     public void setTags(TagInfo [] Tags) {
         this.Tags = Tags;
+    }
+
+    /**
+     * Get 文件系统生命周期管理状态
+NotAvailable：不可用
+Available:可用 
+     * @return TieringState 文件系统生命周期管理状态
+NotAvailable：不可用
+Available:可用
+     */
+    public String getTieringState() {
+        return this.TieringState;
+    }
+
+    /**
+     * Set 文件系统生命周期管理状态
+NotAvailable：不可用
+Available:可用
+     * @param TieringState 文件系统生命周期管理状态
+NotAvailable：不可用
+Available:可用
+     */
+    public void setTieringState(String TieringState) {
+        this.TieringState = TieringState;
+    }
+
+    /**
+     * Get 分层存储详情
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TieringDetail 分层存储详情
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public TieringDetailInfo getTieringDetail() {
+        return this.TieringDetail;
+    }
+
+    /**
+     * Set 分层存储详情
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TieringDetail 分层存储详情
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTieringDetail(TieringDetailInfo TieringDetail) {
+        this.TieringDetail = TieringDetail;
     }
 
     public FileSystemInfo() {
@@ -553,6 +644,12 @@ public class FileSystemInfo extends AbstractModel{
                 this.Tags[i] = new TagInfo(source.Tags[i]);
             }
         }
+        if (source.TieringState != null) {
+            this.TieringState = new String(source.TieringState);
+        }
+        if (source.TieringDetail != null) {
+            this.TieringDetail = new TieringDetailInfo(source.TieringDetail);
+        }
     }
 
 
@@ -580,6 +677,8 @@ public class FileSystemInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "BandwidthLimit", this.BandwidthLimit);
         this.setParamSimple(map, prefix + "Capacity", this.Capacity);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "TieringState", this.TieringState);
+        this.setParamObj(map, prefix + "TieringDetail.", this.TieringDetail);
 
     }
 }

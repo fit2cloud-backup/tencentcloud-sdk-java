@@ -24,6 +24,9 @@ public enum SqlserverErrorCode {
     // 备份导入任务锁定失败。
      FAILEDOPERATION_MIGRATIONLOCKERROR("FailedOperation.MigrationLockError"),
      
+    // 不支持此类操作。
+     FAILEDOPERATION_NOTSUPPORT("FailedOperation.NotSupport"),
+     
     // 查询订单失败。
      FAILEDOPERATION_QUERYORDERFAILED("FailedOperation.QueryOrderFailed"),
      
@@ -254,6 +257,9 @@ public enum SqlserverErrorCode {
      
     // 未知参数错误。
      UNKNOWNPARAMETER("UnknownParameter"),
+     
+    // 操作不支持。
+     UNSUPPORTEDOPERATION("UnsupportedOperation"),
      
     // 不支持重复操作。
      UNSUPPORTEDOPERATION_NOTSUPPORTREPEAT("UnsupportedOperation.NotSupportRepeat"),

@@ -29,7 +29,7 @@ public class IaiClient extends AbstractClient{
     private static String endpoint = "iai.tencentcloudapi.com";
     private static String service = "iai";
     private static String version = "2018-03-01";
-
+    
     public IaiClient(Credential credential, String region) {
         this(credential, region, new ClientProfile());
     }
@@ -47,6 +47,7 @@ public class IaiClient extends AbstractClient{
     public AnalyzeDenseLandmarksResponse AnalyzeDenseLandmarks(AnalyzeDenseLandmarksRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AnalyzeDenseLandmarksResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AnalyzeDenseLandmarksResponse>>() {
                 }.getType();
@@ -70,6 +71,7 @@ public class IaiClient extends AbstractClient{
     public AnalyzeFaceResponse AnalyzeFace(AnalyzeFaceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AnalyzeFaceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AnalyzeFaceResponse>>() {
                 }.getType();
@@ -95,6 +97,7 @@ public class IaiClient extends AbstractClient{
     public CompareFaceResponse CompareFace(CompareFaceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CompareFaceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CompareFaceResponse>>() {
                 }.getType();
@@ -117,6 +120,7 @@ public class IaiClient extends AbstractClient{
     public CopyPersonResponse CopyPerson(CopyPersonRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CopyPersonResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CopyPersonResponse>>() {
                 }.getType();
@@ -140,6 +144,7 @@ public class IaiClient extends AbstractClient{
     public CreateFaceResponse CreateFace(CreateFaceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateFaceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateFaceResponse>>() {
                 }.getType();
@@ -165,6 +170,7 @@ public class IaiClient extends AbstractClient{
     public CreateGroupResponse CreateGroup(CreateGroupRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateGroupResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateGroupResponse>>() {
                 }.getType();
@@ -188,6 +194,7 @@ public class IaiClient extends AbstractClient{
     public CreatePersonResponse CreatePerson(CreatePersonRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreatePersonResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreatePersonResponse>>() {
                 }.getType();
@@ -208,6 +215,7 @@ public class IaiClient extends AbstractClient{
     public DeleteFaceResponse DeleteFace(DeleteFaceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteFaceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteFaceResponse>>() {
                 }.getType();
@@ -229,6 +237,7 @@ public class IaiClient extends AbstractClient{
     public DeleteGroupResponse DeleteGroup(DeleteGroupRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteGroupResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteGroupResponse>>() {
                 }.getType();
@@ -249,6 +258,7 @@ public class IaiClient extends AbstractClient{
     public DeletePersonResponse DeletePerson(DeletePersonRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeletePersonResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeletePersonResponse>>() {
                 }.getType();
@@ -269,6 +279,7 @@ public class IaiClient extends AbstractClient{
     public DeletePersonFromGroupResponse DeletePersonFromGroup(DeletePersonFromGroupRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeletePersonFromGroupResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeletePersonFromGroupResponse>>() {
                 }.getType();
@@ -305,6 +316,7 @@ public class IaiClient extends AbstractClient{
     public DetectFaceResponse DetectFace(DetectFaceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DetectFaceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DetectFaceResponse>>() {
                 }.getType();
@@ -347,6 +359,7 @@ public class IaiClient extends AbstractClient{
     public DetectFaceAttributesResponse DetectFaceAttributes(DetectFaceAttributesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DetectFaceAttributesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DetectFaceAttributesResponse>>() {
                 }.getType();
@@ -388,6 +401,7 @@ public class IaiClient extends AbstractClient{
     public DetectLiveFaceResponse DetectLiveFace(DetectLiveFaceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DetectLiveFaceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DetectLiveFaceResponse>>() {
                 }.getType();
@@ -408,6 +422,7 @@ public class IaiClient extends AbstractClient{
     public GetGroupInfoResponse GetGroupInfo(GetGroupInfoRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetGroupInfoResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<GetGroupInfoResponse>>() {
                 }.getType();
@@ -428,6 +443,7 @@ public class IaiClient extends AbstractClient{
     public GetGroupListResponse GetGroupList(GetGroupListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetGroupListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<GetGroupListResponse>>() {
                 }.getType();
@@ -448,6 +464,7 @@ public class IaiClient extends AbstractClient{
     public GetPersonBaseInfoResponse GetPersonBaseInfo(GetPersonBaseInfoRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetPersonBaseInfoResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<GetPersonBaseInfoResponse>>() {
                 }.getType();
@@ -468,6 +485,7 @@ public class IaiClient extends AbstractClient{
     public GetPersonGroupInfoResponse GetPersonGroupInfo(GetPersonGroupInfoRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetPersonGroupInfoResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<GetPersonGroupInfoResponse>>() {
                 }.getType();
@@ -488,6 +506,7 @@ public class IaiClient extends AbstractClient{
     public GetPersonListResponse GetPersonList(GetPersonListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetPersonListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<GetPersonListResponse>>() {
                 }.getType();
@@ -508,6 +527,7 @@ public class IaiClient extends AbstractClient{
     public GetPersonListNumResponse GetPersonListNum(GetPersonListNumRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetPersonListNumResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<GetPersonListNumResponse>>() {
                 }.getType();
@@ -520,7 +540,9 @@ public class IaiClient extends AbstractClient{
     }
 
     /**
-     *获取人员库升级任务列表
+     *避免官网歧义
+
+获取人员库升级任务列表
 
      * @param req GetUpgradeGroupFaceModelVersionJobListRequest
      * @return GetUpgradeGroupFaceModelVersionJobListResponse
@@ -529,6 +551,7 @@ public class IaiClient extends AbstractClient{
     public GetUpgradeGroupFaceModelVersionJobListResponse GetUpgradeGroupFaceModelVersionJobList(GetUpgradeGroupFaceModelVersionJobListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetUpgradeGroupFaceModelVersionJobListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<GetUpgradeGroupFaceModelVersionJobListResponse>>() {
                 }.getType();
@@ -541,7 +564,9 @@ public class IaiClient extends AbstractClient{
     }
 
     /**
-     *人员库升级结果查询
+     *避免官网歧义
+
+人员库升级结果查询
 
      * @param req GetUpgradeGroupFaceModelVersionResultRequest
      * @return GetUpgradeGroupFaceModelVersionResultResponse
@@ -550,6 +575,7 @@ public class IaiClient extends AbstractClient{
     public GetUpgradeGroupFaceModelVersionResultResponse GetUpgradeGroupFaceModelVersionResult(GetUpgradeGroupFaceModelVersionResultRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetUpgradeGroupFaceModelVersionResultResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<GetUpgradeGroupFaceModelVersionResultResponse>>() {
                 }.getType();
@@ -570,6 +596,7 @@ public class IaiClient extends AbstractClient{
     public ModifyGroupResponse ModifyGroup(ModifyGroupRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyGroupResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyGroupResponse>>() {
                 }.getType();
@@ -590,6 +617,7 @@ public class IaiClient extends AbstractClient{
     public ModifyPersonBaseInfoResponse ModifyPersonBaseInfo(ModifyPersonBaseInfoRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyPersonBaseInfoResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyPersonBaseInfoResponse>>() {
                 }.getType();
@@ -610,6 +638,7 @@ public class IaiClient extends AbstractClient{
     public ModifyPersonGroupInfoResponse ModifyPersonGroupInfo(ModifyPersonGroupInfoRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyPersonGroupInfoResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyPersonGroupInfoResponse>>() {
                 }.getType();
@@ -622,7 +651,9 @@ public class IaiClient extends AbstractClient{
     }
 
     /**
-     *本接口用于回滚人员库的人脸识别算法模型版本。单个人员库有且仅有一次回滚机会。
+     *此接口文档早已废弃，为了避免官网18版本存留歧义，需要下线
+
+本接口用于回滚人员库的人脸识别算法模型版本。单个人员库有且仅有一次回滚机会。
 
 回滚操作会在10s内生效，回滚操作中，您对人员库的操作可能会失效。
      * @param req RevertGroupFaceModelVersionRequest
@@ -632,6 +663,7 @@ public class IaiClient extends AbstractClient{
     public RevertGroupFaceModelVersionResponse RevertGroupFaceModelVersion(RevertGroupFaceModelVersionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RevertGroupFaceModelVersionResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RevertGroupFaceModelVersionResponse>>() {
                 }.getType();
@@ -664,6 +696,7 @@ public class IaiClient extends AbstractClient{
     public SearchFacesResponse SearchFaces(SearchFacesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SearchFacesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<SearchFacesResponse>>() {
                 }.getType();
@@ -697,6 +730,7 @@ public class IaiClient extends AbstractClient{
     public SearchFacesReturnsByGroupResponse SearchFacesReturnsByGroup(SearchFacesReturnsByGroupRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SearchFacesReturnsByGroupResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<SearchFacesReturnsByGroupResponse>>() {
                 }.getType();
@@ -727,6 +761,7 @@ public class IaiClient extends AbstractClient{
     public SearchPersonsResponse SearchPersons(SearchPersonsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SearchPersonsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<SearchPersonsResponse>>() {
                 }.getType();
@@ -756,6 +791,7 @@ public class IaiClient extends AbstractClient{
     public SearchPersonsReturnsByGroupResponse SearchPersonsReturnsByGroup(SearchPersonsReturnsByGroupRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SearchPersonsReturnsByGroupResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<SearchPersonsReturnsByGroupResponse>>() {
                 }.getType();
@@ -768,7 +804,9 @@ public class IaiClient extends AbstractClient{
     }
 
     /**
-     *升级人员库。升级过程中，人员库仍然为原算法版本，人员库相关操作仍然支持。升级完成后，人员库为新算法版本。
+     *接口已经不使用了，需要下线掉，以免留在官网产生歧义
+
+升级人员库。升级过程中，人员库仍然为原算法版本，人员库相关操作仍然支持。升级完成后，人员库为新算法版本。
 单个人员库有且仅支持一次回滚操作。
 注：此处QPS限制为10。
      * @param req UpgradeGroupFaceModelVersionRequest
@@ -778,6 +816,7 @@ public class IaiClient extends AbstractClient{
     public UpgradeGroupFaceModelVersionResponse UpgradeGroupFaceModelVersion(UpgradeGroupFaceModelVersionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<UpgradeGroupFaceModelVersionResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<UpgradeGroupFaceModelVersionResponse>>() {
                 }.getType();
@@ -805,6 +844,7 @@ public class IaiClient extends AbstractClient{
     public VerifyFaceResponse VerifyFace(VerifyFaceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<VerifyFaceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<VerifyFaceResponse>>() {
                 }.getType();
@@ -833,6 +873,7 @@ public class IaiClient extends AbstractClient{
     public VerifyPersonResponse VerifyPerson(VerifyPersonRequest req) throws TencentCloudSDKException{
         JsonResponseModel<VerifyPersonResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<VerifyPersonResponse>>() {
                 }.getType();

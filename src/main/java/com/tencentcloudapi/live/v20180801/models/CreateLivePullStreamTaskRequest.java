@@ -25,7 +25,7 @@ public class CreateLivePullStreamTaskRequest extends AbstractModel{
     /**
     * 拉流源的类型：
 PullLivePushLive -直播，
-PullVodPushLive -点播。
+PullVodPushLive -点播，
 PullPicPushLive -图片。
     */
     @SerializedName("SourceType")
@@ -45,6 +45,7 @@ SourceType 为点播（PullVodPushLive）可以填多个，上限30个。
 4. 视频编码格式仅支持: H264, H265。
 5. 音频编码格式仅支持: AAC。
 6. 点播源请使用小文件，尽量时长保持在1小时内，较大文件打开和续播耗时较久，耗时超过15秒会有无法正常转推风险。
+7. 避免使用低频存储的文件，该类文件因低频存储，拉取时容易出现慢速，影响拉转推质量。
     */
     @SerializedName("SourceUrls")
     @Expose
@@ -79,7 +80,7 @@ SourceType 为点播（PullVodPushLive）可以填多个，上限30个。
     * 开始时间。
 使用 UTC 格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时。
     */
     @SerializedName("StartTime")
     @Expose
@@ -88,11 +89,11 @@ SourceType 为点播（PullVodPushLive）可以填多个，上限30个。
     /**
     * 结束时间，注意：
 1. 结束时间必须大于开始时间；
-2. 结束时间和开始时间必须大于当前时间；
+2. 结束时间必须大于当前时间；
 3. 结束时间 和 开始时间 间隔必须小于七天。
 使用 UTC 格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时。
     */
     @SerializedName("EndTime")
     @Expose
@@ -183,6 +184,9 @@ ContinueBreakPoint：播放完当前正在播放的点播 url 后再使用新的
     * 完整目标 URL 地址。
 用法注意：如果使用该参数来传完整目标地址，则 DomainName, AppName, StreamName 需要传入空字符串，任务将会使用该 ToUrl 参数指定的目标地址。
 
+使用该方式传入目标地址支持的协议有：
+rtmp、rtmps、rtsp、rtp、srt。
+
 注意：签名时间需要超过任务结束时间，避免因签名过期造成任务失败。
     */
     @SerializedName("ToUrl")
@@ -232,13 +236,20 @@ PullVodPushLive -点播。
     private Long VodLocalMode;
 
     /**
+    * 录制模板 ID。
+    */
+    @SerializedName("RecordTemplateId")
+    @Expose
+    private String RecordTemplateId;
+
+    /**
      * Get 拉流源的类型：
 PullLivePushLive -直播，
-PullVodPushLive -点播。
+PullVodPushLive -点播，
 PullPicPushLive -图片。 
      * @return SourceType 拉流源的类型：
 PullLivePushLive -直播，
-PullVodPushLive -点播。
+PullVodPushLive -点播，
 PullPicPushLive -图片。
      */
     public String getSourceType() {
@@ -248,11 +259,11 @@ PullPicPushLive -图片。
     /**
      * Set 拉流源的类型：
 PullLivePushLive -直播，
-PullVodPushLive -点播。
+PullVodPushLive -点播，
 PullPicPushLive -图片。
      * @param SourceType 拉流源的类型：
 PullLivePushLive -直播，
-PullVodPushLive -点播。
+PullVodPushLive -点播，
 PullPicPushLive -图片。
      */
     public void setSourceType(String SourceType) {
@@ -271,7 +282,8 @@ SourceType 为点播（PullVodPushLive）可以填多个，上限30个。
 3. 源文件请保持时间戳正常交织递增，避免因源文件异常影响推流及播放。
 4. 视频编码格式仅支持: H264, H265。
 5. 音频编码格式仅支持: AAC。
-6. 点播源请使用小文件，尽量时长保持在1小时内，较大文件打开和续播耗时较久，耗时超过15秒会有无法正常转推风险。 
+6. 点播源请使用小文件，尽量时长保持在1小时内，较大文件打开和续播耗时较久，耗时超过15秒会有无法正常转推风险。
+7. 避免使用低频存储的文件，该类文件因低频存储，拉取时容易出现慢速，影响拉转推质量。 
      * @return SourceUrls 拉流源 url 列表。
 SourceType 为直播（PullLivePushLive）只可以填1个，
 SourceType 为点播（PullVodPushLive）可以填多个，上限30个。
@@ -284,6 +296,7 @@ SourceType 为点播（PullVodPushLive）可以填多个，上限30个。
 4. 视频编码格式仅支持: H264, H265。
 5. 音频编码格式仅支持: AAC。
 6. 点播源请使用小文件，尽量时长保持在1小时内，较大文件打开和续播耗时较久，耗时超过15秒会有无法正常转推风险。
+7. 避免使用低频存储的文件，该类文件因低频存储，拉取时容易出现慢速，影响拉转推质量。
      */
     public String [] getSourceUrls() {
         return this.SourceUrls;
@@ -302,6 +315,7 @@ SourceType 为点播（PullVodPushLive）可以填多个，上限30个。
 4. 视频编码格式仅支持: H264, H265。
 5. 音频编码格式仅支持: AAC。
 6. 点播源请使用小文件，尽量时长保持在1小时内，较大文件打开和续播耗时较久，耗时超过15秒会有无法正常转推风险。
+7. 避免使用低频存储的文件，该类文件因低频存储，拉取时容易出现慢速，影响拉转推质量。
      * @param SourceUrls 拉流源 url 列表。
 SourceType 为直播（PullLivePushLive）只可以填1个，
 SourceType 为点播（PullVodPushLive）可以填多个，上限30个。
@@ -314,6 +328,7 @@ SourceType 为点播（PullVodPushLive）可以填多个，上限30个。
 4. 视频编码格式仅支持: H264, H265。
 5. 音频编码格式仅支持: AAC。
 6. 点播源请使用小文件，尽量时长保持在1小时内，较大文件打开和续播耗时较久，耗时超过15秒会有无法正常转推风险。
+7. 避免使用低频存储的文件，该类文件因低频存储，拉取时容易出现慢速，影响拉转推质量。
      */
     public void setSourceUrls(String [] SourceUrls) {
         this.SourceUrls = SourceUrls;
@@ -387,11 +402,11 @@ SourceType 为点播（PullVodPushLive）可以填多个，上限30个。
      * Get 开始时间。
 使用 UTC 格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。 
+注意：北京时间值为 UTC 时间值 + 8 小时。 
      * @return StartTime 开始时间。
 使用 UTC 格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时。
      */
     public String getStartTime() {
         return this.StartTime;
@@ -401,11 +416,11 @@ SourceType 为点播（PullVodPushLive）可以填多个，上限30个。
      * Set 开始时间。
 使用 UTC 格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时。
      * @param StartTime 开始时间。
 使用 UTC 格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时。
      */
     public void setStartTime(String StartTime) {
         this.StartTime = StartTime;
@@ -414,18 +429,18 @@ SourceType 为点播（PullVodPushLive）可以填多个，上限30个。
     /**
      * Get 结束时间，注意：
 1. 结束时间必须大于开始时间；
-2. 结束时间和开始时间必须大于当前时间；
+2. 结束时间必须大于当前时间；
 3. 结束时间 和 开始时间 间隔必须小于七天。
 使用 UTC 格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。 
+注意：北京时间值为 UTC 时间值 + 8 小时。 
      * @return EndTime 结束时间，注意：
 1. 结束时间必须大于开始时间；
-2. 结束时间和开始时间必须大于当前时间；
+2. 结束时间必须大于当前时间；
 3. 结束时间 和 开始时间 间隔必须小于七天。
 使用 UTC 格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时。
      */
     public String getEndTime() {
         return this.EndTime;
@@ -434,18 +449,18 @@ SourceType 为点播（PullVodPushLive）可以填多个，上限30个。
     /**
      * Set 结束时间，注意：
 1. 结束时间必须大于开始时间；
-2. 结束时间和开始时间必须大于当前时间；
+2. 结束时间必须大于当前时间；
 3. 结束时间 和 开始时间 间隔必须小于七天。
 使用 UTC 格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时。
      * @param EndTime 结束时间，注意：
 1. 结束时间必须大于开始时间；
-2. 结束时间和开始时间必须大于当前时间；
+2. 结束时间必须大于当前时间；
 3. 结束时间 和 开始时间 间隔必须小于七天。
 使用 UTC 格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
@@ -683,9 +698,15 @@ ContinueBreakPoint：播放完当前正在播放的点播 url 后再使用新的
      * Get 完整目标 URL 地址。
 用法注意：如果使用该参数来传完整目标地址，则 DomainName, AppName, StreamName 需要传入空字符串，任务将会使用该 ToUrl 参数指定的目标地址。
 
+使用该方式传入目标地址支持的协议有：
+rtmp、rtmps、rtsp、rtp、srt。
+
 注意：签名时间需要超过任务结束时间，避免因签名过期造成任务失败。 
      * @return ToUrl 完整目标 URL 地址。
 用法注意：如果使用该参数来传完整目标地址，则 DomainName, AppName, StreamName 需要传入空字符串，任务将会使用该 ToUrl 参数指定的目标地址。
+
+使用该方式传入目标地址支持的协议有：
+rtmp、rtmps、rtsp、rtp、srt。
 
 注意：签名时间需要超过任务结束时间，避免因签名过期造成任务失败。
      */
@@ -697,9 +718,15 @@ ContinueBreakPoint：播放完当前正在播放的点播 url 后再使用新的
      * Set 完整目标 URL 地址。
 用法注意：如果使用该参数来传完整目标地址，则 DomainName, AppName, StreamName 需要传入空字符串，任务将会使用该 ToUrl 参数指定的目标地址。
 
+使用该方式传入目标地址支持的协议有：
+rtmp、rtmps、rtsp、rtp、srt。
+
 注意：签名时间需要超过任务结束时间，避免因签名过期造成任务失败。
      * @param ToUrl 完整目标 URL 地址。
 用法注意：如果使用该参数来传完整目标地址，则 DomainName, AppName, StreamName 需要传入空字符串，任务将会使用该 ToUrl 参数指定的目标地址。
+
+使用该方式传入目标地址支持的协议有：
+rtmp、rtmps、rtsp、rtp、srt。
 
 注意：签名时间需要超过任务结束时间，避免因签名过期造成任务失败。
      */
@@ -827,6 +854,22 @@ PullVodPushLive -点播。
         this.VodLocalMode = VodLocalMode;
     }
 
+    /**
+     * Get 录制模板 ID。 
+     * @return RecordTemplateId 录制模板 ID。
+     */
+    public String getRecordTemplateId() {
+        return this.RecordTemplateId;
+    }
+
+    /**
+     * Set 录制模板 ID。
+     * @param RecordTemplateId 录制模板 ID。
+     */
+    public void setRecordTemplateId(String RecordTemplateId) {
+        this.RecordTemplateId = RecordTemplateId;
+    }
+
     public CreateLivePullStreamTaskRequest() {
     }
 
@@ -904,6 +947,9 @@ PullVodPushLive -点播。
         if (source.VodLocalMode != null) {
             this.VodLocalMode = new Long(source.VodLocalMode);
         }
+        if (source.RecordTemplateId != null) {
+            this.RecordTemplateId = new String(source.RecordTemplateId);
+        }
     }
 
 
@@ -931,6 +977,7 @@ PullVodPushLive -点播。
         this.setParamSimple(map, prefix + "BackupSourceUrl", this.BackupSourceUrl);
         this.setParamArrayObj(map, prefix + "WatermarkList.", this.WatermarkList);
         this.setParamSimple(map, prefix + "VodLocalMode", this.VodLocalMode);
+        this.setParamSimple(map, prefix + "RecordTemplateId", this.RecordTemplateId);
 
     }
 }

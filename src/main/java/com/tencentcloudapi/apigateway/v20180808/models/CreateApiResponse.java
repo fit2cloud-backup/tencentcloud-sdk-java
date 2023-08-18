@@ -28,7 +28,7 @@ public class CreateApiResponse extends AbstractModel{
     */
     @SerializedName("Result")
     @Expose
-    private CreateApiRsp Result;
+    private CreateApiResultInfo Result;
 
     /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -43,7 +43,7 @@ public class CreateApiResponse extends AbstractModel{
      * @return Result api信息
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public CreateApiRsp getResult() {
+    public CreateApiResultInfo getResult() {
         return this.Result;
     }
 
@@ -53,7 +53,7 @@ public class CreateApiResponse extends AbstractModel{
      * @param Result api信息
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public void setResult(CreateApiRsp Result) {
+    public void setResult(CreateApiResultInfo Result) {
         this.Result = Result;
     }
 
@@ -82,7 +82,7 @@ public class CreateApiResponse extends AbstractModel{
      */
     public CreateApiResponse(CreateApiResponse source) {
         if (source.Result != null) {
-            this.Result = new CreateApiRsp(source.Result);
+            this.Result = new CreateApiResultInfo(source.Result);
         }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);

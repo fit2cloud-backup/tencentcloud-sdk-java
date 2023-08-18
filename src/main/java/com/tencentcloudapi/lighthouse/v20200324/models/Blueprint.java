@@ -45,6 +45,7 @@ public class Blueprint extends AbstractModel{
 
     /**
     * 镜像描述信息。
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Description")
     @Expose
@@ -160,6 +161,14 @@ public class Blueprint extends AbstractModel{
     private String [] SceneIdSet;
 
     /**
+    * Docker版本号。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DockerVersion")
+    @Expose
+    private String DockerVersion;
+
+    /**
      * Get 镜像 ID  ，是 Blueprint 的唯一标识。 
      * @return BlueprintId 镜像 ID  ，是 Blueprint 的唯一标识。
      */
@@ -208,8 +217,10 @@ public class Blueprint extends AbstractModel{
     }
 
     /**
-     * Get 镜像描述信息。 
+     * Get 镜像描述信息。
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Description 镜像描述信息。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescription() {
         return this.Description;
@@ -217,7 +228,9 @@ public class Blueprint extends AbstractModel{
 
     /**
      * Set 镜像描述信息。
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Description 镜像描述信息。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescription(String Description) {
         this.Description = Description;
@@ -479,6 +492,26 @@ public class Blueprint extends AbstractModel{
         this.SceneIdSet = SceneIdSet;
     }
 
+    /**
+     * Get Docker版本号。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DockerVersion Docker版本号。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDockerVersion() {
+        return this.DockerVersion;
+    }
+
+    /**
+     * Set Docker版本号。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DockerVersion Docker版本号。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDockerVersion(String DockerVersion) {
+        this.DockerVersion = DockerVersion;
+    }
+
     public Blueprint() {
     }
 
@@ -547,6 +580,9 @@ public class Blueprint extends AbstractModel{
                 this.SceneIdSet[i] = new String(source.SceneIdSet[i]);
             }
         }
+        if (source.DockerVersion != null) {
+            this.DockerVersion = new String(source.DockerVersion);
+        }
     }
 
 
@@ -573,6 +609,7 @@ public class Blueprint extends AbstractModel{
         this.setParamSimple(map, prefix + "CommunityUrl", this.CommunityUrl);
         this.setParamSimple(map, prefix + "GuideUrl", this.GuideUrl);
         this.setParamArraySimple(map, prefix + "SceneIdSet.", this.SceneIdSet);
+        this.setParamSimple(map, prefix + "DockerVersion", this.DockerVersion);
 
     }
 }

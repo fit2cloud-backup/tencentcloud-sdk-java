@@ -88,6 +88,24 @@ public class DDoSAttackEvent extends AbstractModel{
     private String ZoneId;
 
     /**
+    * 攻击事件所属地区，取值有：
+<li>overseas：全球（除中国大陆地区）数据；</li>
+<li>mainland：中国大陆地区数据。</li>
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Area")
+    @Expose
+    private String Area;
+
+    /**
+    * 封禁解封信息。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DDoSBlockData")
+    @Expose
+    private DDoSBlockData [] DDoSBlockData;
+
+    /**
      * Get 事件ID。 
      * @return EventId 事件ID。
      */
@@ -239,6 +257,54 @@ public class DDoSAttackEvent extends AbstractModel{
         this.ZoneId = ZoneId;
     }
 
+    /**
+     * Get 攻击事件所属地区，取值有：
+<li>overseas：全球（除中国大陆地区）数据；</li>
+<li>mainland：中国大陆地区数据。</li>
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Area 攻击事件所属地区，取值有：
+<li>overseas：全球（除中国大陆地区）数据；</li>
+<li>mainland：中国大陆地区数据。</li>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getArea() {
+        return this.Area;
+    }
+
+    /**
+     * Set 攻击事件所属地区，取值有：
+<li>overseas：全球（除中国大陆地区）数据；</li>
+<li>mainland：中国大陆地区数据。</li>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Area 攻击事件所属地区，取值有：
+<li>overseas：全球（除中国大陆地区）数据；</li>
+<li>mainland：中国大陆地区数据。</li>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setArea(String Area) {
+        this.Area = Area;
+    }
+
+    /**
+     * Get 封禁解封信息。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DDoSBlockData 封禁解封信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public DDoSBlockData [] getDDoSBlockData() {
+        return this.DDoSBlockData;
+    }
+
+    /**
+     * Set 封禁解封信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DDoSBlockData 封禁解封信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDDoSBlockData(DDoSBlockData [] DDoSBlockData) {
+        this.DDoSBlockData = DDoSBlockData;
+    }
+
     public DDoSAttackEvent() {
     }
 
@@ -274,6 +340,15 @@ public class DDoSAttackEvent extends AbstractModel{
         if (source.ZoneId != null) {
             this.ZoneId = new String(source.ZoneId);
         }
+        if (source.Area != null) {
+            this.Area = new String(source.Area);
+        }
+        if (source.DDoSBlockData != null) {
+            this.DDoSBlockData = new DDoSBlockData[source.DDoSBlockData.length];
+            for (int i = 0; i < source.DDoSBlockData.length; i++) {
+                this.DDoSBlockData[i] = new DDoSBlockData(source.DDoSBlockData[i]);
+            }
+        }
     }
 
 
@@ -290,6 +365,8 @@ public class DDoSAttackEvent extends AbstractModel{
         this.setParamSimple(map, prefix + "AttackEndTime", this.AttackEndTime);
         this.setParamSimple(map, prefix + "PolicyId", this.PolicyId);
         this.setParamSimple(map, prefix + "ZoneId", this.ZoneId);
+        this.setParamSimple(map, prefix + "Area", this.Area);
+        this.setParamArrayObj(map, prefix + "DDoSBlockData.", this.DDoSBlockData);
 
     }
 }

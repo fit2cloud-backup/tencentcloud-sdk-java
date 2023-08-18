@@ -69,6 +69,9 @@ public enum FtErrorCode {
     // 任务不存在。
      FAILEDOPERATION_TASKNOTEXIST("FailedOperation.TaskNotExist"),
      
+    // 未知错误。
+     FAILEDOPERATION_UNKNOWN("FailedOperation.Unknown"),
+     
     // 内部错误。
      INTERNALERROR("InternalError"),
      
@@ -96,6 +99,9 @@ public enum FtErrorCode {
     // 图片数据太大。
      INVALIDPARAMETERVALUE_IMAGESIZEEXCEED("InvalidParameterValue.ImageSizeExceed"),
      
+    // 图片尺寸不对。
+     INVALIDPARAMETERVALUE_LUTIMAGESIZEINVALID("InvalidParameterValue.LutImageSizeInvalid"),
+     
     // 图片中没有人脸。
      INVALIDPARAMETERVALUE_NOFACEINPHOTO("InvalidParameterValue.NoFaceInPhoto"),
      
@@ -108,13 +114,13 @@ public enum FtErrorCode {
     // 资源正在发货中。
      RESOURCEUNAVAILABLE_DELIVERING("ResourceUnavailable.Delivering"),
      
-    // 帐号已被冻结。
+    // 账号已被冻结。
      RESOURCEUNAVAILABLE_FREEZE("ResourceUnavailable.Freeze"),
      
     // 获取认证信息失败。
      RESOURCEUNAVAILABLE_GETAUTHINFOERROR("ResourceUnavailable.GetAuthInfoError"),
      
-    // 帐号已欠费。
+    // 账号已欠费。
      RESOURCEUNAVAILABLE_INARREARS("ResourceUnavailable.InArrears"),
      
     // 余额不足。
@@ -129,13 +135,13 @@ public enum FtErrorCode {
     // 资源已被回收。
      RESOURCEUNAVAILABLE_RECOVER("ResourceUnavailable.Recover"),
      
-    // 帐号已停服。
+    // 账号已停服。
      RESOURCEUNAVAILABLE_STOPUSING("ResourceUnavailable.StopUsing"),
      
     // 计费状态未知。
      RESOURCEUNAVAILABLE_UNKNOWNSTATUS("ResourceUnavailable.UnknownStatus"),
      
-    // 帐号已欠费。
+    // 账号已欠费。
      RESOURCESSOLDOUT_CHARGESTATUSEXCEPTION("ResourcesSoldOut.ChargeStatusException"),
      
     // 未知方法名。

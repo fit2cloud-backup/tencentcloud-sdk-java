@@ -27,11 +27,38 @@ public enum GmeErrorCode {
     // 日期无效。
      INVALIDPARAMETER_DATEINVALID("InvalidParameter.DateInvalid"),
      
+    // 输入日期超出60天查询范围。
+     INVALIDPARAMETER_DATEOUTOFSIXTYDAYS("InvalidParameter.DateOutOfSixtyDays"),
+     
     // 标签不正确
      INVALIDPARAMETER_TAGKEY("InvalidParameter.TagKey"),
      
     // 查询时间范围错误。
      INVALIDPARAMETER_TIMERANGEERROR("InvalidParameter.TimeRangeError"),
+     
+    // BizId 参数错误
+     INVALIDPARAMETERVALUE_INVALIDBIZID("InvalidParameterValue.InvalidBizId"),
+     
+    // 输入删除类型应为1或2。
+     INVALIDPARAMETERVALUE_INVALIDDELETETYPE("InvalidParameterValue.InvalidDeleteType"),
+     
+    // RecordMode参数错误
+     INVALIDPARAMETERVALUE_INVALIDRECORDMODE("InvalidParameterValue.InvalidRecordMode"),
+     
+    // RoomId 参数错误
+     INVALIDPARAMETERVALUE_INVALIDROOMID("InvalidParameterValue.InvalidRoomId"),
+     
+    // 黑白名单格式错误
+     INVALIDPARAMETERVALUE_INVALIDSUBSCRIBERECORDUSERIDS("InvalidParameterValue.InvalidSubscribeRecordUserIds"),
+     
+    // 白名单个数超过20个
+     INVALIDPARAMETERVALUE_INVALIDSUBSCRIBEUSERIDS("InvalidParameterValue.InvalidSubscribeUserIds"),
+     
+    // taskid参数错误
+     INVALIDPARAMETERVALUE_INVALIDTASKID("InvalidParameterValue.InvalidTaskId"),
+     
+    // 黑名单个数超过20个
+     INVALIDPARAMETERVALUE_INVALIDUNSUBSCRIBEUSERIDS("InvalidParameterValue.InvalidUNSubscribeUserIds"),
      
     // 超过配额限制。
      LIMITEXCEEDED("LimitExceeded"),
@@ -45,6 +72,9 @@ public enum GmeErrorCode {
     // 操作被拒绝。
      OPERATIONDENIED("OperationDenied"),
      
+    // task已存在
+     RESOURCEINUSE_TASKINUSE("ResourceInUse.TaskInUse"),
+     
     // 资源不足。
      RESOURCEINSUFFICIENT("ResourceInsufficient"),
      
@@ -54,7 +84,10 @@ public enum GmeErrorCode {
     // 应用ID不正确
      RESOURCENOTFOUND_BIZIDISNOTFOUND("ResourceNotFound.BizidIsNotFound"),
      
-    // 任务ID不正确
+    // 房间不存在
+     RESOURCENOTFOUND_ROOMNOTFOUND("ResourceNotFound.RoomNotFound"),
+     
+    // 任务ID不存在
      RESOURCENOTFOUND_TASKNOTFOUND("ResourceNotFound.TaskNotFound"),
      
     // 资源不可用。
@@ -79,7 +112,10 @@ public enum GmeErrorCode {
      UNSUPPORTEDOPERATION("UnsupportedOperation"),
      
     // 语音转文本开关未开启。
-     UNSUPPORTEDOPERATION_PTTSWITCHOFF("UnsupportedOperation.PTTSwitchOff");
+     UNSUPPORTEDOPERATION_PTTSWITCHOFF("UnsupportedOperation.PTTSwitchOff"),
+     
+    // 录制服务未开通
+     UNSUPPORTEDOPERATION_SERVICENOTOPENED("UnsupportedOperation.ServiceNotOpened");
      
     private String value;
     private GmeErrorCode (String value){

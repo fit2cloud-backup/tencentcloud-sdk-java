@@ -30,6 +30,14 @@ public class IdentifyZoneRequest extends AbstractModel{
     private String ZoneName;
 
     /**
+    * 站点下的子域名。如果验证站点下的子域名，则传该值，否则为空。
+
+    */
+    @SerializedName("Domain")
+    @Expose
+    private String Domain;
+
+    /**
      * Get 站点名称。 
      * @return ZoneName 站点名称。
      */
@@ -45,6 +53,26 @@ public class IdentifyZoneRequest extends AbstractModel{
         this.ZoneName = ZoneName;
     }
 
+    /**
+     * Get 站点下的子域名。如果验证站点下的子域名，则传该值，否则为空。
+ 
+     * @return Domain 站点下的子域名。如果验证站点下的子域名，则传该值，否则为空。
+
+     */
+    public String getDomain() {
+        return this.Domain;
+    }
+
+    /**
+     * Set 站点下的子域名。如果验证站点下的子域名，则传该值，否则为空。
+
+     * @param Domain 站点下的子域名。如果验证站点下的子域名，则传该值，否则为空。
+
+     */
+    public void setDomain(String Domain) {
+        this.Domain = Domain;
+    }
+
     public IdentifyZoneRequest() {
     }
 
@@ -56,6 +84,9 @@ public class IdentifyZoneRequest extends AbstractModel{
         if (source.ZoneName != null) {
             this.ZoneName = new String(source.ZoneName);
         }
+        if (source.Domain != null) {
+            this.Domain = new String(source.Domain);
+        }
     }
 
 
@@ -64,6 +95,7 @@ public class IdentifyZoneRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ZoneName", this.ZoneName);
+        this.setParamSimple(map, prefix + "Domain", this.Domain);
 
     }
 }

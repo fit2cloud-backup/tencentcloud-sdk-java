@@ -30,11 +30,18 @@ public class DescribeIntegrationEmployeesRequest extends AbstractModel{
     private UserInfo Operator;
 
     /**
-    * 返回最大数量，最大为20
+    * 指定每页多少条数据，单页最大20
     */
     @SerializedName("Limit")
     @Expose
     private Long Limit;
+
+    /**
+    * 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+    */
+    @SerializedName("Agent")
+    @Expose
+    private Agent Agent;
 
     /**
     * 查询过滤实名用户，Key为Status，Values为["IsVerified"]
@@ -45,7 +52,7 @@ public class DescribeIntegrationEmployeesRequest extends AbstractModel{
     private Filter [] Filters;
 
     /**
-    * 偏移量，默认为0，最大为20000
+    * 查询结果分页返回，此处指定第几页，如果不传默认从第一页返回。页码从 0 开始，即首页为 0，最大20000
     */
     @SerializedName("Offset")
     @Expose
@@ -68,19 +75,35 @@ public class DescribeIntegrationEmployeesRequest extends AbstractModel{
     }
 
     /**
-     * Get 返回最大数量，最大为20 
-     * @return Limit 返回最大数量，最大为20
+     * Get 指定每页多少条数据，单页最大20 
+     * @return Limit 指定每页多少条数据，单页最大20
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 返回最大数量，最大为20
-     * @param Limit 返回最大数量，最大为20
+     * Set 指定每页多少条数据，单页最大20
+     * @param Limit 指定每页多少条数据，单页最大20
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
+    }
+
+    /**
+     * Get 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填 
+     * @return Agent 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+     */
+    public Agent getAgent() {
+        return this.Agent;
+    }
+
+    /**
+     * Set 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+     * @param Agent 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+     */
+    public void setAgent(Agent Agent) {
+        this.Agent = Agent;
     }
 
     /**
@@ -104,16 +127,16 @@ public class DescribeIntegrationEmployeesRequest extends AbstractModel{
     }
 
     /**
-     * Get 偏移量，默认为0，最大为20000 
-     * @return Offset 偏移量，默认为0，最大为20000
+     * Get 查询结果分页返回，此处指定第几页，如果不传默认从第一页返回。页码从 0 开始，即首页为 0，最大20000 
+     * @return Offset 查询结果分页返回，此处指定第几页，如果不传默认从第一页返回。页码从 0 开始，即首页为 0，最大20000
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 偏移量，默认为0，最大为20000
-     * @param Offset 偏移量，默认为0，最大为20000
+     * Set 查询结果分页返回，此处指定第几页，如果不传默认从第一页返回。页码从 0 开始，即首页为 0，最大20000
+     * @param Offset 查询结果分页返回，此处指定第几页，如果不传默认从第一页返回。页码从 0 开始，即首页为 0，最大20000
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
@@ -133,6 +156,9 @@ public class DescribeIntegrationEmployeesRequest extends AbstractModel{
         if (source.Limit != null) {
             this.Limit = new Long(source.Limit);
         }
+        if (source.Agent != null) {
+            this.Agent = new Agent(source.Agent);
+        }
         if (source.Filters != null) {
             this.Filters = new Filter[source.Filters.length];
             for (int i = 0; i < source.Filters.length; i++) {
@@ -151,6 +177,7 @@ public class DescribeIntegrationEmployeesRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "Operator.", this.Operator);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamObj(map, prefix + "Agent.", this.Agent);
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
 

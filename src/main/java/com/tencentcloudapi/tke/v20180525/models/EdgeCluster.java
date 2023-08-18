@@ -117,6 +117,38 @@ public class EdgeCluster extends AbstractModel{
     private String Level;
 
     /**
+    * 是否支持自动提升集群配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AutoUpgradeClusterLevel")
+    @Expose
+    private Boolean AutoUpgradeClusterLevel;
+
+    /**
+    * 集群付费模式，支持POSTPAID_BY_HOUR或者PREPAID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ChargeType")
+    @Expose
+    private String ChargeType;
+
+    /**
+    * 边缘集群组件的版本
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EdgeVersion")
+    @Expose
+    private String EdgeVersion;
+
+    /**
+    * 集群绑定的云标签
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TagSpecification")
+    @Expose
+    private TagSpecification TagSpecification;
+
+    /**
      * Get 集群Id 
      * @return ClusterId 集群Id
      */
@@ -336,6 +368,86 @@ public class EdgeCluster extends AbstractModel{
         this.Level = Level;
     }
 
+    /**
+     * Get 是否支持自动提升集群配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AutoUpgradeClusterLevel 是否支持自动提升集群配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getAutoUpgradeClusterLevel() {
+        return this.AutoUpgradeClusterLevel;
+    }
+
+    /**
+     * Set 是否支持自动提升集群配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AutoUpgradeClusterLevel 是否支持自动提升集群配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAutoUpgradeClusterLevel(Boolean AutoUpgradeClusterLevel) {
+        this.AutoUpgradeClusterLevel = AutoUpgradeClusterLevel;
+    }
+
+    /**
+     * Get 集群付费模式，支持POSTPAID_BY_HOUR或者PREPAID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ChargeType 集群付费模式，支持POSTPAID_BY_HOUR或者PREPAID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getChargeType() {
+        return this.ChargeType;
+    }
+
+    /**
+     * Set 集群付费模式，支持POSTPAID_BY_HOUR或者PREPAID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ChargeType 集群付费模式，支持POSTPAID_BY_HOUR或者PREPAID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setChargeType(String ChargeType) {
+        this.ChargeType = ChargeType;
+    }
+
+    /**
+     * Get 边缘集群组件的版本
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EdgeVersion 边缘集群组件的版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getEdgeVersion() {
+        return this.EdgeVersion;
+    }
+
+    /**
+     * Set 边缘集群组件的版本
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EdgeVersion 边缘集群组件的版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEdgeVersion(String EdgeVersion) {
+        this.EdgeVersion = EdgeVersion;
+    }
+
+    /**
+     * Get 集群绑定的云标签
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TagSpecification 集群绑定的云标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public TagSpecification getTagSpecification() {
+        return this.TagSpecification;
+    }
+
+    /**
+     * Set 集群绑定的云标签
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TagSpecification 集群绑定的云标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTagSpecification(TagSpecification TagSpecification) {
+        this.TagSpecification = TagSpecification;
+    }
+
     public EdgeCluster() {
     }
 
@@ -383,6 +495,18 @@ public class EdgeCluster extends AbstractModel{
         if (source.Level != null) {
             this.Level = new String(source.Level);
         }
+        if (source.AutoUpgradeClusterLevel != null) {
+            this.AutoUpgradeClusterLevel = new Boolean(source.AutoUpgradeClusterLevel);
+        }
+        if (source.ChargeType != null) {
+            this.ChargeType = new String(source.ChargeType);
+        }
+        if (source.EdgeVersion != null) {
+            this.EdgeVersion = new String(source.EdgeVersion);
+        }
+        if (source.TagSpecification != null) {
+            this.TagSpecification = new TagSpecification(source.TagSpecification);
+        }
     }
 
 
@@ -403,6 +527,10 @@ public class EdgeCluster extends AbstractModel{
         this.setParamSimple(map, prefix + "MaxNodePodNum", this.MaxNodePodNum);
         this.setParamObj(map, prefix + "ClusterAdvancedSettings.", this.ClusterAdvancedSettings);
         this.setParamSimple(map, prefix + "Level", this.Level);
+        this.setParamSimple(map, prefix + "AutoUpgradeClusterLevel", this.AutoUpgradeClusterLevel);
+        this.setParamSimple(map, prefix + "ChargeType", this.ChargeType);
+        this.setParamSimple(map, prefix + "EdgeVersion", this.EdgeVersion);
+        this.setParamObj(map, prefix + "TagSpecification.", this.TagSpecification);
 
     }
 }

@@ -64,14 +64,14 @@ public class BGPIPInstance extends AbstractModel{
     private String Status;
 
     /**
-    * 购买时间
+    * 到期时间
     */
     @SerializedName("ExpiredTime")
     @Expose
     private String ExpiredTime;
 
     /**
-    * 到期时间
+    * 购买时间
     */
     @SerializedName("CreatedTime")
     @Expose
@@ -217,6 +217,22 @@ public class BGPIPInstance extends AbstractModel{
     private String ConvoyId;
 
     /**
+    * 带宽后付费
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ElasticBandwidth")
+    @Expose
+    private Long ElasticBandwidth;
+
+    /**
+    * 是否为EO代播的ip: 1是，0不是
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EOFlag")
+    @Expose
+    private Long EOFlag;
+
+    /**
      * Get 资产实例的详细信息 
      * @return InstanceDetail 资产实例的详细信息
      */
@@ -321,32 +337,32 @@ public class BGPIPInstance extends AbstractModel{
     }
 
     /**
-     * Get 购买时间 
-     * @return ExpiredTime 购买时间
+     * Get 到期时间 
+     * @return ExpiredTime 到期时间
      */
     public String getExpiredTime() {
         return this.ExpiredTime;
     }
 
     /**
-     * Set 购买时间
-     * @param ExpiredTime 购买时间
+     * Set 到期时间
+     * @param ExpiredTime 到期时间
      */
     public void setExpiredTime(String ExpiredTime) {
         this.ExpiredTime = ExpiredTime;
     }
 
     /**
-     * Get 到期时间 
-     * @return CreatedTime 到期时间
+     * Get 购买时间 
+     * @return CreatedTime 购买时间
      */
     public String getCreatedTime() {
         return this.CreatedTime;
     }
 
     /**
-     * Set 到期时间
-     * @param CreatedTime 到期时间
+     * Set 购买时间
+     * @param CreatedTime 购买时间
      */
     public void setCreatedTime(String CreatedTime) {
         this.CreatedTime = CreatedTime;
@@ -704,6 +720,46 @@ public class BGPIPInstance extends AbstractModel{
         this.ConvoyId = ConvoyId;
     }
 
+    /**
+     * Get 带宽后付费
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ElasticBandwidth 带宽后付费
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getElasticBandwidth() {
+        return this.ElasticBandwidth;
+    }
+
+    /**
+     * Set 带宽后付费
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ElasticBandwidth 带宽后付费
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setElasticBandwidth(Long ElasticBandwidth) {
+        this.ElasticBandwidth = ElasticBandwidth;
+    }
+
+    /**
+     * Get 是否为EO代播的ip: 1是，0不是
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EOFlag 是否为EO代播的ip: 1是，0不是
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getEOFlag() {
+        return this.EOFlag;
+    }
+
+    /**
+     * Set 是否为EO代播的ip: 1是，0不是
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EOFlag 是否为EO代播的ip: 1是，0不是
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEOFlag(Long EOFlag) {
+        this.EOFlag = EOFlag;
+    }
+
     public BGPIPInstance() {
     }
 
@@ -787,6 +843,12 @@ public class BGPIPInstance extends AbstractModel{
         if (source.ConvoyId != null) {
             this.ConvoyId = new String(source.ConvoyId);
         }
+        if (source.ElasticBandwidth != null) {
+            this.ElasticBandwidth = new Long(source.ElasticBandwidth);
+        }
+        if (source.EOFlag != null) {
+            this.EOFlag = new Long(source.EOFlag);
+        }
     }
 
 
@@ -818,6 +880,8 @@ public class BGPIPInstance extends AbstractModel{
         this.setParamObj(map, prefix + "AnycastOutPackRelation.", this.AnycastOutPackRelation);
         this.setParamSimple(map, prefix + "InstanceVersion", this.InstanceVersion);
         this.setParamSimple(map, prefix + "ConvoyId", this.ConvoyId);
+        this.setParamSimple(map, prefix + "ElasticBandwidth", this.ElasticBandwidth);
+        this.setParamSimple(map, prefix + "EOFlag", this.EOFlag);
 
     }
 }

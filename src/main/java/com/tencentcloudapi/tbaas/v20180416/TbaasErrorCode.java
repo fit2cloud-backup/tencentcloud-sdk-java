@@ -51,18 +51,6 @@ public enum TbaasErrorCode {
     // CFCA云API错误。
      FAILEDOPERATION_CAYUNAPICOMMON("FailedOperation.CaYunApiCommon"),
      
-    // 合约已在通道实例化。
-     FAILEDOPERATION_CHAINCODECHANNEL("FailedOperation.ChainCodeChannel"),
-     
-    // 合约已存在。
-     FAILEDOPERATION_CHAINCODEEXIST("FailedOperation.ChainCodeExist"),
-     
-    // 合约实例化错误。
-     FAILEDOPERATION_CHAINCODEINIT("FailedOperation.ChainCodeInit"),
-     
-    // 合约安装错误。
-     FAILEDOPERATION_CHAINCODEINSTALL("FailedOperation.ChainCodeInstall"),
-     
     // Bcos不能编译已经部署的合约。
      FAILEDOPERATION_COMPILEDEPLOYEDCONTRACT("FailedOperation.CompileDeployedContract"),
      
@@ -95,9 +83,6 @@ public enum TbaasErrorCode {
      
     // event hub失败。
      FAILEDOPERATION_FABRICEVENTHUB("FailedOperation.FabricEventHub"),
-     
-    // 区块链网络请求异常。
-     FAILEDOPERATION_FABRICMANAGE("FailedOperation.FabricManage"),
      
     // 背书失败。
      FAILEDOPERATION_FABRICPROPOSAL("FailedOperation.FabricProposal"),
@@ -132,32 +117,14 @@ public enum TbaasErrorCode {
     // 用户非法操作。
      FAILEDOPERATION_GROUPILLEGAL("FailedOperation.GroupIllegal"),
      
-    // 无效合约。
-     FAILEDOPERATION_INVALIDCHAINCODE("FailedOperation.InvalidChaincode"),
-     
-    // 无效通道。
-     FAILEDOPERATION_INVALIDCHANNEL("FailedOperation.InvalidChannel"),
-     
-    // 无效网络。
-     FAILEDOPERATION_INVALIDCLUSTER("FailedOperation.InvalidCluster"),
-     
-    // 无效组织。
-     FAILEDOPERATION_INVALIDGROUP("FailedOperation.InvalidGroup"),
-     
     // Bcos无效的群组编号。
      FAILEDOPERATION_INVALIDGROUPPK("FailedOperation.InvalidGroupPk"),
      
     // Bcos无效的私钥用户信息。
      FAILEDOPERATION_INVALIDKEYUSER("FailedOperation.InvalidKeyUser"),
      
-    // 无效操作。
+    // 用户非法操作。
      FAILEDOPERATION_INVALIDOPERATION("FailedOperation.InvalidOperation"),
-     
-    // 无效节点。
-     FAILEDOPERATION_INVALIDPEER("FailedOperation.InvalidPeer"),
-     
-    // 无效资源。
-     FAILEDOPERATION_INVALIDRESOURCE("FailedOperation.InvalidResource"),
      
     // 交易请求异常。
      FAILEDOPERATION_MANAGESERVICE("FailedOperation.ManageService"),
@@ -201,9 +168,6 @@ public enum TbaasErrorCode {
     // 交易执行超时，请稍后再试。
      FAILEDOPERATION_TRANSACTIONTIMEOUT("FailedOperation.TransactionTimeout"),
      
-    // Bcos更新已部署合约。
-     FAILEDOPERATION_UPDATEDEPLOYEDCONTRACT("FailedOperation.UpdateDeployedContract"),
-     
     // 获取用户认证类型出错。
      FAILEDOPERATION_USERAUTHTYPE("FailedOperation.UserAuthType"),
      
@@ -215,9 +179,6 @@ public enum TbaasErrorCode {
      
     // Bcos数据库操作异常，请重试。
      INTERNALERROR_DBERROR("InternalError.DBError"),
-     
-    // 内部错误。
-     INTERNALERROR_FAILPREFORM("InternalError.FailPreform"),
      
     // 服务器异常，请重试。
      INTERNALERROR_FAILURL("InternalError.FailUrl"),
@@ -234,7 +195,7 @@ public enum TbaasErrorCode {
     // 错误码未定义。
      INTERNALERROR_NODEFINEERROR("InternalError.NoDefineError"),
      
-    // Bcos服务器异常，请重试。
+    // 内部错误，请稍后重试或者联系技术人员
      INTERNALERROR_SERVERERROR("InternalError.ServerError"),
      
     // 服务器异常。
@@ -324,7 +285,7 @@ public enum TbaasErrorCode {
     // 参数格式不正确。
      INVALIDPARAMETERVALUE_ILLEGALFORMAT("InvalidParameterValue.IllegalFormat"),
      
-    // 参数取值不合法。
+    // 请求参数错误。
      INVALIDPARAMETERVALUE_ILLEGALVALUE("InvalidParameterValue.IllegalValue"),
      
     // 参数值为空。

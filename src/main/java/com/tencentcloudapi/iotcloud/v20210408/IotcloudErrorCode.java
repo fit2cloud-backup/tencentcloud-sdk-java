@@ -12,6 +12,9 @@ public enum IotcloudErrorCode {
     // 绑定设备超过限制。
      FAILEDOPERATION_BINDDEVICEOVERLIMIT("FailedOperation.BindDeviceOverLimit"),
      
+    // 单次绑定的设备数量超过限制。
+     FAILEDOPERATION_BINDDEVICEPERONCEOVERLIMIT("FailedOperation.BindDevicePerOnceOverLimit"),
+     
     // 广播任务正在执行。
      FAILEDOPERATION_BROADCASTTASKISRUNNING("FailedOperation.BroadcastTaskIsRunning"),
      
@@ -56,6 +59,9 @@ public enum IotcloudErrorCode {
      
     // RRPC接口未收到设备端响应。
      FAILEDOPERATION_RRPCTIMEOUT("FailedOperation.RRPCTimeout"),
+     
+    // 资源文件MD5或者大小不一致。
+     FAILEDOPERATION_RESOURCEFILENOTMATCH("FailedOperation.ResourceFileNotMatch"),
      
     // 该规则引擎已经是禁用状态，不需要再被禁用。
      FAILEDOPERATION_RULEALREADYDISABLED("FailedOperation.RuleAlreadyDisabled"),
@@ -170,6 +176,9 @@ public enum IotcloudErrorCode {
      
     // CA证书已经绑定了产品，无法操作。
      LIMITEXCEEDED_CAALREADYBINDPRODUCT("LimitExceeded.CAAlreadyBindProduct"),
+     
+    // CA证书达到上限。
+     LIMITEXCEEDED_CACERTLIMIT("LimitExceeded.CACertLimit"),
      
     // CA证书名称重复。
      LIMITEXCEEDED_CACERTNAMEREPEAT("LimitExceeded.CACertNameRepeat"),

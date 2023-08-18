@@ -93,11 +93,18 @@ public class DescribeAlarmNoticesRequest extends AbstractModel{
     private String [] NoticeIds;
 
     /**
-    * 模版根据标签过滤
+    * 模板根据标签过滤
     */
     @SerializedName("Tags")
     @Expose
     private Tag [] Tags;
+
+    /**
+    * 值班列表
+    */
+    @SerializedName("OnCallFormIDs")
+    @Expose
+    private String [] OnCallFormIDs;
 
     /**
      * Get 模块名，这里填“monitor” 
@@ -260,19 +267,35 @@ public class DescribeAlarmNoticesRequest extends AbstractModel{
     }
 
     /**
-     * Get 模版根据标签过滤 
-     * @return Tags 模版根据标签过滤
+     * Get 模板根据标签过滤 
+     * @return Tags 模板根据标签过滤
      */
     public Tag [] getTags() {
         return this.Tags;
     }
 
     /**
-     * Set 模版根据标签过滤
-     * @param Tags 模版根据标签过滤
+     * Set 模板根据标签过滤
+     * @param Tags 模板根据标签过滤
      */
     public void setTags(Tag [] Tags) {
         this.Tags = Tags;
+    }
+
+    /**
+     * Get 值班列表 
+     * @return OnCallFormIDs 值班列表
+     */
+    public String [] getOnCallFormIDs() {
+        return this.OnCallFormIDs;
+    }
+
+    /**
+     * Set 值班列表
+     * @param OnCallFormIDs 值班列表
+     */
+    public void setOnCallFormIDs(String [] OnCallFormIDs) {
+        this.OnCallFormIDs = OnCallFormIDs;
     }
 
     public DescribeAlarmNoticesRequest() {
@@ -328,6 +351,12 @@ public class DescribeAlarmNoticesRequest extends AbstractModel{
                 this.Tags[i] = new Tag(source.Tags[i]);
             }
         }
+        if (source.OnCallFormIDs != null) {
+            this.OnCallFormIDs = new String[source.OnCallFormIDs.length];
+            for (int i = 0; i < source.OnCallFormIDs.length; i++) {
+                this.OnCallFormIDs[i] = new String(source.OnCallFormIDs[i]);
+            }
+        }
     }
 
 
@@ -346,6 +375,7 @@ public class DescribeAlarmNoticesRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "GroupIds.", this.GroupIds);
         this.setParamArraySimple(map, prefix + "NoticeIds.", this.NoticeIds);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamArraySimple(map, prefix + "OnCallFormIDs.", this.OnCallFormIDs);
 
     }
 }

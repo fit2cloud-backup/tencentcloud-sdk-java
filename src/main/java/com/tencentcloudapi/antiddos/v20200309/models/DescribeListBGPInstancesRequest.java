@@ -93,7 +93,7 @@ public class DescribeListBGPInstancesRequest extends AbstractModel{
     private String [] FilterInstanceIdList;
 
     /**
-    * 企业版搜索
+    * 企业版搜索,  1：包含重保护航套餐下的企业版列表, 2: 不包含重保护航套餐的企业版列表
     */
     @SerializedName("FilterEnterpriseFlag")
     @Expose
@@ -133,6 +133,27 @@ public class DescribeListBGPInstancesRequest extends AbstractModel{
     @SerializedName("FilterConvoy")
     @Expose
     private Long FilterConvoy;
+
+    /**
+    * 默认false；接口传true，返回数据中不包含高级信息，高级信息包含：InstanceList[0].Usage。
+    */
+    @SerializedName("ExcludeAdvancedInfo")
+    @Expose
+    private Boolean ExcludeAdvancedInfo;
+
+    /**
+    * 资产IP数组
+    */
+    @SerializedName("FilterAssetIpList")
+    @Expose
+    private String [] FilterAssetIpList;
+
+    /**
+    * 是否包含基础防护增强版 0: 不包含 1: 包含
+    */
+    @SerializedName("FilterBasicPlusFlag")
+    @Expose
+    private Long FilterBasicPlusFlag;
 
     /**
      * Get 页起始偏移，取值为(页码-1)*一页条数 
@@ -295,16 +316,16 @@ public class DescribeListBGPInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 企业版搜索 
-     * @return FilterEnterpriseFlag 企业版搜索
+     * Get 企业版搜索,  1：包含重保护航套餐下的企业版列表, 2: 不包含重保护航套餐的企业版列表 
+     * @return FilterEnterpriseFlag 企业版搜索,  1：包含重保护航套餐下的企业版列表, 2: 不包含重保护航套餐的企业版列表
      */
     public Long getFilterEnterpriseFlag() {
         return this.FilterEnterpriseFlag;
     }
 
     /**
-     * Set 企业版搜索
-     * @param FilterEnterpriseFlag 企业版搜索
+     * Set 企业版搜索,  1：包含重保护航套餐下的企业版列表, 2: 不包含重保护航套餐的企业版列表
+     * @param FilterEnterpriseFlag 企业版搜索,  1：包含重保护航套餐下的企业版列表, 2: 不包含重保护航套餐的企业版列表
      */
     public void setFilterEnterpriseFlag(Long FilterEnterpriseFlag) {
         this.FilterEnterpriseFlag = FilterEnterpriseFlag;
@@ -390,6 +411,54 @@ public class DescribeListBGPInstancesRequest extends AbstractModel{
         this.FilterConvoy = FilterConvoy;
     }
 
+    /**
+     * Get 默认false；接口传true，返回数据中不包含高级信息，高级信息包含：InstanceList[0].Usage。 
+     * @return ExcludeAdvancedInfo 默认false；接口传true，返回数据中不包含高级信息，高级信息包含：InstanceList[0].Usage。
+     */
+    public Boolean getExcludeAdvancedInfo() {
+        return this.ExcludeAdvancedInfo;
+    }
+
+    /**
+     * Set 默认false；接口传true，返回数据中不包含高级信息，高级信息包含：InstanceList[0].Usage。
+     * @param ExcludeAdvancedInfo 默认false；接口传true，返回数据中不包含高级信息，高级信息包含：InstanceList[0].Usage。
+     */
+    public void setExcludeAdvancedInfo(Boolean ExcludeAdvancedInfo) {
+        this.ExcludeAdvancedInfo = ExcludeAdvancedInfo;
+    }
+
+    /**
+     * Get 资产IP数组 
+     * @return FilterAssetIpList 资产IP数组
+     */
+    public String [] getFilterAssetIpList() {
+        return this.FilterAssetIpList;
+    }
+
+    /**
+     * Set 资产IP数组
+     * @param FilterAssetIpList 资产IP数组
+     */
+    public void setFilterAssetIpList(String [] FilterAssetIpList) {
+        this.FilterAssetIpList = FilterAssetIpList;
+    }
+
+    /**
+     * Get 是否包含基础防护增强版 0: 不包含 1: 包含 
+     * @return FilterBasicPlusFlag 是否包含基础防护增强版 0: 不包含 1: 包含
+     */
+    public Long getFilterBasicPlusFlag() {
+        return this.FilterBasicPlusFlag;
+    }
+
+    /**
+     * Set 是否包含基础防护增强版 0: 不包含 1: 包含
+     * @param FilterBasicPlusFlag 是否包含基础防护增强版 0: 不包含 1: 包含
+     */
+    public void setFilterBasicPlusFlag(Long FilterBasicPlusFlag) {
+        this.FilterBasicPlusFlag = FilterBasicPlusFlag;
+    }
+
     public DescribeListBGPInstancesRequest() {
     }
 
@@ -449,6 +518,18 @@ public class DescribeListBGPInstancesRequest extends AbstractModel{
         if (source.FilterConvoy != null) {
             this.FilterConvoy = new Long(source.FilterConvoy);
         }
+        if (source.ExcludeAdvancedInfo != null) {
+            this.ExcludeAdvancedInfo = new Boolean(source.ExcludeAdvancedInfo);
+        }
+        if (source.FilterAssetIpList != null) {
+            this.FilterAssetIpList = new String[source.FilterAssetIpList.length];
+            for (int i = 0; i < source.FilterAssetIpList.length; i++) {
+                this.FilterAssetIpList[i] = new String(source.FilterAssetIpList[i]);
+            }
+        }
+        if (source.FilterBasicPlusFlag != null) {
+            this.FilterBasicPlusFlag = new Long(source.FilterBasicPlusFlag);
+        }
     }
 
 
@@ -472,6 +553,9 @@ public class DescribeListBGPInstancesRequest extends AbstractModel{
         this.setParamObj(map, prefix + "FilterTag.", this.FilterTag);
         this.setParamSimple(map, prefix + "FilterTrialFlag", this.FilterTrialFlag);
         this.setParamSimple(map, prefix + "FilterConvoy", this.FilterConvoy);
+        this.setParamSimple(map, prefix + "ExcludeAdvancedInfo", this.ExcludeAdvancedInfo);
+        this.setParamArraySimple(map, prefix + "FilterAssetIpList.", this.FilterAssetIpList);
+        this.setParamSimple(map, prefix + "FilterBasicPlusFlag", this.FilterBasicPlusFlag);
 
     }
 }

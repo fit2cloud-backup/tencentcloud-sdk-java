@@ -30,6 +30,13 @@ public class DescribeEnvsResponse extends AbstractModel{
     private EnvInfo [] EnvList;
 
     /**
+    * 环境个数
+    */
+    @SerializedName("Total")
+    @Expose
+    private Long Total;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -50,6 +57,22 @@ public class DescribeEnvsResponse extends AbstractModel{
      */
     public void setEnvList(EnvInfo [] EnvList) {
         this.EnvList = EnvList;
+    }
+
+    /**
+     * Get 环境个数 
+     * @return Total 环境个数
+     */
+    public Long getTotal() {
+        return this.Total;
+    }
+
+    /**
+     * Set 环境个数
+     * @param Total 环境个数
+     */
+    public void setTotal(Long Total) {
+        this.Total = Total;
     }
 
     /**
@@ -82,6 +105,9 @@ public class DescribeEnvsResponse extends AbstractModel{
                 this.EnvList[i] = new EnvInfo(source.EnvList[i]);
             }
         }
+        if (source.Total != null) {
+            this.Total = new Long(source.Total);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -93,6 +119,7 @@ public class DescribeEnvsResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "EnvList.", this.EnvList);
+        this.setParamSimple(map, prefix + "Total", this.Total);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

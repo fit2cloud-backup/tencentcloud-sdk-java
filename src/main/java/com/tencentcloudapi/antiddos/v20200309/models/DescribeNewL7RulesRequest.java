@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeNewL7RulesRequest extends AbstractModel{
 
     /**
-    * 大禹子产品代号（bgpip表示高防IP）
+    * DDoS防护子产品代号（bgpip表示高防IP）
     */
     @SerializedName("Business")
     @Expose
@@ -51,7 +51,7 @@ public class DescribeNewL7RulesRequest extends AbstractModel{
     private String Ip;
 
     /**
-    * 一页条数，填0表示不分页
+    * 一页条数，默认值100，最大值100，超过100最大返回100条
     */
     @SerializedName("Limit")
     @Expose
@@ -79,16 +79,23 @@ public class DescribeNewL7RulesRequest extends AbstractModel{
     private String Cname;
 
     /**
-     * Get 大禹子产品代号（bgpip表示高防IP） 
-     * @return Business 大禹子产品代号（bgpip表示高防IP）
+    * 默认为false，当为true时，将不对各个规则做策略检查，直接导出所有规则
+    */
+    @SerializedName("Export")
+    @Expose
+    private Boolean Export;
+
+    /**
+     * Get DDoS防护子产品代号（bgpip表示高防IP） 
+     * @return Business DDoS防护子产品代号（bgpip表示高防IP）
      */
     public String getBusiness() {
         return this.Business;
     }
 
     /**
-     * Set 大禹子产品代号（bgpip表示高防IP）
-     * @param Business 大禹子产品代号（bgpip表示高防IP）
+     * Set DDoS防护子产品代号（bgpip表示高防IP）
+     * @param Business DDoS防护子产品代号（bgpip表示高防IP）
      */
     public void setBusiness(String Business) {
         this.Business = Business;
@@ -143,16 +150,16 @@ public class DescribeNewL7RulesRequest extends AbstractModel{
     }
 
     /**
-     * Get 一页条数，填0表示不分页 
-     * @return Limit 一页条数，填0表示不分页
+     * Get 一页条数，默认值100，最大值100，超过100最大返回100条 
+     * @return Limit 一页条数，默认值100，最大值100，超过100最大返回100条
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 一页条数，填0表示不分页
-     * @param Limit 一页条数，填0表示不分页
+     * Set 一页条数，默认值100，最大值100，超过100最大返回100条
+     * @param Limit 一页条数，默认值100，最大值100，超过100最大返回100条
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
@@ -206,6 +213,22 @@ public class DescribeNewL7RulesRequest extends AbstractModel{
         this.Cname = Cname;
     }
 
+    /**
+     * Get 默认为false，当为true时，将不对各个规则做策略检查，直接导出所有规则 
+     * @return Export 默认为false，当为true时，将不对各个规则做策略检查，直接导出所有规则
+     */
+    public Boolean getExport() {
+        return this.Export;
+    }
+
+    /**
+     * Set 默认为false，当为true时，将不对各个规则做策略检查，直接导出所有规则
+     * @param Export 默认为false，当为true时，将不对各个规则做策略检查，直接导出所有规则
+     */
+    public void setExport(Boolean Export) {
+        this.Export = Export;
+    }
+
     public DescribeNewL7RulesRequest() {
     }
 
@@ -244,6 +267,9 @@ public class DescribeNewL7RulesRequest extends AbstractModel{
         if (source.Cname != null) {
             this.Cname = new String(source.Cname);
         }
+        if (source.Export != null) {
+            this.Export = new Boolean(source.Export);
+        }
     }
 
 
@@ -259,6 +285,7 @@ public class DescribeNewL7RulesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamArraySimple(map, prefix + "ProtocolList.", this.ProtocolList);
         this.setParamSimple(map, prefix + "Cname", this.Cname);
+        this.setParamSimple(map, prefix + "Export", this.Export);
 
     }
 }

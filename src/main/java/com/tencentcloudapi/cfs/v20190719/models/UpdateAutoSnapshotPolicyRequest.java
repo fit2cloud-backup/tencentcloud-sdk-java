@@ -37,7 +37,7 @@ public class UpdateAutoSnapshotPolicyRequest extends AbstractModel{
     private String PolicyName;
 
     /**
-    * 快照定期备份在一星期哪一天
+    * 快照定期备份，按照星期一到星期日。 1代表星期一，7代表星期日
     */
     @SerializedName("DayOfWeek")
     @Expose
@@ -58,11 +58,25 @@ public class UpdateAutoSnapshotPolicyRequest extends AbstractModel{
     private Long AliveDays;
 
     /**
-    * 是否激活定期快照功能
+    * 是否激活定期快照功能；1代表激活，0代表未激活
     */
     @SerializedName("IsActivated")
     @Expose
     private Long IsActivated;
+
+    /**
+    * 定期快照在每月的第几天创建快照，该参数与DayOfWeek互斥
+    */
+    @SerializedName("DayOfMonth")
+    @Expose
+    private String DayOfMonth;
+
+    /**
+    * 间隔天数定期执行快照，该参数与DayOfWeek,DayOfMonth 互斥
+    */
+    @SerializedName("IntervalDays")
+    @Expose
+    private Long IntervalDays;
 
     /**
      * Get 快照策略ID 
@@ -97,16 +111,16 @@ public class UpdateAutoSnapshotPolicyRequest extends AbstractModel{
     }
 
     /**
-     * Get 快照定期备份在一星期哪一天 
-     * @return DayOfWeek 快照定期备份在一星期哪一天
+     * Get 快照定期备份，按照星期一到星期日。 1代表星期一，7代表星期日 
+     * @return DayOfWeek 快照定期备份，按照星期一到星期日。 1代表星期一，7代表星期日
      */
     public String getDayOfWeek() {
         return this.DayOfWeek;
     }
 
     /**
-     * Set 快照定期备份在一星期哪一天
-     * @param DayOfWeek 快照定期备份在一星期哪一天
+     * Set 快照定期备份，按照星期一到星期日。 1代表星期一，7代表星期日
+     * @param DayOfWeek 快照定期备份，按照星期一到星期日。 1代表星期一，7代表星期日
      */
     public void setDayOfWeek(String DayOfWeek) {
         this.DayOfWeek = DayOfWeek;
@@ -145,19 +159,51 @@ public class UpdateAutoSnapshotPolicyRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否激活定期快照功能 
-     * @return IsActivated 是否激活定期快照功能
+     * Get 是否激活定期快照功能；1代表激活，0代表未激活 
+     * @return IsActivated 是否激活定期快照功能；1代表激活，0代表未激活
      */
     public Long getIsActivated() {
         return this.IsActivated;
     }
 
     /**
-     * Set 是否激活定期快照功能
-     * @param IsActivated 是否激活定期快照功能
+     * Set 是否激活定期快照功能；1代表激活，0代表未激活
+     * @param IsActivated 是否激活定期快照功能；1代表激活，0代表未激活
      */
     public void setIsActivated(Long IsActivated) {
         this.IsActivated = IsActivated;
+    }
+
+    /**
+     * Get 定期快照在每月的第几天创建快照，该参数与DayOfWeek互斥 
+     * @return DayOfMonth 定期快照在每月的第几天创建快照，该参数与DayOfWeek互斥
+     */
+    public String getDayOfMonth() {
+        return this.DayOfMonth;
+    }
+
+    /**
+     * Set 定期快照在每月的第几天创建快照，该参数与DayOfWeek互斥
+     * @param DayOfMonth 定期快照在每月的第几天创建快照，该参数与DayOfWeek互斥
+     */
+    public void setDayOfMonth(String DayOfMonth) {
+        this.DayOfMonth = DayOfMonth;
+    }
+
+    /**
+     * Get 间隔天数定期执行快照，该参数与DayOfWeek,DayOfMonth 互斥 
+     * @return IntervalDays 间隔天数定期执行快照，该参数与DayOfWeek,DayOfMonth 互斥
+     */
+    public Long getIntervalDays() {
+        return this.IntervalDays;
+    }
+
+    /**
+     * Set 间隔天数定期执行快照，该参数与DayOfWeek,DayOfMonth 互斥
+     * @param IntervalDays 间隔天数定期执行快照，该参数与DayOfWeek,DayOfMonth 互斥
+     */
+    public void setIntervalDays(Long IntervalDays) {
+        this.IntervalDays = IntervalDays;
     }
 
     public UpdateAutoSnapshotPolicyRequest() {
@@ -186,6 +232,12 @@ public class UpdateAutoSnapshotPolicyRequest extends AbstractModel{
         if (source.IsActivated != null) {
             this.IsActivated = new Long(source.IsActivated);
         }
+        if (source.DayOfMonth != null) {
+            this.DayOfMonth = new String(source.DayOfMonth);
+        }
+        if (source.IntervalDays != null) {
+            this.IntervalDays = new Long(source.IntervalDays);
+        }
     }
 
 
@@ -199,6 +251,8 @@ public class UpdateAutoSnapshotPolicyRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Hour", this.Hour);
         this.setParamSimple(map, prefix + "AliveDays", this.AliveDays);
         this.setParamSimple(map, prefix + "IsActivated", this.IsActivated);
+        this.setParamSimple(map, prefix + "DayOfMonth", this.DayOfMonth);
+        this.setParamSimple(map, prefix + "IntervalDays", this.IntervalDays);
 
     }
 }

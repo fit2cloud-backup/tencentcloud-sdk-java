@@ -147,6 +147,44 @@ public class BGPInstance extends AbstractModel{
     private Long VitalityVersion;
 
     /**
+    * 网络线路
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Line")
+    @Expose
+    private Long Line;
+
+    /**
+    * 弹性业务带宽开关
+    */
+    @SerializedName("ElasticServiceBandwidth")
+    @Expose
+    private Long ElasticServiceBandwidth;
+
+    /**
+    * 赠送的业务带宽
+    */
+    @SerializedName("GiftServiceBandWidth")
+    @Expose
+    private Long GiftServiceBandWidth;
+
+    /**
+    * 修改时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ModifyTime")
+    @Expose
+    private String ModifyTime;
+
+    /**
+    * 是否是基础防护加强版 0: 不是 1: 是
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("BasicPlusFlag")
+    @Expose
+    private Long BasicPlusFlag;
+
+    /**
      * Get 资产实例的详细信息 
      * @return InstanceDetail 资产实例的详细信息
      */
@@ -450,6 +488,98 @@ public class BGPInstance extends AbstractModel{
         this.VitalityVersion = VitalityVersion;
     }
 
+    /**
+     * Get 网络线路
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Line 网络线路
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getLine() {
+        return this.Line;
+    }
+
+    /**
+     * Set 网络线路
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Line 网络线路
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLine(Long Line) {
+        this.Line = Line;
+    }
+
+    /**
+     * Get 弹性业务带宽开关 
+     * @return ElasticServiceBandwidth 弹性业务带宽开关
+     */
+    public Long getElasticServiceBandwidth() {
+        return this.ElasticServiceBandwidth;
+    }
+
+    /**
+     * Set 弹性业务带宽开关
+     * @param ElasticServiceBandwidth 弹性业务带宽开关
+     */
+    public void setElasticServiceBandwidth(Long ElasticServiceBandwidth) {
+        this.ElasticServiceBandwidth = ElasticServiceBandwidth;
+    }
+
+    /**
+     * Get 赠送的业务带宽 
+     * @return GiftServiceBandWidth 赠送的业务带宽
+     */
+    public Long getGiftServiceBandWidth() {
+        return this.GiftServiceBandWidth;
+    }
+
+    /**
+     * Set 赠送的业务带宽
+     * @param GiftServiceBandWidth 赠送的业务带宽
+     */
+    public void setGiftServiceBandWidth(Long GiftServiceBandWidth) {
+        this.GiftServiceBandWidth = GiftServiceBandWidth;
+    }
+
+    /**
+     * Get 修改时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ModifyTime 修改时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getModifyTime() {
+        return this.ModifyTime;
+    }
+
+    /**
+     * Set 修改时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ModifyTime 修改时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setModifyTime(String ModifyTime) {
+        this.ModifyTime = ModifyTime;
+    }
+
+    /**
+     * Get 是否是基础防护加强版 0: 不是 1: 是
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return BasicPlusFlag 是否是基础防护加强版 0: 不是 1: 是
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getBasicPlusFlag() {
+        return this.BasicPlusFlag;
+    }
+
+    /**
+     * Set 是否是基础防护加强版 0: 不是 1: 是
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param BasicPlusFlag 是否是基础防护加强版 0: 不是 1: 是
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBasicPlusFlag(Long BasicPlusFlag) {
+        this.BasicPlusFlag = BasicPlusFlag;
+    }
+
     public BGPInstance() {
     }
 
@@ -512,6 +642,21 @@ public class BGPInstance extends AbstractModel{
         if (source.VitalityVersion != null) {
             this.VitalityVersion = new Long(source.VitalityVersion);
         }
+        if (source.Line != null) {
+            this.Line = new Long(source.Line);
+        }
+        if (source.ElasticServiceBandwidth != null) {
+            this.ElasticServiceBandwidth = new Long(source.ElasticServiceBandwidth);
+        }
+        if (source.GiftServiceBandWidth != null) {
+            this.GiftServiceBandWidth = new Long(source.GiftServiceBandWidth);
+        }
+        if (source.ModifyTime != null) {
+            this.ModifyTime = new String(source.ModifyTime);
+        }
+        if (source.BasicPlusFlag != null) {
+            this.BasicPlusFlag = new Long(source.BasicPlusFlag);
+        }
     }
 
 
@@ -535,6 +680,11 @@ public class BGPInstance extends AbstractModel{
         this.setParamArrayObj(map, prefix + "TagInfoList.", this.TagInfoList);
         this.setParamSimple(map, prefix + "IpCountNewFlag", this.IpCountNewFlag);
         this.setParamSimple(map, prefix + "VitalityVersion", this.VitalityVersion);
+        this.setParamSimple(map, prefix + "Line", this.Line);
+        this.setParamSimple(map, prefix + "ElasticServiceBandwidth", this.ElasticServiceBandwidth);
+        this.setParamSimple(map, prefix + "GiftServiceBandWidth", this.GiftServiceBandWidth);
+        this.setParamSimple(map, prefix + "ModifyTime", this.ModifyTime);
+        this.setParamSimple(map, prefix + "BasicPlusFlag", this.BasicPlusFlag);
 
     }
 }

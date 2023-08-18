@@ -231,10 +231,10 @@ public enum EcmErrorCode {
     // 计费类型不合法。
      INVALIDPARAMETERVALUE_INVALIDINTERNETCHARGETYPE("InvalidParameterValue.InvalidInternetChargeType"),
      
-    // 秘钥ID无效。
+    // 密钥ID无效。
      INVALIDPARAMETERVALUE_INVALIDKEYPAIRID("InvalidParameterValue.InvalidKeyPairId"),
      
-    // 秘钥名称异常。
+    // 密钥名称异常。
      INVALIDPARAMETERVALUE_INVALIDKEYPAIRNAME("InvalidParameterValue.InvalidKeyPairName"),
      
     // 负载均衡数量不合法。
@@ -272,6 +272,9 @@ public enum EcmErrorCode {
      
     // InvalidParameterValue.InvalidSnapshotId
      INVALIDPARAMETERVALUE_INVALIDSNAPSHOTID("InvalidParameterValue.InvalidSnapshotId"),
+     
+    // 该子网不存在该节点。
+     INVALIDPARAMETERVALUE_INVALIDSUBNETINZONE("InvalidParameterValue.InvalidSubnetInZone"),
      
     // 系统盘大小不合法。
      INVALIDPARAMETERVALUE_INVALIDSYSTEMDISKSIZE("InvalidParameterValue.InvalidSystemDiskSize"),
@@ -441,6 +444,9 @@ public enum EcmErrorCode {
     // 资源不足。
      RESOURCEINSUFFICIENT("ResourceInsufficient"),
      
+    // 网段资源不足。
+     RESOURCEINSUFFICIENT_CIDRBLOCK("ResourceInsufficient.CidrBlock"),
+     
     // IP资源不足。
      RESOURCEINSUFFICIENT_IPQUOTANOTENOUGH("ResourceInsufficient.IPQuotaNotEnough"),
      
@@ -449,6 +455,9 @@ public enum EcmErrorCode {
      
     // 私有镜像数量超出限制。
      RESOURCEINSUFFICIENT_INVAILDPRIVATEIMAGENUM("ResourceInsufficient.InvaildPrivateImageNum"),
+     
+    // 当前子网中内网IP不足
+     RESOURCEINSUFFICIENT_PRIVATEIPQUOTANOTENOUGH("ResourceInsufficient.PrivateIPQuotaNotEnough"),
      
     // 资源不存在。
      RESOURCENOTFOUND("ResourceNotFound"),

@@ -37,7 +37,7 @@ public class AddCustomRuleRequest extends AbstractModel{
     private String SortId;
 
     /**
-    * 过期时间
+    * 过期时间，单位为秒级时间戳，例如1677254399表示过期时间为2023-02-24 23:59:59. 0表示永不过期
     */
     @SerializedName("ExpireTime")
     @Expose
@@ -58,7 +58,7 @@ public class AddCustomRuleRequest extends AbstractModel{
     private String Domain;
 
     /**
-    * 动作类型
+    * 动作类型，1代表阻断，2代表人机识别，3代表观察，4代表重定向
     */
     @SerializedName("ActionType")
     @Expose
@@ -72,7 +72,7 @@ public class AddCustomRuleRequest extends AbstractModel{
     private String Redirect;
 
     /**
-    * "clb-waf"或者"sparta-waf"
+    * WAF实例类型，sparta-waf表示SAAS型WAF，clb-waf表示负载均衡型WAF
     */
     @SerializedName("Edition")
     @Expose
@@ -84,6 +84,13 @@ public class AddCustomRuleRequest extends AbstractModel{
     @SerializedName("Bypass")
     @Expose
     private String Bypass;
+
+    /**
+    * 添加规则的来源，默认为空
+    */
+    @SerializedName("EventId")
+    @Expose
+    private String EventId;
 
     /**
      * Get 规则名称 
@@ -118,16 +125,16 @@ public class AddCustomRuleRequest extends AbstractModel{
     }
 
     /**
-     * Get 过期时间 
-     * @return ExpireTime 过期时间
+     * Get 过期时间，单位为秒级时间戳，例如1677254399表示过期时间为2023-02-24 23:59:59. 0表示永不过期 
+     * @return ExpireTime 过期时间，单位为秒级时间戳，例如1677254399表示过期时间为2023-02-24 23:59:59. 0表示永不过期
      */
     public String getExpireTime() {
         return this.ExpireTime;
     }
 
     /**
-     * Set 过期时间
-     * @param ExpireTime 过期时间
+     * Set 过期时间，单位为秒级时间戳，例如1677254399表示过期时间为2023-02-24 23:59:59. 0表示永不过期
+     * @param ExpireTime 过期时间，单位为秒级时间戳，例如1677254399表示过期时间为2023-02-24 23:59:59. 0表示永不过期
      */
     public void setExpireTime(String ExpireTime) {
         this.ExpireTime = ExpireTime;
@@ -166,16 +173,16 @@ public class AddCustomRuleRequest extends AbstractModel{
     }
 
     /**
-     * Get 动作类型 
-     * @return ActionType 动作类型
+     * Get 动作类型，1代表阻断，2代表人机识别，3代表观察，4代表重定向 
+     * @return ActionType 动作类型，1代表阻断，2代表人机识别，3代表观察，4代表重定向
      */
     public String getActionType() {
         return this.ActionType;
     }
 
     /**
-     * Set 动作类型
-     * @param ActionType 动作类型
+     * Set 动作类型，1代表阻断，2代表人机识别，3代表观察，4代表重定向
+     * @param ActionType 动作类型，1代表阻断，2代表人机识别，3代表观察，4代表重定向
      */
     public void setActionType(String ActionType) {
         this.ActionType = ActionType;
@@ -198,16 +205,16 @@ public class AddCustomRuleRequest extends AbstractModel{
     }
 
     /**
-     * Get "clb-waf"或者"sparta-waf" 
-     * @return Edition "clb-waf"或者"sparta-waf"
+     * Get WAF实例类型，sparta-waf表示SAAS型WAF，clb-waf表示负载均衡型WAF 
+     * @return Edition WAF实例类型，sparta-waf表示SAAS型WAF，clb-waf表示负载均衡型WAF
      */
     public String getEdition() {
         return this.Edition;
     }
 
     /**
-     * Set "clb-waf"或者"sparta-waf"
-     * @param Edition "clb-waf"或者"sparta-waf"
+     * Set WAF实例类型，sparta-waf表示SAAS型WAF，clb-waf表示负载均衡型WAF
+     * @param Edition WAF实例类型，sparta-waf表示SAAS型WAF，clb-waf表示负载均衡型WAF
      */
     public void setEdition(String Edition) {
         this.Edition = Edition;
@@ -227,6 +234,22 @@ public class AddCustomRuleRequest extends AbstractModel{
      */
     public void setBypass(String Bypass) {
         this.Bypass = Bypass;
+    }
+
+    /**
+     * Get 添加规则的来源，默认为空 
+     * @return EventId 添加规则的来源，默认为空
+     */
+    public String getEventId() {
+        return this.EventId;
+    }
+
+    /**
+     * Set 添加规则的来源，默认为空
+     * @param EventId 添加规则的来源，默认为空
+     */
+    public void setEventId(String EventId) {
+        this.EventId = EventId;
     }
 
     public AddCustomRuleRequest() {
@@ -267,6 +290,9 @@ public class AddCustomRuleRequest extends AbstractModel{
         if (source.Bypass != null) {
             this.Bypass = new String(source.Bypass);
         }
+        if (source.EventId != null) {
+            this.EventId = new String(source.EventId);
+        }
     }
 
 
@@ -283,6 +309,7 @@ public class AddCustomRuleRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Redirect", this.Redirect);
         this.setParamSimple(map, prefix + "Edition", this.Edition);
         this.setParamSimple(map, prefix + "Bypass", this.Bypass);
+        this.setParamSimple(map, prefix + "EventId", this.EventId);
 
     }
 }

@@ -103,7 +103,7 @@ public class CreateDBInstanceRequest extends AbstractModel{
     private Long ProjectId;
 
     /**
-    * 数据库引擎版本，当前可选：8.0.18，10.1.9，5.7.17。如果不传的话，默认为 Percona 5.7.17。
+    * 数据库引擎版本，当前可选：8.0，5.7，10.1，10.0。
     */
     @SerializedName("DbVersionId")
     @Expose
@@ -131,7 +131,7 @@ public class CreateDBInstanceRequest extends AbstractModel{
     private Long AutoRenewFlag;
 
     /**
-    * 是否支持IPv6
+    * 是否支持IPv6，0:不支持，1:支持
     */
     @SerializedName("Ipv6Flag")
     @Expose
@@ -354,16 +354,16 @@ public class CreateDBInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 数据库引擎版本，当前可选：8.0.18，10.1.9，5.7.17。如果不传的话，默认为 Percona 5.7.17。 
-     * @return DbVersionId 数据库引擎版本，当前可选：8.0.18，10.1.9，5.7.17。如果不传的话，默认为 Percona 5.7.17。
+     * Get 数据库引擎版本，当前可选：8.0，5.7，10.1，10.0。 
+     * @return DbVersionId 数据库引擎版本，当前可选：8.0，5.7，10.1，10.0。
      */
     public String getDbVersionId() {
         return this.DbVersionId;
     }
 
     /**
-     * Set 数据库引擎版本，当前可选：8.0.18，10.1.9，5.7.17。如果不传的话，默认为 Percona 5.7.17。
-     * @param DbVersionId 数据库引擎版本，当前可选：8.0.18，10.1.9，5.7.17。如果不传的话，默认为 Percona 5.7.17。
+     * Set 数据库引擎版本，当前可选：8.0，5.7，10.1，10.0。
+     * @param DbVersionId 数据库引擎版本，当前可选：8.0，5.7，10.1，10.0。
      */
     public void setDbVersionId(String DbVersionId) {
         this.DbVersionId = DbVersionId;
@@ -418,16 +418,16 @@ public class CreateDBInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否支持IPv6 
-     * @return Ipv6Flag 是否支持IPv6
+     * Get 是否支持IPv6，0:不支持，1:支持 
+     * @return Ipv6Flag 是否支持IPv6，0:不支持，1:支持
      */
     public Long getIpv6Flag() {
         return this.Ipv6Flag;
     }
 
     /**
-     * Set 是否支持IPv6
-     * @param Ipv6Flag 是否支持IPv6
+     * Set 是否支持IPv6，0:不支持，1:支持
+     * @param Ipv6Flag 是否支持IPv6，0:不支持，1:支持
      */
     public void setIpv6Flag(Long Ipv6Flag) {
         this.Ipv6Flag = Ipv6Flag;

@@ -23,6 +23,13 @@ import java.util.HashMap;
 public class DescribeDDoSAttackDataResponse extends AbstractModel{
 
     /**
+    * 查询结果的总条数。
+    */
+    @SerializedName("TotalCount")
+    @Expose
+    private Long TotalCount;
+
+    /**
     * DDoS攻击数据内容列表。
 注意：此字段可能返回 null，表示取不到有效值。
     */
@@ -31,18 +38,27 @@ public class DescribeDDoSAttackDataResponse extends AbstractModel{
     private SecEntry [] Data;
 
     /**
-    * 查询结果的总条数。
-    */
-    @SerializedName("TotalCount")
-    @Expose
-    private Long TotalCount;
-
-    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
+
+    /**
+     * Get 查询结果的总条数。 
+     * @return TotalCount 查询结果的总条数。
+     */
+    public Long getTotalCount() {
+        return this.TotalCount;
+    }
+
+    /**
+     * Set 查询结果的总条数。
+     * @param TotalCount 查询结果的总条数。
+     */
+    public void setTotalCount(Long TotalCount) {
+        this.TotalCount = TotalCount;
+    }
 
     /**
      * Get DDoS攻击数据内容列表。
@@ -62,22 +78,6 @@ public class DescribeDDoSAttackDataResponse extends AbstractModel{
      */
     public void setData(SecEntry [] Data) {
         this.Data = Data;
-    }
-
-    /**
-     * Get 查询结果的总条数。 
-     * @return TotalCount 查询结果的总条数。
-     */
-    public Long getTotalCount() {
-        return this.TotalCount;
-    }
-
-    /**
-     * Set 查询结果的总条数。
-     * @param TotalCount 查询结果的总条数。
-     */
-    public void setTotalCount(Long TotalCount) {
-        this.TotalCount = TotalCount;
     }
 
     /**
@@ -104,14 +104,14 @@ public class DescribeDDoSAttackDataResponse extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public DescribeDDoSAttackDataResponse(DescribeDDoSAttackDataResponse source) {
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
         if (source.Data != null) {
             this.Data = new SecEntry[source.Data.length];
             for (int i = 0; i < source.Data.length; i++) {
                 this.Data[i] = new SecEntry(source.Data[i]);
             }
-        }
-        if (source.TotalCount != null) {
-            this.TotalCount = new Long(source.TotalCount);
         }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
@@ -123,8 +123,8 @@ public class DescribeDDoSAttackDataResponse extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamArrayObj(map, prefix + "Data.", this.Data);
         this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
+        this.setParamArrayObj(map, prefix + "Data.", this.Data);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

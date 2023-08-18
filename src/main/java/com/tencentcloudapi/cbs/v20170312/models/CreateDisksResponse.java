@@ -24,6 +24,7 @@ public class CreateDisksResponse extends AbstractModel{
 
     /**
     * 创建的云硬盘ID列表。
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DiskIdSet")
     @Expose
@@ -37,8 +38,10 @@ public class CreateDisksResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 创建的云硬盘ID列表。 
+     * Get 创建的云硬盘ID列表。
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return DiskIdSet 创建的云硬盘ID列表。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getDiskIdSet() {
         return this.DiskIdSet;
@@ -46,7 +49,9 @@ public class CreateDisksResponse extends AbstractModel{
 
     /**
      * Set 创建的云硬盘ID列表。
+注意：此字段可能返回 null，表示取不到有效值。
      * @param DiskIdSet 创建的云硬盘ID列表。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDiskIdSet(String [] DiskIdSet) {
         this.DiskIdSet = DiskIdSet;

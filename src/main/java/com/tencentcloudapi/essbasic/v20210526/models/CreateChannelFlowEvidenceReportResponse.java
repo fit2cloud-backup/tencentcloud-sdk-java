@@ -23,6 +23,26 @@ import java.util.HashMap;
 public class CreateChannelFlowEvidenceReportResponse extends AbstractModel{
 
     /**
+    * 出证报告 ID，可用户DescribeChannelFlowEvidenceReport接口查询出证PDF的下载地址
+
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ReportId")
+    @Expose
+    private String ReportId;
+
+    /**
+    * 出征任务的执行状态,状态列表如下
+
+- EvidenceStatusExecuting : 出征任务正在执行中
+- EvidenceStatusSuccess : 出征任务执行成功
+- EvidenceStatusFailed : 出征任务执行失败
+    */
+    @SerializedName("Status")
+    @Expose
+    private String Status;
+
+    /**
     * 废除，字段无效
 注意：此字段可能返回 null，表示取不到有效值。
     */
@@ -31,28 +51,67 @@ public class CreateChannelFlowEvidenceReportResponse extends AbstractModel{
     private String ReportUrl;
 
     /**
-    * 出证报告 ID
-注意：此字段可能返回 null，表示取不到有效值。
-    */
-    @SerializedName("ReportId")
-    @Expose
-    private String ReportId;
-
-    /**
-    * 执行中：EvidenceStatusExecuting
-成功：EvidenceStatusSuccess
-失败：EvidenceStatusFailed
-    */
-    @SerializedName("Status")
-    @Expose
-    private String Status;
-
-    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
+
+    /**
+     * Get 出证报告 ID，可用户DescribeChannelFlowEvidenceReport接口查询出证PDF的下载地址
+
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ReportId 出证报告 ID，可用户DescribeChannelFlowEvidenceReport接口查询出证PDF的下载地址
+
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getReportId() {
+        return this.ReportId;
+    }
+
+    /**
+     * Set 出证报告 ID，可用户DescribeChannelFlowEvidenceReport接口查询出证PDF的下载地址
+
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ReportId 出证报告 ID，可用户DescribeChannelFlowEvidenceReport接口查询出证PDF的下载地址
+
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setReportId(String ReportId) {
+        this.ReportId = ReportId;
+    }
+
+    /**
+     * Get 出征任务的执行状态,状态列表如下
+
+- EvidenceStatusExecuting : 出征任务正在执行中
+- EvidenceStatusSuccess : 出征任务执行成功
+- EvidenceStatusFailed : 出征任务执行失败 
+     * @return Status 出征任务的执行状态,状态列表如下
+
+- EvidenceStatusExecuting : 出征任务正在执行中
+- EvidenceStatusSuccess : 出征任务执行成功
+- EvidenceStatusFailed : 出征任务执行失败
+     */
+    public String getStatus() {
+        return this.Status;
+    }
+
+    /**
+     * Set 出征任务的执行状态,状态列表如下
+
+- EvidenceStatusExecuting : 出征任务正在执行中
+- EvidenceStatusSuccess : 出征任务执行成功
+- EvidenceStatusFailed : 出征任务执行失败
+     * @param Status 出征任务的执行状态,状态列表如下
+
+- EvidenceStatusExecuting : 出征任务正在执行中
+- EvidenceStatusSuccess : 出征任务执行成功
+- EvidenceStatusFailed : 出征任务执行失败
+     */
+    public void setStatus(String Status) {
+        this.Status = Status;
+    }
 
     /**
      * Get 废除，字段无效
@@ -72,50 +131,6 @@ public class CreateChannelFlowEvidenceReportResponse extends AbstractModel{
      */
     public void setReportUrl(String ReportUrl) {
         this.ReportUrl = ReportUrl;
-    }
-
-    /**
-     * Get 出证报告 ID
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ReportId 出证报告 ID
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public String getReportId() {
-        return this.ReportId;
-    }
-
-    /**
-     * Set 出证报告 ID
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ReportId 出证报告 ID
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public void setReportId(String ReportId) {
-        this.ReportId = ReportId;
-    }
-
-    /**
-     * Get 执行中：EvidenceStatusExecuting
-成功：EvidenceStatusSuccess
-失败：EvidenceStatusFailed 
-     * @return Status 执行中：EvidenceStatusExecuting
-成功：EvidenceStatusSuccess
-失败：EvidenceStatusFailed
-     */
-    public String getStatus() {
-        return this.Status;
-    }
-
-    /**
-     * Set 执行中：EvidenceStatusExecuting
-成功：EvidenceStatusSuccess
-失败：EvidenceStatusFailed
-     * @param Status 执行中：EvidenceStatusExecuting
-成功：EvidenceStatusSuccess
-失败：EvidenceStatusFailed
-     */
-    public void setStatus(String Status) {
-        this.Status = Status;
     }
 
     /**
@@ -142,14 +157,14 @@ public class CreateChannelFlowEvidenceReportResponse extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public CreateChannelFlowEvidenceReportResponse(CreateChannelFlowEvidenceReportResponse source) {
-        if (source.ReportUrl != null) {
-            this.ReportUrl = new String(source.ReportUrl);
-        }
         if (source.ReportId != null) {
             this.ReportId = new String(source.ReportId);
         }
         if (source.Status != null) {
             this.Status = new String(source.Status);
+        }
+        if (source.ReportUrl != null) {
+            this.ReportUrl = new String(source.ReportUrl);
         }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
@@ -161,9 +176,9 @@ public class CreateChannelFlowEvidenceReportResponse extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "ReportUrl", this.ReportUrl);
         this.setParamSimple(map, prefix + "ReportId", this.ReportId);
         this.setParamSimple(map, prefix + "Status", this.Status);
+        this.setParamSimple(map, prefix + "ReportUrl", this.ReportUrl);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

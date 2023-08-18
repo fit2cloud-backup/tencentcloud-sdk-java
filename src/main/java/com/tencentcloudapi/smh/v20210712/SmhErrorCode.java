@@ -3,8 +3,20 @@ public enum SmhErrorCode {
     // 内部错误。
      INTERNALERROR("InternalError"),
      
+    // 账户余额不足
+     INTERNALERROR_BALANCELESS("InternalError.BalanceLess"),
+     
+    // 媒体库资源删除失败
+     INTERNALERROR_MODIFYRESOURCESTATUSFAIL("InternalError.ModifyResourceStatusFail"),
+     
+    // 后付费开通失败
+     INTERNALERROR_POSTPAIDFAIL("InternalError.PostpaidFail"),
+     
     // 发送短信验证码时发生错误。
      INTERNALERROR_SENDSMS("InternalError.SendSms"),
+     
+    // 参数取值错误。
+     INVALIDPARAMETERVALUE("InvalidParameterValue"),
      
     // 存储桶名称无效。
      INVALIDPARAMETERVALUE_BUCKETNAMEINVALID("InvalidParameterValue.BucketNameInvalid"),
@@ -14,6 +26,9 @@ public enum SmhErrorCode {
      
     // 存储桶不存在或不在指定地域。
      INVALIDPARAMETERVALUE_BUCKETNOTFOUND("InvalidParameterValue.BucketNotFound"),
+     
+    // 服务已不支持自选桶
+     INVALIDPARAMETERVALUE_BUCKETNOTSUPPORT("InvalidParameterValue.BucketNotSupport"),
      
     // 存储桶所在地域无效。
      INVALIDPARAMETERVALUE_BUCKETREGIONINVALID("InvalidParameterValue.BucketRegionInvalid"),
@@ -53,9 +68,6 @@ public enum SmhErrorCode {
      
     // 官方云盘实例不存在或不属于当前账号。
      RESOURCENOTFOUND_OFFICIALINSTANCE("ResourceNotFound.OfficialInstance"),
-     
-    // 尚未开通 COS 数据处理（数据万象）服务。
-     UNAUTHORIZEDOPERATION_CREATEMEDIABUCKET("UnauthorizedOperation.CreateMediaBucket"),
      
     // 未授予 cam:PassRole 权限。
      UNAUTHORIZEDOPERATION_PASSROLE("UnauthorizedOperation.PassRole"),

@@ -23,23 +23,23 @@ import java.util.HashMap;
 public class ApproverOption extends AbstractModel{
 
     /**
-    * 是否隐藏一键签署 false-不隐藏,默认 true-隐藏
+    * 是否隐藏一键签署 默认false-不隐藏true-隐藏
     */
     @SerializedName("HideOneKeySign")
     @Expose
     private Boolean HideOneKeySign;
 
     /**
-     * Get 是否隐藏一键签署 false-不隐藏,默认 true-隐藏 
-     * @return HideOneKeySign 是否隐藏一键签署 false-不隐藏,默认 true-隐藏
+     * Get 是否隐藏一键签署 默认false-不隐藏true-隐藏 
+     * @return HideOneKeySign 是否隐藏一键签署 默认false-不隐藏true-隐藏
      */
     public Boolean getHideOneKeySign() {
         return this.HideOneKeySign;
     }
 
     /**
-     * Set 是否隐藏一键签署 false-不隐藏,默认 true-隐藏
-     * @param HideOneKeySign 是否隐藏一键签署 false-不隐藏,默认 true-隐藏
+     * Set 是否隐藏一键签署 默认false-不隐藏true-隐藏
+     * @param HideOneKeySign 是否隐藏一键签署 默认false-不隐藏true-隐藏
      */
     public void setHideOneKeySign(Boolean HideOneKeySign) {
         this.HideOneKeySign = HideOneKeySign;

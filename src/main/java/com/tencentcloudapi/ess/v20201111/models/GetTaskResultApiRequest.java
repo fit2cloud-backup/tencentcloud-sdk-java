@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class GetTaskResultApiRequest extends AbstractModel{
 
     /**
-    * 任务Id，通过CreateConvertTaskApi得到
+    * 任务Id，通过接口CreateConvertTaskApi或CreateMergeFileTask得到的返回任务id
     */
     @SerializedName("TaskId")
     @Expose
     private String TaskId;
 
     /**
-    * 操作人信息
+    * 操作人信息,UserId必填
     */
     @SerializedName("Operator")
     @Expose
@@ -51,32 +51,32 @@ public class GetTaskResultApiRequest extends AbstractModel{
     private OrganizationInfo Organization;
 
     /**
-     * Get 任务Id，通过CreateConvertTaskApi得到 
-     * @return TaskId 任务Id，通过CreateConvertTaskApi得到
+     * Get 任务Id，通过接口CreateConvertTaskApi或CreateMergeFileTask得到的返回任务id 
+     * @return TaskId 任务Id，通过接口CreateConvertTaskApi或CreateMergeFileTask得到的返回任务id
      */
     public String getTaskId() {
         return this.TaskId;
     }
 
     /**
-     * Set 任务Id，通过CreateConvertTaskApi得到
-     * @param TaskId 任务Id，通过CreateConvertTaskApi得到
+     * Set 任务Id，通过接口CreateConvertTaskApi或CreateMergeFileTask得到的返回任务id
+     * @param TaskId 任务Id，通过接口CreateConvertTaskApi或CreateMergeFileTask得到的返回任务id
      */
     public void setTaskId(String TaskId) {
         this.TaskId = TaskId;
     }
 
     /**
-     * Get 操作人信息 
-     * @return Operator 操作人信息
+     * Get 操作人信息,UserId必填 
+     * @return Operator 操作人信息,UserId必填
      */
     public UserInfo getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 操作人信息
-     * @param Operator 操作人信息
+     * Set 操作人信息,UserId必填
+     * @param Operator 操作人信息,UserId必填
      */
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
@@ -85,7 +85,9 @@ public class GetTaskResultApiRequest extends AbstractModel{
     /**
      * Get 应用号信息 
      * @return Agent 应用号信息
+     * @deprecated
      */
+    @Deprecated
     public Agent getAgent() {
         return this.Agent;
     }
@@ -93,7 +95,9 @@ public class GetTaskResultApiRequest extends AbstractModel{
     /**
      * Set 应用号信息
      * @param Agent 应用号信息
+     * @deprecated
      */
+    @Deprecated
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
     }
@@ -101,7 +105,9 @@ public class GetTaskResultApiRequest extends AbstractModel{
     /**
      * Get 暂未开放 
      * @return Organization 暂未开放
+     * @deprecated
      */
+    @Deprecated
     public OrganizationInfo getOrganization() {
         return this.Organization;
     }
@@ -109,7 +115,9 @@ public class GetTaskResultApiRequest extends AbstractModel{
     /**
      * Set 暂未开放
      * @param Organization 暂未开放
+     * @deprecated
      */
+    @Deprecated
     public void setOrganization(OrganizationInfo Organization) {
         this.Organization = Organization;
     }

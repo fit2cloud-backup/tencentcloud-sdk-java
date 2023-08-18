@@ -3,6 +3,9 @@ public enum ScfErrorCode {
     // 操作失败。
      FAILEDOPERATION("FailedOperation"),
      
+    // 账户余额不足。
+     FAILEDOPERATION_ACCOUNTINSUFFICIENT("FailedOperation.AccountInsufficient"),
+     
     // API网关触发器创建失败。
      FAILEDOPERATION_APIGATEWAY("FailedOperation.ApiGateway"),
      
@@ -18,8 +21,14 @@ public enum ScfErrorCode {
     // 登录信息验证失败，token 验证失败。
      FAILEDOPERATION_AUTHFAILURE("FailedOperation.AuthFailure"),
      
+    // 调用 NetDeploy 失败。
+     FAILEDOPERATION_CALLNETDEPLOYFAILED("FailedOperation.CallNetDeployFailed"),
+     
     // 请求role信息失败。
      FAILEDOPERATION_CALLROLEFAILED("FailedOperation.CallRoleFailed"),
+     
+    // CLS服务未注册。
+     FAILEDOPERATION_CLSSERVICEUNREGISTERED("FailedOperation.ClsServiceUnregistered"),
      
     // CopyAsyncRun 传参异常。
      FAILEDOPERATION_COPYASYNCRUN("FailedOperation.CopyAsyncRun"),
@@ -87,6 +96,9 @@ public enum ScfErrorCode {
     // 当前账号或命名空间处于欠费状态，请在可用时重试。
      FAILEDOPERATION_INSUFFICIENTBALANCE("FailedOperation.InsufficientBalance"),
      
+    // 本地域资源售罄。
+     FAILEDOPERATION_INSUFFICIENTRESOURCES("FailedOperation.InsufficientResources"),
+     
     // 调用函数失败。
      FAILEDOPERATION_INVOKEFUNCTION("FailedOperation.InvokeFunction"),
      
@@ -123,6 +135,9 @@ public enum ScfErrorCode {
     // 角色不存在。
      FAILEDOPERATION_QCSROLENOTFOUND("FailedOperation.QcsRoleNotFound"),
      
+    // 查询失败。
+     FAILEDOPERATION_QUERYERROR("FailedOperation.QueryError"),
+     
     // ReservedExceedTotal 总保留超限。
      FAILEDOPERATION_RESERVEDEXCEEDTOTAL("FailedOperation.ReservedExceedTotal"),
      
@@ -150,6 +165,12 @@ public enum ScfErrorCode {
     // UpdateFunctionConfiguration操作失败。
      FAILEDOPERATION_UPDATEFUNCTIONCONFIGURATION("FailedOperation.UpdateFunctionConfiguration"),
      
+    // 更新状态操作失败。
+     FAILEDOPERATION_UPDATESTATUS("FailedOperation.UpdateStatus"),
+     
+    // 与原状态一致，无需更改。
+     FAILEDOPERATION_UPDATETRIGGERSTATUS("FailedOperation.UpdateTriggerStatus"),
+     
     // 内部错误。
      INTERNALERROR("InternalError"),
      
@@ -173,6 +194,9 @@ public enum ScfErrorCode {
      
     // 内部服务错误。
      INTERNALERROR_GETROLEERROR("InternalError.GetRoleError"),
+     
+    // 获取sts票据信息失败。
+     INTERNALERROR_GETSTSTOKENFAILED("InternalError.GetStsTokenFailed"),
      
     // 内部系统错误。
      INTERNALERROR_SYSTEM("InternalError.System"),
@@ -411,6 +435,9 @@ public enum ScfErrorCode {
     // 参数超出长度限制。
      INVALIDPARAMETERVALUE_LIMITEXCEEDED("InvalidParameterValue.LimitExceeded"),
      
+    // 日志格式不正确。
+     INVALIDPARAMETERVALUE_LOGFORMAT("InvalidParameterValue.LogFormat"),
+     
     // MaxConcurrency 参数传入错误。
      INVALIDPARAMETERVALUE_MAXCONCURRENCY("InvalidParameterValue.MaxConcurrency"),
      
@@ -537,6 +564,9 @@ public enum ScfErrorCode {
     // Type传入错误。
      INVALIDPARAMETERVALUE_TYPE("InvalidParameterValue.Type"),
      
+    // VPC不正确。
+     INVALIDPARAMETERVALUE_VPC("InvalidParameterValue.Vpc"),
+     
     // 开启cfs配置的同时必须开启vpc。
      INVALIDPARAMETERVALUE_VPCNOTSETWHENOPENCFS("InvalidParameterValue.VpcNotSetWhenOpenCfs"),
      
@@ -554,6 +584,9 @@ public enum ScfErrorCode {
      
     // Cdn使用超过最大限制。
      LIMITEXCEEDED_CDN("LimitExceeded.Cdn"),
+     
+    // 用户开启镜像加速函数版本超限。
+     LIMITEXCEEDED_CONTAINERIMAGEACCELERATE("LimitExceeded.ContainerImageAccelerate"),
      
     // 用户开启镜像加速函数版本超限。
      LIMITEXCEEDED_CONTAINERIMAGEACCELERATEQUOTA("LimitExceeded.ContainerImageAccelerateQuota"),
@@ -581,6 +614,9 @@ public enum ScfErrorCode {
      
     // InitTimeout达到限制，可提交工单申请提升限制：https://tencentcs.com/7Fixwt63。
      LIMITEXCEEDED_INITTIMEOUT("LimitExceeded.InitTimeout"),
+     
+    // 内网固定IP个数超限。
+     LIMITEXCEEDED_INTRAIP("LimitExceeded.IntraIp"),
      
     // layer版本数量超出最大限制。
      LIMITEXCEEDED_LAYERVERSIONS("LimitExceeded.LayerVersions"),
@@ -639,6 +675,9 @@ public enum ScfErrorCode {
     // 账号已被隔离。
      OPERATIONDENIED_ACCOUNTISOLATE("OperationDenied.AccountIsolate"),
      
+    // 账号不存在。
+     OPERATIONDENIED_ACCOUNTNOTEXISTS("OperationDenied.AccountNotExists"),
+     
     // 资源被占用。
      RESOURCEINUSE("ResourceInUse"),
      
@@ -683,6 +722,9 @@ public enum ScfErrorCode {
      
     // 未找到指定的AsyncEvent，请创建后再试。
      RESOURCENOTFOUND_ASYNCEVENT("ResourceNotFound.AsyncEvent"),
+     
+    // 函数需要关联的标签Key不存在。
+     RESOURCENOTFOUND_ATTACHEDTAGKEYNOTFOUND("ResourceNotFound.AttachedTagKeyNotFound"),
      
     // Cdn不存在。
      RESOURCENOTFOUND_CDN("ResourceNotFound.Cdn"),
@@ -768,6 +810,9 @@ public enum ScfErrorCode {
     // Namespace不可用。
      RESOURCEUNAVAILABLE_NAMESPACE("ResourceUnavailable.Namespace"),
      
+    // 服务已冻结。
+     RESOURCEUNAVAILABLE_SERVICESUSPENDED("ResourceUnavailable.ServiceSuspended"),
+     
     // 未授权操作。
      UNAUTHORIZEDOPERATION("UnauthorizedOperation"),
      
@@ -801,6 +846,9 @@ public enum ScfErrorCode {
     // 无法进行此操作。
      UNAUTHORIZEDOPERATION_UPDATEFUNCTIONCODE("UnauthorizedOperation.UpdateFunctionCode"),
      
+    // 没有权限。
+     UNAUTHORIZEDOPERATION_UPDATETRIGGERSTATUS("UnauthorizedOperation.UpdateTriggerStatus"),
+     
     // 操作不支持。
      UNSUPPORTEDOPERATION("UnsupportedOperation"),
      
@@ -813,6 +861,9 @@ public enum ScfErrorCode {
     // Cdn不支持。
      UNSUPPORTEDOPERATION_CDN("UnsupportedOperation.Cdn"),
      
+    // 该函数无法复制。
+     UNSUPPORTEDOPERATION_COPYFUNCTION("UnsupportedOperation.CopyFunction"),
+     
     // Cos操作不支持。
      UNSUPPORTEDOPERATION_COS("UnsupportedOperation.Cos"),
      
@@ -822,11 +873,17 @@ public enum ScfErrorCode {
     // 不支持的地域。
      UNSUPPORTEDOPERATION_NOTSUPPORTREGION("UnsupportedOperation.NotSupportRegion"),
      
+    // 当前状态无法发布版本。
+     UNSUPPORTEDOPERATION_PUBLISHVERSION("UnsupportedOperation.PublishVersion"),
+     
     // 不支持此地域。
      UNSUPPORTEDOPERATION_REGION("UnsupportedOperation.Region"),
      
     // Trigger操作不支持。
      UNSUPPORTEDOPERATION_TRIGGER("UnsupportedOperation.Trigger"),
+     
+    // 更新函数代码失败。
+     UNSUPPORTEDOPERATION_UPDATEFUNCTIONCODE("UnsupportedOperation.UpdateFunctionCode"),
      
     // 指定的配置暂不支持，请修正后再试。
      UNSUPPORTEDOPERATION_UPDATEFUNCTIONEVENTINVOKECONFIG("UnsupportedOperation.UpdateFunctionEventInvokeConfig"),

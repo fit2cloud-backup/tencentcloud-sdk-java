@@ -29,7 +29,7 @@ public class OcrClient extends AbstractClient{
     private static String endpoint = "ocr.tencentcloudapi.com";
     private static String service = "ocr";
     private static String version = "2018-11-19";
-
+    
     public OcrClient(Credential credential, String region) {
         this(credential, region, new ClientProfile());
     }
@@ -49,6 +49,7 @@ public class OcrClient extends AbstractClient{
     public AdvertiseOCRResponse AdvertiseOCR(AdvertiseOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AdvertiseOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AdvertiseOCRResponse>>() {
                 }.getType();
@@ -62,6 +63,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持作业算式题目的自动识别和判分，目前覆盖 K12 学力范围内的 11 种题型，包括加减乘除四则、加减乘除已知结果求运算因子、判断大小、约等于估算、带余数除法、分数四则运算、单位换算、竖式加减法、竖式乘除法、脱式计算和解方程，平均识别精度达到93%以上。
+
+默认接口请求频率限制：10次/秒。
      * @param req ArithmeticOCRRequest
      * @return ArithmeticOCRResponse
      * @throws TencentCloudSDKException
@@ -69,6 +72,7 @@ public class OcrClient extends AbstractClient{
     public ArithmeticOCRResponse ArithmeticOCR(ArithmeticOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ArithmeticOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ArithmeticOCRResponse>>() {
                 }.getType();
@@ -91,6 +95,7 @@ public class OcrClient extends AbstractClient{
     public BankCardOCRResponse BankCardOCR(BankCardOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<BankCardOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<BankCardOCRResponse>>() {
                 }.getType();
@@ -104,7 +109,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持银行回单全字段的识别，包括付款开户行、收款开户行、付款账号、收款账号、回单类型、回单编号、币种、流水号、凭证号码、交易机构、交易金额、手续费、日期等字段信息。
-           
+
+默认接口请求频率限制：10次/秒。
      * @param req BankSlipOCRRequest
      * @return BankSlipOCRResponse
      * @throws TencentCloudSDKException
@@ -112,6 +118,7 @@ public class OcrClient extends AbstractClient{
     public BankSlipOCRResponse BankSlipOCR(BankSlipOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<BankSlipOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<BankSlipOCRResponse>>() {
                 }.getType();
@@ -124,7 +131,7 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持快速精准识别营业执照上的字段，包括统一社会信用代码、公司名称、经营场所、主体类型、法定代表人、注册资金、组成形式、成立日期、营业期限和经营范围等字段。
+     *本接口支持快速精准识别营业执照上的字段，包括统一社会信用代码、公司名称、主体类型、法定代表人、注册资本、组成形式、成立日期、营业期限和经营范围等字段。
 
 默认接口请求频率限制：10次/秒。
      * @param req BizLicenseOCRRequest
@@ -134,6 +141,7 @@ public class OcrClient extends AbstractClient{
     public BizLicenseOCRResponse BizLicenseOCR(BizLicenseOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<BizLicenseOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<BizLicenseOCRResponse>>() {
                 }.getType();
@@ -146,7 +154,9 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持识别公路汽车客票的发票代码、发票号码、日期、姓名、票价等字段。
+     *本接口支持识别公路汽车客票关键字段的识别，包括发票代码、发票号码、日期、票价、始发地、目的地、姓名、时间、发票消费类型、身份证号、省、市、开票日期、乘车地点、检票口、客票类型、车型、座位号、车次等。
+
+默认接口请求频率限制：5次/秒。
      * @param req BusInvoiceOCRRequest
      * @return BusInvoiceOCRResponse
      * @throws TencentCloudSDKException
@@ -154,6 +164,7 @@ public class OcrClient extends AbstractClient{
     public BusInvoiceOCRResponse BusInvoiceOCR(BusInvoiceOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<BusInvoiceOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<BusInvoiceOCRResponse>>() {
                 }.getType();
@@ -166,7 +177,9 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持名片各字段的自动定位与识别，包含姓名、电话、手机号、邮箱、公司、部门、职位、网址、地址、QQ、微信、MSN等。
+     *本接口支持中英文名片各字段的自动定位与识别，包含姓名、电话、手机号、邮箱、公司、部门、职位、网址、地址、QQ、微信、MSN等。
+
+默认接口请求频率限制：10次/秒。
      * @param req BusinessCardOCRRequest
      * @return BusinessCardOCRResponse
      * @throws TencentCloudSDKException
@@ -174,6 +187,7 @@ public class OcrClient extends AbstractClient{
     public BusinessCardOCRResponse BusinessCardOCR(BusinessCardOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<BusinessCardOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<BusinessCardOCRResponse>>() {
                 }.getType();
@@ -187,6 +201,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持机动车销售统一发票和二手车销售统一发票的识别，包括发票号码、发票代码、合计金额、合计税额等二十多个字段。
+
+默认接口请求频率限制：5次/秒。
      * @param req CarInvoiceOCRRequest
      * @return CarInvoiceOCRResponse
      * @throws TencentCloudSDKException
@@ -194,6 +210,7 @@ public class OcrClient extends AbstractClient{
     public CarInvoiceOCRResponse CarInvoiceOCR(CarInvoiceOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CarInvoiceOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CarInvoiceOCRResponse>>() {
                 }.getType();
@@ -208,6 +225,7 @@ public class OcrClient extends AbstractClient{
     /**
      *支持身份证、护照、名片、银行卡、行驶证、驾驶证、港澳台通行证、户口本、港澳台来往内地通行证、港澳台居住证、不动产证、营业执照的智能分类。
 
+默认接口请求频率限制：20次/秒。
      * @param req ClassifyDetectOCRRequest
      * @return ClassifyDetectOCRResponse
      * @throws TencentCloudSDKException
@@ -215,10 +233,34 @@ public class OcrClient extends AbstractClient{
     public ClassifyDetectOCRResponse ClassifyDetectOCR(ClassifyDetectOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ClassifyDetectOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ClassifyDetectOCRResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ClassifyDetectOCR");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口可创建智能表单录入任务，支持多个识别图片和PDF的URL上传，返回含有识别内容的操作页面URL。
+
+智能表单录入产品提供高准确率的表单识别技术和人工核对工具，支持自定义字段，将识别结果自动填入到自定义条目中，并提供人工操作工具，完成整个表单识别过程。适用性强，可对票据、合同、货单等文件的识别，适用于金融、货代、保险、档案等领域。本产品免费公测中，您可以点击demo（超链接：https://ocr.smartform.cloud.tencent.com/）试用，如需购买请与商务团队联系。
+     * @param req CreateAIFormTaskRequest
+     * @return CreateAIFormTaskResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateAIFormTaskResponse CreateAIFormTask(CreateAIFormTaskRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateAIFormTaskResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateAIFormTaskResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateAIFormTask");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -233,7 +275,7 @@ public class OcrClient extends AbstractClient{
 
 驾驶证副页：包括证号、姓名、档案编号、记录。
 
-另外，本接口还支持复印件、翻拍和PS告警功能。同时支持识别交管12123APP发放的电子驾驶证正页。
+另外，本接口还支持复印件、翻拍告警功能。同时支持识别交管12123 APP发放的电子驾驶证正页。
 
 电子驾驶证正页：包括证号、姓名、性别、国籍、出生日期、初次领证日期、准驾车型、有效期开始时间、有效期截止时间、档案编号、状态、累积记分。
 
@@ -245,6 +287,7 @@ public class OcrClient extends AbstractClient{
     public DriverLicenseOCRResponse DriverLicenseOCR(DriverLicenseOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DriverLicenseOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DriverLicenseOCRResponse>>() {
                 }.getType();
@@ -258,6 +301,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持对完税证明的税号、纳税人识别号、纳税人名称、金额合计大写、金额合计小写、填发日期、税务机关、填票人等关键字段的识别。
+
+默认接口请求频率限制：5次/秒。
      * @param req DutyPaidProofOCRRequest
      * @return DutyPaidProofOCRResponse
      * @throws TencentCloudSDKException
@@ -265,6 +310,7 @@ public class OcrClient extends AbstractClient{
     public DutyPaidProofOCRResponse DutyPaidProofOCR(DutyPaidProofOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DutyPaidProofOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DutyPaidProofOCRResponse>>() {
                 }.getType();
@@ -278,6 +324,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持数学试题内容的识别和结构化输出，包括通用文本解析和小学/初中/高中数学公式解析能力（包括91种题型，180种符号），公式返回格式为 Latex 格式文本。
+
+默认接口请求频率限制：5次/秒。
      * @param req EduPaperOCRRequest
      * @return EduPaperOCRResponse
      * @throws TencentCloudSDKException
@@ -285,6 +333,7 @@ public class OcrClient extends AbstractClient{
     public EduPaperOCRResponse EduPaperOCR(EduPaperOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<EduPaperOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<EduPaperOCRResponse>>() {
                 }.getType();
@@ -307,6 +356,7 @@ public class OcrClient extends AbstractClient{
     public EnglishOCRResponse EnglishOCR(EnglishOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<EnglishOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<EnglishOCRResponse>>() {
                 }.getType();
@@ -319,7 +369,9 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持智能化识别各类企业登记证书、许可证书、企业执照、三证合一类证书，结构化输出统一社会信用代码、公司名称、法定代表人、公司地址、注册资金、企业类型、经营范围等关键字段。
+     *本接口支持智能化识别各类企业登记证书、许可证书、企业执照、三证合一类证书，结构化输出统一社会信用代码、公司名称、法定代表人、公司地址、注册资金、企业类型、经营范围、成立日期、有效期、开办资金、经费来源、举办单位等关键字段。
+
+默认接口请求频率限制：5次/秒。
      * @param req EnterpriseLicenseOCRRequest
      * @return EnterpriseLicenseOCRResponse
      * @throws TencentCloudSDKException
@@ -327,6 +379,7 @@ public class OcrClient extends AbstractClient{
     public EnterpriseLicenseOCRResponse EnterpriseLicenseOCR(EnterpriseLicenseOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<EnterpriseLicenseOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<EnterpriseLicenseOCRResponse>>() {
                 }.getType();
@@ -341,6 +394,7 @@ public class OcrClient extends AbstractClient{
     /**
      *本接口支持不动产权证关键字段的识别，包括使用期限、面积、用途、权利性质、权利类型、坐落、共有情况、权利人、权利其他状况等。
 
+默认接口请求频率限制：5次/秒。
 
 
      * @param req EstateCertOCRRequest
@@ -350,6 +404,7 @@ public class OcrClient extends AbstractClient{
     public EstateCertOCRResponse EstateCertOCR(EstateCertOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<EstateCertOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<EstateCertOCRResponse>>() {
                 }.getType();
@@ -363,6 +418,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持常见银行票据的自动分类和识别。整单识别包括支票（含现金支票、普通支票、转账支票），承兑汇票（含银行承兑汇票、商业承兑汇票）以及进账单等，适用于中国人民银行印发的 2010 版银行票据凭证版式（银发[2010]299 号）。
+
+默认接口请求频率限制：5次/秒。
      * @param req FinanBillOCRRequest
      * @return FinanBillOCRResponse
      * @throws TencentCloudSDKException
@@ -370,6 +427,7 @@ public class OcrClient extends AbstractClient{
     public FinanBillOCRResponse FinanBillOCR(FinanBillOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<FinanBillOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<FinanBillOCRResponse>>() {
                 }.getType();
@@ -383,6 +441,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持常见银行票据的自动分类和识别。切片识别包括金融行业常见票据的重要切片字段识别，包括金额、账号、日期、凭证号码等。（金融票据切片：金融票据中待识别字段及其周围局部区域的裁剪图像。）
+
+默认接口请求频率限制：5次/秒。
      * @param req FinanBillSliceOCRRequest
      * @return FinanBillSliceOCRResponse
      * @throws TencentCloudSDKException
@@ -390,6 +450,7 @@ public class OcrClient extends AbstractClient{
     public FinanBillSliceOCRResponse FinanBillSliceOCR(FinanBillSliceOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<FinanBillSliceOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<FinanBillSliceOCRResponse>>() {
                 }.getType();
@@ -403,6 +464,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持机票行程单关键字段的识别，包括旅客姓名、有效身份证件号码、电子客票号码、验证码、填开单位、其他税费、燃油附加费、民航发展基金、保险费、销售单位代号、始发地、目的地、航班号、时间、日期、座位等级、承运人、发票消费类型、票价、合计金额、填开日期、国内国际标签、印刷序号、客票级别/类别、客票生效日期、有效期截止日期、免费行李等字段，支持航班信息多行明细输出。
+
+默认接口请求频率限制：5次/秒。
      * @param req FlightInvoiceOCRRequest
      * @return FlightInvoiceOCRResponse
      * @throws TencentCloudSDKException
@@ -410,6 +473,7 @@ public class OcrClient extends AbstractClient{
     public FlightInvoiceOCRResponse FlightInvoiceOCR(FlightInvoiceOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<FlightInvoiceOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<FlightInvoiceOCRResponse>>() {
                 }.getType();
@@ -423,6 +487,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持识别主流初高中数学符号和公式，返回公式的 Latex 格式文本。
+
+默认接口请求频率限制：5次/秒。
      * @param req FormulaOCRRequest
      * @return FormulaOCRResponse
      * @throws TencentCloudSDKException
@@ -430,6 +496,7 @@ public class OcrClient extends AbstractClient{
     public FormulaOCRResponse FormulaOCR(FormulaOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<FormulaOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<FormulaOCRResponse>>() {
                 }.getType();
@@ -512,6 +579,7 @@ public class OcrClient extends AbstractClient{
     public GeneralAccurateOCRResponse GeneralAccurateOCR(GeneralAccurateOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GeneralAccurateOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<GeneralAccurateOCRResponse>>() {
                 }.getType();
@@ -594,6 +662,7 @@ public class OcrClient extends AbstractClient{
     public GeneralBasicOCRResponse GeneralBasicOCR(GeneralBasicOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GeneralBasicOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<GeneralBasicOCRResponse>>() {
                 }.getType();
@@ -676,6 +745,7 @@ public class OcrClient extends AbstractClient{
     public GeneralEfficientOCRResponse GeneralEfficientOCR(GeneralEfficientOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GeneralEfficientOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<GeneralEfficientOCRResponse>>() {
                 }.getType();
@@ -698,6 +768,7 @@ public class OcrClient extends AbstractClient{
     public GeneralFastOCRResponse GeneralFastOCR(GeneralFastOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GeneralFastOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<GeneralFastOCRResponse>>() {
                 }.getType();
@@ -720,6 +791,7 @@ public class OcrClient extends AbstractClient{
     public GeneralHandwritingOCRResponse GeneralHandwritingOCR(GeneralHandwritingOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GeneralHandwritingOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<GeneralHandwritingOCRResponse>>() {
                 }.getType();
@@ -732,7 +804,28 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持中国香港身份证人像面中关键字段的识别，包括中文姓名、英文姓名、姓名电码、出生日期、性别、证件符号、首次签发日期、最近领用日期、身份证号、是否是永久性居民身份证；具备防伪识别、人像照片裁剪等扩展功能。
+     *支持查询智能表单录入任务的状态。本产品免费公测中，您可以点击demo（超链接：https://ocr.smartform.cloud.tencent.com/）试用，如需购买请与商务团队联系。
+     * @param req GetTaskStateRequest
+     * @return GetTaskStateResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetTaskStateResponse GetTaskState(GetTaskStateRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetTaskStateResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetTaskStateResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetTaskState");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口支持中国香港身份证人像面中关键字段的识别，包括中文姓名、英文姓名、姓名电码、出生日期、性别、证件符号、首次签发日期、最近领用日期、身份证号、是否是永久性居民身份证；具备人像照片裁剪等扩展功能。
 
 默认接口请求频率限制：5次/秒。
      * @param req HKIDCardOCRRequest
@@ -742,6 +835,7 @@ public class OcrClient extends AbstractClient{
     public HKIDCardOCRResponse HKIDCardOCR(HKIDCardOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<HKIDCardOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<HKIDCardOCRResponse>>() {
                 }.getType();
@@ -754,7 +848,9 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *港澳台居住证OCR支持港澳台居住证正反面全字段内容检测识别功能，包括姓名、性别、出生日期、地址、身份证ID、签发机关、有效期限、签发次数、通行证号码关键字段识别。可以应用于港澳台居住证信息有效性校验场景，例如银行开户、用户注册等场景。
+     *港澳台居住证OCR支持港澳台居住证正反面全字段内容检测识别功能，包括姓名、性别、出生日期、地址、身份证号、签发机关、有效期限、签发次数、通行证号码关键字段识别。可以应用于港澳台居住证信息识别场景，例如银行开户、用户注册等。
+
+默认接口请求频率限制：20次/秒。
      * @param req HmtResidentPermitOCRRequest
      * @return HmtResidentPermitOCRResponse
      * @throws TencentCloudSDKException
@@ -762,6 +858,7 @@ public class OcrClient extends AbstractClient{
     public HmtResidentPermitOCRResponse HmtResidentPermitOCR(HmtResidentPermitOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<HmtResidentPermitOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<HmtResidentPermitOCRResponse>>() {
                 }.getType();
@@ -795,7 +892,9 @@ public class OcrClient extends AbstractClient{
         </tr>
         <tr>
           <td rowspan="9">告警功能</td>
-          <td>身份证有效日期不合法告警</td>
+          <td>身份证有效日期不合法，即有效日期不符合5年、10年、20年、长期期限
+
+</td>
         </tr>
         <tr>
           <td>身份证边框不完整告警</td>
@@ -812,8 +911,8 @@ public class OcrClient extends AbstractClient{
          <tr>
           <td>临时身份证告警</td>
         </tr>
-          <tr>
-          <td>身份证 PS 告警</td>
+         <tr>
+          <td>身份证疑似存在PS痕迹告警</td>
         </tr>
           <tr>
           <td>图片模糊告警（可根据图片质量分数判断）</td>
@@ -829,6 +928,7 @@ public class OcrClient extends AbstractClient{
     public IDCardOCRResponse IDCardOCR(IDCardOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<IDCardOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<IDCardOCRResponse>>() {
                 }.getType();
@@ -842,6 +942,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *文本图像增强是面向文档类图片提供的图像增强处理能力，包括切边增强、图像矫正、阴影去除、摩尔纹去除等；可以有效优化文档类的图片质量，提升文字的清晰度。
+
+默认接口请求频率限制：10次/秒。
      * @param req ImageEnhancementRequest
      * @return ImageEnhancementResponse
      * @throws TencentCloudSDKException
@@ -849,6 +951,7 @@ public class OcrClient extends AbstractClient{
     public ImageEnhancementResponse ImageEnhancement(ImageEnhancementRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ImageEnhancementResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ImageEnhancementResponse>>() {
                 }.getType();
@@ -862,6 +965,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持事业单位法人证书关键字段识别，包括注册号、有效期、住所、名称、法定代表人等。
+
+默认接口请求频率限制：5次/秒。
      * @param req InstitutionOCRRequest
      * @return InstitutionOCRResponse
      * @throws TencentCloudSDKException
@@ -869,6 +974,7 @@ public class OcrClient extends AbstractClient{
     public InstitutionOCRResponse InstitutionOCR(InstitutionOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<InstitutionOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<InstitutionOCRResponse>>() {
                 }.getType();
@@ -882,6 +988,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持病案首页、费用清单、结算单、医疗发票四种保险理赔单据的文本识别和结构化输出。
+
+默认接口请求频率限制：1次/秒。
      * @param req InsuranceBillOCRRequest
      * @return InsuranceBillOCRResponse
      * @throws TencentCloudSDKException
@@ -889,6 +997,7 @@ public class OcrClient extends AbstractClient{
     public InsuranceBillOCRResponse InsuranceBillOCR(InsuranceBillOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<InsuranceBillOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<InsuranceBillOCRResponse>>() {
                 }.getType();
@@ -901,7 +1010,9 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持对通用机打发票的发票代码、发票号码、日期、购买方识别号、销售方识别号、校验码、小写金额等关键字段的识别。
+     *本接口支持对通用机打发票的发票代码、发票号码、日期、合计金额(小写)、合计金额(大写)、购买方识别号、销售方识别号、校验码、购买方名称、销售方名称、时间、种类、发票消费类型、省、市、是否有公司印章、发票名称、购买方地址、电话、销售方地址、电话、购买方开户行及账号、销售方开户行及账号、经办人取票用户、经办人支付信息、经办人商户号、经办人订单号、货物或应税劳务、服务名称、数量、单价、税率、税额、金额、单位、规格型号、合计税额、合计金额、备注、收款人、复核、开票人、密码区、行业分类等字段的识别。
+
+默认接口请求频率限制：5次/秒。
      * @param req InvoiceGeneralOCRRequest
      * @return InvoiceGeneralOCRResponse
      * @throws TencentCloudSDKException
@@ -909,6 +1020,7 @@ public class OcrClient extends AbstractClient{
     public InvoiceGeneralOCRResponse InvoiceGeneralOCR(InvoiceGeneralOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<InvoiceGeneralOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<InvoiceGeneralOCRResponse>>() {
                 }.getType();
@@ -931,6 +1043,7 @@ public class OcrClient extends AbstractClient{
     public LicensePlateOCRResponse LicensePlateOCR(LicensePlateOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<LicensePlateOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<LicensePlateOCRResponse>>() {
                 }.getType();
@@ -953,6 +1066,7 @@ public class OcrClient extends AbstractClient{
     public MLIDCardOCRResponse MLIDCardOCR(MLIDCardOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<MLIDCardOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<MLIDCardOCRResponse>>() {
                 }.getType();
@@ -965,10 +1079,9 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持中国港澳台地区以及其他国家、地区的护照识别。识别字段包括护照ID、姓名、出生日期、性别、有效期、发行国、国籍，具备护照人像照片的裁剪功能和翻拍、复印件告警功能。
+     *本接口支持中国港澳台地区以及其他国家、地区的护照识别。识别字段包括护照ID、姓名、出生日期、性别、有效期、发行国、国籍、国家地区代码，具备护照人像照片的裁剪功能和翻拍、复印件告警功能。
 
 默认接口请求频率限制：5次/秒。
-
      * @param req MLIDPassportOCRRequest
      * @return MLIDPassportOCRResponse
      * @throws TencentCloudSDKException
@@ -976,6 +1089,7 @@ public class OcrClient extends AbstractClient{
     public MLIDPassportOCRResponse MLIDPassportOCR(MLIDPassportOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<MLIDPassportOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<MLIDPassportOCRResponse>>() {
                 }.getType();
@@ -989,6 +1103,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *智能识别并结构化港澳台居民来往内地通行证正面全部字段，包含中文姓名、英文姓名、性别、出生日期、签发机关、有效期限、证件号、签发地点、签发次数、证件类别。
+
+默认接口请求频率限制：20次/秒。
      * @param req MainlandPermitOCRRequest
      * @return MainlandPermitOCRResponse
      * @throws TencentCloudSDKException
@@ -996,6 +1112,7 @@ public class OcrClient extends AbstractClient{
     public MainlandPermitOCRResponse MainlandPermitOCR(MainlandPermitOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<MainlandPermitOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<MainlandPermitOCRResponse>>() {
                 }.getType();
@@ -1009,6 +1126,7 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持多张、多类型票据的混合检测和自动分类，返回对应票据类型。目前已支持增值税发票、增值税发票（卷票）、定额发票、通用机打发票、购车发票、火车票、出租车发票、机票行程单、汽车票、轮船票、过路过桥费发票、酒店账单、客运限额发票、购物小票、完税证明共15种票据。
+默认接口请求频率限制：5次/秒。
      * @param req MixedInvoiceDetectRequest
      * @return MixedInvoiceDetectResponse
      * @throws TencentCloudSDKException
@@ -1016,6 +1134,7 @@ public class OcrClient extends AbstractClient{
     public MixedInvoiceDetectResponse MixedInvoiceDetect(MixedInvoiceDetectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<MixedInvoiceDetectResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<MixedInvoiceDetectResponse>>() {
                 }.getType();
@@ -1038,6 +1157,7 @@ public class OcrClient extends AbstractClient{
     public MixedInvoiceOCRResponse MixedInvoiceOCR(MixedInvoiceOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<MixedInvoiceOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<MixedInvoiceOCRResponse>>() {
                 }.getType();
@@ -1051,6 +1171,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持组织机构代码证关键字段的识别，包括代码、有效期、地址、机构名称等。
+
+默认接口请求频率限制：5次/秒。
      * @param req OrgCodeCertOCRRequest
      * @return OrgCodeCertOCRResponse
      * @throws TencentCloudSDKException
@@ -1058,6 +1180,7 @@ public class OcrClient extends AbstractClient{
     public OrgCodeCertOCRResponse OrgCodeCertOCR(OrgCodeCertOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<OrgCodeCertOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<OrgCodeCertOCRResponse>>() {
                 }.getType();
@@ -1071,6 +1194,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持中国大陆地区护照个人资料页多个字段的检测与识别。已支持字段包括英文姓名、中文姓名、国家码、护照号、出生地、出生日期、国籍英文、性别英文、有效期、签发地点英文、签发日期、持证人签名、护照机读码（MRZ码）等。
+
+默认接口请求频率限制：10次/秒。
      * @param req PassportOCRRequest
      * @return PassportOCRResponse
      * @throws TencentCloudSDKException
@@ -1078,6 +1203,7 @@ public class OcrClient extends AbstractClient{
     public PassportOCRResponse PassportOCR(PassportOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<PassportOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<PassportOCRResponse>>() {
                 }.getType();
@@ -1091,6 +1217,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持对卡式港澳台通行证的识别，包括签发地点、签发机关、有效期限、性别、出生日期、英文姓名、姓名、证件号等字段。
+
+默认接口请求频率限制：10次/秒。
      * @param req PermitOCRRequest
      * @return PermitOCRResponse
      * @throws TencentCloudSDKException
@@ -1098,6 +1226,7 @@ public class OcrClient extends AbstractClient{
     public PermitOCRResponse PermitOCR(PermitOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<PermitOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<PermitOCRResponse>>() {
                 }.getType();
@@ -1112,6 +1241,8 @@ public class OcrClient extends AbstractClient{
     /**
      *本接口支持房产证关键字段的识别，包括房地产权利人、共有情况、登记时间、规划用途、房屋性质、房屋坐落等。
 目前接口对合肥、成都、佛山三个城市的房产证版式识别较好。
+
+默认接口请求频率限制：5次/秒。
      * @param req PropOwnerCertOCRRequest
      * @return PropOwnerCertOCRResponse
      * @throws TencentCloudSDKException
@@ -1119,6 +1250,7 @@ public class OcrClient extends AbstractClient{
     public PropOwnerCertOCRResponse PropOwnerCertOCR(PropOwnerCertOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<PropOwnerCertOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<PropOwnerCertOCRResponse>>() {
                 }.getType();
@@ -1132,6 +1264,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持条形码和二维码的识别（包括 DataMatrix 和 PDF417）。
+
+默认接口请求频率限制：5次/秒。
      * @param req QrcodeOCRRequest
      * @return QrcodeOCRResponse
      * @throws TencentCloudSDKException
@@ -1139,6 +1273,7 @@ public class OcrClient extends AbstractClient{
     public QrcodeOCRResponse QrcodeOCR(QrcodeOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<QrcodeOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<QrcodeOCRResponse>>() {
                 }.getType();
@@ -1151,29 +1286,9 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持条形码备案信息查询，返回条形码查询结果的相关信息，包括产品名称、产品英文名称、品牌名称、规格型号、宽度、高度、深度、关键字、产品描述、厂家名称、厂家地址、企业社会信用代码13个字段信息。
-
-产品优势：直联中国物品编码中心，查询结果更加准确、可靠。
-     * @param req QueryBarCodeRequest
-     * @return QueryBarCodeResponse
-     * @throws TencentCloudSDKException
-     */
-    public QueryBarCodeResponse QueryBarCode(QueryBarCodeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<QueryBarCodeResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<QueryBarCodeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "QueryBarCode");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
      *本接口支持定额发票的发票号码、发票代码、金额(大小写)、发票消费类型、地区及是否有公司印章等关键字段的识别。
+
+默认接口请求频率限制：5次/秒。
      * @param req QuotaInvoiceOCRRequest
      * @return QuotaInvoiceOCRResponse
      * @throws TencentCloudSDKException
@@ -1181,6 +1296,7 @@ public class OcrClient extends AbstractClient{
     public QuotaInvoiceOCRResponse QuotaInvoiceOCR(QuotaInvoiceOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<QuotaInvoiceOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<QuotaInvoiceOCRResponse>>() {
                 }.getType();
@@ -1194,7 +1310,7 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持集装箱箱门信息识别，识别字段包括集装箱箱号、类型、总重量、有效承重、容量、自身重量，具备集装箱箱号、类型不完整或者不清晰的告警功能。
-
+默认接口请求频率限制：5次/秒。
      * @param req RecognizeContainerOCRRequest
      * @return RecognizeContainerOCRResponse
      * @throws TencentCloudSDKException
@@ -1202,10 +1318,173 @@ public class OcrClient extends AbstractClient{
     public RecognizeContainerOCRResponse RecognizeContainerOCR(RecognizeContainerOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RecognizeContainerOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RecognizeContainerOCRResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "RecognizeContainerOCR");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口支持 PDF多页（最多30页）、一页中单张、多张、类型票据的混合识别，同时支持单选识别某类票据，已支持票种包括：增值税发票（专票、普票、卷票、区块链发票、通行费发票）、全电发票（专票、普票）、非税发票（通用票据、统一缴纳书）、定额发票、通用机打发票、购车发票（机动车销售发票、二手车发票）、火车票、出租车发票、机票行程单、汽车票、轮船票、过路过桥费发票共14种标准报销发票，并支持非上述类型的其他发票的智能识别，点击[立即试用](https://cloud.tencent.com/product/ocr)。
+
+默认接口请求频率限制：5次/秒。
+
+
+支持返回的细项目子票种SubType、子票种中文TypeDescription、以及对应所属大类票种Type 的说明如下列表：
+<table style="width:715px">
+      <thead>
+        <tr>
+          <th style="width:200px">SubType 子票种英文</th>
+          <th style="width:200px">TypeDescription子票种中文</th>
+          <th >Type 所属大类票种</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td> VatSpecialInvoice</td>
+          <td> 增值税专用发票 </td>
+          <td> 3 </td>
+        </tr>
+        <tr>
+          <td> VatCommonInvoice</td>
+          <td> 增值税普通发票 </td>
+          <td> 3 </td>
+        </tr>
+        <tr>
+          <td> VatElectronicCommonInvoice </td>
+          <td> 增值税电子普通发票 </td>
+          <td> 3 </td>
+        </tr>
+        <tr>
+          <td> VatElectronicSpecialInvoice </td>
+          <td> 增值税电子专用发票 </td>
+          <td> 3 </td>
+        </tr>
+        <tr>
+          <td> VatElectronicInvoiceBlockchain</td>
+          <td> 区块链电子发票 </td>
+          <td> 3 </td>
+        </tr>
+        <tr>
+          <td> VatElectronicInvoiceToll</td>
+          <td> 增值税电子普通发票(通行费)</td>
+          <td> 3 </td>
+        </tr>
+        <tr>
+          <td> VatSalesList</td>
+          <td> 增值税销货清单</td>
+          <td> 3 </td>
+        </tr>
+        <tr>
+          <td> VatElectronicSpecialInvoiceFull</td>
+          <td> 电子发票(专用发票)</td>
+          <td> 16 </td>
+        </tr>
+        <tr>
+          <td> VatElectronicInvoiceFull</td>
+          <td> 电子发票(普通发票) </td>
+          <td> 16 </td>
+        </tr>
+        <tr>
+          <td> MotorVehicleSaleInvoice </td>
+          <td> 机动车销售统一发票 </td>
+          <td> 12 </td>
+        </tr>
+        <tr>
+          <td> UsedCarPurchaseInvoice </td>
+          <td> 二手车销售统一发票 </td>
+          <td> 12 </td>
+        </tr>
+        <tr>
+          <td> VatInvoiceRoll </td>
+          <td> 增值税普通发票(卷票) </td>
+          <td> 11 </td>
+        </tr>
+        <tr>
+          <td> TaxiTicket </td>
+          <td> 出租车发票 </td>
+          <td> 0 </td>
+        </tr>
+        <tr>
+          <td> QuotaInvoice </td>
+          <td> 定额发票 </td>
+          <td> 1 </td>
+        </tr>
+        <tr>
+          <td> TrainTicket </td>
+          <td> 火车票 </td>
+          <td> 2 </td>
+        </tr>
+        <tr>
+          <td> AirTransport </td>
+          <td> 机票行程单 </td>
+          <td> 5 </td>
+        </tr>
+        <tr>
+          <td> MachinePrintedInvoice </td>
+          <td> 通用机打发票 </td>
+          <td> 8 </td>
+        </tr>
+        <tr>
+          <td> BusInvoice </td>
+          <td> 汽车票 </td>
+          <td> 9 </td>
+        </tr>
+        <tr>
+          <td> ShippingInvoice </td>
+          <td> 轮船票 </td>
+          <td> 10 </td>
+        </tr>
+        <tr>
+          <td> NonTaxIncomeGeneralBill </td>
+          <td> 非税收入通用票据 </td>
+          <td> 15 </td>
+        </tr>
+        <tr>
+          <td> NonTaxIncomeElectronicBill </td>
+          <td> 非税收入一般缴款书(电子) </td>
+          <td> 15 </td>
+        </tr>
+        <tr>
+          <td> TollInvoice </td>
+          <td> 过路过桥费发票 </td>
+          <td> 13 </td>
+        </tr>
+        <tr>
+          <td> MedicalOutpatientInvoice </td>
+          <td> 医疗门诊收费票据（电子） </td>
+          <td> 17 </td>
+        </tr>
+        <tr>
+          <td> MedicalHospitalizedInvoice </td>
+          <td> 医疗住院收费票据（电子） </td>
+          <td> 17 </td>
+        </tr>
+        <tr>
+          <td> OtherInvoice </td>
+          <td> 其他发票 </td>
+          <td> -1 </td>
+        </tr>
+      </tbody>
+    </table>
+     * @param req RecognizeGeneralInvoiceRequest
+     * @return RecognizeGeneralInvoiceResponse
+     * @throws TencentCloudSDKException
+     */
+    public RecognizeGeneralInvoiceResponse RecognizeGeneralInvoice(RecognizeGeneralInvoiceRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<RecognizeGeneralInvoiceResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<RecognizeGeneralInvoiceResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "RecognizeGeneralInvoice");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1224,6 +1503,7 @@ public class OcrClient extends AbstractClient{
     public RecognizeHealthCodeOCRResponse RecognizeHealthCodeOCR(RecognizeHealthCodeOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RecognizeHealthCodeOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RecognizeHealthCodeOCRResponse>>() {
                 }.getType();
@@ -1237,6 +1517,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *印尼身份证识别
+
+默认接口请求频率限制：20次/秒。
      * @param req RecognizeIndonesiaIDCardOCRRequest
      * @return RecognizeIndonesiaIDCardOCRResponse
      * @throws TencentCloudSDKException
@@ -1244,6 +1526,7 @@ public class OcrClient extends AbstractClient{
     public RecognizeIndonesiaIDCardOCRResponse RecognizeIndonesiaIDCardOCR(RecognizeIndonesiaIDCardOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RecognizeIndonesiaIDCardOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RecognizeIndonesiaIDCardOCRResponse>>() {
                 }.getType();
@@ -1258,6 +1541,7 @@ public class OcrClient extends AbstractClient{
     /**
      *医疗发票识别目前支持全国统一门诊发票、全国统一住院发票、以及部分地方的门诊和住院发票的识别。
 
+默认接口请求频率限制：5次/秒。
      * @param req RecognizeMedicalInvoiceOCRRequest
      * @return RecognizeMedicalInvoiceOCRResponse
      * @throws TencentCloudSDKException
@@ -1265,6 +1549,7 @@ public class OcrClient extends AbstractClient{
     public RecognizeMedicalInvoiceOCRResponse RecognizeMedicalInvoiceOCR(RecognizeMedicalInvoiceOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RecognizeMedicalInvoiceOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RecognizeMedicalInvoiceOCRResponse>>() {
                 }.getType();
@@ -1278,6 +1563,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持网约车行程单关键字段的识别，包括行程起止日期、上车时间、起点、终点、里程、金额等字段。
+
+默认接口请求频率限制：20次/秒。
      * @param req RecognizeOnlineTaxiItineraryOCRRequest
      * @return RecognizeOnlineTaxiItineraryOCRResponse
      * @throws TencentCloudSDKException
@@ -1285,6 +1572,7 @@ public class OcrClient extends AbstractClient{
     public RecognizeOnlineTaxiItineraryOCRResponse RecognizeOnlineTaxiItineraryOCR(RecognizeOnlineTaxiItineraryOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RecognizeOnlineTaxiItineraryOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RecognizeOnlineTaxiItineraryOCRResponse>>() {
                 }.getType();
@@ -1305,6 +1593,7 @@ public class OcrClient extends AbstractClient{
     public RecognizePhilippinesDrivingLicenseOCRResponse RecognizePhilippinesDrivingLicenseOCR(RecognizePhilippinesDrivingLicenseOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RecognizePhilippinesDrivingLicenseOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RecognizePhilippinesDrivingLicenseOCRResponse>>() {
                 }.getType();
@@ -1317,7 +1606,72 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *菲律宾VoteID识别
+     *菲律宾SSSID/UMID识别
+     * @param req RecognizePhilippinesSssIDOCRRequest
+     * @return RecognizePhilippinesSssIDOCRResponse
+     * @throws TencentCloudSDKException
+     */
+    public RecognizePhilippinesSssIDOCRResponse RecognizePhilippinesSssIDOCR(RecognizePhilippinesSssIDOCRRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<RecognizePhilippinesSssIDOCRResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<RecognizePhilippinesSssIDOCRResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "RecognizePhilippinesSssIDOCR");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *菲律宾TinID识别
+     * @param req RecognizePhilippinesTinIDOCRRequest
+     * @return RecognizePhilippinesTinIDOCRResponse
+     * @throws TencentCloudSDKException
+     */
+    public RecognizePhilippinesTinIDOCRResponse RecognizePhilippinesTinIDOCR(RecognizePhilippinesTinIDOCRRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<RecognizePhilippinesTinIDOCRResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<RecognizePhilippinesTinIDOCRResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "RecognizePhilippinesTinIDOCR");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *菲律宾UMID识别
+     * @param req RecognizePhilippinesUMIDOCRRequest
+     * @return RecognizePhilippinesUMIDOCRResponse
+     * @throws TencentCloudSDKException
+     */
+    public RecognizePhilippinesUMIDOCRResponse RecognizePhilippinesUMIDOCR(RecognizePhilippinesUMIDOCRRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<RecognizePhilippinesUMIDOCRResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<RecognizePhilippinesUMIDOCRResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "RecognizePhilippinesUMIDOCR");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口支持菲律宾VoteID识别，识别字段包括姓名、姓氏、出生日期、婚姻状况、国籍、地址、地区、菲律宾VoteID的VIN等。
+
+默认接口请求频率限制：20次/秒。
      * @param req RecognizePhilippinesVoteIDOCRRequest
      * @return RecognizePhilippinesVoteIDOCRResponse
      * @throws TencentCloudSDKException
@@ -1325,6 +1679,7 @@ public class OcrClient extends AbstractClient{
     public RecognizePhilippinesVoteIDOCRResponse RecognizePhilippinesVoteIDOCR(RecognizePhilippinesVoteIDOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RecognizePhilippinesVoteIDOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RecognizePhilippinesVoteIDOCRResponse>>() {
                 }.getType();
@@ -1337,7 +1692,32 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
+     *本接口支持中英文图片/PDF内常规表格、无线表格、多表格的检测和识别，返回每个单元格的文字内容，支持旋转的表格图片识别，且支持将识别结果保存为 Excel 格式。识别效果比表格识别V2更好，覆盖场景更加广泛，对表格难例场景，如无线表格、嵌套表格（有线表格中包含无线表格）的识别效果均优于表格识别V2。点击[立即体验](https://cloud.tencent.com/product/smart-ocr)。
+
+默认接口请求频率限制：2次/秒。
+     * @param req RecognizeTableAccurateOCRRequest
+     * @return RecognizeTableAccurateOCRResponse
+     * @throws TencentCloudSDKException
+     */
+    public RecognizeTableAccurateOCRResponse RecognizeTableAccurateOCR(RecognizeTableAccurateOCRRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<RecognizeTableAccurateOCRResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<RecognizeTableAccurateOCRResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "RecognizeTableAccurateOCR");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口支持中英文图片/ PDF内常规表格、无线表格、多表格的检测和识别，支持日文有线表格识别，返回每个单元格的文字内容，支持旋转的表格图片识别，且支持将识别结果保存为 Excel 格式。
+
+默认接口请求频率限制：10次/秒。
      * @param req RecognizeTableOCRRequest
      * @return RecognizeTableOCRResponse
      * @throws TencentCloudSDKException
@@ -1345,6 +1725,7 @@ public class OcrClient extends AbstractClient{
     public RecognizeTableOCRResponse RecognizeTableOCR(RecognizeTableOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RecognizeTableOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RecognizeTableOCRResponse>>() {
                 }.getType();
@@ -1357,9 +1738,10 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持泰国身份证识别，识别字段包括泰文姓名、英文姓名、地址、出生日期、身份证号码。
+     *本接口支持泰国身份证识别，识别字段包括泰文姓名、英文姓名、地址、出生日期、身份证号码、首次领用日期、签发日期等字段。
 本接口暂未完全对外开放，如需咨询，请[联系商务](https://cloud.tencent.com/about/connect)
 
+默认接口请求频率限制：10次/秒
      * @param req RecognizeThaiIDCardOCRRequest
      * @return RecognizeThaiIDCardOCRResponse
      * @throws TencentCloudSDKException
@@ -1367,6 +1749,7 @@ public class OcrClient extends AbstractClient{
     public RecognizeThaiIDCardOCRResponse RecognizeThaiIDCardOCR(RecognizeThaiIDCardOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RecognizeThaiIDCardOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RecognizeThaiIDCardOCRResponse>>() {
                 }.getType();
@@ -1389,6 +1772,7 @@ public class OcrClient extends AbstractClient{
     public RecognizeTravelCardOCRResponse RecognizeTravelCardOCR(RecognizeTravelCardOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RecognizeTravelCardOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RecognizeTravelCardOCRResponse>>() {
                 }.getType();
@@ -1402,6 +1786,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持居民户口簿户主页及成员页关键字段的识别，包括姓名、户别、地址、籍贯、身份证号码等。
+
+默认接口请求频率限制：5次/秒。
      * @param req ResidenceBookletOCRRequest
      * @return ResidenceBookletOCRResponse
      * @throws TencentCloudSDKException
@@ -1409,6 +1795,7 @@ public class OcrClient extends AbstractClient{
     public ResidenceBookletOCRResponse ResidenceBookletOCR(ResidenceBookletOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ResidenceBookletOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ResidenceBookletOCRResponse>>() {
                 }.getType();
@@ -1422,6 +1809,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持网约车驾驶证关键字段的识别，包括姓名、证号、起始日期、截止日期、发证日期。
+
+默认接口请求频率限制：5次/秒。
      * @param req RideHailingDriverLicenseOCRRequest
      * @return RideHailingDriverLicenseOCRResponse
      * @throws TencentCloudSDKException
@@ -1429,6 +1818,7 @@ public class OcrClient extends AbstractClient{
     public RideHailingDriverLicenseOCRResponse RideHailingDriverLicenseOCR(RideHailingDriverLicenseOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RideHailingDriverLicenseOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RideHailingDriverLicenseOCRResponse>>() {
                 }.getType();
@@ -1442,7 +1832,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持网约车运输证关键字段的识别，包括交运管许可字号、车辆所有人、车辆号牌、起始日期、截止日期、发证日期。
-           
+
+默认接口请求频率限制：5次/秒。
      * @param req RideHailingTransportLicenseOCRRequest
      * @return RideHailingTransportLicenseOCRResponse
      * @throws TencentCloudSDKException
@@ -1450,6 +1841,7 @@ public class OcrClient extends AbstractClient{
     public RideHailingTransportLicenseOCRResponse RideHailingTransportLicenseOCR(RideHailingTransportLicenseOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RideHailingTransportLicenseOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RideHailingTransportLicenseOCRResponse>>() {
                 }.getType();
@@ -1462,7 +1854,7 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持各类印章识别，包括发票章，财务章等，适用于公文，票据等场景。
+     *本接口支持各类印章主体内容、印章其他内容及形状识别，支持单图多印章识别，包括发票章、财务章等，适用于公文票据等场景。
 
 默认接口请求频率限制：5次/秒。
      * @param req SealOCRRequest
@@ -1472,6 +1864,7 @@ public class OcrClient extends AbstractClient{
     public SealOCRResponse SealOCR(SealOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SealOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<SealOCRResponse>>() {
                 }.getType();
@@ -1485,6 +1878,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持识别轮船票的发票代码、发票号码、日期、姓名、票价、始发地、目的地、姓名、时间、发票消费类型、省、市、币种字段。
+
+默认接口请求频率限制：5次/秒。
      * @param req ShipInvoiceOCRRequest
      * @return ShipInvoiceOCRResponse
      * @throws TencentCloudSDKException
@@ -1492,6 +1887,7 @@ public class OcrClient extends AbstractClient{
     public ShipInvoiceOCRResponse ShipInvoiceOCR(ShipInvoiceOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ShipInvoiceOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ShipInvoiceOCRResponse>>() {
                 }.getType();
@@ -1514,6 +1910,7 @@ public class OcrClient extends AbstractClient{
     public SmartStructuralOCRResponse SmartStructuralOCR(SmartStructuralOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SmartStructuralOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<SmartStructuralOCRResponse>>() {
                 }.getType();
@@ -1526,11 +1923,34 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
+     *本接口支持智能提取各类证照、票据、表单、合同等结构化场景的key:value字段信息，并支持提取表格信息的key:value组的结构化，灵活高效，适用于各类非标准材料的信息录入场景，点击[立即体验](https://cloud.tencent.com/product/smart-ocr)。
+
+默认接口请求频率限制：10次/秒。
+     * @param req SmartStructuralOCRV2Request
+     * @return SmartStructuralOCRV2Response
+     * @throws TencentCloudSDKException
+     */
+    public SmartStructuralOCRV2Response SmartStructuralOCRV2(SmartStructuralOCRV2Request req) throws TencentCloudSDKException{
+        JsonResponseModel<SmartStructuralOCRV2Response> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<SmartStructuralOCRV2Response>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "SmartStructuralOCRV2");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *<b>此接口为表格识别的旧版本服务，不再进行服务升级，建议您使用识别能力更强、服务性能更优的<a href="https://cloud.tencent.com/document/product/866/49525">新版表格识别</a>。</b>
 
 本接口支持图片内表格文档的检测和识别，返回每个单元格的文字内容，支持将识别结果保存为 Excel 格式。
 
-
+默认接口请求频率限制：10次/秒。
      * @param req TableOCRRequest
      * @return TableOCRResponse
      * @throws TencentCloudSDKException
@@ -1538,6 +1958,7 @@ public class OcrClient extends AbstractClient{
     public TableOCRResponse TableOCR(TableOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<TableOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<TableOCRResponse>>() {
                 }.getType();
@@ -1551,6 +1972,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持出租车发票关键字段的识别，包括发票号码、发票代码、金额、日期、上下车时间、里程、车牌号、发票类型及所属地区等字段。
+
+默认接口请求频率限制：5次/秒。
      * @param req TaxiInvoiceOCRRequest
      * @return TaxiInvoiceOCRResponse
      * @throws TencentCloudSDKException
@@ -1558,6 +1981,7 @@ public class OcrClient extends AbstractClient{
     public TaxiInvoiceOCRResponse TaxiInvoiceOCR(TaxiInvoiceOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<TaxiInvoiceOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<TaxiInvoiceOCRResponse>>() {
                 }.getType();
@@ -1578,6 +2002,7 @@ public class OcrClient extends AbstractClient{
     public TextDetectResponse TextDetect(TextDetectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<TextDetectResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<TextDetectResponse>>() {
                 }.getType();
@@ -1590,7 +2015,9 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持对过路过桥费发票的发票代码、发票号码、日期、小写金额等关键字段的识别。
+     *本接口支持过路过桥费发票关键字段的识别，包括发票代码、发票号码、日期、金额、入口、出口、时间、发票消费类型、高速标志等。
+
+默认接口请求频率限制：5次/秒。
      * @param req TollInvoiceOCRRequest
      * @return TollInvoiceOCRResponse
      * @throws TencentCloudSDKException
@@ -1598,6 +2025,7 @@ public class OcrClient extends AbstractClient{
     public TollInvoiceOCRResponse TollInvoiceOCR(TollInvoiceOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<TollInvoiceOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<TollInvoiceOCRResponse>>() {
                 }.getType();
@@ -1610,8 +2038,9 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持火车票全字段的识别，包括编号、票价、姓名、座位号、出发时间、出发站、到达站、车次、席别、发票类型及序列号等。
+     *本接口支持火车票全字段的识别，包括编号、出发站、到达站、出发时间、车次、座位号、姓名、票价、席别、身份证号、发票消费类型、序列号、加收票价、手续费、大写金额、售票站、原票价、发票类型、收据号码、是否仅供报销使用等字段的识别。
 
+默认接口请求频率限制：5次/秒。
      * @param req TrainTicketOCRRequest
      * @return TrainTicketOCRResponse
      * @throws TencentCloudSDKException
@@ -1619,6 +2048,7 @@ public class OcrClient extends AbstractClient{
     public TrainTicketOCRResponse TrainTicketOCR(TrainTicketOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<TrainTicketOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<TrainTicketOCRResponse>>() {
                 }.getType();
@@ -1631,7 +2061,7 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持增值税专用发票、增值税普通发票、增值税电子发票全字段的内容检测和识别，包括发票代码、发票号码、打印发票代码、打印发票号码、开票日期、合计金额、校验码、税率、合计税额、价税合计、购买方识别号、复核、销售方识别号、开票人、密码区1、密码区2、密码区3、密码区4、发票名称、购买方名称、销售方名称、服务名称、备注、规格型号、数量、单价、金额、税额、收款人等字段。
+     *本接口支持增值税专用发票、增值税普通发票、增值税电子专票、增值税电子普票、电子发票（普通发票）、电子发票（增值税专用发票）全字段的内容检测和识别，包括发票代码、发票号码、打印发票代码、打印发票号码、开票日期、合计金额、校验码、税率、合计税额、价税合计、购买方识别号、复核、销售方识别号、开票人、密码区1、密码区2、密码区3、密码区4、发票名称、购买方名称、销售方名称、服务名称、备注、规格型号、数量、单价、金额、税额、收款人等字段，点击[立即试用](https://cloud.tencent.com/product/ocr)。
 
 默认接口请求频率限制：10次/秒。
      * @param req VatInvoiceOCRRequest
@@ -1641,6 +2071,7 @@ public class OcrClient extends AbstractClient{
     public VatInvoiceOCRResponse VatInvoiceOCR(VatInvoiceOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<VatInvoiceOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<VatInvoiceOCRResponse>>() {
                 }.getType();
@@ -1654,6 +2085,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持增值税发票的准确性核验，您可以通过输入增值税发票的关键字段提供所需的验证信息，接口返回真实的票面相关信息，包括发票代码、发票号码、开票日期、金额、消费类型、购方名称、购方税号、销方名称、销方税号等多个常用字段。支持多种发票类型核验，包括增值税专用发票、增值税普通发票（含电子普通发票、卷式发票、通行费发票）、全电发票、机动车销售统一发票、货物运输业增值税专用发票、二手车销售统一发票。
+
+默认接口请求频率限制：20次/秒。
      * @param req VatInvoiceVerifyRequest
      * @return VatInvoiceVerifyResponse
      * @throws TencentCloudSDKException
@@ -1661,6 +2094,7 @@ public class OcrClient extends AbstractClient{
     public VatInvoiceVerifyResponse VatInvoiceVerify(VatInvoiceVerifyRequest req) throws TencentCloudSDKException{
         JsonResponseModel<VatInvoiceVerifyResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<VatInvoiceVerifyResponse>>() {
                 }.getType();
@@ -1674,6 +2108,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持增值税发票的准确性核验，您可以通过输入增值税发票的关键字段提供所需的验证信息，接口返回真实的票面相关信息，包括发票代码、发票号码、开票日期、金额、消费类型、购方名称、购方税号、销方名称、销方税号等多个常用字段。支持多种发票类型核验，包括增值税专用发票、增值税普通发票（含电子普通发票、卷式发票、通行费发票）、全电发票、机动车销售统一发票、货物运输业增值税专用发票、二手车销售统一发票、通用机打电子发票（广东和浙江）。
+
+默认接口请求频率限制：20次/秒。
      * @param req VatInvoiceVerifyNewRequest
      * @return VatInvoiceVerifyNewResponse
      * @throws TencentCloudSDKException
@@ -1681,6 +2117,7 @@ public class OcrClient extends AbstractClient{
     public VatInvoiceVerifyNewResponse VatInvoiceVerifyNew(VatInvoiceVerifyNewRequest req) throws TencentCloudSDKException{
         JsonResponseModel<VatInvoiceVerifyNewResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<VatInvoiceVerifyNewResponse>>() {
                 }.getType();
@@ -1693,7 +2130,9 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持对增值税发票（卷票）的发票代码、发票号码、日期、校验码、合计金额（小写）等关键字段的识别。
+     *本接口支持对增值税发票（卷票）关键字段的识别，包括的发票代码、合计金额(小写)、合计金额(大写)、开票日期、发票号码、购买方识别号、销售方识别号、校验码、销售方名称、购买方名称、发票消费类型、省、市、是否有公司印章、单价、金额、数量、服务类型、品名、种类等。
+
+默认接口请求频率限制：5次/秒。
      * @param req VatRollInvoiceOCRRequest
      * @return VatRollInvoiceOCRResponse
      * @throws TencentCloudSDKException
@@ -1701,6 +2140,7 @@ public class OcrClient extends AbstractClient{
     public VatRollInvoiceOCRResponse VatRollInvoiceOCR(VatRollInvoiceOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<VatRollInvoiceOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<VatRollInvoiceOCRResponse>>() {
                 }.getType();
@@ -1719,7 +2159,7 @@ public class OcrClient extends AbstractClient{
 
 行驶证副页：号牌号码、档案编号、核定载人数、总质量、整备质量、核定载质量、外廓尺寸、准牵引总质量、备注、检验记录。
 
-另外，本接口还支持复印件、翻拍和PS告警功能。
+另外，本接口还支持复印件、翻拍告警功能。
 
 默认接口请求频率限制：10次/秒。
      * @param req VehicleLicenseOCRRequest
@@ -1729,6 +2169,7 @@ public class OcrClient extends AbstractClient{
     public VehicleLicenseOCRResponse VehicleLicenseOCR(VehicleLicenseOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<VehicleLicenseOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<VehicleLicenseOCRResponse>>() {
                 }.getType();
@@ -1742,6 +2183,8 @@ public class OcrClient extends AbstractClient{
 
     /**
      *本接口支持国内机动车登记证书主要字段的结构化识别，包括机动车所有人、身份证明名称、号码、车辆型号、车辆识别代号、发动机号、制造厂名称等。
+
+默认接口请求频率限制：5次/秒。
      * @param req VehicleRegCertOCRRequest
      * @return VehicleRegCertOCRResponse
      * @throws TencentCloudSDKException
@@ -1749,76 +2192,11 @@ public class OcrClient extends AbstractClient{
     public VehicleRegCertOCRResponse VehicleRegCertOCR(VehicleRegCertOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<VehicleRegCertOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<VehicleRegCertOCRResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "VehicleRegCertOCR");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *本接口支持营业执照信息的识别与准确性核验。
-
-您可以通过输入营业执照注册号或营业执照图片（若两者都输入则只用注册号做查询）进行核验，接口返回查询到的工商照面信息，并比对要校验的字段与查询结果的一致性。查询到工商信息包括：统一社会信用代码、经营期限、法人姓名、经营状态、经营业务范围、注册资本等。
-     * @param req VerifyBasicBizLicenseRequest
-     * @return VerifyBasicBizLicenseResponse
-     * @throws TencentCloudSDKException
-     */
-    public VerifyBasicBizLicenseResponse VerifyBasicBizLicense(VerifyBasicBizLicenseRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<VerifyBasicBizLicenseResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<VerifyBasicBizLicenseResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "VerifyBasicBizLicense");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *本接口支持营业执照信息的识别与准确性核验，返回的真实工商照面信息比营业执照识别及核验（基础版）接口更详细。
-
-您可以输入营业执照注册号或营业执照图片（若两者都输入则只用注册号做查询），接口返回查询到的工商照面信息，并比对要校验的字段与查询结果的一致性。
-
-查询到工商信息包括：统一社会信用代码、组织机构代码、经营期限、法人姓名、经营状态、经营业务范围及方式、注册资金、注册币种、登记机关、开业日期、企业（机构）类型、注销日期、吊销日期、许可经营项目、一般经营项目、核准时间、省、地级市、区/县、住所所在行政区划代码、行业门类代码、行业门类名称、国民经济行业代码、国民经济行业名称、经营（业务）范围等。
-     * @param req VerifyBizLicenseRequest
-     * @return VerifyBizLicenseResponse
-     * @throws TencentCloudSDKException
-     */
-    public VerifyBizLicenseResponse VerifyBizLicense(VerifyBizLicenseRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<VerifyBizLicenseResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<VerifyBizLicenseResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "VerifyBizLicense");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *此接口基于企业四要素授权“姓名、证件号码、企业标识、企业全称”，验证企业信息是否一致。
-     * @param req VerifyEnterpriseFourFactorsRequest
-     * @return VerifyEnterpriseFourFactorsResponse
-     * @throws TencentCloudSDKException
-     */
-    public VerifyEnterpriseFourFactorsResponse VerifyEnterpriseFourFactors(VerifyEnterpriseFourFactorsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<VerifyEnterpriseFourFactorsResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<VerifyEnterpriseFourFactorsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "VerifyEnterpriseFourFactors");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1835,6 +2213,7 @@ public class OcrClient extends AbstractClient{
     public VerifyOfdVatInvoiceOCRResponse VerifyOfdVatInvoiceOCR(VerifyOfdVatInvoiceOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<VerifyOfdVatInvoiceOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<VerifyOfdVatInvoiceOCRResponse>>() {
                 }.getType();
@@ -1855,6 +2234,7 @@ public class OcrClient extends AbstractClient{
     public VinOCRResponse VinOCR(VinOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<VinOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<VinOCRResponse>>() {
                 }.getType();
@@ -1867,7 +2247,7 @@ public class OcrClient extends AbstractClient{
     }
 
     /**
-     *本接口支持市面上主流版式电子运单的识别，包括收件人和寄件人的姓名、电话、地址以及运单号等字段，精度均处于业界领先水平，识别准确率达到99%以上。
+     *本接口支持市面上主流版式电子运单的识别，包括收件人和寄件人的姓名、电话、地址以及运单号等字段。
 
 默认接口请求频率限制：10次/秒。
      * @param req WaybillOCRRequest
@@ -1877,6 +2257,7 @@ public class OcrClient extends AbstractClient{
     public WaybillOCRResponse WaybillOCR(WaybillOCRRequest req) throws TencentCloudSDKException{
         JsonResponseModel<WaybillOCRResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<WaybillOCRResponse>>() {
                 }.getType();

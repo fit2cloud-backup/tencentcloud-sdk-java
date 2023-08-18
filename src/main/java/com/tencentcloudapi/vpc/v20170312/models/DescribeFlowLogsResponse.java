@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class DescribeFlowLogsResponse extends AbstractModel{
 
     /**
-    * 流日志实例集合
+    * 流日志实例集合。
     */
     @SerializedName("FlowLog")
     @Expose
     private FlowLog [] FlowLog;
 
     /**
-    * 流日志总数目
+    * 流日志总数目。
     */
     @SerializedName("TotalNum")
     @Expose
@@ -44,32 +44,32 @@ public class DescribeFlowLogsResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 流日志实例集合 
-     * @return FlowLog 流日志实例集合
+     * Get 流日志实例集合。 
+     * @return FlowLog 流日志实例集合。
      */
     public FlowLog [] getFlowLog() {
         return this.FlowLog;
     }
 
     /**
-     * Set 流日志实例集合
-     * @param FlowLog 流日志实例集合
+     * Set 流日志实例集合。
+     * @param FlowLog 流日志实例集合。
      */
     public void setFlowLog(FlowLog [] FlowLog) {
         this.FlowLog = FlowLog;
     }
 
     /**
-     * Get 流日志总数目 
-     * @return TotalNum 流日志总数目
+     * Get 流日志总数目。 
+     * @return TotalNum 流日志总数目。
      */
     public Long getTotalNum() {
         return this.TotalNum;
     }
 
     /**
-     * Set 流日志总数目
-     * @param TotalNum 流日志总数目
+     * Set 流日志总数目。
+     * @param TotalNum 流日志总数目。
      */
     public void setTotalNum(Long TotalNum) {
         this.TotalNum = TotalNum;

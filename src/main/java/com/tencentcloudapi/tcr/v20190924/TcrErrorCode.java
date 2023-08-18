@@ -6,8 +6,14 @@ public enum TcrErrorCode {
     // 操作失败。
      FAILEDOPERATION("FailedOperation"),
      
+    // 数据库错误。
+     FAILEDOPERATION_DBERROR("FailedOperation.DbError"),
+     
     // 依赖服务异常。
      FAILEDOPERATION_DEPENDENCEERROR("FailedOperation.DependenceError"),
+     
+    // Core 返回内容为空
+     FAILEDOPERATION_EMPTYCOREBODY("FailedOperation.EmptyCoreBody"),
      
     // 获取数据库数据错误。
      FAILEDOPERATION_ERRORGETDBDATAERROR("FailedOperation.ErrorGetDBDataError"),
@@ -32,6 +38,9 @@ public enum TcrErrorCode {
      
     // 操作取消。
      FAILEDOPERATION_OPERATIONCANCEL("FailedOperation.OperationCancel"),
+     
+    // 先决条件不满足。
+     FAILEDOPERATION_PRECONDITIONFAILED("FailedOperation.PreconditionFailed"),
      
     // 交易失败。
      FAILEDOPERATION_TRADEFAILED("FailedOperation.TradeFailed"),

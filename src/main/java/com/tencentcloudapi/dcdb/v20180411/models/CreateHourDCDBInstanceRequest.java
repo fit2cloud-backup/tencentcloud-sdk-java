@@ -90,11 +90,7 @@ public class CreateHourDCDBInstanceRequest extends AbstractModel{
     private Long ShardCpu;
 
     /**
-    * 数据库引擎版本，当前可选：10.0.10，10.1.9，5.7.17。
-10.0.10 - Mariadb 10.0.10；
-10.1.9 - Mariadb 10.1.9；
-5.7.17 - Percona 5.7.17。
-如果不填的话，默认为10.1.9，表示Mariadb 10.1.9。
+    * 数据库引擎版本，当前可选：8.0，5.7，10.1，10.0。
     */
     @SerializedName("DbVersionId")
     @Expose
@@ -122,7 +118,7 @@ public class CreateHourDCDBInstanceRequest extends AbstractModel{
     private String InstanceName;
 
     /**
-    * 是否支持IPv6
+    * 是否支持IPv6，0:不支持，1:支持
     */
     @SerializedName("Ipv6Flag")
     @Expose
@@ -164,7 +160,7 @@ public class CreateHourDCDBInstanceRequest extends AbstractModel{
     private String RollbackInstanceId;
 
     /**
-    * 回档时间
+    * 回档时间，例如“2021-11-22 00:00:00”
     */
     @SerializedName("RollbackTime")
     @Expose
@@ -338,32 +334,16 @@ public class CreateHourDCDBInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 数据库引擎版本，当前可选：10.0.10，10.1.9，5.7.17。
-10.0.10 - Mariadb 10.0.10；
-10.1.9 - Mariadb 10.1.9；
-5.7.17 - Percona 5.7.17。
-如果不填的话，默认为10.1.9，表示Mariadb 10.1.9。 
-     * @return DbVersionId 数据库引擎版本，当前可选：10.0.10，10.1.9，5.7.17。
-10.0.10 - Mariadb 10.0.10；
-10.1.9 - Mariadb 10.1.9；
-5.7.17 - Percona 5.7.17。
-如果不填的话，默认为10.1.9，表示Mariadb 10.1.9。
+     * Get 数据库引擎版本，当前可选：8.0，5.7，10.1，10.0。 
+     * @return DbVersionId 数据库引擎版本，当前可选：8.0，5.7，10.1，10.0。
      */
     public String getDbVersionId() {
         return this.DbVersionId;
     }
 
     /**
-     * Set 数据库引擎版本，当前可选：10.0.10，10.1.9，5.7.17。
-10.0.10 - Mariadb 10.0.10；
-10.1.9 - Mariadb 10.1.9；
-5.7.17 - Percona 5.7.17。
-如果不填的话，默认为10.1.9，表示Mariadb 10.1.9。
-     * @param DbVersionId 数据库引擎版本，当前可选：10.0.10，10.1.9，5.7.17。
-10.0.10 - Mariadb 10.0.10；
-10.1.9 - Mariadb 10.1.9；
-5.7.17 - Percona 5.7.17。
-如果不填的话，默认为10.1.9，表示Mariadb 10.1.9。
+     * Set 数据库引擎版本，当前可选：8.0，5.7，10.1，10.0。
+     * @param DbVersionId 数据库引擎版本，当前可选：8.0，5.7，10.1，10.0。
      */
     public void setDbVersionId(String DbVersionId) {
         this.DbVersionId = DbVersionId;
@@ -418,16 +398,16 @@ public class CreateHourDCDBInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否支持IPv6 
-     * @return Ipv6Flag 是否支持IPv6
+     * Get 是否支持IPv6，0:不支持，1:支持 
+     * @return Ipv6Flag 是否支持IPv6，0:不支持，1:支持
      */
     public Long getIpv6Flag() {
         return this.Ipv6Flag;
     }
 
     /**
-     * Set 是否支持IPv6
-     * @param Ipv6Flag 是否支持IPv6
+     * Set 是否支持IPv6，0:不支持，1:支持
+     * @param Ipv6Flag 是否支持IPv6，0:不支持，1:支持
      */
     public void setIpv6Flag(Long Ipv6Flag) {
         this.Ipv6Flag = Ipv6Flag;
@@ -514,16 +494,16 @@ public class CreateHourDCDBInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 回档时间 
-     * @return RollbackTime 回档时间
+     * Get 回档时间，例如“2021-11-22 00:00:00” 
+     * @return RollbackTime 回档时间，例如“2021-11-22 00:00:00”
      */
     public String getRollbackTime() {
         return this.RollbackTime;
     }
 
     /**
-     * Set 回档时间
-     * @param RollbackTime 回档时间
+     * Set 回档时间，例如“2021-11-22 00:00:00”
+     * @param RollbackTime 回档时间，例如“2021-11-22 00:00:00”
      */
     public void setRollbackTime(String RollbackTime) {
         this.RollbackTime = RollbackTime;

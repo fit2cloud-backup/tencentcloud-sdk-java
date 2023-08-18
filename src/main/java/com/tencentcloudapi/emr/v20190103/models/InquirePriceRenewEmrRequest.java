@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class InquirePriceRenewEmrRequest extends AbstractModel{
 
     /**
-    * 实例续费的时长。需要结合TimeUnit一起使用。1表示续费1一个月
+    * 实例续费的时长。需要结合TimeUnit一起使用。1表示续费一个月
     */
     @SerializedName("TimeSpan")
     @Expose
@@ -60,23 +60,23 @@ public class InquirePriceRenewEmrRequest extends AbstractModel{
 
     /**
     * 货币种类。取值范围：
-<li>CNY：表示人民币。</li>
+<li>CNY：表示人民币。</li>
     */
     @SerializedName("Currency")
     @Expose
     private String Currency;
 
     /**
-     * Get 实例续费的时长。需要结合TimeUnit一起使用。1表示续费1一个月 
-     * @return TimeSpan 实例续费的时长。需要结合TimeUnit一起使用。1表示续费1一个月
+     * Get 实例续费的时长。需要结合TimeUnit一起使用。1表示续费一个月 
+     * @return TimeSpan 实例续费的时长。需要结合TimeUnit一起使用。1表示续费一个月
      */
     public Long getTimeSpan() {
         return this.TimeSpan;
     }
 
     /**
-     * Set 实例续费的时长。需要结合TimeUnit一起使用。1表示续费1一个月
-     * @param TimeSpan 实例续费的时长。需要结合TimeUnit一起使用。1表示续费1一个月
+     * Set 实例续费的时长。需要结合TimeUnit一起使用。1表示续费一个月
+     * @param TimeSpan 实例续费的时长。需要结合TimeUnit一起使用。1表示续费一个月
      */
     public void setTimeSpan(Long TimeSpan) {
         this.TimeSpan = TimeSpan;
@@ -152,9 +152,9 @@ public class InquirePriceRenewEmrRequest extends AbstractModel{
 
     /**
      * Get 货币种类。取值范围：
-<li>CNY：表示人民币。</li> 
+<li>CNY：表示人民币。</li> 
      * @return Currency 货币种类。取值范围：
-<li>CNY：表示人民币。</li>
+<li>CNY：表示人民币。</li>
      */
     public String getCurrency() {
         return this.Currency;
@@ -162,9 +162,9 @@ public class InquirePriceRenewEmrRequest extends AbstractModel{
 
     /**
      * Set 货币种类。取值范围：
-<li>CNY：表示人民币。</li>
+<li>CNY：表示人民币。</li>
      * @param Currency 货币种类。取值范围：
-<li>CNY：表示人民币。</li>
+<li>CNY：表示人民币。</li>
      */
     public void setCurrency(String Currency) {
         this.Currency = Currency;

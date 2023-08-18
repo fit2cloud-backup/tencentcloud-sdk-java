@@ -24,7 +24,6 @@ public class TraceItem extends AbstractModel{
 
     /**
     * 字段名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -32,23 +31,31 @@ public class TraceItem extends AbstractModel{
 
     /**
     * 字段值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Value")
     @Expose
     private String Value;
 
     /**
-    * 类型 text:文本类型, longtext:长文本类型, banner:单图片类型, image:多图片类型, video:视频类型, mp:小程序类型
-注意：此字段可能返回 null，表示取不到有效值。
+    * 字段类型
+text:文本类型, 
+longtext:长文本类型, banner:单图片类型, image:多图片类型,
+video:视频类型,
+mp:小程序类型
     */
     @SerializedName("Type")
     @Expose
     private String Type;
 
     /**
+    * 多个值
+    */
+    @SerializedName("Values")
+    @Expose
+    private String [] Values;
+
+    /**
     * 只读
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReadOnly")
     @Expose
@@ -56,23 +63,13 @@ public class TraceItem extends AbstractModel{
 
     /**
     * 扫码展示
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Hidden")
     @Expose
     private Boolean Hidden;
 
     /**
-    * 多个值
-注意：此字段可能返回 null，表示取不到有效值。
-    */
-    @SerializedName("Values")
-    @Expose
-    private String [] Values;
-
-    /**
     * 类型标识
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Key")
     @Expose
@@ -80,17 +77,28 @@ public class TraceItem extends AbstractModel{
 
     /**
     * 扩展字段
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Ext")
     @Expose
     private String Ext;
 
     /**
-     * Get 字段名称
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 额外属性
+    */
+    @SerializedName("Attrs")
+    @Expose
+    private TraceItem [] Attrs;
+
+    /**
+    * 子页面，只读
+    */
+    @SerializedName("List")
+    @Expose
+    private TraceData [] List;
+
+    /**
+     * Get 字段名称 
      * @return Name 字段名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -98,19 +106,15 @@ public class TraceItem extends AbstractModel{
 
     /**
      * Set 字段名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 字段名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 字段值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 字段值 
      * @return Value 字段值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getValue() {
         return this.Value;
@@ -118,79 +122,47 @@ public class TraceItem extends AbstractModel{
 
     /**
      * Set 字段值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Value 字段值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValue(String Value) {
         this.Value = Value;
     }
 
     /**
-     * Get 类型 text:文本类型, longtext:长文本类型, banner:单图片类型, image:多图片类型, video:视频类型, mp:小程序类型
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Type 类型 text:文本类型, longtext:长文本类型, banner:单图片类型, image:多图片类型, video:视频类型, mp:小程序类型
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 字段类型
+text:文本类型, 
+longtext:长文本类型, banner:单图片类型, image:多图片类型,
+video:视频类型,
+mp:小程序类型 
+     * @return Type 字段类型
+text:文本类型, 
+longtext:长文本类型, banner:单图片类型, image:多图片类型,
+video:视频类型,
+mp:小程序类型
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set 类型 text:文本类型, longtext:长文本类型, banner:单图片类型, image:多图片类型, video:视频类型, mp:小程序类型
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Type 类型 text:文本类型, longtext:长文本类型, banner:单图片类型, image:多图片类型, video:视频类型, mp:小程序类型
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 字段类型
+text:文本类型, 
+longtext:长文本类型, banner:单图片类型, image:多图片类型,
+video:视频类型,
+mp:小程序类型
+     * @param Type 字段类型
+text:文本类型, 
+longtext:长文本类型, banner:单图片类型, image:多图片类型,
+video:视频类型,
+mp:小程序类型
      */
     public void setType(String Type) {
         this.Type = Type;
     }
 
     /**
-     * Get 只读
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ReadOnly 只读
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public Boolean getReadOnly() {
-        return this.ReadOnly;
-    }
-
-    /**
-     * Set 只读
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ReadOnly 只读
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public void setReadOnly(Boolean ReadOnly) {
-        this.ReadOnly = ReadOnly;
-    }
-
-    /**
-     * Get 扫码展示
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Hidden 扫码展示
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public Boolean getHidden() {
-        return this.Hidden;
-    }
-
-    /**
-     * Set 扫码展示
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Hidden 扫码展示
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public void setHidden(Boolean Hidden) {
-        this.Hidden = Hidden;
-    }
-
-    /**
-     * Get 多个值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 多个值 
      * @return Values 多个值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getValues() {
         return this.Values;
@@ -198,19 +170,47 @@ public class TraceItem extends AbstractModel{
 
     /**
      * Set 多个值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Values 多个值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValues(String [] Values) {
         this.Values = Values;
     }
 
     /**
-     * Get 类型标识
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 只读 
+     * @return ReadOnly 只读
+     */
+    public Boolean getReadOnly() {
+        return this.ReadOnly;
+    }
+
+    /**
+     * Set 只读
+     * @param ReadOnly 只读
+     */
+    public void setReadOnly(Boolean ReadOnly) {
+        this.ReadOnly = ReadOnly;
+    }
+
+    /**
+     * Get 扫码展示 
+     * @return Hidden 扫码展示
+     */
+    public Boolean getHidden() {
+        return this.Hidden;
+    }
+
+    /**
+     * Set 扫码展示
+     * @param Hidden 扫码展示
+     */
+    public void setHidden(Boolean Hidden) {
+        this.Hidden = Hidden;
+    }
+
+    /**
+     * Get 类型标识 
      * @return Key 类型标识
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getKey() {
         return this.Key;
@@ -218,19 +218,15 @@ public class TraceItem extends AbstractModel{
 
     /**
      * Set 类型标识
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Key 类型标识
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKey(String Key) {
         this.Key = Key;
     }
 
     /**
-     * Get 扩展字段
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 扩展字段 
      * @return Ext 扩展字段
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getExt() {
         return this.Ext;
@@ -238,12 +234,42 @@ public class TraceItem extends AbstractModel{
 
     /**
      * Set 扩展字段
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Ext 扩展字段
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExt(String Ext) {
         this.Ext = Ext;
+    }
+
+    /**
+     * Get 额外属性 
+     * @return Attrs 额外属性
+     */
+    public TraceItem [] getAttrs() {
+        return this.Attrs;
+    }
+
+    /**
+     * Set 额外属性
+     * @param Attrs 额外属性
+     */
+    public void setAttrs(TraceItem [] Attrs) {
+        this.Attrs = Attrs;
+    }
+
+    /**
+     * Get 子页面，只读 
+     * @return List 子页面，只读
+     */
+    public TraceData [] getList() {
+        return this.List;
+    }
+
+    /**
+     * Set 子页面，只读
+     * @param List 子页面，只读
+     */
+    public void setList(TraceData [] List) {
+        this.List = List;
     }
 
     public TraceItem() {
@@ -263,23 +289,35 @@ public class TraceItem extends AbstractModel{
         if (source.Type != null) {
             this.Type = new String(source.Type);
         }
-        if (source.ReadOnly != null) {
-            this.ReadOnly = new Boolean(source.ReadOnly);
-        }
-        if (source.Hidden != null) {
-            this.Hidden = new Boolean(source.Hidden);
-        }
         if (source.Values != null) {
             this.Values = new String[source.Values.length];
             for (int i = 0; i < source.Values.length; i++) {
                 this.Values[i] = new String(source.Values[i]);
             }
         }
+        if (source.ReadOnly != null) {
+            this.ReadOnly = new Boolean(source.ReadOnly);
+        }
+        if (source.Hidden != null) {
+            this.Hidden = new Boolean(source.Hidden);
+        }
         if (source.Key != null) {
             this.Key = new String(source.Key);
         }
         if (source.Ext != null) {
             this.Ext = new String(source.Ext);
+        }
+        if (source.Attrs != null) {
+            this.Attrs = new TraceItem[source.Attrs.length];
+            for (int i = 0; i < source.Attrs.length; i++) {
+                this.Attrs[i] = new TraceItem(source.Attrs[i]);
+            }
+        }
+        if (source.List != null) {
+            this.List = new TraceData[source.List.length];
+            for (int i = 0; i < source.List.length; i++) {
+                this.List[i] = new TraceData(source.List[i]);
+            }
         }
     }
 
@@ -291,11 +329,13 @@ public class TraceItem extends AbstractModel{
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Value", this.Value);
         this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamArraySimple(map, prefix + "Values.", this.Values);
         this.setParamSimple(map, prefix + "ReadOnly", this.ReadOnly);
         this.setParamSimple(map, prefix + "Hidden", this.Hidden);
-        this.setParamArraySimple(map, prefix + "Values.", this.Values);
         this.setParamSimple(map, prefix + "Key", this.Key);
         this.setParamSimple(map, prefix + "Ext", this.Ext);
+        this.setParamArrayObj(map, prefix + "Attrs.", this.Attrs);
+        this.setParamArrayObj(map, prefix + "List.", this.List);
 
     }
 }

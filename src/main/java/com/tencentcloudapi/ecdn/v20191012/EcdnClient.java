@@ -29,7 +29,7 @@ public class EcdnClient extends AbstractClient{
     private static String endpoint = "ecdn.tencentcloudapi.com";
     private static String service = "ecdn";
     private static String version = "2019-10-12";
-
+    
     public EcdnClient(Credential credential, String region) {
         this(credential, region, new ClientProfile());
     }
@@ -39,7 +39,9 @@ public class EcdnClient extends AbstractClient{
     }
 
     /**
-     *本接口（AddEcdnDomain）用于创建加速域名。
+     *ECDN融合CDN后，接口都用CDN的，此接口已经废弃
+
+本接口（AddEcdnDomain）用于创建加速域名。
 
 >?  若您的业务已迁移至 CDN 控制台，请参考<a href="https://cloud.tencent.com/document/api/228/41123"> CDN 接口文档</a>，使用  CDN 相关API 进行操作。
      * @param req AddEcdnDomainRequest
@@ -49,6 +51,7 @@ public class EcdnClient extends AbstractClient{
     public AddEcdnDomainResponse AddEcdnDomain(AddEcdnDomainRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AddEcdnDomainResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AddEcdnDomainResponse>>() {
                 }.getType();
@@ -61,7 +64,9 @@ public class EcdnClient extends AbstractClient{
     }
 
     /**
-     *生成一条子域名解析，提示客户添加到域名解析上，用于泛域名及域名取回校验归属权。
+     *ECDN融合CDN后，接口都用CDN的，此接口已经废弃
+
+生成一条子域名解析，提示客户添加到域名解析上，用于泛域名及域名取回校验归属权。
 
 >?  若您的业务已迁移至 CDN 控制台，请参考<a href="	https://cloud.tencent.com/document/api/228/48118"> CDN 接口文档</a>，使用  CDN 相关API 进行操作。
      * @param req CreateVerifyRecordRequest
@@ -71,6 +76,7 @@ public class EcdnClient extends AbstractClient{
     public CreateVerifyRecordResponse CreateVerifyRecord(CreateVerifyRecordRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateVerifyRecordResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateVerifyRecordResponse>>() {
                 }.getType();
@@ -83,7 +89,9 @@ public class EcdnClient extends AbstractClient{
     }
 
     /**
-     *本接口（DeleteEcdnDomain）用于删除指定加速域名。待删除域名必须处于已停用状态。
+     *ECDN融合CDN后，接口都用CDN的，此接口已经废弃
+
+本接口（DeleteEcdnDomain）用于删除指定加速域名。待删除域名必须处于已停用状态。
 
 >?  若您的业务已迁移至 CDN 控制台，请参考<a href="https://cloud.tencent.com/document/api/228/41122"> CDN 接口文档</a>，使用  CDN 相关API 进行操作。
      * @param req DeleteEcdnDomainRequest
@@ -93,6 +101,7 @@ public class EcdnClient extends AbstractClient{
     public DeleteEcdnDomainResponse DeleteEcdnDomain(DeleteEcdnDomainRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteEcdnDomainResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteEcdnDomainResponse>>() {
                 }.getType();
@@ -115,6 +124,7 @@ public class EcdnClient extends AbstractClient{
     public DescribeDomainsResponse DescribeDomains(DescribeDomainsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDomainsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDomainsResponse>>() {
                 }.getType();
@@ -137,6 +147,7 @@ public class EcdnClient extends AbstractClient{
     public DescribeDomainsConfigResponse DescribeDomainsConfig(DescribeDomainsConfigRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDomainsConfigResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDomainsConfigResponse>>() {
                 }.getType();
@@ -157,6 +168,7 @@ public class EcdnClient extends AbstractClient{
     public DescribeEcdnDomainLogsResponse DescribeEcdnDomainLogs(DescribeEcdnDomainLogsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeEcdnDomainLogsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeEcdnDomainLogsResponse>>() {
                 }.getType();
@@ -179,6 +191,7 @@ public class EcdnClient extends AbstractClient{
     public DescribeEcdnDomainStatisticsResponse DescribeEcdnDomainStatistics(DescribeEcdnDomainStatisticsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeEcdnDomainStatisticsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeEcdnDomainStatisticsResponse>>() {
                 }.getType();
@@ -207,6 +220,7 @@ public class EcdnClient extends AbstractClient{
     public DescribeEcdnStatisticsResponse DescribeEcdnStatistics(DescribeEcdnStatisticsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeEcdnStatisticsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeEcdnStatisticsResponse>>() {
                 }.getType();
@@ -229,6 +243,7 @@ public class EcdnClient extends AbstractClient{
     public DescribeIpStatusResponse DescribeIpStatus(DescribeIpStatusRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeIpStatusResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeIpStatusResponse>>() {
                 }.getType();
@@ -241,7 +256,9 @@ public class EcdnClient extends AbstractClient{
     }
 
     /**
-     *查询刷新接口的用量配额。
+     *ECDN融合CDN后，接口都用CDN的，此接口已经废弃
+
+查询刷新接口的用量配额。
 
 >?  若您的业务已迁移至 CDN 控制台，请参考<a href="https://cloud.tencent.com/document/api/228/41956"> CDN 接口文档</a>，使用  CDN 相关API 进行操作。
      * @param req DescribePurgeQuotaRequest
@@ -251,6 +268,7 @@ public class EcdnClient extends AbstractClient{
     public DescribePurgeQuotaResponse DescribePurgeQuota(DescribePurgeQuotaRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribePurgeQuotaResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribePurgeQuotaResponse>>() {
                 }.getType();
@@ -273,6 +291,7 @@ public class EcdnClient extends AbstractClient{
     public DescribePurgeTasksResponse DescribePurgeTasks(DescribePurgeTasksRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribePurgeTasksResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribePurgeTasksResponse>>() {
                 }.getType();
@@ -285,7 +304,9 @@ public class EcdnClient extends AbstractClient{
     }
 
     /**
-     *PurgePathCache 用于批量刷新目录缓存，一次提交将返回一个刷新任务id。
+     *ECDN融合CDN后，接口都用CDN的，此接口已经废弃
+
+PurgePathCache 用于批量刷新目录缓存，一次提交将返回一个刷新任务id。
 
 >?  若您的业务已迁移至 CDN 控制台，请参考<a href="	https://cloud.tencent.com/document/api/570/42475"> CDN 接口文档</a>，使用  CDN 相关API 进行操作。
      * @param req PurgePathCacheRequest
@@ -295,6 +316,7 @@ public class EcdnClient extends AbstractClient{
     public PurgePathCacheResponse PurgePathCache(PurgePathCacheRequest req) throws TencentCloudSDKException{
         JsonResponseModel<PurgePathCacheResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<PurgePathCacheResponse>>() {
                 }.getType();
@@ -317,6 +339,7 @@ public class EcdnClient extends AbstractClient{
     public PurgeUrlsCacheResponse PurgeUrlsCache(PurgeUrlsCacheRequest req) throws TencentCloudSDKException{
         JsonResponseModel<PurgeUrlsCacheResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<PurgeUrlsCacheResponse>>() {
                 }.getType();
@@ -329,7 +352,9 @@ public class EcdnClient extends AbstractClient{
     }
 
     /**
-     *本接口（StartEcdnDomain）用于启用加速域名，待启用域名必须处于已下线状态。
+     *ECDN融合CDN后，接口都用CDN的，此接口已经废弃
+
+本接口（StartEcdnDomain）用于启用加速域名，待启用域名必须处于已下线状态。
 
 >?  若您的业务已迁移至 CDN 控制台，请参考<a href="https://cloud.tencent.com/document/product/228/41121"> CDN 接口文档</a>，使用  CDN 相关API 进行操作。
      * @param req StartEcdnDomainRequest
@@ -339,6 +364,7 @@ public class EcdnClient extends AbstractClient{
     public StartEcdnDomainResponse StartEcdnDomain(StartEcdnDomainRequest req) throws TencentCloudSDKException{
         JsonResponseModel<StartEcdnDomainResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<StartEcdnDomainResponse>>() {
                 }.getType();
@@ -351,7 +377,9 @@ public class EcdnClient extends AbstractClient{
     }
 
     /**
-     *本接口（StopCdnDomain）用于停止加速域名，待停用加速域名必须处于已上线或部署中状态。
+     *ECDN融合CDN后，接口都用CDN的，此接口已经废弃
+
+本接口（StopCdnDomain）用于停止加速域名，待停用加速域名必须处于已上线或部署中状态。
 
 >?  若您的业务已迁移至 CDN 控制台，请参考<a href="https://cloud.tencent.com/document/product/228/41120"> CDN 接口文档</a>，使用  CDN 相关API 进行操作。
      * @param req StopEcdnDomainRequest
@@ -361,6 +389,7 @@ public class EcdnClient extends AbstractClient{
     public StopEcdnDomainResponse StopEcdnDomain(StopEcdnDomainRequest req) throws TencentCloudSDKException{
         JsonResponseModel<StopEcdnDomainResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<StopEcdnDomainResponse>>() {
                 }.getType();
@@ -373,7 +402,9 @@ public class EcdnClient extends AbstractClient{
     }
 
     /**
-     *本接口（UpdateDomainConfig）用于更新ECDN加速域名配置信息。
+     *ECDN融合CDN后，接口都用CDN的，此接口已经废弃
+
+本接口（UpdateDomainConfig）用于更新ECDN加速域名配置信息。
 注意：如果需要更新复杂类型的配置项，必须传递整个对象的所有属性，未传递的属性将使用默认值。建议通过查询接口获取配置属性后，直接修改后传递给本接口。Https配置由于证书的特殊性，更新时不用传递证书和密钥字段。
 
 >?  若您的业务已迁移至 CDN 控制台，请参考<a href="https://cloud.tencent.com/document/product/228/41116"> CDN 接口文档</a>，使用  CDN 相关API 进行操作。
@@ -385,6 +416,7 @@ public class EcdnClient extends AbstractClient{
     public UpdateDomainConfigResponse UpdateDomainConfig(UpdateDomainConfigRequest req) throws TencentCloudSDKException{
         JsonResponseModel<UpdateDomainConfigResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<UpdateDomainConfigResponse>>() {
                 }.getType();

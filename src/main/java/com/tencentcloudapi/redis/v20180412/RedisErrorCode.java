@@ -96,6 +96,9 @@ public enum RedisErrorCode {
     // 业务参数错误。
      INVALIDPARAMETER_INVALIDPARAMETER("InvalidParameter.InvalidParameter"),
      
+    // 不是vpc网络下实例。
+     INVALIDPARAMETER_ISNOTVPCINSTANCE("InvalidParameter.IsNotVpcInstance"),
+     
     // 参数错误，不支持操作。
      INVALIDPARAMETER_NOTSUPPORTED("InvalidParameter.NotSupported"),
      
@@ -192,6 +195,9 @@ public enum RedisErrorCode {
     // 购买时长非法，时长最少1个月。
      LIMITEXCEEDED_PERIODLESSTHANMINLIMIT("LimitExceeded.PeriodLessThanMinLimit"),
      
+    // 请求的 redis 数量超过最大/最小购买数限制。
+     LIMITEXCEEDED_REACHTHEAMOUNTLIMIT("LimitExceeded.ReachTheAmountLimit"),
+     
     // 复制组已锁定。
      LIMITEXCEEDED_REPLICATIONGROUPLOCKED("LimitExceeded.ReplicationGroupLocked"),
      
@@ -266,6 +272,9 @@ public enum RedisErrorCode {
      
     // 请求的区域暂时不提供redis服务。
      RESOURCEUNAVAILABLE_NOREDISSERVICE("ResourceUnavailable.NoRedisService"),
+     
+    // 请求的 zoneId 不提供 redis服务。
+     RESOURCEUNAVAILABLE_NOSERVICEAVAILABLEFORTHISZONEID("ResourceUnavailable.NoServiceAvailableForThisZoneId"),
      
     // 请求的区域暂时不提供请求类型的redis服务。
      RESOURCEUNAVAILABLE_NOTYPEIDREDISSERVICE("ResourceUnavailable.NoTypeIdRedisService"),

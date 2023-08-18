@@ -51,6 +51,38 @@ public class ConsumptionBusinessSummaryDataItem extends AbstractModel{
     private ConsumptionSummaryTrend Trend;
 
     /**
+    * 现金
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CashPayAmount")
+    @Expose
+    private String CashPayAmount;
+
+    /**
+    * 赠送金
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IncentivePayAmount")
+    @Expose
+    private String IncentivePayAmount;
+
+    /**
+    * 代金券
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("VoucherPayAmount")
+    @Expose
+    private String VoucherPayAmount;
+
+    /**
+    * 分成金
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TransferPayAmount")
+    @Expose
+    private String TransferPayAmount;
+
+    /**
      * Get 产品名称代码 
      * @return BusinessCode 产品名称代码
      */
@@ -114,6 +146,86 @@ public class ConsumptionBusinessSummaryDataItem extends AbstractModel{
         this.Trend = Trend;
     }
 
+    /**
+     * Get 现金
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CashPayAmount 现金
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCashPayAmount() {
+        return this.CashPayAmount;
+    }
+
+    /**
+     * Set 现金
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CashPayAmount 现金
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCashPayAmount(String CashPayAmount) {
+        this.CashPayAmount = CashPayAmount;
+    }
+
+    /**
+     * Get 赠送金
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IncentivePayAmount 赠送金
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getIncentivePayAmount() {
+        return this.IncentivePayAmount;
+    }
+
+    /**
+     * Set 赠送金
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IncentivePayAmount 赠送金
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIncentivePayAmount(String IncentivePayAmount) {
+        this.IncentivePayAmount = IncentivePayAmount;
+    }
+
+    /**
+     * Get 代金券
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return VoucherPayAmount 代金券
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getVoucherPayAmount() {
+        return this.VoucherPayAmount;
+    }
+
+    /**
+     * Set 代金券
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param VoucherPayAmount 代金券
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setVoucherPayAmount(String VoucherPayAmount) {
+        this.VoucherPayAmount = VoucherPayAmount;
+    }
+
+    /**
+     * Get 分成金
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TransferPayAmount 分成金
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTransferPayAmount() {
+        return this.TransferPayAmount;
+    }
+
+    /**
+     * Set 分成金
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TransferPayAmount 分成金
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTransferPayAmount(String TransferPayAmount) {
+        this.TransferPayAmount = TransferPayAmount;
+    }
+
     public ConsumptionBusinessSummaryDataItem() {
     }
 
@@ -134,6 +246,18 @@ public class ConsumptionBusinessSummaryDataItem extends AbstractModel{
         if (source.Trend != null) {
             this.Trend = new ConsumptionSummaryTrend(source.Trend);
         }
+        if (source.CashPayAmount != null) {
+            this.CashPayAmount = new String(source.CashPayAmount);
+        }
+        if (source.IncentivePayAmount != null) {
+            this.IncentivePayAmount = new String(source.IncentivePayAmount);
+        }
+        if (source.VoucherPayAmount != null) {
+            this.VoucherPayAmount = new String(source.VoucherPayAmount);
+        }
+        if (source.TransferPayAmount != null) {
+            this.TransferPayAmount = new String(source.TransferPayAmount);
+        }
     }
 
 
@@ -145,6 +269,10 @@ public class ConsumptionBusinessSummaryDataItem extends AbstractModel{
         this.setParamSimple(map, prefix + "BusinessCodeName", this.BusinessCodeName);
         this.setParamSimple(map, prefix + "RealTotalCost", this.RealTotalCost);
         this.setParamObj(map, prefix + "Trend.", this.Trend);
+        this.setParamSimple(map, prefix + "CashPayAmount", this.CashPayAmount);
+        this.setParamSimple(map, prefix + "IncentivePayAmount", this.IncentivePayAmount);
+        this.setParamSimple(map, prefix + "VoucherPayAmount", this.VoucherPayAmount);
+        this.setParamSimple(map, prefix + "TransferPayAmount", this.TransferPayAmount);
 
     }
 }

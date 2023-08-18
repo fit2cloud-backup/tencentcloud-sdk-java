@@ -37,11 +37,18 @@ public class AccountPrivilegeModifyInfo extends AbstractModel{
     private DBPrivilegeModifyInfo [] DBPrivileges;
 
     /**
-    * 是否为管理员账户
+    * 表示是否为管理员账户，当值为true，表示是 管理员。若实例 是 单节点，则管理员所在的 账号类型为超级权限账号 ，即AccountType=L0；若实例 是 双节点，则管理员所在的 账号类型为高级权限账号，即AccountType=L1；当值为false，表示 不是管理员，则账号类型为普通账号，即AccountType=L3
     */
     @SerializedName("IsAdmin")
     @Expose
     private Boolean IsAdmin;
+
+    /**
+    * 账号类型，IsAdmin字段的扩展字段。 L0-超级权限(基础版独有),L1-高级权限,L2-特殊权限,L3-普通权限，默认L3
+    */
+    @SerializedName("AccountType")
+    @Expose
+    private String AccountType;
 
     /**
      * Get 数据库用户名 
@@ -76,19 +83,35 @@ public class AccountPrivilegeModifyInfo extends AbstractModel{
     }
 
     /**
-     * Get 是否为管理员账户 
-     * @return IsAdmin 是否为管理员账户
+     * Get 表示是否为管理员账户，当值为true，表示是 管理员。若实例 是 单节点，则管理员所在的 账号类型为超级权限账号 ，即AccountType=L0；若实例 是 双节点，则管理员所在的 账号类型为高级权限账号，即AccountType=L1；当值为false，表示 不是管理员，则账号类型为普通账号，即AccountType=L3 
+     * @return IsAdmin 表示是否为管理员账户，当值为true，表示是 管理员。若实例 是 单节点，则管理员所在的 账号类型为超级权限账号 ，即AccountType=L0；若实例 是 双节点，则管理员所在的 账号类型为高级权限账号，即AccountType=L1；当值为false，表示 不是管理员，则账号类型为普通账号，即AccountType=L3
      */
     public Boolean getIsAdmin() {
         return this.IsAdmin;
     }
 
     /**
-     * Set 是否为管理员账户
-     * @param IsAdmin 是否为管理员账户
+     * Set 表示是否为管理员账户，当值为true，表示是 管理员。若实例 是 单节点，则管理员所在的 账号类型为超级权限账号 ，即AccountType=L0；若实例 是 双节点，则管理员所在的 账号类型为高级权限账号，即AccountType=L1；当值为false，表示 不是管理员，则账号类型为普通账号，即AccountType=L3
+     * @param IsAdmin 表示是否为管理员账户，当值为true，表示是 管理员。若实例 是 单节点，则管理员所在的 账号类型为超级权限账号 ，即AccountType=L0；若实例 是 双节点，则管理员所在的 账号类型为高级权限账号，即AccountType=L1；当值为false，表示 不是管理员，则账号类型为普通账号，即AccountType=L3
      */
     public void setIsAdmin(Boolean IsAdmin) {
         this.IsAdmin = IsAdmin;
+    }
+
+    /**
+     * Get 账号类型，IsAdmin字段的扩展字段。 L0-超级权限(基础版独有),L1-高级权限,L2-特殊权限,L3-普通权限，默认L3 
+     * @return AccountType 账号类型，IsAdmin字段的扩展字段。 L0-超级权限(基础版独有),L1-高级权限,L2-特殊权限,L3-普通权限，默认L3
+     */
+    public String getAccountType() {
+        return this.AccountType;
+    }
+
+    /**
+     * Set 账号类型，IsAdmin字段的扩展字段。 L0-超级权限(基础版独有),L1-高级权限,L2-特殊权限,L3-普通权限，默认L3
+     * @param AccountType 账号类型，IsAdmin字段的扩展字段。 L0-超级权限(基础版独有),L1-高级权限,L2-特殊权限,L3-普通权限，默认L3
+     */
+    public void setAccountType(String AccountType) {
+        this.AccountType = AccountType;
     }
 
     public AccountPrivilegeModifyInfo() {
@@ -111,6 +134,9 @@ public class AccountPrivilegeModifyInfo extends AbstractModel{
         if (source.IsAdmin != null) {
             this.IsAdmin = new Boolean(source.IsAdmin);
         }
+        if (source.AccountType != null) {
+            this.AccountType = new String(source.AccountType);
+        }
     }
 
 
@@ -121,6 +147,7 @@ public class AccountPrivilegeModifyInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "UserName", this.UserName);
         this.setParamArrayObj(map, prefix + "DBPrivileges.", this.DBPrivileges);
         this.setParamSimple(map, prefix + "IsAdmin", this.IsAdmin);
+        this.setParamSimple(map, prefix + "AccountType", this.AccountType);
 
     }
 }

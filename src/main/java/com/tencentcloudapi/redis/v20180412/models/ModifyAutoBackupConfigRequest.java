@@ -23,92 +23,97 @@ import java.util.HashMap;
 public class ModifyAutoBackupConfigRequest extends AbstractModel{
 
     /**
-    * 实例ID
+    * 指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
 
     /**
-    * 日期 Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday，该参数暂不支持修改。
+    * 设置自动备份周期。可设置为Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。该参数暂不支持修改。
     */
     @SerializedName("WeekDays")
     @Expose
     private String [] WeekDays;
 
     /**
-    * 时间段 00:00-01:00, 01:00-02:00...... 23:00-00:00
+    * 备份时间段。可设置为每个整点。格式如：00:00-01:00, 01:00-02:00...... 23:00-00:00。
     */
     @SerializedName("TimePeriod")
     @Expose
     private String TimePeriod;
 
     /**
-    * 自动备份类型： 1 “定时回档”
+    * 自动备份类型。目前仅能配置为：1 ，指定时备份。
     */
     @SerializedName("AutoBackupType")
     @Expose
     private Long AutoBackupType;
 
     /**
-     * Get 实例ID 
-     * @return InstanceId 实例ID
+     * Get 指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+ 
+     * @return InstanceId 指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例ID
-     * @param InstanceId 实例ID
+     * Set 指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+
+     * @param InstanceId 指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 日期 Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday，该参数暂不支持修改。 
-     * @return WeekDays 日期 Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday，该参数暂不支持修改。
+     * Get 设置自动备份周期。可设置为Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。该参数暂不支持修改。 
+     * @return WeekDays 设置自动备份周期。可设置为Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。该参数暂不支持修改。
      */
     public String [] getWeekDays() {
         return this.WeekDays;
     }
 
     /**
-     * Set 日期 Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday，该参数暂不支持修改。
-     * @param WeekDays 日期 Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday，该参数暂不支持修改。
+     * Set 设置自动备份周期。可设置为Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。该参数暂不支持修改。
+     * @param WeekDays 设置自动备份周期。可设置为Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。该参数暂不支持修改。
      */
     public void setWeekDays(String [] WeekDays) {
         this.WeekDays = WeekDays;
     }
 
     /**
-     * Get 时间段 00:00-01:00, 01:00-02:00...... 23:00-00:00 
-     * @return TimePeriod 时间段 00:00-01:00, 01:00-02:00...... 23:00-00:00
+     * Get 备份时间段。可设置为每个整点。格式如：00:00-01:00, 01:00-02:00...... 23:00-00:00。 
+     * @return TimePeriod 备份时间段。可设置为每个整点。格式如：00:00-01:00, 01:00-02:00...... 23:00-00:00。
      */
     public String getTimePeriod() {
         return this.TimePeriod;
     }
 
     /**
-     * Set 时间段 00:00-01:00, 01:00-02:00...... 23:00-00:00
-     * @param TimePeriod 时间段 00:00-01:00, 01:00-02:00...... 23:00-00:00
+     * Set 备份时间段。可设置为每个整点。格式如：00:00-01:00, 01:00-02:00...... 23:00-00:00。
+     * @param TimePeriod 备份时间段。可设置为每个整点。格式如：00:00-01:00, 01:00-02:00...... 23:00-00:00。
      */
     public void setTimePeriod(String TimePeriod) {
         this.TimePeriod = TimePeriod;
     }
 
     /**
-     * Get 自动备份类型： 1 “定时回档” 
-     * @return AutoBackupType 自动备份类型： 1 “定时回档”
+     * Get 自动备份类型。目前仅能配置为：1 ，指定时备份。 
+     * @return AutoBackupType 自动备份类型。目前仅能配置为：1 ，指定时备份。
      */
     public Long getAutoBackupType() {
         return this.AutoBackupType;
     }
 
     /**
-     * Set 自动备份类型： 1 “定时回档”
-     * @param AutoBackupType 自动备份类型： 1 “定时回档”
+     * Set 自动备份类型。目前仅能配置为：1 ，指定时备份。
+     * @param AutoBackupType 自动备份类型。目前仅能配置为：1 ，指定时备份。
      */
     public void setAutoBackupType(Long AutoBackupType) {
         this.AutoBackupType = AutoBackupType;

@@ -249,6 +249,103 @@ public class TaskCanvasInfo extends AbstractModel{
     private Long DelayTime;
 
     /**
+    * 执行开始时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ExecutionStartTime")
+    @Expose
+    private String ExecutionStartTime;
+
+    /**
+    * 执行结束时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ExecutionEndTime")
+    @Expose
+    private String ExecutionEndTime;
+
+    /**
+    * 层级
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Layer")
+    @Expose
+    private String Layer;
+
+    /**
+    * 来源数据源ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SourceServiceId")
+    @Expose
+    private String SourceServiceId;
+
+    /**
+    * 来源数据源类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SourceServiceType")
+    @Expose
+    private String SourceServiceType;
+
+    /**
+    * 目标数据源ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TargetServiceId")
+    @Expose
+    private String TargetServiceId;
+
+    /**
+    * 目标数据源类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TargetServiceType")
+    @Expose
+    private String TargetServiceType;
+
+    /**
+    * 任务告警类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AlarmType")
+    @Expose
+    private String AlarmType;
+
+    /**
+    * 任务创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CreateTime")
+    @Expose
+    private String CreateTime;
+
+    /**
+    * UserId
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UserId")
+    @Expose
+    private String UserId;
+
+    /**
+    * OwnerId
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OwnerId")
+    @Expose
+    private String OwnerId;
+
+    /**
+    * TenantId
+
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TenantId")
+    @Expose
+    private String TenantId;
+
+    /**
      * Get 任务Id
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return TaskId 任务Id
@@ -888,6 +985,250 @@ public class TaskCanvasInfo extends AbstractModel{
         this.DelayTime = DelayTime;
     }
 
+    /**
+     * Get 执行开始时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ExecutionStartTime 执行开始时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getExecutionStartTime() {
+        return this.ExecutionStartTime;
+    }
+
+    /**
+     * Set 执行开始时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ExecutionStartTime 执行开始时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setExecutionStartTime(String ExecutionStartTime) {
+        this.ExecutionStartTime = ExecutionStartTime;
+    }
+
+    /**
+     * Get 执行结束时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ExecutionEndTime 执行结束时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getExecutionEndTime() {
+        return this.ExecutionEndTime;
+    }
+
+    /**
+     * Set 执行结束时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ExecutionEndTime 执行结束时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setExecutionEndTime(String ExecutionEndTime) {
+        this.ExecutionEndTime = ExecutionEndTime;
+    }
+
+    /**
+     * Get 层级
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Layer 层级
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getLayer() {
+        return this.Layer;
+    }
+
+    /**
+     * Set 层级
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Layer 层级
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLayer(String Layer) {
+        this.Layer = Layer;
+    }
+
+    /**
+     * Get 来源数据源ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SourceServiceId 来源数据源ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSourceServiceId() {
+        return this.SourceServiceId;
+    }
+
+    /**
+     * Set 来源数据源ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SourceServiceId 来源数据源ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSourceServiceId(String SourceServiceId) {
+        this.SourceServiceId = SourceServiceId;
+    }
+
+    /**
+     * Get 来源数据源类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SourceServiceType 来源数据源类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSourceServiceType() {
+        return this.SourceServiceType;
+    }
+
+    /**
+     * Set 来源数据源类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SourceServiceType 来源数据源类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSourceServiceType(String SourceServiceType) {
+        this.SourceServiceType = SourceServiceType;
+    }
+
+    /**
+     * Get 目标数据源ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TargetServiceId 目标数据源ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTargetServiceId() {
+        return this.TargetServiceId;
+    }
+
+    /**
+     * Set 目标数据源ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TargetServiceId 目标数据源ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTargetServiceId(String TargetServiceId) {
+        this.TargetServiceId = TargetServiceId;
+    }
+
+    /**
+     * Get 目标数据源类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TargetServiceType 目标数据源类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTargetServiceType() {
+        return this.TargetServiceType;
+    }
+
+    /**
+     * Set 目标数据源类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TargetServiceType 目标数据源类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTargetServiceType(String TargetServiceType) {
+        this.TargetServiceType = TargetServiceType;
+    }
+
+    /**
+     * Get 任务告警类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AlarmType 任务告警类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAlarmType() {
+        return this.AlarmType;
+    }
+
+    /**
+     * Set 任务告警类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AlarmType 任务告警类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAlarmType(String AlarmType) {
+        this.AlarmType = AlarmType;
+    }
+
+    /**
+     * Get 任务创建时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CreateTime 任务创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCreateTime() {
+        return this.CreateTime;
+    }
+
+    /**
+     * Set 任务创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CreateTime 任务创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCreateTime(String CreateTime) {
+        this.CreateTime = CreateTime;
+    }
+
+    /**
+     * Get UserId
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UserId UserId
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getUserId() {
+        return this.UserId;
+    }
+
+    /**
+     * Set UserId
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UserId UserId
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUserId(String UserId) {
+        this.UserId = UserId;
+    }
+
+    /**
+     * Get OwnerId
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OwnerId OwnerId
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getOwnerId() {
+        return this.OwnerId;
+    }
+
+    /**
+     * Set OwnerId
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OwnerId OwnerId
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOwnerId(String OwnerId) {
+        this.OwnerId = OwnerId;
+    }
+
+    /**
+     * Get TenantId
+
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TenantId TenantId
+
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTenantId() {
+        return this.TenantId;
+    }
+
+    /**
+     * Set TenantId
+
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TenantId TenantId
+
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTenantId(String TenantId) {
+        this.TenantId = TenantId;
+    }
+
     public TaskCanvasInfo() {
     }
 
@@ -962,6 +1303,42 @@ public class TaskCanvasInfo extends AbstractModel{
         if (source.DelayTime != null) {
             this.DelayTime = new Long(source.DelayTime);
         }
+        if (source.ExecutionStartTime != null) {
+            this.ExecutionStartTime = new String(source.ExecutionStartTime);
+        }
+        if (source.ExecutionEndTime != null) {
+            this.ExecutionEndTime = new String(source.ExecutionEndTime);
+        }
+        if (source.Layer != null) {
+            this.Layer = new String(source.Layer);
+        }
+        if (source.SourceServiceId != null) {
+            this.SourceServiceId = new String(source.SourceServiceId);
+        }
+        if (source.SourceServiceType != null) {
+            this.SourceServiceType = new String(source.SourceServiceType);
+        }
+        if (source.TargetServiceId != null) {
+            this.TargetServiceId = new String(source.TargetServiceId);
+        }
+        if (source.TargetServiceType != null) {
+            this.TargetServiceType = new String(source.TargetServiceType);
+        }
+        if (source.AlarmType != null) {
+            this.AlarmType = new String(source.AlarmType);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.UserId != null) {
+            this.UserId = new String(source.UserId);
+        }
+        if (source.OwnerId != null) {
+            this.OwnerId = new String(source.OwnerId);
+        }
+        if (source.TenantId != null) {
+            this.TenantId = new String(source.TenantId);
+        }
     }
 
 
@@ -991,6 +1368,18 @@ public class TaskCanvasInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "VirtualFlag", this.VirtualFlag);
         this.setParamSimple(map, prefix + "TaskAction", this.TaskAction);
         this.setParamSimple(map, prefix + "DelayTime", this.DelayTime);
+        this.setParamSimple(map, prefix + "ExecutionStartTime", this.ExecutionStartTime);
+        this.setParamSimple(map, prefix + "ExecutionEndTime", this.ExecutionEndTime);
+        this.setParamSimple(map, prefix + "Layer", this.Layer);
+        this.setParamSimple(map, prefix + "SourceServiceId", this.SourceServiceId);
+        this.setParamSimple(map, prefix + "SourceServiceType", this.SourceServiceType);
+        this.setParamSimple(map, prefix + "TargetServiceId", this.TargetServiceId);
+        this.setParamSimple(map, prefix + "TargetServiceType", this.TargetServiceType);
+        this.setParamSimple(map, prefix + "AlarmType", this.AlarmType);
+        this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
+        this.setParamSimple(map, prefix + "UserId", this.UserId);
+        this.setParamSimple(map, prefix + "OwnerId", this.OwnerId);
+        this.setParamSimple(map, prefix + "TenantId", this.TenantId);
 
     }
 }

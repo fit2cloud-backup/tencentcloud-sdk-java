@@ -29,7 +29,7 @@ public class MariadbClient extends AbstractClient{
     private static String endpoint = "mariadb.tencentcloudapi.com";
     private static String service = "mariadb";
     private static String version = "2017-03-12";
-
+    
     public MariadbClient(Credential credential, String region) {
         this(credential, region, new ClientProfile());
     }
@@ -39,7 +39,7 @@ public class MariadbClient extends AbstractClient{
     }
 
     /**
-     *解隔离后付费实例
+     *解隔离MariaDB按量计费实例
      * @param req ActivateHourDBInstanceRequest
      * @return ActivateHourDBInstanceResponse
      * @throws TencentCloudSDKException
@@ -47,6 +47,7 @@ public class MariadbClient extends AbstractClient{
     public ActivateHourDBInstanceResponse ActivateHourDBInstance(ActivateHourDBInstanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ActivateHourDBInstanceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ActivateHourDBInstanceResponse>>() {
                 }.getType();
@@ -67,6 +68,7 @@ public class MariadbClient extends AbstractClient{
     public AssociateSecurityGroupsResponse AssociateSecurityGroups(AssociateSecurityGroupsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AssociateSecurityGroupsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AssociateSecurityGroupsResponse>>() {
                 }.getType();
@@ -87,6 +89,7 @@ public class MariadbClient extends AbstractClient{
     public CancelDcnJobResponse CancelDcnJob(CancelDcnJobRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CancelDcnJobResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CancelDcnJobResponse>>() {
                 }.getType();
@@ -107,6 +110,7 @@ public class MariadbClient extends AbstractClient{
     public CloneAccountResponse CloneAccount(CloneAccountRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CloneAccountResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CloneAccountResponse>>() {
                 }.getType();
@@ -127,6 +131,7 @@ public class MariadbClient extends AbstractClient{
     public CloseDBExtranetAccessResponse CloseDBExtranetAccess(CloseDBExtranetAccessRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CloseDBExtranetAccessResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CloseDBExtranetAccessResponse>>() {
                 }.getType();
@@ -148,6 +153,7 @@ public class MariadbClient extends AbstractClient{
     public CopyAccountPrivilegesResponse CopyAccountPrivileges(CopyAccountPrivilegesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CopyAccountPrivilegesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CopyAccountPrivilegesResponse>>() {
                 }.getType();
@@ -168,6 +174,7 @@ public class MariadbClient extends AbstractClient{
     public CreateAccountResponse CreateAccount(CreateAccountRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateAccountResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateAccountResponse>>() {
                 }.getType();
@@ -180,7 +187,7 @@ public class MariadbClient extends AbstractClient{
     }
 
     /**
-     *本接口（CreateDBInstance）用于创建包年包月的云数据库实例，可通过传入实例规格、数据库版本号、购买时长和数量等信息创建云数据库实例。
+     *本接口（CreateDBInstance）用于创建包年包月的MariaDB云数据库实例，可通过传入实例规格、数据库版本号、购买时长和数量等信息创建云数据库实例。
      * @param req CreateDBInstanceRequest
      * @return CreateDBInstanceResponse
      * @throws TencentCloudSDKException
@@ -188,6 +195,7 @@ public class MariadbClient extends AbstractClient{
     public CreateDBInstanceResponse CreateDBInstance(CreateDBInstanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateDBInstanceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateDBInstanceResponse>>() {
                 }.getType();
@@ -200,7 +208,7 @@ public class MariadbClient extends AbstractClient{
     }
 
     /**
-     *创建独享集群Mariadb实例
+     *创建Mariadb独享集群实例
      * @param req CreateDedicatedClusterDBInstanceRequest
      * @return CreateDedicatedClusterDBInstanceResponse
      * @throws TencentCloudSDKException
@@ -208,6 +216,7 @@ public class MariadbClient extends AbstractClient{
     public CreateDedicatedClusterDBInstanceResponse CreateDedicatedClusterDBInstance(CreateDedicatedClusterDBInstanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateDedicatedClusterDBInstanceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateDedicatedClusterDBInstanceResponse>>() {
                 }.getType();
@@ -220,7 +229,7 @@ public class MariadbClient extends AbstractClient{
     }
 
     /**
-     *创建后付费实例
+     *创建MariaDB按量计费实例
      * @param req CreateHourDBInstanceRequest
      * @return CreateHourDBInstanceResponse
      * @throws TencentCloudSDKException
@@ -228,6 +237,7 @@ public class MariadbClient extends AbstractClient{
     public CreateHourDBInstanceResponse CreateHourDBInstance(CreateHourDBInstanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateHourDBInstanceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateHourDBInstanceResponse>>() {
                 }.getType();
@@ -248,6 +258,7 @@ public class MariadbClient extends AbstractClient{
     public CreateTmpInstancesResponse CreateTmpInstances(CreateTmpInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateTmpInstancesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateTmpInstancesResponse>>() {
                 }.getType();
@@ -268,6 +279,7 @@ public class MariadbClient extends AbstractClient{
     public DeleteAccountResponse DeleteAccount(DeleteAccountRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteAccountResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteAccountResponse>>() {
                 }.getType();
@@ -289,6 +301,7 @@ public class MariadbClient extends AbstractClient{
     public DescribeAccountPrivilegesResponse DescribeAccountPrivileges(DescribeAccountPrivilegesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeAccountPrivilegesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeAccountPrivilegesResponse>>() {
                 }.getType();
@@ -309,10 +322,32 @@ public class MariadbClient extends AbstractClient{
     public DescribeAccountsResponse DescribeAccounts(DescribeAccountsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeAccountsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeAccountsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeAccounts");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口(DescribeBackupFiles)用于查看备份文件列表。
+     * @param req DescribeBackupFilesRequest
+     * @return DescribeBackupFilesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeBackupFilesResponse DescribeBackupFiles(DescribeBackupFilesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeBackupFilesResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeBackupFilesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeBackupFiles");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -329,10 +364,53 @@ public class MariadbClient extends AbstractClient{
     public DescribeBackupTimeResponse DescribeBackupTime(DescribeBackupTimeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeBackupTimeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeBackupTimeResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeBackupTime");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口(DescribeDBEncryptAttributes)用于查询实例数据加密状态。
+     * @param req DescribeDBEncryptAttributesRequest
+     * @return DescribeDBEncryptAttributesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeDBEncryptAttributesResponse DescribeDBEncryptAttributes(DescribeDBEncryptAttributesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeDBEncryptAttributesResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeDBEncryptAttributesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeDBEncryptAttributes");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口(DescribeDBInstanceDetail)用于查询指定实例的详细信息。
+     * @param req DescribeDBInstanceDetailRequest
+     * @return DescribeDBInstanceDetailResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeDBInstanceDetailResponse DescribeDBInstanceDetail(DescribeDBInstanceDetailRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeDBInstanceDetailResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeDBInstanceDetailResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeDBInstanceDetail");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -349,6 +427,7 @@ public class MariadbClient extends AbstractClient{
     public DescribeDBInstanceSpecsResponse DescribeDBInstanceSpecs(DescribeDBInstanceSpecsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDBInstanceSpecsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDBInstanceSpecsResponse>>() {
                 }.getType();
@@ -370,6 +449,7 @@ public class MariadbClient extends AbstractClient{
     public DescribeDBInstancesResponse DescribeDBInstances(DescribeDBInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDBInstancesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDBInstancesResponse>>() {
                 }.getType();
@@ -390,6 +470,7 @@ public class MariadbClient extends AbstractClient{
     public DescribeDBLogFilesResponse DescribeDBLogFiles(DescribeDBLogFilesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDBLogFilesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDBLogFilesResponse>>() {
                 }.getType();
@@ -410,6 +491,7 @@ public class MariadbClient extends AbstractClient{
     public DescribeDBParametersResponse DescribeDBParameters(DescribeDBParametersRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDBParametersResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDBParametersResponse>>() {
                 }.getType();
@@ -430,6 +512,7 @@ public class MariadbClient extends AbstractClient{
     public DescribeDBSecurityGroupsResponse DescribeDBSecurityGroups(DescribeDBSecurityGroupsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDBSecurityGroupsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDBSecurityGroupsResponse>>() {
                 }.getType();
@@ -450,10 +533,32 @@ public class MariadbClient extends AbstractClient{
     public DescribeDBSlowLogsResponse DescribeDBSlowLogs(DescribeDBSlowLogsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDBSlowLogsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDBSlowLogsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeDBSlowLogs");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（DescribeDBTmpInstances）用于获取实例回档生成的临时实例
+     * @param req DescribeDBTmpInstancesRequest
+     * @return DescribeDBTmpInstancesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeDBTmpInstancesResponse DescribeDBTmpInstances(DescribeDBTmpInstancesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeDBTmpInstancesResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeDBTmpInstancesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeDBTmpInstances");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -470,6 +575,7 @@ public class MariadbClient extends AbstractClient{
     public DescribeDatabaseObjectsResponse DescribeDatabaseObjects(DescribeDatabaseObjectsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDatabaseObjectsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDatabaseObjectsResponse>>() {
                 }.getType();
@@ -490,6 +596,7 @@ public class MariadbClient extends AbstractClient{
     public DescribeDatabaseTableResponse DescribeDatabaseTable(DescribeDatabaseTableRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDatabaseTableResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDatabaseTableResponse>>() {
                 }.getType();
@@ -510,6 +617,7 @@ public class MariadbClient extends AbstractClient{
     public DescribeDatabasesResponse DescribeDatabases(DescribeDatabasesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDatabasesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDatabasesResponse>>() {
                 }.getType();
@@ -530,6 +638,7 @@ public class MariadbClient extends AbstractClient{
     public DescribeDcnDetailResponse DescribeDcnDetail(DescribeDcnDetailRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDcnDetailResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDcnDetailResponse>>() {
                 }.getType();
@@ -550,6 +659,7 @@ public class MariadbClient extends AbstractClient{
     public DescribeFileDownloadUrlResponse DescribeFileDownloadUrl(DescribeFileDownloadUrlRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeFileDownloadUrlResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeFileDownloadUrlResponse>>() {
                 }.getType();
@@ -570,6 +680,7 @@ public class MariadbClient extends AbstractClient{
     public DescribeFlowResponse DescribeFlow(DescribeFlowRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeFlowResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeFlowResponse>>() {
                 }.getType();
@@ -590,6 +701,7 @@ public class MariadbClient extends AbstractClient{
     public DescribeInstanceNodeInfoResponse DescribeInstanceNodeInfo(DescribeInstanceNodeInfoRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeInstanceNodeInfoResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeInstanceNodeInfoResponse>>() {
                 }.getType();
@@ -610,6 +722,7 @@ public class MariadbClient extends AbstractClient{
     public DescribeLogFileRetentionPeriodResponse DescribeLogFileRetentionPeriod(DescribeLogFileRetentionPeriodRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeLogFileRetentionPeriodResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeLogFileRetentionPeriodResponse>>() {
                 }.getType();
@@ -630,6 +743,7 @@ public class MariadbClient extends AbstractClient{
     public DescribeOrdersResponse DescribeOrders(DescribeOrdersRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeOrdersResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeOrdersResponse>>() {
                 }.getType();
@@ -650,6 +764,7 @@ public class MariadbClient extends AbstractClient{
     public DescribePriceResponse DescribePrice(DescribePriceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribePriceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribePriceResponse>>() {
                 }.getType();
@@ -670,6 +785,7 @@ public class MariadbClient extends AbstractClient{
     public DescribeProjectSecurityGroupsResponse DescribeProjectSecurityGroups(DescribeProjectSecurityGroupsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeProjectSecurityGroupsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeProjectSecurityGroupsResponse>>() {
                 }.getType();
@@ -690,6 +806,7 @@ public class MariadbClient extends AbstractClient{
     public DescribeRenewalPriceResponse DescribeRenewalPrice(DescribeRenewalPriceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeRenewalPriceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeRenewalPriceResponse>>() {
                 }.getType();
@@ -710,6 +827,7 @@ public class MariadbClient extends AbstractClient{
     public DescribeSaleInfoResponse DescribeSaleInfo(DescribeSaleInfoRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSaleInfoResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSaleInfoResponse>>() {
                 }.getType();
@@ -730,6 +848,7 @@ public class MariadbClient extends AbstractClient{
     public DescribeUpgradePriceResponse DescribeUpgradePrice(DescribeUpgradePriceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeUpgradePriceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeUpgradePriceResponse>>() {
                 }.getType();
@@ -750,6 +869,7 @@ public class MariadbClient extends AbstractClient{
     public DestroyDBInstanceResponse DestroyDBInstance(DestroyDBInstanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DestroyDBInstanceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DestroyDBInstanceResponse>>() {
                 }.getType();
@@ -762,7 +882,7 @@ public class MariadbClient extends AbstractClient{
     }
 
     /**
-     *本接口（DestroyHourDBInstance）用于销毁按量计费实例。
+     *本接口（DestroyHourDBInstance）用于销毁MariaDB按量计费实例。
      * @param req DestroyHourDBInstanceRequest
      * @return DestroyHourDBInstanceResponse
      * @throws TencentCloudSDKException
@@ -770,6 +890,7 @@ public class MariadbClient extends AbstractClient{
     public DestroyHourDBInstanceResponse DestroyHourDBInstance(DestroyHourDBInstanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DestroyHourDBInstanceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DestroyHourDBInstanceResponse>>() {
                 }.getType();
@@ -790,6 +911,7 @@ public class MariadbClient extends AbstractClient{
     public DisassociateSecurityGroupsResponse DisassociateSecurityGroups(DisassociateSecurityGroupsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DisassociateSecurityGroupsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DisassociateSecurityGroupsResponse>>() {
                 }.getType();
@@ -810,6 +932,7 @@ public class MariadbClient extends AbstractClient{
     public FlushBinlogResponse FlushBinlog(FlushBinlogRequest req) throws TencentCloudSDKException{
         JsonResponseModel<FlushBinlogResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<FlushBinlogResponse>>() {
                 }.getType();
@@ -831,6 +954,7 @@ public class MariadbClient extends AbstractClient{
     public GrantAccountPrivilegesResponse GrantAccountPrivileges(GrantAccountPrivilegesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GrantAccountPrivilegesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<GrantAccountPrivilegesResponse>>() {
                 }.getType();
@@ -851,6 +975,7 @@ public class MariadbClient extends AbstractClient{
     public InitDBInstancesResponse InitDBInstances(InitDBInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<InitDBInstancesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<InitDBInstancesResponse>>() {
                 }.getType();
@@ -863,7 +988,7 @@ public class MariadbClient extends AbstractClient{
     }
 
     /**
-     *本接口(IsolateDBInstance)用于隔离云数据库实例（包年包月），隔离后不能通过IP和端口访问数据库。隔离的实例可在回收站中进行开机。若为欠费隔离，请尽快进行充值。
+     *本接口(IsolateDBInstance)用于隔离云数据库MariaDB实例（包年包月），隔离后不能通过IP和端口访问数据库。隔离的实例可在回收站中进行开机。若为欠费隔离，请尽快进行充值。
      * @param req IsolateDBInstanceRequest
      * @return IsolateDBInstanceResponse
      * @throws TencentCloudSDKException
@@ -871,6 +996,7 @@ public class MariadbClient extends AbstractClient{
     public IsolateDBInstanceResponse IsolateDBInstance(IsolateDBInstanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<IsolateDBInstanceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<IsolateDBInstanceResponse>>() {
                 }.getType();
@@ -891,6 +1017,7 @@ public class MariadbClient extends AbstractClient{
     public IsolateDedicatedDBInstanceResponse IsolateDedicatedDBInstance(IsolateDedicatedDBInstanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<IsolateDedicatedDBInstanceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<IsolateDedicatedDBInstanceResponse>>() {
                 }.getType();
@@ -903,7 +1030,7 @@ public class MariadbClient extends AbstractClient{
     }
 
     /**
-     *隔离后付费实例
+     *隔离MariaDB按量计费实例
      * @param req IsolateHourDBInstanceRequest
      * @return IsolateHourDBInstanceResponse
      * @throws TencentCloudSDKException
@@ -911,6 +1038,7 @@ public class MariadbClient extends AbstractClient{
     public IsolateHourDBInstanceResponse IsolateHourDBInstance(IsolateHourDBInstanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<IsolateHourDBInstanceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<IsolateHourDBInstanceResponse>>() {
                 }.getType();
@@ -931,6 +1059,7 @@ public class MariadbClient extends AbstractClient{
     public KillSessionResponse KillSession(KillSessionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<KillSessionResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<KillSessionResponse>>() {
                 }.getType();
@@ -952,6 +1081,7 @@ public class MariadbClient extends AbstractClient{
     public ModifyAccountDescriptionResponse ModifyAccountDescription(ModifyAccountDescriptionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyAccountDescriptionResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyAccountDescriptionResponse>>() {
                 }.getType();
@@ -969,7 +1099,7 @@ public class MariadbClient extends AbstractClient{
 **注意**
 - 系统保留库："mysql"，只开放["SELECT"]权限
 - 只读账号授予读写权限会报错
-- 不传该参数表示保留现有权限，如需清除，请在复杂类型Privileges字段传空数组
+- 不传权限参数表示保留现有权限，如需清除，请在复杂类型Privileges字段传空数组
      * @param req ModifyAccountPrivilegesRequest
      * @return ModifyAccountPrivilegesResponse
      * @throws TencentCloudSDKException
@@ -977,6 +1107,7 @@ public class MariadbClient extends AbstractClient{
     public ModifyAccountPrivilegesResponse ModifyAccountPrivileges(ModifyAccountPrivilegesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyAccountPrivilegesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyAccountPrivilegesResponse>>() {
                 }.getType();
@@ -997,10 +1128,32 @@ public class MariadbClient extends AbstractClient{
     public ModifyBackupTimeResponse ModifyBackupTime(ModifyBackupTimeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyBackupTimeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyBackupTimeResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifyBackupTime");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口(ModifyDBEncryptAttributes)用于修改实例数据加密。
+     * @param req ModifyDBEncryptAttributesRequest
+     * @return ModifyDBEncryptAttributesResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyDBEncryptAttributesResponse ModifyDBEncryptAttributes(ModifyDBEncryptAttributesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyDBEncryptAttributesResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyDBEncryptAttributesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyDBEncryptAttributes");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1017,6 +1170,7 @@ public class MariadbClient extends AbstractClient{
     public ModifyDBInstanceNameResponse ModifyDBInstanceName(ModifyDBInstanceNameRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyDBInstanceNameResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyDBInstanceNameResponse>>() {
                 }.getType();
@@ -1037,6 +1191,7 @@ public class MariadbClient extends AbstractClient{
     public ModifyDBInstanceSecurityGroupsResponse ModifyDBInstanceSecurityGroups(ModifyDBInstanceSecurityGroupsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyDBInstanceSecurityGroupsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyDBInstanceSecurityGroupsResponse>>() {
                 }.getType();
@@ -1057,6 +1212,7 @@ public class MariadbClient extends AbstractClient{
     public ModifyDBInstancesProjectResponse ModifyDBInstancesProject(ModifyDBInstancesProjectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyDBInstancesProjectResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyDBInstancesProjectResponse>>() {
                 }.getType();
@@ -1077,6 +1233,7 @@ public class MariadbClient extends AbstractClient{
     public ModifyDBParametersResponse ModifyDBParameters(ModifyDBParametersRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyDBParametersResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyDBParametersResponse>>() {
                 }.getType();
@@ -1097,6 +1254,7 @@ public class MariadbClient extends AbstractClient{
     public ModifyDBSyncModeResponse ModifyDBSyncMode(ModifyDBSyncModeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyDBSyncModeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyDBSyncModeResponse>>() {
                 }.getType();
@@ -1117,6 +1275,7 @@ public class MariadbClient extends AbstractClient{
     public ModifyInstanceNetworkResponse ModifyInstanceNetwork(ModifyInstanceNetworkRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyInstanceNetworkResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyInstanceNetworkResponse>>() {
                 }.getType();
@@ -1137,6 +1296,7 @@ public class MariadbClient extends AbstractClient{
     public ModifyInstanceVipResponse ModifyInstanceVip(ModifyInstanceVipRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyInstanceVipResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyInstanceVipResponse>>() {
                 }.getType();
@@ -1157,6 +1317,7 @@ public class MariadbClient extends AbstractClient{
     public ModifyInstanceVportResponse ModifyInstanceVport(ModifyInstanceVportRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyInstanceVportResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyInstanceVportResponse>>() {
                 }.getType();
@@ -1177,6 +1338,7 @@ public class MariadbClient extends AbstractClient{
     public ModifyLogFileRetentionPeriodResponse ModifyLogFileRetentionPeriod(ModifyLogFileRetentionPeriodRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyLogFileRetentionPeriodResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyLogFileRetentionPeriodResponse>>() {
                 }.getType();
@@ -1202,6 +1364,7 @@ public class MariadbClient extends AbstractClient{
     public ModifyRealServerAccessStrategyResponse ModifyRealServerAccessStrategy(ModifyRealServerAccessStrategyRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyRealServerAccessStrategyResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyRealServerAccessStrategyResponse>>() {
                 }.getType();
@@ -1222,6 +1385,7 @@ public class MariadbClient extends AbstractClient{
     public ModifySyncTaskAttributeResponse ModifySyncTaskAttribute(ModifySyncTaskAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifySyncTaskAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifySyncTaskAttributeResponse>>() {
                 }.getType();
@@ -1242,6 +1406,7 @@ public class MariadbClient extends AbstractClient{
     public OpenDBExtranetAccessResponse OpenDBExtranetAccess(OpenDBExtranetAccessRequest req) throws TencentCloudSDKException{
         JsonResponseModel<OpenDBExtranetAccessResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<OpenDBExtranetAccessResponse>>() {
                 }.getType();
@@ -1262,6 +1427,7 @@ public class MariadbClient extends AbstractClient{
     public RenewDBInstanceResponse RenewDBInstance(RenewDBInstanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RenewDBInstanceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RenewDBInstanceResponse>>() {
                 }.getType();
@@ -1283,6 +1449,7 @@ public class MariadbClient extends AbstractClient{
     public ResetAccountPasswordResponse ResetAccountPassword(ResetAccountPasswordRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ResetAccountPasswordResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ResetAccountPasswordResponse>>() {
                 }.getType();
@@ -1303,6 +1470,7 @@ public class MariadbClient extends AbstractClient{
     public RestartDBInstancesResponse RestartDBInstances(RestartDBInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RestartDBInstancesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RestartDBInstancesResponse>>() {
                 }.getType();
@@ -1323,6 +1491,7 @@ public class MariadbClient extends AbstractClient{
     public SwitchDBInstanceHAResponse SwitchDBInstanceHA(SwitchDBInstanceHARequest req) throws TencentCloudSDKException{
         JsonResponseModel<SwitchDBInstanceHAResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<SwitchDBInstanceHAResponse>>() {
                 }.getType();
@@ -1343,6 +1512,7 @@ public class MariadbClient extends AbstractClient{
     public TerminateDedicatedDBInstanceResponse TerminateDedicatedDBInstance(TerminateDedicatedDBInstanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<TerminateDedicatedDBInstanceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<TerminateDedicatedDBInstanceResponse>>() {
                 }.getType();
@@ -1363,10 +1533,32 @@ public class MariadbClient extends AbstractClient{
     public UpgradeDBInstanceResponse UpgradeDBInstance(UpgradeDBInstanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<UpgradeDBInstanceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<UpgradeDBInstanceResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "UpgradeDBInstance");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口(UpgradeDedicatedDBInstance)用于扩容独享云数据库实例。
+     * @param req UpgradeDedicatedDBInstanceRequest
+     * @return UpgradeDedicatedDBInstanceResponse
+     * @throws TencentCloudSDKException
+     */
+    public UpgradeDedicatedDBInstanceResponse UpgradeDedicatedDBInstance(UpgradeDedicatedDBInstanceRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<UpgradeDedicatedDBInstanceResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<UpgradeDedicatedDBInstanceResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "UpgradeDedicatedDBInstance");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

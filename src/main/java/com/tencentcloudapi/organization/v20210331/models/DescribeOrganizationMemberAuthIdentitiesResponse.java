@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeOrganizationMemberAuthIdentitiesResponse extends AbstractModel{
 
     /**
-    * 列表。
+    * 授权身份列表。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Items")
@@ -46,9 +46,9 @@ public class DescribeOrganizationMemberAuthIdentitiesResponse extends AbstractMo
     private String RequestId;
 
     /**
-     * Get 列表。
+     * Get 授权身份列表。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Items 列表。
+     * @return Items 授权身份列表。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public OrgMemberAuthIdentity [] getItems() {
@@ -56,9 +56,9 @@ public class DescribeOrganizationMemberAuthIdentitiesResponse extends AbstractMo
     }
 
     /**
-     * Set 列表。
+     * Set 授权身份列表。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Items 列表。
+     * @param Items 授权身份列表。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setItems(OrgMemberAuthIdentity [] Items) {

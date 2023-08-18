@@ -24,6 +24,7 @@ public class OCRDetect extends AbstractModel{
 
     /**
     * 识别到的详细信息
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Item")
     @Expose
@@ -31,14 +32,17 @@ public class OCRDetect extends AbstractModel{
 
     /**
     * 识别到的文本信息
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TextInfo")
     @Expose
     private String TextInfo;
 
     /**
-     * Get 识别到的详细信息 
+     * Get 识别到的详细信息
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Item 识别到的详细信息
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public OCRItem [] getItem() {
         return this.Item;
@@ -46,15 +50,19 @@ public class OCRDetect extends AbstractModel{
 
     /**
      * Set 识别到的详细信息
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Item 识别到的详细信息
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setItem(OCRItem [] Item) {
         this.Item = Item;
     }
 
     /**
-     * Get 识别到的文本信息 
+     * Get 识别到的文本信息
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return TextInfo 识别到的文本信息
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTextInfo() {
         return this.TextInfo;
@@ -62,7 +70,9 @@ public class OCRDetect extends AbstractModel{
 
     /**
      * Set 识别到的文本信息
+注意：此字段可能返回 null，表示取不到有效值。
      * @param TextInfo 识别到的文本信息
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTextInfo(String TextInfo) {
         this.TextInfo = TextInfo;

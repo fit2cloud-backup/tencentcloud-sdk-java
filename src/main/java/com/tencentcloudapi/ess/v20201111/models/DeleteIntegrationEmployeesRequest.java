@@ -30,11 +30,18 @@ public class DeleteIntegrationEmployeesRequest extends AbstractModel{
     private UserInfo Operator;
 
     /**
-    * 待移除员工的信息，userId和openId二选一，必填一个
+    * 待移除员工的信息，userId和openId二选一，必填一个，如果需要指定交接人的话，ReceiveUserId或者ReceiveOpenId字段二选一
     */
     @SerializedName("Employees")
     @Expose
     private Staff [] Employees;
+
+    /**
+    * 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId需填充子企业Id
+    */
+    @SerializedName("Agent")
+    @Expose
+    private Agent Agent;
 
     /**
      * Get 操作人信息，userId必填 
@@ -53,19 +60,35 @@ public class DeleteIntegrationEmployeesRequest extends AbstractModel{
     }
 
     /**
-     * Get 待移除员工的信息，userId和openId二选一，必填一个 
-     * @return Employees 待移除员工的信息，userId和openId二选一，必填一个
+     * Get 待移除员工的信息，userId和openId二选一，必填一个，如果需要指定交接人的话，ReceiveUserId或者ReceiveOpenId字段二选一 
+     * @return Employees 待移除员工的信息，userId和openId二选一，必填一个，如果需要指定交接人的话，ReceiveUserId或者ReceiveOpenId字段二选一
      */
     public Staff [] getEmployees() {
         return this.Employees;
     }
 
     /**
-     * Set 待移除员工的信息，userId和openId二选一，必填一个
-     * @param Employees 待移除员工的信息，userId和openId二选一，必填一个
+     * Set 待移除员工的信息，userId和openId二选一，必填一个，如果需要指定交接人的话，ReceiveUserId或者ReceiveOpenId字段二选一
+     * @param Employees 待移除员工的信息，userId和openId二选一，必填一个，如果需要指定交接人的话，ReceiveUserId或者ReceiveOpenId字段二选一
      */
     public void setEmployees(Staff [] Employees) {
         this.Employees = Employees;
+    }
+
+    /**
+     * Get 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId需填充子企业Id 
+     * @return Agent 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId需填充子企业Id
+     */
+    public Agent getAgent() {
+        return this.Agent;
+    }
+
+    /**
+     * Set 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId需填充子企业Id
+     * @param Agent 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId需填充子企业Id
+     */
+    public void setAgent(Agent Agent) {
+        this.Agent = Agent;
     }
 
     public DeleteIntegrationEmployeesRequest() {
@@ -85,6 +108,9 @@ public class DeleteIntegrationEmployeesRequest extends AbstractModel{
                 this.Employees[i] = new Staff(source.Employees[i]);
             }
         }
+        if (source.Agent != null) {
+            this.Agent = new Agent(source.Agent);
+        }
     }
 
 
@@ -94,6 +120,7 @@ public class DeleteIntegrationEmployeesRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "Operator.", this.Operator);
         this.setParamArrayObj(map, prefix + "Employees.", this.Employees);
+        this.setParamObj(map, prefix + "Agent.", this.Agent);
 
     }
 }

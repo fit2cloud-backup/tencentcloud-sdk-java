@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class Addr extends AbstractModel{
 
     /**
-    * IP
+    * IP地址
     */
     @SerializedName("IP")
     @Expose
@@ -37,16 +37,16 @@ public class Addr extends AbstractModel{
     private Long Port;
 
     /**
-     * Get IP 
-     * @return IP IP
+     * Get IP地址 
+     * @return IP IP地址
      */
     public String getIP() {
         return this.IP;
     }
 
     /**
-     * Set IP
-     * @param IP IP
+     * Set IP地址
+     * @param IP IP地址
      */
     public void setIP(String IP) {
         this.IP = IP;

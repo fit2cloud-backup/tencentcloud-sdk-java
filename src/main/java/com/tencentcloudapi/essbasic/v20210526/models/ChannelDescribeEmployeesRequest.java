@@ -23,18 +23,18 @@ import java.util.HashMap;
 public class ChannelDescribeEmployeesRequest extends AbstractModel{
 
     /**
-    * 返回最大数量，最大为20
-    */
-    @SerializedName("Limit")
-    @Expose
-    private Long Limit;
-
-    /**
-    * 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+    * 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
     */
     @SerializedName("Agent")
     @Expose
     private Agent Agent;
+
+    /**
+    * 指定每页多少条数据，单页最大20
+    */
+    @SerializedName("Limit")
+    @Expose
+    private Long Limit;
 
     /**
     * 查询过滤实名用户，Key为Status，Values为["IsVerified"]
@@ -46,49 +46,49 @@ public class ChannelDescribeEmployeesRequest extends AbstractModel{
     private Filter [] Filters;
 
     /**
-    * 偏移量，默认为0，最大为20000
+    * 查询结果分页返回，此处指定第几页，如果不传默认从第一页返回。页码从 0 开始，即首页为 0,最大为20000
     */
     @SerializedName("Offset")
     @Expose
     private Long Offset;
 
     /**
-    * 操作者的信息
+    * 暂未开放
     */
     @SerializedName("Operator")
     @Expose
     private UserInfo Operator;
 
     /**
-     * Get 返回最大数量，最大为20 
-     * @return Limit 返回最大数量，最大为20
-     */
-    public Long getLimit() {
-        return this.Limit;
-    }
-
-    /**
-     * Set 返回最大数量，最大为20
-     * @param Limit 返回最大数量，最大为20
-     */
-    public void setLimit(Long Limit) {
-        this.Limit = Limit;
-    }
-
-    /**
-     * Get 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。 
-     * @return Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+     * Get 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。 
+     * @return Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
-     * @param Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+     * Set 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
+     * @param Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
+    }
+
+    /**
+     * Get 指定每页多少条数据，单页最大20 
+     * @return Limit 指定每页多少条数据，单页最大20
+     */
+    public Long getLimit() {
+        return this.Limit;
+    }
+
+    /**
+     * Set 指定每页多少条数据，单页最大20
+     * @param Limit 指定每页多少条数据，单页最大20
+     */
+    public void setLimit(Long Limit) {
+        this.Limit = Limit;
     }
 
     /**
@@ -116,33 +116,37 @@ public class ChannelDescribeEmployeesRequest extends AbstractModel{
     }
 
     /**
-     * Get 偏移量，默认为0，最大为20000 
-     * @return Offset 偏移量，默认为0，最大为20000
+     * Get 查询结果分页返回，此处指定第几页，如果不传默认从第一页返回。页码从 0 开始，即首页为 0,最大为20000 
+     * @return Offset 查询结果分页返回，此处指定第几页，如果不传默认从第一页返回。页码从 0 开始，即首页为 0,最大为20000
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 偏移量，默认为0，最大为20000
-     * @param Offset 偏移量，默认为0，最大为20000
+     * Set 查询结果分页返回，此处指定第几页，如果不传默认从第一页返回。页码从 0 开始，即首页为 0,最大为20000
+     * @param Offset 查询结果分页返回，此处指定第几页，如果不传默认从第一页返回。页码从 0 开始，即首页为 0,最大为20000
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get 操作者的信息 
-     * @return Operator 操作者的信息
+     * Get 暂未开放 
+     * @return Operator 暂未开放
+     * @deprecated
      */
+    @Deprecated
     public UserInfo getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 操作者的信息
-     * @param Operator 操作者的信息
+     * Set 暂未开放
+     * @param Operator 暂未开放
+     * @deprecated
      */
+    @Deprecated
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
     }
@@ -155,11 +159,11 @@ public class ChannelDescribeEmployeesRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public ChannelDescribeEmployeesRequest(ChannelDescribeEmployeesRequest source) {
-        if (source.Limit != null) {
-            this.Limit = new Long(source.Limit);
-        }
         if (source.Agent != null) {
             this.Agent = new Agent(source.Agent);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
         }
         if (source.Filters != null) {
             this.Filters = new Filter[source.Filters.length];
@@ -180,8 +184,8 @@ public class ChannelDescribeEmployeesRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamObj(map, prefix + "Agent.", this.Agent);
+        this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamObj(map, prefix + "Operator.", this.Operator);

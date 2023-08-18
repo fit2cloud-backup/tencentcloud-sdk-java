@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class ChannelCreateFlowGroupByFilesRequest extends AbstractModel{
 
     /**
-    * 每个子合同的发起所需的信息，数量限制2-100
+    * 每个子合同的发起所需的信息，数量限制2-50
     */
     @SerializedName("FlowFileInfos")
     @Expose
@@ -37,30 +37,47 @@ public class ChannelCreateFlowGroupByFilesRequest extends AbstractModel{
     private String FlowGroupName;
 
     /**
-    * 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+    * 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
     */
     @SerializedName("Agent")
     @Expose
     private Agent Agent;
 
     /**
-    * 操作者的信息
+    * 签署人校验方式
+VerifyCheck: 人脸识别（默认）
+MobileCheck：手机号验证
+参数说明：若选择后者，未实名的个人签署方查看合同时，无需进行人脸识别实名认证（但签署合同时仍然需要人脸实名），该能力仅适用于个人签署方。
+    */
+    @SerializedName("ApproverVerifyType")
+    @Expose
+    private String ApproverVerifyType;
+
+    /**
+    * 合同组的配置项信息包括：在合同组签署过程中，是否需要对每个子合同进行独立的意愿确认。
+    */
+    @SerializedName("FlowGroupOptions")
+    @Expose
+    private FlowGroupOptions FlowGroupOptions;
+
+    /**
+    * 操作者的信息，此参数不用传
     */
     @SerializedName("Operator")
     @Expose
     private UserInfo Operator;
 
     /**
-     * Get 每个子合同的发起所需的信息，数量限制2-100 
-     * @return FlowFileInfos 每个子合同的发起所需的信息，数量限制2-100
+     * Get 每个子合同的发起所需的信息，数量限制2-50 
+     * @return FlowFileInfos 每个子合同的发起所需的信息，数量限制2-50
      */
     public FlowFileInfo [] getFlowFileInfos() {
         return this.FlowFileInfos;
     }
 
     /**
-     * Set 每个子合同的发起所需的信息，数量限制2-100
-     * @param FlowFileInfos 每个子合同的发起所需的信息，数量限制2-100
+     * Set 每个子合同的发起所需的信息，数量限制2-50
+     * @param FlowFileInfos 每个子合同的发起所需的信息，数量限制2-50
      */
     public void setFlowFileInfos(FlowFileInfo [] FlowFileInfos) {
         this.FlowFileInfos = FlowFileInfos;
@@ -83,33 +100,81 @@ public class ChannelCreateFlowGroupByFilesRequest extends AbstractModel{
     }
 
     /**
-     * Get 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。 
-     * @return Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+     * Get 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。 
+     * @return Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
-     * @param Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+     * Set 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
+     * @param Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
     }
 
     /**
-     * Get 操作者的信息 
-     * @return Operator 操作者的信息
+     * Get 签署人校验方式
+VerifyCheck: 人脸识别（默认）
+MobileCheck：手机号验证
+参数说明：若选择后者，未实名的个人签署方查看合同时，无需进行人脸识别实名认证（但签署合同时仍然需要人脸实名），该能力仅适用于个人签署方。 
+     * @return ApproverVerifyType 签署人校验方式
+VerifyCheck: 人脸识别（默认）
+MobileCheck：手机号验证
+参数说明：若选择后者，未实名的个人签署方查看合同时，无需进行人脸识别实名认证（但签署合同时仍然需要人脸实名），该能力仅适用于个人签署方。
      */
+    public String getApproverVerifyType() {
+        return this.ApproverVerifyType;
+    }
+
+    /**
+     * Set 签署人校验方式
+VerifyCheck: 人脸识别（默认）
+MobileCheck：手机号验证
+参数说明：若选择后者，未实名的个人签署方查看合同时，无需进行人脸识别实名认证（但签署合同时仍然需要人脸实名），该能力仅适用于个人签署方。
+     * @param ApproverVerifyType 签署人校验方式
+VerifyCheck: 人脸识别（默认）
+MobileCheck：手机号验证
+参数说明：若选择后者，未实名的个人签署方查看合同时，无需进行人脸识别实名认证（但签署合同时仍然需要人脸实名），该能力仅适用于个人签署方。
+     */
+    public void setApproverVerifyType(String ApproverVerifyType) {
+        this.ApproverVerifyType = ApproverVerifyType;
+    }
+
+    /**
+     * Get 合同组的配置项信息包括：在合同组签署过程中，是否需要对每个子合同进行独立的意愿确认。 
+     * @return FlowGroupOptions 合同组的配置项信息包括：在合同组签署过程中，是否需要对每个子合同进行独立的意愿确认。
+     */
+    public FlowGroupOptions getFlowGroupOptions() {
+        return this.FlowGroupOptions;
+    }
+
+    /**
+     * Set 合同组的配置项信息包括：在合同组签署过程中，是否需要对每个子合同进行独立的意愿确认。
+     * @param FlowGroupOptions 合同组的配置项信息包括：在合同组签署过程中，是否需要对每个子合同进行独立的意愿确认。
+     */
+    public void setFlowGroupOptions(FlowGroupOptions FlowGroupOptions) {
+        this.FlowGroupOptions = FlowGroupOptions;
+    }
+
+    /**
+     * Get 操作者的信息，此参数不用传 
+     * @return Operator 操作者的信息，此参数不用传
+     * @deprecated
+     */
+    @Deprecated
     public UserInfo getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 操作者的信息
-     * @param Operator 操作者的信息
+     * Set 操作者的信息，此参数不用传
+     * @param Operator 操作者的信息，此参数不用传
+     * @deprecated
      */
+    @Deprecated
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
     }
@@ -134,6 +199,12 @@ public class ChannelCreateFlowGroupByFilesRequest extends AbstractModel{
         if (source.Agent != null) {
             this.Agent = new Agent(source.Agent);
         }
+        if (source.ApproverVerifyType != null) {
+            this.ApproverVerifyType = new String(source.ApproverVerifyType);
+        }
+        if (source.FlowGroupOptions != null) {
+            this.FlowGroupOptions = new FlowGroupOptions(source.FlowGroupOptions);
+        }
         if (source.Operator != null) {
             this.Operator = new UserInfo(source.Operator);
         }
@@ -147,6 +218,8 @@ public class ChannelCreateFlowGroupByFilesRequest extends AbstractModel{
         this.setParamArrayObj(map, prefix + "FlowFileInfos.", this.FlowFileInfos);
         this.setParamSimple(map, prefix + "FlowGroupName", this.FlowGroupName);
         this.setParamObj(map, prefix + "Agent.", this.Agent);
+        this.setParamSimple(map, prefix + "ApproverVerifyType", this.ApproverVerifyType);
+        this.setParamObj(map, prefix + "FlowGroupOptions.", this.FlowGroupOptions);
         this.setParamObj(map, prefix + "Operator.", this.Operator);
 
     }

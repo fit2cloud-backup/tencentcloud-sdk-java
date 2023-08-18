@@ -63,7 +63,7 @@ public class ExtractRuleInfo extends AbstractModel{
     private String BeginRegex;
 
     /**
-    * 取的每个字段的key名字，为空的key代表丢弃这个字段，只有log_type为delimiter_log时有效，json_log的日志使用json本身的key
+    * 取的每个字段的key名字，为空的key代表丢弃这个字段，只有log_type为delimiter_log时有效，json_log的日志使用json本身的key。限制100个。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Keys")
@@ -146,6 +146,35 @@ auto：自动匹配rfc3164或者rfc5424其中一种协议
     @SerializedName("ParseProtocol")
     @Expose
     private String ParseProtocol;
+
+    /**
+    * 元数据类型，0: 不使用元数据信息，1:使用机器组元数据，2:使用用户自定义元数据，3:使用采集配置路径，
+    */
+    @SerializedName("MetadataType")
+    @Expose
+    private Long MetadataType;
+
+    /**
+    * 采集配置路径正则表达式，MetadataType为3时必填
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PathRegex")
+    @Expose
+    private String PathRegex;
+
+    /**
+    * 用户自定义元数据信息，MetadataType为2时必填
+    */
+    @SerializedName("MetaTags")
+    @Expose
+    private MetaTagInfo [] MetaTags;
+
+    /**
+    * windows事件日志采集
+    */
+    @SerializedName("EventLogRules")
+    @Expose
+    private EventLog [] EventLogRules;
 
     /**
      * Get 时间字段的key名字，time_key和time_format必须成对出现
@@ -248,9 +277,9 @@ auto：自动匹配rfc3164或者rfc5424其中一种协议
     }
 
     /**
-     * Get 取的每个字段的key名字，为空的key代表丢弃这个字段，只有log_type为delimiter_log时有效，json_log的日志使用json本身的key
+     * Get 取的每个字段的key名字，为空的key代表丢弃这个字段，只有log_type为delimiter_log时有效，json_log的日志使用json本身的key。限制100个。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Keys 取的每个字段的key名字，为空的key代表丢弃这个字段，只有log_type为delimiter_log时有效，json_log的日志使用json本身的key
+     * @return Keys 取的每个字段的key名字，为空的key代表丢弃这个字段，只有log_type为delimiter_log时有效，json_log的日志使用json本身的key。限制100个。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getKeys() {
@@ -258,9 +287,9 @@ auto：自动匹配rfc3164或者rfc5424其中一种协议
     }
 
     /**
-     * Set 取的每个字段的key名字，为空的key代表丢弃这个字段，只有log_type为delimiter_log时有效，json_log的日志使用json本身的key
+     * Set 取的每个字段的key名字，为空的key代表丢弃这个字段，只有log_type为delimiter_log时有效，json_log的日志使用json本身的key。限制100个。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Keys 取的每个字段的key名字，为空的key代表丢弃这个字段，只有log_type为delimiter_log时有效，json_log的日志使用json本身的key
+     * @param Keys 取的每个字段的key名字，为空的key代表丢弃这个字段，只有log_type为delimiter_log时有效，json_log的日志使用json本身的key。限制100个。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKeys(String [] Keys) {
@@ -467,6 +496,74 @@ auto：自动匹配rfc3164或者rfc5424其中一种协议
         this.ParseProtocol = ParseProtocol;
     }
 
+    /**
+     * Get 元数据类型，0: 不使用元数据信息，1:使用机器组元数据，2:使用用户自定义元数据，3:使用采集配置路径， 
+     * @return MetadataType 元数据类型，0: 不使用元数据信息，1:使用机器组元数据，2:使用用户自定义元数据，3:使用采集配置路径，
+     */
+    public Long getMetadataType() {
+        return this.MetadataType;
+    }
+
+    /**
+     * Set 元数据类型，0: 不使用元数据信息，1:使用机器组元数据，2:使用用户自定义元数据，3:使用采集配置路径，
+     * @param MetadataType 元数据类型，0: 不使用元数据信息，1:使用机器组元数据，2:使用用户自定义元数据，3:使用采集配置路径，
+     */
+    public void setMetadataType(Long MetadataType) {
+        this.MetadataType = MetadataType;
+    }
+
+    /**
+     * Get 采集配置路径正则表达式，MetadataType为3时必填
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PathRegex 采集配置路径正则表达式，MetadataType为3时必填
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getPathRegex() {
+        return this.PathRegex;
+    }
+
+    /**
+     * Set 采集配置路径正则表达式，MetadataType为3时必填
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PathRegex 采集配置路径正则表达式，MetadataType为3时必填
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPathRegex(String PathRegex) {
+        this.PathRegex = PathRegex;
+    }
+
+    /**
+     * Get 用户自定义元数据信息，MetadataType为2时必填 
+     * @return MetaTags 用户自定义元数据信息，MetadataType为2时必填
+     */
+    public MetaTagInfo [] getMetaTags() {
+        return this.MetaTags;
+    }
+
+    /**
+     * Set 用户自定义元数据信息，MetadataType为2时必填
+     * @param MetaTags 用户自定义元数据信息，MetadataType为2时必填
+     */
+    public void setMetaTags(MetaTagInfo [] MetaTags) {
+        this.MetaTags = MetaTags;
+    }
+
+    /**
+     * Get windows事件日志采集 
+     * @return EventLogRules windows事件日志采集
+     */
+    public EventLog [] getEventLogRules() {
+        return this.EventLogRules;
+    }
+
+    /**
+     * Set windows事件日志采集
+     * @param EventLogRules windows事件日志采集
+     */
+    public void setEventLogRules(EventLog [] EventLogRules) {
+        this.EventLogRules = EventLogRules;
+    }
+
     public ExtractRuleInfo() {
     }
 
@@ -526,6 +623,24 @@ auto：自动匹配rfc3164或者rfc5424其中一种协议
         if (source.ParseProtocol != null) {
             this.ParseProtocol = new String(source.ParseProtocol);
         }
+        if (source.MetadataType != null) {
+            this.MetadataType = new Long(source.MetadataType);
+        }
+        if (source.PathRegex != null) {
+            this.PathRegex = new String(source.PathRegex);
+        }
+        if (source.MetaTags != null) {
+            this.MetaTags = new MetaTagInfo[source.MetaTags.length];
+            for (int i = 0; i < source.MetaTags.length; i++) {
+                this.MetaTags[i] = new MetaTagInfo(source.MetaTags[i]);
+            }
+        }
+        if (source.EventLogRules != null) {
+            this.EventLogRules = new EventLog[source.EventLogRules.length];
+            for (int i = 0; i < source.EventLogRules.length; i++) {
+                this.EventLogRules[i] = new EventLog(source.EventLogRules[i]);
+            }
+        }
     }
 
 
@@ -548,6 +663,10 @@ auto：自动匹配rfc3164或者rfc5424其中一种协议
         this.setParamSimple(map, prefix + "Protocol", this.Protocol);
         this.setParamSimple(map, prefix + "Address", this.Address);
         this.setParamSimple(map, prefix + "ParseProtocol", this.ParseProtocol);
+        this.setParamSimple(map, prefix + "MetadataType", this.MetadataType);
+        this.setParamSimple(map, prefix + "PathRegex", this.PathRegex);
+        this.setParamArrayObj(map, prefix + "MetaTags.", this.MetaTags);
+        this.setParamArrayObj(map, prefix + "EventLogRules.", this.EventLogRules);
 
     }
 }

@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class InquiryPriceRenewInstanceRequest extends AbstractModel{
 
     /**
-    * 实例续费的时长。需要结合TimeUnit一起使用。1表示续费1一个月
+    * 实例续费的时长。需要结合TimeUnit一起使用。1表示续费一个月
     */
     @SerializedName("TimeSpan")
     @Expose
     private Long TimeSpan;
 
     /**
-    * 待续费节点的资源ID列表。资源ID形如：emr-vm-xxxxxxxx。有效的资源ID可通过登录[控制台](https://console.cloud.tencent.com/emr/static/hardware)查询。
+    * 待续费节点的资源ID列表。资源ID形如：emr-vm-xxxxxxxx。有效的资源ID可通过登录[控制台](https://console.cloud.tencent.com/emr)查询。
     */
     @SerializedName("ResourceIds")
     @Expose
@@ -60,7 +60,7 @@ public class InquiryPriceRenewInstanceRequest extends AbstractModel{
 
     /**
     * 货币种类。取值范围：
-<li>CNY：表示人民币。</li>
+<li>CNY：表示人民币。</li>
     */
     @SerializedName("Currency")
     @Expose
@@ -74,32 +74,32 @@ public class InquiryPriceRenewInstanceRequest extends AbstractModel{
     private Long ModifyPayMode;
 
     /**
-     * Get 实例续费的时长。需要结合TimeUnit一起使用。1表示续费1一个月 
-     * @return TimeSpan 实例续费的时长。需要结合TimeUnit一起使用。1表示续费1一个月
+     * Get 实例续费的时长。需要结合TimeUnit一起使用。1表示续费一个月 
+     * @return TimeSpan 实例续费的时长。需要结合TimeUnit一起使用。1表示续费一个月
      */
     public Long getTimeSpan() {
         return this.TimeSpan;
     }
 
     /**
-     * Set 实例续费的时长。需要结合TimeUnit一起使用。1表示续费1一个月
-     * @param TimeSpan 实例续费的时长。需要结合TimeUnit一起使用。1表示续费1一个月
+     * Set 实例续费的时长。需要结合TimeUnit一起使用。1表示续费一个月
+     * @param TimeSpan 实例续费的时长。需要结合TimeUnit一起使用。1表示续费一个月
      */
     public void setTimeSpan(Long TimeSpan) {
         this.TimeSpan = TimeSpan;
     }
 
     /**
-     * Get 待续费节点的资源ID列表。资源ID形如：emr-vm-xxxxxxxx。有效的资源ID可通过登录[控制台](https://console.cloud.tencent.com/emr/static/hardware)查询。 
-     * @return ResourceIds 待续费节点的资源ID列表。资源ID形如：emr-vm-xxxxxxxx。有效的资源ID可通过登录[控制台](https://console.cloud.tencent.com/emr/static/hardware)查询。
+     * Get 待续费节点的资源ID列表。资源ID形如：emr-vm-xxxxxxxx。有效的资源ID可通过登录[控制台](https://console.cloud.tencent.com/emr)查询。 
+     * @return ResourceIds 待续费节点的资源ID列表。资源ID形如：emr-vm-xxxxxxxx。有效的资源ID可通过登录[控制台](https://console.cloud.tencent.com/emr)查询。
      */
     public String [] getResourceIds() {
         return this.ResourceIds;
     }
 
     /**
-     * Set 待续费节点的资源ID列表。资源ID形如：emr-vm-xxxxxxxx。有效的资源ID可通过登录[控制台](https://console.cloud.tencent.com/emr/static/hardware)查询。
-     * @param ResourceIds 待续费节点的资源ID列表。资源ID形如：emr-vm-xxxxxxxx。有效的资源ID可通过登录[控制台](https://console.cloud.tencent.com/emr/static/hardware)查询。
+     * Set 待续费节点的资源ID列表。资源ID形如：emr-vm-xxxxxxxx。有效的资源ID可通过登录[控制台](https://console.cloud.tencent.com/emr)查询。
+     * @param ResourceIds 待续费节点的资源ID列表。资源ID形如：emr-vm-xxxxxxxx。有效的资源ID可通过登录[控制台](https://console.cloud.tencent.com/emr)查询。
      */
     public void setResourceIds(String [] ResourceIds) {
         this.ResourceIds = ResourceIds;
@@ -159,9 +159,9 @@ public class InquiryPriceRenewInstanceRequest extends AbstractModel{
 
     /**
      * Get 货币种类。取值范围：
-<li>CNY：表示人民币。</li> 
+<li>CNY：表示人民币。</li> 
      * @return Currency 货币种类。取值范围：
-<li>CNY：表示人民币。</li>
+<li>CNY：表示人民币。</li>
      */
     public String getCurrency() {
         return this.Currency;
@@ -169,9 +169,9 @@ public class InquiryPriceRenewInstanceRequest extends AbstractModel{
 
     /**
      * Set 货币种类。取值范围：
-<li>CNY：表示人民币。</li>
+<li>CNY：表示人民币。</li>
      * @param Currency 货币种类。取值范围：
-<li>CNY：表示人民币。</li>
+<li>CNY：表示人民币。</li>
      */
     public void setCurrency(String Currency) {
         this.Currency = Currency;

@@ -30,17 +30,18 @@ public class FlowApproverInfo extends AbstractModel{
     private String Name;
 
     /**
-    * 签署人身份证件类型
+    * 签署人的证件类型
 1.ID_CARD 居民身份证
 2.HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证
 3.HONGKONG_AND_MACAO 港澳居民来往内地通行证
+4.OTHER_CARD_TYPE 其他（需要使用该类型请先联系运营经理）
     */
     @SerializedName("IdCardType")
     @Expose
     private String IdCardType;
 
     /**
-    * 签署人证件号
+    * 签署人证件号（长度不超过18位）
     */
     @SerializedName("IdCardNumber")
     @Expose
@@ -61,8 +62,8 @@ public class FlowApproverInfo extends AbstractModel{
     private String OrganizationName;
 
     /**
-    * 指定签署人非渠道企业下员工，在ApproverType为ORGANIZATION时指定。
-默认为false，即签署人位于同一个渠道应用号下；
+    * 指定签署人非第三方平台子客企业下员工，在ApproverType为ORGANIZATION时指定。
+默认为false，即签署人位于同一个第三方平台应用号下；默认为false，即签署人位于同一个第三方应用号下；
     */
     @SerializedName("NotChannelOrganization")
     @Expose
@@ -70,14 +71,14 @@ public class FlowApproverInfo extends AbstractModel{
 
     /**
     * 用户侧第三方id，最大长度64个字符
-当签署方为同一渠道下的员工时，该字段若不指定，则发起【待领取】的流程
+当签署方为同一第三方平台下的员工时，该字段若不指定，则发起【待领取】的流程
     */
     @SerializedName("OpenId")
     @Expose
     private String OpenId;
 
     /**
-    * 企业签署方在同一渠道下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符；
+    * 企业签署方在同一第三方平台应用下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符；
     */
     @SerializedName("OrganizationOpenId")
     @Expose
@@ -86,8 +87,9 @@ public class FlowApproverInfo extends AbstractModel{
     /**
     * 签署人类型
 PERSON-个人/自然人；
-PERSON_AUTO_SIGN-个人自动签（定制化场景下使用）；
-ORGANIZATION-企业（企业签署方或模版发起时的企业静默签）；
+PERSON_AUTO_SIGN-个人自动签署，适用于个人自动签场景
+注: 个人自动签场景为白名单功能, 使用前请联系对接的客户经理沟通。
+ORGANIZATION-企业（企业签署方或模板发起时的企业静默签）；
 ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
     */
     @SerializedName("ApproverType")
@@ -102,7 +104,7 @@ ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
     private String RecipientId;
 
     /**
-    * 签署截止时间，默认一年
+    * 签署截止时间戳，默认一年
     */
     @SerializedName("Deadline")
     @Expose
@@ -116,14 +118,18 @@ ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
     private String CallbackUrl;
 
     /**
-    * 使用PDF文件直接发起合同时，签署人指定的签署控件
+    * 使用PDF文件直接发起合同时，签署人指定的签署控件；<br/>使用模板发起合同时，指定本企业印章签署控件的印章ID: <br/>通过ComponentId或ComponenetName指定签署控件，ComponentValue为印章ID。
     */
     @SerializedName("SignComponents")
     @Expose
     private Component [] SignComponents;
 
     /**
-    * 个人签署方指定签署控件类型，目前仅支持：OCR_ESIGN(AI智慧手写签名)
+    * 签署方控件类型为 SIGN_SIGNATURE时，可以指定签署方签名方式
+	HANDWRITE – 手写签名
+	OCR_ESIGN -- AI智能识别手写签名
+	ESIGN -- 个人印章类型
+	SYSTEM_ESIGN -- 系统签名（该类型可以在用户签署时根据用户姓名一键生成一个签名来进行签署）
     */
     @SerializedName("ComponentLimitType")
     @Expose
@@ -137,7 +143,7 @@ ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
     private Long PreReadTime;
 
     /**
-    * 签署完前端跳转的url，暂未使用
+    * 签署完前端跳转的url，此字段的用法场景请联系客户经理确认
     */
     @SerializedName("JumpUrl")
     @Expose
@@ -158,6 +164,39 @@ ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
     private Boolean ApproverNeedSignReview;
 
     /**
+    * 签署人查看合同时认证方式, 1-实名查看 2-短信验证码查看(企业签署方不支持该方式) 如果不传默认为1
+查看合同的认证方式 Flow层级的优先于approver层级的
+    */
+    @SerializedName("ApproverVerifyTypes")
+    @Expose
+    private Long [] ApproverVerifyTypes;
+
+    /**
+    * 签署人签署合同时的认证方式
+1-人脸认证 2-签署密码 3-运营商三要素(默认为1,2)
+    */
+    @SerializedName("ApproverSignTypes")
+    @Expose
+    private Long [] ApproverSignTypes;
+
+    /**
+    * 签署ID
+- 发起流程时系统自动补充
+- 创建签署链接时，可以通过查询详情接口获得签署人的SignId，然后可传入此值为该签署人创建签署链接，无需再传姓名、手机号、证件号等其他信息
+    */
+    @SerializedName("SignId")
+    @Expose
+    private String SignId;
+
+    /**
+    * SMS: 短信(需确保“电子签短信通知签署方”功能是开启状态才能生效); NONE: 不发信息
+默认为SMS(签署方为子客时该字段不生效)
+    */
+    @SerializedName("NotifyType")
+    @Expose
+    private String NotifyType;
+
+    /**
      * Get 签署人姓名，最大长度50个字符 
      * @return Name 签署人姓名，最大长度50个字符
      */
@@ -174,44 +213,48 @@ ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
     }
 
     /**
-     * Get 签署人身份证件类型
-1.ID_CARD 居民身份证
-2.HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证
-3.HONGKONG_AND_MACAO 港澳居民来往内地通行证 
-     * @return IdCardType 签署人身份证件类型
+     * Get 签署人的证件类型
 1.ID_CARD 居民身份证
 2.HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证
 3.HONGKONG_AND_MACAO 港澳居民来往内地通行证
+4.OTHER_CARD_TYPE 其他（需要使用该类型请先联系运营经理） 
+     * @return IdCardType 签署人的证件类型
+1.ID_CARD 居民身份证
+2.HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证
+3.HONGKONG_AND_MACAO 港澳居民来往内地通行证
+4.OTHER_CARD_TYPE 其他（需要使用该类型请先联系运营经理）
      */
     public String getIdCardType() {
         return this.IdCardType;
     }
 
     /**
-     * Set 签署人身份证件类型
+     * Set 签署人的证件类型
 1.ID_CARD 居民身份证
 2.HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证
 3.HONGKONG_AND_MACAO 港澳居民来往内地通行证
-     * @param IdCardType 签署人身份证件类型
+4.OTHER_CARD_TYPE 其他（需要使用该类型请先联系运营经理）
+     * @param IdCardType 签署人的证件类型
 1.ID_CARD 居民身份证
 2.HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证
 3.HONGKONG_AND_MACAO 港澳居民来往内地通行证
+4.OTHER_CARD_TYPE 其他（需要使用该类型请先联系运营经理）
      */
     public void setIdCardType(String IdCardType) {
         this.IdCardType = IdCardType;
     }
 
     /**
-     * Get 签署人证件号 
-     * @return IdCardNumber 签署人证件号
+     * Get 签署人证件号（长度不超过18位） 
+     * @return IdCardNumber 签署人证件号（长度不超过18位）
      */
     public String getIdCardNumber() {
         return this.IdCardNumber;
     }
 
     /**
-     * Set 签署人证件号
-     * @param IdCardNumber 签署人证件号
+     * Set 签署人证件号（长度不超过18位）
+     * @param IdCardNumber 签署人证件号（长度不超过18位）
      */
     public void setIdCardNumber(String IdCardNumber) {
         this.IdCardNumber = IdCardNumber;
@@ -250,20 +293,20 @@ ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
     }
 
     /**
-     * Get 指定签署人非渠道企业下员工，在ApproverType为ORGANIZATION时指定。
-默认为false，即签署人位于同一个渠道应用号下； 
-     * @return NotChannelOrganization 指定签署人非渠道企业下员工，在ApproverType为ORGANIZATION时指定。
-默认为false，即签署人位于同一个渠道应用号下；
+     * Get 指定签署人非第三方平台子客企业下员工，在ApproverType为ORGANIZATION时指定。
+默认为false，即签署人位于同一个第三方平台应用号下；默认为false，即签署人位于同一个第三方应用号下； 
+     * @return NotChannelOrganization 指定签署人非第三方平台子客企业下员工，在ApproverType为ORGANIZATION时指定。
+默认为false，即签署人位于同一个第三方平台应用号下；默认为false，即签署人位于同一个第三方应用号下；
      */
     public Boolean getNotChannelOrganization() {
         return this.NotChannelOrganization;
     }
 
     /**
-     * Set 指定签署人非渠道企业下员工，在ApproverType为ORGANIZATION时指定。
-默认为false，即签署人位于同一个渠道应用号下；
-     * @param NotChannelOrganization 指定签署人非渠道企业下员工，在ApproverType为ORGANIZATION时指定。
-默认为false，即签署人位于同一个渠道应用号下；
+     * Set 指定签署人非第三方平台子客企业下员工，在ApproverType为ORGANIZATION时指定。
+默认为false，即签署人位于同一个第三方平台应用号下；默认为false，即签署人位于同一个第三方应用号下；
+     * @param NotChannelOrganization 指定签署人非第三方平台子客企业下员工，在ApproverType为ORGANIZATION时指定。
+默认为false，即签署人位于同一个第三方平台应用号下；默认为false，即签署人位于同一个第三方应用号下；
      */
     public void setNotChannelOrganization(Boolean NotChannelOrganization) {
         this.NotChannelOrganization = NotChannelOrganization;
@@ -271,9 +314,9 @@ ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
 
     /**
      * Get 用户侧第三方id，最大长度64个字符
-当签署方为同一渠道下的员工时，该字段若不指定，则发起【待领取】的流程 
+当签署方为同一第三方平台下的员工时，该字段若不指定，则发起【待领取】的流程 
      * @return OpenId 用户侧第三方id，最大长度64个字符
-当签署方为同一渠道下的员工时，该字段若不指定，则发起【待领取】的流程
+当签署方为同一第三方平台下的员工时，该字段若不指定，则发起【待领取】的流程
      */
     public String getOpenId() {
         return this.OpenId;
@@ -281,25 +324,25 @@ ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
 
     /**
      * Set 用户侧第三方id，最大长度64个字符
-当签署方为同一渠道下的员工时，该字段若不指定，则发起【待领取】的流程
+当签署方为同一第三方平台下的员工时，该字段若不指定，则发起【待领取】的流程
      * @param OpenId 用户侧第三方id，最大长度64个字符
-当签署方为同一渠道下的员工时，该字段若不指定，则发起【待领取】的流程
+当签署方为同一第三方平台下的员工时，该字段若不指定，则发起【待领取】的流程
      */
     public void setOpenId(String OpenId) {
         this.OpenId = OpenId;
     }
 
     /**
-     * Get 企业签署方在同一渠道下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符； 
-     * @return OrganizationOpenId 企业签署方在同一渠道下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符；
+     * Get 企业签署方在同一第三方平台应用下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符； 
+     * @return OrganizationOpenId 企业签署方在同一第三方平台应用下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符；
      */
     public String getOrganizationOpenId() {
         return this.OrganizationOpenId;
     }
 
     /**
-     * Set 企业签署方在同一渠道下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符；
-     * @param OrganizationOpenId 企业签署方在同一渠道下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符；
+     * Set 企业签署方在同一第三方平台应用下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符；
+     * @param OrganizationOpenId 企业签署方在同一第三方平台应用下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符；
      */
     public void setOrganizationOpenId(String OrganizationOpenId) {
         this.OrganizationOpenId = OrganizationOpenId;
@@ -308,13 +351,15 @@ ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
     /**
      * Get 签署人类型
 PERSON-个人/自然人；
-PERSON_AUTO_SIGN-个人自动签（定制化场景下使用）；
-ORGANIZATION-企业（企业签署方或模版发起时的企业静默签）；
+PERSON_AUTO_SIGN-个人自动签署，适用于个人自动签场景
+注: 个人自动签场景为白名单功能, 使用前请联系对接的客户经理沟通。
+ORGANIZATION-企业（企业签署方或模板发起时的企业静默签）；
 ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。 
      * @return ApproverType 签署人类型
 PERSON-个人/自然人；
-PERSON_AUTO_SIGN-个人自动签（定制化场景下使用）；
-ORGANIZATION-企业（企业签署方或模版发起时的企业静默签）；
+PERSON_AUTO_SIGN-个人自动签署，适用于个人自动签场景
+注: 个人自动签场景为白名单功能, 使用前请联系对接的客户经理沟通。
+ORGANIZATION-企业（企业签署方或模板发起时的企业静默签）；
 ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
      */
     public String getApproverType() {
@@ -324,13 +369,15 @@ ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
     /**
      * Set 签署人类型
 PERSON-个人/自然人；
-PERSON_AUTO_SIGN-个人自动签（定制化场景下使用）；
-ORGANIZATION-企业（企业签署方或模版发起时的企业静默签）；
+PERSON_AUTO_SIGN-个人自动签署，适用于个人自动签场景
+注: 个人自动签场景为白名单功能, 使用前请联系对接的客户经理沟通。
+ORGANIZATION-企业（企业签署方或模板发起时的企业静默签）；
 ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
      * @param ApproverType 签署人类型
 PERSON-个人/自然人；
-PERSON_AUTO_SIGN-个人自动签（定制化场景下使用）；
-ORGANIZATION-企业（企业签署方或模版发起时的企业静默签）；
+PERSON_AUTO_SIGN-个人自动签署，适用于个人自动签场景
+注: 个人自动签场景为白名单功能, 使用前请联系对接的客户经理沟通。
+ORGANIZATION-企业（企业签署方或模板发起时的企业静默签）；
 ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
      */
     public void setApproverType(String ApproverType) {
@@ -354,16 +401,16 @@ ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
     }
 
     /**
-     * Get 签署截止时间，默认一年 
-     * @return Deadline 签署截止时间，默认一年
+     * Get 签署截止时间戳，默认一年 
+     * @return Deadline 签署截止时间戳，默认一年
      */
     public Long getDeadline() {
         return this.Deadline;
     }
 
     /**
-     * Set 签署截止时间，默认一年
-     * @param Deadline 签署截止时间，默认一年
+     * Set 签署截止时间戳，默认一年
+     * @param Deadline 签署截止时间戳，默认一年
      */
     public void setDeadline(Long Deadline) {
         this.Deadline = Deadline;
@@ -372,7 +419,9 @@ ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
     /**
      * Get 签署完回调url，最大长度1000个字符 
      * @return CallbackUrl 签署完回调url，最大长度1000个字符
+     * @deprecated
      */
+    @Deprecated
     public String getCallbackUrl() {
         return this.CallbackUrl;
     }
@@ -380,38 +429,56 @@ ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
     /**
      * Set 签署完回调url，最大长度1000个字符
      * @param CallbackUrl 签署完回调url，最大长度1000个字符
+     * @deprecated
      */
+    @Deprecated
     public void setCallbackUrl(String CallbackUrl) {
         this.CallbackUrl = CallbackUrl;
     }
 
     /**
-     * Get 使用PDF文件直接发起合同时，签署人指定的签署控件 
-     * @return SignComponents 使用PDF文件直接发起合同时，签署人指定的签署控件
+     * Get 使用PDF文件直接发起合同时，签署人指定的签署控件；<br/>使用模板发起合同时，指定本企业印章签署控件的印章ID: <br/>通过ComponentId或ComponenetName指定签署控件，ComponentValue为印章ID。 
+     * @return SignComponents 使用PDF文件直接发起合同时，签署人指定的签署控件；<br/>使用模板发起合同时，指定本企业印章签署控件的印章ID: <br/>通过ComponentId或ComponenetName指定签署控件，ComponentValue为印章ID。
      */
     public Component [] getSignComponents() {
         return this.SignComponents;
     }
 
     /**
-     * Set 使用PDF文件直接发起合同时，签署人指定的签署控件
-     * @param SignComponents 使用PDF文件直接发起合同时，签署人指定的签署控件
+     * Set 使用PDF文件直接发起合同时，签署人指定的签署控件；<br/>使用模板发起合同时，指定本企业印章签署控件的印章ID: <br/>通过ComponentId或ComponenetName指定签署控件，ComponentValue为印章ID。
+     * @param SignComponents 使用PDF文件直接发起合同时，签署人指定的签署控件；<br/>使用模板发起合同时，指定本企业印章签署控件的印章ID: <br/>通过ComponentId或ComponenetName指定签署控件，ComponentValue为印章ID。
      */
     public void setSignComponents(Component [] SignComponents) {
         this.SignComponents = SignComponents;
     }
 
     /**
-     * Get 个人签署方指定签署控件类型，目前仅支持：OCR_ESIGN(AI智慧手写签名) 
-     * @return ComponentLimitType 个人签署方指定签署控件类型，目前仅支持：OCR_ESIGN(AI智慧手写签名)
+     * Get 签署方控件类型为 SIGN_SIGNATURE时，可以指定签署方签名方式
+	HANDWRITE – 手写签名
+	OCR_ESIGN -- AI智能识别手写签名
+	ESIGN -- 个人印章类型
+	SYSTEM_ESIGN -- 系统签名（该类型可以在用户签署时根据用户姓名一键生成一个签名来进行签署） 
+     * @return ComponentLimitType 签署方控件类型为 SIGN_SIGNATURE时，可以指定签署方签名方式
+	HANDWRITE – 手写签名
+	OCR_ESIGN -- AI智能识别手写签名
+	ESIGN -- 个人印章类型
+	SYSTEM_ESIGN -- 系统签名（该类型可以在用户签署时根据用户姓名一键生成一个签名来进行签署）
      */
     public String [] getComponentLimitType() {
         return this.ComponentLimitType;
     }
 
     /**
-     * Set 个人签署方指定签署控件类型，目前仅支持：OCR_ESIGN(AI智慧手写签名)
-     * @param ComponentLimitType 个人签署方指定签署控件类型，目前仅支持：OCR_ESIGN(AI智慧手写签名)
+     * Set 签署方控件类型为 SIGN_SIGNATURE时，可以指定签署方签名方式
+	HANDWRITE – 手写签名
+	OCR_ESIGN -- AI智能识别手写签名
+	ESIGN -- 个人印章类型
+	SYSTEM_ESIGN -- 系统签名（该类型可以在用户签署时根据用户姓名一键生成一个签名来进行签署）
+     * @param ComponentLimitType 签署方控件类型为 SIGN_SIGNATURE时，可以指定签署方签名方式
+	HANDWRITE – 手写签名
+	OCR_ESIGN -- AI智能识别手写签名
+	ESIGN -- 个人印章类型
+	SYSTEM_ESIGN -- 系统签名（该类型可以在用户签署时根据用户姓名一键生成一个签名来进行签署）
      */
     public void setComponentLimitType(String [] ComponentLimitType) {
         this.ComponentLimitType = ComponentLimitType;
@@ -434,16 +501,16 @@ ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
     }
 
     /**
-     * Get 签署完前端跳转的url，暂未使用 
-     * @return JumpUrl 签署完前端跳转的url，暂未使用
+     * Get 签署完前端跳转的url，此字段的用法场景请联系客户经理确认 
+     * @return JumpUrl 签署完前端跳转的url，此字段的用法场景请联系客户经理确认
      */
     public String getJumpUrl() {
         return this.JumpUrl;
     }
 
     /**
-     * Set 签署完前端跳转的url，暂未使用
-     * @param JumpUrl 签署完前端跳转的url，暂未使用
+     * Set 签署完前端跳转的url，此字段的用法场景请联系客户经理确认
+     * @param JumpUrl 签署完前端跳转的url，此字段的用法场景请联系客户经理确认
      */
     public void setJumpUrl(String JumpUrl) {
         this.JumpUrl = JumpUrl;
@@ -479,6 +546,90 @@ ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
      */
     public void setApproverNeedSignReview(Boolean ApproverNeedSignReview) {
         this.ApproverNeedSignReview = ApproverNeedSignReview;
+    }
+
+    /**
+     * Get 签署人查看合同时认证方式, 1-实名查看 2-短信验证码查看(企业签署方不支持该方式) 如果不传默认为1
+查看合同的认证方式 Flow层级的优先于approver层级的 
+     * @return ApproverVerifyTypes 签署人查看合同时认证方式, 1-实名查看 2-短信验证码查看(企业签署方不支持该方式) 如果不传默认为1
+查看合同的认证方式 Flow层级的优先于approver层级的
+     */
+    public Long [] getApproverVerifyTypes() {
+        return this.ApproverVerifyTypes;
+    }
+
+    /**
+     * Set 签署人查看合同时认证方式, 1-实名查看 2-短信验证码查看(企业签署方不支持该方式) 如果不传默认为1
+查看合同的认证方式 Flow层级的优先于approver层级的
+     * @param ApproverVerifyTypes 签署人查看合同时认证方式, 1-实名查看 2-短信验证码查看(企业签署方不支持该方式) 如果不传默认为1
+查看合同的认证方式 Flow层级的优先于approver层级的
+     */
+    public void setApproverVerifyTypes(Long [] ApproverVerifyTypes) {
+        this.ApproverVerifyTypes = ApproverVerifyTypes;
+    }
+
+    /**
+     * Get 签署人签署合同时的认证方式
+1-人脸认证 2-签署密码 3-运营商三要素(默认为1,2) 
+     * @return ApproverSignTypes 签署人签署合同时的认证方式
+1-人脸认证 2-签署密码 3-运营商三要素(默认为1,2)
+     */
+    public Long [] getApproverSignTypes() {
+        return this.ApproverSignTypes;
+    }
+
+    /**
+     * Set 签署人签署合同时的认证方式
+1-人脸认证 2-签署密码 3-运营商三要素(默认为1,2)
+     * @param ApproverSignTypes 签署人签署合同时的认证方式
+1-人脸认证 2-签署密码 3-运营商三要素(默认为1,2)
+     */
+    public void setApproverSignTypes(Long [] ApproverSignTypes) {
+        this.ApproverSignTypes = ApproverSignTypes;
+    }
+
+    /**
+     * Get 签署ID
+- 发起流程时系统自动补充
+- 创建签署链接时，可以通过查询详情接口获得签署人的SignId，然后可传入此值为该签署人创建签署链接，无需再传姓名、手机号、证件号等其他信息 
+     * @return SignId 签署ID
+- 发起流程时系统自动补充
+- 创建签署链接时，可以通过查询详情接口获得签署人的SignId，然后可传入此值为该签署人创建签署链接，无需再传姓名、手机号、证件号等其他信息
+     */
+    public String getSignId() {
+        return this.SignId;
+    }
+
+    /**
+     * Set 签署ID
+- 发起流程时系统自动补充
+- 创建签署链接时，可以通过查询详情接口获得签署人的SignId，然后可传入此值为该签署人创建签署链接，无需再传姓名、手机号、证件号等其他信息
+     * @param SignId 签署ID
+- 发起流程时系统自动补充
+- 创建签署链接时，可以通过查询详情接口获得签署人的SignId，然后可传入此值为该签署人创建签署链接，无需再传姓名、手机号、证件号等其他信息
+     */
+    public void setSignId(String SignId) {
+        this.SignId = SignId;
+    }
+
+    /**
+     * Get SMS: 短信(需确保“电子签短信通知签署方”功能是开启状态才能生效); NONE: 不发信息
+默认为SMS(签署方为子客时该字段不生效) 
+     * @return NotifyType SMS: 短信(需确保“电子签短信通知签署方”功能是开启状态才能生效); NONE: 不发信息
+默认为SMS(签署方为子客时该字段不生效)
+     */
+    public String getNotifyType() {
+        return this.NotifyType;
+    }
+
+    /**
+     * Set SMS: 短信(需确保“电子签短信通知签署方”功能是开启状态才能生效); NONE: 不发信息
+默认为SMS(签署方为子客时该字段不生效)
+     * @param NotifyType SMS: 短信(需确保“电子签短信通知签署方”功能是开启状态才能生效); NONE: 不发信息
+默认为SMS(签署方为子客时该字段不生效)
+     */
+    public void setNotifyType(String NotifyType) {
+        this.NotifyType = NotifyType;
     }
 
     public FlowApproverInfo() {
@@ -549,6 +700,24 @@ ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
         if (source.ApproverNeedSignReview != null) {
             this.ApproverNeedSignReview = new Boolean(source.ApproverNeedSignReview);
         }
+        if (source.ApproverVerifyTypes != null) {
+            this.ApproverVerifyTypes = new Long[source.ApproverVerifyTypes.length];
+            for (int i = 0; i < source.ApproverVerifyTypes.length; i++) {
+                this.ApproverVerifyTypes[i] = new Long(source.ApproverVerifyTypes[i]);
+            }
+        }
+        if (source.ApproverSignTypes != null) {
+            this.ApproverSignTypes = new Long[source.ApproverSignTypes.length];
+            for (int i = 0; i < source.ApproverSignTypes.length; i++) {
+                this.ApproverSignTypes[i] = new Long(source.ApproverSignTypes[i]);
+            }
+        }
+        if (source.SignId != null) {
+            this.SignId = new String(source.SignId);
+        }
+        if (source.NotifyType != null) {
+            this.NotifyType = new String(source.NotifyType);
+        }
     }
 
 
@@ -574,6 +743,10 @@ ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
         this.setParamSimple(map, prefix + "JumpUrl", this.JumpUrl);
         this.setParamObj(map, prefix + "ApproverOption.", this.ApproverOption);
         this.setParamSimple(map, prefix + "ApproverNeedSignReview", this.ApproverNeedSignReview);
+        this.setParamArraySimple(map, prefix + "ApproverVerifyTypes.", this.ApproverVerifyTypes);
+        this.setParamArraySimple(map, prefix + "ApproverSignTypes.", this.ApproverSignTypes);
+        this.setParamSimple(map, prefix + "SignId", this.SignId);
+        this.setParamSimple(map, prefix + "NotifyType", this.NotifyType);
 
     }
 }

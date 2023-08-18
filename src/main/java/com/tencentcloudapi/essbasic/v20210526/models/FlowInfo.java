@@ -79,7 +79,7 @@ public class FlowInfo extends AbstractModel{
     private String FlowDescription;
 
     /**
-    * 渠道的业务信息，最大长度1000个字符。发起自动签署时，需设置对应自动签署场景，目前仅支持场景：处方单-E_PRESCRIPTION_AUTO_SIGN
+    *  第三方应用平台的业务信息，最大长度1000个字符。
     */
     @SerializedName("CustomerData")
     @Expose
@@ -108,6 +108,20 @@ public class FlowInfo extends AbstractModel{
     @SerializedName("NeedSignReview")
     @Expose
     private Boolean NeedSignReview;
+
+    /**
+    * 给关注人发送短信通知的类型，0-合同发起时通知 1-签署完成后通知
+    */
+    @SerializedName("CcNotifyType")
+    @Expose
+    private Long CcNotifyType;
+
+    /**
+    * 个人自动签场景。发起自动签署时，需设置对应自动签署场景，目前仅支持场景：处方单-E_PRESCRIPTION_AUTO_SIGN
+    */
+    @SerializedName("AutoSignScene")
+    @Expose
+    private String AutoSignScene;
 
     /**
      * Get 合同名字，最大长度200个字符 
@@ -238,16 +252,16 @@ public class FlowInfo extends AbstractModel{
     }
 
     /**
-     * Get 渠道的业务信息，最大长度1000个字符。发起自动签署时，需设置对应自动签署场景，目前仅支持场景：处方单-E_PRESCRIPTION_AUTO_SIGN 
-     * @return CustomerData 渠道的业务信息，最大长度1000个字符。发起自动签署时，需设置对应自动签署场景，目前仅支持场景：处方单-E_PRESCRIPTION_AUTO_SIGN
+     * Get  第三方应用平台的业务信息，最大长度1000个字符。 
+     * @return CustomerData  第三方应用平台的业务信息，最大长度1000个字符。
      */
     public String getCustomerData() {
         return this.CustomerData;
     }
 
     /**
-     * Set 渠道的业务信息，最大长度1000个字符。发起自动签署时，需设置对应自动签署场景，目前仅支持场景：处方单-E_PRESCRIPTION_AUTO_SIGN
-     * @param CustomerData 渠道的业务信息，最大长度1000个字符。发起自动签署时，需设置对应自动签署场景，目前仅支持场景：处方单-E_PRESCRIPTION_AUTO_SIGN
+     * Set  第三方应用平台的业务信息，最大长度1000个字符。
+     * @param CustomerData  第三方应用平台的业务信息，最大长度1000个字符。
      */
     public void setCustomerData(String CustomerData) {
         this.CustomerData = CustomerData;
@@ -313,6 +327,38 @@ public class FlowInfo extends AbstractModel{
         this.NeedSignReview = NeedSignReview;
     }
 
+    /**
+     * Get 给关注人发送短信通知的类型，0-合同发起时通知 1-签署完成后通知 
+     * @return CcNotifyType 给关注人发送短信通知的类型，0-合同发起时通知 1-签署完成后通知
+     */
+    public Long getCcNotifyType() {
+        return this.CcNotifyType;
+    }
+
+    /**
+     * Set 给关注人发送短信通知的类型，0-合同发起时通知 1-签署完成后通知
+     * @param CcNotifyType 给关注人发送短信通知的类型，0-合同发起时通知 1-签署完成后通知
+     */
+    public void setCcNotifyType(Long CcNotifyType) {
+        this.CcNotifyType = CcNotifyType;
+    }
+
+    /**
+     * Get 个人自动签场景。发起自动签署时，需设置对应自动签署场景，目前仅支持场景：处方单-E_PRESCRIPTION_AUTO_SIGN 
+     * @return AutoSignScene 个人自动签场景。发起自动签署时，需设置对应自动签署场景，目前仅支持场景：处方单-E_PRESCRIPTION_AUTO_SIGN
+     */
+    public String getAutoSignScene() {
+        return this.AutoSignScene;
+    }
+
+    /**
+     * Set 个人自动签场景。发起自动签署时，需设置对应自动签署场景，目前仅支持场景：处方单-E_PRESCRIPTION_AUTO_SIGN
+     * @param AutoSignScene 个人自动签场景。发起自动签署时，需设置对应自动签署场景，目前仅支持场景：处方单-E_PRESCRIPTION_AUTO_SIGN
+     */
+    public void setAutoSignScene(String AutoSignScene) {
+        this.AutoSignScene = AutoSignScene;
+    }
+
     public FlowInfo() {
     }
 
@@ -366,6 +412,12 @@ public class FlowInfo extends AbstractModel{
         if (source.NeedSignReview != null) {
             this.NeedSignReview = new Boolean(source.NeedSignReview);
         }
+        if (source.CcNotifyType != null) {
+            this.CcNotifyType = new Long(source.CcNotifyType);
+        }
+        if (source.AutoSignScene != null) {
+            this.AutoSignScene = new String(source.AutoSignScene);
+        }
     }
 
 
@@ -385,6 +437,8 @@ public class FlowInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "CustomShowMap", this.CustomShowMap);
         this.setParamArrayObj(map, prefix + "CcInfos.", this.CcInfos);
         this.setParamSimple(map, prefix + "NeedSignReview", this.NeedSignReview);
+        this.setParamSimple(map, prefix + "CcNotifyType", this.CcNotifyType);
+        this.setParamSimple(map, prefix + "AutoSignScene", this.AutoSignScene);
 
     }
 }

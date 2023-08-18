@@ -30,49 +30,50 @@ public class InstanceSet extends AbstractModel{
     private String InstanceName;
 
     /**
-    * 实例Id。
+    * 实例 ID。
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
 
     /**
-    * 用户的Appid。
+    * 用户APPID。APPID是与账号ID有唯一对应关系的应用 ID，部分腾讯云产品会使用此 APPID。
+
     */
     @SerializedName("Appid")
     @Expose
     private Long Appid;
 
     /**
-    * 项目Id。
+    * 项目 ID。
     */
     @SerializedName("ProjectId")
     @Expose
     private Long ProjectId;
 
     /**
-    * 地域id 。1--广州 4--上海 5-- 中国香港 6--多伦多 7--上海金融 8--北京 9-- 新加坡 11--深圳金融 15--美西（硅谷）16--成都 17--德国 18--韩国 19--重庆 21--印度 22--美东（弗吉尼亚）23--泰国 24--俄罗斯 25--日本
+    * 地域 ID。<ul><li>1：广州。</li><li>4：上海。</li><li>5：中国香港。</li><li>6：多伦多。</li> <li>7：上海金融。</li> <li>8：北京。</li> <li>9：新加坡。</li> <li>11：深圳金融。</li> <li>15：美西（硅谷）。</li><li>16：成都。</li><li>17：法兰克福。</li><li>18：首尔。</li><li>19：重庆。</li><li>21：孟买。</li><li>22：美东（弗吉尼亚）。</li><li>23：曼谷。</li><li>24：莫斯科。</li><li>25：东京。</li></ul>
     */
     @SerializedName("RegionId")
     @Expose
     private Long RegionId;
 
     /**
-    * 区域id。
+    * 区域 ID。
     */
     @SerializedName("ZoneId")
     @Expose
     private Long ZoneId;
 
     /**
-    * vpc网络id，例如75101。
+    * vpc网络 ID，例如75101。
     */
     @SerializedName("VpcId")
     @Expose
     private Long VpcId;
 
     /**
-    * vpc网络下子网id 如：46315。
+    * vpc网络下子网ID，如：46315。
     */
     @SerializedName("SubnetId")
     @Expose
@@ -86,7 +87,7 @@ public class InstanceSet extends AbstractModel{
     private Long Status;
 
     /**
-    * 实例vip。
+    * 实例 VIP。
     */
     @SerializedName("WanIp")
     @Expose
@@ -100,28 +101,38 @@ public class InstanceSet extends AbstractModel{
     private Long Port;
 
     /**
-    * 实例创建时间。
+    * 实例创建时间。格式如：2020-01-15 10:20:00。
     */
     @SerializedName("Createtime")
     @Expose
     private String Createtime;
 
     /**
-    * 实例容量大小，单位：MB。
+    * 实例内存容量大小。单位：MB，1MB=1024KB。
     */
     @SerializedName("Size")
     @Expose
     private Float Size;
 
     /**
-    * 该字段已废弃。
+    * 该字段已废弃。请使用腾讯云可观测平台API 接口 [GetMonitorData](https://cloud.tencent.com/document/product/248/31014) 获取实例已使用的内存容量。
     */
     @SerializedName("SizeUsed")
     @Expose
     private Float SizeUsed;
 
     /**
-    * 实例类型：<ul><li>1：Redis2.8内存版（集群架构）。</li><li>2：Redis2.8内存版（标准架构）。</li><li>3：CKV 3.2内存版(标准架构)。</li><li>4：CKV 3.2内存版(集群架构)。</li><li>5：Redis2.8内存版（单机）。</li></li><li>6：Redis4.0内存版（标准架构）。</li></li><li>7：Redis4.0内存版（集群架构）。</li></li><li>8：Redis5.0内存版（标准架构）。</li></li><li>9：Redis5.0内存版（集群架构）。</li></ul>
+    * 实例类型。
+- 2：Redis 2.8内存版（标准架构）。
+- 3：CKV 3.2内存版（标准架构）。
+- 4：CKV 3.2内存版（集群架构）。
+- 5：Redis 2.8内存版（单机）。
+- 6：Redis 4.0内存版（标准架构）。
+- 7：Redis 4.0内存版（集群架构）。
+- 8：Redis 5.0内存版（标准架构）。
+- 9：Redis 5.0内存版（集群架构）。
+- 15：Redis 6.2内存版（标准架构）。
+- 16：Redis 6.2内存版（集群架构）。
     */
     @SerializedName("Type")
     @Expose
@@ -135,7 +146,7 @@ public class InstanceSet extends AbstractModel{
     private Long AutoRenewFlag;
 
     /**
-    * 实例到期时间。
+    * 包年包月计费实例到期的时间。
     */
     @SerializedName("DeadlineTime")
     @Expose
@@ -184,7 +195,7 @@ public class InstanceSet extends AbstractModel{
     private String InstanceTitle;
 
     /**
-    * 计划下线时间。
+    * 已隔离实例默认下线时间。按量计费实例隔离后默认两小时后下线，包年包月默认7天后下线。格式如：2020-02-15 10:20:00。
     */
     @SerializedName("OfflineTime")
     @Expose
@@ -233,14 +244,14 @@ public class InstanceSet extends AbstractModel{
     private Long RedisReplicasNum;
 
     /**
-    * 计费Id。
+    * 计费 ID。
     */
     @SerializedName("PriceId")
     @Expose
     private Long PriceId;
 
     /**
-    * 隔离时间。
+    * 实例隔离开始的时间。
     */
     @SerializedName("CloseTime")
     @Expose
@@ -342,7 +353,7 @@ public class InstanceSet extends AbstractModel{
     private Long DiskSize;
 
     /**
-    * 监控版本。<ul><li>1m：分钟粒度监控。</li><li>5s：5秒粒度监控。</li></ul>
+    * 监控版本。<ul><li>1m：1分钟粒度监控。目前该监控粒度已下线，具体信息，请参见[云数据库 Redis 1分钟粒度下线公告](https://cloud.tencent.com/document/product/239/80653)。</li><li>5s：5秒粒度监控。</li></ul>
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MonitorVersion")
@@ -390,7 +401,7 @@ public class InstanceSet extends AbstractModel{
     private String WanAddress;
 
     /**
-    * 北极星服务地址。
+    * 北极星服务地址，内部使用。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PolarisServer")
@@ -446,112 +457,116 @@ public class InstanceSet extends AbstractModel{
     }
 
     /**
-     * Get 实例Id。 
-     * @return InstanceId 实例Id。
+     * Get 实例 ID。 
+     * @return InstanceId 实例 ID。
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例Id。
-     * @param InstanceId 实例Id。
+     * Set 实例 ID。
+     * @param InstanceId 实例 ID。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 用户的Appid。 
-     * @return Appid 用户的Appid。
+     * Get 用户APPID。APPID是与账号ID有唯一对应关系的应用 ID，部分腾讯云产品会使用此 APPID。
+ 
+     * @return Appid 用户APPID。APPID是与账号ID有唯一对应关系的应用 ID，部分腾讯云产品会使用此 APPID。
+
      */
     public Long getAppid() {
         return this.Appid;
     }
 
     /**
-     * Set 用户的Appid。
-     * @param Appid 用户的Appid。
+     * Set 用户APPID。APPID是与账号ID有唯一对应关系的应用 ID，部分腾讯云产品会使用此 APPID。
+
+     * @param Appid 用户APPID。APPID是与账号ID有唯一对应关系的应用 ID，部分腾讯云产品会使用此 APPID。
+
      */
     public void setAppid(Long Appid) {
         this.Appid = Appid;
     }
 
     /**
-     * Get 项目Id。 
-     * @return ProjectId 项目Id。
+     * Get 项目 ID。 
+     * @return ProjectId 项目 ID。
      */
     public Long getProjectId() {
         return this.ProjectId;
     }
 
     /**
-     * Set 项目Id。
-     * @param ProjectId 项目Id。
+     * Set 项目 ID。
+     * @param ProjectId 项目 ID。
      */
     public void setProjectId(Long ProjectId) {
         this.ProjectId = ProjectId;
     }
 
     /**
-     * Get 地域id 。1--广州 4--上海 5-- 中国香港 6--多伦多 7--上海金融 8--北京 9-- 新加坡 11--深圳金融 15--美西（硅谷）16--成都 17--德国 18--韩国 19--重庆 21--印度 22--美东（弗吉尼亚）23--泰国 24--俄罗斯 25--日本 
-     * @return RegionId 地域id 。1--广州 4--上海 5-- 中国香港 6--多伦多 7--上海金融 8--北京 9-- 新加坡 11--深圳金融 15--美西（硅谷）16--成都 17--德国 18--韩国 19--重庆 21--印度 22--美东（弗吉尼亚）23--泰国 24--俄罗斯 25--日本
+     * Get 地域 ID。<ul><li>1：广州。</li><li>4：上海。</li><li>5：中国香港。</li><li>6：多伦多。</li> <li>7：上海金融。</li> <li>8：北京。</li> <li>9：新加坡。</li> <li>11：深圳金融。</li> <li>15：美西（硅谷）。</li><li>16：成都。</li><li>17：法兰克福。</li><li>18：首尔。</li><li>19：重庆。</li><li>21：孟买。</li><li>22：美东（弗吉尼亚）。</li><li>23：曼谷。</li><li>24：莫斯科。</li><li>25：东京。</li></ul> 
+     * @return RegionId 地域 ID。<ul><li>1：广州。</li><li>4：上海。</li><li>5：中国香港。</li><li>6：多伦多。</li> <li>7：上海金融。</li> <li>8：北京。</li> <li>9：新加坡。</li> <li>11：深圳金融。</li> <li>15：美西（硅谷）。</li><li>16：成都。</li><li>17：法兰克福。</li><li>18：首尔。</li><li>19：重庆。</li><li>21：孟买。</li><li>22：美东（弗吉尼亚）。</li><li>23：曼谷。</li><li>24：莫斯科。</li><li>25：东京。</li></ul>
      */
     public Long getRegionId() {
         return this.RegionId;
     }
 
     /**
-     * Set 地域id 。1--广州 4--上海 5-- 中国香港 6--多伦多 7--上海金融 8--北京 9-- 新加坡 11--深圳金融 15--美西（硅谷）16--成都 17--德国 18--韩国 19--重庆 21--印度 22--美东（弗吉尼亚）23--泰国 24--俄罗斯 25--日本
-     * @param RegionId 地域id 。1--广州 4--上海 5-- 中国香港 6--多伦多 7--上海金融 8--北京 9-- 新加坡 11--深圳金融 15--美西（硅谷）16--成都 17--德国 18--韩国 19--重庆 21--印度 22--美东（弗吉尼亚）23--泰国 24--俄罗斯 25--日本
+     * Set 地域 ID。<ul><li>1：广州。</li><li>4：上海。</li><li>5：中国香港。</li><li>6：多伦多。</li> <li>7：上海金融。</li> <li>8：北京。</li> <li>9：新加坡。</li> <li>11：深圳金融。</li> <li>15：美西（硅谷）。</li><li>16：成都。</li><li>17：法兰克福。</li><li>18：首尔。</li><li>19：重庆。</li><li>21：孟买。</li><li>22：美东（弗吉尼亚）。</li><li>23：曼谷。</li><li>24：莫斯科。</li><li>25：东京。</li></ul>
+     * @param RegionId 地域 ID。<ul><li>1：广州。</li><li>4：上海。</li><li>5：中国香港。</li><li>6：多伦多。</li> <li>7：上海金融。</li> <li>8：北京。</li> <li>9：新加坡。</li> <li>11：深圳金融。</li> <li>15：美西（硅谷）。</li><li>16：成都。</li><li>17：法兰克福。</li><li>18：首尔。</li><li>19：重庆。</li><li>21：孟买。</li><li>22：美东（弗吉尼亚）。</li><li>23：曼谷。</li><li>24：莫斯科。</li><li>25：东京。</li></ul>
      */
     public void setRegionId(Long RegionId) {
         this.RegionId = RegionId;
     }
 
     /**
-     * Get 区域id。 
-     * @return ZoneId 区域id。
+     * Get 区域 ID。 
+     * @return ZoneId 区域 ID。
      */
     public Long getZoneId() {
         return this.ZoneId;
     }
 
     /**
-     * Set 区域id。
-     * @param ZoneId 区域id。
+     * Set 区域 ID。
+     * @param ZoneId 区域 ID。
      */
     public void setZoneId(Long ZoneId) {
         this.ZoneId = ZoneId;
     }
 
     /**
-     * Get vpc网络id，例如75101。 
-     * @return VpcId vpc网络id，例如75101。
+     * Get vpc网络 ID，例如75101。 
+     * @return VpcId vpc网络 ID，例如75101。
      */
     public Long getVpcId() {
         return this.VpcId;
     }
 
     /**
-     * Set vpc网络id，例如75101。
-     * @param VpcId vpc网络id，例如75101。
+     * Set vpc网络 ID，例如75101。
+     * @param VpcId vpc网络 ID，例如75101。
      */
     public void setVpcId(Long VpcId) {
         this.VpcId = VpcId;
     }
 
     /**
-     * Get vpc网络下子网id 如：46315。 
-     * @return SubnetId vpc网络下子网id 如：46315。
+     * Get vpc网络下子网ID，如：46315。 
+     * @return SubnetId vpc网络下子网ID，如：46315。
      */
     public Long getSubnetId() {
         return this.SubnetId;
     }
 
     /**
-     * Set vpc网络下子网id 如：46315。
-     * @param SubnetId vpc网络下子网id 如：46315。
+     * Set vpc网络下子网ID，如：46315。
+     * @param SubnetId vpc网络下子网ID，如：46315。
      */
     public void setSubnetId(Long SubnetId) {
         this.SubnetId = SubnetId;
@@ -574,16 +589,16 @@ public class InstanceSet extends AbstractModel{
     }
 
     /**
-     * Get 实例vip。 
-     * @return WanIp 实例vip。
+     * Get 实例 VIP。 
+     * @return WanIp 实例 VIP。
      */
     public String getWanIp() {
         return this.WanIp;
     }
 
     /**
-     * Set 实例vip。
-     * @param WanIp 实例vip。
+     * Set 实例 VIP。
+     * @param WanIp 实例 VIP。
      */
     public void setWanIp(String WanIp) {
         this.WanIp = WanIp;
@@ -606,64 +621,104 @@ public class InstanceSet extends AbstractModel{
     }
 
     /**
-     * Get 实例创建时间。 
-     * @return Createtime 实例创建时间。
+     * Get 实例创建时间。格式如：2020-01-15 10:20:00。 
+     * @return Createtime 实例创建时间。格式如：2020-01-15 10:20:00。
      */
     public String getCreatetime() {
         return this.Createtime;
     }
 
     /**
-     * Set 实例创建时间。
-     * @param Createtime 实例创建时间。
+     * Set 实例创建时间。格式如：2020-01-15 10:20:00。
+     * @param Createtime 实例创建时间。格式如：2020-01-15 10:20:00。
      */
     public void setCreatetime(String Createtime) {
         this.Createtime = Createtime;
     }
 
     /**
-     * Get 实例容量大小，单位：MB。 
-     * @return Size 实例容量大小，单位：MB。
+     * Get 实例内存容量大小。单位：MB，1MB=1024KB。 
+     * @return Size 实例内存容量大小。单位：MB，1MB=1024KB。
      */
     public Float getSize() {
         return this.Size;
     }
 
     /**
-     * Set 实例容量大小，单位：MB。
-     * @param Size 实例容量大小，单位：MB。
+     * Set 实例内存容量大小。单位：MB，1MB=1024KB。
+     * @param Size 实例内存容量大小。单位：MB，1MB=1024KB。
      */
     public void setSize(Float Size) {
         this.Size = Size;
     }
 
     /**
-     * Get 该字段已废弃。 
-     * @return SizeUsed 该字段已废弃。
+     * Get 该字段已废弃。请使用腾讯云可观测平台API 接口 [GetMonitorData](https://cloud.tencent.com/document/product/248/31014) 获取实例已使用的内存容量。 
+     * @return SizeUsed 该字段已废弃。请使用腾讯云可观测平台API 接口 [GetMonitorData](https://cloud.tencent.com/document/product/248/31014) 获取实例已使用的内存容量。
      */
     public Float getSizeUsed() {
         return this.SizeUsed;
     }
 
     /**
-     * Set 该字段已废弃。
-     * @param SizeUsed 该字段已废弃。
+     * Set 该字段已废弃。请使用腾讯云可观测平台API 接口 [GetMonitorData](https://cloud.tencent.com/document/product/248/31014) 获取实例已使用的内存容量。
+     * @param SizeUsed 该字段已废弃。请使用腾讯云可观测平台API 接口 [GetMonitorData](https://cloud.tencent.com/document/product/248/31014) 获取实例已使用的内存容量。
      */
     public void setSizeUsed(Float SizeUsed) {
         this.SizeUsed = SizeUsed;
     }
 
     /**
-     * Get 实例类型：<ul><li>1：Redis2.8内存版（集群架构）。</li><li>2：Redis2.8内存版（标准架构）。</li><li>3：CKV 3.2内存版(标准架构)。</li><li>4：CKV 3.2内存版(集群架构)。</li><li>5：Redis2.8内存版（单机）。</li></li><li>6：Redis4.0内存版（标准架构）。</li></li><li>7：Redis4.0内存版（集群架构）。</li></li><li>8：Redis5.0内存版（标准架构）。</li></li><li>9：Redis5.0内存版（集群架构）。</li></ul> 
-     * @return Type 实例类型：<ul><li>1：Redis2.8内存版（集群架构）。</li><li>2：Redis2.8内存版（标准架构）。</li><li>3：CKV 3.2内存版(标准架构)。</li><li>4：CKV 3.2内存版(集群架构)。</li><li>5：Redis2.8内存版（单机）。</li></li><li>6：Redis4.0内存版（标准架构）。</li></li><li>7：Redis4.0内存版（集群架构）。</li></li><li>8：Redis5.0内存版（标准架构）。</li></li><li>9：Redis5.0内存版（集群架构）。</li></ul>
+     * Get 实例类型。
+- 2：Redis 2.8内存版（标准架构）。
+- 3：CKV 3.2内存版（标准架构）。
+- 4：CKV 3.2内存版（集群架构）。
+- 5：Redis 2.8内存版（单机）。
+- 6：Redis 4.0内存版（标准架构）。
+- 7：Redis 4.0内存版（集群架构）。
+- 8：Redis 5.0内存版（标准架构）。
+- 9：Redis 5.0内存版（集群架构）。
+- 15：Redis 6.2内存版（标准架构）。
+- 16：Redis 6.2内存版（集群架构）。 
+     * @return Type 实例类型。
+- 2：Redis 2.8内存版（标准架构）。
+- 3：CKV 3.2内存版（标准架构）。
+- 4：CKV 3.2内存版（集群架构）。
+- 5：Redis 2.8内存版（单机）。
+- 6：Redis 4.0内存版（标准架构）。
+- 7：Redis 4.0内存版（集群架构）。
+- 8：Redis 5.0内存版（标准架构）。
+- 9：Redis 5.0内存版（集群架构）。
+- 15：Redis 6.2内存版（标准架构）。
+- 16：Redis 6.2内存版（集群架构）。
      */
     public Long getType() {
         return this.Type;
     }
 
     /**
-     * Set 实例类型：<ul><li>1：Redis2.8内存版（集群架构）。</li><li>2：Redis2.8内存版（标准架构）。</li><li>3：CKV 3.2内存版(标准架构)。</li><li>4：CKV 3.2内存版(集群架构)。</li><li>5：Redis2.8内存版（单机）。</li></li><li>6：Redis4.0内存版（标准架构）。</li></li><li>7：Redis4.0内存版（集群架构）。</li></li><li>8：Redis5.0内存版（标准架构）。</li></li><li>9：Redis5.0内存版（集群架构）。</li></ul>
-     * @param Type 实例类型：<ul><li>1：Redis2.8内存版（集群架构）。</li><li>2：Redis2.8内存版（标准架构）。</li><li>3：CKV 3.2内存版(标准架构)。</li><li>4：CKV 3.2内存版(集群架构)。</li><li>5：Redis2.8内存版（单机）。</li></li><li>6：Redis4.0内存版（标准架构）。</li></li><li>7：Redis4.0内存版（集群架构）。</li></li><li>8：Redis5.0内存版（标准架构）。</li></li><li>9：Redis5.0内存版（集群架构）。</li></ul>
+     * Set 实例类型。
+- 2：Redis 2.8内存版（标准架构）。
+- 3：CKV 3.2内存版（标准架构）。
+- 4：CKV 3.2内存版（集群架构）。
+- 5：Redis 2.8内存版（单机）。
+- 6：Redis 4.0内存版（标准架构）。
+- 7：Redis 4.0内存版（集群架构）。
+- 8：Redis 5.0内存版（标准架构）。
+- 9：Redis 5.0内存版（集群架构）。
+- 15：Redis 6.2内存版（标准架构）。
+- 16：Redis 6.2内存版（集群架构）。
+     * @param Type 实例类型。
+- 2：Redis 2.8内存版（标准架构）。
+- 3：CKV 3.2内存版（标准架构）。
+- 4：CKV 3.2内存版（集群架构）。
+- 5：Redis 2.8内存版（单机）。
+- 6：Redis 4.0内存版（标准架构）。
+- 7：Redis 4.0内存版（集群架构）。
+- 8：Redis 5.0内存版（标准架构）。
+- 9：Redis 5.0内存版（集群架构）。
+- 15：Redis 6.2内存版（标准架构）。
+- 16：Redis 6.2内存版（集群架构）。
      */
     public void setType(Long Type) {
         this.Type = Type;
@@ -686,16 +741,16 @@ public class InstanceSet extends AbstractModel{
     }
 
     /**
-     * Get 实例到期时间。 
-     * @return DeadlineTime 实例到期时间。
+     * Get 包年包月计费实例到期的时间。 
+     * @return DeadlineTime 包年包月计费实例到期的时间。
      */
     public String getDeadlineTime() {
         return this.DeadlineTime;
     }
 
     /**
-     * Set 实例到期时间。
-     * @param DeadlineTime 实例到期时间。
+     * Set 包年包月计费实例到期的时间。
+     * @param DeadlineTime 包年包月计费实例到期的时间。
      */
     public void setDeadlineTime(String DeadlineTime) {
         this.DeadlineTime = DeadlineTime;
@@ -798,16 +853,16 @@ public class InstanceSet extends AbstractModel{
     }
 
     /**
-     * Get 计划下线时间。 
-     * @return OfflineTime 计划下线时间。
+     * Get 已隔离实例默认下线时间。按量计费实例隔离后默认两小时后下线，包年包月默认7天后下线。格式如：2020-02-15 10:20:00。 
+     * @return OfflineTime 已隔离实例默认下线时间。按量计费实例隔离后默认两小时后下线，包年包月默认7天后下线。格式如：2020-02-15 10:20:00。
      */
     public String getOfflineTime() {
         return this.OfflineTime;
     }
 
     /**
-     * Set 计划下线时间。
-     * @param OfflineTime 计划下线时间。
+     * Set 已隔离实例默认下线时间。按量计费实例隔离后默认两小时后下线，包年包月默认7天后下线。格式如：2020-02-15 10:20:00。
+     * @param OfflineTime 已隔离实例默认下线时间。按量计费实例隔离后默认两小时后下线，包年包月默认7天后下线。格式如：2020-02-15 10:20:00。
      */
     public void setOfflineTime(String OfflineTime) {
         this.OfflineTime = OfflineTime;
@@ -910,32 +965,32 @@ public class InstanceSet extends AbstractModel{
     }
 
     /**
-     * Get 计费Id。 
-     * @return PriceId 计费Id。
+     * Get 计费 ID。 
+     * @return PriceId 计费 ID。
      */
     public Long getPriceId() {
         return this.PriceId;
     }
 
     /**
-     * Set 计费Id。
-     * @param PriceId 计费Id。
+     * Set 计费 ID。
+     * @param PriceId 计费 ID。
      */
     public void setPriceId(Long PriceId) {
         this.PriceId = PriceId;
     }
 
     /**
-     * Get 隔离时间。 
-     * @return CloseTime 隔离时间。
+     * Get 实例隔离开始的时间。 
+     * @return CloseTime 实例隔离开始的时间。
      */
     public String getCloseTime() {
         return this.CloseTime;
     }
 
     /**
-     * Set 隔离时间。
-     * @param CloseTime 隔离时间。
+     * Set 实例隔离开始的时间。
+     * @param CloseTime 实例隔离开始的时间。
      */
     public void setCloseTime(String CloseTime) {
         this.CloseTime = CloseTime;
@@ -1178,9 +1233,9 @@ public class InstanceSet extends AbstractModel{
     }
 
     /**
-     * Get 监控版本。<ul><li>1m：分钟粒度监控。</li><li>5s：5秒粒度监控。</li></ul>
+     * Get 监控版本。<ul><li>1m：1分钟粒度监控。目前该监控粒度已下线，具体信息，请参见[云数据库 Redis 1分钟粒度下线公告](https://cloud.tencent.com/document/product/239/80653)。</li><li>5s：5秒粒度监控。</li></ul>
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return MonitorVersion 监控版本。<ul><li>1m：分钟粒度监控。</li><li>5s：5秒粒度监控。</li></ul>
+     * @return MonitorVersion 监控版本。<ul><li>1m：1分钟粒度监控。目前该监控粒度已下线，具体信息，请参见[云数据库 Redis 1分钟粒度下线公告](https://cloud.tencent.com/document/product/239/80653)。</li><li>5s：5秒粒度监控。</li></ul>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMonitorVersion() {
@@ -1188,9 +1243,9 @@ public class InstanceSet extends AbstractModel{
     }
 
     /**
-     * Set 监控版本。<ul><li>1m：分钟粒度监控。</li><li>5s：5秒粒度监控。</li></ul>
+     * Set 监控版本。<ul><li>1m：1分钟粒度监控。目前该监控粒度已下线，具体信息，请参见[云数据库 Redis 1分钟粒度下线公告](https://cloud.tencent.com/document/product/239/80653)。</li><li>5s：5秒粒度监控。</li></ul>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param MonitorVersion 监控版本。<ul><li>1m：分钟粒度监控。</li><li>5s：5秒粒度监控。</li></ul>
+     * @param MonitorVersion 监控版本。<ul><li>1m：1分钟粒度监控。目前该监控粒度已下线，具体信息，请参见[云数据库 Redis 1分钟粒度下线公告](https://cloud.tencent.com/document/product/239/80653)。</li><li>5s：5秒粒度监控。</li></ul>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMonitorVersion(String MonitorVersion) {
@@ -1298,9 +1353,9 @@ public class InstanceSet extends AbstractModel{
     }
 
     /**
-     * Get 北极星服务地址。
+     * Get 北极星服务地址，内部使用。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return PolarisServer 北极星服务地址。
+     * @return PolarisServer 北极星服务地址，内部使用。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPolarisServer() {
@@ -1308,9 +1363,9 @@ public class InstanceSet extends AbstractModel{
     }
 
     /**
-     * Set 北极星服务地址。
+     * Set 北极星服务地址，内部使用。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param PolarisServer 北极星服务地址。
+     * @param PolarisServer 北极星服务地址，内部使用。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPolarisServer(String PolarisServer) {

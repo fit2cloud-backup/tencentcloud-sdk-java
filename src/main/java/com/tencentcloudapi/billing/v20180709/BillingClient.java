@@ -29,7 +29,7 @@ public class BillingClient extends AbstractClient{
     private static String endpoint = "billing.tencentcloudapi.com";
     private static String service = "billing";
     private static String version = "2018-07-09";
-
+    
     public BillingClient(Credential credential, String region) {
         this(credential, region, new ClientProfile());
     }
@@ -47,6 +47,7 @@ public class BillingClient extends AbstractClient{
     public DescribeAccountBalanceResponse DescribeAccountBalance(DescribeAccountBalanceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeAccountBalanceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeAccountBalanceResponse>>() {
                 }.getType();
@@ -59,7 +60,10 @@ public class BillingClient extends AbstractClient{
     }
 
     /**
-     *查询账单明细数据
+     *查询账单明细数据。
+注意事项：
+1.在请求接口时，由于网络不稳定或其它异常，可能会导致请求失败。如果您遇到这种情况，我们建议您在接口请求失败时，手动发起重试操作，这样可以更好地确保您的接口请求能够成功执行。
+2.对于账单明细数据量级很大（例如每月账单明细量级超过20w）的客户，通过 API 调用账单数据效率较低，建议您开通账单数据存储功能，通过存储桶中获取账单文件进行分析。[账单存储至COS桶](https://cloud.tencent.com/document/product/555/61275)
      * @param req DescribeBillDetailRequest
      * @return DescribeBillDetailResponse
      * @throws TencentCloudSDKException
@@ -67,6 +71,7 @@ public class BillingClient extends AbstractClient{
     public DescribeBillDetailResponse DescribeBillDetail(DescribeBillDetailRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeBillDetailResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeBillDetailResponse>>() {
                 }.getType();
@@ -87,6 +92,7 @@ public class BillingClient extends AbstractClient{
     public DescribeBillListResponse DescribeBillList(DescribeBillListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeBillListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeBillListResponse>>() {
                 }.getType();
@@ -99,7 +105,7 @@ public class BillingClient extends AbstractClient{
     }
 
     /**
-     *查询账单资源汇总数据 
+     *查询账单资源汇总数据
      * @param req DescribeBillResourceSummaryRequest
      * @return DescribeBillResourceSummaryResponse
      * @throws TencentCloudSDKException
@@ -107,6 +113,7 @@ public class BillingClient extends AbstractClient{
     public DescribeBillResourceSummaryResponse DescribeBillResourceSummary(DescribeBillResourceSummaryRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeBillResourceSummaryResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeBillResourceSummaryResponse>>() {
                 }.getType();
@@ -119,7 +126,28 @@ public class BillingClient extends AbstractClient{
     }
 
     /**
-     *获取按付费模式汇总费用分布
+     *该接口支持通过传参，按照产品、项目、地域、计费模式和标签五个维度获取账单费用明细。
+     * @param req DescribeBillSummaryRequest
+     * @return DescribeBillSummaryResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeBillSummaryResponse DescribeBillSummary(DescribeBillSummaryRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeBillSummaryResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeBillSummaryResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeBillSummary");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *获取按计费模式汇总费用分布
      * @param req DescribeBillSummaryByPayModeRequest
      * @return DescribeBillSummaryByPayModeResponse
      * @throws TencentCloudSDKException
@@ -127,6 +155,7 @@ public class BillingClient extends AbstractClient{
     public DescribeBillSummaryByPayModeResponse DescribeBillSummaryByPayMode(DescribeBillSummaryByPayModeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeBillSummaryByPayModeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeBillSummaryByPayModeResponse>>() {
                 }.getType();
@@ -147,6 +176,7 @@ public class BillingClient extends AbstractClient{
     public DescribeBillSummaryByProductResponse DescribeBillSummaryByProduct(DescribeBillSummaryByProductRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeBillSummaryByProductResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeBillSummaryByProductResponse>>() {
                 }.getType();
@@ -167,6 +197,7 @@ public class BillingClient extends AbstractClient{
     public DescribeBillSummaryByProjectResponse DescribeBillSummaryByProject(DescribeBillSummaryByProjectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeBillSummaryByProjectResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeBillSummaryByProjectResponse>>() {
                 }.getType();
@@ -187,6 +218,7 @@ public class BillingClient extends AbstractClient{
     public DescribeBillSummaryByRegionResponse DescribeBillSummaryByRegion(DescribeBillSummaryByRegionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeBillSummaryByRegionResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeBillSummaryByRegionResponse>>() {
                 }.getType();
@@ -207,6 +239,7 @@ public class BillingClient extends AbstractClient{
     public DescribeBillSummaryByTagResponse DescribeBillSummaryByTag(DescribeBillSummaryByTagRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeBillSummaryByTagResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeBillSummaryByTagResponse>>() {
                 }.getType();
@@ -227,6 +260,7 @@ public class BillingClient extends AbstractClient{
     public DescribeCostDetailResponse DescribeCostDetail(DescribeCostDetailRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCostDetailResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCostDetailResponse>>() {
                 }.getType();
@@ -247,6 +281,7 @@ public class BillingClient extends AbstractClient{
     public DescribeCostSummaryByProductResponse DescribeCostSummaryByProduct(DescribeCostSummaryByProductRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCostSummaryByProductResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCostSummaryByProductResponse>>() {
                 }.getType();
@@ -267,6 +302,7 @@ public class BillingClient extends AbstractClient{
     public DescribeCostSummaryByProjectResponse DescribeCostSummaryByProject(DescribeCostSummaryByProjectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCostSummaryByProjectResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCostSummaryByProjectResponse>>() {
                 }.getType();
@@ -287,6 +323,7 @@ public class BillingClient extends AbstractClient{
     public DescribeCostSummaryByRegionResponse DescribeCostSummaryByRegion(DescribeCostSummaryByRegionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCostSummaryByRegionResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCostSummaryByRegionResponse>>() {
                 }.getType();
@@ -307,6 +344,7 @@ public class BillingClient extends AbstractClient{
     public DescribeCostSummaryByResourceResponse DescribeCostSummaryByResource(DescribeCostSummaryByResourceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCostSummaryByResourceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCostSummaryByResourceResponse>>() {
                 }.getType();
@@ -327,6 +365,7 @@ public class BillingClient extends AbstractClient{
     public DescribeDealsByCondResponse DescribeDealsByCond(DescribeDealsByCondRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDealsByCondResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDealsByCondResponse>>() {
                 }.getType();
@@ -347,6 +386,7 @@ public class BillingClient extends AbstractClient{
     public DescribeDosageCosDetailByDateResponse DescribeDosageCosDetailByDate(DescribeDosageCosDetailByDateRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDosageCosDetailByDateResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDosageCosDetailByDateResponse>>() {
                 }.getType();
@@ -367,6 +407,7 @@ public class BillingClient extends AbstractClient{
     public DescribeDosageDetailByDateResponse DescribeDosageDetailByDate(DescribeDosageDetailByDateRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDosageDetailByDateResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDosageDetailByDateResponse>>() {
                 }.getType();
@@ -387,6 +428,7 @@ public class BillingClient extends AbstractClient{
     public DescribeVoucherInfoResponse DescribeVoucherInfo(DescribeVoucherInfoRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeVoucherInfoResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeVoucherInfoResponse>>() {
                 }.getType();
@@ -407,6 +449,7 @@ public class BillingClient extends AbstractClient{
     public DescribeVoucherUsageDetailsResponse DescribeVoucherUsageDetails(DescribeVoucherUsageDetailsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeVoucherUsageDetailsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeVoucherUsageDetailsResponse>>() {
                 }.getType();
@@ -427,6 +470,7 @@ public class BillingClient extends AbstractClient{
     public PayDealsResponse PayDeals(PayDealsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<PayDealsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<PayDealsResponse>>() {
                 }.getType();

@@ -51,14 +51,14 @@ public class ModifyListenerRequest extends AbstractModel{
     private Long SessionExpireTime;
 
     /**
-    * 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL监听器。
+    * 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。
     */
     @SerializedName("HealthCheck")
     @Expose
     private HealthCheck HealthCheck;
 
     /**
-    * 证书相关信息，此参数仅适用于HTTPS/TCP_SSL监听器；此参数和MultiCertInfo不能同时传入。
+    * 证书相关信息，此参数仅适用于HTTPS/TCP_SSL/QUIC监听器；此参数和MultiCertInfo不能同时传入。
     */
     @SerializedName("Certificate")
     @Expose
@@ -113,6 +113,27 @@ public class ModifyListenerRequest extends AbstractModel{
     @SerializedName("MultiCertInfo")
     @Expose
     private MultiCertInfo MultiCertInfo;
+
+    /**
+    * 监听器粒度并发连接数上限，当前仅性能容量型实例且仅TCP/UDP/TCP_SSL/QUIC监听器支持。取值范围：1-实例规格并发连接上限，其中-1表示关闭监听器粒度并发连接数限速。
+    */
+    @SerializedName("MaxConn")
+    @Expose
+    private Long MaxConn;
+
+    /**
+    * 监听器粒度新建连接数上限，当前仅性能容量型实例且仅TCP/UDP/TCP_SSL/QUIC监听器支持。取值范围：1-实例规格新建连接上限，其中-1表示关闭监听器粒度新建连接数限速。
+    */
+    @SerializedName("MaxCps")
+    @Expose
+    private Long MaxCps;
+
+    /**
+    * 空闲连接超时时间，此参数仅适用于TCP监听器，单位：秒。默认值：900，取值范围：共享型实例和独占型实例支持：300～900，性能容量型实例支持：300~2000。如需设置超过2000s，请通过 [工单申请](https://console.cloud.tencent.com/workorder/category),最大可设置到3600s。
+    */
+    @SerializedName("IdleConnectTimeout")
+    @Expose
+    private Long IdleConnectTimeout;
 
     /**
      * Get 负载均衡实例ID。 
@@ -179,32 +200,32 @@ public class ModifyListenerRequest extends AbstractModel{
     }
 
     /**
-     * Get 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL监听器。 
-     * @return HealthCheck 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL监听器。
+     * Get 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。 
+     * @return HealthCheck 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。
      */
     public HealthCheck getHealthCheck() {
         return this.HealthCheck;
     }
 
     /**
-     * Set 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL监听器。
-     * @param HealthCheck 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL监听器。
+     * Set 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。
+     * @param HealthCheck 健康检查相关参数，此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。
      */
     public void setHealthCheck(HealthCheck HealthCheck) {
         this.HealthCheck = HealthCheck;
     }
 
     /**
-     * Get 证书相关信息，此参数仅适用于HTTPS/TCP_SSL监听器；此参数和MultiCertInfo不能同时传入。 
-     * @return Certificate 证书相关信息，此参数仅适用于HTTPS/TCP_SSL监听器；此参数和MultiCertInfo不能同时传入。
+     * Get 证书相关信息，此参数仅适用于HTTPS/TCP_SSL/QUIC监听器；此参数和MultiCertInfo不能同时传入。 
+     * @return Certificate 证书相关信息，此参数仅适用于HTTPS/TCP_SSL/QUIC监听器；此参数和MultiCertInfo不能同时传入。
      */
     public CertificateInput getCertificate() {
         return this.Certificate;
     }
 
     /**
-     * Set 证书相关信息，此参数仅适用于HTTPS/TCP_SSL监听器；此参数和MultiCertInfo不能同时传入。
-     * @param Certificate 证书相关信息，此参数仅适用于HTTPS/TCP_SSL监听器；此参数和MultiCertInfo不能同时传入。
+     * Set 证书相关信息，此参数仅适用于HTTPS/TCP_SSL/QUIC监听器；此参数和MultiCertInfo不能同时传入。
+     * @param Certificate 证书相关信息，此参数仅适用于HTTPS/TCP_SSL/QUIC监听器；此参数和MultiCertInfo不能同时传入。
      */
     public void setCertificate(CertificateInput Certificate) {
         this.Certificate = Certificate;
@@ -326,6 +347,54 @@ public class ModifyListenerRequest extends AbstractModel{
         this.MultiCertInfo = MultiCertInfo;
     }
 
+    /**
+     * Get 监听器粒度并发连接数上限，当前仅性能容量型实例且仅TCP/UDP/TCP_SSL/QUIC监听器支持。取值范围：1-实例规格并发连接上限，其中-1表示关闭监听器粒度并发连接数限速。 
+     * @return MaxConn 监听器粒度并发连接数上限，当前仅性能容量型实例且仅TCP/UDP/TCP_SSL/QUIC监听器支持。取值范围：1-实例规格并发连接上限，其中-1表示关闭监听器粒度并发连接数限速。
+     */
+    public Long getMaxConn() {
+        return this.MaxConn;
+    }
+
+    /**
+     * Set 监听器粒度并发连接数上限，当前仅性能容量型实例且仅TCP/UDP/TCP_SSL/QUIC监听器支持。取值范围：1-实例规格并发连接上限，其中-1表示关闭监听器粒度并发连接数限速。
+     * @param MaxConn 监听器粒度并发连接数上限，当前仅性能容量型实例且仅TCP/UDP/TCP_SSL/QUIC监听器支持。取值范围：1-实例规格并发连接上限，其中-1表示关闭监听器粒度并发连接数限速。
+     */
+    public void setMaxConn(Long MaxConn) {
+        this.MaxConn = MaxConn;
+    }
+
+    /**
+     * Get 监听器粒度新建连接数上限，当前仅性能容量型实例且仅TCP/UDP/TCP_SSL/QUIC监听器支持。取值范围：1-实例规格新建连接上限，其中-1表示关闭监听器粒度新建连接数限速。 
+     * @return MaxCps 监听器粒度新建连接数上限，当前仅性能容量型实例且仅TCP/UDP/TCP_SSL/QUIC监听器支持。取值范围：1-实例规格新建连接上限，其中-1表示关闭监听器粒度新建连接数限速。
+     */
+    public Long getMaxCps() {
+        return this.MaxCps;
+    }
+
+    /**
+     * Set 监听器粒度新建连接数上限，当前仅性能容量型实例且仅TCP/UDP/TCP_SSL/QUIC监听器支持。取值范围：1-实例规格新建连接上限，其中-1表示关闭监听器粒度新建连接数限速。
+     * @param MaxCps 监听器粒度新建连接数上限，当前仅性能容量型实例且仅TCP/UDP/TCP_SSL/QUIC监听器支持。取值范围：1-实例规格新建连接上限，其中-1表示关闭监听器粒度新建连接数限速。
+     */
+    public void setMaxCps(Long MaxCps) {
+        this.MaxCps = MaxCps;
+    }
+
+    /**
+     * Get 空闲连接超时时间，此参数仅适用于TCP监听器，单位：秒。默认值：900，取值范围：共享型实例和独占型实例支持：300～900，性能容量型实例支持：300~2000。如需设置超过2000s，请通过 [工单申请](https://console.cloud.tencent.com/workorder/category),最大可设置到3600s。 
+     * @return IdleConnectTimeout 空闲连接超时时间，此参数仅适用于TCP监听器，单位：秒。默认值：900，取值范围：共享型实例和独占型实例支持：300～900，性能容量型实例支持：300~2000。如需设置超过2000s，请通过 [工单申请](https://console.cloud.tencent.com/workorder/category),最大可设置到3600s。
+     */
+    public Long getIdleConnectTimeout() {
+        return this.IdleConnectTimeout;
+    }
+
+    /**
+     * Set 空闲连接超时时间，此参数仅适用于TCP监听器，单位：秒。默认值：900，取值范围：共享型实例和独占型实例支持：300～900，性能容量型实例支持：300~2000。如需设置超过2000s，请通过 [工单申请](https://console.cloud.tencent.com/workorder/category),最大可设置到3600s。
+     * @param IdleConnectTimeout 空闲连接超时时间，此参数仅适用于TCP监听器，单位：秒。默认值：900，取值范围：共享型实例和独占型实例支持：300～900，性能容量型实例支持：300~2000。如需设置超过2000s，请通过 [工单申请](https://console.cloud.tencent.com/workorder/category),最大可设置到3600s。
+     */
+    public void setIdleConnectTimeout(Long IdleConnectTimeout) {
+        this.IdleConnectTimeout = IdleConnectTimeout;
+    }
+
     public ModifyListenerRequest() {
     }
 
@@ -373,6 +442,15 @@ public class ModifyListenerRequest extends AbstractModel{
         if (source.MultiCertInfo != null) {
             this.MultiCertInfo = new MultiCertInfo(source.MultiCertInfo);
         }
+        if (source.MaxConn != null) {
+            this.MaxConn = new Long(source.MaxConn);
+        }
+        if (source.MaxCps != null) {
+            this.MaxCps = new Long(source.MaxCps);
+        }
+        if (source.IdleConnectTimeout != null) {
+            this.IdleConnectTimeout = new Long(source.IdleConnectTimeout);
+        }
     }
 
 
@@ -393,6 +471,9 @@ public class ModifyListenerRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "DeregisterTargetRst", this.DeregisterTargetRst);
         this.setParamSimple(map, prefix + "SessionType", this.SessionType);
         this.setParamObj(map, prefix + "MultiCertInfo.", this.MultiCertInfo);
+        this.setParamSimple(map, prefix + "MaxConn", this.MaxConn);
+        this.setParamSimple(map, prefix + "MaxCps", this.MaxCps);
+        this.setParamSimple(map, prefix + "IdleConnectTimeout", this.IdleConnectTimeout);
 
     }
 }

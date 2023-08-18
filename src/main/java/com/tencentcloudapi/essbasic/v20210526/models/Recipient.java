@@ -23,49 +23,56 @@ import java.util.HashMap;
 public class Recipient extends AbstractModel{
 
     /**
-    * 签署人唯一标识
+    * 签署人唯一标识，在通过模板发起合同的时候对应签署方ID
     */
     @SerializedName("RecipientId")
     @Expose
     private String RecipientId;
 
     /**
-    * 签署方类型：ENTERPRISE-企业INDIVIDUAL-自然人
+    * 参与者类型，默认为空。
+ENTERPRISE-企业；
+INDIVIDUAL-个人；
+PROMOTER-发起方
     */
     @SerializedName("RecipientType")
     @Expose
     private String RecipientType;
 
     /**
-    * 描述
+    * 描述信息	
     */
     @SerializedName("Description")
     @Expose
     private String Description;
 
     /**
-    * 签署方备注信息
+    * 角色名称	
     */
     @SerializedName("RoleName")
     @Expose
     private String RoleName;
 
     /**
-    * 是否需要校验
+    * 是否需要校验，
+true-是，
+false-否
     */
     @SerializedName("RequireValidation")
     @Expose
     private Boolean RequireValidation;
 
     /**
-    * 是否必须填写
+    * 是否必须填写，
+true-是，
+false-否
     */
     @SerializedName("RequireSign")
     @Expose
     private Boolean RequireSign;
 
     /**
-    * 签署类型
+    * 内部字段，签署类型
     */
     @SerializedName("SignType")
     @Expose
@@ -79,119 +86,149 @@ public class Recipient extends AbstractModel{
     private Long RoutingOrder;
 
     /**
-    * 是否是发起方
+    * 是否是发起方，
+true-是 
+false-否
     */
     @SerializedName("IsPromoter")
     @Expose
     private Boolean IsPromoter;
 
     /**
-     * Get 签署人唯一标识 
-     * @return RecipientId 签署人唯一标识
+     * Get 签署人唯一标识，在通过模板发起合同的时候对应签署方ID 
+     * @return RecipientId 签署人唯一标识，在通过模板发起合同的时候对应签署方ID
      */
     public String getRecipientId() {
         return this.RecipientId;
     }
 
     /**
-     * Set 签署人唯一标识
-     * @param RecipientId 签署人唯一标识
+     * Set 签署人唯一标识，在通过模板发起合同的时候对应签署方ID
+     * @param RecipientId 签署人唯一标识，在通过模板发起合同的时候对应签署方ID
      */
     public void setRecipientId(String RecipientId) {
         this.RecipientId = RecipientId;
     }
 
     /**
-     * Get 签署方类型：ENTERPRISE-企业INDIVIDUAL-自然人 
-     * @return RecipientType 签署方类型：ENTERPRISE-企业INDIVIDUAL-自然人
+     * Get 参与者类型，默认为空。
+ENTERPRISE-企业；
+INDIVIDUAL-个人；
+PROMOTER-发起方 
+     * @return RecipientType 参与者类型，默认为空。
+ENTERPRISE-企业；
+INDIVIDUAL-个人；
+PROMOTER-发起方
      */
     public String getRecipientType() {
         return this.RecipientType;
     }
 
     /**
-     * Set 签署方类型：ENTERPRISE-企业INDIVIDUAL-自然人
-     * @param RecipientType 签署方类型：ENTERPRISE-企业INDIVIDUAL-自然人
+     * Set 参与者类型，默认为空。
+ENTERPRISE-企业；
+INDIVIDUAL-个人；
+PROMOTER-发起方
+     * @param RecipientType 参与者类型，默认为空。
+ENTERPRISE-企业；
+INDIVIDUAL-个人；
+PROMOTER-发起方
      */
     public void setRecipientType(String RecipientType) {
         this.RecipientType = RecipientType;
     }
 
     /**
-     * Get 描述 
-     * @return Description 描述
+     * Get 描述信息	 
+     * @return Description 描述信息	
      */
     public String getDescription() {
         return this.Description;
     }
 
     /**
-     * Set 描述
-     * @param Description 描述
+     * Set 描述信息	
+     * @param Description 描述信息	
      */
     public void setDescription(String Description) {
         this.Description = Description;
     }
 
     /**
-     * Get 签署方备注信息 
-     * @return RoleName 签署方备注信息
+     * Get 角色名称	 
+     * @return RoleName 角色名称	
      */
     public String getRoleName() {
         return this.RoleName;
     }
 
     /**
-     * Set 签署方备注信息
-     * @param RoleName 签署方备注信息
+     * Set 角色名称	
+     * @param RoleName 角色名称	
      */
     public void setRoleName(String RoleName) {
         this.RoleName = RoleName;
     }
 
     /**
-     * Get 是否需要校验 
-     * @return RequireValidation 是否需要校验
+     * Get 是否需要校验，
+true-是，
+false-否 
+     * @return RequireValidation 是否需要校验，
+true-是，
+false-否
      */
     public Boolean getRequireValidation() {
         return this.RequireValidation;
     }
 
     /**
-     * Set 是否需要校验
-     * @param RequireValidation 是否需要校验
+     * Set 是否需要校验，
+true-是，
+false-否
+     * @param RequireValidation 是否需要校验，
+true-是，
+false-否
      */
     public void setRequireValidation(Boolean RequireValidation) {
         this.RequireValidation = RequireValidation;
     }
 
     /**
-     * Get 是否必须填写 
-     * @return RequireSign 是否必须填写
+     * Get 是否必须填写，
+true-是，
+false-否 
+     * @return RequireSign 是否必须填写，
+true-是，
+false-否
      */
     public Boolean getRequireSign() {
         return this.RequireSign;
     }
 
     /**
-     * Set 是否必须填写
-     * @param RequireSign 是否必须填写
+     * Set 是否必须填写，
+true-是，
+false-否
+     * @param RequireSign 是否必须填写，
+true-是，
+false-否
      */
     public void setRequireSign(Boolean RequireSign) {
         this.RequireSign = RequireSign;
     }
 
     /**
-     * Get 签署类型 
-     * @return SignType 签署类型
+     * Get 内部字段，签署类型 
+     * @return SignType 内部字段，签署类型
      */
     public Long getSignType() {
         return this.SignType;
     }
 
     /**
-     * Set 签署类型
-     * @param SignType 签署类型
+     * Set 内部字段，签署类型
+     * @param SignType 内部字段，签署类型
      */
     public void setSignType(Long SignType) {
         this.SignType = SignType;
@@ -214,16 +251,24 @@ public class Recipient extends AbstractModel{
     }
 
     /**
-     * Get 是否是发起方 
-     * @return IsPromoter 是否是发起方
+     * Get 是否是发起方，
+true-是 
+false-否 
+     * @return IsPromoter 是否是发起方，
+true-是 
+false-否
      */
     public Boolean getIsPromoter() {
         return this.IsPromoter;
     }
 
     /**
-     * Set 是否是发起方
-     * @param IsPromoter 是否是发起方
+     * Set 是否是发起方，
+true-是 
+false-否
+     * @param IsPromoter 是否是发起方，
+true-是 
+false-否
      */
     public void setIsPromoter(Boolean IsPromoter) {
         this.IsPromoter = IsPromoter;

@@ -191,6 +191,46 @@ public class ApiDetailInfo extends AbstractModel{
     private String Description;
 
     /**
+    * API路径匹配类型。normal：普通API；wildcard：通配API。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ApiMatchType")
+    @Expose
+    private String ApiMatchType;
+
+    /**
+    * RPC 额外信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RpcExt")
+    @Expose
+    private String RpcExt;
+
+    /**
+    * 部署组id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("GatewayDeployGroupId")
+    @Expose
+    private String GatewayDeployGroupId;
+
+    /**
+    * md5
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Md5")
+    @Expose
+    private String Md5;
+
+    /**
+    * RPC 类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RpcType")
+    @Expose
+    private String RpcType;
+
+    /**
      * Get API ID
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return ApiId API ID
@@ -610,6 +650,106 @@ public class ApiDetailInfo extends AbstractModel{
         this.Description = Description;
     }
 
+    /**
+     * Get API路径匹配类型。normal：普通API；wildcard：通配API。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ApiMatchType API路径匹配类型。normal：普通API；wildcard：通配API。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getApiMatchType() {
+        return this.ApiMatchType;
+    }
+
+    /**
+     * Set API路径匹配类型。normal：普通API；wildcard：通配API。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ApiMatchType API路径匹配类型。normal：普通API；wildcard：通配API。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setApiMatchType(String ApiMatchType) {
+        this.ApiMatchType = ApiMatchType;
+    }
+
+    /**
+     * Get RPC 额外信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RpcExt RPC 额外信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getRpcExt() {
+        return this.RpcExt;
+    }
+
+    /**
+     * Set RPC 额外信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RpcExt RPC 额外信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRpcExt(String RpcExt) {
+        this.RpcExt = RpcExt;
+    }
+
+    /**
+     * Get 部署组id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return GatewayDeployGroupId 部署组id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getGatewayDeployGroupId() {
+        return this.GatewayDeployGroupId;
+    }
+
+    /**
+     * Set 部署组id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param GatewayDeployGroupId 部署组id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setGatewayDeployGroupId(String GatewayDeployGroupId) {
+        this.GatewayDeployGroupId = GatewayDeployGroupId;
+    }
+
+    /**
+     * Get md5
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Md5 md5
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getMd5() {
+        return this.Md5;
+    }
+
+    /**
+     * Set md5
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Md5 md5
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMd5(String Md5) {
+        this.Md5 = Md5;
+    }
+
+    /**
+     * Get RPC 类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RpcType RPC 类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getRpcType() {
+        return this.RpcType;
+    }
+
+    /**
+     * Set RPC 类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RpcType RPC 类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRpcType(String RpcType) {
+        this.RpcType = RpcType;
+    }
+
     public ApiDetailInfo() {
     }
 
@@ -681,6 +821,21 @@ public class ApiDetailInfo extends AbstractModel{
         if (source.Description != null) {
             this.Description = new String(source.Description);
         }
+        if (source.ApiMatchType != null) {
+            this.ApiMatchType = new String(source.ApiMatchType);
+        }
+        if (source.RpcExt != null) {
+            this.RpcExt = new String(source.RpcExt);
+        }
+        if (source.GatewayDeployGroupId != null) {
+            this.GatewayDeployGroupId = new String(source.GatewayDeployGroupId);
+        }
+        if (source.Md5 != null) {
+            this.Md5 = new String(source.Md5);
+        }
+        if (source.RpcType != null) {
+            this.RpcType = new String(source.RpcType);
+        }
     }
 
 
@@ -709,6 +864,11 @@ public class ApiDetailInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Host", this.Host);
         this.setParamSimple(map, prefix + "ApiType", this.ApiType);
         this.setParamSimple(map, prefix + "Description", this.Description);
+        this.setParamSimple(map, prefix + "ApiMatchType", this.ApiMatchType);
+        this.setParamSimple(map, prefix + "RpcExt", this.RpcExt);
+        this.setParamSimple(map, prefix + "GatewayDeployGroupId", this.GatewayDeployGroupId);
+        this.setParamSimple(map, prefix + "Md5", this.Md5);
+        this.setParamSimple(map, prefix + "RpcType", this.RpcType);
 
     }
 }

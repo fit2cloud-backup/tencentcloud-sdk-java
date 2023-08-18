@@ -169,6 +169,29 @@ public class Address extends AbstractModel{
     private Tag [] TagSet;
 
     /**
+    * 到期时间。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DeadlineDate")
+    @Expose
+    private String DeadlineDate;
+
+    /**
+    * EIP绑定的实例类型。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("InstanceType")
+    @Expose
+    private String InstanceType;
+
+    /**
+    * 高防包ID,当EIP类型为高防EIP时，返回EIP绑定的高防包ID.
+    */
+    @SerializedName("AntiDDoSPackageId")
+    @Expose
+    private String AntiDDoSPackageId;
+
+    /**
      * Get `EIP`的`ID`，是`EIP`的唯一标识。 
      * @return AddressId `EIP`的`ID`，是`EIP`的唯一标识。
      */
@@ -524,6 +547,62 @@ public class Address extends AbstractModel{
         this.TagSet = TagSet;
     }
 
+    /**
+     * Get 到期时间。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DeadlineDate 到期时间。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDeadlineDate() {
+        return this.DeadlineDate;
+    }
+
+    /**
+     * Set 到期时间。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DeadlineDate 到期时间。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDeadlineDate(String DeadlineDate) {
+        this.DeadlineDate = DeadlineDate;
+    }
+
+    /**
+     * Get EIP绑定的实例类型。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return InstanceType EIP绑定的实例类型。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getInstanceType() {
+        return this.InstanceType;
+    }
+
+    /**
+     * Set EIP绑定的实例类型。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param InstanceType EIP绑定的实例类型。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setInstanceType(String InstanceType) {
+        this.InstanceType = InstanceType;
+    }
+
+    /**
+     * Get 高防包ID,当EIP类型为高防EIP时，返回EIP绑定的高防包ID. 
+     * @return AntiDDoSPackageId 高防包ID,当EIP类型为高防EIP时，返回EIP绑定的高防包ID.
+     */
+    public String getAntiDDoSPackageId() {
+        return this.AntiDDoSPackageId;
+    }
+
+    /**
+     * Set 高防包ID,当EIP类型为高防EIP时，返回EIP绑定的高防包ID.
+     * @param AntiDDoSPackageId 高防包ID,当EIP类型为高防EIP时，返回EIP绑定的高防包ID.
+     */
+    public void setAntiDDoSPackageId(String AntiDDoSPackageId) {
+        this.AntiDDoSPackageId = AntiDDoSPackageId;
+    }
+
     public Address() {
     }
 
@@ -592,6 +671,15 @@ public class Address extends AbstractModel{
                 this.TagSet[i] = new Tag(source.TagSet[i]);
             }
         }
+        if (source.DeadlineDate != null) {
+            this.DeadlineDate = new String(source.DeadlineDate);
+        }
+        if (source.InstanceType != null) {
+            this.InstanceType = new String(source.InstanceType);
+        }
+        if (source.AntiDDoSPackageId != null) {
+            this.AntiDDoSPackageId = new String(source.AntiDDoSPackageId);
+        }
     }
 
 
@@ -618,6 +706,9 @@ public class Address extends AbstractModel{
         this.setParamSimple(map, prefix + "Bandwidth", this.Bandwidth);
         this.setParamSimple(map, prefix + "InternetChargeType", this.InternetChargeType);
         this.setParamArrayObj(map, prefix + "TagSet.", this.TagSet);
+        this.setParamSimple(map, prefix + "DeadlineDate", this.DeadlineDate);
+        this.setParamSimple(map, prefix + "InstanceType", this.InstanceType);
+        this.setParamSimple(map, prefix + "AntiDDoSPackageId", this.AntiDDoSPackageId);
 
     }
 }

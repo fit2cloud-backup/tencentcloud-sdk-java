@@ -23,139 +23,221 @@ import java.util.HashMap;
 public class OperateChannelTemplateRequest extends AbstractModel{
 
     /**
-    * 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+    * 应用相关信息。 
+此接口Agent.AppId必填。
     */
     @SerializedName("Agent")
     @Expose
     private Agent Agent;
 
     /**
-    * 操作类型，查询:"SELECT"，删除:"DELETE"，更新:"UPDATE"
+    * 操作类型，
+查询:"SELECT"，
+删除:"DELETE"，
+更新:"UPDATE"
     */
     @SerializedName("OperateType")
     @Expose
     private String OperateType;
 
     /**
-    * 渠道方模板库模板唯一标识
+    * 第三方应用平台模板库模板唯一标识
     */
     @SerializedName("TemplateId")
     @Expose
     private String TemplateId;
 
     /**
-    * 合作企业方第三方机构唯一标识数据，支持多个， 用","进行分隔
+    * 合作企业方第三方机构唯一标识数据.
+支持多个， 用","进行分隔
     */
     @SerializedName("ProxyOrganizationOpenIds")
     @Expose
     private String ProxyOrganizationOpenIds;
 
     /**
-    * 模板可见性, 全部可见-"all", 部分可见-"part"
+    * 模板可见性, 
+全部可见-"all",
+ 部分可见-"part"
     */
     @SerializedName("AuthTag")
     @Expose
     private String AuthTag;
 
     /**
-    * 操作者的信息
+    * 当OperateType=UPDATE时，可以通过设置此字段对模板启停用状态进行操作。
+若此字段值为0，则不会修改模板Available，
+1为启用模板，
+2为停用模板。
+启用后模板可以正常领取。停用后，推送方式为【自动推送】的模板则无法被子客使用，推送方式为【手动领取】的模板则无法出现被模板库被子客领用。如果Available更新失败，会直接返回错误。
+    */
+    @SerializedName("Available")
+    @Expose
+    private Long Available;
+
+    /**
+    * 暂未开放
     */
     @SerializedName("Operator")
     @Expose
     private UserInfo Operator;
 
     /**
-     * Get 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。 
-     * @return Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+     * Get 应用相关信息。 
+此接口Agent.AppId必填。 
+     * @return Agent 应用相关信息。 
+此接口Agent.AppId必填。
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
-     * @param Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+     * Set 应用相关信息。 
+此接口Agent.AppId必填。
+     * @param Agent 应用相关信息。 
+此接口Agent.AppId必填。
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
     }
 
     /**
-     * Get 操作类型，查询:"SELECT"，删除:"DELETE"，更新:"UPDATE" 
-     * @return OperateType 操作类型，查询:"SELECT"，删除:"DELETE"，更新:"UPDATE"
+     * Get 操作类型，
+查询:"SELECT"，
+删除:"DELETE"，
+更新:"UPDATE" 
+     * @return OperateType 操作类型，
+查询:"SELECT"，
+删除:"DELETE"，
+更新:"UPDATE"
      */
     public String getOperateType() {
         return this.OperateType;
     }
 
     /**
-     * Set 操作类型，查询:"SELECT"，删除:"DELETE"，更新:"UPDATE"
-     * @param OperateType 操作类型，查询:"SELECT"，删除:"DELETE"，更新:"UPDATE"
+     * Set 操作类型，
+查询:"SELECT"，
+删除:"DELETE"，
+更新:"UPDATE"
+     * @param OperateType 操作类型，
+查询:"SELECT"，
+删除:"DELETE"，
+更新:"UPDATE"
      */
     public void setOperateType(String OperateType) {
         this.OperateType = OperateType;
     }
 
     /**
-     * Get 渠道方模板库模板唯一标识 
-     * @return TemplateId 渠道方模板库模板唯一标识
+     * Get 第三方应用平台模板库模板唯一标识 
+     * @return TemplateId 第三方应用平台模板库模板唯一标识
      */
     public String getTemplateId() {
         return this.TemplateId;
     }
 
     /**
-     * Set 渠道方模板库模板唯一标识
-     * @param TemplateId 渠道方模板库模板唯一标识
+     * Set 第三方应用平台模板库模板唯一标识
+     * @param TemplateId 第三方应用平台模板库模板唯一标识
      */
     public void setTemplateId(String TemplateId) {
         this.TemplateId = TemplateId;
     }
 
     /**
-     * Get 合作企业方第三方机构唯一标识数据，支持多个， 用","进行分隔 
-     * @return ProxyOrganizationOpenIds 合作企业方第三方机构唯一标识数据，支持多个， 用","进行分隔
+     * Get 合作企业方第三方机构唯一标识数据.
+支持多个， 用","进行分隔 
+     * @return ProxyOrganizationOpenIds 合作企业方第三方机构唯一标识数据.
+支持多个， 用","进行分隔
      */
     public String getProxyOrganizationOpenIds() {
         return this.ProxyOrganizationOpenIds;
     }
 
     /**
-     * Set 合作企业方第三方机构唯一标识数据，支持多个， 用","进行分隔
-     * @param ProxyOrganizationOpenIds 合作企业方第三方机构唯一标识数据，支持多个， 用","进行分隔
+     * Set 合作企业方第三方机构唯一标识数据.
+支持多个， 用","进行分隔
+     * @param ProxyOrganizationOpenIds 合作企业方第三方机构唯一标识数据.
+支持多个， 用","进行分隔
      */
     public void setProxyOrganizationOpenIds(String ProxyOrganizationOpenIds) {
         this.ProxyOrganizationOpenIds = ProxyOrganizationOpenIds;
     }
 
     /**
-     * Get 模板可见性, 全部可见-"all", 部分可见-"part" 
-     * @return AuthTag 模板可见性, 全部可见-"all", 部分可见-"part"
+     * Get 模板可见性, 
+全部可见-"all",
+ 部分可见-"part" 
+     * @return AuthTag 模板可见性, 
+全部可见-"all",
+ 部分可见-"part"
      */
     public String getAuthTag() {
         return this.AuthTag;
     }
 
     /**
-     * Set 模板可见性, 全部可见-"all", 部分可见-"part"
-     * @param AuthTag 模板可见性, 全部可见-"all", 部分可见-"part"
+     * Set 模板可见性, 
+全部可见-"all",
+ 部分可见-"part"
+     * @param AuthTag 模板可见性, 
+全部可见-"all",
+ 部分可见-"part"
      */
     public void setAuthTag(String AuthTag) {
         this.AuthTag = AuthTag;
     }
 
     /**
-     * Get 操作者的信息 
-     * @return Operator 操作者的信息
+     * Get 当OperateType=UPDATE时，可以通过设置此字段对模板启停用状态进行操作。
+若此字段值为0，则不会修改模板Available，
+1为启用模板，
+2为停用模板。
+启用后模板可以正常领取。停用后，推送方式为【自动推送】的模板则无法被子客使用，推送方式为【手动领取】的模板则无法出现被模板库被子客领用。如果Available更新失败，会直接返回错误。 
+     * @return Available 当OperateType=UPDATE时，可以通过设置此字段对模板启停用状态进行操作。
+若此字段值为0，则不会修改模板Available，
+1为启用模板，
+2为停用模板。
+启用后模板可以正常领取。停用后，推送方式为【自动推送】的模板则无法被子客使用，推送方式为【手动领取】的模板则无法出现被模板库被子客领用。如果Available更新失败，会直接返回错误。
      */
+    public Long getAvailable() {
+        return this.Available;
+    }
+
+    /**
+     * Set 当OperateType=UPDATE时，可以通过设置此字段对模板启停用状态进行操作。
+若此字段值为0，则不会修改模板Available，
+1为启用模板，
+2为停用模板。
+启用后模板可以正常领取。停用后，推送方式为【自动推送】的模板则无法被子客使用，推送方式为【手动领取】的模板则无法出现被模板库被子客领用。如果Available更新失败，会直接返回错误。
+     * @param Available 当OperateType=UPDATE时，可以通过设置此字段对模板启停用状态进行操作。
+若此字段值为0，则不会修改模板Available，
+1为启用模板，
+2为停用模板。
+启用后模板可以正常领取。停用后，推送方式为【自动推送】的模板则无法被子客使用，推送方式为【手动领取】的模板则无法出现被模板库被子客领用。如果Available更新失败，会直接返回错误。
+     */
+    public void setAvailable(Long Available) {
+        this.Available = Available;
+    }
+
+    /**
+     * Get 暂未开放 
+     * @return Operator 暂未开放
+     * @deprecated
+     */
+    @Deprecated
     public UserInfo getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 操作者的信息
-     * @param Operator 操作者的信息
+     * Set 暂未开放
+     * @param Operator 暂未开放
+     * @deprecated
      */
+    @Deprecated
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
     }
@@ -183,6 +265,9 @@ public class OperateChannelTemplateRequest extends AbstractModel{
         if (source.AuthTag != null) {
             this.AuthTag = new String(source.AuthTag);
         }
+        if (source.Available != null) {
+            this.Available = new Long(source.Available);
+        }
         if (source.Operator != null) {
             this.Operator = new UserInfo(source.Operator);
         }
@@ -198,6 +283,7 @@ public class OperateChannelTemplateRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TemplateId", this.TemplateId);
         this.setParamSimple(map, prefix + "ProxyOrganizationOpenIds", this.ProxyOrganizationOpenIds);
         this.setParamSimple(map, prefix + "AuthTag", this.AuthTag);
+        this.setParamSimple(map, prefix + "Available", this.Available);
         this.setParamObj(map, prefix + "Operator.", this.Operator);
 
     }

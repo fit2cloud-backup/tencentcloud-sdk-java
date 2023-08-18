@@ -23,23 +23,23 @@ import java.util.HashMap;
 public class DescribeCheckSyncJobResultRequest extends AbstractModel{
 
     /**
-    * 同步任务id
+    * 同步实例id（即标识一个同步作业），形如sync-werwfs23，此值必填
     */
     @SerializedName("JobId")
     @Expose
     private String JobId;
 
     /**
-     * Get 同步任务id 
-     * @return JobId 同步任务id
+     * Get 同步实例id（即标识一个同步作业），形如sync-werwfs23，此值必填 
+     * @return JobId 同步实例id（即标识一个同步作业），形如sync-werwfs23，此值必填
      */
     public String getJobId() {
         return this.JobId;
     }
 
     /**
-     * Set 同步任务id
-     * @param JobId 同步任务id
+     * Set 同步实例id（即标识一个同步作业），形如sync-werwfs23，此值必填
+     * @param JobId 同步实例id（即标识一个同步作业），形如sync-werwfs23，此值必填
      */
     public void setJobId(String JobId) {
         this.JobId = JobId;

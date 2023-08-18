@@ -59,6 +59,29 @@ public class ObjectDetail extends AbstractModel{
     private Location Location;
 
     /**
+    * 二级标签名称
+    */
+    @SerializedName("SubLabel")
+    @Expose
+    private String SubLabel;
+
+    /**
+    * 图库或人脸库id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("GroupId")
+    @Expose
+    private String GroupId;
+
+    /**
+    * 图或人脸id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ObjectId")
+    @Expose
+    private String ObjectId;
+
+    /**
      * Get 序号 
      * @return Id 序号
      */
@@ -142,6 +165,62 @@ public class ObjectDetail extends AbstractModel{
         this.Location = Location;
     }
 
+    /**
+     * Get 二级标签名称 
+     * @return SubLabel 二级标签名称
+     */
+    public String getSubLabel() {
+        return this.SubLabel;
+    }
+
+    /**
+     * Set 二级标签名称
+     * @param SubLabel 二级标签名称
+     */
+    public void setSubLabel(String SubLabel) {
+        this.SubLabel = SubLabel;
+    }
+
+    /**
+     * Get 图库或人脸库id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return GroupId 图库或人脸库id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getGroupId() {
+        return this.GroupId;
+    }
+
+    /**
+     * Set 图库或人脸库id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param GroupId 图库或人脸库id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setGroupId(String GroupId) {
+        this.GroupId = GroupId;
+    }
+
+    /**
+     * Get 图或人脸id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ObjectId 图或人脸id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getObjectId() {
+        return this.ObjectId;
+    }
+
+    /**
+     * Set 图或人脸id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ObjectId 图或人脸id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setObjectId(String ObjectId) {
+        this.ObjectId = ObjectId;
+    }
+
     public ObjectDetail() {
     }
 
@@ -165,6 +244,15 @@ public class ObjectDetail extends AbstractModel{
         if (source.Location != null) {
             this.Location = new Location(source.Location);
         }
+        if (source.SubLabel != null) {
+            this.SubLabel = new String(source.SubLabel);
+        }
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
+        if (source.ObjectId != null) {
+            this.ObjectId = new String(source.ObjectId);
+        }
     }
 
 
@@ -177,6 +265,9 @@ public class ObjectDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "Value", this.Value);
         this.setParamSimple(map, prefix + "Score", this.Score);
         this.setParamObj(map, prefix + "Location.", this.Location);
+        this.setParamSimple(map, prefix + "SubLabel", this.SubLabel);
+        this.setParamSimple(map, prefix + "GroupId", this.GroupId);
+        this.setParamSimple(map, prefix + "ObjectId", this.ObjectId);
 
     }
 }

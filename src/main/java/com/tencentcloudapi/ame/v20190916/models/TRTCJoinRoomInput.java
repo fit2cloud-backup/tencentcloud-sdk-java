@@ -51,6 +51,33 @@ public class TRTCJoinRoomInput extends AbstractModel{
     private String UserId;
 
     /**
+    * 进房钥匙，若需要权限控制请携带该参数。
+ [privateMapKey 权限设置](/document/product/647/32240) 
+    */
+    @SerializedName("PrivateMapKey")
+    @Expose
+    private String PrivateMapKey;
+
+    /**
+    * 用户角色，目前支持两种角色：
+<li>anchor：主播</li>
+<li>audience：观众</li>
+    */
+    @SerializedName("Role")
+    @Expose
+    private String Role;
+
+    /**
+    * TRTC房间号的类型：
+<li>Integer：数字类型</li>
+<li> String：字符串类型</li>
+默认为：Integer 。
+    */
+    @SerializedName("RoomIdType")
+    @Expose
+    private String RoomIdType;
+
+    /**
      * Get 签名。 
      * @return Sign 签名。
      */
@@ -114,6 +141,78 @@ public class TRTCJoinRoomInput extends AbstractModel{
         this.UserId = UserId;
     }
 
+    /**
+     * Get 进房钥匙，若需要权限控制请携带该参数。
+ [privateMapKey 权限设置](/document/product/647/32240)  
+     * @return PrivateMapKey 进房钥匙，若需要权限控制请携带该参数。
+ [privateMapKey 权限设置](/document/product/647/32240) 
+     */
+    public String getPrivateMapKey() {
+        return this.PrivateMapKey;
+    }
+
+    /**
+     * Set 进房钥匙，若需要权限控制请携带该参数。
+ [privateMapKey 权限设置](/document/product/647/32240) 
+     * @param PrivateMapKey 进房钥匙，若需要权限控制请携带该参数。
+ [privateMapKey 权限设置](/document/product/647/32240) 
+     */
+    public void setPrivateMapKey(String PrivateMapKey) {
+        this.PrivateMapKey = PrivateMapKey;
+    }
+
+    /**
+     * Get 用户角色，目前支持两种角色：
+<li>anchor：主播</li>
+<li>audience：观众</li> 
+     * @return Role 用户角色，目前支持两种角色：
+<li>anchor：主播</li>
+<li>audience：观众</li>
+     */
+    public String getRole() {
+        return this.Role;
+    }
+
+    /**
+     * Set 用户角色，目前支持两种角色：
+<li>anchor：主播</li>
+<li>audience：观众</li>
+     * @param Role 用户角色，目前支持两种角色：
+<li>anchor：主播</li>
+<li>audience：观众</li>
+     */
+    public void setRole(String Role) {
+        this.Role = Role;
+    }
+
+    /**
+     * Get TRTC房间号的类型：
+<li>Integer：数字类型</li>
+<li> String：字符串类型</li>
+默认为：Integer 。 
+     * @return RoomIdType TRTC房间号的类型：
+<li>Integer：数字类型</li>
+<li> String：字符串类型</li>
+默认为：Integer 。
+     */
+    public String getRoomIdType() {
+        return this.RoomIdType;
+    }
+
+    /**
+     * Set TRTC房间号的类型：
+<li>Integer：数字类型</li>
+<li> String：字符串类型</li>
+默认为：Integer 。
+     * @param RoomIdType TRTC房间号的类型：
+<li>Integer：数字类型</li>
+<li> String：字符串类型</li>
+默认为：Integer 。
+     */
+    public void setRoomIdType(String RoomIdType) {
+        this.RoomIdType = RoomIdType;
+    }
+
     public TRTCJoinRoomInput() {
     }
 
@@ -134,6 +233,15 @@ public class TRTCJoinRoomInput extends AbstractModel{
         if (source.UserId != null) {
             this.UserId = new String(source.UserId);
         }
+        if (source.PrivateMapKey != null) {
+            this.PrivateMapKey = new String(source.PrivateMapKey);
+        }
+        if (source.Role != null) {
+            this.Role = new String(source.Role);
+        }
+        if (source.RoomIdType != null) {
+            this.RoomIdType = new String(source.RoomIdType);
+        }
     }
 
 
@@ -145,6 +253,9 @@ public class TRTCJoinRoomInput extends AbstractModel{
         this.setParamSimple(map, prefix + "RoomId", this.RoomId);
         this.setParamSimple(map, prefix + "SdkAppId", this.SdkAppId);
         this.setParamSimple(map, prefix + "UserId", this.UserId);
+        this.setParamSimple(map, prefix + "PrivateMapKey", this.PrivateMapKey);
+        this.setParamSimple(map, prefix + "Role", this.Role);
+        this.setParamSimple(map, prefix + "RoomIdType", this.RoomIdType);
 
     }
 }

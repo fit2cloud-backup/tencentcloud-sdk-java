@@ -23,69 +23,69 @@ import java.util.HashMap;
 public class ModifyDisksChargeTypeRequest extends AbstractModel{
 
     /**
-    * 一个或多个待操作的云硬盘ID。每次请求批量云盘上限为100。
+    * 一个或多个待操作的云硬盘ID。每次请求批量云硬盘上限为100。
     */
     @SerializedName("DiskIds")
     @Expose
     private String [] DiskIds;
 
     /**
-    * 预付费模式，即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。
+    * 设置为预付费模式，即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。
     */
     @SerializedName("DiskChargePrepaid")
     @Expose
     private DiskChargePrepaid DiskChargePrepaid;
 
     /**
-    * 后付费模式
+    * 设置为后付费模式
     */
     @SerializedName("DiskChargePostpaid")
     @Expose
     private Boolean DiskChargePostpaid;
 
     /**
-     * Get 一个或多个待操作的云硬盘ID。每次请求批量云盘上限为100。 
-     * @return DiskIds 一个或多个待操作的云硬盘ID。每次请求批量云盘上限为100。
+     * Get 一个或多个待操作的云硬盘ID。每次请求批量云硬盘上限为100。 
+     * @return DiskIds 一个或多个待操作的云硬盘ID。每次请求批量云硬盘上限为100。
      */
     public String [] getDiskIds() {
         return this.DiskIds;
     }
 
     /**
-     * Set 一个或多个待操作的云硬盘ID。每次请求批量云盘上限为100。
-     * @param DiskIds 一个或多个待操作的云硬盘ID。每次请求批量云盘上限为100。
+     * Set 一个或多个待操作的云硬盘ID。每次请求批量云硬盘上限为100。
+     * @param DiskIds 一个或多个待操作的云硬盘ID。每次请求批量云硬盘上限为100。
      */
     public void setDiskIds(String [] DiskIds) {
         this.DiskIds = DiskIds;
     }
 
     /**
-     * Get 预付费模式，即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。 
-     * @return DiskChargePrepaid 预付费模式，即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。
+     * Get 设置为预付费模式，即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。 
+     * @return DiskChargePrepaid 设置为预付费模式，即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。
      */
     public DiskChargePrepaid getDiskChargePrepaid() {
         return this.DiskChargePrepaid;
     }
 
     /**
-     * Set 预付费模式，即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。
-     * @param DiskChargePrepaid 预付费模式，即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。
+     * Set 设置为预付费模式，即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。
+     * @param DiskChargePrepaid 设置为预付费模式，即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。
      */
     public void setDiskChargePrepaid(DiskChargePrepaid DiskChargePrepaid) {
         this.DiskChargePrepaid = DiskChargePrepaid;
     }
 
     /**
-     * Get 后付费模式 
-     * @return DiskChargePostpaid 后付费模式
+     * Get 设置为后付费模式 
+     * @return DiskChargePostpaid 设置为后付费模式
      */
     public Boolean getDiskChargePostpaid() {
         return this.DiskChargePostpaid;
     }
 
     /**
-     * Set 后付费模式
-     * @param DiskChargePostpaid 后付费模式
+     * Set 设置为后付费模式
+     * @param DiskChargePostpaid 设置为后付费模式
      */
     public void setDiskChargePostpaid(Boolean DiskChargePostpaid) {
         this.DiskChargePostpaid = DiskChargePostpaid;

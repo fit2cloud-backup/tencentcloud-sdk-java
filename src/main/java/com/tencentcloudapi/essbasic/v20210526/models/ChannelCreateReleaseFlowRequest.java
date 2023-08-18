@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class ChannelCreateReleaseFlowRequest extends AbstractModel{
 
     /**
-    * 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+    * 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
     */
     @SerializedName("Agent")
     @Expose
@@ -58,30 +58,37 @@ public class ChannelCreateReleaseFlowRequest extends AbstractModel{
     private String CallbackUrl;
 
     /**
-    * 机构信息
+    * 暂未开放
     */
     @SerializedName("Organization")
     @Expose
     private OrganizationInfo Organization;
 
     /**
-    * 用户信息
+    * 暂未开放
     */
     @SerializedName("Operator")
     @Expose
     private UserInfo Operator;
 
     /**
-     * Get 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。 
-     * @return Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+    * 签署流程的签署截止时间。 值为unix时间戳,精确到秒,不传默认为当前时间七天后
+    */
+    @SerializedName("Deadline")
+    @Expose
+    private Long Deadline;
+
+    /**
+     * Get 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。 
+     * @return Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
-     * @param Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+     * Set 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
+     * @param Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
@@ -152,35 +159,59 @@ public class ChannelCreateReleaseFlowRequest extends AbstractModel{
     }
 
     /**
-     * Get 机构信息 
-     * @return Organization 机构信息
+     * Get 暂未开放 
+     * @return Organization 暂未开放
+     * @deprecated
      */
+    @Deprecated
     public OrganizationInfo getOrganization() {
         return this.Organization;
     }
 
     /**
-     * Set 机构信息
-     * @param Organization 机构信息
+     * Set 暂未开放
+     * @param Organization 暂未开放
+     * @deprecated
      */
+    @Deprecated
     public void setOrganization(OrganizationInfo Organization) {
         this.Organization = Organization;
     }
 
     /**
-     * Get 用户信息 
-     * @return Operator 用户信息
+     * Get 暂未开放 
+     * @return Operator 暂未开放
+     * @deprecated
      */
+    @Deprecated
     public UserInfo getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 用户信息
-     * @param Operator 用户信息
+     * Set 暂未开放
+     * @param Operator 暂未开放
+     * @deprecated
      */
+    @Deprecated
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
+    }
+
+    /**
+     * Get 签署流程的签署截止时间。 值为unix时间戳,精确到秒,不传默认为当前时间七天后 
+     * @return Deadline 签署流程的签署截止时间。 值为unix时间戳,精确到秒,不传默认为当前时间七天后
+     */
+    public Long getDeadline() {
+        return this.Deadline;
+    }
+
+    /**
+     * Set 签署流程的签署截止时间。 值为unix时间戳,精确到秒,不传默认为当前时间七天后
+     * @param Deadline 签署流程的签署截止时间。 值为unix时间戳,精确到秒,不传默认为当前时间七天后
+     */
+    public void setDeadline(Long Deadline) {
+        this.Deadline = Deadline;
     }
 
     public ChannelCreateReleaseFlowRequest() {
@@ -215,6 +246,9 @@ public class ChannelCreateReleaseFlowRequest extends AbstractModel{
         if (source.Operator != null) {
             this.Operator = new UserInfo(source.Operator);
         }
+        if (source.Deadline != null) {
+            this.Deadline = new Long(source.Deadline);
+        }
     }
 
 
@@ -229,6 +263,7 @@ public class ChannelCreateReleaseFlowRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "CallbackUrl", this.CallbackUrl);
         this.setParamObj(map, prefix + "Organization.", this.Organization);
         this.setParamObj(map, prefix + "Operator.", this.Operator);
+        this.setParamSimple(map, prefix + "Deadline", this.Deadline);
 
     }
 }

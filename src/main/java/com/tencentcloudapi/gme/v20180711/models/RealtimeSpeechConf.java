@@ -30,7 +30,7 @@ public class RealtimeSpeechConf extends AbstractModel{
     private String Status;
 
     /**
-    * 实时语音音质类型，取值：high-高音质
+    * 实时语音音质类型，取值：high-高音质 ordinary-普通音质
     */
     @SerializedName("Quality")
     @Expose
@@ -53,16 +53,16 @@ public class RealtimeSpeechConf extends AbstractModel{
     }
 
     /**
-     * Get 实时语音音质类型，取值：high-高音质 
-     * @return Quality 实时语音音质类型，取值：high-高音质
+     * Get 实时语音音质类型，取值：high-高音质 ordinary-普通音质 
+     * @return Quality 实时语音音质类型，取值：high-高音质 ordinary-普通音质
      */
     public String getQuality() {
         return this.Quality;
     }
 
     /**
-     * Set 实时语音音质类型，取值：high-高音质
-     * @param Quality 实时语音音质类型，取值：high-高音质
+     * Set 实时语音音质类型，取值：high-高音质 ordinary-普通音质
+     * @param Quality 实时语音音质类型，取值：high-高音质 ordinary-普通音质
      */
     public void setQuality(String Quality) {
         this.Quality = Quality;

@@ -123,6 +123,22 @@ public class RabbitMQVipInstance extends AbstractModel{
     private String SpecName;
 
     /**
+    * 集群异常。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ExceptionInformation")
+    @Expose
+    private String ExceptionInformation;
+
+    /**
+    * 实例状态，0表示创建中，1表示正常，2表示隔离中，3表示已销毁，4 - 异常, 5 - 发货失败
+为了和计费区分开，额外开启一个状态位，用于显示。
+    */
+    @SerializedName("ClusterStatus")
+    @Expose
+    private Long ClusterStatus;
+
+    /**
      * Get 实例id 
      * @return InstanceId 实例id
      */
@@ -354,6 +370,46 @@ public class RabbitMQVipInstance extends AbstractModel{
         this.SpecName = SpecName;
     }
 
+    /**
+     * Get 集群异常。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ExceptionInformation 集群异常。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getExceptionInformation() {
+        return this.ExceptionInformation;
+    }
+
+    /**
+     * Set 集群异常。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ExceptionInformation 集群异常。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setExceptionInformation(String ExceptionInformation) {
+        this.ExceptionInformation = ExceptionInformation;
+    }
+
+    /**
+     * Get 实例状态，0表示创建中，1表示正常，2表示隔离中，3表示已销毁，4 - 异常, 5 - 发货失败
+为了和计费区分开，额外开启一个状态位，用于显示。 
+     * @return ClusterStatus 实例状态，0表示创建中，1表示正常，2表示隔离中，3表示已销毁，4 - 异常, 5 - 发货失败
+为了和计费区分开，额外开启一个状态位，用于显示。
+     */
+    public Long getClusterStatus() {
+        return this.ClusterStatus;
+    }
+
+    /**
+     * Set 实例状态，0表示创建中，1表示正常，2表示隔离中，3表示已销毁，4 - 异常, 5 - 发货失败
+为了和计费区分开，额外开启一个状态位，用于显示。
+     * @param ClusterStatus 实例状态，0表示创建中，1表示正常，2表示隔离中，3表示已销毁，4 - 异常, 5 - 发货失败
+为了和计费区分开，额外开启一个状态位，用于显示。
+     */
+    public void setClusterStatus(Long ClusterStatus) {
+        this.ClusterStatus = ClusterStatus;
+    }
+
     public RabbitMQVipInstance() {
     }
 
@@ -404,6 +460,12 @@ public class RabbitMQVipInstance extends AbstractModel{
         if (source.SpecName != null) {
             this.SpecName = new String(source.SpecName);
         }
+        if (source.ExceptionInformation != null) {
+            this.ExceptionInformation = new String(source.ExceptionInformation);
+        }
+        if (source.ClusterStatus != null) {
+            this.ClusterStatus = new Long(source.ClusterStatus);
+        }
     }
 
 
@@ -425,6 +487,8 @@ public class RabbitMQVipInstance extends AbstractModel{
         this.setParamSimple(map, prefix + "PayMode", this.PayMode);
         this.setParamSimple(map, prefix + "Remark", this.Remark);
         this.setParamSimple(map, prefix + "SpecName", this.SpecName);
+        this.setParamSimple(map, prefix + "ExceptionInformation", this.ExceptionInformation);
+        this.setParamSimple(map, prefix + "ClusterStatus", this.ClusterStatus);
 
     }
 }

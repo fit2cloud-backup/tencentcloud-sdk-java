@@ -3,6 +3,9 @@ public enum CfsErrorCode {
     // CAM签名/鉴权错误。
      AUTHFAILURE("AuthFailure"),
      
+    // 获取CFS服务角色错误
+     AUTHFAILURE_GETROLEFAILED("AuthFailure.GetRoleFailed"),
+     
     // 请求未CAM授权。
      AUTHFAILURE_UNAUTHORIZEDOPERATION("AuthFailure.UnauthorizedOperation"),
      
@@ -75,6 +78,9 @@ public enum CfsErrorCode {
     // 参数取值错误。
      INVALIDPARAMETERVALUE("InvalidParameterValue"),
      
+    // 自动扩容策略不存在
+     INVALIDPARAMETERVALUE_AUTOPOLICYNOTFOUND("InvalidParameterValue.AutoPolicyNotFound"),
+     
     // 用于保证请求幂等性的字符串长度超过限制（不能超过64字节）。
      INVALIDPARAMETERVALUE_CLIENTTOKENLIMITEXCEEDED("InvalidParameterValue.ClientTokenLimitExceeded"),
      
@@ -84,17 +90,29 @@ public enum CfsErrorCode {
     // 规则IP重复。
      INVALIDPARAMETERVALUE_DUPLICATEDRULEAUTHCLIENTIP("InvalidParameterValue.DuplicatedRuleAuthClientIp"),
      
+    // 标签键重复
+     INVALIDPARAMETERVALUE_DUPLICATEDTAGKEY("InvalidParameterValue.DuplicatedTagKey"),
+     
     // 用户自定义名称过长（超过64字节)。
      INVALIDPARAMETERVALUE_FSNAMELIMITEXCEEDED("InvalidParameterValue.FsNameLimitExceeded"),
      
     // 文件系统配额设置超出上限。
      INVALIDPARAMETERVALUE_FSSIZELIMITEXCEEDED("InvalidParameterValue.FsSizeLimitExceeded"),
      
+    // 无效的AliveDays值错误
+     INVALIDPARAMETERVALUE_INVALIDALIVEDAYS("InvalidParameterValue.InvalidAliveDays"),
+     
     // 规则IP错误。
      INVALIDPARAMETERVALUE_INVALIDAUTHCLIENTIP("InvalidParameterValue.InvalidAuthClientIp"),
      
+    // 扩容策略参数无效
+     INVALIDPARAMETERVALUE_INVALIDAUTOSCALEUPPARAMS("InvalidParameterValue.InvalidAutoScaleUpParams"),
+     
     // 用于保证请求幂等性的字符串错误。
      INVALIDPARAMETERVALUE_INVALIDCLIENTTOKEN("InvalidParameterValue.InvalidClientToken"),
+     
+    // 快照跨地域复制参数不支持该地域
+     INVALIDPARAMETERVALUE_INVALIDDESTINATIONREGIONS("InvalidParameterValue.InvalidDestinationRegions"),
      
     // 加密参数错误。
      INVALIDPARAMETERVALUE_INVALIDENCRYPTED("InvalidParameterValue.InvalidEncrypted"),
@@ -116,6 +134,15 @@ public enum CfsErrorCode {
      
     // 无效的网络类型。
      INVALIDPARAMETERVALUE_INVALIDNETINTERFACE("InvalidParameterValue.InvalidNetInterface"),
+     
+    // DayOfMonth 参数错误
+     INVALIDPARAMETERVALUE_INVALIDPARAMDAYOFMONTH("InvalidParameterValue.InvalidParamDayOfMonth"),
+     
+    // 无效的参数，DayOfWeek
+     INVALIDPARAMETERVALUE_INVALIDPARAMDAYOFWEEK("InvalidParameterValue.InvalidParamDayOfWeek"),
+     
+    // IntervalDays 参数值错误
+     INVALIDPARAMETERVALUE_INVALIDPARAMINTERVALDAYS("InvalidParameterValue.InvalidParamIntervalDays"),
      
     // 权限组不属于该用户。
      INVALIDPARAMETERVALUE_INVALIDPGROUP("InvalidParameterValue.InvalidPgroup"),
@@ -140,6 +167,18 @@ public enum CfsErrorCode {
      
     // 读写权限设置错误。
      INVALIDPARAMETERVALUE_INVALIDRWPERMISSION("InvalidParameterValue.InvalidRwPermission"),
+     
+    // 扩容目标容量参数错误
+     INVALIDPARAMETERVALUE_INVALIDSCALEUPTARGETCAPACITY("InvalidParameterValue.InvalidScaleupTargetCapacity"),
+     
+    // 无效的快照策略状态
+     INVALIDPARAMETERVALUE_INVALIDSNAPPOLICYSTATUS("InvalidParameterValue.InvalidSnapPolicyStatus"),
+     
+    // 无效的快照名称
+     INVALIDPARAMETERVALUE_INVALIDSNAPSHOTNAME("InvalidParameterValue.InvalidSnapshotName"),
+     
+    // 无效的快照策略名称
+     INVALIDPARAMETERVALUE_INVALIDSNAPSHOTPOLICYNAME("InvalidParameterValue.InvalidSnapshotPolicyName"),
      
     // 无效的快照状态。
      INVALIDPARAMETERVALUE_INVALIDSNAPSHOTSTATUS("InvalidParameterValue.InvalidSnapshotStatus"),
@@ -198,6 +237,12 @@ public enum CfsErrorCode {
     // 权限组名称不能为空。
      INVALIDPARAMETERVALUE_MISSINGPGROUPNAME("InvalidParameterValue.MissingPgroupName"),
      
+    // 缺少快照策略参数
+     INVALIDPARAMETERVALUE_MISSINGPOLICYPARAM("InvalidParameterValue.MissingPolicyParam"),
+     
+    // 缺少参数Snapshot Name，或者aliveDays
+     INVALIDPARAMETERVALUE_MISSINGSNAPNAMEORALIVEDAY("InvalidParameterValue.MissingSnapNameOrAliveDay"),
+     
     // 未绑定存储包。
      INVALIDPARAMETERVALUE_MISSINGSTORAGERESOURCEPKG("InvalidParameterValue.MissingStorageResourcePkg"),
      
@@ -237,11 +282,20 @@ public enum CfsErrorCode {
     // 权限组规则和权限组不匹配。
      INVALIDPARAMETERVALUE_RULENOTMATCHPGROUP("InvalidParameterValue.RuleNotMatchPgroup"),
      
+    // 快照名称超限制，名称长度不超过64位字符
+     INVALIDPARAMETERVALUE_SNAPSHOTNAMELIMITEXCEEDED("InvalidParameterValue.SnapshotNameLimitExceeded"),
+     
+    // 快照策略名称超过64位限制
+     INVALIDPARAMETERVALUE_SNAPSHOTPOLICYNAMELIMITEXCEEDED("InvalidParameterValue.SnapshotPolicyNameLimitExceeded"),
+     
     // 参数值错误: 标签键个数超过上限（6个）。
      INVALIDPARAMETERVALUE_TAGKEYFILTERLIMITEXCEEDED("InvalidParameterValue.TagKeyFilterLimitExceeded"),
      
     // 标签键长度超过限制（不能超过127字节）。
      INVALIDPARAMETERVALUE_TAGKEYLIMITEXCEEDED("InvalidParameterValue.TagKeyLimitExceeded"),
+     
+    // 标签值个数超过上限（10个）。
+     INVALIDPARAMETERVALUE_TAGVALUEFILTERLIMITEXCEEDED("InvalidParameterValue.TagValueFilterLimitExceeded"),
      
     // 标签值长度超过限制（不能超过255字节）。
      INVALIDPARAMETERVALUE_TAGVALUELIMITEXCEEDED("InvalidParameterValue.TagValueLimitExceeded"),
@@ -255,6 +309,15 @@ public enum CfsErrorCode {
     // ZoneId和Region不匹配。
      INVALIDPARAMETERVALUE_ZONEIDREGIONNOTMATCH("InvalidParameterValue.ZoneIdRegionNotMatch"),
      
+    // 缺少参数错误。
+     MISSINGPARAMETER("MissingParameter"),
+     
+    // 操作被拒绝。
+     OPERATIONDENIED("OperationDenied"),
+     
+    // 资源被占用。
+     RESOURCEINUSE("ResourceInUse"),
+     
     // 文件系统数量达到上限。
      RESOURCEINSUFFICIENT_FILESYSTEMLIMITEXCEEDED("ResourceInsufficient.FileSystemLimitExceeded"),
      
@@ -267,6 +330,9 @@ public enum CfsErrorCode {
     // 规则条数超过上限。
      RESOURCEINSUFFICIENT_RULELIMITEXCEEDED("ResourceInsufficient.RuleLimitExceeded"),
      
+    // 文件系统过大，不支持快照
+     RESOURCEINSUFFICIENT_SNAPSHOTSIZELIMITEXCEEDED("ResourceInsufficient.SnapshotSizeLimitExceeded"),
+     
     // 该子网下已无可用IP。
      RESOURCEINSUFFICIENT_SUBNETIPALLOCCUPIED("ResourceInsufficient.SubnetIpAllOccupied"),
      
@@ -276,11 +342,17 @@ public enum CfsErrorCode {
     // 标签限额不足。
      RESOURCEINSUFFICIENT_TAGQUOTASEXCEEDED("ResourceInsufficient.TagQuotasExceeded"),
      
+    // Turbo类型特殊容量文件系统数量限制
+     RESOURCEINSUFFICIENT_TURBOSPECIALCAPACITYFILESYSTEMCOUNTLIMIT("ResourceInsufficient.TurboSpecialCapacityFileSystemCountLimit"),
+     
     // 资源不存在。
      RESOURCENOTFOUND("ResourceNotFound"),
      
     // 该文件系统不存在。
      RESOURCENOTFOUND_FILESYSTEMNOTFOUND("ResourceNotFound.FileSystemNotFound"),
+     
+    // 文件系统不存在。
+     RESOURCENOTFOUND_FSNOTEXIST("ResourceNotFound.FsNotExist"),
      
     // 挂载点不存在。
      RESOURCENOTFOUND_MOUNTTARGETNOTFOUND("ResourceNotFound.MountTargetNotFound"),
@@ -288,17 +360,26 @@ public enum CfsErrorCode {
     // 权限组不存在。
      RESOURCENOTFOUND_PGROUPNOTFOUND("ResourceNotFound.PgroupNotFound"),
      
+    // 资源不存在：资源ID 不存在。
+     RESOURCENOTFOUND_RESOURCEPACKAGENOTFOUND("ResourceNotFound.ResourcePackageNotFound"),
+     
     // 权限规则不存在。
      RESOURCENOTFOUND_RULENOTFOUND("ResourceNotFound.RuleNotFound"),
      
     // 快照ID 不存在。
      RESOURCENOTFOUND_SNAPSHOTNOTFOUND("ResourceNotFound.SnapshotNotFound"),
      
+    // 未授权操作。
+     UNAUTHORIZEDOPERATION("UnauthorizedOperation"),
+     
     // 操作不支持。
      UNSUPPORTEDOPERATION("UnsupportedOperation"),
      
     // 该可用区不支持基础网络。
      UNSUPPORTEDOPERATION_BASICNETINTERFACENOTSUPPORTED("UnsupportedOperation.BasicNetInterfaceNotSupported"),
+     
+    // appid不在kms白名单(kms目前是白名单开启状态)。
+     UNSUPPORTEDOPERATION_MISSINGKMSACCESSPERMISSION("UnsupportedOperation.MissingKmsAccessPermission"),
      
     // 用户已欠费, 请充值后重试。
      UNSUPPORTEDOPERATION_OUTOFSERVICE("UnsupportedOperation.OutOfService"),

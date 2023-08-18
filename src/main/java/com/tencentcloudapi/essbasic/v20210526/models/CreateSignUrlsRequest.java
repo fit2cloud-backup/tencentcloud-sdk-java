@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class CreateSignUrlsRequest extends AbstractModel{
 
     /**
-    * 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+    * 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
     */
     @SerializedName("Agent")
     @Expose
@@ -53,8 +53,8 @@ public class CreateSignUrlsRequest extends AbstractModel{
     /**
     * 签署链接生成类型，默认是 "ALL"；
 "ALL"：全部签署方签署链接，此时不会给自动签署的签署方创建签署链接；
-"CHANNEL"：渠道合作企业；
-"NOT_CHANNEL"：非渠道合作企业；
+"CHANNEL"：第三方平台子客企业企业；
+"NOT_CHANNEL"：非第三方平台子客企业企业；
 "PERSON"：个人；
 "FOLLOWER"：关注方，目前是合同抄送方；
     */
@@ -63,7 +63,7 @@ public class CreateSignUrlsRequest extends AbstractModel{
     private String GenerateType;
 
     /**
-    * 非渠道合作企业参与方的企业名称，GenerateType为"NOT_CHANNEL"时必填
+    * 非第三方平台子客企业参与方的企业名称，GenerateType为"NOT_CHANNEL"时必填
     */
     @SerializedName("OrganizationName")
     @Expose
@@ -85,14 +85,14 @@ GenerateType为"PERSON"或"FOLLOWER"时必填
     private String Mobile;
 
     /**
-    * 渠道合作企业的企业Id，GenerateType为"CHANNEL"时必填
+    * 第三方平台子客企业的企业OpenId，GenerateType为"CHANNEL"时必填
     */
     @SerializedName("OrganizationOpenId")
     @Expose
     private String OrganizationOpenId;
 
     /**
-    * 渠道合作企业参与人OpenId，GenerateType为"CHANNEL"时可用，指定到具体参与人
+    * 第三方平台子客企业参与人OpenId，GenerateType为"CHANNEL"时可用，指定到具体参与人, 仅展示已经实名的经办人信息
     */
     @SerializedName("OpenId")
     @Expose
@@ -113,23 +113,35 @@ GenerateType为"PERSON"或"FOLLOWER"时必填
     private String JumpUrl;
 
     /**
-    * 操作者的信息
+    * 暂未开放
     */
     @SerializedName("Operator")
     @Expose
     private UserInfo Operator;
 
     /**
-     * Get 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。 
-     * @return Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+    * 生成的签署链接在签署过程隐藏的按钮列表, 可以设置隐藏的按钮列表如下
+
+0:合同签署页面更多操作按钮
+1:合同签署页面更多操作的拒绝签署按钮
+2:合同签署页面更多操作的转他人处理按钮
+3:签署成功页的查看详情按钮
+    */
+    @SerializedName("Hides")
+    @Expose
+    private Long [] Hides;
+
+    /**
+     * Get 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。 
+     * @return Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
-     * @param Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+     * Set 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
+     * @param Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
@@ -186,14 +198,14 @@ GenerateType为"PERSON"或"FOLLOWER"时必填
     /**
      * Get 签署链接生成类型，默认是 "ALL"；
 "ALL"：全部签署方签署链接，此时不会给自动签署的签署方创建签署链接；
-"CHANNEL"：渠道合作企业；
-"NOT_CHANNEL"：非渠道合作企业；
+"CHANNEL"：第三方平台子客企业企业；
+"NOT_CHANNEL"：非第三方平台子客企业企业；
 "PERSON"：个人；
 "FOLLOWER"：关注方，目前是合同抄送方； 
      * @return GenerateType 签署链接生成类型，默认是 "ALL"；
 "ALL"：全部签署方签署链接，此时不会给自动签署的签署方创建签署链接；
-"CHANNEL"：渠道合作企业；
-"NOT_CHANNEL"：非渠道合作企业；
+"CHANNEL"：第三方平台子客企业企业；
+"NOT_CHANNEL"：非第三方平台子客企业企业；
 "PERSON"：个人；
 "FOLLOWER"：关注方，目前是合同抄送方；
      */
@@ -204,14 +216,14 @@ GenerateType为"PERSON"或"FOLLOWER"时必填
     /**
      * Set 签署链接生成类型，默认是 "ALL"；
 "ALL"：全部签署方签署链接，此时不会给自动签署的签署方创建签署链接；
-"CHANNEL"：渠道合作企业；
-"NOT_CHANNEL"：非渠道合作企业；
+"CHANNEL"：第三方平台子客企业企业；
+"NOT_CHANNEL"：非第三方平台子客企业企业；
 "PERSON"：个人；
 "FOLLOWER"：关注方，目前是合同抄送方；
      * @param GenerateType 签署链接生成类型，默认是 "ALL"；
 "ALL"：全部签署方签署链接，此时不会给自动签署的签署方创建签署链接；
-"CHANNEL"：渠道合作企业；
-"NOT_CHANNEL"：非渠道合作企业；
+"CHANNEL"：第三方平台子客企业企业；
+"NOT_CHANNEL"：非第三方平台子客企业企业；
 "PERSON"：个人；
 "FOLLOWER"：关注方，目前是合同抄送方；
      */
@@ -220,16 +232,16 @@ GenerateType为"PERSON"或"FOLLOWER"时必填
     }
 
     /**
-     * Get 非渠道合作企业参与方的企业名称，GenerateType为"NOT_CHANNEL"时必填 
-     * @return OrganizationName 非渠道合作企业参与方的企业名称，GenerateType为"NOT_CHANNEL"时必填
+     * Get 非第三方平台子客企业参与方的企业名称，GenerateType为"NOT_CHANNEL"时必填 
+     * @return OrganizationName 非第三方平台子客企业参与方的企业名称，GenerateType为"NOT_CHANNEL"时必填
      */
     public String getOrganizationName() {
         return this.OrganizationName;
     }
 
     /**
-     * Set 非渠道合作企业参与方的企业名称，GenerateType为"NOT_CHANNEL"时必填
-     * @param OrganizationName 非渠道合作企业参与方的企业名称，GenerateType为"NOT_CHANNEL"时必填
+     * Set 非第三方平台子客企业参与方的企业名称，GenerateType为"NOT_CHANNEL"时必填
+     * @param OrganizationName 非第三方平台子客企业参与方的企业名称，GenerateType为"NOT_CHANNEL"时必填
      */
     public void setOrganizationName(String OrganizationName) {
         this.OrganizationName = OrganizationName;
@@ -272,32 +284,32 @@ GenerateType为"PERSON"或"FOLLOWER"时必填
     }
 
     /**
-     * Get 渠道合作企业的企业Id，GenerateType为"CHANNEL"时必填 
-     * @return OrganizationOpenId 渠道合作企业的企业Id，GenerateType为"CHANNEL"时必填
+     * Get 第三方平台子客企业的企业OpenId，GenerateType为"CHANNEL"时必填 
+     * @return OrganizationOpenId 第三方平台子客企业的企业OpenId，GenerateType为"CHANNEL"时必填
      */
     public String getOrganizationOpenId() {
         return this.OrganizationOpenId;
     }
 
     /**
-     * Set 渠道合作企业的企业Id，GenerateType为"CHANNEL"时必填
-     * @param OrganizationOpenId 渠道合作企业的企业Id，GenerateType为"CHANNEL"时必填
+     * Set 第三方平台子客企业的企业OpenId，GenerateType为"CHANNEL"时必填
+     * @param OrganizationOpenId 第三方平台子客企业的企业OpenId，GenerateType为"CHANNEL"时必填
      */
     public void setOrganizationOpenId(String OrganizationOpenId) {
         this.OrganizationOpenId = OrganizationOpenId;
     }
 
     /**
-     * Get 渠道合作企业参与人OpenId，GenerateType为"CHANNEL"时可用，指定到具体参与人 
-     * @return OpenId 渠道合作企业参与人OpenId，GenerateType为"CHANNEL"时可用，指定到具体参与人
+     * Get 第三方平台子客企业参与人OpenId，GenerateType为"CHANNEL"时可用，指定到具体参与人, 仅展示已经实名的经办人信息 
+     * @return OpenId 第三方平台子客企业参与人OpenId，GenerateType为"CHANNEL"时可用，指定到具体参与人, 仅展示已经实名的经办人信息
      */
     public String getOpenId() {
         return this.OpenId;
     }
 
     /**
-     * Set 渠道合作企业参与人OpenId，GenerateType为"CHANNEL"时可用，指定到具体参与人
-     * @param OpenId 渠道合作企业参与人OpenId，GenerateType为"CHANNEL"时可用，指定到具体参与人
+     * Set 第三方平台子客企业参与人OpenId，GenerateType为"CHANNEL"时可用，指定到具体参与人, 仅展示已经实名的经办人信息
+     * @param OpenId 第三方平台子客企业参与人OpenId，GenerateType为"CHANNEL"时可用，指定到具体参与人, 仅展示已经实名的经办人信息
      */
     public void setOpenId(String OpenId) {
         this.OpenId = OpenId;
@@ -336,19 +348,59 @@ GenerateType为"PERSON"或"FOLLOWER"时必填
     }
 
     /**
-     * Get 操作者的信息 
-     * @return Operator 操作者的信息
+     * Get 暂未开放 
+     * @return Operator 暂未开放
+     * @deprecated
      */
+    @Deprecated
     public UserInfo getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 操作者的信息
-     * @param Operator 操作者的信息
+     * Set 暂未开放
+     * @param Operator 暂未开放
+     * @deprecated
      */
+    @Deprecated
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
+    }
+
+    /**
+     * Get 生成的签署链接在签署过程隐藏的按钮列表, 可以设置隐藏的按钮列表如下
+
+0:合同签署页面更多操作按钮
+1:合同签署页面更多操作的拒绝签署按钮
+2:合同签署页面更多操作的转他人处理按钮
+3:签署成功页的查看详情按钮 
+     * @return Hides 生成的签署链接在签署过程隐藏的按钮列表, 可以设置隐藏的按钮列表如下
+
+0:合同签署页面更多操作按钮
+1:合同签署页面更多操作的拒绝签署按钮
+2:合同签署页面更多操作的转他人处理按钮
+3:签署成功页的查看详情按钮
+     */
+    public Long [] getHides() {
+        return this.Hides;
+    }
+
+    /**
+     * Set 生成的签署链接在签署过程隐藏的按钮列表, 可以设置隐藏的按钮列表如下
+
+0:合同签署页面更多操作按钮
+1:合同签署页面更多操作的拒绝签署按钮
+2:合同签署页面更多操作的转他人处理按钮
+3:签署成功页的查看详情按钮
+     * @param Hides 生成的签署链接在签署过程隐藏的按钮列表, 可以设置隐藏的按钮列表如下
+
+0:合同签署页面更多操作按钮
+1:合同签署页面更多操作的拒绝签署按钮
+2:合同签署页面更多操作的转他人处理按钮
+3:签署成功页的查看详情按钮
+     */
+    public void setHides(Long [] Hides) {
+        this.Hides = Hides;
     }
 
     public CreateSignUrlsRequest() {
@@ -401,6 +453,12 @@ GenerateType为"PERSON"或"FOLLOWER"时必填
         if (source.Operator != null) {
             this.Operator = new UserInfo(source.Operator);
         }
+        if (source.Hides != null) {
+            this.Hides = new Long[source.Hides.length];
+            for (int i = 0; i < source.Hides.length; i++) {
+                this.Hides[i] = new Long(source.Hides[i]);
+            }
+        }
     }
 
 
@@ -421,6 +479,7 @@ GenerateType为"PERSON"或"FOLLOWER"时必填
         this.setParamSimple(map, prefix + "AutoJumpBack", this.AutoJumpBack);
         this.setParamSimple(map, prefix + "JumpUrl", this.JumpUrl);
         this.setParamObj(map, prefix + "Operator.", this.Operator);
+        this.setParamArraySimple(map, prefix + "Hides.", this.Hides);
 
     }
 }

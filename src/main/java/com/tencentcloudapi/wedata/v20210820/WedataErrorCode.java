@@ -27,6 +27,12 @@ public enum WedataErrorCode {
     // 参数错误。
      INVALIDPARAMETER("InvalidParameter"),
      
+    // ClientIp未被授权。
+     INVALIDPARAMETER_CLIENTIPNOTAUTHORIZED("InvalidParameter.ClientIpNotAuthorized"),
+     
+    // 数据引擎实例不存在。
+     INVALIDPARAMETER_DATAENGINEINSTANCENOTEXISTS("InvalidParameter.DataEngineInstanceNotExists"),
+     
     // 名称重复。
      INVALIDPARAMETER_DUPLICATENAME("InvalidParameter.DuplicateName"),
      
@@ -36,8 +42,14 @@ public enum WedataErrorCode {
     // 规则不存在。
      INVALIDPARAMETER_RULENOTEXIST("InvalidParameter.RuleNotExist"),
      
+    // 规则模版不存在。
+     INVALIDPARAMETER_RULETEMPLATENOTEXIST("InvalidParameter.RuleTemplateNotExist"),
+     
     // 服务繁忙，请稍后重试。
      INVALIDPARAMETER_SERVICEISBUSY("InvalidParameter.ServiceIsBusy"),
+     
+    // WeData_QCSRole不存在，请进行服务授权。
+     INVALIDPARAMETER_WEDATAROLENOTEXISTS("InvalidParameter.WeDataRoleNotExists"),
      
     // 工作空间不存在。
      INVALIDPARAMETER_WORKSPACENOTEXIST("InvalidParameter.WorkspaceNotExist"),
@@ -72,6 +84,9 @@ public enum WedataErrorCode {
     // 资源不可用。
      RESOURCEUNAVAILABLE("ResourceUnavailable"),
      
+    // 资源售罄。
+     RESOURCESSOLDOUT("ResourcesSoldOut"),
+     
     // 未授权操作。
      UNAUTHORIZEDOPERATION("UnauthorizedOperation"),
      
@@ -82,7 +97,10 @@ public enum WedataErrorCode {
      UNKNOWNPARAMETER("UnknownParameter"),
      
     // 操作不支持。
-     UNSUPPORTEDOPERATION("UnsupportedOperation");
+     UNSUPPORTEDOPERATION("UnsupportedOperation"),
+     
+    // 请先配置不少于一个规则。
+     UNSUPPORTEDOPERATION_NORULEINRULEGROUP("UnsupportedOperation.NoRuleInRuleGroup");
      
     private String value;
     private WedataErrorCode (String value){

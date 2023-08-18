@@ -34,16 +34,19 @@ public class EventContent extends AbstractModel{
 <li>NewFileUpload：视频上传完成；</li>
 <li>ProcedureStateChanged：任务流状态变更；</li>
 <li>FileDeleted：视频删除完成；</li>
+<li>RestoreMediaComplete：视频取回完成；</li>
 <li>PullComplete：视频转拉完成；</li>
 <li>EditMediaComplete：视频编辑完成；</li>
 <li>SplitMediaComplete：视频拆分完成；</li>
-<li>WechatPublishComplete：微信发布完成；</li>
 <li>ComposeMediaComplete：制作媒体文件完成；</li>
 <li>WechatMiniProgramPublishComplete：微信小程序发布完成。</li>
-<li>FastClipMediaComplete：快速剪辑完成；</li>
+<li>RemoveWatermark：智能去除水印完成。</li>
+<li>RebuildMediaComplete：音画质重生完成事件。</li>
 <li>ReviewAudioVideoComplete：音视频审核完成；</li>
 <li>ExtractTraceWatermarkComplete：提取溯源水印完成；</li>
+<li>ExtractCopyRightWatermarkComplete：提取版权水印完成；</li>
 <li>DescribeFileAttributesComplete：获取文件属性完成；</li>
+<li>QualityInspectComplete：音画质检测完成。</li>
 <b>兼容 2017 版的事件类型：</b>
 <li>TranscodeComplete：视频转码完成；</li>
 <li>ConcatComplete：视频拼接完成；</li>
@@ -96,7 +99,7 @@ public class EventContent extends AbstractModel{
     private EditMediaTask EditMediaCompleteEvent;
 
     /**
-    * 视频拆条完成事件，当事件类型为 SplitMediaComplete 时有效。
+    * 视频拆分完成事件，当事件类型为 SplitMediaComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SplitMediaCompleteEvent")
@@ -168,7 +171,7 @@ public class EventContent extends AbstractModel{
     private WechatMiniProgramPublishTask WechatMiniProgramPublishCompleteEvent;
 
     /**
-    * 智能去除水印任务完成事件，当事件类型为 RemoveWatermark 有效。
+    * 智能去除水印完成事件，当事件类型为 RemoveWatermark 有效。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RemoveWatermarkCompleteEvent")
@@ -176,7 +179,7 @@ public class EventContent extends AbstractModel{
     private RemoveWatermarkTask RemoveWatermarkCompleteEvent;
 
     /**
-    * 视频取回完成事件，当事件类型为RestoreMediaComplete 时有效。
+    * 视频取回完成事件，当事件类型为 RestoreMediaComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RestoreMediaCompleteEvent")
@@ -184,12 +187,28 @@ public class EventContent extends AbstractModel{
     private RestoreMediaTask RestoreMediaCompleteEvent;
 
     /**
-    * 溯源水印提取完成事件，当事件类型为ExtractTraceWatermarkComplete 时有效。
+    * 音画质重生完成事件，当事件类型为 RebuildMediaComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RebuildMediaCompleteEvent")
+    @Expose
+    private RebuildMediaTask RebuildMediaCompleteEvent;
+
+    /**
+    * 溯源水印提取完成事件，当事件类型为 ExtractTraceWatermarkComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExtractTraceWatermarkCompleteEvent")
     @Expose
     private ExtractTraceWatermarkTask ExtractTraceWatermarkCompleteEvent;
+
+    /**
+    * 版权水印提取完成事件，当事件类型为 ExtractCopyRightWatermarkComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ExtractCopyRightWatermarkCompleteEvent")
+    @Expose
+    private ExtractCopyRightWatermarkTask ExtractCopyRightWatermarkCompleteEvent;
 
     /**
     * 音视频审核完成事件，当事件类型为 ReviewAudioVideoComplete 时有效。
@@ -216,6 +235,14 @@ public class EventContent extends AbstractModel{
     private DescribeFileAttributesTask DescribeFileAttributesCompleteEvent;
 
     /**
+    * 音画质检测完成事件，当事件类型为 QualityInspectComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("QualityInspectCompleteEvent")
+    @Expose
+    private QualityInspectTask QualityInspectCompleteEvent;
+
+    /**
      * Get 事件句柄，调用方必须调用 ConfirmEvents 来确认消息已经收到，确认有效时间 30 秒。失效后，事件可重新被获取。 
      * @return EventHandle 事件句柄，调用方必须调用 ConfirmEvents 来确认消息已经收到，确认有效时间 30 秒。失效后，事件可重新被获取。
      */
@@ -236,16 +263,19 @@ public class EventContent extends AbstractModel{
 <li>NewFileUpload：视频上传完成；</li>
 <li>ProcedureStateChanged：任务流状态变更；</li>
 <li>FileDeleted：视频删除完成；</li>
+<li>RestoreMediaComplete：视频取回完成；</li>
 <li>PullComplete：视频转拉完成；</li>
 <li>EditMediaComplete：视频编辑完成；</li>
 <li>SplitMediaComplete：视频拆分完成；</li>
-<li>WechatPublishComplete：微信发布完成；</li>
 <li>ComposeMediaComplete：制作媒体文件完成；</li>
 <li>WechatMiniProgramPublishComplete：微信小程序发布完成。</li>
-<li>FastClipMediaComplete：快速剪辑完成；</li>
+<li>RemoveWatermark：智能去除水印完成。</li>
+<li>RebuildMediaComplete：音画质重生完成事件。</li>
 <li>ReviewAudioVideoComplete：音视频审核完成；</li>
 <li>ExtractTraceWatermarkComplete：提取溯源水印完成；</li>
+<li>ExtractCopyRightWatermarkComplete：提取版权水印完成；</li>
 <li>DescribeFileAttributesComplete：获取文件属性完成；</li>
+<li>QualityInspectComplete：音画质检测完成。</li>
 <b>兼容 2017 版的事件类型：</b>
 <li>TranscodeComplete：视频转码完成；</li>
 <li>ConcatComplete：视频拼接完成；</li>
@@ -256,16 +286,19 @@ public class EventContent extends AbstractModel{
 <li>NewFileUpload：视频上传完成；</li>
 <li>ProcedureStateChanged：任务流状态变更；</li>
 <li>FileDeleted：视频删除完成；</li>
+<li>RestoreMediaComplete：视频取回完成；</li>
 <li>PullComplete：视频转拉完成；</li>
 <li>EditMediaComplete：视频编辑完成；</li>
 <li>SplitMediaComplete：视频拆分完成；</li>
-<li>WechatPublishComplete：微信发布完成；</li>
 <li>ComposeMediaComplete：制作媒体文件完成；</li>
 <li>WechatMiniProgramPublishComplete：微信小程序发布完成。</li>
-<li>FastClipMediaComplete：快速剪辑完成；</li>
+<li>RemoveWatermark：智能去除水印完成。</li>
+<li>RebuildMediaComplete：音画质重生完成事件。</li>
 <li>ReviewAudioVideoComplete：音视频审核完成；</li>
 <li>ExtractTraceWatermarkComplete：提取溯源水印完成；</li>
+<li>ExtractCopyRightWatermarkComplete：提取版权水印完成；</li>
 <li>DescribeFileAttributesComplete：获取文件属性完成；</li>
+<li>QualityInspectComplete：音画质检测完成。</li>
 <b>兼容 2017 版的事件类型：</b>
 <li>TranscodeComplete：视频转码完成；</li>
 <li>ConcatComplete：视频拼接完成；</li>
@@ -282,16 +315,19 @@ public class EventContent extends AbstractModel{
 <li>NewFileUpload：视频上传完成；</li>
 <li>ProcedureStateChanged：任务流状态变更；</li>
 <li>FileDeleted：视频删除完成；</li>
+<li>RestoreMediaComplete：视频取回完成；</li>
 <li>PullComplete：视频转拉完成；</li>
 <li>EditMediaComplete：视频编辑完成；</li>
 <li>SplitMediaComplete：视频拆分完成；</li>
-<li>WechatPublishComplete：微信发布完成；</li>
 <li>ComposeMediaComplete：制作媒体文件完成；</li>
 <li>WechatMiniProgramPublishComplete：微信小程序发布完成。</li>
-<li>FastClipMediaComplete：快速剪辑完成；</li>
+<li>RemoveWatermark：智能去除水印完成。</li>
+<li>RebuildMediaComplete：音画质重生完成事件。</li>
 <li>ReviewAudioVideoComplete：音视频审核完成；</li>
 <li>ExtractTraceWatermarkComplete：提取溯源水印完成；</li>
+<li>ExtractCopyRightWatermarkComplete：提取版权水印完成；</li>
 <li>DescribeFileAttributesComplete：获取文件属性完成；</li>
+<li>QualityInspectComplete：音画质检测完成。</li>
 <b>兼容 2017 版的事件类型：</b>
 <li>TranscodeComplete：视频转码完成；</li>
 <li>ConcatComplete：视频拼接完成；</li>
@@ -302,16 +338,19 @@ public class EventContent extends AbstractModel{
 <li>NewFileUpload：视频上传完成；</li>
 <li>ProcedureStateChanged：任务流状态变更；</li>
 <li>FileDeleted：视频删除完成；</li>
+<li>RestoreMediaComplete：视频取回完成；</li>
 <li>PullComplete：视频转拉完成；</li>
 <li>EditMediaComplete：视频编辑完成；</li>
 <li>SplitMediaComplete：视频拆分完成；</li>
-<li>WechatPublishComplete：微信发布完成；</li>
 <li>ComposeMediaComplete：制作媒体文件完成；</li>
 <li>WechatMiniProgramPublishComplete：微信小程序发布完成。</li>
-<li>FastClipMediaComplete：快速剪辑完成；</li>
+<li>RemoveWatermark：智能去除水印完成。</li>
+<li>RebuildMediaComplete：音画质重生完成事件。</li>
 <li>ReviewAudioVideoComplete：音视频审核完成；</li>
 <li>ExtractTraceWatermarkComplete：提取溯源水印完成；</li>
+<li>ExtractCopyRightWatermarkComplete：提取版权水印完成；</li>
 <li>DescribeFileAttributesComplete：获取文件属性完成；</li>
+<li>QualityInspectComplete：音画质检测完成。</li>
 <b>兼容 2017 版的事件类型：</b>
 <li>TranscodeComplete：视频转码完成；</li>
 <li>ConcatComplete：视频拼接完成；</li>
@@ -424,9 +463,9 @@ public class EventContent extends AbstractModel{
     }
 
     /**
-     * Get 视频拆条完成事件，当事件类型为 SplitMediaComplete 时有效。
+     * Get 视频拆分完成事件，当事件类型为 SplitMediaComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return SplitMediaCompleteEvent 视频拆条完成事件，当事件类型为 SplitMediaComplete 时有效。
+     * @return SplitMediaCompleteEvent 视频拆分完成事件，当事件类型为 SplitMediaComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public SplitMediaTask getSplitMediaCompleteEvent() {
@@ -434,9 +473,9 @@ public class EventContent extends AbstractModel{
     }
 
     /**
-     * Set 视频拆条完成事件，当事件类型为 SplitMediaComplete 时有效。
+     * Set 视频拆分完成事件，当事件类型为 SplitMediaComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param SplitMediaCompleteEvent 视频拆条完成事件，当事件类型为 SplitMediaComplete 时有效。
+     * @param SplitMediaCompleteEvent 视频拆分完成事件，当事件类型为 SplitMediaComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSplitMediaCompleteEvent(SplitMediaTask SplitMediaCompleteEvent) {
@@ -604,9 +643,9 @@ public class EventContent extends AbstractModel{
     }
 
     /**
-     * Get 智能去除水印任务完成事件，当事件类型为 RemoveWatermark 有效。
+     * Get 智能去除水印完成事件，当事件类型为 RemoveWatermark 有效。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return RemoveWatermarkCompleteEvent 智能去除水印任务完成事件，当事件类型为 RemoveWatermark 有效。
+     * @return RemoveWatermarkCompleteEvent 智能去除水印完成事件，当事件类型为 RemoveWatermark 有效。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public RemoveWatermarkTask getRemoveWatermarkCompleteEvent() {
@@ -614,9 +653,9 @@ public class EventContent extends AbstractModel{
     }
 
     /**
-     * Set 智能去除水印任务完成事件，当事件类型为 RemoveWatermark 有效。
+     * Set 智能去除水印完成事件，当事件类型为 RemoveWatermark 有效。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param RemoveWatermarkCompleteEvent 智能去除水印任务完成事件，当事件类型为 RemoveWatermark 有效。
+     * @param RemoveWatermarkCompleteEvent 智能去除水印完成事件，当事件类型为 RemoveWatermark 有效。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRemoveWatermarkCompleteEvent(RemoveWatermarkTask RemoveWatermarkCompleteEvent) {
@@ -624,9 +663,9 @@ public class EventContent extends AbstractModel{
     }
 
     /**
-     * Get 视频取回完成事件，当事件类型为RestoreMediaComplete 时有效。
+     * Get 视频取回完成事件，当事件类型为 RestoreMediaComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return RestoreMediaCompleteEvent 视频取回完成事件，当事件类型为RestoreMediaComplete 时有效。
+     * @return RestoreMediaCompleteEvent 视频取回完成事件，当事件类型为 RestoreMediaComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public RestoreMediaTask getRestoreMediaCompleteEvent() {
@@ -634,9 +673,9 @@ public class EventContent extends AbstractModel{
     }
 
     /**
-     * Set 视频取回完成事件，当事件类型为RestoreMediaComplete 时有效。
+     * Set 视频取回完成事件，当事件类型为 RestoreMediaComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param RestoreMediaCompleteEvent 视频取回完成事件，当事件类型为RestoreMediaComplete 时有效。
+     * @param RestoreMediaCompleteEvent 视频取回完成事件，当事件类型为 RestoreMediaComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRestoreMediaCompleteEvent(RestoreMediaTask RestoreMediaCompleteEvent) {
@@ -644,9 +683,29 @@ public class EventContent extends AbstractModel{
     }
 
     /**
-     * Get 溯源水印提取完成事件，当事件类型为ExtractTraceWatermarkComplete 时有效。
+     * Get 音画质重生完成事件，当事件类型为 RebuildMediaComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ExtractTraceWatermarkCompleteEvent 溯源水印提取完成事件，当事件类型为ExtractTraceWatermarkComplete 时有效。
+     * @return RebuildMediaCompleteEvent 音画质重生完成事件，当事件类型为 RebuildMediaComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public RebuildMediaTask getRebuildMediaCompleteEvent() {
+        return this.RebuildMediaCompleteEvent;
+    }
+
+    /**
+     * Set 音画质重生完成事件，当事件类型为 RebuildMediaComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RebuildMediaCompleteEvent 音画质重生完成事件，当事件类型为 RebuildMediaComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRebuildMediaCompleteEvent(RebuildMediaTask RebuildMediaCompleteEvent) {
+        this.RebuildMediaCompleteEvent = RebuildMediaCompleteEvent;
+    }
+
+    /**
+     * Get 溯源水印提取完成事件，当事件类型为 ExtractTraceWatermarkComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ExtractTraceWatermarkCompleteEvent 溯源水印提取完成事件，当事件类型为 ExtractTraceWatermarkComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public ExtractTraceWatermarkTask getExtractTraceWatermarkCompleteEvent() {
@@ -654,13 +713,33 @@ public class EventContent extends AbstractModel{
     }
 
     /**
-     * Set 溯源水印提取完成事件，当事件类型为ExtractTraceWatermarkComplete 时有效。
+     * Set 溯源水印提取完成事件，当事件类型为 ExtractTraceWatermarkComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ExtractTraceWatermarkCompleteEvent 溯源水印提取完成事件，当事件类型为ExtractTraceWatermarkComplete 时有效。
+     * @param ExtractTraceWatermarkCompleteEvent 溯源水印提取完成事件，当事件类型为 ExtractTraceWatermarkComplete 时有效。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExtractTraceWatermarkCompleteEvent(ExtractTraceWatermarkTask ExtractTraceWatermarkCompleteEvent) {
         this.ExtractTraceWatermarkCompleteEvent = ExtractTraceWatermarkCompleteEvent;
+    }
+
+    /**
+     * Get 版权水印提取完成事件，当事件类型为 ExtractCopyRightWatermarkComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ExtractCopyRightWatermarkCompleteEvent 版权水印提取完成事件，当事件类型为 ExtractCopyRightWatermarkComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ExtractCopyRightWatermarkTask getExtractCopyRightWatermarkCompleteEvent() {
+        return this.ExtractCopyRightWatermarkCompleteEvent;
+    }
+
+    /**
+     * Set 版权水印提取完成事件，当事件类型为 ExtractCopyRightWatermarkComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ExtractCopyRightWatermarkCompleteEvent 版权水印提取完成事件，当事件类型为 ExtractCopyRightWatermarkComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setExtractCopyRightWatermarkCompleteEvent(ExtractCopyRightWatermarkTask ExtractCopyRightWatermarkCompleteEvent) {
+        this.ExtractCopyRightWatermarkCompleteEvent = ExtractCopyRightWatermarkCompleteEvent;
     }
 
     /**
@@ -721,6 +800,26 @@ public class EventContent extends AbstractModel{
      */
     public void setDescribeFileAttributesCompleteEvent(DescribeFileAttributesTask DescribeFileAttributesCompleteEvent) {
         this.DescribeFileAttributesCompleteEvent = DescribeFileAttributesCompleteEvent;
+    }
+
+    /**
+     * Get 音画质检测完成事件，当事件类型为 QualityInspectComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return QualityInspectCompleteEvent 音画质检测完成事件，当事件类型为 QualityInspectComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public QualityInspectTask getQualityInspectCompleteEvent() {
+        return this.QualityInspectCompleteEvent;
+    }
+
+    /**
+     * Set 音画质检测完成事件，当事件类型为 QualityInspectComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param QualityInspectCompleteEvent 音画质检测完成事件，当事件类型为 QualityInspectComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setQualityInspectCompleteEvent(QualityInspectTask QualityInspectCompleteEvent) {
+        this.QualityInspectCompleteEvent = QualityInspectCompleteEvent;
     }
 
     public EventContent() {
@@ -785,8 +884,14 @@ public class EventContent extends AbstractModel{
         if (source.RestoreMediaCompleteEvent != null) {
             this.RestoreMediaCompleteEvent = new RestoreMediaTask(source.RestoreMediaCompleteEvent);
         }
+        if (source.RebuildMediaCompleteEvent != null) {
+            this.RebuildMediaCompleteEvent = new RebuildMediaTask(source.RebuildMediaCompleteEvent);
+        }
         if (source.ExtractTraceWatermarkCompleteEvent != null) {
             this.ExtractTraceWatermarkCompleteEvent = new ExtractTraceWatermarkTask(source.ExtractTraceWatermarkCompleteEvent);
+        }
+        if (source.ExtractCopyRightWatermarkCompleteEvent != null) {
+            this.ExtractCopyRightWatermarkCompleteEvent = new ExtractCopyRightWatermarkTask(source.ExtractCopyRightWatermarkCompleteEvent);
         }
         if (source.ReviewAudioVideoCompleteEvent != null) {
             this.ReviewAudioVideoCompleteEvent = new ReviewAudioVideoTask(source.ReviewAudioVideoCompleteEvent);
@@ -796,6 +901,9 @@ public class EventContent extends AbstractModel{
         }
         if (source.DescribeFileAttributesCompleteEvent != null) {
             this.DescribeFileAttributesCompleteEvent = new DescribeFileAttributesTask(source.DescribeFileAttributesCompleteEvent);
+        }
+        if (source.QualityInspectCompleteEvent != null) {
+            this.QualityInspectCompleteEvent = new QualityInspectTask(source.QualityInspectCompleteEvent);
         }
     }
 
@@ -822,10 +930,13 @@ public class EventContent extends AbstractModel{
         this.setParamObj(map, prefix + "WechatMiniProgramPublishCompleteEvent.", this.WechatMiniProgramPublishCompleteEvent);
         this.setParamObj(map, prefix + "RemoveWatermarkCompleteEvent.", this.RemoveWatermarkCompleteEvent);
         this.setParamObj(map, prefix + "RestoreMediaCompleteEvent.", this.RestoreMediaCompleteEvent);
+        this.setParamObj(map, prefix + "RebuildMediaCompleteEvent.", this.RebuildMediaCompleteEvent);
         this.setParamObj(map, prefix + "ExtractTraceWatermarkCompleteEvent.", this.ExtractTraceWatermarkCompleteEvent);
+        this.setParamObj(map, prefix + "ExtractCopyRightWatermarkCompleteEvent.", this.ExtractCopyRightWatermarkCompleteEvent);
         this.setParamObj(map, prefix + "ReviewAudioVideoCompleteEvent.", this.ReviewAudioVideoCompleteEvent);
         this.setParamObj(map, prefix + "ReduceMediaBitrateCompleteEvent.", this.ReduceMediaBitrateCompleteEvent);
         this.setParamObj(map, prefix + "DescribeFileAttributesCompleteEvent.", this.DescribeFileAttributesCompleteEvent);
+        this.setParamObj(map, prefix + "QualityInspectCompleteEvent.", this.QualityInspectCompleteEvent);
 
     }
 }

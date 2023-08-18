@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class UploadFilesRequest extends AbstractModel{
 
     /**
-    * 应用相关信息，若是渠道版调用 appid 和proxyappid 必填
+    * 应用相关信息，若是第三方应用集成调用 若是第三方应用集成调用,Agent.AppId 和 Agent.ProxyOrganizationOpenId 必填
     */
     @SerializedName("Agent")
     @Expose
@@ -53,16 +53,16 @@ public class UploadFilesRequest extends AbstractModel{
     private UserInfo Operator;
 
     /**
-     * Get 应用相关信息，若是渠道版调用 appid 和proxyappid 必填 
-     * @return Agent 应用相关信息，若是渠道版调用 appid 和proxyappid 必填
+     * Get 应用相关信息，若是第三方应用集成调用 若是第三方应用集成调用,Agent.AppId 和 Agent.ProxyOrganizationOpenId 必填 
+     * @return Agent 应用相关信息，若是第三方应用集成调用 若是第三方应用集成调用,Agent.AppId 和 Agent.ProxyOrganizationOpenId 必填
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 应用相关信息，若是渠道版调用 appid 和proxyappid 必填
-     * @param Agent 应用相关信息，若是渠道版调用 appid 和proxyappid 必填
+     * Set 应用相关信息，若是第三方应用集成调用 若是第三方应用集成调用,Agent.AppId 和 Agent.ProxyOrganizationOpenId 必填
+     * @param Agent 应用相关信息，若是第三方应用集成调用 若是第三方应用集成调用,Agent.AppId 和 Agent.ProxyOrganizationOpenId 必填
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
@@ -111,7 +111,9 @@ public class UploadFilesRequest extends AbstractModel{
     /**
      * Get 操作者的信息 
      * @return Operator 操作者的信息
+     * @deprecated
      */
+    @Deprecated
     public UserInfo getOperator() {
         return this.Operator;
     }
@@ -119,7 +121,9 @@ public class UploadFilesRequest extends AbstractModel{
     /**
      * Set 操作者的信息
      * @param Operator 操作者的信息
+     * @deprecated
      */
+    @Deprecated
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
     }

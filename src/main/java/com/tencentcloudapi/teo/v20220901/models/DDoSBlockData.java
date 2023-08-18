@@ -30,11 +30,18 @@ public class DDoSBlockData extends AbstractModel{
     private Long StartTime;
 
     /**
-    * 结束时间，采用unix时间戳。
+    * 结束时间，采用unix时间戳, 为0表示还处于封禁中。
     */
     @SerializedName("EndTime")
     @Expose
     private Long EndTime;
+
+    /**
+    * 封禁受影响区域。
+    */
+    @SerializedName("BlockArea")
+    @Expose
+    private String BlockArea;
 
     /**
      * Get 开始时间，采用unix时间戳。 
@@ -53,19 +60,35 @@ public class DDoSBlockData extends AbstractModel{
     }
 
     /**
-     * Get 结束时间，采用unix时间戳。 
-     * @return EndTime 结束时间，采用unix时间戳。
+     * Get 结束时间，采用unix时间戳, 为0表示还处于封禁中。 
+     * @return EndTime 结束时间，采用unix时间戳, 为0表示还处于封禁中。
      */
     public Long getEndTime() {
         return this.EndTime;
     }
 
     /**
-     * Set 结束时间，采用unix时间戳。
-     * @param EndTime 结束时间，采用unix时间戳。
+     * Set 结束时间，采用unix时间戳, 为0表示还处于封禁中。
+     * @param EndTime 结束时间，采用unix时间戳, 为0表示还处于封禁中。
      */
     public void setEndTime(Long EndTime) {
         this.EndTime = EndTime;
+    }
+
+    /**
+     * Get 封禁受影响区域。 
+     * @return BlockArea 封禁受影响区域。
+     */
+    public String getBlockArea() {
+        return this.BlockArea;
+    }
+
+    /**
+     * Set 封禁受影响区域。
+     * @param BlockArea 封禁受影响区域。
+     */
+    public void setBlockArea(String BlockArea) {
+        this.BlockArea = BlockArea;
     }
 
     public DDoSBlockData() {
@@ -82,6 +105,9 @@ public class DDoSBlockData extends AbstractModel{
         if (source.EndTime != null) {
             this.EndTime = new Long(source.EndTime);
         }
+        if (source.BlockArea != null) {
+            this.BlockArea = new String(source.BlockArea);
+        }
     }
 
 
@@ -91,6 +117,7 @@ public class DDoSBlockData extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "StartTime", this.StartTime);
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
+        this.setParamSimple(map, prefix + "BlockArea", this.BlockArea);
 
     }
 }

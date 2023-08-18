@@ -30,6 +30,9 @@ public enum PrivatednsErrorCode {
     // 记录删除失败。
      FAILEDOPERATION_DELETERECORDFAILED("FailedOperation.DeleteRecordFailed"),
      
+    // 删除终端节点失败。
+     FAILEDOPERATION_DELETEVPCENDPOINTFAILED("FailedOperation.DeleteVpcEndPointFailed"),
+     
     // 解析域删除失败。
      FAILEDOPERATION_DELETEZONEFAILED("FailedOperation.DeleteZoneFailed"),
      
@@ -38,6 +41,9 @@ public enum PrivatednsErrorCode {
      
     // 私有域修改失败。
      FAILEDOPERATION_MODIFYZONEFAILED("FailedOperation.ModifyZoneFailed"),
+     
+    // 记录更新失败
+     FAILEDOPERATION_UPDATERECORDFAILED("FailedOperation.UpdateRecordFailed"),
      
     // 内部错误。
      INTERNALERROR("InternalError"),
@@ -50,6 +56,12 @@ public enum PrivatednsErrorCode {
      
     // 已经存在绑定的账号。
      INVALIDPARAMETER_ACCOUNTEXIST("InvalidParameter.AccountExist"),
+     
+    // 终端节点已经绑定了转发规则。
+     INVALIDPARAMETER_ENDPOINTBINDFORWARDRULE("InvalidParameter.EndPointBindForwardRule"),
+     
+    // 终端节点不存在。
+     INVALIDPARAMETER_ENDPOINTNOTEXISTS("InvalidParameter.EndPointNotExists"),
      
     // 非法CIDR。
      INVALIDPARAMETER_ILLEGALCIDR("InvalidParameter.IllegalCidr"),
@@ -74,6 +86,9 @@ public enum PrivatednsErrorCode {
      
     // MX 必须为5-50之间且为5的倍数。
      INVALIDPARAMETER_INVALIDMX("InvalidParameter.InvalidMX"),
+     
+    // 该记录类型不支持 MX 优先级设置
+     INVALIDPARAMETER_MXNOTSUPPORTED("InvalidParameter.MXNotSupported"),
      
     // AAAA记录负载均衡数量超过50。
      INVALIDPARAMETER_RECORDAAAACOUNTEXCEED("InvalidParameter.RecordAAAACountExceed"),

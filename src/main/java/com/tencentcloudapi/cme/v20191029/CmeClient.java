@@ -29,7 +29,7 @@ public class CmeClient extends AbstractClient{
     private static String endpoint = "cme.tencentcloudapi.com";
     private static String service = "cme";
     private static String version = "2019-10-29";
-
+    
     public CmeClient(Credential credential, String region) {
         this(credential, region, new ClientProfile());
     }
@@ -47,6 +47,7 @@ public class CmeClient extends AbstractClient{
     public AddTeamMemberResponse AddTeamMember(AddTeamMemberRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AddTeamMemberResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AddTeamMemberResponse>>() {
                 }.getType();
@@ -67,6 +68,7 @@ public class CmeClient extends AbstractClient{
     public CopyProjectResponse CopyProject(CopyProjectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CopyProjectResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CopyProjectResponse>>() {
                 }.getType();
@@ -87,6 +89,7 @@ public class CmeClient extends AbstractClient{
     public CreateClassResponse CreateClass(CreateClassRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateClassResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateClassResponse>>() {
                 }.getType();
@@ -99,7 +102,7 @@ public class CmeClient extends AbstractClient{
     }
 
     /**
-     * 创建媒体链接或分类路径链接，将源资源信息链接到目标。
+     *创建媒体链接或分类路径链接，将资源信息链接到目标。
      * @param req CreateLinkRequest
      * @return CreateLinkResponse
      * @throws TencentCloudSDKException
@@ -107,6 +110,7 @@ public class CmeClient extends AbstractClient{
     public CreateLinkResponse CreateLink(CreateLinkRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateLinkResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateLinkResponse>>() {
                 }.getType();
@@ -125,7 +129,8 @@ public class CmeClient extends AbstractClient{
 <li>导播台项目：用于云导播台；</li>
 <li>视频拆条：用于视频拆条；</li>
 <li>录制回放项目：用于直播录制回放；</li>
-<li>云转推项目：用于直播云转推。</li>
+<li>云转推项目：用于直播云转推<font color=red>（废弃，可使用媒体转推项目替代）</font>；</li>
+<li>媒体转推项目：用于媒体文件转直播输出。</li>
      * @param req CreateProjectRequest
      * @return CreateProjectResponse
      * @throws TencentCloudSDKException
@@ -133,6 +138,7 @@ public class CmeClient extends AbstractClient{
     public CreateProjectResponse CreateProject(CreateProjectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateProjectResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateProjectResponse>>() {
                 }.getType();
@@ -153,6 +159,7 @@ public class CmeClient extends AbstractClient{
     public CreateTeamResponse CreateTeam(CreateTeamRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateTeamResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateTeamResponse>>() {
                 }.getType();
@@ -173,6 +180,7 @@ public class CmeClient extends AbstractClient{
     public CreateVideoEncodingPresetResponse CreateVideoEncodingPreset(CreateVideoEncodingPresetRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateVideoEncodingPresetResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateVideoEncodingPresetResponse>>() {
                 }.getType();
@@ -195,6 +203,7 @@ public class CmeClient extends AbstractClient{
     public DeleteClassResponse DeleteClass(DeleteClassRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteClassResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteClassResponse>>() {
                 }.getType();
@@ -215,6 +224,7 @@ public class CmeClient extends AbstractClient{
     public DeleteLoginStatusResponse DeleteLoginStatus(DeleteLoginStatusRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteLoginStatusResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteLoginStatusResponse>>() {
                 }.getType();
@@ -235,6 +245,7 @@ public class CmeClient extends AbstractClient{
     public DeleteMaterialResponse DeleteMaterial(DeleteMaterialRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteMaterialResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteMaterialResponse>>() {
                 }.getType();
@@ -247,7 +258,7 @@ public class CmeClient extends AbstractClient{
     }
 
     /**
-     *删除项目。
+     *删除项目。处于推流状态的云转推和点播转直播项目不允许删除，若强行调用删除项目接口会返回失败。
      * @param req DeleteProjectRequest
      * @return DeleteProjectResponse
      * @throws TencentCloudSDKException
@@ -255,6 +266,7 @@ public class CmeClient extends AbstractClient{
     public DeleteProjectResponse DeleteProject(DeleteProjectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteProjectResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteProjectResponse>>() {
                 }.getType();
@@ -277,6 +289,7 @@ public class CmeClient extends AbstractClient{
     public DeleteTeamResponse DeleteTeam(DeleteTeamRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteTeamResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteTeamResponse>>() {
                 }.getType();
@@ -297,6 +310,7 @@ public class CmeClient extends AbstractClient{
     public DeleteTeamMembersResponse DeleteTeamMembers(DeleteTeamMembersRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteTeamMembersResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteTeamMembersResponse>>() {
                 }.getType();
@@ -317,6 +331,7 @@ public class CmeClient extends AbstractClient{
     public DeleteVideoEncodingPresetResponse DeleteVideoEncodingPreset(DeleteVideoEncodingPresetRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteVideoEncodingPresetResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteVideoEncodingPresetResponse>>() {
                 }.getType();
@@ -337,6 +352,7 @@ public class CmeClient extends AbstractClient{
     public DescribeAccountsResponse DescribeAccounts(DescribeAccountsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeAccountsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeAccountsResponse>>() {
                 }.getType();
@@ -357,6 +373,7 @@ public class CmeClient extends AbstractClient{
     public DescribeClassResponse DescribeClass(DescribeClassRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeClassResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeClassResponse>>() {
                 }.getType();
@@ -377,6 +394,7 @@ public class CmeClient extends AbstractClient{
     public DescribeJoinTeamsResponse DescribeJoinTeams(DescribeJoinTeamsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeJoinTeamsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeJoinTeamsResponse>>() {
                 }.getType();
@@ -397,6 +415,7 @@ public class CmeClient extends AbstractClient{
     public DescribeLoginStatusResponse DescribeLoginStatus(DescribeLoginStatusRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeLoginStatusResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeLoginStatusResponse>>() {
                 }.getType();
@@ -417,6 +436,7 @@ public class CmeClient extends AbstractClient{
     public DescribeMaterialsResponse DescribeMaterials(DescribeMaterialsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeMaterialsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeMaterialsResponse>>() {
                 }.getType();
@@ -442,6 +462,7 @@ public class CmeClient extends AbstractClient{
     public DescribePlatformsResponse DescribePlatforms(DescribePlatformsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribePlatformsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribePlatformsResponse>>() {
                 }.getType();
@@ -462,6 +483,7 @@ public class CmeClient extends AbstractClient{
     public DescribeProjectsResponse DescribeProjects(DescribeProjectsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeProjectsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeProjectsResponse>>() {
                 }.getType();
@@ -482,6 +504,7 @@ public class CmeClient extends AbstractClient{
     public DescribeResourceAuthorizationResponse DescribeResourceAuthorization(DescribeResourceAuthorizationRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeResourceAuthorizationResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeResourceAuthorizationResponse>>() {
                 }.getType();
@@ -502,6 +525,7 @@ public class CmeClient extends AbstractClient{
     public DescribeSharedSpaceResponse DescribeSharedSpace(DescribeSharedSpaceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSharedSpaceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSharedSpaceResponse>>() {
                 }.getType();
@@ -524,6 +548,7 @@ public class CmeClient extends AbstractClient{
     public DescribeTaskDetailResponse DescribeTaskDetail(DescribeTaskDetailRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeTaskDetailResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeTaskDetailResponse>>() {
                 }.getType();
@@ -544,6 +569,7 @@ public class CmeClient extends AbstractClient{
     public DescribeTasksResponse DescribeTasks(DescribeTasksRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeTasksResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeTasksResponse>>() {
                 }.getType();
@@ -564,6 +590,7 @@ public class CmeClient extends AbstractClient{
     public DescribeTeamMembersResponse DescribeTeamMembers(DescribeTeamMembersRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeTeamMembersResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeTeamMembersResponse>>() {
                 }.getType();
@@ -584,6 +611,7 @@ public class CmeClient extends AbstractClient{
     public DescribeTeamsResponse DescribeTeams(DescribeTeamsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeTeamsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeTeamsResponse>>() {
                 }.getType();
@@ -604,6 +632,7 @@ public class CmeClient extends AbstractClient{
     public DescribeVideoEncodingPresetsResponse DescribeVideoEncodingPresets(DescribeVideoEncodingPresetsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeVideoEncodingPresetsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeVideoEncodingPresetsResponse>>() {
                 }.getType();
@@ -624,6 +653,7 @@ public class CmeClient extends AbstractClient{
     public ExportVideoByEditorTrackDataResponse ExportVideoByEditorTrackData(ExportVideoByEditorTrackDataRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ExportVideoByEditorTrackDataResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ExportVideoByEditorTrackDataResponse>>() {
                 }.getType();
@@ -644,6 +674,7 @@ public class CmeClient extends AbstractClient{
     public ExportVideoByTemplateResponse ExportVideoByTemplate(ExportVideoByTemplateRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ExportVideoByTemplateResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ExportVideoByTemplateResponse>>() {
                 }.getType();
@@ -664,6 +695,7 @@ public class CmeClient extends AbstractClient{
     public ExportVideoByVideoSegmentationDataResponse ExportVideoByVideoSegmentationData(ExportVideoByVideoSegmentationDataRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ExportVideoByVideoSegmentationDataResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ExportVideoByVideoSegmentationDataResponse>>() {
                 }.getType();
@@ -684,6 +716,7 @@ public class CmeClient extends AbstractClient{
     public ExportVideoEditProjectResponse ExportVideoEditProject(ExportVideoEditProjectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ExportVideoEditProjectResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ExportVideoEditProjectResponse>>() {
                 }.getType();
@@ -704,6 +737,7 @@ public class CmeClient extends AbstractClient{
     public FlattenListMediaResponse FlattenListMedia(FlattenListMediaRequest req) throws TencentCloudSDKException{
         JsonResponseModel<FlattenListMediaResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<FlattenListMediaResponse>>() {
                 }.getType();
@@ -726,6 +760,7 @@ public class CmeClient extends AbstractClient{
     public GenerateVideoSegmentationSchemeByAiResponse GenerateVideoSegmentationSchemeByAi(GenerateVideoSegmentationSchemeByAiRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GenerateVideoSegmentationSchemeByAiResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<GenerateVideoSegmentationSchemeByAiResponse>>() {
                 }.getType();
@@ -746,6 +781,7 @@ public class CmeClient extends AbstractClient{
     public GrantResourceAuthorizationResponse GrantResourceAuthorization(GrantResourceAuthorizationRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GrantResourceAuthorizationResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<GrantResourceAuthorizationResponse>>() {
                 }.getType();
@@ -758,7 +794,44 @@ public class CmeClient extends AbstractClient{
     }
 
     /**
-     *对云转推项目进行操作。
+     *对媒体转推项目进行操作。
+### 操作类型<a id="Operation"></a>
+- `AddSource`（添加输入源），项目状态为 Idle、Working 时均可以操作。参见 [示例](#.E7.A4.BA.E4.BE.8B9-.E6.B7.BB.E5.8A.A0.E8.BE.93.E5.85.A5.E6.BA.90)；
+- `DeleteSource`（删除输入源），项目状态为 Idle、Working 时均可以操作。参见 [示例](#.E7.A4.BA.E4.BE.8B6-.E5.88.A0.E9.99.A4.E8.BE.93.E5.85.A5.E6.BA.90)；
+- `SwitchSource`（切换当前播放的输入源），项目状态为 Working 时可以操作。参见 [示例](#.E7.A4.BA.E4.BE.8B5-.E5.88.87.E6.8D.A2.E5.BD.93.E5.89.8D.E6.92.AD.E6.94.BE.E7.9A.84.E8.BE.93.E5.85.A5.E6.BA.90)
+- `AddDestination`（ 添加输出源），项目状态为 Idle、Working 时均可以操作。参见 [示例](#.E7.A4.BA.E4.BE.8B8-.E5.90.AF.E5.8A.A8.E8.BE.93.E5.87.BA.E6.BA.90)；
+- `DeleteDestination`（删除输出源），项目状态为 Idle、Working 时均可以操作。参见 [示例](#.E7.A4.BA.E4.BE.8B7-.E5.88.A0.E9.99.A4.E8.BE.93.E5.87.BA.E6.BA.90)；
+- `EnableDestination`（启动输出源），项目状态为 Working 时可以操作。参见 [示例](#.E7.A4.BA.E4.BE.8B8-.E5.90.AF.E5.8A.A8.E8.BE.93.E5.87.BA.E6.BA.90)；
+- `DisableDestination`（停止输出源），项目状态为 Working 时可以操作。参见 [示例](#.E7.A4.BA.E4.BE.8B4-.E5.81.9C.E6.AD.A2.E8.BE.93.E5.87.BA.E6.BA.90)；
+- `ModifyDestination`（修改输出源），项目状态为 Idle、Working 时均可以操作。参见 [示例](#.E7.A4.BA.E4.BE.8B2-.E4.BF.AE.E6.94.B9.E8.BE.93.E5.87.BA.E6.BA.90)；
+- `Start`（启动媒体转推），项目状态为 Idle 时可以操作。参见 [示例](#.E7.A4.BA.E4.BE.8B12-.E5.90.AF.E5.8A.A8.E5.AA.92.E4.BD.93.E8.BD.AC.E6.8E.A8)。发起 Start 请求成功后，媒体转推项目开始启动，30秒内还需要再进行一次 Confirm操作进行确认；
+- `Confirm`（确认媒体转推项目启动），项目状态为 Working 时可以操作。参见 [示例](#.E7.A4.BA.E4.BE.8B14-.E7.A1.AE.E8.AE.A4.E5.AA.92.E4.BD.93.E8.BD.AC.E6.8E.A8.E9.A1.B9.E7.9B.AE.E5.90.AF.E5.8A.A8)；
+- `Stop`（停止媒体转推），项目状态为 Working 时可以操作。参见 [示例](#.E7.A4.BA.E4.BE.8B11-.E5.81.9C.E6.AD.A2.E5.AA.92.E4.BD.93.E8.BD.AC.E6.8E.A8)；
+- `ModifyOutputMediaSetting`（修改媒体输出配置），项目状态为 Idle 时可以操作。参见 [示例](#.E7.A4.BA.E4.BE.8B3-.E4.BF.AE.E6.94.B9.E8.BE.93.E5.87.BA.E7.9A.84.E5.AA.92.E4.BD.93.E9.85.8D.E7.BD.AE)；
+- `ModifyPlaySetting`（修改播放结束时间），项目状态为 Idle、Working 时均可以操作。参见 [示例](#.E7.A4.BA.E4.BE.8B1-.E4.BF.AE.E6.94.B9.E7.BB.93.E6.9D.9F.E6.97.B6.E9.97.B4);
+- `DescribePlayInfo`（查询播放信息），项目状态为 Idle、Working 时均可以操作。参见 [示例](#.E7.A4.BA.E4.BE.8B13-.E6.9F.A5.E8.AF.A2.E5.AA.92.E4.BD.93.E8.BD.AC.E6.8E.A8.E9.A1.B9.E7.9B.AE.E7.9A.84.E6.92.AD.E6.94.BE.E4.BF.A1.E6.81.AF)。
+     * @param req HandleMediaCastProjectRequest
+     * @return HandleMediaCastProjectResponse
+     * @throws TencentCloudSDKException
+     */
+    public HandleMediaCastProjectResponse HandleMediaCastProject(HandleMediaCastProjectRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<HandleMediaCastProjectResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<HandleMediaCastProjectResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "HandleMediaCastProject");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *<font color=red>本接口废弃，可创建媒体转推项目替代，操作媒体转推项目可使用 <b>[HandleMediaCastProject 接口](/document/product/1156/87841) </b>实现。</font>
+
 ### 操作类型<a id="Operation"></a>
 - `AddInput`（添加输入源），包括：
 	- 添加直播拉流输入源，参见 [示例1](#.E7.A4.BA.E4.BE.8B1-.E6.B7.BB.E5.8A.A0.E7.9B.B4.E6.92.AD.E6.8B.89.E6.B5.81.E8.BE.93.E5.85.A5.E6.BA.90)；
@@ -781,6 +854,7 @@ public class CmeClient extends AbstractClient{
     public HandleStreamConnectProjectResponse HandleStreamConnectProject(HandleStreamConnectProjectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<HandleStreamConnectProjectResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<HandleStreamConnectProjectResponse>>() {
                 }.getType();
@@ -801,6 +875,7 @@ public class CmeClient extends AbstractClient{
     public ImportMaterialResponse ImportMaterial(ImportMaterialRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ImportMaterialResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ImportMaterialResponse>>() {
                 }.getType();
@@ -821,6 +896,7 @@ public class CmeClient extends AbstractClient{
     public ImportMediaToProjectResponse ImportMediaToProject(ImportMediaToProjectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ImportMediaToProjectResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ImportMediaToProjectResponse>>() {
                 }.getType();
@@ -833,7 +909,7 @@ public class CmeClient extends AbstractClient{
     }
 
     /**
-     * 浏览当前分类路径下的资源，包括媒体文件和子分类，返回媒资基础信息和分类信息。
+     *浏览当前分类路径下的资源，包括媒体文件和子分类，返回媒资基础信息和分类信息。
      * @param req ListMediaRequest
      * @return ListMediaResponse
      * @throws TencentCloudSDKException
@@ -841,6 +917,7 @@ public class CmeClient extends AbstractClient{
     public ListMediaResponse ListMedia(ListMediaRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ListMediaResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ListMediaResponse>>() {
                 }.getType();
@@ -861,6 +938,7 @@ public class CmeClient extends AbstractClient{
     public ModifyMaterialResponse ModifyMaterial(ModifyMaterialRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyMaterialResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyMaterialResponse>>() {
                 }.getType();
@@ -881,6 +959,7 @@ public class CmeClient extends AbstractClient{
     public ModifyProjectResponse ModifyProject(ModifyProjectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyProjectResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyProjectResponse>>() {
                 }.getType();
@@ -902,6 +981,7 @@ public class CmeClient extends AbstractClient{
     public ModifyTeamResponse ModifyTeam(ModifyTeamRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyTeamResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyTeamResponse>>() {
                 }.getType();
@@ -922,6 +1002,7 @@ public class CmeClient extends AbstractClient{
     public ModifyTeamMemberResponse ModifyTeamMember(ModifyTeamMemberRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyTeamMemberResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyTeamMemberResponse>>() {
                 }.getType();
@@ -942,6 +1023,7 @@ public class CmeClient extends AbstractClient{
     public ModifyVideoEncodingPresetResponse ModifyVideoEncodingPreset(ModifyVideoEncodingPresetRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyVideoEncodingPresetResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyVideoEncodingPresetResponse>>() {
                 }.getType();
@@ -965,6 +1047,7 @@ public class CmeClient extends AbstractClient{
     public MoveClassResponse MoveClass(MoveClassRequest req) throws TencentCloudSDKException{
         JsonResponseModel<MoveClassResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<MoveClassResponse>>() {
                 }.getType();
@@ -983,7 +1066,6 @@ public class CmeClient extends AbstractClient{
  如果 SourceResource.Resource.Id = /素材/视频/NBA，DestinationResource.Resource.Id= /素材/视频/篮球 
 <li>当 DestinationResource.Resource.Id 不存在时候且原始资源与目标资源归属相同，操作结果为重命名原始分类；</li>
 <li>当 DestinationResource.Resource.Id 存在时候，操作结果为产生新目录 /素材/视频/篮球/NBA</li>
-
      * @param req MoveResourceRequest
      * @return MoveResourceResponse
      * @throws TencentCloudSDKException
@@ -991,6 +1073,7 @@ public class CmeClient extends AbstractClient{
     public MoveResourceResponse MoveResource(MoveResourceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<MoveResourceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<MoveResourceResponse>>() {
                 }.getType();
@@ -1003,7 +1086,7 @@ public class CmeClient extends AbstractClient{
     }
 
     /**
-     *该接口接受制作云回调给客户的事件内容，将其转化为对应的 EventContent 结构，请不要实际调用该接口，只需要将接收到的事件内容直接使用 JSON 解析到 EventContent  即可使用。
+     *该接口接受多媒体创作引擎回调给业务的事件内容，将其转化为对应的 EventContent 结构。请不要实际调用该接口，只需要将接收到的事件内容直接使用 JSON 解析到 EventContent  结构即可使用。
      * @param req ParseEventRequest
      * @return ParseEventResponse
      * @throws TencentCloudSDKException
@@ -1011,6 +1094,7 @@ public class CmeClient extends AbstractClient{
     public ParseEventResponse ParseEvent(ParseEventRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ParseEventResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ParseEventResponse>>() {
                 }.getType();
@@ -1031,6 +1115,7 @@ public class CmeClient extends AbstractClient{
     public RevokeResourceAuthorizationResponse RevokeResourceAuthorization(RevokeResourceAuthorizationRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RevokeResourceAuthorizationResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RevokeResourceAuthorizationResponse>>() {
                 }.getType();
@@ -1051,6 +1136,7 @@ public class CmeClient extends AbstractClient{
     public SearchMaterialResponse SearchMaterial(SearchMaterialRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SearchMaterialResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<SearchMaterialResponse>>() {
                 }.getType();

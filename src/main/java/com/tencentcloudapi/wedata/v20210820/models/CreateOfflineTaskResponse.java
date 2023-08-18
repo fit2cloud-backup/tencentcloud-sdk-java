@@ -23,6 +23,14 @@ import java.util.HashMap;
 public class CreateOfflineTaskResponse extends AbstractModel{
 
     /**
+    * 任务ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TaskId")
+    @Expose
+    private String TaskId;
+
+    /**
     * 结果
     */
     @SerializedName("Data")
@@ -35,6 +43,26 @@ public class CreateOfflineTaskResponse extends AbstractModel{
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
+
+    /**
+     * Get 任务ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TaskId 任务ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTaskId() {
+        return this.TaskId;
+    }
+
+    /**
+     * Set 任务ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TaskId 任务ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTaskId(String TaskId) {
+        this.TaskId = TaskId;
+    }
 
     /**
      * Get 结果 
@@ -76,6 +104,9 @@ public class CreateOfflineTaskResponse extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public CreateOfflineTaskResponse(CreateOfflineTaskResponse source) {
+        if (source.TaskId != null) {
+            this.TaskId = new String(source.TaskId);
+        }
         if (source.Data != null) {
             this.Data = new String(source.Data);
         }
@@ -89,6 +120,7 @@ public class CreateOfflineTaskResponse extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "TaskId", this.TaskId);
         this.setParamSimple(map, prefix + "Data", this.Data);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 

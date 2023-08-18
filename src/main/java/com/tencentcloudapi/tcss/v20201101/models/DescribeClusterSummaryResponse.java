@@ -93,6 +93,44 @@ public class DescribeClusterSummaryResponse extends AbstractModel{
     private Long FailedClusterCount;
 
     /**
+    * 未导入的集群数量
+    */
+    @SerializedName("NotImportedClusterCount")
+    @Expose
+    private Long NotImportedClusterCount;
+
+    /**
+    * eks集群数量
+    */
+    @SerializedName("ServerlessClusterCount")
+    @Expose
+    private Long ServerlessClusterCount;
+
+    /**
+    * TKE集群数量
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TkeClusterCount")
+    @Expose
+    private Long TkeClusterCount;
+
+    /**
+    * 用户自建腾讯云集群数量
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UserCreateTencentClusterCount")
+    @Expose
+    private Long UserCreateTencentClusterCount;
+
+    /**
+    * 用户自建集群混合云数量
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UserCreateHybridClusterCount")
+    @Expose
+    private Long UserCreateHybridClusterCount;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -260,6 +298,98 @@ public class DescribeClusterSummaryResponse extends AbstractModel{
     }
 
     /**
+     * Get 未导入的集群数量 
+     * @return NotImportedClusterCount 未导入的集群数量
+     */
+    public Long getNotImportedClusterCount() {
+        return this.NotImportedClusterCount;
+    }
+
+    /**
+     * Set 未导入的集群数量
+     * @param NotImportedClusterCount 未导入的集群数量
+     */
+    public void setNotImportedClusterCount(Long NotImportedClusterCount) {
+        this.NotImportedClusterCount = NotImportedClusterCount;
+    }
+
+    /**
+     * Get eks集群数量 
+     * @return ServerlessClusterCount eks集群数量
+     */
+    public Long getServerlessClusterCount() {
+        return this.ServerlessClusterCount;
+    }
+
+    /**
+     * Set eks集群数量
+     * @param ServerlessClusterCount eks集群数量
+     */
+    public void setServerlessClusterCount(Long ServerlessClusterCount) {
+        this.ServerlessClusterCount = ServerlessClusterCount;
+    }
+
+    /**
+     * Get TKE集群数量
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TkeClusterCount TKE集群数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getTkeClusterCount() {
+        return this.TkeClusterCount;
+    }
+
+    /**
+     * Set TKE集群数量
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TkeClusterCount TKE集群数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTkeClusterCount(Long TkeClusterCount) {
+        this.TkeClusterCount = TkeClusterCount;
+    }
+
+    /**
+     * Get 用户自建腾讯云集群数量
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UserCreateTencentClusterCount 用户自建腾讯云集群数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getUserCreateTencentClusterCount() {
+        return this.UserCreateTencentClusterCount;
+    }
+
+    /**
+     * Set 用户自建腾讯云集群数量
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UserCreateTencentClusterCount 用户自建腾讯云集群数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUserCreateTencentClusterCount(Long UserCreateTencentClusterCount) {
+        this.UserCreateTencentClusterCount = UserCreateTencentClusterCount;
+    }
+
+    /**
+     * Get 用户自建集群混合云数量
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UserCreateHybridClusterCount 用户自建集群混合云数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getUserCreateHybridClusterCount() {
+        return this.UserCreateHybridClusterCount;
+    }
+
+    /**
+     * Set 用户自建集群混合云数量
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UserCreateHybridClusterCount 用户自建集群混合云数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUserCreateHybridClusterCount(Long UserCreateHybridClusterCount) {
+        this.UserCreateHybridClusterCount = UserCreateHybridClusterCount;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -313,6 +443,21 @@ public class DescribeClusterSummaryResponse extends AbstractModel{
         if (source.FailedClusterCount != null) {
             this.FailedClusterCount = new Long(source.FailedClusterCount);
         }
+        if (source.NotImportedClusterCount != null) {
+            this.NotImportedClusterCount = new Long(source.NotImportedClusterCount);
+        }
+        if (source.ServerlessClusterCount != null) {
+            this.ServerlessClusterCount = new Long(source.ServerlessClusterCount);
+        }
+        if (source.TkeClusterCount != null) {
+            this.TkeClusterCount = new Long(source.TkeClusterCount);
+        }
+        if (source.UserCreateTencentClusterCount != null) {
+            this.UserCreateTencentClusterCount = new Long(source.UserCreateTencentClusterCount);
+        }
+        if (source.UserCreateHybridClusterCount != null) {
+            this.UserCreateHybridClusterCount = new Long(source.UserCreateHybridClusterCount);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -333,6 +478,11 @@ public class DescribeClusterSummaryResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "AutoCheckClusterCount", this.AutoCheckClusterCount);
         this.setParamSimple(map, prefix + "ManualCheckClusterCount", this.ManualCheckClusterCount);
         this.setParamSimple(map, prefix + "FailedClusterCount", this.FailedClusterCount);
+        this.setParamSimple(map, prefix + "NotImportedClusterCount", this.NotImportedClusterCount);
+        this.setParamSimple(map, prefix + "ServerlessClusterCount", this.ServerlessClusterCount);
+        this.setParamSimple(map, prefix + "TkeClusterCount", this.TkeClusterCount);
+        this.setParamSimple(map, prefix + "UserCreateTencentClusterCount", this.UserCreateTencentClusterCount);
+        this.setParamSimple(map, prefix + "UserCreateHybridClusterCount", this.UserCreateHybridClusterCount);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

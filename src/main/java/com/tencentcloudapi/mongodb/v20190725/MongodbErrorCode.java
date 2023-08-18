@@ -18,6 +18,9 @@ public enum MongodbErrorCode {
     // 实例查询失败。
      INTERNALERROR_FINDINSTANCEFAILED("InternalError.FindInstanceFailed"),
      
+    // password与原先记录的password不同。
+     INTERNALERROR_PASSWORDERROR("InternalError.PasswordError"),
+     
     // 参数错误。
      INVALIDPARAMETER("InvalidParameter"),
      
@@ -128,6 +131,9 @@ public enum MongodbErrorCode {
      
     // 从节点数错误。
      INVALIDPARAMETERVALUE_SECONDARYNUMERROR("InvalidParameterValue.SecondaryNumError"),
+     
+    // 安全组ID无效。
+     INVALIDPARAMETERVALUE_SECURITYGROUPID("InvalidParameterValue.SecurityGroupId"),
      
     // 设置的磁盘大小不得低于已用磁盘的1.2倍。
      INVALIDPARAMETERVALUE_SETDISKLESSTHANUSED("InvalidParameterValue.SetDiskLessThanUsed"),

@@ -46,7 +46,7 @@ public class CreatePostpayPackageRequest extends AbstractModel{
     private String Source;
 
     /**
-    * 用户享有的免费额度级别，目前只能为“basic”，不传该字段或该字段为空，标识不享受免费额度。
+    * 用户享有的免费额度级别，目前只能为“basic”，不传该字段或该字段为空，表示不享受免费额度。
     */
     @SerializedName("FreeQuota")
     @Expose
@@ -94,6 +94,20 @@ public class CreatePostpayPackageRequest extends AbstractModel{
     @SerializedName("Flag")
     @Expose
     private String Flag;
+
+    /**
+    * 环境别名，无字符类型限制
+    */
+    @SerializedName("EnvAlias")
+    @Expose
+    private String EnvAlias;
+
+    /**
+    * 附加字段，用于透传额外的自定义信息
+    */
+    @SerializedName("Extra")
+    @Expose
+    private String Extra;
 
     /**
      * Get 环境ID，需要系统自动创建环境时，此字段不传 
@@ -152,16 +166,16 @@ public class CreatePostpayPackageRequest extends AbstractModel{
     }
 
     /**
-     * Get 用户享有的免费额度级别，目前只能为“basic”，不传该字段或该字段为空，标识不享受免费额度。 
-     * @return FreeQuota 用户享有的免费额度级别，目前只能为“basic”，不传该字段或该字段为空，标识不享受免费额度。
+     * Get 用户享有的免费额度级别，目前只能为“basic”，不传该字段或该字段为空，表示不享受免费额度。 
+     * @return FreeQuota 用户享有的免费额度级别，目前只能为“basic”，不传该字段或该字段为空，表示不享受免费额度。
      */
     public String getFreeQuota() {
         return this.FreeQuota;
     }
 
     /**
-     * Set 用户享有的免费额度级别，目前只能为“basic”，不传该字段或该字段为空，标识不享受免费额度。
-     * @param FreeQuota 用户享有的免费额度级别，目前只能为“basic”，不传该字段或该字段为空，标识不享受免费额度。
+     * Set 用户享有的免费额度级别，目前只能为“basic”，不传该字段或该字段为空，表示不享受免费额度。
+     * @param FreeQuota 用户享有的免费额度级别，目前只能为“basic”，不传该字段或该字段为空，表示不享受免费额度。
      */
     public void setFreeQuota(String FreeQuota) {
         this.FreeQuota = FreeQuota;
@@ -279,6 +293,38 @@ public class CreatePostpayPackageRequest extends AbstractModel{
         this.Flag = Flag;
     }
 
+    /**
+     * Get 环境别名，无字符类型限制 
+     * @return EnvAlias 环境别名，无字符类型限制
+     */
+    public String getEnvAlias() {
+        return this.EnvAlias;
+    }
+
+    /**
+     * Set 环境别名，无字符类型限制
+     * @param EnvAlias 环境别名，无字符类型限制
+     */
+    public void setEnvAlias(String EnvAlias) {
+        this.EnvAlias = EnvAlias;
+    }
+
+    /**
+     * Get 附加字段，用于透传额外的自定义信息 
+     * @return Extra 附加字段，用于透传额外的自定义信息
+     */
+    public String getExtra() {
+        return this.Extra;
+    }
+
+    /**
+     * Set 附加字段，用于透传额外的自定义信息
+     * @param Extra 附加字段，用于透传额外的自定义信息
+     */
+    public void setExtra(String Extra) {
+        this.Extra = Extra;
+    }
+
     public CreatePostpayPackageRequest() {
     }
 
@@ -314,6 +360,12 @@ public class CreatePostpayPackageRequest extends AbstractModel{
         if (source.Flag != null) {
             this.Flag = new String(source.Flag);
         }
+        if (source.EnvAlias != null) {
+            this.EnvAlias = new String(source.EnvAlias);
+        }
+        if (source.Extra != null) {
+            this.Extra = new String(source.Extra);
+        }
     }
 
 
@@ -330,6 +382,8 @@ public class CreatePostpayPackageRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Channel", this.Channel);
         this.setParamSimple(map, prefix + "ExtensionId", this.ExtensionId);
         this.setParamSimple(map, prefix + "Flag", this.Flag);
+        this.setParamSimple(map, prefix + "EnvAlias", this.EnvAlias);
+        this.setParamSimple(map, prefix + "Extra", this.Extra);
 
     }
 }

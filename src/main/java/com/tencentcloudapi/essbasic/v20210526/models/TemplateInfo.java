@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class TemplateInfo extends AbstractModel{
 
     /**
-    * 模板ID
+    * 模板ID，模板的唯一标识
     */
     @SerializedName("TemplateId")
     @Expose
     private String TemplateId;
 
     /**
-    * 模板名字
+    * 模板名
     */
     @SerializedName("TemplateName")
     @Expose
@@ -44,21 +44,21 @@ public class TemplateInfo extends AbstractModel{
     private String Description;
 
     /**
-    * 模板控件信息结构
+    * 模板的填充控件列表
     */
     @SerializedName("Components")
     @Expose
     private Component [] Components;
 
     /**
-    * 模板中的流程参与人信息
+    * 模板中的签署参与方列表
     */
     @SerializedName("Recipients")
     @Expose
     private Recipient [] Recipients;
 
     /**
-    * 签署区模板信息结构
+    * 模板中的签署控件列表
     */
     @SerializedName("SignComponents")
     @Expose
@@ -79,21 +79,23 @@ public class TemplateInfo extends AbstractModel{
     private Boolean IsPromoter;
 
     /**
-    * 模板的创建者信息
+    * 模板的创建者信息，电子签系统用户ID
     */
     @SerializedName("Creator")
     @Expose
     private String Creator;
 
     /**
-    * 模板创建的时间戳（精确到秒）
+    * 模板创建的时间戳，格式为Unix标准时间戳（秒）
     */
     @SerializedName("CreatedOn")
     @Expose
     private Long CreatedOn;
 
     /**
-    * 模板的H5预览链接,可以通过浏览器打开此链接预览模板，或者嵌入到iframe中预览模板。
+    * 模板的H5预览链接,有效期5分钟。
+可以通过浏览器打开此链接预览模板，或者嵌入到iframe中预览模板。
+（此功能开放需要联系客户经理）
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PreviewUrl")
@@ -101,14 +103,9 @@ public class TemplateInfo extends AbstractModel{
     private String PreviewUrl;
 
     /**
-    * 渠道模板ID
-    */
-    @SerializedName("ChannelTemplateId")
-    @Expose
-    private String ChannelTemplateId;
-
-    /**
-    * 渠道版-模板PDF文件链接
+    * 第三方应用集成-模板PDF文件链接，有效期5分钟。
+请求参数WithPdfUrl=true时返回
+（此功能开放需要联系客户经理）。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PdfUrl")
@@ -116,32 +113,75 @@ public class TemplateInfo extends AbstractModel{
     private String PdfUrl;
 
     /**
-     * Get 模板ID 
-     * @return TemplateId 模板ID
+    * 本模板关联的第三方应用平台企业模板ID
+    */
+    @SerializedName("ChannelTemplateId")
+    @Expose
+    private String ChannelTemplateId;
+
+    /**
+    * 本模板关联的三方应用平台平台企业模板名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ChannelTemplateName")
+    @Expose
+    private String ChannelTemplateName;
+
+    /**
+    * 0-需要子客企业手动领取平台企业的模板(默认); 
+1-平台自动设置子客模板
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ChannelAutoSave")
+    @Expose
+    private Long ChannelAutoSave;
+
+    /**
+    * 模板版本，全数字字符。
+默认为空，初始版本为yyyyMMdd001。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TemplateVersion")
+    @Expose
+    private String TemplateVersion;
+
+    /**
+    * 模板可用状态：
+1启用（默认）
+2停用
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Available")
+    @Expose
+    private Long Available;
+
+    /**
+     * Get 模板ID，模板的唯一标识 
+     * @return TemplateId 模板ID，模板的唯一标识
      */
     public String getTemplateId() {
         return this.TemplateId;
     }
 
     /**
-     * Set 模板ID
-     * @param TemplateId 模板ID
+     * Set 模板ID，模板的唯一标识
+     * @param TemplateId 模板ID，模板的唯一标识
      */
     public void setTemplateId(String TemplateId) {
         this.TemplateId = TemplateId;
     }
 
     /**
-     * Get 模板名字 
-     * @return TemplateName 模板名字
+     * Get 模板名 
+     * @return TemplateName 模板名
      */
     public String getTemplateName() {
         return this.TemplateName;
     }
 
     /**
-     * Set 模板名字
-     * @param TemplateName 模板名字
+     * Set 模板名
+     * @param TemplateName 模板名
      */
     public void setTemplateName(String TemplateName) {
         this.TemplateName = TemplateName;
@@ -164,48 +204,48 @@ public class TemplateInfo extends AbstractModel{
     }
 
     /**
-     * Get 模板控件信息结构 
-     * @return Components 模板控件信息结构
+     * Get 模板的填充控件列表 
+     * @return Components 模板的填充控件列表
      */
     public Component [] getComponents() {
         return this.Components;
     }
 
     /**
-     * Set 模板控件信息结构
-     * @param Components 模板控件信息结构
+     * Set 模板的填充控件列表
+     * @param Components 模板的填充控件列表
      */
     public void setComponents(Component [] Components) {
         this.Components = Components;
     }
 
     /**
-     * Get 模板中的流程参与人信息 
-     * @return Recipients 模板中的流程参与人信息
+     * Get 模板中的签署参与方列表 
+     * @return Recipients 模板中的签署参与方列表
      */
     public Recipient [] getRecipients() {
         return this.Recipients;
     }
 
     /**
-     * Set 模板中的流程参与人信息
-     * @param Recipients 模板中的流程参与人信息
+     * Set 模板中的签署参与方列表
+     * @param Recipients 模板中的签署参与方列表
      */
     public void setRecipients(Recipient [] Recipients) {
         this.Recipients = Recipients;
     }
 
     /**
-     * Get 签署区模板信息结构 
-     * @return SignComponents 签署区模板信息结构
+     * Get 模板中的签署控件列表 
+     * @return SignComponents 模板中的签署控件列表
      */
     public Component [] getSignComponents() {
         return this.SignComponents;
     }
 
     /**
-     * Set 签署区模板信息结构
-     * @param SignComponents 签署区模板信息结构
+     * Set 模板中的签署控件列表
+     * @param SignComponents 模板中的签署控件列表
      */
     public void setSignComponents(Component [] SignComponents) {
         this.SignComponents = SignComponents;
@@ -230,7 +270,9 @@ public class TemplateInfo extends AbstractModel{
     /**
      * Get 是否是发起人 ,已弃用 
      * @return IsPromoter 是否是发起人 ,已弃用
+     * @deprecated
      */
+    @Deprecated
     public Boolean getIsPromoter() {
         return this.IsPromoter;
     }
@@ -238,47 +280,53 @@ public class TemplateInfo extends AbstractModel{
     /**
      * Set 是否是发起人 ,已弃用
      * @param IsPromoter 是否是发起人 ,已弃用
+     * @deprecated
      */
+    @Deprecated
     public void setIsPromoter(Boolean IsPromoter) {
         this.IsPromoter = IsPromoter;
     }
 
     /**
-     * Get 模板的创建者信息 
-     * @return Creator 模板的创建者信息
+     * Get 模板的创建者信息，电子签系统用户ID 
+     * @return Creator 模板的创建者信息，电子签系统用户ID
      */
     public String getCreator() {
         return this.Creator;
     }
 
     /**
-     * Set 模板的创建者信息
-     * @param Creator 模板的创建者信息
+     * Set 模板的创建者信息，电子签系统用户ID
+     * @param Creator 模板的创建者信息，电子签系统用户ID
      */
     public void setCreator(String Creator) {
         this.Creator = Creator;
     }
 
     /**
-     * Get 模板创建的时间戳（精确到秒） 
-     * @return CreatedOn 模板创建的时间戳（精确到秒）
+     * Get 模板创建的时间戳，格式为Unix标准时间戳（秒） 
+     * @return CreatedOn 模板创建的时间戳，格式为Unix标准时间戳（秒）
      */
     public Long getCreatedOn() {
         return this.CreatedOn;
     }
 
     /**
-     * Set 模板创建的时间戳（精确到秒）
-     * @param CreatedOn 模板创建的时间戳（精确到秒）
+     * Set 模板创建的时间戳，格式为Unix标准时间戳（秒）
+     * @param CreatedOn 模板创建的时间戳，格式为Unix标准时间戳（秒）
      */
     public void setCreatedOn(Long CreatedOn) {
         this.CreatedOn = CreatedOn;
     }
 
     /**
-     * Get 模板的H5预览链接,可以通过浏览器打开此链接预览模板，或者嵌入到iframe中预览模板。
+     * Get 模板的H5预览链接,有效期5分钟。
+可以通过浏览器打开此链接预览模板，或者嵌入到iframe中预览模板。
+（此功能开放需要联系客户经理）
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return PreviewUrl 模板的H5预览链接,可以通过浏览器打开此链接预览模板，或者嵌入到iframe中预览模板。
+     * @return PreviewUrl 模板的H5预览链接,有效期5分钟。
+可以通过浏览器打开此链接预览模板，或者嵌入到iframe中预览模板。
+（此功能开放需要联系客户经理）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPreviewUrl() {
@@ -286,9 +334,13 @@ public class TemplateInfo extends AbstractModel{
     }
 
     /**
-     * Set 模板的H5预览链接,可以通过浏览器打开此链接预览模板，或者嵌入到iframe中预览模板。
+     * Set 模板的H5预览链接,有效期5分钟。
+可以通过浏览器打开此链接预览模板，或者嵌入到iframe中预览模板。
+（此功能开放需要联系客户经理）
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param PreviewUrl 模板的H5预览链接,可以通过浏览器打开此链接预览模板，或者嵌入到iframe中预览模板。
+     * @param PreviewUrl 模板的H5预览链接,有效期5分钟。
+可以通过浏览器打开此链接预览模板，或者嵌入到iframe中预览模板。
+（此功能开放需要联系客户经理）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPreviewUrl(String PreviewUrl) {
@@ -296,25 +348,13 @@ public class TemplateInfo extends AbstractModel{
     }
 
     /**
-     * Get 渠道模板ID 
-     * @return ChannelTemplateId 渠道模板ID
-     */
-    public String getChannelTemplateId() {
-        return this.ChannelTemplateId;
-    }
-
-    /**
-     * Set 渠道模板ID
-     * @param ChannelTemplateId 渠道模板ID
-     */
-    public void setChannelTemplateId(String ChannelTemplateId) {
-        this.ChannelTemplateId = ChannelTemplateId;
-    }
-
-    /**
-     * Get 渠道版-模板PDF文件链接
+     * Get 第三方应用集成-模板PDF文件链接，有效期5分钟。
+请求参数WithPdfUrl=true时返回
+（此功能开放需要联系客户经理）。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return PdfUrl 渠道版-模板PDF文件链接
+     * @return PdfUrl 第三方应用集成-模板PDF文件链接，有效期5分钟。
+请求参数WithPdfUrl=true时返回
+（此功能开放需要联系客户经理）。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPdfUrl() {
@@ -322,13 +362,129 @@ public class TemplateInfo extends AbstractModel{
     }
 
     /**
-     * Set 渠道版-模板PDF文件链接
+     * Set 第三方应用集成-模板PDF文件链接，有效期5分钟。
+请求参数WithPdfUrl=true时返回
+（此功能开放需要联系客户经理）。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param PdfUrl 渠道版-模板PDF文件链接
+     * @param PdfUrl 第三方应用集成-模板PDF文件链接，有效期5分钟。
+请求参数WithPdfUrl=true时返回
+（此功能开放需要联系客户经理）。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPdfUrl(String PdfUrl) {
         this.PdfUrl = PdfUrl;
+    }
+
+    /**
+     * Get 本模板关联的第三方应用平台企业模板ID 
+     * @return ChannelTemplateId 本模板关联的第三方应用平台企业模板ID
+     */
+    public String getChannelTemplateId() {
+        return this.ChannelTemplateId;
+    }
+
+    /**
+     * Set 本模板关联的第三方应用平台企业模板ID
+     * @param ChannelTemplateId 本模板关联的第三方应用平台企业模板ID
+     */
+    public void setChannelTemplateId(String ChannelTemplateId) {
+        this.ChannelTemplateId = ChannelTemplateId;
+    }
+
+    /**
+     * Get 本模板关联的三方应用平台平台企业模板名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ChannelTemplateName 本模板关联的三方应用平台平台企业模板名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getChannelTemplateName() {
+        return this.ChannelTemplateName;
+    }
+
+    /**
+     * Set 本模板关联的三方应用平台平台企业模板名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ChannelTemplateName 本模板关联的三方应用平台平台企业模板名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setChannelTemplateName(String ChannelTemplateName) {
+        this.ChannelTemplateName = ChannelTemplateName;
+    }
+
+    /**
+     * Get 0-需要子客企业手动领取平台企业的模板(默认); 
+1-平台自动设置子客模板
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ChannelAutoSave 0-需要子客企业手动领取平台企业的模板(默认); 
+1-平台自动设置子客模板
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getChannelAutoSave() {
+        return this.ChannelAutoSave;
+    }
+
+    /**
+     * Set 0-需要子客企业手动领取平台企业的模板(默认); 
+1-平台自动设置子客模板
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ChannelAutoSave 0-需要子客企业手动领取平台企业的模板(默认); 
+1-平台自动设置子客模板
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setChannelAutoSave(Long ChannelAutoSave) {
+        this.ChannelAutoSave = ChannelAutoSave;
+    }
+
+    /**
+     * Get 模板版本，全数字字符。
+默认为空，初始版本为yyyyMMdd001。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TemplateVersion 模板版本，全数字字符。
+默认为空，初始版本为yyyyMMdd001。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTemplateVersion() {
+        return this.TemplateVersion;
+    }
+
+    /**
+     * Set 模板版本，全数字字符。
+默认为空，初始版本为yyyyMMdd001。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TemplateVersion 模板版本，全数字字符。
+默认为空，初始版本为yyyyMMdd001。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTemplateVersion(String TemplateVersion) {
+        this.TemplateVersion = TemplateVersion;
+    }
+
+    /**
+     * Get 模板可用状态：
+1启用（默认）
+2停用
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Available 模板可用状态：
+1启用（默认）
+2停用
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getAvailable() {
+        return this.Available;
+    }
+
+    /**
+     * Set 模板可用状态：
+1启用（默认）
+2停用
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Available 模板可用状态：
+1启用（默认）
+2停用
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAvailable(Long Available) {
+        this.Available = Available;
     }
 
     public TemplateInfo() {
@@ -381,11 +537,23 @@ public class TemplateInfo extends AbstractModel{
         if (source.PreviewUrl != null) {
             this.PreviewUrl = new String(source.PreviewUrl);
         }
+        if (source.PdfUrl != null) {
+            this.PdfUrl = new String(source.PdfUrl);
+        }
         if (source.ChannelTemplateId != null) {
             this.ChannelTemplateId = new String(source.ChannelTemplateId);
         }
-        if (source.PdfUrl != null) {
-            this.PdfUrl = new String(source.PdfUrl);
+        if (source.ChannelTemplateName != null) {
+            this.ChannelTemplateName = new String(source.ChannelTemplateName);
+        }
+        if (source.ChannelAutoSave != null) {
+            this.ChannelAutoSave = new Long(source.ChannelAutoSave);
+        }
+        if (source.TemplateVersion != null) {
+            this.TemplateVersion = new String(source.TemplateVersion);
+        }
+        if (source.Available != null) {
+            this.Available = new Long(source.Available);
         }
     }
 
@@ -405,8 +573,12 @@ public class TemplateInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Creator", this.Creator);
         this.setParamSimple(map, prefix + "CreatedOn", this.CreatedOn);
         this.setParamSimple(map, prefix + "PreviewUrl", this.PreviewUrl);
-        this.setParamSimple(map, prefix + "ChannelTemplateId", this.ChannelTemplateId);
         this.setParamSimple(map, prefix + "PdfUrl", this.PdfUrl);
+        this.setParamSimple(map, prefix + "ChannelTemplateId", this.ChannelTemplateId);
+        this.setParamSimple(map, prefix + "ChannelTemplateName", this.ChannelTemplateName);
+        this.setParamSimple(map, prefix + "ChannelAutoSave", this.ChannelAutoSave);
+        this.setParamSimple(map, prefix + "TemplateVersion", this.TemplateVersion);
+        this.setParamSimple(map, prefix + "Available", this.Available);
 
     }
 }

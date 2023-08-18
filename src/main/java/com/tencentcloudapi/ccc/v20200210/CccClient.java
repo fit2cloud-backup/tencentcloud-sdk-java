@@ -29,13 +29,34 @@ public class CccClient extends AbstractClient{
     private static String endpoint = "ccc.tencentcloudapi.com";
     private static String service = "ccc";
     private static String version = "2020-02-10";
-
+    
     public CccClient(Credential credential, String region) {
         this(credential, region, new ClientProfile());
     }
 
     public CccClient(Credential credential, String region, ClientProfile profile) {
         super(CccClient.endpoint, CccClient.version, credential, region, profile);
+    }
+
+    /**
+     *绑定号码外呼技能组
+     * @param req BindNumberCallOutSkillGroupRequest
+     * @return BindNumberCallOutSkillGroupResponse
+     * @throws TencentCloudSDKException
+     */
+    public BindNumberCallOutSkillGroupResponse BindNumberCallOutSkillGroup(BindNumberCallOutSkillGroupRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<BindNumberCallOutSkillGroupResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<BindNumberCallOutSkillGroupResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "BindNumberCallOutSkillGroup");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
     }
 
     /**
@@ -47,10 +68,32 @@ public class CccClient extends AbstractClient{
     public BindStaffSkillGroupListResponse BindStaffSkillGroupList(BindStaffSkillGroupListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<BindStaffSkillGroupListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<BindStaffSkillGroupListResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "BindStaffSkillGroupList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *创建管理端访问链接
+     * @param req CreateAdminURLRequest
+     * @return CreateAdminURLResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateAdminURLResponse CreateAdminURL(CreateAdminURLRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateAdminURLResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateAdminURLResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateAdminURL");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -67,6 +110,7 @@ public class CccClient extends AbstractClient{
     public CreateAutoCalloutTaskResponse CreateAutoCalloutTask(CreateAutoCalloutTaskRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateAutoCalloutTaskResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateAutoCalloutTaskResponse>>() {
                 }.getType();
@@ -87,6 +131,7 @@ public class CccClient extends AbstractClient{
     public CreateCCCSkillGroupResponse CreateCCCSkillGroup(CreateCCCSkillGroupRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateCCCSkillGroupResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateCCCSkillGroupResponse>>() {
                 }.getType();
@@ -107,6 +152,7 @@ public class CccClient extends AbstractClient{
     public CreateCallOutSessionResponse CreateCallOutSession(CreateCallOutSessionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateCallOutSessionResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateCallOutSessionResponse>>() {
                 }.getType();
@@ -127,6 +173,7 @@ public class CccClient extends AbstractClient{
     public CreateCarrierPrivilegeNumberApplicantResponse CreateCarrierPrivilegeNumberApplicant(CreateCarrierPrivilegeNumberApplicantRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateCarrierPrivilegeNumberApplicantResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateCarrierPrivilegeNumberApplicantResponse>>() {
                 }.getType();
@@ -147,6 +194,7 @@ public class CccClient extends AbstractClient{
     public CreateExtensionResponse CreateExtension(CreateExtensionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateExtensionResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateExtensionResponse>>() {
                 }.getType();
@@ -167,6 +215,7 @@ public class CccClient extends AbstractClient{
     public CreateSDKLoginTokenResponse CreateSDKLoginToken(CreateSDKLoginTokenRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateSDKLoginTokenResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateSDKLoginTokenResponse>>() {
                 }.getType();
@@ -187,6 +236,7 @@ public class CccClient extends AbstractClient{
     public CreateStaffResponse CreateStaff(CreateStaffRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateStaffResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateStaffResponse>>() {
                 }.getType();
@@ -207,6 +257,7 @@ public class CccClient extends AbstractClient{
     public CreateUserSigResponse CreateUserSig(CreateUserSigRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateUserSigResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateUserSigResponse>>() {
                 }.getType();
@@ -227,6 +278,7 @@ public class CccClient extends AbstractClient{
     public DeleteExtensionResponse DeleteExtension(DeleteExtensionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteExtensionResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteExtensionResponse>>() {
                 }.getType();
@@ -247,6 +299,7 @@ public class CccClient extends AbstractClient{
     public DeleteStaffResponse DeleteStaff(DeleteStaffRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteStaffResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteStaffResponse>>() {
                 }.getType();
@@ -267,6 +320,7 @@ public class CccClient extends AbstractClient{
     public DescribeActiveCarrierPrivilegeNumberResponse DescribeActiveCarrierPrivilegeNumber(DescribeActiveCarrierPrivilegeNumberRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeActiveCarrierPrivilegeNumberResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeActiveCarrierPrivilegeNumberResponse>>() {
                 }.getType();
@@ -287,6 +341,7 @@ public class CccClient extends AbstractClient{
     public DescribeAutoCalloutTaskResponse DescribeAutoCalloutTask(DescribeAutoCalloutTaskRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeAutoCalloutTaskResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeAutoCalloutTaskResponse>>() {
                 }.getType();
@@ -307,6 +362,7 @@ public class CccClient extends AbstractClient{
     public DescribeAutoCalloutTasksResponse DescribeAutoCalloutTasks(DescribeAutoCalloutTasksRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeAutoCalloutTasksResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeAutoCalloutTasksResponse>>() {
                 }.getType();
@@ -327,6 +383,7 @@ public class CccClient extends AbstractClient{
     public DescribeCCCBuyInfoListResponse DescribeCCCBuyInfoList(DescribeCCCBuyInfoListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCCCBuyInfoListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCCCBuyInfoListResponse>>() {
                 }.getType();
@@ -347,6 +404,7 @@ public class CccClient extends AbstractClient{
     public DescribeCallInMetricsResponse DescribeCallInMetrics(DescribeCallInMetricsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCallInMetricsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCallInMetricsResponse>>() {
                 }.getType();
@@ -367,6 +425,7 @@ public class CccClient extends AbstractClient{
     public DescribeCarrierPrivilegeNumberApplicantsResponse DescribeCarrierPrivilegeNumberApplicants(DescribeCarrierPrivilegeNumberApplicantsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCarrierPrivilegeNumberApplicantsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCarrierPrivilegeNumberApplicantsResponse>>() {
                 }.getType();
@@ -379,7 +438,9 @@ public class CccClient extends AbstractClient{
     }
 
     /**
-     *包括具体聊天内容
+     *获取指定服务记录文本聊天内容，需要先使用查询在线客服记录（DescribeIMCdrs） API 获取服务记录 SessionId。
+
+文本聊天记录只保存了 1 年内的，1 年之前会自动清理。
      * @param req DescribeChatMessagesRequest
      * @return DescribeChatMessagesResponse
      * @throws TencentCloudSDKException
@@ -387,6 +448,7 @@ public class CccClient extends AbstractClient{
     public DescribeChatMessagesResponse DescribeChatMessages(DescribeChatMessagesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeChatMessagesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeChatMessagesResponse>>() {
                 }.getType();
@@ -407,6 +469,7 @@ public class CccClient extends AbstractClient{
     public DescribeExtensionResponse DescribeExtension(DescribeExtensionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeExtensionResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeExtensionResponse>>() {
                 }.getType();
@@ -427,6 +490,7 @@ public class CccClient extends AbstractClient{
     public DescribeExtensionsResponse DescribeExtensions(DescribeExtensionsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeExtensionsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeExtensionsResponse>>() {
                 }.getType();
@@ -439,7 +503,7 @@ public class CccClient extends AbstractClient{
     }
 
     /**
-     *包括全媒体和文本两种类型
+     *获取包括全媒体和文本会话两种类型的服务记录。
      * @param req DescribeIMCdrsRequest
      * @return DescribeIMCdrsResponse
      * @throws TencentCloudSDKException
@@ -447,10 +511,32 @@ public class CccClient extends AbstractClient{
     public DescribeIMCdrsResponse DescribeIMCdrs(DescribeIMCdrsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeIMCdrsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeIMCdrsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeIMCdrs");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询号码列表
+     * @param req DescribeNumbersRequest
+     * @return DescribeNumbersResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeNumbersResponse DescribeNumbers(DescribeNumbersRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeNumbersResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeNumbersResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeNumbers");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -467,6 +553,7 @@ public class CccClient extends AbstractClient{
     public DescribePSTNActiveSessionListResponse DescribePSTNActiveSessionList(DescribePSTNActiveSessionListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribePSTNActiveSessionListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribePSTNActiveSessionListResponse>>() {
                 }.getType();
@@ -487,6 +574,7 @@ public class CccClient extends AbstractClient{
     public DescribeProtectedTelCdrResponse DescribeProtectedTelCdr(DescribeProtectedTelCdrRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeProtectedTelCdrResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeProtectedTelCdrResponse>>() {
                 }.getType();
@@ -507,6 +595,7 @@ public class CccClient extends AbstractClient{
     public DescribeSkillGroupInfoListResponse DescribeSkillGroupInfoList(DescribeSkillGroupInfoListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSkillGroupInfoListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSkillGroupInfoListResponse>>() {
                 }.getType();
@@ -527,6 +616,7 @@ public class CccClient extends AbstractClient{
     public DescribeStaffInfoListResponse DescribeStaffInfoList(DescribeStaffInfoListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeStaffInfoListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeStaffInfoListResponse>>() {
                 }.getType();
@@ -547,6 +637,7 @@ public class CccClient extends AbstractClient{
     public DescribeStaffStatusMetricsResponse DescribeStaffStatusMetrics(DescribeStaffStatusMetricsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeStaffStatusMetricsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeStaffStatusMetricsResponse>>() {
                 }.getType();
@@ -567,6 +658,7 @@ public class CccClient extends AbstractClient{
     public DescribeTelCallInfoResponse DescribeTelCallInfo(DescribeTelCallInfoRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeTelCallInfoResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeTelCallInfoResponse>>() {
                 }.getType();
@@ -587,6 +679,7 @@ public class CccClient extends AbstractClient{
     public DescribeTelCdrResponse DescribeTelCdr(DescribeTelCdrRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeTelCdrResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeTelCdrResponse>>() {
                 }.getType();
@@ -607,6 +700,7 @@ public class CccClient extends AbstractClient{
     public DescribeTelSessionResponse DescribeTelSession(DescribeTelSessionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeTelSessionResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeTelSessionResponse>>() {
                 }.getType();
@@ -627,10 +721,32 @@ public class CccClient extends AbstractClient{
     public DisableCCCPhoneNumberResponse DisableCCCPhoneNumber(DisableCCCPhoneNumberRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DisableCCCPhoneNumberResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DisableCCCPhoneNumberResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DisableCCCPhoneNumber");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *挂断电话
+     * @param req HangUpCallRequest
+     * @return HangUpCallResponse
+     * @throws TencentCloudSDKException
+     */
+    public HangUpCallResponse HangUpCall(HangUpCallRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<HangUpCallResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<HangUpCallResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "HangUpCall");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -647,6 +763,7 @@ public class CccClient extends AbstractClient{
     public ModifyExtensionResponse ModifyExtension(ModifyExtensionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyExtensionResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyExtensionResponse>>() {
                 }.getType();
@@ -667,6 +784,7 @@ public class CccClient extends AbstractClient{
     public ModifyStaffResponse ModifyStaff(ModifyStaffRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyStaffResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyStaffResponse>>() {
                 }.getType();
@@ -687,6 +805,7 @@ public class CccClient extends AbstractClient{
     public ResetExtensionPasswordResponse ResetExtensionPassword(ResetExtensionPasswordRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ResetExtensionPasswordResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ResetExtensionPasswordResponse>>() {
                 }.getType();
@@ -707,10 +826,32 @@ public class CccClient extends AbstractClient{
     public StopAutoCalloutTaskResponse StopAutoCalloutTask(StopAutoCalloutTaskRequest req) throws TencentCloudSDKException{
         JsonResponseModel<StopAutoCalloutTaskResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<StopAutoCalloutTaskResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "StopAutoCalloutTask");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *解绑号码外呼技能组
+     * @param req UnbindNumberCallOutSkillGroupRequest
+     * @return UnbindNumberCallOutSkillGroupResponse
+     * @throws TencentCloudSDKException
+     */
+    public UnbindNumberCallOutSkillGroupResponse UnbindNumberCallOutSkillGroup(UnbindNumberCallOutSkillGroupRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<UnbindNumberCallOutSkillGroupResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<UnbindNumberCallOutSkillGroupResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "UnbindNumberCallOutSkillGroup");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -727,6 +868,7 @@ public class CccClient extends AbstractClient{
     public UnbindStaffSkillGroupListResponse UnbindStaffSkillGroupList(UnbindStaffSkillGroupListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<UnbindStaffSkillGroupListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<UnbindStaffSkillGroupListResponse>>() {
                 }.getType();

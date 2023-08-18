@@ -75,11 +75,17 @@ public enum TatErrorCode {
     // OutputCOSKeyPrefix 无效。
      INVALIDPARAMETERVALUE_INVALIDOUTPUTCOSKEYPREFIX("InvalidParameterValue.InvalidOutputCOSKeyPrefix"),
      
+    // 无效的时间格式。
+     INVALIDPARAMETERVALUE_INVALIDTIMEFORMAT("InvalidParameterValue.InvalidTimeFormat"),
+     
     // 用户名不合法。
      INVALIDPARAMETERVALUE_INVALIDUSERNAME("InvalidParameterValue.InvalidUsername"),
      
     // 命令执行路径不合法。
      INVALIDPARAMETERVALUE_INVALIDWORKINGDIRECTORY("InvalidParameterValue.InvalidWorkingDirectory"),
+     
+    // 调用时间已过期。
+     INVALIDPARAMETERVALUE_INVOKETIMEEXPIRED("InvalidParameterValue.InvokeTimeExpired"),
      
     // 已启用自定义参数功能，但缺失自定义参数信息。
      INVALIDPARAMETERVALUE_LACKOFPARAMETERINFO("InvalidParameterValue.LackOfParameterInfo"),
@@ -141,6 +147,12 @@ public enum TatErrorCode {
     // 执行活动未找到。
      RESOURCENOTFOUND_INVOCATIONNOTFOUND("ResourceNotFound.InvocationNotFound"),
      
+    // 角色不存在。
+     RESOURCENOTFOUND_ROLENOTFOUND("ResourceNotFound.RoleNotFound"),
+     
+    // 资源不可用。
+     RESOURCEUNAVAILABLE("ResourceUnavailable"),
+     
     // Agent 未安装。
      RESOURCEUNAVAILABLE_AGENTNOTINSTALLED("ResourceUnavailable.AgentNotInstalled"),
      
@@ -172,7 +184,10 @@ public enum TatErrorCode {
      UNAUTHORIZEDOPERATION_MFANOTFOUND("UnauthorizedOperation.MFANotFound"),
      
     // 未知参数错误。
-     UNKNOWNPARAMETER("UnknownParameter");
+     UNKNOWNPARAMETER("UnknownParameter"),
+     
+    // 操作不支持。
+     UNSUPPORTEDOPERATION("UnsupportedOperation");
      
     private String value;
     private TatErrorCode (String value){

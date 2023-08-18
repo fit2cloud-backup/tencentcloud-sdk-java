@@ -44,7 +44,7 @@ public class SnapshotInfo extends AbstractModel{
     private String SnapshotId;
 
     /**
-    * 快照状态
+    * 快照状态，createing-创建中；available-运行中；deleting-删除中；rollbacking-new 创建新文件系统中；create-failed 创建失败
     */
     @SerializedName("Status")
     @Expose
@@ -79,7 +79,7 @@ public class SnapshotInfo extends AbstractModel{
     private Long AliveDay;
 
     /**
-    * 快照进度
+    * 快照进度百分比，1表示1%
     */
     @SerializedName("Percent")
     @Expose
@@ -112,6 +112,22 @@ public class SnapshotInfo extends AbstractModel{
     @SerializedName("Tags")
     @Expose
     private TagInfo [] Tags;
+
+    /**
+    * 快照类型, general为通用系列快照，turbo为Turbo系列快照
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SnapshotType")
+    @Expose
+    private String SnapshotType;
+
+    /**
+    * 实际快照时间，反应快照对应文件系统某个时刻的数据。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SnapshotTime")
+    @Expose
+    private String SnapshotTime;
 
     /**
      * Get 创建快照时间 
@@ -162,16 +178,16 @@ public class SnapshotInfo extends AbstractModel{
     }
 
     /**
-     * Get 快照状态 
-     * @return Status 快照状态
+     * Get 快照状态，createing-创建中；available-运行中；deleting-删除中；rollbacking-new 创建新文件系统中；create-failed 创建失败 
+     * @return Status 快照状态，createing-创建中；available-运行中；deleting-删除中；rollbacking-new 创建新文件系统中；create-failed 创建失败
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 快照状态
-     * @param Status 快照状态
+     * Set 快照状态，createing-创建中；available-运行中；deleting-删除中；rollbacking-new 创建新文件系统中；create-failed 创建失败
+     * @param Status 快照状态，createing-创建中；available-运行中；deleting-删除中；rollbacking-new 创建新文件系统中；create-failed 创建失败
      */
     public void setStatus(String Status) {
         this.Status = Status;
@@ -242,16 +258,16 @@ public class SnapshotInfo extends AbstractModel{
     }
 
     /**
-     * Get 快照进度 
-     * @return Percent 快照进度
+     * Get 快照进度百分比，1表示1% 
+     * @return Percent 快照进度百分比，1表示1%
      */
     public Long getPercent() {
         return this.Percent;
     }
 
     /**
-     * Set 快照进度
-     * @param Percent 快照进度
+     * Set 快照进度百分比，1表示1%
+     * @param Percent 快照进度百分比，1表示1%
      */
     public void setPercent(Long Percent) {
         this.Percent = Percent;
@@ -321,6 +337,46 @@ public class SnapshotInfo extends AbstractModel{
         this.Tags = Tags;
     }
 
+    /**
+     * Get 快照类型, general为通用系列快照，turbo为Turbo系列快照
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SnapshotType 快照类型, general为通用系列快照，turbo为Turbo系列快照
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSnapshotType() {
+        return this.SnapshotType;
+    }
+
+    /**
+     * Set 快照类型, general为通用系列快照，turbo为Turbo系列快照
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SnapshotType 快照类型, general为通用系列快照，turbo为Turbo系列快照
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSnapshotType(String SnapshotType) {
+        this.SnapshotType = SnapshotType;
+    }
+
+    /**
+     * Get 实际快照时间，反应快照对应文件系统某个时刻的数据。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SnapshotTime 实际快照时间，反应快照对应文件系统某个时刻的数据。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSnapshotTime() {
+        return this.SnapshotTime;
+    }
+
+    /**
+     * Set 实际快照时间，反应快照对应文件系统某个时刻的数据。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SnapshotTime 实际快照时间，反应快照对应文件系统某个时刻的数据。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSnapshotTime(String SnapshotTime) {
+        this.SnapshotTime = SnapshotTime;
+    }
+
     public SnapshotInfo() {
     }
 
@@ -371,6 +427,12 @@ public class SnapshotInfo extends AbstractModel{
                 this.Tags[i] = new TagInfo(source.Tags[i]);
             }
         }
+        if (source.SnapshotType != null) {
+            this.SnapshotType = new String(source.SnapshotType);
+        }
+        if (source.SnapshotTime != null) {
+            this.SnapshotTime = new String(source.SnapshotTime);
+        }
     }
 
 
@@ -391,6 +453,8 @@ public class SnapshotInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "DeleteTime", this.DeleteTime);
         this.setParamSimple(map, prefix + "FsName", this.FsName);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "SnapshotType", this.SnapshotType);
+        this.setParamSimple(map, prefix + "SnapshotTime", this.SnapshotTime);
 
     }
 }

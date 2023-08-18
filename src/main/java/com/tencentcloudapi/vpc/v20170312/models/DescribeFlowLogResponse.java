@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeFlowLogResponse extends AbstractModel{
 
     /**
-    * 流日志信息
+    * 流日志信息。
     */
     @SerializedName("FlowLog")
     @Expose
@@ -37,16 +37,16 @@ public class DescribeFlowLogResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 流日志信息 
-     * @return FlowLog 流日志信息
+     * Get 流日志信息。 
+     * @return FlowLog 流日志信息。
      */
     public FlowLog [] getFlowLog() {
         return this.FlowLog;
     }
 
     /**
-     * Set 流日志信息
-     * @param FlowLog 流日志信息
+     * Set 流日志信息。
+     * @param FlowLog 流日志信息。
      */
     public void setFlowLog(FlowLog [] FlowLog) {
         this.FlowLog = FlowLog;

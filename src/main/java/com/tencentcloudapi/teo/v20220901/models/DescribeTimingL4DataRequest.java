@@ -49,7 +49,9 @@ public class DescribeTimingL4DataRequest extends AbstractModel{
     private String [] MetricNames;
 
     /**
-    * 站点集合，不填默认选择全部站点。
+    * 站点集合。
+若不填写，默认选择全部站点，且最多只能查询近30天的数据；
+若填写，则可查询站点绑定套餐支持的<a href="https://cloud.tencent.com/document/product/1552/77380#edgeone-.E5.A5.97.E9.A4.90">数据分析最大查询范围</a>。
     */
     @SerializedName("ZoneIds")
     @Expose
@@ -67,16 +69,16 @@ public class DescribeTimingL4DataRequest extends AbstractModel{
 <li>min: 1分钟 ；</li>
 <li>5min: 5分钟 ；</li>
 <li>hour: 1小时 ；</li>
-<li>day: 1天 。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：一小时范围内以min粒度查询，两天范围内以5min粒度查询，七天范围内以hour粒度查询，超过七天以day粒度查询。
+<li>day: 1天 。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：1小时范围内以min粒度查询，2天范围内以5min粒度查询，7天范围内以hour粒度查询，超过7天以day粒度查询。
     */
     @SerializedName("Interval")
     @Expose
     private String Interval;
 
     /**
-    * 筛选条件, key可选的值有：
-<li>ruleId: 根据规则Id进行过滤；</li>
-<li>proxyId: 根据通道Id进行过滤。</li>
+    * 过滤条件，详细的过滤条件Key值如下：
+<li>ruleId<br>   按照【<strong>转发规则ID</strong>】进行过滤。</li>
+<li>proxyId<br>   按照【<strong>四层代理实例ID</strong>】进行过滤。</li>
     */
     @SerializedName("Filters")
     @Expose
@@ -85,7 +87,8 @@ public class DescribeTimingL4DataRequest extends AbstractModel{
     /**
     * 数据归属地区，取值有：
 <li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据。</li>不填将根据用户所在地智能选择地区。
+<li>mainland：中国大陆地区数据；</li>
+<li>global：全球数据。</li>不填默认取值为global。
     */
     @SerializedName("Area")
     @Expose
@@ -160,16 +163,24 @@ public class DescribeTimingL4DataRequest extends AbstractModel{
     }
 
     /**
-     * Get 站点集合，不填默认选择全部站点。 
-     * @return ZoneIds 站点集合，不填默认选择全部站点。
+     * Get 站点集合。
+若不填写，默认选择全部站点，且最多只能查询近30天的数据；
+若填写，则可查询站点绑定套餐支持的<a href="https://cloud.tencent.com/document/product/1552/77380#edgeone-.E5.A5.97.E9.A4.90">数据分析最大查询范围</a>。 
+     * @return ZoneIds 站点集合。
+若不填写，默认选择全部站点，且最多只能查询近30天的数据；
+若填写，则可查询站点绑定套餐支持的<a href="https://cloud.tencent.com/document/product/1552/77380#edgeone-.E5.A5.97.E9.A4.90">数据分析最大查询范围</a>。
      */
     public String [] getZoneIds() {
         return this.ZoneIds;
     }
 
     /**
-     * Set 站点集合，不填默认选择全部站点。
-     * @param ZoneIds 站点集合，不填默认选择全部站点。
+     * Set 站点集合。
+若不填写，默认选择全部站点，且最多只能查询近30天的数据；
+若填写，则可查询站点绑定套餐支持的<a href="https://cloud.tencent.com/document/product/1552/77380#edgeone-.E5.A5.97.E9.A4.90">数据分析最大查询范围</a>。
+     * @param ZoneIds 站点集合。
+若不填写，默认选择全部站点，且最多只能查询近30天的数据；
+若填写，则可查询站点绑定套餐支持的<a href="https://cloud.tencent.com/document/product/1552/77380#edgeone-.E5.A5.97.E9.A4.90">数据分析最大查询范围</a>。
      */
     public void setZoneIds(String [] ZoneIds) {
         this.ZoneIds = ZoneIds;
@@ -196,12 +207,12 @@ public class DescribeTimingL4DataRequest extends AbstractModel{
 <li>min: 1分钟 ；</li>
 <li>5min: 5分钟 ；</li>
 <li>hour: 1小时 ；</li>
-<li>day: 1天 。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：一小时范围内以min粒度查询，两天范围内以5min粒度查询，七天范围内以hour粒度查询，超过七天以day粒度查询。 
+<li>day: 1天 。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：1小时范围内以min粒度查询，2天范围内以5min粒度查询，7天范围内以hour粒度查询，超过7天以day粒度查询。 
      * @return Interval 查询时间粒度，取值有：
 <li>min: 1分钟 ；</li>
 <li>5min: 5分钟 ；</li>
 <li>hour: 1小时 ；</li>
-<li>day: 1天 。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：一小时范围内以min粒度查询，两天范围内以5min粒度查询，七天范围内以hour粒度查询，超过七天以day粒度查询。
+<li>day: 1天 。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：1小时范围内以min粒度查询，2天范围内以5min粒度查询，7天范围内以hour粒度查询，超过7天以day粒度查询。
      */
     public String getInterval() {
         return this.Interval;
@@ -212,36 +223,36 @@ public class DescribeTimingL4DataRequest extends AbstractModel{
 <li>min: 1分钟 ；</li>
 <li>5min: 5分钟 ；</li>
 <li>hour: 1小时 ；</li>
-<li>day: 1天 。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：一小时范围内以min粒度查询，两天范围内以5min粒度查询，七天范围内以hour粒度查询，超过七天以day粒度查询。
+<li>day: 1天 。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：1小时范围内以min粒度查询，2天范围内以5min粒度查询，7天范围内以hour粒度查询，超过7天以day粒度查询。
      * @param Interval 查询时间粒度，取值有：
 <li>min: 1分钟 ；</li>
 <li>5min: 5分钟 ；</li>
 <li>hour: 1小时 ；</li>
-<li>day: 1天 。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：一小时范围内以min粒度查询，两天范围内以5min粒度查询，七天范围内以hour粒度查询，超过七天以day粒度查询。
+<li>day: 1天 。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：1小时范围内以min粒度查询，2天范围内以5min粒度查询，7天范围内以hour粒度查询，超过7天以day粒度查询。
      */
     public void setInterval(String Interval) {
         this.Interval = Interval;
     }
 
     /**
-     * Get 筛选条件, key可选的值有：
-<li>ruleId: 根据规则Id进行过滤；</li>
-<li>proxyId: 根据通道Id进行过滤。</li> 
-     * @return Filters 筛选条件, key可选的值有：
-<li>ruleId: 根据规则Id进行过滤；</li>
-<li>proxyId: 根据通道Id进行过滤。</li>
+     * Get 过滤条件，详细的过滤条件Key值如下：
+<li>ruleId<br>   按照【<strong>转发规则ID</strong>】进行过滤。</li>
+<li>proxyId<br>   按照【<strong>四层代理实例ID</strong>】进行过滤。</li> 
+     * @return Filters 过滤条件，详细的过滤条件Key值如下：
+<li>ruleId<br>   按照【<strong>转发规则ID</strong>】进行过滤。</li>
+<li>proxyId<br>   按照【<strong>四层代理实例ID</strong>】进行过滤。</li>
      */
     public QueryCondition [] getFilters() {
         return this.Filters;
     }
 
     /**
-     * Set 筛选条件, key可选的值有：
-<li>ruleId: 根据规则Id进行过滤；</li>
-<li>proxyId: 根据通道Id进行过滤。</li>
-     * @param Filters 筛选条件, key可选的值有：
-<li>ruleId: 根据规则Id进行过滤；</li>
-<li>proxyId: 根据通道Id进行过滤。</li>
+     * Set 过滤条件，详细的过滤条件Key值如下：
+<li>ruleId<br>   按照【<strong>转发规则ID</strong>】进行过滤。</li>
+<li>proxyId<br>   按照【<strong>四层代理实例ID</strong>】进行过滤。</li>
+     * @param Filters 过滤条件，详细的过滤条件Key值如下：
+<li>ruleId<br>   按照【<strong>转发规则ID</strong>】进行过滤。</li>
+<li>proxyId<br>   按照【<strong>四层代理实例ID</strong>】进行过滤。</li>
      */
     public void setFilters(QueryCondition [] Filters) {
         this.Filters = Filters;
@@ -250,10 +261,12 @@ public class DescribeTimingL4DataRequest extends AbstractModel{
     /**
      * Get 数据归属地区，取值有：
 <li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据。</li>不填将根据用户所在地智能选择地区。 
+<li>mainland：中国大陆地区数据；</li>
+<li>global：全球数据。</li>不填默认取值为global。 
      * @return Area 数据归属地区，取值有：
 <li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据。</li>不填将根据用户所在地智能选择地区。
+<li>mainland：中国大陆地区数据；</li>
+<li>global：全球数据。</li>不填默认取值为global。
      */
     public String getArea() {
         return this.Area;
@@ -262,10 +275,12 @@ public class DescribeTimingL4DataRequest extends AbstractModel{
     /**
      * Set 数据归属地区，取值有：
 <li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据。</li>不填将根据用户所在地智能选择地区。
+<li>mainland：中国大陆地区数据；</li>
+<li>global：全球数据。</li>不填默认取值为global。
      * @param Area 数据归属地区，取值有：
 <li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据。</li>不填将根据用户所在地智能选择地区。
+<li>mainland：中国大陆地区数据；</li>
+<li>global：全球数据。</li>不填默认取值为global。
      */
     public void setArea(String Area) {
         this.Area = Area;

@@ -23,13 +23,6 @@ import java.util.HashMap;
 public class CreateModelServiceRequest extends AbstractModel{
 
     /**
-    * 镜像信息，配置服务运行所需的镜像地址等信息
-    */
-    @SerializedName("ImageInfo")
-    @Expose
-    private ImageInfo ImageInfo;
-
-    /**
     * 新增版本时需要填写
     */
     @SerializedName("ServiceGroupId")
@@ -51,7 +44,7 @@ public class CreateModelServiceRequest extends AbstractModel{
     private String ServiceDescription;
 
     /**
-    * 付费模式,有 PREPAID 、 POSTPAID_BY_HOUR 和 HYBRID_PAID 三种
+    * 付费模式,有 PREPAID （包年包月）和 POSTPAID_BY_HOUR（按量付费）
     */
     @SerializedName("ChargeType")
     @Expose
@@ -72,6 +65,13 @@ public class CreateModelServiceRequest extends AbstractModel{
     private ModelInfo ModelInfo;
 
     /**
+    * 镜像信息，配置服务运行所需的镜像地址等信息
+    */
+    @SerializedName("ImageInfo")
+    @Expose
+    private ImageInfo ImageInfo;
+
+    /**
     * 环境变量，可选参数，用于配置容器中的环境变量
     */
     @SerializedName("Env")
@@ -79,7 +79,7 @@ public class CreateModelServiceRequest extends AbstractModel{
     private EnvVar [] Env;
 
     /**
-    * 资源描述，指定预付费模式下的cpu,mem,gpu等信息，后付费无需填写
+    * 资源描述，指定包年包月模式下的cpu,mem,gpu等信息，后付费无需填写
     */
     @SerializedName("Resources")
     @Expose
@@ -228,20 +228,25 @@ HYBRID_PAID:
     private ServiceLimit ServiceLimit;
 
     /**
-     * Get 镜像信息，配置服务运行所需的镜像地址等信息 
-     * @return ImageInfo 镜像信息，配置服务运行所需的镜像地址等信息
-     */
-    public ImageInfo getImageInfo() {
-        return this.ImageInfo;
-    }
+    * 回调地址，用于回调创建服务状态信息，回调格式&内容详情见：[TI-ONE 接口回调说明](https://cloud.tencent.com/document/product/851/84292)
+    */
+    @SerializedName("CallbackUrl")
+    @Expose
+    private String CallbackUrl;
 
     /**
-     * Set 镜像信息，配置服务运行所需的镜像地址等信息
-     * @param ImageInfo 镜像信息，配置服务运行所需的镜像地址等信息
-     */
-    public void setImageInfo(ImageInfo ImageInfo) {
-        this.ImageInfo = ImageInfo;
-    }
+    * 是否开启模型的加速, 仅对StableDiffusion(动态加速)格式的模型有效。
+    */
+    @SerializedName("ModelTurboEnable")
+    @Expose
+    private Boolean ModelTurboEnable;
+
+    /**
+    * 服务分类
+    */
+    @SerializedName("ServiceCategory")
+    @Expose
+    private String ServiceCategory;
 
     /**
      * Get 新增版本时需要填写 
@@ -292,16 +297,16 @@ HYBRID_PAID:
     }
 
     /**
-     * Get 付费模式,有 PREPAID 、 POSTPAID_BY_HOUR 和 HYBRID_PAID 三种 
-     * @return ChargeType 付费模式,有 PREPAID 、 POSTPAID_BY_HOUR 和 HYBRID_PAID 三种
+     * Get 付费模式,有 PREPAID （包年包月）和 POSTPAID_BY_HOUR（按量付费） 
+     * @return ChargeType 付费模式,有 PREPAID （包年包月）和 POSTPAID_BY_HOUR（按量付费）
      */
     public String getChargeType() {
         return this.ChargeType;
     }
 
     /**
-     * Set 付费模式,有 PREPAID 、 POSTPAID_BY_HOUR 和 HYBRID_PAID 三种
-     * @param ChargeType 付费模式,有 PREPAID 、 POSTPAID_BY_HOUR 和 HYBRID_PAID 三种
+     * Set 付费模式,有 PREPAID （包年包月）和 POSTPAID_BY_HOUR（按量付费）
+     * @param ChargeType 付费模式,有 PREPAID （包年包月）和 POSTPAID_BY_HOUR（按量付费）
      */
     public void setChargeType(String ChargeType) {
         this.ChargeType = ChargeType;
@@ -340,6 +345,22 @@ HYBRID_PAID:
     }
 
     /**
+     * Get 镜像信息，配置服务运行所需的镜像地址等信息 
+     * @return ImageInfo 镜像信息，配置服务运行所需的镜像地址等信息
+     */
+    public ImageInfo getImageInfo() {
+        return this.ImageInfo;
+    }
+
+    /**
+     * Set 镜像信息，配置服务运行所需的镜像地址等信息
+     * @param ImageInfo 镜像信息，配置服务运行所需的镜像地址等信息
+     */
+    public void setImageInfo(ImageInfo ImageInfo) {
+        this.ImageInfo = ImageInfo;
+    }
+
+    /**
      * Get 环境变量，可选参数，用于配置容器中的环境变量 
      * @return Env 环境变量，可选参数，用于配置容器中的环境变量
      */
@@ -356,16 +377,16 @@ HYBRID_PAID:
     }
 
     /**
-     * Get 资源描述，指定预付费模式下的cpu,mem,gpu等信息，后付费无需填写 
-     * @return Resources 资源描述，指定预付费模式下的cpu,mem,gpu等信息，后付费无需填写
+     * Get 资源描述，指定包年包月模式下的cpu,mem,gpu等信息，后付费无需填写 
+     * @return Resources 资源描述，指定包年包月模式下的cpu,mem,gpu等信息，后付费无需填写
      */
     public ResourceInfo getResources() {
         return this.Resources;
     }
 
     /**
-     * Set 资源描述，指定预付费模式下的cpu,mem,gpu等信息，后付费无需填写
-     * @param Resources 资源描述，指定预付费模式下的cpu,mem,gpu等信息，后付费无需填写
+     * Set 资源描述，指定包年包月模式下的cpu,mem,gpu等信息，后付费无需填写
+     * @param Resources 资源描述，指定包年包月模式下的cpu,mem,gpu等信息，后付费无需填写
      */
     public void setResources(ResourceInfo Resources) {
         this.Resources = Resources;
@@ -735,6 +756,54 @@ HYBRID_PAID:
         this.ServiceLimit = ServiceLimit;
     }
 
+    /**
+     * Get 回调地址，用于回调创建服务状态信息，回调格式&内容详情见：[TI-ONE 接口回调说明](https://cloud.tencent.com/document/product/851/84292) 
+     * @return CallbackUrl 回调地址，用于回调创建服务状态信息，回调格式&内容详情见：[TI-ONE 接口回调说明](https://cloud.tencent.com/document/product/851/84292)
+     */
+    public String getCallbackUrl() {
+        return this.CallbackUrl;
+    }
+
+    /**
+     * Set 回调地址，用于回调创建服务状态信息，回调格式&内容详情见：[TI-ONE 接口回调说明](https://cloud.tencent.com/document/product/851/84292)
+     * @param CallbackUrl 回调地址，用于回调创建服务状态信息，回调格式&内容详情见：[TI-ONE 接口回调说明](https://cloud.tencent.com/document/product/851/84292)
+     */
+    public void setCallbackUrl(String CallbackUrl) {
+        this.CallbackUrl = CallbackUrl;
+    }
+
+    /**
+     * Get 是否开启模型的加速, 仅对StableDiffusion(动态加速)格式的模型有效。 
+     * @return ModelTurboEnable 是否开启模型的加速, 仅对StableDiffusion(动态加速)格式的模型有效。
+     */
+    public Boolean getModelTurboEnable() {
+        return this.ModelTurboEnable;
+    }
+
+    /**
+     * Set 是否开启模型的加速, 仅对StableDiffusion(动态加速)格式的模型有效。
+     * @param ModelTurboEnable 是否开启模型的加速, 仅对StableDiffusion(动态加速)格式的模型有效。
+     */
+    public void setModelTurboEnable(Boolean ModelTurboEnable) {
+        this.ModelTurboEnable = ModelTurboEnable;
+    }
+
+    /**
+     * Get 服务分类 
+     * @return ServiceCategory 服务分类
+     */
+    public String getServiceCategory() {
+        return this.ServiceCategory;
+    }
+
+    /**
+     * Set 服务分类
+     * @param ServiceCategory 服务分类
+     */
+    public void setServiceCategory(String ServiceCategory) {
+        this.ServiceCategory = ServiceCategory;
+    }
+
     public CreateModelServiceRequest() {
     }
 
@@ -743,9 +812,6 @@ HYBRID_PAID:
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public CreateModelServiceRequest(CreateModelServiceRequest source) {
-        if (source.ImageInfo != null) {
-            this.ImageInfo = new ImageInfo(source.ImageInfo);
-        }
         if (source.ServiceGroupId != null) {
             this.ServiceGroupId = new String(source.ServiceGroupId);
         }
@@ -763,6 +829,9 @@ HYBRID_PAID:
         }
         if (source.ModelInfo != null) {
             this.ModelInfo = new ModelInfo(source.ModelInfo);
+        }
+        if (source.ImageInfo != null) {
+            this.ImageInfo = new ImageInfo(source.ImageInfo);
         }
         if (source.Env != null) {
             this.Env = new EnvVar[source.Env.length];
@@ -830,6 +899,15 @@ HYBRID_PAID:
         if (source.ServiceLimit != null) {
             this.ServiceLimit = new ServiceLimit(source.ServiceLimit);
         }
+        if (source.CallbackUrl != null) {
+            this.CallbackUrl = new String(source.CallbackUrl);
+        }
+        if (source.ModelTurboEnable != null) {
+            this.ModelTurboEnable = new Boolean(source.ModelTurboEnable);
+        }
+        if (source.ServiceCategory != null) {
+            this.ServiceCategory = new String(source.ServiceCategory);
+        }
     }
 
 
@@ -837,13 +915,13 @@ HYBRID_PAID:
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamObj(map, prefix + "ImageInfo.", this.ImageInfo);
         this.setParamSimple(map, prefix + "ServiceGroupId", this.ServiceGroupId);
         this.setParamSimple(map, prefix + "ServiceGroupName", this.ServiceGroupName);
         this.setParamSimple(map, prefix + "ServiceDescription", this.ServiceDescription);
         this.setParamSimple(map, prefix + "ChargeType", this.ChargeType);
         this.setParamSimple(map, prefix + "ResourceGroupId", this.ResourceGroupId);
         this.setParamObj(map, prefix + "ModelInfo.", this.ModelInfo);
+        this.setParamObj(map, prefix + "ImageInfo.", this.ImageInfo);
         this.setParamArrayObj(map, prefix + "Env.", this.Env);
         this.setParamObj(map, prefix + "Resources.", this.Resources);
         this.setParamSimple(map, prefix + "InstanceType", this.InstanceType);
@@ -863,6 +941,9 @@ HYBRID_PAID:
         this.setParamObj(map, prefix + "ScheduledAction.", this.ScheduledAction);
         this.setParamObj(map, prefix + "VolumeMount.", this.VolumeMount);
         this.setParamObj(map, prefix + "ServiceLimit.", this.ServiceLimit);
+        this.setParamSimple(map, prefix + "CallbackUrl", this.CallbackUrl);
+        this.setParamSimple(map, prefix + "ModelTurboEnable", this.ModelTurboEnable);
+        this.setParamSimple(map, prefix + "ServiceCategory", this.ServiceCategory);
 
     }
 }

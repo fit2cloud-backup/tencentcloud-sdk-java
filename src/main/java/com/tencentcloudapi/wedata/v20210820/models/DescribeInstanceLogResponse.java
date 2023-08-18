@@ -30,6 +30,14 @@ public class DescribeInstanceLogResponse extends AbstractModel{
     private String Data;
 
     /**
+    * 返回结果
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("InstanceLogInfo")
+    @Expose
+    private IntegrationInstanceLog InstanceLogInfo;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -50,6 +58,26 @@ public class DescribeInstanceLogResponse extends AbstractModel{
      */
     public void setData(String Data) {
         this.Data = Data;
+    }
+
+    /**
+     * Get 返回结果
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return InstanceLogInfo 返回结果
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public IntegrationInstanceLog getInstanceLogInfo() {
+        return this.InstanceLogInfo;
+    }
+
+    /**
+     * Set 返回结果
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param InstanceLogInfo 返回结果
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setInstanceLogInfo(IntegrationInstanceLog InstanceLogInfo) {
+        this.InstanceLogInfo = InstanceLogInfo;
     }
 
     /**
@@ -79,6 +107,9 @@ public class DescribeInstanceLogResponse extends AbstractModel{
         if (source.Data != null) {
             this.Data = new String(source.Data);
         }
+        if (source.InstanceLogInfo != null) {
+            this.InstanceLogInfo = new IntegrationInstanceLog(source.InstanceLogInfo);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -90,6 +121,7 @@ public class DescribeInstanceLogResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Data", this.Data);
+        this.setParamObj(map, prefix + "InstanceLogInfo.", this.InstanceLogInfo);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

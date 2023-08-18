@@ -29,7 +29,7 @@ public class ClbClient extends AbstractClient{
     private static String endpoint = "clb.tencentcloudapi.com";
     private static String service = "clb";
     private static String version = "2018-03-17";
-
+    
     public ClbClient(Credential credential, String region) {
         this(credential, region, new ClientProfile());
     }
@@ -48,6 +48,7 @@ public class ClbClient extends AbstractClient{
     public AssociateTargetGroupsResponse AssociateTargetGroups(AssociateTargetGroupsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AssociateTargetGroupsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AssociateTargetGroupsResponse>>() {
                 }.getType();
@@ -69,6 +70,7 @@ public class ClbClient extends AbstractClient{
     public AutoRewriteResponse AutoRewrite(AutoRewriteRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AutoRewriteResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AutoRewriteResponse>>() {
                 }.getType();
@@ -89,6 +91,7 @@ public class ClbClient extends AbstractClient{
     public BatchDeregisterTargetsResponse BatchDeregisterTargets(BatchDeregisterTargetsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<BatchDeregisterTargetsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<BatchDeregisterTargetsResponse>>() {
                 }.getType();
@@ -110,6 +113,7 @@ public class ClbClient extends AbstractClient{
     public BatchModifyTargetWeightResponse BatchModifyTargetWeight(BatchModifyTargetWeightRequest req) throws TencentCloudSDKException{
         JsonResponseModel<BatchModifyTargetWeightResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<BatchModifyTargetWeightResponse>>() {
                 }.getType();
@@ -130,6 +134,7 @@ public class ClbClient extends AbstractClient{
     public BatchRegisterTargetsResponse BatchRegisterTargets(BatchRegisterTargetsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<BatchRegisterTargetsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<BatchRegisterTargetsResponse>>() {
                 }.getType();
@@ -145,11 +150,21 @@ public class ClbClient extends AbstractClient{
      *克隆负载均衡实例，根据指定的负载均衡实例，复制出相同规则和绑定关系的负载均衡实例。克隆接口为异步操作，克隆的数据以调用CloneLoadBalancer时为准，如果调用CloneLoadBalancer后克隆CLB发生变化，变化规则不会克隆。
 
 限制说明：
-不支持基础网络和传统型负载均衡、IPv6和NAT64
-不支持包年包月CLB
-不支持监听器为 QUIC、端口段
-不支持后端类型为 目标组、SCF云函数
-个性化配置、重定向配置、安全组默认放通开关 将不会被克隆，须手工配置
+实例属性维度限制
+  仅支持克隆按量计费实例，不支持包年包月实例。
+  不支持克隆未关联实例计费项的 CLB。
+  不支持克隆传统型负载均衡实例和高防 CLB。
+  不支持克隆基础网络类型的实例。
+  不支持克隆 IPv6、IPv6 NAT64 版本以及混绑的实例。
+  个性化配置、重定向配置、安全组默认放通开关的配置将不会被克隆，需重新配置。
+  执行克隆操作前，请确保实例上没有使用已过期证书，否则会导致克隆失败。
+监听器维度限制
+  不支持克隆监听器为 QUIC 类型和端口段的实例。
+  不支持监听器为 TCP_SSL 的内网型负载均衡的实例。
+  不支持克隆七层监听器没有转发规则的实例。
+  当实例的监听器个数超过50个时，不支持克隆。
+后端服务维度限制
+  不支持克隆绑定的后端服务类型为目标组和 SCF 云函数的实例。
 
 通过接口调用：
 BGP带宽包必须传带宽包id
@@ -162,6 +177,7 @@ BGP带宽包必须传带宽包id
     public CloneLoadBalancerResponse CloneLoadBalancer(CloneLoadBalancerRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CloneLoadBalancerResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CloneLoadBalancerResponse>>() {
                 }.getType();
@@ -182,6 +198,7 @@ BGP带宽包必须传带宽包id
     public CreateClsLogSetResponse CreateClsLogSet(CreateClsLogSetRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateClsLogSetResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateClsLogSetResponse>>() {
                 }.getType();
@@ -203,6 +220,7 @@ BGP带宽包必须传带宽包id
     public CreateListenerResponse CreateListener(CreateListenerRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateListenerResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateListenerResponse>>() {
                 }.getType();
@@ -225,6 +243,7 @@ BGP带宽包必须传带宽包id
     public CreateLoadBalancerResponse CreateLoadBalancer(CreateLoadBalancerRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateLoadBalancerResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateLoadBalancerResponse>>() {
                 }.getType();
@@ -246,6 +265,7 @@ BGP带宽包必须传带宽包id
     public CreateLoadBalancerSnatIpsResponse CreateLoadBalancerSnatIps(CreateLoadBalancerSnatIpsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateLoadBalancerSnatIpsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateLoadBalancerSnatIpsResponse>>() {
                 }.getType();
@@ -267,6 +287,7 @@ BGP带宽包必须传带宽包id
     public CreateRuleResponse CreateRule(CreateRuleRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateRuleResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateRuleResponse>>() {
                 }.getType();
@@ -287,6 +308,7 @@ BGP带宽包必须传带宽包id
     public CreateTargetGroupResponse CreateTargetGroup(CreateTargetGroupRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateTargetGroupResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateTargetGroupResponse>>() {
                 }.getType();
@@ -307,6 +329,7 @@ BGP带宽包必须传带宽包id
     public CreateTopicResponse CreateTopic(CreateTopicRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateTopicResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateTopicResponse>>() {
                 }.getType();
@@ -328,6 +351,7 @@ BGP带宽包必须传带宽包id
     public DeleteListenerResponse DeleteListener(DeleteListenerRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteListenerResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteListenerResponse>>() {
                 }.getType();
@@ -349,6 +373,7 @@ BGP带宽包必须传带宽包id
     public DeleteLoadBalancerResponse DeleteLoadBalancer(DeleteLoadBalancerRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteLoadBalancerResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteLoadBalancerResponse>>() {
                 }.getType();
@@ -370,6 +395,7 @@ BGP带宽包必须传带宽包id
     public DeleteLoadBalancerListenersResponse DeleteLoadBalancerListeners(DeleteLoadBalancerListenersRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteLoadBalancerListenersResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteLoadBalancerListenersResponse>>() {
                 }.getType();
@@ -391,6 +417,7 @@ BGP带宽包必须传带宽包id
     public DeleteLoadBalancerSnatIpsResponse DeleteLoadBalancerSnatIps(DeleteLoadBalancerSnatIpsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteLoadBalancerSnatIpsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteLoadBalancerSnatIpsResponse>>() {
                 }.getType();
@@ -412,6 +439,7 @@ BGP带宽包必须传带宽包id
     public DeleteRewriteResponse DeleteRewrite(DeleteRewriteRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteRewriteResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteRewriteResponse>>() {
                 }.getType();
@@ -433,6 +461,7 @@ BGP带宽包必须传带宽包id
     public DeleteRuleResponse DeleteRule(DeleteRuleRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteRuleResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteRuleResponse>>() {
                 }.getType();
@@ -453,10 +482,43 @@ BGP带宽包必须传带宽包id
     public DeleteTargetGroupsResponse DeleteTargetGroups(DeleteTargetGroupsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteTargetGroupsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteTargetGroupsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DeleteTargetGroups");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *DeregisterFunctionTargets 接口用来将一个云函数从负载均衡的转发规则上解绑，对于七层监听器，还需通过 LocationId 或 Domain+Url 指定转发规则。
+本接口为异步接口，本接口返回成功后需以返回的 RequestID 为入参，调用 [DescribeTaskStatus](https://cloud.tencent.com/document/product/214/30683) 接口查询本次任务是否成功。
+<br/>限制说明：
+
+- 仅广州、深圳金融、上海、上海金融、北京、成都、中国香港、新加坡、孟买、东京、硅谷地域支持绑定 SCF。
+- 仅标准账户类型支持绑定 SCF，传统账户类型不支持。建议升级为标准账户类型，详情可参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。
+- 传统型负载均衡不支持绑定 SCF。
+- 基础网络类型不支持绑定 SCF。
+- CLB 默认支持绑定同地域下的所有 SCF，可支持跨 VPC 绑定 SCF，不支持跨地域绑定。
+- 目前仅 IPv4、IPv6 NAT64 版本的负载均衡支持绑定 SCF，IPv6 版本的暂不支持。
+- 仅七层（HTTP、HTTPS）监听器支持绑定 SCF，四层（TCP、UDP、TCP SSL）监听器和七层 QUIC 监听器不支持。
+- CLB 绑定 SCF 仅支持绑定“Event 函数”类型的云函数。
+     * @param req DeregisterFunctionTargetsRequest
+     * @return DeregisterFunctionTargetsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeregisterFunctionTargetsResponse DeregisterFunctionTargets(DeregisterFunctionTargetsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeregisterFunctionTargetsResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeregisterFunctionTargetsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeregisterFunctionTargets");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -474,6 +536,7 @@ BGP带宽包必须传带宽包id
     public DeregisterTargetGroupInstancesResponse DeregisterTargetGroupInstances(DeregisterTargetGroupInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeregisterTargetGroupInstancesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeregisterTargetGroupInstancesResponse>>() {
                 }.getType();
@@ -495,6 +558,7 @@ BGP带宽包必须传带宽包id
     public DeregisterTargetsResponse DeregisterTargets(DeregisterTargetsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeregisterTargetsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeregisterTargetsResponse>>() {
                 }.getType();
@@ -515,6 +579,7 @@ BGP带宽包必须传带宽包id
     public DeregisterTargetsFromClassicalLBResponse DeregisterTargetsFromClassicalLB(DeregisterTargetsFromClassicalLBRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeregisterTargetsFromClassicalLBResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeregisterTargetsFromClassicalLBResponse>>() {
                 }.getType();
@@ -535,6 +600,7 @@ BGP带宽包必须传带宽包id
     public DescribeBlockIPListResponse DescribeBlockIPList(DescribeBlockIPListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeBlockIPListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeBlockIPListResponse>>() {
                 }.getType();
@@ -555,6 +621,7 @@ BGP带宽包必须传带宽包id
     public DescribeBlockIPTaskResponse DescribeBlockIPTask(DescribeBlockIPTaskRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeBlockIPTaskResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeBlockIPTaskResponse>>() {
                 }.getType();
@@ -575,6 +642,7 @@ BGP带宽包必须传带宽包id
     public DescribeClassicalLBByInstanceIdResponse DescribeClassicalLBByInstanceId(DescribeClassicalLBByInstanceIdRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeClassicalLBByInstanceIdResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeClassicalLBByInstanceIdResponse>>() {
                 }.getType();
@@ -595,6 +663,7 @@ BGP带宽包必须传带宽包id
     public DescribeClassicalLBHealthStatusResponse DescribeClassicalLBHealthStatus(DescribeClassicalLBHealthStatusRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeClassicalLBHealthStatusResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeClassicalLBHealthStatusResponse>>() {
                 }.getType();
@@ -615,6 +684,7 @@ BGP带宽包必须传带宽包id
     public DescribeClassicalLBListenersResponse DescribeClassicalLBListeners(DescribeClassicalLBListenersRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeClassicalLBListenersResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeClassicalLBListenersResponse>>() {
                 }.getType();
@@ -635,6 +705,7 @@ BGP带宽包必须传带宽包id
     public DescribeClassicalLBTargetsResponse DescribeClassicalLBTargets(DescribeClassicalLBTargetsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeClassicalLBTargetsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeClassicalLBTargetsResponse>>() {
                 }.getType();
@@ -655,6 +726,7 @@ BGP带宽包必须传带宽包id
     public DescribeClsLogSetResponse DescribeClsLogSet(DescribeClsLogSetRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeClsLogSetResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeClsLogSetResponse>>() {
                 }.getType();
@@ -675,6 +747,7 @@ BGP带宽包必须传带宽包id
     public DescribeClusterResourcesResponse DescribeClusterResources(DescribeClusterResourcesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeClusterResourcesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeClusterResourcesResponse>>() {
                 }.getType();
@@ -695,6 +768,7 @@ BGP带宽包必须传带宽包id
     public DescribeCrossTargetsResponse DescribeCrossTargets(DescribeCrossTargetsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCrossTargetsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCrossTargetsResponse>>() {
                 }.getType();
@@ -715,6 +789,7 @@ BGP带宽包必须传带宽包id
     public DescribeCustomizedConfigAssociateListResponse DescribeCustomizedConfigAssociateList(DescribeCustomizedConfigAssociateListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCustomizedConfigAssociateListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCustomizedConfigAssociateListResponse>>() {
                 }.getType();
@@ -735,6 +810,7 @@ BGP带宽包必须传带宽包id
     public DescribeCustomizedConfigListResponse DescribeCustomizedConfigList(DescribeCustomizedConfigListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCustomizedConfigListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCustomizedConfigListResponse>>() {
                 }.getType();
@@ -755,6 +831,7 @@ BGP带宽包必须传带宽包id
     public DescribeExclusiveClustersResponse DescribeExclusiveClusters(DescribeExclusiveClustersRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeExclusiveClustersResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeExclusiveClustersResponse>>() {
                 }.getType();
@@ -775,6 +852,7 @@ BGP带宽包必须传带宽包id
     public DescribeIdleLoadBalancersResponse DescribeIdleLoadBalancers(DescribeIdleLoadBalancersRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeIdleLoadBalancersResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeIdleLoadBalancersResponse>>() {
                 }.getType();
@@ -795,6 +873,7 @@ BGP带宽包必须传带宽包id
     public DescribeLBListenersResponse DescribeLBListeners(DescribeLBListenersRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeLBListenersResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeLBListenersResponse>>() {
                 }.getType();
@@ -815,6 +894,7 @@ BGP带宽包必须传带宽包id
     public DescribeListenersResponse DescribeListeners(DescribeListenersRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeListenersResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeListenersResponse>>() {
                 }.getType();
@@ -835,6 +915,7 @@ BGP带宽包必须传带宽包id
     public DescribeLoadBalancerListByCertIdResponse DescribeLoadBalancerListByCertId(DescribeLoadBalancerListByCertIdRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeLoadBalancerListByCertIdResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeLoadBalancerListByCertIdResponse>>() {
                 }.getType();
@@ -855,6 +936,7 @@ BGP带宽包必须传带宽包id
     public DescribeLoadBalancerOverviewResponse DescribeLoadBalancerOverview(DescribeLoadBalancerOverviewRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeLoadBalancerOverviewResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeLoadBalancerOverviewResponse>>() {
                 }.getType();
@@ -875,6 +957,7 @@ BGP带宽包必须传带宽包id
     public DescribeLoadBalancerTrafficResponse DescribeLoadBalancerTraffic(DescribeLoadBalancerTrafficRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeLoadBalancerTrafficResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeLoadBalancerTrafficResponse>>() {
                 }.getType();
@@ -888,7 +971,6 @@ BGP带宽包必须传带宽包id
 
     /**
      *查询一个地域的负载均衡实例列表。
-
      * @param req DescribeLoadBalancersRequest
      * @return DescribeLoadBalancersResponse
      * @throws TencentCloudSDKException
@@ -896,6 +978,7 @@ BGP带宽包必须传带宽包id
     public DescribeLoadBalancersResponse DescribeLoadBalancers(DescribeLoadBalancersRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeLoadBalancersResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeLoadBalancersResponse>>() {
                 }.getType();
@@ -916,6 +999,7 @@ BGP带宽包必须传带宽包id
     public DescribeLoadBalancersDetailResponse DescribeLoadBalancersDetail(DescribeLoadBalancersDetailRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeLoadBalancersDetailResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeLoadBalancersDetailResponse>>() {
                 }.getType();
@@ -936,6 +1020,7 @@ BGP带宽包必须传带宽包id
     public DescribeQuotaResponse DescribeQuota(DescribeQuotaRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeQuotaResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeQuotaResponse>>() {
                 }.getType();
@@ -956,6 +1041,7 @@ BGP带宽包必须传带宽包id
     public DescribeResourcesResponse DescribeResources(DescribeResourcesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeResourcesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeResourcesResponse>>() {
                 }.getType();
@@ -976,6 +1062,7 @@ BGP带宽包必须传带宽包id
     public DescribeRewriteResponse DescribeRewrite(DescribeRewriteRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeRewriteResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeRewriteResponse>>() {
                 }.getType();
@@ -996,6 +1083,7 @@ BGP带宽包必须传带宽包id
     public DescribeTargetGroupInstancesResponse DescribeTargetGroupInstances(DescribeTargetGroupInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeTargetGroupInstancesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeTargetGroupInstancesResponse>>() {
                 }.getType();
@@ -1016,6 +1104,7 @@ BGP带宽包必须传带宽包id
     public DescribeTargetGroupListResponse DescribeTargetGroupList(DescribeTargetGroupListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeTargetGroupListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeTargetGroupListResponse>>() {
                 }.getType();
@@ -1036,6 +1125,7 @@ BGP带宽包必须传带宽包id
     public DescribeTargetGroupsResponse DescribeTargetGroups(DescribeTargetGroupsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeTargetGroupsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeTargetGroupsResponse>>() {
                 }.getType();
@@ -1056,6 +1146,7 @@ BGP带宽包必须传带宽包id
     public DescribeTargetHealthResponse DescribeTargetHealth(DescribeTargetHealthRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeTargetHealthResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeTargetHealthResponse>>() {
                 }.getType();
@@ -1076,6 +1167,7 @@ BGP带宽包必须传带宽包id
     public DescribeTargetsResponse DescribeTargets(DescribeTargetsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeTargetsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeTargetsResponse>>() {
                 }.getType();
@@ -1096,6 +1188,7 @@ BGP带宽包必须传带宽包id
     public DescribeTaskStatusResponse DescribeTaskStatus(DescribeTaskStatusRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeTaskStatusResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeTaskStatusResponse>>() {
                 }.getType();
@@ -1117,6 +1210,7 @@ BGP带宽包必须传带宽包id
     public DisassociateTargetGroupsResponse DisassociateTargetGroups(DisassociateTargetGroupsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DisassociateTargetGroupsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DisassociateTargetGroupsResponse>>() {
                 }.getType();
@@ -1138,6 +1232,7 @@ BGP带宽包必须传带宽包id
     public ManualRewriteResponse ManualRewrite(ManualRewriteRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ManualRewriteResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ManualRewriteResponse>>() {
                 }.getType();
@@ -1159,6 +1254,7 @@ BGP带宽包必须传带宽包id
     public MigrateClassicalLoadBalancersResponse MigrateClassicalLoadBalancers(MigrateClassicalLoadBalancersRequest req) throws TencentCloudSDKException{
         JsonResponseModel<MigrateClassicalLoadBalancersResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<MigrateClassicalLoadBalancersResponse>>() {
                 }.getType();
@@ -1180,6 +1276,7 @@ BGP带宽包必须传带宽包id
     public ModifyBlockIPListResponse ModifyBlockIPList(ModifyBlockIPListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyBlockIPListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyBlockIPListResponse>>() {
                 }.getType();
@@ -1201,6 +1298,7 @@ BGP带宽包必须传带宽包id
     public ModifyDomainResponse ModifyDomain(ModifyDomainRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyDomainResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyDomainResponse>>() {
                 }.getType();
@@ -1222,10 +1320,32 @@ BGP带宽包必须传带宽包id
     public ModifyDomainAttributesResponse ModifyDomainAttributes(ModifyDomainAttributesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyDomainAttributesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyDomainAttributesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifyDomainAttributes");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改负载均衡转发规则上所绑定的云函数。
+     * @param req ModifyFunctionTargetsRequest
+     * @return ModifyFunctionTargetsResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyFunctionTargetsResponse ModifyFunctionTargets(ModifyFunctionTargetsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyFunctionTargetsResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyFunctionTargetsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyFunctionTargets");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1243,6 +1363,7 @@ BGP带宽包必须传带宽包id
     public ModifyListenerResponse ModifyListener(ModifyListenerRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyListenerResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyListenerResponse>>() {
                 }.getType();
@@ -1264,6 +1385,7 @@ BGP带宽包必须传带宽包id
     public ModifyLoadBalancerAttributesResponse ModifyLoadBalancerAttributes(ModifyLoadBalancerAttributesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyLoadBalancerAttributesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyLoadBalancerAttributesResponse>>() {
                 }.getType();
@@ -1284,6 +1406,7 @@ BGP带宽包必须传带宽包id
     public ModifyLoadBalancerMixIpTargetResponse ModifyLoadBalancerMixIpTarget(ModifyLoadBalancerMixIpTargetRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyLoadBalancerMixIpTargetResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyLoadBalancerMixIpTargetResponse>>() {
                 }.getType();
@@ -1296,7 +1419,11 @@ BGP带宽包必须传带宽包id
     }
 
     /**
-     *支持共享型clb升级到性能容量型clb（不支持性能保障降级到共享型）。
+     *本接口（ModifyLoadBalancerSla）用于将按量计费模式的共享型实例升级为性能容量型实例。<br/>
+限制条件：
+- 本接口只支持升级按量计费的CLB实例，包年包月的CLB实例升级请通过控制台进行升级。
+- 升级为性能容量型实例后，不支持再回退到共享型实例。
+- 传统型负载均衡实例不支持升级为性能容量型实例。
      * @param req ModifyLoadBalancerSlaRequest
      * @return ModifyLoadBalancerSlaResponse
      * @throws TencentCloudSDKException
@@ -1304,10 +1431,32 @@ BGP带宽包必须传带宽包id
     public ModifyLoadBalancerSlaResponse ModifyLoadBalancerSla(ModifyLoadBalancerSlaRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyLoadBalancerSlaResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyLoadBalancerSlaResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifyLoadBalancerSla");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *修改一个或多个负载均衡实例所属项目。
+     * @param req ModifyLoadBalancersProjectRequest
+     * @return ModifyLoadBalancersProjectResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyLoadBalancersProjectResponse ModifyLoadBalancersProject(ModifyLoadBalancersProjectRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyLoadBalancersProjectResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyLoadBalancersProjectResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyLoadBalancersProject");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1325,6 +1474,7 @@ BGP带宽包必须传带宽包id
     public ModifyRuleResponse ModifyRule(ModifyRuleRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyRuleResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyRuleResponse>>() {
                 }.getType();
@@ -1345,6 +1495,7 @@ BGP带宽包必须传带宽包id
     public ModifyTargetGroupAttributeResponse ModifyTargetGroupAttribute(ModifyTargetGroupAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyTargetGroupAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyTargetGroupAttributeResponse>>() {
                 }.getType();
@@ -1366,6 +1517,7 @@ BGP带宽包必须传带宽包id
     public ModifyTargetGroupInstancesPortResponse ModifyTargetGroupInstancesPort(ModifyTargetGroupInstancesPortRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyTargetGroupInstancesPortResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyTargetGroupInstancesPortResponse>>() {
                 }.getType();
@@ -1387,6 +1539,7 @@ BGP带宽包必须传带宽包id
     public ModifyTargetGroupInstancesWeightResponse ModifyTargetGroupInstancesWeight(ModifyTargetGroupInstancesWeightRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyTargetGroupInstancesWeightResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyTargetGroupInstancesWeightResponse>>() {
                 }.getType();
@@ -1408,6 +1561,7 @@ BGP带宽包必须传带宽包id
     public ModifyTargetPortResponse ModifyTargetPort(ModifyTargetPortRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyTargetPortResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyTargetPortResponse>>() {
                 }.getType();
@@ -1429,10 +1583,42 @@ BGP带宽包必须传带宽包id
     public ModifyTargetWeightResponse ModifyTargetWeight(ModifyTargetWeightRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyTargetWeightResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyTargetWeightResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifyTargetWeight");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *RegisterFunctionTargets 接口用来将一个云函数绑定到负载均衡的7层转发规则，在此之前您需要先行创建相关的7层监听器（HTTP、HTTPS）和转发规则。
+本接口为异步接口，本接口返回成功后需以返回的RequestID为入参，调用DescribeTaskStatus接口查询本次任务是否成功。<br/>
+限制说明：
+- 仅广州、深圳金融、上海、上海金融、北京、成都、中国香港、新加坡、孟买、东京、硅谷地域支持绑定 SCF。
+- 仅标准账户类型支持绑定 SCF，传统账户类型不支持。建议升级为标准账户类型，详情可参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。 
+- 传统型负载均衡不支持绑定 SCF。
+- 基础网络类型不支持绑定 SCF。
+- CLB 默认支持绑定同地域下的所有 SCF，可支持跨 VPC 绑定 SCF，不支持跨地域绑定。
+- 目前仅 IPv4、IPv6 NAT64 版本的负载均衡支持绑定 SCF，IPv6 版本的暂不支持。
+- 仅七层（HTTP、HTTPS）监听器支持绑定 SCF，四层（TCP、UDP、TCP SSL）监听器和七层 QUIC 监听器不支持。
+- CLB 绑定 SCF 仅支持绑定“Event 函数”类型的云函数。
+     * @param req RegisterFunctionTargetsRequest
+     * @return RegisterFunctionTargetsResponse
+     * @throws TencentCloudSDKException
+     */
+    public RegisterFunctionTargetsResponse RegisterFunctionTargets(RegisterFunctionTargetsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<RegisterFunctionTargetsResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<RegisterFunctionTargetsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "RegisterFunctionTargets");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1450,6 +1636,7 @@ BGP带宽包必须传带宽包id
     public RegisterTargetGroupInstancesResponse RegisterTargetGroupInstances(RegisterTargetGroupInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RegisterTargetGroupInstancesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RegisterTargetGroupInstancesResponse>>() {
                 }.getType();
@@ -1471,6 +1658,7 @@ BGP带宽包必须传带宽包id
     public RegisterTargetsResponse RegisterTargets(RegisterTargetsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RegisterTargetsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RegisterTargetsResponse>>() {
                 }.getType();
@@ -1491,6 +1679,7 @@ BGP带宽包必须传带宽包id
     public RegisterTargetsWithClassicalLBResponse RegisterTargetsWithClassicalLB(RegisterTargetsWithClassicalLBRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RegisterTargetsWithClassicalLBResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RegisterTargetsWithClassicalLBResponse>>() {
                 }.getType();
@@ -1514,6 +1703,7 @@ BGP带宽包必须传带宽包id
     public ReplaceCertForLoadBalancersResponse ReplaceCertForLoadBalancers(ReplaceCertForLoadBalancersRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ReplaceCertForLoadBalancersResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ReplaceCertForLoadBalancersResponse>>() {
                 }.getType();
@@ -1534,6 +1724,7 @@ BGP带宽包必须传带宽包id
     public SetCustomizedConfigForLoadBalancerResponse SetCustomizedConfigForLoadBalancer(SetCustomizedConfigForLoadBalancerRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SetCustomizedConfigForLoadBalancerResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<SetCustomizedConfigForLoadBalancerResponse>>() {
                 }.getType();
@@ -1554,6 +1745,7 @@ BGP带宽包必须传带宽包id
     public SetLoadBalancerClsLogResponse SetLoadBalancerClsLog(SetLoadBalancerClsLogRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SetLoadBalancerClsLogResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<SetLoadBalancerClsLogResponse>>() {
                 }.getType();
@@ -1576,6 +1768,7 @@ BGP带宽包必须传带宽包id
     public SetLoadBalancerSecurityGroupsResponse SetLoadBalancerSecurityGroups(SetLoadBalancerSecurityGroupsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SetLoadBalancerSecurityGroupsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<SetLoadBalancerSecurityGroupsResponse>>() {
                 }.getType();
@@ -1596,6 +1789,7 @@ BGP带宽包必须传带宽包id
     public SetSecurityGroupForLoadbalancersResponse SetSecurityGroupForLoadbalancers(SetSecurityGroupForLoadbalancersRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SetSecurityGroupForLoadbalancersResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<SetSecurityGroupForLoadbalancersResponse>>() {
                 }.getType();

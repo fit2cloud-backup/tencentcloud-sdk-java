@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class CreateGroupRequest extends AbstractModel{
 
     /**
-    * 图库ID，不可重复，仅支持字母、数字和下划线。
+    * 图库ID，不可重复，仅支持字母、数字和下划线。图库数量单个用户上限为30。
     */
     @SerializedName("GroupId")
     @Expose
@@ -37,9 +37,9 @@ public class CreateGroupRequest extends AbstractModel{
     private String GroupName;
 
     /**
-    * 图库可容纳的最大图片特征数量，一张图片对应一条图片特征数据。
-达到最大容量后无法在图库中继续创建图片，否则将会报错。
-MaxCapacity不支持修改，请合理评估容量上限，按需创建。
+    * 图片库可容纳的最大图片特征条数，一张图片对应一条图片特征数据，不支持修改。
+单个图片库容量最大可达亿级，达到容量限制后继续创建图片将会报错。
+注意，包月计费下支持绑定的最小库容量为500万。
     */
     @SerializedName("MaxCapacity")
     @Expose
@@ -74,16 +74,16 @@ GroupType不支持修改，若不确定适用的服务类型，建议先对不�
     private Long GroupType;
 
     /**
-     * Get 图库ID，不可重复，仅支持字母、数字和下划线。 
-     * @return GroupId 图库ID，不可重复，仅支持字母、数字和下划线。
+     * Get 图库ID，不可重复，仅支持字母、数字和下划线。图库数量单个用户上限为30。 
+     * @return GroupId 图库ID，不可重复，仅支持字母、数字和下划线。图库数量单个用户上限为30。
      */
     public String getGroupId() {
         return this.GroupId;
     }
 
     /**
-     * Set 图库ID，不可重复，仅支持字母、数字和下划线。
-     * @param GroupId 图库ID，不可重复，仅支持字母、数字和下划线。
+     * Set 图库ID，不可重复，仅支持字母、数字和下划线。图库数量单个用户上限为30。
+     * @param GroupId 图库ID，不可重复，仅支持字母、数字和下划线。图库数量单个用户上限为30。
      */
     public void setGroupId(String GroupId) {
         this.GroupId = GroupId;
@@ -106,24 +106,24 @@ GroupType不支持修改，若不确定适用的服务类型，建议先对不�
     }
 
     /**
-     * Get 图库可容纳的最大图片特征数量，一张图片对应一条图片特征数据。
-达到最大容量后无法在图库中继续创建图片，否则将会报错。
-MaxCapacity不支持修改，请合理评估容量上限，按需创建。 
-     * @return MaxCapacity 图库可容纳的最大图片特征数量，一张图片对应一条图片特征数据。
-达到最大容量后无法在图库中继续创建图片，否则将会报错。
-MaxCapacity不支持修改，请合理评估容量上限，按需创建。
+     * Get 图片库可容纳的最大图片特征条数，一张图片对应一条图片特征数据，不支持修改。
+单个图片库容量最大可达亿级，达到容量限制后继续创建图片将会报错。
+注意，包月计费下支持绑定的最小库容量为500万。 
+     * @return MaxCapacity 图片库可容纳的最大图片特征条数，一张图片对应一条图片特征数据，不支持修改。
+单个图片库容量最大可达亿级，达到容量限制后继续创建图片将会报错。
+注意，包月计费下支持绑定的最小库容量为500万。
      */
     public Long getMaxCapacity() {
         return this.MaxCapacity;
     }
 
     /**
-     * Set 图库可容纳的最大图片特征数量，一张图片对应一条图片特征数据。
-达到最大容量后无法在图库中继续创建图片，否则将会报错。
-MaxCapacity不支持修改，请合理评估容量上限，按需创建。
-     * @param MaxCapacity 图库可容纳的最大图片特征数量，一张图片对应一条图片特征数据。
-达到最大容量后无法在图库中继续创建图片，否则将会报错。
-MaxCapacity不支持修改，请合理评估容量上限，按需创建。
+     * Set 图片库可容纳的最大图片特征条数，一张图片对应一条图片特征数据，不支持修改。
+单个图片库容量最大可达亿级，达到容量限制后继续创建图片将会报错。
+注意，包月计费下支持绑定的最小库容量为500万。
+     * @param MaxCapacity 图片库可容纳的最大图片特征条数，一张图片对应一条图片特征数据，不支持修改。
+单个图片库容量最大可达亿级，达到容量限制后继续创建图片将会报错。
+注意，包月计费下支持绑定的最小库容量为500万。
      */
     public void setMaxCapacity(Long MaxCapacity) {
         this.MaxCapacity = MaxCapacity;

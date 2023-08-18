@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class GetCustomizationListResponse extends AbstractModel{
 
     /**
-    * 语音消息转文本自学习模型配置
+    * 语音消息转文本热句模型配置
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CustomizationConfigs")
@@ -38,9 +38,9 @@ public class GetCustomizationListResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 语音消息转文本自学习模型配置
+     * Get 语音消息转文本热句模型配置
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CustomizationConfigs 语音消息转文本自学习模型配置
+     * @return CustomizationConfigs 语音消息转文本热句模型配置
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public CustomizationConfigs [] getCustomizationConfigs() {
@@ -48,9 +48,9 @@ public class GetCustomizationListResponse extends AbstractModel{
     }
 
     /**
-     * Set 语音消息转文本自学习模型配置
+     * Set 语音消息转文本热句模型配置
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param CustomizationConfigs 语音消息转文本自学习模型配置
+     * @param CustomizationConfigs 语音消息转文本热句模型配置
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCustomizationConfigs(CustomizationConfigs [] CustomizationConfigs) {

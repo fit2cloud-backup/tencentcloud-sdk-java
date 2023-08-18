@@ -30,7 +30,7 @@ public class BruteAttackInfo extends AbstractModel{
     private Long Id;
 
     /**
-    * 云镜客户端唯一标识UUID
+    * 主机安全客户端唯一标识UUID
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Uuid")
@@ -190,6 +190,22 @@ public class BruteAttackInfo extends AbstractModel{
     private Long DataStatus;
 
     /**
+    * 附加信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MachineExtraInfo")
+    @Expose
+    private MachineExtraInfo MachineExtraInfo;
+
+    /**
+    * 地理位置中文名
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Location")
+    @Expose
+    private String Location;
+
+    /**
      * Get 唯一Id 
      * @return Id 唯一Id
      */
@@ -206,9 +222,9 @@ public class BruteAttackInfo extends AbstractModel{
     }
 
     /**
-     * Get 云镜客户端唯一标识UUID
+     * Get 主机安全客户端唯一标识UUID
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Uuid 云镜客户端唯一标识UUID
+     * @return Uuid 主机安全客户端唯一标识UUID
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUuid() {
@@ -216,9 +232,9 @@ public class BruteAttackInfo extends AbstractModel{
     }
 
     /**
-     * Set 云镜客户端唯一标识UUID
+     * Set 主机安全客户端唯一标识UUID
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Uuid 云镜客户端唯一标识UUID
+     * @param Uuid 主机安全客户端唯一标识UUID
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUuid(String Uuid) {
@@ -605,6 +621,46 @@ public class BruteAttackInfo extends AbstractModel{
         this.DataStatus = DataStatus;
     }
 
+    /**
+     * Get 附加信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MachineExtraInfo 附加信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public MachineExtraInfo getMachineExtraInfo() {
+        return this.MachineExtraInfo;
+    }
+
+    /**
+     * Set 附加信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MachineExtraInfo 附加信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMachineExtraInfo(MachineExtraInfo MachineExtraInfo) {
+        this.MachineExtraInfo = MachineExtraInfo;
+    }
+
+    /**
+     * Get 地理位置中文名
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Location 地理位置中文名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getLocation() {
+        return this.Location;
+    }
+
+    /**
+     * Set 地理位置中文名
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Location 地理位置中文名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLocation(String Location) {
+        this.Location = Location;
+    }
+
     public BruteAttackInfo() {
     }
 
@@ -676,6 +732,12 @@ public class BruteAttackInfo extends AbstractModel{
         if (source.DataStatus != null) {
             this.DataStatus = new Long(source.DataStatus);
         }
+        if (source.MachineExtraInfo != null) {
+            this.MachineExtraInfo = new MachineExtraInfo(source.MachineExtraInfo);
+        }
+        if (source.Location != null) {
+            this.Location = new String(source.Location);
+        }
     }
 
 
@@ -704,6 +766,8 @@ public class BruteAttackInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "ModifyTime", this.ModifyTime);
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "DataStatus", this.DataStatus);
+        this.setParamObj(map, prefix + "MachineExtraInfo.", this.MachineExtraInfo);
+        this.setParamSimple(map, prefix + "Location", this.Location);
 
     }
 }

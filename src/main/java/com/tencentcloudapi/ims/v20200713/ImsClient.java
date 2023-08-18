@@ -29,7 +29,7 @@ public class ImsClient extends AbstractClient{
     private static String endpoint = "ims.tencentcloudapi.com";
     private static String service = "ims";
     private static String version = "2020-07-13";
-
+    
     public ImsClient(Credential credential, String region) {
         this(credential, region, new ClientProfile());
     }
@@ -39,47 +39,7 @@ public class ImsClient extends AbstractClient{
     }
 
     /**
-     *控制台识别统计
-     * @param req DescribeImageStatRequest
-     * @return DescribeImageStatResponse
-     * @throws TencentCloudSDKException
-     */
-    public DescribeImageStatResponse DescribeImageStat(DescribeImageStatRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeImageStatResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeImageStatResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeImageStat");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *图片机器审核明细
-     * @param req DescribeImsListRequest
-     * @return DescribeImsListResponse
-     * @throws TencentCloudSDKException
-     */
-    public DescribeImsListResponse DescribeImsList(DescribeImsListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeImsListResponse> rsp = null;
-        String rspStr = "";
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeImsListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeImsList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *图片内容检测服务（Image Moderation, IM）能自动扫描图片，识别可能令人反感、不安全或不适宜的内容，同时支持用户配置图片黑名单，打击自定义识别类型的图片。
+     *图片同步检测服务（Image Moderation, IM）能自动扫描图片，识别可能令人反感、不安全或不适宜的内容，同时支持用户配置图片黑名单，打击自定义识别类型的图片。
 
 <div class="rno-api-explorer" style="margin-bottom:20px">
     <div class="rno-api-explorer-inner">
@@ -103,6 +63,7 @@ public class ImsClient extends AbstractClient{
     public ImageModerationResponse ImageModeration(ImageModerationRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ImageModerationResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ImageModerationResponse>>() {
                 }.getType();

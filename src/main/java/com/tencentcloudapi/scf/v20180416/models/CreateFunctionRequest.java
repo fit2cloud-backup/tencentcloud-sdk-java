@@ -72,7 +72,7 @@ public class CreateFunctionRequest extends AbstractModel{
     private Environment Environment;
 
     /**
-    * 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， Php5， Php7，Go1，Java8 和 CustomRuntime，默认Python2.7
+    * 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， Php5.2， Php7.4，Go1，Java8 和 CustomRuntime，默认Python2.7
     */
     @SerializedName("Runtime")
     @Expose
@@ -189,6 +189,20 @@ public class CreateFunctionRequest extends AbstractModel{
     @SerializedName("TraceEnable")
     @Expose
     private String TraceEnable;
+
+    /**
+    * 是否自动创建cls索引，TRUE 为开启，FALSE为关闭
+    */
+    @SerializedName("AutoDeployClsTopicIndex")
+    @Expose
+    private String AutoDeployClsTopicIndex;
+
+    /**
+    * 是否自动创建cls主题，TRUE 为开启，FALSE为关闭
+    */
+    @SerializedName("AutoCreateClsTopic")
+    @Expose
+    private String AutoCreateClsTopic;
 
     /**
     * HTTP函数支持的访问协议。当前支持WebSockets协议，值为WS
@@ -324,16 +338,16 @@ public class CreateFunctionRequest extends AbstractModel{
     }
 
     /**
-     * Get 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， Php5， Php7，Go1，Java8 和 CustomRuntime，默认Python2.7 
-     * @return Runtime 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， Php5， Php7，Go1，Java8 和 CustomRuntime，默认Python2.7
+     * Get 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， Php5.2， Php7.4，Go1，Java8 和 CustomRuntime，默认Python2.7 
+     * @return Runtime 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， Php5.2， Php7.4，Go1，Java8 和 CustomRuntime，默认Python2.7
      */
     public String getRuntime() {
         return this.Runtime;
     }
 
     /**
-     * Set 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， Php5， Php7，Go1，Java8 和 CustomRuntime，默认Python2.7
-     * @param Runtime 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， Php5， Php7，Go1，Java8 和 CustomRuntime，默认Python2.7
+     * Set 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， Php5.2， Php7.4，Go1，Java8 和 CustomRuntime，默认Python2.7
+     * @param Runtime 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， Php5.2， Php7.4，Go1，Java8 和 CustomRuntime，默认Python2.7
      */
     public void setRuntime(String Runtime) {
         this.Runtime = Runtime;
@@ -596,6 +610,38 @@ public class CreateFunctionRequest extends AbstractModel{
     }
 
     /**
+     * Get 是否自动创建cls索引，TRUE 为开启，FALSE为关闭 
+     * @return AutoDeployClsTopicIndex 是否自动创建cls索引，TRUE 为开启，FALSE为关闭
+     */
+    public String getAutoDeployClsTopicIndex() {
+        return this.AutoDeployClsTopicIndex;
+    }
+
+    /**
+     * Set 是否自动创建cls索引，TRUE 为开启，FALSE为关闭
+     * @param AutoDeployClsTopicIndex 是否自动创建cls索引，TRUE 为开启，FALSE为关闭
+     */
+    public void setAutoDeployClsTopicIndex(String AutoDeployClsTopicIndex) {
+        this.AutoDeployClsTopicIndex = AutoDeployClsTopicIndex;
+    }
+
+    /**
+     * Get 是否自动创建cls主题，TRUE 为开启，FALSE为关闭 
+     * @return AutoCreateClsTopic 是否自动创建cls主题，TRUE 为开启，FALSE为关闭
+     */
+    public String getAutoCreateClsTopic() {
+        return this.AutoCreateClsTopic;
+    }
+
+    /**
+     * Set 是否自动创建cls主题，TRUE 为开启，FALSE为关闭
+     * @param AutoCreateClsTopic 是否自动创建cls主题，TRUE 为开启，FALSE为关闭
+     */
+    public void setAutoCreateClsTopic(String AutoCreateClsTopic) {
+        this.AutoCreateClsTopic = AutoCreateClsTopic;
+    }
+
+    /**
      * Get HTTP函数支持的访问协议。当前支持WebSockets协议，值为WS 
      * @return ProtocolType HTTP函数支持的访问协议。当前支持WebSockets协议，值为WS
      */
@@ -729,6 +775,12 @@ public class CreateFunctionRequest extends AbstractModel{
         if (source.TraceEnable != null) {
             this.TraceEnable = new String(source.TraceEnable);
         }
+        if (source.AutoDeployClsTopicIndex != null) {
+            this.AutoDeployClsTopicIndex = new String(source.AutoDeployClsTopicIndex);
+        }
+        if (source.AutoCreateClsTopic != null) {
+            this.AutoCreateClsTopic = new String(source.AutoCreateClsTopic);
+        }
         if (source.ProtocolType != null) {
             this.ProtocolType = new String(source.ProtocolType);
         }
@@ -769,6 +821,8 @@ public class CreateFunctionRequest extends AbstractModel{
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "AsyncRunEnable", this.AsyncRunEnable);
         this.setParamSimple(map, prefix + "TraceEnable", this.TraceEnable);
+        this.setParamSimple(map, prefix + "AutoDeployClsTopicIndex", this.AutoDeployClsTopicIndex);
+        this.setParamSimple(map, prefix + "AutoCreateClsTopic", this.AutoCreateClsTopic);
         this.setParamSimple(map, prefix + "ProtocolType", this.ProtocolType);
         this.setParamObj(map, prefix + "ProtocolParams.", this.ProtocolParams);
         this.setParamObj(map, prefix + "InstanceConcurrencyConfig.", this.InstanceConcurrencyConfig);

@@ -23,8 +23,8 @@ import java.util.HashMap;
 public class ChannelCreateMultiFlowSignQRCodeRequest extends AbstractModel{
 
     /**
-    * 渠道应用相关信息。
-此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 必填。
+    * 应用相关信息。
+此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
     */
     @SerializedName("Agent")
     @Expose
@@ -45,7 +45,9 @@ public class ChannelCreateMultiFlowSignQRCodeRequest extends AbstractModel{
     private String FlowName;
 
     /**
-    * 最大可发起签署流程份数，默认5份；发起签署流程数量超过此上限后，二维码自动失效。
+    * 最大可发起签署流程份数
+<br/>默认5份
+<br/>备注：发起签署流程数量超过此上限后，二维码自动失效。
     */
     @SerializedName("MaxFlowNum")
     @Expose
@@ -66,7 +68,8 @@ public class ChannelCreateMultiFlowSignQRCodeRequest extends AbstractModel{
     private Long QrEffectiveDay;
 
     /**
-    * 限制二维码用户条件
+    * 指定的签署二维码签署人
+<br/>指定后，只允许知道的人操作和签署
     */
     @SerializedName("Restrictions")
     @Expose
@@ -74,19 +77,12 @@ public class ChannelCreateMultiFlowSignQRCodeRequest extends AbstractModel{
 
     /**
     * 回调地址，最大长度1000个字符
-不传默认使用渠道应用号配置的回调地址
+不传默认使用第三方应用号配置的回调地址
 回调时机:用户通过签署二维码发起合同时，企业额度不足导致失败
     */
     @SerializedName("CallbackUrl")
     @Expose
     private String CallbackUrl;
-
-    /**
-    * 用户信息
-    */
-    @SerializedName("Operator")
-    @Expose
-    private UserInfo Operator;
 
     /**
     * 限制二维码用户条件（已弃用）
@@ -96,20 +92,27 @@ public class ChannelCreateMultiFlowSignQRCodeRequest extends AbstractModel{
     private ApproverRestriction ApproverRestrictions;
 
     /**
-     * Get 渠道应用相关信息。
-此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 必填。 
-     * @return Agent 渠道应用相关信息。
-此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 必填。
+    * 暂未开放
+    */
+    @SerializedName("Operator")
+    @Expose
+    private UserInfo Operator;
+
+    /**
+     * Get 应用相关信息。
+此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。 
+     * @return Agent 应用相关信息。
+此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 渠道应用相关信息。
-此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 必填。
-     * @param Agent 渠道应用相关信息。
-此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 必填。
+     * Set 应用相关信息。
+此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
+     * @param Agent 应用相关信息。
+此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
@@ -148,16 +151,24 @@ public class ChannelCreateMultiFlowSignQRCodeRequest extends AbstractModel{
     }
 
     /**
-     * Get 最大可发起签署流程份数，默认5份；发起签署流程数量超过此上限后，二维码自动失效。 
-     * @return MaxFlowNum 最大可发起签署流程份数，默认5份；发起签署流程数量超过此上限后，二维码自动失效。
+     * Get 最大可发起签署流程份数
+<br/>默认5份
+<br/>备注：发起签署流程数量超过此上限后，二维码自动失效。 
+     * @return MaxFlowNum 最大可发起签署流程份数
+<br/>默认5份
+<br/>备注：发起签署流程数量超过此上限后，二维码自动失效。
      */
     public Long getMaxFlowNum() {
         return this.MaxFlowNum;
     }
 
     /**
-     * Set 最大可发起签署流程份数，默认5份；发起签署流程数量超过此上限后，二维码自动失效。
-     * @param MaxFlowNum 最大可发起签署流程份数，默认5份；发起签署流程数量超过此上限后，二维码自动失效。
+     * Set 最大可发起签署流程份数
+<br/>默认5份
+<br/>备注：发起签署流程数量超过此上限后，二维码自动失效。
+     * @param MaxFlowNum 最大可发起签署流程份数
+<br/>默认5份
+<br/>备注：发起签署流程数量超过此上限后，二维码自动失效。
      */
     public void setMaxFlowNum(Long MaxFlowNum) {
         this.MaxFlowNum = MaxFlowNum;
@@ -196,16 +207,20 @@ public class ChannelCreateMultiFlowSignQRCodeRequest extends AbstractModel{
     }
 
     /**
-     * Get 限制二维码用户条件 
-     * @return Restrictions 限制二维码用户条件
+     * Get 指定的签署二维码签署人
+<br/>指定后，只允许知道的人操作和签署 
+     * @return Restrictions 指定的签署二维码签署人
+<br/>指定后，只允许知道的人操作和签署
      */
     public ApproverRestriction [] getRestrictions() {
         return this.Restrictions;
     }
 
     /**
-     * Set 限制二维码用户条件
-     * @param Restrictions 限制二维码用户条件
+     * Set 指定的签署二维码签署人
+<br/>指定后，只允许知道的人操作和签署
+     * @param Restrictions 指定的签署二维码签署人
+<br/>指定后，只允许知道的人操作和签署
      */
     public void setRestrictions(ApproverRestriction [] Restrictions) {
         this.Restrictions = Restrictions;
@@ -213,10 +228,10 @@ public class ChannelCreateMultiFlowSignQRCodeRequest extends AbstractModel{
 
     /**
      * Get 回调地址，最大长度1000个字符
-不传默认使用渠道应用号配置的回调地址
+不传默认使用第三方应用号配置的回调地址
 回调时机:用户通过签署二维码发起合同时，企业额度不足导致失败 
      * @return CallbackUrl 回调地址，最大长度1000个字符
-不传默认使用渠道应用号配置的回调地址
+不传默认使用第三方应用号配置的回调地址
 回调时机:用户通过签署二维码发起合同时，企业额度不足导致失败
      */
     public String getCallbackUrl() {
@@ -225,10 +240,10 @@ public class ChannelCreateMultiFlowSignQRCodeRequest extends AbstractModel{
 
     /**
      * Set 回调地址，最大长度1000个字符
-不传默认使用渠道应用号配置的回调地址
+不传默认使用第三方应用号配置的回调地址
 回调时机:用户通过签署二维码发起合同时，企业额度不足导致失败
      * @param CallbackUrl 回调地址，最大长度1000个字符
-不传默认使用渠道应用号配置的回调地址
+不传默认使用第三方应用号配置的回调地址
 回调时机:用户通过签署二维码发起合同时，企业额度不足导致失败
      */
     public void setCallbackUrl(String CallbackUrl) {
@@ -236,25 +251,11 @@ public class ChannelCreateMultiFlowSignQRCodeRequest extends AbstractModel{
     }
 
     /**
-     * Get 用户信息 
-     * @return Operator 用户信息
-     */
-    public UserInfo getOperator() {
-        return this.Operator;
-    }
-
-    /**
-     * Set 用户信息
-     * @param Operator 用户信息
-     */
-    public void setOperator(UserInfo Operator) {
-        this.Operator = Operator;
-    }
-
-    /**
      * Get 限制二维码用户条件（已弃用） 
      * @return ApproverRestrictions 限制二维码用户条件（已弃用）
+     * @deprecated
      */
+    @Deprecated
     public ApproverRestriction getApproverRestrictions() {
         return this.ApproverRestrictions;
     }
@@ -262,9 +263,31 @@ public class ChannelCreateMultiFlowSignQRCodeRequest extends AbstractModel{
     /**
      * Set 限制二维码用户条件（已弃用）
      * @param ApproverRestrictions 限制二维码用户条件（已弃用）
+     * @deprecated
      */
+    @Deprecated
     public void setApproverRestrictions(ApproverRestriction ApproverRestrictions) {
         this.ApproverRestrictions = ApproverRestrictions;
+    }
+
+    /**
+     * Get 暂未开放 
+     * @return Operator 暂未开放
+     * @deprecated
+     */
+    @Deprecated
+    public UserInfo getOperator() {
+        return this.Operator;
+    }
+
+    /**
+     * Set 暂未开放
+     * @param Operator 暂未开放
+     * @deprecated
+     */
+    @Deprecated
+    public void setOperator(UserInfo Operator) {
+        this.Operator = Operator;
     }
 
     public ChannelCreateMultiFlowSignQRCodeRequest() {
@@ -302,11 +325,11 @@ public class ChannelCreateMultiFlowSignQRCodeRequest extends AbstractModel{
         if (source.CallbackUrl != null) {
             this.CallbackUrl = new String(source.CallbackUrl);
         }
-        if (source.Operator != null) {
-            this.Operator = new UserInfo(source.Operator);
-        }
         if (source.ApproverRestrictions != null) {
             this.ApproverRestrictions = new ApproverRestriction(source.ApproverRestrictions);
+        }
+        if (source.Operator != null) {
+            this.Operator = new UserInfo(source.Operator);
         }
     }
 
@@ -323,8 +346,8 @@ public class ChannelCreateMultiFlowSignQRCodeRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "QrEffectiveDay", this.QrEffectiveDay);
         this.setParamArrayObj(map, prefix + "Restrictions.", this.Restrictions);
         this.setParamSimple(map, prefix + "CallbackUrl", this.CallbackUrl);
-        this.setParamObj(map, prefix + "Operator.", this.Operator);
         this.setParamObj(map, prefix + "ApproverRestrictions.", this.ApproverRestrictions);
+        this.setParamObj(map, prefix + "Operator.", this.Operator);
 
     }
 }

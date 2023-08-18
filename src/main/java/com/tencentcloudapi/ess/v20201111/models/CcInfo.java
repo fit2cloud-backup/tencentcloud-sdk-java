@@ -23,26 +23,158 @@ import java.util.HashMap;
 public class CcInfo extends AbstractModel{
 
     /**
-    * 被抄送人手机号
+    * 被抄送方手机号码， 支持国内手机号11位数字(无需加+86前缀或其他字符)。
+请确认手机号所有方为此业务通知方。
     */
     @SerializedName("Mobile")
     @Expose
     private String Mobile;
 
     /**
-     * Get 被抄送人手机号 
-     * @return Mobile 被抄送人手机号
+    * 被抄送方姓名。
+抄送方的姓名将用于身份认证，请确保填写的姓名为抄送方的真实姓名，而非昵称等代名。
+    */
+    @SerializedName("Name")
+    @Expose
+    private String Name;
+
+    /**
+    * 被抄送方类型, 可设置以下类型:
+<ul><li> **0** :个人抄送方</li>
+<li> **1** :企业员工抄送方</li></ul>
+    */
+    @SerializedName("CcType")
+    @Expose
+    private Long CcType;
+
+    /**
+    * 被抄送方权限, 可设置如下权限:
+<ul><li> **0** :可查看合同内容</li>
+<li> **1** :可查看合同内容也可下载原文</li></ul>
+    */
+    @SerializedName("CcPermission")
+    @Expose
+    private Long CcPermission;
+
+    /**
+    * 通知签署方经办人的方式,  有以下途径:
+<ul><li> **sms** :  (默认)短信</li>
+<li> **none** : 不通知</li></ul>
+    */
+    @SerializedName("NotifyType")
+    @Expose
+    private String NotifyType;
+
+    /**
+     * Get 被抄送方手机号码， 支持国内手机号11位数字(无需加+86前缀或其他字符)。
+请确认手机号所有方为此业务通知方。 
+     * @return Mobile 被抄送方手机号码， 支持国内手机号11位数字(无需加+86前缀或其他字符)。
+请确认手机号所有方为此业务通知方。
      */
     public String getMobile() {
         return this.Mobile;
     }
 
     /**
-     * Set 被抄送人手机号
-     * @param Mobile 被抄送人手机号
+     * Set 被抄送方手机号码， 支持国内手机号11位数字(无需加+86前缀或其他字符)。
+请确认手机号所有方为此业务通知方。
+     * @param Mobile 被抄送方手机号码， 支持国内手机号11位数字(无需加+86前缀或其他字符)。
+请确认手机号所有方为此业务通知方。
      */
     public void setMobile(String Mobile) {
         this.Mobile = Mobile;
+    }
+
+    /**
+     * Get 被抄送方姓名。
+抄送方的姓名将用于身份认证，请确保填写的姓名为抄送方的真实姓名，而非昵称等代名。 
+     * @return Name 被抄送方姓名。
+抄送方的姓名将用于身份认证，请确保填写的姓名为抄送方的真实姓名，而非昵称等代名。
+     */
+    public String getName() {
+        return this.Name;
+    }
+
+    /**
+     * Set 被抄送方姓名。
+抄送方的姓名将用于身份认证，请确保填写的姓名为抄送方的真实姓名，而非昵称等代名。
+     * @param Name 被抄送方姓名。
+抄送方的姓名将用于身份认证，请确保填写的姓名为抄送方的真实姓名，而非昵称等代名。
+     */
+    public void setName(String Name) {
+        this.Name = Name;
+    }
+
+    /**
+     * Get 被抄送方类型, 可设置以下类型:
+<ul><li> **0** :个人抄送方</li>
+<li> **1** :企业员工抄送方</li></ul> 
+     * @return CcType 被抄送方类型, 可设置以下类型:
+<ul><li> **0** :个人抄送方</li>
+<li> **1** :企业员工抄送方</li></ul>
+     */
+    public Long getCcType() {
+        return this.CcType;
+    }
+
+    /**
+     * Set 被抄送方类型, 可设置以下类型:
+<ul><li> **0** :个人抄送方</li>
+<li> **1** :企业员工抄送方</li></ul>
+     * @param CcType 被抄送方类型, 可设置以下类型:
+<ul><li> **0** :个人抄送方</li>
+<li> **1** :企业员工抄送方</li></ul>
+     */
+    public void setCcType(Long CcType) {
+        this.CcType = CcType;
+    }
+
+    /**
+     * Get 被抄送方权限, 可设置如下权限:
+<ul><li> **0** :可查看合同内容</li>
+<li> **1** :可查看合同内容也可下载原文</li></ul> 
+     * @return CcPermission 被抄送方权限, 可设置如下权限:
+<ul><li> **0** :可查看合同内容</li>
+<li> **1** :可查看合同内容也可下载原文</li></ul>
+     */
+    public Long getCcPermission() {
+        return this.CcPermission;
+    }
+
+    /**
+     * Set 被抄送方权限, 可设置如下权限:
+<ul><li> **0** :可查看合同内容</li>
+<li> **1** :可查看合同内容也可下载原文</li></ul>
+     * @param CcPermission 被抄送方权限, 可设置如下权限:
+<ul><li> **0** :可查看合同内容</li>
+<li> **1** :可查看合同内容也可下载原文</li></ul>
+     */
+    public void setCcPermission(Long CcPermission) {
+        this.CcPermission = CcPermission;
+    }
+
+    /**
+     * Get 通知签署方经办人的方式,  有以下途径:
+<ul><li> **sms** :  (默认)短信</li>
+<li> **none** : 不通知</li></ul> 
+     * @return NotifyType 通知签署方经办人的方式,  有以下途径:
+<ul><li> **sms** :  (默认)短信</li>
+<li> **none** : 不通知</li></ul>
+     */
+    public String getNotifyType() {
+        return this.NotifyType;
+    }
+
+    /**
+     * Set 通知签署方经办人的方式,  有以下途径:
+<ul><li> **sms** :  (默认)短信</li>
+<li> **none** : 不通知</li></ul>
+     * @param NotifyType 通知签署方经办人的方式,  有以下途径:
+<ul><li> **sms** :  (默认)短信</li>
+<li> **none** : 不通知</li></ul>
+     */
+    public void setNotifyType(String NotifyType) {
+        this.NotifyType = NotifyType;
     }
 
     public CcInfo() {
@@ -56,6 +188,18 @@ public class CcInfo extends AbstractModel{
         if (source.Mobile != null) {
             this.Mobile = new String(source.Mobile);
         }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.CcType != null) {
+            this.CcType = new Long(source.CcType);
+        }
+        if (source.CcPermission != null) {
+            this.CcPermission = new Long(source.CcPermission);
+        }
+        if (source.NotifyType != null) {
+            this.NotifyType = new String(source.NotifyType);
+        }
     }
 
 
@@ -64,6 +208,10 @@ public class CcInfo extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Mobile", this.Mobile);
+        this.setParamSimple(map, prefix + "Name", this.Name);
+        this.setParamSimple(map, prefix + "CcType", this.CcType);
+        this.setParamSimple(map, prefix + "CcPermission", this.CcPermission);
+        this.setParamSimple(map, prefix + "NotifyType", this.NotifyType);
 
     }
 }

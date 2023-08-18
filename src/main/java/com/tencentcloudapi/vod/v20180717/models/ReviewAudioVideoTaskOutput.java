@@ -35,11 +35,10 @@ public class ReviewAudioVideoTaskOutput extends AbstractModel{
     /**
     * 当 Suggestion 为 review 或 block 时有效，表示音视频最可能的违规的标签，取值范围：
 <li>Porn：色情；</li>
-<li>Terror：暴恐；</li>
+<li>Terror：暴力；</li>
 <li>Polity：不适宜的信息；</li>
 <li>Ad：广告；</li>
 <li>Illegal：违法；</li>
-<li>Religion：宗教；</li>
 <li>Abuse：谩骂；</li>
 <li>Moan：娇喘。</li>
     */
@@ -81,6 +80,14 @@ public class ReviewAudioVideoTaskOutput extends AbstractModel{
     private String SegmentSetFileUrlExpireTime;
 
     /**
+    * 封面审核结果。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CoverReviewResult")
+    @Expose
+    private ReviewImageResult CoverReviewResult;
+
+    /**
      * Get 音视频内容审核的结果建议，取值范围：
 <li>pass：建议通过；</li>
 <li>review：建议复审；</li>
@@ -111,20 +118,18 @@ public class ReviewAudioVideoTaskOutput extends AbstractModel{
     /**
      * Get 当 Suggestion 为 review 或 block 时有效，表示音视频最可能的违规的标签，取值范围：
 <li>Porn：色情；</li>
-<li>Terror：暴恐；</li>
+<li>Terror：暴力；</li>
 <li>Polity：不适宜的信息；</li>
 <li>Ad：广告；</li>
 <li>Illegal：违法；</li>
-<li>Religion：宗教；</li>
 <li>Abuse：谩骂；</li>
 <li>Moan：娇喘。</li> 
      * @return Label 当 Suggestion 为 review 或 block 时有效，表示音视频最可能的违规的标签，取值范围：
 <li>Porn：色情；</li>
-<li>Terror：暴恐；</li>
+<li>Terror：暴力；</li>
 <li>Polity：不适宜的信息；</li>
 <li>Ad：广告；</li>
 <li>Illegal：违法；</li>
-<li>Religion：宗教；</li>
 <li>Abuse：谩骂；</li>
 <li>Moan：娇喘。</li>
      */
@@ -135,20 +140,18 @@ public class ReviewAudioVideoTaskOutput extends AbstractModel{
     /**
      * Set 当 Suggestion 为 review 或 block 时有效，表示音视频最可能的违规的标签，取值范围：
 <li>Porn：色情；</li>
-<li>Terror：暴恐；</li>
+<li>Terror：暴力；</li>
 <li>Polity：不适宜的信息；</li>
 <li>Ad：广告；</li>
 <li>Illegal：违法；</li>
-<li>Religion：宗教；</li>
 <li>Abuse：谩骂；</li>
 <li>Moan：娇喘。</li>
      * @param Label 当 Suggestion 为 review 或 block 时有效，表示音视频最可能的违规的标签，取值范围：
 <li>Porn：色情；</li>
-<li>Terror：暴恐；</li>
+<li>Terror：暴力；</li>
 <li>Polity：不适宜的信息；</li>
 <li>Ad：广告；</li>
 <li>Illegal：违法；</li>
-<li>Religion：宗教；</li>
 <li>Abuse：谩骂；</li>
 <li>Moan：娇喘。</li>
      */
@@ -240,6 +243,26 @@ public class ReviewAudioVideoTaskOutput extends AbstractModel{
         this.SegmentSetFileUrlExpireTime = SegmentSetFileUrlExpireTime;
     }
 
+    /**
+     * Get 封面审核结果。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CoverReviewResult 封面审核结果。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ReviewImageResult getCoverReviewResult() {
+        return this.CoverReviewResult;
+    }
+
+    /**
+     * Set 封面审核结果。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CoverReviewResult 封面审核结果。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCoverReviewResult(ReviewImageResult CoverReviewResult) {
+        this.CoverReviewResult = CoverReviewResult;
+    }
+
     public ReviewAudioVideoTaskOutput() {
     }
 
@@ -269,6 +292,9 @@ public class ReviewAudioVideoTaskOutput extends AbstractModel{
         if (source.SegmentSetFileUrlExpireTime != null) {
             this.SegmentSetFileUrlExpireTime = new String(source.SegmentSetFileUrlExpireTime);
         }
+        if (source.CoverReviewResult != null) {
+            this.CoverReviewResult = new ReviewImageResult(source.CoverReviewResult);
+        }
     }
 
 
@@ -282,6 +308,7 @@ public class ReviewAudioVideoTaskOutput extends AbstractModel{
         this.setParamArrayObj(map, prefix + "SegmentSet.", this.SegmentSet);
         this.setParamSimple(map, prefix + "SegmentSetFileUrl", this.SegmentSetFileUrl);
         this.setParamSimple(map, prefix + "SegmentSetFileUrlExpireTime", this.SegmentSetFileUrlExpireTime);
+        this.setParamObj(map, prefix + "CoverReviewResult.", this.CoverReviewResult);
 
     }
 }

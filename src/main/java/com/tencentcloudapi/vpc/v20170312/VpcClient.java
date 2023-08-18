@@ -29,7 +29,7 @@ public class VpcClient extends AbstractClient{
     private static String endpoint = "vpc.tencentcloudapi.com";
     private static String service = "vpc";
     private static String version = "2017-03-12";
-
+    
     public VpcClient(Credential credential, String region) {
         this(credential, region, new ClientProfile());
     }
@@ -47,10 +47,32 @@ public class VpcClient extends AbstractClient{
     public AcceptAttachCcnInstancesResponse AcceptAttachCcnInstances(AcceptAttachCcnInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AcceptAttachCcnInstancesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AcceptAttachCcnInstancesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "AcceptAttachCcnInstances");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（AcceptVpcPeeringConnection）用于接受对等连接请求。
+     * @param req AcceptVpcPeeringConnectionRequest
+     * @return AcceptVpcPeeringConnectionResponse
+     * @throws TencentCloudSDKException
+     */
+    public AcceptVpcPeeringConnectionResponse AcceptVpcPeeringConnection(AcceptVpcPeeringConnectionRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<AcceptVpcPeeringConnectionResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<AcceptVpcPeeringConnectionResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "AcceptVpcPeeringConnection");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -67,6 +89,7 @@ public class VpcClient extends AbstractClient{
     public AddBandwidthPackageResourcesResponse AddBandwidthPackageResources(AddBandwidthPackageResourcesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AddBandwidthPackageResourcesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AddBandwidthPackageResourcesResponse>>() {
                 }.getType();
@@ -89,6 +112,7 @@ public class VpcClient extends AbstractClient{
     public AddIp6RulesResponse AddIp6Rules(AddIp6RulesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AddIp6RulesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AddIp6RulesResponse>>() {
                 }.getType();
@@ -109,6 +133,7 @@ public class VpcClient extends AbstractClient{
     public AddTemplateMemberResponse AddTemplateMember(AddTemplateMemberRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AddTemplateMemberResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AddTemplateMemberResponse>>() {
                 }.getType();
@@ -122,7 +147,6 @@ public class VpcClient extends AbstractClient{
 
     /**
      *本接口 (AdjustPublicAddress) 用于更换IP地址，支持更换CVM实例的普通公网IP和包月带宽的EIP。
-
      * @param req AdjustPublicAddressRequest
      * @return AdjustPublicAddressResponse
      * @throws TencentCloudSDKException
@@ -130,6 +154,7 @@ public class VpcClient extends AbstractClient{
     public AdjustPublicAddressResponse AdjustPublicAddress(AdjustPublicAddressRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AdjustPublicAddressResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AdjustPublicAddressResponse>>() {
                 }.getType();
@@ -153,6 +178,7 @@ public class VpcClient extends AbstractClient{
     public AllocateAddressesResponse AllocateAddresses(AllocateAddressesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AllocateAddressesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AllocateAddressesResponse>>() {
                 }.getType();
@@ -173,6 +199,7 @@ public class VpcClient extends AbstractClient{
     public AllocateIp6AddressesBandwidthResponse AllocateIp6AddressesBandwidth(AllocateIp6AddressesBandwidthRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AllocateIp6AddressesBandwidthResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AllocateIp6AddressesBandwidthResponse>>() {
                 }.getType();
@@ -198,6 +225,7 @@ public class VpcClient extends AbstractClient{
     public AssignIpv6AddressesResponse AssignIpv6Addresses(AssignIpv6AddressesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AssignIpv6AddressesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AssignIpv6AddressesResponse>>() {
                 }.getType();
@@ -212,7 +240,7 @@ public class VpcClient extends AbstractClient{
     /**
      *本接口（AssignIpv6CidrBlock）用于分配IPv6网段。
 * 使用本接口前，您需要已有VPC实例，如果没有可通过接口<a href="https://cloud.tencent.com/document/api/215/15774" title="CreateVpc" target="_blank">CreateVpc</a>创建。
-* 每个VPC只能申请一个IPv6网段
+* 每个VPC只能申请一个IPv6网段。
      * @param req AssignIpv6CidrBlockRequest
      * @return AssignIpv6CidrBlockResponse
      * @throws TencentCloudSDKException
@@ -220,6 +248,7 @@ public class VpcClient extends AbstractClient{
     public AssignIpv6CidrBlockResponse AssignIpv6CidrBlock(AssignIpv6CidrBlockRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AssignIpv6CidrBlockResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AssignIpv6CidrBlockResponse>>() {
                 }.getType();
@@ -242,6 +271,7 @@ public class VpcClient extends AbstractClient{
     public AssignIpv6SubnetCidrBlockResponse AssignIpv6SubnetCidrBlock(AssignIpv6SubnetCidrBlockRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AssignIpv6SubnetCidrBlockResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AssignIpv6SubnetCidrBlockResponse>>() {
                 }.getType();
@@ -267,6 +297,7 @@ public class VpcClient extends AbstractClient{
     public AssignPrivateIpAddressesResponse AssignPrivateIpAddresses(AssignPrivateIpAddressesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AssignPrivateIpAddressesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AssignPrivateIpAddressesResponse>>() {
                 }.getType();
@@ -283,7 +314,7 @@ public class VpcClient extends AbstractClient{
 * 将 EIP 绑定到实例（CVM）上，其本质是将 EIP 绑定到实例上主网卡的主内网 IP 上。
 * 将 EIP 绑定到主网卡的主内网IP上，绑定过程会把其上绑定的普通公网 IP 自动解绑并释放。
 * 将 EIP 绑定到指定网卡的内网 IP上（非主网卡的主内网IP），则必须先解绑该 EIP，才能再绑定新的。
-* 将EIP绑定到绑定内网型CLB实例的功能处于内测阶段，如需使用，请提交内测申请。
+* 将 EIP 绑定到内网型CLB实例的功能处于内测阶段，如需使用，请提交内测申请。
 * 将 EIP 绑定到NAT网关，请使用接口[AssociateNatGatewayAddress](https://cloud.tencent.com/document/product/215/36722)
 * EIP 如果欠费或被封堵，则不能被绑定。
 * 只有状态为 UNBIND 的 EIP 才能够被绑定。
@@ -294,6 +325,7 @@ public class VpcClient extends AbstractClient{
     public AssociateAddressResponse AssociateAddress(AssociateAddressRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AssociateAddressResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AssociateAddressResponse>>() {
                 }.getType();
@@ -316,6 +348,7 @@ public class VpcClient extends AbstractClient{
     public AssociateDhcpIpWithAddressIpResponse AssociateDhcpIpWithAddressIp(AssociateDhcpIpWithAddressIpRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AssociateDhcpIpWithAddressIpResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AssociateDhcpIpWithAddressIpResponse>>() {
                 }.getType();
@@ -336,6 +369,7 @@ public class VpcClient extends AbstractClient{
     public AssociateDirectConnectGatewayNatGatewayResponse AssociateDirectConnectGatewayNatGateway(AssociateDirectConnectGatewayNatGatewayRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AssociateDirectConnectGatewayNatGatewayResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AssociateDirectConnectGatewayNatGatewayResponse>>() {
                 }.getType();
@@ -356,6 +390,7 @@ public class VpcClient extends AbstractClient{
     public AssociateNatGatewayAddressResponse AssociateNatGatewayAddress(AssociateNatGatewayAddressRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AssociateNatGatewayAddressResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AssociateNatGatewayAddressResponse>>() {
                 }.getType();
@@ -368,7 +403,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（AssociateNetworkAclSubnets）用于网络ACL关联vpc下的子网。
+     *本接口（AssociateNetworkAclSubnets）用于网络ACL关联VPC下的子网。
      * @param req AssociateNetworkAclSubnetsRequest
      * @return AssociateNetworkAclSubnetsResponse
      * @throws TencentCloudSDKException
@@ -376,6 +411,7 @@ public class VpcClient extends AbstractClient{
     public AssociateNetworkAclSubnetsResponse AssociateNetworkAclSubnets(AssociateNetworkAclSubnetsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AssociateNetworkAclSubnetsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AssociateNetworkAclSubnetsResponse>>() {
                 }.getType();
@@ -396,6 +432,7 @@ public class VpcClient extends AbstractClient{
     public AssociateNetworkInterfaceSecurityGroupsResponse AssociateNetworkInterfaceSecurityGroups(AssociateNetworkInterfaceSecurityGroupsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AssociateNetworkInterfaceSecurityGroupsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AssociateNetworkInterfaceSecurityGroupsResponse>>() {
                 }.getType();
@@ -409,7 +446,7 @@ public class VpcClient extends AbstractClient{
 
     /**
      *本接口（AttachCcnInstances）用于将网络实例加载到云联网实例中，网络实例包括VPC和专线网关。<br />
-每个云联网能够关联的网络实例个数是有限的，详请参考产品文档。如果需要扩充请联系在线客服。
+每个云联网能够关联的网络实例个数是有限的，详情请参考产品文档。如果需要扩充请联系在线客服。
      * @param req AttachCcnInstancesRequest
      * @return AttachCcnInstancesResponse
      * @throws TencentCloudSDKException
@@ -417,6 +454,7 @@ public class VpcClient extends AbstractClient{
     public AttachCcnInstancesResponse AttachCcnInstances(AttachCcnInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AttachCcnInstancesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AttachCcnInstancesResponse>>() {
                 }.getType();
@@ -441,6 +479,7 @@ public class VpcClient extends AbstractClient{
     public AttachClassicLinkVpcResponse AttachClassicLinkVpc(AttachClassicLinkVpcRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AttachClassicLinkVpcResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AttachClassicLinkVpcResponse>>() {
                 }.getType();
@@ -468,10 +507,32 @@ public class VpcClient extends AbstractClient{
     public AttachNetworkInterfaceResponse AttachNetworkInterface(AttachNetworkInterfaceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AttachNetworkInterfaceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AttachNetworkInterfaceResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "AttachNetworkInterface");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（AttachSnapshotInstances）用于快照策略关联实例。
+     * @param req AttachSnapshotInstancesRequest
+     * @return AttachSnapshotInstancesResponse
+     * @throws TencentCloudSDKException
+     */
+    public AttachSnapshotInstancesResponse AttachSnapshotInstances(AttachSnapshotInstancesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<AttachSnapshotInstancesResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<AttachSnapshotInstancesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "AttachSnapshotInstances");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -490,6 +551,7 @@ public class VpcClient extends AbstractClient{
     public AuditCrossBorderComplianceResponse AuditCrossBorderCompliance(AuditCrossBorderComplianceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<AuditCrossBorderComplianceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<AuditCrossBorderComplianceResponse>>() {
                 }.getType();
@@ -502,7 +564,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口(CheckAssistantCidr)用于检查辅助CIDR是否与存量路由、对等连接（对端VPC的CIDR）等资源存在冲突。如果存在重叠，则返回重叠的资源。
+     *本接口（CheckAssistantCidr）用于检查辅助CIDR是否与存量路由、对等连接（对端VPC的CIDR）等资源存在冲突。如果存在重叠，则返回重叠的资源。
 * 检测辅助CIDR是否与当前VPC的主CIDR和辅助CIDR存在重叠。
 * 检测辅助CIDR是否与当前VPC的路由的目的端存在重叠。
 * 检测辅助CIDR是否与当前VPC的对等连接，对端VPC下的主CIDR或辅助CIDR存在重叠。
@@ -513,6 +575,7 @@ public class VpcClient extends AbstractClient{
     public CheckAssistantCidrResponse CheckAssistantCidr(CheckAssistantCidrRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CheckAssistantCidrResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CheckAssistantCidrResponse>>() {
                 }.getType();
@@ -533,6 +596,7 @@ public class VpcClient extends AbstractClient{
     public CheckDefaultSubnetResponse CheckDefaultSubnet(CheckDefaultSubnetRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CheckDefaultSubnetResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CheckDefaultSubnetResponse>>() {
                 }.getType();
@@ -545,7 +609,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口(CheckNetDetectState)用于验证网络探测。
+     *本接口（CheckNetDetectState）用于验证网络探测。
      * @param req CheckNetDetectStateRequest
      * @return CheckNetDetectStateResponse
      * @throws TencentCloudSDKException
@@ -553,6 +617,7 @@ public class VpcClient extends AbstractClient{
     public CheckNetDetectStateResponse CheckNetDetectState(CheckNetDetectStateRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CheckNetDetectStateResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CheckNetDetectStateResponse>>() {
                 }.getType();
@@ -573,6 +638,7 @@ public class VpcClient extends AbstractClient{
     public CloneSecurityGroupResponse CloneSecurityGroup(CloneSecurityGroupRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CloneSecurityGroupResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CloneSecurityGroupResponse>>() {
                 }.getType();
@@ -593,6 +659,7 @@ public class VpcClient extends AbstractClient{
     public CreateAddressTemplateResponse CreateAddressTemplate(CreateAddressTemplateRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateAddressTemplateResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateAddressTemplateResponse>>() {
                 }.getType();
@@ -605,7 +672,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（CreateAddressTemplateGroup）用于创建IP地址模板集合
+     *本接口（CreateAddressTemplateGroup）用于创建IP地址模板集合。
      * @param req CreateAddressTemplateGroupRequest
      * @return CreateAddressTemplateGroupResponse
      * @throws TencentCloudSDKException
@@ -613,6 +680,7 @@ public class VpcClient extends AbstractClient{
     public CreateAddressTemplateGroupResponse CreateAddressTemplateGroup(CreateAddressTemplateGroupRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateAddressTemplateGroupResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateAddressTemplateGroupResponse>>() {
                 }.getType();
@@ -640,6 +708,7 @@ public class VpcClient extends AbstractClient{
     public CreateAndAttachNetworkInterfaceResponse CreateAndAttachNetworkInterface(CreateAndAttachNetworkInterfaceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateAndAttachNetworkInterfaceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateAndAttachNetworkInterfaceResponse>>() {
                 }.getType();
@@ -652,7 +721,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口(CreateAssistantCidr)用于批量创建辅助CIDR。
+     *本接口（CreateAssistantCidr）用于批量创建辅助CIDR。
      * @param req CreateAssistantCidrRequest
      * @return CreateAssistantCidrResponse
      * @throws TencentCloudSDKException
@@ -660,6 +729,7 @@ public class VpcClient extends AbstractClient{
     public CreateAssistantCidrResponse CreateAssistantCidr(CreateAssistantCidrRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateAssistantCidrResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateAssistantCidrResponse>>() {
                 }.getType();
@@ -680,6 +750,7 @@ public class VpcClient extends AbstractClient{
     public CreateBandwidthPackageResponse CreateBandwidthPackage(CreateBandwidthPackageRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateBandwidthPackageResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateBandwidthPackageResponse>>() {
                 }.getType();
@@ -702,6 +773,7 @@ public class VpcClient extends AbstractClient{
     public CreateCcnResponse CreateCcn(CreateCcnRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateCcnResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateCcnResponse>>() {
                 }.getType();
@@ -722,6 +794,7 @@ public class VpcClient extends AbstractClient{
     public CreateCustomerGatewayResponse CreateCustomerGateway(CreateCustomerGatewayRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateCustomerGatewayResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateCustomerGatewayResponse>>() {
                 }.getType();
@@ -745,6 +818,7 @@ public class VpcClient extends AbstractClient{
     public CreateDefaultSecurityGroupResponse CreateDefaultSecurityGroup(CreateDefaultSecurityGroupRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateDefaultSecurityGroupResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateDefaultSecurityGroupResponse>>() {
                 }.getType();
@@ -765,7 +839,7 @@ public class VpcClient extends AbstractClient{
 * 支持基础网络、VPC，返回VpcId为0
 * 只支持VPC，返回默认VPC信息
 
-您也可以通过 Force 参数，强制返回默认VPC
+您也可以通过 Force 参数，强制返回默认VPC。
      * @param req CreateDefaultVpcRequest
      * @return CreateDefaultVpcResponse
      * @throws TencentCloudSDKException
@@ -773,6 +847,7 @@ public class VpcClient extends AbstractClient{
     public CreateDefaultVpcResponse CreateDefaultVpc(CreateDefaultVpcRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateDefaultVpcResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateDefaultVpcResponse>>() {
                 }.getType();
@@ -785,7 +860,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（CreateDhcpIp）用于创建DhcpIp
+     *本接口（CreateDhcpIp）用于创建DhcpIp。
      * @param req CreateDhcpIpRequest
      * @return CreateDhcpIpResponse
      * @throws TencentCloudSDKException
@@ -793,6 +868,7 @@ public class VpcClient extends AbstractClient{
     public CreateDhcpIpResponse CreateDhcpIp(CreateDhcpIpRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateDhcpIpResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateDhcpIpResponse>>() {
                 }.getType();
@@ -813,6 +889,7 @@ public class VpcClient extends AbstractClient{
     public CreateDirectConnectGatewayResponse CreateDirectConnectGateway(CreateDirectConnectGatewayRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateDirectConnectGatewayResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateDirectConnectGatewayResponse>>() {
                 }.getType();
@@ -833,6 +910,7 @@ public class VpcClient extends AbstractClient{
     public CreateDirectConnectGatewayCcnRoutesResponse CreateDirectConnectGatewayCcnRoutes(CreateDirectConnectGatewayCcnRoutesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateDirectConnectGatewayCcnRoutesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateDirectConnectGatewayCcnRoutesResponse>>() {
                 }.getType();
@@ -845,7 +923,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（CreateFlowLog）用于创建流日志
+     *本接口（CreateFlowLog）用于创建网络流日志。
      * @param req CreateFlowLogRequest
      * @return CreateFlowLogResponse
      * @throws TencentCloudSDKException
@@ -853,6 +931,7 @@ public class VpcClient extends AbstractClient{
     public CreateFlowLogResponse CreateFlowLog(CreateFlowLogRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateFlowLogResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateFlowLogResponse>>() {
                 }.getType();
@@ -865,7 +944,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（CreateHaVip）用于创建高可用虚拟IP（HAVIP）
+     *本接口（CreateHaVip）用于创建高可用虚拟IP（HAVIP）。
      * @param req CreateHaVipRequest
      * @return CreateHaVipResponse
      * @throws TencentCloudSDKException
@@ -873,6 +952,7 @@ public class VpcClient extends AbstractClient{
     public CreateHaVipResponse CreateHaVip(CreateHaVipRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateHaVipResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateHaVipResponse>>() {
                 }.getType();
@@ -894,6 +974,7 @@ public class VpcClient extends AbstractClient{
     public CreateIp6TranslatorsResponse CreateIp6Translators(CreateIp6TranslatorsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateIp6TranslatorsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateIp6TranslatorsResponse>>() {
                 }.getType();
@@ -906,7 +987,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *该接口用于创建用于CDC的本地网关。
+     *本接口（CreateLocalGateway）用于创建用于CDC的本地网关。
      * @param req CreateLocalGatewayRequest
      * @return CreateLocalGatewayResponse
      * @throws TencentCloudSDKException
@@ -914,6 +995,7 @@ public class VpcClient extends AbstractClient{
     public CreateLocalGatewayResponse CreateLocalGateway(CreateLocalGatewayRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateLocalGatewayResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateLocalGatewayResponse>>() {
                 }.getType();
@@ -935,6 +1017,7 @@ public class VpcClient extends AbstractClient{
     public CreateNatGatewayResponse CreateNatGateway(CreateNatGatewayRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateNatGatewayResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateNatGatewayResponse>>() {
                 }.getType();
@@ -955,6 +1038,7 @@ public class VpcClient extends AbstractClient{
     public CreateNatGatewayDestinationIpPortTranslationNatRuleResponse CreateNatGatewayDestinationIpPortTranslationNatRule(CreateNatGatewayDestinationIpPortTranslationNatRuleRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateNatGatewayDestinationIpPortTranslationNatRuleResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateNatGatewayDestinationIpPortTranslationNatRuleResponse>>() {
                 }.getType();
@@ -975,6 +1059,7 @@ public class VpcClient extends AbstractClient{
     public CreateNatGatewaySourceIpTranslationNatRuleResponse CreateNatGatewaySourceIpTranslationNatRule(CreateNatGatewaySourceIpTranslationNatRuleRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateNatGatewaySourceIpTranslationNatRuleResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateNatGatewaySourceIpTranslationNatRuleResponse>>() {
                 }.getType();
@@ -987,7 +1072,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口(CreateNetDetect)用于创建网络探测。
+     *本接口（CreateNetDetect）用于创建网络探测。
      * @param req CreateNetDetectRequest
      * @return CreateNetDetectResponse
      * @throws TencentCloudSDKException
@@ -995,6 +1080,7 @@ public class VpcClient extends AbstractClient{
     public CreateNetDetectResponse CreateNetDetect(CreateNetDetectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateNetDetectResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateNetDetectResponse>>() {
                 }.getType();
@@ -1016,6 +1102,7 @@ public class VpcClient extends AbstractClient{
     public CreateNetworkAclResponse CreateNetworkAcl(CreateNetworkAclRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateNetworkAclResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateNetworkAclResponse>>() {
                 }.getType();
@@ -1036,6 +1123,7 @@ public class VpcClient extends AbstractClient{
     public CreateNetworkAclQuintupleEntriesResponse CreateNetworkAclQuintupleEntries(CreateNetworkAclQuintupleEntriesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateNetworkAclQuintupleEntriesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateNetworkAclQuintupleEntriesResponse>>() {
                 }.getType();
@@ -1063,6 +1151,7 @@ public class VpcClient extends AbstractClient{
     public CreateNetworkInterfaceResponse CreateNetworkInterface(CreateNetworkInterfaceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateNetworkInterfaceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateNetworkInterfaceResponse>>() {
                 }.getType();
@@ -1085,6 +1174,7 @@ public class VpcClient extends AbstractClient{
     public CreateRouteTableResponse CreateRouteTable(CreateRouteTableRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateRouteTableResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateRouteTableResponse>>() {
                 }.getType();
@@ -1097,7 +1187,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口(CreateRoutes)用于创建路由策略。
+     *本接口（CreateRoutes）用于创建路由策略。
 * 向指定路由表批量新增路由策略。
      * @param req CreateRoutesRequest
      * @return CreateRoutesResponse
@@ -1106,6 +1196,7 @@ public class VpcClient extends AbstractClient{
     public CreateRoutesResponse CreateRoutes(CreateRoutesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateRoutesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateRoutesResponse>>() {
                 }.getType();
@@ -1129,6 +1220,7 @@ public class VpcClient extends AbstractClient{
     public CreateSecurityGroupResponse CreateSecurityGroup(CreateSecurityGroupRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateSecurityGroupResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateSecurityGroupResponse>>() {
                 }.getType();
@@ -1163,6 +1255,7 @@ public class VpcClient extends AbstractClient{
     public CreateSecurityGroupPoliciesResponse CreateSecurityGroupPolicies(CreateSecurityGroupPoliciesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateSecurityGroupPoliciesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateSecurityGroupPoliciesResponse>>() {
                 }.getType();
@@ -1177,7 +1270,8 @@ public class VpcClient extends AbstractClient{
     /**
      *本接口（CreateSecurityGroupWithPolicies）用于创建新的安全组（SecurityGroup），并且可以同时添加安全组规则（SecurityGroupPolicy）。
 * 每个账户下每个地域的每个项目的<a href="https://cloud.tencent.com/document/product/213/12453">安全组数量限制</a>。
-* 新建的安全组的入站和出站规则默认都是全部拒绝，在创建后通常您需要再调用CreateSecurityGroupPolicies将安全组的规则设置为需要的规则。
+* 新建的安全组的入站和出站规则默认都是全部拒绝，在创建后通常您需要再调用<a href="https://cloud.tencent.com/document/product/215/15807">CreateSecurityGroupPolicies</a>
+将安全组的规则设置为需要的规则。
 
 安全组规则说明：
 * Version安全组规则版本号，用户每次更新安全规则版本会自动加1，防止您更新的路由规则已过期，不填不考虑冲突。
@@ -1185,7 +1279,7 @@ public class VpcClient extends AbstractClient{
 * CidrBlock字段允许输入符合cidr格式标准的任意字符串。(展开)在基础网络中，如果CidrBlock包含您的账户内的云服务器之外的设备在腾讯云的内网IP，并不代表此规则允许您访问这些设备，租户之间网络隔离规则优先于安全组中的内网规则。
 * Ipv6CidrBlock字段允许输入符合IPv6 cidr格式标准的任意字符串。(展开)在基础网络中，如果Ipv6CidrBlock包含您的账户内的云服务器之外的设备在腾讯云的内网IPv6，并不代表此规则允许您访问这些设备，租户之间网络隔离规则优先于安全组中的内网规则。
 * SecurityGroupId字段允许输入与待修改的安全组位于相同项目中的安全组ID，包括这个安全组ID本身，代表安全组下所有云服务器的内网IP。使用这个字段时，这条规则用来匹配网络报文的过程中会随着被使用的这个ID所关联的云服务器变化而变化，不需要重新修改。
-* Port字段允许输入一个单独端口号，或者用减号分隔的两个端口号代表端口范围，例如80或8000-8010。只有当Protocol字段是TCP或UDP时，Port字段才被接受，即Protocol字段不是TCP或UDP时，Protocol和Port排他关系，不允许同时输入，否则会接口报错。
+* Port字段允许输入一个单独端口号，或者用减号分隔的两个端口号代表端口范围，例如80或8000-8010。只有当Protocol字段是TCP或UDP时，Port字段才被接受，即Protocol字段不是TCP或UDP时，Protocol和Port是排他关系，不允许同时输入，否则会接口报错。
 * Action字段只允许输入ACCEPT或DROP。
 * CidrBlock, Ipv6CidrBlock, SecurityGroupId, AddressTemplate四者是排他关系，不允许同时输入，Protocol + Port和ServiceTemplate二者是排他关系，不允许同时输入。
 * 一次请求中只能创建单个方向的规则, 如果需要指定索引（PolicyIndex）参数, 多条规则的索引必须一致。
@@ -1196,6 +1290,7 @@ public class VpcClient extends AbstractClient{
     public CreateSecurityGroupWithPoliciesResponse CreateSecurityGroupWithPolicies(CreateSecurityGroupWithPoliciesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateSecurityGroupWithPoliciesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateSecurityGroupWithPoliciesResponse>>() {
                 }.getType();
@@ -1208,7 +1303,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（CreateServiceTemplate）用于创建协议端口模板
+     *本接口（CreateServiceTemplate）用于创建协议端口模板。
      * @param req CreateServiceTemplateRequest
      * @return CreateServiceTemplateResponse
      * @throws TencentCloudSDKException
@@ -1216,6 +1311,7 @@ public class VpcClient extends AbstractClient{
     public CreateServiceTemplateResponse CreateServiceTemplate(CreateServiceTemplateRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateServiceTemplateResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateServiceTemplateResponse>>() {
                 }.getType();
@@ -1228,7 +1324,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（CreateServiceTemplateGroup）用于创建协议端口模板集合
+     *本接口（CreateServiceTemplateGroup）用于创建协议端口模板集合。
      * @param req CreateServiceTemplateGroupRequest
      * @return CreateServiceTemplateGroupResponse
      * @throws TencentCloudSDKException
@@ -1236,6 +1332,7 @@ public class VpcClient extends AbstractClient{
     public CreateServiceTemplateGroupResponse CreateServiceTemplateGroup(CreateServiceTemplateGroupRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateServiceTemplateGroupResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateServiceTemplateGroupResponse>>() {
                 }.getType();
@@ -1248,7 +1345,28 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口(CreateSubnet)用于创建子网。
+     *本接口（CreateSnapshotPolicies）用于创建快照策略。
+     * @param req CreateSnapshotPoliciesRequest
+     * @return CreateSnapshotPoliciesResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateSnapshotPoliciesResponse CreateSnapshotPolicies(CreateSnapshotPoliciesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateSnapshotPoliciesResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateSnapshotPoliciesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateSnapshotPolicies");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（CreateSubnet）用于创建子网。
 * 创建子网前必须创建好 VPC。
 * 子网创建成功后，子网网段不能修改。子网网段必须在VPC网段内，可以和VPC网段相同（VPC有且只有一个子网时），建议子网网段在VPC网段内，预留网段给其他子网使用。
 * 您可以创建的最小网段子网掩码为28（有16个IP地址），最大网段子网掩码为16（65,536个IP地址）。
@@ -1262,6 +1380,7 @@ public class VpcClient extends AbstractClient{
     public CreateSubnetResponse CreateSubnet(CreateSubnetRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateSubnetResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateSubnetResponse>>() {
                 }.getType();
@@ -1274,7 +1393,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口(CreateSubnets)用于批量创建子网。
+     *本接口（CreateSubnets）用于批量创建子网。
 * 创建子网前必须创建好 VPC。
 * 子网创建成功后，子网网段不能修改。子网网段必须在VPC网段内，可以和VPC网段相同（VPC有且只有一个子网时），建议子网网段在VPC网段内，预留网段给其他子网使用。
 * 您可以创建的最小网段子网掩码为28（有16个IP地址），最大网段子网掩码为16（65,536个IP地址）。
@@ -1288,6 +1407,7 @@ public class VpcClient extends AbstractClient{
     public CreateSubnetsResponse CreateSubnets(CreateSubnetsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateSubnetsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateSubnetsResponse>>() {
                 }.getType();
@@ -1300,7 +1420,28 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口(CreateVpc)用于创建私有网络(VPC)。
+     *本接口 (CreateTrafficPackages) 用于创建共享流量包。
+     * @param req CreateTrafficPackagesRequest
+     * @return CreateTrafficPackagesResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateTrafficPackagesResponse CreateTrafficPackages(CreateTrafficPackagesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateTrafficPackagesResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateTrafficPackagesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateTrafficPackages");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（CreateVpc）用于创建私有网络（VPC）。
 * 用户可以创建的最小网段子网掩码为28（有16个IP地址），10.0.0.0/12，172.16.0.0/12最大网段子网掩码为12（1,048,576个IP地址），192.168.0.0/16最大网段子网掩码为16（65,536个IP地址）如果需要规划VPC网段请参见[网络规划](https://cloud.tencent.com/document/product/215/30313)。
 * 同一个地域能创建的VPC资源个数也是有限制的，详见 <a href="https://cloud.tencent.com/doc/product/215/537" title="VPC使用限制">VPC使用限制</a>，如果需要申请更多资源，请提交[工单申请](https://console.cloud.tencent.com/workorder/category)。
 * 创建VPC同时可以绑定标签, 应答里的标签列表代表添加成功的标签。
@@ -1311,6 +1452,7 @@ public class VpcClient extends AbstractClient{
     public CreateVpcResponse CreateVpc(CreateVpcRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateVpcResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateVpcResponse>>() {
                 }.getType();
@@ -1323,7 +1465,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *创建终端节点。
+     *本接口（CreateVpcEndPoint）用于创建终端节点。
      * @param req CreateVpcEndPointRequest
      * @return CreateVpcEndPointResponse
      * @throws TencentCloudSDKException
@@ -1331,6 +1473,7 @@ public class VpcClient extends AbstractClient{
     public CreateVpcEndPointResponse CreateVpcEndPoint(CreateVpcEndPointRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateVpcEndPointResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateVpcEndPointResponse>>() {
                 }.getType();
@@ -1343,7 +1486,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口(CreateVpcEndPointService)用于创建终端节点服务。
+     *本接口（CreateVpcEndPointService）用于创建终端节点服务。
      * @param req CreateVpcEndPointServiceRequest
      * @return CreateVpcEndPointServiceResponse
      * @throws TencentCloudSDKException
@@ -1351,6 +1494,7 @@ public class VpcClient extends AbstractClient{
     public CreateVpcEndPointServiceResponse CreateVpcEndPointService(CreateVpcEndPointServiceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateVpcEndPointServiceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateVpcEndPointServiceResponse>>() {
                 }.getType();
@@ -1363,7 +1507,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *创建终端服务白名单。
+     *本接口（CreateVpcEndPointServiceWhiteList）创建终端服务白名单。
      * @param req CreateVpcEndPointServiceWhiteListRequest
      * @return CreateVpcEndPointServiceWhiteListResponse
      * @throws TencentCloudSDKException
@@ -1371,10 +1515,32 @@ public class VpcClient extends AbstractClient{
     public CreateVpcEndPointServiceWhiteListResponse CreateVpcEndPointServiceWhiteList(CreateVpcEndPointServiceWhiteListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateVpcEndPointServiceWhiteListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateVpcEndPointServiceWhiteListResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "CreateVpcEndPointServiceWhiteList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（CreateVpcPeeringConnection）用于创建私有网络对等连接。
+     * @param req CreateVpcPeeringConnectionRequest
+     * @return CreateVpcPeeringConnectionResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateVpcPeeringConnectionResponse CreateVpcPeeringConnection(CreateVpcPeeringConnectionRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<CreateVpcPeeringConnectionResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<CreateVpcPeeringConnectionResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "CreateVpcPeeringConnection");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -1393,6 +1559,7 @@ public class VpcClient extends AbstractClient{
     public CreateVpnConnectionResponse CreateVpnConnection(CreateVpnConnectionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateVpnConnectionResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateVpnConnectionResponse>>() {
                 }.getType();
@@ -1413,6 +1580,7 @@ public class VpcClient extends AbstractClient{
     public CreateVpnGatewayResponse CreateVpnGateway(CreateVpnGatewayRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateVpnGatewayResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateVpnGatewayResponse>>() {
                 }.getType();
@@ -1433,6 +1601,7 @@ public class VpcClient extends AbstractClient{
     public CreateVpnGatewayRoutesResponse CreateVpnGatewayRoutes(CreateVpnGatewayRoutesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateVpnGatewayRoutesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateVpnGatewayRoutesResponse>>() {
                 }.getType();
@@ -1453,6 +1622,7 @@ public class VpcClient extends AbstractClient{
     public CreateVpnGatewaySslClientResponse CreateVpnGatewaySslClient(CreateVpnGatewaySslClientRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateVpnGatewaySslClientResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateVpnGatewaySslClientResponse>>() {
                 }.getType();
@@ -1465,7 +1635,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *创建 Server端
+     *本接口（CreateVpnGatewaySslServer）用于创建SSL-VPN Server端。
      * @param req CreateVpnGatewaySslServerRequest
      * @return CreateVpnGatewaySslServerResponse
      * @throws TencentCloudSDKException
@@ -1473,6 +1643,7 @@ public class VpcClient extends AbstractClient{
     public CreateVpnGatewaySslServerResponse CreateVpnGatewaySslServer(CreateVpnGatewaySslServerRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateVpnGatewaySslServerResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateVpnGatewaySslServerResponse>>() {
                 }.getType();
@@ -1485,7 +1656,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（DeleteAddressTemplate）用于删除IP地址模板
+     *本接口（DeleteAddressTemplate）用于删除IP地址模板。
      * @param req DeleteAddressTemplateRequest
      * @return DeleteAddressTemplateResponse
      * @throws TencentCloudSDKException
@@ -1493,6 +1664,7 @@ public class VpcClient extends AbstractClient{
     public DeleteAddressTemplateResponse DeleteAddressTemplate(DeleteAddressTemplateRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteAddressTemplateResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteAddressTemplateResponse>>() {
                 }.getType();
@@ -1505,7 +1677,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（DeleteAddressTemplateGroup）用于删除IP地址模板集合
+     *本接口（DeleteAddressTemplateGroup）用于删除IP地址模板集合。
      * @param req DeleteAddressTemplateGroupRequest
      * @return DeleteAddressTemplateGroupResponse
      * @throws TencentCloudSDKException
@@ -1513,6 +1685,7 @@ public class VpcClient extends AbstractClient{
     public DeleteAddressTemplateGroupResponse DeleteAddressTemplateGroup(DeleteAddressTemplateGroupRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteAddressTemplateGroupResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteAddressTemplateGroupResponse>>() {
                 }.getType();
@@ -1525,7 +1698,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口(DeleteAssistantCidr)用于删除辅助CIDR。
+     *本接口（DeleteAssistantCidr）用于删除辅助CIDR。
      * @param req DeleteAssistantCidrRequest
      * @return DeleteAssistantCidrResponse
      * @throws TencentCloudSDKException
@@ -1533,6 +1706,7 @@ public class VpcClient extends AbstractClient{
     public DeleteAssistantCidrResponse DeleteAssistantCidr(DeleteAssistantCidrRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteAssistantCidrResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteAssistantCidrResponse>>() {
                 }.getType();
@@ -1553,6 +1727,7 @@ public class VpcClient extends AbstractClient{
     public DeleteBandwidthPackageResponse DeleteBandwidthPackage(DeleteBandwidthPackageRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteBandwidthPackageResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteBandwidthPackageResponse>>() {
                 }.getType();
@@ -1568,7 +1743,6 @@ public class VpcClient extends AbstractClient{
      *本接口（DeleteCcn）用于删除云联网。
 * 删除后，云联网关联的所有实例间路由将被删除，网络将会中断，请务必确认
 * 删除云联网是不可逆的操作，请谨慎处理。
-
      * @param req DeleteCcnRequest
      * @return DeleteCcnResponse
      * @throws TencentCloudSDKException
@@ -1576,6 +1750,7 @@ public class VpcClient extends AbstractClient{
     public DeleteCcnResponse DeleteCcn(DeleteCcnRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteCcnResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteCcnResponse>>() {
                 }.getType();
@@ -1596,6 +1771,7 @@ public class VpcClient extends AbstractClient{
     public DeleteCustomerGatewayResponse DeleteCustomerGateway(DeleteCustomerGatewayRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteCustomerGatewayResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteCustomerGatewayResponse>>() {
                 }.getType();
@@ -1618,6 +1794,7 @@ public class VpcClient extends AbstractClient{
     public DeleteDhcpIpResponse DeleteDhcpIp(DeleteDhcpIpRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteDhcpIpResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteDhcpIpResponse>>() {
                 }.getType();
@@ -1641,6 +1818,7 @@ public class VpcClient extends AbstractClient{
     public DeleteDirectConnectGatewayResponse DeleteDirectConnectGateway(DeleteDirectConnectGatewayRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteDirectConnectGatewayResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteDirectConnectGatewayResponse>>() {
                 }.getType();
@@ -1661,6 +1839,7 @@ public class VpcClient extends AbstractClient{
     public DeleteDirectConnectGatewayCcnRoutesResponse DeleteDirectConnectGatewayCcnRoutes(DeleteDirectConnectGatewayCcnRoutesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteDirectConnectGatewayCcnRoutesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteDirectConnectGatewayCcnRoutesResponse>>() {
                 }.getType();
@@ -1673,7 +1852,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（DeleteFlowLog）用于删除流日志
+     *本接口（DeleteFlowLog）用于删除流日志。
      * @param req DeleteFlowLogRequest
      * @return DeleteFlowLogResponse
      * @throws TencentCloudSDKException
@@ -1681,6 +1860,7 @@ public class VpcClient extends AbstractClient{
     public DeleteFlowLogResponse DeleteFlowLog(DeleteFlowLogRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteFlowLogResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteFlowLogResponse>>() {
                 }.getType();
@@ -1702,6 +1882,7 @@ public class VpcClient extends AbstractClient{
     public DeleteHaVipResponse DeleteHaVip(DeleteHaVipRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteHaVipResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteHaVipResponse>>() {
                 }.getType();
@@ -1723,6 +1904,7 @@ public class VpcClient extends AbstractClient{
     public DeleteIp6TranslatorsResponse DeleteIp6Translators(DeleteIp6TranslatorsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteIp6TranslatorsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteIp6TranslatorsResponse>>() {
                 }.getType();
@@ -1735,7 +1917,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *该接口用于删除CDC的本地网关。
+     *本接口（DeleteLocalGateway）用于删除CDC的本地网关。
      * @param req DeleteLocalGatewayRequest
      * @return DeleteLocalGatewayResponse
      * @throws TencentCloudSDKException
@@ -1743,6 +1925,7 @@ public class VpcClient extends AbstractClient{
     public DeleteLocalGatewayResponse DeleteLocalGateway(DeleteLocalGatewayRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteLocalGatewayResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteLocalGatewayResponse>>() {
                 }.getType();
@@ -1764,6 +1947,7 @@ public class VpcClient extends AbstractClient{
     public DeleteNatGatewayResponse DeleteNatGateway(DeleteNatGatewayRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteNatGatewayResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteNatGatewayResponse>>() {
                 }.getType();
@@ -1784,6 +1968,7 @@ public class VpcClient extends AbstractClient{
     public DeleteNatGatewayDestinationIpPortTranslationNatRuleResponse DeleteNatGatewayDestinationIpPortTranslationNatRule(DeleteNatGatewayDestinationIpPortTranslationNatRuleRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteNatGatewayDestinationIpPortTranslationNatRuleResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteNatGatewayDestinationIpPortTranslationNatRuleResponse>>() {
                 }.getType();
@@ -1804,6 +1989,7 @@ public class VpcClient extends AbstractClient{
     public DeleteNatGatewaySourceIpTranslationNatRuleResponse DeleteNatGatewaySourceIpTranslationNatRule(DeleteNatGatewaySourceIpTranslationNatRuleRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteNatGatewaySourceIpTranslationNatRuleResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteNatGatewaySourceIpTranslationNatRuleResponse>>() {
                 }.getType();
@@ -1816,7 +2002,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口(DeleteNetDetect)用于删除网络探测实例。
+     *本接口（DeleteNetDetect）用于删除网络探测实例。
      * @param req DeleteNetDetectRequest
      * @return DeleteNetDetectResponse
      * @throws TencentCloudSDKException
@@ -1824,6 +2010,7 @@ public class VpcClient extends AbstractClient{
     public DeleteNetDetectResponse DeleteNetDetect(DeleteNetDetectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteNetDetectResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteNetDetectResponse>>() {
                 }.getType();
@@ -1844,6 +2031,7 @@ public class VpcClient extends AbstractClient{
     public DeleteNetworkAclResponse DeleteNetworkAcl(DeleteNetworkAclRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteNetworkAclResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteNetworkAclResponse>>() {
                 }.getType();
@@ -1864,6 +2052,7 @@ public class VpcClient extends AbstractClient{
     public DeleteNetworkAclQuintupleEntriesResponse DeleteNetworkAclQuintupleEntries(DeleteNetworkAclQuintupleEntriesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteNetworkAclQuintupleEntriesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteNetworkAclQuintupleEntriesResponse>>() {
                 }.getType();
@@ -1888,6 +2077,7 @@ public class VpcClient extends AbstractClient{
     public DeleteNetworkInterfaceResponse DeleteNetworkInterface(DeleteNetworkInterfaceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteNetworkInterfaceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteNetworkInterfaceResponse>>() {
                 }.getType();
@@ -1900,7 +2090,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *删除路由表
+     *本接口（DeleteRouteTable）用于删除路由表。
      * @param req DeleteRouteTableRequest
      * @return DeleteRouteTableResponse
      * @throws TencentCloudSDKException
@@ -1908,6 +2098,7 @@ public class VpcClient extends AbstractClient{
     public DeleteRouteTableResponse DeleteRouteTable(DeleteRouteTableRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteRouteTableResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteRouteTableResponse>>() {
                 }.getType();
@@ -1928,6 +2119,7 @@ public class VpcClient extends AbstractClient{
     public DeleteRoutesResponse DeleteRoutes(DeleteRoutesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteRoutesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteRoutesResponse>>() {
                 }.getType();
@@ -1951,6 +2143,7 @@ public class VpcClient extends AbstractClient{
     public DeleteSecurityGroupResponse DeleteSecurityGroup(DeleteSecurityGroupRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteSecurityGroupResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteSecurityGroupResponse>>() {
                 }.getType();
@@ -1972,6 +2165,7 @@ public class VpcClient extends AbstractClient{
     public DeleteSecurityGroupPoliciesResponse DeleteSecurityGroupPolicies(DeleteSecurityGroupPoliciesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteSecurityGroupPoliciesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteSecurityGroupPoliciesResponse>>() {
                 }.getType();
@@ -1984,7 +2178,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（DeleteServiceTemplate）用于删除协议端口模板
+     *本接口（DeleteServiceTemplate）用于删除协议端口模板。
      * @param req DeleteServiceTemplateRequest
      * @return DeleteServiceTemplateResponse
      * @throws TencentCloudSDKException
@@ -1992,6 +2186,7 @@ public class VpcClient extends AbstractClient{
     public DeleteServiceTemplateResponse DeleteServiceTemplate(DeleteServiceTemplateRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteServiceTemplateResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteServiceTemplateResponse>>() {
                 }.getType();
@@ -2004,7 +2199,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（DeleteServiceTemplateGroup）用于删除协议端口模板集合
+     *本接口（DeleteServiceTemplateGroup）用于删除协议端口模板集合。
      * @param req DeleteServiceTemplateGroupRequest
      * @return DeleteServiceTemplateGroupResponse
      * @throws TencentCloudSDKException
@@ -2012,6 +2207,7 @@ public class VpcClient extends AbstractClient{
     public DeleteServiceTemplateGroupResponse DeleteServiceTemplateGroup(DeleteServiceTemplateGroupRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteServiceTemplateGroupResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteServiceTemplateGroupResponse>>() {
                 }.getType();
@@ -2024,8 +2220,29 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（DeleteSubnet）用于用于删除子网(Subnet)。
-* 删除子网前，请清理该子网下所有资源，包括云服务器、负载均衡、云数据、noSql、弹性网卡等资源。
+     *本接口（DeleteSnapshotPolicies）用于删除快照策略。
+     * @param req DeleteSnapshotPoliciesRequest
+     * @return DeleteSnapshotPoliciesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteSnapshotPoliciesResponse DeleteSnapshotPolicies(DeleteSnapshotPoliciesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteSnapshotPoliciesResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteSnapshotPoliciesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteSnapshotPolicies");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（DeleteSubnet）用于删除子网（Subnet）。
+* 删除子网前，请清理该子网下所有资源，包括云服务器、负载均衡、云数据、NoSQL、弹性网卡等资源。
      * @param req DeleteSubnetRequest
      * @return DeleteSubnetResponse
      * @throws TencentCloudSDKException
@@ -2033,6 +2250,7 @@ public class VpcClient extends AbstractClient{
     public DeleteSubnetResponse DeleteSubnet(DeleteSubnetRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteSubnetResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteSubnetResponse>>() {
                 }.getType();
@@ -2053,10 +2271,32 @@ public class VpcClient extends AbstractClient{
     public DeleteTemplateMemberResponse DeleteTemplateMember(DeleteTemplateMemberRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteTemplateMemberResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteTemplateMemberResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DeleteTemplateMember");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *删除共享带宽包（仅非活动状态的流量包可删除）。
+     * @param req DeleteTrafficPackagesRequest
+     * @return DeleteTrafficPackagesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteTrafficPackagesResponse DeleteTrafficPackages(DeleteTrafficPackagesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteTrafficPackagesResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteTrafficPackagesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteTrafficPackages");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -2075,6 +2315,7 @@ public class VpcClient extends AbstractClient{
     public DeleteVpcResponse DeleteVpc(DeleteVpcRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteVpcResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteVpcResponse>>() {
                 }.getType();
@@ -2087,7 +2328,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *删除终端节点。
+     *本接口（DeleteVpcEndPoint）用于删除终端节点。
      * @param req DeleteVpcEndPointRequest
      * @return DeleteVpcEndPointResponse
      * @throws TencentCloudSDKException
@@ -2095,6 +2336,7 @@ public class VpcClient extends AbstractClient{
     public DeleteVpcEndPointResponse DeleteVpcEndPoint(DeleteVpcEndPointRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteVpcEndPointResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteVpcEndPointResponse>>() {
                 }.getType();
@@ -2107,9 +2349,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *删除终端节点服务。
-
-
+     *本接口（DeleteVpcEndPointService）用于删除终端节点服务。
      * @param req DeleteVpcEndPointServiceRequest
      * @return DeleteVpcEndPointServiceResponse
      * @throws TencentCloudSDKException
@@ -2117,6 +2357,7 @@ public class VpcClient extends AbstractClient{
     public DeleteVpcEndPointServiceResponse DeleteVpcEndPointService(DeleteVpcEndPointServiceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteVpcEndPointServiceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteVpcEndPointServiceResponse>>() {
                 }.getType();
@@ -2129,7 +2370,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *删除终端节点服务白名单。
+     *本接口（DeleteVpcEndPointServiceWhiteList）用于删除终端节点服务白名单。
      * @param req DeleteVpcEndPointServiceWhiteListRequest
      * @return DeleteVpcEndPointServiceWhiteListResponse
      * @throws TencentCloudSDKException
@@ -2137,6 +2378,7 @@ public class VpcClient extends AbstractClient{
     public DeleteVpcEndPointServiceWhiteListResponse DeleteVpcEndPointServiceWhiteList(DeleteVpcEndPointServiceWhiteListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteVpcEndPointServiceWhiteListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteVpcEndPointServiceWhiteListResponse>>() {
                 }.getType();
@@ -2149,7 +2391,28 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口(DeleteVpnConnection)用于删除VPN通道。
+     *本接口（DeleteVpcPeeringConnection）用于删除私有网络对等连接。
+     * @param req DeleteVpcPeeringConnectionRequest
+     * @return DeleteVpcPeeringConnectionResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteVpcPeeringConnectionResponse DeleteVpcPeeringConnection(DeleteVpcPeeringConnectionRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DeleteVpcPeeringConnectionResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DeleteVpcPeeringConnectionResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DeleteVpcPeeringConnection");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（DeleteVpnConnection）用于删除VPN通道。
      * @param req DeleteVpnConnectionRequest
      * @return DeleteVpnConnectionResponse
      * @throws TencentCloudSDKException
@@ -2157,6 +2420,7 @@ public class VpcClient extends AbstractClient{
     public DeleteVpnConnectionResponse DeleteVpnConnection(DeleteVpnConnectionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteVpnConnectionResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteVpnConnectionResponse>>() {
                 }.getType();
@@ -2177,6 +2441,7 @@ public class VpcClient extends AbstractClient{
     public DeleteVpnGatewayResponse DeleteVpnGateway(DeleteVpnGatewayRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteVpnGatewayResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteVpnGatewayResponse>>() {
                 }.getType();
@@ -2189,7 +2454,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（DeleteVpnGatewayCcnRoutes）用于删除VPN网关路由
+     *本接口（DeleteVpnGatewayRoutes）用于删除VPN网关路由
      * @param req DeleteVpnGatewayRoutesRequest
      * @return DeleteVpnGatewayRoutesResponse
      * @throws TencentCloudSDKException
@@ -2197,6 +2462,7 @@ public class VpcClient extends AbstractClient{
     public DeleteVpnGatewayRoutesResponse DeleteVpnGatewayRoutes(DeleteVpnGatewayRoutesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteVpnGatewayRoutesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteVpnGatewayRoutesResponse>>() {
                 }.getType();
@@ -2209,7 +2475,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *删除SSL-VPN-CLIENT
+     *本接口（DeleteVpnGatewaySslClient）用于删除SSL-VPN-CLIENT。
      * @param req DeleteVpnGatewaySslClientRequest
      * @return DeleteVpnGatewaySslClientResponse
      * @throws TencentCloudSDKException
@@ -2217,6 +2483,7 @@ public class VpcClient extends AbstractClient{
     public DeleteVpnGatewaySslClientResponse DeleteVpnGatewaySslClient(DeleteVpnGatewaySslClientRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteVpnGatewaySslClientResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteVpnGatewaySslClientResponse>>() {
                 }.getType();
@@ -2237,6 +2504,7 @@ public class VpcClient extends AbstractClient{
     public DeleteVpnGatewaySslServerResponse DeleteVpnGatewaySslServer(DeleteVpnGatewaySslServerRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DeleteVpnGatewaySslServerResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DeleteVpnGatewaySslServerResponse>>() {
                 }.getType();
@@ -2257,6 +2525,7 @@ public class VpcClient extends AbstractClient{
     public DescribeAccountAttributesResponse DescribeAccountAttributes(DescribeAccountAttributesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeAccountAttributesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeAccountAttributesResponse>>() {
                 }.getType();
@@ -2277,6 +2546,7 @@ public class VpcClient extends AbstractClient{
     public DescribeAddressQuotaResponse DescribeAddressQuota(DescribeAddressQuotaRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeAddressQuotaResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeAddressQuotaResponse>>() {
                 }.getType();
@@ -2289,7 +2559,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（DescribeAddressTemplateGroups）用于查询IP地址模板集合
+     *本接口（DescribeAddressTemplateGroups）用于查询IP地址模板集合。
      * @param req DescribeAddressTemplateGroupsRequest
      * @return DescribeAddressTemplateGroupsResponse
      * @throws TencentCloudSDKException
@@ -2297,6 +2567,7 @@ public class VpcClient extends AbstractClient{
     public DescribeAddressTemplateGroupsResponse DescribeAddressTemplateGroups(DescribeAddressTemplateGroupsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeAddressTemplateGroupsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeAddressTemplateGroupsResponse>>() {
                 }.getType();
@@ -2309,7 +2580,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（DescribeAddressTemplates）用于查询IP地址模板
+     *本接口（DescribeAddressTemplates）用于查询IP地址模板。
      * @param req DescribeAddressTemplatesRequest
      * @return DescribeAddressTemplatesResponse
      * @throws TencentCloudSDKException
@@ -2317,6 +2588,7 @@ public class VpcClient extends AbstractClient{
     public DescribeAddressTemplatesResponse DescribeAddressTemplates(DescribeAddressTemplatesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeAddressTemplatesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeAddressTemplatesResponse>>() {
                 }.getType();
@@ -2338,6 +2610,7 @@ public class VpcClient extends AbstractClient{
     public DescribeAddressesResponse DescribeAddresses(DescribeAddressesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeAddressesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeAddressesResponse>>() {
                 }.getType();
@@ -2358,6 +2631,7 @@ public class VpcClient extends AbstractClient{
     public DescribeAssistantCidrResponse DescribeAssistantCidr(DescribeAssistantCidrRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeAssistantCidrResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeAssistantCidrResponse>>() {
                 }.getType();
@@ -2378,6 +2652,7 @@ public class VpcClient extends AbstractClient{
     public DescribeBandwidthPackageBillUsageResponse DescribeBandwidthPackageBillUsage(DescribeBandwidthPackageBillUsageRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeBandwidthPackageBillUsageResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeBandwidthPackageBillUsageResponse>>() {
                 }.getType();
@@ -2398,6 +2673,7 @@ public class VpcClient extends AbstractClient{
     public DescribeBandwidthPackageQuotaResponse DescribeBandwidthPackageQuota(DescribeBandwidthPackageQuotaRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeBandwidthPackageQuotaResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeBandwidthPackageQuotaResponse>>() {
                 }.getType();
@@ -2411,7 +2687,6 @@ public class VpcClient extends AbstractClient{
 
     /**
      *本接口 (DescribeBandwidthPackageResources) 用于根据共享带宽包唯一ID查询共享带宽包内的资源列表，支持按条件过滤查询结果和分页查询。
-
      * @param req DescribeBandwidthPackageResourcesRequest
      * @return DescribeBandwidthPackageResourcesResponse
      * @throws TencentCloudSDKException
@@ -2419,6 +2694,7 @@ public class VpcClient extends AbstractClient{
     public DescribeBandwidthPackageResourcesResponse DescribeBandwidthPackageResources(DescribeBandwidthPackageResourcesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeBandwidthPackageResourcesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeBandwidthPackageResourcesResponse>>() {
                 }.getType();
@@ -2439,6 +2715,7 @@ public class VpcClient extends AbstractClient{
     public DescribeBandwidthPackagesResponse DescribeBandwidthPackages(DescribeBandwidthPackagesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeBandwidthPackagesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeBandwidthPackagesResponse>>() {
                 }.getType();
@@ -2459,6 +2736,7 @@ public class VpcClient extends AbstractClient{
     public DescribeCcnAttachedInstancesResponse DescribeCcnAttachedInstances(DescribeCcnAttachedInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCcnAttachedInstancesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCcnAttachedInstancesResponse>>() {
                 }.getType();
@@ -2471,7 +2749,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（DescribeCcnRegionBandwidthLimits）用于查询云联网各地域出带宽上限，该接口只返回已关联网络实例包含的地域
+     *本接口（DescribeCcnRegionBandwidthLimits）用于查询云联网各地域出带宽上限，该接口只返回已关联网络实例包含的地域。
      * @param req DescribeCcnRegionBandwidthLimitsRequest
      * @return DescribeCcnRegionBandwidthLimitsResponse
      * @throws TencentCloudSDKException
@@ -2479,6 +2757,7 @@ public class VpcClient extends AbstractClient{
     public DescribeCcnRegionBandwidthLimitsResponse DescribeCcnRegionBandwidthLimits(DescribeCcnRegionBandwidthLimitsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCcnRegionBandwidthLimitsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCcnRegionBandwidthLimitsResponse>>() {
                 }.getType();
@@ -2491,7 +2770,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（DescribeCcnRoutes）用于查询已加入云联网（CCN）的路由
+     *本接口（DescribeCcnRoutes）用于查询已加入云联网（CCN）的路由。
      * @param req DescribeCcnRoutesRequest
      * @return DescribeCcnRoutesResponse
      * @throws TencentCloudSDKException
@@ -2499,6 +2778,7 @@ public class VpcClient extends AbstractClient{
     public DescribeCcnRoutesResponse DescribeCcnRoutes(DescribeCcnRoutesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCcnRoutesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCcnRoutesResponse>>() {
                 }.getType();
@@ -2519,6 +2799,7 @@ public class VpcClient extends AbstractClient{
     public DescribeCcnsResponse DescribeCcns(DescribeCcnsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCcnsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCcnsResponse>>() {
                 }.getType();
@@ -2531,7 +2812,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口(DescribeClassicLinkInstances)用于查询私有网络和基础网络设备互通列表。
+     *本接口（DescribeClassicLinkInstances）用于查询私有网络和基础网络设备互通列表。
      * @param req DescribeClassicLinkInstancesRequest
      * @return DescribeClassicLinkInstancesResponse
      * @throws TencentCloudSDKException
@@ -2539,6 +2820,7 @@ public class VpcClient extends AbstractClient{
     public DescribeClassicLinkInstancesResponse DescribeClassicLinkInstances(DescribeClassicLinkInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeClassicLinkInstancesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeClassicLinkInstancesResponse>>() {
                 }.getType();
@@ -2554,7 +2836,6 @@ public class VpcClient extends AbstractClient{
      *本接口（DescribeCrossBorderCcnRegionBandwidthLimits）用于获取要锁定的限速实例列表。
 该接口一般用来封禁地域间限速的云联网实例下的限速实例, 目前联通内部运营系统通过云API调用, 如果是出口限速, 一般使用更粗的云联网实例粒度封禁（DescribeTenantCcns）
 如有需要, 可以封禁任意限速实例, 可接入到内部运营系统
-
      * @param req DescribeCrossBorderCcnRegionBandwidthLimitsRequest
      * @return DescribeCrossBorderCcnRegionBandwidthLimitsResponse
      * @throws TencentCloudSDKException
@@ -2562,6 +2843,7 @@ public class VpcClient extends AbstractClient{
     public DescribeCrossBorderCcnRegionBandwidthLimitsResponse DescribeCrossBorderCcnRegionBandwidthLimits(DescribeCrossBorderCcnRegionBandwidthLimitsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCrossBorderCcnRegionBandwidthLimitsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCrossBorderCcnRegionBandwidthLimitsResponse>>() {
                 }.getType();
@@ -2583,6 +2865,7 @@ public class VpcClient extends AbstractClient{
     public DescribeCrossBorderComplianceResponse DescribeCrossBorderCompliance(DescribeCrossBorderComplianceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCrossBorderComplianceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCrossBorderComplianceResponse>>() {
                 }.getType();
@@ -2595,7 +2878,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *查询跨境带宽监控数据，该接口特提供给联通使用
+     *本接口（DescribeCrossBorderFlowMonitor）用于查询跨境带宽监控数据，该接口目前只提供给服务商联通使用。
      * @param req DescribeCrossBorderFlowMonitorRequest
      * @return DescribeCrossBorderFlowMonitorResponse
      * @throws TencentCloudSDKException
@@ -2603,6 +2886,7 @@ public class VpcClient extends AbstractClient{
     public DescribeCrossBorderFlowMonitorResponse DescribeCrossBorderFlowMonitor(DescribeCrossBorderFlowMonitorRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCrossBorderFlowMonitorResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCrossBorderFlowMonitorResponse>>() {
                 }.getType();
@@ -2623,6 +2907,7 @@ public class VpcClient extends AbstractClient{
     public DescribeCustomerGatewayVendorsResponse DescribeCustomerGatewayVendors(DescribeCustomerGatewayVendorsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCustomerGatewayVendorsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCustomerGatewayVendorsResponse>>() {
                 }.getType();
@@ -2643,6 +2928,7 @@ public class VpcClient extends AbstractClient{
     public DescribeCustomerGatewaysResponse DescribeCustomerGateways(DescribeCustomerGatewaysRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCustomerGatewaysResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCustomerGatewaysResponse>>() {
                 }.getType();
@@ -2663,6 +2949,7 @@ public class VpcClient extends AbstractClient{
     public DescribeDhcpIpsResponse DescribeDhcpIps(DescribeDhcpIpsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDhcpIpsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDhcpIpsResponse>>() {
                 }.getType();
@@ -2683,6 +2970,7 @@ public class VpcClient extends AbstractClient{
     public DescribeDirectConnectGatewayCcnRoutesResponse DescribeDirectConnectGatewayCcnRoutes(DescribeDirectConnectGatewayCcnRoutesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDirectConnectGatewayCcnRoutesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDirectConnectGatewayCcnRoutesResponse>>() {
                 }.getType();
@@ -2703,6 +2991,7 @@ public class VpcClient extends AbstractClient{
     public DescribeDirectConnectGatewaysResponse DescribeDirectConnectGateways(DescribeDirectConnectGatewaysRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeDirectConnectGatewaysResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeDirectConnectGatewaysResponse>>() {
                 }.getType();
@@ -2715,7 +3004,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（DescribeFlowLog）用于查询流日志实例信息
+     *本接口（DescribeFlowLog）用于查询流日志实例信息。
      * @param req DescribeFlowLogRequest
      * @return DescribeFlowLogResponse
      * @throws TencentCloudSDKException
@@ -2723,6 +3012,7 @@ public class VpcClient extends AbstractClient{
     public DescribeFlowLogResponse DescribeFlowLog(DescribeFlowLogRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeFlowLogResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeFlowLogResponse>>() {
                 }.getType();
@@ -2735,7 +3025,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（DescribeFlowLogs）用于查询获取流日志集合
+     *本接口（DescribeFlowLogs）用于查询获取流日志集合。
      * @param req DescribeFlowLogsRequest
      * @return DescribeFlowLogsResponse
      * @throws TencentCloudSDKException
@@ -2743,6 +3033,7 @@ public class VpcClient extends AbstractClient{
     public DescribeFlowLogsResponse DescribeFlowLogs(DescribeFlowLogsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeFlowLogsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeFlowLogsResponse>>() {
                 }.getType();
@@ -2765,6 +3056,7 @@ public class VpcClient extends AbstractClient{
     public DescribeGatewayFlowMonitorDetailResponse DescribeGatewayFlowMonitorDetail(DescribeGatewayFlowMonitorDetailRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeGatewayFlowMonitorDetailResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeGatewayFlowMonitorDetailResponse>>() {
                 }.getType();
@@ -2785,6 +3077,7 @@ public class VpcClient extends AbstractClient{
     public DescribeGatewayFlowQosResponse DescribeGatewayFlowQos(DescribeGatewayFlowQosRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeGatewayFlowQosResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeGatewayFlowQosResponse>>() {
                 }.getType();
@@ -2805,6 +3098,7 @@ public class VpcClient extends AbstractClient{
     public DescribeHaVipsResponse DescribeHaVips(DescribeHaVipsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeHaVipsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeHaVipsResponse>>() {
                 }.getType();
@@ -2825,6 +3119,7 @@ public class VpcClient extends AbstractClient{
     public DescribeIp6AddressesResponse DescribeIp6Addresses(DescribeIp6AddressesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeIp6AddressesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeIp6AddressesResponse>>() {
                 }.getType();
@@ -2845,6 +3140,7 @@ public class VpcClient extends AbstractClient{
     public DescribeIp6TranslatorQuotaResponse DescribeIp6TranslatorQuota(DescribeIp6TranslatorQuotaRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeIp6TranslatorQuotaResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeIp6TranslatorQuotaResponse>>() {
                 }.getType();
@@ -2866,6 +3162,7 @@ public class VpcClient extends AbstractClient{
     public DescribeIp6TranslatorsResponse DescribeIp6Translators(DescribeIp6TranslatorsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeIp6TranslatorsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeIp6TranslatorsResponse>>() {
                 }.getType();
@@ -2879,6 +3176,7 @@ public class VpcClient extends AbstractClient{
 
     /**
      *本接口（DescribeIpGeolocationDatabaseUrl）用于获取IP地理位置库下载链接。
+<font color="#FF0000">本接口即将下线，仅供存量用户使用，暂停新增用户。</font>
      * @param req DescribeIpGeolocationDatabaseUrlRequest
      * @return DescribeIpGeolocationDatabaseUrlResponse
      * @throws TencentCloudSDKException
@@ -2886,6 +3184,7 @@ public class VpcClient extends AbstractClient{
     public DescribeIpGeolocationDatabaseUrlResponse DescribeIpGeolocationDatabaseUrl(DescribeIpGeolocationDatabaseUrlRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeIpGeolocationDatabaseUrlResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeIpGeolocationDatabaseUrlResponse>>() {
                 }.getType();
@@ -2899,7 +3198,7 @@ public class VpcClient extends AbstractClient{
 
     /**
      *本接口（DescribeIpGeolocationInfos）用于查询IP地址信息，包括地理位置信息和网络信息。
-本接口仅供存量客户使用，如有疑问，请提交[工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=660&source=0&data_title=%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91%20EIP&level3_id=662&queue=96&scene_code=16400&step=2)。
+<font color="#FF0000">本接口即将下线，仅供存量客户使用，暂停新增用户。</font>
      * @param req DescribeIpGeolocationInfosRequest
      * @return DescribeIpGeolocationInfosResponse
      * @throws TencentCloudSDKException
@@ -2907,6 +3206,7 @@ public class VpcClient extends AbstractClient{
     public DescribeIpGeolocationInfosResponse DescribeIpGeolocationInfos(DescribeIpGeolocationInfosRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeIpGeolocationInfosResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeIpGeolocationInfosResponse>>() {
                 }.getType();
@@ -2919,7 +3219,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *该接口用于查询CDC的本地网关。
+     *本接口（DescribeLocalGateway）用于查询CDC的本地网关。
      * @param req DescribeLocalGatewayRequest
      * @return DescribeLocalGatewayResponse
      * @throws TencentCloudSDKException
@@ -2927,6 +3227,7 @@ public class VpcClient extends AbstractClient{
     public DescribeLocalGatewayResponse DescribeLocalGateway(DescribeLocalGatewayRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeLocalGatewayResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeLocalGatewayResponse>>() {
                 }.getType();
@@ -2947,6 +3248,7 @@ public class VpcClient extends AbstractClient{
     public DescribeNatGatewayDestinationIpPortTranslationNatRulesResponse DescribeNatGatewayDestinationIpPortTranslationNatRules(DescribeNatGatewayDestinationIpPortTranslationNatRulesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeNatGatewayDestinationIpPortTranslationNatRulesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeNatGatewayDestinationIpPortTranslationNatRulesResponse>>() {
                 }.getType();
@@ -2967,6 +3269,7 @@ public class VpcClient extends AbstractClient{
     public DescribeNatGatewayDirectConnectGatewayRouteResponse DescribeNatGatewayDirectConnectGatewayRoute(DescribeNatGatewayDirectConnectGatewayRouteRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeNatGatewayDirectConnectGatewayRouteResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeNatGatewayDirectConnectGatewayRouteResponse>>() {
                 }.getType();
@@ -2987,6 +3290,7 @@ public class VpcClient extends AbstractClient{
     public DescribeNatGatewaySourceIpTranslationNatRulesResponse DescribeNatGatewaySourceIpTranslationNatRules(DescribeNatGatewaySourceIpTranslationNatRulesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeNatGatewaySourceIpTranslationNatRulesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeNatGatewaySourceIpTranslationNatRulesResponse>>() {
                 }.getType();
@@ -3007,6 +3311,7 @@ public class VpcClient extends AbstractClient{
     public DescribeNatGatewaysResponse DescribeNatGateways(DescribeNatGatewaysRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeNatGatewaysResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeNatGatewaysResponse>>() {
                 }.getType();
@@ -3027,6 +3332,7 @@ public class VpcClient extends AbstractClient{
     public DescribeNetDetectStatesResponse DescribeNetDetectStates(DescribeNetDetectStatesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeNetDetectStatesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeNetDetectStatesResponse>>() {
                 }.getType();
@@ -3047,10 +3353,32 @@ public class VpcClient extends AbstractClient{
     public DescribeNetDetectsResponse DescribeNetDetects(DescribeNetDetectsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeNetDetectsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeNetDetectsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeNetDetects");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *判断用户在网络侧的用户类型，如标准（带宽上移），传统（非上移）。
+     * @param req DescribeNetworkAccountTypeRequest
+     * @return DescribeNetworkAccountTypeResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeNetworkAccountTypeResponse DescribeNetworkAccountType(DescribeNetworkAccountTypeRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeNetworkAccountTypeResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeNetworkAccountTypeResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeNetworkAccountType");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -3067,6 +3395,7 @@ public class VpcClient extends AbstractClient{
     public DescribeNetworkAclQuintupleEntriesResponse DescribeNetworkAclQuintupleEntries(DescribeNetworkAclQuintupleEntriesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeNetworkAclQuintupleEntriesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeNetworkAclQuintupleEntriesResponse>>() {
                 }.getType();
@@ -3087,6 +3416,7 @@ public class VpcClient extends AbstractClient{
     public DescribeNetworkAclsResponse DescribeNetworkAcls(DescribeNetworkAclsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeNetworkAclsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeNetworkAclsResponse>>() {
                 }.getType();
@@ -3099,7 +3429,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（DescribeNetworkInterfaceLimit）根据CVM实例ID或弹性网卡ID查询弹性网卡配额，返回该CVM实例或弹性网卡能绑定的弹性网卡配额，以及弹性网卡可以分配的IP配额
+     *本接口（DescribeNetworkInterfaceLimit）根据CVM实例ID或弹性网卡ID查询弹性网卡配额，返回该CVM实例或弹性网卡能绑定的弹性网卡配额，以及弹性网卡可以分配的IP配额。
      * @param req DescribeNetworkInterfaceLimitRequest
      * @return DescribeNetworkInterfaceLimitResponse
      * @throws TencentCloudSDKException
@@ -3107,6 +3437,7 @@ public class VpcClient extends AbstractClient{
     public DescribeNetworkInterfaceLimitResponse DescribeNetworkInterfaceLimit(DescribeNetworkInterfaceLimitRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeNetworkInterfaceLimitResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeNetworkInterfaceLimitResponse>>() {
                 }.getType();
@@ -3127,6 +3458,7 @@ public class VpcClient extends AbstractClient{
     public DescribeNetworkInterfacesResponse DescribeNetworkInterfaces(DescribeNetworkInterfacesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeNetworkInterfacesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeNetworkInterfacesResponse>>() {
                 }.getType();
@@ -3139,7 +3471,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口用于查询网络产品的配额信息
+     *本接口（DescribeProductQuota）用于查询网络产品的配额信息。
      * @param req DescribeProductQuotaRequest
      * @return DescribeProductQuotaResponse
      * @throws TencentCloudSDKException
@@ -3147,6 +3479,7 @@ public class VpcClient extends AbstractClient{
     public DescribeProductQuotaResponse DescribeProductQuota(DescribeProductQuotaRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeProductQuotaResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeProductQuotaResponse>>() {
                 }.getType();
@@ -3159,7 +3492,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（DescribeRouteConflicts）用于查询自定义路由策略与云联网路由策略冲突列表
+     *本接口（DescribeRouteConflicts）用于查询自定义路由策略与云联网路由策略冲突列表。
      * @param req DescribeRouteConflictsRequest
      * @return DescribeRouteConflictsResponse
      * @throws TencentCloudSDKException
@@ -3167,6 +3500,7 @@ public class VpcClient extends AbstractClient{
     public DescribeRouteConflictsResponse DescribeRouteConflicts(DescribeRouteConflictsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeRouteConflictsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeRouteConflictsResponse>>() {
                 }.getType();
@@ -3179,7 +3513,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     * 本接口（DescribeRouteTables）用于查询路由表。
+     *本接口（DescribeRouteTables）用于查询路由表。
      * @param req DescribeRouteTablesRequest
      * @return DescribeRouteTablesResponse
      * @throws TencentCloudSDKException
@@ -3187,6 +3521,7 @@ public class VpcClient extends AbstractClient{
     public DescribeRouteTablesResponse DescribeRouteTables(DescribeRouteTablesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeRouteTablesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeRouteTablesResponse>>() {
                 }.getType();
@@ -3207,6 +3542,7 @@ public class VpcClient extends AbstractClient{
     public DescribeSecurityGroupAssociationStatisticsResponse DescribeSecurityGroupAssociationStatistics(DescribeSecurityGroupAssociationStatisticsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSecurityGroupAssociationStatisticsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSecurityGroupAssociationStatisticsResponse>>() {
                 }.getType();
@@ -3227,6 +3563,7 @@ public class VpcClient extends AbstractClient{
     public DescribeSecurityGroupLimitsResponse DescribeSecurityGroupLimits(DescribeSecurityGroupLimitsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSecurityGroupLimitsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSecurityGroupLimitsResponse>>() {
                 }.getType();
@@ -3247,6 +3584,7 @@ public class VpcClient extends AbstractClient{
     public DescribeSecurityGroupPoliciesResponse DescribeSecurityGroupPolicies(DescribeSecurityGroupPoliciesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSecurityGroupPoliciesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSecurityGroupPoliciesResponse>>() {
                 }.getType();
@@ -3267,6 +3605,7 @@ public class VpcClient extends AbstractClient{
     public DescribeSecurityGroupReferencesResponse DescribeSecurityGroupReferences(DescribeSecurityGroupReferencesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSecurityGroupReferencesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSecurityGroupReferencesResponse>>() {
                 }.getType();
@@ -3287,6 +3626,7 @@ public class VpcClient extends AbstractClient{
     public DescribeSecurityGroupsResponse DescribeSecurityGroups(DescribeSecurityGroupsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSecurityGroupsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSecurityGroupsResponse>>() {
                 }.getType();
@@ -3299,7 +3639,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（DescribeServiceTemplateGroups）用于查询协议端口模板集合
+     *本接口（DescribeServiceTemplateGroups）用于查询协议端口模板集合。
      * @param req DescribeServiceTemplateGroupsRequest
      * @return DescribeServiceTemplateGroupsResponse
      * @throws TencentCloudSDKException
@@ -3307,6 +3647,7 @@ public class VpcClient extends AbstractClient{
     public DescribeServiceTemplateGroupsResponse DescribeServiceTemplateGroups(DescribeServiceTemplateGroupsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeServiceTemplateGroupsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeServiceTemplateGroupsResponse>>() {
                 }.getType();
@@ -3319,7 +3660,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *本接口（DescribeServiceTemplates）用于查询协议端口模板
+     *本接口（DescribeServiceTemplates）用于查询协议端口模板。
      * @param req DescribeServiceTemplatesRequest
      * @return DescribeServiceTemplatesResponse
      * @throws TencentCloudSDKException
@@ -3327,10 +3668,137 @@ public class VpcClient extends AbstractClient{
     public DescribeServiceTemplatesResponse DescribeServiceTemplates(DescribeServiceTemplatesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeServiceTemplatesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeServiceTemplatesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeServiceTemplates");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（DescribeSgSnapshotFileContent）用于查询安全组快照文件内容。
+     * @param req DescribeSgSnapshotFileContentRequest
+     * @return DescribeSgSnapshotFileContentResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeSgSnapshotFileContentResponse DescribeSgSnapshotFileContent(DescribeSgSnapshotFileContentRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeSgSnapshotFileContentResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeSgSnapshotFileContentResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeSgSnapshotFileContent");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（DescribeSnapshotAttachedInstances）用于查询快照策略关联实例列表。
+     * @param req DescribeSnapshotAttachedInstancesRequest
+     * @return DescribeSnapshotAttachedInstancesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeSnapshotAttachedInstancesResponse DescribeSnapshotAttachedInstances(DescribeSnapshotAttachedInstancesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeSnapshotAttachedInstancesResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeSnapshotAttachedInstancesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeSnapshotAttachedInstances");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（DescribeSnapshotFiles）用于查询快照文件。
+     * @param req DescribeSnapshotFilesRequest
+     * @return DescribeSnapshotFilesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeSnapshotFilesResponse DescribeSnapshotFiles(DescribeSnapshotFilesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeSnapshotFilesResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeSnapshotFilesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeSnapshotFiles");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（DescribeSnapshotPolicies）用于查询快照策略。
+     * @param req DescribeSnapshotPoliciesRequest
+     * @return DescribeSnapshotPoliciesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeSnapshotPoliciesResponse DescribeSnapshotPolicies(DescribeSnapshotPoliciesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeSnapshotPoliciesResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeSnapshotPoliciesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeSnapshotPolicies");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口 (DescribeSpecificTrafficPackageUsedDetails) 用于查询指定 共享流量包 的用量明细。
+     * @param req DescribeSpecificTrafficPackageUsedDetailsRequest
+     * @return DescribeSpecificTrafficPackageUsedDetailsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeSpecificTrafficPackageUsedDetailsResponse DescribeSpecificTrafficPackageUsedDetails(DescribeSpecificTrafficPackageUsedDetailsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeSpecificTrafficPackageUsedDetailsResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeSpecificTrafficPackageUsedDetailsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeSpecificTrafficPackageUsedDetails");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口(DescribeSubnetResourceDashboard)用于查看Subnet资源信息。
+     * @param req DescribeSubnetResourceDashboardRequest
+     * @return DescribeSubnetResourceDashboardResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeSubnetResourceDashboardResponse DescribeSubnetResourceDashboard(DescribeSubnetResourceDashboardRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeSubnetResourceDashboardResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeSubnetResourceDashboardResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeSubnetResourceDashboard");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -3347,6 +3815,7 @@ public class VpcClient extends AbstractClient{
     public DescribeSubnetsResponse DescribeSubnets(DescribeSubnetsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeSubnetsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeSubnetsResponse>>() {
                 }.getType();
@@ -3367,6 +3836,7 @@ public class VpcClient extends AbstractClient{
     public DescribeTaskResultResponse DescribeTaskResult(DescribeTaskResultRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeTaskResultResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeTaskResultResponse>>() {
                 }.getType();
@@ -3387,6 +3857,7 @@ public class VpcClient extends AbstractClient{
     public DescribeTemplateLimitsResponse DescribeTemplateLimits(DescribeTemplateLimitsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeTemplateLimitsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeTemplateLimitsResponse>>() {
                 }.getType();
@@ -3409,6 +3880,7 @@ public class VpcClient extends AbstractClient{
     public DescribeTenantCcnsResponse DescribeTenantCcns(DescribeTenantCcnsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeTenantCcnsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeTenantCcnsResponse>>() {
                 }.getType();
@@ -3429,6 +3901,7 @@ public class VpcClient extends AbstractClient{
     public DescribeTrafficPackagesResponse DescribeTrafficPackages(DescribeTrafficPackagesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeTrafficPackagesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeTrafficPackagesResponse>>() {
                 }.getType();
@@ -3441,7 +3914,29 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *查询终端节点列表。
+     *本接口(DescribeUsedIpAddress)用于查询Subnet或者Vpc内的ip的使用情况，
+如ip被占用，返回占用ip的资源类别与id；如未被占用，返回空值
+     * @param req DescribeUsedIpAddressRequest
+     * @return DescribeUsedIpAddressResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeUsedIpAddressResponse DescribeUsedIpAddress(DescribeUsedIpAddressRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeUsedIpAddressResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeUsedIpAddressResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeUsedIpAddress");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（DescribeVpcEndPoint）用于查询终端节点列表。
      * @param req DescribeVpcEndPointRequest
      * @return DescribeVpcEndPointResponse
      * @throws TencentCloudSDKException
@@ -3449,6 +3944,7 @@ public class VpcClient extends AbstractClient{
     public DescribeVpcEndPointResponse DescribeVpcEndPoint(DescribeVpcEndPointRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeVpcEndPointResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeVpcEndPointResponse>>() {
                 }.getType();
@@ -3469,6 +3965,7 @@ public class VpcClient extends AbstractClient{
     public DescribeVpcEndPointServiceResponse DescribeVpcEndPointService(DescribeVpcEndPointServiceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeVpcEndPointServiceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeVpcEndPointServiceResponse>>() {
                 }.getType();
@@ -3481,7 +3978,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *查询终端节点服务的服务白名单列表。
+     *本接口（DescribeVpcEndPointServiceWhiteList）用于查询终端节点服务的服务白名单列表。
      * @param req DescribeVpcEndPointServiceWhiteListRequest
      * @return DescribeVpcEndPointServiceWhiteListResponse
      * @throws TencentCloudSDKException
@@ -3489,6 +3986,7 @@ public class VpcClient extends AbstractClient{
     public DescribeVpcEndPointServiceWhiteListResponse DescribeVpcEndPointServiceWhiteList(DescribeVpcEndPointServiceWhiteListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeVpcEndPointServiceWhiteListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeVpcEndPointServiceWhiteListResponse>>() {
                 }.getType();
@@ -3501,7 +3999,7 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     * 本接口（DescribeVpcInstances）用于查询VPC下的云主机实例列表。
+     *本接口（DescribeVpcInstances）用于查询VPC下的云主机实例列表。
      * @param req DescribeVpcInstancesRequest
      * @return DescribeVpcInstancesResponse
      * @throws TencentCloudSDKException
@@ -3509,6 +4007,7 @@ public class VpcClient extends AbstractClient{
     public DescribeVpcInstancesResponse DescribeVpcInstances(DescribeVpcInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeVpcInstancesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeVpcInstancesResponse>>() {
                 }.getType();
@@ -3530,6 +4029,7 @@ public class VpcClient extends AbstractClient{
     public DescribeVpcIpv6AddressesResponse DescribeVpcIpv6Addresses(DescribeVpcIpv6AddressesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeVpcIpv6AddressesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeVpcIpv6AddressesResponse>>() {
                 }.getType();
@@ -3542,36 +4042,38 @@ public class VpcClient extends AbstractClient{
     }
 
     /**
-     *获取私有网络配额，部分私有网络的配额有地域属性。
+     *本接口（DescribeVpcLimits）用于获取私有网络配额，部分私有网络的配额有地域属性。
 LimitTypes取值范围：
-* appid-max-vpcs （每个开发商每个地域可创建的VPC数）
-* vpc-max-subnets（每个VPC可创建的子网数）
-* vpc-max-route-tables（每个VPC可创建的路由表数）
-* route-table-max-policies（每个路由表可添加的策略数）
-* vpc-max-vpn-gateways（每个VPC可创建的VPN网关数）
-* appid-max-custom-gateways（每个开发商可创建的对端网关数）
-* appid-max-vpn-connections（每个开发商可创建的VPN通道数）
-* custom-gateway-max-vpn-connections（每个对端网关可创建的VPN通道数）
-* vpn-gateway-max-custom-gateways（每个VPNGW可以创建的通道数）
-* vpc-max-network-acls（每个VPC可创建的网络ACL数）
-* network-acl-max-inbound-policies（每个网络ACL可添加的入站规则数）
-* network-acl-max-outbound-policies（每个网络ACL可添加的出站规则数）
-* vpc-max-vpcpeers（每个VPC可创建的对等连接数）
-* vpc-max-available-vpcpeers（每个VPC可创建的有效对等连接数）
-* vpc-max-basic-network-interconnections（每个VPC可创建的基础网络云主机与VPC互通数）
-* direct-connection-max-snats（每个专线网关可创建的SNAT数）
-* direct-connection-max-dnats（每个专线网关可创建的DNAT数）
-* direct-connection-max-snapts（每个专线网关可创建的SNAPT数）
-* direct-connection-max-dnapts（每个专线网关可创建的DNAPT数）
-* vpc-max-nat-gateways（每个VPC可创建的NAT网关数）
-* nat-gateway-max-eips（每个NAT可以购买的外网IP数量）
-* vpc-max-enis（每个VPC可创建弹性网卡数）
-* vpc-max-havips（每个VPC可创建HAVIP数）
-* eni-max-private-ips（每个ENI可以绑定的内网IP数（ENI未绑定子机））
-* nat-gateway-max-dnapts（每个NAT网关可创建的DNAPT数）
-* vpc-max-ipv6s（每个VPC可分配的IPv6地址数）
-* eni-max-ipv6s（每个ENI可分配的IPv6地址数）
-* vpc-max-assistant_cidrs（每个VPC可分配的辅助CIDR数）
+* appid-max-vpcs （每个开发商每个地域可创建的VPC数）。
+* vpc-max-subnets（每个VPC可创建的子网数）。
+* vpc-max-route-tables（每个VPC可创建的路由表数）。
+* route-table-max-policies（每个路由表可添加的策略数）。
+* vpc-max-vpn-gateways（每个VPC可创建的VPN网关数）。
+* appid-max-custom-gateways（每个开发商可创建的对端网关数）。
+* appid-max-vpn-connections（每个开发商可创建的VPN通道数）。
+* custom-gateway-max-vpn-connections（每个对端网关可创建的VPN通道数）。
+* vpn-gateway-max-custom-gateways（每个VPNGW可以创建的通道数）。
+* vpc-max-network-acls（每个VPC可创建的网络ACL数）。
+* network-acl-max-inbound-policies（每个网络ACL可添加的入站规则数）。
+* network-acl-max-outbound-policies（每个网络ACL可添加的出站规则数）。
+* vpc-max-vpcpeers（每个VPC可创建的对等连接数）。
+* vpc-max-available-vpcpeers（每个VPC可创建的有效对等连接数）。
+* vpc-max-basic-network-interconnections（每个VPC可创建的基础网络云主机与VPC互通数）。
+* direct-connection-max-snats（每个专线网关可创建的SNAT数）。
+* direct-connection-max-dnats（每个专线网关可创建的DNAT数）。
+* direct-connection-max-snapts（每个专线网关可创建的SNAPT数）。
+* direct-connection-max-dnapts（每个专线网关可创建的DNAPT数）。
+* vpc-max-nat-gateways（每个VPC可创建的NAT网关数）。
+* nat-gateway-max-eips（每个NAT可以购买的外网IP数量）。
+* vpc-max-enis（每个VPC可创建弹性网卡数）。
+* vpc-max-havips（每个VPC可创建HAVIP数）。
+* eni-max-private-ips（每个ENI可以绑定的内网IP数（ENI未绑定子机））。
+* nat-gateway-max-dnapts（每个NAT网关可创建的DNAPT数）。
+* vpc-max-ipv6s（每个VPC可分配的IPv6地址数）。
+* eni-max-ipv6s（每个ENI可分配的IPv6地址数）。
+* vpc-max-assistant_cidrs（每个VPC可分配的辅助CIDR数）。
+* appid-max-end-point-services （每个开发商每个地域可创建的终端节点服务个数）。
+* appid-max-end-point-service-white-lists （每个开发商每个地域可创建的终端节点服务白名单个数）。
      * @param req DescribeVpcLimitsRequest
      * @return DescribeVpcLimitsResponse
      * @throws TencentCloudSDKException
@@ -3579,10 +4081,32 @@ LimitTypes取值范围：
     public DescribeVpcLimitsResponse DescribeVpcLimits(DescribeVpcLimitsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeVpcLimitsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeVpcLimitsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeVpcLimits");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询私有网络对等连接。
+     * @param req DescribeVpcPeeringConnectionsRequest
+     * @return DescribeVpcPeeringConnectionsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeVpcPeeringConnectionsResponse DescribeVpcPeeringConnections(DescribeVpcPeeringConnectionsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DescribeVpcPeeringConnectionsResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DescribeVpcPeeringConnectionsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DescribeVpcPeeringConnections");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -3600,6 +4124,7 @@ LimitTypes取值范围：
     public DescribeVpcPrivateIpAddressesResponse DescribeVpcPrivateIpAddresses(DescribeVpcPrivateIpAddressesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeVpcPrivateIpAddressesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeVpcPrivateIpAddressesResponse>>() {
                 }.getType();
@@ -3620,6 +4145,7 @@ LimitTypes取值范围：
     public DescribeVpcResourceDashboardResponse DescribeVpcResourceDashboard(DescribeVpcResourceDashboardRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeVpcResourceDashboardResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeVpcResourceDashboardResponse>>() {
                 }.getType();
@@ -3640,6 +4166,7 @@ LimitTypes取值范围：
     public DescribeVpcTaskResultResponse DescribeVpcTaskResult(DescribeVpcTaskResultRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeVpcTaskResultResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeVpcTaskResultResponse>>() {
                 }.getType();
@@ -3660,6 +4187,7 @@ LimitTypes取值范围：
     public DescribeVpcsResponse DescribeVpcs(DescribeVpcsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeVpcsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeVpcsResponse>>() {
                 }.getType();
@@ -3672,7 +4200,7 @@ LimitTypes取值范围：
     }
 
     /**
-     * 本接口（DescribeVpnConnections）查询VPN通道列表。
+     *本接口（DescribeVpnConnections）用于查询VPN通道列表。
      * @param req DescribeVpnConnectionsRequest
      * @return DescribeVpnConnectionsResponse
      * @throws TencentCloudSDKException
@@ -3680,6 +4208,7 @@ LimitTypes取值范围：
     public DescribeVpnConnectionsResponse DescribeVpnConnections(DescribeVpnConnectionsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeVpnConnectionsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeVpnConnectionsResponse>>() {
                 }.getType();
@@ -3692,7 +4221,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *本接口（DescribeVpnGatewayCcnRoutes）用于查询VPN网关云联网路由
+     *本接口（DescribeVpnGatewayCcnRoutes）用于查询VPN网关云联网路由。
      * @param req DescribeVpnGatewayCcnRoutesRequest
      * @return DescribeVpnGatewayCcnRoutesResponse
      * @throws TencentCloudSDKException
@@ -3700,6 +4229,7 @@ LimitTypes取值范围：
     public DescribeVpnGatewayCcnRoutesResponse DescribeVpnGatewayCcnRoutes(DescribeVpnGatewayCcnRoutesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeVpnGatewayCcnRoutesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeVpnGatewayCcnRoutesResponse>>() {
                 }.getType();
@@ -3712,7 +4242,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *查询路由型VPN网关的目的路由
+     *本接口（DescribeVpnGatewayRoutes）用于查询VPN网关路由。
      * @param req DescribeVpnGatewayRoutesRequest
      * @return DescribeVpnGatewayRoutesResponse
      * @throws TencentCloudSDKException
@@ -3720,6 +4250,7 @@ LimitTypes取值范围：
     public DescribeVpnGatewayRoutesResponse DescribeVpnGatewayRoutes(DescribeVpnGatewayRoutesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeVpnGatewayRoutesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeVpnGatewayRoutesResponse>>() {
                 }.getType();
@@ -3732,7 +4263,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *查询SSL-VPN-CLIENT 列表
+     *本接口（DescribeVpnGatewaySslClients）用于查询SSL-VPN-CLIENT 列表。
      * @param req DescribeVpnGatewaySslClientsRequest
      * @return DescribeVpnGatewaySslClientsResponse
      * @throws TencentCloudSDKException
@@ -3740,6 +4271,7 @@ LimitTypes取值范围：
     public DescribeVpnGatewaySslClientsResponse DescribeVpnGatewaySslClients(DescribeVpnGatewaySslClientsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeVpnGatewaySslClientsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeVpnGatewaySslClientsResponse>>() {
                 }.getType();
@@ -3752,7 +4284,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *查询SSL-VPN SERVER 列表信息
+     *本接口（DescribeVpnGatewaySslServers）用于查询SSL-VPN SERVER 列表信息。
      * @param req DescribeVpnGatewaySslServersRequest
      * @return DescribeVpnGatewaySslServersResponse
      * @throws TencentCloudSDKException
@@ -3760,6 +4292,7 @@ LimitTypes取值范围：
     public DescribeVpnGatewaySslServersResponse DescribeVpnGatewaySslServers(DescribeVpnGatewaySslServersRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeVpnGatewaySslServersResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeVpnGatewaySslServersResponse>>() {
                 }.getType();
@@ -3780,6 +4313,7 @@ LimitTypes取值范围：
     public DescribeVpnGatewaysResponse DescribeVpnGateways(DescribeVpnGatewaysRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeVpnGatewaysResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeVpnGatewaysResponse>>() {
                 }.getType();
@@ -3801,6 +4335,7 @@ LimitTypes取值范围：
     public DetachCcnInstancesResponse DetachCcnInstances(DetachCcnInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DetachCcnInstancesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DetachCcnInstancesResponse>>() {
                 }.getType();
@@ -3823,6 +4358,7 @@ LimitTypes取值范围：
     public DetachClassicLinkVpcResponse DetachClassicLinkVpc(DetachClassicLinkVpcRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DetachClassicLinkVpcResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DetachClassicLinkVpcResponse>>() {
                 }.getType();
@@ -3844,6 +4380,7 @@ LimitTypes取值范围：
     public DetachNetworkInterfaceResponse DetachNetworkInterface(DetachNetworkInterfaceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DetachNetworkInterfaceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DetachNetworkInterfaceResponse>>() {
                 }.getType();
@@ -3856,7 +4393,28 @@ LimitTypes取值范围：
     }
 
     /**
-     *本接口（DisableCcnRoutes）用于禁用已经启用的云联网（CCN）路由
+     *本接口（DetachSnapshotInstances）用于快照策略解关联实例。
+     * @param req DetachSnapshotInstancesRequest
+     * @return DetachSnapshotInstancesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DetachSnapshotInstancesResponse DetachSnapshotInstances(DetachSnapshotInstancesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DetachSnapshotInstancesResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DetachSnapshotInstancesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DetachSnapshotInstances");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（DisableCcnRoutes）用于禁用已经启用的云联网（CCN）路由。
      * @param req DisableCcnRoutesRequest
      * @return DisableCcnRoutesResponse
      * @throws TencentCloudSDKException
@@ -3864,6 +4422,7 @@ LimitTypes取值范围：
     public DisableCcnRoutesResponse DisableCcnRoutes(DisableCcnRoutesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DisableCcnRoutesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DisableCcnRoutesResponse>>() {
                 }.getType();
@@ -3884,6 +4443,7 @@ LimitTypes取值范围：
     public DisableFlowLogsResponse DisableFlowLogs(DisableFlowLogsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DisableFlowLogsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DisableFlowLogsResponse>>() {
                 }.getType();
@@ -3904,6 +4464,7 @@ LimitTypes取值范围：
     public DisableGatewayFlowMonitorResponse DisableGatewayFlowMonitor(DisableGatewayFlowMonitorRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DisableGatewayFlowMonitorResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DisableGatewayFlowMonitorResponse>>() {
                 }.getType();
@@ -3924,10 +4485,32 @@ LimitTypes取值范围：
     public DisableRoutesResponse DisableRoutes(DisableRoutesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DisableRoutesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DisableRoutesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DisableRoutes");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（DisableSnapshotPolicies）用于停用快照策略。
+     * @param req DisableSnapshotPoliciesRequest
+     * @return DisableSnapshotPoliciesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DisableSnapshotPoliciesResponse DisableSnapshotPolicies(DisableSnapshotPoliciesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<DisableSnapshotPoliciesResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<DisableSnapshotPoliciesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "DisableSnapshotPolicies");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -3944,6 +4527,7 @@ LimitTypes取值范围：
     public DisableVpnGatewaySslClientCertResponse DisableVpnGatewaySslClientCert(DisableVpnGatewaySslClientCertRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DisableVpnGatewaySslClientCertResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DisableVpnGatewaySslClientCertResponse>>() {
                 }.getType();
@@ -3968,6 +4552,7 @@ LimitTypes取值范围：
     public DisassociateAddressResponse DisassociateAddress(DisassociateAddressRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DisassociateAddressResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DisassociateAddressResponse>>() {
                 }.getType();
@@ -3990,6 +4575,7 @@ LimitTypes取值范围：
     public DisassociateDhcpIpWithAddressIpResponse DisassociateDhcpIpWithAddressIp(DisassociateDhcpIpWithAddressIpRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DisassociateDhcpIpWithAddressIpResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DisassociateDhcpIpWithAddressIpResponse>>() {
                 }.getType();
@@ -4010,6 +4596,7 @@ LimitTypes取值范围：
     public DisassociateDirectConnectGatewayNatGatewayResponse DisassociateDirectConnectGatewayNatGateway(DisassociateDirectConnectGatewayNatGatewayRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DisassociateDirectConnectGatewayNatGatewayResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DisassociateDirectConnectGatewayNatGatewayResponse>>() {
                 }.getType();
@@ -4030,6 +4617,7 @@ LimitTypes取值范围：
     public DisassociateNatGatewayAddressResponse DisassociateNatGatewayAddress(DisassociateNatGatewayAddressRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DisassociateNatGatewayAddressResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DisassociateNatGatewayAddressResponse>>() {
                 }.getType();
@@ -4042,7 +4630,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *本接口（DisassociateNetworkAclSubnets）用于网络ACL解关联vpc下的子网。
+     *本接口（DisassociateNetworkAclSubnets）用于网络ACL解关联VPC下的子网。
      * @param req DisassociateNetworkAclSubnetsRequest
      * @return DisassociateNetworkAclSubnetsResponse
      * @throws TencentCloudSDKException
@@ -4050,6 +4638,7 @@ LimitTypes取值范围：
     public DisassociateNetworkAclSubnetsResponse DisassociateNetworkAclSubnets(DisassociateNetworkAclSubnetsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DisassociateNetworkAclSubnetsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DisassociateNetworkAclSubnetsResponse>>() {
                 }.getType();
@@ -4070,6 +4659,7 @@ LimitTypes取值范围：
     public DisassociateNetworkInterfaceSecurityGroupsResponse DisassociateNetworkInterfaceSecurityGroups(DisassociateNetworkInterfaceSecurityGroupsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DisassociateNetworkInterfaceSecurityGroupsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DisassociateNetworkInterfaceSecurityGroupsResponse>>() {
                 }.getType();
@@ -4082,7 +4672,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *终端节点解绑安全组。
+     *本接口（DisassociateVpcEndPointSecurityGroups）用于终端节点解绑安全组。
      * @param req DisassociateVpcEndPointSecurityGroupsRequest
      * @return DisassociateVpcEndPointSecurityGroupsResponse
      * @throws TencentCloudSDKException
@@ -4090,6 +4680,7 @@ LimitTypes取值范围：
     public DisassociateVpcEndPointSecurityGroupsResponse DisassociateVpcEndPointSecurityGroups(DisassociateVpcEndPointSecurityGroupsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DisassociateVpcEndPointSecurityGroupsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DisassociateVpcEndPointSecurityGroupsResponse>>() {
                 }.getType();
@@ -4102,7 +4693,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *本接口(DownloadCustomerGatewayConfiguration)用于下载VPN通道配置。
+     *本接口（DownloadCustomerGatewayConfiguration）用于下载VPN通道配置。
      * @param req DownloadCustomerGatewayConfigurationRequest
      * @return DownloadCustomerGatewayConfigurationResponse
      * @throws TencentCloudSDKException
@@ -4110,6 +4701,7 @@ LimitTypes取值范围：
     public DownloadCustomerGatewayConfigurationResponse DownloadCustomerGatewayConfiguration(DownloadCustomerGatewayConfigurationRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DownloadCustomerGatewayConfigurationResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DownloadCustomerGatewayConfigurationResponse>>() {
                 }.getType();
@@ -4122,7 +4714,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *下载SSL-VPN-CLIENT 客户端证书
+     *本接口（DownloadVpnGatewaySslClientCert）用于下载SSL-VPN-CLIENT 客户端证书。
      * @param req DownloadVpnGatewaySslClientCertRequest
      * @return DownloadVpnGatewaySslClientCertResponse
      * @throws TencentCloudSDKException
@@ -4130,6 +4722,7 @@ LimitTypes取值范围：
     public DownloadVpnGatewaySslClientCertResponse DownloadVpnGatewaySslClientCert(DownloadVpnGatewaySslClientCertRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DownloadVpnGatewaySslClientCertResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DownloadVpnGatewaySslClientCertResponse>>() {
                 }.getType();
@@ -4151,6 +4744,7 @@ LimitTypes取值范围：
     public EnableCcnRoutesResponse EnableCcnRoutes(EnableCcnRoutesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<EnableCcnRoutesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<EnableCcnRoutesResponse>>() {
                 }.getType();
@@ -4171,6 +4765,7 @@ LimitTypes取值范围：
     public EnableFlowLogsResponse EnableFlowLogs(EnableFlowLogsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<EnableFlowLogsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<EnableFlowLogsResponse>>() {
                 }.getType();
@@ -4191,6 +4786,7 @@ LimitTypes取值范围：
     public EnableGatewayFlowMonitorResponse EnableGatewayFlowMonitor(EnableGatewayFlowMonitorRequest req) throws TencentCloudSDKException{
         JsonResponseModel<EnableGatewayFlowMonitorResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<EnableGatewayFlowMonitorResponse>>() {
                 }.getType();
@@ -4212,6 +4808,7 @@ LimitTypes取值范围：
     public EnableRoutesResponse EnableRoutes(EnableRoutesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<EnableRoutesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<EnableRoutesResponse>>() {
                 }.getType();
@@ -4224,7 +4821,28 @@ LimitTypes取值范围：
     }
 
     /**
-     *是否接受终端节点连接请求。
+     *本接口（EnableSnapshotPolicies）用于启用快照策略。
+     * @param req EnableSnapshotPoliciesRequest
+     * @return EnableSnapshotPoliciesResponse
+     * @throws TencentCloudSDKException
+     */
+    public EnableSnapshotPoliciesResponse EnableSnapshotPolicies(EnableSnapshotPoliciesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<EnableSnapshotPoliciesResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<EnableSnapshotPoliciesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "EnableSnapshotPolicies");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（EnableVpcEndPointConnect）用于是否接受终端节点连接请求。
      * @param req EnableVpcEndPointConnectRequest
      * @return EnableVpcEndPointConnectResponse
      * @throws TencentCloudSDKException
@@ -4232,6 +4850,7 @@ LimitTypes取值范围：
     public EnableVpcEndPointConnectResponse EnableVpcEndPointConnect(EnableVpcEndPointConnectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<EnableVpcEndPointConnectResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<EnableVpcEndPointConnectResponse>>() {
                 }.getType();
@@ -4244,7 +4863,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *启用SSL-VPN-CLIENT 证书
+     *本接口（EnableVpnGatewaySslClientCert）用于启用SSL-VPN-CLIENT 证书。
      * @param req EnableVpnGatewaySslClientCertRequest
      * @return EnableVpnGatewaySslClientCertResponse
      * @throws TencentCloudSDKException
@@ -4252,10 +4871,32 @@ LimitTypes取值范围：
     public EnableVpnGatewaySslClientCertResponse EnableVpnGatewaySslClientCert(EnableVpnGatewaySslClientCertRequest req) throws TencentCloudSDKException{
         JsonResponseModel<EnableVpnGatewaySslClientCertResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<EnableVpnGatewaySslClientCertResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "EnableVpnGatewaySslClientCert");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（GenerateVpnConnectionDefaultHealthCheckIp）用于获取一对VPN通道健康检查地址。
+     * @param req GenerateVpnConnectionDefaultHealthCheckIpRequest
+     * @return GenerateVpnConnectionDefaultHealthCheckIpResponse
+     * @throws TencentCloudSDKException
+     */
+    public GenerateVpnConnectionDefaultHealthCheckIpResponse GenerateVpnConnectionDefaultHealthCheckIp(GenerateVpnConnectionDefaultHealthCheckIpRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GenerateVpnConnectionDefaultHealthCheckIpResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<GenerateVpnConnectionDefaultHealthCheckIpResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GenerateVpnConnectionDefaultHealthCheckIp");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -4272,6 +4913,7 @@ LimitTypes取值范围：
     public GetCcnRegionBandwidthLimitsResponse GetCcnRegionBandwidthLimits(GetCcnRegionBandwidthLimitsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetCcnRegionBandwidthLimitsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<GetCcnRegionBandwidthLimitsResponse>>() {
                 }.getType();
@@ -4293,6 +4935,7 @@ LimitTypes取值范围：
     public HaVipAssociateAddressIpResponse HaVipAssociateAddressIp(HaVipAssociateAddressIpRequest req) throws TencentCloudSDKException{
         JsonResponseModel<HaVipAssociateAddressIpResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<HaVipAssociateAddressIpResponse>>() {
                 }.getType();
@@ -4314,6 +4957,7 @@ LimitTypes取值范围：
     public HaVipDisassociateAddressIpResponse HaVipDisassociateAddressIp(HaVipDisassociateAddressIpRequest req) throws TencentCloudSDKException{
         JsonResponseModel<HaVipDisassociateAddressIpResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<HaVipDisassociateAddressIpResponse>>() {
                 }.getType();
@@ -4334,6 +4978,7 @@ LimitTypes取值范围：
     public InquirePriceCreateDirectConnectGatewayResponse InquirePriceCreateDirectConnectGateway(InquirePriceCreateDirectConnectGatewayRequest req) throws TencentCloudSDKException{
         JsonResponseModel<InquirePriceCreateDirectConnectGatewayResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<InquirePriceCreateDirectConnectGatewayResponse>>() {
                 }.getType();
@@ -4354,6 +4999,7 @@ LimitTypes取值范围：
     public InquiryPriceCreateVpnGatewayResponse InquiryPriceCreateVpnGateway(InquiryPriceCreateVpnGatewayRequest req) throws TencentCloudSDKException{
         JsonResponseModel<InquiryPriceCreateVpnGatewayResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<InquiryPriceCreateVpnGatewayResponse>>() {
                 }.getType();
@@ -4374,6 +5020,7 @@ LimitTypes取值范围：
     public InquiryPriceRenewVpnGatewayResponse InquiryPriceRenewVpnGateway(InquiryPriceRenewVpnGatewayRequest req) throws TencentCloudSDKException{
         JsonResponseModel<InquiryPriceRenewVpnGatewayResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<InquiryPriceRenewVpnGatewayResponse>>() {
                 }.getType();
@@ -4394,6 +5041,7 @@ LimitTypes取值范围：
     public InquiryPriceResetVpnGatewayInternetMaxBandwidthResponse InquiryPriceResetVpnGatewayInternetMaxBandwidth(InquiryPriceResetVpnGatewayInternetMaxBandwidthRequest req) throws TencentCloudSDKException{
         JsonResponseModel<InquiryPriceResetVpnGatewayInternetMaxBandwidthResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<InquiryPriceResetVpnGatewayInternetMaxBandwidthResponse>>() {
                 }.getType();
@@ -4416,6 +5064,7 @@ LimitTypes取值范围：
     public LockCcnBandwidthsResponse LockCcnBandwidths(LockCcnBandwidthsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<LockCcnBandwidthsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<LockCcnBandwidthsResponse>>() {
                 }.getType();
@@ -4442,6 +5091,7 @@ LimitTypes取值范围：
     public LockCcnsResponse LockCcns(LockCcnsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<LockCcnsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<LockCcnsResponse>>() {
                 }.getType();
@@ -4463,6 +5113,7 @@ LimitTypes取值范围：
     public MigrateNetworkInterfaceResponse MigrateNetworkInterface(MigrateNetworkInterfaceRequest req) throws TencentCloudSDKException{
         JsonResponseModel<MigrateNetworkInterfaceResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<MigrateNetworkInterfaceResponse>>() {
                 }.getType();
@@ -4475,7 +5126,7 @@ LimitTypes取值范围：
     }
 
     /**
-     * 本接口（MigratePrivateIpAddress）用于弹性网卡内网IP迁移。
+     *本接口（MigratePrivateIpAddress）用于弹性网卡内网IP迁移。
 * 该接口用于将一个内网IP从一个弹性网卡上迁移到另外一个弹性网卡，主IP地址不支持迁移。
 * 迁移前后的弹性网卡必须在同一个子网内。  
 
@@ -4487,6 +5138,7 @@ LimitTypes取值范围：
     public MigratePrivateIpAddressResponse MigratePrivateIpAddress(MigratePrivateIpAddressRequest req) throws TencentCloudSDKException{
         JsonResponseModel<MigratePrivateIpAddressResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<MigratePrivateIpAddressResponse>>() {
                 }.getType();
@@ -4507,6 +5159,7 @@ LimitTypes取值范围：
     public ModifyAddressAttributeResponse ModifyAddressAttribute(ModifyAddressAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyAddressAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyAddressAttributeResponse>>() {
                 }.getType();
@@ -4529,6 +5182,7 @@ LimitTypes取值范围：
     public ModifyAddressInternetChargeTypeResponse ModifyAddressInternetChargeType(ModifyAddressInternetChargeTypeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyAddressInternetChargeTypeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyAddressInternetChargeTypeResponse>>() {
                 }.getType();
@@ -4541,7 +5195,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *本接口（ModifyAddressTemplateAttribute）用于修改IP地址模板
+     *本接口（ModifyAddressTemplateAttribute）用于修改IP地址模板。
      * @param req ModifyAddressTemplateAttributeRequest
      * @return ModifyAddressTemplateAttributeResponse
      * @throws TencentCloudSDKException
@@ -4549,6 +5203,7 @@ LimitTypes取值范围：
     public ModifyAddressTemplateAttributeResponse ModifyAddressTemplateAttribute(ModifyAddressTemplateAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyAddressTemplateAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyAddressTemplateAttributeResponse>>() {
                 }.getType();
@@ -4561,7 +5216,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *本接口（ModifyAddressTemplateGroupAttribute）用于修改IP地址模板集合
+     *本接口（ModifyAddressTemplateGroupAttribute）用于修改IP地址模板集合。
      * @param req ModifyAddressTemplateGroupAttributeRequest
      * @return ModifyAddressTemplateGroupAttributeResponse
      * @throws TencentCloudSDKException
@@ -4569,6 +5224,7 @@ LimitTypes取值范围：
     public ModifyAddressTemplateGroupAttributeResponse ModifyAddressTemplateGroupAttribute(ModifyAddressTemplateGroupAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyAddressTemplateGroupAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyAddressTemplateGroupAttributeResponse>>() {
                 }.getType();
@@ -4589,6 +5245,7 @@ LimitTypes取值范围：
     public ModifyAddressesBandwidthResponse ModifyAddressesBandwidth(ModifyAddressesBandwidthRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyAddressesBandwidthResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyAddressesBandwidthResponse>>() {
                 }.getType();
@@ -4601,7 +5258,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *本接口(ModifyAssistantCidr)用于批量修改辅助CIDR，支持新增和删除。
+     *本接口（ModifyAssistantCidr）用于批量修改辅助CIDR，支持新增和删除。
      * @param req ModifyAssistantCidrRequest
      * @return ModifyAssistantCidrResponse
      * @throws TencentCloudSDKException
@@ -4609,6 +5266,7 @@ LimitTypes取值范围：
     public ModifyAssistantCidrResponse ModifyAssistantCidr(ModifyAssistantCidrRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyAssistantCidrResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyAssistantCidrResponse>>() {
                 }.getType();
@@ -4629,6 +5287,7 @@ LimitTypes取值范围：
     public ModifyBandwidthPackageAttributeResponse ModifyBandwidthPackageAttribute(ModifyBandwidthPackageAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyBandwidthPackageAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyBandwidthPackageAttributeResponse>>() {
                 }.getType();
@@ -4649,6 +5308,7 @@ LimitTypes取值范围：
     public ModifyCcnAttachedInstancesAttributeResponse ModifyCcnAttachedInstancesAttribute(ModifyCcnAttachedInstancesAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyCcnAttachedInstancesAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyCcnAttachedInstancesAttributeResponse>>() {
                 }.getType();
@@ -4669,6 +5329,7 @@ LimitTypes取值范围：
     public ModifyCcnAttributeResponse ModifyCcnAttribute(ModifyCcnAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyCcnAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyCcnAttributeResponse>>() {
                 }.getType();
@@ -4689,6 +5350,7 @@ LimitTypes取值范围：
     public ModifyCcnRegionBandwidthLimitsTypeResponse ModifyCcnRegionBandwidthLimitsType(ModifyCcnRegionBandwidthLimitsTypeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyCcnRegionBandwidthLimitsTypeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyCcnRegionBandwidthLimitsTypeResponse>>() {
                 }.getType();
@@ -4709,6 +5371,7 @@ LimitTypes取值范围：
     public ModifyCustomerGatewayAttributeResponse ModifyCustomerGatewayAttribute(ModifyCustomerGatewayAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyCustomerGatewayAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyCustomerGatewayAttributeResponse>>() {
                 }.getType();
@@ -4729,6 +5392,7 @@ LimitTypes取值范围：
     public ModifyDhcpIpAttributeResponse ModifyDhcpIpAttribute(ModifyDhcpIpAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyDhcpIpAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyDhcpIpAttributeResponse>>() {
                 }.getType();
@@ -4750,6 +5414,7 @@ LimitTypes取值范围：
     public ModifyDirectConnectGatewayAttributeResponse ModifyDirectConnectGatewayAttribute(ModifyDirectConnectGatewayAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyDirectConnectGatewayAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyDirectConnectGatewayAttributeResponse>>() {
                 }.getType();
@@ -4762,7 +5427,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *本接口（ModifyFlowLogAttribute）用于修改流日志属性
+     *本接口（ModifyFlowLogAttribute）用于修改流日志属性。
      * @param req ModifyFlowLogAttributeRequest
      * @return ModifyFlowLogAttributeResponse
      * @throws TencentCloudSDKException
@@ -4770,6 +5435,7 @@ LimitTypes取值范围：
     public ModifyFlowLogAttributeResponse ModifyFlowLogAttribute(ModifyFlowLogAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyFlowLogAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyFlowLogAttributeResponse>>() {
                 }.getType();
@@ -4790,6 +5456,7 @@ LimitTypes取值范围：
     public ModifyGatewayFlowQosResponse ModifyGatewayFlowQos(ModifyGatewayFlowQosRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyGatewayFlowQosResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyGatewayFlowQosResponse>>() {
                 }.getType();
@@ -4802,7 +5469,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *本接口（ModifyHaVipAttribute）用于修改高可用虚拟IP（HAVIP）属性
+     *本接口（ModifyHaVipAttribute）用于修改高可用虚拟IP（HAVIP）属性。
      * @param req ModifyHaVipAttributeRequest
      * @return ModifyHaVipAttributeResponse
      * @throws TencentCloudSDKException
@@ -4810,6 +5477,7 @@ LimitTypes取值范围：
     public ModifyHaVipAttributeResponse ModifyHaVipAttribute(ModifyHaVipAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyHaVipAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyHaVipAttributeResponse>>() {
                 }.getType();
@@ -4830,6 +5498,7 @@ LimitTypes取值范围：
     public ModifyIp6AddressesBandwidthResponse ModifyIp6AddressesBandwidth(ModifyIp6AddressesBandwidthRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyIp6AddressesBandwidthResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyIp6AddressesBandwidthResponse>>() {
                 }.getType();
@@ -4850,6 +5519,7 @@ LimitTypes取值范围：
     public ModifyIp6RuleResponse ModifyIp6Rule(ModifyIp6RuleRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyIp6RuleResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyIp6RuleResponse>>() {
                 }.getType();
@@ -4870,6 +5540,7 @@ LimitTypes取值范围：
     public ModifyIp6TranslatorResponse ModifyIp6Translator(ModifyIp6TranslatorRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyIp6TranslatorResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyIp6TranslatorResponse>>() {
                 }.getType();
@@ -4890,6 +5561,7 @@ LimitTypes取值范围：
     public ModifyIpv6AddressesAttributeResponse ModifyIpv6AddressesAttribute(ModifyIpv6AddressesAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyIpv6AddressesAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyIpv6AddressesAttributeResponse>>() {
                 }.getType();
@@ -4902,7 +5574,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *该接口用于修改CDC的本地网关。
+     *本接口（ModifyLocalGateway）用于修改CDC的本地网关。
      * @param req ModifyLocalGatewayRequest
      * @return ModifyLocalGatewayResponse
      * @throws TencentCloudSDKException
@@ -4910,6 +5582,7 @@ LimitTypes取值范围：
     public ModifyLocalGatewayResponse ModifyLocalGateway(ModifyLocalGatewayRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyLocalGatewayResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyLocalGatewayResponse>>() {
                 }.getType();
@@ -4930,6 +5603,7 @@ LimitTypes取值范围：
     public ModifyNatGatewayAttributeResponse ModifyNatGatewayAttribute(ModifyNatGatewayAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyNatGatewayAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyNatGatewayAttributeResponse>>() {
                 }.getType();
@@ -4950,6 +5624,7 @@ LimitTypes取值范围：
     public ModifyNatGatewayDestinationIpPortTranslationNatRuleResponse ModifyNatGatewayDestinationIpPortTranslationNatRule(ModifyNatGatewayDestinationIpPortTranslationNatRuleRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyNatGatewayDestinationIpPortTranslationNatRuleResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyNatGatewayDestinationIpPortTranslationNatRuleResponse>>() {
                 }.getType();
@@ -4970,6 +5645,7 @@ LimitTypes取值范围：
     public ModifyNatGatewaySourceIpTranslationNatRuleResponse ModifyNatGatewaySourceIpTranslationNatRule(ModifyNatGatewaySourceIpTranslationNatRuleRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyNatGatewaySourceIpTranslationNatRuleResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyNatGatewaySourceIpTranslationNatRuleResponse>>() {
                 }.getType();
@@ -4990,6 +5666,7 @@ LimitTypes取值范围：
     public ModifyNetDetectResponse ModifyNetDetect(ModifyNetDetectRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyNetDetectResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyNetDetectResponse>>() {
                 }.getType();
@@ -5010,6 +5687,7 @@ LimitTypes取值范围：
     public ModifyNetworkAclAttributeResponse ModifyNetworkAclAttribute(ModifyNetworkAclAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyNetworkAclAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyNetworkAclAttributeResponse>>() {
                 }.getType();
@@ -5032,6 +5710,7 @@ LimitTypes取值范围：
     public ModifyNetworkAclEntriesResponse ModifyNetworkAclEntries(ModifyNetworkAclEntriesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyNetworkAclEntriesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyNetworkAclEntriesResponse>>() {
                 }.getType();
@@ -5052,6 +5731,7 @@ LimitTypes取值范围：
     public ModifyNetworkAclQuintupleEntriesResponse ModifyNetworkAclQuintupleEntries(ModifyNetworkAclQuintupleEntriesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyNetworkAclQuintupleEntriesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyNetworkAclQuintupleEntriesResponse>>() {
                 }.getType();
@@ -5072,6 +5752,7 @@ LimitTypes取值范围：
     public ModifyNetworkInterfaceAttributeResponse ModifyNetworkInterfaceAttribute(ModifyNetworkInterfaceAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyNetworkInterfaceAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyNetworkInterfaceAttributeResponse>>() {
                 }.getType();
@@ -5084,7 +5765,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *修改弹性网卡服务质量。
+     *本接口（ModifyNetworkInterfaceQos）用于修改弹性网卡服务质量。
      * @param req ModifyNetworkInterfaceQosRequest
      * @return ModifyNetworkInterfaceQosResponse
      * @throws TencentCloudSDKException
@@ -5092,6 +5773,7 @@ LimitTypes取值范围：
     public ModifyNetworkInterfaceQosResponse ModifyNetworkInterfaceQos(ModifyNetworkInterfaceQosRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyNetworkInterfaceQosResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyNetworkInterfaceQosResponse>>() {
                 }.getType();
@@ -5112,6 +5794,7 @@ LimitTypes取值范围：
     public ModifyPrivateIpAddressesAttributeResponse ModifyPrivateIpAddressesAttribute(ModifyPrivateIpAddressesAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyPrivateIpAddressesAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyPrivateIpAddressesAttributeResponse>>() {
                 }.getType();
@@ -5132,6 +5815,7 @@ LimitTypes取值范围：
     public ModifyRouteTableAttributeResponse ModifyRouteTableAttribute(ModifyRouteTableAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyRouteTableAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyRouteTableAttributeResponse>>() {
                 }.getType();
@@ -5152,6 +5836,7 @@ LimitTypes取值范围：
     public ModifySecurityGroupAttributeResponse ModifySecurityGroupAttribute(ModifySecurityGroupAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifySecurityGroupAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifySecurityGroupAttributeResponse>>() {
                 }.getType();
@@ -5187,6 +5872,7 @@ LimitTypes取值范围：
     public ModifySecurityGroupPoliciesResponse ModifySecurityGroupPolicies(ModifySecurityGroupPoliciesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifySecurityGroupPoliciesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifySecurityGroupPoliciesResponse>>() {
                 }.getType();
@@ -5199,7 +5885,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *本接口（ModifyServiceTemplateAttribute）用于修改协议端口模板
+     *本接口（ModifyServiceTemplateAttribute）用于修改协议端口模板。
      * @param req ModifyServiceTemplateAttributeRequest
      * @return ModifyServiceTemplateAttributeResponse
      * @throws TencentCloudSDKException
@@ -5207,6 +5893,7 @@ LimitTypes取值范围：
     public ModifyServiceTemplateAttributeResponse ModifyServiceTemplateAttribute(ModifyServiceTemplateAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyServiceTemplateAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyServiceTemplateAttributeResponse>>() {
                 }.getType();
@@ -5227,10 +5914,32 @@ LimitTypes取值范围：
     public ModifyServiceTemplateGroupAttributeResponse ModifyServiceTemplateGroupAttribute(ModifyServiceTemplateGroupAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyServiceTemplateGroupAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyServiceTemplateGroupAttributeResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifyServiceTemplateGroupAttribute");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（ModifySnapshotPolicies）用于修改快照策略。
+     * @param req ModifySnapshotPoliciesRequest
+     * @return ModifySnapshotPoliciesResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifySnapshotPoliciesResponse ModifySnapshotPolicies(ModifySnapshotPoliciesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifySnapshotPoliciesResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifySnapshotPoliciesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifySnapshotPolicies");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -5247,6 +5956,7 @@ LimitTypes取值范围：
     public ModifySubnetAttributeResponse ModifySubnetAttribute(ModifySubnetAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifySubnetAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifySubnetAttributeResponse>>() {
                 }.getType();
@@ -5267,6 +5977,7 @@ LimitTypes取值范围：
     public ModifyTemplateMemberResponse ModifyTemplateMember(ModifyTemplateMemberRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyTemplateMemberResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyTemplateMemberResponse>>() {
                 }.getType();
@@ -5287,6 +5998,7 @@ LimitTypes取值范围：
     public ModifyVpcAttributeResponse ModifyVpcAttribute(ModifyVpcAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyVpcAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyVpcAttributeResponse>>() {
                 }.getType();
@@ -5299,7 +6011,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *修改终端节点属性。
+     *本接口（ModifyVpcEndPointAttribute）用于修改终端节点属性。
      * @param req ModifyVpcEndPointAttributeRequest
      * @return ModifyVpcEndPointAttributeResponse
      * @throws TencentCloudSDKException
@@ -5307,6 +6019,7 @@ LimitTypes取值范围：
     public ModifyVpcEndPointAttributeResponse ModifyVpcEndPointAttribute(ModifyVpcEndPointAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyVpcEndPointAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyVpcEndPointAttributeResponse>>() {
                 }.getType();
@@ -5329,6 +6042,7 @@ LimitTypes取值范围：
     public ModifyVpcEndPointServiceAttributeResponse ModifyVpcEndPointServiceAttribute(ModifyVpcEndPointServiceAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyVpcEndPointServiceAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyVpcEndPointServiceAttributeResponse>>() {
                 }.getType();
@@ -5341,7 +6055,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *修改终端节点服务白名单属性。
+     *本接口（ModifyVpcEndPointServiceWhiteList）用于修改终端节点服务白名单属性。
      * @param req ModifyVpcEndPointServiceWhiteListRequest
      * @return ModifyVpcEndPointServiceWhiteListResponse
      * @throws TencentCloudSDKException
@@ -5349,10 +6063,32 @@ LimitTypes取值范围：
     public ModifyVpcEndPointServiceWhiteListResponse ModifyVpcEndPointServiceWhiteList(ModifyVpcEndPointServiceWhiteListRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyVpcEndPointServiceWhiteListResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyVpcEndPointServiceWhiteListResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ModifyVpcEndPointServiceWhiteList");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（ModifyVpcPeeringConnection）用于修改私有网络对等连接属性。
+     * @param req ModifyVpcPeeringConnectionRequest
+     * @return ModifyVpcPeeringConnectionResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyVpcPeeringConnectionResponse ModifyVpcPeeringConnection(ModifyVpcPeeringConnectionRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ModifyVpcPeeringConnectionResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<ModifyVpcPeeringConnectionResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ModifyVpcPeeringConnection");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -5369,6 +6105,7 @@ LimitTypes取值范围：
     public ModifyVpnConnectionAttributeResponse ModifyVpnConnectionAttribute(ModifyVpnConnectionAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyVpnConnectionAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyVpnConnectionAttributeResponse>>() {
                 }.getType();
@@ -5389,6 +6126,7 @@ LimitTypes取值范围：
     public ModifyVpnGatewayAttributeResponse ModifyVpnGatewayAttribute(ModifyVpnGatewayAttributeRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyVpnGatewayAttributeResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyVpnGatewayAttributeResponse>>() {
                 }.getType();
@@ -5401,7 +6139,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *本接口（ModifyVpnGatewayCcnRoutes）用于修改VPN网关云联网路由
+     *本接口（ModifyVpnGatewayCcnRoutes）用于修改VPN网关云联网路由。
      * @param req ModifyVpnGatewayCcnRoutesRequest
      * @return ModifyVpnGatewayCcnRoutesResponse
      * @throws TencentCloudSDKException
@@ -5409,6 +6147,7 @@ LimitTypes取值范围：
     public ModifyVpnGatewayCcnRoutesResponse ModifyVpnGatewayCcnRoutes(ModifyVpnGatewayCcnRoutesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyVpnGatewayCcnRoutesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyVpnGatewayCcnRoutesResponse>>() {
                 }.getType();
@@ -5421,7 +6160,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *修改VPN路由是否启用
+     *本接口（ModifyVpnGatewayRoutes）用于修改VPN路由是否启用。
      * @param req ModifyVpnGatewayRoutesRequest
      * @return ModifyVpnGatewayRoutesResponse
      * @throws TencentCloudSDKException
@@ -5429,6 +6168,7 @@ LimitTypes取值范围：
     public ModifyVpnGatewayRoutesResponse ModifyVpnGatewayRoutes(ModifyVpnGatewayRoutesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ModifyVpnGatewayRoutesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ModifyVpnGatewayRoutesResponse>>() {
                 }.getType();
@@ -5449,6 +6189,7 @@ LimitTypes取值范围：
     public NotifyRoutesResponse NotifyRoutes(NotifyRoutesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<NotifyRoutesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<NotifyRoutesResponse>>() {
                 }.getType();
@@ -5469,6 +6210,7 @@ LimitTypes取值范围：
     public RefreshDirectConnectGatewayRouteToNatGatewayResponse RefreshDirectConnectGatewayRouteToNatGateway(RefreshDirectConnectGatewayRouteToNatGatewayRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RefreshDirectConnectGatewayRouteToNatGatewayResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RefreshDirectConnectGatewayRouteToNatGatewayResponse>>() {
                 }.getType();
@@ -5490,10 +6232,32 @@ LimitTypes取值范围：
     public RejectAttachCcnInstancesResponse RejectAttachCcnInstances(RejectAttachCcnInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RejectAttachCcnInstancesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RejectAttachCcnInstancesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "RejectAttachCcnInstances");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（RejectVpcPeeringConnection）用于驳回对等连接请求。
+     * @param req RejectVpcPeeringConnectionRequest
+     * @return RejectVpcPeeringConnectionResponse
+     * @throws TencentCloudSDKException
+     */
+    public RejectVpcPeeringConnectionResponse RejectVpcPeeringConnection(RejectVpcPeeringConnectionRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<RejectVpcPeeringConnectionResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<RejectVpcPeeringConnectionResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "RejectVpcPeeringConnection");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -5512,6 +6276,7 @@ LimitTypes取值范围：
     public ReleaseAddressesResponse ReleaseAddresses(ReleaseAddressesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ReleaseAddressesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ReleaseAddressesResponse>>() {
                 }.getType();
@@ -5532,6 +6297,7 @@ LimitTypes取值范围：
     public ReleaseIp6AddressesBandwidthResponse ReleaseIp6AddressesBandwidth(ReleaseIp6AddressesBandwidthRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ReleaseIp6AddressesBandwidthResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ReleaseIp6AddressesBandwidthResponse>>() {
                 }.getType();
@@ -5552,6 +6318,7 @@ LimitTypes取值范围：
     public RemoveBandwidthPackageResourcesResponse RemoveBandwidthPackageResources(RemoveBandwidthPackageResourcesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RemoveBandwidthPackageResourcesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RemoveBandwidthPackageResourcesResponse>>() {
                 }.getType();
@@ -5573,6 +6340,7 @@ LimitTypes取值范围：
     public RemoveIp6RulesResponse RemoveIp6Rules(RemoveIp6RulesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RemoveIp6RulesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RemoveIp6RulesResponse>>() {
                 }.getType();
@@ -5593,6 +6361,7 @@ LimitTypes取值范围：
     public RenewAddressesResponse RenewAddresses(RenewAddressesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RenewAddressesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RenewAddressesResponse>>() {
                 }.getType();
@@ -5613,6 +6382,7 @@ LimitTypes取值范围：
     public RenewVpnGatewayResponse RenewVpnGateway(RenewVpnGatewayRequest req) throws TencentCloudSDKException{
         JsonResponseModel<RenewVpnGatewayResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<RenewVpnGatewayResponse>>() {
                 }.getType();
@@ -5633,6 +6403,7 @@ LimitTypes取值范围：
     public ReplaceDirectConnectGatewayCcnRoutesResponse ReplaceDirectConnectGatewayCcnRoutes(ReplaceDirectConnectGatewayCcnRoutesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ReplaceDirectConnectGatewayCcnRoutesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ReplaceDirectConnectGatewayCcnRoutesResponse>>() {
                 }.getType();
@@ -5645,7 +6416,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *本接口（ReplaceRouteTableAssociation)用于修改子网（Subnet）关联的路由表（RouteTable）。
+     *本接口（ReplaceRouteTableAssociation）用于修改子网（Subnet）关联的路由表（RouteTable）。
 * 一个子网只能关联一个路由表。
      * @param req ReplaceRouteTableAssociationRequest
      * @return ReplaceRouteTableAssociationResponse
@@ -5654,6 +6425,7 @@ LimitTypes取值范围：
     public ReplaceRouteTableAssociationResponse ReplaceRouteTableAssociation(ReplaceRouteTableAssociationRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ReplaceRouteTableAssociationResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ReplaceRouteTableAssociationResponse>>() {
                 }.getType();
@@ -5674,10 +6446,33 @@ LimitTypes取值范围：
     public ReplaceRoutesResponse ReplaceRoutes(ReplaceRoutesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ReplaceRoutesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ReplaceRoutesResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "ReplaceRoutes");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *本接口（ReplaceSecurityGroupPolicies）用于批量修改安全组规则（SecurityGroupPolicy）。
+单个请求中只能替换单个方向的一条或多条规则, 必须要指定索引（PolicyIndex）。
+     * @param req ReplaceSecurityGroupPoliciesRequest
+     * @return ReplaceSecurityGroupPoliciesResponse
+     * @throws TencentCloudSDKException
+     */
+    public ReplaceSecurityGroupPoliciesResponse ReplaceSecurityGroupPolicies(ReplaceSecurityGroupPoliciesRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ReplaceSecurityGroupPoliciesResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<ReplaceSecurityGroupPoliciesResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ReplaceSecurityGroupPolicies");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -5695,6 +6490,7 @@ LimitTypes取值范围：
     public ReplaceSecurityGroupPolicyResponse ReplaceSecurityGroupPolicy(ReplaceSecurityGroupPolicyRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ReplaceSecurityGroupPolicyResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ReplaceSecurityGroupPolicyResponse>>() {
                 }.getType();
@@ -5715,6 +6511,7 @@ LimitTypes取值范围：
     public ResetAttachCcnInstancesResponse ResetAttachCcnInstances(ResetAttachCcnInstancesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ResetAttachCcnInstancesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ResetAttachCcnInstancesResponse>>() {
                 }.getType();
@@ -5735,6 +6532,7 @@ LimitTypes取值范围：
     public ResetNatGatewayConnectionResponse ResetNatGatewayConnection(ResetNatGatewayConnectionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ResetNatGatewayConnectionResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ResetNatGatewayConnectionResponse>>() {
                 }.getType();
@@ -5756,6 +6554,7 @@ LimitTypes取值范围：
     public ResetRoutesResponse ResetRoutes(ResetRoutesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ResetRoutesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ResetRoutesResponse>>() {
                 }.getType();
@@ -5768,7 +6567,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *本接口(ResetVpnConnection)用于重置VPN通道。
+     *本接口（ResetVpnConnection）用于重置VPN通道。
      * @param req ResetVpnConnectionRequest
      * @return ResetVpnConnectionResponse
      * @throws TencentCloudSDKException
@@ -5776,6 +6575,7 @@ LimitTypes取值范围：
     public ResetVpnConnectionResponse ResetVpnConnection(ResetVpnConnectionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ResetVpnConnectionResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ResetVpnConnectionResponse>>() {
                 }.getType();
@@ -5788,7 +6588,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *本接口（ResetVpnGatewayInternetMaxBandwidth）调整VPN网关带宽上限。目前支持升级配置，如果是包年包月VPN网关需要在有效期内。
+     *本接口（ResetVpnGatewayInternetMaxBandwidth）用于调整VPN网关带宽上限。VPN网关带宽目前仅支持部分带宽范围内升降配，如【5,100】Mbps和【200,1000】Mbps，在各自带宽范围内可提升配额，跨范围提升配额和降配暂不支持，如果是包年包月VPN网关需要在有效期内。
      * @param req ResetVpnGatewayInternetMaxBandwidthRequest
      * @return ResetVpnGatewayInternetMaxBandwidthResponse
      * @throws TencentCloudSDKException
@@ -5796,6 +6596,7 @@ LimitTypes取值范围：
     public ResetVpnGatewayInternetMaxBandwidthResponse ResetVpnGatewayInternetMaxBandwidth(ResetVpnGatewayInternetMaxBandwidthRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ResetVpnGatewayInternetMaxBandwidthResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ResetVpnGatewayInternetMaxBandwidthResponse>>() {
                 }.getType();
@@ -5808,8 +6609,29 @@ LimitTypes取值范围：
     }
 
     /**
+     *本接口（ResumeSnapshotInstance）用于根据备份内容恢复安全组策略。
+     * @param req ResumeSnapshotInstanceRequest
+     * @return ResumeSnapshotInstanceResponse
+     * @throws TencentCloudSDKException
+     */
+    public ResumeSnapshotInstanceResponse ResumeSnapshotInstance(ResumeSnapshotInstanceRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<ResumeSnapshotInstanceResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<ResumeSnapshotInstanceResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "ResumeSnapshotInstance");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
      *本接口（ReturnNormalAddresses）用于解绑并释放普通公网IP。
-为完善公网IP的访问管理功能，此接口于2022年12月15日升级优化鉴权功能，升级后子用户调用此接口需向主账号申请CAM策略授权，否则可能调用失败。您可以提前为子账号配置操作授权，详情见 授权指南(https://cloud.tencent.com/document/product/598/34545)。
+为完善公网IP的访问管理功能，此接口于2022年12月15日升级优化鉴权功能，升级后子用户调用此接口需向主账号申请CAM策略授权，否则可能调用失败。您可以提前为子账号配置操作授权，详情见[授权指南](https://cloud.tencent.com/document/product/598/34545)。
      * @param req ReturnNormalAddressesRequest
      * @return ReturnNormalAddressesResponse
      * @throws TencentCloudSDKException
@@ -5817,6 +6639,7 @@ LimitTypes取值范围：
     public ReturnNormalAddressesResponse ReturnNormalAddresses(ReturnNormalAddressesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ReturnNormalAddressesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ReturnNormalAddressesResponse>>() {
                 }.getType();
@@ -5837,6 +6660,7 @@ LimitTypes取值范围：
     public SetCcnRegionBandwidthLimitsResponse SetCcnRegionBandwidthLimits(SetCcnRegionBandwidthLimitsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SetCcnRegionBandwidthLimitsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<SetCcnRegionBandwidthLimitsResponse>>() {
                 }.getType();
@@ -5849,7 +6673,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *设置VPNGW续费标记
+     *本接口（SetVpnGatewaysRenewFlag）用于设置VPNGW续费标记。
      * @param req SetVpnGatewaysRenewFlagRequest
      * @return SetVpnGatewaysRenewFlagResponse
      * @throws TencentCloudSDKException
@@ -5857,6 +6681,7 @@ LimitTypes取值范围：
     public SetVpnGatewaysRenewFlagResponse SetVpnGatewaysRenewFlag(SetVpnGatewaysRenewFlagRequest req) throws TencentCloudSDKException{
         JsonResponseModel<SetVpnGatewaysRenewFlagResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<SetVpnGatewaysRenewFlagResponse>>() {
                 }.getType();
@@ -5878,6 +6703,7 @@ LimitTypes取值范围：
     public TransformAddressResponse TransformAddress(TransformAddressRequest req) throws TencentCloudSDKException{
         JsonResponseModel<TransformAddressResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<TransformAddressResponse>>() {
                 }.getType();
@@ -5899,6 +6725,7 @@ LimitTypes取值范围：
     public UnassignIpv6AddressesResponse UnassignIpv6Addresses(UnassignIpv6AddressesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<UnassignIpv6AddressesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<UnassignIpv6AddressesResponse>>() {
                 }.getType();
@@ -5920,6 +6747,7 @@ LimitTypes取值范围：
     public UnassignIpv6CidrBlockResponse UnassignIpv6CidrBlock(UnassignIpv6CidrBlockRequest req) throws TencentCloudSDKException{
         JsonResponseModel<UnassignIpv6CidrBlockResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<UnassignIpv6CidrBlockResponse>>() {
                 }.getType();
@@ -5941,6 +6769,7 @@ LimitTypes取值范围：
     public UnassignIpv6SubnetCidrBlockResponse UnassignIpv6SubnetCidrBlock(UnassignIpv6SubnetCidrBlockRequest req) throws TencentCloudSDKException{
         JsonResponseModel<UnassignIpv6SubnetCidrBlockResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<UnassignIpv6SubnetCidrBlockResponse>>() {
                 }.getType();
@@ -5964,6 +6793,7 @@ LimitTypes取值范围：
     public UnassignPrivateIpAddressesResponse UnassignPrivateIpAddresses(UnassignPrivateIpAddressesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<UnassignPrivateIpAddressesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<UnassignPrivateIpAddressesResponse>>() {
                 }.getType();
@@ -5986,6 +6816,7 @@ LimitTypes取值范围：
     public UnlockCcnBandwidthsResponse UnlockCcnBandwidths(UnlockCcnBandwidthsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<UnlockCcnBandwidthsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<UnlockCcnBandwidthsResponse>>() {
                 }.getType();
@@ -6012,6 +6843,7 @@ LimitTypes取值范围：
     public UnlockCcnsResponse UnlockCcns(UnlockCcnsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<UnlockCcnsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<UnlockCcnsResponse>>() {
                 }.getType();
@@ -6024,7 +6856,7 @@ LimitTypes取值范围：
     }
 
     /**
-     *路由表列表页操作增加“从云联网撤销”，用于撤销已发布到云联网的路由。
+     *本接口（WithdrawNotifyRoutes）用于撤销已发布到云联网的路由。路由表列表页操作增加“从云联网撤销”。
      * @param req WithdrawNotifyRoutesRequest
      * @return WithdrawNotifyRoutesResponse
      * @throws TencentCloudSDKException
@@ -6032,6 +6864,7 @@ LimitTypes取值范围：
     public WithdrawNotifyRoutesResponse WithdrawNotifyRoutes(WithdrawNotifyRoutesRequest req) throws TencentCloudSDKException{
         JsonResponseModel<WithdrawNotifyRoutesResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<WithdrawNotifyRoutesResponse>>() {
                 }.getType();

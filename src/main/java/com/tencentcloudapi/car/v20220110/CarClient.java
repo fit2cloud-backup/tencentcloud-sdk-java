@@ -29,7 +29,7 @@ public class CarClient extends AbstractClient{
     private static String endpoint = "car.tencentcloudapi.com";
     private static String service = "car";
     private static String version = "2022-01-10";
-
+    
     public CarClient(Credential credential, String region) {
         this(credential, region, new ClientProfile());
     }
@@ -47,6 +47,7 @@ public class CarClient extends AbstractClient{
     public ApplyConcurrentResponse ApplyConcurrent(ApplyConcurrentRequest req) throws TencentCloudSDKException{
         JsonResponseModel<ApplyConcurrentResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<ApplyConcurrentResponse>>() {
                 }.getType();
@@ -67,6 +68,7 @@ public class CarClient extends AbstractClient{
     public CreateSessionResponse CreateSession(CreateSessionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<CreateSessionResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<CreateSessionResponse>>() {
                 }.getType();
@@ -87,10 +89,53 @@ public class CarClient extends AbstractClient{
     public DestroySessionResponse DestroySession(DestroySessionRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DestroySessionResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DestroySessionResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DestroySession");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *开始云端推流
+     * @param req StartPublishStreamRequest
+     * @return StartPublishStreamResponse
+     * @throws TencentCloudSDKException
+     */
+    public StartPublishStreamResponse StartPublishStream(StartPublishStreamRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<StartPublishStreamResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<StartPublishStreamResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "StartPublishStream");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *停止云端推流
+     * @param req StopPublishStreamRequest
+     * @return StopPublishStreamResponse
+     * @throws TencentCloudSDKException
+     */
+    public StopPublishStreamResponse StopPublishStream(StopPublishStreamRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<StopPublishStreamResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<StopPublishStreamResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "StopPublishStream");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());

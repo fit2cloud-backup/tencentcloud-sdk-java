@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class DescribeDBInstancesRequest extends AbstractModel{
 
     /**
-    * 项目 ID，可使用 [查询项目列表](https://cloud.tencent.com/document/product/378/4400) 接口查询项目 ID。
+    * 项目 ID。
     */
     @SerializedName("ProjectId")
     @Expose
@@ -44,7 +44,7 @@ public class DescribeDBInstancesRequest extends AbstractModel{
     private String [] Vips;
 
     /**
-    * 实例状态，可取值：<br>0 - 创建中<br>1 - 运行中<br>4 - 正在进行隔离操作<br>5 - 隔离中（可在回收站恢复开机）
+    * 实例状态，可取值：<br>0 - 创建中<br>1 - 运行中<br>4 - 正在进行隔离操作<br>5 - 已隔离（可在回收站恢复开机）
     */
     @SerializedName("Status")
     @Expose
@@ -247,16 +247,37 @@ public class DescribeDBInstancesRequest extends AbstractModel{
     private Tag [] Tags;
 
     /**
-     * Get 项目 ID，可使用 [查询项目列表](https://cloud.tencent.com/document/product/378/4400) 接口查询项目 ID。 
-     * @return ProjectId 项目 ID，可使用 [查询项目列表](https://cloud.tencent.com/document/product/378/4400) 接口查询项目 ID。
+    * 数据库代理 IP 。
+    */
+    @SerializedName("ProxyVips")
+    @Expose
+    private String [] ProxyVips;
+
+    /**
+    * 数据库代理 ID 。
+    */
+    @SerializedName("ProxyIds")
+    @Expose
+    private String [] ProxyIds;
+
+    /**
+    * 数据库引擎类型。
+    */
+    @SerializedName("EngineTypes")
+    @Expose
+    private String [] EngineTypes;
+
+    /**
+     * Get 项目 ID。 
+     * @return ProjectId 项目 ID。
      */
     public Long getProjectId() {
         return this.ProjectId;
     }
 
     /**
-     * Set 项目 ID，可使用 [查询项目列表](https://cloud.tencent.com/document/product/378/4400) 接口查询项目 ID。
-     * @param ProjectId 项目 ID，可使用 [查询项目列表](https://cloud.tencent.com/document/product/378/4400) 接口查询项目 ID。
+     * Set 项目 ID。
+     * @param ProjectId 项目 ID。
      */
     public void setProjectId(Long ProjectId) {
         this.ProjectId = ProjectId;
@@ -295,16 +316,16 @@ public class DescribeDBInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 实例状态，可取值：<br>0 - 创建中<br>1 - 运行中<br>4 - 正在进行隔离操作<br>5 - 隔离中（可在回收站恢复开机） 
-     * @return Status 实例状态，可取值：<br>0 - 创建中<br>1 - 运行中<br>4 - 正在进行隔离操作<br>5 - 隔离中（可在回收站恢复开机）
+     * Get 实例状态，可取值：<br>0 - 创建中<br>1 - 运行中<br>4 - 正在进行隔离操作<br>5 - 已隔离（可在回收站恢复开机） 
+     * @return Status 实例状态，可取值：<br>0 - 创建中<br>1 - 运行中<br>4 - 正在进行隔离操作<br>5 - 已隔离（可在回收站恢复开机）
      */
     public Long [] getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 实例状态，可取值：<br>0 - 创建中<br>1 - 运行中<br>4 - 正在进行隔离操作<br>5 - 隔离中（可在回收站恢复开机）
-     * @param Status 实例状态，可取值：<br>0 - 创建中<br>1 - 运行中<br>4 - 正在进行隔离操作<br>5 - 隔离中（可在回收站恢复开机）
+     * Set 实例状态，可取值：<br>0 - 创建中<br>1 - 运行中<br>4 - 正在进行隔离操作<br>5 - 已隔离（可在回收站恢复开机）
+     * @param Status 实例状态，可取值：<br>0 - 创建中<br>1 - 运行中<br>4 - 正在进行隔离操作<br>5 - 已隔离（可在回收站恢复开机）
      */
     public void setStatus(Long [] Status) {
         this.Status = Status;
@@ -758,6 +779,54 @@ public class DescribeDBInstancesRequest extends AbstractModel{
         this.Tags = Tags;
     }
 
+    /**
+     * Get 数据库代理 IP 。 
+     * @return ProxyVips 数据库代理 IP 。
+     */
+    public String [] getProxyVips() {
+        return this.ProxyVips;
+    }
+
+    /**
+     * Set 数据库代理 IP 。
+     * @param ProxyVips 数据库代理 IP 。
+     */
+    public void setProxyVips(String [] ProxyVips) {
+        this.ProxyVips = ProxyVips;
+    }
+
+    /**
+     * Get 数据库代理 ID 。 
+     * @return ProxyIds 数据库代理 ID 。
+     */
+    public String [] getProxyIds() {
+        return this.ProxyIds;
+    }
+
+    /**
+     * Set 数据库代理 ID 。
+     * @param ProxyIds 数据库代理 ID 。
+     */
+    public void setProxyIds(String [] ProxyIds) {
+        this.ProxyIds = ProxyIds;
+    }
+
+    /**
+     * Get 数据库引擎类型。 
+     * @return EngineTypes 数据库引擎类型。
+     */
+    public String [] getEngineTypes() {
+        return this.EngineTypes;
+    }
+
+    /**
+     * Set 数据库引擎类型。
+     * @param EngineTypes 数据库引擎类型。
+     */
+    public void setEngineTypes(String [] EngineTypes) {
+        this.EngineTypes = EngineTypes;
+    }
+
     public DescribeDBInstancesRequest() {
     }
 
@@ -919,6 +988,24 @@ public class DescribeDBInstancesRequest extends AbstractModel{
                 this.Tags[i] = new Tag(source.Tags[i]);
             }
         }
+        if (source.ProxyVips != null) {
+            this.ProxyVips = new String[source.ProxyVips.length];
+            for (int i = 0; i < source.ProxyVips.length; i++) {
+                this.ProxyVips[i] = new String(source.ProxyVips[i]);
+            }
+        }
+        if (source.ProxyIds != null) {
+            this.ProxyIds = new String[source.ProxyIds.length];
+            for (int i = 0; i < source.ProxyIds.length; i++) {
+                this.ProxyIds[i] = new String(source.ProxyIds[i]);
+            }
+        }
+        if (source.EngineTypes != null) {
+            this.EngineTypes = new String[source.EngineTypes.length];
+            for (int i = 0; i < source.EngineTypes.length; i++) {
+                this.EngineTypes[i] = new String(source.EngineTypes[i]);
+            }
+        }
     }
 
 
@@ -958,6 +1045,9 @@ public class DescribeDBInstancesRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "UniqueVpcIds.", this.UniqueVpcIds);
         this.setParamArraySimple(map, prefix + "UniqSubnetIds.", this.UniqSubnetIds);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamArraySimple(map, prefix + "ProxyVips.", this.ProxyVips);
+        this.setParamArraySimple(map, prefix + "ProxyIds.", this.ProxyIds);
+        this.setParamArraySimple(map, prefix + "EngineTypes.", this.EngineTypes);
 
     }
 }

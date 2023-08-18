@@ -239,6 +239,22 @@ public class ModelAccelerateTask extends AbstractModel{
     private String ModelSignature;
 
     /**
+    * 是否是QAT模型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("QATModel")
+    @Expose
+    private Boolean QATModel;
+
+    /**
+    * 加速引擎对应的框架版本
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FrameworkVersion")
+    @Expose
+    private String FrameworkVersion;
+
+    /**
      * Get 模型加速任务ID
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return ModelAccTaskId 模型加速任务ID
@@ -778,6 +794,46 @@ public class ModelAccelerateTask extends AbstractModel{
         this.ModelSignature = ModelSignature;
     }
 
+    /**
+     * Get 是否是QAT模型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return QATModel 是否是QAT模型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getQATModel() {
+        return this.QATModel;
+    }
+
+    /**
+     * Set 是否是QAT模型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param QATModel 是否是QAT模型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setQATModel(Boolean QATModel) {
+        this.QATModel = QATModel;
+    }
+
+    /**
+     * Get 加速引擎对应的框架版本
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FrameworkVersion 加速引擎对应的框架版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getFrameworkVersion() {
+        return this.FrameworkVersion;
+    }
+
+    /**
+     * Set 加速引擎对应的框架版本
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FrameworkVersion 加速引擎对应的框架版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFrameworkVersion(String FrameworkVersion) {
+        this.FrameworkVersion = FrameworkVersion;
+    }
+
     public ModelAccelerateTask() {
     }
 
@@ -876,6 +932,12 @@ public class ModelAccelerateTask extends AbstractModel{
         if (source.ModelSignature != null) {
             this.ModelSignature = new String(source.ModelSignature);
         }
+        if (source.QATModel != null) {
+            this.QATModel = new Boolean(source.QATModel);
+        }
+        if (source.FrameworkVersion != null) {
+            this.FrameworkVersion = new String(source.FrameworkVersion);
+        }
     }
 
 
@@ -910,6 +972,8 @@ public class ModelAccelerateTask extends AbstractModel{
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "IsSaved", this.IsSaved);
         this.setParamSimple(map, prefix + "ModelSignature", this.ModelSignature);
+        this.setParamSimple(map, prefix + "QATModel", this.QATModel);
+        this.setParamSimple(map, prefix + "FrameworkVersion", this.FrameworkVersion);
 
     }
 }

@@ -47,7 +47,9 @@ public class Certificates extends AbstractModel{
     private String From;
 
     /**
-    * 证书套餐类型：1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = SecureSite 增强型企业版（EV Pro）， 4 = SecureSite 增强型（EV）， 5 = SecureSite 企业型专业版（OV Pro）， 6 = SecureSite 企业型（OV）， 7 = SecureSite 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
+    * 证书套餐类型：
+null = 用户上传证书（没有套餐类型），
+1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = SecureSite 增强型企业版（EV Pro）， 4 = SecureSite 增强型（EV）， 5 = SecureSite 企业型专业版（OV Pro）， 6 = SecureSite 企业型（OV）， 7 = SecureSite 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PackageType")
@@ -287,6 +289,46 @@ public class Certificates extends AbstractModel{
     private String EncryptAlgorithm;
 
     /**
+    * 上传CA证书的加密算法
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CAEncryptAlgorithms")
+    @Expose
+    private String [] CAEncryptAlgorithms;
+
+    /**
+    * 上传CA证书的过期时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CAEndTimes")
+    @Expose
+    private String [] CAEndTimes;
+
+    /**
+    * 上传CA证书的通用名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CACommonNames")
+    @Expose
+    private String [] CACommonNames;
+
+    /**
+    * 证书预审核信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PreAuditInfo")
+    @Expose
+    private PreAuditInfo PreAuditInfo;
+
+    /**
+    * 是否自动续费
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AutoRenewFlag")
+    @Expose
+    private Long AutoRenewFlag;
+
+    /**
      * Get 用户 UIN。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return OwnerUin 用户 UIN。
@@ -347,9 +389,13 @@ public class Certificates extends AbstractModel{
     }
 
     /**
-     * Get 证书套餐类型：1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = SecureSite 增强型企业版（EV Pro）， 4 = SecureSite 增强型（EV）， 5 = SecureSite 企业型专业版（OV Pro）， 6 = SecureSite 企业型（OV）， 7 = SecureSite 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
+     * Get 证书套餐类型：
+null = 用户上传证书（没有套餐类型），
+1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = SecureSite 增强型企业版（EV Pro）， 4 = SecureSite 增强型（EV）， 5 = SecureSite 企业型专业版（OV Pro）， 6 = SecureSite 企业型（OV）， 7 = SecureSite 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return PackageType 证书套餐类型：1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = SecureSite 增强型企业版（EV Pro）， 4 = SecureSite 增强型（EV）， 5 = SecureSite 企业型专业版（OV Pro）， 6 = SecureSite 企业型（OV）， 7 = SecureSite 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
+     * @return PackageType 证书套餐类型：
+null = 用户上传证书（没有套餐类型），
+1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = SecureSite 增强型企业版（EV Pro）， 4 = SecureSite 增强型（EV）， 5 = SecureSite 企业型专业版（OV Pro）， 6 = SecureSite 企业型（OV）， 7 = SecureSite 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPackageType() {
@@ -357,9 +403,13 @@ public class Certificates extends AbstractModel{
     }
 
     /**
-     * Set 证书套餐类型：1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = SecureSite 增强型企业版（EV Pro）， 4 = SecureSite 增强型（EV）， 5 = SecureSite 企业型专业版（OV Pro）， 6 = SecureSite 企业型（OV）， 7 = SecureSite 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
+     * Set 证书套餐类型：
+null = 用户上传证书（没有套餐类型），
+1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = SecureSite 增强型企业版（EV Pro）， 4 = SecureSite 增强型（EV）， 5 = SecureSite 企业型专业版（OV Pro）， 6 = SecureSite 企业型（OV）， 7 = SecureSite 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param PackageType 证书套餐类型：1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = SecureSite 增强型企业版（EV Pro）， 4 = SecureSite 增强型（EV）， 5 = SecureSite 企业型专业版（OV Pro）， 6 = SecureSite 企业型（OV）， 7 = SecureSite 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
+     * @param PackageType 证书套餐类型：
+null = 用户上传证书（没有套餐类型），
+1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = SecureSite 增强型企业版（EV Pro）， 4 = SecureSite 增强型（EV）， 5 = SecureSite 企业型专业版（OV Pro）， 6 = SecureSite 企业型（OV）， 7 = SecureSite 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPackageType(String PackageType) {
@@ -946,6 +996,106 @@ public class Certificates extends AbstractModel{
         this.EncryptAlgorithm = EncryptAlgorithm;
     }
 
+    /**
+     * Get 上传CA证书的加密算法
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CAEncryptAlgorithms 上传CA证书的加密算法
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getCAEncryptAlgorithms() {
+        return this.CAEncryptAlgorithms;
+    }
+
+    /**
+     * Set 上传CA证书的加密算法
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CAEncryptAlgorithms 上传CA证书的加密算法
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCAEncryptAlgorithms(String [] CAEncryptAlgorithms) {
+        this.CAEncryptAlgorithms = CAEncryptAlgorithms;
+    }
+
+    /**
+     * Get 上传CA证书的过期时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CAEndTimes 上传CA证书的过期时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getCAEndTimes() {
+        return this.CAEndTimes;
+    }
+
+    /**
+     * Set 上传CA证书的过期时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CAEndTimes 上传CA证书的过期时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCAEndTimes(String [] CAEndTimes) {
+        this.CAEndTimes = CAEndTimes;
+    }
+
+    /**
+     * Get 上传CA证书的通用名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CACommonNames 上传CA证书的通用名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getCACommonNames() {
+        return this.CACommonNames;
+    }
+
+    /**
+     * Set 上传CA证书的通用名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CACommonNames 上传CA证书的通用名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCACommonNames(String [] CACommonNames) {
+        this.CACommonNames = CACommonNames;
+    }
+
+    /**
+     * Get 证书预审核信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PreAuditInfo 证书预审核信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public PreAuditInfo getPreAuditInfo() {
+        return this.PreAuditInfo;
+    }
+
+    /**
+     * Set 证书预审核信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PreAuditInfo 证书预审核信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPreAuditInfo(PreAuditInfo PreAuditInfo) {
+        this.PreAuditInfo = PreAuditInfo;
+    }
+
+    /**
+     * Get 是否自动续费
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AutoRenewFlag 是否自动续费
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getAutoRenewFlag() {
+        return this.AutoRenewFlag;
+    }
+
+    /**
+     * Set 是否自动续费
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AutoRenewFlag 是否自动续费
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAutoRenewFlag(Long AutoRenewFlag) {
+        this.AutoRenewFlag = AutoRenewFlag;
+    }
+
     public Certificates() {
     }
 
@@ -1062,6 +1212,30 @@ public class Certificates extends AbstractModel{
         if (source.EncryptAlgorithm != null) {
             this.EncryptAlgorithm = new String(source.EncryptAlgorithm);
         }
+        if (source.CAEncryptAlgorithms != null) {
+            this.CAEncryptAlgorithms = new String[source.CAEncryptAlgorithms.length];
+            for (int i = 0; i < source.CAEncryptAlgorithms.length; i++) {
+                this.CAEncryptAlgorithms[i] = new String(source.CAEncryptAlgorithms[i]);
+            }
+        }
+        if (source.CAEndTimes != null) {
+            this.CAEndTimes = new String[source.CAEndTimes.length];
+            for (int i = 0; i < source.CAEndTimes.length; i++) {
+                this.CAEndTimes[i] = new String(source.CAEndTimes[i]);
+            }
+        }
+        if (source.CACommonNames != null) {
+            this.CACommonNames = new String[source.CACommonNames.length];
+            for (int i = 0; i < source.CACommonNames.length; i++) {
+                this.CACommonNames[i] = new String(source.CACommonNames[i]);
+            }
+        }
+        if (source.PreAuditInfo != null) {
+            this.PreAuditInfo = new PreAuditInfo(source.PreAuditInfo);
+        }
+        if (source.AutoRenewFlag != null) {
+            this.AutoRenewFlag = new Long(source.AutoRenewFlag);
+        }
     }
 
 
@@ -1102,6 +1276,11 @@ public class Certificates extends AbstractModel{
         this.setParamSimple(map, prefix + "IsIgnore", this.IsIgnore);
         this.setParamSimple(map, prefix + "IsSM", this.IsSM);
         this.setParamSimple(map, prefix + "EncryptAlgorithm", this.EncryptAlgorithm);
+        this.setParamArraySimple(map, prefix + "CAEncryptAlgorithms.", this.CAEncryptAlgorithms);
+        this.setParamArraySimple(map, prefix + "CAEndTimes.", this.CAEndTimes);
+        this.setParamArraySimple(map, prefix + "CACommonNames.", this.CACommonNames);
+        this.setParamObj(map, prefix + "PreAuditInfo.", this.PreAuditInfo);
+        this.setParamSimple(map, prefix + "AutoRenewFlag", this.AutoRenewFlag);
 
     }
 }

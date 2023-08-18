@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class DescribeReplicationGroupResponse extends AbstractModel{
 
     /**
-    * 复制组数
+    * 复制组数量。
     */
     @SerializedName("TotalCount")
     @Expose
     private Long TotalCount;
 
     /**
-    * 复制组信息
+    * 复制组信息。
     */
     @SerializedName("Groups")
     @Expose
@@ -44,32 +44,32 @@ public class DescribeReplicationGroupResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 复制组数 
-     * @return TotalCount 复制组数
+     * Get 复制组数量。 
+     * @return TotalCount 复制组数量。
      */
     public Long getTotalCount() {
         return this.TotalCount;
     }
 
     /**
-     * Set 复制组数
-     * @param TotalCount 复制组数
+     * Set 复制组数量。
+     * @param TotalCount 复制组数量。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 复制组信息 
-     * @return Groups 复制组信息
+     * Get 复制组信息。 
+     * @return Groups 复制组信息。
      */
     public Groups [] getGroups() {
         return this.Groups;
     }
 
     /**
-     * Set 复制组信息
-     * @param Groups 复制组信息
+     * Set 复制组信息。
+     * @param Groups 复制组信息。
      */
     public void setGroups(Groups [] Groups) {
         this.Groups = Groups;

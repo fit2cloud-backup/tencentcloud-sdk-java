@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class CreateDBInstanceHourResponse extends AbstractModel{
 
     /**
-    * 订单ID
+    * 订单ID。
     */
     @SerializedName("DealId")
     @Expose
     private String DealId;
 
     /**
-    * 创建的实例ID列表
+    * 创建的实例ID列表。
     */
     @SerializedName("InstanceIds")
     @Expose
@@ -44,32 +44,32 @@ public class CreateDBInstanceHourResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 订单ID 
-     * @return DealId 订单ID
+     * Get 订单ID。 
+     * @return DealId 订单ID。
      */
     public String getDealId() {
         return this.DealId;
     }
 
     /**
-     * Set 订单ID
-     * @param DealId 订单ID
+     * Set 订单ID。
+     * @param DealId 订单ID。
      */
     public void setDealId(String DealId) {
         this.DealId = DealId;
     }
 
     /**
-     * Get 创建的实例ID列表 
-     * @return InstanceIds 创建的实例ID列表
+     * Get 创建的实例ID列表。 
+     * @return InstanceIds 创建的实例ID列表。
      */
     public String [] getInstanceIds() {
         return this.InstanceIds;
     }
 
     /**
-     * Set 创建的实例ID列表
-     * @param InstanceIds 创建的实例ID列表
+     * Set 创建的实例ID列表。
+     * @param InstanceIds 创建的实例ID列表。
      */
     public void setInstanceIds(String [] InstanceIds) {
         this.InstanceIds = InstanceIds;

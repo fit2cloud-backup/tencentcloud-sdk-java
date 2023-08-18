@@ -79,6 +79,28 @@ public class CreateTopicRequest extends AbstractModel{
     private Long Period;
 
     /**
+    * 日志主题描述
+    */
+    @SerializedName("Describes")
+    @Expose
+    private String Describes;
+
+    /**
+    * 0：关闭日志沉降。
+非0：开启日志沉降后标准存储的天数。HotPeriod需要大于等于7，且小于Period。仅在StorageType为 hot 时生效
+    */
+    @SerializedName("HotPeriod")
+    @Expose
+    private Long HotPeriod;
+
+    /**
+    * webtracking开关； false: 关闭 true： 开启
+    */
+    @SerializedName("IsWebTracking")
+    @Expose
+    private Boolean IsWebTracking;
+
+    /**
      * Get 日志集ID 
      * @return LogsetId 日志集ID
      */
@@ -206,6 +228,58 @@ public class CreateTopicRequest extends AbstractModel{
         this.Period = Period;
     }
 
+    /**
+     * Get 日志主题描述 
+     * @return Describes 日志主题描述
+     */
+    public String getDescribes() {
+        return this.Describes;
+    }
+
+    /**
+     * Set 日志主题描述
+     * @param Describes 日志主题描述
+     */
+    public void setDescribes(String Describes) {
+        this.Describes = Describes;
+    }
+
+    /**
+     * Get 0：关闭日志沉降。
+非0：开启日志沉降后标准存储的天数。HotPeriod需要大于等于7，且小于Period。仅在StorageType为 hot 时生效 
+     * @return HotPeriod 0：关闭日志沉降。
+非0：开启日志沉降后标准存储的天数。HotPeriod需要大于等于7，且小于Period。仅在StorageType为 hot 时生效
+     */
+    public Long getHotPeriod() {
+        return this.HotPeriod;
+    }
+
+    /**
+     * Set 0：关闭日志沉降。
+非0：开启日志沉降后标准存储的天数。HotPeriod需要大于等于7，且小于Period。仅在StorageType为 hot 时生效
+     * @param HotPeriod 0：关闭日志沉降。
+非0：开启日志沉降后标准存储的天数。HotPeriod需要大于等于7，且小于Period。仅在StorageType为 hot 时生效
+     */
+    public void setHotPeriod(Long HotPeriod) {
+        this.HotPeriod = HotPeriod;
+    }
+
+    /**
+     * Get webtracking开关； false: 关闭 true： 开启 
+     * @return IsWebTracking webtracking开关； false: 关闭 true： 开启
+     */
+    public Boolean getIsWebTracking() {
+        return this.IsWebTracking;
+    }
+
+    /**
+     * Set webtracking开关； false: 关闭 true： 开启
+     * @param IsWebTracking webtracking开关； false: 关闭 true： 开启
+     */
+    public void setIsWebTracking(Boolean IsWebTracking) {
+        this.IsWebTracking = IsWebTracking;
+    }
+
     public CreateTopicRequest() {
     }
 
@@ -241,6 +315,15 @@ public class CreateTopicRequest extends AbstractModel{
         if (source.Period != null) {
             this.Period = new Long(source.Period);
         }
+        if (source.Describes != null) {
+            this.Describes = new String(source.Describes);
+        }
+        if (source.HotPeriod != null) {
+            this.HotPeriod = new Long(source.HotPeriod);
+        }
+        if (source.IsWebTracking != null) {
+            this.IsWebTracking = new Boolean(source.IsWebTracking);
+        }
     }
 
 
@@ -256,6 +339,9 @@ public class CreateTopicRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "MaxSplitPartitions", this.MaxSplitPartitions);
         this.setParamSimple(map, prefix + "StorageType", this.StorageType);
         this.setParamSimple(map, prefix + "Period", this.Period);
+        this.setParamSimple(map, prefix + "Describes", this.Describes);
+        this.setParamSimple(map, prefix + "HotPeriod", this.HotPeriod);
+        this.setParamSimple(map, prefix + "IsWebTracking", this.IsWebTracking);
 
     }
 }

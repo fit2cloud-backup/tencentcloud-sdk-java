@@ -58,13 +58,19 @@ public class Instance extends AbstractModel{
 <li>TERMINATING：中止中
 <li>TERMINATION_FAILED：中止失败
 <li>ATTACHING：绑定中
+<li>ATTACH_FAILED：绑定失败
 <li>DETACHING：解绑中
-<li>ATTACHING_LB：绑定LB中<li>DETACHING_LB：解绑LB中
+<li>DETACH_FAILED：解绑失败
+<li>ATTACHING_LB：绑定LB中
+<li>DETACHING_LB：解绑LB中
+<li>MODIFYING_LB：修改LB中
 <li>STARTING：开机中
 <li>START_FAILED：开机失败
 <li>STOPPING：关机中
 <li>STOP_FAILED：关机失败
 <li>STOPPED：已关机
+<li>IN_LAUNCHING_HOOK：扩容生命周期挂钩中
+<li>IN_TERMINATING_HOOK：缩容生命周期挂钩中
     */
     @SerializedName("LifeCycleState")
     @Expose
@@ -125,6 +131,25 @@ public class Instance extends AbstractModel{
     @SerializedName("AutoScalingGroupName")
     @Expose
     private String AutoScalingGroupName;
+
+    /**
+    * 预热状态，取值如下：
+<li>WAITING_ENTER_WARMUP：等待进入预热
+<li>NO_NEED_WARMUP：无需预热
+<li>IN_WARMUP：预热中
+<li>AFTER_WARMUP：完成预热
+    */
+    @SerializedName("WarmupStatus")
+    @Expose
+    private String WarmupStatus;
+
+    /**
+    * 置放群组id，仅支持指定一个。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DisasterRecoverGroupIds")
+    @Expose
+    private String [] DisasterRecoverGroupIds;
 
     /**
      * Get 实例ID 
@@ -198,13 +223,19 @@ public class Instance extends AbstractModel{
 <li>TERMINATING：中止中
 <li>TERMINATION_FAILED：中止失败
 <li>ATTACHING：绑定中
+<li>ATTACH_FAILED：绑定失败
 <li>DETACHING：解绑中
-<li>ATTACHING_LB：绑定LB中<li>DETACHING_LB：解绑LB中
+<li>DETACH_FAILED：解绑失败
+<li>ATTACHING_LB：绑定LB中
+<li>DETACHING_LB：解绑LB中
+<li>MODIFYING_LB：修改LB中
 <li>STARTING：开机中
 <li>START_FAILED：开机失败
 <li>STOPPING：关机中
 <li>STOP_FAILED：关机失败
-<li>STOPPED：已关机 
+<li>STOPPED：已关机
+<li>IN_LAUNCHING_HOOK：扩容生命周期挂钩中
+<li>IN_TERMINATING_HOOK：缩容生命周期挂钩中 
      * @return LifeCycleState 生命周期状态，取值如下：<br>
 <li>IN_SERVICE：运行中
 <li>CREATING：创建中
@@ -212,13 +243,19 @@ public class Instance extends AbstractModel{
 <li>TERMINATING：中止中
 <li>TERMINATION_FAILED：中止失败
 <li>ATTACHING：绑定中
+<li>ATTACH_FAILED：绑定失败
 <li>DETACHING：解绑中
-<li>ATTACHING_LB：绑定LB中<li>DETACHING_LB：解绑LB中
+<li>DETACH_FAILED：解绑失败
+<li>ATTACHING_LB：绑定LB中
+<li>DETACHING_LB：解绑LB中
+<li>MODIFYING_LB：修改LB中
 <li>STARTING：开机中
 <li>START_FAILED：开机失败
 <li>STOPPING：关机中
 <li>STOP_FAILED：关机失败
 <li>STOPPED：已关机
+<li>IN_LAUNCHING_HOOK：扩容生命周期挂钩中
+<li>IN_TERMINATING_HOOK：缩容生命周期挂钩中
      */
     public String getLifeCycleState() {
         return this.LifeCycleState;
@@ -232,13 +269,19 @@ public class Instance extends AbstractModel{
 <li>TERMINATING：中止中
 <li>TERMINATION_FAILED：中止失败
 <li>ATTACHING：绑定中
+<li>ATTACH_FAILED：绑定失败
 <li>DETACHING：解绑中
-<li>ATTACHING_LB：绑定LB中<li>DETACHING_LB：解绑LB中
+<li>DETACH_FAILED：解绑失败
+<li>ATTACHING_LB：绑定LB中
+<li>DETACHING_LB：解绑LB中
+<li>MODIFYING_LB：修改LB中
 <li>STARTING：开机中
 <li>START_FAILED：开机失败
 <li>STOPPING：关机中
 <li>STOP_FAILED：关机失败
 <li>STOPPED：已关机
+<li>IN_LAUNCHING_HOOK：扩容生命周期挂钩中
+<li>IN_TERMINATING_HOOK：缩容生命周期挂钩中
      * @param LifeCycleState 生命周期状态，取值如下：<br>
 <li>IN_SERVICE：运行中
 <li>CREATING：创建中
@@ -246,13 +289,19 @@ public class Instance extends AbstractModel{
 <li>TERMINATING：中止中
 <li>TERMINATION_FAILED：中止失败
 <li>ATTACHING：绑定中
+<li>ATTACH_FAILED：绑定失败
 <li>DETACHING：解绑中
-<li>ATTACHING_LB：绑定LB中<li>DETACHING_LB：解绑LB中
+<li>DETACH_FAILED：解绑失败
+<li>ATTACHING_LB：绑定LB中
+<li>DETACHING_LB：解绑LB中
+<li>MODIFYING_LB：修改LB中
 <li>STARTING：开机中
 <li>START_FAILED：开机失败
 <li>STOPPING：关机中
 <li>STOP_FAILED：关机失败
 <li>STOPPED：已关机
+<li>IN_LAUNCHING_HOOK：扩容生命周期挂钩中
+<li>IN_TERMINATING_HOOK：缩容生命周期挂钩中
      */
     public void setLifeCycleState(String LifeCycleState) {
         this.LifeCycleState = LifeCycleState;
@@ -386,6 +435,58 @@ public class Instance extends AbstractModel{
         this.AutoScalingGroupName = AutoScalingGroupName;
     }
 
+    /**
+     * Get 预热状态，取值如下：
+<li>WAITING_ENTER_WARMUP：等待进入预热
+<li>NO_NEED_WARMUP：无需预热
+<li>IN_WARMUP：预热中
+<li>AFTER_WARMUP：完成预热 
+     * @return WarmupStatus 预热状态，取值如下：
+<li>WAITING_ENTER_WARMUP：等待进入预热
+<li>NO_NEED_WARMUP：无需预热
+<li>IN_WARMUP：预热中
+<li>AFTER_WARMUP：完成预热
+     */
+    public String getWarmupStatus() {
+        return this.WarmupStatus;
+    }
+
+    /**
+     * Set 预热状态，取值如下：
+<li>WAITING_ENTER_WARMUP：等待进入预热
+<li>NO_NEED_WARMUP：无需预热
+<li>IN_WARMUP：预热中
+<li>AFTER_WARMUP：完成预热
+     * @param WarmupStatus 预热状态，取值如下：
+<li>WAITING_ENTER_WARMUP：等待进入预热
+<li>NO_NEED_WARMUP：无需预热
+<li>IN_WARMUP：预热中
+<li>AFTER_WARMUP：完成预热
+     */
+    public void setWarmupStatus(String WarmupStatus) {
+        this.WarmupStatus = WarmupStatus;
+    }
+
+    /**
+     * Get 置放群组id，仅支持指定一个。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DisasterRecoverGroupIds 置放群组id，仅支持指定一个。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getDisasterRecoverGroupIds() {
+        return this.DisasterRecoverGroupIds;
+    }
+
+    /**
+     * Set 置放群组id，仅支持指定一个。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DisasterRecoverGroupIds 置放群组id，仅支持指定一个。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDisasterRecoverGroupIds(String [] DisasterRecoverGroupIds) {
+        this.DisasterRecoverGroupIds = DisasterRecoverGroupIds;
+    }
+
     public Instance() {
     }
 
@@ -433,6 +534,15 @@ public class Instance extends AbstractModel{
         if (source.AutoScalingGroupName != null) {
             this.AutoScalingGroupName = new String(source.AutoScalingGroupName);
         }
+        if (source.WarmupStatus != null) {
+            this.WarmupStatus = new String(source.WarmupStatus);
+        }
+        if (source.DisasterRecoverGroupIds != null) {
+            this.DisasterRecoverGroupIds = new String[source.DisasterRecoverGroupIds.length];
+            for (int i = 0; i < source.DisasterRecoverGroupIds.length; i++) {
+                this.DisasterRecoverGroupIds[i] = new String(source.DisasterRecoverGroupIds[i]);
+            }
+        }
     }
 
 
@@ -453,6 +563,8 @@ public class Instance extends AbstractModel{
         this.setParamSimple(map, prefix + "InstanceType", this.InstanceType);
         this.setParamSimple(map, prefix + "VersionNumber", this.VersionNumber);
         this.setParamSimple(map, prefix + "AutoScalingGroupName", this.AutoScalingGroupName);
+        this.setParamSimple(map, prefix + "WarmupStatus", this.WarmupStatus);
+        this.setParamArraySimple(map, prefix + "DisasterRecoverGroupIds.", this.DisasterRecoverGroupIds);
 
     }
 }

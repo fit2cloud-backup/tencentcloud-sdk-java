@@ -23,7 +23,11 @@ import java.util.HashMap;
 public class CallbackEventInfo extends AbstractModel{
 
     /**
-    * 事件时间
+    * 事件时间。
+接口返回支持两种时间格式：
+1）YYYY-MM-DDThh:mm:ssZ：UTC时间格式，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)
+2）yyyy-MM-dd HH:mm:ss：使用此格式时，默认代表北京时间。
+接口返回的时间格式和查询请求传入的时间格式一致。
     */
     @SerializedName("EventTime")
     @Expose
@@ -51,7 +55,11 @@ public class CallbackEventInfo extends AbstractModel{
     private String Response;
 
     /**
-    * 客户接口响应时间
+    * 客户接口响应时间。
+接口返回支持两种时间格式：
+1）YYYY-MM-DDThh:mm:ssZ：UTC时间格式，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)
+2）yyyy-MM-dd HH:mm:ss：使用此格式时，默认代表北京时间。
+接口返回的时间格式和查询请求传入的时间格式一致。
     */
     @SerializedName("ResponseTime")
     @Expose
@@ -72,16 +80,32 @@ public class CallbackEventInfo extends AbstractModel{
     private String StreamId;
 
     /**
-     * Get 事件时间 
-     * @return EventTime 事件时间
+     * Get 事件时间。
+接口返回支持两种时间格式：
+1）YYYY-MM-DDThh:mm:ssZ：UTC时间格式，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)
+2）yyyy-MM-dd HH:mm:ss：使用此格式时，默认代表北京时间。
+接口返回的时间格式和查询请求传入的时间格式一致。 
+     * @return EventTime 事件时间。
+接口返回支持两种时间格式：
+1）YYYY-MM-DDThh:mm:ssZ：UTC时间格式，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)
+2）yyyy-MM-dd HH:mm:ss：使用此格式时，默认代表北京时间。
+接口返回的时间格式和查询请求传入的时间格式一致。
      */
     public String getEventTime() {
         return this.EventTime;
     }
 
     /**
-     * Set 事件时间
-     * @param EventTime 事件时间
+     * Set 事件时间。
+接口返回支持两种时间格式：
+1）YYYY-MM-DDThh:mm:ssZ：UTC时间格式，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)
+2）yyyy-MM-dd HH:mm:ss：使用此格式时，默认代表北京时间。
+接口返回的时间格式和查询请求传入的时间格式一致。
+     * @param EventTime 事件时间。
+接口返回支持两种时间格式：
+1）YYYY-MM-DDThh:mm:ssZ：UTC时间格式，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)
+2）yyyy-MM-dd HH:mm:ss：使用此格式时，默认代表北京时间。
+接口返回的时间格式和查询请求传入的时间格式一致。
      */
     public void setEventTime(String EventTime) {
         this.EventTime = EventTime;
@@ -136,16 +160,32 @@ public class CallbackEventInfo extends AbstractModel{
     }
 
     /**
-     * Get 客户接口响应时间 
-     * @return ResponseTime 客户接口响应时间
+     * Get 客户接口响应时间。
+接口返回支持两种时间格式：
+1）YYYY-MM-DDThh:mm:ssZ：UTC时间格式，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)
+2）yyyy-MM-dd HH:mm:ss：使用此格式时，默认代表北京时间。
+接口返回的时间格式和查询请求传入的时间格式一致。 
+     * @return ResponseTime 客户接口响应时间。
+接口返回支持两种时间格式：
+1）YYYY-MM-DDThh:mm:ssZ：UTC时间格式，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)
+2）yyyy-MM-dd HH:mm:ss：使用此格式时，默认代表北京时间。
+接口返回的时间格式和查询请求传入的时间格式一致。
      */
     public String getResponseTime() {
         return this.ResponseTime;
     }
 
     /**
-     * Set 客户接口响应时间
-     * @param ResponseTime 客户接口响应时间
+     * Set 客户接口响应时间。
+接口返回支持两种时间格式：
+1）YYYY-MM-DDThh:mm:ssZ：UTC时间格式，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)
+2）yyyy-MM-dd HH:mm:ss：使用此格式时，默认代表北京时间。
+接口返回的时间格式和查询请求传入的时间格式一致。
+     * @param ResponseTime 客户接口响应时间。
+接口返回支持两种时间格式：
+1）YYYY-MM-DDThh:mm:ssZ：UTC时间格式，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)
+2）yyyy-MM-dd HH:mm:ss：使用此格式时，默认代表北京时间。
+接口返回的时间格式和查询请求传入的时间格式一致。
      */
     public void setResponseTime(String ResponseTime) {
         this.ResponseTime = ResponseTime;

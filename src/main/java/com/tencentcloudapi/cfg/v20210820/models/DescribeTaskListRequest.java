@@ -51,7 +51,7 @@ public class DescribeTaskListRequest extends AbstractModel{
     private String [] TaskTag;
 
     /**
-    * 状态
+    * 任务状态(1001 -- 未开始 1002 -- 进行中 1003 -- 暂停中 1004 -- 任务结束)
     */
     @SerializedName("TaskStatus")
     @Expose
@@ -77,6 +77,13 @@ public class DescribeTaskListRequest extends AbstractModel{
     @SerializedName("Tags")
     @Expose
     private TagWithDescribe [] Tags;
+
+    /**
+    * 筛选条件
+    */
+    @SerializedName("Filters")
+    @Expose
+    private ActionFilter [] Filters;
 
     /**
      * Get 分页Limit 
@@ -143,16 +150,16 @@ public class DescribeTaskListRequest extends AbstractModel{
     }
 
     /**
-     * Get 状态 
-     * @return TaskStatus 状态
+     * Get 任务状态(1001 -- 未开始 1002 -- 进行中 1003 -- 暂停中 1004 -- 任务结束) 
+     * @return TaskStatus 任务状态(1001 -- 未开始 1002 -- 进行中 1003 -- 暂停中 1004 -- 任务结束)
      */
     public Long getTaskStatus() {
         return this.TaskStatus;
     }
 
     /**
-     * Set 状态
-     * @param TaskStatus 状态
+     * Set 任务状态(1001 -- 未开始 1002 -- 进行中 1003 -- 暂停中 1004 -- 任务结束)
+     * @param TaskStatus 任务状态(1001 -- 未开始 1002 -- 进行中 1003 -- 暂停中 1004 -- 任务结束)
      */
     public void setTaskStatus(Long TaskStatus) {
         this.TaskStatus = TaskStatus;
@@ -206,6 +213,22 @@ public class DescribeTaskListRequest extends AbstractModel{
         this.Tags = Tags;
     }
 
+    /**
+     * Get 筛选条件 
+     * @return Filters 筛选条件
+     */
+    public ActionFilter [] getFilters() {
+        return this.Filters;
+    }
+
+    /**
+     * Set 筛选条件
+     * @param Filters 筛选条件
+     */
+    public void setFilters(ActionFilter [] Filters) {
+        this.Filters = Filters;
+    }
+
     public DescribeTaskListRequest() {
     }
 
@@ -244,6 +267,12 @@ public class DescribeTaskListRequest extends AbstractModel{
                 this.Tags[i] = new TagWithDescribe(source.Tags[i]);
             }
         }
+        if (source.Filters != null) {
+            this.Filters = new ActionFilter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new ActionFilter(source.Filters[i]);
+            }
+        }
     }
 
 
@@ -259,6 +288,7 @@ public class DescribeTaskListRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TaskStartTime", this.TaskStartTime);
         this.setParamSimple(map, prefix + "TaskEndTime", this.TaskEndTime);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
 
     }
 }

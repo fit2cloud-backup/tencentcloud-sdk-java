@@ -288,6 +288,13 @@ public class Disk extends AbstractModel{
     private Long DeleteSnapshot;
 
     /**
+    * 云硬盘备份点配额。表示最大可以保留的备份点数量。
+    */
+    @SerializedName("DiskBackupQuota")
+    @Expose
+    private Long DiskBackupQuota;
+
+    /**
     * 云硬盘备份点已使用的数量。
     */
     @SerializedName("DiskBackupCount")
@@ -300,6 +307,30 @@ public class Disk extends AbstractModel{
     @SerializedName("InstanceType")
     @Expose
     private String InstanceType;
+
+    /**
+    * 云硬盘最后一次挂载的实例ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("LastAttachInsId")
+    @Expose
+    private String LastAttachInsId;
+
+    /**
+    * 云硬盘最后一次操作错误提示
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ErrorPrompt")
+    @Expose
+    private String ErrorPrompt;
+
+    /**
+    * 云盘是否开启性能突发
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("BurstPerformance")
+    @Expose
+    private Boolean BurstPerformance;
 
     /**
      * Get 云盘是否与挂载的实例一起销毁。<br><li>true:销毁实例时会同时销毁云盘，只支持按小时后付费云盘。<br><li>false：销毁实例时不销毁云盘。
@@ -930,6 +961,22 @@ public class Disk extends AbstractModel{
     }
 
     /**
+     * Get 云硬盘备份点配额。表示最大可以保留的备份点数量。 
+     * @return DiskBackupQuota 云硬盘备份点配额。表示最大可以保留的备份点数量。
+     */
+    public Long getDiskBackupQuota() {
+        return this.DiskBackupQuota;
+    }
+
+    /**
+     * Set 云硬盘备份点配额。表示最大可以保留的备份点数量。
+     * @param DiskBackupQuota 云硬盘备份点配额。表示最大可以保留的备份点数量。
+     */
+    public void setDiskBackupQuota(Long DiskBackupQuota) {
+        this.DiskBackupQuota = DiskBackupQuota;
+    }
+
+    /**
      * Get 云硬盘备份点已使用的数量。 
      * @return DiskBackupCount 云硬盘备份点已使用的数量。
      */
@@ -959,6 +1006,66 @@ public class Disk extends AbstractModel{
      */
     public void setInstanceType(String InstanceType) {
         this.InstanceType = InstanceType;
+    }
+
+    /**
+     * Get 云硬盘最后一次挂载的实例ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return LastAttachInsId 云硬盘最后一次挂载的实例ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getLastAttachInsId() {
+        return this.LastAttachInsId;
+    }
+
+    /**
+     * Set 云硬盘最后一次挂载的实例ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param LastAttachInsId 云硬盘最后一次挂载的实例ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLastAttachInsId(String LastAttachInsId) {
+        this.LastAttachInsId = LastAttachInsId;
+    }
+
+    /**
+     * Get 云硬盘最后一次操作错误提示
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ErrorPrompt 云硬盘最后一次操作错误提示
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getErrorPrompt() {
+        return this.ErrorPrompt;
+    }
+
+    /**
+     * Set 云硬盘最后一次操作错误提示
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ErrorPrompt 云硬盘最后一次操作错误提示
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setErrorPrompt(String ErrorPrompt) {
+        this.ErrorPrompt = ErrorPrompt;
+    }
+
+    /**
+     * Get 云盘是否开启性能突发
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return BurstPerformance 云盘是否开启性能突发
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getBurstPerformance() {
+        return this.BurstPerformance;
+    }
+
+    /**
+     * Set 云盘是否开启性能突发
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param BurstPerformance 云盘是否开启性能突发
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBurstPerformance(Boolean BurstPerformance) {
+        this.BurstPerformance = BurstPerformance;
     }
 
     public Disk() {
@@ -1086,11 +1193,23 @@ public class Disk extends AbstractModel{
         if (source.DeleteSnapshot != null) {
             this.DeleteSnapshot = new Long(source.DeleteSnapshot);
         }
+        if (source.DiskBackupQuota != null) {
+            this.DiskBackupQuota = new Long(source.DiskBackupQuota);
+        }
         if (source.DiskBackupCount != null) {
             this.DiskBackupCount = new Long(source.DiskBackupCount);
         }
         if (source.InstanceType != null) {
             this.InstanceType = new String(source.InstanceType);
+        }
+        if (source.LastAttachInsId != null) {
+            this.LastAttachInsId = new String(source.LastAttachInsId);
+        }
+        if (source.ErrorPrompt != null) {
+            this.ErrorPrompt = new String(source.ErrorPrompt);
+        }
+        if (source.BurstPerformance != null) {
+            this.BurstPerformance = new Boolean(source.BurstPerformance);
         }
     }
 
@@ -1135,8 +1254,12 @@ public class Disk extends AbstractModel{
         this.setParamSimple(map, prefix + "Shareable", this.Shareable);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "DeleteSnapshot", this.DeleteSnapshot);
+        this.setParamSimple(map, prefix + "DiskBackupQuota", this.DiskBackupQuota);
         this.setParamSimple(map, prefix + "DiskBackupCount", this.DiskBackupCount);
         this.setParamSimple(map, prefix + "InstanceType", this.InstanceType);
+        this.setParamSimple(map, prefix + "LastAttachInsId", this.LastAttachInsId);
+        this.setParamSimple(map, prefix + "ErrorPrompt", this.ErrorPrompt);
+        this.setParamSimple(map, prefix + "BurstPerformance", this.BurstPerformance);
 
     }
 }

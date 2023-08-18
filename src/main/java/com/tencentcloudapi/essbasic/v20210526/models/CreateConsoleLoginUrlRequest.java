@@ -31,21 +31,21 @@ public class CreateConsoleLoginUrlRequest extends AbstractModel{
     private Agent Agent;
 
     /**
-    * 渠道子客企业名称，最大长度64个字符
+    * 子客企业名称，最大长度64个字符
     */
     @SerializedName("ProxyOrganizationName")
     @Expose
     private String ProxyOrganizationName;
 
     /**
-    * 渠道子客企业经办人的姓名，最大长度50个字符
+    * 子客企业经办人的姓名，最大长度50个字符
     */
     @SerializedName("ProxyOperatorName")
     @Expose
     private String ProxyOperatorName;
 
     /**
-    * 控制台指定模块，文件/合同管理:"DOCUMENT"，模板管理:"TEMPLATE"，印章管理:"SEAL"，组织架构/人员:"OPERATOR"，空字符串："账号信息"
+    * PC控制台指定模块，文件/合同管理:"DOCUMENT"，模板管理:"TEMPLATE"，印章管理:"SEAL"，组织架构/人员:"OPERATOR"，空字符串："账号信息"。 EndPoint为"CHANNEL"/"APP"只支持"SEAL"-印章管理
     */
     @SerializedName("Module")
     @Expose
@@ -59,7 +59,7 @@ public class CreateConsoleLoginUrlRequest extends AbstractModel{
     private String ModuleId;
 
     /**
-    * 渠道子客企业统一社会信用代码，最大长度200个字符
+    * 子客企业统一社会信用代码，最大长度200个字符
     */
     @SerializedName("UniformSocialCreditCode")
     @Expose
@@ -87,18 +87,18 @@ public class CreateConsoleLoginUrlRequest extends AbstractModel{
     private String AutoJumpBackEvent;
 
     /**
-    * 操作者的信息
-    */
-    @SerializedName("Operator")
-    @Expose
-    private UserInfo Operator;
-
-    /**
     * 支持的授权方式,授权方式: "1" - 上传授权书认证  "2" - 法定代表人认证
     */
     @SerializedName("AuthorizationTypes")
     @Expose
     private Long [] AuthorizationTypes;
+
+    /**
+    * 暂未开放
+    */
+    @SerializedName("Operator")
+    @Expose
+    private UserInfo Operator;
 
     /**
      * Get 应用信息
@@ -121,48 +121,48 @@ public class CreateConsoleLoginUrlRequest extends AbstractModel{
     }
 
     /**
-     * Get 渠道子客企业名称，最大长度64个字符 
-     * @return ProxyOrganizationName 渠道子客企业名称，最大长度64个字符
+     * Get 子客企业名称，最大长度64个字符 
+     * @return ProxyOrganizationName 子客企业名称，最大长度64个字符
      */
     public String getProxyOrganizationName() {
         return this.ProxyOrganizationName;
     }
 
     /**
-     * Set 渠道子客企业名称，最大长度64个字符
-     * @param ProxyOrganizationName 渠道子客企业名称，最大长度64个字符
+     * Set 子客企业名称，最大长度64个字符
+     * @param ProxyOrganizationName 子客企业名称，最大长度64个字符
      */
     public void setProxyOrganizationName(String ProxyOrganizationName) {
         this.ProxyOrganizationName = ProxyOrganizationName;
     }
 
     /**
-     * Get 渠道子客企业经办人的姓名，最大长度50个字符 
-     * @return ProxyOperatorName 渠道子客企业经办人的姓名，最大长度50个字符
+     * Get 子客企业经办人的姓名，最大长度50个字符 
+     * @return ProxyOperatorName 子客企业经办人的姓名，最大长度50个字符
      */
     public String getProxyOperatorName() {
         return this.ProxyOperatorName;
     }
 
     /**
-     * Set 渠道子客企业经办人的姓名，最大长度50个字符
-     * @param ProxyOperatorName 渠道子客企业经办人的姓名，最大长度50个字符
+     * Set 子客企业经办人的姓名，最大长度50个字符
+     * @param ProxyOperatorName 子客企业经办人的姓名，最大长度50个字符
      */
     public void setProxyOperatorName(String ProxyOperatorName) {
         this.ProxyOperatorName = ProxyOperatorName;
     }
 
     /**
-     * Get 控制台指定模块，文件/合同管理:"DOCUMENT"，模板管理:"TEMPLATE"，印章管理:"SEAL"，组织架构/人员:"OPERATOR"，空字符串："账号信息" 
-     * @return Module 控制台指定模块，文件/合同管理:"DOCUMENT"，模板管理:"TEMPLATE"，印章管理:"SEAL"，组织架构/人员:"OPERATOR"，空字符串："账号信息"
+     * Get PC控制台指定模块，文件/合同管理:"DOCUMENT"，模板管理:"TEMPLATE"，印章管理:"SEAL"，组织架构/人员:"OPERATOR"，空字符串："账号信息"。 EndPoint为"CHANNEL"/"APP"只支持"SEAL"-印章管理 
+     * @return Module PC控制台指定模块，文件/合同管理:"DOCUMENT"，模板管理:"TEMPLATE"，印章管理:"SEAL"，组织架构/人员:"OPERATOR"，空字符串："账号信息"。 EndPoint为"CHANNEL"/"APP"只支持"SEAL"-印章管理
      */
     public String getModule() {
         return this.Module;
     }
 
     /**
-     * Set 控制台指定模块，文件/合同管理:"DOCUMENT"，模板管理:"TEMPLATE"，印章管理:"SEAL"，组织架构/人员:"OPERATOR"，空字符串："账号信息"
-     * @param Module 控制台指定模块，文件/合同管理:"DOCUMENT"，模板管理:"TEMPLATE"，印章管理:"SEAL"，组织架构/人员:"OPERATOR"，空字符串："账号信息"
+     * Set PC控制台指定模块，文件/合同管理:"DOCUMENT"，模板管理:"TEMPLATE"，印章管理:"SEAL"，组织架构/人员:"OPERATOR"，空字符串："账号信息"。 EndPoint为"CHANNEL"/"APP"只支持"SEAL"-印章管理
+     * @param Module PC控制台指定模块，文件/合同管理:"DOCUMENT"，模板管理:"TEMPLATE"，印章管理:"SEAL"，组织架构/人员:"OPERATOR"，空字符串："账号信息"。 EndPoint为"CHANNEL"/"APP"只支持"SEAL"-印章管理
      */
     public void setModule(String Module) {
         this.Module = Module;
@@ -185,16 +185,16 @@ public class CreateConsoleLoginUrlRequest extends AbstractModel{
     }
 
     /**
-     * Get 渠道子客企业统一社会信用代码，最大长度200个字符 
-     * @return UniformSocialCreditCode 渠道子客企业统一社会信用代码，最大长度200个字符
+     * Get 子客企业统一社会信用代码，最大长度200个字符 
+     * @return UniformSocialCreditCode 子客企业统一社会信用代码，最大长度200个字符
      */
     public String getUniformSocialCreditCode() {
         return this.UniformSocialCreditCode;
     }
 
     /**
-     * Set 渠道子客企业统一社会信用代码，最大长度200个字符
-     * @param UniformSocialCreditCode 渠道子客企业统一社会信用代码，最大长度200个字符
+     * Set 子客企业统一社会信用代码，最大长度200个字符
+     * @param UniformSocialCreditCode 子客企业统一社会信用代码，最大长度200个字符
      */
     public void setUniformSocialCreditCode(String UniformSocialCreditCode) {
         this.UniformSocialCreditCode = UniformSocialCreditCode;
@@ -249,22 +249,6 @@ public class CreateConsoleLoginUrlRequest extends AbstractModel{
     }
 
     /**
-     * Get 操作者的信息 
-     * @return Operator 操作者的信息
-     */
-    public UserInfo getOperator() {
-        return this.Operator;
-    }
-
-    /**
-     * Set 操作者的信息
-     * @param Operator 操作者的信息
-     */
-    public void setOperator(UserInfo Operator) {
-        this.Operator = Operator;
-    }
-
-    /**
      * Get 支持的授权方式,授权方式: "1" - 上传授权书认证  "2" - 法定代表人认证 
      * @return AuthorizationTypes 支持的授权方式,授权方式: "1" - 上传授权书认证  "2" - 法定代表人认证
      */
@@ -278,6 +262,26 @@ public class CreateConsoleLoginUrlRequest extends AbstractModel{
      */
     public void setAuthorizationTypes(Long [] AuthorizationTypes) {
         this.AuthorizationTypes = AuthorizationTypes;
+    }
+
+    /**
+     * Get 暂未开放 
+     * @return Operator 暂未开放
+     * @deprecated
+     */
+    @Deprecated
+    public UserInfo getOperator() {
+        return this.Operator;
+    }
+
+    /**
+     * Set 暂未开放
+     * @param Operator 暂未开放
+     * @deprecated
+     */
+    @Deprecated
+    public void setOperator(UserInfo Operator) {
+        this.Operator = Operator;
     }
 
     public CreateConsoleLoginUrlRequest() {
@@ -315,14 +319,14 @@ public class CreateConsoleLoginUrlRequest extends AbstractModel{
         if (source.AutoJumpBackEvent != null) {
             this.AutoJumpBackEvent = new String(source.AutoJumpBackEvent);
         }
-        if (source.Operator != null) {
-            this.Operator = new UserInfo(source.Operator);
-        }
         if (source.AuthorizationTypes != null) {
             this.AuthorizationTypes = new Long[source.AuthorizationTypes.length];
             for (int i = 0; i < source.AuthorizationTypes.length; i++) {
                 this.AuthorizationTypes[i] = new Long(source.AuthorizationTypes[i]);
             }
+        }
+        if (source.Operator != null) {
+            this.Operator = new UserInfo(source.Operator);
         }
     }
 
@@ -340,8 +344,8 @@ public class CreateConsoleLoginUrlRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "MenuStatus", this.MenuStatus);
         this.setParamSimple(map, prefix + "Endpoint", this.Endpoint);
         this.setParamSimple(map, prefix + "AutoJumpBackEvent", this.AutoJumpBackEvent);
-        this.setParamObj(map, prefix + "Operator.", this.Operator);
         this.setParamArraySimple(map, prefix + "AuthorizationTypes.", this.AuthorizationTypes);
+        this.setParamObj(map, prefix + "Operator.", this.Operator);
 
     }
 }

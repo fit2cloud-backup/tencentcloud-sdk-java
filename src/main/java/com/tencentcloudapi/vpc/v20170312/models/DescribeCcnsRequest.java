@@ -31,7 +31,7 @@ public class DescribeCcnsRequest extends AbstractModel{
 
     /**
     * 过滤条件，参数不支持同时指定CcnIds和Filters。
-<li>ccn-id - String - （过滤条件）CCN唯一ID，形如：vpc-f49l6u0z。</li>
+<li>ccn-id - String - （过滤条件）CCN唯一ID，形如：`ccn-f49l6u0z`。</li>
 <li>ccn-name - String - （过滤条件）CCN名称。</li>
 <li>ccn-description - String - （过滤条件）CCN描述。</li>
 <li>state - String - （过滤条件）实例状态， 'ISOLATED': 隔离中（欠费停服），'AVAILABLE'：运行中。</li>
@@ -57,14 +57,14 @@ public class DescribeCcnsRequest extends AbstractModel{
     private Long Limit;
 
     /**
-    * 排序字段。支持：`CcnId` `CcnName` `CreateTime` `State` `QosLevel`
+    * 排序字段。支持：`CcnId` `CcnName` `CreateTime` `State` `QosLevel`。默认值: `CreateTime`
     */
     @SerializedName("OrderField")
     @Expose
     private String OrderField;
 
     /**
-    * 排序方法。升序：`ASC`，倒序：`DESC`。
+    * 排序方法。升序：`ASC`，倒序：`DESC`。默认值：`ASC`
     */
     @SerializedName("OrderDirection")
     @Expose
@@ -88,14 +88,14 @@ public class DescribeCcnsRequest extends AbstractModel{
 
     /**
      * Get 过滤条件，参数不支持同时指定CcnIds和Filters。
-<li>ccn-id - String - （过滤条件）CCN唯一ID，形如：vpc-f49l6u0z。</li>
+<li>ccn-id - String - （过滤条件）CCN唯一ID，形如：`ccn-f49l6u0z`。</li>
 <li>ccn-name - String - （过滤条件）CCN名称。</li>
 <li>ccn-description - String - （过滤条件）CCN描述。</li>
 <li>state - String - （过滤条件）实例状态， 'ISOLATED': 隔离中（欠费停服），'AVAILABLE'：运行中。</li>
 <li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。</li>
 <li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例：查询绑定了标签的CCN列表。</li> 
      * @return Filters 过滤条件，参数不支持同时指定CcnIds和Filters。
-<li>ccn-id - String - （过滤条件）CCN唯一ID，形如：vpc-f49l6u0z。</li>
+<li>ccn-id - String - （过滤条件）CCN唯一ID，形如：`ccn-f49l6u0z`。</li>
 <li>ccn-name - String - （过滤条件）CCN名称。</li>
 <li>ccn-description - String - （过滤条件）CCN描述。</li>
 <li>state - String - （过滤条件）实例状态， 'ISOLATED': 隔离中（欠费停服），'AVAILABLE'：运行中。</li>
@@ -108,14 +108,14 @@ public class DescribeCcnsRequest extends AbstractModel{
 
     /**
      * Set 过滤条件，参数不支持同时指定CcnIds和Filters。
-<li>ccn-id - String - （过滤条件）CCN唯一ID，形如：vpc-f49l6u0z。</li>
+<li>ccn-id - String - （过滤条件）CCN唯一ID，形如：`ccn-f49l6u0z`。</li>
 <li>ccn-name - String - （过滤条件）CCN名称。</li>
 <li>ccn-description - String - （过滤条件）CCN描述。</li>
 <li>state - String - （过滤条件）实例状态， 'ISOLATED': 隔离中（欠费停服），'AVAILABLE'：运行中。</li>
 <li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。</li>
 <li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例：查询绑定了标签的CCN列表。</li>
      * @param Filters 过滤条件，参数不支持同时指定CcnIds和Filters。
-<li>ccn-id - String - （过滤条件）CCN唯一ID，形如：vpc-f49l6u0z。</li>
+<li>ccn-id - String - （过滤条件）CCN唯一ID，形如：`ccn-f49l6u0z`。</li>
 <li>ccn-name - String - （过滤条件）CCN名称。</li>
 <li>ccn-description - String - （过滤条件）CCN描述。</li>
 <li>state - String - （过滤条件）实例状态， 'ISOLATED': 隔离中（欠费停服），'AVAILABLE'：运行中。</li>
@@ -159,32 +159,32 @@ public class DescribeCcnsRequest extends AbstractModel{
     }
 
     /**
-     * Get 排序字段。支持：`CcnId` `CcnName` `CreateTime` `State` `QosLevel` 
-     * @return OrderField 排序字段。支持：`CcnId` `CcnName` `CreateTime` `State` `QosLevel`
+     * Get 排序字段。支持：`CcnId` `CcnName` `CreateTime` `State` `QosLevel`。默认值: `CreateTime` 
+     * @return OrderField 排序字段。支持：`CcnId` `CcnName` `CreateTime` `State` `QosLevel`。默认值: `CreateTime`
      */
     public String getOrderField() {
         return this.OrderField;
     }
 
     /**
-     * Set 排序字段。支持：`CcnId` `CcnName` `CreateTime` `State` `QosLevel`
-     * @param OrderField 排序字段。支持：`CcnId` `CcnName` `CreateTime` `State` `QosLevel`
+     * Set 排序字段。支持：`CcnId` `CcnName` `CreateTime` `State` `QosLevel`。默认值: `CreateTime`
+     * @param OrderField 排序字段。支持：`CcnId` `CcnName` `CreateTime` `State` `QosLevel`。默认值: `CreateTime`
      */
     public void setOrderField(String OrderField) {
         this.OrderField = OrderField;
     }
 
     /**
-     * Get 排序方法。升序：`ASC`，倒序：`DESC`。 
-     * @return OrderDirection 排序方法。升序：`ASC`，倒序：`DESC`。
+     * Get 排序方法。升序：`ASC`，倒序：`DESC`。默认值：`ASC` 
+     * @return OrderDirection 排序方法。升序：`ASC`，倒序：`DESC`。默认值：`ASC`
      */
     public String getOrderDirection() {
         return this.OrderDirection;
     }
 
     /**
-     * Set 排序方法。升序：`ASC`，倒序：`DESC`。
-     * @param OrderDirection 排序方法。升序：`ASC`，倒序：`DESC`。
+     * Set 排序方法。升序：`ASC`，倒序：`DESC`。默认值：`ASC`
+     * @param OrderDirection 排序方法。升序：`ASC`，倒序：`DESC`。默认值：`ASC`
      */
     public void setOrderDirection(String OrderDirection) {
         this.OrderDirection = OrderDirection;

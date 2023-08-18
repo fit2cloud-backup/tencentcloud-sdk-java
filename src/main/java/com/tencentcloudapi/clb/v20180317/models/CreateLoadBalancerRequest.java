@@ -60,14 +60,14 @@ OPEN：公网属性， INTERNAL：内网属性。
     private String SubnetId;
 
     /**
-    * 负载均衡实例所属的项目 ID，可以通过 [DescribeProject](https://cloud.tencent.com/document/product/378/4400) 接口获取。不填此参数则视为默认项目。
+    * 负载均衡实例所属的项目 ID，可以通过 [DescribeProject](https://cloud.tencent.com/document/api/651/78725) 接口获取。不填此参数则视为默认项目。
     */
     @SerializedName("ProjectId")
     @Expose
     private Long ProjectId;
 
     /**
-    * 仅适用于公网负载均衡。IP版本，可取值：IPV4、IPV6、IPv6FullChain，默认值 IPV4。说明：取值为IPV6表示为IPV6 NAT64版本；取值为IPv6FullChain，表示为IPv6版本。
+    * 仅适用于公网负载均衡。IP版本，可取值：IPV4、IPV6、IPv6FullChain，不区分大小写，默认值 IPV4。说明：取值为IPV6表示为IPV6 NAT64版本；取值为IPv6FullChain，表示为IPv6版本。
     */
     @SerializedName("AddressIPVersion")
     @Expose
@@ -82,7 +82,7 @@ OPEN：公网属性， INTERNAL：内网属性。
 
     /**
     * 仅适用于公网负载均衡。设置跨可用区容灾时的主可用区ID，例如 100001 或 ap-guangzhou-1
-注：主可用区是需要承载流量的可用区，备可用区默认不承载流量，主可用区不可用时才使用备可用区，平台将为您自动选择最佳备可用区。可通过 [DescribeResources](https://cloud.tencent.com/document/api/214/70213) 接口查询一个地域的主可用区的列表。
+注：主可用区是需要承载流量的可用区，备可用区默认不承载流量，主可用区不可用时才使用备可用区。目前仅广州、上海、南京、北京、中国香港、首尔地域的 IPv4 版本的 CLB 支持主备可用区。可通过 [DescribeResources](https://cloud.tencent.com/document/api/214/70213) 接口查询一个地域的主可用区的列表。
     */
     @SerializedName("MasterZoneId")
     @Expose
@@ -96,14 +96,14 @@ OPEN：公网属性， INTERNAL：内网属性。
     private String ZoneId;
 
     /**
-    * 仅适用于公网负载均衡。负载均衡的网络计费模式。
+    * 仅对内网属性的性能容量型实例和公网属性的所有实例生效。
     */
     @SerializedName("InternetAccessible")
     @Expose
     private InternetAccessible InternetAccessible;
 
     /**
-    * 仅适用于公网负载均衡。CMCC | CTCC | CUCC，分别对应 移动 | 电信 | 联通，如果不指定本参数，则默认使用BGP。可通过 DescribeSingleIsp 接口查询一个地域所支持的Isp。如果指定运营商，则网络计费式只能使用按带宽包计费(BANDWIDTH_PACKAGE)。
+    * 仅适用于公网负载均衡。CMCC | CTCC | CUCC，分别对应 移动 | 电信 | 联通，如果不指定本参数，则默认使用BGP。可通过 [DescribeResources](https://cloud.tencent.com/document/api/214/70213)  接口查询一个地域所支持的Isp。如果指定运营商，则网络计费模式只能使用按带宽包计费(BANDWIDTH_PACKAGE)。
     */
     @SerializedName("VipIsp")
     @Expose
@@ -117,10 +117,8 @@ OPEN：公网属性， INTERNAL：内网属性。
     private TagInfo [] Tags;
 
     /**
-    * 指定VIP申请负载均衡。指定此参数后：
-<ul><li>若创建共享型集群的公网负载均衡实例，则上述的VpcId选填，若实例是IPv6类型的，则SubnetId必填；若是IPv4、IPv6 NAT64类型，则SubnetId不填。</li>
-<li>若创建独占型集群的公网负载均衡实例，则上述的VpcId选填，若实例是IPv6类型的，则SubnetId必填；若是IPv4、IPv6 NAT64类型，则SubnetId不填。
-</li></ul>
+    * 指定VIP申请负载均衡。此参数选填，不填写此参数时自动分配VIP。IPv4和IPv6类型支持此参数，IPv6 NAT64类型不支持。
+注意：当指定VIP创建内网实例、或公网IPv6 BGP实例时，若VIP不属于指定VPC子网的网段内时，会创建失败；若VIP已被占用，也会创建失败。
     */
     @SerializedName("Vip")
     @Expose
@@ -134,16 +132,16 @@ OPEN：公网属性， INTERNAL：内网属性。
     private String BandwidthPackageId;
 
     /**
-    * 独占集群信息。若创建独占集群负载均衡实例，则此参数必填。
+    * 独占型实例信息。若创建独占型的内网负载均衡实例，则此参数必填。
     */
     @SerializedName("ExclusiveCluster")
     @Expose
     private ExclusiveCluster ExclusiveCluster;
 
     /**
-    * 创建性能容量型 CLB 实例。
-<ul><li>若需要创建性能容量型 CLB 实例，则此参数必填，且取值为：SLA，表示创建按量计费模式下的默认性能保障规格的性能容量型实例。</li>
-<li>若需要创建共享型 CLB 实例，则无需填写此参数。</li></ul>
+    * 创建性能容量型实例。
+<ul><li>若需要创建性能容量型实例，则此参数必填，且取值为：SLA，表示超强型1规格。
+<ul><li>当您开通了超大型规格的性能容量型时，SLA对应超强型4规格。如需超大型规格的性能容量型，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。</li></ul></li><li>若需要创建共享型实例，则无需填写此参数。</li></ul>
     */
     @SerializedName("SlaType")
     @Expose
@@ -198,6 +196,13 @@ OPEN：公网属性， INTERNAL：内网属性。
     @SerializedName("LoadBalancerPassToTarget")
     @Expose
     private Boolean LoadBalancerPassToTarget;
+
+    /**
+    * 创建域名化负载均衡。
+    */
+    @SerializedName("DynamicVip")
+    @Expose
+    private Boolean DynamicVip;
 
     /**
      * Get 负载均衡实例的网络类型：
@@ -288,32 +293,32 @@ OPEN：公网属性， INTERNAL：内网属性。
     }
 
     /**
-     * Get 负载均衡实例所属的项目 ID，可以通过 [DescribeProject](https://cloud.tencent.com/document/product/378/4400) 接口获取。不填此参数则视为默认项目。 
-     * @return ProjectId 负载均衡实例所属的项目 ID，可以通过 [DescribeProject](https://cloud.tencent.com/document/product/378/4400) 接口获取。不填此参数则视为默认项目。
+     * Get 负载均衡实例所属的项目 ID，可以通过 [DescribeProject](https://cloud.tencent.com/document/api/651/78725) 接口获取。不填此参数则视为默认项目。 
+     * @return ProjectId 负载均衡实例所属的项目 ID，可以通过 [DescribeProject](https://cloud.tencent.com/document/api/651/78725) 接口获取。不填此参数则视为默认项目。
      */
     public Long getProjectId() {
         return this.ProjectId;
     }
 
     /**
-     * Set 负载均衡实例所属的项目 ID，可以通过 [DescribeProject](https://cloud.tencent.com/document/product/378/4400) 接口获取。不填此参数则视为默认项目。
-     * @param ProjectId 负载均衡实例所属的项目 ID，可以通过 [DescribeProject](https://cloud.tencent.com/document/product/378/4400) 接口获取。不填此参数则视为默认项目。
+     * Set 负载均衡实例所属的项目 ID，可以通过 [DescribeProject](https://cloud.tencent.com/document/api/651/78725) 接口获取。不填此参数则视为默认项目。
+     * @param ProjectId 负载均衡实例所属的项目 ID，可以通过 [DescribeProject](https://cloud.tencent.com/document/api/651/78725) 接口获取。不填此参数则视为默认项目。
      */
     public void setProjectId(Long ProjectId) {
         this.ProjectId = ProjectId;
     }
 
     /**
-     * Get 仅适用于公网负载均衡。IP版本，可取值：IPV4、IPV6、IPv6FullChain，默认值 IPV4。说明：取值为IPV6表示为IPV6 NAT64版本；取值为IPv6FullChain，表示为IPv6版本。 
-     * @return AddressIPVersion 仅适用于公网负载均衡。IP版本，可取值：IPV4、IPV6、IPv6FullChain，默认值 IPV4。说明：取值为IPV6表示为IPV6 NAT64版本；取值为IPv6FullChain，表示为IPv6版本。
+     * Get 仅适用于公网负载均衡。IP版本，可取值：IPV4、IPV6、IPv6FullChain，不区分大小写，默认值 IPV4。说明：取值为IPV6表示为IPV6 NAT64版本；取值为IPv6FullChain，表示为IPv6版本。 
+     * @return AddressIPVersion 仅适用于公网负载均衡。IP版本，可取值：IPV4、IPV6、IPv6FullChain，不区分大小写，默认值 IPV4。说明：取值为IPV6表示为IPV6 NAT64版本；取值为IPv6FullChain，表示为IPv6版本。
      */
     public String getAddressIPVersion() {
         return this.AddressIPVersion;
     }
 
     /**
-     * Set 仅适用于公网负载均衡。IP版本，可取值：IPV4、IPV6、IPv6FullChain，默认值 IPV4。说明：取值为IPV6表示为IPV6 NAT64版本；取值为IPv6FullChain，表示为IPv6版本。
-     * @param AddressIPVersion 仅适用于公网负载均衡。IP版本，可取值：IPV4、IPV6、IPv6FullChain，默认值 IPV4。说明：取值为IPV6表示为IPV6 NAT64版本；取值为IPv6FullChain，表示为IPv6版本。
+     * Set 仅适用于公网负载均衡。IP版本，可取值：IPV4、IPV6、IPv6FullChain，不区分大小写，默认值 IPV4。说明：取值为IPV6表示为IPV6 NAT64版本；取值为IPv6FullChain，表示为IPv6版本。
+     * @param AddressIPVersion 仅适用于公网负载均衡。IP版本，可取值：IPV4、IPV6、IPv6FullChain，不区分大小写，默认值 IPV4。说明：取值为IPV6表示为IPV6 NAT64版本；取值为IPv6FullChain，表示为IPv6版本。
      */
     public void setAddressIPVersion(String AddressIPVersion) {
         this.AddressIPVersion = AddressIPVersion;
@@ -337,9 +342,9 @@ OPEN：公网属性， INTERNAL：内网属性。
 
     /**
      * Get 仅适用于公网负载均衡。设置跨可用区容灾时的主可用区ID，例如 100001 或 ap-guangzhou-1
-注：主可用区是需要承载流量的可用区，备可用区默认不承载流量，主可用区不可用时才使用备可用区，平台将为您自动选择最佳备可用区。可通过 [DescribeResources](https://cloud.tencent.com/document/api/214/70213) 接口查询一个地域的主可用区的列表。 
+注：主可用区是需要承载流量的可用区，备可用区默认不承载流量，主可用区不可用时才使用备可用区。目前仅广州、上海、南京、北京、中国香港、首尔地域的 IPv4 版本的 CLB 支持主备可用区。可通过 [DescribeResources](https://cloud.tencent.com/document/api/214/70213) 接口查询一个地域的主可用区的列表。 
      * @return MasterZoneId 仅适用于公网负载均衡。设置跨可用区容灾时的主可用区ID，例如 100001 或 ap-guangzhou-1
-注：主可用区是需要承载流量的可用区，备可用区默认不承载流量，主可用区不可用时才使用备可用区，平台将为您自动选择最佳备可用区。可通过 [DescribeResources](https://cloud.tencent.com/document/api/214/70213) 接口查询一个地域的主可用区的列表。
+注：主可用区是需要承载流量的可用区，备可用区默认不承载流量，主可用区不可用时才使用备可用区。目前仅广州、上海、南京、北京、中国香港、首尔地域的 IPv4 版本的 CLB 支持主备可用区。可通过 [DescribeResources](https://cloud.tencent.com/document/api/214/70213) 接口查询一个地域的主可用区的列表。
      */
     public String getMasterZoneId() {
         return this.MasterZoneId;
@@ -347,9 +352,9 @@ OPEN：公网属性， INTERNAL：内网属性。
 
     /**
      * Set 仅适用于公网负载均衡。设置跨可用区容灾时的主可用区ID，例如 100001 或 ap-guangzhou-1
-注：主可用区是需要承载流量的可用区，备可用区默认不承载流量，主可用区不可用时才使用备可用区，平台将为您自动选择最佳备可用区。可通过 [DescribeResources](https://cloud.tencent.com/document/api/214/70213) 接口查询一个地域的主可用区的列表。
+注：主可用区是需要承载流量的可用区，备可用区默认不承载流量，主可用区不可用时才使用备可用区。目前仅广州、上海、南京、北京、中国香港、首尔地域的 IPv4 版本的 CLB 支持主备可用区。可通过 [DescribeResources](https://cloud.tencent.com/document/api/214/70213) 接口查询一个地域的主可用区的列表。
      * @param MasterZoneId 仅适用于公网负载均衡。设置跨可用区容灾时的主可用区ID，例如 100001 或 ap-guangzhou-1
-注：主可用区是需要承载流量的可用区，备可用区默认不承载流量，主可用区不可用时才使用备可用区，平台将为您自动选择最佳备可用区。可通过 [DescribeResources](https://cloud.tencent.com/document/api/214/70213) 接口查询一个地域的主可用区的列表。
+注：主可用区是需要承载流量的可用区，备可用区默认不承载流量，主可用区不可用时才使用备可用区。目前仅广州、上海、南京、北京、中国香港、首尔地域的 IPv4 版本的 CLB 支持主备可用区。可通过 [DescribeResources](https://cloud.tencent.com/document/api/214/70213) 接口查询一个地域的主可用区的列表。
      */
     public void setMasterZoneId(String MasterZoneId) {
         this.MasterZoneId = MasterZoneId;
@@ -372,32 +377,32 @@ OPEN：公网属性， INTERNAL：内网属性。
     }
 
     /**
-     * Get 仅适用于公网负载均衡。负载均衡的网络计费模式。 
-     * @return InternetAccessible 仅适用于公网负载均衡。负载均衡的网络计费模式。
+     * Get 仅对内网属性的性能容量型实例和公网属性的所有实例生效。 
+     * @return InternetAccessible 仅对内网属性的性能容量型实例和公网属性的所有实例生效。
      */
     public InternetAccessible getInternetAccessible() {
         return this.InternetAccessible;
     }
 
     /**
-     * Set 仅适用于公网负载均衡。负载均衡的网络计费模式。
-     * @param InternetAccessible 仅适用于公网负载均衡。负载均衡的网络计费模式。
+     * Set 仅对内网属性的性能容量型实例和公网属性的所有实例生效。
+     * @param InternetAccessible 仅对内网属性的性能容量型实例和公网属性的所有实例生效。
      */
     public void setInternetAccessible(InternetAccessible InternetAccessible) {
         this.InternetAccessible = InternetAccessible;
     }
 
     /**
-     * Get 仅适用于公网负载均衡。CMCC | CTCC | CUCC，分别对应 移动 | 电信 | 联通，如果不指定本参数，则默认使用BGP。可通过 DescribeSingleIsp 接口查询一个地域所支持的Isp。如果指定运营商，则网络计费式只能使用按带宽包计费(BANDWIDTH_PACKAGE)。 
-     * @return VipIsp 仅适用于公网负载均衡。CMCC | CTCC | CUCC，分别对应 移动 | 电信 | 联通，如果不指定本参数，则默认使用BGP。可通过 DescribeSingleIsp 接口查询一个地域所支持的Isp。如果指定运营商，则网络计费式只能使用按带宽包计费(BANDWIDTH_PACKAGE)。
+     * Get 仅适用于公网负载均衡。CMCC | CTCC | CUCC，分别对应 移动 | 电信 | 联通，如果不指定本参数，则默认使用BGP。可通过 [DescribeResources](https://cloud.tencent.com/document/api/214/70213)  接口查询一个地域所支持的Isp。如果指定运营商，则网络计费模式只能使用按带宽包计费(BANDWIDTH_PACKAGE)。 
+     * @return VipIsp 仅适用于公网负载均衡。CMCC | CTCC | CUCC，分别对应 移动 | 电信 | 联通，如果不指定本参数，则默认使用BGP。可通过 [DescribeResources](https://cloud.tencent.com/document/api/214/70213)  接口查询一个地域所支持的Isp。如果指定运营商，则网络计费模式只能使用按带宽包计费(BANDWIDTH_PACKAGE)。
      */
     public String getVipIsp() {
         return this.VipIsp;
     }
 
     /**
-     * Set 仅适用于公网负载均衡。CMCC | CTCC | CUCC，分别对应 移动 | 电信 | 联通，如果不指定本参数，则默认使用BGP。可通过 DescribeSingleIsp 接口查询一个地域所支持的Isp。如果指定运营商，则网络计费式只能使用按带宽包计费(BANDWIDTH_PACKAGE)。
-     * @param VipIsp 仅适用于公网负载均衡。CMCC | CTCC | CUCC，分别对应 移动 | 电信 | 联通，如果不指定本参数，则默认使用BGP。可通过 DescribeSingleIsp 接口查询一个地域所支持的Isp。如果指定运营商，则网络计费式只能使用按带宽包计费(BANDWIDTH_PACKAGE)。
+     * Set 仅适用于公网负载均衡。CMCC | CTCC | CUCC，分别对应 移动 | 电信 | 联通，如果不指定本参数，则默认使用BGP。可通过 [DescribeResources](https://cloud.tencent.com/document/api/214/70213)  接口查询一个地域所支持的Isp。如果指定运营商，则网络计费模式只能使用按带宽包计费(BANDWIDTH_PACKAGE)。
+     * @param VipIsp 仅适用于公网负载均衡。CMCC | CTCC | CUCC，分别对应 移动 | 电信 | 联通，如果不指定本参数，则默认使用BGP。可通过 [DescribeResources](https://cloud.tencent.com/document/api/214/70213)  接口查询一个地域所支持的Isp。如果指定运营商，则网络计费模式只能使用按带宽包计费(BANDWIDTH_PACKAGE)。
      */
     public void setVipIsp(String VipIsp) {
         this.VipIsp = VipIsp;
@@ -420,28 +425,20 @@ OPEN：公网属性， INTERNAL：内网属性。
     }
 
     /**
-     * Get 指定VIP申请负载均衡。指定此参数后：
-<ul><li>若创建共享型集群的公网负载均衡实例，则上述的VpcId选填，若实例是IPv6类型的，则SubnetId必填；若是IPv4、IPv6 NAT64类型，则SubnetId不填。</li>
-<li>若创建独占型集群的公网负载均衡实例，则上述的VpcId选填，若实例是IPv6类型的，则SubnetId必填；若是IPv4、IPv6 NAT64类型，则SubnetId不填。
-</li></ul> 
-     * @return Vip 指定VIP申请负载均衡。指定此参数后：
-<ul><li>若创建共享型集群的公网负载均衡实例，则上述的VpcId选填，若实例是IPv6类型的，则SubnetId必填；若是IPv4、IPv6 NAT64类型，则SubnetId不填。</li>
-<li>若创建独占型集群的公网负载均衡实例，则上述的VpcId选填，若实例是IPv6类型的，则SubnetId必填；若是IPv4、IPv6 NAT64类型，则SubnetId不填。
-</li></ul>
+     * Get 指定VIP申请负载均衡。此参数选填，不填写此参数时自动分配VIP。IPv4和IPv6类型支持此参数，IPv6 NAT64类型不支持。
+注意：当指定VIP创建内网实例、或公网IPv6 BGP实例时，若VIP不属于指定VPC子网的网段内时，会创建失败；若VIP已被占用，也会创建失败。 
+     * @return Vip 指定VIP申请负载均衡。此参数选填，不填写此参数时自动分配VIP。IPv4和IPv6类型支持此参数，IPv6 NAT64类型不支持。
+注意：当指定VIP创建内网实例、或公网IPv6 BGP实例时，若VIP不属于指定VPC子网的网段内时，会创建失败；若VIP已被占用，也会创建失败。
      */
     public String getVip() {
         return this.Vip;
     }
 
     /**
-     * Set 指定VIP申请负载均衡。指定此参数后：
-<ul><li>若创建共享型集群的公网负载均衡实例，则上述的VpcId选填，若实例是IPv6类型的，则SubnetId必填；若是IPv4、IPv6 NAT64类型，则SubnetId不填。</li>
-<li>若创建独占型集群的公网负载均衡实例，则上述的VpcId选填，若实例是IPv6类型的，则SubnetId必填；若是IPv4、IPv6 NAT64类型，则SubnetId不填。
-</li></ul>
-     * @param Vip 指定VIP申请负载均衡。指定此参数后：
-<ul><li>若创建共享型集群的公网负载均衡实例，则上述的VpcId选填，若实例是IPv6类型的，则SubnetId必填；若是IPv4、IPv6 NAT64类型，则SubnetId不填。</li>
-<li>若创建独占型集群的公网负载均衡实例，则上述的VpcId选填，若实例是IPv6类型的，则SubnetId必填；若是IPv4、IPv6 NAT64类型，则SubnetId不填。
-</li></ul>
+     * Set 指定VIP申请负载均衡。此参数选填，不填写此参数时自动分配VIP。IPv4和IPv6类型支持此参数，IPv6 NAT64类型不支持。
+注意：当指定VIP创建内网实例、或公网IPv6 BGP实例时，若VIP不属于指定VPC子网的网段内时，会创建失败；若VIP已被占用，也会创建失败。
+     * @param Vip 指定VIP申请负载均衡。此参数选填，不填写此参数时自动分配VIP。IPv4和IPv6类型支持此参数，IPv6 NAT64类型不支持。
+注意：当指定VIP创建内网实例、或公网IPv6 BGP实例时，若VIP不属于指定VPC子网的网段内时，会创建失败；若VIP已被占用，也会创建失败。
      */
     public void setVip(String Vip) {
         this.Vip = Vip;
@@ -464,40 +461,40 @@ OPEN：公网属性， INTERNAL：内网属性。
     }
 
     /**
-     * Get 独占集群信息。若创建独占集群负载均衡实例，则此参数必填。 
-     * @return ExclusiveCluster 独占集群信息。若创建独占集群负载均衡实例，则此参数必填。
+     * Get 独占型实例信息。若创建独占型的内网负载均衡实例，则此参数必填。 
+     * @return ExclusiveCluster 独占型实例信息。若创建独占型的内网负载均衡实例，则此参数必填。
      */
     public ExclusiveCluster getExclusiveCluster() {
         return this.ExclusiveCluster;
     }
 
     /**
-     * Set 独占集群信息。若创建独占集群负载均衡实例，则此参数必填。
-     * @param ExclusiveCluster 独占集群信息。若创建独占集群负载均衡实例，则此参数必填。
+     * Set 独占型实例信息。若创建独占型的内网负载均衡实例，则此参数必填。
+     * @param ExclusiveCluster 独占型实例信息。若创建独占型的内网负载均衡实例，则此参数必填。
      */
     public void setExclusiveCluster(ExclusiveCluster ExclusiveCluster) {
         this.ExclusiveCluster = ExclusiveCluster;
     }
 
     /**
-     * Get 创建性能容量型 CLB 实例。
-<ul><li>若需要创建性能容量型 CLB 实例，则此参数必填，且取值为：SLA，表示创建按量计费模式下的默认性能保障规格的性能容量型实例。</li>
-<li>若需要创建共享型 CLB 实例，则无需填写此参数。</li></ul> 
-     * @return SlaType 创建性能容量型 CLB 实例。
-<ul><li>若需要创建性能容量型 CLB 实例，则此参数必填，且取值为：SLA，表示创建按量计费模式下的默认性能保障规格的性能容量型实例。</li>
-<li>若需要创建共享型 CLB 实例，则无需填写此参数。</li></ul>
+     * Get 创建性能容量型实例。
+<ul><li>若需要创建性能容量型实例，则此参数必填，且取值为：SLA，表示超强型1规格。
+<ul><li>当您开通了超大型规格的性能容量型时，SLA对应超强型4规格。如需超大型规格的性能容量型，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。</li></ul></li><li>若需要创建共享型实例，则无需填写此参数。</li></ul> 
+     * @return SlaType 创建性能容量型实例。
+<ul><li>若需要创建性能容量型实例，则此参数必填，且取值为：SLA，表示超强型1规格。
+<ul><li>当您开通了超大型规格的性能容量型时，SLA对应超强型4规格。如需超大型规格的性能容量型，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。</li></ul></li><li>若需要创建共享型实例，则无需填写此参数。</li></ul>
      */
     public String getSlaType() {
         return this.SlaType;
     }
 
     /**
-     * Set 创建性能容量型 CLB 实例。
-<ul><li>若需要创建性能容量型 CLB 实例，则此参数必填，且取值为：SLA，表示创建按量计费模式下的默认性能保障规格的性能容量型实例。</li>
-<li>若需要创建共享型 CLB 实例，则无需填写此参数。</li></ul>
-     * @param SlaType 创建性能容量型 CLB 实例。
-<ul><li>若需要创建性能容量型 CLB 实例，则此参数必填，且取值为：SLA，表示创建按量计费模式下的默认性能保障规格的性能容量型实例。</li>
-<li>若需要创建共享型 CLB 实例，则无需填写此参数。</li></ul>
+     * Set 创建性能容量型实例。
+<ul><li>若需要创建性能容量型实例，则此参数必填，且取值为：SLA，表示超强型1规格。
+<ul><li>当您开通了超大型规格的性能容量型时，SLA对应超强型4规格。如需超大型规格的性能容量型，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。</li></ul></li><li>若需要创建共享型实例，则无需填写此参数。</li></ul>
+     * @param SlaType 创建性能容量型实例。
+<ul><li>若需要创建性能容量型实例，则此参数必填，且取值为：SLA，表示超强型1规格。
+<ul><li>当您开通了超大型规格的性能容量型时，SLA对应超强型4规格。如需超大型规格的性能容量型，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。</li></ul></li><li>若需要创建共享型实例，则无需填写此参数。</li></ul>
      */
     public void setSlaType(String SlaType) {
         this.SlaType = SlaType;
@@ -619,6 +616,22 @@ OPEN：公网属性， INTERNAL：内网属性。
         this.LoadBalancerPassToTarget = LoadBalancerPassToTarget;
     }
 
+    /**
+     * Get 创建域名化负载均衡。 
+     * @return DynamicVip 创建域名化负载均衡。
+     */
+    public Boolean getDynamicVip() {
+        return this.DynamicVip;
+    }
+
+    /**
+     * Set 创建域名化负载均衡。
+     * @param DynamicVip 创建域名化负载均衡。
+     */
+    public void setDynamicVip(Boolean DynamicVip) {
+        this.DynamicVip = DynamicVip;
+    }
+
     public CreateLoadBalancerRequest() {
     }
 
@@ -705,6 +718,9 @@ OPEN：公网属性， INTERNAL：内网属性。
         if (source.LoadBalancerPassToTarget != null) {
             this.LoadBalancerPassToTarget = new Boolean(source.LoadBalancerPassToTarget);
         }
+        if (source.DynamicVip != null) {
+            this.DynamicVip = new Boolean(source.DynamicVip);
+        }
     }
 
 
@@ -736,6 +752,7 @@ OPEN：公网属性， INTERNAL：内网属性。
         this.setParamSimple(map, prefix + "SlaveZoneId", this.SlaveZoneId);
         this.setParamSimple(map, prefix + "EipAddressId", this.EipAddressId);
         this.setParamSimple(map, prefix + "LoadBalancerPassToTarget", this.LoadBalancerPassToTarget);
+        this.setParamSimple(map, prefix + "DynamicVip", this.DynamicVip);
 
     }
 }

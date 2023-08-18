@@ -37,7 +37,7 @@ public class UploadCertificateRequest extends AbstractModel{
     private String CertificatePrivateKey;
 
     /**
-    * 证书类型，默认 SVR。CA = 客户端证书，SVR = 服务器证书。
+    * 证书类型，默认 SVR。CA = CA证书，SVR = 服务器证书。
     */
     @SerializedName("CertificateType")
     @Expose
@@ -63,6 +63,20 @@ public class UploadCertificateRequest extends AbstractModel{
     @SerializedName("CertificateUse")
     @Expose
     private String CertificateUse;
+
+    /**
+    * 标签列表
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tags [] Tags;
+
+    /**
+    * 相同的证书是否允许重复上传
+    */
+    @SerializedName("Repeatable")
+    @Expose
+    private Boolean Repeatable;
 
     /**
      * Get 证书内容。 
@@ -97,16 +111,16 @@ public class UploadCertificateRequest extends AbstractModel{
     }
 
     /**
-     * Get 证书类型，默认 SVR。CA = 客户端证书，SVR = 服务器证书。 
-     * @return CertificateType 证书类型，默认 SVR。CA = 客户端证书，SVR = 服务器证书。
+     * Get 证书类型，默认 SVR。CA = CA证书，SVR = 服务器证书。 
+     * @return CertificateType 证书类型，默认 SVR。CA = CA证书，SVR = 服务器证书。
      */
     public String getCertificateType() {
         return this.CertificateType;
     }
 
     /**
-     * Set 证书类型，默认 SVR。CA = 客户端证书，SVR = 服务器证书。
-     * @param CertificateType 证书类型，默认 SVR。CA = 客户端证书，SVR = 服务器证书。
+     * Set 证书类型，默认 SVR。CA = CA证书，SVR = 服务器证书。
+     * @param CertificateType 证书类型，默认 SVR。CA = CA证书，SVR = 服务器证书。
      */
     public void setCertificateType(String CertificateType) {
         this.CertificateType = CertificateType;
@@ -160,6 +174,38 @@ public class UploadCertificateRequest extends AbstractModel{
         this.CertificateUse = CertificateUse;
     }
 
+    /**
+     * Get 标签列表 
+     * @return Tags 标签列表
+     */
+    public Tags [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 标签列表
+     * @param Tags 标签列表
+     */
+    public void setTags(Tags [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
+     * Get 相同的证书是否允许重复上传 
+     * @return Repeatable 相同的证书是否允许重复上传
+     */
+    public Boolean getRepeatable() {
+        return this.Repeatable;
+    }
+
+    /**
+     * Set 相同的证书是否允许重复上传
+     * @param Repeatable 相同的证书是否允许重复上传
+     */
+    public void setRepeatable(Boolean Repeatable) {
+        this.Repeatable = Repeatable;
+    }
+
     public UploadCertificateRequest() {
     }
 
@@ -186,6 +232,15 @@ public class UploadCertificateRequest extends AbstractModel{
         if (source.CertificateUse != null) {
             this.CertificateUse = new String(source.CertificateUse);
         }
+        if (source.Tags != null) {
+            this.Tags = new Tags[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tags(source.Tags[i]);
+            }
+        }
+        if (source.Repeatable != null) {
+            this.Repeatable = new Boolean(source.Repeatable);
+        }
     }
 
 
@@ -199,6 +254,8 @@ public class UploadCertificateRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Alias", this.Alias);
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamSimple(map, prefix + "CertificateUse", this.CertificateUse);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "Repeatable", this.Repeatable);
 
     }
 }

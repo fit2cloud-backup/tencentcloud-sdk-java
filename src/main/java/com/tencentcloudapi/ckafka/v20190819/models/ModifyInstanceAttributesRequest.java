@@ -58,14 +58,14 @@ public class ModifyInstanceAttributesRequest extends AbstractModel{
     private DynamicRetentionTime DynamicRetentionConfig;
 
     /**
-    * 修改升配置rebalance时间
+    * 升配Rebalance时间
     */
     @SerializedName("RebalanceTime")
     @Expose
     private Long RebalanceTime;
 
     /**
-    * 时间戳
+    * 公网带宽
     */
     @SerializedName("PublicNetwork")
     @Expose
@@ -166,32 +166,32 @@ public class ModifyInstanceAttributesRequest extends AbstractModel{
     }
 
     /**
-     * Get 修改升配置rebalance时间 
-     * @return RebalanceTime 修改升配置rebalance时间
+     * Get 升配Rebalance时间 
+     * @return RebalanceTime 升配Rebalance时间
      */
     public Long getRebalanceTime() {
         return this.RebalanceTime;
     }
 
     /**
-     * Set 修改升配置rebalance时间
-     * @param RebalanceTime 修改升配置rebalance时间
+     * Set 升配Rebalance时间
+     * @param RebalanceTime 升配Rebalance时间
      */
     public void setRebalanceTime(Long RebalanceTime) {
         this.RebalanceTime = RebalanceTime;
     }
 
     /**
-     * Get 时间戳 
-     * @return PublicNetwork 时间戳
+     * Get 公网带宽 
+     * @return PublicNetwork 公网带宽
      */
     public Long getPublicNetwork() {
         return this.PublicNetwork;
     }
 
     /**
-     * Set 时间戳
-     * @param PublicNetwork 时间戳
+     * Set 公网带宽
+     * @param PublicNetwork 公网带宽
      */
     public void setPublicNetwork(Long PublicNetwork) {
         this.PublicNetwork = PublicNetwork;

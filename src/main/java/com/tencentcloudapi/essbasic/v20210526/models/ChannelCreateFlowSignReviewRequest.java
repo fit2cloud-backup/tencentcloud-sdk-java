@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class ChannelCreateFlowSignReviewRequest extends AbstractModel{
 
     /**
-    * 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+    * 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
     */
     @SerializedName("Agent")
     @Expose
@@ -55,23 +55,34 @@ SIGN_REJECT:拒签(流程结束)
     private String ReviewMessage;
 
     /**
-    * 签署节点审核时需要指定
+    * 签署节点审核时需要指定，给个人审核时必填。
     */
     @SerializedName("RecipientId")
     @Expose
     private String RecipientId;
 
     /**
-     * Get 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。 
-     * @return Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+    * 操作类型，默认：SignReview；SignReview:签署审核，CreateReview：发起审核
+注：接口通过该字段区分操作类型
+该字段不传或者为空，则默认为SignReview签署审核，走签署审核流程
+若想使用发起审核，请指定该字段为：CreateReview
+若发起个人审核，则指定该字段为：SignReview
+    */
+    @SerializedName("OperateType")
+    @Expose
+    private String OperateType;
+
+    /**
+     * Get 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。 
+     * @return Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
-     * @param Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+     * Set 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
+     * @param Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
@@ -142,19 +153,51 @@ SIGN_REJECT:拒签(流程结束)
     }
 
     /**
-     * Get 签署节点审核时需要指定 
-     * @return RecipientId 签署节点审核时需要指定
+     * Get 签署节点审核时需要指定，给个人审核时必填。 
+     * @return RecipientId 签署节点审核时需要指定，给个人审核时必填。
      */
     public String getRecipientId() {
         return this.RecipientId;
     }
 
     /**
-     * Set 签署节点审核时需要指定
-     * @param RecipientId 签署节点审核时需要指定
+     * Set 签署节点审核时需要指定，给个人审核时必填。
+     * @param RecipientId 签署节点审核时需要指定，给个人审核时必填。
      */
     public void setRecipientId(String RecipientId) {
         this.RecipientId = RecipientId;
+    }
+
+    /**
+     * Get 操作类型，默认：SignReview；SignReview:签署审核，CreateReview：发起审核
+注：接口通过该字段区分操作类型
+该字段不传或者为空，则默认为SignReview签署审核，走签署审核流程
+若想使用发起审核，请指定该字段为：CreateReview
+若发起个人审核，则指定该字段为：SignReview 
+     * @return OperateType 操作类型，默认：SignReview；SignReview:签署审核，CreateReview：发起审核
+注：接口通过该字段区分操作类型
+该字段不传或者为空，则默认为SignReview签署审核，走签署审核流程
+若想使用发起审核，请指定该字段为：CreateReview
+若发起个人审核，则指定该字段为：SignReview
+     */
+    public String getOperateType() {
+        return this.OperateType;
+    }
+
+    /**
+     * Set 操作类型，默认：SignReview；SignReview:签署审核，CreateReview：发起审核
+注：接口通过该字段区分操作类型
+该字段不传或者为空，则默认为SignReview签署审核，走签署审核流程
+若想使用发起审核，请指定该字段为：CreateReview
+若发起个人审核，则指定该字段为：SignReview
+     * @param OperateType 操作类型，默认：SignReview；SignReview:签署审核，CreateReview：发起审核
+注：接口通过该字段区分操作类型
+该字段不传或者为空，则默认为SignReview签署审核，走签署审核流程
+若想使用发起审核，请指定该字段为：CreateReview
+若发起个人审核，则指定该字段为：SignReview
+     */
+    public void setOperateType(String OperateType) {
+        this.OperateType = OperateType;
     }
 
     public ChannelCreateFlowSignReviewRequest() {
@@ -180,6 +223,9 @@ SIGN_REJECT:拒签(流程结束)
         if (source.RecipientId != null) {
             this.RecipientId = new String(source.RecipientId);
         }
+        if (source.OperateType != null) {
+            this.OperateType = new String(source.OperateType);
+        }
     }
 
 
@@ -192,6 +238,7 @@ SIGN_REJECT:拒签(流程结束)
         this.setParamSimple(map, prefix + "ReviewType", this.ReviewType);
         this.setParamSimple(map, prefix + "ReviewMessage", this.ReviewMessage);
         this.setParamSimple(map, prefix + "RecipientId", this.RecipientId);
+        this.setParamSimple(map, prefix + "OperateType", this.OperateType);
 
     }
 }

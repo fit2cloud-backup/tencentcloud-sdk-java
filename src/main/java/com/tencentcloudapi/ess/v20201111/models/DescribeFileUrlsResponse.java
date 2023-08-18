@@ -23,7 +23,8 @@ import java.util.HashMap;
 public class DescribeFileUrlsResponse extends AbstractModel{
 
     /**
-    * URL信息
+    * 文件URL信息；
+链接不是永久链接，有效期5分钟后链接失效。
     */
     @SerializedName("FileUrls")
     @Expose
@@ -44,16 +45,20 @@ public class DescribeFileUrlsResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get URL信息 
-     * @return FileUrls URL信息
+     * Get 文件URL信息；
+链接不是永久链接，有效期5分钟后链接失效。 
+     * @return FileUrls 文件URL信息；
+链接不是永久链接，有效期5分钟后链接失效。
      */
     public FileUrl [] getFileUrls() {
         return this.FileUrls;
     }
 
     /**
-     * Set URL信息
-     * @param FileUrls URL信息
+     * Set 文件URL信息；
+链接不是永久链接，有效期5分钟后链接失效。
+     * @param FileUrls 文件URL信息；
+链接不是永久链接，有效期5分钟后链接失效。
      */
     public void setFileUrls(FileUrl [] FileUrls) {
         this.FileUrls = FileUrls;

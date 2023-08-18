@@ -33,6 +33,9 @@ public enum TrtcErrorCode {
     // 应用ID不存在。
      FAILEDOPERATION_SDKAPPIDNOTEXIST("FailedOperation.SdkAppIdNotExist"),
      
+    // 调用接口时任务已结束。
+     FAILEDOPERATION_TASKFINISHED("FailedOperation.TaskFinished"),
+     
     // 内部错误。
      INTERNALERROR("InternalError"),
      
@@ -71,6 +74,9 @@ public enum TrtcErrorCode {
      
     // 音频编码参数错误。
      INVALIDPARAMETER_AUDIOENCODEPARAMS("InvalidParameter.AudioEncodeParams"),
+     
+    // BackgroundImageUrl参数错误。
+     INVALIDPARAMETER_BACKGROUNDIMAGEURL("InvalidParameter.BackgroundImageUrl"),
      
     // body 解析参数失败。
      INVALIDPARAMETER_BODYPARAMSERROR("InvalidParameter.BodyParamsError"),

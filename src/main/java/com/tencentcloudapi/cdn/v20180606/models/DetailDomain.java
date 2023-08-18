@@ -55,6 +55,7 @@ public class DetailDomain extends AbstractModel{
     * 加速服务状态
 rejected：域名审核未通过，域名备案过期/被注销导致
 processing：部署中
+closing：关闭中
 online：已启动
 offline：已关闭
     */
@@ -552,6 +553,22 @@ off：不支持
     private QnPrivateAccess QnPrivateAccess;
 
     /**
+    * HTTPS服务，缺省时默认开启
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("HttpsBilling")
+    @Expose
+    private HttpsBilling HttpsBilling;
+
+    /**
+    * 其他厂商对象存储回源鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OthersPrivateAccess")
+    @Expose
+    private OthersPrivateAccess OthersPrivateAccess;
+
+    /**
      * Get 域名 ID 
      * @return ResourceId 域名 ID
      */
@@ -623,11 +640,13 @@ off：不支持
      * Get 加速服务状态
 rejected：域名审核未通过，域名备案过期/被注销导致
 processing：部署中
+closing：关闭中
 online：已启动
 offline：已关闭 
      * @return Status 加速服务状态
 rejected：域名审核未通过，域名备案过期/被注销导致
 processing：部署中
+closing：关闭中
 online：已启动
 offline：已关闭
      */
@@ -639,11 +658,13 @@ offline：已关闭
      * Set 加速服务状态
 rejected：域名审核未通过，域名备案过期/被注销导致
 processing：部署中
+closing：关闭中
 online：已启动
 offline：已关闭
      * @param Status 加速服务状态
 rejected：域名审核未通过，域名备案过期/被注销导致
 processing：部署中
+closing：关闭中
 online：已启动
 offline：已关闭
      */
@@ -1899,6 +1920,46 @@ off：不支持
         this.QnPrivateAccess = QnPrivateAccess;
     }
 
+    /**
+     * Get HTTPS服务，缺省时默认开启
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return HttpsBilling HTTPS服务，缺省时默认开启
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public HttpsBilling getHttpsBilling() {
+        return this.HttpsBilling;
+    }
+
+    /**
+     * Set HTTPS服务，缺省时默认开启
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param HttpsBilling HTTPS服务，缺省时默认开启
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setHttpsBilling(HttpsBilling HttpsBilling) {
+        this.HttpsBilling = HttpsBilling;
+    }
+
+    /**
+     * Get 其他厂商对象存储回源鉴权
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OthersPrivateAccess 其他厂商对象存储回源鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public OthersPrivateAccess getOthersPrivateAccess() {
+        return this.OthersPrivateAccess;
+    }
+
+    /**
+     * Set 其他厂商对象存储回源鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OthersPrivateAccess 其他厂商对象存储回源鉴权
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOthersPrivateAccess(OthersPrivateAccess OthersPrivateAccess) {
+        this.OthersPrivateAccess = OthersPrivateAccess;
+    }
+
     public DetailDomain() {
     }
 
@@ -2108,6 +2169,12 @@ off：不支持
         if (source.QnPrivateAccess != null) {
             this.QnPrivateAccess = new QnPrivateAccess(source.QnPrivateAccess);
         }
+        if (source.HttpsBilling != null) {
+            this.HttpsBilling = new HttpsBilling(source.HttpsBilling);
+        }
+        if (source.OthersPrivateAccess != null) {
+            this.OthersPrivateAccess = new OthersPrivateAccess(source.OthersPrivateAccess);
+        }
     }
 
 
@@ -2179,6 +2246,8 @@ off：不支持
         this.setParamSimple(map, prefix + "ParentHost", this.ParentHost);
         this.setParamObj(map, prefix + "HwPrivateAccess.", this.HwPrivateAccess);
         this.setParamObj(map, prefix + "QnPrivateAccess.", this.QnPrivateAccess);
+        this.setParamObj(map, prefix + "HttpsBilling.", this.HttpsBilling);
+        this.setParamObj(map, prefix + "OthersPrivateAccess.", this.OthersPrivateAccess);
 
     }
 }

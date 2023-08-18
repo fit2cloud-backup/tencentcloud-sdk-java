@@ -29,7 +29,7 @@ public class CaptchaClient extends AbstractClient{
     private static String endpoint = "captcha.tencentcloudapi.com";
     private static String service = "captcha";
     private static String version = "2019-07-22";
-
+    
     public CaptchaClient(Credential credential, String region) {
         this(credential, region, new ClientProfile());
     }
@@ -47,6 +47,7 @@ public class CaptchaClient extends AbstractClient{
     public DescribeCaptchaAppIdInfoResponse DescribeCaptchaAppIdInfo(DescribeCaptchaAppIdInfoRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCaptchaAppIdInfoResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCaptchaAppIdInfoResponse>>() {
                 }.getType();
@@ -67,6 +68,7 @@ public class CaptchaClient extends AbstractClient{
     public DescribeCaptchaDataResponse DescribeCaptchaData(DescribeCaptchaDataRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCaptchaDataResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCaptchaDataResponse>>() {
                 }.getType();
@@ -87,6 +89,7 @@ public class CaptchaClient extends AbstractClient{
     public DescribeCaptchaDataSumResponse DescribeCaptchaDataSum(DescribeCaptchaDataSumRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCaptchaDataSumResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCaptchaDataSumResponse>>() {
                 }.getType();
@@ -107,6 +110,7 @@ public class CaptchaClient extends AbstractClient{
     public DescribeCaptchaMiniDataResponse DescribeCaptchaMiniData(DescribeCaptchaMiniDataRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCaptchaMiniDataResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCaptchaMiniDataResponse>>() {
                 }.getType();
@@ -127,6 +131,7 @@ public class CaptchaClient extends AbstractClient{
     public DescribeCaptchaMiniDataSumResponse DescribeCaptchaMiniDataSum(DescribeCaptchaMiniDataSumRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCaptchaMiniDataSumResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCaptchaMiniDataSumResponse>>() {
                 }.getType();
@@ -147,6 +152,7 @@ public class CaptchaClient extends AbstractClient{
     public DescribeCaptchaMiniOperDataResponse DescribeCaptchaMiniOperData(DescribeCaptchaMiniOperDataRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCaptchaMiniOperDataResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCaptchaMiniOperDataResponse>>() {
                 }.getType();
@@ -167,6 +173,7 @@ public class CaptchaClient extends AbstractClient{
     public DescribeCaptchaMiniResultResponse DescribeCaptchaMiniResult(DescribeCaptchaMiniResultRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCaptchaMiniResultResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCaptchaMiniResultResponse>>() {
                 }.getType();
@@ -179,7 +186,7 @@ public class CaptchaClient extends AbstractClient{
     }
 
     /**
-     *核查验证码小程序插件票据接入风控结果(Beta)
+     *核查验证码小程序插件票据接入风控结果(已停用)
      * @param req DescribeCaptchaMiniRiskResultRequest
      * @return DescribeCaptchaMiniRiskResultResponse
      * @throws TencentCloudSDKException
@@ -187,6 +194,7 @@ public class CaptchaClient extends AbstractClient{
     public DescribeCaptchaMiniRiskResultResponse DescribeCaptchaMiniRiskResult(DescribeCaptchaMiniRiskResultRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCaptchaMiniRiskResultResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCaptchaMiniRiskResultResponse>>() {
                 }.getType();
@@ -207,6 +215,7 @@ public class CaptchaClient extends AbstractClient{
     public DescribeCaptchaOperDataResponse DescribeCaptchaOperData(DescribeCaptchaOperDataRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCaptchaOperDataResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCaptchaOperDataResponse>>() {
                 }.getType();
@@ -227,6 +236,7 @@ public class CaptchaClient extends AbstractClient{
     public DescribeCaptchaResultResponse DescribeCaptchaResult(DescribeCaptchaResultRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCaptchaResultResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCaptchaResultResponse>>() {
                 }.getType();
@@ -247,6 +257,7 @@ public class CaptchaClient extends AbstractClient{
     public DescribeCaptchaTicketDataResponse DescribeCaptchaTicketData(DescribeCaptchaTicketDataRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCaptchaTicketDataResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCaptchaTicketDataResponse>>() {
                 }.getType();
@@ -267,10 +278,32 @@ public class CaptchaClient extends AbstractClient{
     public DescribeCaptchaUserAllAppIdResponse DescribeCaptchaUserAllAppId(DescribeCaptchaUserAllAppIdRequest req) throws TencentCloudSDKException{
         JsonResponseModel<DescribeCaptchaUserAllAppIdResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<DescribeCaptchaUserAllAppIdResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "DescribeCaptchaUserAllAppId");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询单个CaptchaAppID验证的统计数据，包括：请求量、验证量、验证通过量、验证拦截量。
+     * @param req GetRequestStatisticsRequest
+     * @return GetRequestStatisticsResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetRequestStatisticsResponse GetRequestStatistics(GetRequestStatisticsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetRequestStatisticsResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetRequestStatisticsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetRequestStatistics");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -287,10 +320,32 @@ public class CaptchaClient extends AbstractClient{
     public GetTicketStatisticsResponse GetTicketStatistics(GetTicketStatisticsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetTicketStatisticsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<GetTicketStatisticsResponse>>() {
                 }.getType();
                 rspStr = this.internalRequest(req, "GetTicketStatistics");
+                rsp  = gson.fromJson(rspStr, type);
+        } catch (JsonSyntaxException e) {
+            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
+        }
+        return rsp.response;
+    }
+
+    /**
+     *查询全部验证的统计数据，包括：总请求量、总验证量、总验证通过量、总验证拦截量等数据。
+     * @param req GetTotalRequestStatisticsRequest
+     * @return GetTotalRequestStatisticsResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetTotalRequestStatisticsResponse GetTotalRequestStatistics(GetTotalRequestStatisticsRequest req) throws TencentCloudSDKException{
+        JsonResponseModel<GetTotalRequestStatisticsResponse> rsp = null;
+        String rspStr = "";
+        req.setSkipSign(false);
+        try {
+                Type type = new TypeToken<JsonResponseModel<GetTotalRequestStatisticsResponse>>() {
+                }.getType();
+                rspStr = this.internalRequest(req, "GetTotalRequestStatistics");
                 rsp  = gson.fromJson(rspStr, type);
         } catch (JsonSyntaxException e) {
             throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
@@ -307,6 +362,7 @@ public class CaptchaClient extends AbstractClient{
     public GetTotalTicketStatisticsResponse GetTotalTicketStatistics(GetTotalTicketStatisticsRequest req) throws TencentCloudSDKException{
         JsonResponseModel<GetTotalTicketStatisticsResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<GetTotalTicketStatisticsResponse>>() {
                 }.getType();
@@ -327,6 +383,7 @@ public class CaptchaClient extends AbstractClient{
     public UpdateCaptchaAppIdInfoResponse UpdateCaptchaAppIdInfo(UpdateCaptchaAppIdInfoRequest req) throws TencentCloudSDKException{
         JsonResponseModel<UpdateCaptchaAppIdInfoResponse> rsp = null;
         String rspStr = "";
+        req.setSkipSign(false);
         try {
                 Type type = new TypeToken<JsonResponseModel<UpdateCaptchaAppIdInfoResponse>>() {
                 }.getType();

@@ -48,23 +48,6 @@ public class DescribeDDoSAttackDataRequest extends AbstractModel{
     private String [] MetricNames;
 
     /**
-    * 端口号。
-    */
-    @SerializedName("Port")
-    @Expose
-    private Long Port;
-
-    /**
-    * 攻击类型，取值有：
-<li>flood：泛洪攻击；</li>
-<li>icmpFlood：icmp泛洪攻击；</li>
-<li>all：全部攻击类型。</li>不填默认为all，表示查询全部攻击类型。
-    */
-    @SerializedName("AttackType")
-    @Expose
-    private String AttackType;
-
-    /**
     * 站点集合，不填默认选择全部站点。
     */
     @SerializedName("ZoneIds")
@@ -72,28 +55,18 @@ public class DescribeDDoSAttackDataRequest extends AbstractModel{
     private String [] ZoneIds;
 
     /**
-    * DDOS策略组id列表，不填默认选择全部策略id。
+    * DDoS策略组ID列表，不填默认选择全部策略ID。
     */
     @SerializedName("PolicyIds")
     @Expose
     private Long [] PolicyIds;
 
     /**
-    * 协议类型，取值有：
-<li>tcp：tcp协议；</li>
-<li>udp：udp协议；</li>
-<li>all：全部协议。</li>不填默认为all，表示获取全部协议类型。
-    */
-    @SerializedName("ProtocolType")
-    @Expose
-    private String ProtocolType;
-
-    /**
     * 查询时间粒度，取值有：
 <li>min：1分钟；</li>
 <li>5min：5分钟；</li>
 <li>hour：1小时；</li>
-<li>day：1天。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：一小时范围内以min粒度查询，两天范围内以5min粒度查询，七天范围内以hour粒度查询，超过七天以day粒度查询。
+<li>day：1天。</li>不填将根据开始时间与结束时间的间隔自动推算粒度，具体为：1小时范围内以min粒度查询，2天范围内以5min粒度查询，7天范围内以hour粒度查询，超过7天以day粒度查询。
     */
     @SerializedName("Interval")
     @Expose
@@ -102,7 +75,8 @@ public class DescribeDDoSAttackDataRequest extends AbstractModel{
     /**
     * 数据归属地区，取值有：
 <li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据。</li>不填将根据用户所在地智能选择地区。
+<li>mainland：中国大陆地区数据；</li>
+<li>global：全球数据。</li>不填默认取值为global。
     */
     @SerializedName("Area")
     @Expose
@@ -173,50 +147,6 @@ public class DescribeDDoSAttackDataRequest extends AbstractModel{
     }
 
     /**
-     * Get 端口号。 
-     * @return Port 端口号。
-     */
-    public Long getPort() {
-        return this.Port;
-    }
-
-    /**
-     * Set 端口号。
-     * @param Port 端口号。
-     */
-    public void setPort(Long Port) {
-        this.Port = Port;
-    }
-
-    /**
-     * Get 攻击类型，取值有：
-<li>flood：泛洪攻击；</li>
-<li>icmpFlood：icmp泛洪攻击；</li>
-<li>all：全部攻击类型。</li>不填默认为all，表示查询全部攻击类型。 
-     * @return AttackType 攻击类型，取值有：
-<li>flood：泛洪攻击；</li>
-<li>icmpFlood：icmp泛洪攻击；</li>
-<li>all：全部攻击类型。</li>不填默认为all，表示查询全部攻击类型。
-     */
-    public String getAttackType() {
-        return this.AttackType;
-    }
-
-    /**
-     * Set 攻击类型，取值有：
-<li>flood：泛洪攻击；</li>
-<li>icmpFlood：icmp泛洪攻击；</li>
-<li>all：全部攻击类型。</li>不填默认为all，表示查询全部攻击类型。
-     * @param AttackType 攻击类型，取值有：
-<li>flood：泛洪攻击；</li>
-<li>icmpFlood：icmp泛洪攻击；</li>
-<li>all：全部攻击类型。</li>不填默认为all，表示查询全部攻击类型。
-     */
-    public void setAttackType(String AttackType) {
-        this.AttackType = AttackType;
-    }
-
-    /**
      * Get 站点集合，不填默认选择全部站点。 
      * @return ZoneIds 站点集合，不填默认选择全部站点。
      */
@@ -233,47 +163,19 @@ public class DescribeDDoSAttackDataRequest extends AbstractModel{
     }
 
     /**
-     * Get DDOS策略组id列表，不填默认选择全部策略id。 
-     * @return PolicyIds DDOS策略组id列表，不填默认选择全部策略id。
+     * Get DDoS策略组ID列表，不填默认选择全部策略ID。 
+     * @return PolicyIds DDoS策略组ID列表，不填默认选择全部策略ID。
      */
     public Long [] getPolicyIds() {
         return this.PolicyIds;
     }
 
     /**
-     * Set DDOS策略组id列表，不填默认选择全部策略id。
-     * @param PolicyIds DDOS策略组id列表，不填默认选择全部策略id。
+     * Set DDoS策略组ID列表，不填默认选择全部策略ID。
+     * @param PolicyIds DDoS策略组ID列表，不填默认选择全部策略ID。
      */
     public void setPolicyIds(Long [] PolicyIds) {
         this.PolicyIds = PolicyIds;
-    }
-
-    /**
-     * Get 协议类型，取值有：
-<li>tcp：tcp协议；</li>
-<li>udp：udp协议；</li>
-<li>all：全部协议。</li>不填默认为all，表示获取全部协议类型。 
-     * @return ProtocolType 协议类型，取值有：
-<li>tcp：tcp协议；</li>
-<li>udp：udp协议；</li>
-<li>all：全部协议。</li>不填默认为all，表示获取全部协议类型。
-     */
-    public String getProtocolType() {
-        return this.ProtocolType;
-    }
-
-    /**
-     * Set 协议类型，取值有：
-<li>tcp：tcp协议；</li>
-<li>udp：udp协议；</li>
-<li>all：全部协议。</li>不填默认为all，表示获取全部协议类型。
-     * @param ProtocolType 协议类型，取值有：
-<li>tcp：tcp协议；</li>
-<li>udp：udp协议；</li>
-<li>all：全部协议。</li>不填默认为all，表示获取全部协议类型。
-     */
-    public void setProtocolType(String ProtocolType) {
-        this.ProtocolType = ProtocolType;
     }
 
     /**
@@ -281,12 +183,12 @@ public class DescribeDDoSAttackDataRequest extends AbstractModel{
 <li>min：1分钟；</li>
 <li>5min：5分钟；</li>
 <li>hour：1小时；</li>
-<li>day：1天。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：一小时范围内以min粒度查询，两天范围内以5min粒度查询，七天范围内以hour粒度查询，超过七天以day粒度查询。 
+<li>day：1天。</li>不填将根据开始时间与结束时间的间隔自动推算粒度，具体为：1小时范围内以min粒度查询，2天范围内以5min粒度查询，7天范围内以hour粒度查询，超过7天以day粒度查询。 
      * @return Interval 查询时间粒度，取值有：
 <li>min：1分钟；</li>
 <li>5min：5分钟；</li>
 <li>hour：1小时；</li>
-<li>day：1天。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：一小时范围内以min粒度查询，两天范围内以5min粒度查询，七天范围内以hour粒度查询，超过七天以day粒度查询。
+<li>day：1天。</li>不填将根据开始时间与结束时间的间隔自动推算粒度，具体为：1小时范围内以min粒度查询，2天范围内以5min粒度查询，7天范围内以hour粒度查询，超过7天以day粒度查询。
      */
     public String getInterval() {
         return this.Interval;
@@ -297,12 +199,12 @@ public class DescribeDDoSAttackDataRequest extends AbstractModel{
 <li>min：1分钟；</li>
 <li>5min：5分钟；</li>
 <li>hour：1小时；</li>
-<li>day：1天。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：一小时范围内以min粒度查询，两天范围内以5min粒度查询，七天范围内以hour粒度查询，超过七天以day粒度查询。
+<li>day：1天。</li>不填将根据开始时间与结束时间的间隔自动推算粒度，具体为：1小时范围内以min粒度查询，2天范围内以5min粒度查询，7天范围内以hour粒度查询，超过7天以day粒度查询。
      * @param Interval 查询时间粒度，取值有：
 <li>min：1分钟；</li>
 <li>5min：5分钟；</li>
 <li>hour：1小时；</li>
-<li>day：1天。</li>不填将根据开始时间跟结束时间的间距自动推算粒度，具体为：一小时范围内以min粒度查询，两天范围内以5min粒度查询，七天范围内以hour粒度查询，超过七天以day粒度查询。
+<li>day：1天。</li>不填将根据开始时间与结束时间的间隔自动推算粒度，具体为：1小时范围内以min粒度查询，2天范围内以5min粒度查询，7天范围内以hour粒度查询，超过7天以day粒度查询。
      */
     public void setInterval(String Interval) {
         this.Interval = Interval;
@@ -311,10 +213,12 @@ public class DescribeDDoSAttackDataRequest extends AbstractModel{
     /**
      * Get 数据归属地区，取值有：
 <li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据。</li>不填将根据用户所在地智能选择地区。 
+<li>mainland：中国大陆地区数据；</li>
+<li>global：全球数据。</li>不填默认取值为global。 
      * @return Area 数据归属地区，取值有：
 <li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据。</li>不填将根据用户所在地智能选择地区。
+<li>mainland：中国大陆地区数据；</li>
+<li>global：全球数据。</li>不填默认取值为global。
      */
     public String getArea() {
         return this.Area;
@@ -323,10 +227,12 @@ public class DescribeDDoSAttackDataRequest extends AbstractModel{
     /**
      * Set 数据归属地区，取值有：
 <li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据。</li>不填将根据用户所在地智能选择地区。
+<li>mainland：中国大陆地区数据；</li>
+<li>global：全球数据。</li>不填默认取值为global。
      * @param Area 数据归属地区，取值有：
 <li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据。</li>不填将根据用户所在地智能选择地区。
+<li>mainland：中国大陆地区数据；</li>
+<li>global：全球数据。</li>不填默认取值为global。
      */
     public void setArea(String Area) {
         this.Area = Area;
@@ -352,12 +258,6 @@ public class DescribeDDoSAttackDataRequest extends AbstractModel{
                 this.MetricNames[i] = new String(source.MetricNames[i]);
             }
         }
-        if (source.Port != null) {
-            this.Port = new Long(source.Port);
-        }
-        if (source.AttackType != null) {
-            this.AttackType = new String(source.AttackType);
-        }
         if (source.ZoneIds != null) {
             this.ZoneIds = new String[source.ZoneIds.length];
             for (int i = 0; i < source.ZoneIds.length; i++) {
@@ -369,9 +269,6 @@ public class DescribeDDoSAttackDataRequest extends AbstractModel{
             for (int i = 0; i < source.PolicyIds.length; i++) {
                 this.PolicyIds[i] = new Long(source.PolicyIds[i]);
             }
-        }
-        if (source.ProtocolType != null) {
-            this.ProtocolType = new String(source.ProtocolType);
         }
         if (source.Interval != null) {
             this.Interval = new String(source.Interval);
@@ -389,11 +286,8 @@ public class DescribeDDoSAttackDataRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "StartTime", this.StartTime);
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
         this.setParamArraySimple(map, prefix + "MetricNames.", this.MetricNames);
-        this.setParamSimple(map, prefix + "Port", this.Port);
-        this.setParamSimple(map, prefix + "AttackType", this.AttackType);
         this.setParamArraySimple(map, prefix + "ZoneIds.", this.ZoneIds);
         this.setParamArraySimple(map, prefix + "PolicyIds.", this.PolicyIds);
-        this.setParamSimple(map, prefix + "ProtocolType", this.ProtocolType);
         this.setParamSimple(map, prefix + "Interval", this.Interval);
         this.setParamSimple(map, prefix + "Area", this.Area);
 

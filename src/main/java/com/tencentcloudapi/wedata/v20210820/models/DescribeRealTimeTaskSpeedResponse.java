@@ -37,6 +37,13 @@ public class DescribeRealTimeTaskSpeedResponse extends AbstractModel{
     private BytesSpeed [] BytesSpeedList;
 
     /**
+    * 同步速度，包括了RecordsSpeedList和BytesSpeedList
+    */
+    @SerializedName("Data")
+    @Expose
+    private RealTimeTaskSpeed Data;
+
+    /**
     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
@@ -76,6 +83,22 @@ public class DescribeRealTimeTaskSpeedResponse extends AbstractModel{
     }
 
     /**
+     * Get 同步速度，包括了RecordsSpeedList和BytesSpeedList 
+     * @return Data 同步速度，包括了RecordsSpeedList和BytesSpeedList
+     */
+    public RealTimeTaskSpeed getData() {
+        return this.Data;
+    }
+
+    /**
+     * Set 同步速度，包括了RecordsSpeedList和BytesSpeedList
+     * @param Data 同步速度，包括了RecordsSpeedList和BytesSpeedList
+     */
+    public void setData(RealTimeTaskSpeed Data) {
+        this.Data = Data;
+    }
+
+    /**
      * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
      * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -111,6 +134,9 @@ public class DescribeRealTimeTaskSpeedResponse extends AbstractModel{
                 this.BytesSpeedList[i] = new BytesSpeed(source.BytesSpeedList[i]);
             }
         }
+        if (source.Data != null) {
+            this.Data = new RealTimeTaskSpeed(source.Data);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -123,6 +149,7 @@ public class DescribeRealTimeTaskSpeedResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "RecordsSpeedList.", this.RecordsSpeedList);
         this.setParamArrayObj(map, prefix + "BytesSpeedList.", this.BytesSpeedList);
+        this.setParamObj(map, prefix + "Data.", this.Data);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

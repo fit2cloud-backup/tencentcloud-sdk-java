@@ -23,23 +23,23 @@ import java.util.HashMap;
 public class AuthorizedUser extends AbstractModel{
 
     /**
-    * 用户openid
+    * 第三方应用平台的用户openid
     */
     @SerializedName("OpenId")
     @Expose
     private String OpenId;
 
     /**
-     * Get 用户openid 
-     * @return OpenId 用户openid
+     * Get 第三方应用平台的用户openid 
+     * @return OpenId 第三方应用平台的用户openid
      */
     public String getOpenId() {
         return this.OpenId;
     }
 
     /**
-     * Set 用户openid
-     * @param OpenId 用户openid
+     * Set 第三方应用平台的用户openid
+     * @param OpenId 第三方应用平台的用户openid
      */
     public void setOpenId(String OpenId) {
         this.OpenId = OpenId;

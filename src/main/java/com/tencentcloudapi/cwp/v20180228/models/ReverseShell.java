@@ -30,7 +30,7 @@ public class ReverseShell extends AbstractModel{
     private Long Id;
 
     /**
-    * 云镜UUID
+    * 主机安全UUID
     */
     @SerializedName("Uuid")
     @Expose
@@ -163,6 +163,22 @@ public class ReverseShell extends AbstractModel{
     private Long DetectBy;
 
     /**
+    *  主机额外信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MachineExtraInfo")
+    @Expose
+    private MachineExtraInfo MachineExtraInfo;
+
+    /**
+    * 进程id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Pid")
+    @Expose
+    private Long Pid;
+
+    /**
      * Get ID 主键 
      * @return Id ID 主键
      */
@@ -179,16 +195,16 @@ public class ReverseShell extends AbstractModel{
     }
 
     /**
-     * Get 云镜UUID 
-     * @return Uuid 云镜UUID
+     * Get 主机安全UUID 
+     * @return Uuid 主机安全UUID
      */
     public String getUuid() {
         return this.Uuid;
     }
 
     /**
-     * Set 云镜UUID
-     * @param Uuid 云镜UUID
+     * Set 主机安全UUID
+     * @param Uuid 主机安全UUID
      */
     public void setUuid(String Uuid) {
         this.Uuid = Uuid;
@@ -482,6 +498,46 @@ public class ReverseShell extends AbstractModel{
         this.DetectBy = DetectBy;
     }
 
+    /**
+     * Get  主机额外信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MachineExtraInfo  主机额外信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public MachineExtraInfo getMachineExtraInfo() {
+        return this.MachineExtraInfo;
+    }
+
+    /**
+     * Set  主机额外信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MachineExtraInfo  主机额外信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMachineExtraInfo(MachineExtraInfo MachineExtraInfo) {
+        this.MachineExtraInfo = MachineExtraInfo;
+    }
+
+    /**
+     * Get 进程id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Pid 进程id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getPid() {
+        return this.Pid;
+    }
+
+    /**
+     * Set 进程id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Pid 进程id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPid(Long Pid) {
+        this.Pid = Pid;
+    }
+
     public ReverseShell() {
     }
 
@@ -550,6 +606,12 @@ public class ReverseShell extends AbstractModel{
         if (source.DetectBy != null) {
             this.DetectBy = new Long(source.DetectBy);
         }
+        if (source.MachineExtraInfo != null) {
+            this.MachineExtraInfo = new MachineExtraInfo(source.MachineExtraInfo);
+        }
+        if (source.Pid != null) {
+            this.Pid = new Long(source.Pid);
+        }
     }
 
 
@@ -577,6 +639,8 @@ public class ReverseShell extends AbstractModel{
         this.setParamSimple(map, prefix + "MachineName", this.MachineName);
         this.setParamSimple(map, prefix + "ProcTree", this.ProcTree);
         this.setParamSimple(map, prefix + "DetectBy", this.DetectBy);
+        this.setParamObj(map, prefix + "MachineExtraInfo.", this.MachineExtraInfo);
+        this.setParamSimple(map, prefix + "Pid", this.Pid);
 
     }
 }

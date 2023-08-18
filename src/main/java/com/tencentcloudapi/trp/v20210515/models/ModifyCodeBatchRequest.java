@@ -44,7 +44,7 @@ public class ModifyCodeBatchRequest extends AbstractModel{
     private Long Status;
 
     /**
-    * 模版ID，或者活动ID
+    * 模板ID，或者活动ID
     */
     @SerializedName("MpTpl")
     @Expose
@@ -70,6 +70,27 @@ public class ModifyCodeBatchRequest extends AbstractModel{
     @SerializedName("Remark")
     @Expose
     private String Remark;
+
+    /**
+    * 批次编码，业务字段不判断唯一性
+    */
+    @SerializedName("BatchCode")
+    @Expose
+    private String BatchCode;
+
+    /**
+    * 有效期
+    */
+    @SerializedName("ValidDate")
+    @Expose
+    private String ValidDate;
+
+    /**
+    * 生产日期
+    */
+    @SerializedName("ProductionDate")
+    @Expose
+    private String ProductionDate;
 
     /**
      * Get 批次ID 
@@ -120,16 +141,16 @@ public class ModifyCodeBatchRequest extends AbstractModel{
     }
 
     /**
-     * Get 模版ID，或者活动ID 
-     * @return MpTpl 模版ID，或者活动ID
+     * Get 模板ID，或者活动ID 
+     * @return MpTpl 模板ID，或者活动ID
      */
     public String getMpTpl() {
         return this.MpTpl;
     }
 
     /**
-     * Set 模版ID，或者活动ID
-     * @param MpTpl 模版ID，或者活动ID
+     * Set 模板ID，或者活动ID
+     * @param MpTpl 模板ID，或者活动ID
      */
     public void setMpTpl(String MpTpl) {
         this.MpTpl = MpTpl;
@@ -183,6 +204,54 @@ public class ModifyCodeBatchRequest extends AbstractModel{
         this.Remark = Remark;
     }
 
+    /**
+     * Get 批次编码，业务字段不判断唯一性 
+     * @return BatchCode 批次编码，业务字段不判断唯一性
+     */
+    public String getBatchCode() {
+        return this.BatchCode;
+    }
+
+    /**
+     * Set 批次编码，业务字段不判断唯一性
+     * @param BatchCode 批次编码，业务字段不判断唯一性
+     */
+    public void setBatchCode(String BatchCode) {
+        this.BatchCode = BatchCode;
+    }
+
+    /**
+     * Get 有效期 
+     * @return ValidDate 有效期
+     */
+    public String getValidDate() {
+        return this.ValidDate;
+    }
+
+    /**
+     * Set 有效期
+     * @param ValidDate 有效期
+     */
+    public void setValidDate(String ValidDate) {
+        this.ValidDate = ValidDate;
+    }
+
+    /**
+     * Get 生产日期 
+     * @return ProductionDate 生产日期
+     */
+    public String getProductionDate() {
+        return this.ProductionDate;
+    }
+
+    /**
+     * Set 生产日期
+     * @param ProductionDate 生产日期
+     */
+    public void setProductionDate(String ProductionDate) {
+        this.ProductionDate = ProductionDate;
+    }
+
     public ModifyCodeBatchRequest() {
     }
 
@@ -212,6 +281,15 @@ public class ModifyCodeBatchRequest extends AbstractModel{
         if (source.Remark != null) {
             this.Remark = new String(source.Remark);
         }
+        if (source.BatchCode != null) {
+            this.BatchCode = new String(source.BatchCode);
+        }
+        if (source.ValidDate != null) {
+            this.ValidDate = new String(source.ValidDate);
+        }
+        if (source.ProductionDate != null) {
+            this.ProductionDate = new String(source.ProductionDate);
+        }
     }
 
 
@@ -226,6 +304,9 @@ public class ModifyCodeBatchRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "MerchantId", this.MerchantId);
         this.setParamSimple(map, prefix + "ProductId", this.ProductId);
         this.setParamSimple(map, prefix + "Remark", this.Remark);
+        this.setParamSimple(map, prefix + "BatchCode", this.BatchCode);
+        this.setParamSimple(map, prefix + "ValidDate", this.ValidDate);
+        this.setParamSimple(map, prefix + "ProductionDate", this.ProductionDate);
 
     }
 }

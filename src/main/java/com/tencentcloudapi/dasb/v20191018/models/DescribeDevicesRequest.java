@@ -93,6 +93,13 @@ public class DescribeDevicesRequest extends AbstractModel{
     private Long [] KindSet;
 
     /**
+    * 资产是否包含托管账号。1，包含；0，不包含
+    */
+    @SerializedName("ManagedAccount")
+    @Expose
+    private String ManagedAccount;
+
+    /**
     * 过滤条件，可按照部门ID进行过滤
     */
     @SerializedName("DepartmentId")
@@ -105,6 +112,14 @@ public class DescribeDevicesRequest extends AbstractModel{
     @SerializedName("TagFilters")
     @Expose
     private TagFilter [] TagFilters;
+
+    /**
+    * 过滤数组。支持的Name：
+BindingStatus 绑定状态
+    */
+    @SerializedName("Filters")
+    @Expose
+    private Filter [] Filters;
 
     /**
      * Get 资产ID集合 
@@ -267,6 +282,22 @@ public class DescribeDevicesRequest extends AbstractModel{
     }
 
     /**
+     * Get 资产是否包含托管账号。1，包含；0，不包含 
+     * @return ManagedAccount 资产是否包含托管账号。1，包含；0，不包含
+     */
+    public String getManagedAccount() {
+        return this.ManagedAccount;
+    }
+
+    /**
+     * Set 资产是否包含托管账号。1，包含；0，不包含
+     * @param ManagedAccount 资产是否包含托管账号。1，包含；0，不包含
+     */
+    public void setManagedAccount(String ManagedAccount) {
+        this.ManagedAccount = ManagedAccount;
+    }
+
+    /**
      * Get 过滤条件，可按照部门ID进行过滤 
      * @return DepartmentId 过滤条件，可按照部门ID进行过滤
      */
@@ -296,6 +327,26 @@ public class DescribeDevicesRequest extends AbstractModel{
      */
     public void setTagFilters(TagFilter [] TagFilters) {
         this.TagFilters = TagFilters;
+    }
+
+    /**
+     * Get 过滤数组。支持的Name：
+BindingStatus 绑定状态 
+     * @return Filters 过滤数组。支持的Name：
+BindingStatus 绑定状态
+     */
+    public Filter [] getFilters() {
+        return this.Filters;
+    }
+
+    /**
+     * Set 过滤数组。支持的Name：
+BindingStatus 绑定状态
+     * @param Filters 过滤数组。支持的Name：
+BindingStatus 绑定状态
+     */
+    public void setFilters(Filter [] Filters) {
+        this.Filters = Filters;
     }
 
     public DescribeDevicesRequest() {
@@ -351,6 +402,9 @@ public class DescribeDevicesRequest extends AbstractModel{
                 this.KindSet[i] = new Long(source.KindSet[i]);
             }
         }
+        if (source.ManagedAccount != null) {
+            this.ManagedAccount = new String(source.ManagedAccount);
+        }
         if (source.DepartmentId != null) {
             this.DepartmentId = new String(source.DepartmentId);
         }
@@ -358,6 +412,12 @@ public class DescribeDevicesRequest extends AbstractModel{
             this.TagFilters = new TagFilter[source.TagFilters.length];
             for (int i = 0; i < source.TagFilters.length; i++) {
                 this.TagFilters[i] = new TagFilter(source.TagFilters[i]);
+            }
+        }
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
             }
         }
     }
@@ -377,8 +437,10 @@ public class DescribeDevicesRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "AuthorizedUserIdSet.", this.AuthorizedUserIdSet);
         this.setParamArraySimple(map, prefix + "ResourceIdSet.", this.ResourceIdSet);
         this.setParamArraySimple(map, prefix + "KindSet.", this.KindSet);
+        this.setParamSimple(map, prefix + "ManagedAccount", this.ManagedAccount);
         this.setParamSimple(map, prefix + "DepartmentId", this.DepartmentId);
         this.setParamArrayObj(map, prefix + "TagFilters.", this.TagFilters);
+        this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
 
     }
 }

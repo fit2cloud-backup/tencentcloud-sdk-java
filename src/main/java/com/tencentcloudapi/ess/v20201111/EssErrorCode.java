@@ -3,14 +3,8 @@ public enum EssErrorCode {
     // CAM签名/鉴权错误。
      AUTHFAILURE("AuthFailure"),
      
-    // DryRun 操作，代表请求将会是成功的，只是多传了 DryRun 参数。
-     DRYRUNOPERATION("DryRunOperation"),
-     
     // 操作失败。
      FAILEDOPERATION("FailedOperation"),
-     
-    // 实名认证失败。
-     FAILEDOPERATION_ACCOUNTVERIFYFAIL("FailedOperation.AccountVerifyFail"),
      
     // 年龄限制无法使用电子签服务，请联系客服咨询处理。
      FAILEDOPERATION_AGENOTACHIEVENORMALLEGAL("FailedOperation.AgeNotAchieveNormalLegal"),
@@ -21,8 +15,17 @@ public enum EssErrorCode {
     // 流程未找到关联的电子文件信息，请检查操作步骤，检查参数，并在修改后重试。
      FAILEDOPERATION_FLOWHASNODOCUMENT("FailedOperation.FlowHasNoDocument"),
      
+    // 当前无可用的许可
+     FAILEDOPERATION_LICENSENOQUOTA("FailedOperation.LicenseNoQuota"),
+     
     // 签署审核未通过，请先完成审核。
      FAILEDOPERATION_NOSIGNREVIEWPASS("FailedOperation.NoSignReviewPass"),
+     
+    // 此合同流程不支持审批
+     FAILEDOPERATION_NOTAVAILABLESIGNREVIEW("FailedOperation.NotAvailableSignReview"),
+     
+    // 未找到集团子企业相关用户信息，请检查用户相关参数
+     FAILEDOPERATION_NOTFOUNDSHADOWUSER("FailedOperation.NotFoundShadowUser"),
      
     // 企业经营状态与工商局信息不符。
      FAILEDOPERATION_ORGANIZATIONEXPERIENCECHANGE("FailedOperation.OrganizationExperienceChange"),
@@ -51,14 +54,29 @@ public enum EssErrorCode {
     // 模板无资源信息。
      FAILEDOPERATION_TEMPLATEHASNORESOURCE("FailedOperation.TemplateHasNoResource"),
      
+    // 无法撤销，用户已开通自动签。
+     FAILEDOPERATION_USERAUTOSIGNENABLEALREADY("FailedOperation.UserAutoSignEnableAlready"),
+     
+    // 无法撤销，用户未生成开通链接。
+     FAILEDOPERATION_USERAUTOSIGNENABLEURLNOTEXIST("FailedOperation.UserAutoSignEnableUrlNotExist"),
+     
     // 用户信息不匹配，请检查后重试。
      FAILEDOPERATION_USERINFONOMATCH("FailedOperation.UserInfoNoMatch"),
      
     // 内部错误。
      INTERNALERROR("InternalError"),
      
+    // 第三方接口失败。
+     INTERNALERROR_API("InternalError.Api"),
+     
     // 缓存错误。
      INTERNALERROR_CACHE("InternalError.Cache"),
+     
+    // 调用OpenCloud云api内部错误。
+     INTERNALERROR_CALLOPENCLOUDAPIERROR("InternalError.CallOpenCloudApiError"),
+     
+    // 回调错误。
+     INTERNALERROR_CALLBACK("InternalError.Callback"),
      
     // 数据库异常。
      INTERNALERROR_DB("InternalError.Db"),
@@ -150,6 +168,9 @@ public enum EssErrorCode {
     // 数据不存在。
      INVALIDPARAMETER_DATANOTFOUND("InvalidParameter.DataNotFound"),
      
+    // 部门用户Id不正确
+     INVALIDPARAMETER_DEPARTUSERID("InvalidParameter.DepartUserId"),
+     
     // 参数为空，请检查参数修改后重试。
      INVALIDPARAMETER_EMPTYPARAMS("InvalidParameter.EmptyParams"),
      
@@ -198,9 +219,6 @@ public enum EssErrorCode {
     // 参数Offset不正确。
      INVALIDPARAMETER_INVALIDOFFSET("InvalidParameter.InvalidOffset"),
      
-    // OpenId不正确。
-     INVALIDPARAMETER_INVALIDOPENID("InvalidParameter.InvalidOpenId"),
-     
     // 操作人ID不正确。
      INVALIDPARAMETER_INVALIDOPERATORID("InvalidParameter.InvalidOperatorId"),
      
@@ -219,8 +237,8 @@ public enum EssErrorCode {
     // 实名认证渠道不正确。
      INVALIDPARAMETER_INVALIDVERIFYCHANNEL("InvalidParameter.InvalidVerifyChannel"),
      
-    // 验证码不正确。
-     INVALIDPARAMETER_INVALIDVERIFYCODE("InvalidParameter.InvalidVerifyCode"),
+    // Limit参数超出最大限制
+     INVALIDPARAMETER_LIMIT("InvalidParameter.Limit"),
      
     // 缺少必填控件的值。
      INVALIDPARAMETER_MISSINGREQUIREDCOMPONENTVALUE("InvalidParameter.MissingRequiredComponentValue"),
@@ -231,8 +249,14 @@ public enum EssErrorCode {
     // 不合法的用户名称，请修改后重试。
      INVALIDPARAMETER_NAME("InvalidParameter.Name"),
      
+    // 手机号为空或者非法的手机号。
+     INVALIDPARAMETER_NONSUPPORTMOBILE("InvalidParameter.NonsupportMobile"),
+     
     // 不支持的通知类型，请检查并联系客服处理。
      INVALIDPARAMETER_NOTIFYTYPE("InvalidParameter.NotifyType"),
+     
+    // 参数Offset不正确
+     INVALIDPARAMETER_OFFSET("InvalidParameter.Offset"),
      
     // 不合法的企业名称，请修改后重试。
      INVALIDPARAMETER_ORGANIZATIONNAME("InvalidParameter.OrganizationName"),
@@ -246,17 +270,23 @@ public enum EssErrorCode {
     // 不合法的阅读时长限制，请联系客服了解阅读时长设置规则，修改后重试。
      INVALIDPARAMETER_PREREADTIME("InvalidParameter.PreReadTime"),
      
-    // 签署二维码的有效期不合法，请联系客服了解规则，并修稿后重试。
+    // 签署二维码的有效期不合法，请联系客服了解规则，并修改后重试。
      INVALIDPARAMETER_QREFFECTDAY("InvalidParameter.QrEffectDay"),
      
-    // 二维码合同的有效期不合法，请联系客服了解规则，并修稿后重试。
+    // 二维码合同的有效期不合法，请联系客服了解规则，并修改后重试。
      INVALIDPARAMETER_QRFLOWEFFECTDAY("InvalidParameter.QrFlowEffectDay"),
      
     // 不合法的资源类型，请联系客服了解，并在修改后重试。
      INVALIDPARAMETER_RESOURCETYPE("InvalidParameter.ResourceType"),
      
-    // 不合法的印章id，请检查印章id是够正确，并在修改后重试。
+    // 角色ID不正确
+     INVALIDPARAMETER_ROLEID("InvalidParameter.RoleId"),
+     
+    // 不合法的印章id，请检查印章id是否正确，并在修改后重试。
      INVALIDPARAMETER_SEALID("InvalidParameter.SealId"),
+     
+    // 参数包含有敏感词
+     INVALIDPARAMETER_SENSITIVE("InvalidParameter.Sensitive"),
      
     // 签署控件参数不合法，请检查后重试。
      INVALIDPARAMETER_SIGNCOMPONENTS("InvalidParameter.SignComponents"),
@@ -272,6 +302,9 @@ public enum EssErrorCode {
      
     // 参数取值错误。
      INVALIDPARAMETERVALUE("InvalidParameterValue"),
+     
+    // 无效的手机号
+     INVALIDPARAMETERVALUE_INVALIDMOBILE("InvalidParameterValue.InvalidMobile"),
      
     // 需要屏蔽的告警。
      INVALIDPARAMETERVALUE_MASK("InvalidParameterValue.Mask"),
@@ -402,6 +435,12 @@ public enum EssErrorCode {
     // 资源id超过使用上限限制，请联系客服了解规则，并在修改后重试。
      OPERATIONDENIED_MANYRESOURCEID("OperationDenied.ManyResourceId"),
      
+    // 没有API权限。
+     OPERATIONDENIED_NOAPIAUTH("OperationDenied.NoApiAuth"),
+     
+    // 没有手机号查看的权限
+     OPERATIONDENIED_NOAPPROVERMOBILECHECKPERMISSION("OperationDenied.NoApproverMobileCheckPermission"),
+     
     // 无权限操作签署流程，请联系客服了解权限，并在修改后重试。
      OPERATIONDENIED_NOFLOWPERMISSION("OperationDenied.NoFlowPermission"),
      
@@ -459,6 +498,9 @@ public enum EssErrorCode {
     // 拒绝个人静默签，请检查个人静默签签署人，并在修改后重试。
      OPERATIONDENIED_PERSONSERVERSIGNFORBID("OperationDenied.PersonServerSignForbid"),
      
+    // 出证计费额度不足
+     OPERATIONDENIED_PROVENOQUOTA("OperationDenied.ProveNoQuota"),
+     
     // 签署二维码已过期，请检查后重试。
      OPERATIONDENIED_QRHASEXPIRE("OperationDenied.QrHasExpire"),
      
@@ -473,6 +515,9 @@ public enum EssErrorCode {
      
     // 静默签署不支持手写签名，请配置印章并使用印章重试。
      OPERATIONDENIED_SERVERSIGNNOSUPPORTSIGNATURE("OperationDenied.ServerSignNoSupportSignature"),
+     
+    // 子企业暂未加入。
+     OPERATIONDENIED_SUBORGNOTJOIN("OperationDenied.SubOrgNotJoin"),
      
     // 用户不归属于当前企业，无法操作，请检查后重试。
      OPERATIONDENIED_USERNOTINORGANIZATION("OperationDenied.UserNotInOrganization"),
@@ -551,6 +596,9 @@ public enum EssErrorCode {
      
     // 未授权操作。
      UNAUTHORIZEDOPERATION("UnauthorizedOperation"),
+     
+    // 请升级到对应版本后即可使用该接口。
+     UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE("UnauthorizedOperation.NoPermissionFeature"),
      
     // 未知参数错误。
      UNKNOWNPARAMETER("UnknownParameter"),

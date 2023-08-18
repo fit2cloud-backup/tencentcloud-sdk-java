@@ -30,14 +30,14 @@ public class CreateCfsFileSystemRequest extends AbstractModel{
     private String Zone;
 
     /**
-    * 网络类型，可选值为 VPC，BASIC，CCN；其中 VPC 为私有网络，BASIC 为基础网络, CCN 为云联网，Turbo系列当前必须选择云联网。目前基础网络已逐渐淘汰，不推荐使用。
+    * 网络类型，可选值为 VPC，CCN；其中 VPC 为私有网络， CCN 为云联网。通用标准型/性能型请选择VPC，Turbo标准型/性能型请选择CCN。
     */
     @SerializedName("NetInterface")
     @Expose
     private String NetInterface;
 
     /**
-    * 权限组 ID，通用标准型和性能型必填，turbo系列请填写pgroupbasic
+    * 权限组 ID
     */
     @SerializedName("PGroupId")
     @Expose
@@ -51,7 +51,7 @@ public class CreateCfsFileSystemRequest extends AbstractModel{
     private String Protocol;
 
     /**
-    * 文件系统存储类型，默认值为 SD ；其中 SD 为通用标准型标准型存储， HP为通用性能型存储， TB为turbo标准型， TP 为turbo性能型。
+    * 文件系统存储类型，默认值为 SD ；其中 SD 为通用标准型存储， HP为通用性能型存储， TB为Turbo标准型， TP 为Turbo性能型。
     */
     @SerializedName("StorageType")
     @Expose
@@ -121,6 +121,27 @@ public class CreateCfsFileSystemRequest extends AbstractModel{
     private Long Capacity;
 
     /**
+    * 文件系统快照ID
+    */
+    @SerializedName("SnapshotId")
+    @Expose
+    private String SnapshotId;
+
+    /**
+    * 定期快照策略ID
+    */
+    @SerializedName("AutoSnapshotPolicyId")
+    @Expose
+    private String AutoSnapshotPolicyId;
+
+    /**
+    * 是否开启默认扩容，仅Turbo类型文件存储支持
+    */
+    @SerializedName("EnableAutoScaleUp")
+    @Expose
+    private Boolean EnableAutoScaleUp;
+
+    /**
      * Get 可用区名称，例如ap-beijing-1，请参考 [概览](https://cloud.tencent.com/document/product/582/13225) 文档中的地域与可用区列表 
      * @return Zone 可用区名称，例如ap-beijing-1，请参考 [概览](https://cloud.tencent.com/document/product/582/13225) 文档中的地域与可用区列表
      */
@@ -137,32 +158,32 @@ public class CreateCfsFileSystemRequest extends AbstractModel{
     }
 
     /**
-     * Get 网络类型，可选值为 VPC，BASIC，CCN；其中 VPC 为私有网络，BASIC 为基础网络, CCN 为云联网，Turbo系列当前必须选择云联网。目前基础网络已逐渐淘汰，不推荐使用。 
-     * @return NetInterface 网络类型，可选值为 VPC，BASIC，CCN；其中 VPC 为私有网络，BASIC 为基础网络, CCN 为云联网，Turbo系列当前必须选择云联网。目前基础网络已逐渐淘汰，不推荐使用。
+     * Get 网络类型，可选值为 VPC，CCN；其中 VPC 为私有网络， CCN 为云联网。通用标准型/性能型请选择VPC，Turbo标准型/性能型请选择CCN。 
+     * @return NetInterface 网络类型，可选值为 VPC，CCN；其中 VPC 为私有网络， CCN 为云联网。通用标准型/性能型请选择VPC，Turbo标准型/性能型请选择CCN。
      */
     public String getNetInterface() {
         return this.NetInterface;
     }
 
     /**
-     * Set 网络类型，可选值为 VPC，BASIC，CCN；其中 VPC 为私有网络，BASIC 为基础网络, CCN 为云联网，Turbo系列当前必须选择云联网。目前基础网络已逐渐淘汰，不推荐使用。
-     * @param NetInterface 网络类型，可选值为 VPC，BASIC，CCN；其中 VPC 为私有网络，BASIC 为基础网络, CCN 为云联网，Turbo系列当前必须选择云联网。目前基础网络已逐渐淘汰，不推荐使用。
+     * Set 网络类型，可选值为 VPC，CCN；其中 VPC 为私有网络， CCN 为云联网。通用标准型/性能型请选择VPC，Turbo标准型/性能型请选择CCN。
+     * @param NetInterface 网络类型，可选值为 VPC，CCN；其中 VPC 为私有网络， CCN 为云联网。通用标准型/性能型请选择VPC，Turbo标准型/性能型请选择CCN。
      */
     public void setNetInterface(String NetInterface) {
         this.NetInterface = NetInterface;
     }
 
     /**
-     * Get 权限组 ID，通用标准型和性能型必填，turbo系列请填写pgroupbasic 
-     * @return PGroupId 权限组 ID，通用标准型和性能型必填，turbo系列请填写pgroupbasic
+     * Get 权限组 ID 
+     * @return PGroupId 权限组 ID
      */
     public String getPGroupId() {
         return this.PGroupId;
     }
 
     /**
-     * Set 权限组 ID，通用标准型和性能型必填，turbo系列请填写pgroupbasic
-     * @param PGroupId 权限组 ID，通用标准型和性能型必填，turbo系列请填写pgroupbasic
+     * Set 权限组 ID
+     * @param PGroupId 权限组 ID
      */
     public void setPGroupId(String PGroupId) {
         this.PGroupId = PGroupId;
@@ -185,16 +206,16 @@ public class CreateCfsFileSystemRequest extends AbstractModel{
     }
 
     /**
-     * Get 文件系统存储类型，默认值为 SD ；其中 SD 为通用标准型标准型存储， HP为通用性能型存储， TB为turbo标准型， TP 为turbo性能型。 
-     * @return StorageType 文件系统存储类型，默认值为 SD ；其中 SD 为通用标准型标准型存储， HP为通用性能型存储， TB为turbo标准型， TP 为turbo性能型。
+     * Get 文件系统存储类型，默认值为 SD ；其中 SD 为通用标准型存储， HP为通用性能型存储， TB为Turbo标准型， TP 为Turbo性能型。 
+     * @return StorageType 文件系统存储类型，默认值为 SD ；其中 SD 为通用标准型存储， HP为通用性能型存储， TB为Turbo标准型， TP 为Turbo性能型。
      */
     public String getStorageType() {
         return this.StorageType;
     }
 
     /**
-     * Set 文件系统存储类型，默认值为 SD ；其中 SD 为通用标准型标准型存储， HP为通用性能型存储， TB为turbo标准型， TP 为turbo性能型。
-     * @param StorageType 文件系统存储类型，默认值为 SD ；其中 SD 为通用标准型标准型存储， HP为通用性能型存储， TB为turbo标准型， TP 为turbo性能型。
+     * Set 文件系统存储类型，默认值为 SD ；其中 SD 为通用标准型存储， HP为通用性能型存储， TB为Turbo标准型， TP 为Turbo性能型。
+     * @param StorageType 文件系统存储类型，默认值为 SD ；其中 SD 为通用标准型存储， HP为通用性能型存储， TB为Turbo标准型， TP 为Turbo性能型。
      */
     public void setStorageType(String StorageType) {
         this.StorageType = StorageType;
@@ -344,6 +365,54 @@ public class CreateCfsFileSystemRequest extends AbstractModel{
         this.Capacity = Capacity;
     }
 
+    /**
+     * Get 文件系统快照ID 
+     * @return SnapshotId 文件系统快照ID
+     */
+    public String getSnapshotId() {
+        return this.SnapshotId;
+    }
+
+    /**
+     * Set 文件系统快照ID
+     * @param SnapshotId 文件系统快照ID
+     */
+    public void setSnapshotId(String SnapshotId) {
+        this.SnapshotId = SnapshotId;
+    }
+
+    /**
+     * Get 定期快照策略ID 
+     * @return AutoSnapshotPolicyId 定期快照策略ID
+     */
+    public String getAutoSnapshotPolicyId() {
+        return this.AutoSnapshotPolicyId;
+    }
+
+    /**
+     * Set 定期快照策略ID
+     * @param AutoSnapshotPolicyId 定期快照策略ID
+     */
+    public void setAutoSnapshotPolicyId(String AutoSnapshotPolicyId) {
+        this.AutoSnapshotPolicyId = AutoSnapshotPolicyId;
+    }
+
+    /**
+     * Get 是否开启默认扩容，仅Turbo类型文件存储支持 
+     * @return EnableAutoScaleUp 是否开启默认扩容，仅Turbo类型文件存储支持
+     */
+    public Boolean getEnableAutoScaleUp() {
+        return this.EnableAutoScaleUp;
+    }
+
+    /**
+     * Set 是否开启默认扩容，仅Turbo类型文件存储支持
+     * @param EnableAutoScaleUp 是否开启默认扩容，仅Turbo类型文件存储支持
+     */
+    public void setEnableAutoScaleUp(Boolean EnableAutoScaleUp) {
+        this.EnableAutoScaleUp = EnableAutoScaleUp;
+    }
+
     public CreateCfsFileSystemRequest() {
     }
 
@@ -397,6 +466,15 @@ public class CreateCfsFileSystemRequest extends AbstractModel{
         if (source.Capacity != null) {
             this.Capacity = new Long(source.Capacity);
         }
+        if (source.SnapshotId != null) {
+            this.SnapshotId = new String(source.SnapshotId);
+        }
+        if (source.AutoSnapshotPolicyId != null) {
+            this.AutoSnapshotPolicyId = new String(source.AutoSnapshotPolicyId);
+        }
+        if (source.EnableAutoScaleUp != null) {
+            this.EnableAutoScaleUp = new Boolean(source.EnableAutoScaleUp);
+        }
     }
 
 
@@ -418,6 +496,9 @@ public class CreateCfsFileSystemRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "CcnId", this.CcnId);
         this.setParamSimple(map, prefix + "CidrBlock", this.CidrBlock);
         this.setParamSimple(map, prefix + "Capacity", this.Capacity);
+        this.setParamSimple(map, prefix + "SnapshotId", this.SnapshotId);
+        this.setParamSimple(map, prefix + "AutoSnapshotPolicyId", this.AutoSnapshotPolicyId);
+        this.setParamSimple(map, prefix + "EnableAutoScaleUp", this.EnableAutoScaleUp);
 
     }
 }

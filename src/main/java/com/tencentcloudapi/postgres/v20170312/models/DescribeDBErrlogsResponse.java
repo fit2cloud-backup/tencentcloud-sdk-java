@@ -23,14 +23,14 @@ import java.util.HashMap;
 public class DescribeDBErrlogsResponse extends AbstractModel{
 
     /**
-    * 本次调用返回了多少条数据
+    * 查询到的日志数量，最大值为10000条。
     */
     @SerializedName("TotalCount")
     @Expose
     private Long TotalCount;
 
     /**
-    * 错误日志列表
+    * 错误日志详细信息集合。
     */
     @SerializedName("Details")
     @Expose
@@ -44,32 +44,32 @@ public class DescribeDBErrlogsResponse extends AbstractModel{
     private String RequestId;
 
     /**
-     * Get 本次调用返回了多少条数据 
-     * @return TotalCount 本次调用返回了多少条数据
+     * Get 查询到的日志数量，最大值为10000条。 
+     * @return TotalCount 查询到的日志数量，最大值为10000条。
      */
     public Long getTotalCount() {
         return this.TotalCount;
     }
 
     /**
-     * Set 本次调用返回了多少条数据
-     * @param TotalCount 本次调用返回了多少条数据
+     * Set 查询到的日志数量，最大值为10000条。
+     * @param TotalCount 查询到的日志数量，最大值为10000条。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 错误日志列表 
-     * @return Details 错误日志列表
+     * Get 错误日志详细信息集合。 
+     * @return Details 错误日志详细信息集合。
      */
     public ErrLogDetail [] getDetails() {
         return this.Details;
     }
 
     /**
-     * Set 错误日志列表
-     * @param Details 错误日志列表
+     * Set 错误日志详细信息集合。
+     * @param Details 错误日志详细信息集合。
      */
     public void setDetails(ErrLogDetail [] Details) {
         this.Details = Details;
